@@ -15,27 +15,29 @@ Azure Container Apps allows your application to securely store sensitive configu
 
 - Secrets are scoped to an application, outside of any specific revision of an application.
 - Adding, removing, or changing secrets does not generate a new revision.
-- Each application revision can reference one or more secrets
+- Each application revision can reference one or more secrets.
 - Multiple revisions can reference the same secret(s).
 
 When a secret is updated or deleted, applications can respond to changes in one of two ways:
 
- 1. Deploying a new revision
- 2. Restarting an existing revision
+ 1. Deploy a new revision.
+ 2. Restart an existing revision.
 
-An updated or removed secret does not automatically re-create a revision. If a revision references a deleted secret, the provisioning status show `FAILED` and the application will not be scheduled.
+An updated or removed secret does not automatically re-create a revision. If a revision references a deleted secret, the provisioning status shows as "failed" and the application will not be scheduled.
 
 ## Configuration
 
-Secrets are declared at the application level in the `resources.properties.configuration.secrets` section of container app's ARM template.
+# [ARM template](#tab/arm-template)
+
+Secrets are declared at the application level in the `resources.properties.configuration.secrets` section of a container app's ARM template.
 
 ```json
 "resources": [
 {
     "name": "myapp",
-    "type": "Microsoft.Web/workerApps",
+    "type": "Microsoft.Web/containerApps",
     "apiVersion": "2021-02-01",
-    "kind": "workerapp",
+    "kind": "containerapp",
     "location": "eastus",
     "properties": {
         "configuration": {
@@ -43,35 +45,51 @@ Secrets are declared at the application level in the `resources.properties.confi
             {
                 "name": "MY-SECRET-VARIABLE-NAME",
                 "value": "MY-SECRET-VARIABLE-VALUE"
-            },
-            {
-                "name": "MY-SECRET-CONNECTION-STRING-NAME",
-                "value": "MY-SECRET-CONNECTION-STRING-VALUE"
-            },
-            ],
+            }],
         }
     }
 }
 ```
 
-In this example, a few secrets are declared in the `secrets` array and made available throughout the application.
+In this example, a few secrets are declared in the `secrets` array and are available throughout the application.
 
-## Using secrets in your application
+# [Azure CLI](#tab/azure-cli)
 
-Application secrets are referenced via the `secretref` property in the application's configuration. Secret values are mapped to application-level secrets where the `secretref` value matches the `name` value declared in the application's `secrets` array.
+\* todo
+
+---
+
+## Using secrets
+
+Application secrets are referenced via the `secretref` property in the configuration. Secret values are mapped to application-level secrets where the `secretref` value matches the `name` value declared in the application's `secrets` array.
 
 ## Example
 
-The following example deploys an application that stores an Azure Queue connection string as a secret and references it in a container's environment variable.
-
-This example uses the following environment variables:
-
-```bash
-export RESOURCE_GROUP_NAME=containerapps-rg # All the resources would be deployed in this resource group
-export CONTAINER_APPS_ENVIRONMENT_NAME="containerappsenvironment" # Name of the Container Apps environment
-```
+The following example shows an application that stores an Azure Queue connection string as a secret and references it in a container's environment variable.
 
 # [ARM template](#tab/arm-template)
+
+```json
+"resources": [
+{
+    "name": "myapp",
+    "type": "Microsoft.Web/containerApps",
+    "apiVersion": "2021-02-01",
+    "kind": "containerapp",
+    "location": "eastus",
+    "properties": {
+        "configuration": {
+            "secrets": [
+            {
+                "name": "queueconnection",
+                "value": "MY-CONNECTION-STRING-VALUE"
+            }],
+        }
+    }
+}
+```
+
+\* replace placeholder
 
 In this example, you create an application with a secret that's referenced in an environment variable using an ARM template and in an Azure Queue scale rule.
 
@@ -97,9 +115,9 @@ In this example, you create an application with a secret that's referenced in an
     "resources": [
     {
         "name": "queuereader",
-        "type": "Microsoft.Web/workerApps",
+        "type": "Microsoft.Web/containerApps",
         "apiVersion": "2021-02-01",
-        "kind": "workerapp",
+        "kind": "containerapp",
         "location": "[parameters('location')]",
         "properties": {
             "kubeEnvironmentId": "[parameters('environment_id')]",
@@ -114,7 +132,7 @@ In this example, you create an application with a secret that's referenced in an
             "template": {
                 "containers": [
                     {
-                        "image": "vturecek/dotnet-queuereader:v1",
+                        "image": "demos/dotnet-queuereader:v1",
                         "name": "queuereader",
                         "env": [
                             {
@@ -158,7 +176,13 @@ In this example, you create an application with a secret that's referenced in an
 In this example, you create an application with a secret that's referenced in an environment variable using the Azure CLI.  
 
 ```bash
-az workerapp create --resource-group $RESOURCE_GROUP_NAME --name queuereader --environment $WORKERAPPS_ENVIRONMENT_NAME --image vturecek/dotnet-queuereader:v1 --secrets "storageconnectionstring=$CONNECTIONSTRING" --environment-variables "QueueName=demoqueue,QueueConnectionString=secretref:storageconnectionstring"
+az workerapp create \
+  --resource-group "my-resource-group" \
+  --name queuereader \
+  --environment "my-environment-name" \
+  --image vturecek/dotnet-queuereader:v1 \
+  --secrets "storageconnectionstring=$CONNECTIONSTRING" \
+  --environment-variables "QueueName=demoqueue,QueueConnectionString=secretref:storageconnectionstring"
 ```
 
 ---
