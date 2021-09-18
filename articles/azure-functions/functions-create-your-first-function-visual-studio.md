@@ -26,14 +26,11 @@ In this article, you learn how to:
 > * Deploy your code project to Azure Functions.
  
 ::: zone pivot="programming-runtime-functions-v3"
-This article supports creating both types of compiled C# functions: 
-
-+ [In-process](functions-create-your-first-function-visual-studio.md?tabs=in-process) - runs in the same process as the Functions host process. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-+ [Isolated process](functions-create-your-first-function-visual-studio.md?tabs=isolated-process) - runs in a separate .NET worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+[!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 ::: zone-end
 ::: zone pivot="programming-runtime-functions-v4"
 > [!NOTE]
-> Visual Studio currently supports .NET 6 function apps with the in-process execution model. Support for the isolated process model is coming soon.
+> Currently, Visual Studio supports creating C# functions that run only on .NET 6 using the [in-process execution model](functions-dotnet-class-library.md).
 ::: zone-end
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
