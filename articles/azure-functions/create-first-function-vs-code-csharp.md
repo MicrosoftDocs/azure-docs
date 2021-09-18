@@ -25,7 +25,7 @@ This article supports creating both types of compiled C# functions:
 ::: zone-end
 ::: zone pivot="programming-runtime-functions-v4"
 > [!NOTE]
-> Visual Studio Code currently supports .NET 6 function apps with the in-process execution model. Support for the isolated process model is coming soon.
+> Currently, Visual Studio Code supports creating C# functions that run only on .NET 6 using the [in-process execution model](functions-dotnet-class-library.md).
 ::: zone-end
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
@@ -77,7 +77,7 @@ Before you get started, make sure you have the following requirements in place:
 + [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 ::: zone-end
 
-+ You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
@@ -125,15 +125,14 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |Prompt|Selection|
     |--|--|
     |**Select a language for your function project**|Choose `C#`.|
-    | **Select a .NET runtime** | Choose `.NET 6.0`.|
+    | **Select a .NET runtime** | Choose `.NET 6.0`.<sup>*</sup>|
     |**Select a template for your project's first function**|Choose `HTTP trigger`.|
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
     |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
     |**Select how you would like to open your project**|Choose `Add to workspace`.|
 
-    > [!NOTE]
-    > For *.NET 6* to appear as a runtime option, you must have Azure Functions Core Tools version 4.x installed.
+    <sup>*</sup>If you don't see `.NET 6` as a runtime option, make sure you have installed version 4.x of the Azure Functions Core Tools.
     ::: zone-end
     
 1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files).
