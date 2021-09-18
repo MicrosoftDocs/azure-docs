@@ -37,7 +37,7 @@ In this section, you use the Python SDK to send messages from a simulated device
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
-1. Navigate to the samples directory:
+1. Navigate to the sample directory:
 
     **Windows**
     ```console
