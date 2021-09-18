@@ -82,7 +82,7 @@ In this section, you use the Python SDK to send messages from a simulated device
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
 
-1. In your Python console, run the code for the following sample file.
+1. Run the code for the following sample file.
 
     ```console
     python3 temp_controller_with_thermostats.py
