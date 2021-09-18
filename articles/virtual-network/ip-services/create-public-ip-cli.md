@@ -142,7 +142,7 @@ The command creates a new standard zone-redundant public IPv4 address with a rou
 ```azurecli-interactive
   az network public-ip create \
     --resource-group QuickStartCreateIP-rg \
-    --name myStandardZRPublicIP-RP \
+    --name myStandardPublicIP-RP \
     --version IPv4 \
     --ip-tags 'RoutingPreference=Internet' \
     --sku Standard \
