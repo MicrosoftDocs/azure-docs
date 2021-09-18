@@ -41,19 +41,19 @@ In this section, you'll create a public IP prefix using the Azure portal.
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | Resource group | Select **Create new**. </br> Enter **QuickStartCreateIPPrefix-rg**. </br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myPublicIPPrefix**. |
     | Region | Select **(US) West US 2**. |
     | IP version | Leave the default of **IPv4**. |
     | Prefix size | Select your prefix size. |
 
-    :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ip-prefix.png" alt-text="Screenshot of create public IP address prefix in the Azure portal" border="true":::
+    :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ip-prefix.png" alt-text="Screenshot of create public IP address prefix in the Azure portal":::
     
     > [!NOTE]
     >To create an IPv6 prefix, choose **IPv6** for the **IP Version**.
 
-     :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ipv6-prefix.png" alt-text="Screenshot of create public IPv6 address prefix in the Azure portal" border="true":::
+     :::image type="content" source="./media/create-public-ip-prefix-portal/create-public-ipv6-prefix.png" alt-text="Screenshot of create public IPv6 address prefix in the Azure portal":::
 
 5. Select the **Review + create** tab or the blue **Review + create** button at the bottom of the page.
 
@@ -71,7 +71,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 4. In **Overview** of **myPublicIPPrefix**, select **+ Add IP address**.
 
-    :::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Screenshot of create public IP address from prefix in the Azure portal" border="true":::
+    :::image type="content" source="./media/create-public-ip-prefix-portal/add-ip-address.png" alt-text="Screenshot of create public IP address from prefix in the Azure portal":::
 
 5. Enter **myPublicIP** in **Name**. 
 
@@ -105,11 +105,11 @@ In this article, you created a public IP prefix and a public IP from that prefix
 
 When you're done with the public IP prefix, delete the resource group and all of the resources it contains:
 
-1. Search for and select **myResourceGroup**.
+1. Search for and select **QuickStartCreateIPPrefix-rg**.
 
 2. Select **Delete resource group**.
 
-3. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+3. Enter **QuickStartCreateIPPrefix-rg** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 ## Next steps
 
 Advance to the next article to learn how to create a public IP address:
