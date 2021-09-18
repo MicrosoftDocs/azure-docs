@@ -35,8 +35,8 @@
     items:
     - name: Collect network trace
       href: howto-troubleshoot-network-trace.md
-    - name: Capture diagnostic logs
-      href: howto-troubleshoot-diagnostic-logs.md
+    - name: Capture resource logs
+      href: howto-troubleshoot-resource-logs.md
 
 - name: Concepts
   items:
