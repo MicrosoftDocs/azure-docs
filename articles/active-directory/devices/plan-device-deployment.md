@@ -10,7 +10,7 @@ ms.date: 06/15/2020
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to choose the best device integration methods for my organization.

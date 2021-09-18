@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/26/2021
+ms.date: 09/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -77,6 +77,8 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
+- September 15, 2021: Introducing new HADR configuration for SAP ASE in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
+- September 08, 2021: Adding manual QoS capacity pool into [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 - August 26, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to correct the role definition JSON for Azure Fence Agent
 - August 17, 2021: Changes in [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md), [Azure Storage types for SAP workload](./planning-guide-storage.md), and [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) to introduce support for IBM Db2 using NFS volumes hosted on ANF
 - August 02, 2021: Change in [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md), [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md) and  [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) to clarify the behavior (ENSA1/ENSA2) for a test scenario, simulating enqueue server failure     

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/21/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -147,7 +147,7 @@ You can read more about the serialization helper classes like `BasicDigitalTwin`
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 
