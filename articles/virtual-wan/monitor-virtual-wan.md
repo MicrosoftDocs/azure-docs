@@ -177,6 +177,8 @@ In order to execute the query, you have to open the Log Analytics resource you c
 
 :::image type="content" source="./media/monitor-virtual-wan/log-analytics-query-samples.png" alt-text="Log Analytics Query Samples.":::
 
+For additional Log Analytics query samples for Azure VPN Gateway, both Site-to-Site and Point-to-Site, you can visit the page [Troubleshoot Azure VPN Gateway using diagnostic logs](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md). 
+
 ## <a name="activity-logs"></a>Activity logs
 
 **Activity log** entries are collected by default and can be viewed in the Azure portal. You can use Azure activity logs (formerly known as *operational logs* and *audit logs*) to view all operations submitted to your Azure subscription.
