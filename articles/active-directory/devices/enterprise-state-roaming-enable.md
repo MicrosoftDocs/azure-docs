@@ -10,7 +10,7 @@ ms.date: 02/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
 ms.author: avneets
 author: avneet723
-ms.date: 11/27/2019
+ms.date: 08/18/2021
 
 # This article applies to solution builders.
 ---

@@ -93,7 +93,7 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
-  - name: Pricing concepts
+  - name: Pricing explained
     href: pricing-concepts.md
   - name: About NVA in a virtual hub
     href: about-nva-hub.md
@@ -195,11 +195,11 @@
       href: howto-private-link.md
     - name: Manage access to resources - Spoke VNet P2S
       href: manage-secure-access-resources-spoke-p2s.md
-  - name: Health monitoring
+  - name: Monitoring
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Azure Monitor Insights for Virtual WAN
+    - name: Azure Monitor Insights
       href: azure-monitor-insights.md
 - name: Reference
   items:

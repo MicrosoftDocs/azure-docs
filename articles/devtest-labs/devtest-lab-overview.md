@@ -1,7 +1,7 @@
 ---
-title: About Azure DevTest Labs | Microsoft Docs
+title: About Azure DevTest Labs
 description: Learn how DevTest Labs can make it easy to create, manage, and monitor Azure virtual machines
-ms.topic: article
+ms.topic: overview
 ms.date: 08/20/2021
 ---
 
@@ -35,13 +35,13 @@ DevTest Labs provides the following capabilities to developers working with PaaS
 - Choose from a curated list of Resource Manager templates, which are configured, and authorized by the team lead or central IT.
 - Spin up an empty resource group (sandbox) by using a Resource Manager template to explore Azure within the context of a lab.
 
-DevTest Labs also enables central IT to control wastes, optimize costs on resources, and stay within budgets by doing the following tasks:  
+DevTest Labs also enables central IT to control waste, optimize costs on resources, and stay within budgets by doing the following tasks:  
 
-- Setting auto-shutdown and auto-start schedules on VMs.
-- Setting policies on the number of VMs that users can create.
-- Setting policies on VMs' sizes and gallery images that users choose from.
-- Tracking costs and setting targets on labs.
-- Getting notified on high projected costs for labs so you can take necessary actions.
+- Set auto-shutdown and auto-start schedules on VMs.
+- Set policies on the number of VMs that users can create.
+- Set policies on VMs' sizes and gallery images that users choose from.
+- Track costs and setting targets on labs.
+- Provide notice of high-projected costs for labs so you can take necessary actions.
 
 DevTest Labs provides the following benefits in creating, configuring, and managing environments in the cloud.
 

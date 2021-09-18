@@ -8,7 +8,7 @@ ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 # Reference: API Management resource log schema
 

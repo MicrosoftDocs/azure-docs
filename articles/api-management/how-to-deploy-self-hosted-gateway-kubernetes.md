@@ -1,13 +1,12 @@
 ---
-title: Deploy a self-hosted gateway to Kubernetes | Microsoft Docs
+title: Deploy a self-hosted gateway to Kubernetes
 description: Learn how to deploy a self-hosted gateway component of Azure API Management to Kubernetes
-services: api-management
-author: vladvino
+author: dlepow
 manager: gwallace
 ms.service: api-management
 ms.workload: mobile
 ms.topic: article
-ms.author: apimpm
+ms.author: danlep
 ms.date: 05/25/2021
 ---
 # Deploy a self-hosted gateway to Kubernetes
@@ -37,25 +36,27 @@ This article describes the steps for deploying the self-hosted gateway component
 8. Paste commands to the terminal (or command) window. The first command creates a Kubernetes secret that contains the access token generated in step 4. The second command applies the configuration file downloaded in step 6 to the Kubernetes cluster and expects the file to be in the current directory.
 9. Run the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pods from the [container image](https://aka.ms/apim/sputnik/dhub) downloaded from the Microsoft Container Registry.
 10. Run the following command to check if the deployment succeeded. Note that it might take a little time for all the objects to be created and for the pods to initialize.
+
     ```console
     kubectl get deployments
     NAME             READY   UP-TO-DATE   AVAILABLE   AGE
     <gateway-name>   1/1     1            1           18s
     ```
 11. Run the following command to check if the service was successfully created. Note that your service IPs and ports will be different.
+
     ```console
     kubectl get services
     NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
     <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
     ```
-12. Go back to the Azure portal and select **Overview**.
-13. Confirm that **Status** shows a green check mark, followed by a node count that matches the number of replicas specified in the YAML file. This status means the deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat."
+1. Go back to the Azure portal and select **Overview**.
+1. Confirm that **Status** shows a green check mark, followed by a node count that matches the number of replicas specified in the YAML file. This status means the deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat."
 
     ![Gateway status](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
 
 > [!TIP]
-> Run the <code>kubectl logs deployment/<gateway-name></code> command to view logs from a randomly selected pod if there's more than one.
-> Run <code>kubectl logs -h</code> for a complete set of command options, such as how to view logs for a specific pod or container.
+> Run the `kubectl logs deployment/<gateway-name>` command to view logs from a randomly selected pod if there's more than one.
+> Run `kubectl logs -h` for a complete set of command options, such as how to view logs for a specific pod or container.
 
 ## Production deployment considerations
 

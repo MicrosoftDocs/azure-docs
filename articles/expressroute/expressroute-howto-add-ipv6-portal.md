@@ -56,6 +56,9 @@ Follow the steps below if you have an existing environment of Azure resources th
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
+    
+>[!NOTE]
+> If you have an existing gateway that is not zone-redundant (meaning it is Standard, High Performance, or Ultra Performance SKU), you will need to delete and [recreate the gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU and a Standard, Static public IP address.
 
 ## Create a connection to a new virtual network
 
@@ -72,7 +75,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 ## Limitations
 While IPv6 support is available for connections to deployments in Public Azure regions, it doesn't support the following use cases:
 
-* Connections to existing ExpressRoute gateways that are *not* zone-redundant
+* Connections to *existing* ExpressRoute gateways that are not zone-redundant. Note that *newly* created ExpressRoute gateways of any SKU (both zone-redundant and not) using  a Standard, Static IP address can be used for dual-stack ExpressRoute connections
 * Global Reach connections between ExpressRoute circuits
 * Use of ExpressRoute with virtual WAN
 * FastPath with non-ExpressRoute Direct circuits

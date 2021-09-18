@@ -3,12 +3,12 @@ title: Implement disaster recovery using backup and restore in API Management
 titleSuffix: Azure API Management
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: apimpm 
+ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -237,5 +237,5 @@ Check out the following resources for different walkthroughs of the backup/resto
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ip-addresses
 [azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

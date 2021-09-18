@@ -368,7 +368,7 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [azure-cli]: /cli/azure/install-azure-cli
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
-[helm-install]: https://helm.sh/docs/using_helm/#installing-helm
+[helm-install]: https://helm.sh/docs/intro/install/
 [helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
 [helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
