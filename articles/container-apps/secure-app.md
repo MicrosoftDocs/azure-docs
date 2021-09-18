@@ -47,13 +47,14 @@ Secrets are defined at the application level in the `resources.properties.config
 }
 ```
 
-In this example, a connection string to a queue storage account is declared in the `secrets` array. In this instance, you would replace `<MY-CONNECTION-STRING-VALUE>` with the value of your connection string.
+Here, a connection string to a queue storage account is declared in the `secrets` array. To use this configuration you would replace `<MY-CONNECTION-STRING-VALUE>` with the value of your connection string.
 
 # [Azure CLI](#tab/azure-cli)
 
 Secrets are defined using the `--secrets` parameter.
 
-The `--secrets` parameter accepts a comma-delimited set of name/value pairs. Each pair is delimited by an equals sign (`=`).
+- The parameter accepts a comma-delimited set of name/value pairs.
+- Each pair is delimited by an equals sign (`=`).
 
 ```bash
 az containerapp create \
@@ -65,7 +66,7 @@ az containerapp create \
   ...
 ```
 
-In this example, a connection string to a queue storage account is declared in the `--secrets` parameter. In this instance, `queue-connection-string` references an environment variable named `$CONNECTION_STRING`.
+Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
 
 ---
 
@@ -75,7 +76,7 @@ Application secrets are referenced via the `secretref` property. Secret values a
 
 ## Example
 
-The following example shows an application that stores an Azure Queue connection string as a secret and references it in a container's environment variable.
+The following example shows an application that declares a connection string at the application level and is used throughout the configuration via `secretref`.
 
 # [ARM template](#tab/arm-template)
 
@@ -101,7 +102,7 @@ The following example shows an application that stores an Azure Queue connection
 
 In this example, the application connection string is declared as `queue-connection-string` and becomes available elsewhere in the configuration sections.
 
-:::code language="json" source="code/secure-app-arm-template.json" range="47-48,64-65":::
+:::code language="json" source="code/secure-app-arm-template.json" highlight="47-48,64-65":::
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret. Also, the Azure Queue Storage scale rule's authorization configuration uses the `queue-connection-string` as a connection is established.
 
