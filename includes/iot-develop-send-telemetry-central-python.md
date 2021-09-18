@@ -24,7 +24,6 @@ Install the following prerequisites on your development machine:
 
 - [Python](https://www.python.org/downloads/) version 3.7 or later. To check your Python version, run `python3 --version`.
 - [Git](https://git-scm.com/downloads).
-- You can run this quickstart on Linux or Windows. The shell commands use the standard Linux path separator `/`. If you use use Windows, replace these separators with the Windows path separator `\`.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
