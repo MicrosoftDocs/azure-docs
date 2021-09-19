@@ -25,6 +25,8 @@
       href: networking.md
 - name: How-to guides
   items:
+    - name: Set up HTTPS ingress
+      href: ingress.md
     - name: Secure an app
       href: secure-app.md
     - name: Scale an app
