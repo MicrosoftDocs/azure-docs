@@ -292,9 +292,9 @@ Here's the retry policy in the *function.json* file:
 |---------|---------|---------| 
 |strategy|n/a|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
 |maxRetryCount|n/a|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
-|delayInterval|n/a|The delay that will be used between retries when using `fixedDelay` strategy.|
-|minimumInterval|n/a|The minimum retry delay when using `exponentialBackoff` strategy.|
-|maximumInterval|n/a|The maximum retry delay when using `exponentialBackoff` strategy.| 
+|delayInterval|n/a|The delay that will be used between retries when using `fixedDelay` strategy. Format using "HH:mm:ss".|
+|minimumInterval|n/a|The minimum retry delay when using `exponentialBackoff` strategy. Format using "HH:mm:ss"|
+|maximumInterval|n/a|The maximum retry delay when using `exponentialBackoff` strategy. Format using "HH:mm:ss"| 
 
 ### Retry limitations during preview
 
