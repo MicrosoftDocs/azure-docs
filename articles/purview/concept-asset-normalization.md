@@ -51,28 +51,28 @@ After: 	`mssql://foo.database.windows.net/bar/dbo/foo%20bar`
 > Spaces between two square brackets will be encoded
 
 ### Lowercase scheme
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Amazon S3, Amazon RDS (public preview)
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Amazon S3
 
 Before: `HTTPS://myaccount.file.core.windows.net/myshare/folderA/folderB/`
 
 After: 	`https://myaccount.file.core.windows.net/myshare/folderA/folderB/`
 
 ### Lowercase hostname
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Amazon S3, Amazon RDS (public preview)
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Amazon S3
 
 Before: `https://myAccount.file.Core.Windows.net/myshare/folderA/folderB/`
 
 After: 	`https://myaccount.file.core.windows.net/myshare/folderA/folderB/`
 
 ### Lowercase file extension
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Amazon S3, Amazon RDS (public preview)
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Amazon S3
 
 Before: `https://myAccount.file.core.windows.net/myshare/folderA/data.TXT`
 
 After: 	`https://myaccount.file.core.windows.net/myshare/folderA/data.txt`
 
 ### Remove duplicate slash
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Data Factory, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3, Amazon RDS (public preview)
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure Data Factory, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3
 
 Before: `https://myAccount.file.core.windows.net//myshare/folderA////folderB/`
 
