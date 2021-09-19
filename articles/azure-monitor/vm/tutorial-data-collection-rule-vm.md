@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Collect guest metrics and logs from Azure virtual machine
 description: Create data collection rule to collect guest logs and metrics from Azure virtual machine.
-ms.service: container-service
+ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 06/21/2021
+ms.date: 09/19/2021
 ---
 
 # Tutorial: Collect guest metrics and logs from Azure virtual machine (preview)

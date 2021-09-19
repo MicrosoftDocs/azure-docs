@@ -84,4 +84,4 @@ See [Insights and Core solutions](../monitor-reference.md#insights-and-core-solu
 Now that you have a basic understanding of Azure Monitor, get start analyzing some metrics for an Azure resource.
 
 > [!div class="nextstepaction"]
-> [Analyze metrics for an Azure resource](../alerts/tutorial-metrics.md)
+> [Analyze metrics for an Azure resource](../essentials/tutorial-metrics.md)
