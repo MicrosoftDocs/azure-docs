@@ -34,7 +34,7 @@ Before: `https://myaccount.file.core.windows.net/myshare/  folder A/folderB   /`
 After: 	`https://myaccount.file.core.windows.net/myshare/folder A/folderB/`
 
 ### Remove hostname spaces
-Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3, Amazon RDS (public preview)
+Applies to: Azure Blob, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Database Managed Instance, Azure SQL pool, Azure Cosmos DB, Azure Cognitive Search, Azure Data Explorer, Azure Data Share, Amazon S3
 
 Before: `https://myaccount .file. core.win dows. net/myshare/folderA/folderB/`
 
