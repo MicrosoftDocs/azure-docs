@@ -1,6 +1,6 @@
 ---
 title: Set up HTTPS ingress in Azure Container Apps
-description: Manage an application through its lifecycle in Azure Container Apps.
+description: Enable public and private endpoints in your app with Azure Container Apps
 services: app-service
 author: craigshoemaker
 ms.service: app-service
