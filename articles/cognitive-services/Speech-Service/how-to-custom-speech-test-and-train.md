@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 09/16/2021
 ms.author: pafarley
 ---
 
@@ -162,12 +162,7 @@ Provide pronunciations in a single text file. This includes examples of a spoken
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 
-Customized pronunciation is available in English (`en-US`) and German (`de-DE`). This table shows supported characters by language:
-
-| Language | Locale | Characters |
-|----------|--------|------------|
-| English | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| German | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+For a list of supported languages, see **Pronunciation** in the **Customizations** column in [the Speeech-to-text table](language-support.md#speech-to-text).
 
 Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small, and should only be a few kilobytes in size.
 
