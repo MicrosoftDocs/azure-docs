@@ -76,7 +76,7 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 
 Azure Purview supports scanning only when your database is hosted in a virtual private cloud (VPC), where your RDS database can only be accessed from within the same VPC.
 
-The Azure Multi-Cloud Scanning Connectors for Azure Purview service runs in a separate, Microsoft account in AWS. To scan your RDS databases, the Microsoft AWS account needs to be able to access your RDS databases in your VPC. To allow this access, you’ll need to configure AWS Private Link between the RDS VPC (in the customer account) to the VPC where the Multi-Cloud Scanning Connectors for Azure Purview runs (in the Microsoft account).
+The Azure Multi-Cloud Scanning Connectors for Azure Purview service runs in a separate, Microsoft account in AWS. To scan your RDS databases, the Microsoft AWS account needs to be able to access your RDS databases in your VPC. To allow this access, you’ll need to configure [AWS PrivateLink](https://aws.amazon.com/privatelink/) between the RDS VPC (in the customer account) to the VPC where the Multi-Cloud Scanning Connectors for Azure Purview runs (in the Microsoft account).
 
 The following diagram shows the components in both your customer account and Microsoft account. Highlighted in yellow are the components you’ll need to create to enable connectivity RDS VPC in your account to the VPC where the Multi-Cloud Scanning Connectors for Azure Purview runs in the Microsoft account.
 
