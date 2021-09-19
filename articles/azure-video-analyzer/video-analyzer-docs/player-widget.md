@@ -239,7 +239,7 @@ If you want to create a player widget dynamically, you can use this for JavaScri
 ```
 
 
-If you use this method to import, you will need to create the zone drawer and player objects programmtically after the import is complete.  In the preceding example, you added the module to the page using the `ava-player` HTML tag. To create a zone drawer object and a player object through code, you can do the following in JavaScript:
+If you use this method to import, you will need to create the zone drawer and player objects programmatically after the import is complete.  In the preceding example, you added the module to the page using the `ava-player` HTML tag. To create a zone drawer object and a player object through code, you can do the following in JavaScript:
 
 
 ```javascript
