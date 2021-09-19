@@ -28,8 +28,6 @@
     href: essentials/tutorial-metrics.md
   - name: Create a metric alert
     href: alerts/tutorial-metric-alert.md
-  - name: Create Log Analytics workspace
-    href: logs/tutorial-create-workspace.md
   - name: Collect resource logs
     href: essentials/tutorial-resource-logs.md
   - name: Collect guest metics and logs from Azure VM

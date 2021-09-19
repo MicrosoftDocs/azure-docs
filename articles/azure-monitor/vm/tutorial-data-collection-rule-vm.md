@@ -8,7 +8,7 @@ ms.date: 09/19/2021
 ---
 
 # Tutorial: Collect guest metrics and logs from Azure virtual machine (preview)
-To collect guest metrics and logs from an Azure virtual machine, you must install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../agents/data-collection-rule-overview.md) . 
+Logs and metrics from the guest operating system of an Azure virtual machine can be be valuable to determine the health of the workflows running on it. To collect guest metrics and logs from an Azure virtual machine, you must install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../agents/data-collection-rule-overview.md) (DCR) that defines the data to collect and where to send it. 
 
 > [!NOTE]
 > Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
@@ -49,7 +49,7 @@ On the **Resources** tab, identify one or more virtual machines that the data co
 :::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-resources.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-resources.png" alt-text="Data collection rule resources":::
 
 ## Select data sources
-A single data collection rule can have multiple data sources. For this tutorial, we'll use the same rule to collect both guest metrics and guest logs. We'll also send metrics both to Azure Monitor Metrics and to Azure Monitor Logs so that they can be analyzed both with metrics explorer and Log Analytics.
+A single data collection rule can have multiple data sources. For this tutorial, we'll use the same rule to collect both guest metrics and guest logs. We'll also send metrics to both to Azure Monitor Metrics and to Azure Monitor Logs so that they can be analyzed both with metrics explorer and Log Analytics.
 
 On the **Collect and deliver** tab, click **Add data source**. For the **Data source type**, select **Performance counters**. Leave the **Basic** setting and select the events that you want to collect. **Custom** allows you to select individual metric values. 
 
@@ -70,9 +70,6 @@ Click **Review + create** to create the data collection rule and install the Azu
 Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). A set of precreated queries are available for may Azure resource so that you don't require knowledge of KQL to get started.
 
 Select **Logs** from your resource's menu. Log Analytics opens with an empty query window with the scope set to your resource. Any queries will include only records from that resource.
-
-
-:::image type="content" source="media/tutorial-resource-logs/logs.png" lightbox="media/tutorial-resource-logs/logs.png"alt-text="Screenshot shows Logs for a logic app displaying a new query with the logic app name highlighted.":::
 
 
 Click **Queries** to view prebuilt queries for **Virtual machines**. 

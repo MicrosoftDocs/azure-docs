@@ -39,7 +39,7 @@ The chart shows the value of the selected signal over time so that you can see w
 
 :::image type="content" source="./media/tutorial-metric-alert/signal-logic.png" lightbox="./media/tutorial-metric-alert/signal-logic.png" alt-text="Alert rule signal logic":::
 
-The **Alert logic** is defined by the condition and the evaluation time. The alert fires when this condition is true. Provide a **Threshold value** for your alert rule and modify the **Operator** and **Aggregation type** as needed.
+The **Alert logic** is defined by the condition and the evaluation time. The alert fires when this condition is true. Provide a **Threshold value** for your alert rule and modify the **Operator** and **Aggregation type** to define the logic you need.
 
 :::image type="content" source="./media/tutorial-metric-alert/alert-logic.png" lightbox="./media/tutorial-metric-alert/alert-logic.png" alt-text="Alert rule alert logic":::
 
@@ -89,6 +89,6 @@ Click on the name of an alert to view its detail.
 Now that you've learned how to create a metric alert for an Azure resource, use one of the following tutorials to collect log data.
 
 > [!div class="nextstepaction"]
-> [Collect resource logs from an Azure resource](../logs/get-started-queries.md)
+> [Collect resource logs from an Azure resource](../essentials/tutorial-resource-logs.md)
 > [!div class="nextstepaction"]
-> [Get started with log queries in Azure Monitor](../logs/get-started-queries.md)
+> [Collect guest metrics and logs from Azure virtual machine](../vm/tutorial-data-collection-rule-vm.md)

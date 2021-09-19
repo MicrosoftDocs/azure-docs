@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 09/17/2021
 ---
 
-A Log Analytics workspace in Azure Monitor collects and indexes log data from a variety of sources and allows advanced analysis using a powerful query language.  You can use an existing workspace in your Azure subscription or create one with the following procedure. 
+You can use an existing Log Analytics workspace if you already have one. If not, use the following procedure to create one.
 
 From **All services** in the Azure portal, select **Log Analytics workspaces**.
 
@@ -16,18 +16,11 @@ Click **Create** to create a new workspace.
 
 :::image type="content" source="media/azure-monitor-tutorial-workspace/create-workspace.png" lightbox="media/azure-monitor-tutorial-workspace/create-workspace.png" alt-text="Create workspace button":::
 
-On the **Basics** tab, provide the following values:
-
-- **Subscription**: Select the subscription to store the workspace. This does not need to be the same subscription same as the resource being monitored.
-- **Resource Group**: Select an existing resource group or click **Create new** to create a new one. This does not need to be the same resource group same as the resource being monitored.
-- **Name**: Name for the new workspace. This name must be globally unique across all Azure Monitor subscriptions.
-- **Region**: Select an Azure region or create a new one. This does not need to be the same location same as the resource being monitored.
+On the **Basics** tab, select a **Subscription**, **Resource group**, and **Region** for the workspace. These do not need to be the same as the resource being monitored. Provide a **Name** that must be globally unique across all Azure Monitor subscriptions.
 
 :::image type="content" source="media/azure-monitor-tutorial-workspace/workspace-basics.png" lightbox="media/azure-monitor-tutorial-workspace/workspace-basics.png" alt-text="Workspace basics":::
 
-On the **Pricing tier tab**, provide the following values:
-
-- **Pricing tier**: Select *Pay-as-you-go (Per GB 2018)* as the pricing tier. You can change this pricing tier later. Click the **Learn more** link or refer to [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more about different pricing tiers.
+On the **Pricing tier tab**, select *Pay-as-you-go (Per GB 2018)* as the pricing tier. You can change this pricing tier later. Click the **Learn more** link or refer to [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more about different pricing tiers.
 
 :::image type="content" source="media/azure-monitor-tutorial-workspace/workspace-pricing-tier.png" lightbox="media/azure-monitor-tutorial-workspace/workspace-pricing-tier.png" alt-text="Workspace pricing tier":::
 
