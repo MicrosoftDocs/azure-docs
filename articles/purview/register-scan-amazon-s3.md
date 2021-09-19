@@ -165,7 +165,7 @@ This procedure describes how to create a new Purview credential to use when scan
 
     |Field |Description  |
     |---------|---------|
-    |**Name**     |Enter a meaningful name for this credential, or use the default.        |
+    |**Name**     |Enter a meaningful name for this credential.        |
     |**Description**     |Enter a optional description for this credential, such as `Used to scan the tutorial S3 buckets`         |
     |**Authentication method**     |Select **Role ARN**, since you're using a role ARN to access your bucket.         |
     |**Microsoft account ID**     |Click to copy this value to the clipboard. Use this value as the **Microsoft account ID** when [creating your Role ARN in AWS](#create-a-new-aws-role-for-purview).           |
@@ -251,7 +251,7 @@ You'll need to record your AWS Role ARN and copy it in to Purview when [creating
 
     ![Copy the role ARN value to the clipboard.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. Paste this value in a secure location, ready to use when [creating a scan for your Amazon S3 bucket](#create-a-scan-for-one-or-more-amazon-s3-buckets).
+In Purview, you can edit your credential for AWS S3, and paste the retrieved role in the **Role ARN** field. For more information, see [Create a scan for one or more Amazon S3 buckets](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 ### Retrieve your Amazon S3 bucket name
 
