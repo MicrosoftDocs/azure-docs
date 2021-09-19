@@ -13,7 +13,7 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-cs-cpp-py
 ---
 
-# Language identification
+# Language identification (Preview)
 
 Language identification is used to determine the language being spoken in audio passed to the Speech SDK when compared against a list of provided languages. 
 

@@ -52,6 +52,10 @@ For a public load balancer frontend, you add a **zones** parameter to the public
 
 For an internal load balancer frontend, add a **zones** parameter to the internal load balancer frontend IP configuration. A zonal frontend guarantees an IP address in a subnet to a specific zone.
 
+## Non-Zonal
+
+Load Balancers can also be created in a non-zonal configuration by use of a "no-zone" frontend (Public IP or Public IP Prefix).  This option does not give a guarantee of redundancy. Note that all Public IP addresses that are [upgraded](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) from Basic to Standard SKU will be of type "no-zone".
+
 ## <a name="design"></a> Design considerations
 
 Now that you understand the zone related properties for Standard Load Balancer, the following design considerations might help as you design for high availability.

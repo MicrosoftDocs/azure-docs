@@ -259,6 +259,8 @@
       href: ip-addresses.md
     - name: Custom handlers
       href: functions-custom-handlers.md
+    - name: High availability 
+      href: azure-functions-az-redundancy.md
 - name: How-to guides
   items:
     - name: Develop

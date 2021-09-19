@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 08/15/2021
+ms.date: 09/13/2021
 ---
 
 
@@ -70,7 +70,7 @@ The following table displays the current Security Center feature availability in
 | **Azure Defender plans and extensions**                                                                                                                                       |                |                                | 
 | - [Azure Defender for servers](../../security-center/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | 
 | - [Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | 
-| - [Azure Defender for DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | Not Available                  | 
+| - [Azure Defender for DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | 
 | - [Azure Defender for container registries](../../security-center/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | 
 | - [Azure Defender for container registries scanning of images in CI/CD workflows](../../security-center/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | 
 | - [Azure Defender for Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | 
@@ -83,7 +83,7 @@ The following table displays the current Security Center feature availability in
 | - [Azure Defender for Storage](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
 | - [Threat protection for Cosmos DB](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  |
 | - [Kubernetes workload protection](../../security-center/kubernetes-workload-protections.md)                                                                                  | GA             | GA                             |
-| - [Bi-directional alert synchronization with Sentinel](../../sentinel/connect-azure-security-center.md)                                                                          | Public Preview | Not Available                  | 
+| - [Bi-directional alert synchronization with Sentinel](../../sentinel/connect-azure-security-center.md)                                                                       | Public Preview | Not Available                  | 
 | **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                            |                |                                |
 | - [Just-in-time VM access](../../security-center/security-center-just-in-time.md)                                                                                             | GA             | GA                             |
 | - [File integrity monitoring](../../security-center/security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             |
