@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 09/19/2021
 ms.author: barclayn
 ms.custom: ep-msia
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
@@ -140,7 +140,7 @@ If you have an existing virtual machine, you can enable system assigned managed 
 
 # [PowerShell](#tab/azure-powershell)
 
-Retrieve the VM properties using the `Get-AzVM` cmdlet. Then to enable a system-assigned managed identity, use the `-IdentityType` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet:
+Retrieve the VM properties using the `Get-AzVM` cm dlet. Then to enable a system-assigned managed identity, use the `-IdentityType` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet:
 
    ```azurepowershell-interactive
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -321,11 +321,11 @@ Now that you have a virtual machine configured with a managed identity we need t
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
 $accountName = "<myCosmosAccount>" 
-$readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000002" # This is the ID of the Cosmos DB Built-in Data contributor role definition
+$contributorRoleDefinitionId = "00000000-0000-0000-0000-000000000002" # This is the ID of the Cosmos DB Built-in Data contributor role definition
 $principalId = "1111111-1111-11111-1111-11111111" # This is the object ID of the managed identity.
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
-    -RoleDefinitionId $readOnlyRoleDefinitionId `
+    -RoleDefinitionId $contributorRoleDefinitionId `
     -Scope "/" `
     -PrincipalId $principalId
 ```
@@ -368,16 +368,69 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ## Access data
 
-Getting access to the data plane using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) directly or use [DefaultAzureCredential](). 
+Getting access to Cosmos using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) directly or use [DefaultAzureCredential](). 
 
 The ManagedIdentityCredential class attempts to authentication using a managed identity assigned to the deployment environment. The DefaultAzureCredential class goes through different authentication options in order. The second authentication option that DefaultAzureCredential attempts is Managed identities. 
 
 [!IMPORTANT]
-> At this time, Azure AD authentication is only available for data plane operations. This means that managed identities may only be used for data plane operation and not for any [management plane operations](../../cosmos-db/audit-control-plane-logs.md#control-plane-operations-for-azure-cosmos-account). 
+> Azure Cosmos RBAC can be used to manage data plane operations. Azure RBAC can be used to manage access to the management plane. 
 
+In the example shown below you create a Database, container an item in the container and read back the newly created item using the system assigned managed identity of the virtual machine you are using for this tutorial. 
 
+```csharp
+using Azure.Identity;
+using Azure.ResourceManager.CosmosDB;
+using Azure.ResourceManager.CosmosDB.Models;
+using Microsoft.Azure.Cosmos;
+using System;
+using System.Threading.Tasks;
 
-Navigate to the Azure Cosmos DB account in the Azure portal and create a container. You can view step-by-step instructions in the [Azure Cosmos DB quickstart](../../cosmos-db/create-cosmosdb-resources-portal.md).
+namespace MITest
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            var subscriptionId = "Your subscription ID";
+            var resourceGroupName = "Your resource group";
+            var accountName = "The cosmos db account name";
+            var databaseName = "Database name";
+            var containerName = "The name of the container";
+
+            var tokenCredential = new DefaultAzureCredential();
+
+            // create the management client
+            var managementClient = new CosmosDBManagementClient(subscriptionId, tokenCredential);
+
+            // create the data client
+            var dataClient = new CosmosClient("Cosmos URI", tokenCredential);
+
+            // create a new database
+            await managementClient.SqlResources.StartCreateUpdateSqlDatabaseAsync(resourceGroupName, accountName, databaseName,
+                new SqlDatabaseCreateUpdateParameters(new SqlDatabaseResource(databaseName), new CreateUpdateOptions()));
+
+            // create a new container
+            await managementClient.SqlResources.StartCreateUpdateSqlContainerAsync(resourceGroupName, accountName, databaseName, containerName,
+                new SqlContainerCreateUpdateParameters(new SqlContainerResource(containerName), new CreateUpdateOptions()));
+
+            // create a new item
+            var id = Guid.NewGuid().ToString();
+            await dataClient.GetContainer(databaseName, containerName)
+                .CreateItemAsync(new { id = id }, new PartitionKey(id));
+
+            // read back the item
+            var pointReadResult = await dataClient.GetContainer(databaseName, containerName)
+                .ReadItemAsync<dynamic>(id, new PartitionKey(id));
+
+            // run a query
+            await dataClient.GetContainer(databaseName, containerName)
+                .GetItemQueryIterator<dynamic>("SELECT * FROM c")
+                .ReadNextAsync();
+        }
+    }
+}
+
+```
 
 Next steps are language-specific:
 
