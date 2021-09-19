@@ -32,7 +32,7 @@ To manage access to custom security attributes, you must have:
 
 ## Step 1: Figure out how to organize your attributes
 
-Every custom security attribute must be part of an attribute set. An attribute set is a way to group and manage related custom security attributes. You'll need to figure out how you want add attributes sets for your organization. For example, you might want to add attribute sets based on departments, teams, or projects. Your ability to grant access to custom security attributes will depend on how you organize your attribute sets.
+Every custom security attribute must be part of an attribute set. An attribute set is a way to group and manage related custom security attributes. You'll need to figure out how you want to add attributes sets for your organization. For example, you might want to add attribute sets based on departments, teams, or projects. Your ability to grant access to custom security attributes will depend on how you organize your attribute sets.
 
 ![Diagram showing an attribute set by department.](./media/custom-security-attributes-manage/attribute-set-department.png)
 
@@ -44,7 +44,7 @@ Scope is the set of resources that the access applies to. For custom security at
 
 ## Step 3: Review the available roles
 
-You need to determine who needs access to work with custom security attributes in your organization. To manage access to custom security attributes, there are four Azure AD built-in roles.  Note that [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator), by default, do not have permissions to read, filter, define, manage, or assign custom security attributes.
+You need to determine who needs access to work with custom security attributes in your organization. To help you manage access to custom security attributes, there are four Azure AD built-in roles. Note that [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator), by default, do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 - [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader)
@@ -58,19 +58,19 @@ The following table provides a high-level comparison of the custom security attr
 | Read attribute sets |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Read attribute definitions |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | Read attribute assignments for users and applications (service principals) |  |  | :heavy_check_mark: |  | :heavy_check_mark: | 
-| Add and update attribute sets |  | :heavy_check_mark: |  |  |  |
-| Add and update attribute definitions |  | :heavy_check_mark: |  |  |  |
+| Add or edit attribute sets |  | :heavy_check_mark: |  |  |  |
+| Add, edit, or deactivate attribute definitions |  | :heavy_check_mark: |  |  |  |
 | Assign attributes to users and applications (service principals) |  |  | :heavy_check_mark: |  |  |
 
 ## Step 4: Determine your delegation strategy
 
-This step describes two ways to manage access to custom security attributes. The first way is to manage them centrally and the second way is to delegate management to others.
+This step describes two ways you can manage access to custom security attributes. The first way is to manage them centrally and the second way is to delegate management to others.
 
 #### Manage attributes centrally
 
-An administrator that has been assigned the Attribute Definition Administrator and Attribute Assignment Administrator roles at the tenant scope can manage all aspects of custom security attributes. The following steps show how custom security attributes are defined and assigned by a single administrator.
+An administrator that has been assigned the Attribute Definition Administrator and Attribute Assignment Administrator roles at the tenant scope can manage all aspects of custom security attributes. The following diagram shows how custom security attributes are defined and assigned by a single administrator.
 
-![Diagram showing centrally managed attributes.](./media/custom-security-attributes-manage/central-manage-attributes.png)
+![Diagram showing attributes managed centrally.](./media/custom-security-attributes-manage/central-manage-attributes.png)
 
 1. The administrator adds attribute sets and defines attributes.
 1. The administrator assigns attributes to Azure AD objects.
@@ -88,14 +88,14 @@ Disadvantages of managing centrally
 
 #### Manage attributes with delegation
 
-An administrator may not know all the situations of how custom security attributes should be defined and assigned. Typically it's users within the respective departments, teams, or projects who know the most about their area. Instead of assigning one or two administrators to manage all custom security attributes, you can instead delegate the management at the attribute set scope. This also follows the best practice of least privilege to grant just the permissions other administrators need to do their job and avoid unnecessary access. The following steps show how the management of custom security attributes being delegated to multiple administrators.
+An administrator may not know all the situations of how custom security attributes should be defined and assigned. Typically it's users within the respective departments, teams, or projects who know the most about their area. Instead of assigning one or two administrators to manage all custom security attributes, you can instead delegate the management at the attribute set scope. This also follows the best practice of least privilege to grant just the permissions other administrators need to do their job and avoid unnecessary access. The following diagram shows how the management of custom security attributes can be delegated to multiple administrators.
 
-![Diagram showing centrally managed attributes.](./media/custom-security-attributes-manage/delegate-manage-attributes.png)
+![Diagram showing attributes managed with delegation.](./media/custom-security-attributes-manage/delegate-manage-attributes.png)
 
 1. The administrator adds attribute sets. The administrator delegates who can read, define, or assign custom security attributes for each attribute set.
-1. The delegated Attribute Definition Administrators define attributes in the attribute sets they have been granted access to.
-1. The delegated Attribute Assignment Administrators assign attributes from their attribute sets to Azure AD objects.
-1. The delegated Attribute Definition Administrators and Attribute Assignment Administrators update and maintain attributes.
+1. The delegated Attribute Definition Administrators (Alice and Chandra) define attributes in the attribute sets they have been granted access to.
+1. The delegated Attribute Assignment Administrators (Bob and Chandra) assign attributes from their attribute sets to Azure AD objects.
+1. The delegated Attribute Definition Administrators and Attribute Assignment Administrators (Alice, Bob, and Chandra) update and maintain their attributes.
 
 Advantages of using delegation
 
@@ -105,26 +105,27 @@ Advantages of using delegation
 
 Disadvantages of using delegation
 
-- Does require that an administrator to develop an attribute set organization
+- Does require that an administrator develop an attribute set organization
+- Might require multiple delegated administrators to make changes
 
-## Step 5: Select the appropriate role and scope
+## Step 5: Select the appropriate roles and scope
 
-The following table can help you determine which roles to assign and the scope.
+Once you have a better understanding of how your attributes will be organized, you can select the appropriate custom security attribute roles and scope. The following table can help you select the roles and the scope.
 
 | I want to grant this access | Assign this role | Scope |
 | --- | --- | --- |
-| <ul><li>Read, add, and update all attribute sets in a tenant</li><li>Read, add, and update all attribute definitions in a tenant</li></ul> | Attribute Definition Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| <ul><li>Read, add, and update attribute definitions in a scoped attribute set</li><li>**Cannot** update the scoped attribute set</li><li>**Cannot** read, add, or update other attribute sets</li></ul> | Attribute Definition Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute definitions in a tenant</li><li>Read all attribute assignments in a tenant for users and applications (service principals)</li><li>Assign all attributes in a tenant to users and applications (service principals)</li></ul> | Attribute Assignment Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| <ul><li>Read attribute definitions in a scoped attribute set</li><li>Read attribute assignments that use attributes in a scoped attribute set for users and applications (service principals)</li><li>Assign attributes in a scoped attribute set to users and applications (service principals)</li><li>**Cannot** read attributes in other attribute sets</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | Attribute Assignment Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute definitions in a tenant</li><li>[Add or edit all attribute sets in a tenant](custom-security-attributes-add.md)</li><li>[Add, edit, or deactivate all attribute definitions in a tenant](custom-security-attributes-add.md)</li></ul> | Attribute Definition Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| <ul><li>Read attribute definitions in a scoped attribute set</li><li>[Add, edit, or deactivate attribute definitions in a scoped attribute set](custom-security-attributes-add.md)</li><li>**Cannot** update the scoped attribute set</li><li>**Cannot** read, add, or update other attribute sets</li></ul> | Attribute Definition Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute definitions in a tenant</li><li>Read all attribute assignments in a tenant for users</li><li>Read all attribute assignments in a tenant for applications (service principals)</li><li>[Assign all attributes in a tenant to users](../enterprise-users/users-custom-security-attributes.md)</li><li>[Assign all attributes in a tenant to applications (service principals)](../manage-apps/custom-security-attributes-apps.md)</li><li>[Author Azure role assignment conditions that use the Principal attribute for all attributes in a tenant](../../role-based-access-control/conditions-format.md#attributes)</li></ul> | Attribute Assignment Administrator | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| <ul><li>Read attribute definitions in a scoped attribute set</li><li>Read attribute assignments that use attributes in a scoped attribute set for users</li><li>Read attribute assignments that use attributes in a scoped attribute set for applications (service principals)</li><li>[Assign attributes in a scoped attribute set to users](../enterprise-users/users-custom-security-attributes.md)</li><li>[Assign attributes in a scoped attribute set to applications (service principals)](../manage-apps/custom-security-attributes-apps.md)</li><li>[Author Azure role assignment conditions that use the Principal attribute for all attributes in a scoped attribute set](../../role-based-access-control/conditions-format.md#attributes)</li><li>**Cannot** read attributes in other attribute sets</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | Attribute Assignment Administrator | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
 | <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute definitions in a tenant</li></ul> | Attribute Definition Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
 | <ul><li>Read attribute definitions in a scoped attribute set</li><li>**Cannot** read other attribute sets</li></ul> | Attribute Definition Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
-| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute assignments in a tenant for users and applications (service principals)</li></ul> | Attribute Assignment Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
-| <ul><li>Read attribute assignments that use attributes in a scoped attribute set for users and applications (service principals)</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | Attribute Assignment Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
+| <ul><li>Read all attribute sets in a tenant</li><li>Read all attribute assignments in a tenant for users</li><li>Read all attribute assignments in a tenant for applications (service principals)</li></ul> | Attribute Assignment Reader | ![Icon for tenant scope.](./media/custom-security-attributes-manage/icon-tenant.png) |
+| <ul><li>Read attribute assignments that use attributes in a scoped attribute set for users</li><li>Read attribute assignments that use attributes in a scoped attribute set for applications (service principals)</li><li>**Cannot** read attribute assignments that use attributes in other attribute sets</li></ul> | Attribute Assignment Reader | ![Icon for attribute set scope.](./media/custom-security-attributes-manage/icon-attribute-set.png) |
 
 ## Step 6: Assign roles
 
-To grant access, follow these steps to assign one of the custom security attribute roles. 
+To grant access to the appropriate people, follow these steps to assign one of the custom security attribute roles. 
 
 #### Assign roles at attribute set scope
 
