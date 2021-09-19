@@ -91,7 +91,7 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **Q: How accurate is an estimated pose?**
 
-**A:** It depends on object size, material, environment, etc. For small objects, the estimated pose can be within 2 cm error. For large objects, like a car, the error can be up to 2-8 cm.
+**A:** It depends on object size, material, environment, etc. For small objects, the estimated pose can be within 2-cm error. For large objects, like a car, the error can be up to 2-8 cm.
 
 **Q: Can Object Anchors handle moving objects?**
 
@@ -101,13 +101,17 @@ For smaller objects within 2 meters in each dimension, detection can occur withi
 
 **A:** Partially, depending on how much object shape or geometry changes due to deformation or articulation. If the object's geometry changes a lot, the user can create another model for that configuration and use it for detection.
 
-**Q: How many different objects can Object Anchors detect at the same time?**
+**Q: How many different models can Object Anchors detect at the same time?**
 
-**A:** We currently support detecting a single object model at a time.
+**A:** We currently support detecting three models at a time to ensure the best user experience, but we don't enforce a
+       limit.
 
 **Q: Can Object Anchors detect multiple instances of the same object model?**
 
-**A:** Yes, you can detect up to 3 objects of the same model type. The application can call `ObjectObserver.DetectAsync` multiple times with different queries to detect multiple instances of the same model.
+**A:** Yes, we support detecting up to three instances of the same model type to ensure the best user experience, but we
+       don't enforce a limit. You can detect one object instance per search area. By calling
+       `ObjectQuery.SearchAreas.Add`, you can add more search areas to a query to detect more instances. You can call
+       `ObjectObserver.DetectAsync` with multiple queries to detect multiple models.
 
 **Q: What should I do if the Object Anchors runtime cannot detect my object?**
 

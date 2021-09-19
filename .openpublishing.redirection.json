@@ -14079,11 +14079,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
-      "redirect_url": "/azure/azure-vmware/introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
@@ -14241,11 +14236,6 @@
     {
       "source_path_from_root": "/articles/azure-vmware/vrealize-operations-for-avs.md",
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-vmware/deploy-disaster-recovery-using-jetstream.md",
-      "redirect_url": "/azure/azure-vmware/concepts-run-command",
       "redirect_document_id": false
     },
     {
@@ -16686,6 +16676,11 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/concept-pricing.md",
       "redirect_url": "https://azure.microsoft.com/pricing/details/azure-defender/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-forescout.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-forescout",
       "redirect_document_id": false
     },
     {
@@ -24436,6 +24431,11 @@
     {
       "source_path_from_root": "/articles/postgresql/howto-hyperscale-scaling.md",
       "redirect_url": "/azure/postgresql/howto-hyperscale-scale-grow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/hyperscale-preview-features.md",
+      "redirect_url": "/azure/postgresql/hyperscale-product-updates",
       "redirect_document_id": false
     },
     {
@@ -45399,6 +45399,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code-angular",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-angular-auth-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-applications-guiding-developers-for-lob-applications.md",
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
@@ -45408,6 +45418,7 @@
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
@@ -56065,7 +56076,7 @@
     },
     {
       "source_path": "articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
       "redirect_document_id": false
     },
     {
@@ -57177,6 +57188,20 @@
       "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-r4.md",
       "redirect_url": "/azure/governance/policy/samples/nist-sp-800-53-r4",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/export-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-stream-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
+      "redirect_document_id": false
     }
   ]
 }
+
+
+
+ 

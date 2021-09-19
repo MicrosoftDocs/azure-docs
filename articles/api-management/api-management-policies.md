@@ -3,12 +3,12 @@ title: Azure API Management policies | Microsoft Docs
 description: Learn about the policies available for use in Azure API Management. Policies allow the publisher to change API behavior through configuration.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 # API Management policies
 This section provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).
