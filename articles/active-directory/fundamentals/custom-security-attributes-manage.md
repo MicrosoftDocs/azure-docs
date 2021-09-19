@@ -110,7 +110,7 @@ Disadvantages of using delegation
 
 ## Step 5: Select the appropriate roles and scope
 
-Once you have a better understanding of how your attributes will be organized, you can select the appropriate custom security attribute roles and scope. The following table can help you select the roles and the scope.
+Once you have a better understanding of how your attributes will be organized and who needs access, you can select the appropriate custom security attribute roles and scope. The following table can help you with the selection.
 
 | I want to grant this access | Assign this role | Scope |
 | --- | --- | :---: |
