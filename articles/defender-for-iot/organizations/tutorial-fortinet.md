@@ -35,12 +35,13 @@ Defender for IoT detects anomalous behavior in IoT, and ICS networks and deliver
 > [!div class="checklist"]
 > - Create an API key in Fortinet
 > - Block suspicious traffic
+> - Block the source
 
 ## Prerequisites
 
 There are no prerquisites for this tutorial.
 
-## Create an API key in FortiGate
+## Create an API key in Fortinet
 
 1. In FortiGate, navigate to **System** > **Admin Profiles**.
 
@@ -115,11 +116,11 @@ The FortiGate firewall can be used to block suspicious traffic.
 
     | Parameter | Description |
     |--|--|
-    | Host | Enter the FortiGate server IP address. |
-    | API Key | Enter the API key that you created in [FortiGate](#create-an-api-key-in-fortigate). |
-    | Incoming Interface | Enter the incoming interface port. |
-    | Outgoing Interface | Enter the outgoing interface port. |
-    | Configure| Ensure a check mark is showing in the following options to allow blocking of the suspicious sources by the FortiGate firewall: <br /> **Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br />**Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes <br /> **Block unauthorized PLC stop**: PLC stop (downtime) <br /> **Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). <br /> (Optional) You can select the option of **Automatic blocking**. In that case, the blocking is executed automatically and immediately. <br />**Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance)
+    | **Host** | Enter the FortiGate server IP address.. |
+    | **API Key** | Enter the API key that you created in [FortiGate](#create-an-api-key-in-fortigate). |
+    | **Incoming Interface** | Enter the incoming interface port. |
+    | **Outgoing Interface** | Enter the outgoing interface port. |
+    | **Configure**| Ensure a check mark is showing in the following options to allow blocking of the suspicious sources by the FortiGate firewall: <br> **Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br />**Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes <br /> **Block unauthorized PLC stop**: PLC stop (downtime) <br /> **Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). <br /> (Optional) You can select the option of **Automatic blocking**. In that case, the blocking is executed automatically and immediately. <br />**Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
 
 1. Select **Submit**.
 
@@ -138,6 +139,62 @@ The source of suspicious alerts can be blocked in order to prevent further occur
     :::image type="content" source="media/integration-fortinet/unauthorized.png" alt-text="Screenshot of the Alert window.":::
 
 1. In the Please Confirm dialog box, select **OK**.
+
+## Send Defender for IoT alerts to FortiSIEM
+
+Defenders for IoT alerts provide information about an extensive range of security events, including:
+
+- Deviations from learned baseline network activity
+
+- Malware detections
+
+- Detections based on suspicious operational changes
+
+- Network anomalies
+
+- Protocol deviations from protocol specifications
+
+You can configure Defender for IoT to send alerts to the FortiSIEM server, where alert information is displayed in the Analytics window:
+
+:::image type="content" source="media/integration-fortinet/analytics.png" alt-text="Screenshot of the Analytics window.":::
+
+Each Defender for IoT alert is then parsed without any other configuration on the FortiSIEM, side and they are presented in the FortiSIEM as security events. The following event details appear by default:
+
+:::image type="content" source="media/integration-fortinet/event-detail.png" alt-text="View your event details in the Event Details window.":::
+
+You can then use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM.
+
+**To use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM**:
+
+1. From the sensor, or management console left pane, select **Forwarding**.
+
+    [:::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="View your forwarding rules in the Forwarding window.":::](media/integration-fortinet/forwarding-view.png#lightbox)
+
+2. Select **Create Forwarding Rules**, and define the rule's parameters.
+
+    | Parameter | Description |
+    |--|--|
+    | **Name** | Enter a meaningful name for the forwarding rule. |
+    | **Select Severity** | Select the minimum security level incident to forward. For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded. |
+    | **Protocols** | To select a specific protocol, select **Specific** and select the protocol for which this rule is applied. By default, all the protocols are selected. |
+    | **Engines** | To select a specific security engine for which this rule is applied, select **Specific** and select the engine. By default, all the security engines are involved. |
+    | **System Notifications** | Forward a sensor's *online*, or *offline* status. This option is only available if you have logged into the on-premises management console. |
+
+3. In the actions section, select **Send to FortiSIEM**.
+
+    :::image type="content" source="media/integration-fortinet/forward-rule.png" alt-text="Create a Forwarding Rule and select send to Fortinet.":::
+
+4. Enter the FortiSIEM server details.
+
+    :::image type="content" source="media/integration-fortinet/details.png" alt-text="Add the FortiSIEm details to the forwarding rule":::
+
+    | Parameter | Description |
+    | --------- | ----------- |
+    | **Host** | Enter the FortiSIEM server IP address. |
+    | **Port** | Enter the FortiSIEM server port. |
+    | **Timezone** | The time stamp for the alert detection. |
+
+5. Select **Submit**.
 
 ## Clean up resources
 
