@@ -35,7 +35,7 @@ For this service, use Purview to provide a Microsoft account with secure access 
 
 - **Public access support**: Purview supports scanning only with VPC Private Link in AWS, and is does not include public access scanning.
 
-- **Supported regions**: Purview only supports Amazon RDS databases that are located in the following regions:
+- **Supported regions**: Purview only supports Amazon RDS databases that are located in the following AWS regions:
 
     - US East (Ohio)
     - US East (N. Virginia)
@@ -49,11 +49,11 @@ For this service, use Purview to provide a Microsoft account with secure access 
     - Europe (London)
     - Europe (Paris)
 
-- **Known issues**: Known issues for the public preview include:
+- **Known issues**: The following functionality is not currently supported:
 
-    - The **Test connection** button is unavailable for the public preview. The scan status messages will indicate any errors related to connection setup.
-    - Selecting specific tables in your database to scan is not supported for the public preview.
-    - [Data lineage](concept-data-lineage.md) is not supported for the RDS public preview.
+    - The **Test connection** button. The scan status messages will indicate any errors related to connection setup.
+    - Selecting specific tables in your database to scan.
+    - [Data lineage](concept-data-lineage.md).
 
 
 For more information, see:
@@ -72,7 +72,7 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 > * You need an Amazon RDS PostgreSQL or Microsoft SQL database, with data.
 
 
-## Prepare an RDS database in a VPC
+## Configure AWS PrivateLink to allow Purview to connect to your RDS VPC
 
 Azure Purview supports scanning only when your database is hosted in a virtual private cloud (VPC), where your RDS database can only be accessed from within the same VPC.
 
@@ -87,9 +87,9 @@ The following diagram shows the components in both your customer account and Mic
 > Any AWS resources created for a customer's private network will incur extra costs on the customer's AWS bill.
 >
 
-### Prepare your RDS database using a CloudFormation template
+### Configure AWS PrivateLink using a CloudFormation template
 
-The following procedure describes how to use an AWS CloudFormation template to prepare your RDS database in a VPC to connect to Azure to Azure Purview.
+The following procedure describes how to use an AWS CloudFormation template to configure AWS PrivateLink, allowing Purview to connect to your RDS VPC. This procedure is performed in AWS and is intended for an AWS admin.
 
 This CloudFormation template is available for download from the Microsoft Download site, and will help you create a target group, load balancer, and endpoint service.
 
@@ -101,38 +101,51 @@ This CloudFormation template is available for download from the Microsoft Downlo
 
 
 > [!TIP]
-> You can also perform this procedure manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
+> You can also perform this procedure manually. For more information, see [Configure AWS PrivateLink manually (advanced)](#configure-aws-privatelink-manually-advanced).
 >
 
 **To prepare your RDS database with a CloudFormation template**:
 
 1. Download the CloudFormation .yaml template required for this procedure from the Microsoft Download site.
 
-1. In the AWS portal, navigate to the **CloudFormation** service and select **Create stack**.
+1. In the AWS portal, navigate to the **CloudFormation** service. At the top-right of the page, select **Create stack** > **With new resources (standard)**.
 
-1. In the **Prerequisite - Prepare Template** area, select **Template is ready**.
+1. On the **Prerequisite - Prepare Template** page, select **Template is ready**.
 
-1. In the **Specify template** section, select **Upload a template file**. Select **Choose file**, and then navigate to the .yaml file downloaded from the Microsoft Download site.
+1. In the **Specify template** section, select **Upload a template file**. Select **Choose file**, navigate to the .yaml file downloaded from the Microsoft Download site, and then select **Next** to continue.
 
-1. Select **Next** and then, in the **Stack name** section, enter a name for your stack.
+1. In the **Stack name** section, enter a name for your stack.
 
 1. <a name="parameters"></a>In the **Parameters** area, enter the following values, using data available from your RDS database page in AWS:
 
     |Name  |Description  |
     |---------|---------|
-    |**Name**     | Enter a meaningful name for your connection, such as the name of your RDS database.        |
-    |**Endpoint & port**    | Enter the resolved IP address of the RDS endpoint URL and port. For example: `192.168.1.1:5432` <br><br>**Note**: If you have multiple endpoints behind the same VPC, enter up to 10, comma-separated endpoints.  In this case, a single load balancer is created to the VPC, allowing a connection from the Amazon RDS Multi-Cloud Scanning Connector for Azure Purview in AWS to all RDS endpoints in the VPC.       |
+    |**Endpoint & port**    | Enter the resolved IP address of the RDS endpoint URL and port. For example: `192.168.1.1:5432` <br><br>- **If an RDS proxy is configured**, use the IP address of the read/write endpoint of the proxy for the relevant database. We recommend using an RDS proxy when working with Purview, as the IP address is static.<br><br>- **If you have multiple endpoints behind the same VPC**, enter up to 10, comma-separated endpoints.  In this case, a single load balancer is created to the VPC, allowing a connection from the Amazon RDS Multi-Cloud Scanning Connector for Azure Purview in AWS to all RDS endpoints in the VPC.       |
     |**Networking**     | Enter your VPC ID        |
     |**VPC IPv4 CIDR**     | Enter the value your VPC's CIDR. You can find this value by selecting the VPC link on your RDS database page. For example: `192.168.0.0/16`        |
     |**Subnets**     |Select all the subnets that are associated with your VPC.         |
-    |**Security**     | Select your VPC security group        |
+    |**Security**     | Select the VPC security group associated with the RDS database.         |
     |     |         |
 
-1. Select **Next**, and then watch the **Events** tab for all resources to be created. When complete, the new target group, load balancer, and endpoint service are displayed in the **Resources** tab.
+    When you're done, select **Next** to continue.
 
-1. In the **Outputs** tab, copy the **EndpointService** key value and copy it to a secure location.
+1. The settings on the **Configure stack options** are optional for this procedure.
 
-    You'll use the value of the **EndpointService** key in the Azure Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Purview data source.
+    Define your settings as needed for your environment. For more information, select the **Learn more** links to access the AWS documentation. When you're done, select **Next** to continue.
+
+1. On the **Review** page, check to make sure that the values you selected are correct for your environment. Make any changes needed, and then select **Create stack** when you're done.
+
+1. Watch for the resources to be created. When complete, following relevant data for this procedure is shown on the following tabs:
+
+    - **Events**: Shows the events / activities performed by the CloudFormation template
+    - **Resources**: Shows the newly created target group, load balancer, and endpoint service
+    - **Outputs**: Displays the **ServiceName** value, and the IP address and port of the RDS servers
+
+        If you have multiple RDS servers configured, a different port is displayed. In this case, use the port shown here instead of the actual RDS server port when [registering your RDS database](#register-an-amazon-rds-data-source) as Purview data source.
+
+1. In the **Outputs** tab, copy the **ServiceName** key value to the clipboard.
+
+    You'll use the value of the **ServiceName** key in the Azure Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Purview data source. There, enter the **ServiceName** key in the **Connect to private network via endpoint service** field.
 
 ## Register an Amazon RDS data source
 
@@ -150,7 +163,7 @@ This CloudFormation template is available for download from the Microsoft Downlo
     |---------|---------|
     |**Name**     |  Enter a meaningful name for your source, such as `AmazonPostgreSql-Ups`       |
     |**Server name**     | Enter the name of your RDS database in the following syntax: `<instance identifier>.<xxxxxxxxxxxx>.<region>.rds.amazonaws.com`  <br><br>We recommend that you copy this URL from the Amazon RDS portal, and make sure that the URL includes the AWS region.      |
-    |**Port**     |  Enter the port used to connect to the RDS database:<br><br>        - PostgreSQL: `5432`<br> - Microsoft SQL: `1433`<br><br>        If you've [prepared your RDS database using a CloudFormation template](#prepare-your-rds-database-using-a-cloudformation-template) and have multiple RDS servers in the same VPC, use the ports listed in the CloudFormation output instead of the read RDS server ports.       |
+    |**Port**     |  Enter the port used to connect to the RDS database:<br><br>        - PostgreSQL: `5432`<br> - Microsoft SQL: `1433`<br><br>        If you've [prepared your RDS database using a CloudFormation template](#prepare-your-rds-database-using-a-cloudformation-template) and have multiple RDS servers in the same VPC, use the ports listed in the CloudFormation **Outputs**  tab instead of the read RDS server ports.       |
     |**Connect to private network via endpoint service**     |  Enter the **EndpointService** key value obtained at the end of the [Prepare your RDS database using a CloudFormation template](#prepare-your-rds-database-using-a-cloudformation-template) procedure above. <br><br>If you've prepared your RDS database manually, use the **Service Name** value obtained at the end of [Step 5: Create an endpoint service](#step-5-create-an-endpoint-service).       |
     |**Collection** (optional)     |  Select a collection to add your data source to. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).       |
     |     |         |
@@ -243,7 +256,7 @@ Use the other areas of Purview to find out details about the content in your dat
     - [Tutorial: Create and import glossary terms in Azure Purview (preview)](tutorial-import-create-glossary-terms.md)
 
 
-## Prepare your RDS database manually (advanced)
+## Configure AWS PrivateLink manually (advanced)
 
 This procedure describes the manual steps required for preparing your RDS database in a VPC to connect to Azure Purview. By default, we recommend that you perform this procedure using the automatic tool described earlier in this article. For more information, see [Prepare an RDS database in a VPC](#prepare-an-rds-database-in-a-vpc).
 
