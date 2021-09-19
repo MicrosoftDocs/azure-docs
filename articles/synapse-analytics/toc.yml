@@ -24,28 +24,31 @@ items:
   - name: 2 Analyze using serverless SQL pool
     href: get-started-analyze-sql-on-demand.md
     displayName: get, started
-  - name: 3 Analyze using a serverless Spark pool
+  - name: 3 Analyze using a Data Explorer pool
+    href: get-started-analyze-data-explorer.md
+    displayName: get, started
+  - name: 4 Analyze using a serverless Spark pool
     href: get-started-analyze-spark.md
     displayName: get, started
-  - name: 4 Analyze using a dedicated SQL pool
+  - name: 5 Analyze using a dedicated SQL pool
     href: get-started-analyze-sql-pool.md
     displayName: get, started
-  - name: 5 Analyze data in a storage account
+  - name: 6 Analyze data in a storage account
     href: get-started-analyze-storage.md
     displayName: get, started
-  - name: 6 Integrate with pipelines
+  - name: 7 Integrate with pipelines
     href: get-started-pipelines.md
     displayName: get, started
-  - name: 7 Visualize with Power BI
+  - name: 8 Visualize with Power BI
     href: get-started-visualize-power-bi.md
     displayName: get, started
-  - name: 8 Monitor
+  - name: 9 Monitor
     href: get-started-monitor.md
     displayName: get, started
-  - name: 9 Explore the Knowledge center
+  - name: 10 Explore the Knowledge center
     href: get-started-knowledge-center.md
     displayName: get, started
-  - name: 10 Add an administrator
+  - name: 11 Add an administrator
     href: get-started-add-admin.md
     displayName: get, started
 - name: Workspace
