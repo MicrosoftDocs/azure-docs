@@ -36,7 +36,7 @@ The following settings are available when configuring ingress:
 | Property | Description | Values | Required |
 |---|---|---|---|
 | `external` | Your ingress IP and FQDN can either be visible externally to the internet, or internally within a VNET. This property is required. |<li>`true` for external visibility<li>`false` for internal visibility | Yes |
-| `targetPort` | This is the port your container is listening on that will receive traffic. | Set this value to the port number that your container uses. Your application ingress endpoint will always be exposed on port 443. | Yes |
+| `targetPort` | The port your container is listening on that receives traffic. | Set this value to the port number that your container uses. Your application ingress endpoint will always be exposed on port 443. | Yes |
 | `transport` | You can use either HTTP/1.1 or HTTP/2, or you can set it to automatically detect the transport type. | <li>`http` for HTTP/1<li>`http2` for HTTP/2<li>`auto` to automatically detect the transport type (default) | No |
 
 > [!NOTE]
@@ -44,7 +44,7 @@ The following settings are available when configuring ingress:
 
 ## IP addresses and domain names
 
-With ingress is enabled, your application is assigned a fully-qualified domain name (FQDN). The the domain name takes the following forms:
+With ingress enabled, your application is assigned a fully qualified domain name (FQDN). The domain name takes the following forms:
 
 |Ingress visibility setting | FQDN |
 |--|--|
