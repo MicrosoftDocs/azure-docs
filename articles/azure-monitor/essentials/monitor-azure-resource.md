@@ -21,7 +21,7 @@ In this tutorial, you learn:
 > * The types of data collected by Azure Monitor for Azure resources
 > * Azure Monitor tools used to used to collect and analyze data
 
-## Data collection
+## Monitoring data
 
 ### Azure Monitor data collection
 As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs. With some configuration, you can gather additional monitoring data and enable additional features. The Azure Monitor data platform is made up of Metrics and Logs. Each collects different kinds of data and enables different Azure Monitor features.

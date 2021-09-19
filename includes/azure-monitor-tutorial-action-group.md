@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 09/17/2021
 ---
 
-[Action groups](../alerts/action-groups.md) define a set of actions to take when an alert is fired such as sending an email or an SMS message.
+[Action groups](../articles/azure-monitor/alerts/action-groups.md) define a set of actions to take when an alert is fired such as sending an email or an SMS message.
 
 Click **Add action groups** to add one to the alert rule.
 
@@ -19,7 +19,7 @@ If you don't already have an action group in your subscription to select, then c
 
 Select a **Subscription** and **Resource group** for the action group and give it an **Action group name** that will appear in the portal and a **Display name** that will appear in email and SMS notifications.
 
-:::image type="content" source="media/azure-monitor-tutorial-action-group/action-group-basics.png" lightbox="./media/azure-monitor-tutorial-action-group/create-action-basics.png" alt-text="Action group basics":::
+:::image type="content" source="media/azure-monitor-tutorial-action-group/action-group-basics.png" lightbox="./media/azure-monitor-tutorial-action-group/action-group-basics.png" alt-text="Action group basics":::
 
 Select **Notifications** and add one or mre methods to notify appropriate people when the alert is fired.
 
