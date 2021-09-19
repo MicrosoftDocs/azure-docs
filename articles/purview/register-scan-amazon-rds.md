@@ -220,11 +220,13 @@ To configure an Azure Purview scan for your RDS database:
     - **Database name**: Enter the name of the database you want to scan. You’ll need to find the names available from outside Purview, and create a separate scan for each database in the registered RDS server.
     - **Credential**: Select the credential you created earlier for the Multi-Cloud Scanning Connectors for Azure Purview to access the RDS database.
 
-1.	In the **Select a scan rule set** pane, select the scan rule set you want to use, or create a new one. For more information, see [Create a scan rule set](create-a-scan-rule-set.md).
+1. On the **Scope your scan** pane, select the assets you want to include in your scan.
 
-1.	In the **Set a scan trigger** pane, select whether you want to run the scan once, or at a recurring time, and then select **Continue**.
+1.	On the **Select a scan rule set** pane, select the scan rule set you want to use, or create a new one. For more information, see [Create a scan rule set](create-a-scan-rule-set.md).
 
-1.	In the **Review your scan** pane, review the details and then select **Save and Run**, or **Save** to run it later.
+1.	On the **Set a scan trigger** pane, select whether you want to run the scan once, or at a recurring time, and then select **Continue**.
+
+1.	On the **Review your scan** pane, review the details and then select **Save and Run**, or **Save** to run it later.
 
 While you run your scan, select **Refresh** to monitor the scan progress.
 
