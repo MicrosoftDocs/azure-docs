@@ -84,23 +84,6 @@ After LRS is stopped, either automatically through autocomplete or manually thro
 - Azure Blob Storage container provisioned
 - Shared access signature (SAS) security token with read and list permissions generated for the Blob Storage container
 
-### Migration of multiple databases
-You must place backup files for different databases in separate folders on Blob Storage. All backup files for a single database must be placed in the root of a single folder. Backups of individual database must not be placed into subfolders. LRS must be started separately for each database pointing to the full URI path containing an individual database folder.
-
-The following is an example of the folder structure and URI specification required for multiple database support. In this example, LRS needs to be invoked multiple times, once for each database, specifying the full storage container path.
-
-```URI
--- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
-https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database1/<all database 1 backup files>
-
--- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database2 folder for this database.
-https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database2/<all database 2 backup files>
-
--- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database3 folder for this database.
-https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database3/<all database 3 backup files>
-```
-
-
 ### Azure RBAC permissions
 Running LRS through the provided clients requires one of the following Azure roles:
 - Subscription Owner role
@@ -115,6 +98,7 @@ We recommend the following best practices:
 - Enable backup compression.
 - Use Cloud Shell to run scripts, because it will always be updated to the latest cmdlets released.
 - Plan to complete the migration within 36 hours after you start LRS. This is a grace period that prevents the installation of system-managed software patches.
+- Place all backup files for an individual database to a single folder. Do not use subfolders for the same database.
 
 > [!IMPORTANT]
 > - You can't use the database that's being restored through LRS until the migration process finishes. 
@@ -390,6 +374,22 @@ To complete the migration process in LRS continuous mode through the Azure CLI, 
 
 ```CLI
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
+```
+
+### Migration of multiple databases
+You must place backup files for different databases in separate folders on Blob Storage. All backup files for a single database must be placed in the root of a single folder, as tehre must not exist subfolders for an individual database. LRS must be started separately for each database pointing to the full URI path containing an individual database folder.
+
+Below is an example of the folder structure and URI specification required when invoking LRS for multiple databases. Start LRS separately for each database, specifying the full URI path to the container and individual database folder.
+
+```URI
+-- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database1/<all database 1 backup files>
+
+-- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database2 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database2/<all database 2 backup files>
+
+-- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database3 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database3/<all database 3 backup files>
 ```
 
 ## Functional limitations
