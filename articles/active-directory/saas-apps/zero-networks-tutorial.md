@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zero Networks | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Zero Networks'
 description: Learn how to configure single sign-on between Azure Active Directory and Zero Networks.
 services: active-directory
 author: jeevansd
@@ -14,7 +14,7 @@ ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Zero Networks
+# Tutorial: Azure AD SSO integration with Zero Networks
 
 In this tutorial, you'll learn how to integrate Zero Networks with Azure Active Directory (Azure AD). When you integrate Zero Networks with Azure AD, you can:
 
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. In the Azure portal, on the **Zero Networks** application integration page, find the **Manage** section and select **Properties**.
 1. Change **User assignment required?** to **No**.
 
-    ![Screenshot for User assignment required.](./media/zero-networks-tutorial/user-assignment.png)
+![Screenshot for User assignment required.](./media/zero-networks-tutorial/user-assignment.png)
 
 ## Test SSO 
 
