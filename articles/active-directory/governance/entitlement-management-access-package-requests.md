@@ -1,6 +1,6 @@
 ---
-title: View requests for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to view requests for an access package in Azure Active Directory entitlement management.
+title: View and remove requests for an access package in Azure AD entitlement management - Azure Active Directory
+description: Learn how to view requests and remove for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 9/20/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an access package manager, I want detailed information about requests for access packages so that I can view the status and troubleshoot any issues.
 
 ---
-# View requests for an access package in Azure AD entitlement management
+# View and remove requests for an access package in Azure AD entitlement management
 
-In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for an access packages.
+In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for an access packages, and remove requests which are no longer needed.
 
 ## View requests
 
@@ -39,8 +39,19 @@ In Azure AD entitlement management, you can see who has requested access package
 
     ![List of requests for an access package](./media/entitlement-management-access-package-requests/requests-list.png)
 
+1. You can click on **Request History details** to see who approved a request, what their approval justifications were, and when access was delivered.
+
+If you have a set of users whose requests are in the "Partially Delivered" or "Failed" state, you can retry those requests for access to an access package  by using the [reprocess functionality](entitlement-management-reprocess-access-package-requests.md).
+
+## Remove request (Preview)
+
+You can remove a completed request that is no longer needed by clicking the **Remove** button.
+Note that removing a request does not remove the assignment, only the data of the request. To remove an assignment and the resulting access from that assignment, in the left menu, click **Assignments**, locate and then [remove the assignment](entitlement-management-access-package-assignments.md).
+
+
 ## Next steps
 
+- [Reprocess requests for an access package](entitlement-management-reprocess-access-package-requests.md)
 - [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md)
 - [View, add, and remove assignments for an access package](entitlement-management-access-package-assignments.md)
 - [Troubleshoot requests](entitlement-management-troubleshoot.md#requests)
