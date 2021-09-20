@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -52,9 +52,9 @@ The following components make up the Twilio solution:
 
 1. Obtain a [trial account](https://www.twilio.com/try-twilio) at Twilio.
 
-2. Purchase a Phone number at Twilio as described in [this article](https://support.twilio.com/hc/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
+1. Purchase a Phone number at Twilio as described in [this article](https://support.twilio.com/hc/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
 
-3. Navigate to [Verify API](https://www.twilio.com/console/verify/services) at the Twilio console and follow [instructions](https://www.twilio.com/docs/verify/verifying-transactions-psd2) to create a service and enable the PSD2 option.  
+1. Navigate to [Verify API](https://www.twilio.com/console/verify/services) at the Twilio console and follow [instructions](https://www.twilio.com/docs/verify/verifying-transactions-psd2) to create a service and enable the PSD2 option.  
 
 ## Configure the PSD2 Demo App
 
@@ -93,7 +93,7 @@ The following components make up the Twilio solution:
 Add the policy files to Azure AD B2C:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Navigate to **Azure AD B2C** > **Identity Experience Framework** > **Policy Keys**.

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -35,7 +35,7 @@ Multi-factor authentication (MFA) is disabled by default when you configure a us
 Email sign-up is enabled by default in your local account identity provider settings. You can change the identity types you'll support in your tenant by selecting or deselecting email sign-up, username, or phone number.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Identity providers**.
@@ -56,7 +56,7 @@ After you've added phone sign-up as an identity option for local accounts, you c
 Here's an example showing how to add phone sign-up to a new user flow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
@@ -101,7 +101,7 @@ You can enable the recovery email prompt in the user flow properties.
 ### To enable the recovery email prompt
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In Azure AD B2C, under **Policies**, select **User flows**.
@@ -142,7 +142,7 @@ We strongly suggest you include consent information in your sign-up and sign-in 
 To enable consent information
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In Azure AD B2C, under **Policies**, select **User flows**.

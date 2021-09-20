@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -51,24 +51,24 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 1. Fill out the [form](https://www.trusona.com/) to create a Trusona account and get started.
 
-2. Download the Trusona mobile app from the app store. Install the app and register your email.
+1. Download the Trusona mobile app from the app store. Install the app and register your email.
 
-3. Verify your email through the secure "magic link" sent by the software.  
+1. Verify your email through the secure "magic link" sent by the software.  
 
-4. Go to the [Trusona Developer’s dashboard](https://dashboard.trusona.com) for self-service.
+1. Go to the [Trusona Developer’s dashboard](https://dashboard.trusona.com) for self-service.
 
-5. Select **I’m Ready** and authenticate yourself with your Trusona app.
+1. Select **I’m Ready** and authenticate yourself with your Trusona app.
 
-6. From the left navigation panel, choose **OIDC Integrations**.
+1. From the left navigation panel, choose **OIDC Integrations**.
 
-7. Select **Create OpenID Connect Integration**.
+1. Select **Create OpenID Connect Integration**.
 
-8. Provide a **Name** of your choice and use the domain information previously provided (for example, Contoso) in the **Client Redirect Host field**.  
+1. Provide a **Name** of your choice and use the domain information previously provided (for example, Contoso) in the **Client Redirect Host field**.  
 
    > [!NOTE]
    > Azure Active Directory’s initial domain name is used as the Client Redirect host.
 
-9. Follow the instructions in the [Trusona integration guide](https://docs.trusona.com/integrations/aad-b2c-integration/). When prompted, use the initial domain name (for example, Contoso) referred in the previous step.  
+1. Follow the instructions in the [Trusona integration guide](https://docs.trusona.com/integrations/aad-b2c-integration/). When prompted, use the initial domain name (for example, Contoso) referred in the previous step.  
 
 ## Integrate with Azure AD B2C
 
@@ -78,7 +78,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 > If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
