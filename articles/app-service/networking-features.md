@@ -1,12 +1,12 @@
 ---
 title: Networking features
 description: Learn about the networking features in Azure App Service, and learn which features you need for security or other functionality.
-author: ccompy
+author: madsd
 
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 03/26/2021
-ms.author: ccompy
+ms.date: 09/20/2021
+ms.author: madsd
 ms.custom: seodec18
 
 ---
@@ -118,7 +118,10 @@ To learn how to enable this feature, see [Configuring access restrictions][ipres
 
 #### Access restriction rules based on service endpoints 
 
-Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks. 
+Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks.
+
+> [!NOTE]
+> Access restriction rules based on service endpoints are not supported on apps that use IP-based SSL ([App-assigned address](#App-assigned-address)).
 
 Some use cases for this feature:
 
