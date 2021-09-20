@@ -12,17 +12,23 @@ ms.reviewer: sachins
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-In this article, you learn about best practices and considerations for working with Azure Data Lake Storage Gen2. This article provides information around security, performance, resiliency, and monitoring for Data Lake Storage Gen2. Before Data Lake Storage Gen2, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. Data Lake Storage Gen2 supports individual file sizes as high as 190.7 TiB and most of the hard limits for performance have been removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Storage Gen2.
+This article presents best practice recommendations about around security, resiliency, and directory structure in a Data Lake Storage Gen2 enabled storage account. For best practice recommendations around performance optimization, see [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md).
 
 ## Security
 
 ### Use security groups instead of individual users
 
-When applying access control lists (ACLs), always use Azure AD security groups as the assigned principal in an ACL entry. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users and service principals from the appropriate Azure AD security group. For more information about applying this best practice, see [Security groups](data-lake-storage-access-control-model.md#security-groups)
+When applying access control lists (ACLs), always use Azure AD security groups as the assigned principal in an ACL entry. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you can just add or remove users and service principals from the appropriate Azure AD security group. 
 
-## Configure the Azure Storage firewall with Azure service access
+For more information about applying this best practice, see [Security groups](data-lake-storage-access-control-model.md#security-groups).
 
-Turn on the Azure Storage firewall to limit the vector of external attacks. To access your storage account from a service such as Azure Databricks, deploy an instance of that service to your virtual network. Then, you can configure the firewall to grant access to the storage account for that service. For guidance, see [Grant access to trusted Azure services](../common/storage-network-security.md). 
+For general information about the Data Lake Storage Gen2 access control model, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+
+### Configure the Azure Storage firewall with Azure service access
+
+Turn on the Azure Storage firewall to limit the vector of external attacks. To access your storage account from a service such as Azure Databricks, deploy an instance of that service to your virtual network. Then, you can configure the firewall to grant access to the storage account for that service. 
+
+For more information about how to apply this best practice, see [Grant access to trusted Azure services](../common/storage-network-security.md).
 
 For general security recommendations, see [Security recommendations for Blob storage](security-recommendations.md)
 

@@ -15,7 +15,7 @@ ms.reviewer: stewu
 Azure Data Lake Storage Gen2 supports high-throughput for I/O intensive analytics and data movement. This article helps you to optimize for throughput and efficient data access. 
 
 > [!NOTE]
-> The overall performance of your analytics pipeline also depend on factors that are specific to the analytics engines. See the documentation for each system that you intend to use (For example, [Apache Storm on HDInsight](../../hdinsight/storm/apache-storm-overview.md) for the best up-to-date guidance on workload performance optimization.
+> The overall performance of your analytics pipeline also depend on factors that are specific to the analytics engines. For the best up-to-date guidance on workload performance optimization, see the documentation for each system that you intend to use.
 
 ## Optimize data ingestion
 
@@ -77,7 +77,7 @@ For date and time, the following is a common pattern
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
-For other directory layout structure suggestions, see [Directory layout considerations](data-lake-storage-best-practices.md#directory-layout-considerations)
+For other directory layout structure suggestions, see [Directory structure](data-lake-storage-best-practices.md#directory-structure)
 
 ### Access data efficiently with Query Acceleration
 
@@ -95,14 +95,12 @@ Jobs fall into one of the following three categories:
 * **Memory intensive.**  These jobs use lots of memory.  Examples include PageRank and real-time analytics jobs.  
 * **I/O intensive.**  These jobs spend most of their time doing I/O.  A common example is a copy job which does only read and write operations.  Other examples include data preparation jobs that read a lot of data, performs some data transformation, and then writes the data back to the store.  
 
-The following guidance is only applicable to I/O intensive jobs.
-
-## General considerations
+### I/O intensive jobs
 
 You can have a job that reads or writes as much as 100MB in a single operation, but a buffer of that size might compromise performance.
-To optimize performance, try to keep the size of an I/O operation between 4MB and 16MB.
+To optimize the performances, try to keep the size of an I/O operation between 4MB and 16MB.
 
-### General considerations for an HDInsight cluster
+### I/O intensive jobs with HDInsight clusters
 
 * **HDInsight versions.** For best performance, use the latest release of HDInsight.
 * **Regions.** Place the Data Lake Storage Gen2 account in the same region as the HDInsight cluster.  
@@ -141,7 +139,7 @@ Depending on your workload, there will always be a minimum YARN container size t
 
 **Failed tasks are costly.** If each task has a large amount of data to process, then failure of a task results in an expensive retry.  Therefore, it is better to create more tasks, each of which processes a small amount of data.
 
-In addition to the general guidelines above, each analytics system or framework has different parameters that you can tune for optimal performance. See the documentation for each system that you intend to use (For example, [Apache Storm on HDInsight](../../hdinsight/storm/apache-storm-overview.md) for the best up-to-date guidance on workload performance optimization.
+In addition to the general guidelines above, each analytics system or framework has different parameters that you can tune for optimal performance. For the best up-to-date guidance on workload performance optimization, see the documentation for each system that you intend to use.
 
 ## See also
 
