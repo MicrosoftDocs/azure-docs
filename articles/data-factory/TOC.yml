@@ -710,7 +710,9 @@ items:
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
-      href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+      href: monitor-integration-runtime.md#azure-ssis-integration-runtime.md
+    - name: Run Data Pipelines with Service Level Agreements
+      href: tutorial-operationalize-pipelines.md
     - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
     - name: Copy or clone a data factory
