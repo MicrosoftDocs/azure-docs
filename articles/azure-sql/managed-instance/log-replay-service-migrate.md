@@ -377,9 +377,9 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 ```
 
 ### Migration of multiple databases
-You must place backup files for different databases in separate folders on Blob Storage. All backup files for a single database must be placed in the root of a single folder, as there must not exist subfolders for an individual database. LRS must be started separately for each database pointing to the full URI path containing an individual database folder.
+You must place backup files for different databases in separate folders inside Azure Blob Storage container. All backup files for a single database must be placed inside the same folder, as there must not exist subfolders for an individual database. LRS must be started separately for each database pointing to the full URI path of Azure Blob storage container and the individual database folder.
 
-Below is an example of the folder structure and URI specification required when invoking LRS for multiple databases. Start LRS separately for each database, specifying the full URI path to the container and individual database folder.
+Below is an example of the folder structure and URI specification required when invoking LRS for multiple databases. Start LRS separately for each database, specifying the full URI path to the Azure Blob Storage container and the individual database folder.
 
 ```URI
 -- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
