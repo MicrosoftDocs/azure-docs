@@ -1,5 +1,5 @@
 ---
-title: CLI Script - Create and manage read replicas in an Azure Database for MySQL - Flexible Server (Preview)
+title: CLI script - Create and manage read replicas in an Azure Database for MySQL - Flexible Server (Preview)
 description: This Azure CLI sample script shows how to create and manage read replicas in an Azure Database for MySQL - Flexible Server
 author: shreyaaithal
 ms.author: shaithal
@@ -23,7 +23,7 @@ This sample CLI script creates and manages [read replicas](../concepts-read-repl
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
-## Sample Script
+## Sample script
 
 Edit the highlighted lines in the script with your values for variables.
 
@@ -49,7 +49,7 @@ This script uses the following commands. Each command in the table links to comm
 |[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete)|Deletes a Flexible Server.|
 |[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
 
-## Next Steps
+## Next steps
 
 - Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server (Preview)](../sample-scripts-azure-cli.md)
 - For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

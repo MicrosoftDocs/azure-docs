@@ -1,5 +1,5 @@
 ---
-title: CLI Script - Create an Azure Database for MySQL - Flexible Server (Preview) in a VNet
+title: CLI script - Create an Azure Database for MySQL - Flexible Server (Preview) in a VNet
 description: This Azure CLI sample script shows how to create a Azure Database for MySQL - Flexible Server in a VNet (private access connectivity method) and connect to the server from a VM within the VNet.
 author: shreyaaithal
 ms.author: shaithal
@@ -23,7 +23,7 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server in 
 
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
-## Sample Script
+## Sample script
 
 Edit the highlighted lines in the script with your values for variables.
 
@@ -48,7 +48,7 @@ This script uses the following commands. Each command in the table links to comm
 |[az vm open-port](/cli/azure/vm#az_vm_open_port)|Opens a VM to inbound traffic on specified ports.|
 |[az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources.|
 
-## Next Steps
+## Next steps
 
 - Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server (Preview)](../sample-scripts-azure-cli.md)
 - For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
