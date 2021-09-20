@@ -3,7 +3,7 @@ title: "Tutorial: Use shared-device mode with the Microsoft Authentication Libra
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you learn how to prepare an Android device to run in shared mode and run a first-line worker app.
 services: active-directory
-author: karenhoran
+author: KarenH444
 manager: CelesteDG
 
 ms.service: active-directory

@@ -3,7 +3,7 @@ title: Register single-page applications (SPA) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (app registration)
 services: active-directory
-author: karenhoran
+author: KarenH444
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
