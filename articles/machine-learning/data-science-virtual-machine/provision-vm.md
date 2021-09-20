@@ -5,8 +5,6 @@ description: Configure and create a Data Science Virtual Machine on Azure for an
 services: machine-learning
 ms.service: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
 
