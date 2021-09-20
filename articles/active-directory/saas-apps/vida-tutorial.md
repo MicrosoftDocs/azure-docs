@@ -165,73 +165,71 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     f. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
     
-    ```
-    { 
-    "appRoles": [
-        {
-            "allowedMemberTypes": [
-            "User"
-            ],
-            "description": "User",
-            "displayName": "User",
-            "id": "18d14569-c3bd-439b-9a66-3a2aee01****",
-            "isEnabled": true,
-            "origin": "Application",
-            "value": null
-        },
-        {
-            "allowedMemberTypes": [
-            "User"
-            ],
-            "description": "msiam_access",
-            "displayName": "msiam_access",
-            "id": "b9632174-c057-4f7e-951b-be3adc52****",
-            "isEnabled": true,
-            "origin": "Application",
-            "value": null
-        },
-        {
+```
+{ 
+"appRoles": [
+    {
         "allowedMemberTypes": [
-            "User"
+        "User"
         ],
-        "description": "VIDACompanyAdmin",
-        "displayName": "VIDACompanyAdmin",
-        "id": "293414bb-2215-48b4-9864-64520937d437",
+        "description": "User",
+        "displayName": "User",
+        "id": "18d14569-c3bd-439b-9a66-3a2aee01****",
         "isEnabled": true,
-        "origin": "ServicePrincipal",
-        "value": "VIDACompanyAdmin"
-        },
-        {
+        "origin": "Application",
+        "value": null
+    },
+    {
         "allowedMemberTypes": [
-            "User"
+        "User"
         ],
-        "description": "VIDATeamAdmin",
-        "displayName": "VIDATeamAdmin",
-        "id": "2884f1ae-5c0d-4afd-bf28-d7d11a3d7b2c",
+        "description": "msiam_access",
+        "displayName": "msiam_access",
+        "id": "b9632174-c057-4f7e-951b-be3adc52****",
         "isEnabled": true,
-        "origin": "ServicePrincipal",
-        "value": "VIDATeamAdmin"
-        },
-        {
-        "allowedMemberTypes": [
-            "User"
-        ],
-        "description": "VIDAUser",
-        "displayName": "VIDAUser",
-        "id": "37b3218c-0c06-484f-90e6-4390ce5a8787",
-        "isEnabled": true,
-        "origin": "ServicePrincipal",
-        "value": "VIDAUser"
-        }
-    ]
+        "origin": "Application",
+        "value": null
+    },
+    {
+    "allowedMemberTypes": [
+        "User"
+    ],
+    "description": "VIDACompanyAdmin",
+    "displayName": "VIDACompanyAdmin",
+    "id": "293414bb-2215-48b4-9864-64520937d437",
+    "isEnabled": true,
+    "origin": "ServicePrincipal",
+    "value": "VIDACompanyAdmin"
+    },
+    {
+    "allowedMemberTypes": [
+        "User"
+    ],
+    "description": "VIDATeamAdmin",
+    "displayName": "VIDATeamAdmin",
+    "id": "2884f1ae-5c0d-4afd-bf28-d7d11a3d7b2c",
+    "isEnabled": true,
+    "origin": "ServicePrincipal",
+    "value": "VIDATeamAdmin"
+    },
+    {
+    "allowedMemberTypes": [
+        "User"
+    ],
+    "description": "VIDAUser",
+    "displayName": "VIDAUser",
+    "id": "37b3218c-0c06-484f-90e6-4390ce5a8787",
+    "isEnabled": true,
+    "origin": "ServicePrincipal",
+    "value": "VIDAUser"
     }
-    
-    ```
-   
-        > [!NOTE]
-        > Azure AD will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
+]
+}
+```
+> [!NOTE]
+> Azure AD will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
 
-    g. After the 'Service Principal' is patched with the required role, attach the role with the Azure AD user (B.Simon) by following the steps of **Assign the Azure AD test user** section of the tutorial.
+g. After the 'Service Principal' is patched with the required role, attach the role with the Azure AD user (B.Simon) by following the steps of **Assign the Azure AD test user** section of the tutorial.
 
 ## Configure VIDA SSO
 
