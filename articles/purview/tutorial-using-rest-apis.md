@@ -253,21 +253,13 @@ If after following this tutorial and making some tests, you will no longer need 
 To remove your service principal's access to purview, you will need to remove the permissions you assigned at the beginning of the tutorial.
 
 1. Navigate to your Purview account
-
 1. On the **Purview account** page, open the **Purview Studio**
-
 1. Select the **Data Map** in the left menu.
-
 1. Select **Collections**
-
 1. Select the root collection in the collections menu. This will be the top collection in the list, and will have the same name as your Purview account.
-
 1. Select the **Role assignments** tab.
-
 1. Scroll down to **Data curators** and locate your service principal in the list.
-
 1. Select the **X** icon next to your service principal's name.
-
 1. Select **Confirm** on the window that appears to confirm removal.
 
 ### Remove service principal from subscription
