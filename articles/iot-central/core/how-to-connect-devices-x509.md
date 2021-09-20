@@ -575,7 +575,7 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
     sudo systemctl restart iotedge
     ```
 
-To learn more, see [Create and provision an IoT Edge device using X.509 certificates](../../iot-edge/how-to-auto-provision-x509-certs.md).
+To learn more, see [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](../../iot-edge/how-to-provision-devices-at-scale-linux-x509.md).
 
 ## Connect an IoT Edge leaf device
 
