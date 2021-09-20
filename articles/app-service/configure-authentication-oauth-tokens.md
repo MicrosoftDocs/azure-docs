@@ -46,13 +46,16 @@ When your provider's access token (not the [session token](#extend-session-token
         "identityProviders": {
           "azureActiveDirectory": {
             "login": {
-              "loginParameters": ["scope=openid offline_access"]
+              "loginParameters": ["scope=openid profile email offline_access"]
             }
           }
         }
         ```
 
     5. Click **Put**.
+    
+> [!NOTE]
+> Further information on the modified scope value can be found on the Microsoft Identity [OpenID Connection Scopes](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes).
 
 > [!NOTE]
 > If you configured your application with the Authentication (Classic) blade, instead of navigating to the the **authSettingsV2** section in [https://resources.azure.com](https://resources.azure.com), navigate to **authsettings**. Then edit the setting ```"additionalLoginParams": ["scope=openid offline_access"]```.
