@@ -562,7 +562,7 @@ If the problem persists, please contact Azure Support.
 
 ### Accidental deletion of key vault or key
 
-Deletion of the key vault, or the key, used to encrypt a registry with a customer-managed key will make the registry's content inaccessible. Use the key vault's [soft-delete](../key-vault/general/soft-delete-overview.md) feature, enabled by default, to recover a deleted vault or key vault object and resume registry operations.
+Deletion of the key vault, or the key, used to encrypt a registry with a customer-managed key will make the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
 
 For key vault deletion and recovery scenarios, see [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md).
 
