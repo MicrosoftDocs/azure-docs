@@ -122,6 +122,7 @@ Use the .p8 file you downloaded previously to sign the client secret into a JWT 
 
     - **appleTeamId**: Your Apple Developer Team ID
     - **appleServiceId**: The Apple Service ID (client ID)
+    - **appleKeyId**: The 10 digit Key Id stored in the JWT Header (required by Apple)
     - **p8key**: The PEM format key. You can obtain this by opening the .p8 file in a text editor and copying everything between 
     `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` without line breaks.
  
@@ -131,6 +132,7 @@ The following json is an example of a call to the Azure function:
 {
     "appleTeamId": "ABC123DEFG",
     "appleServiceId": "com.yourcompany.app1",
+    "appleKeyId": "URKEYID001",
     "p8key": "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg+s07NiAcuGEu8rxsJBG7ttupF6FRe3bXdHxEipuyK82gCgYIKoZIzj0DAQehRANCAAQnR1W/KbbaihTQayXH3tuAXA8Aei7u7Ij5OdRy6clOgBeRBPy1miObKYVx3ki1msjjG2uGqRbrc1LvjLHINWRD"
 }
 ```

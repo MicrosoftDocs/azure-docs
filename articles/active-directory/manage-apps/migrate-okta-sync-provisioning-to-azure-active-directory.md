@@ -26,7 +26,7 @@ Migrating synchronization platforms isn't a small change. Each step of the proce
 
 When switching from Okta provisioning to Azure AD, customers have
 two choices, either Azure AD Connect Server, or Azure AD cloud
-provisioning. It is recommended to read the full [comparison article from Microsoft](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad- connect-and-cloud-sync) to understand the differences between the two products.
+provisioning. It is recommended to read the full [comparison article from Microsoft](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync) to understand the differences between the two products.
 
 Azure AD cloud provisioning will be most familiar migration path for Okta customers using Universal or User sync. The cloud provisioning agents are lightweight, and can be installed on or near domain controllers like the Okta directory sync agents. It is not recommended to install them on the same server.
 

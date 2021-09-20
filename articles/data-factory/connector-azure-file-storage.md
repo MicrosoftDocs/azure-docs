@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 09/10/2021
 ---
 
 # Copy data from or to Azure Files by using Azure Data Factory
@@ -168,7 +168,7 @@ The service supports the following properties for using shared access signature 
 }
 ```
 
-**Example: store the account key in Azure Key Vault**
+**Example: store the SAS token in Azure Key Vault**
 
 ```json
 {
@@ -187,7 +187,8 @@ The service supports the following properties for using shared access signature 
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
-            }
+            },
+            "fileShare": "<file share name>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

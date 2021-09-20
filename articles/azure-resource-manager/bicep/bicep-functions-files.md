@@ -2,7 +2,7 @@
 title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/13/2021
 ---
 
 # File functions for Bicep
@@ -13,7 +13,7 @@ This article describes the Bicep functions for loading content from external fil
 
 `loadFileAsBase64(filePath)`
 
-Loads the content of the specified file as a base64 string. 
+Loads the file as a base64 string. 
 
 ### Parameters
 
@@ -23,7 +23,7 @@ Loads the content of the specified file as a base64 string.
 
 ### Remarks
 
-Use this function when you have base64 content that is stored in a separate file. Rather than duplicating the content into your Bicep file, load the content with this function. The file is loaded when the Bicep file is compiled to a JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
+Use this function when you have binary content you would like to include in deployment. Rather than manually encoding the file to a base64 string and adding it to your Bicep file, load the file with this function. The file is loaded when the Bicep file is compiled to a JSON template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
 This function requires **Bicep version 0.4.412 or later**. 
 
@@ -31,7 +31,7 @@ The maximum allowed size of the file is **96 Kb**.
 
 ### Return value
 
-The contents of the file as a base64 string.
+The file as a base64 string.
 
 ## loadTextContent
 

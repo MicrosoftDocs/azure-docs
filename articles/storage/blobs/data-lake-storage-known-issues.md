@@ -18,7 +18,7 @@ This article describes limitations and known issues for accounts that have the h
 
 ## Supported Blob storage features
 
-An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md).
 
 ## Supported Azure service integrations
 

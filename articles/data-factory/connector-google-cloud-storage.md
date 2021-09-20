@@ -37,7 +37,7 @@ The following setup is required on your Google Cloud Storage account:
 3. Create a service account and define the right levels of permissions by using Cloud IAM on GCP. 
 4. Generate the access keys for this service account.
 
-![Retrieve access key for Google Cloud Storage](media/connector-google-cloud-storage/google-storage-cloud-settings.png)
+:::image type="content" source="media/connector-google-cloud-storage/google-storage-cloud-settings.png" alt-text="Retrieve access key for Google Cloud Storage":::
 
 ## Required permissions
 

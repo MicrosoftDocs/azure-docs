@@ -33,7 +33,7 @@ Retention period property provides the capability to clean up the videos automat
       }
     },
 ```
-* It could also be set via Video Sink node while creating pipeline topology, you will find `retentionPeriod` property part of VideoCreationProperties of sink node. Once set it will be applied to all videos created using this pipeline topology.
+* It could also be set by Video Sink node while creating pipeline topology, you will find `retentionPeriod` property part of VideoCreationProperties of sink node. Once set it will be applied to all videos created using this pipeline topology.
 Example of `retentionPeriod` property set to 7 days in Video Sink node is shown below:
 
 ```

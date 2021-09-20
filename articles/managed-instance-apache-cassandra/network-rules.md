@@ -31,7 +31,7 @@ If you are using Azure Firewall to restrict outbound access, we highly recommend
 | AzureActiveDirectory| HTTPS | 443 | Required for Azure Active Directory authentication.|
 | GuestandHybridManagement | HTTPS | 443 |  Required to gather information about and manage Cassandra nodes (for example, reboot) |
 | ApiManagement  | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot) |
-| `Storage.<Region>`  | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration. **You need an entry for each region where you have deployed a datacenter.** |
+| Storage.\<Region\>  | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration. **You need an entry for each region where you have deployed a datacenter.** |
 
 ## Azure Global required network rules
 
