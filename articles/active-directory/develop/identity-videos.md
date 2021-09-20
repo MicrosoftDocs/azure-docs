@@ -254,7 +254,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=E2OUluQQKSk" target="_blank">Organizational and personal Microsoft account differences</a
+        <a href="https://www.youtube.com/watch?v=E2OUluQQKSk" target="_blank">Organizational and personal Microsoft account differences</a>
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/E2OUluQQKSk]
