@@ -157,25 +157,20 @@ In this section, you'll attach the secondary network interface you created previ
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+If you're not going to continue to use this application, delete the public IP address with the following steps:
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+1. In the search box at the top of the portal, enter **Resource group**.
 
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+2. In the search results, select **Resource groups**.
+
+3. Select **TutorVMMixRoutePref-rg**
+
+4. Select **Delete resource group**.
+
+5. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to create a public IP prefix:
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+> [Configure routing preference for a Kubernetes cluster using Azure CLI](routing-preference-azure-kubernetes-service-cli.md)
