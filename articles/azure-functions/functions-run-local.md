@@ -24,9 +24,11 @@ Developing functions on your local computer and publishing them to Azure using C
 > * [Run the function locally.](#start)
 > * [Publish the project to Azure.](#publish)
 
-## Core Tools versions
+## <a name="v2"></a>Core Tools versions
 
-There are four versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
+There are four versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required.
+
+Choose a version tab below to learn about each specific version and for detailed installation instructions:
 
 # [Version 4.x](#tab/v4)
 
@@ -46,14 +48,14 @@ Supports version 1.x of the Azure Functions runtime. This version of the tools i
 
 ---
 
-You can only install one version of Core Tools on a given computer. Choose a version tab above to learn about each specific version. Unless otherwise noted, the examples in this article are for version 3.x.
+You can only install one version of Core Tools on a given computer.  Unless otherwise noted, the examples in this article are for version 3.x.
 
 ## Prerequisites
 
 Azure Functions Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. 
 This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
-## <a name="v2"></a>Install the Azure Functions Core Tools
+## Install the Azure Functions Core Tools
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
