@@ -145,6 +145,6 @@ In addition to the general guidelines above, each analytics system or framework 
 
 ## See also
 
-* [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
-* [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
+- [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
+- [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
 
