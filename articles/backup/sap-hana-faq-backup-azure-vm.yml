@@ -171,12 +171,11 @@ sections:
           To avoid the above issues, we recommend you to stop protection for a node after it becomes secondary (so that connections aren’t attempted and user is not locked) and resume protection on it, once it becomes primary. If you don’t face this locking situation on their HSR setups and are comfortable with alerts being raised, you can configure backups on both the nodes so that the service handles the take-over and fail-back.
 
       - question: |
-         What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
+          What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
         answer: |
-          Refer to [the backup and restore throughput performance](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads.
-	        
-          To set up your HANA system to leverage the improved performance, use the following resources:
-	        
+          Refer to [the backup and restore throughput performance](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources
+          
+          <ul><li> [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types#premium-ssd) </li><li>  [Performance tiers for Azure managed disks](/azure/virtual-machines/disks-change-performance) </li><li> [M-series](/azure/virtual-machines/m-series) </li><li>   [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) </li></ul>
 	        
           >[!Note]
           >You can also [limit the backup throughput performance](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance).
