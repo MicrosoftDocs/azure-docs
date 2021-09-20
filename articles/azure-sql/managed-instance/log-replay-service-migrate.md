@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 09/07/2021
+ms.date: 09/21/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -85,9 +85,13 @@ After LRS is stopped, either automatically through autocomplete or manually thro
 - Shared access signature (SAS) security token with read and list permissions generated for the Blob Storage container
 
 ### Migration of multiple databases
-You must place backup files for different databases in separate folders on Blob Storage.
+You must place backup files for different databases in separate folders on Blob Storage. All backup files for a single database must be placed in the root of a single folder. Backups of individual database must not be placed into subfolders. LRS must be started separately for each database pointing to the full URI path containing an individual database folder.
 
-Start LRS separately for each database by pointing to an appropriate folder on Blob Storage. LRS can support up to 100 simultaneous restore processes per single managed instance.
+The following is an example of the folder structure and URI specification required for multiple database support. In this example, LRS needs to be invoked multiple times, once for each database, specifying the full storage container path.
+
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/**database1**/<all database 1 backup files>
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/**database2**/<all database 2 backup files>
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/**database3**/<all database 3 backup files>
 
 ### Azure RBAC permissions
 Running LRS through the provided clients requires one of the following Azure roles:
@@ -389,7 +393,8 @@ Functional limitations of LRS are:
 - The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only read and list permissions.
 - Backup files for different databases must be placed in separate folders on Blob Storage.
 - Backup files containing % and $ characters in the file name cannot be consumed by LRS. Consider renaming such file names.
-- LRS must be started separately for each database that points to separate folders with backup files on Blob Storage.
+- Placing backups into subfolders for an individual database is not supported. All backups for a single database must be placed in the root of a single folder.
+- In case of multiple databases, backup files must be placed in a separate folder for each database. LRS must be started separately for each database pointing to the full URI path containing an individual database folder. 
 - LRS can support up to 100 simultaneous restore processes per single managed instance.
 
 ## Troubleshooting
