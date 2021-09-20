@@ -52,7 +52,7 @@ Once you have a service principal that you've granted access to your container r
 Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> You can regenerate the client secret of a service principal by running the [az ad sp credential reset](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) command.
+> You can regenerate the password (client secret) of a service principal by running the [az ad sp credential reset](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) command.
 >
 
 ### Use credentials with Azure services
