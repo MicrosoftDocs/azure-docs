@@ -335,6 +335,18 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 * `log_ambari_audit_CL` - this table provides audit logs from Ambari.
 * `log_ranger_audti_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
 
+---
+
+## Update the OMS Agent used by HDInsight Azure Monitor Integration
+
+If you are behind a firewall you may need to complete the [Prerequisites for clusters behind a firewall](#oms-with-firewall) before completing these steps.
+
+1. From the [Azure portal](https://portal.azure.com/), select your cluster. The cluster is opened in a new portal page.
+1. From the left, under **Monitoring**, select **Azure Monitor**.
+1. Note the name of your current Log Analytics workspace.
+1. From the main view, under **Azure Monitor Integration**, disable the toggle, and then select **Save**. 
+1. After the setting saves, re-enable the **Azure Monitor Integration** toggle, and ensure the same Log Analytics workspace is selected, and then select **Save**.
+
 ## Next steps
 
 * [Query Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
