@@ -39,7 +39,7 @@ Edit the highlighted lines in the script with your values for variables.
 
 After the sample script has been run, the following code snippet can be used to clean up the resources.
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/mmysql/flexible-server/manage-server/clean-up-resources.sh?highlight=4 "Clean up resources.")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/manage-server/clean-up-resources.sh?highlight=4 "Clean up resources.")]
 
 ## Script explanation
 
