@@ -12,7 +12,7 @@ ms.date: 09/13/2021
 In some cases, you might have your Azure AKS cluster in one Azure Active Directory (Azure AD) tenant and your Azure container registry in a different tenant. This article walks through the steps to enable cross-tenant authentication using the AKS service principal credential to pull from the container registry.
 
 > [!NOTE]
-> You can't use an AKS managed identity for cross-registry authentication.
+> You can't attach the registry and authenticate using an AKS managed identity when the cluster and the container registry are in different tenants.
 
 ## Scenario overview
 Assumptions for this example:
@@ -77,5 +77,6 @@ Updating the service principal can take several minutes.
 * Learn more [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
 * Learn more about image pull secrets in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
 - Learn about [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+- Learn more about [scenarios to authenticate with Azure Container Registry](authenticate-kubernetes-options.md) from a Kubernetes cluster
 
 
