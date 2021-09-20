@@ -58,7 +58,7 @@ The following outbound use cases suggest how to use App Service networking featu
 | Outbound use case | Feature |
 |---------------------|-------------------|
 | Access resources in an Azure virtual network in the same region | VNet Integration </br> ASE |
-| Access resources in an Azure virtual network in a different region | Gateway-required VNet Integration </br> ASE and virtual network peering |
+| Access resources in an Azure virtual network in a different region | VNet Integration and virtual network peering </br> Gateway-required VNet Integration </br> ASE and virtual network peering |
 | Access resources secured with service endpoints | VNet Integration </br> ASE |
 | Access resources in a private network that's not connected to Azure | Hybrid Connections |
 | Access resources across Azure ExpressRoute circuits | VNet Integration </br> ASE | 
@@ -148,9 +148,9 @@ Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name
 * Restrict access to a specific Azure Front Door instance with a service tag rule and X-Azure-FDID header restriction
 
-### Private Endpoint
+### Private endpoint
 
-Private Endpoint is a network interface that connects you privately and securely to your Web App by Azure private link. Private Endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app.
+Private endpoint is a network interface that connects you privately and securely to your Web App by Azure private link. Private endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app.
 For more information, see
 [Using private endpoints for Azure Web App][privateendpoints].
 
@@ -194,9 +194,9 @@ Gateway-required App Service VNet Integration enables your app to make *outbound
 
 This feature solves the problem of accessing resources in other virtual networks. It can even be used to connect through a virtual network to either other virtual networks or on-premises. It doesn't work with ExpressRoute-connected virtual networks, but it does work with site-to-site VPN-connected networks. It's usually inappropriate to use this feature from an app in an App Service Environment (ASE) because the ASE is already in your virtual network. Use cases for this feature:
 
-* Access resources on private IPs in your Azure virtual networks. 
-* Access resources on-premises if there's a site-to-site VPN. 
-* Access resources in peered virtual networks. 
+* Access resources on private IPs in your Classic virtual networks.
+* Access resources on-premises if there's a site-to-site VPN.
+* Access resources in cross region VNets that are not peered to a VNet in the region. 
 
 When this feature is enabled, your app will use the DNS server that the destination virtual network is configured with. For more information on this feature, see [App Service VNet Integration][vnetintegrationp2s]. 
 
@@ -204,13 +204,15 @@ When this feature is enabled, your app will use the DNS server that the destinat
 
 Gateway-required VNet Integration is useful, but it doesn't solve the problem of accessing resources across ExpressRoute. On top of needing to reach across ExpressRoute connections, there's a need for apps to be able to make calls to services secured by service endpoint. Another VNet Integration capability can meet these needs. 
 
-The new VNet Integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
+The regional VNet Integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
 
 * Access resources in Resource Manager virtual networks in the same region.
+* Access resources in peered virtual networks, including cross region connections.
 * Access resources that are secured with service endpoints. 
 * Access resources that are accessible across ExpressRoute or VPN connections.
-* Help to secure all outbound traffic. 
-* Force tunnel all outbound traffic. 
+* Access resources in private networks without the need and cost of a Virtual Network gateway.
+* Help to secure all outbound traffic.
+* Force tunnel all outbound traffic.
 
 ![Diagram that illustrates VNet Integration.](media/networking-features/vnet-integration.png)
 
