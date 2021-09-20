@@ -73,7 +73,7 @@ sections:
         For more information, see [How to use the content-aware encoding preset](./encode-content-aware-how-to.md).
     - question: Can I use an externally encoded or existing MP4 file in Media Services?
       answer: | 
-        Yes. For details and links to a sample application that shows how to upload a single-bitrate MP4 file that's pre-encoded and generate the server manifest (.ism) and client manifest (.ismc), see the answer to the question "Can I stream existing MP4 files that are pre-encoded or encoded in another solution?" in the section about pakaging and delivery. That answer also describes the performance impact on the origin.
+        Yes. For details and links to a sample application that shows how to upload a single-bitrate MP4 file that's pre-encoded and generate the server manifest (.ism) and client manifest (.ismc), see the answer to the question "Can I stream existing MP4 files that are pre-encoded or encoded in another solution?" in the section about packaging and delivery. That answer also describes the performance impact on the origin.
     - question: Can Media Services be used for very short-form file content encoding?
       answer: | 
         We don't recommend it. Very short content that's less than a minute or two in duration is not ideal for adaptive bitrate streaming. If you intend to stream very short-form files, we recommend that you pre-encode the content into a format that's 
