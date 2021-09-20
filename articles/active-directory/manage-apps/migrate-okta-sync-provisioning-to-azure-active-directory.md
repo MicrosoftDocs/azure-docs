@@ -2,7 +2,7 @@
 
 title: Tutorial to migrate Okta sync provisioning to Azure AD Connect-based synchronization
 titleSuffix: Active Directory
-description: Learn how to migrate your Okta sync provisioning to Azure AD Connect-based synchronization.
+description: In this tutorial, you learn how to migrate your Okta sync provisioning to Azure AD Connect-based synchronization.
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -16,9 +16,9 @@ ms.subservice: app-mgmt
 ---
 
 
-# Migrate Okta sync provisioning to Azure AD Connect-based synchronization
+# Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization
 
-This article will guide organizations that currently use User provisioning from Okta to Azure Active Directory (Azure AD) and migrate either User sync or Universal sync to Azure AD Connect. This capability will enable further provisioning into Azure AD and Office 365.
+In this tutorial, you'll learn how your organization can currently migrate User provisioning from Okta to Azure Active Directory (Azure AD) and migrate either User sync or Universal sync to Azure AD Connect. This capability will enable further provisioning into Azure AD and Office 365.
 
 Migrating synchronization platforms isn't a small change. Each step of the process mentioned in this article should be validated against your own environment before you remove Azure AD Connect from staging mode or enable the Azure AD cloud provisioning agent.
 
@@ -38,7 +38,7 @@ Use an Azure AD Connect server if your organization needs to take advantage of a
 >[!NOTE]
 >All prerequisites should be taken into consideration when you install Azure AD Connect or Azure AD cloud provisioning. To learn more before you continue with installation, see [Prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
-## Step 1: Confirm ImmutableID attribute synchronized by Okta
+## Confirm ImmutableID attribute synchronized by Okta
 
 ImmutableID is the core attribute used to tie synchronized objects to their on-premises counterparts. Okta takes the Active Directory objectGUID of an on-premises object and converts it to a Base64 encoded string. Then, by default it stamps that string to the ImmutableID field in Azure AD.
 
@@ -73,7 +73,7 @@ After the module is installed, import it, and follow these steps to connect to t
 
    ![Screenshot that shows how to manually change Okta objectGUID to ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/manual-objectguid.png)
 
-## Step 2: Mass validation methods for objectGUID
+## Mass validation methods for objectGUID
 
 Before you cut over to Azure AD Connect, it's critical to validate that the ImmutableIDs in Azure AD are going to exactly match their on-premises values.
 
@@ -109,7 +109,7 @@ The example will grab *all* on-premises Azure AD users and export a list of thei
    >[!IMPORTANT]
    >If your ImmutableIDs in the cloud don't match objectGUID values, you've modified the defaults for Okta sync. You've likely chosen another attribute to determine ImmutableIDs. Before you move on to the next section, it's critical to identify which source attribute is populating ImmutableIDs. Ensure that you update the attribute Okta is syncing before you disable Okta sync.
 
-## Step 3: Install Azure AD Connect in staging mode
+## Install Azure AD Connect in staging mode
 
 After you've prepared your list of source and destination targets, it's time to install an Azure AD Connect server. If you've opted to use Azure AD Connect cloud provisioning, skip this section.
 
@@ -167,11 +167,11 @@ After you've prepared your list of source and destination targets, it's time to 
    >[!NOTE]
    >Before you continue to the next step, ensure all user attributes are syncing properly and show on the **Pending Export** tab as expected. If they're deleted, make sure their ImmutableIDs match and the user is in one of the selected OUs for synchronization.
 
-## Step 4: Install Azure AD cloud sync agents
+## Install Azure AD cloud sync agents
 
 After you've prepared your list of source and destination targets, it's time to [install and configure Azure AD cloud sync agents](../cloud-sync/tutorial-single-forest.md). If you've opted to use an Azure AD Connect server, skip this section.
 
-## Step 5: Disable Okta provisioning to Azure AD
+## Disable Okta provisioning to Azure AD
 
 After the Azure AD Connect installation has been verified and your pending exports are in order, it's time to disable Okta provisioning to Azure AD.
 
@@ -186,7 +186,7 @@ After the Azure AD Connect installation has been verified and your pending expor
    >[!NOTE]
    >If you have multiple Office 365 apps handling provisioning to Azure AD, ensure they're all switched off.
 
-## Step 6: Disable staging mode in Azure AD Connect
+## Disable staging mode in Azure AD Connect
 
 After you disable Okta provisioning, the Azure AD Connect server is ready to begin synchronizing objects. If you've chosen to go with Azure AD cloud sync agents, skip this section.
 
@@ -212,7 +212,7 @@ After you disable Okta provisioning, the Azure AD Connect server is ready to beg
 
 You've now successfully migrated to Azure AD Connect server-based provisioning. Updates and expansions to the feature set of Azure AD Connect can be done by rerunning the installation wizard.
 
-## Step 7: Enable cloud sync agents
+## Enable cloud sync agents
 
 After you disable Okta provisioning, the Azure AD cloud sync agent is ready to begin synchronizing objects. Return to the [Azure AD portal](https://aad.portal.azure.com/).
 
@@ -225,6 +225,7 @@ After you disable Okta provisioning, the Azure AD cloud sync agent is ready to b
 1. If a user is mismatched, make the necessary updates to bind the ImmutableIDs. Then restart the cloud provisioning sync.
 
 ## Next steps
+For more information about migrating from Okta to Azure AD, see:
 
 - [Migrate applications from Okta to Azure AD](migrate-applications-from-okta-to-azure-active-directory.md)
 - [Migrate Okta federation to Azure AD managed authentication](migrate-okta-federation-to-azure-active-directory.md)
