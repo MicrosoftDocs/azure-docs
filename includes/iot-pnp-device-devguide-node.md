@@ -39,7 +39,7 @@ As described in [Understand components in IoT Plug and Play models](../articles/
 
 ## Telemetry
 
-A default component doesn't require any special property.
+A default component doesn't require any special property added to the telemetry message.
 
 When using nested components, devices must set a message property with the component name:
 
@@ -77,7 +77,7 @@ deviceTwin.properties.reported.update(patchThermostat, function (err) {
 });
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -87,7 +87,7 @@ The device twin is updated with the next reported property:
 }
 ```
 
-When using nested components, properties must be created within the component name.:
+When using nested components, properties must be created within the component name and include a marker.:
 
 ```nodejs
 helperCreateReportedPropertiesPatch = (propertiesToReport, componentName) => {
@@ -113,7 +113,7 @@ deviceTwin.properties.reported.update(patchThermostat1Info, function (err) {
 });
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -153,7 +153,7 @@ deviceTwin.properties.reported.update(patch, function (err) {
 });
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -187,7 +187,7 @@ deviceTwin.properties.reported.update(patch, function (err) {
 });
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -207,7 +207,7 @@ The device twin is updated with the next reported property:
 
 ### Subscribe to desired property updates
 
-Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties, including the version number identifying the update. Devices must respond with the same `ack` message as reported properties.
+Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties, including the version number identifying the update. Devices must include this version number in the  `ack` message sent back to the service.
 
 A default component sees the single property and creates the reported `ack` with the received version:
 
@@ -238,7 +238,7 @@ desiredPropertyPatchHandler = (deviceTwin) => {
 };
 ```
 
-The device twin shows the property in the desired and reported sections:
+The device twin for a nested component shows the desired and reported sections as follows:
 
 ```json
 {

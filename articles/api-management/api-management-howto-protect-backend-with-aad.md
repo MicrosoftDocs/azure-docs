@@ -3,11 +3,11 @@ title: Protect API backend in API Management using OAuth 2.0 and Azure Active Di
 titleSuffix: Azure API Management
 description: Learn how to secure user access to a web API backend in Azure API Management and the developer portal with OAuth 2.0 user authorization and Azure Active Directory.
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 09/17/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: contperf-fy21q1
 ---
 
