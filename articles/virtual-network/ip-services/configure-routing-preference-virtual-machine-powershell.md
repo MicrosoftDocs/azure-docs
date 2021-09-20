@@ -10,7 +10,8 @@ ms.date: 09/20/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Configure routing preference for a VM using the Azure CLI
+# Tutorial: Configure routing preference for a VM using Azure PowerShell
+
 This tutorial shows you how to configure routing preference for a virtual machine. Internet bound traffic from the VM will be routed via the ISP network when you choose **Internet** as your routing preference option. The default routing is via the Microsoft global network.
 
 In this tutorial, you learn how to:
