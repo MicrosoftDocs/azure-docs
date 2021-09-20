@@ -121,7 +121,7 @@ To learn how to enable this feature, see [Configuring access restrictions][ipres
 Service endpoints allow you to lock down *inbound* access to your app so that the source address must come from a set of subnets that you select. This feature works together with IP access restrictions. Service endpoints aren't compatible with remote debugging. If you want to use remote debugging with your app, your client can't be in a subnet that has service endpoints enabled. The process for setting service endpoints is similar to the process for setting IP access restrictions. You can build an allow/deny list of access rules that includes public addresses and subnets in your virtual networks.
 
 > [!NOTE]
-> Access restriction rules based on service endpoints are not supported on apps that use IP-based SSL ([App-assigned address](#App-assigned-address)).
+> Access restriction rules based on service endpoints are not supported on apps that use IP-based SSL ([App-assigned address](#app-assigned-address)).
 
 Some use cases for this feature:
 
@@ -203,7 +203,7 @@ This feature solves the problem of accessing resources in other virtual networks
 
 When this feature is enabled, your app will use the DNS server that the destination virtual network is configured with. For more information on this feature, see [App Service VNet Integration][vnetintegrationp2s]. 
 
-### VNet Integration
+### Regional VNet Integration
 
 Gateway-required VNet Integration is useful, but it doesn't solve the problem of accessing resources across ExpressRoute. On top of needing to reach across ExpressRoute connections, there's a need for apps to be able to make calls to services secured by service endpoint. Another VNet Integration capability can meet these needs. 
 
