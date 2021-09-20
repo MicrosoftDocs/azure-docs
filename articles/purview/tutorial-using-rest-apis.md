@@ -15,17 +15,6 @@ ms.date: 09/17/2021
 
 In this tutorial, you learn how to use the Azure Purview REST APIs. Anyone who wants to submit data to an Azure Purview, include Purview as part of an automated process, or build their own user experience on the Purview can use the REST APIs to do so.
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
->
-> * Create a service principal (application).
-> * Configure your Purview to trust the service principal (application).
-> * View the REST APIs documentation.
-> * Collect the necessary values to use the REST APIs.
-> * Use the Postman client to call the REST APIs.
-> * Generate a .NET client to call the REST APIs.
-
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Prerequisites
@@ -86,7 +75,7 @@ Once service principal is created, you need to assign Data plane roles of your p
     1. 'Collection Admin' role to access Account Data Plane.
 
 > [!Note]
-> Only Collection Admins can edit permissions on a collection. If you are not a collection admin, contact one of the admins listed in the root collection. For more information, see the Purview permissions page[catalog-permissions.md].
+> Only Collection Admins can edit permissions on a collection. If you are not a collection admin, contact one of the admins listed in the root collection. For more information, see the [Purview permissions page](catalog-permissions.md).
  
 
 ## Get Token
@@ -102,20 +91,25 @@ grant_type: This should be ‘client_credentials’.
 resource: This should be ‘https://purview.azure.net’
  
 Sample response token:
-{
-    "token_type": "Bearer",
-    "expires_in": "86399",
-    "ext_expires_in": "86399",
-    "expires_on": "1621038348",
-    "not_before": "1620951648",
-    "resource": "https://purview.azure.net",
-    "access_token": "<<access token>>"
-}
+
+```json
+    {
+        "token_type": "Bearer",
+        "expires_in": "86399",
+        "ext_expires_in": "86399",
+        "expires_on": "1621038348",
+        "not_before": "1620951648",
+        "resource": "https://purview.azure.net",
+        "access_token": "<<access token>>"
+    }
+```
+
 
 Use the access token above to call the Data plane APIs.
 
 ## Data Plane API documentation
-Please refer here to see all the Data Plane APIs supported by Purview [Data Plane APIs](/rest/api/purview)
+Please refer here to see all the Data Plane APIs supported by Purview [Data Plane APIs](https://docs.microsoft.com/rest/api/purview/)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
