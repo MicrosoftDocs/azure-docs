@@ -20,7 +20,8 @@ In this tutorial, you learn how to:
 > * Create a virtual machine with a public IP address with the **Microsoft network** routing preference.
 > * Create a public IP address with the **Internet** routing preference.
 > * Create a secondary network interface for the virtual machine.
-> * Assign **Internet** routing preference IP to virtual machine secondary network interface.
+> * Associate **Internet** routing preference IP to virtual machine secondary network interface.
+> * Attach secondary network interface to virtual machine.
 
 ## Prerequisites
 
@@ -67,28 +68,92 @@ In this section, you'll create a virtual machine and public IP address. During t
     | **Network interface** |   |
     | Virtual network | Leave the default of **(new) TutorVMMixRoutePref-rg-vnet**. |
     | Subnet | Leave the default of **(new) default (10.1.0.0/24)**. |
-    | Public IP | Select **Create new**. </br> In **Name**, enter **myPublicIP**. </br> Select **Standard** in **SKU**. </br> In **Routing preference**, select **Internet**. </br> Select **OK**. |
+    | Public IP | Select **Create new**. </br> In **Name**, enter **myPublicIP**. </br> Select **Standard** in **SKU**. </br> In **Routing preference**, select **Microsoft network**. </br> Select **OK**. |
 
 7. Select **Review + create**.
 
 8. Select **Create**.
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Create a public IP address with Internet routing preference
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+In this section, you'll create a public IP address with the **Internet** routing preference.
 
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
+1. In the portal search box, enter **Public IP address**. In the search results, select **Public IP addresses**.
+
+2. Select **+ Create**.
+
+3. In **Create public IP address**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | IP Version | Leave the default of **IPv4**. |
+    | SKU | Leave the default of **Standard**. |
+    | Tier | Leave the default of **Regional**. |
+    | **IPv4 IP Address Configuration** |   |
+    | Name | Enter **myPublicIP-IR**. |
+    | Routing preference | Select **Internet**. |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorVMMixRoutePref-rg**. |
+    | Location | Select **West US 2**. |
+
+4. Select **Create**.
+
+## Create secondary network interface
+
+In this section, you'll create a secondary network interface for the virtual machine you created previously.
+
+1. In the portal search box, enter **Network interface**. In the search results, select **Network interfaces**.
+
+2. Select **+ Create**.
+
+3. In **Create network interface**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **TutorVMMixRoutePref-rg**. |
+    | Name | Enter **myVMNic2**. |
+    | Region | Select **West US 2**. |
+    | Virtual network | Select **TutorVMMixRoutePref-rg-vnet**. |
+    | Subnet | Select **TutorVMMixRoutePref-rg-vnet/default (10.1.0.0/24)**. |
+    | Network security group | Select **myVM-nsg**. |
+
+4. Select the **Review + create** tab, or select the **Review + create** button at the bottom of the page.
+
+5. Select **Create**.
+
+## Associate the public IP address with secondary NIC
+
+In this section, you'll associate the **Internet** routing preference public IP address you created previously with the network interface you created in the previous section.
+
+1. In the portal search box, enter **Public IP address**. In the search results, select **Public IP addresses**.
+
+2. Select **myPublicIP-IR**.
+
+3. In the **Overview** page of **myPublic-IR**, select **Associate**.
+
+4. In **Associate public IP address**, select **Network interface** in the **Resource type** pull-down box.
+
+5. Select **myVMNic2** in the **Network interface** pull-down box.
+
+6. Select **OK**.
+
+## Attach secondary network interface to virtual machine
+
+In this section, you'll attach the secondary network interface you created previously to the virtual machine.
+
+1. In the portal search box, enter **Virtual machine**. In the search results, select **Virtual machines**.\
+
+2. Select **myVM**.
+
+3. In **myVM**, select **Networking** in **Settings**.
+
+4. In **Networking** of **myVM**, select **Attach network interface**.
+
+5. In **Attach network interface**, select **myVMNic2** in the pull-down box.
+
+6. Select **OK**.
 
 ## Clean up resources
 
