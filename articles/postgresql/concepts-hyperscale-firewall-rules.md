@@ -6,9 +6,9 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 9/12/2019
+ms.date: 9/20/2021
 ---
-# Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Public access in Azure Database for PostgreSQL - Hyperscale (Citus)
 Azure Database for PostgreSQL server firewall prevents all access to your Hyperscale (Citus) coordinator node until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
 To configure your firewall, you create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server level.
 

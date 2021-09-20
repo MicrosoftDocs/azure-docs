@@ -649,9 +649,9 @@
         href: concepts-hyperscale-choose-distribution-column.md
       - name: Table colocation
         href: concepts-hyperscale-colocation.md
-    - name: Security
+    - name: Data access and security
       items:
-      - name: Firewall rules
+      - name: Public access
         href: concepts-hyperscale-firewall-rules.md
         displayName: firewall, rules, hyperscale
       - name: Configure SSL
@@ -700,16 +700,18 @@
         href: howto-hyperscale-scale-grow.md
       - name: Rebalance shards
         href: howto-hyperscale-scale-rebalance.md
-    - name: Firewall rules
+    - name: Data access and security
       items:
-      - name: Azure portal
-        href: howto-hyperscale-manage-firewall-using-portal.md
-        displayName: firewall rule, hyperscale
-    - name: Private link
-      items:
-      - name: Azure portal
-        href: howto-hyperscale-private-link.md
-        displayName: network, private link
+      - name: Public access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-manage-firewall-using-portal.md
+          displayName: firewall rule, hyperscale
+      - name: Private access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-private-link.md
+          displayName: network, private link
     - name: Create users
       href: howto-hyperscale-create-users.md
     - name: Distributed data

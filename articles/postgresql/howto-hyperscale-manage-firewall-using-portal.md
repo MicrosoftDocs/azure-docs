@@ -6,10 +6,10 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 9/11/2020
+ms.date: 9/20/2021
 ---
-# Manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus)
-Server-level firewall rules can be used to manage access to a Hyperscale (Citus) coordinator node from a specified IP address or range of IP addresses.
+# Manage public access for Azure Database for PostgreSQL - Hyperscale (Citus)
+Server-level firewall rules can be used to manage access to a Hyperscale (Citus) coordinator node from a specified IP address or range of IP addresses in the public internet.
 
 ## Prerequisites
 To step through this how-to guide, you need:

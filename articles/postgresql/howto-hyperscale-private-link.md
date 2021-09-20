@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 09/07/2021
+ms.date: 09/20/2021
 ---
 
-# Private link in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Private access in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-This how-to establishes a private link between a virtual machine and an Azure
-Database for PostgreSQL - Hyperscale (Citus) server group.
+This how-to establishes a private link between an Azure virtual machine and an
+Azure Database for PostgreSQL - Hyperscale (Citus) server group.
 
 ## Create a virtual network
 
