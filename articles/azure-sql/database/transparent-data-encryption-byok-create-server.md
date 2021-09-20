@@ -142,8 +142,8 @@ Replace the following values in the example:
 - `<ServerAdminName>`: The SQL Administrator login
 - `<ServerAdminPassword>`: The SQL Administrator password
 - `<IdentityType>`: Type of identity to be assigned to the server. Possible values are `SystemAsssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` and None
-- `<UserAssignedIdentityId>`: The list of user assigned identities
-- `<PrimaryUserAssignedIdentityId>`: The primary User-Managed Identity (UMI) ID
+- `<UserAssignedIdentityId>`: The list of user-assigned managed identities to be assigned to the server (can be one or multiple)
+- `<PrimaryUserAssignedIdentityId>`: The user-assigned managed identity that should be used as the primary or default on this server
 - `<CustomerManagedKeyId>`: The Azure Key Vault URI that is used for encryption
 
 ```powershell
