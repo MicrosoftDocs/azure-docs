@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 09/16/2021
 ms.author: b-juche
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
@@ -74,15 +74,21 @@ This article explains the considerations and steps for enabling LDAP with extend
 4. LDAP NFS users need to have certain POSIX attributes on the LDAP server. Set the attributes for LDAP users and LDAP groups as follows: 
 
     * Required attributes for LDAP users:   
-        `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: user`
+        `uid: Alice`,  
+        `uidNumber: 139`,  
+        `gidNumber: 555`,  
+        `objectClass: user, posixAccount`
     * Required attributes for LDAP groups:   
-        `objectClass: group`, `gidNumber: 555`
+        `objectClass: group, posixGroup`,  
+        `gidNumber: 555`
 
-    You can manage POSIX attributes by using the Active Directory Users and Computers MMC snap-in. The following example shows the Active Directory Attribute Editor:  
+    The values specified for `objectClass` are separate entries. For example, in Multi-valued String Editor, `objectClass` would have separate values (`user` and `posixAccount`) specified as follows for LDAP users:   
+
+    ![Screenshot of Multi-valued String Editor that shows multiple values specified for Object Class.](../media/azure-netapp-files/multi-valued-string-editor.png) 
+
+    You can manage POSIX attributes by using the Active Directory Users and Computers MMC snap-in. The following example shows the Active Directory Attribute Editor. See [Access Active Directory Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) for details.  
 
     ![Active Directory Attribute Editor](../media/azure-netapp-files/active-directory-attribute-editor.png) 
-
-    See [Access Active Directory Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) for details.  
 
 5. If you want to configure an LDAP-integrated NFSv4.1 Linux client, see [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md).
 
