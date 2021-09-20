@@ -68,5 +68,6 @@ To use Azure CLI, see the example [here](/cli/azure/hdinsight#az_hdinsight_creat
 
 ## Next steps
 
+* [Enable Private Link on you private inbound cluster](./hdinsight-private-link.md)
 * [Enterprise Security Package for Azure HDInsight](enterprise-security-package.md)
 * [Enterprise security general information and guidelines in Azure HDInsight](./domain-joined/general-guidelines.md)
