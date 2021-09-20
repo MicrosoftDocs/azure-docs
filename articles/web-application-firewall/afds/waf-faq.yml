@@ -112,7 +112,7 @@ sections:
              **Custom rules**
                * application/x-www-form-urlencoded
 
-          - **DRS 1.X**
+          - **DRS 1.x**
 
              **Managed rules**
                * application/x-www-form-urlencoded
