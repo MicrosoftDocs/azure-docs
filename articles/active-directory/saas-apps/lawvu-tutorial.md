@@ -71,19 +71,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Screenshot of the Edit Basic SAML Configuration page.](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    a. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://api-<REGION>.lawvu.com/sso/validate/<GUID>`
+    - In the **Reply URL** text box, enter a URL by using the pattern:
+    `https://api-<REGION>.lawvu.com/sso/validate/<GUID>`.
 
     > [!NOTE]
-	> This value is not real. Update this value with the actual Reply URL. Contact [LawVu Client support team](mailto:support@lawvu.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > This value is not real. Update this value with the actual Reply URL. Contact [LawVu Client support team](mailto:support@lawvu.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type the URL:
+    - In the **Sign-on URL** text box, enter the URL:
     `https://go.lawvu.com`
 
 1. LawVu application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
@@ -92,17 +92,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, LawVu application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name | Source Attribute|
-	| -------| --------- |
-	| uniqueId | user.objectid |
+    | Name | Source attribute|
+    | -------| --------- |
+    | uniqueId | user.objectid |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![Screenshot of the Certificate download link.](common/certificatebase64.png)
 
 1. On the **Set up LawVu** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Screenshot of the copy configuration URLs.](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -142,13 +142,16 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to LawVu Sign on URL where you can initiate the login flow.  
 
-* Go to LawVu Sign-on URL directly and initiate the login flow from there.
+You have two options to test by using SP initiated:
+
+* In the Azure portal, select **Test this application**. You're redirected to the LawVu Sign on URL where you can initiate the login flow.  
+
+* Go to the LawVu Sign-on URL directly, and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the LawVu for which you set up the SSO. 
+* In the Azure portal, select **Test this application**. You should be automatically signed in to the LawVu for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the LawVu tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the LawVu for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
