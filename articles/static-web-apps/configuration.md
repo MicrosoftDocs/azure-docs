@@ -267,10 +267,50 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 
 When one or more IP address blocks are specified, requests originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
 
+### Azure Front Door support
+
+If you configure Azure Front Door for your site, then add the `AzureFrontDoor.Backend` service tag to the `allowedIpRanges` array.
+
+```json
+"networking": {
+  "allowedIpRanges": ["AzureFrontDoor.Backend"]
+}
+```
+
 ## Authentication
 
 * [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
-* [Custom authentication providers](authentication-custom.md) use the `authentication` property of the settings file. 
+* [Custom authentication providers](authentication-custom.md) use the `authentication` property of the settings file.
+
+## Forwarding gateway
+
+The `forwardingGateway` section designates which host names are allowed to forward to your static web app. You can add multiple values to the `allowedForwardedHosts` array with hostnames of various forms.
+
+```json
+"forwardingGateway": {
+  "allowedForwardedHosts": [
+    "example.org",
+    "www.example.org",
+    "staging.example.org"
+  ]
+}
+```
+
+## Forwarding gateway
+
+When your static web app is hosted in an environment where IP addresses are shared (like with Azure Front Door), then you can use the `forwardingGateway` headers to identify individual sites.
+
+The key/value pairs for `requiredHeaders` are included with each request to the site. Keys are case sensitive, but values are case sensitive.
+
+The following example shows how you can add a key for Azure Front Door, but you can add any key/value pair required for your site in this section.
+
+```json
+"forwardingGateway": {
+  "requiredHeaders": {
+    "X-Azure-FDID" : "10dd26ef"
+  }
+}
+```
 
 ## Example configuration file
 
