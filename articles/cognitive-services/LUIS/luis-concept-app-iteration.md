@@ -50,8 +50,6 @@ An entity schema focuses on entities, which is the data that is extracted from u
 
 For an entity schema, the intention of the utterance is less important to the client application.
 
-A common method of organizing an entity schema is to add all example utterances to the **None** intent.
-
 ### Example of a mixed schema
 
 The most powerful and mature schema is an intent schema with a full range of entities and features. This schema can begin as either an intent or entity schema and grow to include concepts of both, as the client application needs those pieces of information.
