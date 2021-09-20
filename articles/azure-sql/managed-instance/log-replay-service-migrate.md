@@ -89,7 +89,7 @@ You must place backup files for different databases in separate folders on Blob 
 
 The following is an example of the folder structure and URI specification required for multiple database support. In this example, LRS needs to be invoked multiple times, once for each database, specifying the full storage container path.
 
-```powershell
+```URI
 -- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
 https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database1/<all database 1 backup files>
 
