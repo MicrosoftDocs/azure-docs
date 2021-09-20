@@ -30,6 +30,8 @@ The entire device code flow looks similar to the next diagram. We describe each 
 
 ![Device code flow](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
+[!NOTE] As shown in the above diagram, the client which receives the tokens is a different machine than the user_agent where authentication is performed. If you are using facilities such as device registration, Intune policies, conditional access etc. that are applicable to the user_agent, be mindful that the tokens are being sent to a different machine (the client) that may not meet those conditions.
+
 ## Device authorization request
 
 The client must first check with the authentication server for a device and user code that's used to initiate authentication. The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user. From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
