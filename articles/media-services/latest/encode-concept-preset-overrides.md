@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.author: johnde
+ms.author: johndeu
 ms.custom: seodec18
 
 ---
