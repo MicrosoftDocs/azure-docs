@@ -17,7 +17,7 @@ The following example output shows the connection string for the *myconnectedreg
 * The `ACR_REGISTRY_CONNECTION_STRING` environment variable needs to be passed to the connected registry container at runtime. 
 * The `ACR_REGISTRY_LOGIN_SERVER` environment variable is optional. If used, it specifies a unique hostname or FQDN of the login server used to access the connected registry.
 
-    If no value is provided, then the connected registry can be accessed with any login server.       |
+    If no value is provided, then the connected registry can be accessed with any login server.
 
 > [!IMPORTANT]
 > Make sure that you save the generated connection string. The connection string contains a one-time password that cannot be retrieved. If you issue the command again, a new password will be generated.

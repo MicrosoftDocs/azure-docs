@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Pull images from a connected registry
+title: Pull images from a connected registry
 description: Use Azure Container Registry CLI commands to configure a client token and pull images from a connected registry.
 ms.topic: quickstart
 ms.date: 09/16/2021
@@ -8,9 +8,9 @@ author: toddysm
 ms.custom:
 ---
 
-# Quickstart: Pull images from a connected registry
+# Pull images from a connected registry
 
-In this quickstart, you use Azure CLI commands to configure a client token for a [connected registry](intro-connected-registry.md) and use this client token to pull images from the registry.
+To pull images from a [connected registry](intro-connected-registry.md), configure a [client token](overview-connected-registry-access.md#client-tokens)  and pass the token credentials to access registry content.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 * Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli].
@@ -85,7 +85,8 @@ docker pull <IP_address_or_FQDN_of_connected_registry>:<port>/hello-world
 
 ## Next steps
 
-In this quickstart, you learned how to configure a client token for the connected registry and pull a container image.
+* Learn more about [repository-scoped tokens](container-registry-repository-scoped-permissions.md).
+* Learn more about [accessing a connected registry](overview-connected-registry-access.md).
 
 <!-- LINKS - internal -->
 [az-acr-scope-map-create]: /cli/azure/acr/token/#az_acr_token_create
