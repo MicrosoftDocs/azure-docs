@@ -13,7 +13,7 @@ ms.topic: conceptual
 ---
 # What is an Azure Machine Learning component (preview)?
 
-An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see [Create and run machine learning pipelines with the Azure Machine Learning CLI](how-to-create-pipelines-cli.md)). Components can do tasks such as data processing, model training, model scoring, and so on.
+An Azure Machine Learning component (previously known as a module) is a self-contained piece of code that does one step in a machine learning pipeline. Components are the building blocks of advanced machine learning pipelines (see Create and run machine learning pipelines with the Azure Machine Learning CLI). Components can do tasks such as data processing, model training, model scoring, and so on.
 
 A component is analogous to a function - it has a name, parameters, expects input, and returns output. For more information on creating a component, see [create a component](#define-a-component-preview).
 
@@ -80,7 +80,7 @@ command: >-
   --model_output {outputs.model_output}
 ```
 
-The following table explains the fields in the example. For a full list of available fields, see the [YAML component specification reference page](reference-component-yaml.md).
+The following table explains the fields in the example. For a full list of available fields, see the [YAML component specification reference page](reference-yaml-component-command.md).
 
 | Name                | Type                                                     | Required | Description                                                  |
 | ------------------- | -------------------------------------------------------- | -------- | ------------------------------------------------------------ |
@@ -216,6 +216,6 @@ You can also select a component and archive it.
 
 ## Next steps
 
-- [Component YAML reference](reference-component-yaml.md)
-- [Create and run ML pipelines (CLI)](how-to-create-pipelines-cli.md)
+- [Component YAML reference](reference-yaml-component-command.md)
+- Create and run ML pipelines (CLI)
 - [Build machine learning pipelines in the designer](tutorial-designer-automobile-price-train-score.md)
