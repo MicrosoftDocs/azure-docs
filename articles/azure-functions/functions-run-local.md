@@ -45,16 +45,58 @@ This means that you must install one of these tools to be able to [publish to Az
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
-### <a name="v2"></a>Version 3.x and 2.x
-
-Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2). 
+Starting with version 2.x, Core Tools is built on .NET Core. This means that version 2.x and higher versions run on all platforms .NET Core supports, including [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2).
 
 > [!IMPORTANT]
-> You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
+> For non-.NET languages, you can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
 
-# [Windows](#tab/windows)
+# [Version 4.x](#tab/v4/windows)
 
-The following steps use a Windows installer (MSI) to install Core Tools v3.x. For more information about other package-based installers, which are required to install Core Tools v2.x, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+Installing version 4.x of the Core Tools currently requires npm. You can also [use Chocolatey to install the package](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#azure-functions-core-tools).
+
+1. If you haven't already done so, [install Node.js with npm](https://nodejs.org/en/download/). 
+
+1. Run the following npm command to install the Core Tools package:
+
+    ```
+    npm i -g azure-functions-core-tools@4 --unsafe-perm true
+    ```
+
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
+
+# [Version 4.x](#tab/v4/macos)
+
+The following steps use Homebrew to install the Core Tools on macOS.
+
+1. Install [Homebrew](https://brew.sh/), if it's not already installed.
+
+1. Install the Core Tools package:
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@4
+    # if upgrading on a machine that has 2.x or 3.x installed:
+    brew link --overwrite azure-functions-core-tools@4
+    ```
+    
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for macOS](https://dotnet.microsoft.com/download).
+
+# [Version 4.x](#tab/v4/linux)
+
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
+
+4. Install the Core Tools package:
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install azure-functions-core-tools-4
+    ```
+
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
+
+# [Version 3.x](#tab/v3/windows)
+
+The following steps use a Windows installer (MSI) to install Core Tools v3.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Download and run the Core Tools installer, based on your version of Windows:
 
@@ -63,7 +105,7 @@ The following steps use a Windows installer (MSI) to install Core Tools v3.x. Fo
 
 1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
 
-# [macOS](#tab/macos)
+# [Version 3.x](#tab/v3/macos)
 
 The following steps use Homebrew to install the Core Tools on macOS.
 
@@ -71,16 +113,49 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 1. Install the Core Tools package:
 
-    ##### v3.x (recommended)
-
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools@3
-    # if upgrading on a machine that has 2.x installed
+    # if upgrading on a machine that has 2.x installed:
     brew link --overwrite azure-functions-core-tools@3
     ```
     
-    ##### v2.x
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for macOS](https://dotnet.microsoft.com/download).
+
+# [Version 3.x](#tab/v3/linux)
+
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
+
+4. Install the Core Tools package:
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install azure-functions-core-tools-3
+    ```
+
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
+
+# [Version 2.x](#tab/v2/windows)
+
+Installing version 2.x of the Core Tools requires npm. You can also [use Chocolatey to install the package](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#azure-functions-core-tools).
+
+1. If you haven't already done so, [install Node.js with npm](https://nodejs.org/en/download/). 
+
+1. Run the following npm command to install the Core Tools package:
+
+    ```
+    npm i -g azure-functions-core-tools@2 --unsafe-perm true
+    ```
+
+1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
+
+# [Version 2.x](#tab/v2/macos)
+
+The following steps use Homebrew to install the Core Tools on macOS.
+
+1. Install [Homebrew](https://brew.sh/), if it's not already installed.
+
+1. Install the Core Tools package:
 
     ```bash
     brew tap azure/functions
@@ -89,59 +164,12 @@ The following steps use Homebrew to install the Core Tools on macOS.
     
 1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for macOS](https://dotnet.microsoft.com/download).
 
-# [Linux](#tab/linux)
+# [Version 2.x](#tab/v2/linux)
 
-The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+[!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
 
-1. Install the Microsoft package repository GPG key, to validate package integrity:
+4. Install the Core Tools package:
 
-    ```bash
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-    ```
-
-1. Set up the APT source list before doing an APT update.
-
-    ##### Ubuntu
-
-    ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    ```
-
-    ##### Debian
-
-    ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    ```
-
-1. Check the `/etc/apt/sources.list.d/dotnetdev.list` file for one of the appropriate Linux version strings listed below:
-
-    | Linux distribution | Version |
-    | --------------- | ----------- |
-    | Debian 10 | `buster`  |
-    | Debian 9  | `stretch` |
-    | Ubuntu 20.04    | `focal`     |
-    | Ubuntu 19.04    | `disco`     |
-    | Ubuntu 18.10    | `cosmic`    |
-    | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.04    | `zesty`     |
-    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
-
-1. Start the APT source update:
-
-    ```bash
-    sudo apt-get update
-    ```
-
-1. Install the Core Tools package:
-
-    ##### v3.x (recommended)
-    ```bash
-    sudo apt-get update
-    sudo apt-get install azure-functions-core-tools-3
-    ```
-    
-    ##### v2.x
     ```bash
     sudo apt-get update
     sudo apt-get install azure-functions-core-tools-2
@@ -149,11 +177,19 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install [.NET Core 3.x SDK for Linux](https://dotnet.microsoft.com/download).
 
+# [Version 1.x](#tab/v1/windows)
+
+If you need to install version 1.x of the Core Tools, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
+
+# [Version 1.x](#tab/v1/windows)
+
+Version 1.x of the Core Tools isn't supported on macOS.
+
+# [Version 1.x](#tab/v1/windows)
+
+Version 1.x of the Core Tools isn't supported on Linux.
+
 ---
-
-### Version 1.x
-
-If you need to install version 1.x of the Core Tools, which runs only on Windows, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
 
 ## Create a local Functions project
 
