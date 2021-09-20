@@ -265,6 +265,8 @@ items:
       href: /samples/browse/?products=azure&languages=java&terms=purview
     - name: .NET
       href: /dotnet/api/overview/azure/purviewresourceprovider
+    - name: PowerShell
+      href: /powershell/module/az.purview/
     - name: Python
       href: /python/api/azure-mgmt-purview/
     - name: REST
