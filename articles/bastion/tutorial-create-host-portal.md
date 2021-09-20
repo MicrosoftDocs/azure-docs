@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
 
 ---
@@ -69,16 +69,11 @@ You can use the following example values when creating this configuration, or yo
 | Public IP address SKU |  Standard  |
 | Assignment  | Static |
 
-## Sign in to the Azure portal
-
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
-Sign in to the Azure portal.
-
 ## <a name="createhost"></a>Create a bastion host
 
 This section helps you create the bastion object in your VNet. This is required in order to create a secure connection to a VM in the VNet.
 
+1. Sign in to the [Azure portal](https://ms.portal.azure.com).
 1. Type **Bastion** into the search.
 1. Under services, click **Bastions**.
 1. On the Bastions page, click **+ Create** to open the **Create a Bastion** page.

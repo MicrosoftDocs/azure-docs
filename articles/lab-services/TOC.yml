@@ -71,7 +71,11 @@
         - name: React (Windows) 
           href: class-type-react-windows.md
       - name: RStudio
-        href: class-type-rstudio-linux.md
+        items:
+        - name: RStudio (Linux)
+          href: class-type-rstudio-linux.md
+        - name: RStudio (Windows)
+          href: class-type-rstudio-windows.md
       - name: Shell scripting on Linux
         href: class-type-shell-scripting-linux.md
       - name: SolidWorks computer-aided design (CAD)

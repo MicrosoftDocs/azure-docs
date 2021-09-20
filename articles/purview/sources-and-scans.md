@@ -29,7 +29,7 @@ The following file types are supported for scanning, for schema extraction and c
 > Every Gzip file must be mapped to a single csv file within. Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. Also, Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
 
 > [!Note]
-> Purview scanner does not support complex data types in AVRO, ORC and PARQUET file types for schema extraction.   
+> Purview scanner does not support complex data types (for example, MAP, LIST, STRUCT) in AVRO, ORC, and PARQUET file types for schema extraction.   
 
 ## Sampling within a file
 

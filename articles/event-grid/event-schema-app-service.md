@@ -3,7 +3,7 @@ title: Azure App Service as Event Grid source
 description: This article describes how to use Azure App Service as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
 author: jasonfreeberg
 ms.topic: conceptual
-ms.date: 03/06/2021
+ms.date: 09/15/2021
 ms.author: jafreebe
 ---
 

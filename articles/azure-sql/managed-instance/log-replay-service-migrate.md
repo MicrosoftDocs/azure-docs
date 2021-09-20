@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 03/31/2021
+ms.date: 09/07/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -388,6 +388,7 @@ Functional limitations of LRS are:
 - LRS requires databases on SQL Server to be backed up with the `CHECKSUM` option enabled.
 - The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only read and list permissions.
 - Backup files for different databases must be placed in separate folders on Blob Storage.
+- Backup files containing % and $ characters in the file name cannot be consumed by LRS. Consider renaming such file names.
 - LRS must be started separately for each database that points to separate folders with backup files on Blob Storage.
 - LRS can support up to 100 simultaneous restore processes per single managed instance.
 

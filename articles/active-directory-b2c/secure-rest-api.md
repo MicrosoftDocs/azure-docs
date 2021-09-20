@@ -284,7 +284,7 @@ Before the technical profile can interact with Azure AD to obtain an access toke
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD or Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure Active Directory**. Or, select **All services** and search for and select **Azure Active Directory**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *Client_Credentials_Auth_app*.

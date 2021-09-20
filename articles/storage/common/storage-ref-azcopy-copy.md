@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -244,13 +244,13 @@ Copy an entire bucket to Blob Storage from Google Cloud Storage by using a servi
 azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-Copy all buckets to Blob Storage from Google Cloud Storage by using a service account key and a SAS token. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<project-id> for GCS source
+Copy all buckets to Blob Storage from Google Cloud Storage by using a service account key and a SAS token. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<`project-id`> for GCS source
 
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from Google Cloud Storage by using a service account key and a SAS token for destination. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<project-id> for the Google Cloud Storage source.
+Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from Google Cloud Storage by using a service account key and a SAS token for destination. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<`project-id`> for the Google Cloud Storage source.
  
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
@@ -282,7 +282,13 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--content-type** string Specifies the content type of the file. Implies no-guess-mime-type. Returned on download.
 
+**--cpk-by-name** string                   Client provided key by name let clients making requests against Azure Blob Storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data.
+
+**--cpk-by-value**                          Client provided key by name let clients making requests against Azure Blob Storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables.
+
 **--decompress** Automatically decompress files when downloading, if their content-encoding indicates that they are compressed. The supported content-encoding values are `gzip` and `deflate`. File extensions of `.gz`/`.gzip` or `.zz` aren't necessary, but will be removed if present.
+
+**--dry-run**                              Prints the file paths that would be copied by this command. This flag does not copy the actual files.
 
 **--disable-auto-decoding**    False by default to enable automatic decoding of illegal chars on Windows. Can be set to `true` to disable automatic decoding.
 
@@ -294,6 +300,8 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--exclude-pattern** string   Exclude these files when copying. This option supports wildcard characters (*).
 
+**--exclude-regex** string                 Exclude all the relative path of the files that align with regular expressions. Separate regular expressions with ';'.
+
 **--follow-symlinks**  Follow symbolic links when uploading from local file system.
 
 **--force-if-read-only** When overwriting an existing file on Windows or Azure Files, force the overwrite to work even if the existing file has 
@@ -304,15 +312,19 @@ its read-only attribute set.
 **--help**  help for copy.
 
 **--include-after** string   Include only those files modified on or after the given date/time. The value should be in ISO8601 format. If no timezone 
-is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
+is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-permissions`.
 
- **--include-before** string  Include only those files modified before or on the given date/time. The value should be in ISO8601 format. If no timezone is specified, the value is assumed to be in the local timezone of the machine running AzCopy. E.g. `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As of AzCopy 10.7, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
+ **--include-before** string  Include only those files modified before or on the given date/time. The value should be in ISO8601 format. If no timezone is specified, the value is assumed to be in the local timezone of the machine running AzCopy. E.g. `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As of AzCopy 10.7, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-permissions`.
 
 **--include-attributes** string   (Windows only) Includes files whose attributes match the attribute list. For example: A;S;R
 
 **--include-path** string    Include only these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix (For example: `myFolder;myFolder/subDirName/file.pdf`).
 
+**--include-directory-stub**               False by default to ignore directory stubs. Directory stubs are blobs with metadata 'hdi_isfolder:true'. Setting value to true will preserve directory stubs during transfers.
+
 **--include-pattern** string   Include only these files when copying. This option supports wildcard characters (*). Separate files by using a `;`.
+
+**--include-regex** string                 Include only the relative path of the files that align with regular expressions. Separate regular expressions with ';'.
 
 **--list-of-versions** string  Specifies a file where each version ID is listed on a separate line. Ensure that the source must point to a single blob and all the version IDs specified in the file using this flag must belong to the source blob only. AzCopy will download the specified versions in the destination folder provided. For more information, see [Download previous versions of a blob](./storage-use-azcopy-v10.md#transfer-data).
 
@@ -328,11 +340,12 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--preserve-last-modified-time**  Only available when destination is file system.
 
-**--preserve-owner**    Only has an effect in downloads, and only when `--preserve-smb-permissions` is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false,`--preserve-smb-permissions` will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
+**--preserve-owner**    Only has an effect in downloads, and only when `--preserve-permissions` is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false,`--preserve-permissions` will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
 
-**--preserve-smb-info**   False by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files will be transferred; any others will be ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is never preserved for folders.
+**--preserve-smb-info**   True by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files will be transferred; any others will be ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is never preserved for folders.
 
-**--preserve-smb-permissions**   False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). For downloads, you will also need the `--backup` flag to restore permissions where the new Owner will not be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, `include-pattern`).
+**--preserve-permissions**                False by default. Preserves ACLs between aware resources (Windows and Azure Files, or Data Lake Storage Gen 2 to Data Lake Storage Gen 2). For accounts that have a hierarchical namespace, you will need a container SAS or OAuth token with Modify Ownership and Modify Permissions permissions. For downloads, you will also need the --backup flag to restore permissions where the new Owner will not be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (e.g. include-pattern).
+
 
 **--put-md5**    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 
@@ -340,9 +353,11 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--s2s-detect-source-changed**   Detect if the source file/blob changes while it is being read. (This parameter only applies to service-to-service copies, because the corresponding check is permanently enabled for uploads and downloads.)
 
-**--s2s-handle-invalid-metadata** string   Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default `ExcludeIfInvalid`). (default "ExcludeIfInvalid")
+**--s2s-handle-invalid-metadata** string   Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default `ExcludeIfInvalid`).
 
-**--s2s-preserve-access-tier**   Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`).  (default "true")
+**--s2s-preserve-access-tier**   Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`).
+
+**--s2s-preserve-blob-tags**               Preserve index tags during service to service transfer from one blob storage to another.
 
 **--s2s-preserve-properties**   Preserve full properties during service to service copy. For AWS S3 and Azure File non-single file source, the list operation doesn't return full properties of objects and files. To preserve full properties, AzCopy needs to send one additional request per object or file. (default true)
 
