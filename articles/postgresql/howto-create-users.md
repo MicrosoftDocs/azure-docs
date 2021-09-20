@@ -71,8 +71,10 @@ The server admin user account can be used to create additional users and grant t
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```
-   Whenever a table "role" is created by a user, the table belongs to that user. So if another user needs access on that table, we will need to grant the privileges to that user on table level.
-For example: 
+
+   If a user creates a table "role," the table belongs to that user. If another user needs access to the table, you must grant privileges to the other user on the table level.
+
+   For example: 
 
     ```sql
     GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <db_user>;
