@@ -26,11 +26,11 @@ ms.reviewer: mathoma
 
 In this tutorial, complete the prerequisites for creating an [Always On availability group for SQL Server on AzureVirtual Machines (VMs) in multiple subnets](availability-group-manually-configure-tutorial-multi-subnet.md). At the end of this tutorial, you will have a domain controller on two Azure virtual machines, two SQL Server VMs in multiple subnets, and a storage account in a single resource group. 
 
-**Time estimate**: This tutorial may take several hours to complete, as creating resources can be time-intensive. 
+**Time estimate**: This tutorial creates several resources in Azure and may take up to 30 minutes to complete. 
 
 The following diagram illustrates the resources you deploy in this tutorial: 
 
-:::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/multi-subnet-availability-group-diagram.png" alt-text="New object":::
+:::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/multi-subnet-availability-group-diagram.png" alt-text="The following diagram illustrates the resources you deploy in this tutorial":::
 
 
 ## Prerequisites
@@ -48,7 +48,7 @@ To create the resource group in the Azure portal, follow these steps:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **+ Create a resource** to create a new resource in the portal.
 
-   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/01-portalplus.png" alt-text="Select **+ Create a resource** to create a new resource in the portal.":::
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/01-portalplus.png" alt-text="Select +Create a resource to create a new resource in the portal.":::
 
 1. Search for **resource group** in the **Marketplace** search box and choose the **Resource group** tile from Microsoft. Select **Create** on the **Resource group** page. 
 
@@ -82,22 +82,22 @@ To create the virtual network in the Azure portal, follow these steps:
 
 1. On the **IP addresses** tab, select the **default** subnet to open the **Edit subnet** page. Change the name to **DC-subnet** to use for the domain controller subnet. Select **Save**.  
 
-   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/04-create-vnet-ipaddress-rename-default-subnet.png" alt-text="Create virtual network":::
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/04-create-vnet-ipaddress-rename-default-subnet.png" alt-text="On the IP addresses tab, select the default subnet to open the Edit subnet page. Change the name to DC-subnet to use for the domain controller subnet. Select Save":::
 
 1. Select **+ Add subnet** to add an additional subnet for your first SQL Server VM, and fill in the following values: 
    1. Provide a value for the **Subnet name**, such as **SQL-subnet-1**. 
-   1. Provide an IP address within the same subnet range as **DC-subnet**, but iterate the third octet by 1. 
-      - For example, if your **DC-subnet** range is *10.5.0.0*, enter the IP address range `10.5.1.0` for **SQL-subnet-1**. 
-      - Likewise, if your **DC-subnet** IP range is *10.38.0.0*, then enter `10.38.1.0` for the new subnet. 
+   1. Provide a unique subnet address range within the virtual network address space. For example, you can iterate the third octet of DC-subnet address range by 1. 
+      - For example, if your **DC-subnet** range is *10.38.0.0/24*, enter the IP address range `10.38.1.0/24` for **SQL-subnet-1**. 
+      - Likewise, if your **DC-subnet** IP range is *10.5.0.0/24*, then enter `10.5.1.0/24` for the new subnet. 
    1. Select **Add** to add your new subnet. 
 
      :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/05-create-vnet-ipaddress-add-sql-subnet-1.png" alt-text="Name your first subnet, such as sql-subnet-1, and then iterate the third octet by 1, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.1.0":::
 
-1. Repeat the previous step to add an additional subnet for your second SQL Server VM with a name such as **SQL-subnet-2**. However, once again, iterate the third octet by one. 
-   - For example, if your **DC-subnet** range is *10.5.0.0*, and your **SQL-subnet-1** is *10.5.1.0*, then enter the IP address range `10.5.2.0` for **SQL-subnet-2**. 
-   - Likewise, if your **DC-subnet** IP range is *10.38.0.0*, and your **SQL-subnet-1** is *10.38.1.0*, then enter `10.38.2.0` for the new subnet. 
+1. Repeat the previous step to add an additional unique subnet range for your second SQL Server VM with a name such as **SQL-subnet-2**. You can iterate the third octet by one once again. 
+   - For example, if your **DC-subnet** IP range is *10.38.0.0/24*, and your **SQL-subnet-1** is *10.38.1.0/24*, then enter `10.38.2.0/24` for the new subnet
+   - Likewise, if your **DC-subnet** IP range is *10.5.0.0/24*, and your **SQL-subnet-1** is *10.5.1.0/24*, then enter the IP address range `10.5.2.0/24` for **SQL-subnet-2** . 
 
-   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/06-create-vnet-ipaddress-add-sql-subnet-2.png" alt-text="Name your second subnet, such as sql-subnet-2, and then iterate the third octet by 2, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.2.0":::
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/06-create-vnet-ipaddress-add-sql-subnet-2.png" alt-text="Name your second subnet, such as sql-subnet-2, and then iterate the third octet by 2, so that if your DC-subnet IP address is 10.38.0.0/24, your new subnet should be 10.38.2.0/24":::
 
 1. After you've added the second subnet, review your subnet names and ranges (your IP address ranges may differ from the image). If everything looks correct, select **Review + create**, then **Create** to create your new virtual network. 
 
@@ -203,7 +203,7 @@ To identify the private IP address of the VM in the Azure portal, follow these s
 
 :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/12-dc-vm-1-private-ip.png" alt-text="On the DC-VM-1 page, choose Networking in the Settings pane, and then note the NIC private IP address. Use this IP address as the DNS server. ":::
 
-### Configure VNet DNS
+### Configure virtual network DNS
 
 After you create the first domain controller and enable DNS, configure the virtual network to use this VM for DNS.
 
@@ -290,12 +290,6 @@ After your second domain controller is configured, follow the same steps as befo
 
 After your domain controller(s) have been configured, and you've set your DNS server(s) in the Azure portal, create domain accounts for the user who is installing SQL Server, and for the SQL Server service account. 
 
-Configure three accounts in total, one installation account for both SQL Server VMs, and then a service account for each SQL Server VM. For example, use the following values for the three accounts:
-- **Install**: Log into either VM with this account to configure the cluster and availability group. 
-- **SQLSvc1**: Use this account for the SQL Server service on the first SQL Server VM. 
-- **SQLSv2** : Use this account for the SQL Server service on the second SQL Server VM. 
-
-
 Configure three accounts in total, one installation account for both SQL Server VMs, and then a service account for each SQL Server VM. For example, use the values in the following table for the accounts:
 
 |Account  | VM  |Full domain name  |Description   |
@@ -303,8 +297,6 @@ Configure three accounts in total, one installation account for both SQL Server 
 |Install    |Both| Corp\Install        |Log into either VM with this account to configure the cluster and availability group. |
 |SQLSvc1     |SQL-VM-1 |Corp\SQLSvc1 | Use this account for the SQL Server service on the first SQL Server VM. |
 |SQLSvc2     |SQL-VM2 |Corp\SQLSvc2| Use this account for the SQL Server service on the second SQL Server VM.|
-
-
 
 Follow these steps to create each account: 
 
@@ -393,7 +385,7 @@ Use the following table to fill out the values on the **Create a virtual machine
 After VM creation completes, configure your SQL Server VMs by adding a secondary IP address to each VM, and joining them to the domain. 
 
 
-### Add IPs to SQL Server VMs
+### Add secondary IPs to SQL Server VMs
 
 In the multi-subnet environment, assign secondary IP addresses to each SQL Server VM to use for the availability group listener, and for Windows Server 2016 and earlier, assign secondary IP addresses to each SQL Server VM for the cluster IP address as well. Doing this negates the need for an Azure Load Balancer, as is the requirement in a single subnet environment.  
 
@@ -426,10 +418,6 @@ To assign additional secondary IPs to the VMs, follow these steps:
 1. Select **+ Add** again to configure an additional IP address for the availability group listener (with a name such as **availability-group-listener**), again specifying an unused IP address in **SQL-subnet-1** such as `10.38.1.11`: 
 
    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/22-add-ip-ag-listener.png" alt-text="Select + Add again to configure an additional IP address for the availability group listener (with a name such as availability-group-listener), again using an unused IP address in SQL-subnet-1 such as 10.31.1.11":::
-
-1. Repeat these steps again for the second SQL Server VM, such as **SQL-VM-2**. Assign two unused secondary IP addresses within **SQL-subnet-2**. For example: 
-   - Name: **windows-cluster-ip**, IP address: `10.38.2.10`
-   - Name: **availability-group-listener**, IP address: `10.38.2.11`
 
 1. Repeat these steps again for the second SQL Server VM, such as **SQL-VM-2**. Assign two unused secondary IP addresses within **SQL-subnet-2**. Use the values from the following table to add the IP configuration:: 
 
