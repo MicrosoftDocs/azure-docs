@@ -104,13 +104,13 @@ sections:
           - **DRS 2.0**
 
              **Managed rules**
-                * application/json
-                * application/xml
-                * application/x-www-form-urlencoded
-                * multipart/form-data
+               * application/json
+               * application/xml
+               * application/x-www-form-urlencoded
+               * multipart/form-data
 
              **Custom rules**
-                * application/x-www-form-urlencoded
+               * application/x-www-form-urlencoded
 
           - **DRS 1.X**
 
