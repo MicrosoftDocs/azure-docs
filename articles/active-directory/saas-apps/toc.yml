@@ -2383,6 +2383,8 @@
         href: britive-provisioning-tutorial.md
       - name: BrowserStack Single Sign-on
         href: browserstack-single-sign-on-provisioning-tutorial.md
+      - name: Cato Networks Provisioning
+        href: cato-networks-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Chatwork
@@ -2601,6 +2603,8 @@
         href: robin-provisioning-tutorial.md
       - name: Rollbar
         href: rollbar-provisioning-tutorial.md
+      - name: Rouse Sales
+        href: rouse-sales-provisioning-tutorial.md        
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
@@ -2663,6 +2667,8 @@
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md
+      - name: Taskize Connect
+        href: taskize-connect-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
