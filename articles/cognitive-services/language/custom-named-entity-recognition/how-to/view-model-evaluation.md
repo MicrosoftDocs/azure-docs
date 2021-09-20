@@ -8,19 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 09/20/2021
 ms.author: aahi
 ---
 
 
-# View model evaluation and details
+# View the model's evaluation and details
 
-After your model has finished training, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-split). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset.
-
-## Prerequisites
-
-* A [custom NER project](../quickstart.md)
-* A [trained model](train-model.md)
+After your model has finished training, you can view the model details and see how well does it perform against the test set, which contains 10% of your data at random, which is created during [training](train-model.md#data-split). The test set consists of data that was not introduced to the model during the training process. For the evaluation process to complete there must be at least 10 files in your dataset. You must also have a [custom NER project](../quickstart.md) with a [trained model](train-model.md).
 
 ## View the model's evaluation details
 

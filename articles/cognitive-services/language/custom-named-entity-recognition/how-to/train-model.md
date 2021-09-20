@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Train your Custom Named Entity Recognition (NER) model
 
-After you have completed tagging your data, you can start training your model. You can create and train multiple models within the same project]. However, if you retrain a specific model, it will overwrite its previous version.
+After you have completed tagging your data, you can start training your model. You can create and train multiple models within the same project. However, if you retrain a specific model, it will overwrite its previous version.
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
@@ -28,14 +28,7 @@ Before starting the training process, files in your dataset are divided into thr
 
 * The Test set contains 10% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
 
-
-You must have minimum of 10 docs in your project for the [evaluation](view-model-evaluation.md) process to be successful. 
-
-## Prerequisites
-
-* A [custom NER project](../quickstart.md)
-
-* Completed [data tagging](tag-data.md).
+You must also have a [custom NER project](../quickstart.md) with at least 10 [tagged data](tag-data.md) files for evaluation to be successful.
 
 ## Train model in Language studio
 
