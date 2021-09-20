@@ -73,7 +73,7 @@ vCore size flexibility helps you scale up or down within a performance tier and 
 
 ## Limitation
 
-You cannot reserve DTU-based (basic, standard, or premium) databases in SQL Database.
+You cannot reserve DTU-based (basic, standard, or premium) databases in SQL Database. Reserved capacity pricing is only supported for features and products that are in General Availability state. 
 
 ## Need help? Contact us
 

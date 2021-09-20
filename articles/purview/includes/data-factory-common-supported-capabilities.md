@@ -4,7 +4,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 08/25/2021
+ms.date: 09/15/2021
 ---
 
 ### Copy activity support
@@ -42,7 +42,6 @@ Currently, if you use the following copy activity features, the lineage is not y
 - Copy data into Azure Synapse Analytics using PolyBase or COPY statement.
 - Compression setting for Binary, delimited text, Excel, JSON, and XML files.
 - Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
-- Source partition discovery option for file-based stores.
 - Copy data to file-based sink with setting of max rows per file.
 
 In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:

@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: stevevi
 ms.author: stevevi
-ms.date: 08/31/2021
+ms.date: 09/13/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -297,15 +297,6 @@ The following features have known limitations in Azure Government:
 
 - Limitations with Azure AD join:
     - Enterprise state roaming for Windows 10 devices is not available
-
-
-## Internet of Things
-
-This section outlines variations and considerations when using Internet of Things services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=api-management,cosmos-db,notification-hubs,logic-apps,stream-analytics,machine-learning-studio,machine-learning-service,event-grid,functions,azure-rtos,azure-maps,iot-central,iot-hub&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
-
-### [Azure IoT Hub](../iot-hub/index.yml)
-
-If you are using the IoT Hub connection string (instead of the Event Hub-compatible settings) with the Microsoft Azure Service Bus .NET client library to receive telemetry or operations monitoring events, then be sure to use `WindowsAzure.ServiceBus` NuGet package version 4.1.2 or higher.
 
 
 ## Management and governance
