@@ -1,11 +1,11 @@
 ---
 title: NCv2-series retirement
-description: NCv2-series retirement by August 31, 2021
+description: NCv2-series retirement by August 31, 2022
 author: sherrywangms
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/01/2021
 ms.author: sherrywang
 ---
 # Migrate your NCv2 series virtual machines by August 31, 2022
