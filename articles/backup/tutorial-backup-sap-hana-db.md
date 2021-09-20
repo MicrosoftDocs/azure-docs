@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 09/01/2021
+ms.date: 09/20/2021
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM
@@ -52,6 +52,8 @@ The following table lists the various alternatives you can use for establishing 
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
 | Allow access to service FQDNs/IPs | No additional costs   <br><br>  Works with all network security appliances and firewalls | A broad set of IPs or FQDNs may be required to be accessed   |
 | Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
+| [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Can be used for Azure Storage (= Recovery Services vault).     <br><br>     Provides large benefit to optimize performance of data plane traffic.          |         Can’t be used for Azure AD, Azure Backup service.    |
+| Network Virtual Appliance      |      Can be used for Azure Storage, Azure AD, Azure Backup service. <br><br> **Data plane**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Management plane**  <ul><li>  Azure AD: Allow access to FQDNs mentioned in sections 56 and 59 of [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide#microsoft-365-common-and-office-online). </li><li>   Azure Backup service: `.backup.windowsazure.com` </li></ul> <br>Learn more about [Azure Firewall service tags](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.).       |  Adds overhead to data plane traffic and decrease throughput/performance.  |
 
 More details around using these options are shared below:
 
@@ -97,17 +99,20 @@ When you back up an SAP HANA database running on an Azure VM, the backup extensi
 
 ## Understanding backup and restore throughput performance
 
-The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery services vaults and so it is important to understand this streaming methodology.
+The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery Services vaults (which internally use Azure Storage Blob) and so it is important to understand this streaming methodology.
 
-The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by the Azure Backup service and transported to Azure Recovery Services vault. The Azure Backup service also performs a checksum to validate the streams, in addition to the Backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
+The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by the Azure Backup service and transported to Azure Recovery Services vault, which is a remote Azure Storage Account. The Azure Backup service also performs a checksum to validate the streams, in addition to the Backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
 
-Since the streams primarily deal with disks, you need to understand the disk performance to gauge the backup and restore performance. Refer to [this article](../virtual-machines/disks-performance.md) for an in-depth understanding of disk throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
+Since the streams primarily deal with disks, you need to understand the disk performance for read and network performance to transfer backup data  to gauge the backup and restore performance. Refer to [this article](../virtual-machines/disks-performance.md) for an in-depth understanding of disk/network throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
 
 **The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these are not guaranteed speeds and depend on following factors:
 
-* Max Uncached disk throughput of the VM
-* Underlying disk type and its throughput
-* The number of processes which are trying to read and write into the same disk at the same time.
+- VM’s maximum uncached disk throughput – read from data or log
+- Underlying disk type and its throughput – read from data or log 
+- VM’s maximum network throughput – write to Recovery Services vault 
+- (*) in case the VNET has NVA / firewall, its network throughput 
+- (*) In case data/log on Azure NetApp Files – both read from ANF and write to Vault consume VM’s network 
+
 
 > [!IMPORTANT]
 > In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you may be concerned that the entire disk IOPS are consumed by the backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if you wishes to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
