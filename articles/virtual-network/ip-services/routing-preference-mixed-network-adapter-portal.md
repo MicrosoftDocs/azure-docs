@@ -1,56 +1,76 @@
 ---
-title: Configure both routing preference options for a virtual machine - Azure portal
-description: Learn how to enable both both routing preference choices 
-services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: mtillman
+title: 'Tutorial: Configure both routing preference options for a virtual machine - Azure portal'
+description: Use this tutorial to learn how to configure both routing preference options for a virtual machine using the Azure portal.
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/22/2021
-ms.author: mnayak
-
+ms.subservice: ip-services
+ms.topic: tutorial
+ms.date: 09/20/2021
+ms.custom: template-tutorial
 ---
-# Configure both routing preference options for a virtual machine
+
+# Tutorial: Configure both routing preference options for a virtual machine using the Azure portal.
 
 This article shows you how to configure both [routing preference](routing-preference-overview.md) options (Internet and Microsoft global network) for a virtual machine (VM). This is achieved using two virtual network interfaces, one network interface with a public IP routed via the Microsoft global network, and the other one with a public IP routed via an ISP network.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a virtual machine with a public IP address with the **Microsoft network** routing preference.
+> * Create a public IP address with the **Internet** routing preference.
+> * Create a secondary network interface for the virtual machine.
+> * Assign **Internet** routing preference IP to virtual machine secondary network interface.
+
 ## Prerequisites
 
-Create a virtual machine with a public IP address following instructions described in [Create a virtual machine with a static public IP address using the Azure portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) using the Azure portal. The default routing preference choice for the public IP is via **Microsoft global network**. 
-Once you have a virtual machine with a public IP created, add a second public IP to the VM that routes traffic via transit ISP network with its routing preference configured as **Internet**.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a public IP address with a routing preference choice Internet
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **Create a resource**. 
-3. In the search box, type *Public IP address*.
-4. In the search results, select **Public IP address**. Next, in the **Public IP address** page, select **Create**.
-5. In the **Routing preference** options, select **Internet**.
+## Create a virtual machine
 
-      ![Create a public ip address](./media/routing-preference-portal/public-ip-new.png)
 
-    > [!NOTE]
-    > Public IP addresses are created with an IPv4 or IPv6 address. However, routing preference only supports IPV4 currently.
+1. Sign in to the [<service> portal](url).
+1. <!-- Step 2 -->
+1. <!-- Step n -->
 
-## Create a network interface and associate the public IP
+## [Section 2 heading]
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
 
-1. Create a [network interface](routing-preference-overview.md) using the Azure portal with default settings. 
-1. [Associate the public IP to the network interface](../../virtual-network/associate-public-ip-address-vm.md) created in the previous section. It may take a few seconds for an IP address to appear. View the public IP address assigned to the IP configuration, as shown:
+## [Section n heading]
+<!-- Introduction paragraph -->
+1. <!-- Step 1 -->
+1. <!-- Step 2 -->
+1. <!-- Step n -->
 
-    ![Associate the Public IP](./media/routing-preference-mixed-network-adapter-portal/public-ip.png)
+<!-- 6. Clean up resources
+Required. If resources were created during the tutorial. If no resources were created, 
+state that there are no resources to clean up in this section.
+-->
 
-## Attach network interface to the VM
+## Clean up resources
 
-1. [Attach the network interface created in the previous section to the virtual machine](../../virtual-network/virtual-network-network-interface-vm.md).
-2. You can now view two virtual network interfaces associated with the virtual machine, one with a public IP that is routed via Microsoft global network, and the other routed via with an ISP network as shown:
-    ![Attach a network interface to a VM](./media/routing-preference-mixed-network-adapter-portal/mixed-network-adapter.png) 
+If you're not going to continue to use this application, delete
+<resources> with the following steps:
+
+1. From the left-hand menu...
+1. ...click Delete, type...and then click Delete
+
+<!-- 7. Next steps
+Required: A single link in the blue box format. Point to the next logical tutorial 
+in a series, or, if there are no other tutorials, to some other cool thing the 
+customer can do. 
+-->
 
 ## Next steps
-- Learn more about [public IP with routing preference](routing-preference-overview.md).
-- [Configure routing preference for a VM](tutorial-routing-preference-virtual-machine-portal.md).
-- [Configure routing preference for a public IP address using the PowerShell](routing-preference-powershell.md).
-- Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
-- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+
+Advance to the next article to learn how to create...
+> [!div class="nextstepaction"]
+> [Next steps button](contribute-how-to-mvc-tutorial.md)
+
+<!--
+Remove all the comments in this template before you sign-off or merge to the 
+main branch.
+-->
