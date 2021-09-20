@@ -5,6 +5,23 @@ ms.topic: include
 ms.date: 09/10/2021
 ms.author: danlep
 ---
+### Connected registry module settings
+
+* Use the token credentials and connection string from the previous sections to update the relevant JSON values. 
+* The `ACR_REGISTRY_CONNECTION_STRING` environment variable and optionally `ACR_REGISTRY_LOGIN_SERVER`  are defined in the `env` node. The following environment variables are also optional in this node:
+
+    |Variable  |Description  |
+    |---------|---------|
+    |`ACR_REGISTRY_CERTIFICATE_VOLUME`     |   If your connected registry will be accessible via HTTPS, points to the volume where the HTTPS certificates are stored.<br/><br/>If not set, the default location is `/var/acr/certs`.      |
+    |`ACR_REGISTRY_DATA_VOLUME`     |  Overwrites the default location `/var/acr/data` where the images will be stored by the connected registry.<br><br>This location must match the volume bind for the container.       |
+
+    > [!IMPORTANT]
+    > If the connected registry listens on a port different from 80 and 443, the `ACR_REGISTRY_LOGIN_SERVER` value (if specified) must include the port. Example: `192.168.0.100:8080`.
+
+### API proxy module settings
+
+* The API proxy will listen on port 8000 configured as `NGINX_DEFAULT_PORT`. For more information about the API proxy settings, see the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/master/edge-modules/api-proxy-module). 
+
 ```json
 {
     "modulesContent": {
@@ -13,13 +30,13 @@ ms.author: danlep
                 "modules": {
                     "connected-registry": {
                         "settings": {
-                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/acr/connected-registry:0.3.0",
+                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/acr/connected-registry:0.3.0",
                             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/home/azureuser/connected-registry:/var/acr/data\"],\"PortBindings\":{\"8080/tcp\":[{\"HostPort\":\"8080\"}]}}}"
                         },
                         "type": "docker",
                         "env": {
                             "ACR_REGISTRY_CONNECTION_STRING": {
-                                "value": "ConnectedRegistryName=<REPLACE_WITH_YOUR_CONNECTED_REGISTRY_NAME>;SyncTokenName=<REPLACE_WITH_YOUR_SYNC_TOKEN_NAME>;SyncTokenPassword=REPLACE_WITH_YOUR_SYNC_TOKEN_PASSWORD;ParentGatewayEndpoint=<REPLACE_WITH_YOUR_REGISTRY_NAME>.<REPLACE_WITH_YOUR_REGISTRY_REGION>.data.azurecr.io;ParentEndpointProtocol=https"
+                                "value": "ConnectedRegistryName=<REPLACE_WITH_CONNECTED_REGISTRY_NAME>;SyncTokenName=<REPLACE_WITH_SYNC_TOKEN_NAME>;SyncTokenPassword=REPLACE_WITH_SYNC_TOKEN_PASSWORD;ParentGatewayEndpoint=<REPLACE_WITH_CLOUD_REGISTRY_NAME>.<REPLACE_WITH_CLOUD_REGISTRY_REGION>.data.azurecr.io;ParentEndpointProtocol=https"
                             }
                         },
                         "status": "running",
@@ -28,7 +45,7 @@ ms.author: danlep
                     },
                     "IoTEdgeAPIProxy": {
                         "settings": {
-                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:latest",
+                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:latest",
                             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
                         },
                         "type": "docker",
@@ -52,10 +69,10 @@ ms.author: danlep
                     "settings": {
                         "minDockerVersion": "v1.25",
                         "registryCredentials": {
-                            "tsmregistry": {
-                                "address": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io",
-                                "password": "<REPLACE_WITH_YOUR_CLIENT_TOKEN_PASSWORD>",
-                                "username": "<REPLACE_WITH_YOUR_CLIENT_TOKEN_NAME>"
+                            "cloudregistry": {
+                                "address": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io",
+                                "password": "<REPLACE_WITH_CLIENT_TOKEN_PASSWORD>",
+                                "username": "<REPLACE_WITH_CLIENT_TOKEN_NAME>"
                             }
                         }
                     },
@@ -65,7 +82,7 @@ ms.author: danlep
                 "systemModules": {
                     "edgeAgent": {
                         "settings": {
-                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-agent:1.2.3",
+                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-agent:1.2.3",
                             "createOptions": ""
                         },
                         "type": "docker",
@@ -77,7 +94,7 @@ ms.author: danlep
                     },
                     "edgeHub": {
                         "settings": {
-                            "image": "<REPLACE_WITH_YOUR_REGISTRY_NAME>.azurecr.io/azureiotedge-hub:1.2.3",
+                            "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-hub:1.2.3",
                             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                         },
                         "type": "docker",

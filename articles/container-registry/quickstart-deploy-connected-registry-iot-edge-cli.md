@@ -2,7 +2,7 @@
 title: Quickstart - Deploy a connected registry to an IoT Edge device
 description: Use Azure Container Registry CLI commands and Azure portal to deploy a connected registry to an Azure IoT Edge device.
 ms.topic: quickstart
-ms.date: 09/13/2021
+ms.date: 09/20/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -20,9 +20,9 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
   > [!IMPORTANT]
   > For later access to the modules deployed on the IoT Edge device, make sure that you open the ports 8000, 5671, and 8883 on the device. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md). 
 
-* Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli]. A connected registry in either `read-write` or `read-only` mode can be used in this scenario. In the commands in this article, the connected registry name is stored in the environment variable *$CONNECTED_REGISTRY_RW*.
+* Connected registry resource in Azure. For deployment steps, see [Quickstart: Create a connected registry using the Azure CLI][quickstart-connected-registry-cli]. A connected registry in either `read-write` or `read-only` mode can be used in this scenario. In the commands in this article, the connected registry name is stored in the environment variable *CONNECTED_REGISTRY_RW*.
 
-[!INCLUDE [container-registry-connected-import-images](../../includes/container-registry-connected-import-images.md)]
+[!INCLUDE [ntainer-registry-connected-import-images](../../includes/container-registry-connected-import-images.md)]
 
 [!INCLUDE [container-registry-connected-client-token](../../includes/container-registry-connected-client-token.md)]
 
@@ -48,34 +48,32 @@ This command returns the connection string for the connected registry, including
 A deployment manifest is a JSON document that describes which modules to deploy to the IoT Edge device. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](../iot-edge/module-composition.md).
 
 To deploy the connected registry and API proxy modules using the Azure CLI, save the following deployment manifest locally as a `manifest.json` file. You will use the file path in the next section when you run the command to apply the configuration to your device.
-* Use the information from the previous sections to update the relevant JSON values for the modules. 
-* Environment variables for the connected registry module are defined in the `env` node. Add optional variables in this node.
-* The API proxy will listen on port 8000 configured as `NGINX_DEFAULT_PORT`. For more information about the API proxy settings, see the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/master/edge-modules/api-proxy-module). 
 
 [!INCLUDE [container-registry-connected-iot-edge-manifest](../../includes/container-registry-connected-iot-edge-manifest.md)]
 
-> [!IMPORTANT]
-> If the connected registry listens on a port different from 80 and 443, the `ACR_REGISTRY_LOGIN_SERVER` value (if specified) must include the port. Example: `192.168.0.100:8080`.
-
 ## Deploy the connected registry and API proxy modules on IoT Edge
 
-Use the following command to deploy the connected registry and API proxy modules on the IoT Edge device, using the deployment manifest created in the previous section.
+Use the following command to deploy the connected registry and API proxy modules on the IoT Edge device, using the deployment manifest created in the previous section. Provide the ID of the IoT Edge top layer device and the name of the IoT Hub where indicated.
 
 ```azurecli
+# Set the IOT_EDGE_TOP_LAYER_DEVICE_ID and IOT_HUB_NAME environment variables for use in the following Azure CLI command
+IOT_EDGE_TOP_LAYER_DEVICE_ID=<device-id>
+IOT_HUB_NAME=<hub-name>
+
 az iot edge set-modules \
-  --device-id <device-id> \
-  --hub-name <hub-name> \
+  --device-id $IOT_EDGE_TOP_LAYER_DEVICE_ID \
+  --hub-name $IOT_HUB_NAME \
   --content manifest.json
 ```
 
 For details, see [Deploy Azure IoT Edge modules with Azure CLI](../iot-edge/how-to-deploy-modules-cli.md).
 
-To check the status of the connected registry, use the following [az acr connected-registry show][az-acr-connected-registry-show] command:
+To check the status of the connected registry, use the following [az acr connected-registry show][az-acr-connected-registry-show] command. The name of the connected registry is the value of *$CONNECTED_REGISTRY_RW*.
 
 ```azurecli
 az acr connected-registry show \
   --registry $REGISTRY_NAME \
-  --name myconnectedregistry \
+  --name $CONNECTED_REGISTRY_RW \
   --output table
 ```
 

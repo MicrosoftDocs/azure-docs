@@ -70,7 +70,7 @@ Overall, the lower layer deployment file is similar to the top layer deployment 
 - It pulls the required images from the top layer connected registry instead of from the cloud registry. 
     
     When you set up the top layer connected registry, make sure it will sync all the required images locally (`azureiotedge-agent`, `azureiotedge-hub`, `connected-registry`). The lower layer IoT device needs to pull these images from the top layer connected registry.
-- It uses the sync token configured at the lower layer to authenticate with the top layer connected registry
+- It uses the sync token configured at the lower layer to authenticate with the top layer connected registry.
 - It configures the parent gateway endpoint with the top layer connected registry IP address or FQDN instead of with the cloud registry's FQDN. 
 
 > [!IMPORTANT]

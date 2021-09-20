@@ -7,7 +7,7 @@ ms.author: danlep
 ---
 ## Import images to your cloud registry
 
-If you haven't already done so, import the following container images to your cloud registry using the [az acr import](/cli/azure/acr#az_acr_import) command.
+Import the following container images to your cloud registry using the [az acr import](/cli/azure/acr#az_acr_import) command. Skip this step if you already imported these images.
 
 ### Connected registry image
 

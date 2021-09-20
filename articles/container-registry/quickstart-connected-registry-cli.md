@@ -2,7 +2,7 @@
 title: Quickstart - Create connected registry using the CLI
 description: Use Azure CLI commands to create a connected registry resource.
 ms.topic: quickstart
-ms.date: 09/01/2021
+ms.date: 09/20/2021
 ms.author: memladen
 author: toddysm
 ms.custom:
@@ -23,7 +23,7 @@ In this quickstart, you create two connected registry resources for a cloud regi
 Enable the dedicated data endpoint for the Azure Container Registry in the cloud by using the [az acr update][az-acr-update] command. This step is needed for a connected registry to communicate with the cloud registry, t
 
 ```azurecli
-# Use the REGISTRY_NAME variable in the following Azure CLI commands to identify the cloud registry
+# Set the REGISTRY_NAME environment variable to identify the existing cloud registry
 REGISTRY_NAME=<container-registry-name>
 
 az acr update --name $REGISTRY_NAME \
@@ -37,7 +37,7 @@ az acr update --name $REGISTRY_NAME \
 Create a connected registry using the [az acr connected-registry create][az-acr-connected-registry-create] command. The connected registry name must start with a letter and contain only alphanumeric characters. It must be 5 to 40 characters long and unique in the hierarchy for this Azure container registry.
 
 ```azurecli
-# Use the CONNECTED_REGISTRY_RW variable in the following Azure CLI command to identify the connected registry with read/write functionality
+# Set the CONNECTED_REGISTRY_RW environment variable to provide a name for the connected registry with read/write functionality
 CONNECTED_REGISTRY_RW=<connnected-registry-name>
 
 az acr connected-registry create --registry $REGISTRY_NAME \
@@ -45,7 +45,7 @@ az acr connected-registry create --registry $REGISTRY_NAME \
   --repository "hello-world" "acr/connected-registry" "azureiotedge-agent" "azureiotedge-hub" "azureiotedge-api-proxy"
 ```
 
-This command creates a connected registry resource named *$CONNECTED_REGISTRY_RW* and links it to the *$REGISTRY_NAME* cloud registry. In later quickstart guides, you learn about options to deploy the connected registry. 
+This command creates a connected registry resource whose name is the value of *$CONNECTED_REGISTRY_RW* and links it to the cloud registry whose name is the value of *$REGISTRY_NAME*. In later quickstart guides, you learn about options to deploy the connected registry. 
 * The specified repositories will be synchronized between the cloud registry and the connected registry once it is deployed. 
 * Because no `--mode` option is specified for the connected registry, it is created in the default ReadWrite mode. 
 * Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
@@ -58,7 +58,7 @@ This command creates a connected registry resource named *$CONNECTED_REGISTRY_RW
 You can also use the [az acr connected-registry create][az-acr-connected-registry-create] command to create a connected registry with read-only functionality. 
 
 ```azurecli
-# Use the CONNECTED_REGISTRY_READ variable in the following Azure CLI command to identify the connected registry with read-only functionality
+# Set the CONNECTED_REGISTRY_READ environment variable to provide a name for the connected registry with read-only functionality
 CONNECTED_REGISTRY_RO=<connnected-registry-name>
 az acr connected-registry create --registry $REGISTRY_NAME \
   --parent $CONNECTED_REGISTRY_RW \
@@ -67,8 +67,8 @@ az acr connected-registry create --registry $REGISTRY_NAME \
   --mode ReadOnly
 ```
 
-This command creates a connected registry resource named *$CONNECTED_REGISTRY_RO* in Azure and links it to the *$REGISTRY_NAME* cloud registry. 
-* The specified repositories will be synchronized between the parent *$CONNECTED_REGISTRY_RW* and the connected registry once deployed.
+This command creates a connected registry resource whose name is the value of *$CONNECTED_REGISTRY_RO* and links it to the cloud registry named with the value of *$REGISTRY_NAME*. 
+* The specified repositories will be synchronized between the parent registry named with the value of *$CONNECTED_REGISTRY_RW* and the connected registry once deployed.
 * This resource is created in the ReadOnly mode, which enables read-only (artifact pull) functionality once deployed. 
 * Because there is no synchronization schedule defined for this connected registry, the repositories will be synchronized between the cloud registry and the connected registry without interruptions.
 
