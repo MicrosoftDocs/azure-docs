@@ -2,7 +2,7 @@
 title: "Tutorial: Manually configure Azure Front Door for Azure Static Web Apps"
 description: Learn set up Azure Front Door for Azure Static Web Apps
 services: static-web-apps
-author: craigshoemker
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 09/20/2021
@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Tutorial: Manually configure Azure Front Door for Azure Static Web Apps
 
-In this tutorial, you learn to add Azure Front Door as the CDN for your static web app.
+Learn to add Azure Front Door as the CDN for your static web app.
 
 In this tutorial, you learn how to:
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 1. Select **Front Door**. (Make sure **not** to select the service labeled *Front Door Standard/Premium (Preview)*).
 
-1. Select **Create**
+1. Select **Create**.
 
 1. In the *Basics* tab, enter the following values:
 
@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
 
     Select **Next: Configuration >**.
 
-1. In the *Configuration* tab, select the **plus sign** next to *Frontends/domains*, and enter the following values:
+1. In the *Configuration* tab, select the **plus sign** next to *Frontends/domains*, and enter the following value:
 
     | Setting | Value |
     |---|---|
@@ -88,13 +88,14 @@ In this tutorial, you learn how to:
 
 1. Select **Create**. The creation process may take a few minutes to complete.
 
+1. Select **Go to resource**.
+
 1. Select **Overview**.
 
 1. Select the link labeled *Frontend host*.
 
     When you select this link, you may see a 404 error if the site is not fully propagated. Instead of refreshing the page, wait a few minutes and return back to the *Overview* window and select the link labeled *Frontend host*.
 
-1. Select **Got to resource**.
 
 1. From the *Overview* window, select the **URL** link to view your site.
 
@@ -119,29 +120,26 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
     }
     ```
 
-1. To define which domains can access your site, add the `forwardingGateway` section. Add the URL from your static web app (not the Front Door URL) into the `allowedForwardedHosts` array.
+1. To define which domains can access your site, and add a unique identifier for your site, add the `forwardingGateway` section.
+
+    First, add the URL from your static web app (not the Front Door URL) into the `allowedForwardedHosts` array.
+
+    Next, add a unique identifier for yourl site.
 
     ```json
     "forwardingGateway": {
       "allowedForwardedHosts": [
         "desert-rain-04056.azurestaticapps.net"
-      ]
-    }
-    ```
-
-    In this example, you would replace `desert-rain-04056.azurestaticapps.net` with the static web apps URL for your site.
-
-1. Next, add a unique identifier for your site.
-
-    ```json
-    "forwardingGateway": {
+      ],
       "requiredHeaders": {
         "X-Azure-FDID" : "????"
       }
     }
     ```
 
-    This value allows all traffic intended to your static web app to route to the appropriate location on the network.
+    The ID value allows all traffic intended to your static web app to route to the appropriate location on the network.
+
+    In this example, you would replace `desert-rain-04056.azurestaticapps.net` with the static web apps URL for your site.
 
 ## Next steps
 

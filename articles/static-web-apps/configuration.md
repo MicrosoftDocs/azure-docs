@@ -296,7 +296,7 @@ The `forwardingGateway` section designates which host names are allowed to forwa
 }
 ```
 
-## Forwarding gateway
+### Required headers
 
 When your static web app is hosted in an environment where IP addresses are shared (like with Azure Front Door), then you can use the `forwardingGateway` headers to identify individual sites.
 
