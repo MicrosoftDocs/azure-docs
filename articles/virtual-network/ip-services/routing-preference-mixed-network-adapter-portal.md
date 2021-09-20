@@ -159,7 +159,7 @@ In this section, you'll attach the secondary network interface you created previ
 
 2. Select **myVM**.
 
-3. Stop **myVM** if it is running, otherwise proceed to next step.
+3. Stop **myVM** if it's running, otherwise continue to next step.
 
 4. In **myVM**, select **Networking** in **Settings**.
 
