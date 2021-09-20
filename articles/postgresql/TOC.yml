@@ -651,6 +651,8 @@
         href: concepts-hyperscale-colocation.md
     - name: Data access and security
       items:
+      - name: Overview
+        href: concepts-hyperscale-security-overview.md
       - name: Public access
         href: concepts-hyperscale-firewall-rules.md
         displayName: firewall, rules, hyperscale
