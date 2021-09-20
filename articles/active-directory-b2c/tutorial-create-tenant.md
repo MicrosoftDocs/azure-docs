@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/03/2020
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create an Azure AD B2C tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). Sign in with an Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription.
-1. Use directory that has your Azure AD subscription, and not your Azure AD B2C directory. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that has your Azure AD subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription your're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    ![Select the Create a resource button](media/tutorial-create-tenant/create-a-resource.png)
 
 1. Search for **Azure Active Directory B2C**, and then select **Create**.
-2. Select **Create a new Azure AD B2C Tenant**.
+1. Select **Create a new Azure AD B2C Tenant**.
 
     ![Create a new Azure AD B2C tenant selected in Azure portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -76,7 +76,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 
 To start using your new Azure AD B2C tenant, you need to switch to the directory that contains the tenant.
 
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 
 If at first you don't see your new Azure B2C tenant in the list, refresh your browser window, then repeat steps 1 and 2 above.

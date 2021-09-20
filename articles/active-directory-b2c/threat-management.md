@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/22/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -32,7 +32,7 @@ The first 10 lockout periods are one minute long. The next 10 lockout periods ar
 To manage password protection settings, including the lockout threshold:
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Under **Security**, select **Authentication methods (Preview)**, then select **Password protection**.

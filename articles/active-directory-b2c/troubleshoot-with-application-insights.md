@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/05/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -31,19 +31,19 @@ If you don't already have one, create an instance of Application Insights in you
 > [!TIP]
 > A single instance of Application Insights can be used for multiple Azure AD B2C tenants. Then in your query, you can filter by the tenant, or policy name. For more information, [see the logs in Application Insights](#see-the-logs-in-application-insights) samples.
 
-To use an exiting instance of Application Insights in your subscription, follow these steps:
+To use an existing instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that has your Azure AD subscription, and not your Azure AD B2C directory.Select the **Directories + Subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the directory that has your Azure AD subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Open the Application Insights resource that you created earlier.
 1. On the **Overview** page, and record the **Instrumentation Key**
 
 To create an instance of Application Insights in your subscription, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that has your Azure AD subscription, and not your Azure AD B2C directory.Select the **Directories + Subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Make sure you're using the directory that has your Azure AD subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Select **Create a resource** in the left-hand navigation menu.
 1. Search for and select **Application Insights**, then select **Create**.
 1. Complete the form, select **Review + create**, and then select **Create**.

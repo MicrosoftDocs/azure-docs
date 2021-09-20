@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -25,12 +25,12 @@ When you've finished the Azure AD B2C tutorials, you can delete the tenant you u
 ## Identify cleanup tasks
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a global administrator or subscription administrator role. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select the **Azure Active Directory** service.
 1. Under **Manage**, select **Properties**.
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
-1. Sign out of the Azure portal and then sign back in to refresh your access. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Sign out of the Azure portal and then sign back in to refresh your access. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select the **Azure Active Directory** service.
 1. On the **Overview** page, select **Delete tenant**. The **Required action** column indicates the resources you'll need to remove before you can delete the tenant.
@@ -42,7 +42,7 @@ When you've finished the Azure AD B2C tutorials, you can delete the tenant you u
 If you have the confirmation page open from the previous section, you can use the links in the **Required action** column to open the Azure portal pages where you can remove these resources. Or, you can remove tenant resources from within the Azure AD B2C service using the following steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a global administrator or subscription administrator role. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select the **Azure AD B2C** service. Or use the search box to find and select **Azure AD B2C**.
 1. Delete all users *except* the admin account you're currently signed in as: Under **Manage**, select **Users**. On the **All users** page, select the checkbox next to each user (except the admin account you're currently signed in as). Select **Delete**, and then select **Yes** when prompted.
@@ -68,7 +68,7 @@ If you have the confirmation page open from the previous section, you can use th
 ## Delete the tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a global administrator or subscription administrator role. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Select the **Azure Active Directory** service.
 1. If you haven't already granted yourself access management permissions, do the following:

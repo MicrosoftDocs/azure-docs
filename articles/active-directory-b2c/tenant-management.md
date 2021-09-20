@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -72,7 +72,7 @@ When planning your access control strategy, it's best to assign users the least 
 To create a new administrative account, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Users**.
@@ -98,7 +98,7 @@ You can also invite a new guest user to manage your tenant. The guest account is
 To invite a user, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Users**.
@@ -121,7 +121,7 @@ An invitation email is sent to the user. The user needs to accept the invitation
 If the guest didn't receive the invitation email, or the invitation expired, you can resend the invite. As an alternative to the invitation email, you can give a guest a direct link to accept the invitation. To resend the invitation and get the direct link:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Users**.
@@ -139,7 +139,7 @@ If the guest didn't receive the invitation email, or the invitation expired, you
 You can assign a role when you [create a user](#add-an-administrator-work-account) or [invite a guest user](#invite-an-administrator-guest-account). You can add a role, change the role, or remove a role for a user:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Users**.
@@ -158,7 +158,7 @@ If you need to remove a role assignment from a user, follow these steps:
 As part of an auditing process, you typically review which users are assigned to specific roles in the Azure AD B2C directory. Use the following steps to audit which users are currently assigned privileged roles.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with Global Administrator or Privileged Role Administrator permissions.
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
@@ -186,7 +186,7 @@ You can enable [Azure AD security defaults](../active-directory/fundamentals/con
 To get your Azure AD B2C tenant name, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the **Overview**, copy the **Domain name**.
@@ -198,7 +198,7 @@ To get your Azure AD B2C tenant name, follow these steps:
 To get your Azure AD B2C tenant ID, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure Active Directory**.
 1. In the **Overview**, copy the **Tenant ID**.
