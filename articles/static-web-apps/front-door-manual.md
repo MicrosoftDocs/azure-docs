@@ -121,14 +121,14 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
 1. To define which domains can access your site, and add a unique identifier for your site, add the `forwardingGateway` section.
 
-    First, add the URL from your static web app (not the Front Door URL) into the `allowedForwardedHosts` array.
+    First, add the Azure Front Door URL (not the Azure Static Web Apps URL) into the `allowedForwardedHosts` array.
 
     Next, add a unique identifier for your site.
 
     ```json
     "forwardingGateway": {
       "allowedForwardedHosts": [
-        "desert-rain-04056.azurestaticapps.net"
+        "my-sitename.azurefd.net"
       ],
       "requiredHeaders": {
         "X-Azure-FDID" : "????"
@@ -138,7 +138,7 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
     The ID value allows all traffic intended to your static web app to route to the appropriate location on the network.
 
-    In this example, you would replace `desert-rain-04056.azurestaticapps.net` with the static web apps URL for your site.
+    In this example, you would replace `my-sitename.azurefd.net` with the static web apps URL for your site.
 
 With Azure Front Door enabled, your site is no longer available via the generated `*.azurestaticapps.net` URL, but exclusively through the Front Door `*.azurefd.net` URL.
 
