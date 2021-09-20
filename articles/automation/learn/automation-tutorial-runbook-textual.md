@@ -3,7 +3,7 @@ title: Tutorial - Create a PowerShell Workflow runbook in Azure Automation
 description: This tutorial teaches you to create, test, and publish a PowerShell Workflow runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/13/2021
+ms.date: 09/20/2021
 ms.topic: tutorial 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
@@ -27,10 +27,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Enable managed identities](../quickstarts/enable-managed-identity.md).
-* Az modules: `Az.Accounts`, `Az.ManagedServiceIdentity`, and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
+* Az modules: `Az.Accounts` and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
 * Two or more [Azure virtual machines](../../virtual-machines/windows/quick-create-powershell.md). Since you stop and start these machines, they shouldn't be production VMs.
+* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
 ## Assign permissions to managed identities
+
+Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities-preview) to allow it to stop a virtual machine. The runbook can use either the Automation account's system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use the Azure portal. If you prefer using PowerShell, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Automation account.
 
@@ -51,7 +54,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    |Scope| Scope is a set of resources that the role assignment applies to. From the drop-down list, select **Resource Group**.|
    |Subscription|This field should be auto-populated with your subscription.|
    |Resource Group|From the drop-down list, select the resource group to give the identity permissions over.|
-   |Role|From the drop-down list, select **Reader**.|
+   |Role|From the drop-down list, select **DevTest Labs User**.|
 
 1. Select **Save**, and then close the **Azure role assignments** page to return to the **System assigned** tab.
 
@@ -60,6 +63,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Select your user-assigned managed identity from the list to open the **Managed Identity** page.
 
    :::image type="content" source="../media/automation-tutorial-runbook-textual/select-user-assigned-identity-portal.png" alt-text="Selecting user-assigned managed identity in portal.":::
+
+1. Take note of the **Client ID** for later use.
+
+   :::image type="content" source="../media/automation-tutorial-runbook-textual/managed-identity-client-id-portal.png" alt-text="Showing Client ID for managed identity in portal":::
 
 1. From the left menu, select **Azure role assignments** and then **+ Add role assignment (Preview)** to open the **Add role assignment (Preview)** page. 
 
@@ -162,7 +169,7 @@ The runbook that you've created is still in Draft mode. You must publish it befo
 
 ## Add authentication to manage Azure resources
 
-You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It can't do that unless it authenticates using the credentials for the subscription. Authentication uses the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It can't do that unless it authenticates using the credentials for the subscription. The runbook uses the Automation account's system-assigned managed identity to authenticate with Azure to perform the management action against the VM. The runbook can be easily modified to use a user-assigned managed identity.
 
 1. Select **Overview** and then **Edit** to open the textual editor.
 
@@ -172,23 +179,25 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    workflow MyFirstRunbook-Workflow
    {
    $resourceGroup = "resourceGroupName"
-   $UAMI = "userAssignedManagedIdentityName"
     
    # Ensures you do not inherit an AzContext in your runbook
    Disable-AzContextAutosave -Scope Process
     
-   # First connect using system-assigned managed identity (sami)
-   Connect-AzAccount -Identity -ErrorAction stop -WarningAction SilentlyContinue
+   # Connect to Azure with system-assigned managed identity
+   Connect-AzAccount -Identity
     
-   # sami connection is needed to execute Get-AzUserAssignedIdentity
-   $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $UAMI
-    
-   # now change connection to user-assigned managed identity
-   Connect-AzAccount -Identity -AccountId $identity.ClientId    
+   # set and store context
+   $subID = (Get-AzContext).Subscription.Id
+   $AzureContext = Set-AzContext -SubscriptionId $subID   
    }
    ```
 
-   Edit the variables with valid values representing your resource group, and user-assigned managed identity.
+   Edit the `$resourceGroup` variable with a valid value representing your resource group.
+
+1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+    1. From line 9, remove `Connect-AzAccount -Identity`,
+    1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
+    1. Enter the Client ID you obtained earlier.
 
 1. Select **Save** and then **Test pane**.
 
@@ -205,7 +214,7 @@ Now that your runbook is authenticating to the Azure subscription, you can manag
 1. Add the code below as the last line immediately before the closing brace. Replace `VMName` with the actual name of a VM. 
 
    ```powershell
-   Start-AzVM -Name "VMName" -ResourceGroupName $resourceGroup
+   Start-AzVM -Name "VMName" -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
    ```
 
 1. Test the runbook and confirm that the VM has started. Then return to the canvas.
@@ -214,12 +223,11 @@ Now that your runbook is authenticating to the Azure subscription, you can manag
 
 Your runbook currently starts the VM that you've hardcoded in the runbook. It will be more useful if you can specify the VM when the runbook is started. Add input parameters to the runbook to provide that functionality.
 
-1. Replace the current two lines for variables with the following:
+1. Replace line 3, `$resourceGroup = "resourceGroupName"`, with the following:
 
     ```powershell
     Param(
         [string]$resourceGroup,
-        [string]$UAMI,
         [string]$VMName
     )
    ```
@@ -227,7 +235,7 @@ Your runbook currently starts the VM that you've hardcoded in the runbook. It wi
 1. Replace the previous `Start-AzVM` command with the following:
 
    ```powewrshell
-   Start-AzVM -Name $VMName -ResourceGroupName $resourceGroup
+   Start-AzVM -Name $VMName -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
    ```
 
 1. Test the runbook and confirm that the VM has started. Then return to the canvas.
@@ -246,7 +254,6 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     {
     Param(
         [string]$resourceGroup,
-        [string]$UAMI,
         [string[]]$VMs,
         [string]$action
     )
@@ -254,28 +261,26 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     # Ensures you do not inherit an AzContext in your runbook
     Disable-AzContextAutosave -Scope Process
     
-    # First connect using system-assigned managed identity (sami)
-    Connect-AzAccount -Identity -ErrorAction stop -WarningAction SilentlyContinue
+    # Connect to Azure with system-assigned managed identity
+    Connect-AzAccount -Identity
     
-    # sami connection is needed to execute Get-AzUserAssignedIdentity
-    $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $UAMI
-    
-    # now change connection to user-assigned managed identity
-    Connect-AzAccount -Identity -AccountId $identity.ClientId    
+    # set and store context
+    $subID = (Get-AzContext).Subscription.Id
+    $AzureContext = Set-AzContext -SubscriptionId $subID   
     
     # Start or stop VMs in parallel
     if($action -eq "Start")
         {
             ForEach -Parallel ($vm in $VMs)
             {
-                Start-AzVM -Name $vm -ResourceGroupName $resourceGroup
+                Start-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
             }
         }
     elseif ($action -eq "Stop")
         {
             ForEach -Parallel ($vm in $VMs)
             {
-                Stop-AzVM -Name $vm -ResourceGroupName $resourceGroup -Force
+                Stop-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext -Force
             }
         }
     else {
@@ -283,6 +288,11 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     	}
     }
     ```
+
+1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+    1. From line 13, remove `Connect-AzAccount -Identity`,
+    1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
+    1. Enter the Client ID you obtained earlier.
 
 1. Select **Save**, then **Publish**, and then **Yes** when prompted.
 
@@ -293,11 +303,10 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
    |Parameter |Description |
    |---|---|
    |RESOURCEGROUP|Enter the name of the resource group of the VMs.|
-   |UAMI|Enter the name of your user-assigned managed identity.|
    |VMs|Enter the names of the virtual machines using the following syntax: `["VM1","VM2","VM3"]`|
    |Action|Enter `stop` or `start`.|
 
-1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially.
+1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially. While the VMs will start sequentially, each VM may reach the **Running** phase at slightly different times based on the characteristics of each VM.
 
 ## Clean up Resources
 
