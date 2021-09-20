@@ -1,8 +1,8 @@
 ---
 title: Deploy an Azure API Management gateway on Azure Arc
 description: Enable Azure Arc to deploy your self-hosted Azure API Management gateway. 
-author: v-hhunter
-ms.author: v-hhunter
+author: dlepow
+ms.author: danlep
 ms.service: api-management
 ms.topic: article 
 ms.date: 05/25/2021

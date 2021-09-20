@@ -35,6 +35,8 @@ If you have any questions about the SBC certification program for Communication 
 |:--- |:--- |:--- 
 |AudioCodes|Mediant SBC|7.40A
 |Metaswitch|Perimeta SBC|4.9|
+|Oracle|AP 3900|8.4.0|
+|
 
 Note the certification granted to a major version. That means that firmware with any number in the SBC firmware following the major version is supported.
 

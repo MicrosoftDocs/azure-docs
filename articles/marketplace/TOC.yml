@@ -423,6 +423,8 @@
     href: insights-dashboard.md
   - name: License dashboard
     href: license-dashboard.md
+  - name: Quality of service dashboard
+    href: quality-of-service-dashboard.md
   - name: Downloads dashboard
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard

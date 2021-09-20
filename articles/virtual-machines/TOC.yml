@@ -337,13 +337,8 @@
     - name: Virtual machines selector tool
       href: https://aka.ms/vm-selector
     - name: Change the VM size
-      items:
-      - name: CLI
-        displayName: Change, resize, update size
-        href: ./linux/change-vm-size.md
-      - name: Portal or PowerShell
-        displayName: Change, resize, update size
-        href: ./windows/resize-vm.md
+      displayName: Change, resize, update size
+      href: resize-vm.md
     - name: States and billing
       href: states-billing.md
     - name: Azure VMs with no temp disk
@@ -1208,10 +1203,8 @@
         href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
     - name: Backup and disaster recovery for managed disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Snapshot a disk - CLI
-      href: ./linux/snapshot-copy-managed-disk.md
-    - name: Snapshot a disk - PowerShell
-      href: ./windows/snapshot-copy-managed-disk.md
+    - name: Snapshot a disk
+      href: snapshot-copy-managed-disk.md
     - name: Backup unmanaged disks
       href: ./linux/incremental-snapshots.md
     - name: Backup and disaster recovery for unmanaged disks

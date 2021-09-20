@@ -27,7 +27,6 @@ This tutorial describes how to migrate data to Migrate to Azure Managed Instance
 
 * Ensure you've already migrated the keyspace/table scheme from your source Cassandra database to your target Cassandra Managed Instance database.
 
-
 ## Provision an Azure Databricks cluster
 
 We recommend selecting Databricks runtime version 7.5, which supports Spark 3.0.

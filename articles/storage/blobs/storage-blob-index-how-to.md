@@ -309,11 +309,11 @@ static async Task FindBlobsByTagsExample()
 
 # [.NET v12 SDK](#tab/net)
 
-[Lifecycle management](storage-lifecycle-management-concepts.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 or higher.
+[Lifecycle management](./lifecycle-management-overview.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 or higher.
 
 ---
 
 ## Next steps
 
  - Learn more about blob index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md )
- - Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+ - Learn more about lifecycle management, see [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)
