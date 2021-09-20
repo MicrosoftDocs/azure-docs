@@ -12,6 +12,9 @@ ms.date: 09/20/2021
 ---
 # Create server configured with user-assigned managed identity and customer-managed TDE
 
+> [!NOTE]
+> Assigning a user-assigned managed identity for Azure SQL logical servers and Managed Instances is in **public preview**.
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This how-to guide outlines the steps to create an Azure SQL logical [server](logical-servers.md) configured with Transparent Data Encryption (TDE) with customer-managed keys (CMK) using a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) to access [Azure Key Vault](/azure/key-vault/general/quick-create-portal). 

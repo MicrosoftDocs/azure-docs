@@ -13,6 +13,9 @@ ms.date: 09/20/2021
 # Managed Identities for Transparent Data Encryption with BYOK
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
+> [!NOTE]
+> Assigning a user-assigned managed identity for Azure SQL logical servers and Managed Instances is in **public preview**.
+
 Managed identities in Azure Active Directory (Azure AD) provide Azure services with an automatically managed identity in Azure AD. This identity can be used to authenticate to any service that supports Azure AD authentication, such as [Azure Key Vault](/azure/key-vault/general/overview), without any credentials in the code. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) in Azure. 
 
 Managed Identities can be of two types:
