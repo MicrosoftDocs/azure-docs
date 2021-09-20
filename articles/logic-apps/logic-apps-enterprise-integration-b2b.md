@@ -237,7 +237,7 @@ To notify the trading partner that the message was received, you can return a re
 
 1. Now specify the responses to return based on whether the **AS2 Decode** action succeeds or not.
 
-   1. For the case when the **AS2 Decode** action succeeds, in the **If true** shape, select **Add an action**. Under the **Choose an operation** search box, enter `response`, and select **Response**.
+   1. For the case when the **AS2 Decode** action succeeds, in the **True** shape, select **Add an action**. Under the **Choose an operation** search box, enter `response`, and select **Response**.
 
       ![Screenshot showing multi-tenant designer and the "Response" action.](./media/logic-apps-enterprise-integration-b2b/select-response-consumption.png)
 
@@ -255,7 +255,7 @@ To notify the trading partner that the message was received, you can return a re
 
       ![Screenshot showing multi-tenant designer and resolved expression to access AS2 MDN.](./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression-consumption.png)
 
-   1. For the case when the **AS2 Decode** action fails, in the **If false** shape, select **Add an action**. Under the **Choose an operation** search box, enter `response`, and select **Response**. Set up the **Response** action to return the status and error that you want.
+   1. For the case when the **AS2 Decode** action fails, in the **False** shape, select **Add an action**. Under the **Choose an operation** search box, enter `response`, and select **Response**. Set up the **Response** action to return the status and error that you want.
 
 1. Save your logic app workflow.
 
@@ -269,8 +269,39 @@ To notify the trading partner that the message was received, you can return a re
 
    Now the condition shape appears, including the paths that determine whether the condition is met.
 
-   ![Screenshot showing single-tenant designer and the "Condition" shape with empty paths.](./media/logic-apps-enterprise-integration-b2b/added-condition-action-consumption.png)
+   ![Screenshot showing single-tenant designer and the "Condition" shape with empty paths.](./media/logic-apps-enterprise-integration-b2b/added-condition-action-standard.png)
 
+1. Now specify the condition to evaluate. Select the **Condition** shape so that the details panel appears. In the **Choose a value** box, enter the following expression:
+
+   `@body('Decode_AS2_message')?['AS2Message']?['MdnExpected']`
+
+   In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`. To get the expression to resolve as this token, switch between the designer and code view.
+
+   ![Screenshot showing single-tenant designer and the condition shape with an operation.](./media/logic-apps-enterprise-integration-b2b/evaluate-condition-expression-standard.png)
+
+1. Now specify the responses to return based on whether the **Decode AS2 message** action succeeds or not.
+
+   1. For the case when the **Decode AS2 message** action succeeds, in the **True** shape, select the plus sign, and then select **Add an action**. On the **Add an action** pane, in the **Choose an operation** search box, enter `response`, and select **Response**.
+
+      ![Screenshot showing single-tenant designer and the "Response" action.](./media/logic-apps-enterprise-integration-b2b/select-response-standard.png)
+
+   1. To access the AS2 MDN from the **AS2 Decode** action's output, specify the following expressions:
+
+      * In the **Response** action's **Headers** property, enter the following expression:
+
+        `@body('Decode_AS2_message')?['OutgoingMdn']?['OutboundHeaders']`
+
+      * In the **Response** action's **Body** property, enter the following expression:
+
+        `@body('Decode_AS2_message')?['OutgoingMdn']?['Content']`
+
+   1. To get the expressions to resolve as tokens, switch between the designer and code view:
+
+      ![Screenshot showing single-tenant designer and resolved expression to access AS2 MDN.](./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression-standard.png)
+
+   1. For the case when the **Decode AS2 message** action fails, in the **False** shape, select the plus sign, and then select **Add an action**. On the **Add an action** pane, in the **Choose an operation** search box, enter `response`, and select **Response**. Set up the **Response** action to return the status and error that you want.
+
+1. Save your logic app workflow.
 
 ---
 
