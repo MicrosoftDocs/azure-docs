@@ -109,11 +109,12 @@ For more information about the format of conditions, see [Azure role assignment 
 
 Here's a list of the some of the primary features of conditions:
 
-- Add conditions to Storage Blob Data role assignments
-- Use attributes on a resource in a condition
-- Use attributes that are part of the action request in a condition
-- Use custom security attributes on a principal in a condition
-
+| Feature | Status | Date |
+| --- | --- | --- |
+| Add conditions to Storage Blob Data role assignments | Preview | May 2021 |
+| Use attributes on a resource in a condition | Preview | May 2021 |
+| Use attributes that are part of the action request in a condition | Preview | May 2021 |
+| Use custom security attributes on a principal in a condition | Preview | October 2021 |
 
 ## Conditions and Privileged Identity Management (PIM)
 
