@@ -26,7 +26,7 @@ For general information about the Data Lake Storage Gen2 access control model, s
 
 ### Configure the Azure Storage firewall with Azure service access
 
-Turn on the Azure Storage firewall to limit the vector of external attacks. To access your storage account from a service such as Azure Databricks, deploy an instance of that service to your virtual network. Then, you can configure the firewall to grant access to the storage account for that service. 
+Turn on the Azure Storage firewall to limit the vector of external attacks. To access your storage account from a service such as [Azure Databricks](../../databricks/scenarios/what-is-azure-databricks.md), deploy an instance of that service to your virtual network. Then, you can configure the firewall to grant access to the storage account for that service. 
 
 For more information about how to apply this best practice, see [Grant access to trusted Azure services](../common/storage-network-security.md).
 
@@ -52,7 +52,7 @@ Copy jobs can be triggered by Apache Oozie workflows using frequency or data tri
 
 ### Use Azure Data Factory to schedule copy jobs
 
-Azure Data Factory can also be used to schedule copy jobs by using a Copy Activity, and can even be set up on a frequency via the Copy Wizard. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Storage Gen2 accounts, so directories like Hive tables would require a complete copy to replicate. Refer to the [data factory article](../../data-factory/load-azure-data-lake-storage-gen2.md) for more information on copying with Data Factory.
+[Azure Data Factory](../../data-factory/introduction.md) can also be used to schedule copy jobs by using a Copy Activity, and can even be set up on a frequency via the Copy Wizard. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Storage Gen2 accounts, so directories like Hive tables would require a complete copy to replicate. Refer to the [data factory article](../../data-factory/load-azure-data-lake-storage-gen2.md) for more information on copying with Data Factory.
 
 ## Directory structure
 
@@ -85,11 +85,7 @@ For example, a marketing firm receives daily data extracts of customer updates f
 *NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\
 *NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*
 
-In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn’t a need for an **/in** or **/out** directory because the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective directories. Then, a service such as Azure Data Factory, Apache Oozie, or Apache Airflow would trigger a daily Hive or Spark job to process and write the data into a Hive table.
-
-## Performance
-
-For performance optimization best practices, see [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md).
+In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn’t a need for an **/in** or **/out** directory because the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective directories. Then, a service such as [Azure Data Factory](../../data-factory/introduction.md), [Apache Oozie](https://oozie.apache.org/), or [Apache Airflow](https://airflow.apache.org/) would trigger a daily Hive or Spark job to process and write the data into a Hive table.
 
 ## See also
 
