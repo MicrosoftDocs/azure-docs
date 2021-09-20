@@ -36,7 +36,7 @@ This article shows you how to complete these tasks:
 * Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/)
 
   > [!NOTE]
-  > The **Transform JSON to JSON - Liquid** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid), 
+  > The **Transform JSON to JSON - Liquid** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid) (version 2.0.361), 
   > which differs in specific cases from the [Shopify implementation for Liquid](https://shopify.github.io/liquid). 
   > For more information, see [Liquid template considerations](#liquid-template-considerations).
 
