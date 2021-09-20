@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Purview (preview)
+title: Introduction to Azure Purview
 description: This article provides an overview of Azure Purview, including its features and the problems it addresses. Azure Purview enables any user to register, discover, understand, and consume data sources.
 author: hophanms
 ms.author: hophan
@@ -10,9 +10,6 @@ ms.date: 11/30/2020
 ---
 
 # What is Azure Purview?
-
-> [!IMPORTANT]
-> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Easily create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. Empower data consumers to find valuable, trustworthy data.
 

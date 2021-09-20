@@ -12,7 +12,7 @@ ms.date: 4/1/2021
 
 # Supported classifications in Azure Purview
 
-This article lists the supported and defined system classifications in Azure Purview (Preview).
+This article lists the supported and defined system classifications in Azure Purview.
 
 
 - **Distinct data threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. Distinct data threshold has nothing to do with pattern matching but it is a pre-requisite for pattern matching. Our system classification rules require there to be at least 8 distinct values in each column to subject them to classification. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.

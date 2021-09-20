@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI (preview)'
+title: 'Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI'
 description: This Quickstart describes how to create an Azure Purview account using Azure PowerShell/Azure CLI.
 author: hophanms
 ms.author: hophan
@@ -13,9 +13,6 @@ ms.custom:
 # Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI
 
 In this Quickstart, you'll create an Azure Purview account using Azure PowerShell/Azure CLI.
-
-> [!IMPORTANT]
-> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 

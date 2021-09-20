@@ -1,5 +1,5 @@
 ---
-title: 'Configure access to data sources for Azure Purview MSI at scale (preview)'
+title: 'Configure access to data sources for Azure Purview MSI at scale'
 description: In this tutorial, you'll configure Azure MSI settings on your Azure data source subscriptions. 
 author: zeinam
 ms.author: zeinam
@@ -9,10 +9,7 @@ ms.topic: tutorial
 ms.date: 05/28/2021
 # Customer intent: As a data steward or catalog administrator, I need to onboard Azure data sources at scale before I register and scan them.
 ---
-# Tutorial: Configure access to data sources for Azure Purview MSI at scale (preview)
-
-> [!IMPORTANT]
-> Azure Purview is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta or preview or are otherwise not yet released for general availability.
+# Tutorial: Configure access to data sources for Azure Purview MSI at scale
 
 To scan data sources, Azure Purview requires access to them. This tutorial is intended for Azure subscription owners and Azure Purview Data Source Administrators. It will help you identify required access and set up required authentication and network rules for Azure Purview across Azure data sources.
 

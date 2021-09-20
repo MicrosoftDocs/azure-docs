@@ -87,6 +87,8 @@ In this section, you configure your local environment, install the Azure IoT C d
 
 ### Install the SDK and samples
 
+1. Navigate to a local folder where you want to clone the sample repo.
+
 1. Copy the Azure IoT C device SDK to your local machine.
 
     ```console

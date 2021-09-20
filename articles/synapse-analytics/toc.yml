@@ -689,6 +689,8 @@ items:
           href: ./spark/data-sources/apache-spark-sql-connector.md
         - name: JSON
           href: how-to-analyze-complex-schema.md
+        - name: External Hive Metastore
+          href: ./spark/apache-spark-external-metastore.md
 - name: Synapse Link
   items:
   - name: Overview

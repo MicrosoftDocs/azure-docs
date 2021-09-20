@@ -67,17 +67,14 @@ Note that the `capacity` property is set to 5 now in this example.
 In order to update the quantity reserved, use `New-AzCapacityReservation` with the updated `capacityToReserve` property.
 
 ```powershell-interactive
-New-AzCapacityReservation
+Update-AzCapacityReservation
 -ResourceGroupName "myResourceGroup"
--Location "eastus"
--Zone "1"
 -ReservationGroupName "myCapacityReservationGroup"
 -Name "myCapacityReservation"
--Sku "Standard_D2s_v3"
 -CapacityToReserve 5
 ```
 
-To learn more, go to Azure PowerShell command [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
+To learn more, go to Azure PowerShell command [Update-AzCapacityReservation](/powershell/module/az.compute/update-azcapacityreservation).
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->

@@ -64,4 +64,4 @@ All 206 system classification rules apply to structured file formats. Only the M
 ## Next steps
 
 - [Tutorial: Run the starter kit and scan data](tutorial-scan-data.md)
-- [Manage data sources in Azure Purview (Preview)](manage-data-sources.md)
+- [Manage data sources in Azure Purview](manage-data-sources.md)

@@ -658,10 +658,6 @@ The preceding example returns an object in the following format:
 }
 ```
 
-This example specifies a resource group property. Only the resource group's name is shown in output.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourcegroup-name.json":::
-
 ## resourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`

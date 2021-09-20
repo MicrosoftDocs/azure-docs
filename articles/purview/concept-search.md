@@ -1,5 +1,5 @@
 ---
-title: Understand search features in Azure Purview (preview)
+title: Understand search features in Azure Purview
 description: This article explains how Azure Purview enables data discovery through search features.
 author: chanuengg
 ms.author: csugunan

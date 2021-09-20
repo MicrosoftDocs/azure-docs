@@ -22,8 +22,7 @@ BigQuery project and fetches Lineage between data assets.
 
 1.  Set up the latest [self-hosted integration
     runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see 
-    [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
+    For more information, see [create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Make sure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
     is installed on your virtual machine where self-hosted integration

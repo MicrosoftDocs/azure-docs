@@ -1,5 +1,5 @@
 ---
-title: Asset insights on your data in Azure Purview (preview)
+title: Asset insights on your data in Azure Purview
 description: This how-to guide describes how to view and use Purview Insights asset reporting on your data. 
 author: SunetraVirdi
 ms.author: suvirdi
@@ -28,7 +28,7 @@ Before getting started with Purview insights, make sure that you've completed th
 
 * Set up and complete a scan on the source type.
 
-For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
+For more information, see [Manage data sources in Azure Purview](manage-data-sources.md).
 
 ## Use Purview Asset Insights
 

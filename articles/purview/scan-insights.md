@@ -26,7 +26,7 @@ Before getting started with Purview insights, make sure that you've completed th
 * Set up your Azure resources and populate the account with data.
 * Set up and complete a scan on the data source.
 
-For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
+For more information, see [Manage data sources in Azure Purview](manage-data-sources.md).
 
 ## Use Purview Scan Insights
 
