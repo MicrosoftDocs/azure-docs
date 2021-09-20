@@ -20,13 +20,13 @@ The App Service Environment (ASE) is a single tenant deployment of the Azure App
 
 ## Subnet requirements
 
-The subnet needs to be delegated to Microsoft.Web/hostingEnvironments and must be empty.
+The subnet must be delegated to Microsoft.Web/hostingEnvironments and must be empty.
 
 The size of the subnet can affect the scaling limits of the App Service Plan instances within the ASE. We recommend using a /24 address space (256 addresses) for your subnet to ensure enough addresses to support the scaling limit of 200 instances within an ASE.
 
 If you require fewer instances and would like to minimize the size of the subnet, this is the guidance you can follow.
 
-Any given subnet has 5 addresses allocated for management purposes. On top of that, ASE will use between 8 and 27 addresses depending on scale and load, that will dynamically scale the supporting infrastructure. This means that if you do not plan to scale to more than 32 instances across App Service Plans in the ASE, then a /26 address space (64 addresses) is sufficient for your subnet.
+Any given subnet has five addresses allocated for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 8 and 27 addresses depending on scale and load. Additional addresses are used for the worker instances. If you do not plan to scale to more than 32 instances across App Service Plans in the ASE, then a /26 address space (64 addresses) is sufficient for your subnet.
 
 ## Addresses 
 
