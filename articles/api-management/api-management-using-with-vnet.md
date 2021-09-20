@@ -208,7 +208,7 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
 ### Application Insights  
   If you've enabled [Azure Application Insights](api-management-howto-app-insights.md) monitoring on API Management, allow outbound connectivity to the [telemetry endpoint](../azure-monitor/app/ip-addresses.md#outgoing-ports) from the VNET.
 
-### Force tunneling and traffic to KMS endpoint
+### Force tunneling traffic to KMS endpoint
 
 When forced tunneling is enabled on the API Management subnet and virtual machines running Windows are added, allow outbound connectivity on port 1688 to the [KMS endpoint](../troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation.md#solution) in your cloud. This configuration routes Windows VM traffic to the Azure Key Management Services (KMS) server to complete Windows activation.
 
