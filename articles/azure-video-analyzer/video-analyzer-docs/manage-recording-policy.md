@@ -14,7 +14,7 @@ You can use Azure Video Analyzer for [recording](video-recording.md) live video 
 
 Retention period property provides the capability to clean up the videos automatically associated with the Video Analyzer accounts based on the time period configured for a particular video asset or at pipeline level. It also helps in reducing the number of transactions to storage account & associated storage cost.
 
-* You can specify a retention period for each video by a Rest API call https://docs.microsoft.com/en-us/rest/api/videoanalyzer/videos/create-or-update, `retentionPeriod` property of video entity is used to set the retention time period under 'archival' tag of the Json request body as shown below
+* You can specify a retention period for each video by a Rest API call https://docs.microsoft.com/rest/api/videoanalyzer/videos/create-or-update, `retentionPeriod` property of video entity is used to set the retention time period under 'archival' tag of the Json request body as shown below
 
 ```
     // Video Archival Details
