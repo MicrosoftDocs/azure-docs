@@ -71,8 +71,8 @@ In this tutorial, you learn how to:
     | Setting | Value |
     |---|---|
     | Backend host type | Select **Custom host**. |
-    | Backend host name | Enter full URL of your static web app. Make sure your value does not include a trailing slash. (For example, *https://desert-rain-04056.azurestaticapps.net*)  |
-    | Backend host header | Enter full URL of your static web app. Make sure your value does not include a trailing slash. (For example, *https://desert-rain-04056.azurestaticapps.net*) |
+    | Backend host name | Enter full URL of your static web app. Make sure your value does not include a trailing slash. (For example, `https://desert-rain-04056.azurestaticapps.net`)  |
+    | Backend host header | Enter full URL of your static web app. Make sure your value does not include a trailing slash. (For example, `https://desert-rain-04056.azurestaticapps.net`) |
 
     Accept the defaults for the rest of the form, and select **Add**.
 
@@ -142,7 +142,7 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
 With Azure Front Door enabled, your site is no longer available via the generated `*.azurestaticapps.net` URL, but exclusively through the Front Door `*.azurefd.net` URL.
 
-For information on configuring a custom domain, refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md)
+For information on configuring a custom domain, refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md).
 
 ## Next steps
 
