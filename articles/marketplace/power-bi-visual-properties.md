@@ -30,7 +30,7 @@ To learn about the standard contract, see [Standard Contract for the Microsoft c
 
 ### Use the standard contract
 
-<font color="red">added this section, but without amendments content</font> To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions.
+To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions.
 
 1. Select the **Use the Standard Contract...** check box.
 
@@ -43,7 +43,7 @@ To learn about the standard contract, see [Standard Contract for the Microsoft c
 
 ### Use your own terms and conditions
 
-<font color="red">added this section</font> You may provide your own terms and conditions instead of using the standard contract, or use our EULA specific for Power BI visual offers. Customers must accept these terms before they can try your offer.
+You may provide your own terms and conditions instead of using the standard contract, or use our EULA specific for Power BI visual offers. Customers must accept these terms before they can try your offer.
 
 1. Clear the **Use the Standard Contract for Microsoft's commercial marketplace** check box.
 1. In the **EULA** filed (see image above), enter a single web address for your terms and conditions. Or, point to the Power BI visuals contract at `https://visuals.azureedge.net/app-store/Power%20BI%20-%20Default%20Custom%20Visual%20EULA.pdf` (PDF). Either will display as an active link in AppSource.
