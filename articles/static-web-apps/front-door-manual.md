@@ -124,7 +124,7 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
     First, add the URL from your static web app (not the Front Door URL) into the `allowedForwardedHosts` array.
 
-    Next, add a unique identifier for yourl site.
+    Next, add a unique identifier for your site.
 
     ```json
     "forwardingGateway": {
