@@ -61,7 +61,7 @@ Data is imperative for maps. Use the Data service to upload and store geospatial
 
 ### Geolocation service
 
-Use the Geolocation service to retrieve two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
+Use the Geolocation service to retrieve the two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
 
 For more details, read the [Geolocation service documentation](/rest/api/maps/geolocation).
 
