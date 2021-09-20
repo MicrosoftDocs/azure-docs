@@ -23,10 +23,9 @@ This article covers the steps to **set up a new Azure Digital Twins instance**, 
 the instance and setting up authentication. After completing this article, you will have an Azure
 Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az).
-
-* To go through these steps manually using the Azure portal, see the portal version of this article in [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
-* To run through an automated setup using a deployment script sample, see the scripted version of this article in [Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
+This version of this article goes through these steps manually, one by one, using [Azure PowerShell](/powershell/azure/new-azureps-module-az). Setup can also be completed by using the following alternate instructions:
+* [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md)
+* [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 

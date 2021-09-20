@@ -14,7 +14,10 @@ ms.date: 09/01/2021
 >[!NOTE]
 > Ensure you create a new Recovery Services vault for setting up the preview appliance. Don't use an existing vault.
 
-You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
+>[!NOTE]
+> Enabling replication for physical machines is not supported with this preview. 
+
+You deploy an on-premises replication appliance when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs to Azure.
 
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-preview.md) about the Azure Site Recovery replication appliance components and processes.
@@ -91,6 +94,10 @@ C:\Program Files\Microsoft Azure VMware Discovery Service <br>
 C:\Program Files\Microsoft On-Premise to Azure Replication agent <br>
 E:\ <br>
 
+### If Antivirus software is active on Source machine
+
+If source machine has an Antivirus software active, installation folder should be excluded. So, exclude folder C:\ProgramData\ASR\agent for smooth replication.
+
 ## Prepare Azure account
 
 To create and register the Azure Site Recovery replication appliance, you need an Azure account with:
@@ -165,6 +172,9 @@ The OVF template spins up a machine with the required specifications.
 4. Select **Finalize,** the system reboots and you can login with the administrator user account.
 
 ### Set up the appliance through PowerShell
+
+>[!NOTE]
+> Enabling replication for physical machines is not supported with this preview. 
 
 In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
