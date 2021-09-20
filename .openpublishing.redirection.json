@@ -16684,6 +16684,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-fortinet.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-fortinet",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-palo-alto.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-palo-alto",
       "redirect_document_id": false
@@ -56076,7 +56081,7 @@
     },
     {
       "source_path": "articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
       "redirect_document_id": false
     },
     {

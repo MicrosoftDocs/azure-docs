@@ -33,7 +33,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     You can already enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#continuous-availability). You can now also enable SMB CA on an existing SMB volume. See [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md).
 
-* [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) now generally available (GA)  
+* [Snapshot policy](snapshots-manage-policy.md) now generally available (GA)  
 
     The snapshot policy feature is now generally available. You no longer need to register the feature before using it.
 
@@ -150,7 +150,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## November 2020
 
-* [Snapshot revert](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+* [Snapshot revert](snapshots-revert-volume.md)
 
     The snapshot revert functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot to the active file system. It is also more space efficient compared to restoring a snapshot to a new volume.
 
@@ -194,15 +194,15 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Cloud promises flexibility in IT spending. You can now change the service level of an existing Azure NetApp Files volume by moving the volume to another capacity pool that uses the service level you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact the data plane access to the volume. You can change an existing volume to use a higher service level for better performance, or to use a lower service level for cost optimization. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies). It is currently in preview. You can register for the feature preview by following the [dynamic volume service level change documentation](dynamic-change-volume-service-level.md).
 
-* [Volume snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) (Preview) 
+* [Volume snapshot policy](snapshots-manage-policy.md) (Preview) 
 
-    Azure NetApp Files allows you to create point-in-time snapshots of your volumes. You can now create a snapshot policy to have Azure NetApp Files automatically create volume snapshots at a frequency of your choice. You can schedule the snapshots to be taken in hourly, daily, weekly, or monthly cycles. You can also specify the maximum number of snapshots to keep as part of the snapshot policy. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies) and is currently in preview. You can register for the feature preview by following the [volume snapshot policy documentation](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+    Azure NetApp Files allows you to create point-in-time snapshots of your volumes. You can now create a snapshot policy to have Azure NetApp Files automatically create volume snapshots at a frequency of your choice. You can schedule the snapshots to be taken in hourly, daily, weekly, or monthly cycles. You can also specify the maximum number of snapshots to keep as part of the snapshot policy. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies) and is currently in preview. You can register for the feature preview by following the [volume snapshot policy documentation](snapshots-manage-policy.md).
 
 * [NFS root access export policy](azure-netapp-files-configure-export-policy.md)
 
     Azure NetApp Files now allows you to specify whether the root account can access the volume. 
 
-* [Hide snapshot path](azure-netapp-files-manage-snapshots.md#restore-a-file-from-a-snapshot-using-a-client)
+* [Hide snapshot path](snapshots-edit-hide-path.md)
 
     Azure NetApp Files now allows you to specify whether a user can see and access the `.snapshot` directory (NFS clients) or `~snapshot` folder (SMB clients) on a mounted volume.
 
