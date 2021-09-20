@@ -42,7 +42,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - Each Purview account is created with a default _root collection_. The root collection name is the same as your Azure Purview account name. The root collection can't be removed. You can change the friendly name of your Purview account from Purview Management center and this way the change root collection's friendly name.   
 
-- Collections can hold data sources, scans, assets and role assignments.
+- Collections can hold data sources, scans, assets, and role assignments.
 
 - A collection can have as many child collections as needed. But each collection can have only one parent collection. You can't deploy collections above the root collection.
 
@@ -50,7 +50,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - A collections hierarchy in an Azure Purview can support as many as 300 collections, with a maximum of eight levels of depth. This doesn't include the root collection. 
 
-- By design, you can't register data sources multiple times in the same Purview account. This architecture helps to avoid the risk of assigning different levels of access control to a single data source. If the metadata of a single data source is consumed by multiple teams, you can register and manage the data source in a parent collection and then create corresponding scans under each subcollection so that relevant assets appear under each child collection.
+- By design, you can't register data sources multiple times in the same Purview account. This architecture helps to avoid the risk of assigning different levels of access control to a single data source. If multiple teams consume the metadata of a single data source, you can register and manage the data source in a parent collection. You can then create corresponding scans under each subcollection so that relevant assets appear under each child collection.
 
 - Lineage connections and artifacts are attached to the root collection even if the data sources are registered at lower-level collections.
 
@@ -107,9 +107,9 @@ Azure Purview data-plane roles are managed in Azure Purview. After you deploy a 
 
 - In Azure Purview, you can assign roles to users, security groups, and service principals (including managed identities) from Azure Active Directory (Azure AD) on the same Azure AD tenant where the Purview account is deployed.
   
-- Guest accounts must first be added to your Azure AD tenant as B2B users before you can assign Purview roles to external users. 
+- You must first add guest accounts to your Azure AD tenant as B2B users before you can assign Purview roles to external users. 
 
-- By default, Collection Admins don't have access to read or modify assets. But they can elevate their access and add themselves to additional roles.
+- By default, Collection Admins don't have access to read or modify assets. But they can elevate their access and add themselves to more roles.
 
 - By default, all role assignments are automatically inherited by all child collections. But you can enable **Restrict inherited permissions** on any collection except for the root collection. **Restrict inherited permissions** removes the inherited roles from all parent collections, except for the Collection Admins role. 
 
@@ -136,7 +136,7 @@ Azure Purview data-plane roles are managed in Azure Purview. After you deploy a 
  
 ## Collections archetypes
 
-You can deploy your Azure Purview collection based on centralized, decentralized, or hybrid data management and governance models, according to your business and security requirements.
+You can deploy your Azure Purview collection based on centralized, decentralized, or hybrid data management and governance models. Base this decision on your business and security requirements.
 
 ### Example 1: Single-region organization 
 
@@ -184,50 +184,50 @@ The department-level shared data sources are registered and scanned in the depar
 
 :::image type="content" source="media/concept-best-practices/collections-example-2.png" alt-text="Screenshot that shows the second Azure Purview collections example."lightbox="media/concept-best-practices/collections-example-2.png":::
 
-### Example 3: Multiregion data transformation
+### Example 3: Multiregion, data transformation
 
-This scenario can be useful for organizations that are interested in distributing metadata access management based on geographical locations and data transformation states. Raw and refine zones can be managed by data scientists and data engineers to transform them to more meaningful data and moved into produce or curated zones.  
+This scenario can be useful if you want to distribute metadata-access management based on geographic locations and data transformation states. Data scientists and data engineers who can transform data to make it more meaningful can manage Raw and Refine zones. They can then move the data into Produce or Curated zones.  
 
-The collection hierarchy consists of the following verticals: 
+The collection hierarchy consists of these verticals: 
 
-- Root collection (Default)
-- Fabrikam (Top-level collection)
-- Geos (Mid-level collections based on geographical locations where data sources and data owners are located)
-- Data Transformation Stages (Raw, Refine, Produce/Curated) 
+- Root collection (default)
+- Fabrikam (top-level collection)
+- Geographic locations (mid-level collections based on geographic locations where data sources and data owners are located)
+- Data transformation stages (Raw, Refine, Produce/Curated) 
 
-Data scientists and data engineers can have the _data curators_ role on their corresponding zones to perform curation of metadata. _Data reader_ access to the curated zone can be granted to entire data personas and business users. 
+Data scientists and data engineers can have the Data Curators role on their corresponding zones so they can curate metadata. Data Reader access to the curated zone can be granted to entire data personas and business users. 
 
-:::image type="content" source="media/concept-best-practices/collections-example-3.png" alt-text="Screenshot that shows an example of Azure Purview collection example 3."lightbox="media/concept-best-practices/collections-example-3.png":::
+:::image type="content" source="media/concept-best-practices/collections-example-3.png" alt-text="Screenshot that shows the third Azure Purview collections example."lightbox="media/concept-best-practices/collections-example-3.png":::
 
-### Example 4: Multi-region Business Functions 
+### Example 4: Multiregion, business functions 
 
-This option can be used by companies who require organizing metadata and access management based on business functions.
+This option can be used by organizations that need to organize metadata and access management based on business functions.
 
-The collection hierarchy consists of the following verticals: 
+The collection hierarchy consists of these verticals: 
 
-- Root collection (Default)
-- AdventureWorks (Top-level collection)
-- Geo (Mid-level collections based on geographical locations where data sources and data owners are located)
-- Major business functions, clients (Further segregation based on functions or clients)
+- Root collection (default)
+- AdventureWorks (top-level collection)
+- Geographic locations (mid-level collections based on geographic locations where data sources and data owners are located)
+- Major business functions or clients (further segregation based on functions or clients)
 
-Each region has a sub collection of their own under the top-level collection inside the Purview account. Data sources are registered and scanned inside the corresponding subcollections in their own geo. This way assets are added to the subcollection hierarchy for the region. 
+Each region has a subcollection of its own under the top-level collection in the Purview account. Data sources are registered and scanned in the corresponding subcollections in their own geographic locations. So assets are added to the subcollection hierarchy for the region. 
 
-If you have centralized data management and governance team, you can grant them access from top-level collection. This way, they gain oversight for the entire data estate in the data map. Optionally, the centralized team can register and scan any shared data sources.
+If you have centralized data management and governance teams, you can grant them access from the top-level collection. When you do, they gain oversight for the entire data estate in the data map. Optionally, the centralized team can register and scan any shared data sources.
 
-Region-based data management and governance team can obtain access from their corresponding collections at lower level.
-Each Business unit has their own sub-collection.
+Region-based data management and governance teams can obtain access from their corresponding collections at a lower level.
+Each business unit has its own subcollection.
 
-:::image type="content" source="media/concept-best-practices/collections-example-4.png" alt-text="Screenshot that shows an example of Azure Purview collection example 4."lightbox="media/concept-best-practices/collections-example-4.png":::
+:::image type="content" source="media/concept-best-practices/collections-example-4.png" alt-text="Screenshot that shows the fourth Azure Purview collections example."lightbox="media/concept-best-practices/collections-example-4.png":::
 
 ## Access management options
 
-For organizations who are looking to implement data democratization across the entire organization, assign _data reader_ role at the top-level collection to data management and governance and business users. Assign _data source admin_ and _data Curator_ roles at the sub-collection levels to the corresponding data management and governance teams.
+If you want to implement data democratization across an entire organization, assign the Data Reader role at the top-level collection to data management, governance, and business users. Assign Data Source Admin and Data Curator roles at the subcollection levels to the corresponding data management and governance teams.
 
-If you need to restrict access metadata search and discovery in your organization, assign _data reader_ and _data curator_ roles at the specific collection level. For example, US employees can read data only at the US collection level and not the LATAM collection. 
+If you need to restrict access metadata search and discovery in your organization, assign Data Reader and Data Curator roles at the specific collection level. For example, you could restrict US employees so they can read data only at the US collection level and not in the LATAM collection. 
 
-A combination of these two scenarios can be applied into your Purview data map where total data democratization is required with a few exceptions at some collections. You can assign Purview roles at top-level collection, and restrict inheritance to the specific child collection.
+You can apply a combination of these two scenarios in your Purview data map if total data democratization is required with a few exceptions for some collections. You can assign Purview roles at the top-level collection and restrict inheritance to the specific child collections.
 
-Assign _collection admin_ role to centralized data security and management team at top-level collection and delegate further collection management to lower level collections to corresponding teams.
+Assign the Collection Admin role to the centralized data security and management team at the top-level collection. Delegate further collection management of lower-level collections to corresponding teams.
 
 ## Next steps
 -  [Create a collection and assign permissions in Purview](./quickstart-create-collection.md)
