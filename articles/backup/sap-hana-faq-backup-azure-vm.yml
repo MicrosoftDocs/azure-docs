@@ -25,7 +25,7 @@ sections:
 
       - question: |
           Where can I find backup related alerts?
-        an\swer: |
+        answer: |
           Today, successful backup jobs don’t generate alerts. Alerts are generated only for backup jobs that fail. [Learn how](backup-azure-monitoring-built-in-monitor.md) to use the Azure portal to view Backup alerts.
 
       - question: |
