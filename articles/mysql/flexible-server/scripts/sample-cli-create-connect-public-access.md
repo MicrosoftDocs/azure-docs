@@ -16,6 +16,10 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server, co
 
 Once the script runs successfully, the MySQL Flexible Server will be accessible by all Azure services and the configured IP address, and you will be connected to the server in an interactive mode.
 
+> [!NOTE] 
+> The connectivity method cannot be changed after creating the server. For example, if you create server using *Public access (allowed IP addresses)*, you cannot change to *Private access (VNet Integration)* after creation. To learn more about connectivity methods, see [Networking concepts](../concepts-networking.md).
+
+
 [!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../../../includes/azure-cli-prepare-your-environment.md)]
@@ -24,73 +28,15 @@ Once the script runs successfully, the MySQL Flexible Server will be accessible 
 
 ## Sample Script
 
-Update the script with your values for variables in **Set up variables** section. 
+Edit the highlighted lines in the script with your values for variables.
 
-```azurecli
-#!/bin/bash
-
-# Create an Azure Database for MySQL - Flexible Server Burstable B1ms instance
-# and configure Public Access connectivity method
-
-# Set up variables
-RESOURCE_GROUP="myresourcegroup" 
-SERVER_NAME="mydemoserver" # Substitute with preferred name for your MySQL Flexible Server. 
-LOCATION="westus" 
-ADMIN_USER="mysqladmin" 
-PASSWORD="" # Enter your server admin password
-IP_ADDRESS=  # Enter your IP Address for Public Access - https://whatismyipaddress.com
-
-# 1. Create a resource group
-az group create \
---name $RESOURCE_GROUP \
---location $LOCATION
-
-# 2. Create a MySQL Flexible server in the resource group
-
-az mysql flexible-server create \
---name $SERVER_NAME \
---resource-group $RESOURCE_GROUP \
---location $LOCATION \
---admin-user $ADMIN_USER \
---admin-password $PASSWORD \
---public-access $IP_ADDRESS
-
-# Optional: Add firewall rule to connect from all Azure services
-# To allow other IP addresses, change start-ip-address and end-ip-address
-
-az mysql flexible-server firewall-rule create \
---name $SERVER_NAME \
---resource-group $RESOURCE_GROUP \
---rule-name AllowAzureIPs \
---start-ip-address 0.0.0.0 \
---end-ip-address 0.0.0.0
-
-# 3. Connect to server in interactive mode
-az mysql flexible-server connect \
---name $SERVER_NAME \
---admin-user $ADMIN_USER \
---admin-password $PASSWORD \
---interactive
-
-```
-
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/create-server-public-access/create-connect-burstable-server-public-access.sh?highlight=8,11-12 "Create Flexible Server and enable public access.")]
 
 ## Clean up deployment
 
 After the sample script has been run, the following code snippet can be used to clean up the resources.
 
-```azurecli
-#!/bin/bash
-
-RESOURCE_GROUP="myresourcegroup" 
-SERVER_NAME="mydemoserver" # Enter your server name.
-
-# Delete MySQL Flexible Server 
-az mysql flexible-server delete --resource-group $RESOURCE_GROUP --name $SERVER_NAME
-
-# Optional : Delete resource group
-az group delete --name $RESOURCE_GROUP
-```
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/create-server-public-access/clean-up-resources.sh?highlight=4 "Clean up resources.")]
 
 ## Script explanation
 

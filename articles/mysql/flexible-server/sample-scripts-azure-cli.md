@@ -35,8 +35,8 @@ The following table includes links to sample Azure CLI scripts for Azure Databas
 | [Restart, Stop, Start a Server](scripts/sample-cli-restart-stop-start.md)| Performs restart, stop and start operations on a single Azure Database for MySQL - Flexible Server. |
 | [Change server parameters](scripts/sample-cli-change-server-parameters.md) | Changes server parameters of a single Azure Database for MySQL - Flexible Server. |
 |**Replication**||
-| [Create read replicas](scripts/sample-cli-read-replicas.md) | Creates and manages read replicas of a single Azure Database for MySQL - Flexible Server. |
-|**Configure and download logs**||
-| [Configure and download audit logs](scripts/sample-cli-audit-logs.md) | Configures audit logs of a single Azure Database for MySQL - Flexible Server. |
-| [Configure and download slow-query logs](scripts/sample-cli-slow-query-logs.md) | Configures slow-query logs of a single Azure Database for MySQL - Flexible Server. |
+| [Create read replicas](scripts/sample-cli-read-replicas.md) | Creates and manages read replicas in a single Azure Database for MySQL - Flexible Server. |
+|**Configure logs**||
+| [Configure audit logs](scripts/sample-cli-audit-logs.md) | Configures audit logs on a single Azure Database for MySQL - Flexible Server. |
+| [Configure slow-query logs](scripts/sample-cli-slow-query-logs.md) | Configures slow-query logs on a single Azure Database for MySQL - Flexible Server. |
 

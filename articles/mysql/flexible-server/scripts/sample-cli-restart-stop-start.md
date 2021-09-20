@@ -12,9 +12,18 @@ ms.date: 09/15/2021
 
 # Restart/Stop/Start an Azure Database for MySQL - Flexible Server (Preview) using Azure CLI
 
-This sample CLI script performs restart, start and stop operations on an Azure Database for MySQL - Flexible Server.
+This sample CLI script performs restart, start and stop operations on an Azure Database for MySQL - Flexible Server. 
 
 [!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
+
+
+> [!IMPORTANT]
+> When you **Stop** the server it remains in that state for the next 7 days in a stretch. If you do not manually **Start** it during this time, the server will automatically be started at the end of 7 days. You can chose to **Stop** it again if you are not using the server.
+
+During the time server is stopped, no management operations can be performed on the server. In order to change any configuration settings on the server, you will need to start the server. 
+
+Also, see [stop/start limitations](../concepts-limitations.md#stopstart-operation) before performing stop/start operations.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -22,73 +31,15 @@ This sample CLI script performs restart, start and stop operations on an Azure D
 
 ## Sample Script
 
-Update the script with your values for variables in **Set up variables** section.
+Edit the highlighted lines in the script with your values for variables.
 
-```azurecli
-#!/bin/bash
-
-# Create a server, perform restart / start / stop operations
-
-# Set up variables
-RESOURCE_GROUP="myresourcegroup" 
-SERVER_NAME="mydemoserver" # Substitute with preferred name for MySQL Flexible Server. 
-LOCATION="westus" 
-ADMIN_USER="mysqladmin" 
-PASSWORD="" # Enter your server admin password
-IP_ADDRESS=# Enter your IP Address for Public Access - https://whatismyipaddress.com
-
-# 1. Create a resource group
-az group create \
---name $RESOURCE_GROUP \
---location $LOCATION
-
-# 2. Create a MySQL Flexible server in the resource group
-
-az mysql flexible-server create \
---name $SERVER_NAME \
---resource-group $RESOURCE_GROUP \
---location $LOCATION \
---admin-user $ADMIN_USER \
---admin-password $PASSWORD \
---public-access $IP_ADDRESS
-
-# 3. Stop the running server
-az mysql flexible-server stop \
---resource-group $RESOURCE_GROUP \
---name $SERVER_NAME
-
-# 4. Start the stopped server
-az mysql flexible-server start \
---resource-group $RESOURCE_GROUP \
---name $SERVER_NAME
-
-# 5. Restart the server
-az mysql flexible-server restart \
---resource-group $RESOURCE_GROUP \
---name $SERVER_NAME
-```
-
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/manage-server/restart-start-stop.sh?highlight=7,10-11 "Create a server, perform restart / start / stop operations.")]
 
 ## Clean up deployment
 
 After the sample script has been run, the following code snippet can be used to clean up the resources.
 
-```azurecli
-#!/bin/bash
-
-RESOURCE_GROUP="myresourcegroup" 
-SERVER_NAME="mydemoserver" # Enter your server name
-
-# Delete MySQL Flexible Server
-az mysql flexible-server delete \
---resource-group $RESOURCE_GROUP 
---name $SERVER_NAME
-
-# Optional : Delete resource group
-
-az group delete --name $RESOURCE_GROUP
-
-```
+[!code-azurecli-interactive[main](../../../../cli_scripts/mmysql/flexible-server/manage-server/clean-up-resources.sh?highlight=4 "Clean up resources.")]
 
 ## Script explanation
 

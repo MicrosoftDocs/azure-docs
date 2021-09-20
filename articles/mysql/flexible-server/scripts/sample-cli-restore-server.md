@@ -26,78 +26,15 @@ The new Flexible Server is created with the original server's configuration and 
 
 ## Sample Script
 
-Update the script with your values for variables in **Set up variables** section.
+Edit the highlighted lines in the script with your values for variables.
 
-```azurecli
-#!/bin/bash
-
-# Perform point-in-time-restore of a flexible server to a new server
-
-# Set up variables
-RESOURCE_GROUP="myresourcegroup" 
-SOURCE_SERVER="mydemoserver" # Substitute with preferred name for MySQL Flexible Server. 
-LOCATION="westus" 
-ADMIN_USER="mysqladmin" 
-PASSWORD="" # Enter your server admin password
-IP_ADDRESS= # Enter your IP Address for Public Access - https://whatismyipaddress.com
-NEW_SERVER="mydemoserver-restored" # Substitute with preferred name for new Flexible Server.
-
-# 1. Create a resource group
-az group create \
---name $RESOURCE_GROUP \
---location $LOCATION
-
-# 2. Create a MySQL Flexible server in the resource group
-
-az mysql flexible-server create \
---name $SOURCE_SERVER \
---resource-group $RESOURCE_GROUP \
---location $LOCATION \
---admin-user $ADMIN_USER \
---admin-password $PASSWORD \
---public-access $IP_ADDRESS
-
-
-# 3. Restore source server to a specific point-in-time as a new server 'mydemoserver-restored'.
-# Substitute the 'restore-time' with your desired value in ISO8601 format
-
-az mysql flexible-server restore \
---name $NEW_SERVER \
---resource-group $RESOURCE_GROUP \
---restore-time "2021-07-09T13:10:00Z" \
---source-server $SOURCE_SERVER
-
-# 4. Check server parameters and networking options on new server before use
-
-az mysql flexible-server show \
---resource-group $RESOURCE_GROUP \
---name $NEW_SERVER
-```
-
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/backup-restore/restore-server.sh?highlight=7,10-12 "Perform point-in-time-restore of a source server to a new server.")]
 
 ## Clean up deployment
 
 After the sample script has been run, the following code snippet can be used to clean up the resources.
 
-```azurecli
-#!/bin/bash
-
-RESOURCE_GROUP="myresourcegroup"
-SOURCE_SERVER="mydemoserver" # Enter source server name.
-NEW_SERVER="mydemoserver-restored" # Enter new server name.
-
-# Delete Source Server and New Server
-az mysql flexible-server delete \
---resource-group $RESOURCE_GROUP 
---name $SOURCE_SERVER
-
-az mysql flexible-server delete \
---resource-group $RESOURCE_GROUP 
---name $NEW_SERVER
-
-# Optional : Delete resource group
-az group delete --name $RESOURCE_GROUP
-```
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/backup-restore/clean-up-resources.sh?highlight=4-5 "Clean up resources.")]
 
 ## Script explanation
 

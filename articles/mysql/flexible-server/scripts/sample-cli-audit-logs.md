@@ -19,68 +19,22 @@ This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azu
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../../../includes/azure-cli-prepare-your-environment.md)]
 
+
 - This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 ## Sample Script
 
-Update the script with your values for variables in **Set up variables** section. 
+Edit the highlighted lines in the script with your values for variables.
 
-```azurecli
-#!/bin/bash
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/configure-logs/configure-audit-logs.sh?highlight=7,10-11 "Configure audit logs on Azure Database for MySQL - Flexible Server.")]
 
-# Enable audit logs on Azure Database for MySQL Flexible Server
-
-# Set up variables
-RESOURCE_GROUP="myresourcegroup"
-SERVER_NAME="mydemoserver" # Substitute with preferred name for MySQL Flexible Server. 
-LOCATION="westus" 
-ADMIN_USER="mysqladmin" 
-PASSWORD="" # Enter your server admin password
-IP_ADDRESS= # Enter your IP Address for Public Access - https://whatismyipaddress.com
-
-# 1. Create resource group
-az group create \
---name $RESOURCE_GROUP \
---location $LOCATION
-
-# 2. Create a MySQL Flexible server in the resource group
-
-az mysql flexible-server create \
---name $SERVER_NAME \
---resource-group $RESOURCE_GROUP \
---location $LOCATION \
---admin-user $ADMIN_USER \
---admin-password $PASSWORD \
---public-access $IP_ADDRESS
-
-# 3. Enable audit logs
-
-az mysql flexible-server parameter set \
---resource-group $RESOURCE_GROUP \
---server-name $SERVER_NAME \
---name audit_log_enabled \
---value ON
-```
 
 ## Clean up deployment
 
 After the sample script has been run, the following code snippet can be used to clean up the resources.
 
-```azurecli
-#!/bin/bash
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/configure-logs/clean-up-resources.sh?highlight=4 "Clean up resources.")]
 
-RESOURCE_GROUP="myresourcegroup"
-SERVER_NAME="mydemoserver" # Enter your server name
-
-# Delete MySQL Flexible Server
-az mysql flexible-server delete \
---resource-group $RESOURCE_GROUP 
---name $SERVER_NAME
-
-# Optional : Delete resource group
-az group delete --name $RESOURCE_GROUP
-
-```
 
 ## Script explanation
 

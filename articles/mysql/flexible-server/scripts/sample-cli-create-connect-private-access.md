@@ -14,6 +14,9 @@ ms.date: 09/15/2021
 
 This sample CLI script creates an Azure Database for MySQL - Flexible Server in a VNet ([private access connectivity method](../concepts-networking-vnet.md)) and connects to the server from a VM within the VNet.
 
+> [!NOTE] 
+> The connectivity method cannot be changed after creating the server. For example, if you create server using *Private access (VNet Integration)*, you cannot change to *Public access (allowed IP addresses)* after creation. To learn more about connectivity methods, see [Networking concepts](../concepts-networking.md).
+
 [!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../../../includes/azure-cli-prepare-your-environment.md)]
@@ -22,99 +25,15 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server in 
 
 ## Sample Script
 
-Update the script with your values for variables in **Set up variables** section. 
+Edit the highlighted lines in the script with your values for variables.
 
-```azurecli
-#!/bin/bash
-
-# Create an Azure Database for MySQL - Flexible Server (General Purpose SKU) in VNET - with Private Access connectivity method
-# Connect to the server from a VM within the VNET.
-
-RESOURCE_GROUP="myresourcegroup"
-SERVER_NAME="mydemoserver" # Substitute with preferred name for your MySQL Flexible Server.
-LOCATION="westus" 
-ADMIN_USER="mysqladmin" 
-PASSWORD="" # Enter your server admin password
-
-# 1. Create a resource group
-az group create \
---name $RESOURCE_GROUP \
---location $LOCATION
-
-# OPTIONAL : View all SKUs for Flexible Server
-az mysql flexible-server list-skus --location $LOCATION
-
-# 2. Create a MySQL Flexible server in the resource group
-
-az mysql flexible-server create \
---name $SERVER_NAME \
---resource-group $RESOURCE_GROUP \
---location $LOCATION \
---sku-name Standard_D2ds_v4 \
---tier GeneralPurpose \
---storage-size 64 \
---storage-auto-grow Enabled \
---admin-user $ADMIN_USER \
---admin-password $PASSWORD \
---vnet MyVnet \
---address-prefixes 155.5.0.0/24 \
---subnet mysql-subnet \
---subnet-prefixes 155.5.0.0/28 
-
-# 3. Create a VM within the VNET to connect to MySQL Flex Server
-    # a. Create a subnet within the VNET
-    # b. Create VM within the created subnet
-
-az network vnet subnet create \
---resource-group $RESOURCE_GROUP \
---vnet-name MyVnet \
---name vm-subnet \
---address-prefixes 155.5.0.48/28
-
-az vm create \
---resource-group $RESOURCE_GROUP \
---name mydemoVM \
---location $LOCATION \
---image UbuntuLTS \
---admin-username azureuser \
---generate-ssh-keys \
---vnet-name MyVnet \
---subnet vm-subnet
-
-# 4. Open port 80 for web traffic
-
-az vm open-port --port 80 \
---resource-group $RESOURCE_GROUP \
---name mydemoVM
-
-# 5. SSH into the VM
-publicIp=$(az vm list-ip-addresses --resource-group $RESOURCE_GROUP --name mydemoVM --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" --output tsv)
-ssh azureuser@$publicIp 
-
-# 6. Download MySQL tools and connect to the server!
-# Substitute <server_name> and <admin_user> with your values
-
-sudo apt-get update
-sudo apt-get install mysql-client
-
-wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
-
-mysql -h <replace-with-server-name>.mysql.database.azure.com -u mysqladmin -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
-
-```
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/create-server-private-access/create-connect-server-in-vnet.sh?highlight=7,10 "Create and Connect to an Azure Database for MySQL - Flexible Server (General Purpose SKU) in VNet")]
 
 ## Clean up deployment
 
 After the sample script has been run, the following code snippet can be used to clean up the resources.
 
-```azurecli
-#!/bin/bash
-
-RESOURCE_GROUP="myresourcegroup"
-
-# Delete resource group 
-az group delete --name $RESOURCE_GROUP
-```
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/create-server-private-access/clean-up-resources.sh "Clean up resources.")]
 
 ## Script explanation
 
