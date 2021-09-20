@@ -14,17 +14,17 @@ This tutorial will help you learn how to integrate, and use Fortinet with Azure 
 
 Azure Defender for IoT mitigates IIoT and ICS and SCADA risk with ICS-aware self-learning engines that deliver immediate insights about ICS devices, vulnerabilities, and threats.  Defender for IoT accomplishes this without relying on agents, rules, signatures, specialized skills, or prior knowledge of the environment.
 
-Defenders for IoT and Fortinet have established a technological partnership that detects and stop attacks on IoT and ICS networks.
+Defenders for IoT, and Fortinet have established a technological partnership that detects, and stop attacks on IoT, and ICS networks.
 
 Fortinet, and Azure Defender for IoT prevent:
 
-- Unauthorized changes to programmable logic controllers.
+- Unauthorized changes to programmable logic controllers (PLC).
 
-- Malware that manipulates ICS and IoT devices via their native protocols.
+- Malware that manipulates ICS, and IoT devices via their native protocols.
 
 - Reconnaissance tools from collecting data.
 
-- Protocol violations caused by misconfigurations or malicious attackers.
+- Protocol violations caused by misconfigurations, or malicious attackers.
 
 Defender for IoT detects anomalous behavior in IoT, and ICS networks and delivers that information to FortiGate, and FortiSIEM, as follows:
 
@@ -50,6 +50,10 @@ In this tutorial, you learn how to:
 There are no prerequisites for this tutorial.
 
 ## Create an API key in Fortinet
+
+An application programming interface (API) key is a uniquely generated code that allows an API to identify the application or user requesting access to it. An API key is needed for Azure Defender for Iot and Fortinet to communicate correctly.
+
+**To create an API key in Fortinet**:
 
 1. In FortiGate, navigate to **System** > **Admin Profiles**.
 
@@ -80,13 +84,13 @@ There are no prerequisites for this tutorial.
     | **Username** | Enter the forwarding rule name. |
     | **Comments** | Enter the minimal security level incident to forward. For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded. |
     | **Administrator Profile** | From the dropdown list, select the profile name that you have defined in the previous step. |
-    | **PKI Group** | Toggle the switch to disable. |
-    | **CORS Allow Origin** | Toggle the switch to enable. |
+    | **PKI Group** | Toggle the switch to **Disable**. |
+    | **CORS Allow Origin** | Toggle the switch to **Enable**. |
     | **Restrict login to trusted hosts** | Add the IP addresses of the sensors, and management consoles that will connect to FortiGate. |
 
 When the API key is generated, save it as it will not be provided again.
 
-:::image type="content" source="media/integration-fortinet/api-key.png" alt-text="Cell phone description automatically generates New API Key":::
+:::image type="content" source="media/tutorial-fortinet/api-key.png" alt-text="Screenshot of the description automatically generates New API Key":::
 
 ## Set a forwarding rule to block malware-related alerts
 
@@ -98,7 +102,7 @@ The FortiGate firewall can be used to block suspicious traffic.
 
 1. In the left pane, select **Forwarding**.
 
-    [:::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="The Forwarding window option in a sensor.":::](media/integration-fortinet/forwarding-view.png#lightbox)
+    [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the Forwarding window option in a sensor.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
 
 1. Select **Create Forwarding Rules** and define the following rule parameters.
 
@@ -112,11 +116,11 @@ The FortiGate firewall can be used to block suspicious traffic.
 
 1. In the Actions section, select **Add**, and then select **Send to FortiGate** from the drop-down menu.
 
-    :::image type="content" source="media/integration-fortinet/fortigate.png" alt-text="Screenshot of the Add an action section of the Create Forwarding Rule window.":::
+    :::image type="content" source="media/tutorial-fortinet/fortigate.png" alt-text="Screenshot of the Add an action section of the Create Forwarding Rule window.":::
 
 1. To configure the FortiGate forwarding rule, set the following parameters:
 
-    :::image type="content" source="media/integration-fortinet/configure.png" alt-text="Configure the Create Forwarding Rule window":::
+    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of the  configure the Create Forwarding Rule window":::
 
     | Parameter | Description |
     |--|--|
@@ -124,7 +128,7 @@ The FortiGate firewall can be used to block suspicious traffic.
     | **API Key** | Enter the [API key](#create-an-api-key-in-fortinet) that you created in FortiGate. |
     | **Incoming Interface** | Enter the incoming interface port. |
     | **Outgoing Interface** | Enter the outgoing interface port. |
-    | **Configure**| Ensure a **√** is showing in the following options to enable blocking of suspicious sources via the FortiGate firewall: <br> **Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br />**Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes <br /> **Block unauthorized PLC stop**: PLC stop (downtime) <br /> **Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). <br /> (Optional) You can select the option of **Automatic blocking**. In that case, the blocking is executed automatically and immediately. <br />**Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
+    | **Configure**| Ensure a **√** is showing in the following options to enable blocking of suspicious sources via the FortiGate firewall: <br> - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br /> - **Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes <br /> - **Block unauthorized PLC stop**: PLC stop (downtime) <br /> - **Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). <br /> - **(Optional)** You can select the option for **Automatic blocking**. If Automatic Blocking is selected, blocking is executed automatically, and immediately. <br /> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
 
 1. Select **Submit**.
 
@@ -140,7 +144,7 @@ The source of suspicious alerts can be blocked in order to prevent further occur
 
 1. To automatically block the suspicious source, select **Block Source**.
 
-    :::image type="content" source="media/integration-fortinet/unauthorized.png" alt-text="Screenshot of the Alert window.":::
+    :::image type="content" source="media/tutorial-fortinet/block-source.png" alt-text="Screenshot of the Alert window.":::
 
 1. In the Please Confirm dialog box, select **OK**.
 
@@ -160,11 +164,11 @@ Defenders for IoT alerts provide information about an extensive range of securit
 
 You can configure Defender for IoT to send alerts to the FortiSIEM server, where alert information is displayed in the Analytics window:
 
-:::image type="content" source="media/integration-fortinet/analytics.png" alt-text="Screenshot of the Analytics window.":::
+:::image type="content" source="media/tutorial-fortinet/analytics.png" alt-text="Screenshot of the Analytics window.":::
 
 Each Defender for IoT alert is then parsed without any other configuration on the FortiSIEM, side and they are presented in the FortiSIEM as security events. The following event details appear by default:
 
-:::image type="content" source="media/integration-fortinet/event-detail.png" alt-text="View your event details in the Event Details window.":::
+:::image type="content" source="media/tutorial-fortinet/event-detail.png" alt-text="Screenshot of the view your event details in the Event Details window.":::
 
 You can then use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM.
 
@@ -172,7 +176,7 @@ You can then use Defender for IoT's Forwarding Rules to send alert information t
 
 1. From the sensor, or management console left pane, select **Forwarding**.
 
-    [:::image type="content" source="media/integration-fortinet/forwarding-view.png" alt-text="View your forwarding rules in the Forwarding window.":::](media/integration-fortinet/forwarding-view.png#lightbox)
+    [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the the view of your forwarding rules in the Forwarding window.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
 
 2. Select **Create Forwarding Rules**, and define the rule's parameters.
 
@@ -186,11 +190,11 @@ You can then use Defender for IoT's Forwarding Rules to send alert information t
 
 3. In the actions section, select **Send to FortiSIEM**.
 
-    :::image type="content" source="media/integration-fortinet/forward-rule.png" alt-text="Create a Forwarding Rule and select send to Fortinet.":::
+    :::image type="content" source="media/tutorial-fortinet/forward-rule.png" alt-text="Screenshot of the create a Forwarding Rule and select send to Fortinet.":::
 
 4. Enter the FortiSIEM server details.
 
-    :::image type="content" source="media/integration-fortinet/details.png" alt-text="Add the FortiSIEm details to the forwarding rule":::
+    :::image type="content" source="media/tutorial-fortinet/details.png" alt-text="Screenshot of the add the FortiSIEm details to the forwarding rule":::
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -204,11 +208,11 @@ You can then use Defender for IoT's Forwarding Rules to send alert information t
 
 You can set policies to automatically block malicious sources in the FortiGate firewall using alerts in Defender for IoT.
 
-:::image type="content" source="media/integration-fortinet/firewall.png" alt-text="View of the FortiGate Firewall window view.":::
+:::image type="content" source="media/tutorial-fortinet/firewall.png" alt-text="Screenshot of the view of the FortiGate Firewall window view.":::
 
 For example, the following alert can block the malicious source:
 
-:::image type="content" source="media/integration-fortinet/suspicion.png" alt-text="The NotPetya Malware suspicion window":::
+:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the the NotPetya Malware suspicion window":::
 
 **To set a FortiGate firewall rule that blocks a malicious source**:
 
@@ -220,15 +224,15 @@ For example, the following alert can block the malicious source:
 
 1. Navigate to the FortiGage **Administrator** window, and locate the malicious source address you blocked.
 
-   :::image type="content" source="media/integration-fortinet/administrator.png" alt-text="The FortiGate Administrator window view.":::
+   :::image type="content" source="media/tutorial-fortinet/administrator.png" alt-text="Screenshot of the FortiGate Administrator window view.":::
 
    The blocking policy will be automatically created, and appears in the FortiGate IPv4 Policy window.
 
-   :::image type="content" source="media/integration-fortinet/policy.png" alt-text="The FortiGate IPv4 Policy window view.":::
+   :::image type="content" source="media/tutorial-fortinet/policy.png" alt-text="Screenshot of the FortiGate IPv4 Policy window view.":::
 
 1. Select the policy and ensure that Enable this policy is toggled to the on position.
 
-   :::image type="content" source="media/integration-fortinet/edit.png" alt-text="The FortiGate IPv4 Policy Edit view.":::
+   :::image type="content" source="media/tutorial-fortinet/edit.png" alt-text="Screenshot of the FortiGate IPv4 Policy Edit view.":::
 
 ## Clean up resources
 
@@ -236,7 +240,7 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Fortinet integration. Continue on to learn about our [integration](./tutorial-palo-alto.md).
+In this tutorial, you learned how to get started with the Fortinet integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md).
 
 > [!div class="nextstepaction"]
 > [Next steps button](./tutorial-palo-alto.md)
