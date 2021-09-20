@@ -4,7 +4,7 @@ description: Learn how to configure managed identities with Azure Active Directo
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/03/2021
+ms.date: 09/20/2021
 ms.author: thweiss
 ---
 
@@ -19,6 +19,20 @@ Managed identities for Azure resources provide Azure services with an automatica
 - To set up managed identities, your account needs to have the [DocumentDB Account Contributor role](../role-based-access-control/built-in-roles.md#documentdb-account-contributor).
 
 ## <a id="add-system"></a> Add a system-assigned identity
+
+### Using the Azure portal
+
+To enable a system-assigned managed identity on an existing Azure Cosmos DB account, navigate to your account in the Azure portal and select **Identity** from the left menu.
+
+:::image type="content" source="./media/how-to-setup-managed-identity/identity-tab.png" alt-text="The Identity menu entry" border="true":::
+
+Under the **System assigned** section, flip the **Status** to On and select **Save**. You will be asked to confirm the creation of the system-assigned managed identity.
+
+:::image type="content" source="./media/how-to-setup-managed-identity/enable-system-assigned.png" alt-text="Enabling a system-assigned identity" border="true":::
+
+Once the identity has been created and assigned, you can retrieve its Object (principal) ID.
+
+:::image type="content" source="./media/how-to-setup-managed-identity/system-assigned-enabled.png" alt-text="Retrieving the object ID of a system-assigned identity" border="true":::
 
 ### Using an Azure Resource Manager (ARM) template
 
@@ -48,7 +62,7 @@ The `resources` section of your ARM template should then look like the following
 ]
 ```
 
-After your Azure Cosmos DB account has been created or updated, it will show the following property:
+Once your Azure Cosmos DB account has been created or updated, it will show the following property:
 
 ```json
 "identity": {
@@ -84,7 +98,7 @@ az cosmosdb identity assign \
     -g $resourceGroupName
 ```
 
-After your Azure Cosmos DB account has been created or updated, you can fetch the identity assigned with the `az cosmosdb identity show` command:
+Once your Azure Cosmos DB account has been created or updated, you can fetch the identity assigned with the `az cosmosdb identity show` command:
 
 ```azurecli
 resourceGroupName='myResourceGroup'
@@ -104,6 +118,20 @@ az cosmosdb identity show \
 ```
 
 ## <a id="add-user"></a> Add a user-assigned identity
+
+### Using the Azure portal
+
+To enable a user-assigned managed identity on an existing Azure Cosmos DB account, navigate to your account in the Azure portal and select **Identity** from the left menu.
+
+:::image type="content" source="./media/how-to-setup-managed-identity/identity-tab.png" alt-text="The Identity menu entry" border="true":::
+
+Under the **user assigned** section, select **+ Add**.
+
+:::image type="content" source="./media/how-to-setup-managed-identity/enable-user-assigned-1.png" alt-text="Enabling a user-assigned identity" border="true":::
+
+Find and select all the identities you wish to assign to your Azure Cosmos DB account, then select **Add**.
+
+:::image type="content" source="./media/how-to-setup-managed-identity/enable-user-assigned-2.png" alt-text="Selecting all the identities to assign" border="true":::
 
 ### Using an Azure Resource Manager (ARM) template
 
