@@ -91,7 +91,7 @@ You can run an on-demand backup of a VM after you set up its protection. Keep th
 * The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
 
 > [!NOTE]
-> Azure Backup recommends four backups per day, for a VM - one scheduled backup as per the Backup policy, and three on-demand  backups. However, the hard limit to attempt on-demand backups is set to nine, which allows you to retry triggering backups in case of failure.
+> Azure Backup recommends four backups per day, for a VM - one scheduled backup as per the Backup policy, and three on-demand  backups. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.
 
 To trigger an on-demand backup:
 
