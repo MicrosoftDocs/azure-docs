@@ -96,7 +96,6 @@ In this tutorial, you learn how to:
 
     When you select this link, you may see a 404 error if the site is not fully propagated. Instead of refreshing the page, wait a few minutes and return back to the *Overview* window and select the link labeled *Frontend host*.
 
-
 1. From the *Overview* window, select the **URL** link to view your site.
 
 > [!IMPORTANT]
@@ -141,7 +140,11 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
     In this example, you would replace `desert-rain-04056.azurestaticapps.net` with the static web apps URL for your site.
 
+With Azure Front Door enabled, your site is no longer available via the generated `*.azurestaticapps.net` URL, but exclusively through the Front Door `*.azurefd.net` URL.
+
+For information on configuring a custom domain, refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add a custom domain to Azure Front Door](../frontdoor/front-door-custom-domain.md)
+> [Monitor Azure Static Web Apps](monitor.md)
