@@ -57,7 +57,7 @@ Typically, analytics engines such as HDInsight have a per-file overhead that inv
 
 Sometimes, data pipelines have limited control over the raw data which has lots of small files. In general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications. If you're processing data in real-time, you can use a real time streaming engine (such as [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or [Spark Streaming](https://databricks.com/glossary/what-is-spark-streaming)) together with a message broker (such as [Event Hub](../../event-hubs/event-hubs-about.md) or [Apache Kafka](https://kafka.apache.org/)) to store your data as larger files.
 
-As you aggregate small files into larger ones, consider saving them in a read-optimized format such as [Apache Parquet](https://parquet.apache.org/) for downstream processing. Apache Parquet is an open source file format that is optimized for read heavy analytics pipelines. The columnar storage structure of Parquet lets you skip over non-relevant data. You're queries are much more efficient because they can narrowly scope which data to send from storage to the analytics engine. Also, because similar data types (for a column) are stored together, Parquet supports efficient data compression and encoding schemes that can lower data storage costs. Services such as [Azure Synapse Analytics](../../azure/synapse-analytics/overview-what-is.md), [Azure Databricks](../../databricks/scenarios/what-is-azure-databricks.md) and [Azure Data Factory](../../data-factory/introduction.md) have native functionality that take advantage of Parquet file formats.
+As you aggregate small files into larger ones, consider saving them in a read-optimized format such as [Apache Parquet](https://parquet.apache.org/) for downstream processing. Apache Parquet is an open source file format that is optimized for read heavy analytics pipelines. The columnar storage structure of Parquet lets you skip over non-relevant data. You're queries are much more efficient because they can narrowly scope which data to send from storage to the analytics engine. Also, because similar data types (for a column) are stored together, Parquet supports efficient data compression and encoding schemes that can lower data storage costs. Services such as [Azure Synapse Analytics](../../synapse-analytics/overview-what-is.md), [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and [Azure Data Factory](../../data-factory/introduction.md) have native functionality that take advantage of Parquet file formats.
 
 For more information about data formats, see [data format section of best practice article](data-lake-storage-best-practices.md).
 
@@ -87,18 +87,9 @@ Query acceleration accepts filtering predicates and column projections which ena
 
 To learn more, see [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
 
-## Optimizing I/O intensive jobs on Hadoop and Spark workloads on HDInsight
+## Optimize I/O intensive jobs on Hadoop and Spark workloads on HDInsight
 
-Jobs fall into one of the following three categories:
-
-* **CPU intensive.**  These jobs have long computation times with minimal I/O times.  Examples include machine learning and natural language processing jobs.  
-* **Memory intensive.**  These jobs use lots of memory.  Examples include PageRank and real-time analytics jobs.  
-* **I/O intensive.**  These jobs spend most of their time doing I/O.  A common example is a copy job which does only read and write operations.  Other examples include data preparation jobs that read a lot of data, performs some data transformation, and then writes the data back to the store.  
-
-### I/O intensive jobs
-
-You can have a job that reads or writes as much as 100MB in a single operation, but a buffer of that size might compromise performance.
-To optimize the performances, try to keep the size of an I/O operation between 4MB and 16MB.
+I/O intensive jobs spend most of their time doing I/O.  A common example is a copy job which does only read and write operations.  Other examples include data preparation jobs that read a lot of data, performs some data transformation, and then writes the data back to the store.  You can have a job that reads or writes as much as 100MB in a single operation, but a buffer of that size might compromise performance. To optimize the performances, try to keep the size of an I/O operation between 4MB and 16MB.
 
 ### I/O intensive jobs with HDInsight clusters
 

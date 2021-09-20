@@ -26,7 +26,7 @@ For general information about the Data Lake Storage Gen2 access control model, s
 
 ### Configure the Azure Storage firewall with Azure service access
 
-Turn on the Azure Storage firewall to limit the vector of external attacks. To access your storage account from a service such as [Azure Databricks](../../databricks/scenarios/what-is-azure-databricks.md), deploy an instance of that service to your virtual network. Then, you can configure the firewall to grant access to the storage account for that service. 
+Turn on the Azure Storage firewall to limit the vector of external attacks. To access your storage account from a service such as [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks), deploy an instance of that service to your virtual network. Then, you can configure the firewall to grant access to the storage account for that service. 
 
 For more information about how to apply this best practice, see [Grant access to trusted Azure services](../common/storage-network-security.md).
 
