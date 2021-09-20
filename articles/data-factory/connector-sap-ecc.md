@@ -45,7 +45,7 @@ The version 7.0 or later refers to SAP NetWeaver version instead of SAP ECC vers
 1. Use SAP GUI to connect to the SAP System. 
 2. Go to **System** -> **Status**. 
 3. Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
-      ![Check SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="Check SAP_BASIS":::
 
 >[!TIP]
 >To copy data from SAP ECC via an SAP table or view, use the [SAP table](connector-sap-table.md) connector, which is faster and more scalable.

@@ -2,7 +2,7 @@
 title: Manage Azure Managed Disks
 description: Learn about managing Azure Managed Disk from the Azure portal.
 ms.topic: conceptual
-ms.date: 09/06/2021
+ms.date: 09/10/2021
 ---
 
 # Manage Azure Managed Disks
@@ -68,6 +68,9 @@ There are three ways by which you can stop protecting an Azure Disk:
 ## Resume Protection
 
 If you have selected the **Stop Protection and Retain data** option, you can resume protection for your disks.
+
+>[!Note]
+>When you start protecting a disk, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
 
 Use the following steps:
 

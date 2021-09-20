@@ -168,7 +168,7 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Salesforce connection API Name](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name.png" alt-text="Salesforce connection API Name":::
 
 **Example:**
 
@@ -214,7 +214,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Salesforce connection API Name list](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png" alt-text="Salesforce connection API Name list":::
 
 **Example:**
 

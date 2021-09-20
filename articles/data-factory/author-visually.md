@@ -24,14 +24,14 @@ Currently, the UI is only supported in Microsoft Edge and Google Chrome.
 # [Azure Data Factory](#tab/data-factory)
 To open the **authoring canvas**, click on the pencil icon. 
 
-![Authoring Canvas](media/author-visually/authoring-canvas.png)
+:::image type="content" source="media/author-visually/authoring-canvas.png" alt-text="Authoring Canvas":::
 
 Here, you author the pipelines, activities, datasets, and data flows that comprise your factory. Similarly, linked services, triggers and integration runtimes can be edited on the [Manage tab](#management-hub). To get started building a pipeline using the authoring canvas, see [Copy data using the copy Activity](tutorial-copy-data-portal.md). 
 
 # [Synapse Analytics](#tab/synapse-analytics)
 To open the **authoring canvas**, click on the pipeline/integrate icon. 
 
-![Authoring Canvas](media/author-visually/authoring-canvas-synapse.png)
+:::image type="content" source="media/author-visually/authoring-canvas-synapse.png" alt-text="Authoring Canvas":::
 
 Here, you author the pipelines and activities in Synapse. Similarly, data flows used by your pipelines can be edited on the Develop tab, and linked services, triggers and integration runtimes associated with them can be edited on the [Manage tab](#management-hub).  To get started building a pipeline using the authoring canvas, see [Copy data using the copy Activity](tutorial-copy-data-portal.md). 
 
@@ -43,7 +43,7 @@ The default visual authoring experience is directly working with the service. Az
 
 For top-level resources such as pipelines, datasets, and data flows, high-level properties are editable in the properties pane on the right-hand side of the canvas. The properties pane contains properties such as name, description, annotations, and other high-level properties. Subresources such as pipeline activities and data flow transformations are edited using the panel at the bottom of the canvas. 
 
-![Properties pane](media/author-visually/properties-pane.png)
+:::image type="content" source="media/author-visually/properties-pane.png" alt-text="Properties pane":::
 
 The properties pane only opens by default on resource creation. To edit it, click on the properties pane icon located in the top-right corner of the canvas.
 
@@ -51,7 +51,7 @@ The properties pane only opens by default on resource creation. To edit it, clic
 
 In the properties pane, you can see what resources are dependent on the selected resource by selecting the **Related** tab. Any resource that references the current resource will be listed here.
 
-![Related resources](media/author-visually/related-resources.png)
+:::image type="content" source="media/author-visually/related-resources.png" alt-text="Related resources":::
 
 For example, in the above image, one pipeline and two data flows use the dataset currently selected.
 
@@ -75,11 +75,11 @@ Expressions and functions can be used instead of static values to specify many p
 
 To specify an expression for a property value, select **Add Dynamic Content** or click **Alt + P** while focusing on the field.
 
-![Add Dynamic Content](media/author-visually/dynamic-content-1.png)
+:::image type="content" source="media/author-visually/dynamic-content-1.png" alt-text="Add Dynamic Content":::
 
 This opens the **Expression Builder** where you can build expressions from supported system variables, activity output, functions, and user-specified variables or parameters. 
 
-![Expression builder](media/author-visually/dynamic-content-2.png)
+:::image type="content" source="media/author-visually/dynamic-content-2.png" alt-text="Expression builder":::
 
 For information about the expression language, see [Expressions and functions](control-flow-expression-language-functions.md).
 
@@ -87,7 +87,7 @@ For information about the expression language, see [Expressions and functions](c
 
 Select **Feedback** to comment about features or to notify Microsoft about issues with the tool:
 
-![Feedback](media/author-visually/provide-feedback.png)
+:::image type="content" source="media/author-visually/provide-feedback.png" alt-text="Feedback":::
 
 ## Next steps
 

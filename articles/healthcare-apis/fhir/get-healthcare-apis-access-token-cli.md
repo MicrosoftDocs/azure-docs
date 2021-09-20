@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 09/10/2021
 ms.author: zxue
 ---
 
@@ -34,4 +34,4 @@ curl -X GET --header "Authorization: Bearer $token" https://<FHIR ACCOUNT NAME>.
 ```
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](using-postman.md)
+>[Access FHIR API using Postman](../use-postman.md)

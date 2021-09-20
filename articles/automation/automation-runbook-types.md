@@ -129,7 +129,7 @@ For cloud jobs, Python 3 jobs sometimes fail with an exception message `invalid 
 
 ## Next steps
 
-* To learn about PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To learn about PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).
 * To learn about PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell Workflow runbook](learn/automation-tutorial-runbook-textual.md).
-* To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](learn/automation-tutorial-runbook-graphical.md).
-* To learn about Python runbooks, see [Tutorial: Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md).
+* To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](./learn/powershell-runbook-managed-identity.md).
+* To learn about Python runbooks, see [Tutorial: Create a Python runbook](./learn/automation-tutorial-runbook-textual-python-3.md).

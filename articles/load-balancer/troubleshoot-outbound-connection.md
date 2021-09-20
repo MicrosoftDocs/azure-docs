@@ -10,7 +10,7 @@ ms.author: anavin
 ---
 # <a name="obconnecttsg"></a> Troubleshooting outbound connections failures
 
-This article is intended to provide resolutions for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to souce network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
+This article is intended to provide resolutions for common problems that can occur with outbound connections from an Azure Load Balancer. Most problems with outbound connectivity that customers experience are due to source network address translation (SNAT) port exhaustion and connection timeouts leading to dropped packets. This article provides steps for mitigating each of these issues.
 
 ## Avoid SNAT
 

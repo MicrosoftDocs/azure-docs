@@ -223,7 +223,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl
 
 If you see the following error message while connecting to your flexible server following the command earlier, you missed setting the firewall rule using the "Allow public access from any Azure service within Azure to this server" mentioned earlier or the option isn't saved. Please retry setting firewall and try again.
 
-ERROR 2002 (HY000): Can't connect to MySQL server on <servername> (115)
+ERROR 2002 (HY000): Can't connect to MySQL server on \<servername\> (115)
 
 ## Clean up resources
 

@@ -263,11 +263,11 @@ sections:
           
           
       - question: |
-          What’s the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring System Center Operations Manager (SCOM)? Can we use AMA for SCOM scenarios?
+          What’s the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring System Center Operations Manager? Can we use AMA for System Center Operations Manager scenarios?
         answer: |
-          Here's how AMA impacts the two System Center Operations Manager (SCOM) related monitor scenarios:
-          - **Scenario 1**: For monitoring the Windows operating system of SCOM, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
-          - **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
+          Here's how AMA impacts the two System Center Operations Manager related monitor scenarios:
+          - **Scenario 1**: For monitoring the Windows operating system of System Center Operations Manager, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
+          - **Scenario 2**: For onboarding/connecting System Center Operations Manager to Log Analytics workspaces, since this is enabled via a System Center Operations Manager connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
           
           > [!NOTE] 
           > You can run both scenarios above with MMA and AMA side-by-side without any impact.
@@ -752,7 +752,7 @@ sections:
       - question: |
           Why is Microsoft / Azure Monitor Application Insights investing in OpenTelemetry?
         answer: |
-          Among the major cloud services providers, Microsoft is the [largest contributor to OpenTelemetry](https://opentelemetry.devstats.cncf.io/d/5/companies-table?orgId=1).
+          Microsoft is among the largest contributors to OpenTelemetry.
           
           The key value propositions of OpenTelemetry are that it's vender-neutral and provides consistent APIs/SDKs across langauges.
           

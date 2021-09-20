@@ -41,7 +41,7 @@ Navigate to
 :::image type="content" source="media/scaling-provisioned-throughput-best-practices/number-of-physical-partitions.png" alt-text="Count the distinct number of PartitionKeyRangeIds in the Normalized RU Consumption (%) by PartitionKeyRangeID chart":::
 
 > [!NOTE]
-> The chart will only show a maximum of 50 PartitionKeyRangeIds. If your resource has more than 50, you can use the [Azure Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/get-partition-key-ranges#example) to count the total number of partitions. 
+> The chart will only show a maximum of 50 PartitionKeyRangeIds. If your resource has more than 50, you can use the [Azure Cosmos DB REST API](/rest/api/cosmos-db/get-partition-key-ranges#example) to count the total number of partitions. 
 
 Each PartitionKeyRangeId maps to one physical partition and is assigned to hold data for a range of possible hash values. 
 

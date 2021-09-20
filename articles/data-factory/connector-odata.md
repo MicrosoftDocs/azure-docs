@@ -371,7 +371,7 @@ To copy data from Project Online, you can use the OData connector and an access 
    1. You will be asked to login with your username and password.
    1. Once you get your access token, please copy and save it for the next step.
    
-    [![Use Postman to get the access token](./media/connector-odata/odata-project-online-postman-access-token-inline.png)](./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox)
+    [:::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox" alt-text="Use Postman to get the access token](./media/connector-odata/odata-project-online-postman-access-token-inline.png)":::
 
 1. Create the OData linked service:
     - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
@@ -381,13 +381,13 @@ To copy data from Project Online, you can use the OData connector and an access 
         - **Value**: Enter `Bearer <access token from step 1>`.
     - Test the linked service.
 
-    ![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)
+    :::image type="content" source="./media/connector-odata/odata-project-online-linked-service.png" alt-text="Create OData linked service":::
 
 1. Create the OData dataset:
     1. Create the dataset with the OData linked service created in step 2.
     1. Preview data.
  
-    ![Preview data](./media/connector-odata/odata-project-online-preview-data.png)
+    :::image type="content" source="./media/connector-odata/odata-project-online-preview-data.png" alt-text="Preview data":::
  
 
 

@@ -103,7 +103,7 @@ When overwriting a blob in the hot or cool tier, the newly created blob inherits
 
 ### Blob lifecycle management
 
-Blob storage lifecycle management offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md) to learn more.
+Blob storage lifecycle management offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md) to learn more.
 
 > [!NOTE]
 > Data stored in a block blob storage account (Premium performance) cannot currently be tiered to hot, cool, or archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management.
@@ -193,4 +193,4 @@ Learn how to manage blobs and accounts across access tiers.
 
 - [How to manage the tier of a blob in an Azure Storage account](manage-access-tier.md)
 - [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
-- [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md)
+- [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md)

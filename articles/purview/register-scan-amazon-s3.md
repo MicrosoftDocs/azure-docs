@@ -103,7 +103,7 @@ This procedure describes how to create a new Purview credential to use when scan
     |**Authentication method**     |Select **Role ARN**, since you're using a role ARN to access your bucket.         |
     |**Microsoft account ID**     |Click to copy this value to the clipboard. Use this value as the **Microsoft account ID** when [creating your Role ARN in AWS](#create-a-new-aws-role-for-purview).           |
     |**External ID**     |Click to copy this value to the clipboard. Use this value as the **External ID** when [creating your Role ARN in AWS.](#create-a-new-aws-role-for-purview)        |
-    |**Role ARN**     | Once you've [created your Amazon IAM role](#create-a-new-aws-role-for-purview), navigate to your role in the IAM area, copy the **Role ARN** value, and enter it here. For example: `arn:aws:iam::284759281674:role/S3Role`. <br><br>For more information, see [Retrieve your new Role ARN](#retrieve-your-new-role-arn). |
+    |**Role ARN**     | Once you've [created your Amazon IAM role](#create-a-new-aws-role-for-purview), navigate to your role in the IAM area, copy the **Role ARN** value, and enter it here. For example: `arn:aws:iam::181328463391:role/S3Role`. <br><br>For more information, see [Retrieve your new Role ARN](#retrieve-your-new-role-arn). |
     | | |
 
     Select **Create** when you're done to finish creating the credential.
