@@ -185,6 +185,16 @@ You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-mod
 "@id": "dtmi:com:example:Thermostat;1"
 ```
 
+Use the following DPS payload to associate the device to a device template:
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+
 ## Device status values
 
 When a real device connects to your IoT Central application, its device status changes as follows:
