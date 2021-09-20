@@ -42,26 +42,12 @@ items:
         href: deployment-best-practices.md
       - name: Collections architecture
         href: concept-best-practices-collections.md    
-  - name: Azure Purview limits
-    href: how-to-manage-quotas.md
-  - name: Scans and ingestion
-    href: concept-scans-and-ingestion.md
-  - name: Elastic Data Map
-    href: concept-elastic-data-map.md
-  - name: Understanding resource sets
-    href: concept-resource-sets.md
-  - name: Data lineage
-    href: concept-data-lineage.md
-  - name: Supported data sources and file types
-    href: sources-and-scans.md
-  - name: Catalog permissions
+  - name: Purview permissions
     href: catalog-permissions.md
   - name: Data map
     items:
     - name: Elastic data map
       href: concept-elastic-data-map.md
-    - name: Collections
-      href: concept-collection.md
     - name: Resource sets
       href: concept-resource-sets.md
     - name: Scans and ingestion
@@ -205,8 +191,6 @@ items:
       href: how-to-lineage-spark-atlas-connector.md
     - name: SQL Server Integration Services lineage
       href: how-to-lineage-sql-server-integration-services.md
-    - name: SQL provenance
-      href: how-to-sql-provenance.md
     - name: Teradata lineage
       href: how-to-lineage-teradata.md
   - name: Business glossary

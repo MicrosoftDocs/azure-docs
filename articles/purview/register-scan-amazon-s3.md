@@ -291,7 +291,7 @@ For example:
 
 Use this procedure if you only have a single S3 bucket that you want to register to Purview as a data source, or if you have multiple buckets in your AWS account, but do not want to register all of them to Purview.
 
-**To add your bucket**: 
+**To add your bucket**:
 
 1. Launch the Purview portal using the dedicated Purview connector for Amazon S3 URL. This URL was provided to you by the Amazon S3 Purview connector product management team.
 
