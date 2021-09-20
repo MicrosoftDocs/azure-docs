@@ -465,7 +465,7 @@
     - name: Manage multiple storage accounts
       href: storage-managing-multiple-storage-accounts-how-to.md
       displayName: how to, how-to, tutorial, storage accounts, multiple storage accounts, 
-  - name: Create transforms
+  - name: Encode media
     items:
     - name: Create a transform
       href: transform-create-transform-how-to.md
@@ -514,7 +514,7 @@
       displayName: copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding
     - name: Use the content aware encoding preset
       href: encode-content-aware-how-to.md
-      displayName: encode, encoder, transcode, custom preset, content aware, transform 
+      displayName: encode, encoder, transcode, custom preset, content aware, transform, CAE, scene based, shot based, qvbr, quality defined
   - name: Create jobs
     items:
     - name: Create jobs with CLI
