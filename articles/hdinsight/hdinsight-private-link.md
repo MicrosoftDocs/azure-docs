@@ -10,10 +10,10 @@ ms.date: 10/15/2020
 
 In Azure HDInsight's [default virtual network architecture](./hdinsight-virtual-network-architecture.md), the HDInsight resource provider (RP) communicates with the cluster using public IP addresses. Some scenarios require complete network isolation with no use of public IP addresses. In this article, you learn about the advanced controls you can use to create a private HDInsight cluster. For information on how to restrict traffic to and from your cluster without complete network isolation, see [Control network traffic in Azure HDInsight](./control-network-traffic.md).
 
-You can create private HDInsight clusters by configuring specific network properties in an Azure Resource Manager (ARM) template. There are two properties that you use to create private HDInsight clusters:
+You can create private HDInsight clusters by configuring specific network properties in an Azure Resource Manager (ARM) template. Begin by removing access to all public IP addresses by setting `resourceProviderConnection` to outbound. Optionally, you can also enable Azure Private Link and use [Private Endpoints](../private-link/private-endpoint-overview.md) by setting `privateLink` to enabled.
 
-* Remove public IP addresses by setting `resourceProviderConnection` to outbound.
-* Enable Azure Private Link and use [Private Endpoints](../private-link/private-endpoint-overview.md) by setting `privateLink` to enabled.
+>[!NOTE]
+>Removing outbound public IP addresses is a prerequisite for enabling Private Link and should not be considered as one feature
 
 ## Remove public IP addresses
 
