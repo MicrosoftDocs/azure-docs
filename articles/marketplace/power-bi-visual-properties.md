@@ -17,7 +17,7 @@ This page lets you define the [categories](/azure/marketplace/categories) used t
 ## General info
 
 - Select up to three **[Categories](/azure/marketplace/categories)** for grouping your offer into the appropriate marketplace search areas.
-- Select up to two **Industries** industries which will be used to display your offer when customers filter their search on industries and sub-industries in the online store.
+- Select up to two **Industries** industries which will be used to display your offer when customers filter their search on industries in the online store.
 
 ## Legal and support info
 

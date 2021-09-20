@@ -48,7 +48,7 @@ To increase the interest of users for your custom visual, provide  a **YouTube**
 
 For tips on making your offer listing as effective as possible, see [Tips for creating effective listings](https://aka.ms/PBIvisualeffectivelisting).
 
-For additional marketplace listing resources, see [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md). <font color="red">this was deleted; keep, or just the prior paragraph?</font>
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md).
 
 Select **Save draft**.
 

@@ -12,9 +12,11 @@ ms.date: 09/21/2021
 
 # Set up Power BI visual offer technical configuration
 
-On the **Technical configuration** tab, provide the files need for the Power BI visual offer. The required files are:
+On the **Technical configuration** tab, provide the files needed for the Power BI visual offer.
 
-- **PBIVIZ package** – [Pack your Power BI visual](/power-bi/developer/visuals/package-visual) into a PBIVIZ package containing all the required metadata:
+:::image type="content" source="media/power-bi-visual/technical-configuration.png" alt-text="Shows the Technical Configuration page in Partner Center.":::
+
+- **PBIVIZ package** – [Pack your Power BI visual](https://docs.microsoft.com/power-bi/developer/visuals/package-visual) into a PBIVIZ package containing all the required metadata:
 
   - Visual name
   - Display name

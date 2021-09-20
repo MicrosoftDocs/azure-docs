@@ -18,6 +18,8 @@ This page lets you define where and how to make your offer available, including 
 
 To specify the markets in which your offer should be available, select **Edit markets**.
 
+:::image type="content" source="media/power-bi-visual/markets.png" alt-text="Shows the Availability page in Partner Center, including selection of Markets.":::
+
 Your selections here apply only to new acquisitions; if someone already has your app in a market you later remove, they can continue using it, but no new customers in that market will be able to get your offer.
 
 >[!IMPORTANT]
