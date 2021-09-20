@@ -170,7 +170,7 @@ This error can occur for a variety of reasons when you start the Azure-SSIS IR:
 | The provided VNet and static public IP addresses for your Azure-SSIS Integration Runtime must be in the same location. | According to the Azure Network's requirements, the static public IP address and the virtual network should be in the same location and subscription. Please provide two valid static public IP addresses and restart the Azure-SSIS IR. |
 | The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](../virtual-network/public-ip-addresses.md#sku) for help. |
 
-![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+:::image type="content" source="media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png" alt-text="Azure-SSIS IR":::
 
 ### PublicIPResourceGroupLockedDuringStart
 

@@ -73,10 +73,6 @@ Windows 11 (Preview) images are now available in the Azure Marketplace for custo
 
 Multimedia redirection gives you smooth video playback while watching videos in your Azure Virtual Desktop web browser and works with Microsoft Edge and Google Chrome. Learn more at [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-announcing-public-preview-of-multimedia/m-p/2663244#M7692).
 
-### IP virtualization support for Windows Server 2019
-
-IP virtualization is supported on Windows Server 2008 R2 and up. Additional steps are needed to use IP virtualization for Windows Server 2019. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/ip-virtualization-support-for-windows-server-2019/m-p/2658650).
-
 ### Windows Defender Application Control and Azure Disk Encryption support
 
 Azure Virtual Desktop now supports Windows Defender Application Control to control which drivers and applications are allowed to run on Windows virtual machines (VMs), and Azure Disk Encryption, which uses Windows BitLocker to provide volume encryption for the OS and data disks of your VMs. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685).

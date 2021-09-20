@@ -85,7 +85,8 @@ You can find more information on retrieving image data on [this page](retrieve-i
 
 ```C
 // Capture a depth frame
-k4a_device_get_capture(device, &capture, TIMEOUT_IN_MS);
+k4a_capture_t sensor_capture;
+k4a_device_get_capture(device, &sensor_capture, TIMEOUT_IN_MS);
 ```
 
 ## Enqueue the capture and pop the results

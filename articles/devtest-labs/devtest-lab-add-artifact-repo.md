@@ -1,7 +1,7 @@
 ---
-title: Add a Git repository to a lab in Azure DevTest Labs | Microsoft Docs
+title: Add a Git repository to a lab
 description: Learn how to add a GitHub or Azure DevOps Services Git repository for your custom artifacts source in Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

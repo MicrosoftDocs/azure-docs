@@ -27,6 +27,9 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+> [!TIP]
+> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/devices) includes support for the new [organizations feature](howto-create-organizations.md).
+
 ## Components and modules
 
 Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
