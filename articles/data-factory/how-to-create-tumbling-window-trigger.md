@@ -194,7 +194,9 @@ You can also rerun a canceled window. The rerun will take the _latest_ published
 
 ---
 
-## Sample for Azure PowerShell
+## Sample for Azure PowerShell and Azure CLI
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -266,7 +268,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
 
-## Sample for Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
 This section shows you how to use Azure CLI to create, start, and monitor a trigger.
 
@@ -332,6 +334,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
     ```azurecli
     az datafactory trigger-run query-by-factory --resource-group "ResourceGroupName" --factory-name "DataFactoryName" -TriggerName "MyTrigger" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00Z" --last-updated-before "2017-12-08T01:00:00Z"
     ```
+---
 
 To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
