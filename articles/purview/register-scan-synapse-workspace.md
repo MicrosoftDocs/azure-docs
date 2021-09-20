@@ -227,11 +227,11 @@ To create and run a new scan, do the following:
 
     * The **status bar** displays a brief summary of the running status of the child resources. The status is displayed on the workspace level scan.  
     * Green indicates a successful scan run, red indicates a failed scan run, and gray indicates that the scan run is still in progress.  
-    * You can view more granular information about the scan runs by clicking into them.
+    * You can view more granular information about the scan runs by selecting them.
 
       :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Screenshot of the Azure Synapse Analytics scan details page." lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
 
-    * You can view a summary of recent failed scan runs at the bottom of the **source details** page. Again, you can view more granular information about the scan runs by clicking into them.
+    * You can view a summary of recent failed scan runs at the bottom of the **source details** page. Again, you can view more granular information about the scan runs by selecting them.
 
 #### Manage your scans
 

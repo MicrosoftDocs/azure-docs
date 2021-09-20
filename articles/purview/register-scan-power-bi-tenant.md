@@ -125,7 +125,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
 1. Download the [Managed Scanning PowerShell Modules](https://github.com/Azure/Purview-Samples/blob/master/Cross-Tenant-Scan-PowerBI/ManagedScanningPowerShell.zip), and extract its contents to the location of your choice.
 
-2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
+2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, select and hold (or right-click) **Windows PowerShell**, and then select **Run as administrator**.
 
 
 3. Install and import module in your machine if it has not been installed yet.
