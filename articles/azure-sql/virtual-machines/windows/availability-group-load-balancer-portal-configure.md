@@ -27,13 +27,13 @@ This article explains how to create a load balancer for a SQL Server Always On a
 
 To complete this task, you need to have a SQL Server Always On availability group deployed in Azure VMs that are running with Resource Manager. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](./availability-group-quickstart-template-configure.md) to automatically create the availability group in Resource Manager. This template automatically creates an internal load balancer for you. 
 
-If you prefer, you can [manually configure an availability group](availability-group-manually-configure-tutorial.md).
+If you prefer, you can [manually configure an availability group](availability-group-manually-configure-tutorial-single-subnet.md).
 
 This article requires that your availability groups are already configured.  
 
 View related articles:
 
-* [Configure Always On availability groups in Azure VM (GUI)](availability-group-manually-configure-tutorial.md)   
+* [Configure Always On availability groups in Azure VM (GUI)](availability-group-manually-configure-tutorial-single-subnet.md)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 By walking through this article, you create and configure a load balancer in the Azure portal. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.

@@ -111,7 +111,7 @@ There are multiple options for deploying an availability group to SQL Server on 
 
 The following table provides a comparison of the options available:
 
-| | [Azure portal](availability-group-azure-portal-configure.md), | [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md) | [Quickstart Templates](availability-group-quickstart-template-configure.md) | [Manual](availability-group-manually-configure-prerequisites-tutorial.md) |
+| | [Azure portal](availability-group-azure-portal-configure.md), | [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md) | [Quickstart Templates](availability-group-quickstart-template-configure.md) | [Manual](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md) |
 |---------|---------|---------|---------|---------|
 |**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
 |**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
@@ -130,7 +130,7 @@ The following table provides a comparison of the options available:
 
 ## Next steps
 
-Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial.md).
+Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md).
 
 Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-manually-configure-multiple-regions.md).
 

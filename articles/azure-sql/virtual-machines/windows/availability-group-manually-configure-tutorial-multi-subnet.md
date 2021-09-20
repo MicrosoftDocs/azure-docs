@@ -123,11 +123,11 @@ To change the cluster IP address, follow these steps:
 
 1. Select **Static IP Address** and update the IP address to the dedicated windows cluster IP address in the same subnet you assigned to the SQL Server VM in the [prerequisites article](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#add-ips-to-sql-server-vms). Select **OK**.
    
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/03-first-static-ipaddress.png" alt-text="Static IP":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/03-first-static-ipaddress.png" alt-text=" Select **Static IP Address** and update the IP address to the dedicated windows cluster IP address in the same subnet you assigned to the SQL Server VM in the prerequisites article":::
 
 1. Repeat the steps for the second failed **IP Address** resource, using the dedicated windows cluster IP address for the subnet of the other SQL Server VM. 
 
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ipaddress.png" alt-text="Static IP":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ipaddress.png" alt-text="Repeat the steps for the second failed **IP Address** resource, using the dedicated windows cluster IP address for the subnet of the other SQL Server VM.":::
 
 1. In the **Cluster Core Resources** section, right-click cluster name and select **Bring Online**. Wait until the name and one of the IP address resource are online. 
 
@@ -275,7 +275,7 @@ To create your availability group, follow these steps.
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/15-newagreplica.png" alt-text=" On the **Specify Replicas** page, check the boxes for Automatic Failover and choose Synchronous commit for the availability mode":::
 
-1. Select the **Endpoints** tab to confirm the ports used for the database mirroring endpoint are those you [opened in the firewall](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#endpoint-firewall): 
+1. Select the **Endpoints** tab to confirm the ports used for the database mirroring endpoint are those you [opened in the firewall](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#configure-the-firewall): 
 
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/16-endpoint.png" alt-text="New availability group Wizard, Select Initial Data Synchronization":::
 

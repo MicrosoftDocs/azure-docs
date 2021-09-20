@@ -74,7 +74,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. [Create a SQL Server virtual machine in the new region](create-sql-vm-portal.md).
 
-1. [Create an Azure load balancer in the network on the new region](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
+1. [Create an Azure load balancer in the network on the new region](availability-group-manually-configure-tutorial-single-subnet.md#configure-internal-load-balancer).
 
    This load balancer must:
 
@@ -86,13 +86,13 @@ To create a replica in a remote data center, do the following steps:
    - Be a Standard Load Balancer if the virtual machines in the backend pool are not part of either a single availability set or virtual machine scale set. For additional information review [Azure Load Balancer Standard overview](../../../load-balancer/load-balancer-overview.md).
    - Be a Standard Load Balancer if the two virtual networks in two different regions are peered over global VNet peering. For more information, see [Azure Virtual Network frequently asked questions (FAQ)](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-1. [Add Failover Clustering feature to the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Add Failover Clustering feature to the new SQL Server](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#add-failover-clustering-features-to-both-sql-server-vms).
 
-1. [Join the new SQL Server to the domain](availability-group-manually-configure-prerequisites-tutorial.md#joinDomain).
+1. [Join the new SQL Server to the domain](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#joinDomain).
 
-1. [Set the new SQL Server service account to use a domain account](availability-group-manually-configure-prerequisites-tutorial.md#setServiceAccount).
+1. [Set the new SQL Server service account to use a domain account](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#setServiceAccount).
 
-1. [Add the new SQL Server to the Windows Server Failover Cluster](availability-group-manually-configure-tutorial.md#addNode).
+1. [Add the new SQL Server to the Windows Server Failover Cluster](availability-group-manually-configure-tutorial-single-subnet.md#addNode).
 
 1. Add an IP address resource to the cluster.
 
@@ -131,7 +131,7 @@ To create a replica in a remote data center, do the following steps:
    >[!IMPORTANT]
    >The cluster resource group includes both IP addresses. Both IP addresses are dependencies for the listener client access point. Use the **OR** operator in the cluster dependency configuration.
 
-1. [Set the cluster parameters in PowerShell](availability-group-manually-configure-tutorial.md#setparam).
+1. [Set the cluster parameters in PowerShell](availability-group-manually-configure-tutorial-single-subnet.md#setparam).
 
    Run the PowerShell script with the cluster network name, IP address, and probe port that you configured on the load balancer in the new region.
 
@@ -148,7 +148,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
-1. [Open firewall ports on the new SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
+1. [Open firewall ports on the new SQL Server](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#endpoint-firewall).
 
    The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 

@@ -62,7 +62,7 @@ Before you complete the instructions in this article, you should already have:
 
 1. Connect to the first virtual machine with RDP by using a domain account that's a member of the local administrators and that has permission to create objects in Active Directory. Use this account for the rest of the configuration.
 
-1. [Add failover clustering to each virtual machine](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
+1. [Add failover clustering to each virtual machine](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    To install failover clustering from the UI, do the following on both virtual machines:
    1. In **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
