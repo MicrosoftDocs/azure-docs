@@ -175,7 +175,7 @@ In this section, you'll attach the secondary network interface you created previ
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the public IP address with the following steps:
+If you're not going to continue to use this application, delete the public IP addresses and virtual machine with the following steps:
 
 1. In the search box at the top of the portal, enter **Resource group**.
 
