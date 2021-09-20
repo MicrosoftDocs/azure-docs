@@ -83,6 +83,8 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
 - Once you configure the disk backup, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.
 
+To configure disk backup, follow these steps:
+
 1. Go to **Backup center** -> **Overview** and click **+ Backup** to start configuring backup of the disk.
 
    :::image type="content" source="./media/backup-managed-disks/start-configuring-backup-of-disk-inline.png" alt-text="Screenshot showing the option to start Azure Disk backup." lightbox="./media/backup-managed-disks/start-configuring-backup-of-disk-expanded.png":::
@@ -153,7 +155,7 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
    If the _Role assignment not done_ error message displays in the **Backup readiness** column, the Backup vault managed identity needs role permissions on the selected disk(s) and/or   on the Snapshot resource group. 
 
-   :::image type="content" source="./media/backup-managed-disks/role-assignmemt-not-done-error-inline.png" alt-text="Screenshot showing the Role assignment not done error message." lightbox="./media/backup-managed-disks/role-assignmemt-not-done-error-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/role-assignment-not-done-error-inline.png" alt-text="Screenshot showing the Role assignment not done error message." lightbox="./media/backup-managed-disks/role-assignment-not-done-error-expanded.png":::
 
    To configure backup of managed disks, the following prerequisites are required:
 
