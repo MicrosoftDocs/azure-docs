@@ -94,7 +94,7 @@ If you want to use Windows Admin Center, make sure you have access to Windows Ad
 
    1. Install the Azure IoT Edge extension. Select the gear icon in the top right of the Windows Admin Center dashboard.
 
-      ![Select the gear icon in the top right of the dashboard to access the settings.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-gear-icon.png)
+      ![Select the gear icon in the top right of the dashboard to access the settings, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-gear-icon.png)
 
    1. On the **Settings** menu, under **Gateway**, select **Extensions**.
 
@@ -329,7 +329,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
 
 1. Once the deployment is complete, the PowerShell window reports **Deployment successful**.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/successful-powershell-deployment.png)
+   ![A successful deployment will say 'Deployment successful' at the end of the messages, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/successful-powershell-deployment.png)
 
 Once your deployment is complete, you are ready to provision your device.
 
@@ -344,7 +344,7 @@ You can use Windows Admin Center to install and manage Azure IoT Edge for Linux 
 
 If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device.](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
 
-   ![Initial Windows Admin Center dashboard with target device listed](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/windows-admin-center-initial-dashboard.png)
+   ![Initial Windows Admin Center dashboard with target device listed, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/windows-admin-center-initial-dashboard.png)
 
 1. Select **Add**.
 
@@ -352,7 +352,7 @@ If you want to deploy to a remote target device instead of your local device and
 
    If you already have IoT Edge for Linux on Windows running on a device, you could select **Add** to connect to that existing IoT Edge device and manage it with Windows Admin Center.
 
-   ![Select Create New on Azure IoT Edge tile in Windows Admin Center](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/resource-creation-tiles.png)
+   ![Select Create New on Azure IoT Edge tile in Windows Admin Center, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/resource-creation-tiles.png)
 
 1. The **Create an Azure IoT Edge for Linux on Windows deployment** pane will open. On the **1. Getting Started** tab, review the minimum requirements and select **Next**.
 
@@ -362,11 +362,11 @@ If you want to deploy to a remote target device instead of your local device and
 
 1. Select **Next: Deploy**.
 
-   ![Select the Next: Deploy button after toggling optional diagnostic data to your preference](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-next-deploy.png)
+   ![Select the Next: Deploy button after toggling optional diagnostic data to your preference, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-next-deploy.png)
 
 1. On the **2. Deploy** tab, under **Select a target device**, click on your listed device to validate it meets the minimum requirements. Once its status is confirmed as supported, select **Next**.
 
-   ![Select your device to verify it is supported](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/evaluate-supported-device.png)
+   ![Select your device to verify it is supported, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/evaluate-supported-device.png)
 
 1. On the **2.2 Settings** tab, review the configuration settings of your deployment.
 
@@ -381,11 +381,11 @@ If you want to deploy to a remote target device instead of your local device and
 
    For the direct device assignment method, select the number of GPU processors to allocate to your Linux virtual machine.
 
-   ![Configuration settings with a direct device assignment GPU enabled.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/gpu-passthrough-direct-device-assignment.png)
+   ![Configuration settings with a direct device assignment GPU enabled, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/gpu-passthrough-direct-device-assignment.png)
 
    For the paravirtualization method, no additional settings are needed.
 
-   ![Configuration settings with a paravirtualization GPU enabled.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/gpu-passthrough-paravirtualization.png)
+   ![Configuration settings with a paravirtualization GPU enabled, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/gpu-passthrough-paravirtualization.png)
 
    >[!WARNING]
    >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
@@ -394,7 +394,7 @@ If you want to deploy to a remote target device instead of your local device and
 
 1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
 
-   ![A successful deployment will show each step with a green check mark and a 'Complete' label](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/successful-deployment.png)
+   ![A successful deployment will show each step with a green check mark and a 'Complete' label, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/successful-deployment.png)
 
 Once your deployment is complete, you are ready to provision your device. Select **Next: Connect** to proceed to the **3. Connect** tab, which handles Azure IoT Edge device provisioning.
 
@@ -430,7 +430,7 @@ For Windows Admin Center, use the following steps:
 
 1. Choose **Provisioning with the selected method**.
 
-   ![Choose provisioning with the selected method after filling in the required fields for symmetric key provisioning](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/provisioning-with-selected-method-x509-certs.png)
+   ![Choose provisioning with the selected method after filling in the required fields for symmetric key provisioning, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/provisioning-with-selected-method-x509-certs.png)
 
 1. Once the provisioning is complete, select **Finish**. You will be taken back to the main dashboard. Now, you should see a new device listed, whose type is `IoT Edge Devices`. You can select the IoT Edge device to connect to it. Once on its **Overview** page, you can view the **IoT Edge Module List** and **IoT Edge Status** of your device.
 

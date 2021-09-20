@@ -206,13 +206,13 @@ There is one step you need to complete on your device before it is ready to inst
 
 ### Install a container engine
 
-Azure IoT Edge relies on an OCI-compatible container runtime like [Moby](https://github.com/moby/moby), a Moby-based engine that is included in the installation script. There are no additional steps to install the engine. <!-- Should we put more detailed steps for Windows here? On Linux, we give a step-by-step, but here (pulled from the Windows IoT Edge install article, we just give a short blurb -->
+Azure IoT Edge relies on an OCI-compatible container runtime like [Moby](https://github.com/moby/moby), a Moby-based engine that is included in the installation script. There are no additional steps to install the engine.
 
 ### Install IoT Edge
 
 The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-The steps in this section represent the typical process to install the latest version on a device that has internet connectivity. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the Offline or specific version installation steps. <!-- Should offline and specific version be included in every article or linked out to in a separate spot? -->
+The steps in this section represent the typical process to install the latest version on a device that has internet connectivity. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the Offline or specific version installation steps.
 
 1. Run PowerShell as an administrator.
 
