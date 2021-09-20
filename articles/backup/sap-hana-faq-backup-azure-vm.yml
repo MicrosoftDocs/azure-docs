@@ -182,8 +182,7 @@ sections:
 	        - [M-series](/azure/virtual-machines/m-series)
 	        - [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
 	        
-          >[!Note]
-          >You can also [limit the backup throughput performance](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance).
+          You can also [limit the backup throughput performance](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance).
 
   - name: Restore
     questions:
