@@ -1,5 +1,5 @@
 ---
-title: Load balance client connections to HPC Cache
+title: Load balance client connections to Azure HPC Cache
 description: How to configure a DNS server for round-robin load balancing for Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
@@ -112,7 +112,7 @@ There are two main steps to configure RRDNS:
 
    The diagram below shows the basic structure of this configuration.
 
-   :::image type="complex" source="media/rrdns-diagram-hpc.png" alt-text="Diagram showing client mount point DNS configuration.":::
+   :::image type="complex" source="media/round-robin-dns-diagram-hpc.png" alt-text="Diagram showing client mount point DNS configuration.":::
    <The diagram shows connections among three categories of elements: the single HPC Cache domain name (at the left), three IP addresses (middle column), and three internal-use reverse DNS client interfaces (right column). A single oval at the left labeled "hpccache.contoso.com" is connected by arrows pointing toward three ovals labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the hpccache.contoso.com oval to the three IP ovals are labeled "A". Each of the IP address ovals is connected by two arrows to an oval labeled as a client interface - the oval with IP 10.0.0.10 is connected to "client-IP-10.contoso.com", the oval with IP 10.0.0.11 is connected to "client-IP-11.contoso.com", and the oval with IP 10.0.0.12 is connected to "client-IP-11.contoso.com". The connections between the IP address ovals and the client interface ovals are two arrows: one arrow labeled "PTR" that points from the IP address oval to the client interface oval, and one arrow labeled "A" that points from the client interface oval to the IP address oval.>
 :::image-end:::
 
