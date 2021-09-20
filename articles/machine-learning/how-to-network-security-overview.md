@@ -45,13 +45,14 @@ The following table compares how services access different parts of an Azure Mac
 | Scenario | Workspace | Associated resources | Training compute environment | Inferencing compute environment |
 |-|-|-|-|-|-|
 |**No virtual network**| Public IP | Public IP | Public IP | Public IP |
+|**Public workspace, all other resources in a virtual network** | Public IP | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Public IP | Private IP  |
 |**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Public IP | Private IP  | 
 
-* **Workspace** - Create a private endpoint for your workspace. The private endpoint connects the workspace to the vnet through several private IP addresses.
+* **Workspace** - To secure the workspace, create a private endpoint for it. The private endpoint connects the workspace to the vnet through several private IP addresses.
 * **Associated resource** - Use service endpoints or private endpoints to connect to workspace resources like Azure storage, Azure Key Vault, and Azure Container Services.
     * **Service endpoints** provide the identity of your virtual network to the Azure service. Once you enable service endpoints in your virtual network, you can add a virtual network rule to secure the Azure service resources to your virtual network. Service endpoints use public IP addresses.
     * **Private endpoints** are network interfaces that securely connect you to a service powered by Azure Private Link. Private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet.
-* **Training compute access** - Access training compute targets like Azure Machine Learning Compute Instance and Azure Machine Learning Compute Clusters securely with public IP addresses. 
+* **Training compute access** - Access training compute targets like Azure Machine Learning Compute Instance and Azure Machine Learning Compute Clusters with public IP addresses. You can restrict communication to just the VNet by using Network Security Group (NSG) rules or a firewall.
 * **Inferencing compute access** - Access Azure Kubernetes Services (AKS) compute clusters with private IP addresses.
 
 
