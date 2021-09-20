@@ -18,7 +18,18 @@ All management operations are performed from Azure, no local configuration is re
 
 ## Prerequisites
 
-[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments. If you are deploying on VMware, a x64 Python environment is required. When deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
+[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments. 
+
+If you are deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required. 
+
+If you are deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
+
+### Supported regions
+
+Azure Arc resource bridge currently supports the following Azure regions:
+
+- East US
+- West Europe
 
 ### Private cloud environments
 
@@ -27,7 +38,11 @@ The following private cloud environments and their versions are officially suppo
 * VMware vSphere
 * Azure Stack HCI
 
-### Security
+### Required permissions
+
+* To onboard the Arc resource bridge, you are a member of the **Name of role** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
+
+* To read, modify, and delete the resource bridge, you are a member of the **Name of role** role in the resource group.
 
 ### Networking
 
