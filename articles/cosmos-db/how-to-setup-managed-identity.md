@@ -32,7 +32,7 @@ Under the **System assigned** section, flip the **Status** to On and select **Sa
 
 Once the identity has been created and assigned, you can retrieve its Object (principal) ID.
 
-:::image type="content" source="./media/how-to-setup-managed-identity/system-assigned-enabled.png" alt-text="Retrieving the object ID of a system-assigned identity" border="true":::
+:::image type="content" source="./media/how-to-setup-managed-identity/system-identity-enabled.png" alt-text="Retrieving the object ID of a system-assigned identity" border="true":::
 
 ### Using an Azure Resource Manager (ARM) template
 
