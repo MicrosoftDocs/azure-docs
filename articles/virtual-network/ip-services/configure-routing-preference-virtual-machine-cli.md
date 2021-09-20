@@ -69,7 +69,7 @@ az vm create \
 
 Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to verify that **Internet** routing preference is configured for the public IP address.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
     --resource-group TutorVMRoutePref-rg \
     --name myPublicIP \
