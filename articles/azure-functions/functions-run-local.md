@@ -41,7 +41,7 @@ You can only install one version of Core Tools on a given computer. Unless other
 Azure Functions Core Tools currently depends on either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps) for authenticating with your Azure account. 
 This means that you must install one of these tools to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
-## Install the Azure Functions Core Tools
+## <a name="v2"></a>Install the Azure Functions Core Tools
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
@@ -181,11 +181,11 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 If you need to install version 1.x of the Core Tools, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
 
-# [Version 1.x](#tab/v1/windows)
+# [Version 1.x](#tab/v1/macos)
 
 Version 1.x of the Core Tools isn't supported on macOS.
 
-# [Version 1.x](#tab/v1/windows)
+# [Version 1.x](#tab/v1/linux)
 
 Version 1.x of the Core Tools isn't supported on Linux.
 
