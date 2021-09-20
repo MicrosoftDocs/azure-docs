@@ -32,7 +32,7 @@ Components let you manage and reuse common logic across pipelines.
 
 To define an Azure Machine Learning component, you must provide two files:
 
-- A component specification in the valid [YAML component specification format](reference-component-yaml.md). This file specifies the following information:
+- A component specification in the valid [YAML component specification format](reference-yaml-component-command.md). This file specifies the following information:
   - Metadata: name, display_name, version, type, and so on.
   - Interface: inputs and outputs
   - Command, code, & environment: The command, code, and environment used to run the component
@@ -48,7 +48,7 @@ The following example is a component specification for a training component.
 name: Example Train
 display_name: Example Train
 version: 20
-type: command_component
+type: command
 description: Example of a torchvision training component
 tags: {category: Component Tutorial, contact: user@contoso.com}
 inputs:
@@ -84,17 +84,17 @@ The following table explains the fields in the example. For a full list of avail
 
 | Name                | Type                                                     | Required | Description                                                  |
 | ------------------- | -------------------------------------------------------- | -------- | ------------------------------------------------------------ |
-| name                | string                                                   | Yes      | Name of the component. Must be a unique identifier of the component. Must start with number or letter, and only contain letters, numbers, `_`, and `-`. |
+| name                | string                                                   | Yes      | Name of the component. Must be a unique identifier of the component. Must start with number or letter, and only contain letters, numbers, `_`, and `-`. Maximum length is 255 characters.|
 | version             | integer                                                  | Yes      | Version of the component. Must be an integer. |
 | display_name        | string                                                   | No       | Display name of the component. Defaults to same as `name`. |
-| type                | string                                                   | No       | The type of the component. Currently, this value must be `command_component`.|
+| type                | string                                                   | No       | The type of the component. Currently, this value must be `command`.|
 | description         | string                                                   | No       | Detailed description of the component. |
 | tags                | Dictionary&lt;string&gt;                                       | No | A list of key-value pairs to describe different perspectives of the component. Each tag's key and value should be one word or a short phrase, for example, `Product:Office`, `Domain:NLP`, `Scenario:Image Classification`. |
 | is_deterministic    | boolean                                                  | No       | Whether the component will always generate the same result when given the same input data. The default is `True`. Should be set to `False` for components that will load data from external resources, for instance, importing data from a given url, since the data may be updated. |
-| inputs              | Dictionary&lt;string, [Input](reference-component-yaml.md#inputs)&gt; | No       | Defines input ports and parameters of the component. The string key is the name of the input, which must be a valid Python variable name. |
-| outputs             | Dictionary&lt;string, [Output](reference-component-yaml.md#outputs)&gt;                    | No       | Defines output ports of the component. The string key is the name of the output, which must be a valid Python variable name. |
+| inputs              | Dictionary&lt;string, Input&gt; | No       | Defines input ports and parameters of the component. The string key is the name of the input, which must be a valid Python variable name. |
+| outputs             | Dictionary&lt;string, Output&gt;                    | No       | Defines output ports of the component. The string key is the name of the output, which must be a valid Python variable name. |
 | code                | string                                                   | No       | Path to the source code. |
-| environment         | [Environment](reference-component-yaml.md#environment)                              | No       | The runtime environment for the component to run. |
+| environment         | Environment                              | No       | The runtime environment for the component to run. |
 | command             | string                                             | No    | The command to run the component code.         |
 
 ### Python script
@@ -208,7 +208,7 @@ You can also click **Upgrade** in the component detail page to upgrade a new ver
 
 ### Delete a component
 
-You can use `az ml component delete --name component_name.yaml` to delete a component. 
+You can use `az ml component delete --name component_name` to delete a component. 
 
 You can also select a component and archive it.
 
