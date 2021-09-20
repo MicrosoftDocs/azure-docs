@@ -231,7 +231,9 @@ To notify the trading partner that the message was received, you can return a re
 
    `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
 
-   In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`. To get the expression to resolve as this token, switch between the designer and code view.
+   In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`.
+
+1. Save your logic app workflow. To get the expression to resolve as this token, switch between the designer and code view.
 
    ![Screenshot showing multi-tenant designer and the condition shape with an operation.](./media/logic-apps-enterprise-integration-b2b/evaluate-condition-expression-consumption.png)
 
@@ -275,7 +277,9 @@ To notify the trading partner that the message was received, you can return a re
 
    `@body('Decode_AS2_message')?['AS2Message']?['MdnExpected']`
 
-   In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`. To get the expression to resolve as this token, switch between the designer and code view.
+   In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`.
+
+1. Save your logic app workflow. To get the expression to resolve as this token, switch between the designer and code view.
 
    ![Screenshot showing single-tenant designer and the condition shape with an operation.](./media/logic-apps-enterprise-integration-b2b/evaluate-condition-expression-standard.png)
 
@@ -317,11 +321,11 @@ Now add the **Decode X12 message** action.
 
 1. Under **Choose an operation**, in the search box, enter `x12 decode`, and select **Decode X12 message**.
 
-   ![Find and select "Decode X12 message" action](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
+   ![Screenshot showing multi-tenant designer and the "Decode X12 message" action selected.](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action-consumption.png)
 
 1. If the X12 action prompts you for connection information, provide the name for the connection, select the integration account you want to use, and then select **Create**.
 
-   ![Create X12 connection to integration account](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection.png)
+   ![Screenshot showing multi-tenant designer and connection to integration account.](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection-consumption.png)
 
 1. Now specify the input for the X12 action. This example uses the output from the AS2 action, which is the message content but note that this content is in JSON object format and is base64 encoded. So, you have to convert this content to a string.
 
@@ -329,24 +333,47 @@ Now add the **Decode X12 message** action.
 
    `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
 
-    To get the expression to resolve as this token, switch between the designer and code view.
+1. Save your logic app workflow. To get the expression to resolve as this token, switch between the designer and code view.
 
-    ![Convert base64-encoded content to a string](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content.png)
+    ![Screenshot showing multi-tenant designer and conversion from base64-encoded content to a string.](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content-consumption.png)
 
 1. Save your logic app workflow.
 
-   If you need additional steps for this logic app, for example, to decode the message content and output that content in JSON object format, continue building your logic app workflow.
+   If you need additional steps for this logic app workflow, for example, to decode the message content and output that content in JSON object format, continue adding the necessary actions to your logic app workflow.
 
 ### [Standard](#tab/standard)
 
+1. Under the **Response** action, select the plus sign, and then select **Add an action**. On the **Add an action** pane, under the **Choose an operation** search box, select **Azure**, if not already selected. In the search box, enter `x12 decode`, and select **Decode X12 message**.
+
+   ![Screenshot showing single-tenant designer and the "Decode X12 message" action selected.](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action-standard.png)
+
+1. If the X12 action prompts you for connection information, provide the name for the connection, select the integration account you want to use, and then select **Create**.
+
+   ![Screenshot showing single-tenant designer and connection to integration account.](./media/logic-apps-enterprise-integration-b2b/create-x12-integration-account-connection-standard.png)
+
+1. Now specify the input for the X12 action. This example uses the output from the AS2 action, which is the message content but note that this content is in JSON object format and is base64-encoded. So, you have to convert this content to a string.
+
+   In the **X12 Flat file message to decode** box, enter the following expression to convert the AS2 output:
+
+   `@base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])`
+
+1. Save your logic app workflow. To get the expression to resolve as this token, switch between the designer and code view.
+
+    ![Screenshot showing single-tenant designer and conversion from base64-encoded content to a string.](./media/logic-apps-enterprise-integration-b2b/x12-decode-message-content-standard.png)
+
+1. Save your logic app workflow again.
+
+   If you need additional steps for this logic app workflow, for example, to decode the message content and output that content in JSON object format, continue adding the necessary actions to your logic app workflow.
+
 ---
 
-You're now done setting up your B2B logic app workflow. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. For example, see these articles:
+You're now done setting up your B2B logic app workflow. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. For example, review the following documentation:
 
-* [Connect to SAP systems from Azure Logic Apps](../logic-apps/logic-apps-using-sap-connector.md)
+* [Connect to SAP systems from Azure Logic Apps](/logic-apps-using-sap-connector.md)
+
 * [Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
 
-To connect your own LOB apps and use these APIs in your logic app, you can add more actions or [write custom APIs](../logic-apps/logic-apps-create-api-app.md).
+To connect your own LOB apps and use these APIs in your logic app, you can add more actions or [write custom APIs](logic-apps-create-api-app.md).
 
 ## Next steps
 
