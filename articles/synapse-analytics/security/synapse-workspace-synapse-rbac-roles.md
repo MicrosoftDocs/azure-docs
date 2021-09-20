@@ -29,6 +29,9 @@ The following table describes the built-in roles and the scopes at which they ca
 >[!Note]
 > Users with any Synapse RBAC role at any scope automatically have the Synapse User role at workspace scope. 
 
+> [!IMPORTANT]
+> Synapse RBAC roles do not grant permissions to create or manage SQL pools, Apache Spark pools, and Integration runtimes in Synapse workspaces. Azure Owner or Azure Contributor roles on the resource group are required for these actions.
+
 |Role |Permissions|Scopes|
 |---|---|-----|
 |Synapse Administrator  |Full Synapse access to serverless SQL pools, Apache Spark pools, and Integration runtimes.  Includes create, read, update, and delete access to all published code artifacts.  Includes Compute Operator, Linked Data Manager, and Credential User permissions on the workspace system identity credential.  Includes assigning Synapse RBAC roles. In addition to Synapse Administrator, Azure Owners can also assign Synapse RBAC roles. Azure permissions are required to create, delete, and manage compute resources. </br></br>_Can read and write artifacts</br> Can do all actions on Spark activities.</br> Can view Spark pool logs</br> Can view saved notebook and pipeline output </br> Can use the secrets stored by linked services or credentials</br>Can assign and revoke Synapse RBAC roles at current scope_|Workspace </br> Spark pool<br/>Integration runtime </br>Linked service</br>Credential |
