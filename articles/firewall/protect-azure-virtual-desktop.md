@@ -35,26 +35,25 @@ You will need to create an Azure Firewall Policy and create Rule Collections for
 
 ### Create network rules
 
-| Name | Source type | Source | Protocol | Destination ports | Destination type | Destination 
---- | --- | --- | --- | --- | --- | ---
-| Rule Name | IP Address | VNet or Subnet IP Address | 80 | TCP |  IP Address | 169.254.169.254, 168.63.129.16
-| Rule Name | IP Address | VNet or Subnet IP Address | 443 | TCP | Service Tag | AzureCloud, WindowsVirtualDesktop
-| Rule Name | IP Address | VNet or Subnet IP Address | 53 | TCP, UDP | IP Address | *
+| Name | Source type | Source | Protocol | Destination ports | Destination type | Destination |
+| --- | --- | --- | --- | --- | --- | --- |
+| Rule Name | IP Address | VNet or Subnet IP Address | 80 | TCP |  IP Address | 169.254.169.254, 168.63.129.16 |
+| Rule Name | IP Address | VNet or Subnet IP Address | 443 | TCP | Service Tag | AzureCloud, WindowsVirtualDesktop |
+| Rule Name | IP Address | VNet or Subnet IP Address | 53 | TCP, UDP | IP Address | * |
 
 > [!NOTE]
 > Some deployments might not need DNS rules. For example, Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
 
 ### Create application rules 
 
-| Name | Source type | Source | Protocol | Destination type | Destination 
---- | --- | --- | --- | --- | ---
+| Name | Source type | Source | Protocol | Destination type | Destination|
+| --- | --- | --- | --- | --- | --- |
 | Rule Name | IP Address | VNet or Subnet IP Address | Https:443 | FQDN Tag | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Rule Name | IP Address | VNet or Subnet IP Address | Https:1688 | FQDN | kms.core.windows.net 
+| Rule Name | IP Address | VNet or Subnet IP Address | Https:1688 | FQDN | kms.core.windows.net |
 
 
-> [!Important]
-> It is not recommended to use TLS Inspection with Azure Virtual Desktop. Please see [Proxy Server Guidlines](https://docs.microsoft.com/en-us/azure/virtual-desktop/proxy-server-support#dont-use-ssl-termination-on-the-proxy-server) fore more info.
-
+> [!IMPORTANT]
+> We recommend that you don't use TLS inspection with Azure Virtual Desktop. For more information, see the [proxy server guidelines](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).
 
 ## Host pool outbound access to the internet
 
