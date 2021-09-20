@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 # View and remove requests for an access package in Azure AD entitlement management
 
-In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for an access packages, and remove requests which are no longer needed.
+In Azure AD entitlement management, you can see who has requested access packages, their policy, and status. This article describes how to view requests for an access package, and remove requests that are no longer needed.
 
 ## View requests
 
@@ -41,7 +41,7 @@ In Azure AD entitlement management, you can see who has requested access package
 
 1. You can click on **Request History details** to see who approved a request, what their approval justifications were, and when access was delivered.
 
-If you have a set of users whose requests are in the "Partially Delivered" or "Failed" state, you can retry those requests for access to an access package  by using the [reprocess functionality](entitlement-management-reprocess-access-package-requests.md).
+If you have a set of users whose requests are in the "Partially Delivered" or "Failed" state, you can retry those requests by using the [reprocess functionality](entitlement-management-reprocess-access-package-requests.md).
 
 ### View assignments with Microsoft Graph
 You can also retrieve requests for an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignmentRequests](/graph/api/accesspackageassignmentrequest-list?view=graph-rest-beta&preserve-view=true). You can supply a filter to indicate a specific access package, such as: `$expand=accessPackage&$filter=accessPackage/id eq '9bbe5f7d-f1e7-4eb1-a586-38cdf6f8b1ea'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API.
@@ -49,7 +49,7 @@ You can also retrieve requests for an access package using Microsoft Graph.  A u
 ## Remove request (Preview)
 
 You can remove a completed request that is no longer needed by clicking the **Remove** button.
-Note that removing a request does not remove the assignment, only the data of the request. To remove an assignment and the resulting access from that assignment, in the left menu, click **Assignments**, locate and then [remove the assignment](entitlement-management-access-package-assignments.md).
+Note that removing a request does not remove the assignment, only the data of the request. To remove an assignment and the resulting access from that assignment, in the left menu, click **Assignments**, locate the assignment, and then [remove the assignment](entitlement-management-access-package-assignments.md).
 
 ### Remove a request with Microsoft Graph
 You can also remove a request using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [remove an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-delete?view=graph-rest-beta&preserve-view=true).
