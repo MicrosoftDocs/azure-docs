@@ -39,7 +39,7 @@ The following conditions are required to renew a reservation:
 
 - You must be an owner of the existing reservation.
 - You must be an owner of the subscription if the reservation is scoped to a single subscription or resource group.
-- You must be an owner of the subscription if it has a shared scope.
+- You must be an owner of the subscription if it has a shared scope or management group scope.
 
 ## Default renewal settings
 
