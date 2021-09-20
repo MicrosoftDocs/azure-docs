@@ -10,7 +10,7 @@ ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ---
@@ -65,7 +65,7 @@ In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary 
 
 ## What is the lifetime of a PRT?
 
-Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.  
+Once issued, a PRT is valid for 90 days and is continuously renewed as long as the user actively uses the device.  
 
 ## How is a PRT used?
 
