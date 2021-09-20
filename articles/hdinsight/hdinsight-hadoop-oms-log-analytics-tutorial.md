@@ -347,6 +347,10 @@ If you are behind a firewall you may need to complete the [Prerequisites for clu
 1. From the main view, under **Azure Monitor Integration**, disable the toggle, and then select **Save**. 
 1. After the setting saves, re-enable the **Azure Monitor Integration** toggle, and ensure the same Log Analytics workspace is selected, and then select **Save**.
 
+If you have Azure Monitor Integration enabled on a cluster, updating the OMS agent will also update the OMI agent. You can check the version of the OMI agent on the cluster by running the following command: 
+
+    sudo /opt/omi/bin/omiserver –version
+
 ## Next steps
 
 * [Query Azure Monitor logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
