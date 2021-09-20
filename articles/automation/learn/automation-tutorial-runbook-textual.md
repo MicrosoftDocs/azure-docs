@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Assign permissions to managed identities
 
-Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities-preview) to allow it to stop a virtual machine. The runbook can use either the Automation account's system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use the Azure portal. If you prefer using PowerShell, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Assign permissions to the appropriate [managed identity](../automation-security-overview.md#managed-identities-preview) to allow it to stop a virtual machine. The runbook can use either the Automation account's system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use the Azure portal. If you prefer using PowerShell, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Automation account.
 
