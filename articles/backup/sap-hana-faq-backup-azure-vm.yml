@@ -25,8 +25,33 @@ sections:
 
       - question: |
           Where can I find backup related alerts?
-        answer: |
+        an\swer: |
           Today, successful backup jobs don’t generate alerts. Alerts are generated only for backup jobs that fail. [Learn how](backup-azure-monitoring-built-in-monitor.md) to use the Azure portal to view Backup alerts.
+
+      - question: |
+          How do I check if my backup (scheduled/on-demand) is executed successfully?
+        answer: |
+          You can check the status of your backups (scheduled/on-demand) from any of the following locations:
+
+          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal include database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png" alt-text="Screenshot showing manually triggered jobs in the Backup jobs section in the Azure portal.":::
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png" alt-text="Screenshot showing jobs including database discovery and registering, and backup and restore operations.":::
+           
+          1. **Backup alerts**: Alerts help you monitor backups of SAP HANA databases. These help you to focus on the required events, thus eliminating the effort to frequently check multitude of events that a backup generates. For more details, see [View backup alerts](/azure/backup/sap-hana-db-manage#view-backup-alerts).
+
+          1. **Backup Reports**: Reports are another way to view the status of your backup jobs. Your reports will be as follows:
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/backup-reports.png" alt-text="Screenshot showing a type of report in Azure portal.":::
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png" alt-text="Screenshot showing the other type of report in Azure portal.":::
+
+             Learn about [how to configure Azure Backup reports](/azure/backup/configure-reports).
+
+          1. **SAP HANA Native clients**: If you're a SAP HANA customer, you can also use HANA Studio, one of the most common HANA clients. In this client, navigate to **Backup Console** -> **Backup Catalog** to see the **Backup status**.
+
+             :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png" alt-text="Screenshot showing reports in SAP HANA Native clients.":::
           
       - question: |
           Can I see scheduled backup jobs in the Backup Jobs menu?
@@ -144,6 +169,21 @@ sections:
           1. Also, the backups (full backups) that fail on the secondary node create alerts.
           
           To avoid the above issues, we recommend you to stop protection for a node after it becomes secondary (so that connections aren’t attempted and user is not locked) and resume protection on it, once it becomes primary. If you don’t face this locking situation on their HSR setups and are comfortable with alerts being raised, you can configure backups on both the nodes so that the service handles the take-over and fail-back.
+
+      - question: |
+          What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
+        answer: |
+          Refer to [the backup and restore throughput performance](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads.
+	        
+          To set up your HANA system to leverage the improved performance, use the following resources:
+	        
+	        - [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types#premium-ssd)
+	        - [Performance tiers for Azure managed disks](/azure/virtual-machines/disks-change-performance)
+	        - [M-series](/azure/virtual-machines/m-series)
+	        - [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+	        
+          >[!Note]
+          >You can also [limit the backup throughput performance](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance).
 
   - name: Restore
     questions:

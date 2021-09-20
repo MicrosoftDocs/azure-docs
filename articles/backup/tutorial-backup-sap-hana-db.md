@@ -107,12 +107,14 @@ Since the streams primarily deal with disks, you need to understand the disk per
 
 **The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these are not guaranteed speeds and depend on following factors:
 
+- Maximum Uncached disk throughput of the VM
+- Underlying disk type and its throughput
+- The number of processes which are trying to read and write into the same disk at the same time
 - VM’s maximum uncached disk throughput – read from data or log
-- Underlying disk type and its throughput – read from data or log 
-- VM’s maximum network throughput – write to Recovery Services vault 
-- (*) in case the VNET has NVA / firewall, its network throughput 
-- (*) In case data/log on Azure NetApp Files – both read from ANF and write to Vault consume VM’s network 
-
+- Underlying disk type and its throughput – read from data or log
+- VM’s maximum network throughput – write to Recovery Services vault
+- If the VNET has NVA/firewall, it's network throughput
+- If the data/log on Azure NetApp Files – both read from ANF and write to Vault consume VM’s network.
 
 > [!IMPORTANT]
 > In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you may be concerned that the entire disk IOPS are consumed by the backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if you wishes to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
@@ -176,13 +178,19 @@ The command output should display the {SID}{DBNAME} key, with the user shown as 
 
 Here's a summary of steps required for completing the pre-registration script run. Note that in this flow we're providing the SYSTEM user key as an input parameter to the pre-registration script.
 
-|Who  |From  |What to run  |Comments  |
-|---------|---------|---------|---------|
-|```<sid>```adm (OS)     |  HANA OS       |   Read tutorial and download pre-registration script      |   Read the [pre-requisites above](#prerequisites)    Download Pre-registration script from [here](https://aka.ms/scriptforpermsonhana)  |
-|```<sid>```adm (OS) and SYSTEM user (HANA)    |      HANA OS   |   Run hdbuserstore Set command      |   e.g. hdbuserstore Set SYSTEM hostname>:3```<Instance#>```13 SYSTEM ```<password>``` **Note:**  Make sure to use hostname instead of IP address or FQDN      |
-|```<sid>```adm (OS)    |   HANA OS      |  Run hdbuserstore List command       |   Check if the result includes the default store like below : ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
-|Root (OS)     |   HANA OS        |    Run Azure Backup HANA pre-registration script      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
-|```<sid>```adm (OS)    |  HANA OS       |   Run hdbuserstore List command      |    Check if result includes new lines as below :  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+| Who     |    From    |    What to run    |    Comments    |
+| --- | --- | --- | --- |
+| `<sid>`adm (OS) |    HANA OS   | Read the tutorial and download the pre-registration script.  |    Tutorial: [Back up HANA databases in Azure VM](/azure/backup/tutorial-backup-sap-hana-db)   <br><br>    Download the [pre-registration script](https://aka.ms/scriptforpermsonhana) |
+| `<sid>`adm (OS)    |    HANA OS    |   Start HANA (HDB start)    |   Before you set up, ensure that HANA is up and running.   |
+| `<sid>`adm (OS)   |   HANA OS  |    Run the command: <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **Note** <br>  Ensure that you use hostname instead of IP address/FQDN.   |
+| `<sid>`adm (OS)   |  HANA OS    |   Run the command:<br> `hdbuserstore List`   |  Check if the result includes the default store as below: <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
+| Root (OS)   |   HANA OS    |    Run the [Azure Backup HANA pre-registration script](https://aka.ms/scriptforpermsonhana).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
+| `<sid>`adm (OS)   |   HANA OS   |    Run the command: <br> `hdbuserstore List`   |   Check if result includes new lines as below: <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
+| Azure Contributor     |    Azure portal    |   Configure NSG, NVA, Azure Firewall, and so on to allow outbound traffic to Azure Backup service, Azure AD, and Azure Storage.     |    [Set up network connectivity](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
+| Azure Contributor |   Azure portal    |   Create or open a Recovery Services vault and then select HANA backup.   |   Find all the target HANA VMs to back up.   |
+| Azure Contributor    |   Azure portal    |   Discover HANA databases and configure backup policy.   |  For example: <br><br>  Weekly backup: Every Sunday 2:00 AM, retention of weekly 12 weeks, monthly 12 months, yearly 3 years   <br>   Differential or incremental: Every day, except for Sunday    <br>   Log: every 15 minutes retained for 35 days    |
+| Azure Contributor  |   Azure portal    |    Recovery Service vault – Backup Items – SAP HANA     |   Check backup jobs (Azure Workload).    |
+| HANA Admin    | HANA Studio   | Check Backup Console, Backup catalog, backup.log, backint.log, and globa.ini   |    Both SYSTEMDB and Tenant database.   |
 
 After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](#set-up-network-connectivity) and then [configure backup](#discover-the-databases) from Recovery services vault
 
