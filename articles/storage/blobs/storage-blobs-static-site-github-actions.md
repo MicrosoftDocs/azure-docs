@@ -6,7 +6,7 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 09/14/2021
+ms.date: 09/17/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 
@@ -109,7 +109,7 @@ In the example above, replace the placeholders with your subscription ID and res
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`.
+1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`. To enhance security, you can also add the `--account-key` option with your [storage account key](../common/storage-account-keys-manage.md).
 
     ```yaml
         - name: Upload to blob storage
@@ -117,7 +117,7 @@ In the example above, replace the placeholders with your subscription ID and res
           with:
             azcliversion: 2.0.72
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
@@ -149,7 +149,7 @@ In the example above, replace the placeholders with your subscription ID and res
           with:
             azcliversion: 2.0.72
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:

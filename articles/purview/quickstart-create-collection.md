@@ -33,7 +33,7 @@ In order to create and manage collections in Purview, you will need to be a **Co
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio opened to the Data Map, with the Collections tab selected." border="true":::
 
 1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it's called Contoso Purview.
 
