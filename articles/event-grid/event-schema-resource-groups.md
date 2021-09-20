@@ -2,7 +2,7 @@
 title: Azure resource group as an Event Grid source
 description: Describes the properties that are provided for resource group events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 09/15/2021
 ---
 
 # Azure resource group as an Event Grid source

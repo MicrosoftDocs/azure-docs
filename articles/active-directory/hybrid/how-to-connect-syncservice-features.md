@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 9/14/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -80,6 +80,15 @@ If this feature is not enabled for your Azure AD directory, then you can enable 
 
 ```powershell
 Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
+```
+
+## BlockSoftMatch
+When this feature is enabled it will block the Soft Match feature. Customers are encouraged to enable this feature and keep it at enabled until Soft Matching is required again for their tenancy. This flag should be enabled again after any soft matching has completed and is no longer needed.
+
+Example - to block soft matching in your tenant, run this cmdlet:
+
+```
+PS C:\> Set-MsolDirSyncFeature -Feature BlockSoftMatch -Enable $True
 ```
 
 ## Synchronize userPrincipalName updates

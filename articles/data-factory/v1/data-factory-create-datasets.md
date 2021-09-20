@@ -33,7 +33,7 @@ Here is a sample scenario. To copy data from Blob storage to SQL Database, you c
 
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory:
 
-![Relationship between pipeline, activity, dataset, linked services](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
+:::image type="content" source="media/data-factory-create-datasets/relationship-between-data-factory-entities.png" alt-text="Relationship between pipeline, activity, dataset, linked services":::
 
 ## Dataset JSON
 A dataset in Data Factory is defined in JSON format as follows:

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 09/05/2021
+ms.date: 09/25/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
@@ -131,7 +131,7 @@ If you are not going use the deployment, you should delete it with:
 ## Next steps
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
 - [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
+- [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md)
 - [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)

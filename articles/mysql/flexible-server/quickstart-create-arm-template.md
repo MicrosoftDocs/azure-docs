@@ -22,7 +22,9 @@ Azure Database for MySQL - Flexible Server (Preview) is a managed service that y
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+An Azure account with an active subscription. 
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 ## Review the template
 

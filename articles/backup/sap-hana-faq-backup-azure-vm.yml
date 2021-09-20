@@ -127,7 +127,7 @@ sections:
           Then full backup will again be triggered on Node 1 and after that completes, log backups start.
 
           >[!Note]
-          >[Running the pre-registration script](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR set up have the same backup key, thereby reduces the backup sync and failure issues.
+          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR set up have the same backup key, thereby reduces the backup sync and failure issues.
 
   - name: Restore
     questions:

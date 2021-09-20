@@ -23,7 +23,7 @@ The following prerequisites are required prior to installing the Azure Monitor a
   - *.control.monitor.azure.com
 
 > [!IMPORTANT]
-> The Azure Monitor agent does not currently support network proxies or private links.
+> The Azure Monitor agent does not currently support private links.
 
 ## Virtual machine extension details
 The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. It can be installed using any of the methods to install virtual machine extensions including those described in this article.

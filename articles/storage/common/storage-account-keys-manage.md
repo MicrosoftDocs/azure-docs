@@ -237,13 +237,13 @@ To rotate your storage account access keys with Azure CLI:
     ```azurecli-interactive
     az storage account keys renew \
       --resource-group <resource-group> \
-      --account-name <storage-account>
+      --account-name <storage-account> \
       --key primary
     ```
 
 1. Update the connection strings in your code to reference the new primary access key.
 
-2. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `key2` as the key name instead of `key1`.
+2. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `secondary` as the key name instead of `primary`.
 
 ---
 
