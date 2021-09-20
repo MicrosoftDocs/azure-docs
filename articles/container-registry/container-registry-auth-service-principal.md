@@ -11,7 +11,7 @@ You can use an Azure Active Directory (Azure AD) service principal to provide pu
 
 ## What is a service principal?
 
-Azure AD *service principals* provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs to access the resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
+Azure AD [*service principals*](../active-directory/develop/app-objects-and-service-principals.md) provide access to Azure resources within your subscription. You can think of a service principal as a user identity for a service, where "service" is any application, service, or platform that needs to access the resources. You can configure a service principal with access rights scoped only to those resources you specify. Then, configure your application or service to use the service principal's credentials to access those resources.
 
 In the context of Azure Container Registry, you can create an Azure AD service principal with pull, push and pull, or other permissions to your private registry in Azure. For a complete list, see [Azure Container Registry roles and permissions](container-registry-roles.md).
 
@@ -46,13 +46,13 @@ You can find the preceding sample scripts for Azure CLI on GitHub, as well as ve
 
 Once you have a service principal that you've granted access to your container registry, you can configure its credentials for access to "headless" services and applications, or enter them using the `docker login` command. Use the following values:
 
-* **User name** - service principal application ID (also called *client ID*)
-* **Password** - service principal password (also called *client secret*)
+* **User name** - service principal's **application (client) ID**
+* **Password** - service principal's **password (client secret)**
 
 Each value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
-> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) command.
+> You can regenerate the client secret of a service principal by running the [az ad sp credential reset](/cli/azure/ad/sp/credential#az_ad_sp_credential_reset) command.
 >
 
 ### Use credentials with Azure services
