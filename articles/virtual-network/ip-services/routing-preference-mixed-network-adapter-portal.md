@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Configure both routing preference options for a virtual machine using the Azure portal
 
-This article shows you how to configure both [routing preference](routing-preference-overview.md) options (Internet and Microsoft global network) for a virtual machine (VM). This is achieved using two virtual network interfaces, one network interface with a public IP routed via the Microsoft global network, and the other one with a public IP routed via an ISP network.
+This article shows you how to configure both [routing preference](routing-preference-overview.md) options (Internet and Microsoft global network) for a virtual machine (VM). This configuration is achieved using two virtual network interfaces. One network interface is configured with a public IP routed via the Microsoft global network. The other network interface is configured with a public IP routed via an ISP network.
 
 In this tutorial, you learn how to:
 
