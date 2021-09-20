@@ -308,7 +308,7 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
 
 1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially. While the VMs will start sequentially, each VM may reach the **Running** phase at slightly different times based on the characteristics of each VM.
 
-## Clean up Resources
+## Clean up resources
 
 If you're not going to continue to use this runbook, delete it with the following steps:
 
