@@ -541,7 +541,7 @@ You will also be unable to change (rotate) the encryption key. The resolution st
 
 **User-assigned identity**
 
-If this issue occurs with a user-assigned identity, first reassign the identity using the [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign) command. Pass the identity's resource ID, or use the identity's name when it is in the same resource group as the registy. For example:
+If this issue occurs with a user-assigned identity, first reassign the identity using the [az acr identity assign](/cli/azure/acr/identity/#az_acr_identity_assign) command. Pass the identity's resource ID, or use the identity's name when it is in the same resource group as the registry. For example:
 
 ```azurecli
 az acr identity assign -n myRegistry \
