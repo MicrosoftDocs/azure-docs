@@ -285,7 +285,7 @@ az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
 ## <a name="oms-with-firewall">Prerequisites for clusters behind a firewall</a>
 
-To be able to successfully setup Azure Monitor integration with HDInsight, behind a firewall, some customers may need to whitelist the following endpoints:
+To be able to successfully setup Azure Monitor integration with HDInsight, behind a firewall, some customers may need to enable the following endpoints:
 
 |Agent Resource | Ports | Direction | Bypass HTTPS inspection |
 |---|---|---|---|
@@ -293,14 +293,14 @@ To be able to successfully setup Azure Monitor integration with HDInsight, behin
 | \*.oms.opinsights.azure.com |Port 443 | Outbound | Yes |
 | \*.azure-automation.net | Port 443 | Outbound | Yes |
 
-If you have security restrictions related to whitelisting wildcard storage endpoints, there is an alternate option. You can do the following instead:
+If you have security restrictions related to enabling wildcard storage endpoints, there is an alternate option. You can do the following instead:
 
 1. Create a dedicated storage account
 2. Configure the dedicated storage account on their log analytics workspace
-3. Whitelist that dedicated storage account in their firewall
+3. Enable that dedicated storage account in their firewall
 
 ### Data collection behind a firewall
-Once the setup is successful, whitelisting necessary endpoints for data ingestion is important. It is recommended that you whitelisting the \*.blob.core.windows.net endpoint for data ingestion to succeed.
+Once the setup is successful, enabling necessary endpoints for data ingestion is important. It is recommended that you enable the \*.blob.core.windows.net endpoint for data ingestion to succeed.
 
 
 ## Install HDInsight cluster management solutions
