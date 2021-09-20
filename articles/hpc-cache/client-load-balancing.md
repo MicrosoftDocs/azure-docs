@@ -4,7 +4,7 @@ description: How to configure a DNS server for round-robin load balancing for Az
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 09/20/2021
 ms.author: v-erkel
 ---
 
@@ -36,9 +36,9 @@ There are several ways to programmatically rotate client mounts among the availa
 
 This example mount command uses the hash function ``cksum`` and the client host name to automatically distribute the client connections among all available IP addresses on your HPC Cache. If all of the client machines have unique host names, you can run this command on each client to ensure that all available mount points are used.
 
-``
+```bash
 mount -o hard,proto=tcp,mountproto=tcp,retry=30 $(X=(10.0.0.{1..3});echo ${X[$(($(hostname|cksum|cut -f 1 -d ' ')%3))]}):/${NAMESPACE} /mnt
-``
+```
 
 To use this example in your workflow, customize these terms:
 
