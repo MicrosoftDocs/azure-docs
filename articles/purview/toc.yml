@@ -141,8 +141,6 @@ items:
         href: register-scan-teradata-source.md
       - name: Amazon S3
         href: register-scan-amazon-s3.md
-  - name: Manage assets
-    href: how-to-manage-assets.md
   - name: Scan
     items:
     - name: Create a scan rule set
