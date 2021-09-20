@@ -7,7 +7,7 @@ ms.topic: overview
 
 # How to deploy Azure Arc resource bridge to VMware vSphere
 
-Azure Arc resource bridge is a fully managed Kubernetes cluster, packaged in a virtual machine (VM) format. This article describes how you can deploy it in your private cloud environment running VMware vSphere. Inside the VM, there is single node Kubernetes cluster hosting various components, including the custom locations and cluster extensions.
+Azure Arc resource bridge is a fully managed Kubernetes cluster, packaged in a virtual machine (VM) format. This article describes how you can deploy it in your private cloud environment running VMware vSphere. Inside the VM, their is a single node Kubernetes cluster hosting various components, including the custom locations and cluster extensions.
 
 You perform the following to complete the deployment:
 
@@ -15,7 +15,7 @@ You perform the following to complete the deployment:
 - Create three configuration YAML files:
     - **Application.yaml** - This is the primary configuration file that provides a path to the other two configuration files, and specifies the network configuration of the resource bridge.
     - **Infra.yaml** - A configuration file that includes a set of configuration properties about your vSphere infrastructure. 
-    - **Resource.yaml** - A configuration file that contains all the information related to the ARM Resource definitions, such as the the subscription, resource group, resource name, location, etc for the resource bridge in Azure.
+    - **Resource.yaml** - A configuration file that contains all the information related to the Azure Resource Manager resource, such as the subscription name and resource group for the resource bridge in Azure.
 
 - Deploy the resource bridge and register it with Azure.
 
@@ -65,7 +65,7 @@ The `appliance.yaml` file is the main configuration file that specifies the path
         controlPlaneEndpoint: xxx.xxx.xxx.xxx
     ```
 
-    If your environment requires a proxy server, you can add add the following under section `applianceClusterConifg`
+    If your environment requires a proxy server, you can add the following under section `applianceClusterConifg`
     
     ```bash
     applianceClusterConfig:
