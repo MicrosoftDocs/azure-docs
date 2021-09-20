@@ -4,7 +4,7 @@ description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 09/20/2021
 ms.author: v-erkel
 ---
 
