@@ -17,15 +17,15 @@ In this article, you learn how to register new data sources, manage collections 
 
 Use the following steps to register a new source.
 
-1. Open Purview Studio and select the **Register sources** tile.
+1. Open Purview Studio, navigate to the **Data Map**, **Sources**, and select **Register**.
 
    :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Azure Purview Studio":::
 
-1. Select **Register**, and then select a source type. This example uses Azure Blob Storage. Select **Continue**.
+1. Select a source type. This example uses Azure Blob Storage. Select **Continue**.
 
    :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Select a data source type in the Register sources page":::
 
-2. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list. 
+2. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list.
 
    :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Form for data source information":::
 
@@ -41,9 +41,9 @@ In Map view, you can see all of your sources and collections. In the following i
 
 :::image type="content" source="media/manage-data-sources/map-view.png" alt-text="Azure Purview data source map view":::
 
-### List view
+### Table view
 
-In List view, you can see a sortable list of sources. Hover over the source for options to edit, begin a new scan, or delete.
+In the table view, you can see a sortable list of sources. Hover over the source for options to edit, begin a new scan, or delete.
 
 :::image type="content" source="media/manage-data-sources/list-view.png" alt-text="Azure Purview data source list view":::
 

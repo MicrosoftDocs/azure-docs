@@ -44,7 +44,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 ## Create a self-hosted integration runtime
 
-1. On the home page of Purview Studio, select **Management Center** from the left navigation pane.
+1. On the home page of Purview Studio, select **Data Map** from the left navigation pane.
 
 2. Under **Sources and scanning** on the left pane, select **Integration runtimes**, and then select **+ New**.
 

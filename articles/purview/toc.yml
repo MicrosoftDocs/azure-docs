@@ -36,26 +36,32 @@ items:
   items:
   - name: Use Purview Studio
     href: use-purview-studio.md
-  - name: Deployment best practices
-    href: deployment-best-practices.md
-  - name: Azure Purview limits
-    href: how-to-manage-quotas.md
-  - name: Scans and ingestion
-    href: concept-scans-and-ingestion.md
-  - name: Elastic Data Map
-    href: concept-elastic-data-map.md
-  - name: Understanding resource sets
-    href: concept-resource-sets.md
-  - name: Data lineage
-    href: concept-data-lineage.md
-  - name: Supported data sources and file types
-    href: sources-and-scans.md
-  - name: Catalog permissions
+  - name: Best practices
+    items:
+      - name: Deployment best practices
+        href: deployment-best-practices.md
+      - name: Collections architecture
+        href: concept-best-practices-collections.md    
+  - name: Purview permissions
     href: catalog-permissions.md
-  - name: Catalog search
-    href: concept-search.md
-  - name: Business glossary
-    href: concept-business-glossary.md 
+  - name: Data map
+    items:
+    - name: Elastic data map
+      href: concept-elastic-data-map.md
+    - name: Resource sets
+      href: concept-resource-sets.md
+    - name: Scans and ingestion
+      href: concept-scans-and-ingestion.md
+    - name: Data lineage
+      href: concept-data-lineage.md
+  - name: Data catalog
+    items:
+    - name: Catalog search
+      href: concept-search.md
+    - name: Business glossary
+      href: concept-business-glossary.md 
+    - name: Asset normalization
+      href: concept-asset-normalization.md
   - name: Data insights
     href: concept-insights.md
   - name: Supported Browsers
@@ -257,6 +263,8 @@ items:
       href: /samples/browse/?products=azure&languages=java&terms=purview
     - name: .NET
       href: /dotnet/api/overview/azure/purviewresourceprovider
+    - name: PowerShell
+      href: /powershell/module/az.purview/
     - name: Python
       href: /python/api/azure-mgmt-purview/
     - name: REST

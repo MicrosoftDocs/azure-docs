@@ -19,7 +19,7 @@ A scan rule set is a container for grouping a set of scan rules together so that
 
 To create a scan rule set:
 
-1. From your Azure Purview catalog, select **Management Center**.
+1. From your Azure Purview studio, select **Data Map**.
 
 1. Select **Scan rule sets** from the left pane, and then select **New**.
 

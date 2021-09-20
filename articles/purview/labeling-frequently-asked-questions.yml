@@ -15,12 +15,12 @@ summary: |
   This article lists frequently asked questions about sensitivity labeling in Azure Purview, with their answers and links to more information as needed.
 
 sections:
-  - name: General
+  - name: Licensing and Setup
     questions:
       - question: What are the licensing requirements to use sensitivity labels on files and schematized data in Azure Purview? 
         answer: |
           To use sensitivity labels in Azure Purview you will need at least one Microsoft 365 license/account within the same Azure Active Directory (AAD) tenant as your Azure Purview account.  
-          
+
           The following Microsoft 365 licenses is required to automatically apply sensitivity labels to your assets in [Microsoft 365](microsoft-365/compliance/apply-sensitivity-label-automatically.md) and [Azure Purview](create-sensitivity-label.md):  
           
           * Microsoft 365 E5/A5/G5
@@ -30,9 +30,6 @@ sections:
           
           For more information, see [Microsoft 365 service descriptions](office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance.md#information-protection).
           
-      - question: If my organization has multiple Azure Purview accounts within an Azure AD tenant, do I need to manually extend labels to each Purview account separately?
-        answer: No. When you extend sensitivity labels to Azure Purview, those labels are extended to all the Purview accounts in your tenant. 
-
       - question: My organization already uses sensitivity labels in Microsoft 365. What is the impact of extending these labels to Purview? Will it affect my existing setup in Microsoft 365? 
         answer: |
           Extending the labels to Purview does not affect your Microsoft 365 setup or modify your assets in any way, including files and databases.  
