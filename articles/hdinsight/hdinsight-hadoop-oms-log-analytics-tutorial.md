@@ -4,7 +4,7 @@ description: Learn how to use Azure Monitor logs to monitor jobs running in an H
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurepowershell, references_regions
-ms.date: 08/02/2021
+ms.date: 09/21/2021
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -185,6 +185,8 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 
 * A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/monitor-virtual-machine.md).
 
+* If you intend to use Azure Monitor integration on a cluster behind a firewall, complete the [Prerequisites for clusters behind a firewall](#oms-with-firewall).
+
 * An Azure HDInsight cluster. Currently, you can use Azure Monitor logs with the following HDInsight cluster types:
 
   * Hadoop
@@ -281,6 +283,25 @@ To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/mo
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
+## <a name="oms-with-firewall">Prerequisites for clusters behind a firewall</a>
+
+To be able to successfully setup Azure Monitor integration with HDInsight, behind a firewall, some customers may need to whitelist the following endpoints:
+
+|Agent Resource | Ports | Direction | Bypass HTTPS inspection |
+|---|---|---|---|
+| \*.ods.opinsights.azure.com | Port 443 | Outbound | Yes |
+| \*.oms.opinsights.azure.com |Port 443 | Outbound | Yes |
+| \*.azure-automation.net | Port 443 | Outbound | Yes |
+
+If you have security restrictions related to whitelisting wildcard storage endpoints, there is an alternate option. You can do the following instead:
+
+1. Create a dedicated storage account
+2. Configure the dedicated storage account on their log analytics workspace
+3. Whitelist that dedicated storage account in their firewall
+
+### Data collection behind a firewall
+Once the setup is successful, whitelisting necessary endpoints for data ingestion is important. It is recommended that you whitelisting the \*.blob.core.windows.net endpoint for data ingestion to succeed.
+
 
 ## Install HDInsight cluster management solutions
 
@@ -312,7 +333,7 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 * `log_gateway_audit_CL` - this table provides audit logs from cluster gateway nodes that show successful and failed sign-in attempts.
 * `log_auth_CL` - this table provides SSH logs with successful and failed sign-in attempts.
 * `log_ambari_audit_CL` - this table provides audit logs from Ambari.
-* `log_ranger_audit_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
+* `log_ranger_audti_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
 
 ## Next steps
 
