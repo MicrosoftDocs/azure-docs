@@ -102,15 +102,18 @@ sections:
           Front Door WAF supports the following content types:
           
           - **DRS 2.0**
+
           **Managed rules**
              * application/json
              * application/xml
              * application/x-www-form-urlencoded
              * multipart/form-data
+
           **Custom rules**
              * application/x-www-form-urlencoded
 
           - **DRS 1.X**
+          
           **Managed rules**
             * application/x-www-form-urlencoded
             * text/plain
