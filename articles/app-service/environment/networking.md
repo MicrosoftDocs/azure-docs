@@ -1,11 +1,11 @@
 ---
 title: App Service Environment Networking
 description: App Service Environment networking details
-author: ccompy
+author: madsd
 ms.assetid: 6f262f63-aef5-4598-88d2-2f2c2f2bfc24
 ms.topic: article
 ms.date: 06/30/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
 ---
 
@@ -16,7 +16,17 @@ ms.custom: seodec18
 > 
 
 
-The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts web apps, api apps, and function apps. When you install an ASE, you pick the Azure Virtual Network (VNet) that you want it to be deployed in. All of the inbound and outbound traffic application will be inside the VNet you specify. The ASE is deployed into a single subnet in your VNet. Nothing else can be deployed into that same subnet. The subnet needs to be delegated to Microsoft.Web/HostingEnvironments
+The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts web apps, api apps, and function apps. When you install an ASE, you pick the Azure Virtual Network (VNet) that you want it to be deployed in. All of the inbound and outbound traffic application will be inside the VNet you specify. The ASE is deployed into a single subnet in your VNet. Nothing else can be deployed into that same subnet.
+
+## Subnet requirements
+
+The subnet needs to be delegated to Microsoft.Web/hostingEnvironments and must be empty.
+
+The size of the subnet can affect the scaling limits of the App Service Plan instances within the ASE. We recommend using a /24 address space (256 addresses) for your subnet to ensure enough addresses to support the scaling limit of 200 instances within an ASE.
+
+If you require fewer instances and would like to minimize the size of the subnet, this is the guidance you can follow.
+
+Any given subnet has 5 addresses allocated for management purposes. On top of that, ASE will use between 8 and 27 addresses depending on scale and load, that will dynamically scale the supporting infrastructure. This means that if you do not plan to scale to more than 32 instances across App Service Plans in the ASE, then a /26 address space (64 addresses) is sufficient for your subnet.
 
 ## Addresses 
 
