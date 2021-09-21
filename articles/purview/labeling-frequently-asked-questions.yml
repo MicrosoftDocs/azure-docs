@@ -12,7 +12,7 @@ metadata:
     
 title: Sensitivity labels in Azure Purview FAQ
 summary: |
-  This article lists frequently asked questions about sensitivity labeling in Azure Purview, with their answers and links to more information as needed.
+  This article lists frequently asked questions about sensitivity labeling in Azure Purview, with their answers and links to more information as needed.</br></br>
 
 sections:
   - name: Licensing and Setup
@@ -40,7 +40,7 @@ sections:
           
           * When you extend sensitivity labels to Purview, your Microsoft 365 setup will continue to work in the same way as usual. 
           * Extending the sensitivity labels allows Purview to apply those labels to your Azure and multi-cloud assets in the Purview catalog. The catalog is a metadata store and can be deleted by you at any time. 
-          * Sensitivity labels are applied only to the asset metadata in the Purview catalog and are not applied to the actual files and schematized data. Applying sensitivity labels doesn't modify your files and databases in any way. 
+          * Sensitivity labels are applied only to the asset metadata in the Purview catalog and are not applied to the actual files and schematized data. Applying sensitivity labels doesn't modify your files and databases in any way.</br></br>
 
   - name: Classifications vs Sensitivity labels
     questions:
@@ -66,7 +66,7 @@ sections:
 
       - question: I have created a custom Sensitive Information Type (SIT) in Microsoft 365 and used it in my auto-labeling rules for schematized data. Can I use this custom SIT in Azure Purview? 
         answer: |
-          No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) from Microsoft 365 are not supported in Azure Purview at this time. Azure Purview currently only supports Microsoft 365 [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).  
+          No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) from Microsoft 365 are not supported in Azure Purview at this time. Azure Purview currently only supports Microsoft 365 [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).</br></br>
     
   - name: Labeling capabilities in Azure Purview
     questions:
@@ -93,7 +93,7 @@ sections:
 
       - question: Does Azure Purview currently support Data Loss Prevention capabilities?
         answer: |
-          No, Azure Purview does not currently provide Data Loss Prevention capabilities. [Data Loss Prevention](/microsoft-365/compliance/information-protection#prevent-data-loss) is currently only supported in Microsoft 365.
+          No, Azure Purview does not currently provide Data Loss Prevention capabilities. [Data Loss Prevention](/microsoft-365/compliance/information-protection#prevent-data-loss) is currently only supported in Microsoft 365.</br></br>
 
   - name: Access and roles
     questions:
@@ -117,7 +117,7 @@ sections:
         answer: All users with at least data reader access to the Purview account have permissions to search and browse assets with sensitivity labels in Azure Purview. 
 
       - question: Who can view the sensitivity label insights report in Azure Purview? 
-        answer: All users with at least data reader access to the Purview account have permissions to view sensitivity label insights reports in Azure Purview. 
+        answer: All users with at least data reader access to the Purview account have permissions to view sensitivity label insights reports in Azure Purview. </br></br>
 
   - name: Technical Know-how
     questions:
@@ -137,7 +137,7 @@ sections:
         answer: |
           Within Microsoft 365, sensitivity labels have a priority 'order' and Purview uses the same order to assign labels. If there are multiple labels meeting the classification criteria, Purview picks the label with the highest order.  
           
-          For more information, see [Label priority order matters](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters).
+          For more information, see [Label priority order matters](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters).</br></br>
           
   - name: SQL data discovery and classification
     questions:  
@@ -149,7 +149,7 @@ sections:
           
       - question: I applied labels in SQL data discovery and classification. Why are these labels not showing up on my asset in Azure Purview?
         answer: |
-          SQL classification uses local labels, while Azure Purview uses sensitivity labels. Labels applied in the SQL classification experience will not show up in Purview. For more details see [Labeling for SQL databases](create-sensitivity-label.md#labeling-for-sql-databases) 
+          SQL classification uses local labels, while Azure Purview uses sensitivity labels. Labels applied in the SQL classification experience will not show up in Purview. For more details see [Labeling for SQL databases](create-sensitivity-label.md#labeling-for-sql-databases).
 
 additionalContent: |
   For more information, see: </br>
