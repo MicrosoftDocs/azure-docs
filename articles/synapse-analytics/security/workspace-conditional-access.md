@@ -12,11 +12,11 @@ ms.custom: template-concept
 
 # Conditional Access in Azure Synapse Analytics
 
-You can now configure Conditional access policies for your Azure Synapse workspaces. Conditional access is a tool provided by Azure Active Directory to bring several signals such as device type and device IP location together to make decisions to grant access, block access, or enforce multi-factor authentication for a resource. Conditional access policies are configured in Azure Active Directory. Learn more about [Conditional access](../../active-directory/conditional-access/overview.md).
+You can now configure conditional access policies for Azure Synapse workspaces. Conditional access is a tool provided by Azure Active Directory to bring several signals such as device type and device IP location together to make decisions to grant access, block access, or enforce multi-factor authentication for a resource. Conditional access policies are configured in Azure Active Directory. Learn more about [conditional access](../../active-directory/conditional-access/overview.md).
 
 
-## Configure Conditional access
-The following steps show how to configure a Conditional access policy for Azure Synapse workspaces.
+## Configure conditional access
+The following steps show how to configure a conditional access policy for Azure Synapse workspaces.
 
 1. Sign in to the Azure portal using an account with *global administrator permissions*, select **Azure Active Directory**, choose **Security** from the menu. 
 2. Select **Conditional Access**, then choose **+ New Policy**, and provide a name for the policy.
@@ -27,6 +27,6 @@ The following steps show how to configure a Conditional access policy for Azure 
 
 
 ## Next steps
-Learn more about Conditional access policies and their components.
-- [Common Conditional access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)
-- [Building a Conditional access policy](../../active-directory/conditional-access/concept-conditional-access-policies.md)
+Learn more about conditional access policies and their components.
+- [Common conditional access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md)
+- [Building a conditional access policy](../../active-directory/conditional-access/concept-conditional-access-policies.md)
