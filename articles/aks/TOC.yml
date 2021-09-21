@@ -371,9 +371,9 @@
             - name: Deploy the OSM AKS add-on
               items:
                 - name: Use the Azure CLI
-                - href: open-service-mesh-deploy-addon-az-cli.md
+                  href: open-service-mesh-deploy-addon-az-cli.md
                 - name: Use Bicep template
-                - href: open-service-mesh-deploy-addon-bicep.md
+                  href: open-service-mesh-deploy-addon-bicep.md
             - name: Download the OSM client binary
               href: open-service-mesh-binary.md
             - name: OSM Tutorials
