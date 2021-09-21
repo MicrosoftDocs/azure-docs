@@ -195,8 +195,6 @@ View the backups that are retained for a specific database with an LTR policy, a
 
 Run the [az sql midb ltr-policy show](/cli/azure/sql/midb/ltr-policy#az_sql_midb_ltr_policy_show) command to view LTR policies for a single database within an instance.
 
-For a single database:
-
 ```azurecli
 az sql midb ltr-policy show /
 --resource-group mygroup /
