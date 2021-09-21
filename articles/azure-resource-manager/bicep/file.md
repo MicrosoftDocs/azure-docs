@@ -2,7 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 09/21/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -186,7 +186,7 @@ For more information, see [Variables in Bicep](./variables.md).
 
 ## Resource
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource. The symbolic name may contain a-z, A-Z, 0-9, and '_', the name can't start with a number.
 
 The resource declaration also includes the resource type and API version.
 
@@ -256,7 +256,7 @@ module webModule './webApp.bicep' = {
 }
 ```
 
-The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value.
+The symbolic name enables you to reference the module from somewhere else in the file. For example, you can get an output value from a module by using the symbolic name and the name of the output value. The symbolic name may contain a-z, A-Z, 0-9, and '_', the name can't start with a number.
 
 A module can't have the same name as a parameter, variable, or resource.
 
