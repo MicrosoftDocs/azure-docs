@@ -40,7 +40,7 @@ The below table lists older Azure Event Hubs runtime clients. While these packag
 ## Management SDKs
 Here's a list of currently available management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of **managing Event Hubs entities**.
 
-- [.NET Standard](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.eventhub)
+- [.NET Standard](/dotnet/api/microsoft.azure.management.eventhub)
 - [Java](/java/api/com.microsoft.azure.management.eventhub)
 - [Python](/python/api/azure-mgmt-eventhub)
 - [JavaScript](/javascript/api/@azure/arm-eventhub/)
