@@ -41,7 +41,7 @@ To access the cluster using cluster FQDNs, you can either use the internal load 
 The basic load balancers used in the default virtual network architecture automatically provide public NAT (network address translation) to access the required outbound dependencies, such as the HDInsight RP. If you want to restrict outbound connectivity to the public internet, you can [configure a firewall](./hdinsight-restrict-outbound-traffic.md), but it's not a requirement.
 
 ## Leveraging Private Endpoints (optional)
-Configuring `resourceProviderConnection` to outbound also allows you to access cluster-specific resources, such as Azure Data Lake Storage Gen2 or external metastores, using private endpoints. Using private endpoints for these resources is not mandatory, but if you plan to have private endpoints for these resources, you must configure the private endpoints and DNS entries `before` you create the HDInsight cluster. We recommend you create and provide all of the external SQL databases you need, such as Apache Ranger, Ambari, Oozie and Hive metastores, at cluster creation time. The requirement is that all of these resources must be accessible from inside the cluster subnet, either through their own private endpoint or otherwise.
+Configuring `resourceProviderConnection` to outbound also allows you to access cluster-specific resources, such as Azure Data Lake Storage Gen2 or external metastores, using private endpoints. Using private endpoints for these resources is not mandatory, but if you plan to have private endpoints for these resources, you must configure the private endpoints and DNS entries `before` you create the HDInsight cluster. We recommend you create and provide all of the external SQL databases you need, such as Apache Ranger, Ambari, Oozie and, Hive metastores, at cluster creation time. The requirement is that all of these resources must be accessible from inside the cluster subnet, either through private endpoint or otherwise.
 
 When connecting to Azure Data Lake Storage Gen2 over Private Endpoint, make sure the Gen2 storage account has an endpoint set for both ‘blob’ and ‘dfs’. For more information please see [Creating a Private Endpoint](../storage/common/storage-private-endpoints.md).
 
@@ -68,6 +68,6 @@ To use Azure CLI, see the example [here](/cli/azure/hdinsight#az_hdinsight_creat
 
 ## Next steps
 
-* [Enable Private Link on you private inbound cluster](./hdinsight-private-link.md)
+* [Enable Private Link on your private inbound cluster](./hdinsight-private-link.md)
 * [Enterprise Security Package for Azure HDInsight](enterprise-security-package.md)
 * [Enterprise security general information and guidelines in Azure HDInsight](./domain-joined/general-guidelines.md)
