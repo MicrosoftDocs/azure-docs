@@ -1,5 +1,5 @@
 ---
-title: Private access - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Private access (preview) - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: This article describes private access for Azure Database for PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 9/20/2021
 ---
 
-# Private access in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Private access (preview) in Azure Database for PostgreSQL - Hyperscale (Citus)
 
 [!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
 

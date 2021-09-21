@@ -51,8 +51,7 @@ page.
 
 ## Next steps
 
-* Learn how to enable and manage private access
-* Learn about private link
+* Learn how to enable and manage private access (preview)
 * Learn about [private
   endpoints](/azure/private-link/private-endpoint-overview)
 * Learn about [virtual
