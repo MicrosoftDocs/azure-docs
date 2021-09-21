@@ -3,10 +3,11 @@ title: Migrate a V2 Azure IoT Central application to V3 | Microsoft Docs
 description: Learn how to migrate your V2 Azure IoT Central application to V3
 author: troyhopwood
 ms.author: troyhop
-ms.date: 01/18/2021
+ms.date: 09/17/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: contperf-fy22q1
 
 # Administrator
 ---
@@ -15,7 +16,9 @@ services: iot-central
 
 Currently, when you create a new IoT Central application, it's a V3 application. If you previously created an application, then depending on when you created it, it may be V2. This article describes how to migrate a V2 to a V3 application to be sure you're using the latest IoT Central features.
 
-To learn how to identify the version of an IoT Central application, see [How do I get information about my application?](howto-faq.md#how-do-i-get-information-about-my-application).
+To learn more, see the [Retirement announcement](/answers/questions/529295/retirement-announcement-upgrade-to-iot-central-v3.html).
+
+To learn how to identify the version of an IoT Central application, see [How do I get information about my application?](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 The steps to migrate an application from V2 to V3 are:
 
@@ -25,9 +28,7 @@ The steps to migrate an application from V2 to V3 are:
 
 ## Create a new V3 application
 
-Use the migration wizard to create a new V3 application.
-
-IoT Central doesn't support migrating to an existing V3 application. To automatically move existing devices, use the migration wizard to create your V3 application.
+IoT Central doesn't let you migrate to an existing V3 application. To move existing devices from a V2 to V3 application, use the migration wizard to create your V3 application.
 
 The migration wizard:
 
@@ -65,7 +66,7 @@ You must be an administrator to migrate an application to V3.
 After your new V3 application is created, make any configuration changes before you move your devices from the V2 application to the V3 application.
 
 > [!TIP]
-> Take a moment to [familiarize yourself with V3](overview-iot-central-tour.md#navigate-your-application) as it has some differences from the the previous version.
+> Take a moment to [familiarize yourself with V3](overview-iot-central-tour.md#navigate-your-application) as it has some differences from V2.
 
 Here are some recommended configuration steps to consider:
 

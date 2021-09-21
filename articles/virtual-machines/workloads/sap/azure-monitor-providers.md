@@ -90,10 +90,12 @@ Configuring Microsoft SQL Server provider requires:
 ![Azure Monitor for SAP solutions providers - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 
 ## Provider type: High-availability cluster
-You can configure one or more providers of provider type *High-availability cluster* to enable data collection from Pacemaker cluster within the SAP landscape. The High-availability cluster provider connects to Pacemaker using the [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) endpoint. It then pulls telemetry data from the database and pushes it to Log Analytics workspace in your subscription. The High-availability cluster provider collects data every 60 seconds from Pacemaker.  
+You can configure one or more providers of provider type *High-availability cluster* to enable data collection from Pacemaker cluster within the SAP landscape. The High-availability cluster provider connects to Pacemaker using the [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) for **SUSE** based clusters and by using [Performance co-pilot](https://access.redhat.com/articles/6139852) for **RHEL** based clusters. AMS then pulls telemetry data from the database and pushes it to Log Analytics workspace in your subscription. The High-availability cluster provider collects data every 60 seconds from Pacemaker.  
 
 In public preview, you can expect to see the following data with the High-availability cluster provider:   
  - Cluster status represented as a roll-up of node and resource status 
+ - Location constraints
+ - Trends
  - [others](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md) 
 
 ![Azure Monitor for SAP solutions providers - High-availability cluster](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)

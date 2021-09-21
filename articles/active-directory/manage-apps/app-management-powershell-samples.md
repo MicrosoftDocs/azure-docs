@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 02/18/2021
 ms.author: davidmu
-ms.reviewer: mifarca
+ms.reviewer: sureshja
 ---
 
 # Azure Active Directory PowerShell examples for Application Management

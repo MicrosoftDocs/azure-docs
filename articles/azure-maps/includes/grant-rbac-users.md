@@ -8,7 +8,7 @@ ms.date: 06/21/2021
 ms.topic: include
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 custom.ms: subject-rbac-steps
 ---
 
@@ -23,7 +23,7 @@ For detailed steps about how to assign an available Azure Maps role to the creat
 To efficiently manage the Azure Maps app and resource access of a large amount of users, see [Azure AD Groups](../../active-directory/fundamentals/active-directory-manage-groups.md).
 
 >[!IMPORTANT]
->For users to be allowed to authenticate to an application, the users must first be created in Azure AD. For more information, see [Add or Delete users using Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+>For users to be allowed to authenticate to an application, the users must first be created in Azure AD. For more information, see [Add or delete users using Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 To learn about how to effectively manage a large directory for users, see [Azure AD](../../active-directory/fundamentals/index.yml).
 

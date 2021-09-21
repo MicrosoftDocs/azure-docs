@@ -38,6 +38,15 @@ Each bar in the following chart shows the difference in achieved bandwidth betwe
 > [!div class="mx-imgBorder"]
 > ![Relative performance](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
+## Improve read ahead size to increase large file read throughput 
+The read_ahead_kb kernel parameter represents the amount of additional data that should be read after fulfilling a given read request. You can increase this parameter to 16MB to improve large file read throughput. 
+
+```
+export AZMNT=/your/container/mountpoint
+
+echo 15728640 > /sys/class/bdi/0:$(stat -c "%d" $AZMNT)/read_ahead_kb
+```
+
 ## Avoid frequent overwrites on data
 
 It takes longer time to complete an overwrite operation than a new write operation. That's because an NFS overwrite operation, especially a partial in-place file edit, is a combination of several underlying blob operations: a read, a modify, and a write operation. Therefore, an application that requires frequent in place edits is not suited for NFS enabled blob storage accounts. 

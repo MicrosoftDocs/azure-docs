@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2020
+ms.date: 08/17/2021
 ms.author: memildin
 
 ---
@@ -25,9 +25,6 @@ The classification mechanism is based on the following two elements:
 - **Information Types** – Provides additional granularity into the *type of data* stored in the column.
 
 The information protection policy options within Security Center provide a predefined set of labels and information types which serve as the defaults for the classification engine. You can customize the policy, according to your organization's needs, as described below.
-
-> [!IMPORTANT]
-> To customize the information protection policy for your Azure tenant, you'll need administrative privileges on the tenant's root management group. Learn more in [Grant and request tenant-wide visibility](tenant-wide-permissions-management.md).
 
 :::image type="content" source="./media/security-center-info-protection-policy/sql-information-protection-policy-page.png" alt-text="The page showing your SQL information protection policy.":::
  
@@ -129,6 +126,14 @@ You can download a JSON file with your defined labels and information types, edi
 > [!NOTE]
 > You'll need tenant level permissions to import a policy file. 
 
+
+## Permissions
+
+To customize the information protection policy for your Azure tenant, you'll need the following actions on the tenant's root management group:
+  - Microsoft.Security/informationProtectionPolicies/read
+  - Microsoft.Security/informationProtectionPolicies/write 
+
+Learn more in [Grant and request tenant-wide visibility](tenant-wide-permissions-management.md).
 
 ## Manage SQL information protection using Azure PowerShell
 

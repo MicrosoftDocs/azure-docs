@@ -311,7 +311,7 @@ The previous sections described how to create, view, and manage log alert rules 
 1. You can disable a log alert rule using the following command:
 
     ```azurecli
-    az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --enabled false
+    az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --disabled false
     ```
 
 1. You can delete a log alert rule using the following command:

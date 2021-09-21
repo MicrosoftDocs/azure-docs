@@ -1,32 +1,34 @@
 ---
-title: Copy data from/to Azure File Storage
-description: Learn how to copy data from Azure File Storage to supported sink data stores (or) from supported source data stores to Azure File Storage by using Azure Data Factory.
+title: Copy data from/to Azure Files
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from Azure Files to supported sink data stores (or) from supported source data stores to Azure Files by using Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/17/2021
+ms.custom: synapse
+ms.date: 09/10/2021
 ---
 
-# Copy data from or to Azure File Storage by using Azure Data Factory
+# Copy data from or to Azure Files by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data to and from Azure File Storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to copy data to and from Azure Files. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
-This Azure File Storage connector is supported for the following activities:
+This Azure Files connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 - [Delete activity](delete-activity.md)
 
-You can copy data from Azure File Storage to any supported sink data store, or copy data from any supported source data store to Azure File Storage. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+You can copy data from Azure Files to any supported sink data store, or copy data from any supported source data store to Azure Files. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Specifically, this Azure File Storage connector supports:
+Specifically, this Azure Files connector supports:
 
 - Copying files by using account key or service shared access signature (SAS) authentications.
 - Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
@@ -35,26 +37,50 @@ Specifically, this Azure File Storage connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Azure File Storage.
+## Create a linked service to Azure Files using UI
+
+Use the following steps to create a linked service to Azure Files in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for file and select the connector for Azure Files labeled *Azure File Storage*.
+
+    :::image type="content" source="media/connector-azure-file-storage/azure-file-storage-connector.png" alt-text="Screenshot of the Azure File Storage connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-file-storage/configure-azure-file-storage-linked-service.png" alt-text="Screenshot of linked service configuration for an Azure File Storage.":::
+
+## Connector configuration details
+
+The following sections provide details about properties that are used to define entities specific to Azure Files.
 
 ## Linked service properties
 
-This Azure File Storage connector supports the following authentication types. See the corresponding sections for details.
+The Azure Files connector supports the following authentication types. See the corresponding sections for details.
 
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
 
 >[!NOTE]
-> If you were using Azure File Storage linked service with [legacy model](#legacy-model), where on ADF authoring UI shown as "Basic authentication", it is still supported as-is, while you are suggested to use the new model going forward. The legacy model transfers data from/to storage over Server Message Block (SMB), while the new model utilizes the storage SDK which has better throughput. To upgrade, you can edit your linked service to switch the authentication method to "Account key" or "SAS URI"; no change needed on dataset or copy activity.
+> If you were using Azure Files linked service with [legacy model](#legacy-model), where on ADF authoring UI shown as "Basic authentication", it is still supported as-is, while you are suggested to use the new model going forward. The legacy model transfers data from/to storage over Server Message Block (SMB), while the new model utilizes the storage SDK which has better throughput. To upgrade, you can edit your linked service to switch the authentication method to "Account key" or "SAS URI"; no change needed on dataset or copy activity.
 
 ### Account key authentication
 
-Data Factory supports the following properties for Azure File Storage account key authentication:
+Data Factory supports the following properties for Azure Files account key authentication:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureFileStorage**. | Yes |
-| connectionString | Specify the information needed to connect to Azure File Storage. <br/> You can also put the account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. For more information, see the following samples and the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article. |Yes |
+| connectionString | Specify the information needed to connect to Azure Files. <br/> You can also put the account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. For more information, see the following samples and the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article. |Yes |
 | fileShare | Specify the file share. | Yes |
 | snapshot | Specify the date of the [file share snapshot](../storage/files/storage-snapshots-files.md) if you want to copy from a snapshot. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
@@ -109,12 +135,12 @@ Data Factory supports the following properties for Azure File Storage account ke
 
 A shared access signature provides delegated access to resources in your storage account. You can use a shared access signature to grant a client limited permissions to objects in your storage account for a specified time. For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-sas-overview.md).
 
-Data Factory supports the following properties for using shared access signature authentication:
+The service supports the following properties for using shared access signature authentication:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureFileStorage**. | Yes |
-| sasUri | Specify the shared access signature URI to the resources. <br/>Mark this field as **SecureString** to store it securely in Data Factory. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| sasUri | Specify the shared access signature URI to the resources. <br/>Mark this field as **SecureString** to store it securely. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | fileShare | Specify the file share. | Yes |
 | snapshot | Specify the date of the [file share snapshot](../storage/files/storage-snapshots-files.md) if you want to copy from a snapshot. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
@@ -142,7 +168,7 @@ Data Factory supports the following properties for using shared access signature
 }
 ```
 
-**Example: store the account key in Azure Key Vault**
+**Example: store the SAS token in Azure Key Vault**
 
 ```json
 {
@@ -161,7 +187,8 @@ Data Factory supports the following properties for using shared access signature
                     "type": "LinkedServiceReference" 
                 }, 
                 "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
-            }
+            },
+            "fileShare": "<file share name>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -176,8 +203,8 @@ Data Factory supports the following properties for using shared access signature
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureFileStorage**. | Yes |
-| host | Specifies the Azure File Storage endpoint as: <br/>-Using UI: specify `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Using JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
-| userid | Specify the user to access the Azure File Storage as: <br/>-Using UI: specify `AZURE\<storage name>`<br/>-Using JSON: `"userid": "AZURE\\<storage name>"`. | Yes |
+| host | Specifies the Azure Files endpoint as: <br/>-Using UI: specify `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Using JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
+| userid | Specify the user to access the Azure Files as: <br/>-Using UI: specify `AZURE\<storage name>`<br/>-Using JSON: `"userid": "AZURE\\<storage name>"`. | Yes |
 | password | Specify the storage access key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No for source, Yes for sink |
 
@@ -210,7 +237,7 @@ For a full list of sections and properties available for defining datasets, see 
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-The following properties are supported for Azure File Storage under `location` settings in format-based dataset:
+The following properties are supported for Azure Files under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -246,20 +273,20 @@ The following properties are supported for Azure File Storage under `location` s
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure File Storage source and sink.
+For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure Files source and sink.
 
-### Azure File Storage as source
+### Azure Files as source
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
-The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy source:
+The following properties are supported for Azure Files under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | The type property under `storeSettings` must be set to **AzureFileStorageReadSettings**. | Yes                                           |
 | ***Locate the files to copy:*** |  |  |
 | OPTION 1: static path<br> | Copy from the given folder/file path specified in the dataset. If you want to copy all files from a folder, additionally specify `wildcardFileName` as `*`. |  |
-| OPTION 2: file prefix<br>- prefix | Prefix for the file name under the given file share configured in a dataset to filter source files. Files with name starting with `fileshare_in_linked_service/this_prefix` are selected. It utilizes the service-side filter for Azure File Storage, which provides better performance than a wildcard filter. This feature is not supported when using a [legacy linked service model](#legacy-model). | No                                                          |
+| OPTION 2: file prefix<br>- prefix | Prefix for the file name under the given file share configured in a dataset to filter source files. Files with name starting with `fileshare_in_linked_service/this_prefix` are selected. It utilizes the service-side filter for Azure Files, which provides better performance than a wildcard filter. This feature is not supported when using a [legacy linked service model](#legacy-model). | No                                                          |
 | OPTION 3: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
 | OPTION 3: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual file name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
 | OPTION 4: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When using this option, do not specify file name in dataset. See more examples in [File list examples](#file-list-examples). |No |
@@ -313,11 +340,11 @@ The following properties are supported for Azure File Storage under `storeSettin
 ]
 ```
 
-### Azure File Storage as sink
+### Azure Files as sink
 
 [!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
-The following properties are supported for Azure File Storage under `storeSettings` settings in format-based copy sink:
+The following properties are supported for Azure Files under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -377,7 +404,7 @@ This section describes the resulting behavior of using file list path in copy ac
 
 Assuming you have the following source folder structure and want to copy the files in bold:
 
-| Sample source structure                                      | Content in FileListToCopy.txt                             | ADF configuration                                            |
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Folder path: `root/FolderA`<br><br>**In copy activity source:**<br>- File list path: `root/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line with the relative path to the path configured in the dataset. |
 
@@ -409,7 +436,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the ADF authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -540,4 +567,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

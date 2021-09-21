@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 07/21/2021
 ms.author: thweiss
 ---
 
@@ -38,7 +38,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 > This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. This means that you **cannot use any Azure Cosmos DB data plane SDK** to authenticate management operations with an AAD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
 > - [Azure Resource Manager (ARM) templates](manage-with-templates.md)
 > - [Azure PowerShell scripts](manage-with-powershell.md),
-> - [Azure CLI scripts](manage-with-cli.md),
+> - [Azure CLI scripts](sql/manage-with-cli.md),
 > - Azure management libraries available in
 >   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
@@ -344,7 +344,7 @@ The examples below use a service principal with a `ClientSecretCredential` insta
 
 ### In .NET
 
-The Azure Cosmos DB RBAC is currently supported in the `preview` version of the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
+The Azure Cosmos DB RBAC is currently supported in the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(

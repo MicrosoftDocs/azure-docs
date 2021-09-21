@@ -148,9 +148,9 @@ const { CertificateClient } = require("@azure/keyvault-certificates");
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/javascript/api/@azure/identity/defaultazurecredential) class from [Azure Identity Library](/javascript/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 Add the following code to 'main()' function
 
@@ -164,7 +164,7 @@ const client = new Certificate(KVUri, credential);
 
 ### Save a certificate
 
-Now that your application is authenticated, you can put a certificate into your keyvault using the [beginCreateCertificate method](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_) This requires a name for the certificate and the certificate policy[certificate policy](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicy) with [certificate policy properties](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)
+Now that your application is authenticated, you can put a certificate into your keyvault using the [beginCreateCertificate method](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginCreateCertificate_string__CertificatePolicy__BeginCreateCertificateOptions_) This requires a name for the certificate and the certificate policy[certificate policy](/javascript/api/@azure/keyvault-certificates/certificatepolicy) with [certificate policy properties](/javascript/api/@azure/keyvault-certificates/certificatepolicyproperties)
 
 ```javascript
 const certificatePolicy = {
@@ -187,7 +187,7 @@ const retrievedCertificate = await client.getCertificate(certificateName);
 
 ### Delete a certificate
 
-Finally, let's delete and purge the certificate from your key vault with the [beginDeleteCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) and [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) methods.
+Finally, let's delete and purge the certificate from your key vault with the [beginDeleteCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) and [purgeDeletedCertificate](/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) methods.
 
 ```javascript
 const deletePoller = await client.beginDeleteCertificate(certificateName);

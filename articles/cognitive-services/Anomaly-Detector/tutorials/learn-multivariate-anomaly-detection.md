@@ -66,7 +66,7 @@ zip -j series.zip series/*.csv
 
 #### Python code zipping & uploading data to Azure Blob Storage
 
-You could refer to [this doc](/azure/storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) to learn how to upload a file to Azure Blob.
+You could refer to [this doc](../../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) to learn how to upload a file to Azure Blob.
 
 Or, you could refer to the sample code below that can do the zipping and uploading for you. You could copy and save the Python code in this section as a .py file (for example, `zipAndUpload.py`) and run it using command lines like these:
 

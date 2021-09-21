@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Assign users to an app that uses Azure Active Directory as an identity provider'
+title: 'Quickstart: Assign users to an application'
+titleSuffix: Azure AD
 description: This quickstart walks through the process of allowing users to use an app that you have setup to use Azure AD as an identity provider.
 services: active-directory
 author: davidmu1
@@ -8,11 +9,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/12/2021
+ms.date: 07/23/2021
 ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
-# Quickstart: Assign users to an app that is using Azure AD as an identity provider
+# Quickstart: Assign users to an application
 
 In the previous quickstart, you configured the properties for an app. When you set the properties you configured the experience for both assigned and unassigned users. This quickstart walks through the process of assigning users to the app.
 

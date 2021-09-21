@@ -6,7 +6,7 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 07/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -203,10 +203,10 @@ The following table shows the relationship between the Enterprise Agreement admi
 |Enterprise Agreement admin role|View charges policy for role|Azure role|Pricing view|
 |---|---|---|---|
 |Account Owner OR Department Admin|✔ Enabled|Owner|Organization's EA pricing|
-|Account Owner OR Department Admin|✘ Disabled|Owner|Retail pricing|
+|Account Owner OR Department Admin|✘ Disabled|Owner|No pricing|
 |Account Owner OR Department Admin|✔ Enabled |none|No pricing|
 |Account Owner OR Department Admin|✘ Disabled |none|No pricing|
-|None|Not applicable |Owner|Retail pricing|
+|None|Not applicable |Owner|No pricing|
 
 You set the Enterprise admin role and view charges policies in the Enterprise portal. The Azure role can be updated in the Azure portal. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 

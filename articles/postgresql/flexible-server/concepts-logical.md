@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 07/30/2021
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
@@ -16,7 +16,7 @@ ms.date: 06/10/2021
 Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
 1. **Logical replication**
    1. Using PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) to replicate data objects. Logical replication allows fine-grained control over the data replication, including table-level data replication.
-   <!--- 2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. -->
+   2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. 
 2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL). 
 
 ## Comparing logical replication and logical decoding
@@ -37,18 +37,22 @@ Logical decoding
 * extracts changes across all tables in a database 
 * cannot directly send data between PostgreSQL instances.
 
+>[!NOTE]
+> As at this time, Flexible server does not support cross-region read replicas. Depending on the type of workload, you may choose to use logical replication feature for cross-region disaster recovery (DR) purpose.
+
 ## Pre-requisites for logical replication and logical decoding
 
 1. Go to server parameters page on the portal.
 2. Set the server parameter `wal_level` to `logical`.
-<!---
-3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box. Also update `max_worker_processes` parameter value to at least 16. -->
-3. Save the changes and restart the server to apply the `wal_level` change.
-4. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
-5. Grant the admin user replication permissions.
+3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box.
+4. Update `max_worker_processes` parameter value to at least 16. Otherwise, you may run into issues like `WARNING: out of background worker slots`.
+5. Save the changes and restart the server to apply the `wal_level` change.
+6. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
+7. Grant the admin user replication permissions.
    ```SQL
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
+8. You may want to make sure the role you are using has [privileges](https://www.postgresql.org/docs/current/sql-grant.html) on the schema that you are replicating. Otherwise, you may run into errors such as `Permission denied for schema`. 
 
 ## Using logical replication and logical decoding
 
@@ -95,7 +99,6 @@ Here's some sample code you can use to try out logical replication.
 
 Visit the PostgreSQL documentation to understand more about [logical replication](https://www.postgresql.org/docs/current/logical-replication.html).
 
-<!---
 ### pglogical extension
 
 Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details. Also make sure you have performed pre-requisite tasks listed above.
@@ -140,7 +143,7 @@ Here is an example of configuring pglogical at the provider database server and 
    ```SQL
    SELECT subscription_name, status FROM pglogical.show_subscription_status();
    ```
--->
+
 ### Logical decoding
 Logical decoding can be consumed via the streaming protocol or SQL interface. 
 
@@ -223,7 +226,6 @@ The 'active' column in the pg_replication_slots view will indicate whether there
 ```SQL
 SELECT * FROM pg_replication_slots;
 ```
-
 [Set alerts](howto-alert-on-metrics.md) on the **Maximum Used Transaction IDs** and **Storage Used** flexible server metrics to notify you when the values increase past normal thresholds. 
 
 ## Limitations

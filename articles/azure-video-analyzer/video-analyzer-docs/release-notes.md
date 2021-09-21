@@ -2,7 +2,7 @@
 title: Azure Video Analyzer release notes - Azure
 description: This topic provides release notes of Azure Video Analyzer releases, improvements, bug fixes, and known issues.
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 
 ---
 # Azure Video Analyzer release notes

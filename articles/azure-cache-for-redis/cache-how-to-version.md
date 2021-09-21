@@ -16,7 +16,7 @@ In this article, you'll learn how to configure the Redis software version to be 
 >
 
 > [!IMPORTANT]
-> Once Redis 6.0 is generally available (GA), Redis 6.0 will be the default Redis version for new caches. You will still have the option to create Redis 4.0 caches and you will be able to upgrade your Redis 4.0 caches to Redis 6.0 caches at GA. 
+> Once Redis 6.0 is generally available (GA), Redis 6.0 will be the default Redis version for new caches. You will still have the option to create Redis 4.0 caches. 
 >
 
 ## Prerequisites
@@ -52,6 +52,16 @@ To create a cache, follow these steps:
     > [!NOTE]
     > At this time, the Redis version can't be changed once a cache is created.
     >
+
+## FAQ
+
+### What features aren't supported with Redis 6?
+
+Currently, Redis 6 does not support clustering, zone redundancy, ACL, PowerShell, Azure CLI, Terraform, and geo-replication between a Redis 4.0 and 6.0 cache. 
+
+### Can I change the version of my cache after it's created?
+
+Currently, you cannot change the version of your cache once it's created.
 
 ## Next Steps
 Learn more about Azure Cache for Redis features.

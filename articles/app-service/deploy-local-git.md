@@ -116,7 +116,7 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
     > [!NOTE]
     > If you [created a Git-enabled app in PowerShell using New-AzWebApp](#create-a-git-enabled-app), the remote is already created for you.
    
-1. Push to the Azure remote with `git push azure master`. 
+1. Push to the Azure remote with `git push azure master` (see [Change deployment branch](#change-deployment-branch)). 
    
 1. In the **Git Credential Manager** window, enter your [user-scope or application-scope credentials](#configure-a-deployment-user), not your Azure sign-in credentials.
 
@@ -125,6 +125,23 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 1. Review the output. You may see runtime-specific automation, such as MSBuild for ASP.NET, `npm install` for Node.js, and `pip install` for Python. 
    
 1. Browse to your app in the Azure portal to verify that the content is deployed.
+
+## Change deployment branch
+
+When you push commits to your App Service repository, App Service deploys the files in the `master` branch by default. Because many Git repositories are moving away from `master` to `main`, you need to make sure that you push to the right branch in the App Service repository in one of two ways:
+
+- Deploy to `master` explicitly with a command like:
+
+    ```bash
+    git push azure main:master
+    ```
+
+- Change the deployment branch by setting the `DEPLOYMENT_BRANCH` app setting, then push commits to the custom branch. To do it with Azure CLI:
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <group-name> --settings DEPLOYMENT_BRANCH='main'
+    git push azure main
+    ```
 
 ## Troubleshoot deployment
 
@@ -135,7 +152,7 @@ You may see the following common error messages when you use Git to publish to a
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|The app isn't up and running.|Start the app in the Azure portal. Git deployment isn't available when the web app is stopped.|
 |`Couldn't resolve host 'hostname'`|The address information for the 'azure' remote is incorrect.|Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|You didn't specify a branch during `git push`, or you haven't set the `push.default` value in `.gitconfig`.|Run `git push` again, specifying the main branch: `git push azure main`.|
-|`Error - Changes committed to remote repository but deployment to website failed.`|You pushed a local branch that doesn't match the app deployment branch on 'azure'.|Verify that current branch is `master`. To change the default branch, use `DEPLOYMENT_BRANCH` application setting.|
+|`Error - Changes committed to remote repository but deployment to website failed.`|You pushed a local branch that doesn't match the app deployment branch on 'azure'.|Verify that current branch is `master`. To change the default branch, use `DEPLOYMENT_BRANCH` application setting (see [Change deployment branch](#change-deployment-branch)). |
 |`src refspec [branchname] does not match any.`|You tried to push to a branch other than main on the 'azure' remote.|Run `git push` again, specifying the main branch: `git push azure main`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|This error can happen if you try to push a large git repository over HTTPS.|Change the git configuration on the local machine to make the `postBuffer` bigger. For example: `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|You deployed a Node.js app with a _package.json_ file that specifies additional required modules.|Review the `npm ERR!` error messages before this error for more context on the failure. The following are the known causes of this error, and the corresponding `npm ERR!` messages:<br /><br />**Malformed package.json file**: `npm ERR! Couldn't read dependencies.`<br /><br />**Native module doesn't have a binary distribution for Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|

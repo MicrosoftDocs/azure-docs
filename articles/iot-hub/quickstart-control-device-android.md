@@ -1,8 +1,8 @@
 ---
-title: Quickstart - Control a device from Azure IoT Hub quickstart (Android) | Microsoft Docs
+title: Control a device from Azure IoT Hub (Android) | Microsoft Docs
 description: In this quickstart, you run two sample Java applications. One application is a service application that can remotely control devices connected to your hub. The other application runs on a physical or simulated device connected to your hub that can be controlled remotely.
 author: wesmc7777
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
@@ -13,9 +13,7 @@ ms.author: wesmc
 #Customer intent: As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
 ---
 
-# Quickstart: Control a device connected to an IoT hub (Android)
-
-[!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
+# Control a device connected to an IoT hub (Android)
 
 In this quickstart, you use a direct method to control a simulated device connected to Azure IoT Hub. IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud and ingest high volumes of device telemetry to the cloud for storage or processing. You can use direct methods to remotely change the behavior of a device connected to your IoT hub. This quickstart uses two applications: a simulated device application that responds to direct methods called from a back-end service application and a service application that calls the direct method on the Android device.
 
@@ -39,13 +37,13 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 ## Create an IoT hub
 
-If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-android.md), you can skip this step and use the IoT hub you have already created.
+If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md), you can skip this step and use the IoT hub you have already created.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
-If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-android.md), you can skip this step and use the same device registered in the previous quickstart.
+If you completed the previous [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md), you can skip this step and use the same device registered in the previous quickstart.
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 

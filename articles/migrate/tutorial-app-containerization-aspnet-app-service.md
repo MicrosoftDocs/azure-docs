@@ -193,7 +193,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 
 > [!NOTE]
-> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](/azure/container-registry/container-registry-authentication#admin-account)
+> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](../container-registry/container-registry-authentication.md#admin-account)
 
 2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
 
@@ -214,14 +214,14 @@ Once the container image is built, the next step is to deploy the application as
      - If you don’t have an App Service plan or would like to create a new App Service plan to use, you can choose to create on from the tool by clicking **Create new App Service plan**.      
      - Click **Continue** after selecting the App Service plan.
 
-2. **Specify secret store**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or App Service application settings for managing your application secrets. [Learn more](/azure/app-service/configure-common#configure-connection-strings)
+2. **Specify secret store**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or App Service application settings for managing your application secrets. [Learn more](../app-service/configure-common.md#configure-connection-strings)
 
      - If you've selected App Service application settings for managing secrets, then click **Continue**.
      - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.     
          - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by clicking **Create new Azure Key Vault**.
          - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
 
-3. **Specify Azure file share**: If you had added more directories/folders and selected the Azure file share option for persistent storage, then specify the Azure file share to be used by Azure Migrate: App Containerization tool during the deployment process. The tool will copy over the application directories/folders that are configured for Azure file storage and mount them on the application container during deployment. 
+3. **Specify Azure file share**: If you had added more directories/folders and selected the Azure file share option for persistent storage, then specify the Azure file share to be used by Azure Migrate: App Containerization tool during the deployment process. The tool will copy over the application directories/folders that are configured for Azure Files and mount them on the application container during deployment. 
 
      - If you don't have an Azure file share or would like to create a new Azure file share, you can choose to create on from the tool by clicking **Create new Storage Account and file share**.  
 

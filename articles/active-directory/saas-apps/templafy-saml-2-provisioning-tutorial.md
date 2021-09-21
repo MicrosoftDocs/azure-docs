@@ -2,8 +2,8 @@
 title: 'Tutorial: Configure Templafy SAML2 for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Templafy SAML2.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.assetid: 8a966ef5-e364-435b-9e29-3caf27ffb498
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Templafy SAML2 for automatic user provisioning

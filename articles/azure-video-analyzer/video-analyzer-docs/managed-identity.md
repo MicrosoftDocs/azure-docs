@@ -3,7 +3,7 @@ title: Managed identities with Azure Video Analyzer
 description: This topic explains how to use managed identities with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 06/01/2021
 
 ---
 

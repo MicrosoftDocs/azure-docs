@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -22,6 +22,7 @@ The Microsoft identity platform supports the [OAuth 2.0 Resource Owner Password 
 
 > [!WARNING]
 > Microsoft recommends you do _not_ use the ROPC flow. In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks which are not present in other flows. You should only use this flow when other more secure flows can't be used.
+
 
 > [!IMPORTANT]
 >
@@ -66,8 +67,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `username` | Required | The user's email address. |
 | `password` | Required | The user's password. |
 | `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md), or permissions, that the app requires. In an interactive flow, the admin or the user must consent to these scopes ahead of time. |
-| `client_secret`| Sometimes required | If your app is a public client, then the `client_secret` or `client_assertion` cannot be included.  If the app is a confidential client, then it must be included. |
+| `client_secret`| Sometimes required | If your app is a public client, then the `client_secret` or `client_assertion` cannot be included.  If the app is a confidential client, then it must be included.|
 | `client_assertion` | Sometimes required | A different form of `client_secret`, generated using a certificate.  See [certificate credentials](active-directory-certificate-credentials.md) for more details. |
+
+> [!WARNING]
+> As part of not recomending this flow for use, the official SDKs do not support this flow for confidential clients, those that use a secret or assertion. You may find that the SDK you wish to use does not allow you to add a secret while using ROPC. 
 
 ### Successful authentication response
 

@@ -102,13 +102,13 @@ The List Keys API returns the `DatabaseAccountListKeysResult` object. This type 
 ```csharp 
 namespace Monitor 
 {
-  public class DatabaseAccountListKeysResult
-  {
-      public string primaryMasterKey {get;set;}
-      public string primaryReadonlyMasterKey {get; set;}
-      public string secondaryMasterKey {get; set;}
-      public string secondaryReadonlyMasterKey {get;set;}
-  }
+    public class DatabaseAccountListKeysResult
+    {
+        public string primaryMasterKey { get; set; }
+        public string primaryReadonlyMasterKey { get; set; }
+        public string secondaryMasterKey { get; set; }
+        public string secondaryReadonlyMasterKey { get; set; }
+    }
 }
 ```
 
@@ -124,7 +124,6 @@ namespace Monitor
         public string id { get; set; } = Guid.NewGuid().ToString();
         public DateTime RecordTime { get; set; }
         public int Temperature { get; set; }
-
     }
 }
 ```

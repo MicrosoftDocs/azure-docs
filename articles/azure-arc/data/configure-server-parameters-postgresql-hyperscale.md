@@ -1,6 +1,6 @@
 --- 
 title: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Configure Postgres engine server parameters for your PostgreSQL Hyperscale server group on Azure Arc
 services: azure-arc
 ms.service: azure-arc
@@ -8,11 +8,11 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Set the database engine settings for Azure Arc enabled PostgreSQL Hyperscale
+# Set the database engine settings for Azure Arc-enabled PostgreSQL Hyperscale
 
 This document describes the steps to set the database engine settings of your PostgreSQL Hyperscale server group to custom (non-default) values. For details about what database engine parameters can be set and what their default value is, refer to the PostgreSQL documentation [here](https://www.postgresql.org/docs/current/runtime-config.html).
 
@@ -36,22 +36,22 @@ This document describes the steps to set the database engine settings of your Po
 
 The general format of the command to configure the database engine settings is:
 
-```console
-azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
+```azurecli
+az postgres arc-server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-settings , --re}] {'<parameter name>=<parameter value>, ...'} --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Show current custom values
 
 ### With [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] command
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
-```console
-azdata arc postgres server show -n postgres01
+```azurecli
+az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s 
 ```
 
 This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
@@ -77,14 +77,14 @@ Follow the below steps.
 
    Run:
 
-   ```console
-   azdata arc postgres server show -n <server group name>
+   ```azurecli
+   az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
    ```
 
    For example:
 
-   ```console
-   azdata arc postgres server show -n postgres01
+   ```azurecli
+   az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s
    ```
 
    This command returns the spec of the server group in which you would see the parameters you set. If there is no engine\settings section, it means that all parameters are running on their default value:
@@ -141,26 +141,26 @@ The below commands set the parameters of the Coordinator node and the Worker nod
 
 ### Set a single parameter
 
-```console
-azdata arc server edit -n <server group name> -e <parameter name>=<parameter value>
+```azurecli
+az postgres arc-server edit -n <server group name> --engine-settings  <parameter name>=<parameter value> --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
-```console
-azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  shared_buffers=8MB --k8s-namespace <namespace> --use-k8s
 ```
 
 ### Set multiple parameters with a single command
 
-```console
-azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
+```azurecli
+az postgres arc-server edit -n <server group name> --engine-settings  '<parameter name>=<parameter value>, <parameter name>=<parameter value>, --k8s-namespace <namespace> --use-k8s...'
 ```
 
 For example:
 
-```console
-azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  'shared_buffers=8MB, max_connections=50' --k8s-namespace <namespace> --use-k8s
 ```
 
 ### Reset a parameter to its default value
@@ -169,34 +169,34 @@ To reset a parameter to its default value, set it without indicating a value.
 
 For example:
 
-```console
-azdata arc postgres server edit -n postgres01 -e shared_buffers=
+```azurecli
+az postgres arc-server edit -n postgres01 --k8s-namespace <namespace> --use-k8s --engine-settings  shared_buffers=
 ```
 
 ### Reset all parameters to their default values
 
-```console
-azdata arc postgres server edit -n <server group name> -e '' -re
+```azurecli
+az postgres arc-server edit -n <server group name> --engine-settings  '' -re --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
-```console
-azdata arc postgres server edit -n postgres01 -e '' -re
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  '' -re --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Special considerations
 
 ### Set a parameter which value contains a comma, space, or special character
 
-```console
-azdata arc postgres server edit -n <server group name> -e '<parameter name>="<parameter value>"'
+```azurecli
+az postgres arc-server edit -n <server group name> --engine-settings  '<parameter name>="<parameter value>"' --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
-```console
-azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plpgsql,plperl"'
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  'custom_variable_classes = "plpgsql,plperl"' --k8s-namespace <namespace> --use-k8s
 ```
 
 ### Pass an environment variable in a parameter value
@@ -205,8 +205,8 @@ The environment variable should be wrapped inside "''" so that it doesn't get re
 
 For example: 
 
-```console
-azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
+```azurecli
+az postgres arc-server edit -n postgres01 --engine-settings  'search_path = "$user"' --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Next steps

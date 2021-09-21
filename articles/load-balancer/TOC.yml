@@ -27,14 +27,14 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: Load balance VMs across availability zones
-    href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Load balance VMs with multiple availability sets
     href: tutorial-multi-availability-sets-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Load balance multiple IP configurations
+    href: load-balancer-multiple-ip.md
   - name: Cross-region load balancer
     items:
     - name: Create cross-region load balancer - Portal
@@ -59,6 +59,8 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
+  - name: Python
+    href: python-samples.md
 - name: Concepts
   items:
   - name: Portal settings
@@ -115,6 +117,8 @@
     href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
+  - name: Manage load balancer rules
+    href: manage-rules-how-to.md
   - name: Virtual machine scale sets
     items:
     - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
@@ -148,8 +152,6 @@
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
     items:
-    - name: Portal
-      href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
@@ -164,10 +166,10 @@
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md
-  - name: Outbound-only load balancer configuration
-    href: egress-only.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Outbound only load balancer configuration
+    href: egress-only.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
@@ -193,7 +195,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Node.js
-    href: /javascript/api/@azure/arm-network/loadbalancers
+    href: /javascript/api/overview/azure/arm-network-readme
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers
   - name: Python

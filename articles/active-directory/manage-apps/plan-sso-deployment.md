@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
 ms.author: davidmu
-ms.reviewer: jeedes
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 # Customer intent: As an IT admin, I need to learn about single-sign on (SSO) so I can understand the feature and help others in my organization to understand its value.
@@ -30,7 +30,7 @@ The Azure Marketplace has over 3000 applications with pre-integrated SSO connect
 
 ## Licensing
 
-- **Azure AD licensing** - SSO for pre-integrated SaaS applications is free. However, the number of objects in your directory and the features you wish to deploy may require additional licenses. For a full list of license requirements, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+- **Azure AD licensing** - SSO for pre-integrated SaaS applications is free. However, the number of objects in your directory and the features you wish to deploy may require additional licenses. For a full list of license requirements, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - **Application licensing** - You'll need the appropriate licenses for your SaaS applications to meet your business needs. Work with the application owner to determine whether the users assigned to the application have the appropriate licenses for their roles within the application. If Azure AD manages the automatic provisioning based on roles, the roles assigned in Azure AD must align with the number of licenses owned within the application. Improper number of licenses owned in the application may lead to errors during the provisioning/updating of a user.
 
 ## Plan your SSO team
@@ -56,11 +56,11 @@ There are two primary ways in which you can enable your users to single sign-on 
 
 ### Considerations for password-based SSO
 
-Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](../user-help/my-apps-portal-end-user-access.md). Options include:
+Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). Options include:
 
 - [Group Policy for Internet Explorer](my-apps-deployment-plan.md)
 - [Configuration Manager for Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-- [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
+- [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)
 
 To learn more, see [How to configure password single sign on](./configure-password-single-sign-on-non-gallery-applications.md).
 

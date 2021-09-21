@@ -21,7 +21,7 @@ You can enable Azure CDN for your static website directly from your storage acco
 
 1. Locate your storage account in the Azure portal and display the account overview.
 
-1. Under the **Blob Service** menu, select **Azure CDN** to open the **Azure CDN** page:
+1. Under the **Security + Networking** menu, select **Azure CDN** to open the **Azure CDN** page:
 
     ![Create CDN endpoint](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 

@@ -10,6 +10,7 @@ ms.author:  petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
+ms.custom: devplatv2
 #Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
 ---
 
@@ -31,7 +32,7 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+* The [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
 
 ## Deploy locally
 
@@ -47,7 +48,7 @@ As a part of local deployment the following steps take place:
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
-For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-using-local-endpoints).
+For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
 
 ## Get container logs
 
@@ -171,7 +172,7 @@ az ml endpoint get-logs
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.  The error in this scenario is that this container is crashing when running, which means scoring couldn't happen. This error happens when:
 
-- There's an error in `score.py`. Use `get--logs` to help diagnose common problems:
+- There's an error in `score.py`. Use `get-logs` to help diagnose common problems:
     - A package that was  imported but is not in the conda environment
     - A syntax error
     - A failure in the `init()` method
@@ -203,5 +204,5 @@ When you access managed online endpoints with REST requests, the returned status
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
+- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)
 

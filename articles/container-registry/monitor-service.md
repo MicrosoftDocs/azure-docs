@@ -86,7 +86,7 @@ You can use the Azure Monitor REST API to get information programmatically about
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-resource-logs-schema). The schema for Azure Container Registry resource logs is found in the [Azure Container Registry Data Reference](monitor-service-reference.md#schemas). 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). The schema for Azure Container Registry resource logs is found in the [Azure Container Registry Data Reference](monitor-service-reference.md#schemas). 
 
 The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 

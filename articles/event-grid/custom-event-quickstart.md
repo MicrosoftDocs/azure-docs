@@ -37,7 +37,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## Create a custom topic
 
-An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your topic. The custom topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
+An event grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group using Bash in Azure Cloud Shell. Replace `<your-topic-name>` with a unique name for your topic. The custom topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
 
 ```azurecli-interactive
 topicname=<your-topic-name>

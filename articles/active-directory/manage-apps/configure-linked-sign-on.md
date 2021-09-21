@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/30/2020
 ms.author: davidmu
-ms.reviewer: arvinh,luleon
+ms.reviewer: ergreenl
 ---
 
 # Understand linked sign-on
@@ -37,7 +37,7 @@ The **Linked** option doesn't provide sign-on functionality through Azure AD. Th
 >
 > If the application was registered using **App registrations** then the single sign-on capability is setup to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform).
 >
-> Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see [Azure AD built-in roles](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+> Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
 ### Configure link
 

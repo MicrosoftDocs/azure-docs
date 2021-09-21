@@ -9,14 +9,11 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
+ms.date: 07/14/2021
 ---
 # Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
 
 This tutorial teaches you how to get started with [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database. It will show you:
 
@@ -122,7 +119,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
    ```PowerShell
    Connect-AzAccount
    $subscriptionId = "<your subscription ID>"
-   Set-AzContext -Subscription $subscriptionId
+   $context = Set-AzContext -Subscription $subscriptionId
    ```
 
 1. Create a new resource group.
@@ -250,8 +247,17 @@ In this step, you'll create and configure an attestation provider in Microsoft A
    $attestationProviderName = "<your attestation provider name>" 
    New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
    ```
+1. Assign yourself to the Attestation Contributor role for the attestaton provider, to ensure you have permissions to configure an attestation policy.
 
-1. Configure your attestation policy.
+   ```powershell
+   New-AzRoleAssignment -SignInName $context.Account.Id `
+    -RoleDefinitionName "Attestation Contributor" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName
+   ```
+   
+3. Configure your attestation policy.
   
    ```powershell
    $policyFile = "<the pathname of the file from step 1 in this section>"

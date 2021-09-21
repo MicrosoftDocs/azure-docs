@@ -4,7 +4,7 @@ description: Learn how to buy Azure Cosmos DB reserved capacity to save on your 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 08/26/2021
 ms.author: tisande
 ms.reviewer: sngun
 ---
@@ -103,6 +103,10 @@ The reservation discount is applied automatically to the Azure Cosmos DB resourc
    * [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
    * [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [Azure reservations in the Partner Center CSP program](/partner-center/azure-reservations)
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 ## Need help? Contact us.
 

@@ -45,7 +45,7 @@ After you've created a CDN profile, you use it to create an endpoint.
     | **Origin type** | Select **Storage**. | 
     | **Origin hostname** | Select the host name of the Azure Storage account you're using from the drop-down list, such as *cdnstorageacct123.blob.core.windows.net*. |
     | **Origin path** | Leave blank. |
-    | **Origin host header** | Leave the default value (which is the host name for the storage account). |  
+    | **Origin host header** | Leave the default value (which is the Origin hostname). |  
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
     | **Origin port** | Leave the default port values. | 
     | **Optimized for** | Leave the default selection, **General web delivery**. |
@@ -57,6 +57,9 @@ After you've created a CDN profile, you use it to create an endpoint.
    ![CDN endpoint](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 30 minutes.
+
+> [!NOTE]
+> For *Verizon CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Verizon supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make those configuration changes again.
 
 ## Clean up resources
 

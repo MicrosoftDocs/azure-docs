@@ -8,8 +8,7 @@ author: palma21
 
 ---
 
-# Use the Azure disk Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS) (preview)
-
+# Use the Azure disk Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 The Azure disk Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure disks.
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
@@ -22,8 +21,6 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 ## Use CSI persistent volumes with Azure disks
 
 A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. This article shows you how to dynamically create PVs with Azure disks for use by a single pod in an AKS cluster. For static provisioning, see [Manually create and use a volume with Azure disks](azure-disk-volume.md).
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 

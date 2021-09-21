@@ -1,17 +1,17 @@
 ---
 title: Azure IoT Hub high availability and disaster recovery | Microsoft Docs
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
-author: jlian
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.author: philmea
+ms.author: robinsh
 ---
 
 # IoT Hub high availability and disaster recovery
 
-As a first step towards implementing a resilient IoT solution, architects, developers, and business owners must define the uptime goals for the solutions they're building. These goals can be defined primarily based on specific business objectives for each scenario. In this context, the article [Azure Business Continuity Technical Guidance](/azure/architecture/resiliency/) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
+As a first step towards implementing a resilient IoT solution, architects, developers, and business owners must define the uptime goals for the solutions they're building. These goals can be defined primarily based on specific business objectives for each scenario. In this context, the article [Azure Business Continuity Technical Guidance](/azure/architecture/framework/resiliency/app-design) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
 
 This article discusses the HA and DR features offered specifically by the IoT Hub service. The broad areas discussed in this article are:
 
@@ -55,7 +55,7 @@ Both these failover options offer the following recovery point objectives (RPOs)
 Once the failover operation for the IoT hub completes, all operations from the device and back-end applications are expected to continue working without requiring a manual intervention. This means that your device-to-cloud messages should continue to work, and the entire device registry is intact. Events emitted via Event Grid can be consumed via the same subscription(s) configured earlier as long as those Event Grid subscriptions continue to be available. No additional handling is required for custom endpoints.
 
 > [!CAUTION]
-> - The Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after failover. When receiving telemetry messages from the built-in endpoint using either the Event Hub client or event processor host, you should [use the IoT hub connection string](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) to establish the connection. This ensures that your back-end applications continue to work without requiring manual intervention post failover. If you use the Event Hub-compatible name and endpoint in your application directly, you will need to [fetch the new Event Hub-compatible endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) after failover to continue operations. 
+> - The Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after failover. When receiving telemetry messages from the built-in endpoint using either the Event Hub client or event processor host, you should [use the IoT hub connection string](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) to establish the connection. This ensures that your back-end applications continue to work without requiring manual intervention post failover. If you use the Event Hub-compatible name and endpoint in your application directly, you will need to [fetch the new Event Hub-compatible endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) after failover to continue operations. For more information, see [Manual failover and Event Hub](#manual-failover-and-event-hub).
 >
 > - If you use Azure Functions or Azure Stream Analytics to connect the built-in Events endpoint, you might need to perform a **Restart**. This is because during failover previous offsets are no longer valid.
 >
@@ -76,6 +76,18 @@ The manual failover option is always available for use irrespective of whether t
 Manual failover is available at no additional cost for IoT hubs created after May 18, 2017
 
 For step-by-step instructions, see [Tutorial: Perform manual failover for an IoT hub](tutorial-manual-failover.md)
+
+## Manual failover and Event Hub
+
+As noted previously in the **Caution** section, the Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after manual failover. This is because the Event Hub client doesn't have visibility into IoT Hub events. The same is true for other cloud-based clients such as Functions and Azure Stream Analytics. To retrieve the endpoint and name, you can use the Azure portal or leverage an included sample.
+
+### Use the portal
+
+For more information about using the portal to retrieve the Event Hub-compatible endpoint and the Event Hub-compatible name, see [Read from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint).
+
+### Use the included sample
+
+To use the IoT Hub connection string to recapture the Event Hub-compatible endpoint, leverage a sample located at [https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs) that shows how to use the IoT Hub connection string to recapture the EventHub compatible endpoint. The code example uses the connection string to get the new Event Hub endpoint and re-establish the connection. You must have Visual Studio installed.
 
 ### Running test drills
 
@@ -136,5 +148,5 @@ Here's a summary of the HA/DR options presented in this article that can be used
 ## Next steps
 
 * [What is Azure IoT Hub?](about-iot-hub.md)
-* [Get started with IoT Hubs (Quickstart)](quickstart-send-telemetry-dotnet.md)
+* [Get started with IoT Hubs (Quickstart)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 * [Tutorial: Perform manual failover for an IoT hub](tutorial-manual-failover.md)

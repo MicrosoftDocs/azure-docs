@@ -4,13 +4,15 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 09/01/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Enable shared disk
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 This article covers how to enable the shared disks feature for Azure managed disks. Azure shared disks is a new feature for Azure managed disks that enables you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure. 
 
@@ -46,6 +48,27 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the Azure portal. 
+1. Search for and Select **Disks**.
+1. Select **+ Create** to create a new disk.
+1. Fill in the details and select an appropriate region, then select **Change size**.
+
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Screenshot of the create a managed disk pane, change size highlighted.." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+
+1. Select the premium SSD size and SKU that you want and select **OK**.
+
+    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Screenshot of the disk SKU, premium LRS and ZRS SSD SKUs highlighted." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+
+1. Proceed through the deployment until you get to the **Advanced** pane.
+1. Select **Yes** for **Enable shared disk** and select the amount of **Max shares** you want.
+
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Screenshot of the Advanced pane, Enable shared disk highlighted and set to yes." lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::
+
+1. Select **Review + Create**.
+
+
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -68,6 +91,92 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 
 ---
 
+### Deploy a standard SSD as a shared disk
+
+To deploy a managed disk with the shared disk feature enabled, use the new property `maxShares` and define a value greater than 1. This makes the disk shareable across multiple VMs.
+
+> [!IMPORTANT]
+> The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
+
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the Azure portal. 
+1. Search for and Select **Disks**.
+1. Select **+ Create** to create a new disk.
+1. Fill in the details and select an appropriate region, then select **Change size**.
+
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Screenshot of the create a managed disk pane, change size highlighted.." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+
+1. Select the standard SSD size and SKU that you want and select **OK**.
+
+    :::image type="content" source="media/disks-shared-enable/select-standard-ssd-shared-disk.png" alt-text="Screenshot of the disk SKU, standard SSD LRS and ZRS SKUs highlighted." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+
+1. Proceed through the deployment until you get to the **Advanced** pane.
+1. Select **Yes** for **Enable shared disk** and select the amount of **Max shares** you want.
+
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Screenshot of the Advanced pane, Enable shared disk highlighted and set to yes." lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::
+
+1. Select **Review + Create**.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku StandardSSD_LRS --max-shares 2
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType StandardSSD_LRS -CreateOption Empty -MaxSharesCount 2
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
+```
+
+# [Resource Manager Template](#tab/azure-resource-manager)
+
+Replace the values in this Azure Resource Manager template with your own, before using it:
+
+```rest
+{ 
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dataDiskName": {
+      "type": "string",
+      "defaultValue": "mySharedDisk"
+    },
+    "dataDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 1024
+    },
+    "maxShares": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/disks",
+      "name": "[parameters('dataDiskName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-07-01",
+      "sku": {
+        "name": "StandardSSD_LRS"
+      },
+      "properties": {
+        "creationData": {
+          "createOption": "Empty"
+        },
+        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+        "maxShares": "[parameters('maxShares')]"
+      }
+    }
+  ] 
+}
+```
+
+---
+
 ### Deploy an ultra disk as a shared disk
 
 To deploy a managed disk with the shared disk feature enabled, change the `maxShares` parameter to a value greater than 1. This makes the disk shareable across multiple VMs.
@@ -75,6 +184,22 @@ To deploy a managed disk with the shared disk feature enabled, change the `maxSh
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the Azure portal. 
+1. Search for and Select **Disks**.
+1. Select **+ Create** to create a new disk.
+1. Fill in the details, then select **Change size**.
+1. Select ultra disk for the **Disk SKU**.
+
+    :::image type="content" source="media/disks-shared-enable/select-ultra-shared-disk.png" alt-text="Screenshot of the disk SKU, ultra disk highlighted.." lightbox="media/disks-shared-enable/select-ultra-shared-disk.png":::
+
+1. Select the disk size that you want and select **OK**.
+1. Proceed through the deployment until you get to the **Advanced** pane.
+1. Select **Yes** for **Enable shared disk** and select the amount of **Max shares** you want.
+1. Select **Review + Create**.
+
+    :::image type="content" source="media/disks-shared-enable/enable-ultra-shared-disk.png" alt-text="Screenshot of the Advanced pane, Enable shared disk highlighted." lightbox="media/disks-shared-enable/enable-ultra-shared-disk.png":::
 
 # [Azure CLI](#tab/azure-cli)
 

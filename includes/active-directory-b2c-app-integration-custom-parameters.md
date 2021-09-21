@@ -9,6 +9,6 @@ ms.author: mimart
 ---
 ## Pass a custom query string parameter
 
-With custom policies you can pass a custom query string parameter, for example when you want to [dynamically change the page content](../articles/active-directory-b2c/customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri).
+With custom policies, you can pass a custom query string parameter. A good use-case example is when you want to [dynamically change the page content](../articles/active-directory-b2c/customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri).
 
-To pass a custom query string parameter, follow these steps:
+To pass a custom query string parameter, do the following:

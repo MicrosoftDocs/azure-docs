@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with Go"
 description: In this quickstart, you use Go to create a management group to organize your resources into a resource hierarchy.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
@@ -67,7 +67,7 @@ can be used, including [bash on Windows 10](/windows/wsl/install-win10) or local
 
    ```bash
    # Add the management group package for Go
-   go get -u github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
+   go get -u github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups
 
    # Add the Azure auth package for Go
    go get -u github.com/Azure/go-autorest/autorest/azure/auth
@@ -88,7 +88,7 @@ that can create a management group.
    	"fmt"
    	"os"
 
-   	mg "github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups"
+   	mg "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups"
    	"github.com/Azure/go-autorest/autorest/azure/auth"
    )
 
@@ -142,7 +142,7 @@ the following command:
 
 ```bash
 # Remove the installed packages from the Go environment
-go clean -i github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
+go clean -i github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2020-05-01/managementgroups
 go clean -i github.com/Azure/go-autorest/autorest/azure/auth
 ```
 

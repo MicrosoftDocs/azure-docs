@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 08/02/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -270,6 +270,11 @@ Data Box copies data from the source storage account(s). Once the data copy is c
 
 ![Data Box export order, data copy complete](media/data-box-deploy-export-ordered/azure-data-box-export-order-data-copy-complete.png)
 
+The data export from Azure Storage to your Data Box can sometimes fail. Make sure that the blobs aren't archive blobs as export of these blobs is not supported. 
+
+> [!NOTE]
+> For archive blobs, you need rehydrate those blobs before they can be exported from Azure Storage account to your Data Box. For more information, see [Rehydrate an archive blob]( ../storage/blobs/storage-blob-rehydration.md).
+
 If the device is not available, you will receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, the following actions occur:
 
 * SMB shares are created for each storage account associated with the device.
@@ -307,7 +312,7 @@ The following xml shows an example of blob names, blob prefixes, and Azure Files
       <BlobPathPrefix>/8mbfiles/</BlobPathPrefix>
       <BlobPathPrefix>/64mbfiles/</BlobPathPrefix>
    </BlobList>
-   <!-- FileList/prefix/Share list for Azure File storage for export  -->
+   <!-- FileList/prefix/Share list for Azure Files for export  -->
    <AzureFileList>
       <FilePathPrefix>/64mbfiles/</FilePathPrefix>
       <FilePathPrefix>/4mbfiles/prefix2/subprefix</FilePathPrefix>

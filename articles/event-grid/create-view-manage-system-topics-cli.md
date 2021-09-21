@@ -2,7 +2,7 @@
 title: Create, view, and manage Azure Event Grid system topics using CLI
 description: This article shows how to use Azure CLI to create, view, and delete system topics. 
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/22/2021
 ---
 
 # Create, view, and manage Event Grid system topics using Azure CLI

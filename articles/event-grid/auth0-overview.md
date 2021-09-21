@@ -2,7 +2,7 @@
 title: Auth0 partner topics with Azure Event Grid
 description: Send events from Auth0 to Azure services with Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/22/2021
 ---
 
 # Auth0 partner topics

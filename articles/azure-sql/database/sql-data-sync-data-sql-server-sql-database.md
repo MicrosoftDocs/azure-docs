@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MaraSteiu 
 ms.author: masteiu
 ms.reviewer: mathoma
-ms.date: 08/20/2019
+ms.date: 09/09/2021
 ---
 # What is SQL Data Sync for Azure?
 
@@ -149,7 +149,6 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
 - Hyperscale databases are not supported. 
 - Memory-optimized tables are not supported.
-- If the hub and member databases are in a virtual network, Data Sync won't work because the sync app, which is responsible for running sync between hub and members, does not support accessing the hub or member databases inside a customer's private link. This limitation still applies when customer also uses the Data Sync Private Link feature. 
 
 #### Unsupported data types
 
@@ -219,10 +218,10 @@ Not directly. You can sync between SQL Server databases indirectly, however, by 
 
 ### Can I use Data Sync to sync between databases in SQL Database that belong to different subscriptions
 
-Yes. You can sync between databases that belong to resource groups owned by different subscriptions.
+Yes. You can sync between databases that belong to resource groups owned by different subscriptions, even if the subscriptions belong to different tenants.
 
 - If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
-- Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
+- Otherwise, you have to use PowerShell to add the sync members.
 
 ### Can I use Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 
