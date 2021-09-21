@@ -18,8 +18,9 @@ ms.author: mbaldwin
 
 Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
 
-### Why we recommend separate key vaults?
-Access Policies are an "all or nothing" concept within Key Vault. If a given identity has a certain permission (**Get** example) it can get _ANY_ secret/key/certificate in the vault. This means, grouping sensitive data into the same vault increases the _blast radius_ of a security event as attacks may be able to access sensitive information across concerns. To mitigate this, consider what sensitive information a given application _SHOULD_ have access to and separate your key vaults based on this delineation - by app is the most common boundary.
+### Why we recommend separate key vaults
+
+Access policies are an "all or nothing" concept in Azure Key Vault. If an identity has a specific permission (**Get**, for example), the identity can get *any* secret, key, or certificate in the vault. This means that grouping sensitive data into the same vault increases the *blast radius* of a security event because attacks might be able to access sensitive information across concerns. To mitigate this, consider what sensitive information a specific application *should* have access to, and then separate your key vaults based on this delineation. Separating key vaults by app is the most common boundary.
 
 ## Control Access to your vault
 
