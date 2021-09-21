@@ -30,7 +30,7 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
     > [!Note]
     > We now support scanning Azure SQL Database Managed Instances that are configured with private endpoints using Azure Purview ingestion private endpoints and a self-hosted integration runtime VM. 
-    > For more information related to prerequisites see, [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end)
+    > For more information related to prerequisites see, [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md)
 
 ### Setting up authentication for a scan
 
