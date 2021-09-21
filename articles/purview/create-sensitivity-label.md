@@ -36,7 +36,7 @@ Sensitivity labels are tags that you can apply on assets, to classify and protec
 Being able to apply labels to your asset in Azure Purview, requires you to perform the below steps:
 
 1. [Create or extend existing sensitivity labels to Azure Purview](how-to-automatically-label-your-content.md), in the M365 compliance center. This includes auto-labeling rules that tell us which label should be applied based on the classifications found in your data.
-1. [Register and scan your asset](how-to-automatically-label-your-content.md#Scan-your-data-to-apply-sensitivity-labels-automatically) in Azure Purview.
+1. [Register and scan your asset](how-to-automatically-label-your-content.md#scan-your-data-to-apply-sensitivity-labels-automatically) in Azure Purview.
 1. Azure Purview applies classifications: When you schedule a scan on an asset, Azure Purview scans the type of data in your asset and applies classifications to it in the data catalog. This is done automatically by Azure Purview, there is no action for you.
 1. Azure Purview applies labels: Once classifications are found on an asset, Azure Purview will apply labels to the assets depending on auto-labeling rules. This is done automatically by Azure Purview, there is no action for you as long as you have created labels with auto-labeling rules in step 1.
 

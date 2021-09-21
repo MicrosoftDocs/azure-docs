@@ -30,7 +30,7 @@ The following steps extend your sensitivity labels and enable them to be availab
 
 For example:
 
-:::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-small.png" alt-text="Select **Turn on** to extend sensitivity labels to Purview" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview.png":::
+:::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-small.png" alt-text="Select the 'Turn on' button to extend sensitivity labels to Purview" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview.png":::
 
 After you've extended labeling to assets in Azure Purview, all published sensitivity labels are available for use in Purview.
 
@@ -46,21 +46,21 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
 1. Under **Solutions**, select **Information protection**, then select **Create a label**.
 
-    :::image type="content" source="media/how-to-automatically-label-your-content/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 Security and compliance center" lightbox="media/how-to-automatically-label-your-content/create-sensitivity-label-full.png":::
+    :::image type="content" source="media/how-to-automatically-label-your-content/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-sensitivity-label-full.png":::
 
 1. Name the label. Then, under **Define the scope for this label**:
 
     - To label files, select **Files & emails**.
     - To label schematized data like database columns, select **Schematized data assets**
 
-    :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Create your label in the Microsoft 365 Security and compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
+    :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Automatically label in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
 
 1. Follow the rest of the prompts to configure the label settings.
 
     Specifically, define auto-labeling rules for files and schematized data assets:
 
-    - [Define auto-labeling rules for files](#define-auto-labeling-rules-for-files)
-    - [Define auto-labeling rules for schematized data assets](#define-auto-labeling-rules-for-database-columns)
+    - [Define auto-labeling rules for files](#auto-labeling-for-files)
+    - [Define auto-labeling rules for schematized data assets](#auto-labeling-for-schematized-data)
 
     For more information about configuration options, see [What sensitivity labels can do](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) in the Microsoft 365 documentation.
 
@@ -82,7 +82,7 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
 Continue by [scanning your data to apply labels automatically](#scan-your-data-to-apply-sensitivity-labels-automatically), and then:
 
-- [View labels on assets](#view-labels-on-assets)
+- [View labels on assets](#view-labels-on-assets-in-the-catalog)
 - [View Insight reports for the classifications and sensitivity labels](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
 #### Auto-labeling for files
@@ -93,7 +93,7 @@ On the **Auto-labeling for Office apps** page, enable **Auto-labeling for Office
 
 For example:
 
-:::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files-small.png" alt-text="Define auto-labeling rules for files in the Microsoft 365 Security and compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files.png":::
+:::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files-small.png" alt-text="Define auto-labeling rules for files in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files.png":::
 
 For more information, see [Apply a sensitivity label to data automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) in the Microsoft 365 documentation.
 
@@ -109,7 +109,7 @@ Under the **schematized data assets** option:
 
 For example:
 
-:::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns-small.png" alt-text="Define auto-labeling rules for SQL columns in the Microsoft 365 Security and compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns.png":::
+:::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns-small.png" alt-text="Define auto-labeling rules for SQL columns in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns.png":::
 
 ### Step 4: Publish labels
 

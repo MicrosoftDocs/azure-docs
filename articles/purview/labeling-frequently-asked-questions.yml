@@ -29,7 +29,11 @@ sections:
           * Office 365 E5, Enterprise Mobility + Security E5/A5/G5, and AIP Plan  
           
           For more information, see [Microsoft 365 service descriptions](office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance.md#information-protection).
-          
+
+      - question: If my organization has multiple Azure Purview accounts within an Azure AD tenant, do I need to manually extend labels to each Purview account separately?
+        answer: |
+          No. When you extend sensitivity labels to Azure Purview, those labels are extended to all the Purview accounts in your tenant.
+
       - question: My organization already uses sensitivity labels in Microsoft 365. What is the impact of extending these labels to Purview? Will it affect my existing setup in Microsoft 365? 
         answer: |
           Extending the labels to Purview does not affect your Microsoft 365 setup or modify your assets in any way, including files and databases.  
@@ -37,13 +41,10 @@ sections:
           * When you extend sensitivity labels to Purview, your Microsoft 365 setup will continue to work in the same way as usual. 
           * Extending the sensitivity labels allows Purview to apply those labels to your Azure and multi-cloud assets in the Purview catalog. The catalog is a metadata store and can be deleted by you at any time. 
           * Sensitivity labels are applied only to the asset metadata in the Purview catalog and are not applied to the actual files and schematized data. Applying sensitivity labels does not modify your files and databases in any way. 
-          
-      - question: Where can I manage my sensitivity labels? 
-        answer: |
-          Sensitivity labels are managed only in the [Microsoft 365 compliance center](https://compliance.microsoft.com/). For more information, see [How to create sensitivity labels in Microsoft 365](create-sensitivity-label.md#how-to-create-sensitivity-labels-in-microsoft-365).
-          
-          Support for managing sensitivity labels within Azure Purview Studio is not currently available. 
-          
+
+  - name: Classifications vs Sensitivity labels
+    questions:
+      
       - question: What is the difference between classifications and sensitivity labels in Azure Purview? 
         answer: |
           The following table lists the differences between classifications and sensitivity labels in Azure Purview: <br/>
@@ -53,7 +54,7 @@ sections:
           |**Examples**| Social Security Number, Drive license number, Bank account number, etc. | Highly confidential, Confidential, General, Public, etc. |
           | **Scope** | The scope of classifications applied to an asset is limited to the Purview account where the classifications were applied. If the data moves to an asset managed by another Purview account, classifications applied in the original location are not visible in the new location. | Sensitivity labels applied on an asset travel with the data no matter where the data goes. For example, this means that sensitivity labels applied to a file in Microsoft 365 are automatically visible and remain applied to the file, even if it moves to Azure, SharePoint, or Teams. |
           | **Scan Process** | Scanning an asset in Azure Purview looks for both system-defined and user-defined (custom) classifications in your data. If found, classifications are added in the Purview catalog for the scanned asset. | If you have sensitivity labels extended to Azure Purview and auto-labeling rules defined, scanning an asset in Purview applies the labels to assets in the catalog based on the classifications found in the scan. |
-          | **Authoring environment** | Custom classifications and classification rules can be created in the Azure Purview studio. You can also create custom classifications in Microsoft 365. However, we do not yet support importing them to Purview. | Manage sensitivity labels using the [Microsoft 365 compliance center](microsoft-365/compliance/create-sensitivity-labels.md). |
+          | **Authoring environment** | Custom classifications and classification rules can be created in the Azure Purview studio. You can also create custom classifications in Microsoft 365. However, we do not yet support importing them to Purview. | Manage sensitivity labels using the [Microsoft 365 compliance center](microsoft-365/compliance.create-sensitivity-labels). |
           | **Assignment Limits** | Assets can have no classifications, or one or more classifications assigned. | Each asset can have only one sensitivity label. |
           | **Asset application workflow** | You can use Purview to manually add or modify classifications that are assigned to an asset. | In Purview, sensitivity labels are automatically assigned to assets based on classifications found. Applying labels manually in Purview is not currently supported. | 
           | **More Information** | [Learn more about classifications](create-a-custom-classification-and-classification-rule.md). | [Learn more about sensitivity labels](microsoft-365/compliance.create-sensitivity-labels).| 
@@ -62,13 +63,13 @@ sections:
       - question: Are classifications in Purview and Sensitive Information Types (SITs) in Microsoft 365 the same thing? 
         answer: While classifications and SITs are fundamentally the same things, classifications are an Azure Purview concept and SITs are a Microsoft 365 concept. Both classifications and SITs are used by their respective services to identify the type of data found in an asset. 
 
-      - question: Do Azure Purview and Microsoft 365 use the same classification engine? 
-        answer: Yes, both Azure Purview and Microsoft 365 use the same classification engine. 
-
       - question: I have created a custom Sensitive Information Type (SIT) in Microsoft 365 and used it in my auto-labeling rules for schematized data. Can I use this custom SIT in Azure Purview? 
         answer: |
           No, [custom sensitive information types](microsoft-365/compliance/sensitive-information-type-learn-about.md#creating-custom-sensitive-information-types) from Microsoft 365 are not supported in Azure Purview at this time. Azure Purview currently only supports Microsoft 365 [built-in sensitive information types](microsoft-365/compliance/sensitive-information-type-learn-about.md).  
-          
+    
+  - name: Labeling capabilities in Azure Purview
+    questions:
+      
       - question: Which data sources can I apply sensitivity labels to in Azure Purview? 
         answer: |
           You can apply sensitivity labels to all the data sources that can be scanned in Azure Purview. For more information, see [Supported data types for sensitivity labels in Azure Purview](create-sensitivity-label.md#supported-data-types-for-sensitivity-labels-in-azure-purview). 
@@ -78,7 +79,30 @@ sections:
           Azure Purview supports automatic labeling only. Labels are automatically applied to assets in Azure Purview based on the classifications found on the assets and the auto-labeling rules for the labels. 
           
           Purview does not currently support manually applying a label, modifying, or removing a label from an asset. 
+
+      - question: Can automatic labeling apply to assets that may include credential content?
+        answer: Azure Purview does not currently support scanning for credentials. When Purview supports scanning for credentials, you should be able to apply labels based on credentials found.
+
+      - question: Can I apply encryption and/or content marking on files in Azure Purview, similar to Microsoft 365?
+        answer: No, we do not currently support encryption and content marking for files in Azure Purview.
+
+      - question: Which file types can I apply sensitivity labels to in Azure Purview?
+        answer: |
+          You can apply sensitivity labels to all [Azure Purview supported data sources and file types](sources-and-scans.md).
+
+      - question: Does Azure Purview currently support Data Loss Prevention capabilities?
+        answer: |
+          No, Azure Purview does not currently provide Data Loss Prevention capabilities. [Data Loss Prevention](microsoft-365/compliance/information-protection.md#prevent-data-loss) is currently only supported in Microsoft 365.
+
+  - name: Access and roles
+    questions:
+      
+      - question: Where can I manage my sensitivity labels? 
+        answer: |
+          Sensitivity labels are managed only in the [Microsoft 365 compliance center](https://compliance.microsoft.com/). For more information, see [How to create sensitivity labels in Microsoft 365](create-sensitivity-label.md#how-to-create-sensitivity-labels-in-microsoft-365).
           
+          Support for managing sensitivity labels within Azure Purview Studio is not currently available.
+
       - question: Who can manage sensitivity labels in the Microsoft 365 compliance center? 
         answer: |
           The following built-in admin roles include permissions to manage sensitivity labels in the compliance center: 
@@ -94,6 +118,12 @@ sections:
       - question: Who can view the sensitivity label insights report in Azure Purview? 
         answer: All users with at least data reader access to the Purview account have permissions to view sensitivity label insights reports in Azure Purview. 
 
+  - name: Technical Know-how
+    questions:
+      
+      - question: Do Azure Purview and Microsoft 365 use the same classification engine? 
+        answer: Yes, both Azure Purview and Microsoft 365 use the same classification engine. 
+
       - question: Does Purview scan an entire asset when applying automatic labels to the schematized data? 
         answer: |
           The Purview scanner samples files as follows: 
@@ -108,20 +138,8 @@ sections:
           
           For more information, see [Label priority order matters](microsoft-365/compliance/sensitivity-labels.md#label-priority-order-matters).
           
-      - question: Can automatic labeling apply to assets that may include credential content?
-        answer: Azure Purview does not currently support scanning for credentials. When Purview supports scanning for credentials, you should be able to apply labels based on credentials found.
-
-      - question: Can I apply encryption and/or content marking on files in Azure Purview, similar to Microsoft 365?
-        answer: No, we do not currently support encryption and content marking for files in Azure Purview.
-
-      - question: Which file types can I apply sensitivity labels to in Azure Purview?
-        answer: |
-          You can apply sensitivity labels to all [Azure Purview supported data sources and file types](sources-and-scans.md).
-          
-      - question: Does Azure Purview currently support Data Loss Prevention capabilities?
-        answer: |
-          No, Azure Purview does not currently provide Data Loss Prevention capabilities. [Data Loss Prevention](microsoft-365/compliance/information-protection.md#prevent-data-loss) is currently only supported in Microsoft 365. 
-          
+  - name: SQL data discovery and classification
+    questions:  
       - question: Why does Microsoft support two classification experiences for SQL databases – 'Azure Purview' and 'SQL data discovery and classification'?  
         answer: |
           Azure Purview provides a classification and labeling experience for all your Azure assets including SQL databases. Azure Purview is intended for organizations that want to manage their entire data estate in a single place with the power of classification, labeling, alerting, and more. Azure Purview uses sensitivity labels, which have a global scope and travel with your data no matter where it moves to or what it transforms into. 
@@ -132,5 +150,8 @@ sections:
         answer: |
           SQL classification uses local labels, while Azure Purview uses sensitivity labels. Labels applied in SQL classification experience will not show up in Purview. 
 
-      - question: Next Steps
-        answer: |
+additionalContent: |
+  For more information, see:
+  [How to automatically label your content](how-to-automatically-label-your-content.md)
+  [Sensitivity label insights](sensitivity-insights.md)
+  [Classification insights](./classification-insights.md)
