@@ -6,7 +6,7 @@ ms.service: api-management
 ms.topic: quickstart
 ms.custom: 
 ms.date: 09/10/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Quickstart: Create a new Azure API Management service instance by using the Azure CLI

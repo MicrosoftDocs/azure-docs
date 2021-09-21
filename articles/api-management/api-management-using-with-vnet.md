@@ -2,12 +2,12 @@
 title: Connect to a virtual network using Azure API Management
 description: Learn how to set up a connection to a virtual network in Azure API Management and access web services through it.
 services: api-management
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
 ms.date: 08/10/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Connect to a virtual network using Azure API Management
@@ -104,7 +104,8 @@ Once you've connected your API Management service to the VNET, you can access ba
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Add API from VNET":::
 
-## Network configuration
+## <a name="network-configuration-issues"> </a>Common Network Configuration Issues
+
 Review the following sections for more network configuration settings. 
 
 These settings address common misconfiguration issues that can occur while deploying API Management service into a VNET.
@@ -207,6 +208,10 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
 ### Application Insights  
   If you've enabled [Azure Application Insights](api-management-howto-app-insights.md) monitoring on API Management, allow outbound connectivity to the [telemetry endpoint](../azure-monitor/app/ip-addresses.md#outgoing-ports) from the VNET.
 
+### KMS endpoint
+
+When adding virtual machines running Windows to the VNET, allow outbound connectivity on port 1688 to the [KMS endpoint](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution) in your cloud. This configuration routes Windows VM traffic to the Azure Key Management Services (KMS) server to complete Windows activation.
+
 ### Force tunneling traffic to on-premises firewall Using ExpressRoute or Network Virtual Appliance  
   Commonly, you configure and define your own default route (0.0.0.0/0), forcing all traffic from the API Management-delegated subnet to flow through an on-premises firewall or to a network virtual appliance. This traffic flow breaks connectivity with Azure API Management, since outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses no longer working with various Azure endpoints. You can solve this issue via a couple of methods: 
 
@@ -225,6 +230,7 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
       - Azure portal Diagnostics
       - SMTP Relay
       - Developer portal CAPTCHA
+      - Azure KMS server
 
 ## Routing
 
@@ -330,7 +336,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
   | **Required** | Select to review the required Azure services connectivity for API Management. Failure indicates that the instance is unable to perform core operations to manage APIs. |
   | **Optional** | Select to review the optional services connectivity. Failure indicates only that the specific functionality will not work (for example, SMTP). Failure may lead to degradation in using and monitoring the API Management instance and providing the committed SLA. |
 
-  To address connectivity issues, review [network configuration settings](#network-configuration) and fix required network settings.
+  To address connectivity issues, review [network configuration settings](#network-configuration-issues) and fix required network settings.
 
 * **Incremental updates**  
   When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
