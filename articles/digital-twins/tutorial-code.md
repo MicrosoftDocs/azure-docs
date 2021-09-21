@@ -248,6 +248,8 @@ Then, add the following code to the end of the `Main` method:
 
 In your command window, run the program with `dotnet run`. You should see all the digital twins in this instance in the output.
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ## Complete code example
 
 At this point in the tutorial, you have a complete client app that can perform basic actions against Azure Digital Twins. For reference, the full code of the program in *Program.cs* is listed below:

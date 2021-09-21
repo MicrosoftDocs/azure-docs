@@ -29,13 +29,13 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## July 2021
 
-### .NET SDK (Microsoft.Azure.Management.Media ) 5.0.0 release available in NuGet (Coming soon - early September 2021!)
+### .NET SDK (Microsoft.Azure.Management.Media ) 5.0.0 release available in NuGet
 
 The [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK version 5.0.0 is now released on NuGet. This version is generated to work with the [2021-06-01 stable](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) version of the Open API (Swagger) ARM Rest API.
 
 For details on changes from the 4.0.0 release see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md).
 
-#### Changes in the 5.0.0 .NET SDK release (Coming soon - early September 2021!)
+#### Changes in the 5.0.0 .NET SDK release
 
 * The Media Services account now supports system and user assigned managed identities.
 * Added **PublicNetworkAccess** option to Media Services accounts. This option can be used with the Private Link feature to only allow access from private networks, blocking all public network access
@@ -45,8 +45,9 @@ For details on changes from the 4.0.0 release see the [change log](https://githu
 #### Breaking changes in tht 5.0.0 .NET SDK release
 
 * **ApiErrorException** has been replaced with **ErrorResponseException** to be consistent with all other Azure SDKs. Exception body has not changed.
+* All calls returning 404 Not found now raise an **ErrorResponseException** instead of returning null. this change was made to be consistent with other Azure SDKs
 * Media service constructor has new optional PublicNetworkAccess parameter after KeyDelivery parameter.
-* Type property in MediaServiceIdentity has been changed from ManagedIdentityType enum to string, to accommodate comma separated multiple types. Valid strings for type are SystemAssigned or SystemAssigned,UserAssigned or UserAssigned.
+* Type property in **MediaServiceIdentity** has been changed from ManagedIdentityType enum to string to accommodate multiple comma-separated values. Valid strings are **SystemAssigned** or **UserAssigned**.
 
 ## June 2021
 

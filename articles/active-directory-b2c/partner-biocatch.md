@@ -9,7 +9,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -348,24 +348,18 @@ document.getElementById("clientSessionId").style.display = 'none';
 Follow these steps to add the policy files to Azure AD B2C
 
 1. Sign in to the [**Azure portal**](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select Azure AD B2C.
-
-4. Navigate to **Azure AD B2C** > **Identity Experience Framework**
-
-3. Upload all the policy files to your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select Azure AD B2C.
+1. Navigate to **Azure AD B2C** > **Identity Experience Framework**
+1. Upload all the policy files to your tenant.
 
 ## Test the solution
 
 1. [Register a dummy application, which redirects to JWT.MS](./tutorial-register-applications.md?tabs=app-reg-ga)  
-
-2. Under the **Identity Experience Framework**, select the policy you created
-
-3. In the policy window, select the dummy JWT.MS application, and select **run now**
-
-4. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
+1. Under the **Identity Experience Framework**, select the policy you created
+1. In the policy window, select the dummy JWT.MS application, and select **run now**
+1. Go through sign-up flow and create an account. Token returned to JWT.MS should have 2x claims for riskLevel and score. Follow the example.  
 
     ```JavaScript
     { 
