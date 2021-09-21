@@ -218,7 +218,7 @@ To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/tw
     
     The output from each command will show information about the successfully created relationship.
 
-1. You can verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
+1. You can verify the relationships with any of the following commands, which print the relationships in your Azure Digital Twins instance.
     * To see all relationships coming off of each floor (viewing the relationships from one side):
         ```azurecli-interactive
         az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor0
