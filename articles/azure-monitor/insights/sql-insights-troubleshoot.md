@@ -150,7 +150,7 @@ Parameters can reference secrets in Key Vault by using the same convention. For 
 At runtime, all parameters and secrets will be resolved and merged with the profile configuration to construct the actual configuration to be used on the machine.
 
 > [!NOTE]
-> The parameter names of `sqlAzureConnections`, `sqlVmConnections`, and `sqlManagedInstanceConnections` are all required in the configuration. That's true even if you don't have connection strings that you'll provide for some of them.
+> The parameter names of `sqlAzureConnections`, `sqlVmConnections`, and `sqlManagedInstanceConnections` are all required in the configuration, even if you don't provide connection strings for some of them.
 
 
 ## Status: Collecting with errors
