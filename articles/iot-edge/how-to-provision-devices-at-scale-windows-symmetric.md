@@ -1,6 +1,6 @@
 ---
 title: Create and provision IoT Edge devices using symmetric keys on Windows - Azure IoT Edge | Microsoft Docs
-description: Use symmetric key attestation to test provisioning devices at scale for Azure IoT Edge with Device Provisioning Service
+description: Use symmetric key attestation to test provisioning Windows devices at scale for Azure IoT Edge with Device Provisioning Service
 author: v-tcassi
 ms.author: v-tcassi
 ms.reviewer: kgremban

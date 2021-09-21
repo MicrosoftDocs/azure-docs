@@ -1,6 +1,6 @@
 ---
 title: Create and provision IoT Edge devices using symmetric keys on Linux on Windows - Azure IoT Edge | Microsoft Docs
-description: Use symmetric key attestation to test provisioning devices at scale for Azure IoT Edge with Device Provisioning Service
+description: Use symmetric key attestation to test provisioning Linux on Windows devices at scale for Azure IoT Edge with Device Provisioning Service
 author: v-tcassi
 ms.author: v-tcassi
 ms.reviewer: kgremban
@@ -344,7 +344,7 @@ Install Azure IoT Edge for Linux on Windows on your device.
    >[!NOTE]
    >IoT Edge for Linux on Windows uses a default switch, which assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows machine. You can connect to the virtual machine locally while logged onto the Windows machine.
    >
-   >If you are using Windows Server, [set up a default switch](https://docs.microsoft.com/azure/iot-edge/how-to-create-virtual-switch) before deploying IoT Edge for Linux on Windows.
+   >If you are using Windows Server, [set up a default switch](how-to-create-virtual-switch.md) before deploying IoT Edge for Linux on Windows.
 
    You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](gpu-acceleration.md). If you are only installing these prerequisites at this point in the deployment process, you will need to start again from the beginning.
 
