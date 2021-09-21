@@ -14424,6 +14424,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-ssh.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/bastion/working-remotely-support.md",
       "redirect_url": "/azure/bastion/work-remotely-support",
       "redirect_document_id": false
@@ -16681,6 +16691,11 @@
     {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-forescout.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-forescout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-fortinet.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-fortinet",
       "redirect_document_id": false
     },
     {
@@ -29251,6 +29266,21 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-storage-explorer.md",
+      "redirect_url": "/azure/vs-azure-tools-storage-explorer-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-cli.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
       "redirect_document_id": false
     },
     {
