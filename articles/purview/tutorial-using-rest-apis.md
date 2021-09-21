@@ -74,10 +74,6 @@ Once service principal is created, you need to assign Data plane roles of your p
     1. 'Data Source Administrator' role to access Scanning Data plane. 
     1. 'Collection Admin' role to access Account Data Plane.
 
-> [!Note]
-> Only Collection Admins can edit permissions on a collection. If you are not a collection admin, contact one of the admins listed in the root collection. For more information, see the [Purview permissions page](catalog-permissions.md).
- 
-
 ## Get Token
 You can send a POST request to the following URL to get access token.
 
@@ -104,13 +100,17 @@ Sample response token:
     }
 ```
 
-
 Use the access token above to call the Data plane APIs.
 
 ## Data Plane API documentation
 Please refer here to see all the Data Plane APIs supported by Purview [Data Plane APIs](https://docs.microsoft.com/rest/api/purview/)
 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Manage data sources](manage-data-sources.md)
+
+
+
+
