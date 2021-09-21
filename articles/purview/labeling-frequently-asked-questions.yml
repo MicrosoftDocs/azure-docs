@@ -47,8 +47,9 @@ sections:
       
       - question: What is the difference between classifications and sensitivity labels in Azure Purview? 
         answer: |
-          The following table lists the differences between classifications and sensitivity labels in Azure Purview: <br/>
-          ||Classifications|Sensitivity labels|
+          The following table lists the differences between classifications and sensitivity labels in Azure Purview: </br>
+
+          |Comparison|Classifications|Sensitivity labels|
           |---|---|---|
           |**Definition**| Classifications are regular expressions or patterns that can help identify data types that exist inside an asset. | Sensitivity labels are tags that allow organizations to categorize data based on business impact, while abstracting the type of data from the user. |
           |**Examples**| Social Security Number, Drive license number, Bank account number, etc. | Highly confidential, Confidential, General, Public, etc. |
@@ -57,7 +58,7 @@ sections:
           | **Authoring environment** | Custom classifications and classification rules can be created in the Azure Purview studio. You can also create custom classifications in Microsoft 365. However, we do not yet support importing them to Purview. | Manage sensitivity labels using the [Microsoft 365 compliance center](microsoft-365/compliance.create-sensitivity-labels). |
           | **Assignment Limits** | Assets can have no classifications, or one or more classifications assigned. | Each asset can have only one sensitivity label. |
           | **Asset application workflow** | You can use Purview to manually add or modify classifications that are assigned to an asset. | In Purview, sensitivity labels are automatically assigned to assets based on classifications found. Applying labels manually in Purview is not currently supported. | 
-          | **More Information** | [Learn more about classifications](create-a-custom-classification-and-classification-rule.md). | [Learn more about sensitivity labels](microsoft-365/compliance.create-sensitivity-labels).| 
+          | **More Information** | [Learn more about classifications](create-a-custom-classification-and-classification-rule.md). | [Learn more about sensitivity labels](microsoft-365/compliance.create-sensitivity-labels).|
           ||||
           
       - question: Are classifications in Purview and Sensitive Information Types (SITs) in Microsoft 365 the same thing? 
