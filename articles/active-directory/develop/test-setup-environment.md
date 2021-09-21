@@ -19,11 +19,11 @@ ms.custom: aaddev
 
 # Set up your Azure AD application's test environment
 
-As a developer, you likely have different environments used for your application.  For example, you might have development, test, and production environments.  When this process is used for applications protected by the Microsoft identity platform, you should set up an Azure AD environment to be used for testing, both in the early stages of the development lifecycle, and to use for resources in your more permanent test environment.  This environment could be a subset of your organization's production tenant, or an entirely separate tenant.  
+As a developer, you probably use the software development lifecycle and move your app between development, test, and production environments.  When this process is used for applications protected by the Microsoft identity platform, you should set up an Azure AD environment to be used for testing.  This environment can be used in the early testing stages of the development lifecycle as well as a long-term, permanent test environment.  Depending on your resource isolation requirements, you can use your organization's Azure AD production tenant or an entirely separate tenant for testing.  
 
 This article helps you decide the level of isolation needed for your Azure AD test environment and describes the basic setup steps and checks.
 
-## Decide the level of isolation
+## Decide the level of isolation needed
 In general, it is easier and less overhead to use your production tenant as a test environment. However, this is only a viable option if you can achieve the right level of isolation between test and production resources.  Isolation is especially important for high privilege scenarios.
 
 Set up your test environment in a separate tenant (not your organization's production tenant) if:
@@ -32,13 +32,14 @@ Set up your test environment in a separate tenant (not your organization's produ
 - Configuration changes could have critical impact on your production environment.
 - You aren't able to create test users and associated test data in your tenant.
 - You plan on performing automated sign-ins to your application for testing and your production tenant has configured authentication method policies that require some user interaction.  For example, if multi-factor authentication is required for all users you won't be able to perform automated sign-ins for integration testing.
-- You must ensure that global administrators are unable to manage a specific test resource. You'll need to isolate that
+- You must ensure that global administrators can't manage or access specific test resources. You'll need to isolate that
 resource in a separate tenant with separate global administrators.
 - Adding non-production resources and/or workload to your production tenant would [exceed service or throttling limits](test-throttle-and-service-limits.md) for that tenant.
 
 If none of these conditions apply to you, then follow these steps to [set up your test environment in your production tenant](#set-up-a-test-environment-in-your-production-tenant).  If any of them do apply, skip to the following section [Set up a test environment in a separate tenant](#set-up-a-test-environment-in-a-separate-tenant).
 
 ## Set up a test environment in your production tenant
+If you can safely constrain your test app in your production tenant, go ahead and set up your tenant for testing purposes.
 
 ### Create and configure an app registration
 You'll need to create an app registration to use in your test environment.  This should be a separate registration from your eventual production app registration, to maintain security isolation between your test environment and your production environment.  How you configure your application depends on the type of app you are building.  For more information, check out the app registration steps for your app scenario in the left navigation pane, like this article for [web application registration](scenario-web-app-sign-user-app-registration.md).
@@ -46,40 +47,39 @@ You'll need to create an app registration to use in your test environment.  This
 ### Create some test users
 You'll need to create some test users with associated test data to use while testing your scenarios.  This step might need to be performed by an admin
 1. From the [Azure portal](https://portal.azure.com), click on **Azure Active Directory**.
-2. Go to **users**.
-3. Click **New user** and create some new test users homed in your directory.
+2. Go to **Users**.
+3. Click **New user** and create some new test users in your directory.
 
 ### Add the test users to a group (optional)
 For convenience, you can assign all these users to a group, which makes other assignment operations easier.  
 1. From the [Azure portal](https://portal.azure.com), click on **Azure Active Directory**.
 2. Go to **Groups**.
-3. Click **new group**.
-4. Select either **Security** or **M365** for group type
-5. Name your group
-6. Add the test users created in [Create some test users](#create-some-test-users)
+3. Click **New group**.
+4. Select either **Security** or **Microsoft 365** for group type.
+5. Name your group.
+6. Add the test users created in the previous step.
 
 ### Restrict your test application to specific users
-You can restrict the users in your tenant that are allowed to use your test application to specific users or groups, through user assignment.  When you [created an app through App registrations](#create-and-configure-an-app-registration), a representation of your app was created in Enterprise applications as well, and you can use the settings there to restrict who can use the application in your tenant.
+You can restrict the users in your tenant that are allowed to use your test application to specific users or groups, through user assignment.  When you [created an app through App registrations](#create-and-configure-an-app-registration), a representation of your app was created in **Enterprise applications** as well.  Use the **Enterprise applications** settings to restrict who can use the application in your tenant.
 
-Important: If your app is a [multi-tenant app](v2-supported-account-types.md), this operation won't restrict users in other tenants from signing into and using your app.  It will only restrict users in the tenant that user assignment is configured in. 
+> [!IMPORTANT]
+> If your app is a [multi-tenant app](v2-supported-account-types.md), this operation won't restrict users in other tenants from signing into and using your app.  It will only restrict users in the tenant that user assignment is configured in. 
 
 For detailed instructions on restricting an app to specific users in a tenant, go to [restricting your app to a set of users](howto-restrict-your-app-to-a-set-of-users.md).
 
 ## Set up a test environment in a separate tenant
+If you can't safely constrain your test app in your production tenant, you can create a separate tenant for development and testing purposes. 
 
 ### Get a test tenant
-
-If you can't safely constrain your test app in your production tenant, you can create a separate tenant for development and testing purposes.  
-
-If you don't already have a dedicated test tenant, you can create one for free.  Use one of the following methods:
+If you don't already have a dedicated test tenant, you can create one for free using the Microsoft 365 Developer Program or manually create one yourself. 
 
 #### Join the Microsoft 365 Developer Program (Recommended) 
 The [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) is free and can have test user accounts and sample data packs automatically added to the tenant.
-1. Click on the **Join Now** button on the screen
-2. Sign in with a new Microsoft Account or use an existing (work) account you already have
-3. On the sign-up page select your region, enter a company name and accept the terms and conditions of the program before you click next
-4. Click on set up subscription. Specify the region where you want to create your new tenant, create a username, domain, and enter a password. This will create a new tenant and the first administrator of the tenant.
-5. Enter the security information, which is needed to protect the administrator account of your new tenant. This will set up MFA authentication for the account
+1. Click on the **Join now** button on the screen.
+2. Sign in with a new Microsoft Account or use an existing (work) account you already have.
+3. On the sign-up page select your region, enter a company name and accept the terms and conditions of the program before you click **Next**.
+4. Click on **Set Up Subscription**. Specify the region where you want to create your new tenant, create a username, domain, and enter a password. This will create a new tenant and the first administrator of the tenant.
+5. Enter the security information, which is needed to protect the administrator account of your new tenant. This will set up multi-factor authentication for the account
 
 #### Manually create a tenant  
 You can [manually create a tenant](quickstart-create-new-tenant.md), which will be empty upon creation and will have to be configured with test data.
@@ -87,17 +87,17 @@ You can [manually create a tenant](quickstart-create-new-tenant.md), which will 
 ### Populate your tenant with users.  
 For convenience, you may want to invite yourself and other members of your development team to be guest users in the tenant.  This will create separate guest objects in the test tenant, but means you only have to manage one set of credentials for your corporate account and your test account.
 1. From the [Azure portal](https://portal.azure.com), click on **Azure Active Directory**.
-2. Go to **users**.
+2. Go to **Users**.
 3. Click on **New guest user** and invite your work account email address.
 4. Repeat for other members of the development and/or testing team for your application.
 
-You can also create test users homed in your test tenant.  If you used one of the Microsoft 365 sample packs, you may already have some test users in your tenant.  If not, you should be able to create some yourself as the tenant administrator.
+You can also create test users in your test tenant.  If you used one of the Microsoft 365 sample packs, you may already have some test users in your tenant.  If not, you should be able to create some yourself as the tenant administrator.
 1. From the [Azure portal](https://portal.azure.com), click on **Azure Active Directory**.
-2. Go to **users**.
-3. Click **New user** and create some new test users homed in your directory.
+2. Go to **Users**.
+3. Click **New user** and create some new test users in your directory.
 
 ### Get an Azure AD subscription (Optional)
-If you want to fully test Azure AD premium features on your application, you'll need to sign up your tenant for a P1 or P2 subscription.
+If you want to fully test Azure AD premium features on your application, you'll need to sign up your tenant for a [Premium P1 or Premium P2 license](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
 
 If you signed up using the Microsoft 365 Developer program, your test tenant will come with Azure AD P2 licenses.  If not, you can still enable a one month free trial of Azure AD premium [here](https://azure.microsoft.com/trial/get-started-active-directory/).
 
@@ -112,19 +112,15 @@ Replicating conditional access policies ensures you don't encounter unexpected b
 
 Viewing your production tenant conditional access policies may need to be performed by a company administrator.  
 1. Sign into the [Azure portal](https://portal.azure.com) using your production tenant account
-2. Click on **Azure Active Directory**.
-3. Go to **Enterprise applications**.
-4. Go to **Conditional access**.
-5. View the list of policies in your tenant.  Click the first one.
-6. Navigate to **cloud apps or actions**.  
-7. If the policy only applies to a select group of apps, then move on to the next policy.  If not, then it will likely apply to your app as well when you move to production.  You should copy the policy over to your test tenant.
+1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional access**.
+1. View the list of policies in your tenant.  Click the first one.
+1. Navigate to **Cloud apps or actions**.  
+1. If the policy only applies to a select group of apps, then move on to the next policy.  If not, then it will likely apply to your app as well when you move to production.  You should copy the policy over to your test tenant.
 
 In a new tab or browser session, navigate to the [Azure portal](https://portal.azure.com), and sign into your test tenant.
-1. Click on **Azure Active Directory**.
-2. Go to **Enterprise applications**.
-3. Go to **Conditional access**.
-4. Click on **New policy**
-5. Copy the settings from the production tenant policy, identified through the previous steps.
+1. Go to **Azure Active Directory** > **Enterprise applications** > **Conditional access**.
+1. Click on **New policy**
+1. Copy the settings from the production tenant policy, identified through the previous steps.
 
 #### Permission grant policies
 Replicating permission grant policies ensures you don't encounter unexpected prompts for admin consent when moving to production. 
