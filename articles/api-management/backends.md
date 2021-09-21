@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: api-management
 ms.topic: article
-ms.date: 09/20/2021
+ms.date: 09/21/2021
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -40,7 +40,7 @@ A custom backend has several benefits, including:
 
 ## Limitation
 
-For **Developer** and **Premium** tiers, API Management can throw HTTP 500 `BackendConnectionFailure` errors when calling itself. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog. 
+For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog. 
 
 ## Next steps
 
