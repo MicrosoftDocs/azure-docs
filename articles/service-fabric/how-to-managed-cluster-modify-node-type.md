@@ -14,18 +14,27 @@ The rest of this document will cover how to adjust various settings from node ty
 
 ## Scale a Service Fabric managed cluster node type with portal
 
-In this walkthrough you will adjust the instance count for a node type using portal.
+In this walkthrough you will learn how to modify the node count for a node type using portal.
 
-1)
+1) Login to [Azure Portal](https://portal.azure.com/)
 
-2) 
+2) Navigate to your cluster resource Overview page. 
+![Sample Overview page][overview]
 
-3)
+3) Select `Node Types` under the `Settings` section 
+
+4) Select the `Node type name` you want to modify
+
+5) Adjust the `Node count` to the new value you want and select `Apply` at the bottom. In this screenshot the value was `3` and adjusted to `5`.
+![Sample showing a node count increase][adjust-node-count]
+
+6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
+![Sample showing a node count updating][node-count-updating]
 
 
 ## Scale a Service Fabric managed cluster node type with a template
 
-To adjust the instance count for a given node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
+To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
 
 > [!NOTE]
 > The managed cluster provider will block instance count adjustments that go below the required minimums for a given deployment type.
@@ -48,6 +57,23 @@ To adjust the instance count for a given node type using an ARM Template, adjust
 ```
 
 ## Modify the OS image for a node type with portal
+
+In this walkthrough you will learn how to modify the node count for a node type using portal.
+
+1) Login to [Azure Portal](https://portal.azure.com/)
+
+2) Navigate to your cluster resource Overview page. 
+![Sample Overview page][overview]
+
+3) Select `Node Types` under the `Settings` section 
+
+4) Select the `Node type name` you want to modify
+
+5) Adjust the `Node count` to the new value you want and select `Apply` at the bottom. In this screenshot the value was `3` and adjusted to `5`.
+![Sample showing a node count increase][adjust-node-count]
+
+6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
+![Sample showing a node count updating][node-count-updating]
 
 
 ## Modify the OS image for a node type with a template
@@ -78,6 +104,24 @@ To modify the OS image used for a node type using an ARM Template, adjust the `v
 ```
 
 ## Configure placement properties for a node type with portal
+
+In this walkthrough you will learn how to modify the node count for a node type using portal.
+
+1) Login to [Azure Portal](https://portal.azure.com/)
+
+2) Navigate to your cluster resource Overview page. 
+![Sample Overview page][overview]
+
+3) Select `Node Types` under the `Settings` section 
+
+4) Select the `Node type name` you want to modify
+
+5) Adjust the `Node count` to the new value you want and select `Apply` at the bottom. In this screenshot the value was `3` and adjusted to `5`.
+![Sample showing a node count increase][adjust-node-count]
+
+6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
+![Sample showing a node count updating][node-count-updating]
+
 
 ## Configure placement properties for a node type with a template
 
@@ -115,3 +159,9 @@ To adjust the placement properties for a node type using an ARM Template, adjust
 > [!div class="nextstepaction"]
 > [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
 > [Deploy an app to a Service Fabric managed cluster](./tutorial-managed-cluster-deploy-app.md)
+
+
+[overview]: ./media/how-to-managed-cluster-modify-node-type/sfmc-overview.png
+[node-count-updating]: ./media/how-to-managed-cluster-modify-node-type/sfmc-adjust-node-count-updating.png
+[adjust-node-count]: ./media/how-to-managed-cluster-modify-node-type/sfmc-adjust-node-counts.png
+[??]: ./media/how-to-managed-cluster-modify-node-type/
