@@ -36,13 +36,13 @@ Statsbeat collects essential and non-essential metrics.
 
 |Metric Name|Unit|Supported dimensions|
 |-----|-----|-----|
-|Attach|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Feature`, `Type`, `Operating System`, `Language`, `Version`|
+|Attach|Count| `Resource Provider`, `Resource Provider Identifier`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
 
 #### Feature Statsbeat
 
 |Metric Name|Unit|Supported dimensions|
 |-----|-----|-----|
-|Feature|Count| `Resource Provider`, `Resource Provider Identifier`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
+|Feature|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Feature`, `Type`, `Operating System`, `Language`, `Version`|
 
 ### Non-Essential Statsbeat
 
