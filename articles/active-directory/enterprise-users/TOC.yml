@@ -69,13 +69,13 @@
     - name: Delete a tenant    
       href: directory-delete-howto.md
     - name: Multiple tenants    
+      href: licensing-directory-independence.md
     - name: Take over a tenant
       href: domains-admin-takeover.md
     - name: Manage domain names
       href: domains-manage.md
     - name: Verify subdomains as managed
       href: domains-verify-custom-subdomain.md
-      href: licensing-directory-independence.md
     - name: Self-service sign-up    
       href: directory-self-service-signup.md
     - name: Azure AD Connect    
