@@ -17,12 +17,12 @@ Azure Security Center alerts inform the Security Operations Center (SOC) about p
 - Find out whether they're familiar with the detected activity in their resource.
 - Ask them to take mitigation steps on their resource.
  
-Rather than manually find the relevant contact and reach them every time a new alert occurs, you can now easily automate this process by using the Azure Sentinel watchlists feature with a playbook. For simplicity, this article uses the Subscription owner level, but you can implement this solution for any specified resource owner.
+Rather than manually find the relevant contact and reach them every time a new alert occurs, you can easily automate this process by using the Azure Sentinel watchlists feature with a playbook. For simplicity, this article uses the subscription owner level, but you can implement this solution for any specified resource owner.
 
 > [!NOTE]
-> This playbook uses the Azure Sentinel Incident trigger. You can implement a similar solution by creating scheduled alerts with Azure Security Center, and then using the Alert trigger.
+> This playbook uses the Azure Sentinel incident trigger. You can implement a similar solution by creating scheduled alerts with Azure Security Center, and then using the alert trigger.
 
-## Solution summary and Azure Sentinel flow
+## Solution summary
 
 1. An Azure Sentinel watchlist maps each subscription in the organization to the owner and their contact email address.
 1. A [Watchlists-InformSubowner-IncidentTrigger](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) playbook is attached to a Security Center Defender incident creation rule. Every new instance of the Defender alert that flows to Azure Sentinel creates an Azure Sentinel incident.
@@ -48,15 +48,17 @@ The playbook runs the following steps:
 
 1. **For each Alert** in the incident, probably one alert, the playbook does the following steps:
 
-   1. **Filter array to get AzureResource identifier**. An Azure Defender alert might have two kinds of identifiers: `AzureResource` or resource ID shown in Log Analytics, and Log Analytics information about the workspace that stores the alerts. This action returns an array of just the Azure Resource identifiers for later use.
+   1. **Filter array to get AzureResource identifier**. An Azure Defender alert might have two kinds of identifiers: `AzureResource` or resource ID shown in Log Analytics, and Log Analytics information about the workspace that stores the alerts. This action returns an array of just the AzureResource identifiers for later use.
    
-   1. **Parse Json to get subscriptionId**. This step gets the Subscription ID from the Additional Data of the Azure Security Center alert.
+   1. **Parse Json to get subscriptionId**. This step gets the Subscription ID from the Additional Data of the Security Center alert.
    
    1. **Run query and list results - Get Watchlist**. The Azure Monitor Log Analytics connector gets the watchlist items. **Subscription**, **Resource Group**, and **Resource Name** are the Azure Sentinel workspace details where the watchlist is located. Use the `project` argument to specify which fields are relevant for your use.
       
       ![Image of the Run query and list results playbook task.](media/inform-owner-playbook/run-query.png)
    
-   1. **Filter array to get relevant subscription owners**. This step keeps the watchlist results only for the subscription you're looking for. The Logic Apps expression argument on the right is: `string(body('Parse_JSON_to_get_subscriptionId')?['properties']?['effectiveSubscriptionId'])`.
+   1. **Filter array to get relevant subscription owners**. This step keeps the watchlist results only for the subscription you're looking for. The Logic Apps expression argument on the right is:
+      
+      `string(body('Parse_JSON_to_get_subscriptionId')?['properties']?['effectiveSubscriptionId'])`
       
       ![Image that shows the filter array playbook task.](media/inform-owner-playbook/filter-array.png)
    
@@ -84,7 +86,7 @@ The playbook runs the following steps:
    
 1. Upload your table.
 
-   1. In Azure Sentinel, go to **Watchlists**.
+   1. In Azure Sentinel, go to **Watchlist**.
    
    1. Select **Add new**.
       
