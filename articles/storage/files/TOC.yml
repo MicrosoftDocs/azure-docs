@@ -171,7 +171,7 @@
       href: storage-files-migration-overview.md
     - name: Target a cloud-only deployment
       items:
-      - name: RoboCopy to to Azure file shares
+      - name: RoboCopy to migrate to Azure file shares
         href: storage-files-migration-robocopy.md
       - name: Migrate from an on-premises NAS to Azure file shares with DataBox
         href: storage-files-migration-nas-cloud-databox.md
