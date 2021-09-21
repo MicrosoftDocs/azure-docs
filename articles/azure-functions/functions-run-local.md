@@ -207,9 +207,9 @@ Version 1.x of the Core Tools isn't supported on Linux. Use version 2.x or a lat
 
 ---
 
-## Upgrading Core Tools versions
+## Changing Core Tools versions
 
-When upgrading to a new version of Core Tools, you should use the same package manager as the original installation to move to a different package version. For example, if you installed Core Tools version 2.x using npm, you should use the following command to upgrade to version 3.x:
+When changing to a different version of Core Tools, you should use the same package manager as the original installation to move to a different package version. For example, if you installed Core Tools version 2.x using npm, you should use the following command to upgrade to version 3.x:
 
 ```bash
 npm install -g azure-functions-core-tools@3 --unsafe-perm true
