@@ -69,9 +69,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
 1. Select **OK** to finish the basic setting configuration section.
 
-1. In **Advanced Settings**, choose the existing Ethereum proof-of-authority blockchain network you want to use.
-
-    ![Advanced settings for new blockchain network](media/deploy/advanced-blockchain-settings-new.png)
+1. In **Advanced Settings**, choose the existing Ethereum proof-of-authority blockchain network, Active Directory settings, and preferred VM size for Blockchain Workbench components.
 
     The Ethereum RPC endpoint has the following requirements:
 
