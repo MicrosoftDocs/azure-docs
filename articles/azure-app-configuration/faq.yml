@@ -133,7 +133,7 @@ sections:
           * Exceeding the hourly request limit for a store in the standard tier.
           * Momentary throttling due to a large burst of requests.
           * Excessive bandwidth usage.
-          * Attempting to create or modify a key when the storage quote is exceeded.
+          * Attempting to create or modify a key when the storage quota is exceeded.
           
           Check the body of the 429 response for the specific reason why the request failed.
           
