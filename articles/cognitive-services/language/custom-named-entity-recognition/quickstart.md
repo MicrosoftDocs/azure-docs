@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/13/2021
+ms.date: 09/20/2021
 ms.author: aahi
 ---
 
@@ -40,13 +40,19 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4.  In the **Connect storage** screen that appears, connect your storage account using the drop-down menu. If you cannot find your storage account, make sure you created a resource using the steps above. 
+    
+    :::image type="content" source="media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="media/create-project.png":::
+
+
+4.  After you click, **Create new project**, a screen will appear to let you connect your storage account. If you cannot find your storage account, make sure you created a resource using the steps above. 
 
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
     > * This process is irreversible, if you connect a storage account to your resource you cannot disconnect it later.
     > * You can only connect your resource to one storage account.
     > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
+    
+    :::image type="content" source="media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="media/connect-storage.png":::
 
 <!--If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**.--> 
 
@@ -104,7 +110,6 @@ Generally after training a model you would review its [evaluation details](../cu
 
     :::image type="content" source="media/test-model-results.png" alt-text="View the test results" lightbox="media/test-model-results.png":::
 
-After you've tested your model, you can begin [improving the model's performance](how-to/improve-model.md), and [sending NER requests](how-to/submit-task.md).
 
 ## Clean up resources
 
@@ -112,4 +117,5 @@ When you don't need your project anymore, you can delete your project using [Lan
 
 ## Next steps
 
+* After you've tested your model, you can begin [improving the model's performance](how-to/improve-model.md), and start [sending NER requests](how-to/submit-task.md).
 * [View recommended practices](concepts/recommended-practices.md)
