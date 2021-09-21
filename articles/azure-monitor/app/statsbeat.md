@@ -51,7 +51,7 @@ Statsbeat collects essential and non-essential metrics.
 - Azure metadata service network statsbeat
 - Profiler network statsbeat
 
-### Configure Statsbeat
+### Configure Statsbeat {.tabset}
 
 #### [Java](#tab/java)
 
