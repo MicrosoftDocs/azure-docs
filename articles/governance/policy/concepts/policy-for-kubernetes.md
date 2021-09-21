@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -616,6 +616,110 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 For more information, see
 [Debugging Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/debug/) in the
 Gatekeeper documentation.
+
+## View Gatekeeper artifacts
+
+After the add-on downloads the policy assignments and installs the constraint templates and
+constraints on the cluster, it annotates both with Azure Policy information like the policy
+assignment ID and the policy definition ID. To configure your client to view the add-on related
+artifacts, use the following steps:
+
+1. Setup `kubeconfig` for the cluster.
+
+   For an Azure Kubernetes Service cluster, use the following Azure CLI:
+
+   ```azurecli-interactive
+   # Set context to the subscription
+   az account set --subscription <YOUR-SUBSCRIPTION>
+
+   # Save credentials for kubeconfig into .kube in your home folder
+   az aks get-credentials --resource-group <RESOURCE-GROUP> --name <CLUSTER-NAME>
+   ```
+
+1. Test the cluster connection.
+
+   Run the `kubectl cluster-info` command. A successful run has each service responding with a URL
+   of where it's running.
+
+### View the add-on constraint templates
+
+To view constraint templates downloaded by the add-on, run `kubectl get constrainttemplates`.
+Constraint templates that start with `k8sazure` are the ones installed by the add-on.
+
+### Get Azure Policy mappings
+
+To identify the mapping between a constraint template downloaded to the cluster and the policy
+definition, use `kubectl get constrainttemplates <TEMPLATE> -o yaml`. The results look similiar to
+the following output:
+
+```yaml
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+    annotations:
+    azure-policy-definition-id: /subscriptions/<SUBID>/providers/Microsoft.Authorization/policyDefinitions/<GUID>
+    constraint-template-installed-by: azure-policy-addon
+    constraint-template: <URL-OF-YAML>
+    creationTimestamp: "2021-09-01T13:20:55Z"
+    generation: 1
+    managedFields:
+    - apiVersion: templates.gatekeeper.sh/v1beta1
+    fieldsType: FieldsV1
+...
+```
+
+`<SUBID>` is the subscription ID and `<GUID>` is the ID of the mapped policy definition.
+`<URL-OF-YAML>` is the source location of the constraint template that the add-on downloaded to
+install on the cluster.
+
+### View constraints related to a constraint template
+
+Once you have the names of the
+[add-on downloaded constraint templates](#view-the-add-on-constraint-templates), you can use the
+name to see the related constraints. Use `kubectl get <constraintTemplateName>` to get the list.
+Constraints installed by the add-on start wtih `azurepolicy-`.
+
+### View constraint details
+
+The constraint has details about violations and mappings to the policy definition and assignment. To
+see the details, use `kubectl get <CONSTRAINT-TEMPLATE> <CONSTRAINT> -o yaml`. The results look
+similiar to the following output:
+
+```yaml
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sAzureContainerAllowedImages
+metadata:
+  annotations:
+    azure-policy-assignment-id: /subscriptions/<SUB-ID>/resourceGroups/<RG-NAME>/providers/Microsoft.Authorization/policyAssignments/<ASSIGNMENT-GUID>
+    azure-policy-definition-id: /providers/Microsoft.Authorization/policyDefinitions/<DEFINITION-GUID>
+    azure-policy-definition-reference-id: ""
+    azure-policy-setdefinition-id: ""
+    constraint-installed-by: azure-policy-addon
+    constraint-url: <URL-OF-YAML>
+  creationTimestamp: "2021-09-01T13:20:55Z"
+spec:
+  enforcementAction: deny
+  match:
+    excludedNamespaces:
+    - kube-system
+    - gatekeeper-system
+    - azure-arc
+  parameters:
+    imageRegex: ^.+azurecr.io/.+$
+status:
+  auditTimestamp: "2021-09-01T13:48:16Z"
+  totalViolations: 32
+  violations:
+  - enforcementAction: deny
+    kind: Pod
+    message: Container image nginx for container hello-world has not been allowed.
+    name: hello-world-78f7bfd5b8-lmc5b
+    namespace: default
+  - enforcementAction: deny
+    kind: Pod
+    message: Container image nginx for container hello-world has not been allowed.
+    name: hellow-world-89f8bfd6b9-zkggg
+```
 
 ## Troubleshooting the add-on
 

@@ -4,8 +4,9 @@ description: This article helps you understand what you need to know before and 
 author: bandersmsft
 ms.reviewer: mcville
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 
