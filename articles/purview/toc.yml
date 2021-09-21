@@ -30,7 +30,7 @@ items:
       href: tutorial-msi-configuration.md
   - name: Register and scan an on-prem SQL server
     href: tutorial-register-scan-on-premises-sql-server.md
-  - name: Call the REST APIs for the catalog
+  - name: How to use REST APIs for Purview Data Planes
     href: tutorial-using-rest-apis.md
 - name: Concepts
   items:
