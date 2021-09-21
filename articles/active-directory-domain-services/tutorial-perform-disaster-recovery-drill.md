@@ -60,7 +60,7 @@ You will be performing these operations for each replica set in the Azure AD DS 
 1. On the client machine, attempt to re-stablish a secure connection with both domain controllers from step 2 using the same nltest command. These operations should fail as network connectivity has been blocked. 
 1. Run `Get-AdDomain` and `Get-AdForest` to get basic directory properties. These calls will succeed because they are automatically going to one of the domain controllers in the other replica set. 
 1. Reboot the client and login with the same domain account. This shows that authentication is still working as expected and logins are not blocked. 
-1. In the Azure portal, go to the client virtual network peering and update the properties so that all traffic is unblocked. This is reverting the changes that were made in step 3. 
+1. In the Azure portal, go to the client virtual network peering and update the properties so that all traffic is unblocked. This reverts the changes that were made in step 3. 
 1. On the client machine, attempt to re-stablish a secure connection with the domain controllers from step 2 using the same nltest command. These operations should succeed as network connectivity has been unblocked. 
 
 These operations demonstrate that the domain is still available even though one of the replica sets is unreachable by the client. Perform this set of steps for each replica set in the Azure AD DS instance. 
