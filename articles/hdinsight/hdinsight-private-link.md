@@ -35,15 +35,14 @@ The following diagram shows an example of the networking configuration required 
 ## Subnet Configuration
 Once you have either added NAT Gateway or a route table (with firewall) to your configured subnet, you need to create and add a standard Network Security Group to this subnet to finish setup.
 
-## Disabling network policies for private link service
+## Disable network policies for private link service
 For successfully creation of private link services, you must explicitly [disable network policies for private link service](../private-link/disable-private-link-service-network-policy.md).
 
+## Access a private cluster
 
 Once you've set up the networking, you can create a cluster with outbound resource provider connection and private link enabled, as shown in the following figure. In this configuration, there are no public IPs and Private Link Service is provisioned for each standard load balancer.
 
 :::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagram of private link environment after cluster creation":::
-
-### Access a private cluster
 
 To access private clusters, you can use the internal load balancer private IPs directly, or you can use Private Link DNS extensions and Private Endpoints. When the `privateLink` setting is set to enabled, you can create your own private endpoints and configure DNS resolution through private DNS zones.
 
