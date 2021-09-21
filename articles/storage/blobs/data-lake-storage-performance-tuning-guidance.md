@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 09/21/2021
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -77,7 +77,7 @@ For date and time, the following is a common pattern
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
-For other directory layout structure suggestions, see [Directory structure](data-lake-storage-best-practices.md#directory-structure)
+For other directory layout structure suggestions, see [Directory structure](data-lake-storage-best-practices.md#directory-layout-considerations)
 
 ### Access data efficiently with Query Acceleration
 

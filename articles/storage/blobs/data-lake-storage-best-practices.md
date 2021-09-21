@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 09/21/2021
 ms.author: normesta
 ms.reviewer: sachins
 ---
@@ -14,7 +14,7 @@ ms.reviewer: sachins
 
 This article presents best practice recommendations about around security, resiliency, and directory structure in a Data Lake Storage Gen2 enabled storage account. For best practice recommendations around performance optimization, see [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md).
 
-## Security
+## Security considerations
 
 ### Use security groups instead of individual users
 
@@ -32,7 +32,7 @@ For more information about how to apply this best practice, see [Grant access to
 
 For general security recommendations, see [Security recommendations for Blob storage](security-recommendations.md)
 
-## Resiliency
+## Resiliency considerations
 
 When designing a system with Data Lake Storage Gen2 or any cloud service, consider your availability requirements and how to respond to potential interruptions in the service. An issue could be localized to the specific instance or even region-wide, so having a plan for both is important. Depending on the recovery time objective and the recovery point objective service-level agreement for your workload, you might choose a more or less aggressive strategy for high availability and disaster recovery.
 
@@ -46,7 +46,7 @@ In addition to choosing an appropriate replication model, consider ways to help 
 
 ### Use Distcp for data movement between two locations
 
-Short for distributed copy, DistCp is a Linux command-line tool that comes with Hadoop and provides distributed data movement between two locations. The two locations can be Data Lake Storage Gen2, Hadoop Distributed File System (HDFS), or Amazon S3. This tool uses MapReduce jobs on a Hadoop cluster (for example, HDInsight) to scale out on all the nodes. Distcp is considered one of the fastest ways to move big data without special network compression appliances. Distcp also provides an option to only update deltas between two locations, handles automatic retries, as well as dynamic scaling of compute. This approach is incredibly efficient when it comes to replicating items such like Hive/Spark tables that can have many large files in a single directory, and you only want to copy over the modified data. For these reasons, Distcp is the most recommended tool for copying data between big data stores.
+Short for distributed copy, DistCp is a Linux command-line tool that comes with Hadoop and provides distributed data movement between two locations. The two locations can be Data Lake Storage Gen2, Hadoop Distributed File System (HDFS), or S3. This tool uses MapReduce jobs on a Hadoop cluster (for example, HDInsight) to scale out on all the nodes. Distcp is considered one of the fastest ways to move big data without special network compression appliances. Distcp also provides an option to only update deltas between two locations, handles automatic retries, as well as dynamic scaling of compute. This approach is incredibly efficient when it comes to replicating items such like Hive/Spark tables that can have many large files in a single directory, and you only want to copy over the modified data. For these reasons, Distcp is the most recommended tool for copying data between big data stores.
 
 Copy jobs can be triggered by Apache Oozie workflows using frequency or data triggers, as well as Linux cron jobs. For intensive replication jobs, we recommend that you spin up a separate HDInsight Hadoop cluster that can be tuned and scaled specifically for the copy jobs. This ensures that copy jobs do not interfere with critical jobs. If running replication on a wide enough frequency, the cluster can even be taken down between each job. If failing over to secondary region, make sure that another cluster is also spun up in the secondary region to replicate new data back to the primary Data Lake Storage Gen2 account once it comes back up. For examples of using Distcp, see [Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2](../blobs/data-lake-storage-use-distcp.md).
 
@@ -54,7 +54,12 @@ Copy jobs can be triggered by Apache Oozie workflows using frequency or data tri
 
 [Azure Data Factory](../../data-factory/introduction.md) can also be used to schedule copy jobs by using a Copy Activity, and can even be set up on a frequency via the Copy Wizard. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Storage Gen2 accounts, so directories like Hive tables would require a complete copy to replicate. Refer to the [data factory article](../../data-factory/load-azure-data-lake-storage-gen2.md) for more information on copying with Data Factory.
 
-## Directory structure
+## Monitoring considerations
+
+Data Lake Storage Gen2 provides metrics in the Azure portal under the Data Lake Storage Gen2 account and in Azure Monitor. Availability of Data Lake Storage Gen2 is displayed in the Azure portal. To get the most up-to-date availability of a Data Lake Storage Gen2 account, you must run your own synthetic tests to validate availability. Other metrics such as total storage utilization, read/write requests, and ingress/egress are available to be leveraged by monitoring applications and can also trigger alerts when thresholds (for example, Average latency or # of errors per minute) are exceeded.
+
+
+## Directory layout considerations
 
 When ingesting data it's important to pre-plan the structure of the data so that security, partitioning, and processing can be utilized effectively. Many of the following recommendations are applicable for all big data workloads. Every workload has different requirements on how the data is consumed, but below are some common layouts to consider when working with Internet of Things (IoT) and batch scenarios.
 
