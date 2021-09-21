@@ -14,13 +14,11 @@ In this tutorial, you learn how to use a player widget within your application. 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create a token
-> * List videos
-> * Get the base URL for playing back a [video application resource](terminology.md#video)
 > * Create a page with the player
+> * List videos
 > * Pass a streaming endpoint and a token to the player
 > * Add a Zone Drawer player
-> * View videos clipped to start and end times defined by you
+> * View videos clipped to specified start and end times
 
 ## Prerequisites
 
@@ -32,11 +30,35 @@ The following are required for this tutorial:
 * Create a [token](./access-policies.md#creating-a-token)
 * Create an [access policy](./access-policies.md#creating-an-access-policy)
 
+
+## Create a web page with a video Player
+
+Use the below sample code to create a web page.
+
+```html
+<html>
+<head>
+<title>Video Analyzer Player Widget Demo</title>
+</head>
+<script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets"></script>
+<body>
+Client API endpoint URL: <input type="text" id="clientApiEndpointUrl" /><br><br>
+JWT Auth Token for Client API: <input type="text" id="token" /><br><br>
+<button type="submit" onclick="getVideos()">Get Videos</button><br><br>
+<textarea rows="20" cols="100" id="videoList"></textarea><br><br>
+Video name: <input type="text" id="videoName" /><br><br>
+<button type="submit" onclick="playVideo()">Play Video</button><br><br>
+</body>
+</body>
+</html>
+```
 ## List video resources
 
 Next, generate a list of video resources. You make a REST call to the account endpoint you used earlier, and you authenticate with the token you generated.
 
 There are many ways to send a GET request to a REST API, but for this you're going to use a JavaScript function. The following code uses [XMLHttpRequest](https://www.w3schools.com/xml/ajax_xmlhttprequest_create.asp), coupled with values you're storing in the `clientApiEndpointUrl` and `token` fields on the page to send a synchronous `GET` request. It then takes the resulting list of videos and stores them in the `videoList` text area you have set up on the page.
+
+The following code snippet will help in requesting the video list.
 
 ```javascript
 function getVideos()
@@ -66,7 +88,7 @@ Now that you have a client API endpoint URL, a token, and a video name, you can 
    ```
 1. Get a link to the Video Analyzer player widget that is in the page:
    ```javascript
-   const avaPlayer = document.getElementById("avaPlayer");
+   const avaPlayer = document.getElementById("videoPlayer");
    ```
 1. To configure the player with the values that you have, you will need to set them up as an object, as shown here:
    ```javascript
@@ -169,23 +191,6 @@ Video name: <input type="text" id="videoName" /><br><br>
 </html>
 ```
 
-## Video Clips:
-Enables you to create video clips by selecting a start and end time.
-
-The `AVA widget video player` supports playing video clips by specifying a start and end date time as shown below:
-
-> [!Note] 
-> The AVA widget video player uses UTC time standard, therefore the selected start and end time needs to be converted to this format.
-
-Use the below code in your HTML file to open a video player that will load a video from the startTIme and the endTime you will specify.
-
-```javascript
-    const avaPlayer = document.getElementById("avaPlayer");
-    const startUTCDate = new Date(Date.UTC(selectedClip.start.getFullYear(), selectedClip.start.getMonth(), selectedClip.start.getDate(), selectedClip.start.getHours(), selectedClip.start.getMinutes(), selectedClip.start.getSeconds()));
-    const endUTCDate = new Date(Date.UTC(selectedClip.end.getFullYear(), selectedClip.end.getMonth(), selectedClip.end.getDate(), selectedClip.end.getHours(), selectedClip.end.getMinutes(), selectedClip.end.getSeconds()));
-    avaPlayer.load({ startTime: startUTCDate, endTime: endUTCDate });
-```
-
 ## Host the page
 
 You can test this page locally, but you might want to test a hosted version. In case you don't have a quick way to host a page, here are instructions on how to do so by using [static websites](../../storage/blobs/storage-blob-static-website.md) with Azure Storage. The following steps are a condensed version of [these more complete instructions](../../storage/blobs/storage-blob-static-website-how-to.md). The steps are updated for the files you're using in this tutorial.
@@ -200,7 +205,7 @@ You can test this page locally, but you might want to test a hosted version. In 
 1. Above **Primary endpoint**, select **$web**.
 1. By using the **Upload** button at the top, upload your static HTML page as **index.html**.`
 
-## Play a video
+### Play a video
 
 Now that you have the page hosted, go there and go through the steps to play a video.
 
@@ -209,7 +214,7 @@ Now that you have the page hosted, go there and go through the steps to play a v
 1. From the video list, select a video name, and enter it into the **Video name** field.
 1. Select **Play video**.
 
-## Capture Lines and Zones
+### Capture Lines and Zones
 
 1. Navigate to the **Zone Drawer** player
 1. Click on the first icon on the top-left corner to draw zones.
@@ -217,6 +222,24 @@ Now that you have the page hosted, go there and go through the steps to play a v
 1. You will see the zones and lines created in the right section of the player.
 1. To get the co-ordinates of the lines and zones, click on the **Save** button.
 1. Doing so, will show the JSON response with the point co-ordinates, which you can use the appropriate topologies.
+
+### Video Clips
+Enables you to create video clips by selecting a start and end time.
+
+The `AVA widget video player` supports playing video clips by specifying a start and end date time as shown below:
+
+> [!Note] 
+> The AVA widget video player uses UTC time standard, therefore the selected start and end time needs to be converted to this format.
+
+Use the below code in your HTML file to open a video player that will load a video from the startTime and the endTime you will specify.
+
+```javascript
+    const avaPlayer = document.getElementById("videoPlayer");
+    const startUTCDate = new Date(Date.UTC(selectedClip.start.getFullYear(), selectedClip.start.getMonth(), selectedClip.start.getDate(), selectedClip.start.getHours(), selectedClip.start.getMinutes(), selectedClip.start.getSeconds()));
+    const endUTCDate = new Date(Date.UTC(selectedClip.end.getFullYear(), selectedClip.end.getMonth(), selectedClip.end.getDate(), selectedClip.end.getHours(), selectedClip.end.getMinutes(), selectedClip.end.getSeconds()));
+    avaPlayer.load({ startTime: startUTCDate, endTime: endUTCDate });
+``` 
+
 ## Additional details
 
 The following sections contain some important additional details to be aware of.
