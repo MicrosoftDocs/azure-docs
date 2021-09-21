@@ -83,4 +83,10 @@ For more conceptual information, learn how replica sets work in Azure AD DS.
 > [!div class="nextstepaction"]
 > [Replica sets concepts and features][concepts-replica-sets]
 
-
+<!-- INTERNAL LINKS -->
+[replica-sets]: concepts-replica-sets.md
+[tutorial-create-instance]: tutorial-create-instance-advanced.md
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[howto-change-sku]: change-sku.md
+[concepts-replica-sets]: concepts-replica-sets.md
