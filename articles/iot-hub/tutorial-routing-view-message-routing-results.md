@@ -69,100 +69,8 @@ Fill in the fields:
 
    Click **Save** to save your changes. Close the Logic app Designer. 
 
-<!-- 
-
-## Set up Azure Stream Analytics
-
-To see the data in a Power BI visualization, first set up a Stream Analytics job to retrieve the data. Remember that only the messages where the **level** is **normal** are sent to the default endpoint, and will be retrieved by the Stream Analytics job for the Power BI visualization.
-
-### Create the Stream Analytics job
-
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Internet of Things** > **Stream Analytics job**.
-
-2. Enter the following information for the job.
-
-   **Job name**: The name of the job. The name must be globally unique. This tutorial uses **contosoJob**.
-
-   **Subscription**: The Azure subscription you are using for the tutorial.
-
-   **Resource group**: Use the same resource group used by your IoT hub. This tutorial uses **ContosoResources**.
-
-   **Location**: Use the same location used in the setup script. This tutorial uses **West US**.
-
-   ![Create the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
-
-3. Select **Create** to create the job. It may take a few minutes to deploy.
-
-    To get back to the job, select **Resource groups**. This tutorial uses **ContosoResources**. Select the resource group, then select the Stream Analytics job in the list of resources.
-
-### Add an input to the Stream Analytics job
-
-1. Under **Job Topology**, select **Inputs**.
-
-2. In the **Inputs** pane, select **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
-
-   **Input alias**: This tutorial uses **contosoinputs**.
-
-   **Select IoT Hub from your subscription**: Select this radio button option.
-
-   **Subscription**: Select the Azure subscription you're using for this tutorial.
-
-   **IoT Hub**: Select the IoT hub. This tutorial uses **ContosoTestHub**.
-
-   **Endpoint**: Select **Messaging**. (If you select Operations Monitoring, you get the telemetry data about the IoT hub rather than the data you're sending through.) 
-
-   **Shared access policy name**: Select **service**. The portal fills in the Shared Access Policy Key for you.
-
-   **Consumer group**: Select the consumer group set up in Part 1 of this tutorial. This tutorial uses **contosoconsumers**.
-   
-   For the rest of the fields, accept the defaults. 
-
-   ![Set up the inputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
-
-3. Select **Save**.
-
-### Add an output to the Stream Analytics job
-
-1. Under **Job Topology**, select **Outputs**.
-
-2. In the **Outputs** pane, select **Add**, and then select **Power BI**. On the screen that comes up, fill in the following fields:
-
-   **Output alias**: The unique alias for the output. This tutorial uses **contosooutputs**. 
-
-   **Dataset name**: Name of the dataset to be used in Power BI. This tutorial uses **contosodataset**. 
-
-   **Table name**: Name of the table to be used in Power BI. This tutorial uses **contosotable**.
-
-  **Authentication mode**: Select the mode to use.
-
-   Accept the defaults for the rest of the fields.
-
-3. Select **Authorize**, and sign in to your Power BI account. (This may take more than one try).
-
-   ![Set up the outputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
-
-4. Select **Save**.
-
-### Configure the query of the Stream Analytics job
-
-1. Under **Job Topology**, select **Query**.
-
-2. Replace `[YourInputAlias]` with the input alias of the job. This tutorial uses **contosoinputs**.
-
-3. Replace `[YourOutputAlias]` with the output alias of the job. This tutorial uses **contosooutputs**.
-
-   ![Set up the query for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-query.png)
-
-4. Select **Save**.
-
-5. Close the Query pane. You return to the view of the resources in the Resource Group. Select the Stream Analytics job. This tutorial calls it **contosoJob**.
-
-### Run the Stream Analytics job
-
-In the Stream Analytics job, select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
-
-To set up the Power BI report, you need data, so you'll set up Power BI after creating the device and running the device simulation application.
--->
+<!-- chunk 1 - azure stream analytics goes here 
+end chunk 1 here --> 
 
 ## Run simulated device app
 
@@ -210,51 +118,9 @@ This result means the following statement is true.
 
    * The routing to the storage account is working correctly.
 
-<!-- 
-Now, with the application still running, set up the Power BI visualization to see the messages coming through the default routing.
+<!-- chunk 2 -- power bi visualization goes here
 
-## Set up the Power BI visualizations
-
-1. Sign in to your [Power BI](https:// powerbi.microsoft.com /) account.
-
-2. Go to **Workspaces** and select the workspace that you set when you created the output for the Stream Analytics job. This tutorial uses **My Workspace**. 
-
-3. Select **Datasets**. If you don't have any datasets, wait a few minutes and check again.
-
-   You should see the listed dataset that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosodataset**. (It may take 5-10 minutes for the dataset to show up the first time.)
-
-4. Under **ACTIONS**, select the first icon to create a report.
-
-   ![Power BI workspace with Actions and report icon highlighted](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
-
-5. Create a line chart to show real-time temperature over time.
-
-   * On the report creation page, add a line chart by selecting the line chart icon.
-
-     ![The visualizations and fields](./media/tutorial-routing-view-message-routing-results/power-bi-visualizations-and-fields.png)
-
-   * On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosotable**.
-
-   * Drag **EventEnqueuedUtcTime** to **Axis** on the **Visualizations** pane.
-
-   * Drag **temperature** to **Values**.
-
-   A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
-
-6. Create another line chart to show real-time humidity over time. To set up the second chart, follow the same process for the first chart, placing **EventEnqueuedUtcTime** on the x-axis (**Axis**) and **humidity** on the y-axis (**Values**).
-
-   ![The final Power BI report with the two charts](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
-
-7. Select **Save** to save the report, entering a name for the report if prompted.
-
-You should be able to see data on both charts. This result means the following statements are true:
-
-   * The routing to the default endpoint is working correctly.
-   * The Azure Stream Analytics job is streaming correctly.
-   * The Power BI Visualization is set up correctly.
-
-You can refresh the charts to see the most recent data by selecting the Refresh button on the top of the Power BI window. 
--->
+end of chunk 2 --> 
 
 ## Clean up resources 
 
