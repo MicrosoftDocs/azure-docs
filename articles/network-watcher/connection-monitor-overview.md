@@ -32,7 +32,7 @@ Here are some use cases for Connection Monitor:
 - Your front-end web server virtual machine (VM) communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VMs.
 - You want VMs in, for example, the East US region to ping VMs in the Central US region, and you want to compare cross-region network latencies.
 - You have multiple on-premises office sites, one in Seattle, Washington, for example, and another in Ashburn, Virginia. Your office sites connect to Microsoft 365 URLs. For your users of Microsoft 365 URLs, you want to compare the latencies between Seattle and Ashburn.
-- Your hybrid application needs connectivity to an Azure storage account endpoint. Your on-premises site and your Azure application connect to the same endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
+- Your hybrid application needs connectivity to an Azure storage account endpoint. Your on-premises site and your Azure application connect to the same endpoint. You want to compare the latencies of the on-premises site with the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
 Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor (Classic)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the NPM [Service Connectivity Monitor](../azure-monitor/insights/network-performance-monitor-service-connectivity.md), [ExpressRoute Monitoring](../expressroute/how-to-npm.md), and [Performance monitoring](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) feature.
@@ -43,7 +43,7 @@ Here are some benefits of Connection Monitor:
 * Cross-region, cross-workspace connectivity monitoring
 * Higher probing frequencies and better visibility into network performance
 * Faster alerting for your hybrid deployments
-* Support for connectivity checks that are based on HTTP, TCP, and ICMP 
+* Support for connectivity checks that are based on HTTP, Transmission Control Protocol (TCP), and Internet Control Message Protocol (ICMP) 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
 ![Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.](./media/connection-monitor-2-preview/hero-graphic.png)
@@ -53,7 +53,7 @@ To start using Connection Monitor for monitoring, do the following:
 1. [Install monitoring agents](#install-monitoring-agents).
 1. [Enable Network Watcher on your subscription](#enable-network-watcher-on-your-subscription).
 1. [Create a connection monitor](#create-a-connection-monitor).
-1. [Set up data analysis and alerts](#set-up-data-analysis-and-alerts).
+1. [Analyze monitoring data and set alerts](#analyze-monitoring-data-and-set-alerts).
 1. [Diagnose issues in your network](#diagnose-issues-in-your-network).
 
 The following sections provide details for these steps.
@@ -68,7 +68,7 @@ To make Connection Monitor recognize your Azure VMs as monitoring sources, insta
 
 You can install the Network Watcher extension when you [create a VM](./connection-monitor.md#create-the-first-vm). You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
-Rules for a network security group (NSG) or firewall can block communication between the source and destination. Connection Monitor detects this issue and shows it as a diagnostic message in the topology. To enable connection monitoring, ensure that NSG and firewall rules allow packets over TCP or ICMP between the source and destination.
+Rules for a network security group (NSG) or firewall can block communication between the source and destination. Connection Monitor detects this issue and shows it as a diagnostics message in the topology. To enable connection monitoring, ensure that the NSG and firewall rules allow packets over TCP or ICMP between the source and destination.
 
 ### Agents for on-premises machines
 
@@ -78,23 +78,25 @@ To install the Log Analytics agent for Windows machines, see [Install Log Analyt
 
 If the path includes firewalls or network virtual appliances (NVAs), make sure that the destination is reachable.
 
-For Windows machines, to open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrator privileges.
+To open the port:
 
-For Linux machines, change the PortNumber value manually. To do so:
-* Go to */var/opt/microsoft/omsagent/npm_state*. 
-* Open the *npmdregistry* file.
-* Change the PortNumber value: ```“PortNumber:<port of your choice>”```.
+* For Windows machines, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrator privileges.
 
-> [!NOTE]
-> The port numbers that you're using should be the same across all the agents used in a workspace. 
+* For Linux machines, change the PortNumber value manually. To do so:
+   1. Go to */var/opt/microsoft/omsagent/npm_state*. 
+   1. Open the *npmdregistry* file.
+   1. Change the PortNumber value: ```“PortNumber:<port of your choice>”```.
 
-The script creates the registry keys that are required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys that are created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port that's used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port that's opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
+   > [!NOTE]
+   > The port numbers that you're using should be the same across all the agents used in a workspace. 
+
+The script creates the registry keys that are required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys that are created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port that's used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. By default, the port that's opened is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
 
 For more information, see the "Network requirements" section of [Log Analytics agent overview](../azure-monitor/agents/log-analytics-agent.md#network-requirements).
 
 The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port that's used by Network Performance Monitor.
 
-The LA Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination, either a workspace or management group.
+The Log Analytics Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send data only to a single destination, either a workspace or management group.
 
 #### Enable the NPM solution for on-premises machines 
 
@@ -109,9 +111,9 @@ To enable the NPM solution for on-premises machines, do the following:
    
    After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
 
-:::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to add the NPM solution in Connection Monitor." lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
+   :::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to add the NPM solution in Connection Monitor." lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
 
-Unlike LA agents, the NPM solution can be configured to send data only to a single LA workspace.
+Unlike Log Analytics agents, the NPM solution can be configured to send data only to a single Log Analytics workspace.
 
 ## Enable Network Watcher on your subscription
 
@@ -136,12 +138,12 @@ Sources can be Azure VMs or on-premises machines that have an installed monitori
 
 ### Create a connection monitor
 
-In connection monitors that you create in Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP.
+In connection monitors that you create in Connection Monitor, you can add both on-premises machines and Azure VMs as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or any other URL or IP address.
 
 Connection Monitor includes the following entities:
 
-* **Connection monitor resource**: A region-specific Azure resource. All of the following entities are properties of a connection monitor resource.
-* **Endpoint**: A source or destination that participates in connectivity checks. Examples of endpoints include Azure VMs, on-premises agents, URLs, and IPs.
+* **Connection monitor resource**: A region-specific Azure resource. All the following entities are properties of a connection monitor resource.
+* **Endpoint**: A source or destination that participates in connectivity checks. Examples of endpoints include Azure VMs, on-premises agents, URLs, and IP addresses.
 * **Test configuration**: A protocol-specific configuration for a test. Based on the protocol you select, you can define the port, thresholds, test frequency, and other properties.
 * **Test group**: The group that contains source endpoints, destination endpoints, and test configurations. A connection monitor can contain more than one test group.
 * **Test**: The combination of a source endpoint, destination endpoint, and test configuration. A test is the most granular level at which monitoring data is available. The monitoring data includes the percentage of checks that failed and the round-trip time (RTT).
@@ -221,9 +223,9 @@ On the monitoring dashboards, you can view a list of the connection monitors tha
 
 When you go to Connection Monitor from Network Watcher, you can view data by:
 
-* **Connection monitor**: List of all connection monitors created for your subscriptions, regions, time stamps, sources, and destination types. This view is the default.
-* **Test groups**: List of all test groups created for your subscriptions, regions, time stamps, sources, and destination types. These test groups aren't filtered by connection monitors.
-* **Test**: List of all tests that run for your subscriptions, regions, time stamps, sources, and destination types. These tests aren't filtered by connection monitors or test groups.
+* **Connection monitor**: A list of all connection monitors that were created for your subscriptions, regions, time stamps, sources, and destination types. This view is the default.
+* **Test groups**: A list of all test groups that were created for your subscriptions, regions, time stamps, sources, and destination types. These test groups aren't filtered by connection monitors.
+* **Test**: A list of all tests that were run for your subscriptions, regions, time stamps, sources, and destination types. These tests aren't filtered by connection monitors or test groups.
 
 In the following image, the three data views are indicated by arrow 1.
 
@@ -231,7 +233,7 @@ On the dashboard, you can expand each connection monitor to view its test groups
 
 You can filter a list based on:
 
-* **Top-level filters**: Search list by text, entity type (Connection Monitor, test group, or test) timestamp and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
+* **Top-level filters**: Search the list by text, entity type (Connection Monitor, test group, or test) timestamp, and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
 * **State-based filters**: Filter by the state of the connection monitor, test group, or test. See box 2 in the following image.
 * **Alert based filter**: Filter by alerts that are fired on the connection monitor resource. See box 3 in the following image.
 
@@ -239,19 +241,19 @@ You can filter a list based on:
     
 For example, to view all tests in Connection Monitor, where the source IP is 10.192.64.56, do the following:
 1. Change the view to **Test**.
-1. In the **Search** box, type **10.192.64.56**.
+1. In the **Search** box, enter **10.192.64.56**.
 1. Under **Scope**, in the top-level filter, select **Sources**.
 
 To show only failed tests in Connection Monitor, where the source IP is 10.192.64.56, do the following:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
-1. In the **Search** box, type **10.192.64.56**.
+1. In the **Search** box, enter **10.192.64.56**.
 1. Under **Scope**, in the top-level filter, select **Sources**.
 
-To show only failed tests in Connection Monitor where the destination is outlook.office365.com, do the following:
+To show only failed tests in Connection Monitor, where the destination is outlook.office365.com, do the following:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
-1. In the **Search** box, type **office.live.com**.
+1. In the **Search** box, enter **office.live.com**.
 1. Under **Scope**, in the top-level filter, select **Destinations**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot showing a view that's filtered to show only failed tests for the outlook.office365.com destination." lightbox="./media/connection-monitor-2-preview/tests-view.png":::
@@ -294,7 +296,7 @@ To view the trends in RTT and the percentage of failed checks for a connection m
 
 To view the trends in RTT and the percentage of failed checks for a test group, do the following:
 
-1. Select the test group that you want to investigate. 
+* Select the test group that you want to investigate. 
 
    You can view and navigate between them as you would in the connection monitor: essentials, summary, table for test groups, sources, destinations, and test configurations. 
 
@@ -313,7 +315,7 @@ To view the trends in RTT and the percentage of failed checks for a test, do the
 
 Use Log Analytics to create custom views of your monitoring data. All displayed data is from Log Analytics. You can interactively analyze data in the repository. Correlate the data from Agent Health or other solutions that are based in Log Analytics. Export the data to Excel or Power BI, or create a shareable link.
 
-#### Network Topology in Connection Monitor 
+#### Network topology in Connection Monitor 
 
 You usually build Connection Monitor topology by using the result of a traceroute command that's performed by the agent. The traceroute command basically gets all the hops from source to destination.
 
@@ -328,18 +330,18 @@ In connection monitors that were created before the Connection Monitor experienc
 
 In connection monitors that were created in the Connection Monitor experience, data is available only for ChecksFailedPercent, RoundTripTimeMs, and Test Result metrics.
 
-Metrics are generated as per monitoring frequency, and they describe aspects of a connection monitor at a particular time. Connection Monitor metrics also have multiple dimensions, such as SourceName, DestinationName, TestConfiguration, and TestGroup. You can use these dimensions to visualize specific data and to target it while defining alerts.
+Metrics are generated according to monitoring frequency, and they describe aspects of a connection monitor at a particular time. Connection Monitor metrics also have multiple dimensions, such as SourceName, DestinationName, TestConfiguration, and TestGroup. You can use these dimensions to visualize specific data and to target it while defining alerts.
 
-Currently Azure metrics allow minimum granularity of 1 minute, If frequency is less than 1 minute, aggregated results will be displayed.
+Azure metrics currently allow a minimum granularity of 1 minute, If the frequency is less than 1 minute, aggregated results will be displayed.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor." lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
-When you use metrics, set the resource type as Microsoft.Network/networkWatchers/connectionMonitors
+When you use metrics, set the resource type as **Microsoft.Network/networkWatchers/connectionMonitors**.
 
 | Metric | Display name | Unit | Aggregation type | Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent (classic) | % Probes Failed (classic) | Percentage | Average | Percentage of connectivity monitoring probes failed.<br>This metric is available only for Connection Monitor classic.  | No dimensions |
-| AverageRoundtripMs (classic) | Avg. round-trip time (ms) (classic) | Milliseconds | Average | Average network RTT for connectivity monitoring probes sent between source and destination.<br>This metric is available only for Connection Monitor classic. |             No dimensions |
+| ProbesFailedPercent (classic) | % Probes Failed (classic) | Percentage | Average | Percentage of connectivity monitoring probes failed.<br>This metric is available only for Connection Monitor (Classic).  | No dimensions |
+| AverageRoundtripMs (classic) | Avg. round-trip time (ms) (classic) | Milliseconds | Average | Average network RTT for connectivity monitoring probes sent between source and destination.<br>This metric is available only for Connection Monitor (Classic). |             No dimensions |
 | ChecksFailedPercent | % Checks Failed | Percentage | Average | Percentage of failed checks for a test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | RoundTripTimeMs | Round-trip time (ms) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | TestResult | Test Result | Count | Average | Connection monitor test results. <br>Interpretation of result values: <br>0-&nbsp;Indeterminate <br>1- Pass <br>2- Warning <br>3- Fail| SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
@@ -349,14 +351,15 @@ When you use metrics, set the resource type as Microsoft.Network/networkWatchers
 
 You can create metric alerts on connection monitors by using the following methods: 
 
-* From Connection Monitor, during creation of connection monitors by using [the Azure portal](connection-monitor-preview-create-using-portal.md#). 
-* From Connection Monitor, by using **Configure Alerts** in the dashboard. 
-* From Azure Monitor, create an alert by doing the following: 
+* From Connection Monitor, create metric alerts during the creation of connection monitors by using [the Azure portal](connection-monitor-preview-create-using-portal.md#). 
+* From Connection Monitor, create metric alerts by using **Configure Alerts** in the dashboard. 
+* From Azure Monitor, create metric alerts by doing the following: 
+
     1. Select the connection monitor resource that you created in Connection Monitor.
     1. Ensure that **Metric** is selected as the signal type for the connection monitor.
     1. In **Add Condition**, for the **Signal Name**, select **ChecksFailedPercent** or **RoundTripTimeMs**.
     1. For **Signal Type**, select **Metrics**. For example, select **ChecksFailedPercent**.
-    1. All of the dimensions for the metric are listed. Select the dimension name and dimension value. For example, select **Source Address**, and then enter the IP address of any source in your connection monitor.
+    1. All the dimensions for the metric are listed. Select the dimension name and dimension value. For example, select **Source Address**, and then enter the IP address of any source in your connection monitor.
     1. In **Alert Logic**, enter the following values:
         * **Condition Type**: **Static**.
         * **Condition** and **Threshold**.
@@ -424,7 +427,8 @@ You can migrate tests from Network Performance Monitor and Connection Monitor (C
 The migration helps produce the following results:
 
 * Agents and firewall settings work as is. No changes are required. 
-* Existing connection monitors are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection Monitor, download a template to make changes to Connection Monitor, and submit it via Azure Resource Manager. 
+
+* Existing connection monitors are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the latest Connection Monitor, download a template to make changes to Connection Monitor, and submit it via Azure Resource Manager. 
 * Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics will get migrated to new metrics as ProbesFailedPercent > ChecksFailedPercent and AverageRoundtripMs > RoundTripTimeMs.
 * Data monitoring:
    * **Alerts**: Migrated automatically to the new metrics.
@@ -435,25 +439,26 @@ There are several reasons to migrate from Network Performance Monitor and Connec
  | Feature	| Network Performance Monitor | Connection Monitor (Classic) | Connection Monitor |
  | -------  | --------------------------- | -------------------------- | ------------------ | 
  | Unified experience for Azure and hybrid monitoring |	Not available |	Not available |	Available |
- | Cross-subscription, cross-region, cross-workspace monitoring | Allows cross-subscription, cross-region monitoring, but doesn’t allow cross-workspace monitoring |	Not available | Allows cross-subscription, cross-workspace monitoring; cross-workspaces have regional boundary  |
+ | Cross-subscription, cross-region, cross-workspace monitoring | Allows cross-subscription, cross-region monitoring, but doesn’t allow cross-workspace monitoring. |	Not available | Allows cross-subscription, cross-workspace monitoring; cross-workspaces have regional boundary.  |
  | Centralized workspace support | 	Not available |	Not available	| Available |
- | Multiple sources can ping multiple destinations | Performance monitoring allows multiple sources to ping multiple destinations. Service connectivity monitoring allows multiple sources to ping a single service or URL. Express route allows multiple sources to ping multiple destinations. | Not available | Available |
+ | Multiple sources can ping multiple destinations | Performance monitoring allows multiple sources to ping multiple destinations. Service connectivity monitoring allows multiple sources to ping a single service or URL. Express Route allows multiple sources to ping multiple destinations. | Not available | Available |
  | Unified topology across on-premises, internet hops, and Azure | Not available | Not available	| Available |
  | HTTP status code checks | Not available	| Not available	| Available |
  | Connectivity diagnostics | Not available | Available | Available |
- | Compound resources - Virtual networks, subnets, and on-premises custom networks | Performance monitoring supports subnets, on-premises networks, and logical network groups. Service connectivity monitoring and express route support only on-premises and cross-workspace monitoring. | Not available | Available |
+ | Compound resources - Virtual networks, subnets, and on-premises custom networks | Performance monitoring supports subnets, on-premises networks, and logical network groups. Service connectivity monitoring and Express Route support only on-premises and cross-workspace monitoring. | Not available | Available |
  | Connectivity metrics and dimensions measurements |	Not available | Loss, latency, and RTT. | Available |
  | Automation – PowerShell, the Azure CLI, Terraform | Not available | Available | Available |
- | Support for Linux | Performance monitoring supports Linux. Service Connectivity Monitor and Express Route do not support Linux | Available | Available |
+ | Support for Linux | Performance monitoring supports Linux. Service Connectivity Monitor and Express Route do not support Linux. | Available | Available |
  | Support for public, government, Mooncake, and air-gapped cloud | Available | Available | Available|
+ | | |
 
 
 ## FAQ
 
-### Are classic VMs supported?
+### Does Connection Monitor support classic VMs?
 No, Connection Monitor doesn't support classic VMs. We recommended that you migrate infrastructure as a service (IaaS) resources from classic to Azure Resource Manager, because classic resources [will be deprecated](../virtual-machines/classic-vm-deprecation.md). For more information, see [Migrate IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
 
-### What can I do if my topology isn't decorated or my hops have missing information?
+### What if my topology isn't decorated or my hops have missing information?
 Topology can be decorated from non-Azure to Azure only if the destination Azure resource and the Connection Monitor resource are in same region. 
 
 ### What happens if the Connection Monitor creation fails with the following error: "We don't allow creating different endpoints for the same VM"?
