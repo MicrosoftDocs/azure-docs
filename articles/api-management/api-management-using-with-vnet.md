@@ -208,6 +208,10 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
 ### Application Insights  
   If you've enabled [Azure Application Insights](api-management-howto-app-insights.md) monitoring on API Management, allow outbound connectivity to the [telemetry endpoint](../azure-monitor/app/ip-addresses.md#outgoing-ports) from the VNET.
 
+### KMS endpoint
+
+When adding virtual machines running Windows to the VNET, allow outbound connectivity on port 1688 to the [KMS endpoint](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution) in your cloud. This configuration routes Windows VM traffic to the Azure Key Management Services (KMS) server to complete Windows activation.
+
 ### Force tunneling traffic to on-premises firewall Using ExpressRoute or Network Virtual Appliance  
   Commonly, you configure and define your own default route (0.0.0.0/0), forcing all traffic from the API Management-delegated subnet to flow through an on-premises firewall or to a network virtual appliance. This traffic flow breaks connectivity with Azure API Management, since outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses no longer working with various Azure endpoints. You can solve this issue via a couple of methods: 
 
@@ -226,6 +230,7 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
       - Azure portal Diagnostics
       - SMTP Relay
       - Developer portal CAPTCHA
+      - Azure KMS server
 
 ## Routing
 
