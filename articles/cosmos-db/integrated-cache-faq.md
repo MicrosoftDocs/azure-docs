@@ -53,7 +53,7 @@ Expanding the integrated cache beyond SQL API is planned on the long-term roadma
 
 ### What consistency does the integrated cache support?
 
-The integrated cache supports both session and eventual consistency. You can also configure the optional [MaxIntegratedCacheStaleness](integrated-cache.md#MaxIntegratedCacheStaleness), which places an upper bound on cached data.
+The integrated cache supports both session and eventual consistency. You can also configure the optional [MaxIntegratedCacheStaleness](integrated-cache.md#maxintegratedcachestaleness), which places an upper bound on cached data.
 
 ## Next steps
 
