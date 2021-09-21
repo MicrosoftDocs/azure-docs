@@ -32,7 +32,7 @@ The solution outlined in this article works in all of these browsers, or anywher
 
 ## Overview of the solution
 
-To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires new access token, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x.
+To continue authenticating users in SPAs, app developers must use the [authorization code flow](v2-oauth2-auth-code-flow.md). In the auth code flow, the identity provider issues a code, and the SPA redeems the code for an access token and a refresh token. When the app requires additional tokens, it can use the [refresh token flow](v2-oauth2-auth-code-flow.md#refresh-the-access-token) to get new tokens. Microsoft Authentication Library (MSAL) for JavaScript v2.0, implements the authorization code flow for SPAs and, with minor updates, is a drop-in replacement for MSAL.js 1.x.
 
 For the Microsoft identity platform, SPAs and native clients follow similar protocol guidance:
 
@@ -40,7 +40,7 @@ For the Microsoft identity platform, SPAs and native clients follow similar prot
   - PKCE is _required_ for SPAs on the Microsoft identity platform. PKCE is _recommended_ for native and confidential clients.
 - No use of a client secret
 
-SPAs have two another restrictions:
+SPAs have two additional restrictions:
 
 - [The redirect URI must be marked as type `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) to enable CORS on login endpoints.
 - Refresh tokens issued through the authorization code flow to `spa` redirect URIs have a 24-hour lifetime rather than a 90-day lifetime.
