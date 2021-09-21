@@ -53,6 +53,8 @@ Statsbeat collects essential and non-essential metrics.
 
 ### Configure Statsbeat
 
+#### [Java](#tab/java)
+
 To disable non-essential Statsbeat, add the below configuration to your config file.
 
 ```json
@@ -66,3 +68,8 @@ To disable non-essential Statsbeat, add the below configuration to your config f
 ```
 
 You can also disable this feature by setting the environment variable `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` to true (which will then take precedence over disabled specified in the json configuration).
+
+#### [Node](#tab/node)
+
+#### [Python](#tab/python)
+---
