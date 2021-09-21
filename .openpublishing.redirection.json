@@ -18129,6 +18129,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/protect-windows-virtual-desktop.md",
+      "redirect_url": "/azure/firewall/protect-azure-virtual-desktop",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/log-analytics-samples.md",
       "redirect_url": "/azure/firewall/firewall-workbook",
       "redirect_document_id": false
