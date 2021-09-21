@@ -14424,6 +14424,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-ssh.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/bastion/working-remotely-support.md",
       "redirect_url": "/azure/bastion/work-remotely-support",
       "redirect_document_id": false

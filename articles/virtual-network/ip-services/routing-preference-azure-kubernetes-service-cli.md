@@ -60,7 +60,7 @@ The following command creates a new public IP with **Internet** routing preferen
 
 Place the ID of the public IP created previously into a variable for later use. Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to retrieve the public IP ID.
 
-The following command retrieves the pubic IP ID and places it in a variable to use in the next command.
+The following command retrieves the public IP ID and places it in a variable to use in the next command.
 
 ```azurecli-interactive
   export resourceid=$(az network public-ip show \
@@ -85,7 +85,7 @@ The following command creates the Kubernetes cluster and uses the variable for t
 >[!NOTE]
 >It takes a few minutes to deploy the AKS cluster.
 
-To validate, search for the public IP created in the earlier step in Azure portal, you will see the IP is associated with the load balancer that is associated with the Kubernetes cluster as shown below:
+To validate, search for the public IP created in the earlier step in Azure portal. The public IP is associated with the load balancer. The load balancer is associated with the Kubernetes cluster as shown below:
 
   :::image type="content" source="./media/routing-preference-azure-kubernetes-service-cli/verify-aks-ip.png" alt-text="Screenshot of AKS cluster public IP address.":::
 
