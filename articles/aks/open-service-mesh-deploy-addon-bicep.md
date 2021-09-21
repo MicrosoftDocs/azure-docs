@@ -1,5 +1,5 @@
 ---
-title: Deploy Open Service Mesh AKS addon using Bicep
+title: Deploy Open Service Mesh AKS add-on using Bicep
 description: Deploy Open Service Mesh on Azure Kubernetes Service (AKS) using Bicep
 services: container-service
 ms.topic: article
@@ -8,9 +8,9 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-# Deploy Open Service Mesh (OSM) Azure Kubernetes Service (AKS) addon using Bicep
+# Deploy Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on using Bicep
 
-This article will discuss how to deploy the OSM addon to AKS using a [Bicep](/azure/azure-resource-manager/bicep/) template.
+This article will discuss how to deploy the OSM add-on to AKS using a [Bicep](/azure/azure-resource-manager/bicep/) template.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -59,9 +59,9 @@ When ready, refresh the registration of the _Microsoft.ContainerService_ resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Install the OSM AKS addon for a new AKS cluster using Bicep
+## Install the OSM AKS add-on for a new AKS cluster using Bicep
 
-For a new AKS cluster deployment scenario, start with a brand new deployment of an AKS cluster with the OSM addon enabled at the cluster create operation. The following set of directions will use a generic Bicep template that deploys an AKS cluster using ephemeral disks, using the [`kubenet`](/azure/aks/configure-kubenet) CNI, and enabling the AKS OSM addon. For more advanced deployment scenarios visit the [Bicep](/azure/azure-resource-manager/bicep/overview) documentation.
+For a new AKS cluster deployment scenario, start with a brand new deployment of an AKS cluster with the OSM add-on enabled at the cluster create operation. The following set of directions will use a generic Bicep template that deploys an AKS cluster using ephemeral disks, using the [`kubenet`](/azure/aks/configure-kubenet) CNI, and enabling the AKS OSM add-on. For more advanced deployment scenarios visit the [Bicep](/azure/azure-resource-manager/bicep/overview) documentation.
 
 ### Create a resource group
 

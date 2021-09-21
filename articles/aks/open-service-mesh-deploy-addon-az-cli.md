@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-# Deploy the Open Service Mesh AKS addon using Azure CLI
+# Deploy the Open Service Mesh AKS add-on using Azure CLI
 
 This article will discuss how to deploy the OSM add-on to AKS.
 
@@ -198,6 +198,7 @@ kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{
 
 <!-- Links -->
 <!-- Internal -->
+
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
