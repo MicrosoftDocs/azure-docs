@@ -1,7 +1,6 @@
 ---
 title: Import the AdventureWorks sample database to Azure Arc-enabled PostgreSQL Hyperscale
 description: Restore the AdventureWorks sample database to Azure Arc-enabled PostgreSQL Hyperscale
-services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
@@ -33,7 +32,7 @@ Run a command like this to download the files replace the value of the pod name 
 >  Your container will need to have Internet connectivity over 443 to download the file from GitHub.
 
 > [!NOTE]
->  Use the pod name of the Coordinator node of the Postgres Hyperscale server group. Its name is <server group name>c-0 (for example postgres01c-0, where c stands for Coordinator node).  If you are not sure of the pod name run the command `kubectl get pod`
+>  Use the pod name of the Coordinator node of the Postgres Hyperscale server group. Its name is \<server group name\>c-0 (for example postgres01c-0, where c stands for Coordinator node).  If you are not sure of the pod name run the command `kubectl get pod`
 
 ```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c postgres  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/main/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"

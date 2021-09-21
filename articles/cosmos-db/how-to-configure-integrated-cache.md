@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 09/20/2021
 ms.author: tisande
 ---
 
@@ -95,7 +95,7 @@ For a read request (point read or query) to utilize the integrated cache, **all*
 
 -	Your client connects to the dedicated gateway endpoint
 -  Your client uses gateway mode (Python and Node.js SDK's always use gateway mode)
--	The consistency for the request must be set to eventual.
+-	The consistency for the request must be set to session or eventual
 
 > [!NOTE]
 > Do you have any feedback about the integrated cache? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:

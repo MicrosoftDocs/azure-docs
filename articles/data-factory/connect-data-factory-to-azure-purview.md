@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 09/09/2021
+ms.date: 09/15/2021
 ---
 
 # Connect Data Factory to Azure Purview (Preview)
@@ -38,7 +38,7 @@ To establish the connection on Data Factory authoring UI:
 
 If your Purview account is protected by firewall, create the managed private endpoints for Purview. Learn more about how to let Data Factory [access a secured Purview account](how-to-access-secured-purview-account.md). You can either do it during the initial connection or edit an existing connection later.
 
-The Purview connection information is stored in the data factory resource like the following. To establish the connection programmatically, you can update the data factory and add the `purviewConfiguration` settings.
+The Purview connection information is stored in the data factory resource like the following. To establish the connection programmatically, you can update the data factory and add the `purviewConfiguration` settings. When you want to push lineage from SSIS activities, also add `catalogUri` tag additionally.
 
 ```json
 {
@@ -51,8 +51,11 @@ The Purview connection information is stored in the data factory resource like t
             "purviewResourceId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupname>/providers/Microsoft.Purview/accounts/<PurviewAccountName>"
         }
     },
-    "identity": {...},
     ...
+    "identity": {...},
+    "tags": {
+        "catalogUri": "<PurviewAccountName>.catalog.purview.azure.com //Note: used for SSIS lineage only"
+    }
 }
 ```
 

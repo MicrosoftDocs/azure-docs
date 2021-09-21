@@ -256,6 +256,12 @@
       - name: Setup AMD GPU drivers
         displayName: AMD GPU drivers, AMD, GPU drivers, GPU
         href: ./windows/n-series-amd-driver-setup.md
+      - name: NC-series retirement
+        href: nc-series-retirement.md
+      - name: NCv2-series retirement
+        href: ncv2-series-retirement.md
+      - name: ND-series retirement
+        href: nd-series-retirement.md 
       - name: GPU compute migration guide
         displayName: GPU compute migration guide
         href: ./n-series-migration.md

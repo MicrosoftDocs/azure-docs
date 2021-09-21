@@ -1,5 +1,5 @@
 ---
-title: Create an application-centric environment - Azure
+title: Create an application-centric environment
 description: This article demonstrates how to create an application-centric environment with Cloud Shell Colony and Microsoft Azure.
 ms.topic: how-to
 ms.date: 11/26/2020
