@@ -64,19 +64,19 @@
       href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Manage your organization
     items:
-    - name: Azure AD organizations    
+    - name: Azure AD tenant organizations    
       href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
     - name: Manage domain names
       href: domains-manage.md
     - name: Verify subdomains as managed
       href: domains-verify-custom-subdomain.md
-    - name: Delete a directory    
+    - name: Delete a tenant    
       href: directory-delete-howto.md
-    - name: Multiple directories    
+    - name: Multiple tenants    
       href: licensing-directory-independence.md
     - name: Self-service signup    
       href: directory-self-service-signup.md
-    - name: Take over a directory    
+    - name: Take over a tenant    
       href: domains-admin-takeover.md
     - name: Azure AD Connect    
       href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
