@@ -14,7 +14,7 @@ Anonymous pull access is a preview feature, available in the Standard and Premiu
 
 ## About anonymous pull access
 
-Content in an Azure container registry is not publicly available by default. Access to pull or push registry content is only available to [authenticated](container-registry-authentication.md) users. Enabling anonymous (unauthenticated) pull access makes all registry content publicly available for read (pull) actions. Anonymous pull access can be used in scenarios such as distributing public container images that do not require user authentication.
+By default, acess to pull or push content from an Azure container registry is only available to [authenticated](container-registry-authentication.md) users. Enabling anonymous (unauthenticated) pull access makes all registry content publicly available for read (pull) actions. Anonymous pull access can be used in scenarios that do not require user authentication such as distributing public container images.
 
 > * Enable anonymous pull access by updating the properties of an existing registry.
 > * After enabling anonymous pull access, you may disable that access at any time.
