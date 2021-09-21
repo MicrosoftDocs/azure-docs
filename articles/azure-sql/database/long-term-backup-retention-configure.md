@@ -98,9 +98,9 @@ Run the [az sql db ltr-policy set](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_po
     --server myserver /
     --name mydb /
     --weekly-retention "P12W"
-    ```
+```
 
-This example sets a a retention policy for 12 weeks for the weekly backup, 5 years for the yearly backup, and the week of April 15 in which to take the yearly LTR backup.
+This example sets a retention policy for 12 weeks for the weekly backup, 5 years for the yearly backup, and the week of April 15 in which to take the yearly LTR backup.
 
 ```azurecli
     az sql db ltr-policy set /
@@ -110,7 +110,7 @@ This example sets a a retention policy for 12 weeks for the weekly backup, 5 yea
     --weekly-retention "P12W" /
     --yearly-retention "P5Y" /
     --week-of-year 16
-    ```
+```
 
 # [PowerShell](#tab/powershell)
 
