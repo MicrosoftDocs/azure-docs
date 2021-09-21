@@ -790,7 +790,7 @@
                 - name: Troubleshoot slow requests
                   href: sql/troubleshoot-dot-net-sdk-slow-request.md
                 - name: Troubleshoot service unavailable
-                  href: troubleshoot-service-unavailable.md
+                  href: sql/troubleshoot-service-unavailable.md
             - name: .Java
               items:
                 - name: Troubleshoot Java SDK v4
