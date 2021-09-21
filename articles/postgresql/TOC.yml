@@ -715,7 +715,7 @@
       - name: Private access
         items:
         - name: Azure portal
-          href: howto-hyperscale-private-link.md
+          href: howto-hyperscale-private-access.md
           displayName: network, private link
     - name: Create users
       href: howto-hyperscale-create-users.md
