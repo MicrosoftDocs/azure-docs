@@ -45,6 +45,8 @@
       href: onboard-portal.md
     - name: Connect machines at scale using a service principal
       href: onboard-service-principal.md
+    - name: Connect machines from Automation Update Management
+      href: onboard-update-management-machines.md
     - name: Connect machines to Azure Arc with PowerShell DSC
       href: onboard-dsc.md
     - name: Connect machines from Windows Admin Center

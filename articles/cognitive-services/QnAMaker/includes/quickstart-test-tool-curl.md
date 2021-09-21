@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 11/09/2020
+ms.date: 09/13/2021
 ---
 
 This cURL-based quickstart walks you through getting an answer from your knowledge base.

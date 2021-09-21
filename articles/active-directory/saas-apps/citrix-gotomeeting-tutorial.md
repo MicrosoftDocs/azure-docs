@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with GoToMeeting
@@ -32,6 +32,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * GoToMeeting supports **IDP** initiated SSO.
+* GoToMeeting supports [Automated user provisioning](citrixgotomeeting-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -138,6 +139,9 @@ There is no action item for you in this section. If a user doesn't already exist
 
 > [!NOTE]
 > If you need to create a user manually, Contact [GoToMeeting support team](https://support.logmeininc.com/gotomeeting).
+
+> [!NOTE]
+>GoToMeeting also supports automatic user provisioning, you can find more details [here](./citrixgotomeeting-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

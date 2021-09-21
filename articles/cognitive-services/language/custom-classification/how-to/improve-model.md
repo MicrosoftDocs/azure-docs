@@ -25,8 +25,6 @@ After you've trained your model you reviewed its evaluation details, you can sta
 > [!NOTE]
 > This guide focuses on data from the [validation set](train-model.md#data-splits) that was created during training.
 
-# [Using Language Studio](#tab/language-studio)
-
 ## Review the validation set using the Language Studio
 
 Using Language Studio, you can review how your model performs vs how you expected it to perform. You can review predicted and tagged classes side by side for each model you have trained.
@@ -45,70 +43,7 @@ Using Language Studio, you can review how your model performs vs how you expecte
 
 6. If a file that should belong to class  `X` is constantly classified as class `Y`, it means that there is ambiguity between these classes and you need to reconsider your schema.
 
-# [Using APIs](#tab/api)
-
-## Review validation set using APIs
-
-### Get your resource keys endpoint
-
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
-
-2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
-
-    :::image type="content" source="../media/get-endpoint-azure.png" alt-text="Get the endpoint" lightbox="../media/get-endpoint-azure.png":::
-
-### Review validation set
-
-Use the following **GET** request to get you model evaluation results: 
-
-`{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/validation`
-
-Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName}` with your project name. Pass `trainingModelName` as a parameter with the model name you are requesting validation data for (the model name is case-sensitive). For your request to be successful make sure that the model has completed training successfully on more than 10 files to be able to query validation results. 
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your subscription key that provides access to this API.|
-
-#### Response Body
-
-```json
-    {
-    "modelType": "MultiClassification",
-    "singleClassificationValidation": null,
-    "multiClassificationValidation": {
-        "documents": [
-            {
-                "classes": {
-                    "labeledClasses": [
-                        "Class_1",
-                        "Class_2"
-                    ],
-                    "predictedClasses": [
-                        "Class_1",
-                    ]
-                },
-                "location": "file.txt",
-                "culture": "en-us"
-            }
-        ]
-    }
-}
-```
-
-|Key|Sample Value|Description|
-|--|--|--|
-|modelType|"MultiClassification"|Type of the model. This value can be `SingleClassification` based on model type|
-|multiClassificationValidation|{}| Object for multiClassification results of the validation set|
-|singleClassificationValidation|{}| Object for singleClassification results of the validation set|
-|documents|[]|list of files in validation set|
-|labeledClasses|[]| list of classes tagged for this file|
-|predictedClasses|[]| list of classes predicted for this file|
-
----
-
-### Examine data distribution from Language studio
+## Examine data distribution from Language studio
 
 By examining data distribution in your files, you can decide if any class is underrepresented. Data imbalance happens when the files used for training are not distributed equally among the classes and this introduces a risk to model performance. For example, if `class 1` has 50 tagged files while `class 2` has 10 tagged files only, this is a data imbalance where `class 1` is over represented and `class 2` is underrepresented. 
 

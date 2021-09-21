@@ -40,8 +40,6 @@ Before starting the training process, files in your dataset are divided into thr
 * Finished [tagging your data](tag-data.md).
     * You can create and train multiple [models](../definitions.md#model) within the same [project](../definitions.md#project). However, if you re-train a specific model it will overwrite the previous state.
 
-# [Using Language Studio](#tab/language-studio)
-
 ## Train model in Language studio
 
 1. Go to your project page in [Language Studio](https://language.azure.com/customText/projects/classification).
@@ -55,129 +53,6 @@ Before starting the training process, files in your dataset are divided into thr
 4. Select the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up window will appear to confirm overwriting the last model state.
 
 5. After training is completed, you can [view the model evaluation details](view-model-evaluation.md) and [improve your model](improve-model.md)
-
-# [Using the APIs](#tab/api)
-
-## Train using APIs
-
-### Get your resource keys endpoint
-
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
-
-2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for the `Ocp-Apim-Subscription-Key` header.
-
-    :::image type="content" source="../media/get-endpoint-azure.png" alt-text="get your key and endpoint from the Azure portal" lightbox="../media/get-endpoint-azure.png":::
-
-### Send a POST request to begin training
-
-Use the following **POST** request to create your project: 
-
-`{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/train` 
-
-Replace `{YOUR-ENDPOINT}` by the endpoint you got from the previous step and `{projectName}` with the name of the project that contains the model you want to publish.
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your subscription key that provides access to the API.|
-
-#### Body
-
-```json
-    {
-        "tasks": [
-            {
-                "trainingModelName": "MyModel"
-        }
-        ]
-    }
-```
-
-|Key|Sample Value|Description|
-|--|--|--|
-|trainingModelName|"MyModel"|Name of the model you want to train|
-
-#### Response
-
-You will receive a 202 response if the request is a success. Extract `location` from the response headers. It will be formatted like:
-
-`{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/train/jobs/{jobId}` 
-
-You will use this endpoint in the next step to get the training status.
-
-### Get Training Status
-
-Use the following **GET** request to query the status of the training process. You can use the endpoint you received from the previous step. For example:
-
-`{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/train/jobs/{jobId}`. Replace `{YOUR-ENDPOINT}` with your own endpoint, replace `{projectName}` with your project name and `{jobID}` with the jobID you received in the previous step.
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
-
-#### Response Body
-
-```json
-    {
-        "tasks": [
-            {
-            "trainingModelName": "MyModel",
-            "evaluationStatus": {
-                "status": "notStarted",
-                "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
-                "error": {
-                "code": "NotFound",
-                "message": "Error Message"
-                }
-            },
-            "status": "notStarted",
-            "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
-            "error": {
-                "code": "NotFound",
-                "message": "Error Message"
-            }
-            }
-        ],
-        "inProgress": 0,
-        "completed": 0,
-        "failed": 0,
-        "total": 0,
-        "jobId": "123456789",
-        "createdDateTime": "2021-05-18T20:31:04.592Z",
-        "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
-        "expirationDateTime": "2021-05-19T11:44:08.555Z",
-        "status": "notStarted",
-        "errors": [
-            {
-            "code": "NotFound",
-            "message": "string"
-            }
-        ]
-    }
-```
-
-|Key|Sample Value|Description|
-|--|--|--|
-|tasks|[]|List of tasks you are running|
-|trainingModelName|"MyModel"| Name of the model being trained|
-|evaluationStatus| [] | Object containing the status, create time and errors of the evaluation process. Evaluation process starts after training is completed.|
-|status|"notStarted"|Training Status|
-|lastUpdatedDateTime|`2021-03-29T17:44:18.9863934Z`|Timestamp of last update to your model|
-|errors|[]|list of errors in training|
-|inProgress|0|Count of tasks with status inProgress|
-|completed|0|Count of tasks with status completed|
-|failed|0|Count of tasks with status failed|
-|total|0|Total count of tasks|
-|jobId|"123456789"|Your Job ID|
-|createdDateTime|`2021-03-29T17:44:18.8469889Z`|Timestamp for job creation|
-|lastUpdatedDateTime|`2021-03-29T17:44:18.9863934Z`|Timestamp of last update to your model|
-|status|"inProgress"|General status of all your tasks|
-|errors|[]|list of errors of all your tasks|
-
----
 
 ## Next steps
 

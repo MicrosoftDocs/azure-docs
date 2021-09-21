@@ -13,6 +13,8 @@ keywords: "qna maker, low code chat bots, multi-turn conversations"
 
 QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows you to create a natural conversational layer over your data. It is  used to find the most appropriate answer for any input from your custom knowledge base (KB) of information.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 QnA Maker is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications.
 
 QnA Maker doesn't store customer data. All customer data (question answers and chat logs) is stored in the region the customer deploys the dependent service instances in. For more details on dependent services see [here](../concepts/plan.md?tabs=v1).
