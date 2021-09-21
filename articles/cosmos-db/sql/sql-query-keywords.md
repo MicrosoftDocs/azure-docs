@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 09/20/2021
 ms.author: tisande
 
 ---
@@ -97,7 +97,16 @@ The results are:
 ]
 ```
 
-Queries with an aggregate system function and a subquery with `DISTINCT` are not supported. For example, the following query is not supported:
+Queries with an aggregate system function and a subquery with `DISTINCT` are only supported in specific SDK versions.
+
+|**SDK**|**Supported versions**|
+|-------|----------------------|
+|.NET SDK|3.18.0 or later|
+|Java SDK|4.19.0 or later|
+|Node.js SDK|Unsupported|
+|Python SDK|Unsupported|
+
+For example, queries with the following shape are only supported in the above specific SDK versions:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
