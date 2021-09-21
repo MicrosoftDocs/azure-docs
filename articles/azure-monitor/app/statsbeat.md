@@ -44,13 +44,12 @@ Statsbeat collects essential and non-essential metrics.
 |-----|-----|-----|
 |Feature|Count| `Resource Provider`, `Resource Provider Identifier`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
 
-
 ### Non-Essential Statsbeat
+
 - Track the success and falure od disk persistence
 - Live metrics network statsbeat
 - Azure metadata service network statsbeat
 - Profiler network statsbeat
-
 
 ### Configure Statsbeat
 
