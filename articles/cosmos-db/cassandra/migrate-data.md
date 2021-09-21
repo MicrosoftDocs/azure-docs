@@ -93,15 +93,6 @@ Use the [CQL COPY command](https://cassandra.apache.org/doc/latest/cassandra/too
    COPY exampleks.tablename FROM 'data.csv' WITH HEADER = TRUE;
    ```
 
-1. In the below example, the csv file is stored in a location above the root directory:
-
-   ```bash
-   COPY exampleks.tablename FROM '../dataimport/data.csv' WITH HEADER = TRUE;   
-   ```
-   
-
-
-
 
 
 ### Migrate data by using Spark 
