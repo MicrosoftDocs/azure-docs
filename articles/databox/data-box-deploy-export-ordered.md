@@ -9,6 +9,7 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: alkohli
+ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
 # Tutorial: Create export order for Azure Data Box
