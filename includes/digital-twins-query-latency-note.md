@@ -1,5 +1,6 @@
 ---
 author: baanders
+description: include for query API latency note
 ms.service: digital-twins
 ms.topic: include
 ms.date: 09/21/2021
