@@ -27,7 +27,7 @@ highlightedContent:
       url: whats-new.md
     - title: Get started with Language Studio
       itemType: get-started
-      url: overview.md
+      url: concepts/language-studio.md
     - title: Responsible use of AI
       itemType: concept
       url: /legal/cognitive-services/text-analytics/transparency-note
