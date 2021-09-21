@@ -1,7 +1,7 @@
 ---
 author: baanders
 ms.service: digital-twins
-ms.topic: include for query API latency note
+ms.topic: include
 ms.date: 09/21/2021
 ms.author: baanders
 ---
