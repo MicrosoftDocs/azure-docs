@@ -4,7 +4,7 @@ description: Options for installing the Azure Monitor Agent (AMA) on Azure virtu
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/19/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ---

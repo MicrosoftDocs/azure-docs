@@ -40,7 +40,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<sup>1</sup> | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs<br>(through Log Analytics agent) |
 | **Services and**<br>**features**<br>**supported** | Log Analytics<br>Metrics explorer | | Metrics explorer | VM insights<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM insights<br>Service Map |
 
-<sup>1</sup> There's a limitation today on Azure Monitor Agent for Linux wherein using Azure Monitor Metrics as the *only* destination is not supported. Using it alongwith Azure Monitor Logs works. This limitation will be addressed in the next extension update.
+<sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics
 
 ## Azure Monitor agent
 
@@ -50,7 +50,7 @@ Use the Azure Monitor agent if you need to:
 
 - Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
 - Manage data collection configuration centrally, using [data collection rules](./data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall
-- Send data to Azure Monitor Logs and Azure Monitor Metrics for analysis with Azure Monitor. 
+- Send data to Azure Monitor Logs and Azure Monitor Metrics (preview) for analysis with Azure Monitor. 
 - Leverage Windows event filtering or multi-homing for logs on Windows and Linux
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
