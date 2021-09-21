@@ -35,7 +35,7 @@ For example, if you publish the path `https://yourapp/app` but the application c
 If registration fails during the Connector wizard installation, there are two ways to view the reason for the failure. Either look in the event log under **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**, or run the following Windows PowerShell command:
 
 ```powershell
-Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
+Get-WinEvent -LogName "Microsoft-AadApplicationProxy-Connector/Admin" | where {$_.leveldisplayname -eq "Error"} | Select-Object -First 1 
 ```
 
 Once you find the Connector error from the event log, use this table of common errors to resolve the problem:
