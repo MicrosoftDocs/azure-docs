@@ -76,15 +76,10 @@ An administrator that has been assigned the Attribute Definition Administrator a
 1. The administrator assigns attributes to Azure AD objects.
 1. The administrator updates and maintains attributes.
 
-Advantages of managing centrally
-
-- All custom security attributes can be managed by one or two administrators
-- Can work for small organizations
-
-Disadvantages of managing centrally
-
-- Administrator might get several requests to define and assign custom security attributes
-- Does not scale for large organizations
+> [!div class="mx-tableFixed"]
+> | Advantages | Disadvantages |
+> | --- | --- |
+> | <ul><li>All custom security attributes can be managed by one or two administrators</li><li>Can work for small organizations</li></ul> | <ul><li>Administrator might get several requests to define and assign custom security attributes</li><li>Does not scale for large organizations</li></ul> |
 
 #### Manage attributes with delegation
 
@@ -97,16 +92,10 @@ An administrator may not know all the situations of how custom security attribut
 1. The delegated Attribute Assignment Administrators (Bob and Chandra) assign attributes from their attribute sets to Azure AD objects.
 1. The delegated Attribute Definition Administrators and Attribute Assignment Administrators (Alice, Bob, and Chandra) update and maintain their attributes.
 
-Advantages of using delegation
-
-- Management is distributed
-- Allows delegated readers and administrators to read and manage their own custom security attributes
-- Grants just the permissions delegated readers and administrators need
-
-Disadvantages of using delegation
-
-- Does require that an administrator develop an attribute set organization
-- Might require multiple delegated administrators to make changes
+> [!div class="mx-tableFixed"]
+> | Advantages | Disadvantages |
+> | --- | --- |
+> | <ul><li>Management is distributed</li><li>Allows delegated readers and administrators to read and manage their own custom security attributes</li><li>Grants just the permissions delegated readers and administrators need</li></ul> | <ul><li>Does require that an administrator develop an attribute set organization</li><li>Might require multiple delegated administrators to make changes</li></ul> |
 
 ## Step 5: Select the appropriate roles and scope
 
