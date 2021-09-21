@@ -21,14 +21,14 @@ Context switching is when the context in one process changes the context in a di
 |Tenant | The Azure Active Directory tenant that contains your subscription.|
 |Credentials | The information used by Azure to verify your identity and confirm your authorization to access resources in Azure.|
 
-When an account logs on that can access several subscriptions, any of the subscriptions it can access may be added to the user's context. To guarantee the correct subscription, you must declare it when connecting. For example, use `Add-AzAccount -Credential $Cred -subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749'`. However, issues can arise when a runbook managing one subscription runs in the same sandbox process as another runbook which is managing another subscription since the Azure context is shared amongst all of the runbooks in that sandbox. This means that changes to the context made by one runbook can impact other runbooks that are using the default context. As the context includes information such as the credentials to use and the subscription to target this can result in cmdlets targetting the wrong subscription resulting in `not found` or permissions errors. This issue is known as **Context Switching**.
+When an account logs on that can access several subscriptions, any of those subscriptions may be added to the user's context. To guarantee the correct subscription, you must declare it when connecting. For example, use `Add-AzAccount -Credential $Cred -subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749'`. However, issues can arise when a runbook managing one subscription runs in the same sandbox process as another runbook that is managing another subscription, since the Azure context is shared with all of the runbooks in that sandbox. Changes to the context made by one runbook can affect other runbooks that are using the default context. As the context includes information, such as the credentials to use and the subscription to target, cmdlets could target the wrong subscription resulting in `not found` or permissions errors. This issue is known as **Context Switching**.
 
 ## Context management
 
 To avoid accidentally trying to access the incorrect subscription, follow the guidance below.
 
-1. Disable this saving of context within your Automation runbooks with the following code at the start of each runbook: `Disable-AzContextAutosave -Scope Process`.
-1. The Azure PowerShell cmdlets support the `-DefaultProfile` switch. This switch was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify for each cmdlet which context (and thereby which subscription) to use. Save your context object in your runbook when it is created (i.e. when an account logs on ) and every time it is changed, and reference it in every Az/AzureRm cmdlet that you call. For example, `$AzureContext = Set-AzContext -SubscriptionId $subID`.
+1. Disable sandbox context saving within your Automation runbooks with the following code at the start of each runbook: `Disable-AzContextAutosave -Scope Process`.
+1. The Azure PowerShell cmdlets support the `-DefaultProfile` switch. This switch was added to all Az and AzureRm cmdlets to support running multiple PowerShell scripts in the same process, allowing you to specify for each cmdlet which context to use. Save your context object in your runbook when it's created and every time it's changed. Then  reference it in every Az/AzureRm cmdlet that you call. For example, `$AzureContext = Set-AzContext -SubscriptionId $subID`.
 1. Pass the context object to the PowerShell cmdlet, for example, `Get-AzVM -ResourceGroupName "myGroup" -DefaultProfile $AzureContext`.
 
 Here's an example of how a PowerShell runbook using a system-assigned managed identity may begin:
@@ -51,7 +51,7 @@ Get-AzVM -ResourceGroupName "MAIC-RG-Dev" -DefaultProfile $AzureContext | Select
 
 ## Possible symptoms
 
-Not following the guidance does not mean you will encounter an issue, rather you create the possibility. This issue is a timing issue, so it may not always occur when a runbooks run concurrently, as it depends upon what each runbook is doing at the time the other runbook switches the context. Here are some possible error messages; however, these error messages can also be caused by non context switching reasons.
+Not following the guidance doesn't mean you'll find an issue, rather you create the possibility. This issue is timing, as it depends upon what each runbook is doing at the time the other runbook switches the context. Here are some possible error messages; however, these error messages can also be caused by non-context switching reasons.
 
 `The subscription named <subscription name> cannot be found.`
 
