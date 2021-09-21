@@ -50,9 +50,9 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
 1. Name the label. Then, under **Define the scope for this label**:
 
-    - To label files, also select **Files & emails**.
-    - To label schematized data like database columns, select **Schematized data assets**.
-    
+    - To label files, select **Files & emails**.
+    - To label schematized data like database columns, select **Schematized data assets**
+
     :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Create your label in the Microsoft 365 Security and compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
 
 1. Follow the rest of the prompts to configure the label settings.
@@ -133,9 +133,11 @@ Once you've defined auto-labeling rules for your labels in Microsoft 365 and sca
 
 **To view the labels applied to your assets in the Azure Purview Catalog:**
 
-In the Azure Purview Catalog, use the **Label** filtering options to show files with specific labels only. For example:
+In the Azure Purview Catalog, use the **Label** filtering options to show assets with specific labels only. For example:
 
 :::image type="content" source="media/how-to-automatically-label-your-content/filter-search-results-small.png" alt-text="Search for assets by label" lightbox="media/how-to-automatically-label-your-content/filter-search-results.png":::
+
+To view details of an asset including classifications found and label applied, click on the asset in the results.
 
 For example:
 

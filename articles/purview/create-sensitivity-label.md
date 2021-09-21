@@ -1,6 +1,6 @@
 ---
 title: Labeling in Azure Purview
-description: Learn how to create sensitivity labels and automatically apply them to your data during a scan.
+description: Start utilizing sensitivity labels and classifications to enhance your Purview assets
 author: batamig
 ms.author: bagol
 ms.service: purview
@@ -12,8 +12,10 @@ ms.date: 03/09/2021
 
 ## Overview
 
-To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. When your data roams, you want it to do so in a secure way that meets your organization's business and compliance policies.
-Applying sensitivity labels to your content enables you to do so by stating how sensitive certain data is in your organization. It also abstracts away the sensitivity of the data and allows you to use labels to track the type of data.
+To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. When your data roams, you want it to do so in a secure way that meets your organization's business and compliance policies.</br>
+
+Applying sensitivity labels to your content enables you to do so by stating how sensitive certain data is in your organization. It also abstracts away the sensitivity of the data and allows you to use labels to track the type of data.</br>
+
 For example, applying a sensitivity label ‘highly confidential’ to a document that contains social security number and credit card numbers helps you identify the sensitivity of the document without knowing the actual data in the document.
 
 ### Benefits of labeling in Azure Purview
@@ -33,13 +35,14 @@ Sensitivity labels are tags that you can apply on assets, to classify and protec
 
 Being able to apply labels to your asset in Azure Purview, requires you to perform the below steps:
 
-1. Create or extend existing sensitivity labels to Azure Purview, in the M365 compliance center. This includes auto-labeling rules that tell us which label should be applied based on the classifications found in your data.
-1. Register your asset in Azure Purview.
-1. Schedule a scan on your asset.
+1. [Create or extend existing sensitivity labels to Azure Purview](how-to-automatically-label-your-content.md), in the M365 compliance center. This includes auto-labeling rules that tell us which label should be applied based on the classifications found in your data.
+1. [Register and scan your asset](how-to-automatically-label-your-content.md#Scan-your-data-to-apply-sensitivity-labels-automatically) in Azure Purview.
 1. Azure Purview applies classifications: When you schedule a scan on an asset, Azure Purview scans the type of data in your asset and applies classifications to it in the data catalog. This is done automatically by Azure Purview, there is no action for you.
 1. Azure Purview applies labels: Once classifications are found on an asset, Azure Purview will apply labels to the assets depending on auto-labeling rules. This is done automatically by Azure Purview, there is no action for you as long as you have created labels with auto-labeling rules in step 1.
 
-> [!NOTE] Auto-labeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data. When you create your labels, make sure to define auto-labeling rules for both files and schematized data to apply your labels automatically with each scan.
+> [!NOTE]
+> Auto-labeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data. When you create your labels, make sure to define auto-labeling rules for both files and schematized data to apply your labels automatically with each scan.
+>
 
 ## Supported data sources
 
