@@ -111,7 +111,7 @@ sections:
           * Global Administrator  
           * Compliance Administrator 
           
-          For more information, see [Permissions required to create and manage sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels#permissions-required-to-create-and-manage-sensitivity-labels).  After you have compliance and global administrators configured, those administrators can [give access to individual users](microsoft-365/security/office-365-security.grant-access-to-the-security-and-compliance-center). 
+          For more information, see [Permissions required to create and manage sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels#permissions-required-to-create-and-manage-sensitivity-labels).  After you have compliance and global administrators configured, those administrators can [give access to individual users](/microsoft-365/security/office-365-security/grant-access-to-the-security-and-compliance-center). 
           
       - question: Who can search and browse assets with sensitivity labels in Azure Purview? 
         answer: All users with at least data reader access to the Purview account have permissions to search and browse assets with sensitivity labels in Azure Purview. 
@@ -137,7 +137,7 @@ sections:
         answer: |
           Within Microsoft 365, sensitivity labels have a priority 'order' and Purview uses the same order to assign labels. If there are multiple labels meeting the classification criteria, Purview picks the label with the highest order.  
           
-          For more information, see [Label priority order matters](microsoft-365/compliance.sensitivity-labels#label-priority-order-matters).
+          For more information, see [Label priority order matters](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters).
           
   - name: SQL data discovery and classification
     questions:  
