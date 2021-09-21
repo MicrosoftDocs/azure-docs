@@ -162,12 +162,13 @@ After your app integrates with your VNet, it uses the same DNS server that your 
 
 There are some limitations with using regional VNet Integration:
 
-* You can't reach resources across peering connections with Classic Virtual Networks.
-* The feature is available from all App Service scale units in Premium V2 and Premium V3. It's also available in Standard but only from newer App Service scale units. If you are on an older scale unit, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you desire after that.  
-* The integration subnet can be used by only one App Service plan.
+* The feature is available from all App Service scale units in Premium V2 and Premium V3. It's also available in Standard but only from newer App Service scale units. If you are on an older scale unit, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you desire after that.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
+* You can't reach resources across peering connections with Classic Virtual Networks.
 * The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager VNet.
 * The app and the VNet must be in the same region.
+* The integration VNet cannot have IPv6 address spaces defined.
+* The integration subnet can be used by only one App Service plan.
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
