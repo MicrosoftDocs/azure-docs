@@ -202,7 +202,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
     > folder using the respective **Maps** and **Schemas** folders. You can then use these artifacts across multiple workflows 
     > within the *same logic app resource*.
 
-  * **Logic app (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
+  * **Logic App (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
     > [!NOTE]
     > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](create-managed-service-identity.md) 
