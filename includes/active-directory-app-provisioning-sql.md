@@ -249,7 +249,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
 ## Configure the application and test
  1. In the Azure portal, under **Enterprise applications**, select the **on-premises ECMA app** that was added earlier above.
- 2. Under **Getting Started**  under **3. Provision user accounts**, select **Get started**.
+ 2. Under **Getting Started**, on the **3. Provision user accounts** box, select **Get started**.
 
 
      ![Screenshot that shows get started.](.\media\active-directory-app-provisioning-sql\configure-16.png)
