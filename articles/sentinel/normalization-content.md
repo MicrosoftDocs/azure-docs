@@ -27,6 +27,10 @@ Normalized security content in Azure Sentinel includes analytics rules, hunting 
 
 This article lists built-in Azure Sentinel content that has been configured to support ASIM.  While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
 
+> [!TIP]
+> Also watch the [Deep Dive Webinar on Azure Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM). For more information, see [Next steps](#next-steps).
+>
+
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
@@ -49,7 +53,10 @@ The following built-in DNS query content is supported for ASIM normalization.
 
 ### Analytics rules
 
- - [Excessive NXDOMAIN DNS Queries (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
+ - (Preview) TI map Domain entity to DNS Events (Normalized DNS)
+ - (Preview) TI map IP entity to DNS Events (Normalized DNS)
+ - [Potential DGA detected (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
+  - [Excessive NXDOMAIN DNS Queries (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [DNS events related to mining pools (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
  - [DNS events related to ToR proxies (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
  - [Known Barium domains](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
@@ -146,6 +153,29 @@ InfobloxNIOS
 The following code is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events:
 
 ```kusto
+imDns(responsecodename='NXDOMAIN')
+| summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
+| where count_ > threshold
+| join kind=inner (imDns(responsecodename='NXDOMAIN')) on SrcIpAddr
+| extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr```
+```
+
+The normalized, source-agnostic version has the following differences:
+
+- The `imDns`normalized parser is used instead of the Infoblox Parser.
+
+- `imDns` fetches only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
+
+- The `SrcIpAddr` field is used instead of `Client_IP`.
+ 
+- Parser parameter filtering is used for ResponseCodeName, eliminating the need for explicit where clauses.
+
+
+Apart from supporting any normalized DNS source, the normalized version is shorter and easier to understand. 
+
+If the schema or parsers do not support filtering parameters, the changes are similar, excluding the last one. Instead the filtering conditions are kept from the original query as seen below:
+
+```kusto
 let threshold = 200;
 imDns
 | where isnotempty(ResponseCodeName)
@@ -159,20 +189,13 @@ imDns
 | extend timestamp = TimeGenerated, IPCustomEntity = SrcIpAddr
 ```
 
-The normalized, source-agnostic version has the following differences:
-
-- The `imDns`normalized parser is used instead of the Infoblox Parser.
-
-- `imDns` fetches only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
-
-- The `ResponseCodeName` and `SrcIpAddr` fields are used instead of `ResponseCode`, and `Client_IP`, respectively.
-
-## Next steps
+## <a name="next-steps"></a>Next steps
 
 This article discusses the Azure Sentinel Information Model (ASIM) content.
 
 For more information, see:
 
+- Watch the [Deep Dive Webinar on Azure Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
 - [Azure Sentinel Information Model overview](normalization.md)
 - [Azure Sentinel Information Model schemas](normalization-about-schemas.md)
 - [Azure Sentinel Information Model parsers](normalization-about-parsers.md)

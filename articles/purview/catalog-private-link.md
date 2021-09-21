@@ -38,12 +38,10 @@ Before deploying private endpoints for Azure Purview account, ensure you meet th
 
 Use the following recommended checklist to perform deployment of Azure Purview account with private endpoints:
 
-
 |Scenario  |Objectives  |
 |---------|---------|
-|**Scenario 1** - [Connect privately and securely to your Purview account](./catalog-private-link-account-portal.md)   | You need to enable access to your Azure Purview account, including access to _Azure Purview Studio_ and Atlas API through private endpoints. (Deploy _account_ and _portal_ private endpoints).   |
-|**Scenario 2** - [Scan your data sources privately and securely](./catalog-private-link-ingestion.md)  | You need to scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime. (Deploy _ingestion_ private endpoints.)    |
-|**Scenario 3** - [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md) |You need to restrict access to your Azure Purview account only via a private endpoint, including access to Azure Purview Studio, Atlas APIs and scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime ensuring end to end network isolation. (Deploy _account_, _portal_ and _ingestion_ private endpoints.)   |
+|**Scenario 1** - [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md) |You need to restrict access to your Azure Purview account only via a private endpoint, including access to Azure Purview Studio, Atlas APIs and scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime ensuring end to end network isolation. (Deploy _account_, _portal_ and _ingestion_ private endpoints.)   |
+|**Scenario 2** - [Connect privately and securely to your Purview account](./catalog-private-link-account-portal.md)   | You need to enable access to your Azure Purview account, including access to _Azure Purview Studio_ and Atlas API through private endpoints. (Deploy _account_ and _portal_ private endpoints).   |
 
 ## Support matrix for Scanning data sources through _ingestion_ private endpoint
 
@@ -75,4 +73,5 @@ To view list of current limitations related to Azure Purview private endpoints, 
 
 ## Next steps
 
-- [Deploy ingestion private endpoints](./catalog-private-link-ingestion.md)
+- [Deploy end to end private networking](./catalog-private-link-end-to-end.md)
+- [Deploy private networking for the Purview Studio](./catalog-private-link-account-portal.md)

@@ -144,11 +144,8 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 | Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| mail |emails[type eq "work"].value |
-| mailNickname |displayName |
 | members |members |
 | objectId |externalId |
-| proxyAddresses |emails[type eq "other"].Value |
 
 **Example list of group attributes**
 

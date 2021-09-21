@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 08/31/2021
 ---
 # ARM template functions
 
@@ -170,6 +170,7 @@ Resource Manager provides the following functions for getting resource values:
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
+* [providers (deprecated)](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
 * [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.

@@ -546,6 +546,8 @@
           href: service-fabric-cluster-security-update-certs-azure.md      
         - name: Remote connect to cluster node VM
           href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        - name: Upgrading Linux OS for Azure Service Fabric
+          href: service-fabric-cluster-upgrade-os.md
     - name: Standalone clusters
       items:
       - name: Create
