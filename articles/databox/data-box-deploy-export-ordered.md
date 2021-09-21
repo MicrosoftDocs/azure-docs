@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 09/20/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
@@ -271,24 +271,24 @@ Follow these guidelines to create your XML file if you choose to select blobs an
 This sample XML file includes examples of each XML tag that is used to select blobs and files for export in a Data Box export order. 
 
 - For a XML file requirements, go to the **XML file overview** tab.
-- For more examples of valid blob and file prefixes, got to the **Prefix examples** tab.
+- For more examples of valid blob and file prefixes, go to the **Prefix examples** tab.
 
 ```xml
-<<?xml version="1.0" encoding="utf-8"?>
-   <!--BlobList lists filters to select individual blobs (BlobPath) and multiple blobs (BlobPathPrefix) in Blob storage for export.-->
+<?xml version="1.0" encoding="utf-8"?>
+   <!--BlobList selects individual blobs (BlobPath) and multiple blobs (BlobPathPrefix) in Blob storage for export.-->
    <BlobList>
-      <BlobPath>/8tbpageblob/blob.txt</BlobPath> <!--Exports the blob /8tbpageblob/blob.txt.-->
-      <BlobPathPrefix>/blockblob4dot75tbdata/</BlobPathPrefix> <!--Exports every blob in the container blockblobdot75tbdata.-->
-      <BlobPathPrefix>/1tbfilepageblob</BlobPathPrefix> <!--Exports all containers with the prefix "1tbfilepageblob".-->
-      <BlobPathPrefix>/1tbfile/</BlobPathPrefix> <!--Exports all blobs in the container 1tbfile.-->
-      <BlobPathPrefix>/1tbfile/file</BlobPathPrefix> <!--Exports all blobs in the container 1tbfile that have the prefix "file".-->
+      <BlobPath>/container1/blob.txt</BlobPath> <!-- Exports /container1/blob.txt -->
+      <BlobPathPrefix>/container2/</BlobPathPrefix> <!--Exports all blobs in container2 -->
+      <BlobPathPrefix>/container</BlobPathPrefix>  <!-- Exports all containers beginning with prefix: "container" -->
+	  <BlobPathPrefix>/container1/2021Q2</BlobPathPrefix> <!-- Exports all blobs in container1 with prefix: "2021Q2" -->
    </BlobList>
-   <!--FileList lists filters that select individual files (FilePath) and multiple files (FilePathPrefix) in Azure File storage for export.-->
+   
+   <!--AzureFileList selects individual files (FilePath) and multiple files (FilePathPrefix) in Azure File storage for export.-->
    <AzureFileList>
-	  <FilePath>/fileshare1/file.txt</FilePath> <!--Exports the file in fileshare1 with the path /fileshare1/file.txt.-->
-      <FilePathPrefix>/64mbfiles/</FilePathPrefix> <!--Exports all directories and files in the file share 64mbfiles.-->
-      <FilePathPrefix>/fileshare2/file</FilePathPrefix> <!--Exports all directories and files in fileshare2 that start with the prefix "file".-->
-      <FilePathPrefix>/dir</FilePathPrefix> <!--Exports all directories and files that start with the prefix "dir".-->
+	  <FilePath>/fileshare1/file.txt</FilePath> <!-- Exports /fileshare1/file.txt -->
+      <FilePathPrefix>/fileshare1/</FilePath> <!-- Exports all directories and files in fileshare1 -->
+	  <FilePathPrefix>/fileshare</FilePathPrefix> <!-- Exports all directories and files in any fileshare with prefix: "fileshare" -->
+      <FilePathPrefix>/fileshare2/contosowest</FilePathPrefix> <!-- Exports all directories and files in fileshare2 with prefix: "contosowest" -->
    </AzureFileList>
 ```
 
@@ -341,11 +341,11 @@ The sample paths below are used with the &lt;BlobPathPrefix&gt; tag to select mu
 |------------------------|--------------------------------------------------------------------------------|------------------------------------|
 |/	                     |Exports all blobs in the storage account.                                       |`<BlobPathPrefix>/</BlobPathPrefix>`|
 |/$root/	             |Exports all blobs in the root container.                                        |`<BlobPathPrefix>/$root/</BlobPathPrefix>`|
-|/containers	         |Exports all blobs in any container that begins with prefix **containers**.      |`<BlobPathPrefix>/containers</BlobPathPrefix>`|
-|/container1/            |Exports all blobs in the container **container1**.                              |`<BlobPathPrefix>/container1/</BlobPathPrefix>`|
+|/container2/            |Exports all blobs in the container **container2**.                              |`<BlobPathPrefix>/container1/</BlobPathPrefix>`|
+|/container	         |Exports all blobs in any container that begins with prefix **container**.      |`<BlobPathPrefix>/containers</BlobPathPrefix>`|
 |/container1/2021Q2      |Exports all blobs in container **container1** that begin with prefix **2021Q2**.|`<BlobPathPrefix>/container1/2021Q2</BlobPathPrefix>`|
 
-To select a single blob for export, use the &lt;BlobPath&gt; tag with a container path and blob name. For example, to select **blob.txt** in the **8tbpageblob** container, you would use this tag: `<BlobPath>/8tbpageblob/blob.txt</BlobPath>`
+To select a single blob for export, use the &lt;BlobPath&gt; tag with a container path and blob name. For example, to select **blob.txt** in the **container1** container, you would use this tag: `<BlobPath>/container1/blob.txt</BlobPath>`.
 
 #### Valid file path prefixes
 
@@ -354,9 +354,9 @@ The sample paths below are used with the &lt;FilePathPrefix&gt; tag to select mu
 |File path prefix        |Description                                                                                          |Tag example|
 |------------------------|-----------------------------------------------------------------------------------------------------|-----------|
 |/                       |Exports all files and directories in the storage account. |`<FilePathPrefix>/</FilePath>Prefix`|
+|/fileshare1/            |Exports all files and directories in the share named **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix`|
 |/fileshare              |Exports all files and directories in any file share that begins with prefix **fileshare**. |`<FilePathPrefix>/fileshare</FilePath>Prefix`|
-|/fileshare1/            |Exports all files and directories in **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix`|
-|/fileshare1/contosowest |Exports all files and directories in fileshare **fileshare1** that begin with prefix **contosowest**.|`<FilePathPrefix>/fileshare1/contosowest</FilePath>Prefix`|
+|/fileshare2/contosowest |Exports all files and directories in fileshare **fileshare2** that begin with prefix **contosowest**.|`<FilePathPrefix>/fileshare1/contosowest</FilePath>Prefix`|
 
 To select a single file for export, use the &lt;FilePath&gt; tag with a share path and file name. For example, to select **file.txt** in **fileshare1**, you would use this tag: `<FilePath>/fileshare1/file.txt</FilePath>`
 
