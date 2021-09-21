@@ -49,6 +49,9 @@ The below image highlights the different steps of this lifecycle.
 
 :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image12.png" alt-text="Diagram of continuous integration with Azure Pipelines":::
 
+> [!NOTE]
+> Alternatively, you can enable automated publish feature of CI/CD in https://docs.microsoft.com/en-us/azure/data-factory/continuous-integration-deployment-improvements
+
 ## Automate continuous integration by using Azure Pipelines releases
 
 The following is a guide for setting up an Azure Pipelines release that automates the deployment of a data factory to multiple environments.
