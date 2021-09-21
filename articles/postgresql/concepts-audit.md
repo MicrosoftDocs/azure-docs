@@ -76,7 +76,7 @@ Using the [Azure portal](https://portal.azure.com):
 
 
 The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first and confirm that you are getting the expected behavior.
-To do so you can back to 
+
 
 > [!NOTE]
 > Setting `pgaudit.log_client` to ON will redirect logs to a client process (like psql) instead of being written to file. This setting should generally be left disabled. <br> <br>

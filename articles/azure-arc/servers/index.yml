@@ -8,7 +8,7 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 08/17/2021
+  ms.date: 09/21/2021
   ms.author: magoedte
 
 landingContent:
@@ -25,12 +25,12 @@ landingContent:
             url: plan-at-scale-deployment.md
       - linkListType: get-started
         links:
-          - text: Connect machines to Azure Arc from the Azure portal
+          - text: Connect machines to Azure Arc using a deployment script
             url: onboard-portal.md
           - text: Connect machines at scale using a service principal
             url: onboard-service-principal.md
-          - text: Connect machines to Azure with PowerShell DSC
-            url: onboard-dsc.md
+          - text: Connect machines to Azure with Windows Admin Center
+            url: onboard-windows-admin-center.md
  # Card
   - title: 10-minute quickstarts
     linkLists:
@@ -38,6 +38,15 @@ landingContent:
         links:
           - text: Deploy Arc-enabled servers agent
             url: ./learn/quick-enable-hybrid-vm.md
+ 
+ # Card
+  - title: Training
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Microsoft Learn learning path
+            url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc
+ 
  # Card
   - title: Proof of concept
     linkLists:
