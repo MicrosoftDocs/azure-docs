@@ -92,9 +92,9 @@ To configure Azure Purview to trust your new service principal:
     > [!Note]
     > Only Collection Admins can edit permissions on a collection. If you are not a collection admin, contact one of the admins listed in the root collection. For more information, see the [Purview permissions page](catalog-permissions.md).
 
-1. Search the name of the previosly created service principal you wish to assign and then click on their name in the results pane.
+1. Search the name of the previously created service principal you wish to assign and then click on their name in the results pane.
 
-1. Click on **Save**
+1. Select **Ok**
 
 You've now configured the service principal as an application administrator, which enables it to send content to the catalog.
 
@@ -243,6 +243,34 @@ namespace PurviewCatalogSdkTest
     }
 }
 ```
+
+## Clean up resources
+
+If after following this tutorial and making some tests, you will no longer need the REST API to interact with your Purview account, you can clean your environment by removing access from your service principal in Purview, then removing the service principal from your Azure subscription.
+
+### Remove Purview access
+
+To remove your service principal's access to purview, you will need to remove the permissions you assigned at the beginning of the tutorial.
+
+1. Navigate to your Purview account
+1. On the **Purview account** page, open the **Purview Studio**
+1. Select the **Data Map** in the left menu.
+1. Select **Collections**
+1. Select the root collection in the collections menu. This will be the top collection in the list, and will have the same name as your Purview account.
+1. Select the **Role assignments** tab.
+1. Scroll down to **Data curators** and locate your service principal in the list.
+1. Select the **X** icon next to your service principal's name.
+1. Select **Confirm** on the window that appears to confirm removal.
+
+### Remove service principal from subscription
+
+1. From the [Azure portal](https://portal.azure.com), search for and select **Azure Active Directory**.
+1. From the **Azure Active Directory** page, select **App registrations** from the left pane.
+1. Select the search bar in the middle of the page and search for the service principal name you created at the beginning of this tutorial.
+1. Select the service principal.
+1. At the top of the page, select the **Delete** button.
+1. Confirm you understand you are deleting the service principal by checking the box at the bottom of the deletion page.
+1. Select the **Delete** button.
 
 ## Next steps
 
