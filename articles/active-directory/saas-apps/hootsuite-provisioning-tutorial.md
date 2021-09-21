@@ -40,7 +40,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Hootsuite to support provisioning with Azure AD
 
-Reach out to dev.support@hootsuite.com to obtain a long lasting secret token that will be required in later steps. 
+Reach out to your Hootsuite CSM for long lasting token required in later steps.
 
 ## Step 3. Add Hootsuite from the Azure AD application gallery
 

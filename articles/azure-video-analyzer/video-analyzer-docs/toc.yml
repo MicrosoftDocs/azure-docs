@@ -111,68 +111,50 @@
       href: managed-identity.md
     - name: Customer managed keys
       href: customer-managed-keys.md
-  - name: Deploy to the edge
+  - name: Deploy
     items:  
     - name: Deploy to an IoT Edge device
-      href: edge/deploy-iot-edge-device.md
-    - name: Deploy to a Windows device
-      href: edge/deploy-iot-edge-linux-on-windows.md
-    - name: Deploy to Azure Stack Edge
-      href: edge/deploy-on-stack-edge.md
-  - name: Design topologies
-    items:
-    - name: How to design a topology 
-      href: overview.md
+      href: deploy-iot-edge-device.md
+    - name: Deploy to an IoT Edge for Linux on Windows
+      href: deploy-iot-edge-linux-on-windows.md
+    - name: Deploy on Azure Stack Edge
+      href: deploy-on-stack-edge.md
   - name: Playback
-    items:      
-    - name: Playback a recording
-      href: playback-recordings-how-to.md
-    - name: Using the Azure Video Analyzer player widget
-      href: player-widget.md
+    items:     
     - name: Use access policies for playback
       href: access-policies.md
+    - name: Playback a recording
+      href: playback-recordings-how-to.md
+    - name: Player widget sample app 
+      href: sample-player-widget.md
+    - name: Building your own player widget
+      href: player-widget.md
   - name: Record
     items:
     - name: Manage recording policy
       href: manage-recording-policy.md
-    - name: Exporting a clip
-      href: overview.md
-  - name: Apply AI on the edge
-    items:      
     - name: Configure a signal gate
-      href: edge/configure-signal-gate.md
+      href: configure-signal-gate.md
+  - name: Apply AI
+    items:      
     - name: Develop and deploy gRPC inference server
-      href: edge/develop-deploy-grpc-inference-srv.md
-  - name: Operate edge module
-    items:
+      href: develop-deploy-grpc-inference-srv.md
+    - name: Analyze using AI composition
+      href: analyze-ai-composition.md
+  - name: Portal
+    items:      
     - name: Invoke direct methods with the portal
-      href: edge/use-azure-portal-to-invoke-direct-methods.md
-    - name: Visual Studio Code extension 
-      href: edge/create-pipeline-vs-code-extension.md
-    - name: Monitor and logging
-      href: edge/monitor-log-edge.md 
-    - name: Troubleshoot
-      href: edge/troubleshoot.md
-  - name: Operate cloud pipeline
+      href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Operate
     items:
-    - name: Develop IoT PnP app for a device
-      href: overview.md
-    - name: Use IoT PnP app on Axis cameras
-      href: overview.md
-    - name: Using AVA edge as a transparent gateway
-      href: overview.md
-    - name: Use Portal to manage cloud pipelines
-      href: overview.md
-    - name: Monitor and logging 
-      href: overview.md
-    - name: Troubleshoot
-      href: overview.md
+    - name: Monitor and logging
+      href: monitor-log-edge.md 
   - name: Visualize
     items:
-    - name: Embed player widget in a web app 
-      href: overview.md
     - name: Embed player widget in Power BI
       href: embed-player-in-power-bi.md
+  - name: Troubleshoot
+    href: troubleshoot.md
 - name: Reference 
   items:
   - name: Access policies
