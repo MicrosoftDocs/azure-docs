@@ -142,6 +142,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ServiceLog|Service Logs|No|
 
 
+## Microsoft.BatchAI/workspaces
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BaiClusterEvent|BaiClusterEvent|No|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
+|BaiJobEvent|BaiJobEvent|No|
+
+
 ## Microsoft.Blockchain/blockchainMembers
 
 |Category|Category Display Name|Costs To Export|
