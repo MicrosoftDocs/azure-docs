@@ -40,7 +40,7 @@ Using the [Azure portal](https://portal.azure.com):
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `shared_preload_libraries` parameter.
    4. Select **pgaudit**.
-     :::image type="content" source="./media/concepts-audit/sharedpreloadparameter.jpg" alt-text="Azure Database for PostgreSQL - enabling shared_preload_libraries for pgaudit ":::
+     :::image type="content" source="./media/concepts-audit/share-preload-parameter.png" alt-text="Screenshot showing Azure Database for PostgreSQL - enabling shared_preload_libraries for pgaudit ":::
    5. Restart the server to apply the change.
    6. You can check that **pgaudit** is loaded in shared_preload_libraries by executing following query in psql:
         ```SQL
@@ -70,7 +70,7 @@ Using the [Azure portal](https://portal.azure.com):
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `pg_audit` parameters.
    4. Pick appropriate settings parameter to edit. For example to start logging set `pgaudit.log` to `WRITE`
-       :::image type="content" source="./media/concepts-audit/pgauditconfig.jpg" alt-text="Azure Database for PostgreSQL - configuring logging with pgaudit ":::
+       :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="Screenshot showing Azure Database for PostgreSQL - configuring logging with pgaudit ":::
    5. Click **Save** button to save changes
 
 
