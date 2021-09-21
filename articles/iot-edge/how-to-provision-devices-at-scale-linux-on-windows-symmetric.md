@@ -55,23 +55,7 @@ You can use either **PowerShell** or **Windows Admin Center** to manage your IoT
 
 # [PowerShell](#tab/powershell)
 
-If you want to use PowerShell, use the following steps to download and install Azure IoT Edge for Linux on Windows:
-
-1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
-
-   ```powershell
-   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
-   $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
-   ```
-
-1. Install IoT Edge for Linux on Windows on your device.
-
-   ```powershell
-   Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
-   ```
-
-   You can specify custom installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
+If you want to use PowerShell, use the following steps to prepare your target device for the installation of Azure IoT Edge for Linux on Windows and the deployment of the Linux virtual machine:
 
 1. Set the execution policy on the target device to `AllSigned`. You can check the current execution policy in an elevated PowerShell prompt using the following command:
 
