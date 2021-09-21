@@ -21,6 +21,8 @@
 
 - name: Concepts
   items:
+  - name: Migration using Azure Data Studio
+    href: migration-using-azure-data-studio.md  
   - name: Prerequisites
     href: pre-reqs.md  
   - name: Database migration scenario status

@@ -21,7 +21,7 @@ This article lists the curated environments in Azure Machine Learning. Curated e
 
 ## PyTorch
 
-**Name** - AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu
+**Name** - AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu  
 **Description** - An environment for deep learning with PyTorch containing the AzureML Python SDK and additional python packages.  
 **Dockerfile configuration** - The following Dockerfile can be customized for your personal workflows:
 

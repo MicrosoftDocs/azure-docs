@@ -134,7 +134,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 #### Custom Jekyll settings
 
-When you generate a static web app, a [workflow file](./github-actions-workflow.md) is generated which contains the publishing configuration settings for the application.
+When you generate a static web app, a [workflow file](./build-configuration.md) is generated which contains the publishing configuration settings for the application.
 
 To configure environment variables, such as `JEKYLL_ENV`, add an `env` section to the Azure Static Web Apps GitHub Action in the workflow.
 

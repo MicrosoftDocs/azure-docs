@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 09/09/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -81,7 +81,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## Azure Cache for Redis limits
 
-[!INCLUDE [redis-cache-service-limits](../../../includes/redis-cache-service-limits.md)]
+[!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
 ## Azure Cloud Services limits
 

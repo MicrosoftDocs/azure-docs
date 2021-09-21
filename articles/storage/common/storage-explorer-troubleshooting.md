@@ -395,10 +395,10 @@ Storage Explorer as provided in the .tar.gz download is supported for the follow
 - Ubuntu 18.04 x64
 - Ubuntu 16.04 x64
 
-Storage Explorer requires .NET Core to be installed on your system. We recommend .NET Core 2.1, but Storage Explorer will work with 2.2 as well.
+Storage Explorer requires .NET Core 3.1 to be installed on your system.
 
 > [!NOTE]
-> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you need at least .NET Core 2.1.
+> Storage Explorer versions 1.8.0 through 1.20.1 require .NET Core 2.1. Storage Explorer version 1.7.0 and earlier require .NET Core 2.0.
 
 ### [Ubuntu 20.04](#tab/2004)
 
@@ -410,7 +410,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### [Ubuntu 18.04](#tab/1804)
@@ -423,7 +423,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 
 ### [Ubuntu 16.04](#tab/1604)
@@ -436,7 +436,7 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
-     sudo apt-get install -y dotnet-runtime-2.1
+     sudo apt-get install -y dotnet-runtime-3.1
    ```
 ---
 
@@ -541,7 +541,7 @@ Part 1: Install and Configure Fiddler
 14. Click "Copy to File…"
 15. In the export wizard choose the following options
     - Base-64 encoded X.509
-    - For file name, Browse… to C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs, and then you can save it as any file name
+    - For file name, Browse… to `C:\Users\<your user dir>\AppData\Roaming\StorageExplorer\certs` and then you can save it as any file name
 16. Close the certificate window
 17. Start Storage Explorer
 18. Go to Edit > Configure Proxy
@@ -553,7 +553,7 @@ Part 1: Install and Configure Fiddler
 Part 2: Reproduce the issue
 1. Close all apps other than Fiddler
 2. Clear the Fiddler log (X icon in the top left, near the View menu)
-3. Optional/recommended: let Fiddler set for few minutes, if you see network calls appear, right-click on them and choose 'Filter Now' > 'Hide <process name>'
+3. Optional/recommended: let Fiddler set for few minutes, if you see network calls appear that aren't Storage Explorer related, right-click on them and choose 'Filter Now' > 'Hide (process name)'
 4. Start Storage Explorer
 5. Reproduce the issue
 6. Click File > Save > All Sessions…, save somewhere you won't forget

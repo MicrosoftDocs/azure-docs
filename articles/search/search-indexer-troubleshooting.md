@@ -8,7 +8,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/27/2021
+ms.date: 09/07/2021
 ---
 
 # Indexer troubleshooting guidance for Azure Cognitive Search
@@ -57,6 +57,12 @@ In such cases, the Azure VM, or the SQL managed instance can be configured to re
 The `AzureCognitiveSearch` service tag can be directly used in the inbound [NSG rules](../virtual-network/manage-network-security-group.md#work-with-security-rules) without needing to look up its IP address range.
 
 More details for accessing data in a SQL managed instance are outlined [here](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+
+## Azure SQL Database serverless indexing (error code 40613)
+
+If your SQL database is a on a [serverless compute tier](../azure-sql/database/serverless-tier-overview.md), make sure that the database is running (and not paused) when the indexer connects to it.
+
+If the database is paused, the first login from your search service will auto-resume the database, but it will also return an error stating that the database is unavailable with error code 40613. After the database is running, retry the login to establish connectivity.
 
 ## SharePoint Online Conditional Access policies
 

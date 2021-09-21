@@ -345,10 +345,10 @@ In an integration service environment (ISE), these managed connectors also have 
         [**Azure Event Grid** ISE][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Azure File Storage ISE icon][azure-file-storage-icon]][azure-file-storage-doc]
+        [![Azure Files ISE icon][azure-file-storage-icon]][azure-file-storage-doc]
         \
         \
-        [**Azure File Storage** ISE][azure-file-storage-doc]
+        [**Azure Files** ISE][azure-file-storage-doc]
     :::column-end:::
     :::column:::
         [![Azure Key Vault ISE icon][azure-key-vault-icon]][azure-key-vault-doc]
