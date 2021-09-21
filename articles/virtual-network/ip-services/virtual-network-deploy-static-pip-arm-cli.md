@@ -13,11 +13,9 @@ ms.custom: template-how-to
 
 # Create a virtual machine with a static public IP address using the Azure CLI
 
-In this article, you'll create a virtual machine with a static public IP address. A public IP address enables communication to a virtual machine from the internet. Assign a static public IP address,instead of a dynamic address, to ensure that the address never changes. 
+In this article, you'll create a VM with a static public IP address. A public IP address enables communication to a virtual machine from the internet. Assign a static public IP address, instead of a dynamic address, to ensure the address never changes. 
 
-Learn more about [static public IP addresses](public-ip-addresses.md#ip-address-assignment). To change a public IP address assigned to an existing virtual machine from dynamic to static, or to work with private IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md). 
-
-Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses), and there is a [limit](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
+Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses). There's a [limit](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -54,7 +52,7 @@ az network public-ip create \
 
 Create a virtual machine with [az vm create](/cli/azure/vm#az_vm_create). 
 
-The following command creates a Windows Server virtual machine. You'll enter the name of the public IP address created previously in the **`--public-ip-address`** parameter. When prompted, provide a username and password to be used as the sign in credentials for the virtual machine:
+The following command creates a Windows Server virtual machine. You'll enter the name of the public IP address created previously in the **`-PublicIPAddressName`** parameter. When prompted, provide a username and password to be used as the credentials for the virtual machine:
 
 ```azurecli-interactive
   az vm create \
@@ -66,7 +64,7 @@ The following command creates a Windows Server virtual machine. You'll enter the
     --admin-username azureuser
 ```
 
-Learn more about [Public IP address SKUs](public-ip-addresses.md#sku). If the virtual machine will be added to the back-end pool of a Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../../load-balancer/skus.md).
+For more information on public IP SKUs, see [Public IP address SKUs](public-ip-addresses.md#sku). A virtual machine can be added to the backend pool of an Azure Load Balancer. The SKU of the public IP address must match the SKU of a load balancer's public IP. For more information, see [Azure Load Balancer](../../load-balancer/skus.md).
 
 View the public IP address assigned and confirm that it was created as a static address, with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
 
