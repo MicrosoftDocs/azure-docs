@@ -82,7 +82,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     
     The output should indicate the models were created successfully.
 
-1. Verify the models were created by running the command `GetModels true`. This command will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited Room model in the results:
+1. Verify the models were created by running the command `GetModels true`. This command will print the full information for all the models that have been uploaded to your Azure Digital Twins instance. Look for the edited Room model in the results:
 
     :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Screenshot of the result from GetModels, showing the updated Room model." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
@@ -183,7 +183,7 @@ To add a relationship, use the `CreateRelationship` command. Specify the twin th
     
     :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Screenshot of an excerpt from the result of the CreateRelationship commands, which includes relationship0 and relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
 
-1. You can verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
+1. You can verify the relationships with any of the following commands, which will print the relationships in your Azure Digital Twins instance.
     * To see all relationships coming off of each floor (viewing the relationships from one side):
         ```cmd/sh
         GetRelationships floor0
