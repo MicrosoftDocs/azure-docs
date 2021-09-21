@@ -79,7 +79,8 @@ The following table shows the current support for the Azure Monitor agent with A
 
 | Azure Monitor feature | Current support | More information |
 |:---|:---|:---|
-| [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://forms.office.com/r/jmyE821tTy) |
+| [VM insights](../vm/vminsights-overview.md) | Private preview  | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
+| [Connect using private links or AMPLS](../logs/private-link-security.md) | Private preview for AMA | [Sign-up link](https://aka.ms/amadcr-privatepreviews) |
 | [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
 | [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
@@ -121,7 +122,7 @@ The Azure Monitor agent supports Azure service tags. Both AzureMonitor and Azure
 
 ### Proxy configuration
 
-The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or a Log Analytics gateway to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers. Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
+The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or a Log Analytics gateway to Azure Monitor by using the HTTPS protocol. Use it for Azure virtual machines, Azure virtual machine scale sets, and Azure Arc for servers when sending data to Log Analytics (**not supported** when using Azure Monitor Metrics as destination). Use the extensions settings for configuration as described in the following steps. Both anonymous and basic authentication by using a username and password are supported.
 
 1. Use this flowchart to determine the values of the *setting* and *protectedSetting* parameters first.
 
