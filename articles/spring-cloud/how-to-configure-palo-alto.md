@@ -11,24 +11,25 @@ ms.custom: devx-track-java
 
 # How to configure Palo Alto for Azure Spring Cloud
 
+This article ...
+
 The [Reference Architecture for Azure Spring Cloud](/azure/spring-cloud/reference-architecture) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead. This document will tell you how.
 
-We recommend keeping configuration information, such as rules, address wildcards, and so on in CSV files in a Git repository, following Infrastructure-As-Code processes. We'll show you how to use automation to apply these files to Palo Alto. Familiarize yourself with [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/vnet-customer-responsibilities) to understand the configuration to be applied to Palo Alto.
+We recommend keeping configuration information, such as rules and address wildcards, in CSV files in a Git repository, following Infrastructure-As-Code processes. We'll show you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/vnet-customer-responsibilities). 
 
 > [!Note]
 > In describing the use of REST APIs, we'll use the PowerShell variable syntax to indicate names and values that are left to your discretion. Make sure you use the same values throughout all the steps.
+>
+> Once you've configured the SSL certificate in Palo Alto, remove the `-SkipCertificateCheck` argument from all Palo Alto REST API calls in the examples below.
+>
+> This document should not be used as a reference for Palo Alto REST APIs. All examples are used for demonstration purposes only. For authoritative API details, see [PAN-OS REST API](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-rest-api/pan-os-rest-api.html) in the Palo Alto documentation.
 
-> [!Note]
-> Once you have configured the SSL certificate in Palo Alto, remove the `-SkipCertificateCheck` argument from all Palo Alto REST API calls in the examples below.
+## Prerequisites
 
-> [!Note]
-> This document should not be used as a reference for Palo Alto REST APIs. All examples are used for demonstration purposes only. Consult [Palo Alto's REST API documentation](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-rest-api/access-the-rest-api.html) for authoritative API details.
-
-## Pre-requisites
+* An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* A Palo Alto deployment. If you don't have a deployment, you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2).
 
 ### Palo Alto starting configuration
-
-You should already have a Palo Alto deployment (you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2)).
 
 The detailed steps to configure the Palo Alto VM-Series Firewall can be found [here](https://docs.paloaltonetworks.com/vm-series/9-1/vm-series-deployment/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewall-on-azure-solution-template.html). The link helps you to provision a VM-Series Firewall along with configuring both the `Trust`,  `Untrust` subnets and the associated Network interface cards. We recommend that you create this Firewall in the address space of `Hub` virtual network in the reference architecture to stay consistent.
 
@@ -419,3 +420,4 @@ The variables should be populated as follows:
 
 # Next steps
 
+[]
