@@ -112,7 +112,7 @@ The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log A
 | Windows event logs | Log Analytics workspace | Information sent to the Windows event logging system |
 | Syslog             | Log Analytics workspace | Information sent to the Linux event logging system |
 
-<sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics
+<sup>1</sup> [Click here](../essentials/metrics-custom-overview.md#quotas-and-limits) to review other limitations of using Azure Monitor Metrics. On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher. 
 
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
