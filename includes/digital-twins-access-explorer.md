@@ -2,7 +2,7 @@
 author: baanders
 ms.service: digital-twins
 ms.topic: include for accessing Azure Digital Twins Explorer
-ms.date: 05/04/2022
+ms.date: 05/04/2021
 ms.author: baanders
 ---
 
