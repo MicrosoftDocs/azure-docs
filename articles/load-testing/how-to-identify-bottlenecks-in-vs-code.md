@@ -261,15 +261,8 @@ After the changes you've made, you'll see that:
 
 Both the improved response times and the normalized RU consumption increase the overall performance of your application.
 
+You now have a web app and a load test app running in the Visual Studio Code.
+
 ## Clean up resources
 
 [!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
-
-## Next steps
-
-You now have a web app and a load test app running in the Azure portal.
-
-Advance to the next article to learn how to identify bottlenecks using VS Code.
-
-> [!div class="nextstepaction"]
-> [Identify bottlenecks using VS Code](how-to-identify-bottlenecks-in-vs-code.md)
