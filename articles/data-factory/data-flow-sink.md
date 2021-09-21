@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/09/2021
+ms.date: 09/10/2021
 ---
 
 # Sink transformation in mapping data flow
@@ -75,7 +75,8 @@ The following video explains a number of different sink options for text-delimit
 
 **Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of the service to natively handle flexible schemas in your data flows without needing to explicitly define column changes. Enable **Allow schema drift** to write additional columns on top of what's defined in the sink data schema.
 
-**Validate schema**: If validate schema is selected, the data flow will fail if any column of the incoming source schema isn't found in the source projection, or if the data types don't match. Use this setting to enforce that the source data meets the contract of your defined projection. It's useful in database source scenarios to signal that column names or types have changed.
+**Validate schema**: If validate schema is selected, the data flow will fail if any column in sink projection isn't found in the sink store, or if the data types don't match. Use this setting to enforce that the sink schema meets the contract of your defined projection. It's useful in database sink scenarios to signal that column names or types have changed.
+
 
 ## Cache sink
 

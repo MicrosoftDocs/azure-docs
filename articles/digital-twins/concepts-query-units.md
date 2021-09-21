@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the billing concept of Query Units in Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/14/2020
+ms.date: 9/16/2021
 ms.topic: conceptual
 ms.service: digital-twins
 

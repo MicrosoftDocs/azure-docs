@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/20/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 
@@ -35,6 +35,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Coda supports **IDP** initiated SSO.
 
 * Coda supports **Just In Time** user provisioning.
+
+* Coda supports [Automated user provisioning](coda-provisioning-tutorial.md).
 
 ## Add Coda from the gallery
 
@@ -151,6 +153,8 @@ This completes the work necessary for the SAML SSO connection setup.
 ### Create Coda test user
 
 In this section, a user called Britta Simon is created in Coda. Coda supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Coda, a new one is created after authentication.
+
+Coda also supports automatic user provisioning, you can find more details [here](./coda-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

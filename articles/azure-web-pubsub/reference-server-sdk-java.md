@@ -120,7 +120,7 @@ reduce the dependency size, see the [performance tuning][performance_tuning] sec
 [azure_subscription]: https://azure.microsoft.com/free
 [jdk_link]: /java/azure/jdk
 [source_code]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/webpubsub/azure-messaging-webpubsub/src
-[product_documentation]: https://aka.ms/awps/doc
+[product_documentation]: ./index.yml
 [samples_readme]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java
 [log_levels]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/logging/ClientLogger.java
 [performance_tuning]: https://github.com/Azure/azure-sdk-for-java/wiki/Performance-Tuning

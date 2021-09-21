@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Fortes Change Cloud supports **SP and IDP** initiated SSO.
+* Fortes Change Cloud supports [Automated user provisioning](fortes-change-cloud-provisioning-tutorial.md).
 
 ## Adding Fortes Change Cloud from the gallery
 
@@ -123,6 +124,8 @@ To configure single sign-on on **Fortes Change Cloud** side, you need to send th
 ### Create Fortes Change Cloud test user
 
 In this section, you create a user called Britta Simon in Fortes Change Cloud. Work with [Fortes Change Cloud support team](mailto:support@fortes.nl) to add the users in the Fortes Change Cloud platform. Users must be created and activated before you use single sign-on.
+
+Fortes Change Cloud also supports automatic user provisioning, you can find more details [here](./fortes-change-cloud-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

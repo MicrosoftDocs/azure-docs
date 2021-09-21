@@ -561,7 +561,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Correct the credentials and redeploy the linked service. First verify that the credentials work on HDInsight by opening the cluster URI on any browser and trying to sign in. If the credentials don't work, you can reset them from the Azure portal.
 
-   For ESP cluster, reset the password through [self service password reset](../active-directory/user-help/active-directory-passwords-update-your-own-password.md).
+   For ESP cluster, reset the password through [self service password reset](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
  </br>
 
