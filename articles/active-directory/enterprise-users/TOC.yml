@@ -66,18 +66,18 @@
     items:
     - name: Azure AD tenant organizations    
       href: ../fundamentals/active-directory-whatis.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - name: Delete a tenant    
+      href: directory-delete-howto.md
+    - name: Multiple tenants    
+    - name: Take over a tenant
+      href: domains-admin-takeover.md
     - name: Manage domain names
       href: domains-manage.md
     - name: Verify subdomains as managed
       href: domains-verify-custom-subdomain.md
-    - name: Delete a tenant    
-      href: directory-delete-howto.md
-    - name: Multiple tenants    
       href: licensing-directory-independence.md
-    - name: Self-service signup    
+    - name: Self-service sign-up    
       href: directory-self-service-signup.md
-    - name: Take over a tenant    
-      href: domains-admin-takeover.md
     - name: Azure AD Connect    
       href: ../hybrid/whatis-hybrid-identity.md?context=%2fazure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Manage groups
