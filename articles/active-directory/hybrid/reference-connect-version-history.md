@@ -59,7 +59,7 @@ However, if you’d like all the latest features and updates, the best way to se
 ## 1.6.14.2
 >[!NOTE] 
 >This is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer at this time. You cannot use this version to update an Azure AD Connect V2.0 server.
->We will begin auto upgrading eligible tenants that are running Windows Server 2012 or Windows Server 2012 R2, this will take a few weeks to complete.
+>We will begin auto upgrading eligible tenants when this version is available for download, autoupgrade will take a few weeks to complete.
 
 ### Release status
 9/21/2021: Released for download and auto upgrade.
