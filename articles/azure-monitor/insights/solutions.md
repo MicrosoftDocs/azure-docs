@@ -1,6 +1,6 @@
 ---
 title: Monitoring solutions in Azure Monitor | Microsoft Docs
-description: Get information on installing and using logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.
+description: Get information on prepackaged collections of logic, visualization, and data acquisition rules for different problem areas.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
