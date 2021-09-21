@@ -18,7 +18,7 @@ Applying sensitivity labels to your content enables you to do so by stating how 
 
 For example, applying a sensitivity label ‘highly confidential’ to a document that contains social security number and credit card numbers helps you identify the sensitivity of the document without knowing the actual data in the document.
 
-### Benefits of labeling in Azure Purview
+## Benefits of labeling in Azure Purview
 
 Azure Purview allows you to apply sensitivity labels to assets, enabling you to classify and protect your data.
 
