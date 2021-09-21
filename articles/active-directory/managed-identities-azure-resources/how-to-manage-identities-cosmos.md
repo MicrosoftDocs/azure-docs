@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 09/19/2021
+ms.date: 09/20/2021
 ms.author: barclayn
 ms.custom: ep-msia
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
@@ -25,22 +25,16 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
-- Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- A [Comos DB Core (SQL) API account](../../cosmos-db/create-cosmosdb-resources-portal.md) configured with some data that you can query. The Cosmos quickstart walks you through the steps of creating an Azure Cosmos account. If you are getting started with Cosmos, the quickstart is a great way to get familiar with Cosmos and set up for this tutorial and others. 
+- A basic understanding of Managed identities. If you would like to learn more about managed identities for Azure resources before you continue, review the managed identities [overview](overview.md).
+- You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- A [Comos DB Core (SQL) API account](../../cosmos-db/create-cosmosdb-resources-portal.md) configured with some data that you can query. The Cosmos quickstart walks you through the steps of creating an Azure Cosmos account. 
 - You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 - A resource group that we can use to create all resources.
 
 
 ## Get a virtual machine with a managed identity
 
-Before we continue, we need a virtual machine with a managed identity. You may choose to create a new VM or use an existing one: 
-- You may choose to create a virtual machine with a system assigned managed identity enabled.
-- You may enable system assigned managed identities on an existing virtual machine.
-- You could create a virtual machine with a user-assigned managed identity enabled.
-- You can assign a user-assigned managed identity to an existing VM.
-
-In addition, to the options listed above you need to choose between Linux and Windows for your virtual machine's operating system. Either one is fine. 
+For the purposes of this tutorial you need a virtual machine in Azure. You may have one already available and in that case you need to enable a system-assigned managed identity or assign a user-assigned managed identity. If you have no virtual machine available to go over these steps you can create one.
 
 ### System assigned
 
@@ -301,10 +295,31 @@ Assign a user assigned managed identity to an existing VM
 
 
 ---
+## Create a Cosmos DB Account
+We need a Cosmos DB account available where you have administrative rights. If you need to create a new Cosmos DB Account do so using the following parameters:
+
+ |Setting|Value|Description |
+   |---|---|---|
+   |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
+   |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
+   |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-44 characters in length.|
+   |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](../introduction.md).|
+   |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
+   |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode.|
+   |Apply Azure Cosmos DB free tier discount|**Apply** or **Do not apply**|With Azure Cosmos DB free tier, you will get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+
+   > [!NOTE]
+   > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
+
+For detailed steps you can review the [Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md).
 
 ## Grant access 
 
-Now that you have a virtual machine configured with a managed identity we need to [grant the managed identity access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos. Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md). In this example, we will grant contributor access to the vm's managed identity.
+Now that you have a virtual machine configured with a managed identity and a Cosmos DB Account we need to grant the managed identity a couple of different roles.
+
+- First grant access to the Cosmos management plane using [Azure RBAC](../../cosmos-db/role-based-access-control.md). The managed identity needs to have the DocumentDB Account Contributor role assigned to be able of creating Databases and containers.
+
+- You also need to grant the managed identity a contributor role using [Cosmos RBAC](../../cosmos-db/how-to-setup-rbac.md). You can see specific steps below. 
 
 > [!NOTE] 
 > Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data contributor** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
@@ -375,7 +390,13 @@ The ManagedIdentityCredential class attempts to authentication using a managed i
 [!IMPORTANT]
 > Azure Cosmos RBAC can be used to manage data plane operations. Azure RBAC can be used to manage access to the management plane. 
 
-In the example shown below you create a Database, container an item in the container and read back the newly created item using the system assigned managed identity of the virtual machine you are using for this tutorial. 
+In the example shown below you create a Database, container an item in the container and read back the newly created item using the system assigned managed identity of the virtual machine you are using for this tutorial. To use the sample below you need to have the following NuGet packages:
+
+- Azure.Identity
+- Microsoft.Azure.Cosmos
+- Microsoft.Azure.Management.CosmosDB
+
+You also need to enable **Include prerelease** and add **Azure.ResourceManager.CosmosDB**. 
 
 ```csharp
 using Azure.Identity;
@@ -391,19 +412,19 @@ namespace MITest
     {
         static async Task Main(string[] args)
         {
-            var subscriptionId = "Your subscription ID";
-            var resourceGroupName = "Your resource group";
-            var accountName = "The cosmos db account name";
-            var databaseName = "Database name";
-            var containerName = "The name of the container";
+            var subscriptionId = "8b33b5f4-de62-4c08-a38c-cd5235813308";
+            var resourceGroupName = "mi-test";
+            var accountName = "cosmos-mi";
+            var databaseName = "DB02";
+            var containerName = "container01";
 
             var tokenCredential = new DefaultAzureCredential();
 
-            // create the management client
+            // create the management clientSS
             var managementClient = new CosmosDBManagementClient(subscriptionId, tokenCredential);
 
             // create the data client
-            var dataClient = new CosmosClient("Cosmos URI", tokenCredential);
+            var dataClient = new CosmosClient("https://cosmos-mi.documents.azure.com:443/", tokenCredential);
 
             // create a new database
             await managementClient.SqlResources.StartCreateUpdateSqlDatabaseAsync(resourceGroupName, accountName, databaseName,
@@ -413,14 +434,17 @@ namespace MITest
             await managementClient.SqlResources.StartCreateUpdateSqlContainerAsync(resourceGroupName, accountName, databaseName, containerName,
                 new SqlContainerCreateUpdateParameters(new SqlContainerResource(containerName), new CreateUpdateOptions()));
 
-            // create a new item
+            // create a new item 
+            var partitionKey = "pkey";
             var id = Guid.NewGuid().ToString();
             await dataClient.GetContainer(databaseName, containerName)
-                .CreateItemAsync(new { id = id }, new PartitionKey(id));
+                .CreateItemAsync(new { id = id, _partitionKey = partitionKey }, new PartitionKey(partitionKey));
+
 
             // read back the item
             var pointReadResult = await dataClient.GetContainer(databaseName, containerName)
-                .ReadItemAsync<dynamic>(id, new PartitionKey(id));
+                .ReadItemAsync<dynamic>(id, new PartitionKey(partitionKey));
+
 
             // run a query
             await dataClient.GetContainer(databaseName, containerName)
@@ -448,7 +472,7 @@ Then [read and write data](https://docs.microsoft.com/azure/cosmos-db/sql-api-do
 Initialize your Cosmos DB client:
 
 ```java
-CosmosAsyncClient Client = new CosmosClientBuilder() .endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
+CosmosAsyncClient Client = new CosmosClientBuilder().endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
 ```
 
 Then read and write data as described in [these samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples
