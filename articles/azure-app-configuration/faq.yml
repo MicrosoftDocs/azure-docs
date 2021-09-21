@@ -123,8 +123,6 @@ sections:
           
           When a store reaches its limit in the standard tier, it may return HTTP status code 429 for some requests made until the end of the hour. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
           
-          If you use one of App Configuration clients such as configuration provider libraries, SDKs, and Azure Pipeline tasks to access your store, App Configuration clients honor the `retry-after-ms` header and automatically retry. Your application usually will work without any issues if your store only experiences throttled requests momentarily.
-          
           If your application regularly experiences HTTP status code 429 responses, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
           
       - question: My application receives HTTP status code 429 responses. Why?
@@ -132,11 +130,14 @@ sections:
           You'll receive an HTTP status code 429 response under these circumstances:
           
           * Exceeding the daily request limit for a store in the Free tier.
-          * Temporary throttling due to a high request rate for a store in the Standard tier.
+          * Exceeding the hourly request limit for a store in the standard tier.
+          * Momentary throttling due to a large burst of requests.
           * Excessive bandwidth usage.
           * Attempting to create or modify a key when the storage quote is exceeded.
           
           Check the body of the 429 response for the specific reason why the request failed.
+          
+          A configuration store may experience momentary throttling if it receives a large burst of requests. App Configuration clients, such as the Azure SDK, configuration provider libraries, and Azure Pipeline tasks, automatically retry on throttled requests. For any applications using one of these clients, or a custom client that retries on throttled requests, this momentary throttling should go unnoticed, should it occur.
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
         answer: |
