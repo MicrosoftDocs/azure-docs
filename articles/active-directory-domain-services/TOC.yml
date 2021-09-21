@@ -24,7 +24,7 @@
     - name: Create a replica set
       href: tutorial-create-replica-set.md
     - name: Perform a disaster recovery drill
-      href: tutorial-perfrom-disaster-recovery-drill.md
+      href: tutorial-perform-disaster-recovery-drill.md
     - name: Create a customized managed domain
       href: tutorial-create-instance-advanced.md
     - name: Create a forest trust
