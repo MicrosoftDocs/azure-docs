@@ -64,7 +64,7 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
    > ![Add a security principal to the ACL](./media/data-lake-storage-acl-azure-portal/get-security-principal.png)
 
    > [!NOTE]
-   > We recommend that you create a security group in Azure AD, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md).
+   > We recommend that you create a security group in Azure AD, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbook. 
 

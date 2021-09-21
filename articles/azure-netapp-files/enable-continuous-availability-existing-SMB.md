@@ -22,7 +22,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 
 ## Considerations
 
-* The [**Hide Snapshot Path**](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) option currently does not have any effect for CA-enabled SMB volumes.  
+* The [**Hide Snapshot Path**](snapshots-edit-hide-path.md) option currently does not have any effect for CA-enabled SMB volumes.  
 
 * The `~snapshot` directory (which can be used to traverse in other SMB volumes) is not visible for CA-enabled SMB volumes. You can still manually type `~snapshot\<snapshotName>` to access the snapshot.
 
@@ -46,7 +46,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
  
     You might need to install a newer PowerShell version. 
 
-    If you know the server name, you can use the `-ServerName` parameter with the command. See the [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) powershell command details.
+    If you know the server name, you can use the `-ServerName` parameter with the command. See the [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) PowerShell command details.
 
 ## Next steps  
 

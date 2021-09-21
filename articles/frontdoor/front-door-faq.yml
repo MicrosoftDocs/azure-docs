@@ -10,7 +10,7 @@ metadata:
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: infrastructure-services
-  ms.date: 06/10/2021
+  ms.date: 09/14/2021
   ms.author: duau
     
 title: Frequently asked questions for Azure Front Door
@@ -136,7 +136,7 @@ sections:
               </configuration>
               ```
           
-          
+          - Azure Front Door also supports additional service tags, *AzureFrontDoor.Frontend* and *AzureFrontDoor.FirstParty*, to integrate internally with other Azure services. See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
           
       - question: |
           Can the anycast IP change over the lifetime of my Front Door?
