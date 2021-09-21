@@ -310,7 +310,7 @@ To update an existing map, you have to upload a new map file that has the change
 
    After your map file finishes uploading, the updated map appears in the **Maps** list.
 
-### [Standard](#tab/)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
