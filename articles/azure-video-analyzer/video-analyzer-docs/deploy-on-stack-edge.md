@@ -241,12 +241,12 @@ These steps cover creating a Gateway user and setting up file shares to view the
         
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/deploy-on-stack-edge/remote-share.png" alt-text="Remote share":::
-1. Update the avaedge module's Container Create Options to use Volume Mounts:
+1. Update the RTSP Simulator module's Container Create Options to use Volume Mounts:
     1. Click on the **Set modules** button:
 
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/deploy-on-stack-edge/set-modules.png" alt-text="Set modules" lightbox="./media/deploy-on-stack-edge/set-modules.png":::
-    1. Click on the **avaedge** module:
+    1. Click on the **rtspsim** module:
 
         > [!div class="mx-imgBorder"]
         > :::image type="content" source="./media/deploy-on-stack-edge/select-module.png" alt-text="Select module":::
