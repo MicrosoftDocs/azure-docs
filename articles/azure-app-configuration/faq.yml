@@ -123,6 +123,8 @@ sections:
           
           When a store reaches its limit in the standard tier, it may return HTTP status code 429 for some requests made until the end of the hour. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
           
+          If you use one of App Configuration clients such as configuration provider libraries, SDKs, and pipeline tasks to access your store, App Configuration clients honor the `retry-after-ms` header and automatically retry. Your application usually will work without any issues if your store only experiences throttled requests momentarily.
+          
           If your application regularly experiences HTTP status code 429 responses, consider redesigning it to reduce the number of requests made. For more information, see [Reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration)
           
       - question: My application receives HTTP status code 429 responses. Why?
