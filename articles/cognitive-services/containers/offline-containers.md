@@ -63,17 +63,17 @@ docker run -v {LICENSE_MOUNT} {IMAGE} \
 eula=accept billing={ENDPOINT_URI} \
 apikey={API_KEY} \
 DownloadLicense=True \
-Mounts:License=/path/to/license/directory
+Mounts:License={LICENSE_LOCATION}
 ```
 
 Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with the `LicenseFolderKey` parameter 
 
 ```bash
-docker run -v <license-mount> <image> \
+docker run -v {LICENSE_MOUNT} {IMAGE} \
 eula=accept \
-billing=<> \
-apikey=<> \
-Mounts:License=/path/to/license/directory
+billing={ENDPOINT_URI} \
+apikey={API_KEY} \
+Mounts:License={LICENSE_LOCATION}
 ```
 
 ## Troubleshooting
