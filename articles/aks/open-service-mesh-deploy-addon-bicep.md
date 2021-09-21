@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-# Deploy Open Service Mesh AKS addon using Bicep
+# Deploy Open Service Mesh (OSM) Azure Kubernetes Service (AKS) addon using Bicep
 
 This article will discuss how to deploy the OSM addon to AKS using a [Bicep](/azure/azure-resource-manager/bicep/) template.
 
@@ -59,13 +59,13 @@ When ready, refresh the registration of the _Microsoft.ContainerService_ resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Install Open Service Mesh (OSM) Azure Kubernetes Service (AKS) addon for a new AKS cluster using Bicep
+## Install the OSM AKS addon for a new AKS cluster using Bicep
 
-For a new AKS cluster deployment scenario, you will start with a brand new deployment of an AKS cluster enabling the OSM addon at the cluster create operation. The following set of directions will utilize a generic Bicep template that deploys an AKS cluster using ephemeral disks, using the [`kubenet`](/azure/aks/configure-kubenet) CNI, and enabling the AKS OSM addon. For more advanced deployment scenarios, please visit the [Bicep](/azure/azure-resource-manager/bicep/overview) documentation.
+For a new AKS cluster deployment scenario, start with a brand new deployment of an AKS cluster with the OSM addon enabled at the cluster create operation. The following set of directions will use a generic Bicep template that deploys an AKS cluster using ephemeral disks, using the [`kubenet`](/azure/aks/configure-kubenet) CNI, and enabling the AKS OSM addon. For more advanced deployment scenarios visit the [Bicep](/azure/azure-resource-manager/bicep/overview) documentation.
 
 ### Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example is used to create a resource group named in a specified Azure location (region):
+In Azure, you can associate related resources using a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example is used to create a resource group named in a specified Azure location (region):
 
 ```azurecli-interactive
 az group create --name <my-osm-bicep-aks-cluster-rg> --location <azure-region>
@@ -143,7 +143,7 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
 }
 ```
 
-Open the `osm.aks.parameters.json` file and copy the following example content to it. Add the deployment specific parameters, then save the file.
+Open the `osm.aks.parameters.json` file and copy the following example content to it. Add the deployment-specific parameters, then save the file.
 
 > [!NOTE]
 > The `osm.aks.parameters.json` is an example template parameters file needed for the Bicep deployment. You will have to update the specified parameters specifically for your deployment environment. The specific parameter values used by this example needs the following parameters to be updated. They are the _clusterName_, _clusterDNSPrefix_, _k8Version_, and _sshPubKey_. To find a list of supported Kubernetes version in your region, please use the `az aks get-versions --location <region>` command.
@@ -205,13 +205,13 @@ kubectl get services -n kube-system --selector app=osm-controller
 
 ## Accessing the AKS OSM add-on configuration
 
-Currently you can access and configure the OSM controller configuration via the OSM MeshConfig resource. To view the OSM controller configuration settings via the CLI use the **kubectl** get command as shown below.
+Currently you can access and configure the OSM controller configuration via the OSM MeshConfig resource, and you can view the OSM controller configuration settings via the CLI use the **kubectl** get command as shown below.
 
 ```azurecli-interactive
 kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
 ```
 
-Output of the MeshConfig should look like the following:
+Output of the MeshConfig is shown in the following:
 
 ```
 apiVersion: config.openservicemesh.io/v1alpha1
@@ -257,7 +257,7 @@ spec:
     useHTTPSIngress: false
 ```
 
-Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh. The discovered services will have traffic policy rules programed on each Envoy proxy sidecar to allow communications between these services.
 
 > [!WARNING]
 > Before proceeding please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below
