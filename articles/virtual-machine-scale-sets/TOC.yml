@@ -160,6 +160,35 @@
     - name: Benchmark scores
       href: ../virtual-machines/windows/compute-benchmark-scores.md
       maintainContext: true
+    - name: Capacity reservation (preview)
+      items:
+      - name: Overview
+        displayName: on-demand capacity reservation 
+        href: capacity-reservation-overview.md
+        maintainContext: true
+      - name: Create a capacity reservation
+        displayName: on-demand capacity reservation
+        href: capacity-reservation-create.md
+        maintainContext: true
+      - name: Overallocating capacity reservation
+        displayName: on-demand capacity reservation
+        href: capacity-reservation-overallocate.md
+        maintainContext: true
+      - name: Modify a capacity reservation
+        displayName: on-demand capacity reservation
+        href: capacity-reservation-modify.md
+        maintainContext: true
+        displayName: on-demand capacity reservation
+        href: capacity-reservation-remove-vm.md
+        maintainContext: true
+      - name: Associate a VM scale set
+        displayName: on-demand capacity reservation
+        href: capacity-reservation-associate-virtual-machine-scale-set.md
+        maintainContext: true
+      - name: Remove a VM scale set 
+        displayName: on-demand capacity reservation
+        href: capacity-reservation-remove-virtual-machine-scale-set.md
+        maintainContext: true
     maintainContext: true
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
