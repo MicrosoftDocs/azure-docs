@@ -40,13 +40,13 @@ Rather than manually find the relevant contact and reach them every time a new a
 
 The following image shows the [Watchlists-InformSubowner-IncidentTrigger](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Watchlist-InformSubowner-IncidentTrigger) in the Logic App designer.
 
-![Image of the Watchlists-InformSubowner-IncidentTrigger playbook.](media/playbook.png)
+![Image of the Watchlists-InformSubowner-IncidentTrigger playbook.](media/inform-owner-playbook/playbook.png)
 
 The playbook runs the following steps:
 
 1. **When Azure Sentinel incident creation rule was triggered**, the playbook receives the created incident as input.
 
-1. **For each Alert** in the incident, probably one alert, the playbook performs the following steps:
+1. **For each Alert** in the incident, probably one alert, the playbook does the following steps:
 
    1. **Filter array to get AzureResource identifier**. An Azure Defender alert might have two kinds of identifiers: `AzureResource` or resource ID shown in Log Analytics, and Log Analytics information about the workspace that stores the alerts. This action returns an array of just the Azure Resource identifiers for later use.
    
@@ -54,11 +54,11 @@ The playbook runs the following steps:
    
    1. **Run query and list results - Get Watchlist**. The Azure Monitor Log Analytics connector gets the Watchlist items. **Subscription**, **Resource Group**, and **Resource Name** are the Azure Sentinel workspace details where the Watchlist is located. Use the `project` argument to specify which fields are relevant for your use.
       
-      ![Image of the Run query and list results playbook task.](media/run-query.png)
+      ![Image of the Run query and list results playbook task.](media/inform-owner-playbook/run-query.png)
    
    1. **Filter array to get relevant subscription owners**. This step keeps the Watchlist results only for the subscription you're looking for. The Logic Apps expression argument on the right is: `string(body('Parse_JSON_to_get_subscriptionId')?['properties']?['effectiveSubscriptionId'])`.
       
-      ![Image that shows the filter array playbook task.](media/filter-array.png)
+      ![Image that shows the filter array playbook task.](media/inform-owner-playbook/filter-array.png)
    
    1. **Post a message as the flow bot to a user**. This step sends a message to the subscription owner in Microsoft Teams with any details you want to share about the new alert.
       
@@ -86,15 +86,15 @@ The playbook runs the following steps:
    
    1. Select **Add new**.
    
-   ![Image that shows adding a Watchlist in Azure Sentinel.](media/watchlist.png)
+   ![Image that shows adding a Watchlist in Azure Sentinel.](media/inform-owner-playbook/watchlist.png)
    
    1. Fill in the required details. The **Watchlist Alias** will be used to query this Watchlist in the playbook query step.
    
-   ![Image that shows the Watchlist Wizard in Azure Sentinel.](media/watchlist-wizard.png)
+   ![Image that shows the Watchlist Wizard in Azure Sentinel.](media/inform-owner-playbook/watchlist-wizard.png)
    
    1. Upload the CSV file.
    
-   ![Image that shows uploading the Watchlist C S V file.](media/upload-watchlist.png)
+   ![Image that shows uploading the Watchlist C S V file.](media/inform-owner-playbook/upload-watchlist.png)
    
 1. Review and create the Watchlist.
 
