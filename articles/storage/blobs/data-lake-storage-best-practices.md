@@ -14,12 +14,10 @@ ms.reviewer: sachins
 
 Some sort of intro goes here.
 
-## Create a storage account
+## Set up a storage account
 
 Maybe brief discussion of how many accounts to open? Draw from hitch guide.
 Point to article for creating a storage account.
-
-## Configure a storage account
 
 Talk about various settings of storage account and that this is actually just a blob storage account.
 Briefly discuss various features such as resiliency.
@@ -140,7 +138,7 @@ For uploading datasets that range in several terabytes, using the methods descri
 
 Azure ExpressRoute lets you create private connections between Azure data centers and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. To learn more, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
-## Structuring data sets
+## Structure data sets
 
 When ingesting data it's important to pre-plan the structure of the data so that security, partitioning, and processing can be utilized effectively. Many of the following recommendations are applicable for all big data workloads. The file size, number of files, and folder structure have an impact on performance.  The following section describes best practices in these areas. Every workload has different requirements on how the data is consumed, but below are some common layouts to consider when working with Internet of Things (IoT) and batch scenarios.
 
@@ -190,8 +188,6 @@ For date and time, the following is a common pattern
 *\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
-
-For other directory layout structure suggestions, see [Directory structure](data-lake-storage-best-practices.md#directory-layout-considerations)
 
 ### File size
 
