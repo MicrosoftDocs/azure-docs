@@ -44,7 +44,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 * A `kubeconfig` file and context pointing to your cluster.
 * 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
-* Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
+* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -76,7 +76,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 * A `kubeconfig` file and context pointing to your cluster.
 * 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
-* Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
+* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ---
 
@@ -242,21 +242,11 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc-
 
 1. Set the environment variables needed for Azure CLI to use the outbound proxy server:
 
-    * If you are using bash, run the following command with appropriate values:
-
-        ```bash
-        export HTTP_PROXY=<proxy-server-ip-address>:<port>
-        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-        ```
-
-    * If you are using PowerShell, run the following command with appropriate values:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
 
 2. Run the connect command with proxy parameters specified:
 
@@ -267,6 +257,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc-
     > [!NOTE]
     > * Some network requests such as the ones involving in-cluster service-to-service communication need to be separated from the traffic that is routed via the proxy server for outbound communication. The `--proxy-skip-range` parameter can be used to specify the CIDR range and endpoints in a comma-separated way so that any communication from the agents to these endpoints do not go via the outbound proxy. At a minimum, the CIDR range of the services in the cluster should be specified as value for this parameter. For example, let's say `kubectl get svc -A` returns a list of services where all the services have ClusterIP values in the range `10.0.0.0/16`. Then the value to specify for `--proxy-skip-range` is `10.0.0.0/16,kubernetes.default.svc,.svc.cluster.local,.svc`.
     > * `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments. `--proxy-cert` is *only* required if you need to inject trusted certificates expected by proxy into the trusted certificate store of agent pods.
+    > * The outbound proxy has to be configured to allow websocket connections.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -274,13 +265,11 @@ If your cluster is behind an outbound proxy server, Azure PowerShell and the Azu
 
 1. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
 
-    * Run the following command with appropriate values:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```powershell
+    $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+    ```
 
 2. Run the connect command with the proxy parameter specified:
 
