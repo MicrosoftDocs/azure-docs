@@ -55,9 +55,9 @@ If you want to skip straight to the code, see the [ASP.NET quickstart](https://g
 
 Next, you create the cache for the app.
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 #### To edit the *CacheSecrets.config* file
 

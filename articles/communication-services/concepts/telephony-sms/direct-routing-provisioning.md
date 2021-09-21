@@ -45,6 +45,9 @@ When you add a direct routing configuration to a resource, all calls made from t
 ## Voice routing examples
 The following examples display voice routing in a call flow.
 
+> [!NOTE]
+> In all examples, while the higher voice route has higher priority, the SBCs in a route are tried in random order.
+
 ### One route example:
 If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, then when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If neither SBC is available, the call is dropped.
 
@@ -55,7 +58,7 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`, and created a third route with `^+1(\d[10])$` with `sbc5.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 nor sbc2 are unavailable, the route with lower priority will be tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of a second route are available, the third route will be tried; if sbc5 is also not available, the call is dropped. Also, if a user dials `+1 321 XXX XX XX`, the call goes to `sbc5.contoso.biz`, and it is not available, the call is dropped.
 
 > [!NOTE]
-> In all examples, while the higher voice route has higher priority, the SBCs in a route are tried in random order.
+> Failover to the next SBC in voice routing works only for response codes 408, 503, and 504.
 
 > [!NOTE]
 > In all the examples, if the dialed number does not match the pattern, the call will be dropped unless there is a purchased number exist for the communication resource, and this number was used as `alternateCallerId` in the application. 

@@ -29,7 +29,7 @@ You can gather the information needed to access the cache using three methods:
 
 In this section, you will retrieve the keys from the Azure portal.
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 
 ## Enable access for redis-cli.exe
