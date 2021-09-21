@@ -61,9 +61,9 @@ Live pipelines are designed to remain active, once activated, and keep processin
 The lifecycle of a pipeline job is represented in the diagram below.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/pipeline/batchpipeline-lifecycle.svg" alt-text="Lifecycle of a batch pipeline":::
+> :::image type="content" source="./media/pipeline/batch-pipeline-lifecycle.svg" alt-text="Diagram of a batch pipeline lifecycle.":::
 
-Upon successful creation of pipeline job, it is in the “Processing” state. If the job completes successfully it goes into a “Completed” state, else if it fails it goes to the “Failed” state. Alternatively, while the pipeline job is in the "Processing" state, a cancel request can be issued. If that request is successful, the job will go to the “Canceled” state.
+Upon successful creation of pipeline job, it is in the 'Processing' state. If the job completes successfully it goes into a 'Completed' state, else if it fails it goes to the 'Failed' state. Alternatively, while the pipeline job is in the 'Processing' state, a cancel request can be issued. If that request is successful, the job will go to the 'Canceled' state.
 
 
 > [!NOTE]
