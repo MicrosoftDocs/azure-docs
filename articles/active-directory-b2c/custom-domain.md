@@ -410,7 +410,7 @@ Azure Front Door passes the user's original IP address. It's the IP address that
 
 To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows, or custom polies.  
 
-### Can my Azure Front Door instance be hosted in different subscription than B2C tenant?
+### Can my Azure Front Door instance be hosted in a different subscription than my Azure AD B2C tenant?
     
 Yes, Azure Front Door can be in different subscription.
     
