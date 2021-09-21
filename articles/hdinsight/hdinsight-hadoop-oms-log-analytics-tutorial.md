@@ -349,7 +349,9 @@ If you are behind a firewall you may need to complete the [Prerequisites for clu
 
 If you have Azure Monitor Integration enabled on a cluster, updating the OMS agent will also update the OMI agent. You can check the version of the OMI agent on the cluster by running the following command: 
 
-    sudo /opt/omi/bin/omiserver –version
+```
+ sudo /opt/omi/bin/omiserver –version
+```
 
 ## Next steps
 
