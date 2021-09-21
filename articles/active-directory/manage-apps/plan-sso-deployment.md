@@ -56,11 +56,11 @@ There are two primary ways in which you can enable your users to single sign-on 
 
 ### Considerations for password-based SSO
 
-Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](../user-help/my-apps-portal-end-user-access.md). Options include:
+Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). Options include:
 
 - [Group Policy for Internet Explorer](my-apps-deployment-plan.md)
 - [Configuration Manager for Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-- [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
+- [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)
 
 To learn more, see [How to configure password single sign on](./configure-password-single-sign-on-non-gallery-applications.md).
 

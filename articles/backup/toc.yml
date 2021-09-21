@@ -416,6 +416,8 @@
       href: offline-backup-server-previous-versions.md
   - name: Monitor and Alerts
     items:
+    - name: Overview
+      href: monitoring-and-alerts-overview.md
     - name: Using Backup Explorer
       href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal

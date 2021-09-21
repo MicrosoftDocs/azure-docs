@@ -16,6 +16,10 @@ You can only use a loop with top-level resources, even when applying a loop to a
 
 You can also use a loop with [modules](loop-modules.md), [resources](loop-resources.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
 
+### Microsoft Learn
+
+To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+
 ## Syntax
 
 Loops can be used to declare multiple properties by:

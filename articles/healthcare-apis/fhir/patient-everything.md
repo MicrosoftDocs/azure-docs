@@ -56,7 +56,7 @@ GET {FHIRURL}/Patient/{ID}/$everything?start=2010&end=2020
 
 To use $patient-everything to query a patient’s Observation and Encounter, use the following call: 
 ```json
-GET {FHIRURL}/Patient/{ID}/$everything_type=Observation,Encounter 
+GET {FHIRURL}/Patient/{ID}/$everything?_type=Observation,Encounter 
 ```
 
 To use $patient-everything to query a patient’s “everything” since 2021-05-27T05:00:00Z, use the following call: 

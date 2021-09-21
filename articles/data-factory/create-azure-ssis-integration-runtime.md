@@ -94,7 +94,7 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 On the home page, select the **Configure SSIS** tile to open the **Integration runtime setup** pane.
 
-   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
 
    The **Integration runtime setup** pane has three pages where you successively configure general, deployment, and advanced settings.
 
@@ -102,7 +102,7 @@ On the home page, select the **Configure SSIS** tile to open the **Integration r
 
 On the **General settings** page of **Integration runtime setup** pane, complete the following steps.
 
-![General settings](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
+:::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png" alt-text="General settings":::
 
 1. For **Name**, enter the name of your integration runtime.
 
@@ -135,7 +135,7 @@ Regardless of your deployment model, if you want to use SQL Server Agent hosted 
    
 If you select the check box, complete the following steps to bring your own database server to host SSISDB that we'll create and manage on your behalf.
 
-![Deployment settings for SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
+:::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png" alt-text="Deployment settings for SSISDB":::
    
 1. For **Subscription**, select the Azure subscription that has your database server to host SSISDB. 
 
@@ -176,7 +176,7 @@ Azure-SSIS IR package store allows you to import/export/delete/run packages and 
    
 If you select this check box, you can add multiple package stores to your Azure-SSIS IR by selecting **New**. Conversely, one package store can be shared by multiple Azure-SSIS IRs.
 
-![Deployment settings for MSDB/file system/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
+:::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png" alt-text="Deployment settings for MSDB/file system/Azure Files":::
 
 On the **Add package store** pane, complete the following steps.
    
@@ -187,7 +187,7 @@ On the **Add package store** pane, complete the following steps.
       > [!NOTE]
       > You can use either **Azure File Storage** or **File System** linked services to access Azure Files. If you use **Azure File Storage** linked service, Azure-SSIS IR package store supports only **Basic** (not **Account key** nor **SAS URI**) authentication method for now.  
 
-      ![Deployment settings for linked services](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
+      :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png" alt-text="Deployment settings for linked services":::
 
       1. For **Name**, enter the name of your linked service. 
          
@@ -237,7 +237,7 @@ Select **Test connection** when applicable and if it's successful, select **Cont
 
 On the **Advanced settings** page of **Integration runtime setup** pane, complete the following steps.
 
-   ![Advanced settings](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png" alt-text="Advanced settings":::
 
    1. For **Maximum Parallel Executions Per Node**, select the maximum number of packages to run concurrently per node in your integration runtime cluster. Only supported package numbers are displayed. Select a low number if you want to use more than one core to run a single large package that's compute or memory intensive. Select a high number if you want to run one or more small packages in a single core.
 
@@ -245,7 +245,7 @@ On the **Advanced settings** page of **Integration runtime setup** pane, complet
 
       If you select the check box, complete the following steps.
 
-      ![Advanced settings with custom setups](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+      :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png" alt-text="Advanced settings with custom setups":::
    
       1. For **Custom setup container SAS URI**, enter the SAS URI of your container where you store scripts and associated files for standard custom setups.
 
@@ -261,7 +261,7 @@ On the **Advanced settings** page of **Integration runtime setup** pane, complet
 
       If you select the check box, complete the following steps.
 
-      ![Advanced settings with a virtual network](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
+      :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png" alt-text="Advanced settings with a virtual network":::
 
       1. For **Subscription**, select the Azure subscription that has your virtual network.
 
@@ -285,7 +285,7 @@ On the **Advanced settings** page of **Integration runtime setup** pane, complet
 
       If you select the check box, complete the following steps.
 
-      ![Advanced settings with a self-hosted IR](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png)
+      :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-shir.png" alt-text="Advanced settings with a self-hosted IR":::
 
       1. For **Self-Hosted Integration Runtime**, select your existing self-hosted IR as a proxy for Azure-SSIS IR.
 
@@ -308,7 +308,7 @@ On the **Summary** section, review all provisioning settings, bookmark the recom
 
 On the **Connections** pane of **Manage** hub, switch to the **Integration runtimes** page and select **Refresh**. 
 
-   ![Connections pane](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png" alt-text="Connections pane":::
 
    You can edit/reconfigure your Azure-SSIS IR by selecting its name. You can also select the relevant buttons to monitor/start/stop/delete your Azure-SSIS IR, auto-generate an ADF pipeline with Execute SSIS Package activity to run on your Azure-SSIS IR, and view the JSON code/payload of your Azure-SSIS IR.  Editing/deleting your Azure-SSIS IR can only be done when it's stopped.
 
@@ -316,15 +316,15 @@ On the **Connections** pane of **Manage** hub, switch to the **Integration runti
 
 1. In the Azure Data Factory UI, switch to the **Manage** tab and then switch to the **Integration runtimes** tab on the **Connections** pane to view existing integration runtimes in your data factory.
 
-   ![View existing IRs](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png" alt-text="View existing IRs":::
 
 1. Select **New** to create a new Azure-SSIS IR and open the **Integration runtime setup** pane.
 
-   ![Integration runtime via menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png" alt-text="Integration runtime via menu":::
 
 1. In the **Integration runtime setup** pane, select the **Lift-and-shift existing SSIS packages to execute in Azure** tile, and then select **Continue**.
 
-   ![Specify the type of integration runtime](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png" alt-text="Specify the type of integration runtime":::
 
 1. For the remaining steps to set up an Azure-SSIS IR, see the [Provision an Azure SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section.
 

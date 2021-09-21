@@ -1,7 +1,7 @@
 ---
-title: Store secrets in a key vault in Azure DevTest Labs | Microsoft Docs
+title: Store secrets in a key vault
 description: Learn how to store secrets in an Azure Key Vault and use them while creating a VM, formula, or an environment. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

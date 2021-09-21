@@ -38,7 +38,10 @@ The cause of this problem can be one of three things:
 
 * Send the request to your backend directly (without going through Azure Front Door). See how long your backend usually takes to respond.
 * Send the request via Azure Front Door and see if you're getting any 503 responses. If not, the problem might not be a timeout issue. Contact support.
-* If going through Azure Front Door results in a 503 error response code, configure the `sendReceiveTimeout` field for Azure Front Door. You can extend the default timeout up to 4 minutes (240 seconds). The setting is under `backendPoolSettings` and is called `sendRecvTimeoutSeconds`.
+* If requests going through Azure Front Door results in a 503 error response code, configure the **Send/receive timeout (in seconds)**  setting for the Azure Front Door. You can extend the default timeout to up to 4 minutes (240 seconds). The setting can be configure by going to the *Front Door designer* and selecting **Settings**.
+
+    :::image type="content" source=".\media\troubleshoot-route-issues\send-receive-timeout.png" alt-text="Screenshot of send/received timeout field in Front Door designer.":::
+
 * If the timeout doesn’t resolve the issue, use a tool like Fiddler or your browser's developer tool to check if the client is sending byte range requests with Accept-Encoding headers, leading to the origin responding with different content lengths. If yes, then you can either disable compression on the Origin/Azure Front Door or create a Rules Set rule to remove `accept-encoding` from the request for byte range requests.
 
     :::image type="content" source=".\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="Screenshot of accept-encoding rule in Rules Engine.":::

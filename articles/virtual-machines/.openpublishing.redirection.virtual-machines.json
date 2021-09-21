@@ -2291,9 +2291,19 @@
             "redirect_document_id": false
           },
           {
-            "source_path_from_root": "/articles/virtual-machines/windows/classic/resize-vm.md",
-            "redirect_url": "/azure/virtual-machines/windows/resize-vm",
+            "source_path_from_root": "/articles/virtual-machines/linux/change-vm-size.md",
+            "redirect_url": "/azure/virtual-machines/resize-vm",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/resize-vm.md",
+            "redirect_url": "/azure/virtual-machines/resize-vm",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/classic/resize-vm.md",
+            "redirect_url": "/azure/virtual-machines/resize-vm",
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/windows/capture-image.md",

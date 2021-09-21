@@ -127,9 +127,9 @@ For more information, see [Microsoft 365 Defender integration with Azure Sentine
 Among the properties of resources that can be controlled by policies are the creation and handling of diagnostics and auditing logs. Azure Sentinel now uses Azure Policy to allow you to apply a common set of diagnostics logs settings to all (current and future) resources of a particular type whose logs you want to ingest into Azure Sentinel. Thanks to Azure Policy, you'll no longer have to set diagnostics logs settings resource by resource.
 
 Azure Policy-based connectors are now available for the following Azure services:
-- [Azure Key Vault](connect-azure-key-vault.md) (public preview)
-- [Azure Kubernetes Service](connect-azure-kubernetes-service.md) (public preview)
-- [Azure SQL databases/servers](connect-azure-sql-logs.md) (GA)
+- [Azure Key Vault](./data-connectors-reference.md#azure-key-vault) (public preview)
+- [Azure Kubernetes Service](./data-connectors-reference.md#azure-kubernetes-service-aks) (public preview)
+- [Azure SQL databases/servers](./data-connectors-reference.md#azure-sql-databases) (GA)
 
 Customers will still be able to send the logs manually for specific instances and don’t have to use the policy engine.
 
@@ -164,36 +164,36 @@ For more information, see:
 
 Our collection of third-party integrations continues to grow, with thirty connectors being added in the last two months. Here's a list:
 
-- [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
-- [Akamai Security Events](connect-akamai-security-events.md)
-- [Alsid for Active Directory](connect-alsid-active-directory.md)
-- [Apache HTTP Server](connect-apache-http-server.md)
-- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [Agari Phishing Defense and Brand Protection](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview)
+- [Akamai Security Events](./data-connectors-reference.md#akamai-security-events-preview)
+- [Alsid for Active Directory](./data-connectors-reference.md#alsid-for-active-directory)
+- [Apache HTTP Server](./data-connectors-reference.md#apache-http-server)
+- [Aruba ClearPass](./data-connectors-reference.md#aruba-clearpass-preview)
 - [Blackberry CylancePROTECT](connect-data-sources.md)
-- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
+- [Broadcom Symantec DLP](./data-connectors-reference.md#broadcom-symantec-data-loss-prevention-dlp-preview)
 - [Cisco Firepower eStreamer](connect-data-sources.md)
-- [Cisco Meraki](connect-cisco-meraki.md)
-- [Cisco Umbrella](connect-cisco-umbrella.md)
-- [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
+- [Cisco Meraki](./data-connectors-reference.md#cisco-meraki-preview)
+- [Cisco Umbrella](./data-connectors-reference.md#cisco-umbrella-preview)
+- [Cisco Unified Computing System (UCS)](./data-connectors-reference.md#cisco-unified-computing-system-ucs-preview)
 - [ESET Enterprise Inspector](connect-data-sources.md)
 - [ESET Security Management Center](connect-data-sources.md)
-- [Google Workspace (formerly G Suite)](connect-google-workspace.md)
-- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
-- [Juniper SRX](connect-juniper-srx.md)
+- [Google Workspace (formerly G Suite)](./data-connectors-reference.md#google-workspace-g-suite-preview)
+- [Imperva WAF Gateway](./data-connectors-reference.md#imperva-waf-gateway-preview)
+- [Juniper SRX](./data-connectors-reference.md#juniper-srx-preview)
 - [Netskope](connect-data-sources.md)
-- [NXLog DNS Logs](connect-nxlog-dns.md)
-- [NXLog Linux Audit](connect-nxlog-linuxaudit.md)
+- [NXLog DNS Logs](./data-connectors-reference.md#nxlog-dns-logs-preview)
+- [NXLog Linux Audit](./data-connectors-reference.md#nxlog-linuxaudit-preview)
 - [Onapsis Platform](connect-data-sources.md)
-- [Proofpoint On Demand Email Security (POD)](connect-proofpoint-pod.md)
+- [Proofpoint On Demand Email Security (POD)](./data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview)
 - [Qualys Vulnerability Management Knowledge Base](connect-data-sources.md)
-- [Salesforce Service Cloud](connect-salesforce-service-cloud.md)
+- [Salesforce Service Cloud](./data-connectors-reference.md#salesforce-service-cloud-preview)
 - [SonicWall Firewall](connect-data-sources.md)
-- [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
-- [Squid Proxy](connect-squid-proxy.md)
+- [Sophos Cloud Optix](./data-connectors-reference.md#sophos-cloud-optix-preview)
+- [Squid Proxy](./data-connectors-reference.md#squid-proxy-preview)
 - [Symantec Endpoint Protection](connect-data-sources.md)
-- [Thycotic Secret Server](connect-thycotic-secret-server.md)
+- [Thycotic Secret Server](./data-connectors-reference.md#thycotic-secret-server-preview)
 - [Trend Micro XDR](connect-data-sources.md)
-- [VMware ESXi](connect-vmware-esxi.md)
+- [VMware ESXi](./data-connectors-reference.md#vmware-esxi-preview)
 
 ### UEBA insights in the entity page (Public preview)
 
@@ -259,13 +259,13 @@ Azure Sentinel now provides an Azure SQL database connector, which you to stream
 
 Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that handles most database management functions, such as upgrading, patching, backups, and monitoring, without user involvement.
 
-For more information, see [Connect Azure SQL database diagnostics and auditing logs](connect-azure-sql-logs.md).
+For more information, see [Connect Azure SQL database diagnostics and auditing logs](./data-connectors-reference.md#azure-sql-databases).
 
 ### Dynamics 365 connector (Public preview)
 
 Azure Sentinel now provides a connector for Microsoft Dynamics 365, which lets you collect your Dynamics 365 applications' user, admin, and support activity logs into Azure Sentinel. You can use this data to help you audit the entirety of data processing actions taking place and analyze it for possible security breaches.
 
-For more information, see [Connect Dynamics 365 activity logs to Azure Sentinel](connect-dynamics-365.md).
+For more information, see [Connect Dynamics 365 activity logs to Azure Sentinel](./data-connectors-reference.md#dynamics-365).
 
 ### Improved incident comments
 
