@@ -38,6 +38,8 @@ After you have created an Azure storage account and linked it to your Language S
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
+    :::image type="content" source="media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="media/create-project.png":::
+    
 4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If you're using a preexisting resource, see [Creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
  
     >[!NOTE]
@@ -45,6 +47,8 @@ After you have created an Azure storage account and linked it to your Language S
     > * This process is irreversible, if you connect a storage account to your resource you cannot disconnect it later.
     > * You can only connect your resource to one storage account.
     > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
+
+    :::image type="content" source="../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../custom-named-entity-recognition/media/connect-storage.png":::
 
 5. Select your project type. For this quickstart we will create a multi label classification project. Then click **Next**.
 
@@ -59,7 +63,11 @@ After you have created an Azure storage account and linked it to your Language S
 
 ## Tagging your data
 
-Typically, after creating a project, you would start [tagging your data](../how-to/tag-data.md) before training the classification model. For this quickstart, because you selected choosing an existing tags file, you can see tagged data already. Refer to this [guide](../how-to/tag-data.md) if you  would like to edit the existing tags.
+Typically, you would import your data and begin [tagging the entities](../how-to/tag-data.md) within it to train the classification model. For this quickstart you will use an example file that already contains tagged data. 
+
+1. [Download the data file](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
+
+2. Select the **Import** button on your project in Language Studio.
 
 ## Train your model
 
@@ -69,7 +77,7 @@ To start training your model:
 
 2. Select the model you want to train from the **Model name** dropdown. If you don’t have models already, type in the name of your model and click on **create new model**.
 
-    :::image type="content" source="../media/train-model-1.png" alt-text="Select the model you want to train" lightbox="../media/train-model-1.png":::
+    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the model selection page for training" lightbox="../media/train-model.png":::
 
 3. Click on the **Train** button at the bottom of the page.
 
