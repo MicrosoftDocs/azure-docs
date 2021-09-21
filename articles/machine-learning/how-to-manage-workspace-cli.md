@@ -135,10 +135,12 @@ key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/
 application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
 ```
 
+:::code language="yml" source="~/azureml-examples-main/cli/assets/workspace/with-existing-resources.yml":::
+
 Then, you can reference this configuration file as part of the workspace creation CLI command.
 
 ```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
+az ml workspace create -g <resource-group-name> --file workspace.yml
 ```
 
 If attaching existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
@@ -212,33 +214,17 @@ For more details on how to use these commands, see the [CLI reference pages](/cl
 
 # [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
 
-To set up private network connectivity for your workspace using the CLI (v2), extend the workspace configuration file to include private link endpoint resource details.
+To set up private network connectivity for your workspace using the CLI (v2), you must use the Azure Networking CLI commands.
 
-```yaml workspace.yml
-name: azureml888
-location: EastUS
-description: Description of my workspace
-storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
-container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
-key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
-application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
+First, deploy the Azure Machine Learning workspace. When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. Hence, you must set the image_build_compute property to an CPU compute cluster name to use for Docker image environment building. Optionally, you can also specify whether the private link workspace should be accessible over the internet.
 
-private_endpoints:
-  approval_type: AutoApproval
-  connections:
-    my-endpt1:
-      subscription_id: <subscription-id>
-      resource_group: <resourcegroup>
-      location: <location>
-      vnet_name: <vnet-name>
-      subnet_name: <subnet-name>
-```
+:::code language="yml" source="~/azureml-examples-main/cli/assets/workspace/privatelink.yml":::
 
-Then, you can reference this configuration file as part of the workspace creation CLI command.
+Next, use Azure Networking CLI commands to create the private link endpoint for the workspace. For the subnet that will contain your Azure Private Link endpoint, make sure you disable private endpoint network policies.
 
-```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/assets/workspace/with-existing-resources.yml" id="az_network_subnet_update_networkpolicies":::
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/assets/workspace/with-existing-resources.yml" id="az_network_ple_create":::
 
 ---
 
@@ -270,26 +256,12 @@ Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
 
-```yaml workspace.yml
-name: azureml888
-location: EastUS
-description: Description of my workspace
-storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
-container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
-key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
-application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
-
-hbi_workspace: true
-customer_managed_key:
-  key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers//Microsoft.KeyVault/<vaulttype>/<vaultname>
-  key_uri: https://<keyvaultid>.vault.azure.net/keys/<keyname>/<keyversion>
-
-```
+:::code language="yml" source="~/azureml-examples-main/cli/assets/workspace/cmk.yml":::
 
 Then, you can reference this configuration file as part of the workspace creation CLI command.
 
 ```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
+az ml workspace create -g <resource-group-name> --file workspace.yml
 ```
 ---
 
