@@ -27,7 +27,6 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 - A basic understanding of Managed identities. If you would like to learn more about managed identities for Azure resources before you continue, review the managed identities [overview](overview.md).
 - You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- A [Comos DB Core (SQL) API account](../../cosmos-db/create-cosmosdb-resources-portal.md) configured with some data that you can query. The Cosmos quickstart walks you through the steps of creating an Azure Cosmos account. 
 - You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 - A resource group that we can use to create all resources.
 
