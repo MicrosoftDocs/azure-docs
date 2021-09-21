@@ -32,8 +32,8 @@ Rather than manually find the relevant contact and reach them every time a new a
 
 ## Prerequisites
 
-- A user or registered application with Azure Sentinel Contributor role to use with the Azure Sentinel connector to Logic Apps
-- The incident creation rule enabled for Security Center Defender
+- A user or registered application with Azure Sentinel Contributor role to use with the Azure Sentinel connector to Azure Logic Apps
+- The Security Center Defender data connector and incident creation rule enabled
 - A user to authenticate to Microsoft Teams, and a user to authenticate to Office 365 Outlook
 
 ## Playbook steps
@@ -72,11 +72,11 @@ The playbook runs the following steps:
 
 ## Setup
 
-1. Create and upload the watchlist.
+To create and upload the watchlist:
 
-1. Create an input comma-separated values (CSV) file. You can create a table in Office 365 Excel and save as a CSV file.
+1. Create an input comma-separated values (CSV) file with the following columns: **SubscriptionId**, **SubscriptionName**, **OwnerName**, **OwnerEmail**. You can create a table in Office 365 Excel and save as a CSV file.
    
-   The following example shows a simple CSV table, where each row represents a subscription in a tenant. There are four columns: **SubscriptionId**, **SubscriptionName**, **OwnerName**, and **OwnerEmail**.
+   The following example shows a simple CSV table, where each row represents a subscription in an Azure tenant:
    
    ```text
    SubscriptionId,SubscriptionName,OwnerName,OwnerEmail
@@ -84,15 +84,13 @@ The playbook runs the following steps:
    00000000-0000-0000-0000-000000000002,DemoSubscription2,MOD Admin,MODadmin@contoso.com
    ```
    
-1. Upload your table.
+1. Upload the table.
 
-   1. In Azure Sentinel, go to **Watchlist**.
-   
-   1. Select **Add new**.
+   1. In Azure Sentinel, go to **Watchlist** and select **Add new**.
       
       ![Image that shows adding a watchlist in Azure Sentinel.](media/inform-owner-playbook/watchlist.png)
    
-   1. Fill in the required details. The **Watchlist Alias** will be used to query this Watchlist in the playbook query step.
+   1. Fill in the required details. The **Watchlist Alias** is used to query this watchlist in the playbook query step.
       
       ![Image that shows the Watchlist Wizard in Azure Sentinel.](media/inform-owner-playbook/watchlist-wizard.png)
       
@@ -117,14 +115,13 @@ To deploy the playbook:
    
 1. Check the Terms and Conditions, and select **Purchase**.
 
-1. The Azure Resource Manager (ARM) template containing the Logic App Playbook workflow and API connections deploys to Azure. When it finishes, you're taken to the Azure ARM template summary page.
+1. The Azure Resource Manager (ARM) template containing the Logic App Playbook workflow and API connections deploys to Azure. When the deployment finishes, it shows the Azure ARM template summary page.
 
-1. Select the Logic Apps name to go to the Logic Apps resource for the playbook.
+## Confirm or configure API connections
 
-## Configure API connections
-
+1. In Logic Apps, select the playbook name to go to the logic app resource for the playbook.
 1. On the left menu, select **API connections**.
-1. For each product used in the playbook, select the connection name, select **Authorize** to sign in with your user name, and save.
+1. Select the connection for each product in the playbook to confirm the connection. For any unconnected products, select **Authorize**, sign in with your user name, and save.
 
 ## Next steps
 
