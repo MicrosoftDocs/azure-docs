@@ -195,10 +195,6 @@ ms.reviewer: laobri
 
 The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
-### Basic Python sweep job
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
