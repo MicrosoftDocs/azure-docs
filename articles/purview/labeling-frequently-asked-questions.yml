@@ -73,7 +73,7 @@ sections:
       
       - question: Which data sources can I apply sensitivity labels to in Azure Purview? 
         answer: |
-          You can apply sensitivity labels to all the data sources that can be scanned in Azure Purview. For more information, see [Supported data types for sensitivity labels in Azure Purview](create-sensitivity-label.md#supported-data-types-for-sensitivity-labels-in-azure-purview). 
+          You can apply sensitivity labels to all the data sources that can be scanned in Azure Purview. For more information, see [Supported data types for sensitivity labels in Azure Purview](create-sensitivity-label.md#supported-data-sources). 
           
       - question: Can I manually label an asset, or manually modify or remove a label in Azure Purview? 
         answer: |
@@ -93,14 +93,14 @@ sections:
 
       - question: Does Azure Purview currently support Data Loss Prevention capabilities?
         answer: |
-          No, Azure Purview does not currently provide Data Loss Prevention capabilities. [Data Loss Prevention](microsoft-365/compliance.information-protection.md#prevent-data-loss) is currently only supported in Microsoft 365.
+          No, Azure Purview does not currently provide Data Loss Prevention capabilities. [Data Loss Prevention](microsoft-365/compliance.information-protection#prevent-data-loss) is currently only supported in Microsoft 365.
 
   - name: Access and roles
     questions:
       
       - question: Where can I manage my sensitivity labels? 
         answer: |
-          Sensitivity labels are managed only in the [Microsoft 365 compliance center](https://compliance.microsoft.com/). For more information, see [How to create sensitivity labels in Microsoft 365](create-sensitivity-label.md#how-to-create-sensitivity-labels-in-microsoft-365).
+          Sensitivity labels are managed only in the [Microsoft 365 compliance center](https://compliance.microsoft.com/). For more information, see [How to create sensitivity labels in Microsoft 365](how-to-automatically-label-your-content.md).
           
           Support for managing sensitivity labels within Azure Purview Studio is not currently available.
 
@@ -137,7 +137,7 @@ sections:
         answer: |
           Within Microsoft 365, sensitivity labels have a priority 'order' and Purview uses the same order to assign labels. If there are multiple labels meeting the classification criteria, Purview picks the label with the highest order.  
           
-          For more information, see [Label priority order matters](microsoft-365/compliance.sensitivity-labels.md#label-priority-order-matters).
+          For more information, see [Label priority order matters](microsoft-365/compliance.sensitivity-labels#label-priority-order-matters).
           
   - name: SQL data discovery and classification
     questions:  
