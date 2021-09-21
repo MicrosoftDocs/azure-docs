@@ -1,6 +1,6 @@
 ---
 title: Context switching in Azure Automation
-description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
+description: This article explains context switching and how to avoid runbook issues.
 services: automation
 ms.subservice: process-automation
 ms.date: 09/21/2021
