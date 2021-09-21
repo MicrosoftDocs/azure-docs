@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/08/2021
+ms.date: 09/21/2021
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
@@ -26,9 +26,9 @@ Including the global Azure cloud, Azure Active Directory (Azure AD) is deplo
 - Azure China 21Vianet
 - Azure Germany ([Closing on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions)). Learn more about [Azure Germany migration](#azure-germany-microsoft-cloud-deutschland).
 
-Each cloud _instance_, the individual national clouds and the global Azure cloud, is a separate environment with its own endpoints. Cloud-specific endpoints include OAuth 2.0 access token and OpenID Connect ID token request endpoints, and URLs for app management and deployment, like the Azure portal. 
+Each cloud _instance_, the individual national clouds and the global Azure cloud, is a separate environment with its own endpoints. Cloud-specific endpoints include OAuth 2.0 access token and OpenID Connect ID token request endpoints, and URLs for app management and deployment, like the Azure portal.
 
-As you develop your apps, use the endpoints for the cloud instance where you'll deploy the application. 
+As you develop your apps, use the endpoints for the cloud instance where you'll deploy the application.
 
 ## App registration endpoints
 
@@ -36,11 +36,11 @@ There's a separate Azure portal for each one of the national clouds. To integrat
 
 The following table lists the base URLs for the Azure AD endpoints used to register an application for each national cloud.
 
-| National cloud                                                                                                  | Azure portal endpoint           |
-| --------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| Azure portal for US Government                                                                                      | `https://portal.azure.us`          |
-| Azure portal China operated by 21Vianet                                                                             | `https://portal.azure.cn`          |
-| Azure portal (global service)                                                                                       | `https://portal.azure.com`         |
+| National cloud                          | Azure portal endpoint      |
+| --------------------------------------- | -------------------------- |
+| Azure portal for US Government          | `https://portal.azure.us`  |
+| Azure portal China operated by 21Vianet | `https://portal.azure.cn`  |
+| Azure portal (global service)           | `https://portal.azure.com` |
 
 ## Azure AD authentication endpoints
 
@@ -48,11 +48,11 @@ All the national clouds authenticate users separately in each environment and ha
 
 The following table lists the base URLs for the Azure AD endpoints used to acquire tokens for each national cloud.
 
-| National cloud                                                                                                  | Azure AD authentication endpoint           |
-| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| Azure AD for US Government                                                                                      | `https://login.microsoftonline.us`         |
-| Azure AD China operated by 21Vianet                                                                             | `https://login.partner.microsoftonline.cn` |
-| Azure AD (global service)                                                                                       | `https://login.microsoftonline.com`        |
+| National cloud                      | Azure AD authentication endpoint           |
+| ----------------------------------- | ------------------------------------------ |
+| Azure AD for US Government          | `https://login.microsoftonline.us`         |
+| Azure AD China operated by 21Vianet | `https://login.partner.microsoftonline.cn` |
+| Azure AD (global service)           | `https://login.microsoftonline.com`        |
 
 You can form requests to the Azure AD authorization or token endpoints by using the appropriate region-specific base URL. For example, for global Azure:
 
