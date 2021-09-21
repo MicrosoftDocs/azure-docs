@@ -1,6 +1,6 @@
 ---
-title: Firewall rules - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: This article describes firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus).
+title: Security overview - Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Information protection and network security for Azure Database for PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -54,8 +54,7 @@ page.
 * Learn how to enable and manage private access
 * Learn about private link
 * Learn about [private
-  endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+  endpoints](/azure/private-link/private-endpoint-overview)
 * Learn about [virtual
-  networks](https://docs.microsoft.com/azure/virtual-network/concepts-and-best-practices)
-* Learn about [private DNS
-  zones](https://docs.microsoft.com/azure/dns/private-dns-overview)
+  networks](/azure/virtual-network/concepts-and-best-practices)
+* Learn about [private DNS zones](/azure/dns/private-dns-overview)
