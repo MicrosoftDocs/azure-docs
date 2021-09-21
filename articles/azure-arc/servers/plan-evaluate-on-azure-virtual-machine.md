@@ -1,7 +1,7 @@
 ---
 title: How to evaluate Azure Arc-enabled servers with an Azure VM
 description: Learn how to evaluate Azure Arc-enabled servers using an Azure virtual machine.
-ms.date: 09/02/2021
+ms.date: 09/20/2021
 ms.topic: conceptual
 ---
 
@@ -53,9 +53,11 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    For Linux, run the following commands:
 
    ```bash
+   current_hostname=$(hostname)
    sudo service walinuxagent stop
    sudo waagent -deprovision -force
    sudo rm -rf /var/lib/waagent
+   sudo hostnamectl set-hostname $current_hostname
    ```
 
 3. Block access to the Azure IMDS endpoint.
@@ -75,14 +77,6 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    sudo ufw deny out from any to 169.254.169.254
    sudo ufw default allow incoming
    ```
-   To configure a generic iptables configuration, run the following command:
-
-   ```bash
-   iptables -A OUTPUT -d 169.254.169.254 -j DROP
-   ```
-
-   > [!NOTE]
-   > This configuration needs to be set after every reboot unless a persistent iptables solution is used.
 
    If your Azure VM is running CentOS, Red Hat, or SUSE Linux Enterprise Server (SLES), perform the following steps to configure firewalld:
 
@@ -90,6 +84,16 @@ When Azure Arc-enabled servers is configured on the VM, you see two representati
    firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j DROP
    firewall-cmd --reload
    ```
+
+   For other distributions, consult your firewall docs or configure a generic iptables rule with the following command:
+
+   ```bash
+   iptables -A OUTPUT -d 169.254.169.254 -j DROP
+   ```
+
+   > [!NOTE]
+   > The iptables configuration needs to be set after every reboot unless a persistent iptables solution is used.
+
 
 4. Install and configure the Azure Arc-enabled servers agent.
 
