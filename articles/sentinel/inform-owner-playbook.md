@@ -62,11 +62,11 @@ The playbook runs the following steps:
    
    1. **Post a message as the flow bot to a user**. This step sends a message to the subscription owner in Microsoft Teams with any details you want to share about the new alert.
       
-      ![Image that shows creating the Teams message in the playbook step.](create-message.png)
+      ![Image that shows creating the Teams message in the playbook step.](media/inform-owner-playbook/create-message.png)
    
    1. **Send an Email**. This step sends a message to the subscription owner in Outlook with any details you want to share about the new alert.
       
-      ![Image that shows creating the email message in the playbook step.](create-email.png)
+      ![Image that shows creating the email message in the playbook step.](media/inform-owner-playbook/create-email.png)
 
 ## Setup
 
@@ -74,12 +74,14 @@ The playbook runs the following steps:
 
 1. Create an input comma-separated values (CSV) file. You can create a table in Office 365 Excel and save as a CSV file.
    
-   The following example shows a simple CSV table where each row represents a subscription in a tenant. There are four columns: **SubscriptionId**, **SubscriptionName**, **OwnerName**, and **OwnerEmail**.
+   The following example shows a simple CSV table, where each row represents a subscription in a tenant. There are four columns: **SubscriptionId**, **SubscriptionName**, **OwnerName**, and **OwnerEmail**.
    
+   ```text
    SubscriptionId,SubscriptionName,OwnerName,OwnerEmail
    00000000-0000-0000-0000-000000000001,DemoSubscription1,Megan Bowen,mbowen@contoso.com
    00000000-0000-0000-0000-000000000002,DemoSubscription2,MOD Admin,MODadmin@contoso.com
-
+   ```
+   
 1. Upload your table.
 
    1. In Azure Sentinel, go to **Watchlists**.
