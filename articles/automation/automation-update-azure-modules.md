@@ -37,6 +37,8 @@ Currently, updating AZ modules is only available through the portal. Updates thr
 1. From the drop-down list, select **Module Version**.
 1. Select **Update** to update the Az module to the version that you’ve selected.
 
+   :::image type="content" source="./media/automation-update-azure-modules/update-az-modules-portal.png" alt-text="Update AZ modules page with selections.":::
+
 If you select a version lower than the existing Az module version imported in the Automation account, the update operation will perform a rollback to the selected lower version.  
 
 You can verify the update operation by checking the Module version and Status property of the updated modules shown in the list of **modules** under **PowerShell modules**. 
