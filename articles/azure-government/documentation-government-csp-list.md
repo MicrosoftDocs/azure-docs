@@ -495,7 +495,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Permuta Technologies, Inc.](http://www.permuta.com/)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Perspecta](https://perspecta.com)|
-|[Quiet Professionals, LLC](https://quietprofessionalsllc.com)||
+|[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
 |[Red River](https://www.redriver.com)|
 |[SAIC](https://www.saic.com)|
