@@ -152,7 +152,12 @@ sections:
           SQL classification uses local labels, while Azure Purview uses sensitivity labels. Labels applied in SQL classification experience will not show up in Purview. 
 
 additionalContent: |
-  For more information, see:
-  [How to automatically label your content](how-to-automatically-label-your-content.md)
-  [Sensitivity label insights](sensitivity-insights.md)
-  [Classification insights](./classification-insights.md)
+  For more information, see: </br>
+  > [!div class="nextstepaction"]
+  > [How to automatically label your content](how-to-automatically-label-your-content.md)</br>
+
+  > [!div class="nextstepaction"]
+  > [Sensitivity label insights](sensitivity-insights.md)</br>
+
+  > [!div class="nextstepaction"]
+  > [Classification insights](./classification-insights.md)
