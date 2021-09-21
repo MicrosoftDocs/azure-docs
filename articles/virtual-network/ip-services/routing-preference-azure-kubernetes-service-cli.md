@@ -1,73 +1,85 @@
 ---
-title: Configure routing preference for an Azure Kubernetes service using Azure CLI
-titlesuffix: Azure Virtual Network
-description: Learn how to configure an AKS cluster with routing preference by using the Azure CLI.
-services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: mtillman
+title: 'Tutorial: Configure routing preference for an Azure Kubernetes service - Azure CLI'
+titlesuffix: Azure virtual network
+description: Use this tutorial to learn how to configure routing preference for an Azure Kubernetes service.
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
-ms.devlang: na
-ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/22/2021
-ms.author: mnayak 
-
+ms.subservice: ip-services
+ms.topic: tutorial
+ms.date: 09/20/2021
+ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
-# Configure routing preference for a Kubernetes cluster using Azure CLI
+
+# Tutorial: Configure routing preference for an Azure Kubernetes service using the Azure CLI
 
 This article shows you how to configure routing preference via ISP network (**Internet** option) for a Kubernetes cluster using Azure CLI. Routing preference is set by creating a public IP address of routing preference type **Internet** and then using it while creating the AKS cluster.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a public IP address with the **Internet** routing preference.
+> * Create Azure Kubernetes cluster with **Internet** routing preference public IP.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
+
 Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group in the **East US** Azure region:
 
-```azurecli
-  az group create --name myResourceGroup --location eastus
-```
-## Create a public IP address
+```azurecli-interactive
+  az group create \
+    --name TutorAKSRP-rg \
+    --location eastus
 
-Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
+```
+
+## Create public IP with Internet routing preference
+
+Create a public IP address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
 
 The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
 
-```azurecli
-az network public-ip create \
---name MyRoutingPrefIP \
---resource-group MyResourceGroup \
---location eastus \
---ip-tags 'RoutingPreference=Internet' \
---sku STANDARD \
---allocation-method static \
---version IPv4
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group TutorAKSRP-rg \
+    --name myPublicIP-IR \
+    --version IPv4 \
+    --ip-tags 'RoutingPreference=Internet' \
+    --sku Standard \
+    --zone 1 2 3
 ```
 > [!NOTE]
 >  Currently, routing preference only supports IPV4 public IP addresses.
 
-## Get the ID of public IP address
+## Create Kubernetes cluster with public IP
 
-The following command returns the public IP address ID created in the previous section:
-```azurecli
-az network public-ip show \
---resource-group myResourceGroup \
---name myRoutingPrefIP \
---query id
+Place the ID of the public IP created previously into a variable for later use. Use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) to retrieve the public IP ID.
+
+The following command retrieves the pubic IP ID and places it in a variable to use in the next command.
+
+```azurecli-interactive
+  export resourceid=$(az network public-ip show \
+    --resource-group TutorAKSRP-rg \
+    --name myPublicIP-IR \
+    --query id \
+    --output tsv)
 ```
-## Create Kubernetes cluster with the public ip
 
-The following command creates the AKS cluster with the public IP created in the previous section:
+Use [az aks create](/cli/azure/aks#az_aks_create) to create the Kubernetes cluster.
 
-```azurecli
-az aks create \
---resource-group MyResourceGroup \
---name MyAKSCluster \
---load-balancer-outbound-ips "Enter the public IP ID from previous step" --generate-ssh-key
+The following command creates the Kubernetes cluster and uses the variable for the public IP created in the previous step.
+
+```azurecli-interactive
+  az aks create \
+    --resource-group TutorAKSRP-rg \
+    --name MyAKSCluster \
+    --load-balancer-outbound-ips $resourceid \
+    --generate-ssh-key
 ```
 
 >[!NOTE]
@@ -75,10 +87,19 @@ az aks create \
 
 To validate, search for the public IP created in the earlier step in Azure portal, you will see the IP is associated with the load balancer that is associated with the Kubernetes cluster as shown below:
 
- ![Routing preference public IP for Kubernetes](./media/routing-preference-azure-kubernetes-service-cli/routing-preference-azure-kubernetes-service.png)
+  :::image type="content" source="./media/routing-preference-azure-kubernetes-service-cli/verify-aks-ip.png" alt-text="Screenshot of AKS cluster public IP address.":::
 
+## Clean up resources
+
+When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, public IP, AKS cluster, and all related resources.
+
+```azurecli-interactive
+  az group delete \
+    --name TutorAKSRP-rg
+```
 
 ## Next steps
 
-- Learn more about [routing preference in public IP addresses](routing-preference-overview.md). 
-- [Configure routing preference for a VM using the Azure CLI](configure-routing-preference-virtual-machine-cli.md).
+Advance to the next article to learn how to create a virtual machine with mixed routing preference:
+> [!div class="nextstepaction"]
+> [Configure both routing preference options for a virtual machine](routing-preference-mixed-network-adapter-portal.md)
