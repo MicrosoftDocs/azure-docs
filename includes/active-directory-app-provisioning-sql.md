@@ -15,6 +15,16 @@ For important details on what this service does, how it works, and frequently as
  - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM.
  - A computer with .NET Framework 4.7.1.
 
+Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. For purposes of this configuration, the user object type is used. Use the following information to guide you in your configuration. 
+
+#### Supported systems
+* Microsoft SQL Server and Azure SQL
+* IBM DB2 10.x
+* IBM DB2 9.x
+* Oracle 10 and 11g
+* Oracle 12c and 18c
+* MySQL 5.x
+
 ### Cloud requirements
 
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
