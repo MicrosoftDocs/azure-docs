@@ -144,6 +144,10 @@ The main differences between versions when running .NET class library functions 
 
 * Node.js 8 is no longer supported and will not execute in 3.x functions.
 
+# [Python](#tab/python)
+
+None.
+
 ---
 
 ## Migrating from 1.x to later versions
