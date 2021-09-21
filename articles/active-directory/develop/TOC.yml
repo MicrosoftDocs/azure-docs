@@ -552,6 +552,8 @@
       href: howto-restrict-your-app-to-a-set-of-users.md
     - name: Add app roles in your application
       href: howto-add-app-roles-in-azure-ad-apps.md
+    - name: Implement RBAC in your application
+      href: howto-implement-rbac-for-apps.md
   - name: Use the Microsoft Graph API
     href: microsoft-graph-intro.md
   - name: Build for resilience

@@ -29,15 +29,19 @@ items:
     - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
   - name: Register and scan an on-prem SQL server
-    href: register-scan-on-premises-sql-server.md
+    href: tutorial-register-scan-on-premises-sql-server.md
   - name: Call the REST APIs for the catalog
     href: tutorial-using-rest-apis.md
 - name: Concepts
   items:
   - name: Use Purview Studio
     href: use-purview-studio.md
-  - name: Deployment best practices
-    href: deployment-best-practices.md
+  - name: Best practices
+    items:
+      - name: Deployment best practices
+        href: deployment-best-practices.md
+      - name: Collections architecture
+        href: concept-best-practices-collections.md    
   - name: Azure Purview limits
     href: how-to-manage-quotas.md
   - name: Scans and ingestion

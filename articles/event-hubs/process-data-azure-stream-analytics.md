@@ -1,7 +1,7 @@
 ---
 title: Process data from Event Hubs Azure using Stream Analytics | Microsoft Docs
 description: This article shows you how to process data from your Azure event hub using an Azure Stream Analytics job. 
-ms.date: 06/23/2020
+ms.date: 09/15/2021
 ms.topic: article
 ---
 
