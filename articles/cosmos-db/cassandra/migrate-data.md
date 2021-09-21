@@ -81,10 +81,16 @@ Use the [CQL COPY command](https://cassandra.apache.org/doc/latest/cassandra/too
 
 1. Sign in to `cqlsh` by using the connection information from the portal.
 
-1. Use the `CQL` `COPY` command to copy local data to the Cassandra API account.
+1. Use the `CQL` `COPY` command to copy local data to the Cassandra API account. In this case `data.csv` is a csv file that is located in the user root directory where `cqlsh` is installed. The file does not include headers, and it's data structure matches the target table `exampleks.tablename`:
 
    ```bash
-   COPY exampleks.tablename FROM filefolderx/*.csv 
+   COPY exampleks.tablename FROM 'data.csv';
+   ```
+
+1. In the below example, the csv file includes headers, and is stored in a location above the root directory:
+
+   ```bash
+   COPY exampleks.tablename FROM '../dataimport/data.csv' WITH HEADER = TRUE; 
    ```
 
 ### Migrate data by using Spark 
