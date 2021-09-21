@@ -164,7 +164,7 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 
 [!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
 
-4. Install the Core Tools package:
+5. Install the Core Tools package:
 
     ```bash
     sudo apt-get update
@@ -178,7 +178,7 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 
 [!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
 
-4. Install the Core Tools package:
+5. Install the Core Tools package:
 
     ```bash
     sudo apt-get update
@@ -191,7 +191,7 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 
 [!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
 
-4. Install the Core Tools package:
+5. Install the Core Tools package:
 
     ```bash
     sudo apt-get update
