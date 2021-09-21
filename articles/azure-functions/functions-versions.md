@@ -13,7 +13,7 @@ Azure Functions currently supports several versions of the runtime host. The fol
 | Version | Support level | Description |
 | --- | --- | --- |
 | 4.x | Preview | Supports [running C# functions on .NET 6.0](functions-dotnet-class-library.md#supported-versions). |
-| 3.x | GA | _Recommended runtime for functions in all languages._ |
+| 3.x | GA | _Recommended runtime version for functions in all languages._ |
 | 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions.|
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
 
@@ -99,6 +99,14 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 #### Languages
 
+# [C\#](#tab/csharp)
+
+None currently reported.
+
+# [JavaScript](#tab/javascript)
+
+None currently reported.
+
 # [Python](#tab/python)
 
 - Shared memory transfer is enabled by default in Azure Functions 4.x.
@@ -111,9 +119,20 @@ Azure Functions version 3.x is highly backwards compatible to version 2.x.  Many
 
 ### Breaking changes between 2.x and 3.x
 
-The following are the changes to be aware of before upgrading a 2.x app to 3.x.
+The following are the language-specific changes to be aware of before upgrading a 2.x app to 3.x.
 
-#### JavaScript
+# [C\#](#tab/csharp)
+
+The main differences between versions when running .NET class library functions is the .NET Core runtime. Functions version 2.x is designed to run on .NET Core 2.2 and version 3.x is designed to run on .NET Core 3.1.  
+
+* [Synchronous server operations are disabled by default](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+
+* Breaking changes introduced by .NET Core in [version 3.1](/dotnet/core/compatibility/3.1) and [version 3.0](/dotnet/core/compatibility/3.0), which aren't specific to Functions but might still affect your app.
+
+>[!NOTE]
+>Due to support issues with .NET Core 2.2, function apps pinned to version 2 (`~2`) are essentially running on .NET Core 3.1. To learn more, see [Functions v2.x compatibility mode](functions-dotnet-class-library.md#functions-v2x-considerations).
+
+# [JavaScript](#tab/javascript)
 
 * Output bindings assigned through `context.done` or return values now behave the same as setting in `context.bindings`.
 
@@ -125,16 +144,7 @@ The following are the changes to be aware of before upgrading a 2.x app to 3.x.
 
 * Node.js 8 is no longer supported and will not execute in 3.x functions.
 
-#### .NET Core
-
-The main differences between versions when running .NET class library functions is the .NET Core runtime. Functions version 2.x is designed to run on .NET Core 2.2 and version 3.x is designed to run on .NET Core 3.1.  
-
-* [Synchronous server operations are disabled by default](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
-
-* Breaking changes introduced by .NET Core in [version 3.1](/dotnet/core/compatibility/3.1) and [version 3.0](/dotnet/core/compatibility/3.0), which aren't specific to Functions but might still affect your app.
-
->[!NOTE]
->Due to support issues with .NET Core 2.2, function apps pinned to version 2 (`~2`) are essentially running on .NET Core 3.1. To learn more, see [Functions v2.x compatibility mode](functions-dotnet-class-library.md#functions-v2x-considerations).
+---
 
 ## Migrating from 1.x to later versions
 
