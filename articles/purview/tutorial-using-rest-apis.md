@@ -60,7 +60,7 @@ its password. Here's how:
 
    :::image type="content" source="./media/tutorial-using-rest-apis/client-secret.png" alt-text="Screenshot showing a client secret.":::
 
-## Set up authentication using service principal.
+## Set up authentication using service principal
 
 Once service principal is created, you need to assign Data plane roles of your purview account to the service principal created above. The below steps need to be followed to assign role to establish trust between the service principal and purview account.
 
@@ -74,17 +74,17 @@ Once service principal is created, you need to assign Data plane roles of your p
     1. 'Data Source Administrator' role to access Scanning Data plane. 
     1. 'Collection Admin' role to access Account Data Plane.
 
-## Get Token
+## Get token
 You can send a POST request to the following URL to get access token.
 
 https://login.microsoftonline.com/{your-tenant-id}/oauth2/token
 
 The following parameters needs to be passed to the above URL.
 
-client_id:  client id of the application registered in Azure Active directory and is assigned to a data plane role for the Purview account.
-client_secret: client secret created for the above application.
-grant_type: This should be ‘client_credentials’.
-resource: This should be ‘https://purview.azure.net’
+- **client_id**:  client ID of the application registered in Azure Active directory and is assigned to a data plane role for the Purview account.
+- **client_secret**: client secret created for the above application.
+- **grant_type**: This should be ‘client_credentials’.
+- **resource**: This should be ‘https://purview.azure.net’
  
 Sample response token:
 
