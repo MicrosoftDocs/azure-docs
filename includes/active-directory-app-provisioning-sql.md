@@ -248,31 +248,33 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
 
 ## Configure the application and test
- 1. After it has been created, select the **Provisioning** page.
- 2. Select **Get started**.
+ 1. In the Azure portal, under **Enterprise applications**, select the **on-premises ECMA app** that was added earlier above.
+ 2. Under **Getting Started**  under **3. Provision user accounts**, select **Get started**.
 
-     ![Screenshot that shows get started.](.\media\active-directory-app-provisioning-sql\configure-1.png)
- 3. On the **Provisioning** page, change the mode to **Automatic**.
+
+     ![Screenshot that shows get started.](.\media\active-directory-app-provisioning-sql\configure-16.png)
+ 3. At the top, select **Edit Provisioning**.
+ 4. On the **Provisioning** page, change the mode to **Automatic**.
 
      ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)
- 4. In the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
+ 5. In the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
      >[!NOTE]
      >After you add the agent, wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.
      >
      >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
    
      ![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-sql\configure-8.png)
- 5.  After 10 minutes, under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
+ 6.  After 10 minutes, under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
 
      |Property|Value|
      |-----|-----|
      |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
 
- 6. Enter the **Secret Token** value that you defined when you created the connector.
- 7. Select **Test Connection**, and wait one minute.
+ 7. Enter the **Secret Token** value that you defined when you created the connector.
+ 8. Select **Test Connection**, and wait one minute.
 
      ![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-sql\configure-5.png)
- 8. After the connection test is successful, select **Save**.</br>
+ 9. After the connection test is successful, select **Save**.</br>
 
      ![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)
 
