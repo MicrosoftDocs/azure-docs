@@ -19,17 +19,16 @@ Retention period property provides the capability to clean up the videos automat
 ```
 // Video Archival Details
 "archival":
-    {
-     // Data Retention (applicable to archives only)
-     "retentionPeriod": "P7D",  // ISO8601 duration in days granularity (Min P1D, Max P5Y)
- 
-     "location":
-      {
-        "@type": "#Microsoft.VideoAnalyzer.CustomerStorageLocation",
-        "storageAccount": "contosostorage",
-        "storageContainer": "asset-0000"
-      }
-    },
+{
+ // Data Retention (applicable to archives only)
+ "retentionPeriod": "P7D",  // ISO8601 duration in days granularity (Min P1D, Max P5Y)
+ "location":
+  {
+  "@type": "#Microsoft.VideoAnalyzer.CustomerStorageLocation",
+  "storageAccount": "contosostorage",
+  "storageContainer": "asset-0000"
+  }
+},
 ```
 * The retention period can also be set in the properties of a video sink node when creating a pipeline topology. You will find the `retentionPeriod` property in the VideoCreationProperties section of the video sink node.
 Example of `retentionPeriod` property set to seven days in Video Sink node is shown below:
@@ -42,10 +41,10 @@ Example of `retentionPeriod` property set to seven days in Video Sink node is sh
   "videoName": "camera001",     // Video name (new or existing)
   "videoCreationProperties":    // Optional. Ignored if video already exists on append mode.
   {
-    "title": "Parking Lot (Camera 1)",
-    "description": "Parking lot south entrance",
-    "segmentLength": "PT30S",   // Segment length, in 30 seconds increments (PT30S to PT5M)
-    "retentionPeriod": "P7D"    // ISO8601 duration in days granularity 
+  "title": "Parking Lot (Camera 1)",
+  "description": "Parking lot south entrance",
+  "segmentLength": "PT30S",   // Segment length, in 30 seconds increments (PT30S to PT5M)
+  "retentionPeriod": "P7D"    // ISO8601 duration in days granularity 
   },
 }]
 ```
