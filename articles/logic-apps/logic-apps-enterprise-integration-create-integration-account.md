@@ -270,7 +270,7 @@ If you want to link your logic app to another integration account, or no longer 
 
    For example:
 
-   ![Screenshot that shows how to find the "integrationAccount" object](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
+   ![Screenshot that shows how to find the "integrationAccount" object.](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 
 1. On the **Data** tab, select **Put** to save your changes.
 

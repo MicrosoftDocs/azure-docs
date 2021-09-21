@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 09/17/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -67,6 +67,10 @@ After registration with Azure AD Multi-Factor Authentication is finished, the fo
 - Billing administrator
 - User administrator
 - Authentication administrator
+- Password administrator
+- Privileged authentication administrator
+- Application administrator
+- Cloud application administrator
 
 > [!WARNING]
 > Ensure your directory has at least two accounts with global administrator privileges assigned to them. This will help in the case that one global administrator is locked out. For more detail see the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).

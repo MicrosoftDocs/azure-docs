@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Details of known issues and restrictions on Open API, WSDL, and WADL formats support in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: vlvinogr
 editor: ''
 
@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # API import restrictions and known issues
