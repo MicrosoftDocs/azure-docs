@@ -40,9 +40,9 @@ In addition, we recommend that you become a [verified publisher](/azure/active-d
 
 ## Enabling single sign-on for IT admins
 
-You'll want to [choose either OIDC or SAML](/azure/active-directory/manage-apps/sso-options#choosing-a-single-sign-on-method/) to enable SSO for IT administrators to your solution.
+[Choose either OIDC or SAML](/azure/active-directory/manage-apps/sso-options#choosing-a-single-sign-on-method/) to enable SSO for IT administrators to your solution. The best option is to use OIDC. 
 
-The best option is to use OIDC. Microsoft Graph uses [OIDC/OAuth](/azure/active-directory/develop/v2-protocols-oidc/). If your solution uses OIDC with Azure AD for IT administrator SSO, your customers will have a seamless end-to-end experience. They'll use OIDC to sign in to your solution, and the same JSON Web Token (JWT) that Azure AD issued can then be used to interact with Microsoft Graph.
+Microsoft Graph uses [OIDC/OAuth](/azure/active-directory/develop/v2-protocols-oidc/). If your solution uses OIDC with Azure AD for IT administrator SSO, your customers will have a seamless end-to-end experience. They'll use OIDC to sign in to your solution, and the same JSON Web Token (JWT) that Azure AD issued can then be used to interact with Microsoft Graph.
 
 If your solution instead uses [SAML](/azure/active-directory/manage-apps/configure-saml-single-sign-on/) for IT administrator SSO, the SAML token won't enable your solution to interact with Microsoft Graph. You can still use SAML for IT administrator SSO, but your solution needs to support OIDC integration with Azure AD so it can get a JWT from Azure AD to properly interact with Microsoft Graph. You can use one of the following approaches:
 
@@ -100,7 +100,7 @@ Here's a diagram and summary of this user authentication flow:
 
 ### Users sign in to the applications secured by your solution and Azure AD
 
-When users need to sign in to individual applications secured with your solution and Azure AD, they use either OIDC or SAML. If the applications need to interact with Microsoft Graph or any Azure AD-protected API, we recommend that the individual applications that you register with Microsoft Graph be configured to use OIDC. This configuration will ensure that the JWT that the applications get from Azure AD to authenticate them into the applications can also be applied for interacting with Microsoft Graph. If there's no need for the individual applications to interact with Microsoft Graph or any Azure AD protected API, then SAML will suffice.
+When users need to sign in to individual applications secured with your solution and Azure AD, they use either OIDC or SAML. If the applications need to interact with Microsoft Graph or any Azure AD-protected API, we recommend that you configure them to use OICD. This configuration will ensure that the JWT that the applications get from Azure AD to authenticate them into the applications can also be applied for interacting with Microsoft Graph. If there's no need for the individual applications to interact with Microsoft Graph or any Azure AD protected API, then SAML will suffice.
 
 Here's a diagram and summary of this user authentication flow:
 
@@ -119,9 +119,9 @@ Your solution needs to use the following APIs. Azure AD allows you to configure 
 
 - [Application Registration API](/graph/api/application-post-applications): You use this API to create either OIDC or SAML application registrations so that users can sign in to the applications that the customers have secured with your solution. Doing this enables these applications to also be secured with Azure AD. **Permissions required**: Application.Read.All, Application.ReadWrite.All.
 
-- [Service Principal API](/graph/api/serviceprincipal-update): After doing the app registration, you need to update the service principal object to set some SSO properties. **Permissions required**: Application.ReadWrite.All, Directory.AccessAsUser.All, AppRoleAssignment.ReadWrite.All (for assignment).
+- [Service Principal API](/graph/api/serviceprincipal-update): After you register the app, you need to update the service principal object to set some SSO properties. **Permissions required**: Application.ReadWrite.All, Directory.AccessAsUser.All, AppRoleAssignment.ReadWrite.All (for assignment).
 
-- [Conditional Access API](/graph/api/resources/conditionalaccesspolicy): If you want to also apply Azure AD Conditional Access policies to these user applications, you can use this API to do so. **Permissions required**: Policy.Read.All, Policy.ReadWrite.ConditionalAccess, and Application.Read.All.
+- [Conditional Access API](/graph/api/resources/conditionalaccesspolicy): If you want to also apply Azure AD Conditional Access policies to these user applications, you can use this API. **Permissions required**: Policy.Read.All, Policy.ReadWrite.ConditionalAccess, and Application.Read.All.
 
 ## Example Graph API scenarios
 
@@ -142,7 +142,7 @@ Method: Get
 https://graph.microsoft.com/v1.0/applicationTemplates?$filter=displayname eq "Salesforce.com"
 ```
 
-If a match is found from the prior API call, capture the ID and then make the following API call while providing a user-friendly display name for the application in the JSON body:
+If a match is found from the preceding API call, capture the ID and then make the following API call while providing a user-friendly display name for the application in the JSON body:
 
 ```https
 Authorization: Required with a valid Bearer token
@@ -155,7 +155,7 @@ https://graph.microsoft.com/v1.0/applicationTemplates/cd3ed3de-93ee-400b-8b19-b6
 }
 ```
 
-When you make the API call, you'll also generate a service principal object, which might take a few seconds. From the API call, you'll want to capture the application ID and the service principal ID. You'll use them in the next API calls.
+When you make the preceding API call, you'll also generate a service principal object, which might take a few seconds. Be sure to capture the application ID and the service principal ID. You'll use them in the next API calls.
 
 Next, patch the service principal object with the SAML protocol and the appropriate login URL:
 
@@ -201,7 +201,7 @@ https://graph.microsoft.com/v1.0/applicationTemplates/8adf8e6e-67b2-4cf2-a259-e3
 }
 ```
 
-When you make the API call, you'll also generate a service principal object, which might take a few seconds. From the API call, capture the application ID and the service principal ID. You'll use them in the next API calls.
+When you make the preceding API call, you'll also generate a service principal object, which might take a few seconds. Be sure to capture the application ID and the service principal ID. You'll use them in the next API calls.
 
 Next, patch the service principal object with the SAML protocol and the appropriate login URL:
 
@@ -237,7 +237,7 @@ https://graph.microsoft.com/v1.0/applications/54c4806b-b260-4a12-873c-9671169837
 After you have the SaaS applications registered inside Azure AD, the applications still need to be cut over to start using Azure AD as their identity provider. There are two ways to do this:
 
 - If the applications support one-click SSO, Azure AD can cut over the applications for the customer. The customer just needs to go into the Azure AD portal and perform the one-click SSO with the administrative credentials for the supported SaaS applications. For more information, see [One-click app configuration of single sign-on](/azure/active-directory/manage-apps/one-click-sso-tutorial/).
-- If the applications don't support one-click SSO, the customer will need to manually cut over the applications to start using Azure AD. For more information, see [Tutorials for integrating SaaS applications with Azure Active Directory](/azure/active-directory/saas-apps/tutorial-list/).
+- If the applications don't support one-click SSO, the customer needs to manually cut over the applications to start using Azure AD. For more information, see [Tutorials for integrating SaaS applications with Azure Active Directory](/azure/active-directory/saas-apps/tutorial-list/).
 
 ### Connect apps by using legacy authentication methods to Azure AD
 
@@ -260,7 +260,7 @@ https://graph.microsoft.com/v1.0/applicationTemplates/8adf8e6e-67b2-4cf2-a259-e3
 }
 ```
 
-When you make the API call, you'll also generate a service principal object, which might take a few seconds. From the API call, capture the application ID and the service principal ID. You'll use them in the next API calls.
+When you make the preceding API call, you'll also generate a service principal object, which might take a few seconds. Be sure to capture the application ID and the service principal ID. You'll use them in the next API calls.
 
 Next, patch the service principal object with the SAML protocol and the appropriate login URL:
 
@@ -555,7 +555,7 @@ https://graph.microsoft.com/v1.0/servicePrincipals/3161ab85-8f57-4ae0-82d3-7a1f7
 
 ## Partnerships
 
-Microsoft has partnerships with these application delivery controller (ADC) providers to protect legacy applications while using existing networking and delivery controllers.
+Microsoft has partnerships with these application delivery controller (ADC) providers to help protect legacy applications while using existing networking and delivery controllers.
 
 | **ADC provider** | **Link** |
 | --- | --- |
