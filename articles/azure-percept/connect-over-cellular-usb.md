@@ -69,7 +69,7 @@ Here are the instructions for connecting your Azure Percept DK using a 5G USB mo
 With the above instructions you can configure the USB modem to connect to the network, but if you reboot your device you have to reconnect again manually. We are working on a solution for this issue and if you are interested in getting more info please send a mail to azpercept5G@microsoft.com with a short note referencing here. 
 
 ## Debugging information 
-Always remember to check that your SIM card works on the specific HW you intend to use. Several carriers whitelist the data only IoT SIM cards to work on only one device. So if that is the case, you have to make sure your device IMEI/Serial number is whitelisted by the carrier.
+Always remember to check that your SIM card works on the specific HW you intend to use. Several carriers limit the data only IoT SIM cards to work on only one device. So if that is the case, you have to make sure your device IMEI/Serial number is listed in the SIM card "allowed device list" by the carrier.
 
 ### ModemManager Debug mode
 
