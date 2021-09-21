@@ -31,7 +31,7 @@ The following are required for this tutorial:
 * Create an [access policy](./access-policies.md#creating-an-access-policy)
 
 
-## Create a web page with a video Player
+## Create a web page with a video player
 
 Use the below sample code to create a web page.
 
@@ -318,3 +318,4 @@ zoneDrawer.appendChild(playerWidget);
 ## Next steps
 
 * Try out our [sample playback using widgets](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/video-player).
+* Learn about how the different widget features can be implemented by visiting our [widgets repository](https://github.com/Azure/video-analyzer-widgets).
