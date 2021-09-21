@@ -46,7 +46,7 @@ Statsbeat collects essential and non-essential metrics.
 
 ### Non-Essential Statsbeat
 
-- Track the success and falure od disk persistence
+- Track the success and failure of disk persistence
 - Live metrics network statsbeat
 - Azure metadata service network statsbeat
 - Profiler network statsbeat
