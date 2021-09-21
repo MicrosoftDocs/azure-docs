@@ -38,6 +38,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 - This ID is visible to customers in the web address for the offer and in Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. The ID can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if your Publisher ID is `testpublisherid` and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
+- The Offer ID should be unique within the list of all other Power BI visual offers in Partner Center.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
