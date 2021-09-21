@@ -254,7 +254,7 @@ On Windows, a Consumption plan requires an another setting in the site configura
 ```
 
 > [!IMPORTANT]
-> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting in a deployment slot. This setting is generated for you when the app is created in the deployment slot.
 
 #### Linux
 

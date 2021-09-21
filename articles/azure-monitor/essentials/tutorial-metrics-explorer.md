@@ -72,7 +72,7 @@ See [examples of the charts](../essentials/metric-chart-samples.md) that have fi
 
 ## Advanced chart settings
 
-You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. See [Advanced features of Azure Metrics Explorer](../essentials/metrics-charts.md#locking the-range-of-the-y-axis) to learn about these and other advanced features of Azure Monitor metrics explorer.
+You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. See [Advanced features of Azure Metrics Explorer](../essentials/metrics-charts.md#locking-the-range-of-the-y-axis) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 
 ## Next steps
