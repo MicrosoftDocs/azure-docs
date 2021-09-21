@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 09/20/2021
 ms.author: danlep
 ---
 
@@ -72,7 +72,7 @@ In this section, create a user flow in your Azure Active Directory B2C tenant co
    * Record the key in a safe location. This secret value is never displayed again after you leave this page.
 1. Switch back to the API Management **Add identity provider** page, and paste the key into the **Client secret** text box.
 1. Switch back to the B2C app registration. In the left menu, under **Manage**, select **Authentication**.
-    * Under **Implicit grant**, select the **Access tokens** check box.
+    * Under **Implicit grant and hybrid flows**, select both the **Access tokens** and **ID tokens** check boxes.
     * Select **Save**.
 1. Switch back in the API Management **Add identity provider** page.
     * In **Signin tenant**, specify the domain name of the Azure Active Directory B2C tenant.
