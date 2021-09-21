@@ -93,23 +93,23 @@ You can configure SQL Database to [retain automated backups](long-term-retention
 Run the [az sql db ltr-policy set](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_policy_set) command to create an LTR policy. The following example sets a long-term retention policy for 12 weeks for the weekly backup.
 
 ```azurecli
-    az sql db ltr-policy set /
-    --resource-group mygroup /
-    --server myserver /
-    --name mydb /
-    --weekly-retention "P12W"
+az sql db ltr-policy set /
+--resource-group mygroup /
+--server myserver /
+--name mydb /
+--weekly-retention "P12W"
 ```
 
 This example sets a retention policy for 12 weeks for the weekly backup, 5 years for the yearly backup, and the week of April 15 in which to take the yearly LTR backup.
 
 ```azurecli
-    az sql db ltr-policy set /
-    --resource-group mygroup /
-    --server myserver /
-    --name mydb /
-    --weekly-retention "P12W" /
-    --yearly-retention "P5Y" /
-    --week-of-year 16
+az sql db ltr-policy set /
+--resource-group mygroup /
+--server myserver /
+--name mydb /
+--weekly-retention "P12W" /
+--yearly-retention "P5Y" /
+--week-of-year 16
 ```
 
 # [PowerShell](#tab/powershell)
