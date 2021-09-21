@@ -108,7 +108,7 @@ You can configure SQL Managed Instance to [retain automated backups](../database
     --weekly-retention "P12W"
     ```
 
-    This example sets a a retention policy for 12 weeks for the weekly backup, 5 years for the yearly backup, and the week of April 15 in which to take the yearly LTR backup.
+    This example sets a retention policy for 12 weeks for the weekly backup, 5 years for the yearly backup, and the week of April 15 in which to take the yearly LTR backup.
 
     ```azurecli
     az sql midb ltr-policy set /
@@ -241,6 +241,7 @@ az sql midb ltr-backup delete /
 Run the [az sql midb ltr-backup restore](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_restore) command to restore your database from an LTR backup. You can run [az sql midb ltr-backup show](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_show) to get the `backup-id`.
 
 ```azurecli
+az sql midb ltr-backup restore /
 --dest-database targetmidb /
 --dest-mi myinstance /
 --dest-resource-group mygroup /
