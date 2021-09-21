@@ -38,7 +38,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-    :::image type="content" source="media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="media/create-project.png":::
+    :::image type="content" source="../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../media/create-project.png":::
     
 4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If you're using a preexisting resource, see [Creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
  
