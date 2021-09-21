@@ -33,10 +33,10 @@ This article shows you how to complete these tasks:
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
-* Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/)
+* Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/). Azure Logic Apps uses DotLiquid 2.0.361.
 
   > [!NOTE]
-  > The **Transform JSON to JSON - Liquid** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid) (version 2.0.361), 
+  > The **Transform JSON to JSON - Liquid** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid), 
   > which differs in specific cases from the [Shopify implementation for Liquid](https://shopify.github.io/liquid). 
   > For more information, see [Liquid template considerations](#liquid-template-considerations).
 
