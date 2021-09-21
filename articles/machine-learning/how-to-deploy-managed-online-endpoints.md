@@ -76,7 +76,7 @@ set ENDPOINT_NAME=YOUR_ENDPOINT_NAME
 
 The following snippet shows the *endpoints/online/managed/saferollout/endpoint.yml* file: 
 
-:::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/saferollout/endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/saferollout/endpoint.yml":::
 
 > [!NOTE]
 > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
@@ -99,7 +99,7 @@ The example contains all the files needed to deploy a model on an online endpoin
 
 The following snippet shows the *endpoints/online/managed/saferollout/blue-deployment.yml* file, with all the required inputs: 
 
-:::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/saferollout/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/saferollout/blue-deployment.yml":::
 
 The table describes the attributes of a `deployment`:
 
@@ -207,11 +207,11 @@ Next, deploy your managed online endpoint to Azure.
 
 To create the endpoint in the cloud, run the following code:
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
 
 To create the deployment named `blue` under the endpoint, run the following code:
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
 
 This deployment might take up to 15 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
 
@@ -228,7 +228,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 
 The `show` command contains information in `provisioning_status` for endpoint and deployment:
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
 You can list all the endpoints in the workspace in a table format by using the `list` command:
 
@@ -240,7 +240,7 @@ az ml online-endpoint list --output table
 
 Check the logs to see whether the model was deployed without error:
 
-:::code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `--container storage-initializer` flag.
 
@@ -248,11 +248,11 @@ By default, logs are pulled from inference-server. To see the logs from storage-
 
 You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
 
 Alternatively you can use curl (or any REST client). The below should work in Unix/WSL environments:
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
 
 Notice we use `show` and `get-credentials` commands to get the scoring uri and authentication credentials. Also notice that we're using the `--query` flag to filter attributes to only what we need. To learn more about `--query`, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
@@ -332,7 +332,7 @@ The logs might take up to an hour to connect. After an hour, send some scoring r
 
 If you aren't going use the deployment, you should delete it by running the following code (it deletes the endpoint and all the underlying deployments):
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
 
