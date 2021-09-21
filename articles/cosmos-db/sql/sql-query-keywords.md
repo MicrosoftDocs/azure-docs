@@ -114,11 +114,11 @@ There are some additional restrictions on queries with an aggregate system funct
 
 |**Restriction**|**Example**|
 |-------|----------------------|
-|WHERE clause in the outer query|SELECT COUNT(1) FROM (SELECT DISTINCT c.lastName FROM c) d WHERE d = "Smith"|
-|ORDER BY clause in the outer query|SELECT VALUE COUNT(1) FROM (SELECT DISTINCT VALUE c.year FROM c) d ORDER BY d|
-|GROUP BY clause in the outer query|SELECT COUNT(1) as annualCount, d.year FROM (SELECT DISTINCT c.year, c.id FROM c) d GROUP BY d.year|
-|Nested subquery|SELECT COUNT(1) FROM (SELECT y FROM (SELECT VALUE StringToNumber(SUBSTRING(d.date, 0, 4)FROM (SELECT DISTINCT c.date FROM c) d) y WHERE y > 2012)|
-|Multiple aggregations|SELECT COUNT(1) as AnnualCount, SUM(d.sales) as TotalSales FROM (SELECT DISTINCT c.year, c.sales, c.id FROM c) d|
+|WHERE clause in the outer query|SELECT COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName WHERE lastName = "Smith"|
+|ORDER BY clause in the outer query|SELECT VALUE COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName ORDER BY lastName|
+|GROUP BY clause in the outer query|SELECT COUNT(1) as annualCount, d.year FROM (SELECT DISTINCT c.year, c.id FROM c) AS d GROUP BY d.year|
+|Nested subquery|SELECT COUNT(1) FROM (SELECT y FROM (SELECT VALUE StringToNumber(SUBSTRING(d.date, 0, 4)FROM (SELECT DISTINCT c.date FROM c) d) AS y WHERE y > 2012)|
+|Multiple aggregations|SELECT COUNT(1) as AnnualCount, SUM(d.sales) as TotalSales FROM (SELECT DISTINCT c.year, c.sales, c.id FROM c) AS d|
 
 ## LIKE
 
