@@ -74,7 +74,7 @@ On the Register sources (Hive Metastore) screen, do the following:
 3.  Enter the **Hive Metastore Server URL.** For example,
     sqlserver://hive.database.windows.net or jdbc:spark://adb-19255636414785.5.azuredatabricks.net:443
 
-4.  Select a collection or create a new one (Optional)
+4.  Select a collection or create a new one. The default selection will be the root collection
 
 5.  Finish to register the data source.
 
