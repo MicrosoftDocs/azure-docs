@@ -22,6 +22,6 @@ Select the desired cache to view and configure the settings for that cache.
 
 You can view and configure your cache from the **Azure Cache for Redis** blade.
 
-![Azure Cache for Redis All Settings](media/redis-cache-browse/redis-cache-blade.png)
+![Azure Cache for Redis All Settings](./media/redis-cache-browse/redis-cache-blade.png)
 
 
