@@ -18,7 +18,7 @@ Select the status to see logs and more details that might help you resolve the p
 
 :::image type="content" source="media/sql-insights-enable/monitoring-machine-status.png" alt-text="Screenshot that shows a monitoring machine status.":::
 
-## Not collecting 
+## Status: Not collecting 
 The monitoring machine has a status of **Not collecting** if there's no data in *InsightsMetrics* for SQL in the last 10 minutes. 
 
 > [!NOTE]
@@ -153,7 +153,7 @@ At runtime, all parameters and secrets will be resolved and merged with the prof
 > The parameter names of `sqlAzureConnections`, `sqlVmConnections`, and `sqlManagedInstanceConnections` are all required in the configuration. That's true even if you don't have connection strings that you'll provide for some of them.
 
 
-## Collecting with errors
+## Status: Collecting with errors
 The monitoring machine will have the status **Collecting with errors** if there's at least one *InsightsMetrics* log but there are also errors in the *Operation* table.
 
 SQL insights uses the following queries to retrieve this information:
