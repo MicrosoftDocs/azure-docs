@@ -74,11 +74,13 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
      ![Screenshot that shows success.](./media/active-directory-app-provisioning-sql/dsn-11.png)
  12. Select **OK** twice. Close the ODBC Data Source Administrator.
 
+
+
 ## Download and install the Azure AD Connect Provisioning Agent Package
 
  1. Sign in to the Azure portal.
  2. Go to **Enterprise applications** > **Add a new application**.
- 3. Search for the **On-premises provisioning** application, and add it to your tenant image.
+ 3. Search for the **On-premises ECMA app** application, and add it to your tenant image.
  4. Go to the **Provisioning** pane.
  5. Select **On-premises connectivity**.
  6. Download the agent installer.
@@ -243,13 +245,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
    ![Screenshot that shows the service is running.](.\media\active-directory-app-provisioning-sql\configure-2.png)
 
-## Add an enterprise application
- 1. Sign in to the Azure portal as an application administrator
- 2. In the portal, go to **Azure Active Directory** > **Enterprise applications**.
- 3. Select **New application**.
 
-   ![Screenshot that shows adding a new application.](.\media\active-directory-app-provisioning-sql\configure-4.png)
- 4. Search the gallery for **On-premises ECMA app** and select **Create**.
 
 ## Configure the application and test
  1. After it has been created, select the **Provisioning** page.
