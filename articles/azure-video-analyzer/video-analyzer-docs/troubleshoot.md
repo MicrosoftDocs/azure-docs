@@ -151,6 +151,17 @@ To gather the relevant logs that should be added to the ticket, follow the instr
 1. [Configure the Video Analyzer module to collect Verbose Logs](#configure-video-analyzer-module-to-collect-verbose-logs)
 1. [Turn on Debug Logs](#video-analyzer-debug-logs)
 1. Reproduce the issue
+1. Restart the Video Analyzer edge module. 
+	> [!NOTE]
+	> This step is required to gracefully terminate the edge module and get all log files in a usable format without dropping any events. 	
+	
+	On the IoT Edge device, use the following command after replacing `<avaedge>` with the name of your Video Analyzer edge module :
+	
+	```cmd
+	sudo iotedge restart <avaedge>
+	```
+
+   You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](../../iot-edge/troubleshoot-in-portal.md).
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
 
    1. Zip all the files in the _debugLogs_ folder.
