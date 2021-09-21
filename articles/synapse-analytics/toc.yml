@@ -144,6 +144,8 @@ items:
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
           href: ./sql/sql-authentication.md
+        - name: Conditional Access
+          href: ./security/workspace-conditional-access.md
       - name: Access control
         items:
         - name: Overview
