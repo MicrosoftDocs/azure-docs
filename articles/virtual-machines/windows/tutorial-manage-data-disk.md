@@ -14,11 +14,9 @@ ms.custom: template-tutorial, devx-track-azurepowershell
 
 # Tutorial: Manage disks with Azure PowerShell
 
-Azure virtual machines (VMs) use disks to store their operating systems (OS), applications, and data. When you create a VM, it's important to choose an appropriate disk size and configuration for the expected workload. Since most disk management tasks can be performed with PowerShell cmdlets, Azure disks also provide you the flexibility to adapt to changes in your workloads.
+Azure virtual machines (VMs) use disks to store operating systems (OS), applications, and data. When you create a VM, it's important to choose an appropriate disk size and configuration for the expected workload.
 
-This tutorial covers deployment and management of VM disks.
-
-In this tutorial, you learn how to:
+This tutorial covers deployment and management of VM disks. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create, attach, and initialize a data disk
@@ -29,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You must have an Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -37,7 +35,7 @@ An Azure account with an active subscription. If you don't have an Azure subscri
 
 The exercises in this tutorial require a VM. Follow the steps in this section to create one.
 
-In the following sample code, change the value of the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet's `-Location` parameter to reflect your region. Use the code to deploy a VM within a new resource group. You're prompted for username and password values for the VM's local administrator account.
+In the following sample code, change the value of the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet's `-Location` parameter to reflect your desired region. Use the code to deploy a VM within a new resource group. You're prompted for username and password values for the VM's local administrator account.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -76,11 +74,13 @@ The VM is provisioned, and two disks are automatically created and attached.
 
 ## Add a data disk
 
-To increase disk storage for your VMs, you can create and attach additional disks. Follow the steps in this section to create, attach, and initialize a data disk on the VM.
+We recommend that you separate application and user data from OS-related data when possible. If you need to store user or application data on your VM, you'll typically create and attach additional data disks.
+
+Follow the steps in this section to create, attach, and initialize a data disk on the VM.
 
 ### Create the data disk
 
-We recommend separating application and user data from OS-related data when possible. If you need to store user or application data on your VM, you'll usually create and attach additional data disks. This section guides you through the creation of a data disk.
+This section guides you through the creation of a data disk.
 
 1. Before a data disk can be created, you must first create a disk object. The following code sample uses the [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) cmdlet to configure a disk object.
 
@@ -129,13 +129,13 @@ We recommend separating application and user data from OS-related data when poss
 
 A data disk must be attached to a VM before the VM can access it. Complete the steps in this section to create a reference for the VM, connect the disk, and update the VM's configuration.
 
-1. Get the VM to which you'll attach the data disk. The following sample code uses the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to create a reference.
+1. Get the VM to which you'll attach the data disk. The following sample code uses the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to create a reference to the VM.
 
     ```azurepowershell-interactive
     $vm = Get-AzVM -ResourceGroupName "myDemoResourceGroup" -Name "myDemoVM"
     ```
 
-    The reference to the VM is set.
+    The output shows that the reference to the VM is set.
 
     ```Output
     ResourceGroupName : myDemoResourceGroup
@@ -173,7 +173,7 @@ A data disk must be attached to a VM before the VM can access it. Complete the s
 
     The response confirms a successful attachment.
 
-    ```Results
+    ```Output
     RequestId IsSuccessStatusCode StatusCode ReasonPhrase
     --------- ------------------- ---------- ------------
                              True         OK OK
@@ -183,24 +183,24 @@ A data disk must be attached to a VM before the VM can access it. Complete the s
 
 After a data disk is attached to the VM, the OS needs to be configured to use the disk. The following section provides guidance on how to connect to the remote VM and configure the first disk added.
 
-1. Log into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Locate the VM to which you've attached the data disk. Create a Remote Desktop Protocol (RDP) connection and sign in. If you no longer have access to an administrative account, create a credential object for a specified username and password with the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
+1. Locate the VM to which you've attached the data disk. Create a Remote Desktop Protocol (RDP) connection and sign in as the local administrator.
 
 1. After you establish an RDP connection to the remote VM, select the Windows **Start** menu. Enter **PowerShell** in the search box and select **Windows PowerShell** to open a PowerShell window.
 
     [![Image alt text.](media\tutorial-manage-data-disk\initialize-disk-sml.png)](media\tutorial-manage-data-disk\initialize-disk-lrg.png#lightbox)
 
-1. Open PowerShell and run the following script.
+1. In the open PowerShell window, run the following script.
 
-    ```azurepowershell
+    ```powershell
     Get-Disk | Where PartitionStyle -eq 'raw' |
         Initialize-Disk -PartitionStyle MBR -PassThru |
         New-Partition -AssignDriveLetter -UseMaximumSize |
         Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDemoDataDisk" -Confirm:$false
     ```
 
-    The response confirms a successful initialization.
+    The output confirms a successful initialization.
 
     ```Output
     DriveLetter FileSystemLabel FileSystem DriveType HealthStatus OperationalStatus SizeRemaining   Size
@@ -327,7 +327,7 @@ Follow the steps below to resize either the OS disk or a data disk.
 
 Before you can take advantage of the new disk size, you need to expand the volume within the OS. Follow the steps below to expand the disk volume and take advantage of the new disk size.
 
-1. Log into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Locate the VM to which you've attached the data disk. Create a Remote Desktop Protocol (RDP) connection and sign in. If you no longer have access to an administrative account, create a credential object for a specified user name and password with the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 
@@ -335,9 +335,9 @@ Before you can take advantage of the new disk size, you need to expand the volum
 
     [![Image alt text.](media\tutorial-manage-data-disk\initialize-disk-sml.png)](media\tutorial-manage-data-disk\initialize-disk-lrg.png#lightbox)
 
-1. Open PowerShell and run the script below. Change the value of the `-DriveLetter` parameter as appropriate.
+1. Open PowerShell and run the following script. Change the value of the `-DriveLetter` parameter as appropriate. For example, to assign a drive letter of **F:**, use `$driveLetter = "F"`.
 
-    ```azurepowershell
+    ```powershell
     $driveLetter = "[Drive Letter]" `
     $size = (Get-PartitionSupportedSize -DriveLetter $driveLetter) `
     Resize-Partition `
@@ -345,7 +345,7 @@ Before you can take advantage of the new disk size, you need to expand the volum
         -Size $size.SizeMax
     ```
 
-1. In your local Azure PowerShell window, verify that the disk was resized successfully.
+1. Minimize the RDP window and switch back to Azure Cloud Shell. Use the `Get-AzDisk` cmdlet to verify that the disk was resized successfully.
 
     ```azurepowershell-interactive
     Get-AzDisk `
@@ -356,9 +356,7 @@ Before you can take advantage of the new disk size, you need to expand the volum
 
 You can choose to upgrade or downgrade your VM's disk types in response to your organization's workloads and performance needs. For example, you may choose to upgrade a standard HDD to a premium SSD to handle increased demand.
 
-Disk upgrades to ultra disks are not yet supported. Direct upgrade operations are also not supported for unmanaged disks, though it's possible to change types after its conversion to a managed disk.
-
-The following steps guide you through the upgrade process.
+In this section, you upgrade a managed disk from standard to premium.
 
 1. Select the VM that contains the disk that you'll upgrade with the `Get-AzVM` cmdlet.
 
@@ -407,7 +405,7 @@ The following steps guide you through the upgrade process.
             -DiskName $vm.StorageProfile.DataDisks[0].Name
     ```
 
-1. Now that you have a reference to the disk, set disk's SKU to **Premium_LRS**.
+1. Now that you have a reference to the disk, set the disk's SKU to **Premium_LRS**.
 
     ```azurepowershell-interactive
     $disk.Sku = [Microsoft.Azure.Management.Compute.Models.DiskSku]::new('Premium_LRS')
