@@ -220,8 +220,8 @@ Now that you have the page hosted, go there and go through the steps to play a v
 1. Click on the first icon on the top-left corner to draw zones.
 1. In order to draw zones and lines, you just need to click on the points where you want to have the end points. There is no dragging functionality to draw the zones and lines.
 1. You will see the zones and lines created in the right section of the player.
-1. To get the co-ordinates of the lines and zones, click on the **Save** button.
-1. Doing so, will show the JSON response with the point co-ordinates, which you can use the appropriate topologies.
+1. To get the coordinates of the lines and zones, click on the **Save** button.
+1. Doing so, will show the JSON response with the point coordinates, which you can use the appropriate topologies.
 
 ### Video Clips
 Enables you to create video clips by selecting a start and end time.
