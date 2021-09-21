@@ -125,11 +125,7 @@ end of chunk 2 -->
 ## Clean up resources 
 
 If you want to remove all of the Azure resources you've created through both parts of this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Service Bus namespace and queue, the Logic App, the storage account, and the resource group itself. You can also remove the Power BI resources and clear the emails sent during the tutorial.
-<!-->
-### Clean up resources in the Power BI visualization
-
-Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and select the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
--->
+<!-- chunk 3 goes here -->
 
 ### Use the Azure CLI to clean up resources
 
