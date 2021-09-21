@@ -656,6 +656,9 @@
       - name: Public access
         href: concepts-hyperscale-firewall-rules.md
         displayName: firewall, rules, hyperscale
+      - name: Private access
+        href: concepts-hyperscale-private-access.md
+        displayName: private, link, hyperscale
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl

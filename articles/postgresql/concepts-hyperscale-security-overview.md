@@ -42,25 +42,7 @@ A newly created Azure Database for PostgreSQL server has a firewall that blocks
 all external connections. Though they reach the gateway, they are not allowed
 to connect to the server.
 
-Azure Database for PostgreSQL – Hyperscale (Citus) supports two networking
-options:
-
-* Public access
-	* Public IP address is assigned to the coordinator node.
-	* Access to the coordinator node is protected by firewall.
-	* Optionally access to all worker nodes can be enabled. In this case public
-	  IP addresses are assigned to the worker nodes and are secured by the same
-	  firewall.
-* Private access
-	* Only private IP addresses are assigned to the server group’s nodes.
-	* You need to create a private endpoint for each node to allow hosts in the
-	  selected virtual network to get access to the Hyperscale (Citus) nodes.
-	* Security features of Azure virtual networks such as network security
-	  groups can be used for access control.
-
-When you create a Hyperscale (Citus) server group, you must choose one of these
-networking options. Once the server group is created, you can switch between
-these options at any time.
+[!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
 
 ## Limits and limitations
 
@@ -70,7 +52,10 @@ page.
 ## Next steps
 
 * Learn how to enable and manage private access
-* Learn about Private Link
-* Learn about private endpoints
-* Learn about virtual networks
-* Learn about private DNS zones
+* Learn about private link
+* Learn about [private
+  endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+* Learn about [virtual
+  networks](https://docs.microsoft.com/azure/virtual-network/concepts-and-best-practices)
+* Learn about [private DNS
+  zones](https://docs.microsoft.com/azure/dns/private-dns-overview)
