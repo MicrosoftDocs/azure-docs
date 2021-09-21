@@ -31,7 +31,7 @@ Sensitivity labels are tags that you can apply on assets to classify and protect
 
 ## How to apply labels to assets in Azure Purview
 
-:::image type="content" source="media/create-sensitivity-label/apply-label-flow.png" alt-text="Applying labels to assets in Purview flow. Create labels, register asset, scan asset, classifications found, labels applied." lightbox="media/create-sensitivity-label/apply-label-flow.png":::
+:::image type="content" source="media/create-sensitivity-label/apply-label-flow.png" alt-text="Applying labels to assets in Purview flow. Create labels, register asset, scan asset, classifications found, labels applied.":::
 
 Being able to apply labels to your asset in Azure Purview, requires you to perform the below steps:
 
