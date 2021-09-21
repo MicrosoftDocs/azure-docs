@@ -143,19 +143,19 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
 
 ### Nested behavior differences between stateful and stateless workflows
 
-You can [make a workflow callable](../logic-apps/logic-apps-http-endpoint.md) from other workflows that exist in the same **Logic App (Standard)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
+You can [make a workflow callable](logic-apps-http-endpoint.md) from other workflows that exist in the same **Logic App (Standard)** resource by using the [Request trigger](../connectors/connectors-native-reqres.md), [HTTP Webhook trigger](../connectors/connectors-native-webhook.md), or managed connector triggers that have the [ApiConnectionWebhook type](logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and can receive HTTPS requests.
 
 Here are the behavior patterns that nested workflows can follow after a parent workflow calls a child workflow:
 
 * Asynchronous polling pattern
 
-  The parent doesn't wait for a response to their initial call, but continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](../logic-apps/logic-apps-limits-and-config.md).
+  The parent doesn't wait for a response to their initial call, but continually checks the child's run history until the child finishes running. By default, stateful workflows follow this pattern, which is ideal for long-running child workflows that might exceed [request timeout limits](logic-apps-limits-and-config.md).
 
 * Synchronous pattern ("fire and forget")
 
   The child acknowledges the call by immediately returning a `202 ACCEPTED` response, and the parent continues to the next action without waiting for the results from the child. Instead, the parent receives the results when the child finishes running. Child stateful workflows that don't include a Response action always follow the synchronous pattern. For child stateful workflows, the run history is available for you to review.
 
-  To enable this behavior, in the workflow's JSON definition, set the `operationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  To enable this behavior, in the workflow's JSON definition, set the `operationOptions` property to `DisableAsyncPattern`. For more information, see [Trigger and action types - Operation options](logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Trigger and wait
 
@@ -281,7 +281,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
 * **Zoom control**: The zoom control is currently unavailable on the designer.
 
-* **Deployment targets**: You can't deploy the **Logic App (Standard)** resource type to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
+* **Deployment targets**: You can't deploy the **Logic App (Standard)** resource type to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
 
 * **Azure API Management**: You currently can't import the **Logic App (Standard)** resource type into Azure API Management. However, you can import the **Logic App (Consumption)** resource type.
 

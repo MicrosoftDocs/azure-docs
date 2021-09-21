@@ -53,7 +53,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
     > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
     > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
 
-* If your schema is [2 MB or smaller](#smaller-schema), you can add your schema to your integration account *directly* from the Azure portal. However, if your schema is bigger than 2 MB but not bigger than the [size limit for schemas](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), you can upload your schema to an Azure storage account. To add that schema to your integration account, you can then link to your storage account from your integration account. For this task, here are the items you need:
+* If your schema is [2 MB or smaller](#smaller-schema), you can add your schema to your integration account *directly* from the Azure portal. However, if your schema is bigger than 2 MB but not bigger than the [size limit for schemas](logic-apps-limits-and-config.md#artifact-capacity-limits), you can upload your schema to an Azure storage account. To add that schema to your integration account, you can then link to your storage account from your integration account. For this task, here are the items you need:
 
     | Item | Description |
     |------|-------------|
@@ -68,7 +68,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 * For **Logic App (Standard)**, no limits exist for schema file sizes.
 
-* For **Logic App (Consumption)**, limits exist for integration accounts and artifacts such as schemas. For more information, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+* For **Logic App (Consumption)**, limits exist for integration accounts and artifacts such as schemas. For more information, review [Limits and configuration information for Azure Logic Apps](logic-apps-limits-and-config.md#integration-account-limits).
 
   Usually, when you're using an integration account with your workflow and you want to validate XML, you add or upload the schema to that account. If you're referencing or importing a schema that's not in your integration account, you might receive the following error when you use the element `xsd:redefine`:
 
@@ -80,7 +80,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 ## Add schemas
 
-### [Consumption resource](#tab/consumption-1)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -160,7 +160,7 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 After your schema finishes uploading, the schema appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded schema appears.
 
-### [Standard resource](#tab/standard-1)
+### [Standard](#tab/standard)
 
 #### Azure portal
 
@@ -190,7 +190,7 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 To update an existing schema, you have to upload a new schema file that has the changes you want. However, you can first download the existing schema for editing.
 
-### [Consumption resource](#tab/consumption-2)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
@@ -206,7 +206,7 @@ To update an existing schema, you have to upload a new schema file that has the 
 
    After your schema file finishes uploading, the updated schema appears in the **Schemas** list.
 
-### [Standard resource](#tab/standard-2)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
@@ -230,7 +230,7 @@ To update an existing schema, you have to upload a new schema file that has the 
 
 ## Delete a schema
 
-### [Consumption resource](#tab/consumption-3)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
@@ -240,7 +240,7 @@ To update an existing schema, you have to upload a new schema file that has the 
 
 1. To confirm you want to delete the schema, select **Yes**.
 
-### [Standard resource](#tab/standard-3)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 

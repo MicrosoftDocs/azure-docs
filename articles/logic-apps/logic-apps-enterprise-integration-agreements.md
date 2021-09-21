@@ -46,7 +46,7 @@ This article shows how to create and manage an agreement, which you can then use
 
 * Optionally, the logic app resource and workflow where you want to use the agreement to exchange messages. The workflow requires any trigger that starts your logic app's workflow.
 
-If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
 
 ## Add an agreement
 
@@ -68,8 +68,8 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
    | **Host Identity** | Yes | <*host-partner-identifier*> | The host partner's identifier |
    | **Guest Partner** | Yes | <*guest-partner-name*> | The guest partner represents the organization that communicates with your organization |
    | **Guest Identity** | Yes | <*guest-partner-identifier*> | The guest partner's identifier |
-   | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives inbound messages from the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
-   | **Send Settings** | Varies | Varies | These properties specify how the host partner sends outbound messages to the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
+   | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives inbound messages from the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
+   | **Send Settings** | Varies | Varies | These properties specify how the host partner sends outbound messages to the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
    | **RosettaNet PIP references** | Varies | Varies | This pane specifies information about one or more Partner Interface Processes (PIP) to use RosettaNet messages. For more information, review [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md). |
    |||||
 
