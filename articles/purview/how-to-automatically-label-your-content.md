@@ -36,10 +36,6 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
 ### Step 3: Create or modify existing label to automatically label content
 
-> [!IMPORTANT]
-> Do not delete a label unless you understand the impact for your users. For more information, see [Removing and deleting labels](/microsoft-365/compliance/create-sensitivity-labels#removing-and-deleting-labels) in the Microsoft 365 documentation.
->
-
 **To create new sensitivity labels or modify existing labels**:
 
 1. Open the [Microsoft 365 security and compliance center](https://compliance.microsoft.com/).
@@ -80,11 +76,6 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
     For more information, see [Label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) in the Microsoft 365 documentation.
 
-Continue by [scanning your data to apply labels automatically](#scan-your-data-to-apply-sensitivity-labels-automatically), and then:
-
-- [View labels on assets](#view-labels-on-assets-in-the-catalog)
-- [View Insight reports for the classifications and sensitivity labels](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
-
 #### Auto-labeling for files
 
 Define auto-labeling rules for files when you create or edit your label.
@@ -115,7 +106,7 @@ For example:
 
 Once you create a label, you will need to Scan your data in Azure Purview to automatically apply the labels you've created, based on the auto-labeling rules you've defined.
 
-### Scan your data to apply sensitivity labels automatically
+## Scan your data to apply sensitivity labels automatically
 
 Scan your data in Azure Purview to automatically apply the labels you've created, based on the auto-labeling rules you've defined. Allow up to 24 hours for sensitivity label changes to reflect in Purview.
 
