@@ -134,7 +134,7 @@
     - name: Manage recording policy
       href: manage-recording-policy.md
     - name: Configure a signal gate
-      href: configure-signal-gate.md
+      href: edge/configure-signal-gate.md
   - name: Apply AI
     items:      
     - name: Develop and deploy gRPC inference server
@@ -144,11 +144,11 @@
   - name: Portal
     items:      
     - name: Invoke direct methods with the portal
-      href: use-azure-portal-to-invoke-direct-methods.md
+      href: edge/use-azure-portal-to-invoke-direct-methods.md
   - name: Operate
     items:
     - name: Monitor and logging
-      href: monitor-log-edge.md 
+      href: edge/monitor-log-edge.md 
   - name: Visualize
     items:
     - name: Embed player widget in Power BI
