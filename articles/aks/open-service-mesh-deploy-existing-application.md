@@ -193,7 +193,7 @@ Verify if you have a kubernetes service account in the namespace your applicatio
 kubectl get serviceaccounts -n bookbuyer
 ```
 
-In the following there's a service account named `bookbuyer` in the bookbuyer namespace.
+In the following there's a service account named `bookbuyer` in the `bookbuyer` namespace.
 
 ```Output
 NAME        SECRETS   AGE
@@ -232,7 +232,7 @@ We'll describe the deployment as a check to see if there's a service account lis
 kubectl describe deployment bookbuyer -n bookbuyer
 ```
 
-In this particular deployment you can see that there's a service account associated with the deployment listed under the Pod Template section. This deployment is using the service account bookbuyer. If you do not see the **Service Account:** property, your deployment isn't configured to use a service account.
+In this particular deployment you can see that there's a service account associated with the deployment listed under the Pod Template section. This deployment is using the service account `bookbuyer`. If you do not see the **Service Account:** property, your deployment isn't configured to use a service account.
 
 ```Output
 Pod Template:
@@ -279,7 +279,7 @@ spec:
     namespace: bookbuyer
 ```
 
-In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this particular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
+In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this particular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads `bookbuyer` needs to communicate to the bookstore.
 
 The HTTPRouteGroup resource consists of one or an array of matches of HTTP header information and is a requirement for the TrafficTarget spec. In the example below, you can see that the HTTPRouteGroup is authorizing three HTTP actions, two GET and one POST.
 
