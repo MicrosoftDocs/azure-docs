@@ -337,9 +337,9 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 
 ---
 
-## Update the OMS Agent used by HDInsight Azure Monitor Integration
+## Update the Log Analytics (OMS) Agent used by HDInsight Azure Monitor Integration
 
-If you are behind a firewall you may need to complete the [Prerequisites for clusters behind a firewall](#oms-with-firewall) before completing these steps.
+When Azure Monitor integration is enabled on a cluster, the Log Analytics agent, or Operations Management Suite (OMS) Agent, is installed on the cluster and is not updated unless you disable and re-enable Azure Monitor Integration. Complete the following steps if you need to update the OMS Agent on the cluster. If you are behind a firewall you may need to complete the [Prerequisites for clusters behind a firewall](#oms-with-firewall) before completing these steps.
 
 1. From the [Azure portal](https://portal.azure.com/), select your cluster. The cluster is opened in a new portal page.
 1. From the left, under **Monitoring**, select **Azure Monitor**.
@@ -347,7 +347,7 @@ If you are behind a firewall you may need to complete the [Prerequisites for clu
 1. From the main view, under **Azure Monitor Integration**, disable the toggle, and then select **Save**. 
 1. After the setting saves, re-enable the **Azure Monitor Integration** toggle, and ensure the same Log Analytics workspace is selected, and then select **Save**.
 
-If you have Azure Monitor Integration enabled on a cluster, updating the OMS agent will also update the OMI agent. You can check the version of the OMI agent on the cluster by running the following command: 
+If you have Azure Monitor Integration enabled on a cluster, updating the OMS agent will also update the Open Management Infrastructure (OMI) version. You can check the OMI version on the cluster by running the following command: 
 
 ```
  sudo /opt/omi/bin/omiserver –version
