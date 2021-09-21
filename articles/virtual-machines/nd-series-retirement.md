@@ -21,6 +21,7 @@ This VM size retirement only impacts the VM sizes in the [ND-series](nd-series.m
 ## What actions should I take?  
 You will need to resize or deallocate your NC virtual machines. We recommend moving your GPU workloads to another GPU Virtual Machine size. Learn more about migrating your workloads to another [GPU Accelerated Virtual Machine size](sizes-gpu.md).
 
+## Next steps
 [Learn more](n-series-migration.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
 
 If you have questions, contact us through customer support.
