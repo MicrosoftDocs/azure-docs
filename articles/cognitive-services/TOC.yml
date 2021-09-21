@@ -40,7 +40,7 @@
         href: ./containers/container-image-tags.md
       - name: Container FAQ
         href: ./containers/container-faq.yml
-      - name: Offline containers
+      - name: Run containers in disconnected environments
         href: ./containers/offline-containers.md
       - name: Container recipes
         items:
