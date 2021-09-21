@@ -1,5 +1,6 @@
 ---
 title: 'Tutorial: Configure both routing preference options for a virtual machine - Azure portal'
+titlesuffix: Azure Virtual Network
 description: Use this tutorial to learn how to configure both routing preference options for a virtual machine using the Azure portal.
 author: asudbring
 ms.author: allensu
@@ -27,7 +28,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a virtual machine
+## Create the virtual machine
 
 In this section, you'll create a virtual machine and public IP address. During the public IP address configuration, you'll select **Microsoft network** for routing preference.
 
@@ -78,7 +79,7 @@ In this section, you'll create a virtual machine and public IP address. During t
 
 8. Select **Create**.
 
-## Create a public IP address with Internet routing preference
+## Create the public IP address
 
 In this section, you'll create a public IP address with the **Internet** routing preference.
 
@@ -104,7 +105,7 @@ In this section, you'll create a public IP address with the **Internet** routing
 
 4. Select **Create**.
 
-## Create secondary network interface
+## Create the secondary NIC
 
 In this section, you'll create a secondary network interface for the virtual machine you created previously.
 
