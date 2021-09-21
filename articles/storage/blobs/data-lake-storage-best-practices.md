@@ -12,7 +12,7 @@ ms.reviewer: sachins
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-This article presents best practice recommendations about around security, resiliency, and directory structure in a Data Lake Storage Gen2 enabled storage account. For best practice recommendations around performance optimization, see [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md).
+This article presents best practice recommendations about security, resiliency, and directory structure in a Data Lake Storage Gen2 enabled storage account. For best practice recommendations around performance optimization, see [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md).
 
 ## Security considerations
 
