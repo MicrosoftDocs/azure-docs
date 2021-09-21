@@ -8,16 +8,22 @@ ms.date: 05/19/2021
 ---
 # Azure Functions runtime versions overview
 
-Azure Functions currently supports three versions of the runtime host: 3.x, 2.x, and 1.x. All three versions are supported for production scenarios.  
+Azure Functions currently supports several versions of the runtime host. The following table details the available versions, their support level, and when they should be used:
 
-> [!IMPORTANT]
-> Version 1.x is in maintenance mode and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. Enhancements are provided only in later versions. 
+| Version | Support level | Description |
+| --- | --- | --- |
+| 4.x | Preview | Supports [running C# functions on .NET 6.0](functions-dotnet-class-library.md#supported-versions). |
+| 3.x | GA | _Recommended runtime for functions in all languages._ |
+| 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions.|
+| 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
 
-This article details some of the differences between the various versions, how you can create each version, and how to change versions.
+This article details some of the differences between these versions, how you can create each version, and how to change the version on which your functions run.
+
+[!INCLUDE [functions-support-levels](../../includes/functions-support-levels.md)]
 
 ## Languages
 
-Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. The language of functions in a function app is chosen when creating the app and is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting. 
+Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. You chose the language of functions in your function app when you create the app. The language of your function app is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting, and shouldn't be changed when there are existing functions. 
 
 The following table indicates which programming languages are currently supported in each runtime version.
 
@@ -91,13 +97,17 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps.
 
-#### Python
+#### Languages
+
+# [Python](#tab/python)
 
 - Shared memory transfer is enabled by default in Azure Functions 4.x.
 
+---
+
 ## Migrating from 2.x to 3.x
 
-Azure Functions version 3.x is highly backwards compatible to version 2.x.  Many apps should be able to safely upgrade to 3.x without any code changes.  While moving to 3.x is encouraged, be sure to run extensive tests before changing the major version in production apps.
+Azure Functions version 3.x is highly backwards compatible to version 2.x.  Many apps can safely upgrade to 3.x without any code changes. While moving to 3.x is encouraged, run extensive tests before changing the major version in production apps.
 
 ### Breaking changes between 2.x and 3.x
 

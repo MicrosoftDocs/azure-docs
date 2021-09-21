@@ -14,7 +14,7 @@ The following table shows the highest level of .NET Core or .NET Framework that 
 
 | Functions runtime version | In-process<br/>([.NET class library](../articles/azure-functions/functions-dotnet-class-library.md)) | Out-of-process<br/>([.NET Isolated](../articles/azure-functions/dotnet-isolated-process-guide.md)) |
 | ---- | ---- | --- |
-| Functions 4.x (Preview) | .NET 6.0 (preview)| .NET 6.0 (preview)<sup>12</sup> |
+| Functions 4.x (Preview) | .NET 6.0 (preview)| .NET 6.0 (preview)<sup>2</sup> |
 | Functions 3.x | .NET Core 3.1 | .NET 5.0 |
 | Functions 2.x | .NET Core 2.1<sup>1</sup> | n/a |
 | Functions 1.x | .NET Framework 4.8 | n/a |
