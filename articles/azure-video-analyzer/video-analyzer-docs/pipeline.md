@@ -7,7 +7,7 @@ ms.date: 09/17/2021
 ---
 # Pipeline
 
-An Azure Video Analyzer pipeline lets you define where input data should be captured from, how it should be processed, and where the results should be delivered. A pipeline consists of nodes that are connected to achieve the desired flow of data. The diagrams below provides a graphical representation of a pipeline.
+An Azure Video Analyzer pipeline lets you define where input data should be captured from, how it should be processed, and where the results should be delivered. A pipeline consists of nodes that are connected to achieve the desired flow of data. The diagrams below provides graphical representations of a pipeline.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/pipeline/pipeline-representation.svg" alt-text="Representation of a pipeline":::
@@ -35,7 +35,7 @@ You can create different topologies for different scenarios by selecting which n
 As an example, if you want to record videos from multiple IP cameras, you can define a pipeline topology consisting of an RTSP source node and a video sink node. The RTSP source node can have RTSP URL, username, and password as parameters. The video sink node can have the video name as a parameter. Values for these parameters can be provided when creating multiple pipelines from the same topology - one pipeline per camera.
 
 > [!NOTE]
-> Batch topologies are supported only in Cloud Video Analyzer service (and not in the Video Analyzer edge module). Live pipelines are supported in both.
+> Batch topologies are supported only in the Video Analyzer service (and not in the Video Analyzer edge module). Live pipelines are supported in both.
 
 ## Pipeline states
 
