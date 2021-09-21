@@ -114,11 +114,11 @@
   - name: Deploy
     items:  
     - name: Deploy to an IoT Edge device
-      href: deploy-iot-edge-device.md
+      href: edge/deploy-iot-edge-device.md
     - name: Deploy to an IoT Edge for Linux on Windows
-      href: deploy-iot-edge-linux-on-windows.md
+      href: edge/deploy-iot-edge-linux-on-windows.md
     - name: Deploy on Azure Stack Edge
-      href: deploy-on-stack-edge.md
+      href: edge/deploy-on-stack-edge.md
   - name: Playback
     items:     
     - name: Use access policies for playback
@@ -138,9 +138,9 @@
   - name: Apply AI
     items:      
     - name: Develop and deploy gRPC inference server
-      href: develop-deploy-grpc-inference-srv.md
+      href: edge/develop-deploy-grpc-inference-srv.md
     - name: Analyze using AI composition
-      href: analyze-ai-composition.md
+      href: edge/analyze-ai-composition.md
   - name: Portal
     items:      
     - name: Invoke direct methods with the portal

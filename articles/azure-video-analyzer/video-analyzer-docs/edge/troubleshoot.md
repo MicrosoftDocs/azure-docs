@@ -162,7 +162,7 @@ To gather the relevant logs that should be added to the ticket, follow the instr
 	sudo iotedge restart <avaedge>
 	```
 
-   You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](../../iot-edge/troubleshoot-in-portal.md).
+   You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](../../../iot-edge/troubleshoot-in-portal.md).
 1. Connect to the virtual machine from the **IoT Hub** page in the portal
 
    1. Zip all the files in the _debugLogs_ folder.
