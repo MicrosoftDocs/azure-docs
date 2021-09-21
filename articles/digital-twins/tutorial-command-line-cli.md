@@ -218,7 +218,7 @@ To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/tw
     
     The output from each command will show information about the successfully created relationship.
 
-1. You can verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
+1. You can verify the relationships with any of the following commands, which print the relationships in your Azure Digital Twins instance.
     * To see all relationships coming off of each floor (viewing the relationships from one side):
         ```azurecli-interactive
         az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor0
@@ -279,7 +279,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Screenshot of Cloud Shell showing result of relationship query, which includes room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
-    > Notice that a twin's ID (like floor0 in the query above) is queried using the metadata field `$dtId`. 
+    > A twin's ID (like floor0 in the query above) is queried using the metadata field `$dtId`. 
     >
     >When using Cloud Shell to run a query with metadata fields like this one that begin with `$`, you should escape the `$` with a backtick to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text. This is reflected in the screenshot above.
 

@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: Blackmist
-ms.author: nigup
-author: nishankgu
+ms.author: johwu
+author: johnwu0604
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 

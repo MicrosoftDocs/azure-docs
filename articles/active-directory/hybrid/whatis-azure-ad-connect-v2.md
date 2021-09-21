@@ -35,7 +35,8 @@ SQL Server 2019 requires the Visual C++ Redist 14 runtime, so we are updating th
 
 ### TLS 1.2 
 
-TLS1.0 and TLS 1.1 are protocols that are deemed unsafe and are being deprecated by Microsoft. This release of Azure AD Connect will only support TLS 1.2. If your server does not support TLS 1.2 you will need to enable this before you can deploy Azure AD Connect V2.0. For more information, see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
+TLS1.0 and TLS 1.1 are protocols that are deemed unsafe and are being deprecated by Microsoft. This release of Azure AD Connect will only support TLS 1.2. 
+All versions of Windows Server that are supported for Azure AD Connect V2.0 already default to TLS 1.2. If your server does not support TLS 1.2 you will need to enable this before you can deploy Azure AD Connect V2.0. For more information, see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
 
 ### All binaries signed with SHA2 
 

@@ -57,7 +57,7 @@ At Microsoft, we want to put admins in control by providing the right insights a
 * Educate your organization on how our permissions and consent framework works
     - Understand the data and the permissions an application is asking for and understand how [permissions and consent](../develop/v2-permissions-and-consent.md) work within our platform.
     - Ensure administrators know how to [manage and evaluate consent requests](./manage-consent-requests.md).
-    - Routinely [audit apps and consented permissions](/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) in your organization to ensure applications that are used are accessing only the data they need and adhering to the principles of least privilege.
+    - Routinely [audit apps and consented permissions](../../security/fundamentals/steps-secure-identity.md#audit-apps-and-consented-permissions) in your organization to ensure applications that are used are accessing only the data they need and adhering to the principles of least privilege.
 * Know how to spot and block common consent phishing tactics
     - Check for poor spelling and grammar. If an email message or the application’s consent screen has spelling and grammatical errors, it’s likely a suspicious application. In that case, you can report it directly on the [consent prompt](../develop/application-consent-experience.md#building-blocks-of-the-consent-prompt) with the “*Report it here*” link and Microsoft will investigate if it is a malicious application and disable it, if confirmed.
     - Don’t rely on app names and domain URLs as a source of authenticity. Attackers like to spoof app names and domains that make it appear to come from a legitimate service or company to drive consent to a malicious app. Instead validate the source of the domain URL and use applications from [verified publishers](../develop/publisher-verification-overview.md) when possible.
@@ -73,4 +73,4 @@ At Microsoft, we want to put admins in control by providing the right insights a
 
 * [App consent grant investigation](/security/compass/incident-response-playbook-app-consent)
 * [Managing access to apps](./what-is-access-management.md)
-* [Restrict user consent operations in Azure AD](/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations)
+* [Restrict user consent operations in Azure AD](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations)

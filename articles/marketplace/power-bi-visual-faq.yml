@@ -98,7 +98,7 @@ sections:
       - question: |
           Where are the instructions for using Partner Center?
         answer: |
-          Go to the commercial marketplace [Welcome page](https://aka.ms/MigrationFAQs) and expand the **Create and manage offers** section.
+          Go to the commercial marketplace [Welcome page](./index.yml) and expand the **Create and manage offers** section.
 
 
       - question: |

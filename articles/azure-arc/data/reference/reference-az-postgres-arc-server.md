@@ -98,13 +98,13 @@ The path to the source json file for the Azure Arc-enabled PostgreSQL Hyperscale
 #### `--k8s-namespace -k`
 The Kubernetes namespace where the Azure Arc-enabled PostgreSQL Hyperscale server group is deployed. If no namespace is specified, then the namespace defined in the kubeconfig will be used.
 #### `--cores-limit`
-The maximum number of CPU cores for Azure Arc-enabled PostgreSQL Hyperscale server group that can be used per node. Fractional cores are supported. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The maximum number of CPU cores for Azure Arc-enabled PostgreSQL Hyperscale server group that can be used per node. Fractional cores are supported. Optionally a comma-separated list of roles with values can be specified in format \<role\>=\<value\>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--cores-request`
-The minimum number of CPU cores that must be available per node to schedule the service. Fractional cores are supported. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The minimum number of CPU cores that must be available per node to schedule the service. Fractional cores are supported. Optionally a comma-separated list of roles with values can be specified in format \<role\>=\<value\>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--memory-limit`
-The memory limit of the Azure Arc-enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The memory limit of the Azure Arc-enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). Optionally a comma-separated list of roles with values can be specified in format \<role\>=\<value\>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--memory-request`
-The memory request of the Azure Arc-enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The memory request of the Azure Arc-enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). Optionally a comma-separated list of roles with values can be specified in format \<role\>=\<value\>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--storage-class-data`
 The storage class to be used for data persistent volumes.
 #### `--storage-class-logs`
@@ -112,7 +112,7 @@ The storage class to be used for logs persistent volumes.
 #### `--storage-class-backups`
 The storage class to be used for backup persistent volumes.
 #### `--volume-claim-mounts`
-A comma-separated list of volume claim mounts. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon.The persistent volume will be mounted in each pod for the PostgreSQL server group. The mount path may depend on the volume type.
+A comma-separated list of volume claim mounts. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon. The persistent volume will be mounted in each pod for the PostgreSQL server group. The mount path may depend on the volume type.
 #### `--extensions`
 A comma-separated list of the Postgres extensions that should be loaded on startup. Please refer to the postgres documentation for supported values.
 #### `--volume-size-data`
@@ -133,11 +133,11 @@ Optional.
 #### `--no-wait`
 If given, the command will not wait for the instance to be in a ready state before returning.
 #### `--engine-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2'.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2'.
 #### `--coordinator-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'coordinator' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'coordinator' node role. When node role-specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--worker-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role-specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--use-k8s`
 Use local Kubernetes APIs to perform this action.
 ### Global Arguments
@@ -213,13 +213,13 @@ The path to the source json file for the Azure Arc-enabled PostgreSQL Hyperscale
 #### `--workers -w`
 The number of worker nodes to provision in a server group. In Preview, reducing the number of worker nodes is not supported. Refer to documentation for additional details.
 #### `--cores-limit`
-The maximum number of CPU cores for Azure Arc-enabled PostgreSQL Hyperscale server group that can be used per node, fractional cores are supported. To remove the cores_limit, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The maximum number of CPU cores for Azure Arc-enabled PostgreSQL Hyperscale server group that can be used per node, fractional cores are supported. To remove the cores_limit, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format \<role\>=\<value\>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--cores-request`
-The minimum number of CPU cores that must be available per node to schedule the service, fractional cores are supported. To remove the cores_request, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The minimum number of CPU cores that must be available per node to schedule the service, fractional cores are supported. To remove the cores_request, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format \<role\>=\<value\>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--memory-limit`
-The memory limit for Azure Arc-enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). To remove the memory_limit, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The memory limit for Azure Arc-enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). To remove the memory_limit, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format \<role\>=\<value\>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--memory-request`
-The memory request for Azure Arc-enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). To remove the memory_request, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format <role>=<value>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
+The memory request for Azure Arc-enabled PostgreSQL Hyperscale server group as a number followed by Ki (kilobytes), Mi (megabytes), or Gi (gigabytes). To remove the memory_request, specify its value as empty string. Optionally a comma-separated list of roles with values can be specified in format \<role\>=\<value\>. Valid roles are: "coordinator" or "c", "worker" or "w". If no roles are specified, settings will apply to all nodes of the PostgreSQL Hyperscale server group.
 #### `--extensions`
 A comma-separated list of the Postgres extensions that should be loaded on startup. Please refer to the postgres documentation for supported values.
 #### `--port`
@@ -227,13 +227,13 @@ Optional.
 #### `--no-wait`
 If given, the command will not wait for the instance to be in a ready state before returning.
 #### `--engine-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2'. The provided settings will be merged with the existing settings. To remove a setting, provide an empty value like 'removedKey='. If you change an engine setting that requires a restart, the service will be restarted to apply the settings immediately.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2'. The provided settings will be merged with the existing settings. To remove a setting, provide an empty value like 'removedKey='. If you change an engine setting that requires a restart, the service will be restarted to apply the settings immediately.
 #### `--replace-settings`
 When specified with --engine-settings, will replace all existing custom engine settings with new set of settings and values.
 #### `--coordinator-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'coordinator' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'coordinator' node role. When node role-specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--worker-settings`
-A comma separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role specific settings are specified, default settings will be ignored and overridden with the settings provided here.
+A comma-separated list of Postgres engine settings in the format 'key1=val1, key2=val2' to be applied to 'worker' node role. When node role-specific settings are specified, default settings will be ignored and overridden with the settings provided here.
 #### `--admin-password`
 If given, the Azure Arc-enabled PostgreSQL Hyperscale server group's admin password will be set to the value of the AZDATA_PASSWORD environment variable if present and a prompted value otherwise.
 #### `--use-k8s`

@@ -33,7 +33,6 @@ You can find the list of resources that have a system-assigned managed identity 
 az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
 ```
 
-
 ### What Azure RBAC permissions are required to work with managed identities? 
 
 - System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need `Microsoft.Compute/virtualMachines/write`. This action is included in resource specific built-in roles like [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
