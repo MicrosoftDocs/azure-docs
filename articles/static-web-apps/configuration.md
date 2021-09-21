@@ -267,15 +267,12 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 
 When one or more IP address blocks are specified, requests originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
 
-### Azure Front Door support
-
-If you configure Azure Front Door for your site, then add the `AzureFrontDoor.Backend` service tag to the `allowedIpRanges` array.
+In addition to IP address blocks, you can also specify [service tags](../virtual-network/service-tags-overview.md) in the `allowedIpRanges` array to restrict traffic to certain Azure services.
 
 ```json
 "networking": {
   "allowedIpRanges": ["AzureFrontDoor.Backend"]
 }
-```
 
 ## Authentication
 

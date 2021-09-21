@@ -106,8 +106,8 @@ In this tutorial, you learn how to:
 To complete the integration with Front Door, you need to update the application configuration file to:
 
 - Restrict traffic to your site only through Front Door
+- Restrict traffic to your site only from your Front Door instance
 - Define which domains can access your site
-- Configure requests to identify your site
 
 Open the [staticwebapp.config.json](configuration.md) file for your site and make the following changes.
 
@@ -119,20 +119,20 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
     }
     ```
 
-1. To define which domains can access your site, and add a unique identifier for your site, add the `forwardingGateway` section.
+1. To define which Azure Front Door instances and domains can access your site, add the `forwardingGateway` section.
 
-    First, add the Azure Front Door URL (not the Azure Static Web Apps URL) into the `allowedForwardedHosts` array.
+    First, configure your app to only allow traffic from your Front Door instance. You do this by requiring the `X-Azure-FDID` header on all requests to match your Front Door ID. Azure Front Door automatically sets this value in all backend requests.
 
-    Next, add a unique identifier for your site.
+    Next, add the Azure Front Door URL (not the Azure Static Web Apps URL) into the `allowedForwardedHosts` array. If you have custom domains configured in your Front Door instance, also include them in this list.
 
     ```json
     "forwardingGateway": {
-      "allowedForwardedHosts": [
-        "my-sitename.azurefd.net"
-      ],
       "requiredHeaders": {
         "X-Azure-FDID" : "????"
-      }
+      },
+      "allowedForwardedHosts": [
+        "my-sitename.azurefd.net"
+      ]
     }
     ```
 
