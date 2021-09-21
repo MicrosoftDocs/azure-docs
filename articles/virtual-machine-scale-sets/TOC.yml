@@ -178,9 +178,6 @@
         displayName: on-demand capacity reservation
         href: ./virtual-machines/capacity-reservation-modify.md
         maintainContext: true
-        displayName: on-demand capacity reservation
-        href: ./virtual-machines/capacity-reservation-remove-vm.md
-        maintainContext: true
       - name: Associate a virtual machine scale set
         displayName: on-demand capacity reservation
         href: ./virtual-machines/capacity-reservation-associate-virtual-machine-scale-set.md
