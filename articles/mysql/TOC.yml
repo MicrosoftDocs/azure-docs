@@ -594,7 +594,7 @@
         href: flexible-server/how-to-troubleshoot-cli-errors.md       
   - name: Samples
     items:
-    - name: Azure CLI Sample
+    - name: Azure CLI samples
       href: flexible-server/sample-scripts-azure-cli.md
 - name: Migration
   items:
