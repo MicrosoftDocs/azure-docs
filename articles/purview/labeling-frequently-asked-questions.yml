@@ -19,9 +19,9 @@ sections:
     questions:
       - question: What are the licensing requirements to use sensitivity labels on files and schematized data in Azure Purview? 
         answer: |
-          To use sensitivity labels in Azure Purview you will need at least one Microsoft 365 license/account within the same Azure Active Directory (AAD) tenant as your Azure Purview account.  
+          To use sensitivity labels in Azure Purview, you'll need at least one Microsoft 365 license/account within the same Azure Active Directory (AAD) tenant as your Azure Purview account.  
 
-          The following Microsoft 365 licenses is required to automatically apply sensitivity labels to your assets in [Microsoft 365](microsoft-365/compliance.apply-sensitivity-label-automatically) and [Azure Purview](create-sensitivity-label.md):  
+          The following Microsoft 365 licenses are required to automatically apply sensitivity labels to your assets in [Microsoft 365](microsoft-365/compliance.apply-sensitivity-label-automatically) and [Azure Purview](create-sensitivity-label.md):  
           
           * Microsoft 365 E5/A5/G5
           * Microsoft 365 E5/A5/G5 Compliance 
@@ -36,11 +36,11 @@ sections:
 
       - question: My organization already uses sensitivity labels in Microsoft 365. What is the impact of extending these labels to Purview? Will it affect my existing setup in Microsoft 365? 
         answer: |
-          Extending the labels to Purview does not affect your Microsoft 365 setup or modify your assets in any way, including files and databases.  
+          Extending the labels to Purview doesn't affect your Microsoft 365 setup or modify your assets in any way, including files and databases.  
           
           * When you extend sensitivity labels to Purview, your Microsoft 365 setup will continue to work in the same way as usual. 
           * Extending the sensitivity labels allows Purview to apply those labels to your Azure and multi-cloud assets in the Purview catalog. The catalog is a metadata store and can be deleted by you at any time. 
-          * Sensitivity labels are applied only to the asset metadata in the Purview catalog and are not applied to the actual files and schematized data. Applying sensitivity labels does not modify your files and databases in any way. 
+          * Sensitivity labels are applied only to the asset metadata in the Purview catalog and are not applied to the actual files and schematized data. Applying sensitivity labels doesn't modify your files and databases in any way. 
 
   - name: Classifications vs Sensitivity labels
     questions:
@@ -135,7 +135,7 @@ sections:
           
       - question: If there are multiple sensitivity labels that meet the classification criteria, which label is applied?  
         answer: |
-          Within Microsoft 365, sensitivity labels have a priority 'order' and Purview uses the same order to assign labels. In case of multiple labels meeting the classification criteria, Purview picks the label with the highest order.  
+          Within Microsoft 365, sensitivity labels have a priority 'order' and Purview uses the same order to assign labels. If there are multiple labels meeting the classification criteria, Purview picks the label with the highest order.  
           
           For more information, see [Label priority order matters](microsoft-365/compliance.sensitivity-labels.md#label-priority-order-matters).
           
@@ -145,7 +145,7 @@ sections:
         answer: |
           Azure Purview provides a classification and labeling experience for all your Azure assets including SQL databases. Azure Purview is intended for organizations that want to manage their entire data estate in a single place with the power of classification, labeling, alerting, and more. Azure Purview uses sensitivity labels, which have a global scope and travel with your data no matter where it moves to or what it transforms into. 
           
-          In contrast, [SQL data discovery and classification](../azure-sql/database/data-discovery-and-classification-overview.md) is built into SQL. SQL data discovery and classification existed before Purview as a way to provide basic capabilities for discovering, classifying, labeling, and reporting the sensitive data in your SQL databases. SQL data discovery and classification uses local labels which do not have a global scope and do not support sensitivity labels. 
+          In contrast, [SQL data discovery and classification](../azure-sql/database/data-discovery-and-classification-overview.md) is built into SQL. SQL data discovery and classification existed before Purview as a way to provide basic capabilities for discovering, classifying, labeling, and reporting the sensitive data in your SQL databases. SQL data discovery and classification use local labels that do not have a global scope and do not support sensitivity labels. 
           
       - question: I applied labels in SQL data discovery and classification. Why are these labels not showing up on my asset in Azure Purview?
         answer: |
