@@ -93,7 +93,7 @@ To create the virtual network in the Azure portal, follow these steps:
 
      :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/05-create-vnet-ipaddress-add-sql-subnet-1.png" alt-text="Name your first subnet, such as sql-subnet-1, and then iterate the third octet by 1, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.1.0":::
 
-1. Repeat the previous step to add an additional unique subnet range for your second SQL Server VM with a name such as **SQL-subnet-2**. You can iterate the third octet by one once again. 
+1. Repeat the previous step to add an additional unique subnet range for your second SQL Server VM with a name such as **SQL-subnet-2**. You can iterate the third octet by one again. 
    - For example, if your **DC-subnet** IP range is *10.38.0.0/24*, and your **SQL-subnet-1** is *10.38.1.0/24*, then enter `10.38.2.0/24` for the new subnet
    - Likewise, if your **DC-subnet** IP range is *10.5.0.0/24*, and your **SQL-subnet-1** is *10.5.1.0/24*, then enter the IP address range `10.5.2.0/24` for **SQL-subnet-2** . 
 
@@ -352,7 +352,7 @@ For the virtual machine storage, use Azure Managed Disks. Microsoft recommends M
 
 For the virtual machines, this tutorial uses public IP addresses. A public IP address enables remote connection directly to the virtual machine over the internet and makes configuration steps easier. In production environments, Microsoft recommends only private IP addresses in order to reduce the vulnerability footprint of the SQL Server instance VM resource.
 
-**Network - Recommend a single NIC per server**   
+**Network - Single NIC per server**   
 
 Use a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on a failover cluster deployed to an Azure virtual machine. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning when your failover cluster is on Azure virtual machines. 
 
@@ -419,7 +419,7 @@ To assign additional secondary IPs to the VMs, follow these steps:
 
    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/22-add-ip-ag-listener.png" alt-text="Select + Add again to configure an additional IP address for the availability group listener (with a name such as availability-group-listener), again using an unused IP address in SQL-subnet-1 such as 10.31.1.11":::
 
-1. Repeat these steps again for the second SQL Server VM, such as **SQL-VM-2**. Assign two unused secondary IP addresses within **SQL-subnet-2**. Use the values from the following table to add the IP configuration:: 
+1. Repeat these steps again for the second SQL Server VM, such as **SQL-VM-2**. Assign two unused secondary IP addresses within **SQL-subnet-2**. Use the values from the following table to add the IP configuration: 
 
    
     | **Field** | Input | Input | 
@@ -435,7 +435,7 @@ Now you are ready to join the **corp.contoso.com**.
 
 Once your two secondary IP addresses have been assigned to both SQL Server VMs, join each SQL Server VM to the **corp.contoso.com** domain. 
 
-To join the domain, follow the same steps for the SQL Server VM as for the secondary domain controller. First, [set the preferred DNS server](#set-preferred-dns-server-address), and then [join the corp.contoso.com domain](#join-the-domain). Do this for each SQL Server VM.
+To join the corp.contoso.com domain, follow the same steps for the SQL Server VM as you did when you [joined the domain](#join-the-domain) with the secondary domain controller. 
 
 Wait for each SQL Server VM to restart, and then you can add your accounts. 
 
@@ -446,7 +446,7 @@ Add the installation account as an administrator on each VM, grant permission to
 
 ### Add install account
 
-Once both SQL Server VMs join the domain, add **CORP\Install** as a member of the local administrators group.
+Once both SQL Server VMs have joined the domain, add **CORP\Install** as a member of the local administrators group.
 
 >[!TIP]
 > Be sure you sign in with the *domain* administrator account. In previous steps, you were using the **BUILTIN** administrator account. Now that the server is part of the domain, use the domain account. In your RDP session, specify *DOMAIN*\\*username*, such as **CORP\DomainAdmin**.
@@ -464,9 +464,7 @@ To add the account as an admin, follow these steps:
 
 ### Add account to sysadmin 
 
-
-To configure the availability group, use the installation account (CORP\install), which needs to be a member of the **sysadmin** fixed server role on each SQL Server VM. 
-
+The installation account (CORP\install) used to configure the availability group must be part of the **sysadmin** fixed server role on each SQL Server VM. 
 
 To grant **sysadmin** rights to the installation account, follow these steps: 
 
@@ -485,7 +483,7 @@ To grant **sysadmin** rights to the installation account, follow these steps:
 
 ### Add system account 
 
-In later versions of SQL Server, the [NT AUTHORITY\SYSTEM] account does not have permissions to SQL Server by default, and must be manually granted. 
+In later versions of SQL Server, the [NT AUTHORITY\SYSTEM] account does not have permissions to SQL Server by default, and must be granted manually. 
 
 To add the [NT AUTHORITY\SYSTEM] and grant appropriate permissions, follow these steps: 
 
@@ -521,7 +519,7 @@ To add the [NT AUTHORITY\SYSTEM] and grant appropriate permissions, follow these
 
 ### Set the SQL Server service accounts
 
-The SQL Server service on each VM needs to use a dedicated domain account.  Use the domain accounts you created created earlier: **Corp\SQLSvc1** for **SQL-VM-1** and **Corp\SQLSvc2** for **SQL-VM-2**. 
+The SQL Server service on each VM needs to use a dedicated domain account.  Use the domain accounts you created earlier: **Corp\SQLSvc1** for **SQL-VM-1** and **Corp\SQLSvc2** for **SQL-VM-2**. 
 
 To set the service account, follow these steps: 
 
@@ -578,7 +576,7 @@ To open these ports on a Windows Firewall, follow these steps:
 
 ## Next steps
 
-Now that you've configured the prerequisites, get started with [configuring your availability group](availability-group-manually-configure-tutorial-multi-subnet.md)
+Now that you've configured the prerequisites, get started with [configuring your availability group](availability-group-manually-configure-tutorial-multi-subnet.md) in multiple subnets. 
 
 To learn more, see:
 

@@ -97,11 +97,11 @@ To create the cluster, follow these steps:
    > 
    
 
-### Set the Windows server failover cluster IP address
+### Set the failover cluster IP address
 
 Typically, the IP address assigned to the cluster is the same IP address assigned to the VM, which means that in Azure, the cluster IP address will be in a failed state, and cannot be brought online. Change the cluster IP address to bring the IP resource online. 
 
-During the prerequisites, you should have [assigned secondary IP addresses](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#add-ips-to-sql-server-vms) to each SQL Server VM, as the example table below (your specific IP addresses may vary): 
+During the prerequisites, you should have [assigned secondary IP addresses](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#add-secondary-ips-to-sql-server-vms) to each SQL Server VM, as the example table below (your specific IP addresses may vary): 
 
    | VM Name | Subnet name | Subnet address range | Secondary IP name | Secondary IP address |
    | --- | --- | --- | --- | --- |
@@ -206,16 +206,18 @@ For your database, you can either follow the steps in this section to create a n
 To create a database, follow these steps: 
 
 1. Launch the RDP file to the first SQL Server VM (such as **SQL-VM-1**) with a domain account that is a member of the sysadmin fixed server role, such as the **CORP\Install** domain account created in the [prerequisites document](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md).
-2. Open **SQL Server Management Studio** and connect to the SQL Server instance.
-3. In **Object Explorer**, right-click **Databases** and select **New Database**.
-4. In **Database name**, type **MyDB1**, then select **OK**. The database should be in full recovery mode. 
+1. Open **SQL Server Management Studio** and connect to the SQL Server instance.
+1. In **Object Explorer**, right-click **Databases** and select **New Database**.
+1. In **Database name**, type **MyDB1**. 
+1. Select the **Options** page, and choose **Full** from the **Recovery model** drop-down, if it's not full by default. The database must be in full recovery mode to meet the prerequisites of participating in an availability group. 
+1. Select **OK** to close the **New Database** page and create your new database. 
 
 
 To back up the database, follow these steps: 
 
 1. In **Object Explorer**, right-click the database, highlight **Tasks**, and then select **Back Up...**.
 
-1. Select **OK** to take a full backup to the default backup location.
+1. Select **OK** to take a full backup of the database to the default backup location.
 
 ## Create file share
 
@@ -240,7 +242,7 @@ To create the backup file share, follow these steps:
 
 7. On **Customize Permissions**, select **Add...**.
 
-8. Add **full control** access to the share for *both* SQL Server service accounts:  
+8. Check **Full Control** to grant full access to the share for *both* SQL Server service accounts (`Corp\SQLSvc1` and `Corp\SQLSvc2`):  
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/10-backupsharepermission.png" alt-text="Make sure that the SQL Server service accounts for both servers have full control.":::
 
@@ -254,19 +256,19 @@ After your database has been backed up, you are ready to create your availabilit
 
 To create your availability group, follow these steps. 
 
-1. In **Object Explorer** in SSMS on the first SQL Server VM (such as **SQL-VM-1**), right-click **Always On High Availability** and select **New availability group Wizard**.
+1. In **Object Explorer** in SQL Server Management Studio (SSMS) on the first SQL Server VM (such as **SQL-VM-1**), right-click **Always On High Availability** and select **New Availability Group Wizard**.
 
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/11-newagwiz.png" alt-text="Launch New availability group Wizard":::
 
-1. In the **Introduction** page, select **Next**. In the **Specify availability group Name** page, type a name for the availability group in **Availability group name**, such as **AG1**. Select **Next**.
+1. On the **Introduction** page, select **Next**. In the **Specify availability group Name** page, type a name for the availability group in **Availability group name**, such as **AG1**. Select **Next**.
 
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/12-newagname.png" alt-text="New availability group Wizard, Specify availability group Name":::
 
-1. In the **Select Databases** page, select your database, and then select **Next**. If your database does not meet the prerequisites, [take a backup](#create-database): 
+1. On the **Select Databases** page, select your database, and then select **Next**. If your database does not meet the prerequisites, [take a backup](#create-database): 
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/13-newagselectdatabase.png" alt-text="New availability group Wizard, Select Databases":::
 
-1. In the **Specify Replicas** page, select **Add Replica**.
+1. On the **Specify Replicas** page, select **Add Replica**.
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/14-newagaddreplica.png" alt-text="New availability group Wizard, Specify Replicas":::
 
@@ -307,7 +309,7 @@ To create your availability group, follow these steps.
 
 1. After reviewing the values on the **Listener** page, select **Next**: 
 
-    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/20-listener.png" alt-text="Listener":::
+    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/20-listener.png" alt-text="After reviewing the values on the Listener page, select Next:":::
 
 1. On the **Select Initial Data Synchronization** page, choose **Full database and log backup** and provide the [network share location you created previously](#create-file-share), such as `\\SQL-VM-1\Backup`. 
 
