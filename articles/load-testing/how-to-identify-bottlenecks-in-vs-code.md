@@ -24,7 +24,7 @@ In this article you'll learn how to:
 > - Remove the bottleneck.
 > - Re-run the load test to check performance improvements.
 
-To learn how to do the same in **Azure portal**, see [Identify bottlenecks using Azure portal](how-to-identify-bottlenecks-in-azure-portal.md).
+To learn how to do the same in **Azure portal**, see [Identify bottlenecks using Azure portal](tutorial-identify-bottlenecks-in-azure-portal.md).
 
 
 ## Prerequisites
