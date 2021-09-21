@@ -1,6 +1,6 @@
 ---
-title: Create a Power BI visual in Partner Center for Microsoft AppSource
-description: Learn how to create a Power BI visual offer in Partner Center (Azure Marketplace).
+title: Create a Power BI visual offer in Partner Center for Microsoft AppSource
+description: Learn how to create a Power BI visual offer in Partner Center.
 author: KesemSharabi
 ms.author: kesharab
 ms.reviewer: ""
@@ -12,7 +12,7 @@ ms.date: 09/21/2021
 
 # Create a Power BI visual offer
 
-This article describes how to use Partner Center to submit a Power BI visual offer to [Microsoft Appsource](https://appsource.microsoft.com) for others to discover and use.
+This article describes how to use Partner Center to submit a Power BI visual offer to [Microsoft AppSource](https://appsource.microsoft.com) for others to discover and use.
 
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 

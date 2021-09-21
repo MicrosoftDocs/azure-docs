@@ -1,6 +1,6 @@
 ---
 title: Set up Power BI visual offer technical configuration in Partner Center for Microsoft AppSource
-description: Learn how to set up Power BI app offer technical configuration in Partner Center for Microsoft AppSource (Azure Marketplace).
+description: Learn how to set up Power BI visual offer technical configuration in Partner Center for Microsoft AppSource.
 author: KesemSharabi
 ms.author: kesharab
 ms.reviewer: ""
@@ -16,25 +16,29 @@ On the **Technical configuration** tab, provide the files needed for the Power B
 
 :::image type="content" source="media/power-bi-visual/technical-configuration.png" alt-text="Shows the Technical Configuration page in Partner Center.":::
 
-- **PBIVIZ package** – [Pack your Power BI visual](https://docs.microsoft.com/power-bi/developer/visuals/package-visual) into a PBIVIZ package containing all the required metadata:
+## PBIVIZ package
 
-  - Visual name
-  - Display name
-  - GUID (see note below)
-  - Version (see note below)
-  - Description
-  - Author name and email
+[Pack your Power BI visual](https://docs.microsoft.com/power-bi/developer/visuals/package-visual) into a PBIVIZ package containing all the required metadata:
 
-      > [!NOTE]
-      > If you are updating or resubmitting a visual:
-      > - The GUID must remain the same.
-      > - The version number should be incremented between package updates.
+- Visual name
+- Display name
+- GUID (see note below)
+- Version (see note below)
+- Description
+- Author name and email
 
-- **Sample PBIX report file** – To showcase your visual offer, help users get familiar with the visual. Highlight the value the visual brings to the user and give examples of usage and formatting options. Add a "hints" page at the end with tips, tricks, and things to avoid. The sample PBIX report file must work offline, without any external connections.
+> [!NOTE]
+> If you are updating or resubmitting a visual:
+> - The GUID must remain the same.
+> - The version number should be incremented between package updates.
 
-    > [!NOTE]
-    > - The PBIX report must use the same version of the visual as the PBIVIZ.
-    > - The PBIX report file must work offline, without any external connections.
+## Sample PBIX report file
+
+To showcase your visual offer, help users get familiar with the visual. Highlight the value the visual brings to the user and give examples of usage and formatting options. Add a "hints" page at the end with tips, tricks, and things to avoid. The sample PBIX report file must work offline, without any external connections.
+
+> [!NOTE]
+> - The PBIX report must use the same version of the visual as the PBIVIZ.
+> - The PBIX report file must work offline, without any external connections.
 
 Select **Save draft** before skipping in the left-nav menu to the **Offer management** tab.
 

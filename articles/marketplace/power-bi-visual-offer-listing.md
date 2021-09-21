@@ -1,6 +1,6 @@
 ---
 title: Configure Power BI visual offer listing details in Partner Center for Microsoft AppSource
-description: Learn how to configure Power BI visual offer listing details in Partner Center for Microsoft AppSource (Azure Marketplace).
+description: Learn how to configure Power BI visual offer listing details in Partner Center for Microsoft AppSource.
 author: KesemSharabi
 ms.author: kesharab
 ms.reviewer: ""

@@ -1,6 +1,6 @@
 ---
-title: Planning a Power BI visual for Microsoft AppSource
-description: Learn what information you'll need on hand to submit your Power BI visual offer in Partner Center (Azure Marketplace).
+title: Planning a Power BI visual offer in Partner Center for Microsoft AppSource
+description: Learn what information you'll need on hand to submit your Power BI visual offer in Partner Center.
 author: KesemSharabi
 ms.author: kesharab
 ms.reviewer: ""

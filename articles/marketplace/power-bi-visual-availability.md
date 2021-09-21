@@ -1,6 +1,6 @@
 ---
-title: Defining availability of a Power BI visual in Partner Center for Microsoft AppSource
-description: Learn how to define the availability of a Power VI visual offer in Partner Center (Azure Marketplace).
+title: Defining availability of a Power BI visual offer in Partner Center for Microsoft AppSource
+description: Learn how to define the availability of a Power VI visual offer in Partner Center.
 author: KesemSharabi
 ms.author: kesharab
 ms.reviewer: ""
