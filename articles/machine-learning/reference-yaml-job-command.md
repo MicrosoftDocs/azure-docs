@@ -39,7 +39,7 @@ ms.reviewer: laobri
 | `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string), [JobInputUri](#jobinputuri), or [JobInputDataset](#jobinputdataset). | | |
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression. | |
-| `outputs.<output_name>` | object | You can either specify an optional `mode` or leave the object empty. For each named output specified in the `outputs` dictionary, Azure ML will autogenerate an output location based on the following templatized path: < [TODO] : fill out the path >. Users will be allowed to provide a custom location in a later release. | |
+| `outputs.<output_name>` | object | You can either specify an optional `mode` or leave the object empty. For each named output specified in the `outputs` dictionary, Azure ML will autogenerate an output location. | |
 | `outputs.<output_name>.mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode the output directory will be a mounted directory. For upload mode the files written to the output directory will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
 
 ### Distribution configurations
@@ -86,50 +86,6 @@ ms.reviewer: laobri
 ## Remarks
 
 The `az ml job` command can be used for managing Azure Machine Learning jobs.
-
-## Examples
-
-### Basics
-
-#### Hello world
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world.yml":::
-
-#### Hello world with an environment variable
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-env-var.yml":::
-
-#### Hello world with a tag
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-tag.yml":::
-
-#### Hello world with Python
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-python.yml":::
-
-#### Hello world with MLflow and Python
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/basics/hello-world-python-mlflow.yml":::
-
-### Single-node
-
-#### LightGBM on Iris
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/lightgbm/iris/job.yml":::
-
-### Distributed
-
-#### PyTorch
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
-
-#### Tensorflow
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
-
-#### MPI
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
 
 ## Schema
 

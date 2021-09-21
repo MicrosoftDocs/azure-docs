@@ -64,10 +64,6 @@ The `az ml online-endpoint` command can be used for managing Azure Machine Learn
 | tags | A dictionary of Azure Tags you want associated with the deployment. |
 | description | A description of the deployment. |
 
-## Examples
-
-[TODO]
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json. The schema is provided below in JSON and YAML formats for convenience.
