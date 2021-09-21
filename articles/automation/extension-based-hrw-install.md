@@ -4,7 +4,8 @@ description: This article tells how to deploy an extension-based Windows or Linu
 services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2021
-ms.topic: conceptual 
+ms.topic: how-to
+#Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ---
 
 # Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation
@@ -23,18 +24,18 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 - Two cores.
 - 4 GB of RAM.
 - Port 443 (outbound).
-- The system-assigned managed identity must be enabled on the Azure virtual machine or Arc enabled server.  If the system-assigned managed identity is not enabled, it will be enabled as part of the adding process.
+- The system-assigned managed identity must be enabled on the Azure virtual machine or Arc enabled server.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
 - Non-Azure machines must have the Azure Arc enabled servers agent installed (The connected machine agent). For instructions to install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md).
 
 ### Supported operating systems
 | Windows | Linux (x64)|
 |---|---|
-| &#9679; Windows Server 2019 (including Server Core), <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 <br><br> | &#9679; Debian GNU/Linux 7 and 8, <br> &#9679; Ubuntu 18.04, and 20.04 LTS, <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE did not release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+| &#9679; Windows Server 2019 (including Server Core), <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 <br><br> | &#9679; Debian GNU/Linux 7 and 8, <br> &#9679; Ubuntu 18.04, and 20.04 LTS, <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE didn't release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
 
 ### Other Requirements
 | Windows | Linux (x64)|
 |---|---|
-| Windows PowerShell 5.1 (download WMF 5.1). PowerShell Core is not supported.| Linux Hardening must not be enabled.  |
+| Windows PowerShell 5.1 (download WMF 5.1). PowerShell Core isn't supported.| Linux Hardening must not be enabled.  |
 | .NET Framework 4.6.2 or later. ||
 
 ### Package requirements for Linux
@@ -74,7 +75,7 @@ Perform the following steps to create a hybrid worker group in the Azure porta
 
 1. Select **Next** to advance to the **Hybrid worker selection** tab. You can select Azure virtual machines or Azure Arc-enabled servers to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later. 
 
-1. Select **Add machines** to go to the **Add machines as hybrid worker** page. You will only see machines that are not part of any other hybrid worker group. 
+1. Select **Add machines** to go to the **Add machines as hybrid worker** page. You'll only see machines that aren't part of any other hybrid worker group. 
 
 1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.  
 
@@ -95,7 +96,7 @@ You can also create an empty hybrid worker group and then add machines.
 
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 
-1. Select **+ Add** to go to the **Add machines as hybrid worker** page. You will only see machines that are not part of any other hybrid worker group. 
+1. Select **+ Add** to go to the **Add machines as hybrid worker** page. You'll only see machines that aren't part of any other hybrid worker group. 
 
 1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.
 
@@ -111,7 +112,7 @@ You can delete the Hybrid Runbook Worker from the portal.
 
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
 
-1. Select **Delete**.  You will be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the hybrid worker v2 (extension-based) or remove the hybrid worker v1 (agent-based) entry from the portal.
+1. Select **Delete**.  You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the hybrid worker v2 (extension-based) or remove the hybrid worker v1 (agent-based) entry from the portal.
 
 ## Delete a Hybrid Runbook Worker group
 
@@ -119,9 +120,316 @@ You can delete the Hybrid Runbook Worker group from the portal.
 
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 
-1. Select **Delete**. You will be presented with a warning in a dialog box to remove any machine that are defined as hybrid workers in the hybrid worker group. If there is already a worker added to the group, you will first have to delete the worker from the group.
+1. Select **Delete**. You'll be presented with a warning in a dialog box to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
 
 1. Select **Yes**. The hybrid worker group will be deleted.
+
+## Use Azure Resource Manager template
+
+You can use an Azure Resource Manager (ARM) template to create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group. To learn more about ARM templates, see [What are ARM templates?](../azure-resource-manager/templates/overview.md)
+
+### Review the template
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "automationAccount": {
+      "type": "string"
+    },
+    "automationAccountLocation": {
+      "type": "string"
+    },
+    "workerGroupName": {
+      "type": "string"
+    },
+    "virtualMachineName": {
+      "type": "string",
+      "defaultValue": "simple-vm",
+      "metadata": {
+        "description": "Name of the virtual machine."
+      }
+    },
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "minLength": 12,
+      "metadata": {
+        "description": "Password for the Virtual Machine."
+      }
+    },
+    "vmLocation": {
+      "type": "string",
+      "defaultValue": "North Central US",
+      "metadata": {
+        "description": "Location for the VM."
+      }
+    },
+    "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS1_v2",
+      "metadata": {
+        "description": "Size of the virtual machine."
+      }
+    },
+    "osVersion": {
+      "type": "string",
+      "defaultValue": "2019-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter",
+        "2019-Datacenter",
+        "2019-Datacenter-Core",
+        "2019-Datacenter-Core-smalldisk",
+        "2019-Datacenter-Core-with-Containers",
+        "2019-Datacenter-Core-with-Containers-smalldisk",
+        "2019-Datacenter-smalldisk",
+        "2019-Datacenter-with-Containers",
+        "2019-Datacenter-with-Containers-smalldisk"
+      ],
+      "metadata": {
+        "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version."
+      }
+    },
+    "dnsNameForPublicIP": {
+      "type": "string",
+      "metadata": {
+        "description": "DNS name for the public IP"
+      }
+    },
+    "_CurrentDateTimeInTicks": {
+      "type": "string",
+      "defaultValue": "[utcNow('yyyy-MM-dd')]"
+    }
+  },
+  "variables": {
+    "nicName": "myVMNict",
+    "addressPrefix": "10.0.0.0/16",
+    "subnetName": "Subnet",
+    "subnetPrefix": "10.0.0.0/24",
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
+    "vmName": "[parameters('virtualMachineName')]",
+    "virtualNetworkName": "MyVNETt",
+    "publicIPAddressName": "myPublicIPt",
+    "networkSecurityGroupName": "default-NSGt",
+    "UniqueStringBasedOnTimeStamp": "[uniqueString(deployment().name, parameters('_CurrentDateTimeInTicks'))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[variables('publicIPAddressName')]",
+      "location": "[parameters('vmLocation')]",
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+        }
+      }
+    },
+    {
+      "comments": "Default Network Security Group for template",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2020-08-01",
+      "name": "[variables('networkSecurityGroupName')]",
+      "location": "[parameters('vmLocation')]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "default-allow-3389",
+            "properties": {
+              "priority": 1000,
+              "access": "Allow",
+              "direction": "Inbound",
+              "destinationPortRange": "3389",
+              "protocol": "Tcp",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2020-08-01",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[variables('virtualNetworkName')]",
+      "location": "[parameters('vmLocation')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+      ],
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('subnetPrefix')]",
+              "networkSecurityGroup": {
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2020-08-01",
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[variables('nicName')]",
+      "location": "[parameters('vmLocation')]",
+      "dependsOn": [
+        "[variables('publicIPAddressName')]",
+        "[variables('virtualNetworkName')]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+              },
+              "subnet": {
+                "id": "[variables('subnetRef')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2020-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[variables('vmName')]",
+      "location": "[parameters('vmLocation')]",
+      "dependsOn": [
+        "[variables('nicName')]"
+      ],
+      "identity": {
+             "type": "SystemAssigned"
+      } ,
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[parameters('vmSize')]"
+        },
+        "osProfile": {
+          "computerName": "[variables('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "[parameters('osVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "createOption": "FromImage"
+          }
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Automation/automationAccounts",
+      "apiVersion": "2021-06-22",
+      "name": "[parameters('automationAccount')]",
+      "location": "[parameters('automationAccountLocation')]",
+      "properties": {
+        "sku": {
+          "name": "Basic"
+        }
+      },
+      "resources": [
+        {
+          "name": "[concat(parameters('workerGroupName'),'/',guid('AzureAutomationJobName', variables('UniqueStringBasedOnTimeStamp')))]",
+          "type": "hybridRunbookWorkerGroups/hybridRunbookWorkers",
+          "apiVersion": "2021-06-22",
+          "dependsOn": [
+            "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccount'))]",
+            "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]"
+          ],
+          "properties": {
+            "vmResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+          }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(parameters('virtualMachineName'),'/HybridWorkerExtension')]",
+      "apiVersion": "2020-12-01",
+      "location": "[parameters('vmLocation')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccount'))]",
+        "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Azure.Automation.HybridWorker",
+        "type": "HybridWorkerForWindows",
+        "typeHandlerVersion": "0.1",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "AutomationAccountURL": "[reference(resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccount'))).AutomationHybridServiceUrl]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "output1": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Automation/automationAccounts', parameters('automationAccount'))).AutomationHybridServiceUrl]"
+    }
+  }
+}
+```
+
+The Azure resources defined in the template:
+
+- [hybridRunbookWorkerGroups/hybridRunbookWorkers](TBD) ???
+- [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions): 
+
+### Review parameters
+
+Review the parameters used in this template.
+
+|Property |Description |
+|---|---|
+|automationAccount| The name of the existing Automation account. |
+|automationAccountLocation | The region of the existing Automation account. |
+|workerGroupName | The name of the existing Hybrid Worker Group. |
+|virtualMachineName| The name for the VM to be created. The default value is `simple-vm`.|
+|adminUsername| The VM admin user name. |
+|adminPassword| The VM admin password. |
+|vmLocation| The region for the new VM. The default value is `North Central US`.|
+|vmSize| The size for the new VM. The default value is `Standard_DS1_v2`. |
+|osVersion| The OS for the new Windows VM. The default value is `2019-Datacenter`.|
+|dnsNameForPublicIP| The DNS name for the public IP. |
+
 
 ## Next steps
 
