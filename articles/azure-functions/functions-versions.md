@@ -12,7 +12,7 @@ Azure Functions currently supports several versions of the runtime host. The fol
 
 | Version | Support level | Description |
 | --- | --- | --- |
-| 4.x | Preview | Supports [running C# functions on .NET 6.0](functions-dotnet-class-library.md#supported-versions). |
+| 4.x | Preview | Supports all languages. Use this version to [run C# functions on .NET 6.0](functions-dotnet-class-library.md#supported-versions). |
 | 3.x | GA | _Recommended runtime version for functions in all languages._ |
 | 2.x | GA | Supported for [legacy version 2.x apps](#pinning-to-version-20). This version is in maintenance mode, with enhancements provided only in later versions.|
 | 1.x | GA | Recommended only for C# apps that must use .NET Framework and only supports development in the Azure portal, Azure Stack Hub portal, or locally on Windows computers. This version is in maintenance mode, with enhancements provided only in later versions. |
@@ -194,7 +194,17 @@ You can make the following updates to function apps to locally change the target
 
 In Visual Studio, you select the runtime version when you create a project. Azure Functions tools for Visual Studio supports the three major runtime versions. The correct version is used when debugging and publishing based on project settings. The version settings are defined in the `.csproj` file in the following properties:
 
-##### Version 3.x
+# [Version 4.x (preview)](#tab/v4)
+
+```xml
+<TargetFramework>net6.0</TargetFramework>
+<AzureFunctionsVersion>v4</AzureFunctionsVersion>
+```
+
+> [!NOTE]
+> Azure Functions 4.x requires the `Microsoft.NET.Sdk.Functions` extension be at least `4.0.0`.
+
+# [Version 3.x](#tab/v3)
 
 ```xml
 <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -204,19 +214,20 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 > [!NOTE]
 > Azure Functions 3.x and .NET requires the `Microsoft.NET.Sdk.Functions` extension be at least `3.0.0`.
 
-##### Version 2.x
+# [Version 2.x](#tab/v2)
 
 ```xml
 <TargetFramework>netcoreapp2.1</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
-##### Version 1.x
+# [Version 1.x](#tab/v1)
 
 ```xml
 <TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
+---
 
 ###### Updating 2.x apps to 3.x in Visual Studio
 
