@@ -78,7 +78,7 @@ You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON resu
 Get the storage key:
 
 ```bash
-AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
+export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
 ```
 
 ### Upload & register code
