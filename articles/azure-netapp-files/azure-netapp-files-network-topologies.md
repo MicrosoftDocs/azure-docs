@@ -59,7 +59,7 @@ The following table describes the network topologies supported by each network f
 |---|---|---|
 |     Connectivity to volume in a local VNet    |     Yes    |     Yes    |
 |     Connectivity to volume in a peered VNet (Same region)    |     Yes    |     Yes    |
-|     Connectivity to volume in a peered VNet (Cross region or global peering)    |     Yes    |     No    |
+|     Connectivity to volume in a peered VNet (Cross region or global peering)    |     No    |     No    |
 |     Connectivity to a volume over ExpressRoute gateway    |     Yes    |     Yes    |
 |     ExpressRoute (ER) FastPath    |     No    |     No    |
 |     Connectivity from on-premises to a volume in a spoke VNet   over ExpressRoute gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
