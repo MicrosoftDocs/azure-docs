@@ -1,65 +1,80 @@
 ---
-title: Create a VM with a static public IP address - Azure CLI | Microsoft Docs
-description: Learn how to create a VM with a static public IP address using the Azure command-line interface (CLI).
-services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: mtillman
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
+title: Create a VM with a static public IP address - Azure CLI
+titlesuffix: Azure Virtual Network
+description: Create a virtual machine (VM) with a static public IP address using the Azure CLI. Static public IP addresses are addresses that never change.
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: azurecli
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/08/2018
-ms.author: kumud
-
+ms.date: 9/20/2021
+ms.custom: template-how-to
 ---
+
 # Create a virtual machine with a static public IP address using the Azure CLI
 
-You can create a virtual machine with a static public IP address. A public IP address enables you to communicate to a virtual machine from the internet. Assign a static public IP address, rather than a dynamic address, to ensure that the address never changes. Learn more about [static public IP addresses](public-ip-addresses.md#ip-address-assignment). To change a public IP address assigned to an existing virtual machine from dynamic to static, or to work with private IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md). Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses), and there is a [limit](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
+In this article, you'll create a VM with a static public IP address. A public IP address enables communication to a virtual machine from the internet. Assign a static public IP address, instead of a dynamic address, to ensure the address never changes. 
 
+Public IP addresses have a [nominal charge](https://azure.microsoft.com/pricing/details/ip-addresses). There's a [limit](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of public IP addresses that you can use per subscription.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+## Create a resource group
+
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+Create a resource group with [az group create](/cli/azure/group#az_group_create) named **myResourceGroup** in the **eastus2** location.
+
+```azurecli-interactive
+  az group create \
+    --name myResourceGroup \
+    --location eastus2
+```
+
+## Create a public IP address
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard public IPv4 address.
+
+The following command creates a zone-redundant public IP address named **myPublicIP** in **myResourceGroup**.
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group myResourceGroup \
+    --name myPublicIP \
+    --version IPv4 \
+    --sku Standard \
+    --zone 1 2 3
+```
 ## Create a virtual machine
 
-You can complete the following steps from your local computer or by using the Azure Cloud Shell. To use your local computer, ensure you have the [Azure CLI installed](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). To use the Azure Cloud Shell, select **Try It** in the top right corner of any command box that follows. The Cloud Shell signs you into Azure.
+Create a virtual machine with [az vm create](/cli/azure/vm#az_vm_create). 
 
-1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `az login`.
-2. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group in the East US Azure region:
+The following command creates a Windows Server virtual machine. You'll enter the name of the public IP address created previously in the **`-PublicIPAddressName`** parameter. When prompted, provide a username and password to be used as the credentials for the virtual machine:
 
-   ```azurecli-interactive
-   az group create --name myResourceGroup --location eastus
-   ```
+```azurecli-interactive
+  az vm create \
+    --name myVM \
+    --resource-group TutorVMRoutePref-rg \
+    --public-ip-address myPublicIP \
+    --size Standard_A2 \
+    --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest \
+    --admin-username azureuser
+```
 
-3. Create a virtual machine with the [az vm create](/cli/azure/vm#az_vm_create) command. The `--public-ip-address-allocation=static` option assigns a static public IP address to the virtual machine. The following example creates an Ubuntu virtual machine with a static, basic SKU public IP address named *myPublicIpAddress*:
+For more information on public IP SKUs, see [Public IP address SKUs](public-ip-addresses.md#sku). A virtual machine can be added to the backend pool of an Azure Load Balancer. The SKU of the public IP address must match the SKU of a load balancer's public IP. For more information, see [Azure Load Balancer](../../load-balancer/skus.md).
 
-   ```azurecli-interactive
-   az vm create \
-     --resource-group myResourceGroup \
-     --name myVM \
-     --image UbuntuLTS \
-     --admin-username azureuser \
-     --generate-ssh-keys \
-     --public-ip-address myPublicIpAddress \
-     --public-ip-address-allocation static
-   ```
+View the public IP address assigned and confirm that it was created as a static address, with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
 
-   If the public IP address must be a standard SKU, add `--public-ip-sku Standard` to the previous command. Learn more about [Public IP address SKUs](public-ip-addresses.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../../load-balancer/skus.md).
-
-4. View the public IP address assigned and confirm that it was created as a static, basic SKU address, with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
-
-   ```azurecli-interactive
-   az network public-ip show \
-     --resource-group myResourceGroup \
-     --name myPublicIpAddress \
-     --query [ipAddress,publicIpAllocationMethod,sku] \
-     --output table
-   ```
-
-   Azure assigned a public IP address from addresses used in the region you created the virtual machine in. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
+```azurecli-interactive
+  az network public-ip show \
+    --resource-group myResourceGroup \
+    --name myPublicIP \
+    --query [ipAddress,publicIpAllocationMethod,sku] \
+    --output table
+```
 
 > [!WARNING]
 > Do not modify the IP address settings within the virtual machine's operating system. The operating system is unaware of Azure public IP addresses. Though you can add private IP address settings to the operating system, we recommend not doing so unless necessary, and not until after reading [Add a private IP address to an operating system](virtual-network-network-interface-addresses.md#private).
@@ -71,12 +86,12 @@ You can complete the following steps from your local computer or by using the Az
 When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+  az group delete --name myResourceGroup --yes
 ```
 
 ## Next steps
 
-- Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure
-- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address)
-- Learn more about [private IP addresses](private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine
-- Learn more about creating [Linux](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines
+- Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
+- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Learn more about [private IP addresses](private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
+- Learn more about creating [Linux](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines.
