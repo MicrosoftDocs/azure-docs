@@ -115,7 +115,7 @@ To deploy the playbook:
    
 1. Check the Terms and Conditions, and select **Purchase**.
 
-1. The Azure Resource Manager (ARM) template containing the Logic App Playbook workflow and API connections deploys to Azure. When the deployment finishes, it shows the Azure ARM template summary page.
+1. The Azure Resource Manager (ARM) template containing the Logic App playbook workflow and API connections deploys to Azure. When the deployment finishes, it shows the Azure ARM template summary page.
 
 ## Confirm or configure API connections
 
