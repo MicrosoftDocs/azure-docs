@@ -21,6 +21,7 @@ String interpolation should be used instead of the concat function.
 
 The following example fails this test because the concat function is used.
 
+```bicep
 param suffix string = '001'
 var vnetName = concat('vnet-', suffix)
 
@@ -28,8 +29,11 @@ resource vnet 'Microsoft.Network/virtualNetworks@2018-10-01' = {
   name: vnetName
   ...
 }
+```
+
 The following example passes this test.
 
+```bicep
 param suffix string = '001'
 var vnetName = 'vnet-${suffix}'
 
@@ -37,42 +41,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2018-10-01' = {
   name: vnetName
   ...
 }
-
-## Configuration
-
-The set of URL hosts to disallow may be customized using the disallowedHosts property in the bicepconfig.json file as follows:
-
-{
-  "analyzers": {
-    "core": {
-      "enabled": true,
-      "rules": {
-        "no-hardcoded-env-urls": {
-          "level": "warning",
-          "disallowedHosts": [
-            "gallery.azure.com",
-            "management.core.windows.net",
-            "management.azure.com",
-            "database.windows.net",
-            "core.windows.net",
-            "login.microsoftonline.com",
-            "graph.windows.net",
-            "trafficmanager.net",
-            "datalake.azure.net",
-            "azuredatalakestore.net",
-            "azuredatalakeanalytics.net",
-            "vault.azure.net",
-            "api.loganalytics.io",
-            "asazure.windows.net",
-            "region.asazure.windows.net",
-            "batch.core.windows.net"
-          ]
-        }
-      }
-    }
-  }
-}
-
+```
 
 ## Next steps
 

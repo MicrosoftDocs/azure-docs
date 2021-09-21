@@ -25,52 +25,28 @@ However, when you provide a default value, that value is discoverable by anyone 
 
 The following example fails this test:
 
+```bicep
 @secure()
 param adminPassword string = 'HardcodedPassword'
+```
+
 The following examples pass this test:
 
+
+```bicep
 @secure()
 param adminPassword string
+```
+
+```bicep
 @secure()
 param adminPassword string = ''
+```
+
+```bicep
 @secure()
 param adminPassword string = newGuid()
-
-## Configuration
-
-The set of URL hosts to disallow may be customized using the disallowedHosts property in the bicepconfig.json file as follows:
-
-{
-  "analyzers": {
-    "core": {
-      "enabled": true,
-      "rules": {
-        "no-hardcoded-env-urls": {
-          "level": "warning",
-          "disallowedHosts": [
-            "gallery.azure.com",
-            "management.core.windows.net",
-            "management.azure.com",
-            "database.windows.net",
-            "core.windows.net",
-            "login.microsoftonline.com",
-            "graph.windows.net",
-            "trafficmanager.net",
-            "datalake.azure.net",
-            "azuredatalakestore.net",
-            "azuredatalakeanalytics.net",
-            "vault.azure.net",
-            "api.loganalytics.io",
-            "asazure.windows.net",
-            "region.asazure.windows.net",
-            "batch.core.windows.net"
-          ]
-        }
-      }
-    }
-  }
-}
-
+```
 
 ## Next steps
 

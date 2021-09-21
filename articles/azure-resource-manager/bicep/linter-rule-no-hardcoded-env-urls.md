@@ -17,7 +17,6 @@ The Bicep linter can be used to analyze Bicep files. It enables you to find synt
 
 Do not hardcode environment URLs in your template. Instead, use the [environment function](../templates/template-functions-deployment.md#environment) to dynamically get these URLs during deployment. For a list of the URL hosts that are blocked, see the default list of `DisallowedHosts` in [bicepconfig.json](https://github.com/Azure/bicep/blob/main/src/Bicep.Core/Configuration/bicepconfig.json).
 
-
 ## Examples
 
 The following example fails this test because the URL is hardcoded.
@@ -73,7 +72,6 @@ The set of URL hosts to disallow may be customized using the disallowedHosts pro
     }
   }
 }
-
 
 ## Next steps
 

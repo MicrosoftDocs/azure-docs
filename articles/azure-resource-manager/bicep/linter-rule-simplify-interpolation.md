@@ -21,56 +21,25 @@ It isn't necessary to use interpolation to reference a parameter or variable.
 
 The following example fails this test.
 
+```bicep
 param AutomationAccountName string
 
 resource AutomationAccount 'Microsoft.Automation/automationAccounts@2020-01-13-preview' = {
   name: '${AutomationAccountName}'
   ...
 }
+```
+
 The following example passes this test.
 
+```bicep
 param AutomationAccountName string
 
 resource AutomationAccount 'Microsoft.Automation/automationAccounts@2020-01-13-preview' = {
   name: AutomationAccountName
   ...
 }
-
-## Configuration
-
-The set of URL hosts to disallow may be customized using the disallowedHosts property in the bicepconfig.json file as follows:
-
-{
-  "analyzers": {
-    "core": {
-      "enabled": true,
-      "rules": {
-        "no-hardcoded-env-urls": {
-          "level": "warning",
-          "disallowedHosts": [
-            "gallery.azure.com",
-            "management.core.windows.net",
-            "management.azure.com",
-            "database.windows.net",
-            "core.windows.net",
-            "login.microsoftonline.com",
-            "graph.windows.net",
-            "trafficmanager.net",
-            "datalake.azure.net",
-            "azuredatalakestore.net",
-            "azuredatalakeanalytics.net",
-            "vault.azure.net",
-            "api.loganalytics.io",
-            "asazure.windows.net",
-            "region.asazure.windows.net",
-            "batch.core.windows.net"
-          ]
-        }
-      }
-    }
-  }
-}
-
+```
 
 ## Next steps
 
