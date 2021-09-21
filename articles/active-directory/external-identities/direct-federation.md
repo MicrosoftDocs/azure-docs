@@ -108,8 +108,8 @@ Depending on the partner's IdP, the partner might need to update their DNS recor
      - If the authentication URL is `https://fabrikam.com` or `https://sts.fabrikam.com/adfs` (a host in the same domain), no DNS changes are needed.
      - If the authentication URL is `https://fabrikamconglomerate.com/adfs` or `https://fabrikam.com.uk/adfs`, the domain doesn't match the fabrikam.com domain, so the partner will need to add a text record for the authentication URL to their DNS configuration.
 
-> [!IMPORTANT]
-> There's a known issue with the following step. Currently, adding a DNS text record to the federating IdP's domain won't unblock authentication. We're actively working on fixing this issue.
+    > [!IMPORTANT]
+    > There's a known issue with the following step. Currently, adding a DNS text record to the federating IdP's domain won't unblock authentication. We're actively working on fixing this issue.
 
 3. If DNS changes are needed based on the previous step, ask the partner to add a TXT record to their domain's DNS records, like the following example:
 
