@@ -19,6 +19,8 @@ In this tutorial, you will:
 > * Get the base URL for playing back a [video application resource](terminology.md#video)
 > * Create a page with the player
 > * Pass a streaming endpoint and a token to the player
+> * Add a Zone Drawer player
+> * View videos clipped to start and end times defined by you
 
 ## Prerequisites
 
@@ -26,7 +28,7 @@ The following are required for this tutorial:
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 * [Visual Studio Code](https://code.visualstudio.com/) or another editor for the HTML file.
-* Either [Continuous video recording and playback](edge/use-continuous-video-recording.md) or [Detect motion and record video on edge devices](./detect-motion-record-video-clips-cloud.md)
+* Run topologies from either [Continuous video recording and playback](edge/use-continuous-video-recording.md) or [Detect motion and record video on edge devices](./detect-motion-record-video-clips-cloud.md)
 * Create a [token](./access-policies.md#creating-a-token)
 * Create an [access policy](./access-policies.md#creating-an-access-policy)
 
@@ -48,7 +50,7 @@ function getVideos()
 }
 ```
    > [!NOTE]
-   >The `clientApiEndPoint` and token are collected from [creating a token](./access-policies.md#creating-a-token)
+   >The `clientApiEndPoint` and `token` are collected from [creating a token](./access-policies.md#creating-a-token)
 
 ## Add the Video Analyzer player component
 
@@ -128,7 +130,7 @@ Combining the preceding web elements, you get the following static HTML page. Th
         document.getElementById("videoList").value = xhttp.responseText.toString();
     }
     function playVideo() {
-        const avaPlayer = document.getElementById("avaPlayer");
+        const avaPlayer = document.getElementById("videoPlayer");
         avaPlayer.configure( {
             token: document.getElementById("token").value,
             clientApiEndpointUrl: document.getElementById("clientApiEndpointUrl").value,
@@ -151,17 +153,37 @@ Combining the preceding web elements, you get the following static HTML page. Th
     }
 </script>
 Client API endpoint URL: <input type="text" id="clientApiEndpointUrl" /><br><br>
-Token: <input type="text" id="token" /><br><br>
+JWT Auth Token for Client API: <input type="text" id="token" /><br><br>
 <button type="submit" onclick="getVideos()">Get Videos</button><br><br>
 <textarea rows="20" cols="100" id="videoList"></textarea><br><br>
-Video name: <input type="text" id="videoName" /><br><br>
 <button type="submit" onclick="playVideo()">Play Video</button><br><br>
+Video name: <input type="text" id="videoName" /><br><br>
+<div id="container" style="width:720px" class="widget-container">
+    <ava-player width="720px" id="videoPlayer"></ava-player>
+</div>
 <textarea rows="5" cols="100" id="zoneList"></textarea><br><br>
 <ava-zone-drawer width="720px" id="zoneDrawer">
-    <ava-player id="avaPlayer"></ava-player>
+    <ava-player></ava-player>
 </ava-zone-drawer>
 </body>
 </html>
+```
+
+## Video Clips:
+Enables you to create video clips by selecting a start and end time.
+
+The `AVA widget video player` supports playing video clips by specifying a start and end date time as shown below:
+
+> [!Note] 
+> The AVA widget video player uses UTC time standard, therefore the selected start and end time needs to be converted to this format.
+
+Use the below code in your HTML file to open a video player that will load a video from the startTIme and the endTime you will specify.
+
+```javascript
+    const avaPlayer = document.getElementById("avaPlayer");
+    const startUTCDate = new Date(Date.UTC(selectedClip.start.getFullYear(), selectedClip.start.getMonth(), selectedClip.start.getDate(), selectedClip.start.getHours(), selectedClip.start.getMinutes(), selectedClip.start.getSeconds()));
+    const endUTCDate = new Date(Date.UTC(selectedClip.end.getFullYear(), selectedClip.end.getMonth(), selectedClip.end.getDate(), selectedClip.end.getHours(), selectedClip.end.getMinutes(), selectedClip.end.getSeconds()));
+    avaPlayer.load({ startTime: startUTCDate, endTime: endUTCDate });
 ```
 
 ## Host the page
@@ -187,10 +209,17 @@ Now that you have the page hosted, go there and go through the steps to play a v
 1. From the video list, select a video name, and enter it into the **Video name** field.
 1. Select **Play video**.
 
+## Capture Lines and Zones
+
+1. Navigate to the **Zone Drawer** player
+1. Click on the first icon on the top-left corner to draw zones.
+1. In order to draw zones and lines, you just need to click on the points where you want to have the end points. There is no dragging functionality to draw the zones and lines.
+1. You will see the zones and lines created in the right section of the player.
+1. To get the co-ordinates of the lines and zones, click on the **Save** button.
+1. Doing so, will show the JSON response with the point co-ordinates, which you can use the appropriate topologies.
 ## Additional details
 
 The following sections contain some important additional details to be aware of.
-
 ### Refresh the access token
 
 The player uses the access token that you generated earlier to get a playback authorization token. Tokens expire periodically and need to be refreshed. There are two ways to refresh the access token for the player after you've generated a new one:
@@ -265,4 +294,4 @@ zoneDrawer.appendChild(playerWidget);
 
 ## Next steps
 
-* Learn more about the [widget API](https://github.com/Azure/video-analyzer/tree/main/widgets).
+* Try out our [sample playback using widgets](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/tree/main/src/video-player).
