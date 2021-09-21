@@ -162,6 +162,8 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin?vie
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ### Modify a digital twin
 
 You can also modify the properties of a twin you've created. 
@@ -242,6 +244,8 @@ The twins and relationships you have set up in this tutorial form the following 
 ## Query the twin graph to answer environment questions
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In the Azure CLI, this is done with the [az dt twin query](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query) command.
+
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 Run the following queries in the Cloud Shell to answer some questions about the sample environment.
 
