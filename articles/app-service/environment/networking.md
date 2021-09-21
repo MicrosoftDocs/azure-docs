@@ -26,9 +26,9 @@ The size of the subnet can affect the scaling limits of the App Service Plan ins
 
 If you require a limited number of instances and would like to minimize the size of the subnet, this is the guidance you can follow.
 
-Any given subnet has five addresses allocated for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 5 and 27 addresses depending on scale and load. Additional addresses are used for the worker instances. If you do not plan to scale beyond 10-20 instances across App Service Plans in the ASE, then a /27 address space (32 addresses) can be sufficient for your subnet.
+Any given subnet has five addresses reserved for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 4 and 27 addresses depending on configuration, scale and load. Additional addresses are used for instances in the App Service Plan. The minimal size of your subnet is a /27 address space (32 addresses).
 
-The effect of running out of addresses is, that you can be restricted from scaling out your App Service Plans in the ASE or you can experience increased latency during intensive traffic load if we are not able scale the supporting infrastructure. 
+The effect of running out of addresses is, that you can be restricted from scaling out your App Service Plans in the ASE or you can experience increased latency during intensive traffic load if we are not able scale the supporting infrastructure.
 
 ## Addresses 
 
