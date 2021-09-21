@@ -62,9 +62,9 @@ New-AzPublicIpAddress @ip
 ```
 ## Create a virtual machine
 
-Create a virtual machine with [New-AzVM](/powershell/module/az.Compute/New-azvv). 
+Create a virtual machine with [New-AzVM](/powershell/module/az.Compute/new-azvm). 
 
-The following command creates a Windows Server virtual machine. You'll enter the name of the public IP address created previously in the **`--PublicIPAddress`** parameter. When prompted, provide a username and password to be used as the sign in credentials for the virtual machine:
+The following command creates a Windows Server virtual machine. You'll enter the name of the public IP address created previously in the **`-PublicIPAddress`** parameter. When prompted, provide a username and password to be used as the sign in credentials for the virtual machine:
 
 ```azurepowershell-interactive
 ## Create virtual machine. ##
