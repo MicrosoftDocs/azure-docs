@@ -410,10 +410,6 @@ Azure Front Door passes the user's original IP address. It's the IP address that
 
 To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows, or custom polies.  
 
-### I want to use the same domain for Azure Front Door that is currently registered for customdomains. Will this cause conflict or downtime?
-
-It is possible to move to Azure Front Door with no conflicts and zero downtime. You need to map existing domain that is in production using the steps here: https://docs.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain#map-the-temporary-afdverify-subdomain
-
 ### Can my Azure Front Door instance be hosted in different subscription than B2C tenant?
     
 Yes, Azure Front Door can be in different subscription.
