@@ -8,7 +8,7 @@ ms.date: 10/15/2020
 
 # Enable Private Link on a Private Inbound Cluster
 
-This article is an extension of our main article "[Create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md)". In this article, you learn about the leveraging private link to connect ourside your HDInsight cluster. For information on how to restrict traffic to and from your cluster without complete network isolation, see [Control network traffic in Azure HDInsight](./control-network-traffic.md).
+In this article, you will learn about leveraging Azure Private Link to connect ourside your HDInsight cluster securely. For information on how to restrict traffic to and from your cluster without complete network isolation, see [Control network traffic in Azure HDInsight](./control-network-traffic.md). This article is an extension of our main article "[Create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md)" where we focus on basics of creating a private inbound cluster.
 
 >[!NOTE]
 >Removing outbound public IP addresses is a prerequisite for enabling Private Link and should not be considered as same capability
