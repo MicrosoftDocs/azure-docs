@@ -38,7 +38,7 @@ For the network security groups associated with your virtual machine (that are p
 
 - [Adaptive Network Hardening in Azure Security Center](../security-center/security-center-adaptive-network-hardening.md) 
 
-- [Azure Firewall for Azure Virtual Desktop ](../firewall/protect-windows-virtual-desktop.md)
+- [Azure Firewall for Azure Virtual Desktop ](../firewall/protect-azure-virtual-desktop.md)
 
 - [How to create a network security group with security rules](../virtual-network/tutorial-filter-network-traffic.md)
 
