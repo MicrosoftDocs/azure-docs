@@ -48,7 +48,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 2. Under **Sources and scanning** on the left pane, select **Integration runtimes**, and then select **+ New**.
 
-   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Click on IR.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="Select on IR.":::
 
 3. On the **Integration runtime setup** page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
 
@@ -116,13 +116,13 @@ Based on your sources, you may also need to allow the domains of other Azure or 
 
 ## Manage a self-hosted integration runtime
 
-You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the **Management center**, selecting the IR and then clicking on edit. You can now update the description, copy the key, or regenerate new keys.
+You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the **Management center**, selecting the IR and then selecting edit. You can now update the description, copy the key, or regenerate new keys.
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime.png" alt-text="edit IR.":::
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="edit IR details.":::
 
-You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then clicking on **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
+You can delete a self-hosted integration runtime by navigating to **Integration runtimes** in the Management center, selecting the IR and then selecting **Delete**. Once an IR is deleted, any ongoing scans relying on it will fail.
 
 ## Next steps
 

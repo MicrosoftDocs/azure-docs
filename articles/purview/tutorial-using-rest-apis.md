@@ -92,9 +92,9 @@ To configure Azure Purview to trust your new service principal:
     > [!Note]
     > Only Collection Admins can edit permissions on a collection. If you are not a collection admin, contact one of the admins listed in the root collection. For more information, see the [Purview permissions page](catalog-permissions.md).
 
-1. Search the name of the previosly created service principal you wish to assign and then click on their name in the results pane.
+1. Search the name of the previosly created service principal you wish to assign and then select their name in the results pane.
 
-1. Click on **Save**
+1. Select **Save**
 
 You've now configured the service principal as an application administrator, which enables it to send content to the catalog.
 
@@ -130,7 +130,7 @@ Find and save the following values:
     1. Copy the bearer token value (without quotes), to use in the next step.
 
 1. Select **/v2/types/typedefs**:
-    1. Replace the placeholder in the path with your atlas endpoint value. This value can be obtained by navigating to the catalog instance on Ibiza portal and clicking on overview. 
+    1. Replace the placeholder in the path with your atlas endpoint value. This value can be obtained by navigating to the catalog instance on Ibiza portal and selecting overview. 
 
        The bearer token is set from the first step (or you can copy it in the “Authorization” tab manually).
 
@@ -168,7 +168,7 @@ Find and save the following values:
 1. Replace *accountName*, *servicePrincipalId*, *servicePrincipalKey*, and *tenantId* with the values you previously collected.
 1. Use **Solution Explorer** to add a folder named **Generated** in the Visual Studio project.
 1. Copy the rest-api-specs\PurviewCatalogClient\CSharp folder that you previously created to the \Generated folder. Use File Explorer or the command-line prompt for the copy operation, which will trigger Visual Studio to automatically add the files to the project.
-1. In **Solution Explorer**, right-click the project, and then select **Manage NuGet Packages**.
+1. In **Solution Explorer**, select and hold on (or right-click) the project, and then select **Manage NuGet Packages**.
 1. Select the **Browse** tab. Find and select **Microsoft.Rest.ClientRuntime**.
 1. Make sure the version is at least 2.3.21, and then select **Install**.
 1. Build and run the application.

@@ -62,7 +62,7 @@ Follow these steps to run the script from your Windows computer:
 
 1. [Download Azure Purview MSI Configuration](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-MSI-Configuration) script to the location of your choice.
 
-2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell** and then select **Run as administrator**.
+2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, select and hold (or right-click) **Windows PowerShell** and then select **Run as administrator**.
 
 3. In the PowerShell window, enter the following command. (Replace `<path-to-script>` with the folder path of the extracted script file.)
 

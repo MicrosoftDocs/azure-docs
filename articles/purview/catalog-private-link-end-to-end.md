@@ -87,7 +87,7 @@ Using one of the deployment options explained further in this guide, you can dep
 
 ## Option 2 - Enable _account_, _portal_ and _ingestion_ private endpoint on existing Azure Purview accounts
 
-1. Go to the [Azure portal](https://portal.azure.com), and then click on to your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
+1. Go to the [Azure portal](https://portal.azure.com), and then select your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
 
     :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Screenshot that shows creating an account private endpoint.":::
 

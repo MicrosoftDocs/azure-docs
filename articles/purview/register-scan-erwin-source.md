@@ -76,7 +76,7 @@ On the Register sources (erwin) screen, do the following:
 4.  Enter the **Application name**
 
     >[!Note]
-    > The above details can be found by navigating to your erwin Data Modeler. Click on Mart -\> Connect to see details related to server name, port and application name.
+    > The above details can be found by navigating to your erwin Data Modeler. Select Mart -\> Connect to see details related to server name, port and application name.
 
     :::image type="content" source="media/register-scan-erwin-source/erwin-details.png" alt-text="find erwin details" border="true":::
     
@@ -91,7 +91,7 @@ On the Register sources (erwin) screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up on the VM where erwin Mart
     instance is running. If it is not set up, use the steps mentioned
     [here](./manage-integration-runtimes.md)
@@ -150,14 +150,14 @@ To create and run a new scan, do the following:
     :::image type="content" source="media/register-scan-erwin-source/setup-scan.png" alt-text="trigger scan" border="true":::
    
 
-6.  Click on **Test connection.**
+6.  Select **Test connection.**
 
-7.  Click on **Continue**.
+7.  Select **Continue**.
 
 8.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-9.  Review your scan and click on **Save and Run**.
+9.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

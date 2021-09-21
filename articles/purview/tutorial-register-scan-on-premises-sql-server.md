@@ -129,7 +129,7 @@ If you plan to use an existing server admin (sa) user to scan your on-premises S
 
 1. `sa` isn't a Windows authentication account.
 
-1. The server level login that you're planning to use must have server roles of public and sysadmin. You can verify this by connecting to the server, navigating to SQL Server Management Studio (SSMS), navigating to security, selecting the login you're planning to use, right-clicking **Properties** and then selecting **Server roles**.
+1. The server level login that you're planning to use must have server roles of public and sysadmin. You can verify this by connecting to the server, navigating to SQL Server Management Studio (SSMS), navigating to security, selecting the login you're planning to use, select and hold (or right-click) **Properties** and then selecting **Server roles**.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/server-level-login.png" alt-text="Server level login.":::
 
@@ -140,7 +140,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 > [!Note]
 > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
 
-1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, right-click on login and create New login. Make sure to select SQL authentication.
+1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) login and create New login. Make sure to select SQL authentication.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
 
@@ -152,7 +152,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 1. Select **OK** to save.
 
-1. Navigate again to the user you created, by right clicking and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It's required to change your password as soon as you create a new login.**
+1. Navigate again to the user you created, by selecting and holding (or right-clicking) on the user and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It's required to change your password as soon as you create a new login.**
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
 

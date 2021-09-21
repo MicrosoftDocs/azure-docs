@@ -11,7 +11,7 @@ ms.date: 05/17/2021
 
 # Supported data stores
 
-Purview supports the following data stores. Click each data store to
+Purview supports the following data stores. Select each data store to
 learn the supported capabilities and the corresponding configurations in
 details.
 
