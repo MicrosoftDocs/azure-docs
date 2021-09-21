@@ -38,7 +38,9 @@ In this tutorial, you learn how to:
 
 1. Search for **Azure Front Door**.
 
-1. Select **Front Door**. (Make sure **not** to select the service labeled *Front Door Standard/Premium (Preview)*).
+1. Select **Front Door**.
+
+    Make sure not to select the service labeled *Front Door Standard/Premium* as the steps for the Standard/Premium service differ from what's presented in this tutorial.
 
 1. Select **Create**.
 
@@ -64,7 +66,7 @@ In this tutorial, you learn how to:
 
     | Setting | Value |
     |---|---|
-    | Name | Enter a name for your backend pool. |
+    | Name | Enter **my-static-web-app-pool**. |
 
 1. Select **+ Add a backend**, and enter the following values:
 

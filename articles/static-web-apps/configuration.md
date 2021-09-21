@@ -273,6 +273,7 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 "networking": {
   "allowedIpRanges": ["AzureFrontDoor.Backend"]
 }
+```
 
 ## Authentication
 
@@ -295,11 +296,9 @@ The `forwardingGateway` section designates which host names are allowed to forwa
 
 ### Required headers
 
-When your static web app is hosted in an environment where IP addresses are shared (like with Azure Front Door), then you can use the `forwardingGateway` headers to identify individual sites.
+Required headers are sent with each request to your site. One use of a required header is to deny access to a site unless one or more header is present in each request.
 
-The key/value pairs for `requiredHeaders` are included with each request to the site. Keys are case sensitive, but values are case sensitive.
-
-The following example shows how you can add a key for Azure Front Door, but you can add any key/value pair required for your site in this section.
+For example, the following configuration shows how you can add a unique identifier for [Azure Front Door](../frontdoor/front-door-overview.md).
 
 ```json
 "forwardingGateway": {
@@ -308,6 +307,10 @@ The following example shows how you can add a key for Azure Front Door, but you 
   }
 }
 ```
+
+- Key/value pairs can be any set of arbitrary strings
+- Keys are case insensitive
+- Values are case sensitive.
 
 ## Example configuration file
 
