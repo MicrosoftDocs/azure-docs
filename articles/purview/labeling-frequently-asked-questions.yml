@@ -149,7 +149,7 @@ sections:
           
       - question: I applied labels in SQL data discovery and classification. Why are these labels not showing up on my asset in Azure Purview?
         answer: |
-          SQL classification uses local labels, while Azure Purview uses sensitivity labels. Labels applied in SQL classification experience will not show up in Purview. 
+          SQL classification uses local labels, while Azure Purview uses sensitivity labels. Labels applied in the SQL classification experience will not show up in Purview. For more details see [Labeling for SQL databases](create-sensitivity-label.md#labeling-for-sql-databases) 
 
 additionalContent: |
   For more information, see: </br>
