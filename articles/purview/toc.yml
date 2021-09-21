@@ -155,9 +155,7 @@ items:
         href: register-scan-teradata-source.md
       - name: Amazon S3
         href: register-scan-amazon-s3.md
-      # - name: Power BI tenant - PowerShell
-        # href: powershell-register-scan-power-bi.md
-  - name: Business glossary
+  - name: Scan
     items:
     - name: Create, import, & export glossary terms
       href: how-to-create-import-export-glossary.md

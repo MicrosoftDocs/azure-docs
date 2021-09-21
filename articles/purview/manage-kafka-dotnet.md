@@ -247,7 +247,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 ### Create a project for the receiver
 
-1. In the Solution Explorer window, right-click the **EventHubQuickStart** solution, point to **Add**, and select **New Project**. 
+1. In the Solution Explorer window, select and hold (or right-click) the **EventHubQuickStart** solution, point to **Add**, and select **New Project**. 
 1. Select **Console App (.NET Core)**, and select **Next**. 
 1. Enter **PurviewKafkaConsumer** for the **Project name**, and select **Create**. 
 

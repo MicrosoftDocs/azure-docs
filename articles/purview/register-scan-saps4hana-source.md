@@ -95,7 +95,7 @@ On the **Register sources (SAP S/4HANA)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime
 
@@ -133,12 +133,12 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="scan SAP S/4HANA" border="true":::
 
-6.  Click on **Continue**.
+6.  Select **Continue**.
 
 7.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-8.  Review your scan and click on **Save and Run**.
+8.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

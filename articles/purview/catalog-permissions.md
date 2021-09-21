@@ -131,7 +131,7 @@ Only two built-in control plane roles in Azure can assign users roles, those are
 #### An example of assigning someone to a legacy role
 
 1. Go to https://portal.azure.com and navigate to your Azure Purview Account
-1. On the left-hand side click on "Access control (IAM)"
+1. On the left-hand side, select **Access control (IAM)**
 1. Then follow the general instructions given [here](../role-based-access-control/quickstart-assign-role-user-portal.md#create-a-resource-group)
 
 ### Legacy role definitions and actions
@@ -142,7 +142,7 @@ A role is defined as a collection of actions. See [here](../role-based-access-co
 
 If you want to be given access to an Azure Purview Account so you can use its studio or call its APIs you need to be added into an Azure Purview Data Plane Role. The only people who can do this are those who are Owners or User Access Administrators on the Azure Purview Account. For most users the next step is to find a local administrator who can help you find the right people who can give you access.
 
-For users who have access to their company's [Azure portal](https://portal.azure.com) they can look up the particular Azure Purview Account they want to join, click on its "Access control (IAM)" tab and see who the Owners or User Access Administrators (UAAs) are. But note that in some cases Azure Active Directory groups or Service Principals might be used as Owners or UAAs, in which case it might not be possible to contact them directly. Instead one has to find an administrator to help.
+For users who have access to their company's [Azure portal](https://portal.azure.com) they can look up the particular Azure Purview Account they want to join, select its **Access control (IAM)** tab and see who the Owners or User Access Administrators (UAAs) are. But note that in some cases Azure Active Directory groups or Service Principals might be used as Owners or UAAs, in which case it might not be possible to contact them directly. Instead one has to find an administrator to help.
 
 ### Legacy - who should be assigned to what role?
 

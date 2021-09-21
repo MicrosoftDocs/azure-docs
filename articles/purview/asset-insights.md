@@ -85,7 +85,7 @@ The next couple of graphs in Asset Insights show a distribution of file based so
    > [!NOTE]
    > If the scan has run only once in last 30 days or any catalog change like classification addition/removed happened only once in 30 days, then the change information above appears blank.
 
-1. See the top folders with change top asset counts when you click on source type.
+1. See the top folders with change top asset counts when you select source type.
 
 1. Select the path to see the asset list.
 

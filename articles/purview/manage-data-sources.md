@@ -53,7 +53,7 @@ You can group your data sources into collections. To create a new collection, se
 
 To add sources to a collection, select the **Edit** pencil on the source and choose a collection from the **Select a collection** drop-down menu.
 
-To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *Fabrikam* is a parent to the *Finance* collection, which contains an Azure Blob Storage data source. You can collapse or expand collections by clicking the circle attached to the arrow between levels.
+To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *Fabrikam* is a parent to the *Finance* collection, which contains an Azure Blob Storage data source. You can collapse or expand collections by selecting the circle attached to the arrow between levels.
 
 :::image type="content" source="media/manage-data-sources/collections.png" alt-text="A hierarchy of collections in Azure Purview Studio":::
 
