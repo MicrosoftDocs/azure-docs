@@ -81,7 +81,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 ## Azure Cache for Redis limits
 
-[!INCLUDE [redis-cache-service-limits](../../../includes/redis-cache-service-limits.md)]
+[!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
 ## Azure Cloud Services limits
 
