@@ -1,5 +1,5 @@
 ---
-title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation
+title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation (Preview)
 description: This article tells how to deploy an extension-based Windows or Linux Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
@@ -8,7 +8,7 @@ ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ---
 
-# Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation
+# Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation (Preview)
 
 The extension-based onboarding is only for **User** Hybrid Runbook Workers. For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
