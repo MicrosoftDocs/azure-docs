@@ -17,7 +17,7 @@ Statsbeat data is stored in a Microsoft data store.  It doesn't impact customers
 
 ## What data does Statsbeat collect?
 
-Statsbeat include essential and non-essential metrics. 
+Statsbeat collects essential and non-essential metrics.
 
 ### Essential Statsbeat
 
@@ -54,7 +54,7 @@ Statsbeat include essential and non-essential metrics.
 
 ### Configure Statsbeat
 
-Customers can disable non-essential statsbeat anytime using the following json configuration: 
+To disable non-essential Statsbeat, add the below configuration to your config file.
 
 ```json
 {
