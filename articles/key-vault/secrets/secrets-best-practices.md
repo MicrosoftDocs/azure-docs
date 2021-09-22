@@ -1,5 +1,5 @@
 ---
-title: Best Practices for secrets management - Azure Key Vault | Microsoft Docs
+title: Best practices for secrets management - Azure Key Vault | Microsoft Docs
 description: Learn about best practices for Azure Key Vault secrets management
 services: key-vault
 author: msmbaldwin
@@ -14,7 +14,6 @@ ms.author: mbaldwin
 ---
 # Best practices for secrets management in Key Vault
 
-## Overview
 Azure Key Vault allows securely store service or application credentials like passwords, access keys as secrets. All secrets in your Key Vault are stored encrypted with software key. When using Key Vault, application developers no longer need to store security information in their application. Not having to store security information in applications eliminates the need to make this information part of the code. 
 
 Examples of secrets that should be stored in Key Vault:
