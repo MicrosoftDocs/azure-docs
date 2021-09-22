@@ -107,7 +107,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703 that says "RD Gateway Url: is not accessible" in the description, the agent is unable to reach the gateway URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Azure Virtual Desktop.
 
 To resolve this issue, verify that your firewall and/or DNS settings are not blocking these URLs:
-1. [Use Azure Firewall to protect Azure Virtual Desktop deployments.](../firewall/protect-windows-virtual-desktop.md).
+1. [Use Azure Firewall to protect Azure Virtual Desktop deployments.](../firewall/protect-azure-virtual-desktop.md).
 2. Configure your [Azure Firewall DNS settings](../firewall/dns-settings.md).
 
 ## Error: 3019
@@ -375,5 +375,5 @@ If the issue continues, create a support case and include detailed information a
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

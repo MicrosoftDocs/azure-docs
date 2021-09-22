@@ -38,7 +38,7 @@ There are several ways that you can configure entitlement management for your or
 
 ### Catalog owner: Delegate management of resources
 
-1. [Add co-owners to the catalog](entitlement-management-catalog-create.md#add-additional-catalog-owners)
+1. [Add co-owners to the catalog](entitlement-management-catalog-create.md#add-more-catalog-owners)
 1. [Add resources to the catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
 
 ### Catalog owner: Delegate management of access packages

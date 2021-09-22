@@ -52,10 +52,13 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     13. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
-        3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
+
+             :::image type="content" source="./media/test-drive/new-client-secret.png" alt-text="Adding a new client secret.":::
+
+        3. Enter a description, such as *Test Drive*, and select an appropriate duration. Because the test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key, we recommend using the maximum duration of 24 months.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="Adding a client secret.":::
 
 5. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
     1. Open an Administrative-level PowerShell command prompt.
@@ -94,22 +97,20 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
             > - Open SharePoint and share the data table with the Security Group.
 
 7. Add the just-created Azure app as an application user to your test drive CRM instance. This step is applicable only to Dynamics 365 Customer Engagement Offers.
-    1. Add a new user in **Azure Active Directory**. Only **Name** and **Username** values (belonging to the same tenant) are required to create this user, leave the other fields as default. Copy the username value.
-    2. Sign into **CRM instance** and select **Setting** > **Security** > **Users**.
-    3. Change the view to **Application Users**.
+    1. Sign into **CRM instance** and select **Setting** > **Security** > **Users**.
+    2. Change the view to **Application Users**.
 
         :::image type="content" source="./media/test-drive/application-users.png" alt-text="Setting account information for a user.":::
 
-    4. Add a new user (ensure the form is for APPLICATION USER).
-    5. Enter the same username in the **Primary Email** and **User Name** fields. Add the **Azure ApplicationId** in **Application ID**.
-    6. Give any **Full name**.
-    7. Select **Save**.
-    8. Select **Manage roles**.
-    9. Assign a custom or OOB security role that contains read, write, and assign role privileges, such as *System Administrator*.
+    3. Add a new user (ensure the form is for APPLICATION USER).
+    4. Add the above created **Azure ApplicationId** in **Application ID**.
+    5. Select **Save**.
+    6. Select **Manage roles**.
+    7. Assign a custom or OOB security role that contains read, write, and assign role privileges, such as *System Administrator*.
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Selecting the role privileges.":::
 
-    10. Also, enable the **Act on Behalf of Another User** privilege.
+    10. Enable the **Act on Behalf of Another User** privilege.
     11. Assign the application user the custom security role you created for your test drive.
 
 ## Set up for Dynamics 365 for Operations
@@ -151,7 +152,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
         3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
         4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
-            :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="Shows addition of a client secret.":::
 
 4. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
     1. Open an Administrative-level PowerShell command prompt.

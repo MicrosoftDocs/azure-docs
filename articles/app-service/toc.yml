@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-    - name: About Web Apps
+    - name: About App Service
       href: overview.md
     - name: About App Service Environments
       href: environment/intro.md
@@ -92,6 +92,8 @@
       items:
         - name: ASP.NET Core with a container
           href: app-service-sql-github-actions.md
+        - name: ASP.NET
+          href: app-service-sql-asp-github-actions.md
 - name: Samples
   items:
     - name: Azure CLI

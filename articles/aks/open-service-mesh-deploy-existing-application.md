@@ -12,7 +12,7 @@ ms.author: pgibson
 
 ## Before you begin
 
-The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./open-service-mesh-deploy-add-on.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
+The steps detailed in this walk-through assume that you've previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./open-service-mesh-deploy-addon-az-cli.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
 You must have the following resources installed:
 
@@ -79,7 +79,7 @@ spec:
     useHTTPSIngress: false
 ```
 
-If the **enablePermissiveTrafficPolicyMode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **enablePermissiveTrafficPolicyMode** is configured to **false**, You will need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed as well as ensuring you have a service account representing each service deployed in the namespace. For more detailed information about permissive traffic mode, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article.
+If the **enablePermissiveTrafficPolicyMode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **enablePermissiveTrafficPolicyMode** is configured to **false**, you'll need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed. You'll also need to ensure you have a service account representing each service deployed in the namespace. For more detailed information about permissive traffic mode, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article.
 
 ## Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as True
 
@@ -95,7 +95,7 @@ You should see the following output:
 Namespace [bookstore] successfully added to mesh [osm]
 ```
 
-Next we will take a look at the current pod deployment in the namespace. Run the following command to view the pods in the designated namespace.
+Next we'll take a look at the current pod deployment in the namespace. Run the following command to view the pods in the `bookbuyer` namespace.
 
 ```azurecli-interactive
 kubectl get pod -n bookbuyer
@@ -108,7 +108,7 @@ NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-78666dcff8-wh6wl   1/1     Running   0          43s
 ```
 
-Notice the **READY** column showing **1/1**, meaning that the application pod has only one container. Next we will need to restart your application deployments so that OSM can inject the Envoy sidecar proxy container with your application pod. Let's get a list of deployments in the namespace.
+Notice the **READY** column showing **1/1**, meaning that the application pod has only one container. Next we'll need to restart your application deployments so that OSM can inject the Envoy sidecar proxy container with your application pod. Let's get a list of deployments in the namespace.
 
 ```azurecli-interactive
 kubectl get deployment -n bookbuyer
@@ -121,7 +121,7 @@ NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 bookbuyer   1/1     1            1           23h
 ```
 
-Now we will restart the deployment to inject the Envoy sidecar proxy container with your application pod. Run the following command.
+Now we'll restart the deployment to inject the Envoy sidecar proxy container with your application pod. Run the following command.
 
 ```azurecli-interactive
 kubectl rollout restart deployment bookbuyer -n bookbuyer
@@ -183,7 +183,7 @@ Verify your application is still functional after the Envoy sidecar proxy inject
 
 ## Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False
 
-When the OSM configuration for the permissive traffic policy is set to `false`, OSM will require explicit [SMI](https://smi-spec.io/) traffic access policies deployed for the service-to-service communication to happen within your cluster. Currently, OSM also uses Kubernetes service accounts as part of authorizing service-to-service communications as well. To ensure your existing deployed applications will communicate when managed by the OSM mesh, we will need to verify the existence of a service account to utilize, update the application deployment with the service account information, apply the [SMI](https://smi-spec.io/) traffic access policies.
+When the OSM configuration for the permissive traffic policy is set to `false`, OSM will require explicit [SMI](https://smi-spec.io/) traffic access policies deployed for the service-to-service communication to happen within your cluster. Currently, OSM also uses Kubernetes service accounts as part of authorizing service-to-service communications as well. To ensure your existing deployed applications will communicate when managed by the OSM mesh, we'll now verify the existence of a service account to use, update the application deployment with the service account information, apply the [SMI](https://smi-spec.io/) traffic access policies.
 
 ### Verify Kubernetes Service Accounts
 
@@ -193,7 +193,7 @@ Verify if you have a kubernetes service account in the namespace your applicatio
 kubectl get serviceaccounts -n bookbuyer
 ```
 
-In the following there is a service account named `bookbuyer` in the bookbuyer namespace.
+In the following there's a service account named `bookbuyer` in the `bookbuyer` namespace.
 
 ```Output
 NAME        SECRETS   AGE
@@ -201,7 +201,7 @@ bookbuyer   1         25h
 default     1         25h
 ```
 
-If you do not have a service account listed other than the default account, you will need to create one for your application. Use the following command as an example to create a service account in the application's deployed namespace.
+If you don't have a service account listed other than the default account, you will need to create one for your application. Use the following command as an example to create a service account in the application's deployed namespace.
 
 ```azurecli-interactive
 kubectl create serviceaccount myserviceaccount -n bookbuyer
@@ -213,7 +213,7 @@ serviceaccount/myserviceaccount created
 
 ### View your application's current deployment specification
 
-If you had to create a service account from the earlier section, chances are your application deployment is not configured with a specific `serviceAccountName` in the deployment spec. We can view your application's deployment spec with the following commands:
+If you had to create a service account from the earlier section, chances are your application deployment isn't configured with a specific `serviceAccountName` in the deployment spec. We can view your application's deployment spec with the following commands:
 
 ```azurecli-interactive
 kubectl get deployment -n bookbuyer
@@ -226,13 +226,13 @@ NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 bookbuyer   1/1     1            1           25h
 ```
 
-We will now describe the deployment as a check to see if there is a service account listed in the Pod Template section.
+We'll describe the deployment as a check to see if there's a service account listed in the Pod Template section.
 
 ```azurecli-interactive
 kubectl describe deployment bookbuyer -n bookbuyer
 ```
 
-In this particular deployment you can see that there is a service account associated with the deployment listed under the Pod Template section. This deployment is using the service account bookbuyer. If you do not see the **Service Account:** property, your deployment is not configured to use a service account.
+In this particular deployment you can see that there's a service account associated with the deployment listed under the Pod Template section. This deployment is using the service account `bookbuyer`. If you do not see the **Service Account:** property, your deployment isn't configured to use a service account.
 
 ```Output
 Pod Template:
@@ -250,9 +250,9 @@ There are several techniques to update your deployment to add a kubernetes servi
 
 ### Deploy the necessary Service Mesh Interface (SMI) Policies
 
-The last step to allowing authorized traffic to flow in the mesh is to deploy the necessary [SMI](https://smi-spec.io/) traffic access policies for your application. The amount of configuration you can achieve with [SMI](https://smi-spec.io/) traffic access policies is beyond the scope of this walkthrough, but we will detail some of the common components of the specification and show how to configure both a simple TrafficTarget and HTTPRouteGroup policy to enable service-to-service communication for your application.
+The last step to allowing authorized traffic to flow in the mesh is to deploy the necessary [SMI](https://smi-spec.io/) traffic access policies for your application. The amount of configuration you can achieve with [SMI](https://smi-spec.io/) traffic access policies is beyond the scope of this walkthrough, but we'll detail some of the common components of the specification and show how to configure both a simple TrafficTarget and HTTPRouteGroup policy to enable service-to-service communication for your application.
 
-The [SMI](https://smi-spec.io/) [**Traffic Access Control**](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md#traffic-access-control) specification allows users to define the access control policy for their applications. We will focus on the **TrafficTarget** and **HTTPRoutGroup** api resources.
+The [SMI](https://smi-spec.io/) [**Traffic Access Control**](https://github.com/servicemeshinterface/smi-spec/blob/main/apis/traffic-access/v1alpha3/traffic-access.md#traffic-access-control) specification allows users to define the access control policy for their applications. We'll focus on the **TrafficTarget** and **HTTPRoutGroup** api resources.
 
 The TrafficTarget resource consists of three main configuration settings destination, rules, and sources. An example TrafficTarget is shown below.
 
@@ -279,7 +279,7 @@ spec:
     namespace: bookbuyer
 ```
 
-In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this particular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads bookbuyer needs to communicate to the bookstore.
+In the above TrafficTarget spec, the `destination` denotes the service account that is configured for the destination source service. Remember the service account that was added to the deployment earlier will be used to authorize access to the deployment it is attached to. The `rules` section , in this particular example, defines the type of HTTP traffic that is allowed over the connection. You can configure fine grain regex patterns for the HTTP headers to be specific on what traffic is allowed via HTTP. The `sources` section is the service originating communications. This spec reads `bookbuyer` needs to communicate to the bookstore.
 
 The HTTPRouteGroup resource consists of one or an array of matches of HTTP header information and is a requirement for the TrafficTarget spec. In the example below, you can see that the HTTPRouteGroup is authorizing three HTTP actions, two GET and one POST.
 
@@ -308,7 +308,7 @@ spec:
     - POST
 ```
 
-If you are not familiar with the type of HTTP traffic your front-end application makes to other tiers of the application, since the TrafficTarget spec requires a rule, you can create the equivalent of an allow all rule using the below spec for HTTPRouteGroup.
+If you aren't familiar with the type of HTTP traffic your front-end application makes to other tiers of the application, since the TrafficTarget spec requires a rule, you can create the equivalent of an allow all rule using the below spec for HTTPRouteGroup.
 
 ```HTTPRouteGroup Allow All Example
 apiVersion: specs.smi-spec.io/v1alpha4
@@ -378,7 +378,7 @@ Visit the [SMI](https://smi-spec.io/) site for more detailed information on the 
 
 ## Manage the application's namespace with OSM
 
-Next we will configure OSM to manage the namespace and restart the deployments to get the Envoy sidecar proxy injected with the application.
+Next we'll ensure OSM to manage the namespace and restart the deployments to get the Envoy sidecar proxy injected with the application.
 
 Run the following command to configure the `azure-vote` namespace to be managed my OSM.
 
@@ -402,4 +402,4 @@ deployment.apps/azure-vote-front restarted
 deployment.apps/azure-vote-back restarted
 ```
 
-If we view the pods for the `azure-vote` namespace, we will see the **READY** stage of both the `azure-vote-front` and `azure-vote-back` as 2/2, meaning the Envoy sidecar proxy has been injected alongside the application.
+If we view the pods for the `azure-vote` namespace, we'll see **READY** stage of both the `azure-vote-front` and `azure-vote-back` as 2/2, meaning the Envoy sidecar proxy has been injected alongside the application.

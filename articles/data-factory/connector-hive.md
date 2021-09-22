@@ -1,20 +1,20 @@
 ---
-title: Copy data from Hive using Azure Data Factory 
+title: Copy data from Hive
+description: Learn how to copy data from Hive to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Hive to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 
 # Copy and transform data from Hive using Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -25,7 +25,7 @@ This Hive connector is supported for the following activities:
 
 You can copy data from Hive to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 ## Prerequisites
 
@@ -79,7 +79,7 @@ The following properties are supported for Hive linked service:
 | zooKeeperNameSpace | The namespace on ZooKeeper under which Hive Server 2 nodes are added.  | No |
 | useNativeQuery | Specifies whether the driver uses native HiveQL queries, or converts them into an equivalent form in HiveQL.  | No |
 | username | The user name that you use to access Hive Server.  | No |
-| password | The password corresponding to the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | The partial URL corresponding to the Hive server.  | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is false.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
@@ -209,7 +209,7 @@ The below table lists the properties supported by a hive source. You can edit th
 
 Below is an example of a Hive source configuration:
 
-![Hive source example](media/data-flow/hive-source.png "[Hive source example")
+:::image type="content" source="media/data-flow/hive-source.png" alt-text="Hive source example":::
 
 These settings translate into the following data flow script:
 
@@ -238,4 +238,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
