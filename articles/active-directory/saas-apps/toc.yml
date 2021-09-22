@@ -1166,6 +1166,8 @@
         href: lanschool-air-tutorial.md
       - name: LaunchDarkly
         href: launchdarkly-tutorial.md
+      - name: LawVu
+        href: lawvu-tutorial.md  
       - name: LCVista
         href: lcvista-tutorial.md
       - name: Leadfamly
@@ -1686,6 +1688,8 @@
         href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
+      - name: RSA Archer Suite
+        href: rsa-archer-suite-tutorial.md  
       - name: RStudio Connect SAML Authentication
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
@@ -1934,6 +1938,8 @@
         href: ssogen-tutorial.md
       - name: Standard for Success Accreditation
         href: standard-for-success-accreditation-tutorial.md
+      - name: Starmind
+        href: starmind-tutorial.md  
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
