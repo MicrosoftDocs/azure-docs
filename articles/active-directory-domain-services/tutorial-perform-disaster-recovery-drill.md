@@ -31,7 +31,7 @@ The DR drill will cover:
 
 The following requirements must be in place to complete the DR drill: 
 
-- An active Azure AD DS instance deployed with at least one additional replica set in place. The domain must be in a healthy state. 
+- An active Azure AD DS instance deployed with at least one extra replica set in place. The domain must be in a healthy state. 
 - A client machine that is joined to the Azure AD DS hosted domain.  The client must be in its own virtual network, virtual network peering enabled with both replica set virtual networks, and the virtual network must have the IP addresses of all domain controllers in the replica sets listed in DNS. 
 
 ## Environment validation 
