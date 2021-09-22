@@ -73,22 +73,26 @@ In this tutorial, you learn how to:
     | Setting | Value |
     |---|---|
     | Backend host type | Select **Custom host**. |
-    | Backend host name | Enter full URL of your static web app. Make sure your value does not include a trailing slash. (For example, `https://desert-rain-04056.azurestaticapps.net`)  |
-    | Backend host header | Enter full URL of your static web app. Make sure your value does not include a trailing slash. (For example, `https://desert-rain-04056.azurestaticapps.net`) |
+    | Backend host name | Enter full URL of your static web app. Make sure your value does not include a trailing slash or protocol. (For example, `desert-rain-04056.azurestaticapps.net`)  |
+    | Backend host header | Enter full URL of your static web app. Make sure your value does not include a trailing slash protocol. (For example, `desert-rain-04056.azurestaticapps.net`) |
 
     Accept the defaults for the rest of the form, and select **Add**.
+
+1. Select **Add**.
 
 1. Select the **plus sign** next to *Routing rule*, and enter the following value:
 
     | Setting | Value |
     |---|---|
-    | Name | Enter a name for your routing rule. |
+    | Name | Enter **my-routing-rule**. |
 
     Accept the defaults for the rest of the form, and select **Add**.
 
 1. Select **Review + create**.
 
-1. Select **Create**. The creation process may take a few minutes to complete.
+1. Select **Create**.
+
+    The creation process may take a few minutes to complete.
 
 1. Select **Go to resource**.
 
@@ -98,7 +102,7 @@ In this tutorial, you learn how to:
 
     When you select this link, you may see a 404 error if the site is not fully propagated. Instead of refreshing the page, wait a few minutes and return back to the *Overview* window and select the link labeled *Frontend host*.
 
-1. From the *Overview* window, select the **URL** link to view your site.
+1. From the *Overview* windows, copy the value labeled **Front Door ID** and paste it into a file for later use.
 
 > [!IMPORTANT]
 > By default, Azure Front Door configures [health probes](../frontdoor/front-door-health-probes.md) that may affect your traffic statistics. You may want to edit the default values for the [health probes](../frontdoor/front-door-health-probes.md).
