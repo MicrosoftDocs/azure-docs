@@ -72,10 +72,10 @@ Turn on logging for your Vault to monitor access to your secrets and their lifec
 For more information, see:
 - [Azure Key Vault as Event Grid source](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
 - [Azure Key Vault logging](../general/logging.md)
-- [Monitoring and alerting for Azure Key Vault](../general/alert)
+- [Monitoring and alerting for Azure Key Vault](../general/alert.md)
 
 ## Backup and purge protection
-Turn on [purge protection](../soft-delete-overview.md#purge-protection) to guard against force deletion of the secret. Take regular back ups of your vault on update/delete/create of secrets within a Vault.
+Turn on [purge protection](../general/soft-delete-overview.md#purge-protection) to guard against force deletion of the secret. Take regular back ups of your vault on update/delete/create of secrets within a Vault.
 
 ### Azure PowerShell Backup Commands
 
