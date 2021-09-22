@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 09/14/2021
+ms.date: 10/01/2021
 ms.author: allensu
 
 ---
