@@ -36,7 +36,7 @@ If you have many devices to set up and don't want to manually provision each one
 
 * [Create and provision IoT Edge devices using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
 * [Create and provision IoT Edge devices with a TPM](how-to-auto-provision-simulated-device-linux.md)
-* [Create and provision IoT Edge devices using symmetric keys](how-to-auto-provision-symmetric-keys.md)
+* [Create and provision IoT Edge devices using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## Prerequisites
 

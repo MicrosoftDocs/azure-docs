@@ -10,6 +10,7 @@ ms.author: tchladek
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: identity
 ---
 # Quickstart: Set up and manage Teams access tokens
 

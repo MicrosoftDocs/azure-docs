@@ -6324,6 +6324,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-spark.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-hive.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-mapreduce.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-storm.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
       "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
       "redirect_document_id": false
@@ -14424,6 +14444,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-ssh.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/bastion/working-remotely-support.md",
       "redirect_url": "/azure/bastion/work-remotely-support",
       "redirect_document_id": false
@@ -18116,6 +18146,11 @@
     {
       "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
       "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/protect-windows-virtual-desktop.md",
+      "redirect_url": "/azure/firewall/protect-azure-virtual-desktop",
       "redirect_document_id": false
     },
     {
