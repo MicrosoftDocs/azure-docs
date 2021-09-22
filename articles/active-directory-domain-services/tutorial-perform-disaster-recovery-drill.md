@@ -42,7 +42,7 @@ The following requirements must be in place to complete the DR drill:
 1. Perform basic domain validation checks: 
    - Run `nslookup [domain]` to ensure DNS resolution is working properly 
    - Run `nltest /dsgetdc:` which should return a success and say which domain controller is currently being used
-   - Run `nltest /dclist:` which should return the full list of domain controllers in the directory 
+   - Run `nltest /dclist:` to return the full list of domain controllers in the directory 
 1. Perform basic domain controller validation on each domain controller in the directory (you can get the full list from the output of “nltest /dclist:”): 
    - Run `nltest /sc_reset:[domain name]\[domain controller name]`, which will establish a secure connection with the domain controller. 
    - Run `Get-AdDomain` to retrieve the basic directory settings. 
