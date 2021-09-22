@@ -57,9 +57,8 @@ Application Gateway integration with Key Vault is a three-step configuration pro
     
       i) Go to key vault in the Azure portal.<br />
       ii) Open the Access policies pane.<br />
-      iii) For Permission model, select Vault access policy.<br />
-      iv) Click +Add Access Policy. Choose "Get" permission for "Secret permissions" field and choose your user-assigned managed identity for "Select principal" field.<br />
-      v) Select Save.<br />
+      iii) If using the permission model "Vault access policy": Click "+Add Access Policy". Choose "Get" permission for "Secret permissions" field and choose your user-assigned managed identity for "Select principal" field, and click on "Save".<br />
+      iv) If using the permission model "Azure role-based access control": Add a role assignment for the user-managed identity to the Azure Key Vault for the role "Key Vault Secrets User."<br />
 
     **Firewalls and virtual networks** - When using a restricted key vault, you can configure your Application Gateway in the following manner.
 

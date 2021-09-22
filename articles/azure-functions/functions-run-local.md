@@ -66,7 +66,7 @@ Starting with version 2.x, Core Tools is built on .NET Core. This means that ver
 
 # [Windows](#tab/windows/v4)
 
-Installing version 4.x of the Core Tools currently requires npm. You can also [use Chocolatey to install the package](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#azure-functions-core-tools).
+Installing version 4.x of the Core Tools currently requires npm. If you installed a previous version of the Core Tools using a different package manager, uninstall it before installing version 4.x.
 
 1. If you haven't already done so, [install Node.js with npm](https://nodejs.org/en/download/). 
 
