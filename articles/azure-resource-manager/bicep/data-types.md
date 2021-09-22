@@ -230,8 +230,8 @@ Type assignability determines whether a value of one type (source type) can be a
 | `resource`     |X| | | | | | | | |X| | |
 | `module`       |X| | | | | | | | | |X| |
 | `scope`        | | | | | | | | | | | |?|
-| named resource |X| | | | | | |?| |?| | |
-| named module   |X| | | | | | |?| | |?| |
+| **named resource** |X| | | | | | |?| |?| | |
+| **named module**   |X| | | | | | |?| | |?| |
 
 ### Legend
 
