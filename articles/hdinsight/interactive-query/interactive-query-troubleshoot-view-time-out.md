@@ -33,7 +33,7 @@ The Hive View default timeout value may not be suitable for the query you are ru
   ```
   The value of `HIVE_VIEW_INSTANCE_NAME` is available at the end of the Hive View URL.
 
-2. Restart the active Ambari server by running the following. If you get an error message saying it's not the active Ambari server, just ssh into the next headnode and repeat.
+2. Restart the active Ambari server by running the following. If you get an error message saying it's not the active Ambari server, just ssh into the next headnode and repeat this step.
   ```
   sudo ambari-server restart
   ```
