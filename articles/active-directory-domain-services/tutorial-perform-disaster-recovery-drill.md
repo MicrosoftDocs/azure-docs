@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/21/2021
+ms.date: 09/22/2021
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to perform a disaster recovery drill by using replica sets in Azure Active Directory Domain Services to demonstrate resiliency for geographically distributed domain data.
@@ -57,11 +57,11 @@ You will be performing these operations for each replica set in the Azure AD DS 
    1. Select the peered network that you want to update. 
    1. Select to block all network traffic that enters or leaves the virtual network. 
       ![Screenshot of how to block traffic in the Azure portal](./media/tutorial-perform-disaster-recovery-drill/block-traffic.png)
-1. On the client machine, attempt to re-stablish a secure connection with both domain controllers from step 2 using the same nltest command. These operations should fail as network connectivity has been blocked. 
+1. On the client machine, attempt to reestablish a secure connection with both domain controllers from step 2 using the same nltest command. These operations should fail as network connectivity has been blocked. 
 1. Run `Get-AdDomain` and `Get-AdForest` to get basic directory properties. These calls will succeed because they are automatically going to one of the domain controllers in the other replica set. 
 1. Reboot the client and login with the same domain account. This shows that authentication is still working as expected and logins are not blocked. 
 1. In the Azure portal, go to the client virtual network peering and update the properties so that all traffic is unblocked. This reverts the changes that were made in step 3. 
-1. On the client machine, attempt to re-stablish a secure connection with the domain controllers from step 2 using the same nltest command. These operations should succeed as network connectivity has been unblocked. 
+1. On the client machine, attempt to reestablish a secure connection with the domain controllers from step 2 using the same nltest command. These operations should succeed as network connectivity has been unblocked. 
 
 These operations demonstrate that the domain is still available even though one of the replica sets is unreachable by the client. Perform this set of steps for each replica set in the Azure AD DS instance. 
 
