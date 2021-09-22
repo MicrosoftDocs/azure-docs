@@ -133,6 +133,8 @@ To create a digital twin, you use the `CreateDigitalTwin` command. You must refe
 
 1. You can verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the room0, room1, floor0, and floor1 twins in the results.
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ### Modify a digital twin
 
 You can also modify the properties of a twin you've created. 
@@ -208,6 +210,8 @@ The twins and relationships you have set up in this tutorial form the following 
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. 
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 Run the following commands in the running project console to answer some questions about the sample environment.
 
 1. **What are all the entities from my environment represented in Azure Digital Twins?** (query all)
@@ -220,7 +224,7 @@ Run the following commands in the running project console to answer some questio
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Screenshot showing a partial result from the twin query, including room0 and floor1.":::
 
-    >[!NOTE]
+    >[!TIP]
     >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), use the longer (complete) query.
 
 1. **What are all the rooms in my environment?** (query by model)

@@ -43,8 +43,6 @@ The technical metadata includes schema, data type, columns, and so on, that are 
 
 - **Enhanced scanning & ingestion** – you can track and control the population of the data assets, and classification and lineage across both the scanning and ingestion processes. This feature will impact pricing.
 
-- **Advanced resource set** – you can reduce the size of the Data Map by processing partitioned files in a data lake such that it’s treated as a single data asset called as [resource set](concept-resource-sets.md). This is an optional feature that will impact pricing.
-
 ## Scenario
 
 Claudia is an Azure admin at Contoso who wants to provision a new Azure Purview account from Azure portal. While provisioning, she doesn’t know the required size of Purview Data Map to support the future state of the platform. However, she knows that the Purview Data Map is billed by Capacity Units, which are affected by storage and operations throughput. She wants to provision the smallest Data Map to keep the cost low and grow the Data Map size elastically based on consumption.  
