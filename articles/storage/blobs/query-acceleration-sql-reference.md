@@ -68,9 +68,9 @@ When reading values from CSV-formatted data, all values are read as strings.  St
 
 ### Referencing fields
 
-For JSON-formatted data, or CSV-formatted data with a header row, fields may be referenced by name.  Field names can be quoted or unquoted. Quoted field names are enclosed in double-quote characters ("), may contain spaces, and are case-sensitive.  Unquoted field names are case-insensitive, and may not contain any special characters.
+For JSON-formatted data, or CSV-formatted data with a header row, fields may be referenced by name.  Field names can be quoted or unquoted. Quoted field names are enclosed in double-quote characters (`"`), may contain spaces, and are case-sensitive.  Unquoted field names are case-insensitive, and may not contain any special characters.
 
-In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (_) character.  For example, the first field may be referenced as *1, or the eleventh field may be referenced as *11.  Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
+In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (_) character.  For example, the first field may be referenced as `_1`, or the eleventh field may be referenced as `_11`. Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
 
 ### Operators
 
