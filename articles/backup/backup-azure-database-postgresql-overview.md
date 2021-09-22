@@ -2,15 +2,13 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup (preview)
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 09/22/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
 
 # About Azure Database for PostgreSQL backup (preview)
 
-Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years.
-
-Besides long-term retention, the solution offers the following capabilities:
+Azure Backup and Azure Database Services have come together to build an enterprise-class backup solution for Azure Database for PostgreSQL servers that retains backups for up to 10 years. Besides long-term retention, the solution offers the following capabilities:
 
 - Customer controlled scheduled and on-demand backups at the individual database level.
 - Database-level restores to any PostgreSQL server or to any blob storage.
@@ -39,14 +37,14 @@ You can use this solution independently or in addition to the [native backup sol
 ## Backup process
 
 1. As a backup admin, you can specify the Azure PostgreSQL databases that you intend to back up. Additionally, you can also specify the details of the Azure key vault that stores the credentials needed to connect to the specified database(s). These credentials are securely seeded by the database admin in the Azure key vault.
-1. The backup service then validates if it has [appropriate permissions to authenticate]() with the specified PostgreSQL server and to back up its databases.
+1. The backup service then validates if it has [appropriate permissions to authenticate](#azure-backup-authentication-with-the-postgresql-server) with the specified PostgreSQL server and to back up its databases.
 1. Azure Backup spins up a worker role (VM) with a backup extension installed in it to communicate with the protected PostgreSQL server. This extension consists of a coordinator and a PostgreSQL plugin. The coordinator triggers workflows for various operations, such as backup and restore, and the plugin manages the actual data flow.
 1. At the scheduled time, the coordinator communicates with the plugin, for it to start streaming the backup data from the PostgreSQL server using **pg_dump (custom)**.
 1. The plugin sends the data directly to the Azure Backup managed storage accounts (masked by the Backup vault), eliminating the need for a staging location. The data is encrypted using Microsoft-managed keys and stored by the Azure Backup service in storage accounts.
 
  :::image type="content" source="./media/backup-azure-database-postgresql-overview/backup-process.png" alt-text="Diagram showing the backup process.":::
 
-## Azure Backup Authentication with the PostgreSQL server
+## Azure Backup authentication with the PostgreSQL server
 
 Azure Backup follows strict security guidelines laid down by Azure; permissions on the resource to be backed up aren't assumed and need to be explicitly given by the user. 
 
@@ -56,7 +54,7 @@ The Azure Backup service needs to connect to the Azure PostgreSQL while taking e
  
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagram showing the workload or database flow.":::
 
-### Set of Permissions needed for Azure PostgreSQL database backup
+#### Set of Permissions needed for Azure PostgreSQL database backup
 
 1. Grant the following access permissions to the Backup vault’s MSI:
 
@@ -71,11 +69,11 @@ The Azure Backup service needs to connect to the Azure PostgreSQL while taking e
 1. Database user’s backup privileges on the database
 
 >[!Note]
->You can grant these permissions within the [configure backup]() flow with a single click if you (the backup admin) have ‘write’ access on the intended resources, or use an ARM template if you don’t have the required permissions (when multiple personas are involved). 
+>You can grant these permissions within the [configure backup](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases) flow with a single click if you (the backup admin) have ‘write’ access on the intended resources, or use an ARM template if you don’t have the required permissions (when multiple personas are involved). 
 
-### Set of Permissions needed for Azure PostgreSQL database restore
+#### Set of Permissions needed for Azure PostgreSQL database restore
 
-Permissions for restore are similar to the ones needed for backup and you need to grant the permissions on the target PostgreSQL server and its corresponding key vault. Unlike in configure backup flow, the experience to grant these permissions inline is currently not available. Therefore, you need to [manually grant the access on the Postgres server and the corresponding key vault]().
+Permissions for restore are similar to the ones needed for backup and you need to grant the permissions on the target PostgreSQL server and its corresponding key vault. Unlike in configure backup flow, the experience to grant these permissions inline is currently not available. Therefore, you need to [manually grant the access on the Postgres server and the corresponding key vault](#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
 
 Additionally, ensure that the database user (corresponding to the credentials stored in the key vault) has the following restore privileges on the database:
 
@@ -91,7 +89,7 @@ We had earlier launched a different authentication model that was entirely based
 >[!Note]
 >All the new configure protection will take place with the new key vault authentication model only. However, all the existing backup instances configured protection with the Azure AD based authentication will continue to exist and have regular backups taken. To restore these backups, you need to follow the Azure AD based authentication.
 
-## Grant access on the Azure Postgres server and Key vault manually
+## Grant access on the Azure PostgreSQL server and Key vault manually
 
 To grant all the access permissions needed by Azure Backup, refer to the following sections:
 
@@ -121,7 +119,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
    - Using access policies (that is, Permission model is set to Vault access policy):
 
      - Set Get and List permissions on secrets.
-     - Learn about Assign an Azure Key Vault access policy (Portal) | Microsoft Docs
+     - Learn about [Assign an Azure Key Vault access policy](/azure/key-vault/general/assign-access-policy&preserve-view=true?tabs=azure-portal)
 
      :::image type="content" source="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-inline.png" alt-text="Screenshot showing the option to grant permission using Permission model is set to Vault access policy model." lightbox="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-expanded.png":::  
  
@@ -132,9 +130,9 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
 ### Database user’s backup privileges on the database
 
-Run the following query in [PG admin]() tool (replace ‘username’ with the database user ID):
+Run the following query in [PG admin](#using-the-pg-admin-tool) tool (replace _username_ with the database user ID):
 
-```azurecli
+```
 DO $do$
 DECLARE
 sch text;
@@ -177,4 +175,4 @@ You can add new databases and database users to the server. For database users, 
 
 ## Next steps
 
-[Backup vaults overview](backup-vault-overview.md)
+[Azure Database for PostgreSQL backup](backup-azure-database-postgresql.md)

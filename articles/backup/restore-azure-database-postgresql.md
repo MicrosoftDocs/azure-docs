@@ -2,7 +2,7 @@
 title: Restore Azure Database for PostgreSQL 
 description: Learn about how to restore Azure Database for PostgreSQL backups.
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 09/22/2021
 
 ---
 
@@ -10,7 +10,7 @@ ms.date: 09/21/2021
 
 This article explains how to restore a database to an Azure PostgreSQL server backed up by Azure Backup.
 
-You can restore a database to any Azure PostgreSQL server within the same subscription, if the service has the appropriate set of permissions on the target server.
+You can restore a database to any Azure PostgreSQL server within the same subscription, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
 
 ## Restore a database on the target Storage Account
 
@@ -38,7 +38,7 @@ You can restore a database to any Azure PostgreSQL server within the same subscr
 
      1. In the **Select key vault and the secret** drop-down list, select a vault that stores the credentials to connect to the target server.
 
-     1. Select **Review + Restore** to trigger validation to check if the service has [restore permissions on the target server](). These permissions must be [granted manually]().
+     1. Select **Review + Restore** to trigger validation to check if the service has [restore permissions on the target server]backup-azure-database-postgresql(backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore). These permissions must be [granted manually](backup-azure-database-postgresql-overview.md#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-database-inline.png" alt-text="Screenshot showing the selected restore type as Restore as Database." lightbox="./media/restore-azure-database-postgresql/restore-as-database-expanded.png":::
 
@@ -47,7 +47,7 @@ You can restore a database to any Azure PostgreSQL server within the same subscr
      You can choose from the storage accounts across all subscriptions, but in the same region as that of the vault.     
 
      1. In the **Select the target container** drop-down list, select one of the containers filtered for the selected storage account.
-     1. Select **Review + Restore** to trigger validation to check if the backup service has the [restore permissions on the target storage account]().
+     1. Select **Review + Restore** to trigger validation to check if the backup service has the [restore permissions on the target storage account](#restore-permissions-on-the-target-storage-account).
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-files-inline.png" alt-text="Screenshot showing the selected restore type as Restore as Files." lightbox="./media/restore-azure-database-postgresql/restore-as-files-expanded.png":::
    
@@ -68,7 +68,7 @@ Assign the Backup vault MSI the permission to access the storage account contain
 
    :::image type="content" source="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-inline.png" alt-text="Screenshot showing the process to assign Backup vault MSI the permission to access the storage account containers using the Azure portal." lightbox="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-expanded.png":::
 
-Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment](/cli/azure/role/assignment&preserve-view9=true) create command.
+Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment](/cli/azure/role/assignment&preserve-view=true) create command.
 
 ```azurecli
 az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id
@@ -81,4 +81,4 @@ Replace the assignee parameter with the _Application ID_ of the vault's MSI and 
  
 ## Next steps
 
-[Backup vaults overview](backup-vault-overview.md)
+[Troubleshoot PostgreSQL database backup by using Azure Backup](backup-azure-database-postgresql-troubleshoot.md)
