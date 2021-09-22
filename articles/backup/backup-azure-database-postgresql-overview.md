@@ -3,7 +3,7 @@ title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup (preview)
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.custom: references_regions , devx-track-azurecli
+ms.custom: references_regions
 ---
 
 # About Azure Database for PostgreSQL backup (preview)

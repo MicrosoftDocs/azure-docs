@@ -3,7 +3,7 @@ title: Back up Azure Database for PostgreSQL
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.custom: references_regions , devx-track-azurecli
+
 ---
 
 # Azure Database for PostgreSQL backup with long-term retention (preview)

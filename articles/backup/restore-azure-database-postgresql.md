@@ -3,7 +3,7 @@ title: Restore Azure Database for PostgreSQL
 description: Learn about how to restore Azure Database for PostgreSQL backups.
 ms.topic: how-to
 ms.date: 09/22/2021
-
+ms.custom: devx-track-azurecli
 ---
 
 # Restore Azure Database for PostgreSQL backups (preview)
