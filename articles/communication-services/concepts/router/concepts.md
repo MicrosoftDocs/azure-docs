@@ -40,10 +40,6 @@ A Worker represents the supply available to handle a Job for a particular Queue.
 
 Azure Communication Services Job Router maintains and uses the status of a Worker using simple **Active**, **Inactive**, or **Draining** states to determine when available Jobs can be matched to a worker. A Worker must be registered with the Job Router to receive a Job Offer but can de-register at any time, removing their eligibility for an Offer.
 
-## Worker Management
-
-The Worker Management module provides static or dynamic group membership, dynamic queue association for your Workers, and a convenience layer for registration and de-registration of your workers. As an optionally configurable module within Job Router, the Worker Management feature can swapped out if you have your own Worker database containing pertinent information about your Workers.
-
 ## Policies
 
 Azure Communication Services Router applies flexible Policies to attach dynamic behavior to various aspects of the system. Depending on the policy, a Job's Labels can be consumed & evaluated to alter a Job's priority, which Queue it should be in, and much more. Certain Policies in the Job Router offer inline function processing using PowerFx, or for more complex scenarios, a callback to an Azure Function.
