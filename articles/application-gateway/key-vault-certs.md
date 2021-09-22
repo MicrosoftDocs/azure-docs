@@ -62,10 +62,9 @@ Define access policies to use the user-assigned managed identity with your key v
     
 1. In the Azure portal, go to **Key Vault**.
 1. Open the **Access policies** pane.
-1. For the **Permission** model, select **Vault access policy**.
-1. Select **+Add Access Policy**. 
-1. For **Secret permissions**, select **Get** permission. For **Select principal**, choose your user-assigned managed identity.
-1. Select **Save**.
+1. If you're using the permission model **Vault access policy**: Select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
+   
+   If you're using the permission model **Azure role-based access control**: Add a role assignment for the user-assigned managed identity to the Azure key vault for the role **Key Vault Secrets User**.
 
 As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service, so you can build a secure network boundary in Azure. You can deny access to traffic from all networks (including internet traffic) to Key Vault but still make Key Vault accessible for an Application Gateway resource under your subscription.
 

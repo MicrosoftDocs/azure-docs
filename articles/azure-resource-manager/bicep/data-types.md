@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/22/2021
 ---
 
 # Data types in Bicep
@@ -102,7 +102,7 @@ var a = {
   }
 }
 
-output result1 string = a.b // returns 'Dev' 
+output result1 string = a.b // returns 'Dev'
 output result2 int = a.c // returns 42
 output result3 bool = a.d.e // returns true
 ```
@@ -211,6 +211,35 @@ param password string
 @secure()
 param configValues object
 ```
+
+## Assignability matrix
+
+Type assignability determines whether a value of one type (source type) can be assigned to another type (target type). In the following matrix source types are listed horizontally and target types are listed vertically:
+
+| Types | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | named resource | named module | `scope` |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| `any`          |X| |X|X|X|X|X|X|X|X|X|X|
+| `error`        | | | | | | | | | | | | |
+| `string`       |X| |X| | | | | | | | | |
+| `number`       |X| | |X|X| | | | | | | |
+| `int`          |X| | | |X| | | | | | | |
+| `bool`         |X| | | | |X| | | | | | |
+| `null`         |X| | | | | |X| | | | | |
+| `object`       |X| | | | | | |X| | | | |
+| `array`        |X| | | | | | | |X| | | |
+| `resource`     |X| | | | | | | | |X| | |
+| `module`       |X| | | | | | | | | |X| |
+| `scope`        | | | | | | | | | | | |?|
+| **named resource** |X| | | | | | |?| |?| | |
+| **named module**   |X| | | | | | |?| | |?| |
+
+### Legend
+
+| Mark | Source type assignable to target type? |
+|:-|:-|
+| X | Yes |
+|   | No |
+| ? | Yes if types are compatible. Otherwise, no. |
 
 ## Next steps
 
