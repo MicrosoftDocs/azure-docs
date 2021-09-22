@@ -1,12 +1,12 @@
 ---
-title: Manage recording policy with Azure Video Analyzer
-description: This topic explains how to manage recording policy with Azure Video Analyzer.
+title: Manage retention policy with Azure Video Analyzer
+description: This topic explains how to manage retention policy with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 09/20/2021
 
 ---
-# Manage recording policy with Video Analyzer
+# Manage retention policy with Video Analyzer
 
 You can use Azure Video Analyzer for [recording](video-recording.md) live video into the cloud over a period of weeks, months, or years. This recording can either be [continuous](continuous-video-recording.md), or it can be sparse or [event-based](event-based-video-recording-concept.md). In either case, the recordings can span years without any cleanup of videos from storage account. However, users have the flexibility to control the retention time period after which the video assets will be deleted automatically.
 
@@ -14,7 +14,7 @@ You can use Azure Video Analyzer for [recording](video-recording.md) live video 
 
 Retention period property provides the capability to clean up the videos automatically associated with the Video Analyzer accounts based on the time period configured for a particular video asset or at the pipeline level. It also helps in reducing the number of transactions to storage account & associated storage cost.
 
-* You can specify a retention period for each video by a [Rest API call](https://docs.microsoft.com/rest/api/videoanalyzer/videos/create-or-update), `retentionPeriod` property of video entity is used to set the retention time period under 'archival' tag of the Json request body as shown below
+* You can specify a retention period for each video by a [Rest API call](/rest/api/videoanalyzer/videos/create-or-update), `retentionPeriod` property of video entity is used to set the retention time period under 'archival' tag of the Json request body as shown below
 
 ```
 // Video Archival Details

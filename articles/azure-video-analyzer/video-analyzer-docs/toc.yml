@@ -129,8 +129,8 @@
       href: playback-recordings-how-to.md
   - name: Record
     items:
-    - name: Manage recording policy
-      href: manage-recording-policy.md
+    - name: Manage retention policy
+      href: manage-retention-policy.md
     - name: Configure a signal gate
       href: edge/configure-signal-gate.md
   - name: Apply AI
