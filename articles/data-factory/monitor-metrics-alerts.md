@@ -12,6 +12,8 @@ ms.date: 09/02/2021
 
 # Data Factory metrics and alerts
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Azure Data Factory provides the following metrics and alerts to enable monitoring of the service.
 
 ## Data Factory metrics
@@ -39,11 +41,12 @@ Here are some of the metrics emitted by Azure Data Factory version 2:
 | SSISPackageExecutionCancelled         | Cancelled SSIS package execution metrics  | Count    | Total                | The total number of SSIS package executions that were cancelled within a minute window. |
 | SSISPackageExecutionFailed           | Failed SSIS package execution metrics    | Count    | Total                | The total number of SSIS package executions that failed within a minute window. |
 | SSISPackageExecutionSucceeded        | Succeeded SSIS package execution metrics | Count    | Total                | The total number of SSIS package executions that succeeded within a minute window. |
+| PipelineElapsedTimeRuns | Elapsed time pipeline runs metrics | Count | Total | Number of times, within a minute window, a pipelines runs longer than user-defined expected duration. [(See more)](tutorial-operationalize-pipelines.md) |
 
 To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
 > [!NOTE]
-> Only events from completed, triggered activity and pipeline runs are emitted. In progress and debug runs are **not** emitted. On the other hand, events from **all** SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
+> With the exception of _PipelineElapsedTimeRuns_, only events from completed, triggered activity and pipeline runs are emitted. In progress and debug runs are **not** emitted. On the other hand, events from **all** SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
 
 ## Data Factory Alerts
 

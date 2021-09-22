@@ -19,8 +19,6 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). Using a custom domain with your application provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign-in process rather than redirecting to the Azure AD B2C default domain *&lt;tenant-name&gt;.b2clogin.com*.
 
 ![Screenshot demonstrates an Azure AD B2C custom domain user experience.](./media/custom-domain/custom-domain-user-experience.png)
