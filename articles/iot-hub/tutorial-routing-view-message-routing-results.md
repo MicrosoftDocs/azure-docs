@@ -73,7 +73,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
 6. Select **+New Step**. The **Choose an operation** pane is displayed. Select **Office 365 Outlook** and then in the list, find and select **Send an Email (V2)**. Sign in to your Office 365 account.   
 
-7. ![Select to send-an-email from one of the Oulook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-e-mail.png) Fill in the fields:
+7. ![Select to send-an-email from one of the Oulook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) Fill in the fields:
 
    **To:** Put in the e-mail address where the warning should be sent.
 
@@ -147,10 +147,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    **Table name**: Name of the table to be used in Power BI. This tutorial uses **contosotable**.
 
-
-   Accept the defaults for the rest of the fields.
-
-3. Select **Authorize**, and sign in to your Power BI account. (This may take more than one try).
+   3. Select **Authorize**, and sign in to your Power BI account. (This may take more than one try).
 
    ![Set up the outputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
