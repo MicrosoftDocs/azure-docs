@@ -6,9 +6,9 @@ author: jasonshave
 manager: phans
 services: azure-communication-services
 
-ms.author: jassha	
-ms.date: 08/20/2021
-ms.topic: overview	
+ms.author: jassha
+ms.date: 10/18/2021
+ms.topic: conceptual
 ms.service: azure-communication-services	
 ---	
 
@@ -51,4 +51,3 @@ Azure Communication Services Router applies flexible Policies to attach dynamic 
 ## Next Steps
 
 - [Quickstart guide](../../quickstarts/router/getting-started-with-router.md)
-- Champion scenarios (coming soon...)
