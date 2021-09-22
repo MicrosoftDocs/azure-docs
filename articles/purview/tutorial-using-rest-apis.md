@@ -1,30 +1,19 @@
 ---
-title: "Tutorial: Use the REST APIs"
-description: This tutorial describes how to use the Azure Purview REST APIs to access the contents of your catalog.
-author: hophanms
-ms.author: hophan
+title: "How to use REST APIs for Purview Data Planes"
+description: This tutorial describes how to use the Azure Purview REST APIs to access the contents of your Purview.
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/03/2020
+ms.date: 09/17/2021
 
-# Customer intent: I can call the catalog's REST APIs to search and manipulate the contents of the catalog.
+# Customer intent: I can call the Data plane REST APIs to perform CRUD operations on Purview account.
 ---
 
 # Tutorial: Use the REST APIs
 
-In this tutorial, you learn how to use the Azure Purview REST APIs. Anyone who wants to submit data to an Azure Purview Catalog, include the catalog as part of an automated process, or build their own user experience on the catalog can use the REST APIs to do so.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
->
-> * Create a service principal (application).
-> * Configure your catalog to trust the service principal (application).
-> * View the REST APIs documentation.
-> * Collect the necessary values to use the REST APIs.
-> * Use the Postman client to call the REST APIs.
-> * Generate a .NET client to call the REST APIs.
+In this tutorial, you learn how to use the Azure Purview REST APIs. Anyone who wants to submit data to an Azure Purview, include Purview as part of an automated process, or build their own user experience on the Purview can use the REST APIs to do so.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -71,19 +60,19 @@ its password. Here's how:
 
    :::image type="content" source="./media/tutorial-using-rest-apis/client-secret.png" alt-text="Screenshot showing a client secret.":::
 
-## Configure your catalog to trust the service principal (application)
+## Set up authentication using service principal
 
-To configure Azure Purview to trust your new service principal:
+Once service principal is created, you need to assign Data plane roles of your purview account to the service principal created above. The below steps need to be followed to assign role to establish trust between the service principal and purview account.
 
-1. Navigate to your Purview account
-
-1. On the **Purview account** page, open the **Purview Studio**
-
-1. Select the **Data Map** in the left menu.
-
-1. Select **Collections**
-
+1. Navigate to your Purview Studio.
+1. Select the Data Map in the left menu.
+1. Select Collections.
 1. Select the root collection in the collections menu. This will be the top collection in the list, and will have the same name as your Purview account.
+1. Select the Role assignments tab.
+1. Assign the following roles to service principal created above to access various data planes in Purview.
+    1. 'Data Curator' role to access Catalog Data plane.
+    1. 'Data Source Administrator' role to access Scanning Data plane. 
+    1. 'Collection Admin' role to access Account Data Plane.
 
 1. Select the **Role assignments** tab.
 
@@ -131,36 +120,36 @@ Find and save the following values:
 
 1. Select **/v2/types/typedefs**:
     1. Replace the placeholder in the path with your atlas endpoint value. This value can be obtained by navigating to the catalog instance on Ibiza portal and selecting overview. 
+## Get token
+You can send a POST request to the following URL to get access token.
 
-       The bearer token is set from the first step (or you can copy it in the “Authorization” tab manually).
+https://login.microsoftonline.com/{your-tenant-id}/oauth2/token
 
-    1. Select **Send** to get the response.
+The following parameters needs to be passed to the above URL.
 
-## Generate a .NET client to call the REST APIs
+- **client_id**:  client ID of the application registered in Azure Active directory and is assigned to a data plane role for the Purview account.
+- **client_secret**: client secret created for the above application.
+- **grant_type**: This should be ‘client_credentials’.
+- **resource**: This should be ‘https://purview.azure.net’
+ 
+Sample response token:
 
-### Install AutoRest
+```json
+    {
+        "token_type": "Bearer",
+        "expires_in": "86399",
+        "ext_expires_in": "86399",
+        "expires_on": "1621038348",
+        "not_before": "1620951648",
+        "resource": "https://purview.azure.net",
+        "access_token": "<<access token>>"
+    }
+```
 
+Use the access token above to call the Data plane APIs.
 
-
-1. [Install Node.js](https://github.com/Azure/autorest/blob/v2/docs/installing-autorest.md).
-1. Open PowerShell and run the following command:
-
-   ```powershell
-   npm install -g autorest@V2
-   ```
-
-### Download rest-api-specs.zip and create the client
-
-1. Download [rest-api-specs.zip](https://github.com/Azure/Purview-Samples/raw/master/rest-api/rest-api-specs.zip) and extract its files.
-1. Run the following command in PowerShell from the rest-api-specs extracted folder:
-
-   ```powershell
-   autorest --input-file=data-plane/preview/purviewcatalog.json --csharp --output-folder=PurviewCatalogClient/CSharp --namespace=PurviewCatalog --add-credentials
-   ```
-
-   The output of this process creates a folder PurviewCatalogClient and subfolder CSharp in the rest-api-specs folder.
-
-### Create a sample .NET console application
+## Data Plane API documentation
+Please refer here to see all the Data Plane APIs supported by Purview [Data Plane APIs](https://docs.microsoft.com/rest/api/purview/)
 
 1. Open Visual Studio 2019. These instructions have been tested with the free community edition.
 1. From the **Create a new project** page, create a **Console App (.NET Core)** project in C#.
@@ -173,78 +162,11 @@ Find and save the following values:
 1. Make sure the version is at least 2.3.21, and then select **Install**.
 1. Build and run the application.
 
-The sample code returns a count of how many typedefs are in the catalog and shows how to handle role assignments. For details, see `DoRoleAssignmentOperations()` in the sample code. For more information about the project, see [Project Setup](https://github.com/Azure/autorest/blob/v2/docs/client/proj-setup.md).
-
-### Sample code for the console application
-
-```csharp
-using Microsoft.Rest;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-
-namespace PurviewCatalogSdkTest
-{
-    class Program
-    {
-        private static string accountName = "{account-name}";
-        private static string servicePrincipalId = "{service-principal-id}";
-        private static string servicePrincipalKey = "{service-principal-key}";
-        private static string tenantId = "{tenant-id}";
-
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Azure Purview client");
-
-            // You need to change the api path below (e.g. /api) based on what you're trying to call
-            string baseUri = string.Format("https://{0}.catalog.purview.azure.com/api", accountName);
-
-            // Get token and set auth
-            var svcClientCreds = new TokenCredentials(getToken(), "Bearer");
-            var client = new PurviewCatalog.PurviewCatalogServiceRESTAPIDocument(svcClientCreds);
-            client.BaseUri = new System.Uri(baseUri);
-
-            // /v2/types/typedefs
-            var task = client.TypesREST.GetAllTypeDefsWithHttpMessagesAsync();
-            Console.WriteLine("\nURI:\n" + task.Result.Request.RequestUri);
-            Console.WriteLine("\nStatus Code:\n" + task.Result.Response.StatusCode);
-            Console.WriteLine("\nResult:\n" + JsonConvert.SerializeObject(task.Result.Body, Formatting.Indented));
-        }
-
-        // Replace client_id and client_secret with application ID and password value from service principal
-        private static string getToken()
-        {
-            var values = new Dictionary<string, string>
-
-            // The "resource" could be "https://purview.azure.net" or "73c2949e-da2d-457a-9607-fcc665198967"
-            {
-                { "grant_type", "client_credentials" },
-                { "client_id", servicePrincipalId },
-                { "client_secret", servicePrincipalKey },
-                { "resource", "73c2949e-da2d-457a-9607-fcc665198967" }
-            };
-
-            string authUrl = string.Format("https://login.windows.net/{0}/oauth2/token", tenantId);
-            var content = new FormUrlEncodedContent(values);
-
-            HttpClient authClient = new HttpClient();
-            var bearerResult = authClient.PostAsync(authUrl, content);
-            bearerResult.Wait();
-            var resultContent = bearerResult.Result.Content.ReadAsStringAsync();
-            resultContent.Wait();
-            var bearerToken = JObject.Parse(resultContent.Result)["access_token"].ToString();
-            var svcClientCreds = new TokenCredentials(bearerToken, "Bearer");
-
-            return bearerToken;
-        }
-    }
-}
-```
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Manage data sources](manage-data-sources.md)
+
+
+
+

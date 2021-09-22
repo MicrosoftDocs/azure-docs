@@ -21,7 +21,7 @@ This article will help you understand which Synapse RBAC (role-based access cont
 
 ### Resource management
 
-- You can create SQL pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace.
+- You can create SQL pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace. When using ARM templates for automated deployment, you need to be an Azure Contributor on the resource group.
 - You can pause or scale a dedicated SQL pool, configure a Spark pool or an integration runtime if you're an Azure Owner or Contributor on the workspace or that resource.
 
 ### Viewing and editing code artifacts

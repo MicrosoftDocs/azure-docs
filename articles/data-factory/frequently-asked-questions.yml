@@ -5,6 +5,7 @@ metadata:
   author: ssabat
   ms.author: susabat
   ms.service: data-factory
+  ms.subservice: 
   ms.topic: conceptual
   ms.date: 07/23/2021
     
