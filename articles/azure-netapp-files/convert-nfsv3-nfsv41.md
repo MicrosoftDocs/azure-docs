@@ -35,7 +35,7 @@ This article explains how to convert an NFS volume between NFSv3 and NFSv4.1.
 
 * You cannot convert an NFSv4.1 volume with Kerberos enabled to NFSv3. 
 * You cannot change the NFS version of a dual-protocol volume. 
-* You cannot convert a single-protocol NFS volume to a dual-protocol volume, or vice versa. 
+* You cannot convert a single-protocol NFS volume to a dual-protocol volume, or the other way around. 
 * You cannot convert a source or destination volume in a cross-region replication relationship. 
 
 ## Register the feature 
@@ -60,7 +60,7 @@ You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view
 
 ## Convert from NFSv3 to NFSv4.1
 
-As an example, you might have an NFSv3 volume, but you want to use NFSv4.1 features. You are not using a LDAP integration or plan to use Kerberos for NFSv4.1.  
+In this example, you have an NFSv3 volume, but you want to use NFSv4.1 features. You are not using an LDAP integration or plan to use Kerberos for NFSv4.1.  
 
 This section shows you how to convert the NFSv3 volume to NFSv4.1. 
 
@@ -88,7 +88,10 @@ This section shows you how to convert the NFSv3 volume to NFSv4.1.
 
 ## Convert from NFSv4.1 to NFSv3
 
-As an example, you have an existing NFSv4.1 volume that you want to convert to NFSv3. In this case, the conversion will result in all NFSv4.1 features such as access control lists (ACLs) and file locking becoming unavailable. 
+In this example, you have an existing NFSv4.1 volume that you want to convert to NFSv3.  
+
+> [!NOTE]
+> In this case, the conversion will result in all NFSv4.1 features such as access control lists (ACLs) and file locking becoming unavailable. 
 
 This section shows you how to convert the NFSv4.1 volume to NFSv3.
 
