@@ -25,7 +25,6 @@ In this article, you learn about:
 > * Endpoints
 > * Deployments
 > * Managed online endpoints
-> * Azure Kubernetes Service (AKS) online endpoints
 > * Batch inference endpoints
 
 ## What are endpoints and deployments (preview)?
@@ -91,7 +90,7 @@ Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-
 
 All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
 
-However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpoints-preview) also include out-of-box integration with Azure Logs and Azure Metrics.
+However [managed online endpoints](#managed-online-endpoints-preview-vs-aks-web-service) also include out-of-box integration with Azure Logs and Azure Metrics.
 
 ### Security
 
@@ -115,25 +114,25 @@ Securing managed online/batch endpoints requires minimal effort compared to the 
 
  You can further allow individual online/batch endpoints to have public internet access if you want a particular endpoint to be accessible from the public as well as from your VNet.
 
-## Managed online endpoints vs AKS online endpoints (preview)
+## Managed online endpoints (preview) vs AKS web service
 
-There are two types of online endpoints: **managed online endpoints** (preview) and **AKS online endpoints** (preview). The following table highlights some of their key differences.
+The following table highlights some of the key differences between: **Managed online endpoints** (preview) and **AKS web service**
 
-|  | Managed online endpoints | AKS online endpoints |
+|  | Managed online endpoints | [AKS web service](how-to-deploy-azure-kubernetes-service.md) |
 |-|-|-|
 | **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Azure Kubernetes Service (AKS) and can self-manage infrastructure requirements |
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
-| **Compute type** | Managed (AmlCompute) | AKS |
+| **Compute type** | Managed (AmlCompute) | [AKS](how-to-create-attach-kubernetes.md) |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
 | **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Manual setup at the cluster level |
 | **Application Insights** | Supported | Supported |
-| **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Not supported |
-| **Virtual Network (VNET)** | Not supported (public preview) | Manually configure at cluster level |
+| **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | [Use Azure AD identity in AKS deployments](how-to-use-azure-ad-identity.md) |
+| **Virtual Network (VNET)** | Not supported (public preview) | [Manually configure at cluster level](how-to-secure-inferencing-vnet.md#azure-kubernetes-service) |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
 
 ### Managed online endpoints
 
-Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits over AKS online endpoints:
+Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits over AKS web service:
 
 - Managed infrastructure
     - Automatically provisions the compute and hosts the model (you just need to specify the VM type and scale settings) 
