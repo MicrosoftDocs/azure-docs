@@ -1,51 +1,105 @@
 ---
 title: Protocols supported by Azure Defender for IoT
-description: Learn about all of the protocols that are supported by Azure Defender for IoT.
-ms.date: 09/09/2021
+description: Learn about protocols that are supported by Azure Defender for IoT.
+ms.date: 09/20/2021
 ms.topic: article
 ---
 
 # Support for IoT, OT, ICS, and SCADA protocols
 
-Azure Defender for IoT provides an open and interoperable Operation Technology (OT) cybersecurity platform. Defender for IoT is deployed in many different locations, and reduces IoT, IT, and ICS risk with deployments in demanding, and complex OT environments across all industry verticals, and geographies.
+Azure Defender for IoT provides an open and interoperable Operation Technology (OT) cybersecurity platform. Defender for IoT is deployed in many different locations and reduces IoT, IT, and ICS risk with deployments in demanding, and complex OT environments across all industry verticals and geographies.
 
 ## Supported protocols
 
-Azure Defender for IoT supports a broad range of protocols across a diverse enterprise, and includes industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments. For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plug-ins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. The complete list of supported protocols is listed in the table below.
+Azure Defender for IoT supports a broad range of protocols across a diverse enterprise, and includes industrial automation equipment across all industrial sectors, enterprise networks, and building management system (BMS) environments. For custom or proprietary protocols, Microsoft offers an SDK that makes it easy to develop, test, and deploy custom protocol dissectors as plugins. The SDK does all this without divulging proprietary information, such as how the protocols are designed, or by sharing PCAPs that may contain sensitive information. Supported protocols are listed below.
 
-| Supported Protocols | | | |
-|--|--|--|--|
-| AMS (Beckhoff) | GOOSE (IoT/OT) | PCCC (Rockwell) | VLAN (Generic) |
-| ARP (Generic) | Honeywell Experion (Honeywell) | PCS7 (Siemens) | Wonderware Suitelink (Schneider Electric/Wonderware) |
-| HL7 (Generic) | Profinet DCP (Siemens/Generic) | Yokogawa HIS Equalize (Yokogawa) |
-| ASTM (Generic) | ICMP (Generic) | Profinet Realtime (Siemens/Generic) | |
-| BACnet (IoT/OT) | IEC 60870 (IEC104/101) (IoT/OT) | RPC (Generic) | |
-| BeckhoffTwincat (Beckhoff) | IPv4 (Generic) | Yokogawa VNet/IP (Yokogawa) | |
-| Bently Nevada (Baker Hughes) | IPv6 (Generic) | Schneider ElectricTelvent (OASyS) (Schneider Electric) | |
-| CAMP (Siemens) | ISO Industrial Protocol (IoT/OT) | Schneider Electric/ Invensys /TriStation / Foxboro I/A / Foxboro EVO | |
-| CAPWAP (Generic) | LLC (Generic) | Siemens PHD (Siemens) | |
-| CDP (Cisco) | LLDP (Generic) | Siemens S7 (Siemens) | |
-| CITECTSCADA ODBC SERVICE (Citect) | Lontalk (IoT/OT) | Siemens S7-Plus (Siemens) | |
-| Codesys V3 (Generic) | Mitsubishi Melsec/Melsoft (Mitsubishi) | Siemens SICAM (Siemens) |
-| MMS (including ABB extension) (ABB / Generic) | Siemens WinCC (Siemens) |
-| DNP3 (IoT/OT) | Modbus over CIP (Rockwell) | SMB / Browse / NBDGM (Generic) | |
-| DNS (Generic) | Modbus RTU (IoT/OT) | SMV (SAMPLED-VALUES) (IoT/OT) |
-| Emerson DeltaV (Emerson) | Modbus Schneider Electric extensions / Unity (Schneider Electric) | SSH (Generic) | |
-| Emerson OpenBSI/BSAP (Emerson) | Modbus TCP (IoT/OT) | STP (Generic) | |
-| Emerson Ovation (Emerson) | MQTT (IoT/OT) | Syslog (Generic) | |
-| Emerson/Fisher ROC (Emerson) | NBNS (Generic) | TCP (Generic) | |
-| EtherNet/IP CIP (including Rockwell extension) (Rockwell) | netbios (Generic) | TDS (Oracle) | |
-| Euromap 63 (IoT/OT) | NTLM (Generic) | TNS (Oracle) | |
-| GE EGD (GE) | Omron FINS (Omron) | Toshiba Computer Link (Toshiba) | |
-| GE-SRTP (GE) | UDP (Generic) | |
+### Supported protocols (passive monitoring)
 
-Horizon community protocol dissectors and proprietary protocol dissectors developed by customers are also supported. See [Horizon proprietary protocol dissector](references-horizon-sdk.md) for details.
+This section lists protocols that are detected using passive monitoring.
 
-## Quickly add support for proprietary restricted protocols
+**ABB:** IEC61850 MMS (including ABB extension)
 
-The Industrial Internet of Things (IIoT) unlocks new levels of productivity. These in turn help organizations improve security, increase output, and maximize revenue. Digitalization is driving deployment of billions of IoT devices, and increases the connectivity between IT, and OT networks. This increase in connectivity increases the attack surface, and allows for a greater risk of dangerous cyberattacks on industrial control systems.
+**ASHRAE:** BACnet, BACnet BACapp, BACnet BVLC
 
-The Horizon Protocol SDK allows quick support for 100% of the protocols used in IoT, and ICS environments. Custom, or proprietary protocols can be limited so that they are not able to be shared outside your organization. Either due to regulations, or corporate policies. The Horizon SDK allows you to write plug-ins that enable Deep Packet Inspection (DPI) on the traffic, and detect threats in real time. The Horizon SDK makes extra customizations possible as well. For example, the Horizon SDK enables asset vendors, partners, or platform owners to localize and customize the text for alerts, events, and protocol parameters.
+**Beckhoff:** AMS (ADS), Twincat 
+
+**Cisco:** CAPWAP Control, CAPWAP Data, CDP,  LWAPP
+
+**DNP. org :**  DNP3
+
+**Emerson:** DeltaV, Emerson OpenBSI/BSAP, Ovation DCS ADMD,Ovation DCS DPUSTAT, Ovation DCS SSRPC
+
+**Emerson Fischer:**  ROC
+
+**Eurocontrol:** ASTERIX
+
+**GE:**  Bentley Nevada (System 1),  EGD,  GSM (GE MarkVI and MarkVIe),  SRTP (GE)
+
+**Honeywell:** ENAP, Experion DCS CDA, Experion DCS FDA
+
+**IEC:** Codesys V3, ICCP TASE.2/IEC-60870, IEC60870-5 (IEC104/101), IEC60870-5-103 (encapsulated serial), IEC61850 GOOSE, IEC61850 MMS, IEC61850 SMV (SAMPLED-VALUES), LonTalk (LonWorks)
+
+**IEEE**: LLC, STP, VLAN
+
+**IETF:** ARP, DCE RPC, DNS, FTP (FTP_ADAT, FTP_DATA), GSSAPI (RFC2743), HTTP, ICMP, IPv4, IPv6, LLDP, MDNS, NBNS, NTLM (NTLMSSP Auth Protocol), RPC, SMB / Browse / NBDGM, SMB / CIFS, SNMP, SPNEGO (RFC4178), SSH, Syslog, Telnet, TFTP, TPKT, UDP
+
+**ISO:** CLNP (ISO 8473), COTP (ISO 8073), ISO Industrial Protocol,  MQTT (IEC 20922)
+
+**Medical:** ASTM, HL7
+
+**Microsoft:** Horizon community dissectors, Horizon proprietary dissectors (developed by customers). See [Horizon proprietary protocol dissector](references-horizon-sdk.md) for details.
+
+**Mitsubishi:** Melsoft / Melsec (Mitsubishi Electric)
+
+**Omron:** FINS
+
+**Oracle:** TDS, TNS
+
+**Rockwell Automation:** ENIP, EtherNet/IP CIP (including Rockwell extension), EtherNet/IP CIP FW version 27 and above
+
+**Schneider Electric:** Modbus/TCP, Modbus TCP–Schneider Unity Extensions, OASYS (Schneider Electric Telvant) 
+
+**Schneider Electric / Invensys:** Foxboro Evo, Foxboro I/A, Trident, TriGP, TriStation
+
+**Schneider Electric / Modicon:** Modbus RTU
+
+**Schneider Electric / Wonderware:** Wonderware Suitelink
+
+**Siemens:** CAMP, PCS7, PCS7 WinCC – Historian, Profinet DCP, Profinet Realtime, Siemens PHD, Siemens S7, Siemens S7-Plus, Siemens S7-Plus, Siemens SICAM, Siemens WinCC
+
+**Toshiba:** Toshiba Computer Link
+
+**Yokogawa:** Centum ODEQ (Centum / ProSafe DCS), HIS Equalize, Vnet/IP
+
+### Supported protocols (active monitoring)
+
+This section lists protocols that are detected using active probing, for example ping sweeps and queries.
+
+**IETF:** Ping Sweep, SNMP Network Layout Query, SNMP Query
+
+**Microsoft:**  Windows WMI Query (req. WMI/WinRM): hardware, BIOS, version, software, patches
+
+**Rockwell Automation:**  ENIP Query, ENIP Scan,  EtherNet/IP CIP (CIP Query)
+
+**Siemens:** Siemens S7
+
+## Quickly add support for proprietary, restricted protocols
+
+Digitization is driving deployment of billions of IoT devices followed by a significant increase in connectivity between IT and OT networks. This means attack surfaces are growing, including a greater risk of dangerous cyber attacks on industrial control systems.
+
+To help reduce the attack surface, the Horizon Protocol SDK allows quick, secure support of any protocol used in IoT and ICS environments.
+
+Horizon provides the following solutions for customers and technology partners:
+
+- Unlimited, full support for common, proprietary, custom protocols or protocols that deviate from any standard.
+
+- A new level of flexibility and scope for DPI development.
+
+- A tool that exponentially expands OT visibility and control, without the need to upgrade Defender for IoT platform versions.
+
+- The security of allowing proprietary development without divulging sensitive information.
+
+The Horizon SDK lets you write plugins that enable Deep Packet Inspection (DPI) on the traffic and detect threats in real time. The Horizon SDK makes extra customizations possible as well. For example, the Horizon SDK enables asset vendors, partners, or platform owners to localize and customize the text for alerts, events, and protocol parameters.
 
 [![The Horizon SDK allows quick support for 100% of the protocols used in IoT, and ICS environments.](media/concept-supported-protocols/sdk-horizon.png)](media/concept-supported-protocols/sdk-horizon-expanded.png#lightbox)
 

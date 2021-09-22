@@ -875,23 +875,13 @@ items:
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Optimize performance
-      items:
-      - name: Performance optimization overview
-        href: data-lake-storage-performance-tuning-guidance.md
-      - name: Optimize Spark on HDInsight
-        href: data-lake-storage-performance-tuning-spark.md
-      - name: Optimize Hive on HDInsight
-        href: data-lake-storage-performance-tuning-hive.md
-      - name: Optimize MapReduce on HDInsight
-        href: data-lake-storage-performance-tuning-mapreduce.md
-      - name: Optimize Storm on HDInsight
-        href: data-lake-storage-performance-tuning-storm.md
+      href: data-lake-storage-performance-tuning-guidance.md
   - name: Reference
     items:
     - name: .NET
       href: /dotnet/api/azure.storage.files.datalake
     - name: Java
-      href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html
+      href: https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme
     - name: Python
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
     - name: JavaScript

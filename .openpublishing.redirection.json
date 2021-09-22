@@ -6324,6 +6324,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-spark.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-hive.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-mapreduce.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-storm.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
       "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
       "redirect_document_id": false
@@ -14424,6 +14444,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-ssh.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/bastion/working-remotely-support.md",
       "redirect_url": "/azure/bastion/work-remotely-support",
       "redirect_document_id": false
@@ -16684,6 +16714,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-fortinet.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-fortinet",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-palo-alto.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-palo-alto",
       "redirect_document_id": false
@@ -18111,6 +18146,11 @@
     {
       "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
       "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/protect-windows-virtual-desktop.md",
+      "redirect_url": "/azure/firewall/protect-azure-virtual-desktop",
       "redirect_document_id": false
     },
     {
@@ -29251,6 +29291,21 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-storage-explorer.md",
+      "redirect_url": "/azure/vs-azure-tools-storage-explorer-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-cli.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
       "redirect_document_id": false
     },
     {
@@ -45418,7 +45473,7 @@
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
@@ -56076,7 +56131,7 @@
     },
     {
       "source_path": "articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
       "redirect_document_id": false
     },
     {
@@ -57100,6 +57155,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/sso-options.md",
+      "redirect_url": "/azure/active-directory/manage-apps/plan-sso-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/configure-oidc-single-sign-on.md",
+      "redirect_url": "/azure/active-directory/develop/active-directory-v2-protocols",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/configure-saml-single-sign-on.md",
+      "redirect_url": "/azure/active-directory/develop/single-sign-on-saml-protocol",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/governance/policy/how-to/guestconfiguration-create-linux.md",
       "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
       "redirect_document_id": false
@@ -57198,10 +57268,11 @@
       "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
       "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-deploy-add-on.md",
+      "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
+      "redirect_document_id": false
     }
   ]
 }
-
-
-
- 

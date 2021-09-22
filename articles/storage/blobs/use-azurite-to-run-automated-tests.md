@@ -31,7 +31,7 @@ Learn how to write automated tests against private endpoints for Azure Blob Stor
    npm install -g azurite
    
    # Create an Azurite directory
-   mkdir c:/azurite
+   mkdir c:\azurite
    
    # Launch Azurite locally
    azurite --silent --location c:\azurite --debug c:\azurite\debug.log

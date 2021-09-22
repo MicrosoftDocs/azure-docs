@@ -170,7 +170,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
 |Parameter  |Definition  |
 |---------|---------|
-|**Keysize**  | Specifies operations that can be performed by using the key. If you do not specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**keyOps**  | Specifies operations that can be performed by using the key. If you do not specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
 |**CurveName**  |  Elliptic curve name for EC key type. See [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename) |
 |**Kty**  |  The type of key to create. For valid values, see [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype) |
 |**Tags** | Application specific metadata in the form of key-value pairs.  |
