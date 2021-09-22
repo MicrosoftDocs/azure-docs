@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Create a virtual machine with a static private IP address using the Azure portal
 
-A virtual machine (VM) is automatically assigned a private IP address from a range that you specify, based on the subnet in which the VM is deployed. The VM retains the address until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. If you want a specific IP address from the subnet assigned to the VM, assign a static IP address.
+A virtual machine (VM) is automatically assigned a private IP address from a range that you specify. This range is based on the subnet in which the VM is deployed. The VM keeps the address until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. Assign a static IP address to the VM if you want a specific IP address in the subnet.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ A virtual machine (VM) is automatically assigned a private IP address from a ran
 
 ## Create virtual machine
 
-An Azure virtual machine can have a static or dynamic private IP address. Use the following steps to create a virtual machine, virtual network, and subnet.
+Use the following steps to create a virtual machine, virtual network, and subnet.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -45,7 +45,7 @@ An Azure virtual machine can have a static or dynamic private IP address. Use th
     | **Administrator account** |   |
     | Username | Enter a username. |
     | Password | Enter a password. |
-    | Confirm password | Re-enter password. |
+    | Confirm password | Reenter password. |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **RDP (3389)** |
 
@@ -84,7 +84,7 @@ In this section, you'll change the private IP address from **dynamic** to **stat
 
 3. Select **Networking** in **Settings** in **myVM**.
 
-4. In **Networking**, select the name of the network interface next to **Network interface**. In this example the name of the NIC is **myvm472**.
+4. In **Networking**, select the name of the network interface next to **Network interface**. In this example, the name of the NIC is **myvm472**.
 
     :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-nic.png" alt-text="Screenshot of select network interface.":::
 
