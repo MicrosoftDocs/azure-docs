@@ -33,7 +33,7 @@ landingContent:
           - text: Azure Public IP address prefix
             url: public-ip-address-prefix.md
           - text: Private IP addresses in Azure
-            url: private-ip-address.md
+            url: private-ip-addresses.md
 
   # Card (optional)
   - title: Get started
@@ -41,7 +41,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a public IP address
-            url: create-public-ip.md
+            url: create-public-ip-portal.md
           - text: Create a public IP address prefix
             url: create-public-ip-prefix-portal.md
       - linkListType: tutorial
@@ -63,13 +63,13 @@ landingContent:
           - text: Create, change, or delete an Azure public IP address prefix
             url: manage-public-ip-address-prefix.md
           - text: What is IPv6 for Azure Virtual Network?
-            url: ip6-overview.md    
+            url: ipv6-overview.md    
       - linkListType: how-to-guide
         links:
           - text: Configure routing preference for a public IP address
             url: routing-preference-portal.md
           - text: Upgrade a public IP address
-            url: tutorial-nat-gateway-load-balancer-internal-portal.md
+            url: public-ip-upgrade-portal.md
           - text: Migrate a classic reserved IP address to a public IP address
             url: public-ip-upgrade-classic.md
 
