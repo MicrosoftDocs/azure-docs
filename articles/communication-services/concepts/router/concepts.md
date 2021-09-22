@@ -50,4 +50,4 @@ Azure Communication Services Router applies flexible Policies to attach dynamic 
 
 ## Next Steps
 
-- [Quickstart guide](../../quickstarts/router/getting-started-with-router.md)
+- [Quickstart guide](../../quickstarts/router/get-started-router.md)

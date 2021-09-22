@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Create a Job Router Client
+title: Quickstart - Submit a Job for queuing and routing
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to create a Job Router client within your Azure Communication Services resource.
+description: In this quickstart, you'll learn how to create a Job Router client, Distribution Policy, Queue, and Job within your Azure Communication Services resource.
 author: jasonshave
 manager: phans
 services: azure-communication-services
@@ -11,11 +11,11 @@ ms.date: 10/18/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
-# Quickstart: Submit a Job for queuing and routing
+# Quickstart: Submit a job for queuing and routing
 
 [!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
-Get started with Azure Communication Services Job Router by setting up your client so you can begin to configure core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
+Get started with Azure Communication Services Job Router by setting up your client. Then can configure core functionality such as queues, policies, workers, and Jobs. To learn more about Job Router concepts, visit [Job Router conceptual documentation](../../concepts/router/concepts.md)
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ var connectionString = "your_connection_string";
 var client = new JobRouterClient(connectionString);
 ```
 
-## Create a Distribution Policy
+## Create a distribution policy
 
 Job Router uses a distribution policy to decide how Workers will be notified of available Jobs and the time to live for the notifications, known as **Offers**. Create the policy by specifying the **ID**, a **name**, an **offerTTL**, and a distribution **mode**.
 
@@ -87,9 +87,9 @@ var distributionPolicy = await client.SetDistributionPolicyAsync(
 );
 ```
 
-## Create a Queue
+## Create a queue
 
-Job Router's ability to queue Jobs requires the definition of a Queue, which in turn requires a Distribution Policy. Provide the Distribution Policy object's ID you created above when defining the Queue.
+Job Router's ability to queue Jobs requires the definition of a Queue, which requires a Distribution Policy. Provide the Distribution Policy object's ID you created above when defining the Queue.
 
 ```csharp
 var queue = await client.SetQueueAsync(
@@ -99,7 +99,7 @@ var queue = await client.SetQueueAsync(
 );
 ```
 
-## Submit a Job
+## Submit a job
 The quickest way to get started is to specify the ID of the Queue, the priority, and worker requirements when submitting a Job. In the example below, a Job will be submitted directly to the **XBOX Queue** where the workers in that queue require a `Location` label matching the name `Edmonton`.
 
 ```csharp
@@ -117,8 +117,8 @@ var job = await client.CreateJobAsync(
     });
 ```
 
-## Register a Worker
-Register a Worker by referencing the Queue ID created previously along with a capacity value, labels, and channel configuration. This will ensure the `EdmontonWorker` is assigned to the `XBOX_Queue`
+## Register a worker
+Register a Worker by referencing the Queue ID created previously along with a capacity value, labels, and channel configuration to ensure the `EdmontonWorker` is assigned to the `XBOX_Queue`
 
 ```csharp
 var edmontonWorker = await client.RegisterWorkerAsync(
@@ -138,7 +138,7 @@ var edmontonWorker = await client.RegisterWorkerAsync(
 );
 ```
 
-## Query the Worker to observe the Job Offer
+## Query the worker to observe the job offer
 Use the Job Router client connection to query the Worker and observe the ID of the Job against the ID 
 
 ```csharp
@@ -161,4 +161,4 @@ Job 6b83c5ad-5a92-4aa8-b986-3989c791be91 offered to EdmontonWorker should match 
 ```
 
 > [!NOTE]
-> Running the application more than once will cause a new Job to be placed in the queue each time. This can cause the Worker to be offered a Job other than the one created which can skew your results. For instructions on removing Jobs in a queue, refer to the SDK documentation.
+> Running the application more than once will cause a new Job to be placed in the queue each time. This can cause the Worker to be offered a Job other than the one created when you run the above code. Since this can skew your request, considering removing Jobs in the queue each time. Refer to the SDK documentation for managing a Queue or a Job.
