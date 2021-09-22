@@ -25,7 +25,7 @@ If you do not already have the required license, you can sign up for a trial of 
 The following steps extend your sensitivity labels and enable them to be available for use in Azure Purview, where you can apply sensitivity labels to files and schematized data assets.
 
 1. In Microsoft 365, navigate to the **Information Protection** page.</br>
-   If you've just provisioned your subscription for Information Protection, it may take a few hours for the **Information Protection** page to display.
+   If you've recently provisioned your subscription for Information Protection, it may take a few hours for the **Information Protection** page to display.
 1. In the **Extend labeling to assets in Azure Purview** area, select the **Turn on** button, and then select **Yes** in the confirmation dialog that appears.
 
 For example:
@@ -53,10 +53,10 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
 1. Follow the rest of the prompts to configure the label settings.
 
-    Specifically, define auto-labeling rules for files and schematized data assets:
+    Specifically, define autolabeling rules for files and schematized data assets:
 
-    - [Define auto-labeling rules for files](#auto-labeling-for-files)
-    - [Define auto-labeling rules for schematized data assets](#auto-labeling-for-schematized-data)
+    - [Define autolabeling rules for files](#auto-labeling-for-files)
+    - [Define autolabeling rules for schematized data assets](#auto-labeling-for-schematized-data)
 
     For more information about configuration options, see [What sensitivity labels can do](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) in the Microsoft 365 documentation.
 
@@ -76,9 +76,9 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
     For more information, see [Label priority (order matters)](/microsoft-365/compliance/sensitivity-labels#label-priority-order-matters) in the Microsoft 365 documentation.
 
-#### Auto-labeling for files
+#### Autolabeling for files
 
-Define auto-labeling rules for files when you create or edit your label.
+Define autolabeling rules for files when you create or edit your label.
 
 On the **Auto-labeling for Office apps** page, enable **Auto-labeling for Office apps,** and then define the conditions where you want your label to be automatically applied to your data.
 
@@ -88,9 +88,9 @@ For example:
 
 For more information, see [Apply a sensitivity label to data automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) in the Microsoft 365 documentation.
 
-#### Auto-labeling for schematized data
+#### Autolabeling for schematized data
 
-Define auto-labeling rules for schematized data assets when you create or edit your label.
+Define autolabeling rules for schematized data assets when you create or edit your label.
 
 Under the **schematized data assets** option:
 
@@ -104,11 +104,11 @@ For example:
 
 ### Step 4: Publish labels
 
-Once you create a label, you will need to Scan your data in Azure Purview to automatically apply the labels you've created, based on the auto-labeling rules you've defined.
+Once you create a label, you will need to Scan your data in Azure Purview to automatically apply the labels you've created, based on the autolabeling rules you've defined.
 
 ## Scan your data to apply sensitivity labels automatically
 
-Scan your data in Azure Purview to automatically apply the labels you've created, based on the auto-labeling rules you've defined. Allow up to 24 hours for sensitivity label changes to reflect in Purview.
+Scan your data in Azure Purview to automatically apply the labels you've created, based on the autolabeling rules you've defined. Allow up to 24 hours for sensitivity label changes to reflect in Purview.
 
 For more information on how to set up scans on various assets in Azure Purview, see:
 
@@ -120,7 +120,7 @@ For more information on how to set up scans on various assets in Azure Purview, 
 
 ## View labels on assets in the catalog
 
-Once you've defined auto-labeling rules for your labels in Microsoft 365 and scanned your data in Azure Purview, labels are automatically applied to your assets.
+Once you've defined autolabeling rules for your labels in Microsoft 365 and scanned your data in Azure Purview, labels are automatically applied to your assets.
 
 **To view the labels applied to your assets in the Azure Purview Catalog:**
 
