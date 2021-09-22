@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/15/2021
 ms.author: b-juche
 ---
 # Restore a backup to a new volume
@@ -53,6 +53,7 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 ## Next steps  
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
+* [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure policy-based backups](backup-configure-policy-based.md)
 * [Configure manual backups](backup-configure-manual.md)

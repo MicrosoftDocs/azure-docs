@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/15/2021
 ms.author: b-juche
 ---
 # Delete backups of a volume 
@@ -33,6 +33,7 @@ You cannot delete the latest backup.
 ## Next steps  
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
+* [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure policy-based backups](backup-configure-policy-based.md)
 * [Configure manual backups](backup-configure-manual.md)
