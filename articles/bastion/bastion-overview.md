@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal
 
