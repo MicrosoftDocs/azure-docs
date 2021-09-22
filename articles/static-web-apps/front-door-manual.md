@@ -130,7 +130,7 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
     ```json
     "forwardingGateway": {
       "requiredHeaders": {
-        "X-Azure-FDID" : "96968057-d62e-41ba-bd85-6cf1bfe0570f"
+        "X-Azure-FDID" : "<YOUR-FRONT-DOOR-ID>"
       },
       "allowedForwardedHosts": [
         "my-sitename.azurefd.net"
@@ -138,15 +138,15 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
     }
     ```
 
-    First, configure your app to only allow traffic from your Front Door instance. Traffic is restricted by adding the `requiredHeaders` section, and defining the `X-Azure-FDID` header. The value for this header is the *Front Door ID* you set aside earlier. By adding this section, all requests to your site are required to include this header, which restricts traffic exclusively through Front Door.
+    First, configure your app to only allow traffic from your Front Door instance. Traffic is restricted by adding the `requiredHeaders` section, and defining the `X-Azure-FDID` header. The replace `<YOUR-FRONT-DOOR-ID>` with the *Front Door ID* you set aside earlier. By adding this section, all requests to your site are required to include the `X-Azure-FDID` header, which restricts traffic exclusively through Front Door.
 
     Next, add the Azure Front Door URL (not the Azure Static Web Apps URL) into the `allowedForwardedHosts` array. If you have custom domains configured in your Front Door instance, also include them in this list.
 
-    In this example, you would replace `my-sitename.azurefd.net` with the Azure Front Door URL for your site.
+    In this example, replace `my-sitename.azurefd.net` with the Azure Front Door URL for your site.
 
 With Azure Front Door enabled, your site is no longer available via the generated `*.azurestaticapps.net` URL, but exclusively through the Front Door `*.azurefd.net` URL.
 
-Now that Front Door is managing your site, you no long use the Azure Static Web Apps custom domain feature. Azure Front Door has a separate process that you use for adding a custom domain. For information on configuring a custom domain in Azure Front Door, refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md).
+Now that Front Door is managing your site, you no long use the Azure Static Web Apps custom domain feature. Azure Front Door has a separate process for adding a custom domain. Refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md).
 
 ## Next steps
 
