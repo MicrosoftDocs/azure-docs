@@ -63,9 +63,11 @@ Any changes to the `containers` section triggers a new [container app revision](
 
 ## Multiple containers
 
-You can define multiple containers in a single container app. Containers in the same container app share hard disk and network resources, and run in a semi-isolated network.
+You can define multiple containers in a single container app. Containers in the same container app share hard disk, network resources, and run in a semi-isolated network.
 
-Reasons to group containers together include:
+You run multiple containers together by defining more than one container in the configuration's `containers` array.
+
+Reasons to run containers together include:
 
 - Share scale rules among containers.
 - Enable direct communication via server addresses and ports on the same network.
@@ -78,7 +80,7 @@ Reasons to separate containers include:
 
 ## Using a container registry
 
-To use a container registry, you first define add the required fields to the `registries` section.
+To use a container registry, you first define the required fields to the configuration's `registries` section.
 
 ```json
 {
@@ -91,7 +93,7 @@ To use a container registry, you first define add the required fields to the `re
 }
 ```
 
-With this set up, the saved credentials are used when you reference a container image in the `image` property of the `containers` array.
+With this set up, the saved credentials are used when you reference a container image in an `image` in the `containers` array.
 
 ## Private Registries
 
