@@ -12,13 +12,12 @@ ms.date: 06/30/2020
 This article provides an overview of the options that are available for setting up Container insights to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
-- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versions 3.x and 4.x  
-- [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
-- An [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
+- [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
+   - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
+   - [AKS engine](https://github.com/Azure/aks-engine)
+   - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  
+   - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
 
-You can also monitor the performance of workloads that are deployed to self-managed Kubernetes clusters hosted on:
-- Azure, by using the [AKS engine](https://github.com/Azure/aks-engine)
-- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises, by using the AKS engine.
 
 You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using any of the following supported methods:
 
@@ -26,6 +25,8 @@ You can enable Container insights for a new deployment or for one or more existi
 - Azure PowerShell
 - The Azure CLI
 - [Terraform and AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
+
+For any non-AKS kubernetes cluster, you will need to first connect your cluster to [Azure Arc](../../azure-arc/kubernetes/overview.md) before enabling monitoring.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
