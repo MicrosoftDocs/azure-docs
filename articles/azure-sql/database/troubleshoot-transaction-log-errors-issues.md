@@ -10,7 +10,7 @@ ms.custom:
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
-ms.date: 06/02/2021
+ms.date: 07/23/2021
 ---
 
 # Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance
@@ -45,13 +45,13 @@ The following values of `log_reuse_wait_desc` in `sys.databases` may indicate th
 
 | log_reuse_wait_desc | Diagnosis | Response required |
 |--|--|--|
-| **Nothing** | Typical state. There is nothing blocking the log from truncating. | No. |
-| **Checkpoint** | A checkpoint is needed for log truncation. Rare. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
-| **Log Backup** | A log backup is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
-| **Active backup or restore** | A database backup is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
-| **Active transaction** | An ongoing transaction is preventing log truncation. | The log file cannot be truncated due to active and/or uncommitted transactions. See next section.| 
+| **NOTHING** | Typical state. There is nothing blocking the log from truncating. | No. |
+| **CHECKPOINT** | A checkpoint is needed for log truncation. Rare. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
+| **LOG BACKUP** | A log backup is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
+| **ACTIVE BACKUP OR RESTORE** | A database backup is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
+| **ACTIVE TRANSACTION** | An ongoing transaction is preventing log truncation. | The log file cannot be truncated due to active and/or uncommitted transactions. See next section.| 
+| **REPLICATION** | In Azure SQL Database, likely due to [change data capture (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) feature.<BR>In Azure SQL Managed Instance, due to [replication](../managed-instance/replication-transactional-overview.md) or CDC. | In Azure SQL Database, query [sys.dm_cdc_errors](/sql/relational-databases/system-dynamic-management-views/change-data-capture-sys-dm-cdc-errors) and resolve errors. If unresolvable, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support).<BR>In Azure SQL Managed Instance, if sustained, investigate agents involved with CDC or replication. For troubleshooting CDC, query jobs in [msdb.dbo.cdc_jobs](/sql/relational-databases/system-tables/dbo-cdc-jobs-transact-sql). If not present, add via [sys.sp_cdc_add_job](/sql/relational-databases/system-stored-procedures/sys-sp-cdc-add-job-transact-sql). For replication, consider [Troubleshooting transactional replication](/sql/relational-databases/replication/troubleshoot-tran-repl-errors). If unresolvable, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
 | **AVAILABILITY_REPLICA** | Synchronization to the secondary replica is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
-
 
 ### Log truncation prevented by an active transaction
 

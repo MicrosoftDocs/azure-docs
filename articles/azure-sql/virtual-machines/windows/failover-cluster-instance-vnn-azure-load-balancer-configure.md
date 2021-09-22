@@ -73,7 +73,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI.
+1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI. Only add the primary IP address of each VM, do not add any secondary IP addresses. 
 
 1. Select **OK** to create the backend pool.
 

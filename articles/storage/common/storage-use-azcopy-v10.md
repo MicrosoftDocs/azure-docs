@@ -134,6 +134,9 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy remove](storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json)|Delete blobs or files from an Azure storage account.|
 |[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|Replicates the source location to the destination location.|
 
+> [!NOTE]
+> AzCopy does not have a command to rename files. 
+
 ## Use in a script
 
 #### Obtain a static download link

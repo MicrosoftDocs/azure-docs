@@ -45,9 +45,6 @@ Classic storage accounts do not support firewalls and virtual networks.
 
 You can use unmanaged disks in storage accounts with network rules applied to back up and restore VMs by creating an exception. This process is documented in the [Manage Exceptions](#manage-exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
 
-> [!IMPORTANT] 
-> If you delete subnet that has been included in a network rule, make sure to remove that subnet from the network rule. Otherwise, if you create a subnet by the same name, you won't be able to use that subnet in the network rules of any storage accounts. 
-
 ## Change the default network access rule
 
 By default, storage accounts accept connections from clients on any network. To limit access to selected networks, you must first change the default action.
@@ -123,6 +120,9 @@ You can configure storage accounts to allow access only from specific subnets. T
 Enable a [Service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the VNet. The service endpoint routes traffic from the VNet through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
 Each storage account supports up to 200 virtual network rules, which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
+
+> [!IMPORTANT] 
+> If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the storage account. If you create a new subnet by the same name, it will not have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
 
 ### Available virtual network regions
 
@@ -373,9 +373,9 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 ## Grant access from Azure resource instances (preview)
 
-In some cases, an application might depend on Azure resources that cannot be isolated through a virtual network or an IP address rule. However, you'd still like to secure and restrict storage account access to only your application's Azure resources. You can configure storage accounts to allow access to specific resource instances of some Azure services by creating a resource instance rule. 
+In some cases, an application might depend on Azure resources that cannot be isolated through a virtual network or an IP address rule. However, you'd still like to secure and restrict storage account access to only your application's Azure resources. You can configure storage accounts to allow access to specific resource instances of some Azure services by creating a resource instance rule.
 
-The types of operations that a resource instance can perform on storage account data is determined by the [Azure role assignments](storage-auth-aad.md#assign-azure-roles-for-access-rights) of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
+The types of operations that a resource instance can perform on storage account data is determined by the Azure role assignments of the resource instance. Resource instances must be from the same tenant as your storage account, but they can belong to any subscription in the tenant.
 
 > [!NOTE]
 > This feature is in public preview and is available in all public cloud regions.
@@ -581,9 +581,9 @@ Resources of some services, **when registered in your subscription**, can access
 
 ### Trusted access based on system-assigned managed identity
 
-The following table lists services that can have access to your storage account data if the resource instances of those services are given the appropriate permission. 
+The following table lists services that can have access to your storage account data if the resource instances of those services are given the appropriate permission.
 
-If your account does not have the hierarchical namespace feature enabled on it, you can grant permission, by explicitly [assigning an Azure role](storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity. 
+If your account does not have the hierarchical namespace feature enabled on it, you can grant permission, by explicitly assigning an Azure role to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for each resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 
 You can use the same technique for an account that has the hierarchical namespace feature enable on it. However, you don't have to assign an Azure role if you add the system-assigned managed identity to the access control list (ACL) of any directory or blob contained in the storage account. In that case, the scope of access for the instance corresponds to the directory or file to which the system-assigned managed identity has been granted access. You can also combine Azure roles and ACLs together. To learn more about how to combine them together to grant access, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
 

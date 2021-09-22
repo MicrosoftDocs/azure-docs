@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 07/30/2021
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,10 +24,6 @@ To see the list of administrator roles for Azure Active Directory, see [Administ
 
 Follow these steps to list all roles in the Azure portal.
 
-The **Roles** tab was recently updated with some additional features. If you want to view the previous experience, see the **Roles (Classic)** tab. You can use either roles tab to work with your roles, however, if you create or delete custom roles, you might need to manually refresh the page to see the latest changes.
-
-#### [Roles](#tab/roles/)
-
 1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
 1. Click the specific resource.
@@ -38,6 +34,9 @@ The **Roles** tab was recently updated with some additional features. If you wan
 
    ![Screenshot showing Roles list using new experience.](./media/shared/roles-list.png)
 
+    > [!TIP]
+    > To see the previous roles list experience, click **Use classic experience**.
+  
 1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
 
     A permissions pane appears.
@@ -45,22 +44,6 @@ The **Roles** tab was recently updated with some additional features. If you wan
 1. Click the **Permissions** tab to view and search the permissions for the selected role.
 
    ![Screenshot showing role permissions using new experience.](./media/role-definitions-list/role-permissions.png)
-
-#### [Roles (Classic)](#tab/roles-classic/)
-
-1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
-
-1. Click the specific resource.
-
-1. Click **Access control (IAM)**.
-
-1. Click the **Roles (Classic)** tab to see a list of all the built-in and custom roles.
-
-   You can see the number of users and groups that are assigned to each role at the current scope.
-
-   ![Roles list](./media/role-definitions-list/roles-list-classic.png)
-
----
 
 ## Azure PowerShell
 

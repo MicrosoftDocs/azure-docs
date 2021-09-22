@@ -18,7 +18,7 @@ Use the Anomaly Detector multivariate client library for JavaScript to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library reference documentation](https://go.microsoft.com/fwlink/?linkid=2165523&clcid=0x409) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector) | [Sample code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/anomalydetector/ai-anomaly-detector/samples/v3/javascript/sample_multivariate_detection.js)
+[Library reference documentation](/javascript/api/overview/azure/ai-anomaly-detector-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector) | [Sample code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/anomalydetector/ai-anomaly-detector/samples/v3/javascript/sample_multivariate_detection.js)
 
 ## Prerequisites
 
@@ -116,11 +116,11 @@ First we need to construct a model request. Make sure that start and end time al
 
 ```javascript
 const Modelrequest = {
-      source: data_source,
-      startTime: new Date(2021,0,1,0,0,0),
-      endTime: new Date(2021,0,2,12,0,0),
-      slidingWindow:200
-    };    
+  source: data_source,
+  startTime: new Date(2021,0,1,0,0,0),
+  endTime: new Date(2021,0,2,12,0,0),
+  slidingWindow:200
+};
 ```
 
 ### Train a new model
@@ -137,16 +137,23 @@ console.log("New model ID: " + model_id)
 To check if training of your model is complete you can track the model's status:
 
 ```javascript
-let model_response = await client.getMultivariateModel(model_id)
-let model_status = model_response.modelInfo?.status
+let model_response = await client.getMultivariateModel(model_id);
+let model_status = model_response.modelInfo.status;
 
-while (model_status != 'READY'){
-    await sleep(10000).then(() => {});
-    model_response = await client.getMultivariateModel(model_id)
-    model_status = model_response.modelInfo?.status
+while (model_status != 'READY' && model_status != 'FAILED'){
+  await sleep(10000).then(() => {});
+  model_response = await client.getMultivariateModel(model_id);
+  model_status = model_response.modelInfo.status;
 }
 
-console.log("TRAINING FINISHED.")
+if (model_status == 'FAILED') {
+  console.log("Training failed.\nErrors:");
+  for (let error of model_response.modelInfo?.errors ?? []) {
+    console.log("Error code: " + error.code + ". Message: " + error.message);
+  }
+}
+
+console.log("TRAINING FINISHED.");
 ```
 
 ## Detect anomalies
@@ -154,22 +161,31 @@ console.log("TRAINING FINISHED.")
 Use the `detectAnomaly` and `getDectectionResult` functions to determine if there are any anomalies within your datasource.
 
 ```javascript
-console.log("Start detecting...")
+console.log("Start detecting...");
 const detect_request = {
-    source: data_source,
-    startTime: new Date(2021,0,2,12,0,0),
-    endTime: new Date(2021,0,3,0,0,0)
+  source: data_source,
+  startTime: new Date(2021,0,2,12,0,0),
+  endTime: new Date(2021,0,3,0,0,0)
 };
-const result_header = await client.detectAnomaly(model_id, detect_request)
-const result_id = result_header.location?.split("/").pop() ?? ""
-let result = await client.getDetectionResult(result_id)
-let result_status = result.summary.status
+const result_header = await client.detectAnomaly(model_id, detect_request);
+const result_id = result_header.location?.split("/").pop() ?? "";
+let result = await client.getDetectionResult(result_id);
+let result_status = result.summary.status;
 
-while (result_status != 'READY'){
-    await sleep(2000).then(() => {});
-    result = await client.getDetectionResult(result_id)
-    result_status = result.summary.status
+while (result_status != 'READY' && result_status != 'FAILED'){
+  await sleep(2000).then(() => {});
+  result = await client.getDetectionResult(result_id);
+  result_status = result.summary.status;
 }
+
+if (result_status == 'FAILED') {
+  console.log("Detection failed.\nErrors:");
+  for (let error of result.summary.errors ?? []) {
+    console.log("Error code: " + error.code + ". Message: " + error.message)
+  }
+}
+console.log("Result status: " + result_status);
+console.log("Result Id: " + result.resultId);
 ```
 
 ## Export model
@@ -216,4 +232,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 * [What is the Anomaly Detector API?](../../overview-multivariate.md)
-* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md) 
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md)

@@ -23,6 +23,13 @@ ms.custom: include file
 
 <sup>1</sup>The OSM add-on for AKS is in a preview state and will undergo additional enhancements before general availability (GA). During the preview phase, it's recommended to not surpass the limits shown.<br />
 
+<br />
+
+| Kubernetes Control Plane Limits                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Paid tier                                                                                  | Automatically scales out based on the load                                                                                                                                                                                                        |
+| Free tier                       | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls                                                                                                                                                                                                         |
+
 <!-- LINKS - Internal -->
 
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking

@@ -186,8 +186,25 @@ The following table shows what role you need to complete tasks in the context of
 
 ## Manage billing roles in the Azure portal
 
-- Assign a role to a user or group at a billing scope such as billing account, billing profile, or invoice section, where you want to give access.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. Search for **Cost Management + Billing**.
+
+   ![Screenshot that shows Azure portal search](./media/understand-mca-roles/billing-search-cost-management-billing.png)
+
+3. Select **Access control (IAM)** at a scope such as billing account, billing profile, or invoice section, where you want to give access.
+
+4. The Access control (IAM) page lists users and groups that are assigned to each role for that scope.
+
+   ![Screenshot that shows list of admins for billing account](./media/understand-mca-roles/billing-list-admins.png)
+
+5. To give access to a user, Select **Add** from the top of the page. In the Role drop-down list, select a role. Enter the email address of the user to whom you want to give access. Select **Save** to assign the role.
+
+   ![Screenshot that shows adding an admin to a billing account](./media/understand-mca-roles/billing-add-admin.png)
+
+6. To remove access for a user, select the user with the role assignment you want to remove. Select Remove.
+
+   ![Screenshot that shows removing an admin from a billing account](./media/understand-mca-roles/billing-remove-admin.png)
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

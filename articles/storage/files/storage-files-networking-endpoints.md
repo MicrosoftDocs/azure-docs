@@ -4,7 +4,7 @@ description: Learn how to configure Azure File network endpoints.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli

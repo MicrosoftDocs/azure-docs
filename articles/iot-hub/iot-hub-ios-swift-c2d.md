@@ -14,7 +14,7 @@ ms.custom: mqtt
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
 This tutorial shows you how to:
 
@@ -28,7 +28,7 @@ You can find more information on cloud-to-device messages in the [messaging sect
 
 At the end of this article, you run two Swift iOS projects:
 
-* **sample-device**, the same app created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md), which connects to your IoT hub and receives cloud-to-device messages.
+* **sample-device**, the same app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md), which connects to your IoT hub and receives cloud-to-device messages.
 
 * **sample-service**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgment.
 
@@ -53,7 +53,7 @@ At the end of this article, you run two Swift iOS projects:
 
 In this section, you simulate an iOS device running a Swift application to receive cloud-to-device messages from the IoT hub. 
 
-This is the sample device that you create in the article [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md). If you already have that running, you can skip this section.
+This is the sample device that you create in the article [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md). If you already have that running, you can skip this section.
 
 ### Install CocoaPods
 
@@ -101,7 +101,7 @@ Along with installing the pods required for your project, the installation comma
 
 ## Get the IoT hub connection string
 
-In this article you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+In this article you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 

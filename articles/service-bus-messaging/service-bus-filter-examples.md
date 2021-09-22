@@ -2,7 +2,7 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 09/07/2021
 ---
 
 # Set subscription filters (Azure Service Bus)
@@ -57,7 +57,7 @@ DateTimeMp2-DateTimeMp1 <= @timespan
 ## Using IN and NOT IN
 
 ```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
+StoreId IN('Store1', 'Store2', 'Store3')
 
 sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
 
@@ -67,7 +67,9 @@ sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','S
 For a C# sample, see [Topic Filters sample on GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
 
 
-## Correlation filter using CorrelationID
+## Correlation filters
+
+### Correlation filter using CorrelationID
 
 ```csharp
 new CorrelationFilter("Contoso");
@@ -75,16 +77,24 @@ new CorrelationFilter("Contoso");
 
 It filters messages with `CorrelationID` set to `Contoso`. 
 
-## Correlation filter using system and user properties
+> [!NOTE]
+> The [CorrelationRuleFilter](/dotnet/api/azure.messaging.servicebus.administration.correlationrulefilter) class in .NET is in the [Azure.Messaging.ServiceBus.Administration](/dotnet/api/azure.messaging.servicebus.administration) namespace. For sample code that shows how to create filters in general using .NET, see [this code on GitHub](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters/Program.cs#L179).
+
+
+### Correlation filter using system and user properties
 
 ```csharp
-var filter = new CorrelationFilter();
+var filter = new CorrelationRuleFilter();
 filter.Label = "Important";
 filter.ReplyTo = "johndoe@contoso.com";
 filter.Properties["color"] = "Red";
 ```
 
 It's equivalent to: `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Important' AND color = 'Red'`
+
+
+
+
 
 ## Next steps
 See the following samples: 

@@ -1,28 +1,29 @@
 ---
 title: What is Azure Communication Services?
 description: Learn how Azure Communication Services helps you develop rich user experiences with real-time communications.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-
 ---
 
 # What is Azure Communication Services?
 
-Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication features to your applications without being an expert in communication technologies such as media encoding and real-time networking. Azure Communication Services supports various communication formats:
+Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication features to your applications without being an expert in communication technologies such as media encoding and real-time networking. This functionality is also supported in Azure for government.
+
+Azure Communication Services supports various communication formats:
 
 1. Voice and Video Calling
 1. Rich Text Chat
 1. SMS
 
-Voice and video calling applications can interact with the publicly switched telephony network (PSTN). You can acquire phone numbers directly through Azure Communication Services REST APIs, SDKs, or the Azure portal. Azure Communication Services direct routing allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
+You can connect custom client endpoints, custom services, and the publicly switched telephony network (PSTN) to your communications application. You can acquire phone numbers directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications. Azure Communication Services direct routing allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
 
-In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Java (Android), Windows (.NET). Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
+In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Java (Android), Windows (.NET). A [UI library for web browsers](https://aka.ms/acsstorybook) can accelerate development for mobile and desktop browsers. Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
 
 Scenarios for Azure Communication Services include:
 

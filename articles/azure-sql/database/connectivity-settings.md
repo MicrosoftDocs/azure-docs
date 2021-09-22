@@ -9,21 +9,21 @@ ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: mathoma, vanto
-ms.date: 07/06/2020
+ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
 ---
 
 # Azure SQL connectivity settings
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)]
 
 This article introduces settings that control connectivity to the server for Azure SQL Database and [dedicated SQL pool (formerly SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. These settings apply to all SQL Database and dedicated SQL pool (formerly SQL DW) databases associated with the server.
 
 > [!IMPORTANT]
-> This article doesn't apply to Azure SQL Managed Instance.
+> This article doesn't apply to Azure SQL Managed Instance. This article also does not apply to dedicated SQL pools in Azure Synapse Analytics Workspaces. See [Azure Synapse Analytics IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) for guidance on how to configure IP firewall rules for Azure Synapse Analytics with workspaces.
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the following screenshot:
 
- ![Screenshot of the connectivity settings window.][1]
+:::image type="content" source="media/single-database-create-quickstart/manage-connectivity-settings.png" alt-text="Screenshot of the Firewalls and virtual networks settings in Azure portal for SQL server":::
 
 > [!NOTE]
 > These settings take effect immediately after they're applied. Your customers might experience connection loss if they don't meet the requirements for each setting.
@@ -116,6 +116,10 @@ After you set the minimal TLS version, login attempts from customers who are usi
 Error 47072
 Login failed with invalid TLS version
 ```
+
+## Set the minimal TLS version in Azure portal
+
+In the [Azure portal](https://portal.azure.com), go to your **SQL server** resource. Under the **Security** settings, select **Firewalls and virtual networks**. Select the **Minimum TLS Version** desired for all SQL Databases associated with the server, and select **Save**.
 
 ## Set the minimal TLS version via PowerShell
 
@@ -220,5 +224,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 - For information on how to change the connection policy for a server, see [conn-policy](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
-[1]: media/single-database-create-quickstart/manage-connectivity-settings.png
 [2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

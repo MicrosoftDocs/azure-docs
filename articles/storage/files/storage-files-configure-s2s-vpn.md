@@ -96,7 +96,8 @@ The final step in configuring a S2S VPN is verifying that it works for Azure Fil
 
 - [Windows](storage-how-to-use-files-windows.md)
 - [macOS](storage-how-to-use-files-mac.md)
-- [Linux](storage-how-to-use-files-linux.md)
+- [Linux (NFS)](storage-files-how-to-mount-nfs-shares.md)
+- [Linux (SMB)](storage-how-to-use-files-linux.md)
 
 ## See also
 - [Azure Files networking overview](storage-files-networking-overview.md)

@@ -10,7 +10,7 @@ ms.date: 03/23/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: hafowler
 
 ms.collection: M365-identity-device-management
@@ -79,7 +79,7 @@ To enable or disable devices, you have two options:
 - The toolbar after drilling down into a specific device.
 
 > [!IMPORTANT]
-> - You must be a global administrator or cloud device administrator in Azure AD to enable or disable a device. 
+> - You must be a global administrator, Intune administrator, or cloud device administrator in Azure AD to enable or disable a device. 
 > - Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are protected by device-based Conditional Access or using Windows Hello for Business credentials.
 > - Disabling a device will revoke both the Primary Refresh Token (PRT) and any Refresh Tokens (RT) on the device.
 > - Printers cannot be enabled or disabled in Azure AD.
@@ -172,10 +172,10 @@ You must be assigned one of the following roles to view or manage device setting
 - **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. These users are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
 - **Users may register their devices with Azure AD** - You need to configure this setting to allow Windows 10 personal, iOS, Android, and macOS devices to be registered with Azure AD. If you select **None**, devices are not allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Microsoft 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available.
-- **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** - You can choose whether users are required to provide an additional authentication factor to join or register their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering or joining a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure AD Multi-Factor Authentication services, see [getting started with Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
+- **Require Multi-Factor Authentication to register or join devices with Azure AD** - You can choose whether users are required to provide an additional authentication factor to join or register their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering or joining a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure AD Multi-Factor Authentication services, see [getting started with Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** setting applies to devices that are either Azure AD joined (with some exceptions) or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices, [Azure AD joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) and Azure AD joined devices using [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying).
+> **Require Multi-Factor Authentication to register or join devices with Azure AD** setting applies to devices that are either Azure AD joined (with some exceptions) or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices, [Azure AD joined VMs in Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) and Azure AD joined devices using [Windows Autopilot self-deployment mode](/mem/autopilot/self-deploying).
 
 > [!IMPORTANT]
 > - We recommend using ["Register or join devices" user action](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing multi-factor authentication for joining or registering a device. 

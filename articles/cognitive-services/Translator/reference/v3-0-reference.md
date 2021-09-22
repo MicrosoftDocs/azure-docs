@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 8/11/2020
+ms.date: 09/09/2021
 ms.author: lajanuar
 ---
 
@@ -18,32 +18,32 @@ ms.author: lajanuar
 
 Version 3 of the Translator provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
 
- * Transliteration to convert text in one language from one script to another script.
- * Translation to multiple languages in one request.
- * Language detection, translation, and transliteration in one request.
- * Dictionary to look up alternative translations of a term, to find back-translations and examples showing terms used in context.
- * More informative language detection results.
+* Transliteration to convert text in one language from one script to another script.
+* Translation to multiple languages in one request.
+* Language detection, translation, and transliteration in one request.
+* Dictionary to look up alternative translations of a term, to find back-translations and examples showing terms used in context.
+* More informative language detection results.
 
 ## Base URLs
 
 Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 10 [Azure geographies](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americas:** East US, South Central US, West Central US, and West US 2 
+* **Americas:** East US, South Central US, West Central US, and West US 2
 * **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
 * **Europe:** North Europe, West Europe
 
-Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the geography.
+Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. If there is a datacenter failure, the request may be routed outside of the geography.
 
 To force the request to be handled by a specific geography, change the Global endpoint in the API request to the desired geographical endpoint:
 
 |Geography|Base URL (geographical endpoint)|
 |:--|:--|
-|Global (non-regional)|	api.cognitive.microsofttranslator.com|
-|United States|	api-nam.cognitive.microsofttranslator.com|
-|Europe|	api-eur.cognitive.microsofttranslator.com|
-|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
+|Global (non-regional)|    api.cognitive.microsofttranslator.com|
+|United States|    api-nam.cognitive.microsofttranslator.com|
+|Europe|    api-eur.cognitive.microsofttranslator.com|
+|Asia Pacific|    api-apc.cognitive.microsofttranslator.com|
 
-<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’ then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
+<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’, then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -56,7 +56,7 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 
 ## Authentication
 
-Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
+Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate.
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
@@ -90,7 +90,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 #### Authenticating with a regional resource
 
 When you use a [regional translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-There are 2 headers that you need to call the Translator.
+There are two headers that you need to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
@@ -110,9 +110,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 #### Authenticating with a Multi-service resource
 
-When you use a Cognitive Service’s multi-service resource. This allows you to use a single secret key to authenticate requests for multiple services. 
+When you use a Cognitive Service’s multi-service resource. This allows you to use a single secret key to authenticate requests for multiple services.
 
-When you use a multi-service secret key, you must include two authentication headers with your request. There are 2 headers that you need to call the Translator.
+When you use a multi-service secret key, you must include two authentication headers with your request. There are two headers that you need to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
@@ -126,6 +126,7 @@ Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centrali
 If you pass the secret key in the query string with the parameter `Subscription-Key`, then you must specify the region with query parameter `Subscription-Region`.
 
 ### Authenticating with an access token
+
 Alternatively, you can exchange your secret key for an access token. This token is included with each request as the `Authorization` header. To obtain an authorization token, make a `POST` request to the following URL:
 
 | Resource type     | Authentication service URL                                |
@@ -151,9 +152,85 @@ Authorization: Bearer <Base64-access_token>
 
 An authentication token is valid for 10 minutes. The token should be reused when making multiple calls to the Translator. However, if your program makes requests to the Translator over an extended period of time, then your program must request a new access token at regular intervals (for example, every 8 minutes).
 
+## Authentication with Azure Active Directory (Azure AD)
+
+ Translator v3.0 supports Azure AD authentication, Microsoft’s cloud-based identity and access management solution.  Authorization headers enable the Translator service to validate that the requesting client is authorized to use the resource and to complete the request.
+
+### **Prerequisites**
+
+* A brief understanding of how to [**authenticate with Azure Active Directory**](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory).
+
+* A brief understanding of how to [**authorize access to managed identities**](/azure/cognitive-services/authentication?tabs=powershell#authorize-access-to-managed-identities).
+
+### **Headers**
+
+|Header|Value|
+|:-----|:----|
+|Authorization| The value is an access **bearer token** generated by Azure AD.</br><ul><li> The bearer token provides proof of authentication and validates the client's authorization to use the resource.</li><li> An authentication token is valid for 10 minutes and should be reused when making multiple calls to Translator.</br></li>*See* [Authenticating with an access token](#authenticating-with-an-access-token), above. </ul>|
+|Ocp-Apim-Subscription-Region| The value is the region of the **translator resource**.</br><ul><li> This value is optional if the resource is global.</li></ul>|
+|Ocp-Apim-ResourceId| The value is the the Resource ID for your Translator resource instance.</br><ul><li>You'll find the Resource ID in the Azure portal at **Translator Resource  → Properties**. </li><li>Resource ID format: </br>/subscriptions/<**subscriptionId**>/resourceGroups/<**resourceGroupName**>/providers/Microsoft.CognitiveServices/accounts/<**resourceName**>/</li></ul>|
+
+##### **Translator property page—Azure portal**
+
+:::image type="content" source="../media/managed-identities/resource-id-property.png" alt-text="Screenshot:Translator properties page in the Azure portal. ":::
+
+### **Examples**
+
+#### **Using the global endpoint**
+
+```curl
+ // Using headers, pass a bearer token generated by Azure AD, resource ID, and the region.
+
+curl -X POST "https://api.cognitive.microsofttranslator.com/translator/text/v3.0/translate?api-version=3.0&to=es" \
+     -H "Authorization: Bearer <Base64-access_token>"\
+     -H "Ocp-Apim-ResourceId: <Resource ID>" \
+     -H "Ocp-Apim-Subscription-Region: <your-region>" \
+     -H "Content-Type: application/json" \
+     -data-raw "[{'Text':'Hello, friend.'}]"
+```
+
+#### **Using your custom endpoint**
+
+```curl
+// Using headers, pass a bearer token generated by Azure AD.
+
+curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es \
+     -H "Authorization: Bearer <Base64-access_token>"\
+     -H "Content-Type: application/json" \
+     -data-raw "[{'Text':'Hello, friend.'}]"
+```
+
+### **Examples using managed identities**
+
+Translator v3.0 also supports authorizing access to managed identities. If a managed identity is enabled for a translator resource, you can pass the bearer token generated by managed identity in the request header.
+
+#### **With the global endpoint**
+
+```curl
+// Using headers, pass a bearer token generated either by Azure AD or Managed Identities, resource ID, and the region.
+
+curl -X POST https://api.cognitive.microsofttranslator.com/translator/text/v3.0/translate?api-version=3.0&to=es \
+     -H "Authorization: Bearer <Base64-access_token>"\
+     -H "Ocp-Apim-ResourceId: <Resource ID>" \
+     -H "Ocp-Apim-Subscription-Region: <your-region>" \
+     -H "Content-Type: application/json" \
+     -data-raw "[{'Text':'Hello, friend.'}]"
+```
+
+#### **With your custom endpoint**
+
+```curl
+//Using headers, pass a bearer token generated by Managed Identities.
+
+curl -X POST https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es \
+     -H "Authorization: Bearer <Base64-access_token>"\
+     -H "Content-Type: application/json" \
+     -data-raw "[{'Text':'Hello, friend.'}]"
+```
+
 ## Virtual Network support
 
-The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal). 
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 
@@ -192,6 +269,7 @@ For example, a customer with a free trial subscription would receive the followi
     }
 }
 ```
+
 The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes are:
 
 | Code | Description |
@@ -228,14 +306,14 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 403000| The operation is not allowed.|
 | 403001| The operation is not allowed because the subscription has exceeded its free quota.|
 | 405000| The request method is not supported for the requested resource.|
-| 408001| The translation system requested is being prepared. Please retry in a few minutes.|
+| 408001| The translation system requested is being prepared. Retry in a few minutes.|
 | 408002| Request timed out waiting on incoming stream. The client did not produce a request within the time that the server was prepared to wait. The client may repeat the request without modifications at any later time.|
 | 415000| The Content-Type header is missing or invalid.|
 | 429000, 429001, 429002| The server rejected the request because the client has exceeded request limits.|
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
-| 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
+| 503000| Service is temporarily unavailable. Retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
-## Metrics 
+## Metrics
 Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Translator Metrics](../media/translatormetrics.png)
@@ -250,6 +328,6 @@ This table lists available metrics with description of how they are used to moni
 | TotalErrors| Number of calls with error response.|
 | BlockedCalls| Number of calls that exceeded rate or quota limit.|
 | ServerErrors| Number of calls with server internal error(5XX).|
-| ClientErrors| Number of calls with client side error(4XX).|
+| ClientErrors| Number of calls with client-side error(4XX).|
 | Latency| Duration to complete request in milliseconds.|
 | CharactersTranslated| Total number of characters in incoming text request.|

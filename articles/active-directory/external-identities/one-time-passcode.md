@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 07/26/2021
 
 ms.author: mimart
 author: msmimart
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 The email one-time passcode feature is a way to authenticate B2B collaboration users when they can't be authenticated through other means, such as Azure AD, Microsoft account (MSA), or social identity providers. When a B2B guest user tries to redeem your invitation or sign in to your shared resources, they can request a temporary passcode, which is sent to their email address. Then they enter this passcode to continue signing in.
 
-You can enable this feature at any time in the Azure portal by configuring the Email one-time passcode (Preview) identity provider under your tenant's External Identities settings. You can choose to enable the feature, disable it, or wait for automatic enablement in October 2021.
+You can enable this feature at any time in the Azure portal by configuring the Email one-time passcode identity provider under your tenant's External Identities settings. You can choose to enable the feature, disable it, or wait for automatic enablement in October 2021.
 
 ![Email one-time passcode overview diagram](media/one-time-passcode/email-otp.png)
 

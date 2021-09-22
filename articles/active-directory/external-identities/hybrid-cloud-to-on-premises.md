@@ -22,16 +22,17 @@ As an organization that uses Azure Active Directory (Azure AD) B2B collaboration
 
 ## Access to SAML apps
 
-If your on-premises app uses SAML-based authentication, you can easily make these apps available to your Azure AD B2B collaboration users through the Azure portal.
+If your on-premises app uses SAML-based authentication, you can easily make these apps available to your Azure AD B2B collaboration users through the Azure portal using Azure AD Application Proxy.
 
-You must do both of the following:
+You must do the following :
 
-- Integrate the app using SAML as described in [Configure SAML-based single sign-on](../manage-apps/configure-saml-single-sign-on.md). Make sure to note what you use for the **Sign-on URL** value.
--  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md). 
+- Enable Application Proxy and install a connector. For instructions, see [Publish applications using Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md).
+- Publish the on-premises SAML-based application through Azure AD Application Proxy by following the instructions in [SAML single sign-on for on-premises applications with Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-on-premises-apps.md).
+- Assign Azure AD B2B Users to the SAML Application.
 
-   When you configure the **Internal Url** setting, use the sign-on URL that you specified in the non-gallery application template. In this way, users can access the app from outside the organization boundary. Application Proxy performs the SAML single sign-on for the on-premises app.
- 
-   ![Shows on-premises app settings internal URL and authentication](media/hybrid-cloud-to-on-premises/OnPremAppSettings.PNG)
+When you've completed the steps above, your app should be up and running. To test Azure AD B2B access:
+1.	Open a browser and navigate to the external URL that you created when you published the app.
+2.	Sign in with the Azure AD B2B account that you assigned to the app. You should be able to open the app and access it with single sign-on.
 
 ## Access to IWA and KCD apps
 

@@ -12,6 +12,9 @@ ms.reviewer: davberg
 
 ---
 # Compute benchmark scores for Windows VMs
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 The following CoreMark benchmark scores show compute performance for select Azure VMs running Windows Server 2019. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md).
 
 | Type | Families |

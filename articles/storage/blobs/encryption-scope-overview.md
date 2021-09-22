@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 06/01/2021
+ms.date: 07/19/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -17,8 +17,6 @@ ms.subservice: common
 Encryption scopes enable you to manage encryption with a key that is scoped to a container or an individual blob. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
 For more information about working with encryption scopes, see [Create and manage encryption scopes](encryption-scope-manage.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## How encryption scopes work
 
@@ -68,7 +66,7 @@ When you disable an encryption scope, any subsequent read or write operations ma
 
 When an encryption scope is disabled, you are no longer billed for it. Disable any encryption scopes that are not needed to avoid unnecessary charges.
 
-If your encryption scope is protected with a customer-managed key, and you delete the key in the key vault, the data will become inaccessible. Be sure to also disable the encryption scope to avoid being charged for it.
+If your encryption scope is protected with a customer-managed key, and you revoke the key in the key vault, the data will become inaccessible. Be sure to disable the encryption scope prior to revoking the key in key vault to avoid being charged for the encryption scope.
 
 Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
@@ -78,7 +76,16 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 > [!IMPORTANT]
 > It is not possible to delete an encryption scope.
 
+## Feature support
 
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
 ## Next steps
 

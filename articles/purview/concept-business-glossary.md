@@ -59,7 +59,7 @@ Classifications are annotations that can be assigned to entities. The flexibilit
 - understanding the nature of data stored in the data assets
 - defining access control policies
 
-Purview has more than 100 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
+Purview has more than 200 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
 
 ### Sensitivity labels
 

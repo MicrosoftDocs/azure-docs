@@ -1,7 +1,7 @@
 ---
 title: Work with alerts on the on-premises management console
 description: Use the on-premises management console to get an enterprise view of recent threats in your network and better understand how sensor users are handling them.
-ms.date: 12/06/2020
+ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
@@ -79,7 +79,7 @@ The alert presents the following information:
 
 - A link to the alert in the sensor that detected it.
 
-- An alert UUID. The UUID consists of the alert ID that's associated with the alert event detected on the sensor, separated by a hyphen and followed by a unique system ID number.
+- An alert UUID. The UUID consists of the alert ID that's associated with the alert event detected on the sensor, separated by a hyphen, and followed by a unique system ID number.
 
 **On-premises management console Alert UUID**
 
@@ -94,17 +94,17 @@ Working with UUIDs ensures that each alert displayed in the on-premises manageme
 > [!NOTE]
 > By default, UUIDs are displayed in the following partner systems when forwarding rules are defined: ArcSight, syslog servers, QRadar, Sentinel, and NetWitness. No setup is required.
 
-To view alert information:
+**To view alert information**:
 
 - From the alert list, select an alert.
 
   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alert-information.png" alt-text="Screenshot of alert information.":::
 
-To view the alert in the sensor:
+**To view the alert in the sensor**:
 
 - Select **OPEN SENSOR** from the alert.
 
-To view the devices in a zone map:
+**To view the devices in a zone map**:
 
 - To view the device map with a focus on the alerted device and all the devices connected to it, select **SHOW DEVICES**.
 
@@ -118,11 +118,11 @@ Several options are available for managing alert events from the on-premises man
 
 - Mute and unmute alert events.
 
-To learn more about learning, acknowledging and muting alert events, see the sensor [Manage alert events](how-to-manage-the-alert-event.md) article.
+To learn more about learning, acknowledging, and muting alert events, see the sensor [Manage alert events](how-to-manage-the-alert-event.md) article.
 
 ## Export alert information
 
-Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view.The following information is exported:
+Export alert information to a .csv file. You can export information of all alerts detected or export information based on the filtered view. The following information is exported:
 
 - Source Address
 - Destination Address
@@ -133,11 +133,56 @@ Export alert information to a .csv file. You can export information of all alert
 - Acknowledged status
 - PCAP availability
 
-To export:
+**To export alerts**:
 
-1. Select Alerts from the side menu.
-1. Select Export.
-1. Select Export Extended Alerts to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert with the unique items in each row. Using this option makes it easier to investigate exported alert events.  
+1. Select **Alerts** from the side menu.
+
+1. Select **Export**.
+
+1. Select **Export Extended Alerts** to export alert information in separate rows for each alert that covers multiple devices. When Export Extended Alerts is selected, the .csv file will create a duplicate row of the alert with the unique items in each row. Using this option makes it easier to investigate exported alert events.  
+
+## Create forwarding rules
+
+**To create a forwarding rule on the management console**:
+
+1. Sign in to the sensor.
+
+1. Select **Forwarding** on the side menu.
+
+1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
+
+1. In the Create Forwarding Rule window, enter a name for the rule
+
+    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/management-console-create-forwarding-rule.png" alt-text="Enter a meaningful name in the field of the Create Forwarding Rule window.":::
+
+   Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
+
+1. Select the severity level from the drop-down menu.
+
+    This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
+
+1. Select any protocols to apply.
+
+    Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
+
+1. Select which engines the rule should apply to.
+
+    
+   Select the required engines, or choose them all. Alerts from selected engines will be sent. 
+
+1. Select the checkbox if you want the forwarding to rule to report system notifications.
+  
+1. Select the checkbox if you want the forwarding to rule to report alert notifications.
+
+1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
+
+    Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
+
+1. Add another action if desired.
+
+1. Select **Save**.
+
+You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about[Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).
 
 ## Create alert exclusion rules
 
@@ -171,39 +216,39 @@ In addition to working with exclusion rules, you can suppress alerts by muting t
 
 ### Create exclusion rules
 
-To create exclusion rules:
+**To create exclusion rules**:
 
 1. From the left pane of the on-premises management console, select **Alert Exclusion**. Define a new exclusion rule by selecting the **Add** icon :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/add-icon.png" border="false"::: in the upper-right corner of the window that opens. The **Create Exclusion Rule** dialog box opens.
 
    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/create-alert-exclusion-view.png" alt-text="Create an alert exclusion by filling in the information here.":::
 
-2. Enter a rule name in the **Name** field. The name can't contain quotes (`"`).
+1. Enter a rule name in the **Name** field. The name can't contain quotes (`"`).
 
-3. In the **By Time Zone/Period** section, enter a time period within a specific time zone. Use this feature when an exclusion rule is created for a specific time period in one time zone, but should be implemented at the same time in other time zones. For example, you might need to apply an exclusion rule between 8:00 AM and 10:00 AM in three different time zones. In this case, create three separate exclusion rules that use the same time period and the relevant time zone.
+1. In the **By Time Zone/Period** section, enter a time period within a specific time zone. Use this feature when an exclusion rule is created for a specific time period in one time zone, but should be implemented at the same time in other time zones. For example, you might need to apply an exclusion rule between 8:00 AM and 10:00 AM in three different time zones. In this case, create three separate exclusion rules that use the same time period and the relevant time zone.
 
-4. Select **ADD**. During the exclusion period, no alerts are created on the connected sensors.
+1. Select **ADD**. During the exclusion period, no alerts are created on the connected sensors.
 
    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/by-the-time-period.png" alt-text="Screenshot of the By Time Period view.":::
 
-5. In the **By Device Address** section, define the:
+1. In the **By Device Address** section, define the:
 
   - Device IP address, MAC address, or subnet address that you want to exclude.
 
   - Traffic direction for the excluded devices, source, and destination.
 
-6. Select **ADD**.
+1. Select **ADD**.
 
-7. In the **By Alert Title** section, start typing the alert title. From the drop-down list, select the alert title or titles to be excluded.
+1. In the **By Alert Title** section, start typing the alert title. From the drop-down list, select the alert title or titles to be excluded.
 
    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alert-title.png" alt-text="Screenshot of the By Alert Title view.":::
 
-8. Select **ADD**.
+1. Select **ADD**.
 
-9. In the **By Sensor Name** section, start typing the sensor name. From the drop-down list, select the sensor or sensors that you want to exclude.
+1. In the **By Sensor Name** section, start typing the sensor name. From the drop-down list, select the sensor or sensors that you want to exclude.
 
-10. Select **ADD**.
+1. Select **ADD**.
 
-11. Select **SAVE**. The new rule appears in the list of rules.
+1. Select **SAVE**. The new rule appears in the list of rules.
 
 You can suppress alerts by either muting them or creating alert exclusion rules. This section describes potential use cases for both features.
 

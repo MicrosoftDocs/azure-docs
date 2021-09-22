@@ -76,7 +76,7 @@ landingContent:
           - text: Best practices
             url: container-registry-best-practices.md
           - text: FAQ
-            url: container-registry-faq.md
+            url: container-registry-faq.yml
   # Card (optional)
   - title: ACR Tasks
     linkLists:

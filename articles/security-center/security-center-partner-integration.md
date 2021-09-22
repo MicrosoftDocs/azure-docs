@@ -35,7 +35,7 @@ Security Center also offers vulnerability analysis for your:
 ## How security solutions are integrated
 Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.
 
-[![Partner solutions integration.](./media/security-center-partner-integration/security-solutions-page.png)](./media/security-center-partner-integration/security-solutions-page.png#lightbox)
+:::image type="content" source="./media/security-center-partner-integration/security-solutions-page.png" alt-text="Partner solutions integration." lightbox="./media/security-center-partner-integration/security-solutions-page.png":::
 
 ## Manage integrated Azure security solutions and other data sources
 

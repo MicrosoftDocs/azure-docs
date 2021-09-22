@@ -61,7 +61,7 @@ Resources in Azure automatically generate [resource logs](essentials/platform-lo
 
 There is a cost for this collection so refer to [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before implementing across a significant number of resources. Also see [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details on optimizing the cost of your log collection.
 
-See [Create diagnostic setting to collect resource logs and metrics in Azure](essentials/diagnostic-settings.md#create-in-azure-portal) to create a diagnostic setting for an Azure resource. Since a diagnostic setting needs to be created for each Azure resource, see [Deploy Azure Monitor at scale](deploy-scale.md) for details on using [Azure policy](../governance/policy/overview.md) to have settings automatically created each time an Azure resource is created.
+See [Create diagnostic setting to collect resource logs and metrics in Azure](essentials/diagnostic-settings.md#create-in-azure-portal) to create a diagnostic setting for an Azure resource. Since a diagnostic setting needs to be created for each Azure resource, see [Deploy Azure Monitor at scale](deploy-scale.md) for details on using [Azure Policy](../governance/policy/overview.md) to have settings automatically created each time an Azure resource is created.
 
 ### Enable insights and solutions
 Insights and solutions provide specialized monitoring for a particular service or solution. Insights use more recent features of Azure Monitor such as workbooks, so you should use an insight if it's available for your service. They are automatically available in every Azure subscription but may require some configuration for full functionality. They will typically use platform metrics and resources logs that you previously configured and could collect additional data.
@@ -126,7 +126,7 @@ To enable monitoring for an application, you must decide whether you will use co
 - [Applications hosted on Azure Web Apps](app/azure-web-apps.md)
 - [Java applications](app/java-in-process-agent.md)
 - [ASP.NET applications hosted in IIS on Azure VM or Azure virtual machine scale set](app/azure-vm-vmss-apps.md)
-- [ASP.NET applications hosted in IIS on-premises VM](app/monitor-performance-live-website-now.md)
+- [ASP.NET applications hosted in IIS on-premises](app/status-monitor-v2-overview.md)
 
 
 **Code-based monitoring** is more customizable and collects additional telemetry, but it requires adding a dependency to your code on the Application Insights SDK NuGet packages. See the following resources for details on enabling monitoring depending on your application.

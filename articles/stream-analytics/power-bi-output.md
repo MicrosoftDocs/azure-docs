@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/7/2021
+ms.date: 7/7/2021
 ---
 
 # Power BI output from Azure Stream Analytics
@@ -75,5 +75,5 @@ For more info on output batch size, see [Power BI Rest API limits](/power-bi/dev
 
 ## Next steps
 
-* [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI (preview)](powerbi-output-managed-identity.md)
+* [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md)
 * [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

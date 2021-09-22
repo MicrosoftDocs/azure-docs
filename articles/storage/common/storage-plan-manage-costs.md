@@ -119,7 +119,7 @@ To learn more, see [Azure Blob Storage: hot, cool, and archive access tiers](../
 
 Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
-To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
+To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/lifecycle-management-overview.md?tabs=azure-portal)
 
 ## Create budgets
 
@@ -154,6 +154,13 @@ You can add other filters as well (For example: a filter to see costs for specif
 ## Export cost data
 
 You can also [export your cost data](../../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do additional data analysis for costs. For example, a finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
+
+## FAQ
+
+**If I use Azure Storage for only a few days a month, is the cost prorated?**
+
+Storage capacity is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
+
 
 ## Next steps
 

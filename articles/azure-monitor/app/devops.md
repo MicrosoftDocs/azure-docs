@@ -1,6 +1,6 @@
 ---
 title: Web app performance monitoring - Azure Application Insights
-description: How Application Insights fits into the devOps cycle
+description: How Application Insights fits into the DevOps cycle
 ms.topic: conceptual
 ms.date: 12/21/2018
 
@@ -153,7 +153,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* [IIS servers](./monitor-performance-live-website-now.md), and also for [Azure App Service](./app-insights-overview.md).
-* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-in-process-agent.md) apps, as well as [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
+* [IIS servers](./status-monitor-v2-overview.md)
+* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-in-process-agent.md) apps, and [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
 * Instrument [any web page](./javascript.md) by adding a short code snippet.
 

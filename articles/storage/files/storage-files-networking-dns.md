@@ -4,7 +4,7 @@ description: Learn how to configure DNS forwarding for Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/19/2020
+ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -49,7 +49,7 @@ Before you can setup DNS forwarding to Azure Files, you need to have completed t
 - The [latest version](/powershell/azure/install-az-ps) of the Azure PowerShell module.
 
 > [!Important]  
-> This guide assumes you are using the DNS server within Windows Server in your on-premises environment. All of the steps described in this guide are possible with any DNS server, not just the Windows DNS Server.
+> This guide assumes you're using the DNS server within Windows Server in your on-premises environment. All of the steps described in this guide are possible with any DNS server, not just the Windows DNS Server.
 
 ## Configuring DNS forwarding
 If you already have DNS servers in place within your Azure virtual network, or if you simply prefer to deploy your own virtual machines to be DNS servers by whatever methodology your organization uses, you can configure DNS with the built-in DNS server PowerShell cmdlets.
@@ -68,7 +68,7 @@ Add-DnsServerConditionalForwarderZone `
         -MasterServers $vnetDnsServers
 ```
 
-On the DNS servers within your Azure virtual network, you also will need to put a forwarder in place such that requests for the storage account DNS zone are directed to the Azure private DNS service, which is fronted by the reserved IP address `168.63.129.16`. (Remember to populate `$storageAccountEndpoint` if you are running the commands within a different PowerShell session.)
+On the DNS servers within your Azure virtual network, you also will need to put a forwarder in place such that requests for the storage account DNS zone are directed to the Azure private DNS service, which is fronted by the reserved IP address `168.63.129.16`. (Remember to populate `$storageAccountEndpoint` if you're running the commands within a different PowerShell session.)
 
 ```powershell
 Add-DnsServerConditionalForwarderZone `
@@ -81,7 +81,7 @@ Before testing to see if the DNS forwarders have successfully been applied, we r
 
 ```powershell
 # Replace storageaccount.file.core.windows.net with the appropriate FQDN for your storage account.
-# Note the proper suffix (core.windows.net) depends on the cloud your deployed in.
+# Note the proper suffix (core.windows.net) depends on the cloud you're deployed in.
 Resolve-DnsName -Name storageaccount.file.core.windows.net
 ```
 
@@ -100,7 +100,7 @@ Section    : Answer
 IP4Address : 192.168.0.4
 ```
 
-If you are mounting an SMB file share, you can also use the following `Test-NetConnection` command to see that a TCP connection can be successfully made to your storage account.
+If you're mounting an SMB file share, you can also use the following `Test-NetConnection` command to see that a TCP connection can be successfully made to your storage account.
 
 ```PowerShell
 Test-NetConnection -ComputerName storageaccount.file.core.windows.net -CommonTCPPort SMB

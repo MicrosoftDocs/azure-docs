@@ -86,17 +86,17 @@ Create an ASP.NET web app by following these steps:
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
-1. In the search box above the list of Azure Marketplace resources, search for **Web App for Containers**, and select **Create**.
+1. Under **Popular services**, select **Create** under **Web App**.
 
-1. In **Web App Create**, choose your subscription and a **Resource Group**. You can create a new resource group if needed.
+1. In **Create Web App**, choose your subscription and a **Resource Group**. You can create a new resource group if needed.
 
-1. Provide an app name, such as *win-container-demo* and choose **Windows** for **Operating System**. Select **Next: Docker** to continue.
+1. Provide an app name, such as *win-container-demo*. Choose **Docker Container** for **Publish** and **Windows** for **Operating System**. Select **Next: Docker** to continue.
 
-   ![Create a Web App for Containers](media/quickstart-custom-container/create-web-app-continer.png)
+   ![Create a Web App for Containers](media/quickstart-custom-container/create-web-app-container.png)
 
 1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Docker Hub](#publish-to-docker-hub).
 
-   ![Configure your a Web App for Containers](media/quickstart-custom-container/configure-web-app-continer.png)
+   ![Configure your a Web App for Containers](media/quickstart-custom-container/configure-web-app-container.png)
 
     If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](../container-registry/index.yml) or in any other private repository, you can configure it here.
 
@@ -203,7 +203,7 @@ Create a container registry by following the instructions in [Quickstart: Create
 
     ![sign in to Azure](./media/quickstart-docker/sign-in.png)
 
-1. In the [Status Bar](https://code.visualstudio.com/docs/getstarted/userinterface) at the bottom, verify that your Azure account email address. In the **APP SERVICE** explorer, your subscription should be displayed.
+1. In the [Status Bar](https://code.visualstudio.com/docs/getstarted/userinterface) at the bottom, verify your Azure account email address. In the **APP SERVICE** explorer, your subscription should be displayed.
 
 1. In the Activity Bar, select the **Docker** logo. In the **REGISTRIES** explorer, verify that the container registry you created appears.
 
@@ -286,7 +286,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
 3. In the image tag box, specify the tag you want in the following format: `<acr-name>.azurecr.io/<image-name>/<tag>`, where `<acr-name>` is the name of the container registry you created. Press **Enter**.
 
-4. When the image finishes building, click **Refresh** at the top of the **IMAGES** explorer and verify the image is built successfully.
+4. When the image finishes building, click **Refresh** at the top of the **IMAGES** explorer and verify that the image is built successfully.
 
     ![Screenshot shows the built image with tag.](./media/quickstart-docker/built-image.png)
 
@@ -295,9 +295,9 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 1. In the Activity Bar, click the **Docker** icon. In the **IMAGES** explorer, find the image you just built.
 1. Expand the image, right-click on the tag you want, and click **Push**.
 1. Make sure the image tag begins with `<acr-name>.azurecr.io` and press **Enter**.
-1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify the image is pushed successfully.
+1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify that the image is pushed successfully.
 
-    ![Screenshot shows the image deployed to Azure container registry.](./media/quickstart-docker/image-in-acr.png)
+    ![Screenshot shows the image deployed to Azure container registry.](./media/quickstart-docker/image-in-registry.png)
 
 ## Deploy to App Service
 
@@ -308,7 +308,7 @@ After deployment, your app is available at `http://<app-name>.azurewebsites.net`
 
 A **Resource Group** is a named collection of all your application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
 
-An **App Service Plan** defines the physical resources that will be used to host your website. This quickstart uses a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. If you start with the **Basic** plan, you can use the Azure portal to scale up so that yours is the only site running on a machine.
+An **App Service Plan** defines the physical resources that will be used to host your website. This quickstart uses a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. If you start with the **Basic** plan, you can use the Azure portal to scale up so that yours is the only site running on a machine. For pricing, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux).
 
 ## Browse the website
 

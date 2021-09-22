@@ -70,7 +70,7 @@ In the URL below replace [servicePrincipalId]  with the **ServicePrincipalId** e
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
-Copy the updated text from Step 3 into the "Request Body" and set the header "Content-Type" to "application/json" in "Request Headers". 
+Copy the updated text from Step 3 into the "Request Body". 
 
    ![PUT request](./media/skip-out-of-scope-deletions/skip-05.png)
 

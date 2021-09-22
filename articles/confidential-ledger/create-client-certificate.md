@@ -25,7 +25,8 @@ We recommending using OpenSSL to generate certificates. If you have git installe
 You can then generate a certificate by running `openssl` in a Bash or PowerShell terminal window:
 
 ```bash
-openssl req -new -newkey rsa:1024 -days 365 -nodes -x509 -keyout user_privk.pem -out user_cert.pem -subj=/CN="User Client Certificate"
+openssl ecparam -out "privkey_name.pem" -name "secp384r1" -genkey
+openssl req -new -key "privkey_name.pem" -x509 -nodes -days 365 -out "cert.pem" -"sha384" -subj=/CN="ACL Client Cert"
 ```
 
 ## Next steps

@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/30/2021
+ms.date: 09/13/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -68,7 +68,7 @@ connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, if you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+Alternatively, if you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
 ```python
 endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
 client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
@@ -104,10 +104,10 @@ Use the `create_user_and_token` method to create a Communication Services identi
 ```python
 # Issue an identity and an access token with the "voip" scope for the new identity
 identity_token_result = client.create_user_and_token(["voip"])
-identity = identity_token_result[0].properties['id']
+identity = identity_token_result[0]
 token = identity_token_result[1].token
 expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
-print("\nCreated an identity with ID: " + identity)
+print("\nCreated an identity with ID: " + identity.properties['id'])
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token)
 ```
@@ -119,7 +119,7 @@ To refresh an access token, use the `CommunicationUserIdentifier` object to reis
 ```python
 # Value existingIdentity represents identity of Azure Communication Services stored during identity creation
 identity = CommunicationUserIdentifier(existingIdentity)
-token_result = client.get_token( identity, ["voip"])
+token_result = client.get_token(identity, ["voip"])
 ```
 
 ## Revoke access tokens

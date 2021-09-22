@@ -39,7 +39,7 @@ To create a **device** resource, use the following steps.
 1. Sign in to the Azure [Preview portal](https://aka.ms/AzureNetworkFunctionManager) using your Microsoft Azure credentials.
 
 1. On the **Basics** tab, configure **Project details** and **Instance details** with the device settings.
-   :::image type="content" source="./media/create-device/device-settings.png" alt-text="Screenshot of device settings." lightbox="./media/create-device/device-settings.png":::
+   :::image type="content" source="./media/create-device/device-settings.png" alt-text="Screenshot of device settings.":::
 
    When you fill in the fields, a green check mark will appear when characters you add are validated. Some details are auto filled, while others are customizable fields:
 

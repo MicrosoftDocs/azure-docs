@@ -11,4 +11,4 @@ ms.author: mimart
 
 If you configured the sign-in journey for your application to include social accounts, such as Facebook, LinkedIn, or Google, you can specify the `domain_hint` parameter. This query parameter provides a hint to Azure AD B2C about the social identity provider that should be used for sign-in. For example, if the application specifies `domain_hint=facebook.com`, the sign-in flow goes directly to the Facebook sign-in page. 
 
-To redirect users to an external identity provider, follow these steps:
+To redirect users to an external identity provider, do the following:

@@ -1,15 +1,14 @@
 ---
-title: Migrate co-sell solutions from OCP GTM to Partner Center for Microsoft AppSource
-description: Learn how to migrate co-sell solutions from OCP GTM to Partner Center for Microsoft AppSource).
+title: Migrate Co-sell solutions from OCP GTM to Partner Center for Microsoft AppSource
+description: Migrate Co-sell solutions from OCP GTM to Partner Center (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 05/18/2021
+ms.date: 07/13/2021
 ---
-
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
 
@@ -32,7 +31,7 @@ Ensure you have an active Microsoft Partner Network membership and are enrolled 
 
 ## Publishing updates for attaining co-sell-ready status
 
-For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](./co-sell-overview.md). For a Microsoft seller to be incentivized, your solution must meet the [incentive-eligible requirements](./co-sell-overview.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#action-2-merge) later in this article).
+For your solution to be discoverable to Microsoft sellers and partners, it must meet the [co-sell ready requirements](./co-sell-overview.md). For a Microsoft seller to be a Co-sell incentive, your solution must meet the [incentive-eligible requirements](./co-sell-overview.md). Complete these requirements on the co-sell tab in Partner Center (see [this image](#action-2-merge) later in this article).
 
 > [!NOTE]
 > In commercial marketplace, your solutions are referred to as “offers” throughout the publishing experience.
@@ -94,7 +93,7 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 
 1. Create a draft offer in commercial marketplace
 
-   1. Select **+New Offer**
+   1. Select **+ New Offer**
 
         :::image type="content" source="media/co-sell-migrate/new-offer.png" alt-text="New Offer display":::
 
@@ -149,7 +148,7 @@ Select this option if the solution is already published and live in the commerci
 
 ### Discard this solution
 
-We recommend that you take the time to assess the viability and relevance of your solutions to optimize your presence and discoverability in the commercial marketplace with high quality offers that fulfill customer demand.
+We recommend that you take the time to assess the viability and relevance of your solutions to optimize your presence and discoverability in the commercial marketplace with high quality offers that meet customer demand.
 
 Select this option when a solution in OCP GTM solutions is no longer relevant. You will be asked to confirm the discard, and you can also undo it later.
 

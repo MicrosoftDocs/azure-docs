@@ -4,7 +4,9 @@ description: Learn how to plan for and manage costs for Azure Data Factory by us
 author: shirleywangmsft
 ms.author: shwang
 ms.service: data-factory
+ms.subservice: pricing
 ms.topic: how-to
+ms.custom: subject-cost-optimization
 ms.date: 04/28/2021
 ---
 

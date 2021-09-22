@@ -47,10 +47,9 @@ This solution allows you to bring existing ML trained model and run them confide
 
 Get started with ML model lift and shift to ONNX runtime [here](https://aka.ms/confidentialinference)
 
-### Edgeless RT
+### EGo
 
-Edgeless RT is an open-source project that builds upon the Open Enclave SDK. It adds support for Go and additional C++ features. Get started with a simple confidential Go application using your familiar VS Code environment [here](https://github.com/edgelesssys/edgelessrt). For Edgeless applications on AKS follow instructions [here](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)
-
+The open source [EGo SDK](https://www.ego.dev) brings support for the Go programming language to enclaves. EGo builds upon the Open Enclave SDK. It aims to make it easy to build confidential microservices. Follow this [step-by-step guide](https://github.com/edgelesssys/ego/tree/master/samples/aks), to deploy an EGo-based service on AKS.
 
 ## Container Based Sample Implementations
 

@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 07/02/2021
 ms.author: nitinme
 ---
 
@@ -26,7 +26,7 @@ This article provides instructions on how to recover a Cognitive Services resour
 * If the deleted resource used customer-managed keys with Azure Key Vault and the key vault has also been deleted, then you must restore the key vault before you restore the Cognitive Services resource. For more information, see [Azure Key Vault recovery management](../key-vault/general/key-vault-recovery.md).
 * If the deleted resource used a customer-managed storage and storage account has also been deleted, you must restore the storage account before you restore the Cognitive Services resource. For instructions, see [Recover a deleted storage account](../storage/common/storage-account-recover.md).
 
-Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](/azure/role-based-access-control/built-in-roles#cognitive-services-contributor) or [Contributor](/azure/role-based-access-control/built-in-roles#contributor). 
+Your subscription must have `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` permissions to purge resources, such as [Cognitive Services Contributor](../role-based-access-control/built-in-roles.md#cognitive-services-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). 
 
 ## Recover a deleted resource 
 
@@ -70,6 +70,11 @@ If you need to find the name of your deleted resources, you can get a list of de
 Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/deletedAccounts -ApiVersion 2021-04-30 
 ```
 
+### Using the Azure CLI
+
+```azurecli-interactive
+az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resourceName} --location {location} --namespace Microsoft.CognitiveServices --resource-type accounts --properties "{\"restore\": true}"
+```
 
 ## Purge a deleted resource 
 
@@ -102,7 +107,7 @@ Remove-AzResource -ResourceId /subscriptions/{subscriptionID}/providers/Microsof
 ### Using the Azure CLI
 
 ```azurecli-interactive
-az resource delete /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
+az resource delete --ids /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
 ```
 
 ## See also

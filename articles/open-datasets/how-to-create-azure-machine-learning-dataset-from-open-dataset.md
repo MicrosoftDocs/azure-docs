@@ -14,7 +14,7 @@ ms.custom: how-to, tracking-python
 
 # Create Azure Machine Learning datasets from Azure Open Datasets
 
-In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) datasets and [Azure Open Datasets](./index.yml). 
+In this article, you learn how to bring curated enrichment data into your local or remote machine learning experiments with [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) datasets and [Azure Open Datasets](./index.yml). 
 
 By creating an [Azure Machine Learning dataset](../machine-learning/how-to-create-register-datasets.md), you create a reference to the data source location, along with a copy of its metadata. Because datasets are lazily evaluated, and the data remains in its existing location, you
 * Incur no extra storage cost.
@@ -23,7 +23,7 @@ By creating an [Azure Machine Learning dataset](../machine-learning/how-to-creat
 
 To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
 
-Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to enrich your predictive solutions and improve their accuracy. See the [Open Datasets catalog](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) for public-domain data that can help you train machine learning models, like:
+Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to enrich your predictive solutions and improve their accuracy. See the [Open Datasets catalog](https://azure.microsoft.com/services/open-datasets/catalog/) for public-domain data that can help you train machine learning models, like:
 
 * [weather](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [census](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)

@@ -91,23 +91,23 @@ CREATE TRIGGER SchemaChangesTrigger
 ON SchemaChanges
 AFTER INSERT
 AS
-DECLARE \@lastAppliedId bigint
-DECLARE \@id bigint
-DECLARE \@sqlStmt nvarchar(max)
-SELECT TOP 1 \@lastAppliedId=LastAppliedId FROM SchemaChangeHistory
-SELECT TOP 1 \@id = id, \@SqlStmt = SqlStmt FROM SchemaChanges WHERE id \> \@lastAppliedId ORDER BY id
-IF (\@id = \@lastAppliedId + 1)
+DECLARE @lastAppliedId bigint
+DECLARE @id bigint
+DECLARE @sqlStmt nvarchar(max)
+SELECT TOP 1 @lastAppliedId=LastAppliedId FROM SchemaChangeHistory
+SELECT TOP 1 @id = id, @SqlStmt = SqlStmt FROM SchemaChanges WHERE id > @lastAppliedId ORDER BY id
+IF (@id = @lastAppliedId + 1)
 BEGIN
-    EXEC sp_executesql \@SqlStmt
-        UPDATE SchemaChangeHistory SET LastAppliedId = \@id
+    EXEC sp_executesql @SqlStmt
+        UPDATE SchemaChangeHistory SET LastAppliedId = @id
     WHILE (1 = 1)
     BEGIN
-        SET \@id = \@id + 1
-        IF exists (SELECT id FROM SchemaChanges WHERE ID = \@id)
+        SET @id = @id + 1
+        IF exists (SELECT id FROM SchemaChanges WHERE ID = @id)
             BEGIN
-                SELECT \@sqlStmt = SqlStmt FROM SchemaChanges WHERE ID = \@id
-                EXEC sp_executesql \@SqlStmt
-                UPDATE SchemaChangeHistory SET LastAppliedId = \@id
+                SELECT @sqlStmt = SqlStmt FROM SchemaChanges WHERE ID = @id
+                EXEC sp_executesql @SqlStmt
+                UPDATE SchemaChangeHistory SET LastAppliedId = @id
             END
         ELSE
             BREAK;

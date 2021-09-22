@@ -1,20 +1,21 @@
 ---
 title: Tutorial - Manage Azure disks with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create and manage Azure disks for virtual machines
-author: cynthn
-ms.service: virtual-machines
+author: roygara
+ms.author: rogarana
+ms.service: storage
 ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/29/2018
-ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
 
 # Tutorial - Manage Azure disks with Azure PowerShell
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 Azure virtual machines use disks to store the VMs operating system, applications, and data. When creating a VM, it's important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers deploying and managing VM disks. You learn about:
 
