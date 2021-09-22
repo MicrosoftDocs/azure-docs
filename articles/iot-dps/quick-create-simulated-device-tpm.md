@@ -229,7 +229,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
 2. Copy the **ID Scope** value.
 
-    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
+    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-csharp.png) 
 
 3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
@@ -250,8 +250,6 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
    > [!NOTE]
    > Do not confuse the window that contains command output with the window that contains output from the TPM simulator. You may have to select the original command window to bring it to the foreground.
-
-    ![Command window output](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
 
 ::: zone-end
 
@@ -369,7 +367,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
   .\azure-iot-sdk-python\c\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
   ```
 
-  ![TPM Simulator](./media/python-quick-create-simulated-device/tpm-simulator.png)
+  ![TPM Simulator](./media/quick-create-simulated-device-tpm/simulator.png)
 
 ::: zone-end
 
@@ -383,7 +381,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
     .\azure-iot-sdk-java\provisioning\provisioning-tools\tpm-simulator\Simulator.exe
     ```
 
-    ![TPM Simulator](./media/java-quick-create-simulated-device/simulator.png)
+    ![TPM Simulator](./media/quick-create-simulated-device-tpm/simulator.png)
 
 3. Open a second command prompt.
 
@@ -444,7 +442,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning Service. Note your _ID Scope_ and _Provisioning Service Global Endpoint_.
 
-    ![Device Provisioning Service information](./media/java-quick-create-simulated-device/extract-dps-endpoints.png)
+    ![Device Provisioning Service information](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-java.png)
 
 2. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
 
@@ -465,8 +463,6 @@ In this section, you'll build and execute a sample that reads the endorsement ke
     ```
 
 5. When the program begins running, it will display the *_Endorsement key_* and *_Registration ID_*.  Copy these values for the next section. Make sure to leave the program running.
-
-    ![Java TPM device program](./media/java-quick-create-simulated-device/program.png)
   
 ::: zone-end
 
@@ -495,7 +491,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
        * Update the **Initial device twin state** with the desired initial configuration for the device.
    * Once complete, press the **Save** button.
 
-      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)  
 
 7. Select **Save**.
 
@@ -511,7 +507,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-ansi-c.png)
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
 4. Near the top of the file, find the `#define` statements for each device protocol as shown below. Make sure only `SAMPLE_AMQP` is uncommented.
@@ -570,7 +566,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-nodejs.png) 
 
 3. Open a text editor of your choice.
 
@@ -675,7 +671,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     PROTOCOL = ProvisioningTransportProvider.HTTP
     ```
 
-    ![Service information](./media/python-quick-create-simulated-device/extract-dps-endpoints.png)
+    ![Service information](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-python.png)
 
 3. Run the sample.
 
@@ -691,7 +687,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 1. In the command window running the Java sample code on your machine, press *Enter* to continue running the application. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.  
 
-    ![Java TPM device program final](./media/java-quick-create-simulated-device/program-final.png)
+    ![Java TPM device program final](./media/quick-create-simulated-device-tpm/program-final-java.png)
 
 ::: zone-end
 
@@ -709,31 +705,31 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
     :::zone pivot="programming-language-ansi-c"
 
-    ![Device is registered with the IoT hub for C](./media/quick-create-simulated-device/hub-registration.png) 
+    ![Device is registered with the IoT hub for C](./media/quick-create-simulated-device-tpm/hub-registration-ansi-c.png) 
 
     :::zone-end
 
     :::zone pivot="programming-language-csharp"
 
-      ![Device is registered with the IoT hub for CSharp](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png)
+      ![Device is registered with the IoT hub for CSharp](./media/quick-create-simulated-device-tpm-csharp/hub-registration-csharp.png)
 
     ::: zone-end
 
     ::: zone pivot="programming-language-nodejs"
 
-    ![Device is registered with the IoT hub for Node.js](./media/quick-create-simulated-device/hub-registration.png)
+    ![Device is registered with the IoT hub for Node.js](./media/quick-create-simulated-device-tpm/hub-registration-nodejs.png)
 
     ::: zone-end
 
     ::: zone pivot="programming-language-python"
 
-    ![Device is registered with the IoT hub](./media/python-quick-create-simulated-device/hubregistration.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration-python.png) 
 
     ::: zone-end
 
     ::: zone pivot="programming-language-java"
 
-    ![Device is registered with the IoT hub](./media/java-quick-create-simulated-device/hubregistration.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration-java.png) 
 
     ::: zone-end
 
