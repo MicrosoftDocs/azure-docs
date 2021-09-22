@@ -74,52 +74,6 @@ Once service principal is created, you need to assign Data plane roles of your p
     1. 'Data Source Administrator' role to access Scanning Data plane. 
     1. 'Collection Admin' role to access Account Data Plane.
 
-1. Select the **Role assignments** tab.
-
-1. Scroll down to **Data curators** and select the **+** user button.
-
-    > [!Note]
-    > Only Collection Admins can edit permissions on a collection. If you are not a collection admin, contact one of the admins listed in the root collection. For more information, see the [Purview permissions page](catalog-permissions.md).
-
-1. Search the name of the previosly created service principal you wish to assign and then select their name in the results pane.
-
-1. Select **Save**
-
-You've now configured the service principal as an application administrator, which enables it to send content to the catalog.
-
-## View the REST APIs documentation
-
-To view the API Swagger documentation, download [PurviewCatalogAPISwagger.zip](https://github.com/Azure/Purview-Samples/raw/master/rest-api/PurviewCatalogAPISwagger.zip), extract its files, and open index.html.
-
-If you want to learn more about the advanced search/suggest API that Azure Purview provides, see the Rest API Search Filter documentation. The AutoRest generated client doesn't currently support customized search parameters. To workaround, follow the search-filter document to define filter classes in code as API call parameters. The index.html document has examples of these APIs.
-
-## Collect the necessary values to use the REST APIs
-
-Find and save the following values:
-
-* Tenant ID:
-  * In the [Azure portal](https://portal.azure.com), search for and select **Azure Active Directory**.
-  * In the **Manage** section in the left pane, select **Properties**, find the **Tenant ID**, and then select the **Copy to clipboard** icon to save its value.
-* Atlas endpoint:
-  * From the [Azure Purview accounts page](https://aka.ms/purviewportal) in the Azure portal, find and select your Azure Purview account in the list.
-  * Select **Properties**, find **Atlas Endpoint**, and then select the **Copy to clipboard** icon to save its value. Remove the *https://* portion of the string when you use it later.
-* Account name:
-  * Extract the name of your catalog from the Atlas endpoint string. For example, if your Atlas endpoint is `https://ThisIsMyCatalog.catalog.purview.azure.com`, your account name is `ThisIsMyCatalog`.
-
-## Use the Postman client to call the REST APIs
-
-1. Install the [Postman client](https://www.getpostman.com/).
-1. From the client, select **Import**, and use [Test.postman_collection.json](https://raw.githubusercontent.com/Azure/Purview-Samples/master/rest-api/Test.postman_collection.json).
-1. Select **Collections**, and then select **Test**.
-1. Select **Get Token**:
-    1. In the URL next to POST, replace *&lt;your-tenant-id&gt;* with the tenant ID you copied in the previous section.
-    1. Select the **Body** tab, and replace the placeholders in the path and body from the previous step.
-
-       After you select **Send**, the response body contains a JSON structure including the name *access_token* and a quoted string value. 
-    1. Copy the bearer token value (without quotes), to use in the next step.
-
-1. Select **/v2/types/typedefs**:
-    1. Replace the placeholder in the path with your atlas endpoint value. This value can be obtained by navigating to the catalog instance on Ibiza portal and selecting overview. 
 ## Get token
 You can send a POST request to the following URL to get access token.
 
@@ -151,22 +105,8 @@ Use the access token above to call the Data plane APIs.
 ## Data Plane API documentation
 Please refer here to see all the Data Plane APIs supported by Purview [Data Plane APIs](https://docs.microsoft.com/rest/api/purview/)
 
-1. Open Visual Studio 2019. These instructions have been tested with the free community edition.
-1. From the **Create a new project** page, create a **Console App (.NET Core)** project in C#.
-1. Copy-and-paste the provided [sample code](#sample-code-for-the-console-application).
-1. Replace *accountName*, *servicePrincipalId*, *servicePrincipalKey*, and *tenantId* with the values you previously collected.
-1. Use **Solution Explorer** to add a folder named **Generated** in the Visual Studio project.
-1. Copy the rest-api-specs\PurviewCatalogClient\CSharp folder that you previously created to the \Generated folder. Use File Explorer or the command-line prompt for the copy operation, which will trigger Visual Studio to automatically add the files to the project.
-1. In **Solution Explorer**, select and hold on (or right-click) the project, and then select **Manage NuGet Packages**.
-1. Select the **Browse** tab. Find and select **Microsoft.Rest.ClientRuntime**.
-1. Make sure the version is at least 2.3.21, and then select **Install**.
-1. Build and run the application.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Manage data sources](manage-data-sources.md)
-
-
-
-
