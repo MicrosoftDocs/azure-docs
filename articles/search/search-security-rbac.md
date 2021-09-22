@@ -8,32 +8,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ---
 
 # Use role-based authorization in Azure Cognitive Search
 
 Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use roles in the following ways:
 
-+ Use the generally available roles for service administration, such as adding capacity, monitoring health, or rotating keys. Generally available roles include Owner, Contributor, Reader, and Search Service Contributor.
++ Use generally available roles for service administration.
 
-  Search Service Contributor includes a subset of actions that target content (for example, creating and loading indexes). To enable this subset of actions on Search Service Contributor, follow the steps for preview sign-up.
++ Use new preview roles for content management (creating and managing indexes and other top-level objects), [**available by request**](https://aka.ms/azure-cognitive-search/rbac-preview).
 
-+ Use the new preview roles for content tasks. Preview roles include Search Index Data Contributor and Search Index Data Reader. This capability is currently in public preview ([by request](https://aka.ms/azure-cognitive-search/rbac-preview)). After enrollment, follow the instructions in this article to use preview roles.
+> [!NOTe]
+> Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](https://aka.ms/azure-cognitive-search/rbac-preview).
 
-+ Allow outbound indexer connections [using a managed identity](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that allow external data services, such as Azure Blob Storage, read-access on blobs by your trusted search service.
+A few RBAC scenarios are **not** supported, or not covered in this article:
 
-This article focuses on the first two bullets: generally available and preview roles. For more information about outbound indexer calls, start with [Configure a managed identity](search-howto-managed-identities-data-sources.md).
++ Outbound indexer connections are documented in ["Set up an indexer connection to a data source using a managed identity"](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that allow external data services, such as Azure Blob Storage, read-access on blobs by your trusted search service.
 
-A few RBAC scenarios are **not** directly supported:
++ [Custom roles](../role-based-access-control/custom-roles.md) are not supported.
 
-+ [Custom roles](../role-based-access-control/custom-roles.md)
-
-+ User identity access over search results (sometimes referred to as row-level security or document-level security)
-
-  > [!Tip]
-  > For document-level security, a workaround is to use [security filters](search-security-trimming-for-azure-search.md) to trim results by user identity, removing documents for which the requestor should not have access.
-  >
++ User identity access over search results (sometimes referred to as row-level security or document-level security) is not supported. For document-level security, a workaround is to use [security filters](search-security-trimming-for-azure-search.md) to trim results by user identity, removing documents for which the requestor should not have access.
 
 ## Built-in roles used in Search
 
