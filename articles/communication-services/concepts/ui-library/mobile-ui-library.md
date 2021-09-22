@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 # UI Mobile Library
 
-UI Mobile Library is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Teams Embed system is [video and voice calling](../voice-video-calling/calling-sdk-features), and it builds on Azure's calling primitives to deliver a complete user experience based on calling and meetings primitives.
+UI Mobile Library is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Mobile UI Library is [video and voice calling](../voice-video-calling/calling-sdk-features), and it builds on Azure's calling primitives to deliver a complete user experience based on calling and meetings primitives.
 
 The UI Mobile Library objective is provide these capabilities available to you in a turnkey, composite format. You drop the UI SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is very lightly, you can take advantage of reduce the development time and engineering complexity.
 
