@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Virtual Network IP Services documentation
-summary: Learn how to use Azure Virtual Network IP Services. Quickstarts, tutorials, samples, and more, show you how to IP Services in Azure.
+summary: Learn how to use Azure Virtual Network IP Services. Quickstarts, tutorials, samples, and more, show you how to use IP Services in Azure.
 metadata:
   title: Azure Virtual Network IP Services Documentation - Tutorials, quickstarts, API references
   description: Learn how to use Azure Virtual Network IP Services. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.

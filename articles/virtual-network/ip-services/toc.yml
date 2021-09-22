@@ -21,6 +21,7 @@ items:
     href: create-public-ip-prefix-powershell.md
   - name: Create public IP prefix - Azure CLI
     href: create-public-ip-prefix-cli.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Configure VM with internet routing preference
