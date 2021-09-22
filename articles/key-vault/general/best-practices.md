@@ -57,3 +57,6 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 1. Turn on [Soft Delete](soft-delete-overview.md).
 2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft-delete is turned on.
+
+## Learn more
+- [Best practices for secrets management in Key Vault](../secrets/secrets-best-practices.md)
