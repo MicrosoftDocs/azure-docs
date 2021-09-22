@@ -48,6 +48,7 @@ This produces a redacted MP4 video file in a single pass without any manual edit
 ### Analyze mode
 
 The **Analyze** pass of the two-pass workflow takes a video input and produces a JSON file with a list of the face locations, Face ID's and jpg images of each detected face.
+Be advised that the face id's are not guaranteed to be identical on subsequent runs of the analysis pass.
 
 | Stage | File Name | Notes |
 | --- | --- | --- |
