@@ -56214,6 +56214,21 @@
     "source_path_from_root": "/articles/virtual-machines/network-overview.md",
     "redirect_url": "/azure/virtual-network/network-overview",
     "redirect_document_id": false
+   },
+   {
+    "source_path_from_root": "/articles/active-directory/manage-apps/sso-options.md",
+    "redirect_url": "/azure/active-directory/manage-apps/plan-sso-deployment",
+    "redirect_document_id": false
+   },
+   {
+    "source_path_from_root": "/articles/active-directory/manage-apps/configure-oidc-single-sign-on.md",
+    "redirect_url": "/azure/active-directory/develop/active-directory-v2-protocols",
+    "redirect_document_id": false
+   },
+   {
+    "source_path_from_root": "/articles/active-directory/manage-apps/configure-saml-single-sign-on.md",
+    "redirect_url": "/azure/active-directory/develop/single-sign-on-saml-protocol",
+    "redirect_document_id": false
    }
   ]
 }
