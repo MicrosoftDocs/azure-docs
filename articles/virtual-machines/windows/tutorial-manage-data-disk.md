@@ -171,7 +171,7 @@ A data disk must be attached to a VM before the VM can access it. Complete the s
         -VM $vm
     ```
 
-    The response confirms a successful attachment.
+    The output confirms a successful attachment.
 
     ```Output
     RequestId IsSuccessStatusCode StatusCode ReasonPhrase
