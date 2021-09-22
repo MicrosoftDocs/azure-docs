@@ -104,7 +104,7 @@ To complete this tutorial, you need:
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-create-postgresql.png" alt-text="Screenshot that shows the Review + create blade.":::
 
     >[!IMPORTANT]
-    >As long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
+    >While creating the Flexible server instance from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
 
 1. Select **Create** to provision the server.
 

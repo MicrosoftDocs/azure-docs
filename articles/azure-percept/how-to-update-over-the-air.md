@@ -1,15 +1,15 @@
 ---
-title: Update your Azure Percept DK using over-the-air (OTA) updates
+title: Update Azure Percept DK over-the-air
 description: Learn how to receive over-the air (OTA) updates to your Azure Percept DK
 author: EthanChangAED
-ms.author: hschang
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Update your Azure Percept DK using over-the-air (OTA) updates
+# Update Azure Percept DK over-the-air
 
 Follow this guide to learn how to update the OS and firmware of the carrier board of your Azure Percept DK over-the-air (OTA) with Device Update for IoT Hub.
 

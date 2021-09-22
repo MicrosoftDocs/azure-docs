@@ -8,7 +8,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 
 # Mapping data flows performance and tuning guide
@@ -25,7 +25,7 @@ Watch the below video to see shows some sample timings transforming data with da
 
 Once you verify your transformation logic using debug mode, run your data flow end-to-end as an activity in a pipeline. Data flows are operationalized in a pipeline using the [execute data flow activity](control-flow-execute-data-flow-activity.md). The data flow activity has a unique monitoring experience compared to other activities that displays a detailed execution plan and performance profile of the transformation logic. To view detailed monitoring information of a data flow, click on the eyeglasses icon in the activity run output of a pipeline. For more information, see [Monitoring mapping data flows](concepts-data-flow-monitoring.md).
 
-![Data Flow Monitor](media/data-flow/monitoring-details.png "Data Flow Monitor 2")
+:::image type="content" source="media/data-flow/monitoring-details.png" alt-text="Data Flow Monitor":::
 
 When monitoring data flow performance, there are four possible bottlenecks to look out for:
 
@@ -34,7 +34,7 @@ When monitoring data flow performance, there are four possible bottlenecks to lo
 * Transformation time
 * Writing to a sink 
 
-![Data Flow Monitoring](media/data-flow/monitoring-performance.png "Data Flow Monitor 3")
+:::image type="content" source="media/data-flow/monitoring-performance.png" alt-text="Data Flow Monitoring":::
 
 Cluster start-up time is the time it takes to spin up an Apache Spark cluster. This value is located in the top-right corner of the monitoring screen. Data flows run on a just-in-time model where each job uses an isolated cluster. This start-up time generally takes 3-5 minutes. For sequential jobs, this can be reduced by enabling a time to live value. For more information, refer to the **Time to live** section in [Integration Runtime performance](concepts-integration-runtime-performance.md#time-to-live).
 
@@ -50,7 +50,7 @@ When designing and testing data flows from UI, debug mode allows you to interact
 
 The **Optimize** tab contains settings to configure the partitioning scheme of the Spark cluster. This tab exists in every transformation of data flow and specifies whether you want to repartition the data **after** the transformation has completed. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance.
 
-![Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.](media/data-flow/optimize.png)
+:::image type="content" source="media/data-flow/optimize.png" alt-text="Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.":::
 
 By default, *Use current partitioning* is selected which instructs the service keep the current output partitioning of the transformation. As repartitioning data takes time, *Use current partitioning* is recommended in most scenarios. Scenarios where you may want to repartition your data include after aggregates and joins that significantly skew your data or when using Source partitioning on a SQL DB.
 
@@ -88,7 +88,7 @@ If you have a good understanding of the cardinality of your data, key partitioni
 
 If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you are requesting the service to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
 
-![Logging level](media/data-flow/logging.png "Set logging level")
+:::image type="content" source="media/data-flow/logging.png" alt-text="Logging level":::
 
 ## Optimizing sources
 
@@ -106,7 +106,7 @@ Azure SQL Database has a unique partitioning option called 'Source' partitioning
 > [!TIP]
 > For source partitioning, the I/O of the SQL Server is the bottleneck. Adding too many partitions may saturate your source database. Generally four or five partitions is ideal when using this option.
 
-![Source partitioning](media/data-flow/sourcepart3.png "Source partitioning")
+:::image type="content" source="media/data-flow/sourcepart3.png" alt-text="Source partitioning":::
 
 #### Isolation level
 
@@ -118,9 +118,9 @@ You can read from Azure SQL Database using a table or a SQL query. If you are ex
 
 ### Azure Synapse Analytics sources
 
-When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows the service to read from Synapse using ```Staging```, which greatly improves read performance by using the [Synapse COPY statement](/sql/t-sql/statements/copy-into-transact-sql.md) command for the most performant bulk loading capability. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
+When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows the service to read from Synapse using ```Staging```, which greatly improves read performance by using the [Synapse COPY statement](/sql/t-sql/statements/copy-into-transact-sql) command for the most performant bulk loading capability. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
 
-![Enable staging](media/data-flow/enable-staging.png "Enable staging")
+:::image type="content" source="media/data-flow/enable-staging.png" alt-text="Enable staging":::
 
 ### File-based sources
 
@@ -154,7 +154,7 @@ After the write has completed, rebuild the indexes using the following command:
 
 These can both be done natively using Pre and Post-SQL scripts within an Azure SQL DB or Synapse sink in mapping data flows.
 
-![Disable indexes](media/data-flow/disable-indexes-sql.png "Disable indexes")
+:::image type="content" source="media/data-flow/disable-indexes-sql.png" alt-text="Disable indexes":::
 
 > [!WARNING]
 > When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling SQL indexes](/sql/relational-databases/indexes/disable-indexes-and-constraints)
@@ -179,7 +179,7 @@ If the data is evenly distributed, **Use current partitioning** will be the fast
 
 When writing files, you have a choice of naming options that each have a performance impact.
 
-![Sink options](media/data-flow/file-sink-settings.png "sink options")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Sink options":::
 
 Selecting the **Default** option will write the fastest. Each partition will equate to a file with the Spark default name. This is useful if you are just reading from the folder of data.
 
@@ -211,7 +211,7 @@ If the size of the broadcasted data is too large for the Spark node, you may get
 
 When working with data sources that can take longer to query, like large database queries, it is recommended to turn broadcast off for joins. Source with long query times can cause Spark timeouts when the cluster attempts to broadcast to compute nodes. Another good choice for turning off broadcast is when you have a stream in your data flow that is aggregating values for use in a lookup transformation later. This pattern can confuse the Spark optimizer and cause timeouts.
 
-![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
+:::image type="content" source="media/data-flow/joinoptimize.png" alt-text="Join Transformation optimize":::
 
 #### Cross joins
 
@@ -229,7 +229,7 @@ The [Window transformation in mapping data flow](data-flow-window.md) partitions
 
 Certain transformations such as joins and aggregates reshuffle your data partitions and can occasionally lead to skewed data. Skewed data means that data is not evenly distributed across the partitions. Heavily skewed data can lead to slower downstream transformations and sink writes. You can check the skewness of your data at any point in a data flow run by clicking on the transformation in the monitoring display.
 
-![Skewness and kurtosis](media/data-flow/skewness-kurtosis.png "Skewness and kurtosis")
+:::image type="content" source="media/data-flow/skewness-kurtosis.png" alt-text="Skewness and kurtosis":::
 
 The monitoring display will show how the data is distributed across each partition along with two metrics, skewness and kurtosis. **Skewness** is a measure of how asymmetrical the data is and can have a positive, zero, negative, or undefined value. Negative skew means the left tail is longer than the right. **Kurtosis** is the measure of whether the data is heavy-tailed or light-tailed. High kurtosis values are not desirable. Ideal ranges of skewness lie between -3 and 3 and ranges of kurtosis are less than 10. An easy way to interpret these numbers is looking at the partition chart and seeing if 1 bar is significantly larger than the rest.
 

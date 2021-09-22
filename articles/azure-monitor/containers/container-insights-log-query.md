@@ -40,8 +40,8 @@ ContainerInventory
 ### Kubernetes events
 
 ``` kusto
-KubeEvents_CL
-| where not(isempty(Namespace_s))
+KubeEvents
+| where not(isempty(Namespace))
 | sort by TimeGenerated desc
 | render table
 ```

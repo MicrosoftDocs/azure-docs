@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 
@@ -17,7 +17,7 @@ ms.author: jianleishen
 
 Follow this article when you want to **parse the delimited text files or write the data into delimited text format**. 
 
-Delimited text format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
+Delimited text format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
 
 ## Dataset properties
 
@@ -162,7 +162,7 @@ The below table lists the properties supported by a delimited text source. You c
 
 The below image is an example of a delimited text source configuration in mapping data flows.
 
-![DelimitedText source](media/data-flow/delimited-text-source.png)
+:::image type="content" source="media/data-flow/delimited-text-source.png" alt-text="DelimitedText source":::
 
 The associated data flow script is:
 
@@ -192,7 +192,7 @@ The below table lists the properties supported by a delimited text sink. You can
 
 The below image is an example of a delimited text sink configuration in mapping data flows.
 
-![DelimitedText sink](media/data-flow/delimited-text-sink.png)
+:::image type="content" source="media/data-flow/delimited-text-sink.png" alt-text="DelimitedText sink":::
 
 The associated data flow script is:
 

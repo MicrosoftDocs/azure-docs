@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to view Azure Digital Twins metrics in Azure Monitor.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/4/2020
+ms.date: 9/16/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Troubleshooting Azure Digital Twins: Metrics
 
-The metrics described in this article give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help analyze the root causes of issues without needing to contact Azure support.
+The metrics described in this article give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of the Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help analyze the root causes of issues without needing to contact Azure support.
 
 Metrics are enabled by default. You can view Azure Digital Twins metrics from the [Azure portal](https://portal.azure.com).
 

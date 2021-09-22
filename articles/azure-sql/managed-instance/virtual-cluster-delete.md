@@ -33,15 +33,17 @@ There are rare circumstances in which create operation can fail and result with 
 ## Delete a virtual cluster from the Azure portal
 
 > [!IMPORTANT]
-> Starting September 1st, 2021, all virtual clusters are automatically removed when last instance in the cluster has been deleted. Manual removal of the virtual cluster is not required anymore.
+> Starting September 1, 2021. all virtual clusters are automatically removed when last instance in the cluster has been deleted. Manual removal of the virtual cluster is not required anymore.
 
 To delete a virtual cluster by using the Azure portal, search for the virtual cluster resources.
 
-![Screenshot of the Azure portal, with search box highlighted](./media/virtual-cluster-delete/virtual-clusters-search.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the Azure portal, with search box highlighted](./media/virtual-cluster-delete/virtual-clusters-search.png)
 
 After you locate the virtual cluster you want to delete, select this resource, and select **Delete**. You're prompted to confirm the virtual cluster deletion.
 
-![Screenshot of the Azure portal Virtual clusters dashboard, with the Delete option highlighted](./media/virtual-cluster-delete/virtual-clusters-delete.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the Azure portal Virtual clusters dashboard, with the Delete option highlighted](./media/virtual-cluster-delete/virtual-clusters-delete.png)
 
 Azure portal notifications will show you a confirmation that the request to delete the virtual cluster has been successfully submitted. The deletion operation itself will last for about 1.5 hours, during which the virtual cluster will still be visible in portal. Once the process is completed, the virtual cluster will no longer be visible and the subnet associated with it will be released for reuse.
 
