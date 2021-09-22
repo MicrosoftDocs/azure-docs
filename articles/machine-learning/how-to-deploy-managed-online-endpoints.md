@@ -104,9 +104,9 @@ The example contains all the files needed to deploy a model on an online endpoin
 - An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
-The following snippet shows the *endpoints/online/managed/saferollout/blue-deployment.yml* file, with all the required inputs: 
+The following snippet shows the *endpoints/online/managed/sample/blue-deployment.yml* file, with all the required inputs: 
 
-:::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/saferollout/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
 The table describes the attributes of a `deployment`:
 
