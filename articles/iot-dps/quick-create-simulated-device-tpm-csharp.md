@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub
-description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service
+title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub in CSharp
+description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service in CSharp
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 9/7/2021

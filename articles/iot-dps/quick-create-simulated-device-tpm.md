@@ -4,6 +4,9 @@ description: Quickstart - Learn how to provision a TPM simulated device to the A
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 9/22/2021
+ms.topic: quickstart
+ms.service: iot-dps
+services: iot-dps 
 zone_pivot_groups: iot-dps-set1
 ms.custom:  [mvc, amqp, mqtt]
 #Customer intent: As a new IoT developer, I want simulate a TPM device to learn how secure provisioning works.
@@ -25,7 +28,7 @@ This article demonstrates individual enrollments.
 
 ## Prerequisites
 
-* If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
@@ -400,7 +403,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
 ::: zone-end
 
-::: zone pivot="programming-language-ansi-c, programming-language-python, , programming-language-java"
+::: zone pivot="programming-language-ansi-c, programming-language-python,programming-language-java"
 
 <a id="simulatetpm"></a>
 
@@ -483,8 +486,6 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 5. At the top of the page, select **+ Add individual enrollment**.
 
-::: zone pivot="programming-language-ansi-c"
-
 6. In the **Add Enrollment** panel, enter the following information:
 
    * Select **TPM** as the identity attestation *Mechanism*.
@@ -498,74 +499,6 @@ In this section, you'll build and execute a sample that reads the endorsement ke
       ![Enter device enrollment information in the portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
 7. Select **Save**.
-
-::: zone-end
-
-::: zone pivot="programming-language-csharp"
-
-6. In the **Add Enrollment** panel, enter the following information:
-   * Select **TPM** as the identity attestation *Mechanism*.
-   * Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, you may provide the following information:
-       * Enter a unique *Device ID* (you can use the suggested one or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
-       * Update the **Initial device twin state** with the desired initial configuration for the device.
-
-     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
-
-7. Select **Save**.
-
-8. Press the *Enter* key in the command window (the one that displayed the **_Endorsement key_**, **_Registration ID_**, and suggested **_Device ID_**) to enroll the simulated device. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-6. In the **Add Enrollment** panel, enter the following information:
-   * Select **TPM** as the identity attestation *Mechanism*.
-   * Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, you may provide the following information:
-       * Enter a unique *Device ID*. Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
-       * Update the **Initial device twin state** with the desired initial configuration for the device.
-
-     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)
-
-7. Select **Save**.
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-6. In the **Add Enrollment** panel, enter the following information:
-   * Select **TPM** as the identity attestation *Mechanism*.
-   * Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, you may provide the following information:
-       * Enter a unique *Device ID*. Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
-       * Update the **Initial device twin state** with the desired initial configuration for the device.
-
-     ![Enter device enrollment information in the portal blade](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
-
-7. Select **Save**.
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-6. In the **Add Enrollment** panel, enter the following information:
-   * Select **TPM** as the identity attestation *Mechanism*.
-   * Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, you may provide the following information:
-       * Enter a unique *Device ID*. Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
-       * Update the **Initial device twin state** with the desired initial configuration for the device.
-  
-     ![Enter device enrollment information in the portal blade](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
-
-7. Select **Save**.
-
-::: zone-end
 
 ## Register the device
 
