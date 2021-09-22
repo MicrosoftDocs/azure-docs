@@ -20,6 +20,8 @@ A helpful starting point for building reference architecture diagrams is to leve
 
 ## Typical components of a reference architecture diagram
 
+The diagram must clearly identify the repeatable IP code of your solution/application/service deployed on Microsoft Azure.
+
 - Cloud services that host and interact with your offer, including ones that consume Azure resources
 - Data connections, data layers, and data services being consumed by your offer
 - Cloud services used to control security, authentication, and users of the offer
