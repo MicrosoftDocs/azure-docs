@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Database for PostgreSQL backup
 description: Troubleshooting information for backing up Azure Database for PostgreSQL.
 ms.topic: troubleshooting
-ms.date: 09/21/2021
+ms.date: 09/22/2021
 
 ---
 
@@ -26,7 +26,7 @@ Steps:
 
 1. Select **Add role assignments**.
 
-    ![Add role assignment](./media/backup-azure-database-postgresql/add-role-assignment.png)
+    ![Screenshot to add role assignment.](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
 1. In the right context pane that opens, enter the following:<br>
 
@@ -34,7 +34,7 @@ Steps:
    - **Assign access to:** Choose the **User, group, or service principal** option in the drop-down list.<br>
    - **Select:** Enter the Backup vault name to which you want to back up this server and its databases.<br>
 
-    ![Select role](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
+    ![Screenshot showing how to select role.](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
 
 ## UserErrorBackupUserAuthFailed
 
@@ -50,11 +50,11 @@ This step is required to connect to the database through a user that can authent
 
 1. Go to the Active Directory Admin tab in the left navigation pane of the server view, and add yourself (or someone else) as the Active Directory admin.
 
-    ![Set Active Directory admin](./media/backup-azure-database-postgresql/set-admin.png)
+    ![Screenshot showing how to set Active Directory admin.](./media/backup-azure-database-postgresql/set-admin.png)
 
 1. Make sure to **Save** the AD admin user setting.
 
-    ![Save Active Directory admin user setting](./media/backup-azure-database-postgresql/save-admin-setting.png)
+    ![Screenshot showing how to save Active Directory admin user setting.](./media/backup-azure-database-postgresql/save-admin-setting.png)
 
 Refer to [this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) for the list of steps you need to perform to complete the permission granting steps.
 
@@ -65,7 +65,7 @@ Establish network line of sight by enabling the **Allow access to Azure services
 >[!Note]
 >Before you enable this flag, ensure that you set the **Deny public network access** flag to **No**.
 
-![Allow access to Azure services](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
+![Screenshot showing how to allow access to Azure services.](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
 ## UserErrorContainerNotAccessible
 
@@ -75,7 +75,7 @@ Establish network line of sight by enabling the **Allow access to Azure services
     1. Go to **Storage Account** -> **Access Control** -> **Add role assignment**.
     1. Assign **Storage Blob Data Contributor** role to the Backup vault MSI.
 
-    ![Assign Storage Blob Data Contributor role](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
+    ![Screenshot showing the process to assign Storage Blob Data Contributor role.](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
 
 1. Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment create](/cli/azure/role/assignment) command.
 
@@ -86,12 +86,12 @@ Establish network line of sight by enabling the **Allow access to Azure services
     1. Replace the assignee parameter with the **Application ID** of the vault's MSI and the scope parameter to refer to your specific container.
     1. To get the **Application ID** of the vault MSI, select **All applications** under **Application type**:
 
-        ![Select All Applications](./media/backup-azure-database-postgresql/select-all-applications.png)
+        ![Screenshot showing how to select All Applications.](./media/backup-azure-database-postgresql/select-all-applications.png)
 
     1. Search for the vault name and copy the Application ID:
 
-        ![Search for vault name](./media/backup-azure-database-postgresql/search-for-vault-name.png)
+        ![Screenshot showing how to search for vault name.](./media/backup-azure-database-postgresql/search-for-vault-name.png)
 
 ## Next steps
 
-[Backup vaults overview](backup-vault-overview.md)
+[About Azure Database for PostgreSQL backup (preview)](backup-azure-database-postgresql-overview.md)
