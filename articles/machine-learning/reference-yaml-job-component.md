@@ -55,10 +55,6 @@ Component jobs can be run inside pipeline jobs. `az ml job` commands can be used
 
 Component jobs currently cannot be run as standalone jobs and can only be run inside pipelines.
 
-## Examples
-
-[TODO]
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json. The schema is provided below in JSON and YAML formats for convenience.
