@@ -76,6 +76,8 @@ items:
         href: custom-named-entity-recognition/concepts/recommended-practices.md
       - name: Definitions
         href: custom-named-entity-recognition/concepts/definitions.md
+      - name: Evaluation metrics
+        href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Data limits
         href: custom-named-entity-recognition/concepts/limits.md
 - name: Custom Language Understanding
