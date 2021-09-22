@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Data Factory UX
-description: Learn how to troubleshoot Azure Data Factory UX issues.
+title: Troubleshoot Azure Data Factory Studio
+description: Learn how to troubleshoot Azure Data Factory Studio issues.
 author: ceespino
 ms.service: data-factory
 ms.subservice: authoring
@@ -10,23 +10,42 @@ ms.author: ceespino
 ms.reviewer: susabat
 ---
 
-# Troubleshoot Azure Data Factory UX Issues
+# Troubleshoot Azure Data Factory Studio Issues
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common troubleshooting methods for Azure Data Factory UX.
+This article explores common troubleshooting methods for [Azure Data Factory Studio](https://adf.azure.com), the user interface for the service.
 
-## ADF UX not loading
+## Azure Data Factory Studio fails to load
 
 > [!NOTE]
-> The Azure Data Factory UX officially supports Microsoft Edge and Google Chrome. Using other web browsers may lead to unexpected or undocumented behavior.
+> The Azure Data Factory Studio officially supports Microsoft Edge and Google Chrome. Using other web browsers may lead to unexpected or undocumented behavior.
 
 ### Third-party cookies blocked
 
-ADF UX uses browser cookies to persist user session and enable interactive development and monitoring experiences. 
-It is possible your browser blocks third-party cookies  because you are using an incognito session or have an ad blocker enabled. Blocking third-party cookies can cause issues when loading the portal, such as being redirected to a blank page, 'https://adf.azure.com/accesstoken.html', or getting a warning message saying that third-party cookies are blocked. To solve this problem, enable third-party cookies options on your browser using the following steps:
+Azure Data Factory Studio uses browser cookies to persist user session and enable interactive development and monitoring experiences. It is possible your browser blocks third-party cookies because you are using an incognito session or have an ad blocker enabled. Blocking third-party cookies can cause issues when loading the portal, such as being redirected to a blank page, 'https://adf.azure.com/accesstoken.html', or getting a warning message saying that third-party cookies are blocked. To solve this problem, enable third-party cookies options on your browser using the following steps:
 
-### Google Chrome
+# [Microsoft Edge](#tab/edge)
+
+#### Allow all cookies
+
+1. Visit **edge://settings/content/cookies** in your browser.
+1. Ensure **Allow sites to save and read cookie data** is enabled and that **Block third-party cookies** option is disabled 
+
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/edge-allow-all-cookies.png" alt-text="Allow all cookies in Edge":::
+1. Refresh Azure Data Factory Studio and try again.
+
+#### Only allow Azure Data Factory Studio to use cookies
+
+If you do not want to allow all cookies, you can optionally just allow ADF UX:
+
+1. Visit **edge://settings/content/cookies**.
+1. Under **Allow** section, select **Add** and add **adf.azure.com** site. 
+
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png" alt-text="Add ADF UX to allowed sites in Edge":::
+1. Refresh ADF UX and try again.
+
+# [Google Chrome](#tab/chrome)
 
 #### Allow all cookies
 
@@ -34,9 +53,9 @@ It is possible your browser blocks third-party cookies  because you are using an
 1. Select **Allow all cookies** option 
 
     :::image type="content" source="media/data-factory-ux-troubleshoot-guide/chrome-allow-all-cookies.png" alt-text="Allow All Cookies in Chrome":::
-1. Refresh ADF UX and try again.
+1. Refresh Azure Data Factory Studio and try again.
 
-#### Only allow ADF UX to use cookies
+#### Only allow Azure Data Factory Studio to use cookies
 If you do not want to allow all cookies, you can optionally just allow ADF UX:
 1. Visit **chrome://settings/cookies**.
 1. Select **add** under **Sites that can always use cookies** option 
@@ -47,27 +66,11 @@ If you do not want to allow all cookies, you can optionally just allow ADF UX:
     :::image type="content" source="media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png" alt-text="Allow all cookies from ADF UX site":::
 1. Refresh ADF UX and try again.
 
-### Microsoft Edge
+---
 
-1. Visit **edge://settings/content/cookies** in your browser.
-1. Ensure **Allow sites to save and read cookie data** is enabled and that **Block third-party cookies** option is disabled 
+## Connection failed error in Azure Data Factory Studio
 
-    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/edge-allow-all-cookies.png" alt-text="Allow all cookies in Edge":::
-1. Refresh ADF UX and try again.
-
-#### Only allow ADF UX to use cookies
-
-If you do not want to allow all cookies, you can optionally just allow ADF UX:
-
-1. Visit **edge://settings/content/cookies**.
-1. Under **Allow** section, select **Add** and add **adf.azure.com** site. 
-
-    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png" alt-text="Add ADF UX to allowed sites in Edge":::
-1. Refresh ADF UX and try again.
-
-## Connection failed on ADF UX
-
-Sometimes you would see "Connection failed" error on ADF UI similar to the screenshot below after clicking **Test Connection**, **Preview**, etc. It means ADF failed to perform the operation because it cannot connect to the ADF service from your machine.
+Sometimes you might see a "Connection failed" error in Azure Data Factory Studio similar to the screenshot below after clicking **Test Connection**, **Preview**, etc. It means the the operation failed because your local machine could not connect to the ADF service.
 
 :::image type="content" source="media/data-factory-ux-troubleshoot-guide/connection-failed.png" alt-text="Connection failed":::
 
@@ -93,26 +96,28 @@ To troubleshoot further, open **Command Prompt** and type `nslookup dpnortheurop
 
     :::image type="content" source="media/data-factory-ux-troubleshoot-guide/command-response-2.png" alt-text="Command response 2":::
 
-## Change linked service type in datasets
+## Change linked service type warning message in datasets
 
-File format dataset can be used with all the file-based connectors, for example, you can configure a Parquet dataset on Azure Blob or Azure Data Lake Storage Gen2. Note each connector supports different set of data store related settings on the activity, and with different app model. 
-
-On ADF authoring UI, when you use a file format dataset in an activity - including Copy, Lookup, GetMetadata, Delete activities - and in dataset you want to point to a linked service of different type from the current (for example, switch from File System to ADLS Gen2), you would see the following warning message. To make sure it’s a clean switch, upon your consent, the pipelines and activities, which reference this dataset will be modified to use the new type as well, and any existing data store settings, which are incompatible with the new type will be cleared as it no longer applies.
-
-To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
+You might encounter the warning message below when you use a file format dataset in an activity, and subsequently want to point to a linked service of a different type from that used in the activity (for example, File System to Azure Data Lake Storage Gen2).
 
 :::image type="content" source="media/data-factory-ux-troubleshoot-guide/warning-message.png" alt-text="Warning message":::
 
+File format datasets can be used with all the file-based connectors, for example, you can configure a Parquet dataset on Azure Blob or Azure Data Lake Storage Gen2. Note each connector supports different set of data store related settings on the activity, and with different app model. 
+
+On the ADF authoring UI, when you use a file format dataset in an activity - including Copy, Lookup, GetMetadata, Delete activities - and in a dataset you want to point to a linked service of different type from the current type in the activity (for example, switch from File System to ADLS Gen2), you would see this warning message. To make sure it’s a clean switch, upon your consent, the pipelines and activities that reference this dataset will be modified to use the new type as well, and any existing data store settings that are incompatible with the new type will be cleared since it no longer applies.
+
+To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
+
+
 ## Could not load resource while opening pipeline 
 
-When the user accesses pipeline using ADF GUI authoring tool, the  error message says, "Could not load resource 'xxxxxx'. Please ensure no mistakes in the JSON and that referenced resources exist. Status: TypeError: Cannot read property 'xxxxx' of undefined, Possible reason: TypeError: Cannot read property 'xxxxxxx' of undefined."
+When the user accesses a pipeline using Azure Data Factory Studio, an error message indicates, "Could not load resource 'xxxxxx'. Please ensure no mistakes in the JSON and that referenced resources exist. Status: TypeError: Cannot read property 'xxxxx' of undefined, Possible reason: TypeError: Cannot read property 'xxxxxxx' of undefined."
 
 The source of the error message is JSON file that describes the pipeline. It happens when customer uses Git integration and pipeline JSON files get corrupted for some reason. You will see an error (red dot with x) left to pipeline name as shown below.
 
 :::image type="content" source="media/data-factory-ux-troubleshoot-guide/pipeline-json-error.png" alt-text="Pipeline JSON error":::
 
-Solution is to fix JSON files at first and then reopen the pipeline using Authoring tool.
-
+The solution is to fix JSON files at first and then reopen the pipeline using Authoring tool.
 
 
 ## Next steps
