@@ -7,7 +7,7 @@ ms.date: 06/27/2019
 ms.author: lajanuar
 ---
 
-Form Recognizer works on input documents that meet these requirements:
+Form Recognizer processes input documents that meet these requirements:
 
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * File size must be less than 50 MB.
