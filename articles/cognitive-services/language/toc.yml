@@ -122,8 +122,18 @@ items:
       href: custom-question-answering/how-to/chit-chat.md
     - name: Change default answer
       href: custom-question-answering/how-to/change-default-answer.md
+    - name: Configure resources
+      href: custom-question-answering/how-to/configure-resources.md
+    - name: Analytics
+      href: custom-question-answering/how-to/analytics.md
+    - name: Manage knowledge base
+      href: custom-question-answering/how-to/manage-knowledge-base.md
+    - name: Generate answer
+      href: custom-question-answering/how-to/generate-answer.md
     - name: Filter responses
       href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language/context/context
+    - name: Manage resources
+      href: custom-question-answering/how-to/manage-resources.md
   - name: Concepts
     items:
     - name: Precise answering
@@ -134,9 +144,6 @@ items:
       href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language/context/context
     - name: Confidence score
       href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language/context/context
-    
-
-
 - name: Entity linking
   items:
   - name: Overview

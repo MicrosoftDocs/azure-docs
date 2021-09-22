@@ -18,29 +18,13 @@ QnA Maker allows multiple people to collaborate on all knowledge bases in the sa
 
 ## Access at the cognitive resource level
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 You cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker resources, then add roles to each resource.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-You cannot share a particular knowledge base in a Text Analytics service. If you want more granular access control, consider distributing your knowledge bases across different Text Analytics resources, then add roles to each resource.
-
----
 
 ## Add a role to a resource
 
 ### Add a user account to the cognitive resource
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 You should apply RBAC controls to the QnA Maker resource.
-
-# [Custom question answering (preview release)](#tab/v2)
-
-You should apply RBAC controls to the Text Analytics resource with Custom question answering as a feature.
-
----
 
 The following steps use the collaborator role but any of the roles can be added using these steps
 
