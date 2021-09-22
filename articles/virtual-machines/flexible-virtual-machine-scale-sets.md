@@ -11,7 +11,7 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Preview: Flexible orchestration for virtual machine scale sets in Azure
+# Flexible orchestration for virtual machine scale sets in Azure
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
@@ -34,78 +34,9 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 Learn more about the differences between Uniform scale sets and Flexible scale sets in [Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md).
 
 
-> [!IMPORTANT]
-> Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
-> This preview version is provided without a service level agreement and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 > [!CAUTION]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
 
-
-## Register for Flexible orchestration mode
-Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete. You can use Azure portal, Azure PowerShell, or Azure CLI to register.
-
-### Azure portal
-
-1. Log into the Azure portal at https://portal.azure.com.
-1. Go to your **Subscriptions**.
-1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
-1. In the menu under **Settings**, select **Preview features**.
-1. Select the four orchestrator features to enable: *VMOrchestratorSingleFD*, *VMOrchestratorMultiFD*, *VMScaleSetFlexPreview*, and *SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview*.
-1. Select **Register**.
-
-Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
-
-1. In the menu under **Settings**, select **Resource providers**.
-1. Select `Microsoft.compute`.
-1. Select **Re-register**.
-
-
-### Azure PowerShell
-Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName VMOrchestratorSingleFD -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName VMScaleSetFlexPreview -ProviderNamespace Microsoft.Compute `
-Register-AzProviderFeature -FeatureName SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview -ProviderNamespace Microsoft.Compute
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
-```
-
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### Azure CLI 2.0
-Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name VMOrchestratorMultiFD
-az feature register --namespace microsoft.compute --name VMOrchestratorSingleFD
-az feature register --namespace Microsoft.Compute --name VMScaleSetFlexPreview 
-az feature register --namespace Microsoft.Compute --name SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
-```
-
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
 
 ## Get started with Flexible orchestration mode
 
@@ -202,7 +133,7 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 ## Features
 The following table lists the Flexible orchestration mode features and links to the appropriate documentation.
 
-| Feature | Supported by Flexible orchestration (Preview) |
+| Feature | Supported by Flexible orchestration |
 |-|-|
 | Virtual machine type | Standard Azure IaaS VM (Microsoft.compute /virtualmachines) |
 | Maximum Instance Count (with FD availability guarantee) | 1000 |
@@ -268,42 +199,6 @@ The following virtual machine scale set parameters are not currently supported d
 Find the right solution to your troubleshooting scenario.
 
 <!-- error -->
-### InvalidParameter. Parameter 'virtualMachineProfile' is not allowed.
-
-```
-InvalidParameter. Parameter 'virtualMachineProfile' is not allowed.
-```
-
-**Cause:** The subscription is not registered for the Flexible orchestration mode Public Preview.
-
-**Solution:** You must register the VMScaleSetPublicPreview feature for your subscription. Follow the instructions above to register for the Flexible orchestration mode Public Preview.
-
-
-<!-- error -->
-### BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations
-
-```
-BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations during the Public Preview of VM NetworkInterfaceConfigurations initially requires the feature 'Microsoft.Compute/SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview'.
-```
-
-**Cause:** The subscription is not registered for the Flexible orchestration mode Public Preview.
-
-**Solution:** You must register the `SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview` feature for your subscription. Follow the instructions above to register for the Flexible orchestration mode Public Preview.
-
-
-<!-- error -->
-### InvalidParameter. The value 'False' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: True
-
-```
-InvalidParameter. The value 'False' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: True
-```
-
-**Cause:** The subscription is not registered for the Flexible orchestration mode Public Preview.
-
-**Solution:** Follow the instructions above to register for the Flexible orchestration mode Public Preview.
-
-
-<!-- error -->
 ### InvalidParameter. The specified fault domain count 2 must fall in the range 1 to 1.
 
 ```
@@ -333,7 +228,7 @@ OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it 
 ```
 InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
 ```
-**Cause:** The subscription is registered for the Flexible orchestration mode preview; however, the `singlePlacementGroup` parameter is set to *True*.
+**Cause:** The `singlePlacementGroup` parameter is set to *True*.
 
 **Solution:** The `singlePlacementGroup` must be set to *False*.
 

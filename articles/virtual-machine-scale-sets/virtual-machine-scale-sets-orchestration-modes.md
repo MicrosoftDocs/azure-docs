@@ -10,7 +10,7 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
 ---
 
-# Preview: Orchestration modes for virtual machine scale sets in Azure
+# Orchestration modes for virtual machine scale sets in Azure
 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
@@ -40,14 +40,9 @@ With Flexible orchestration, Azure provides a unified experience across the Azur
 - Services that want to mix virtual machine types, or leverage Spot and on-demand VMs together
 - Existing Availability Set applications
 
-> [!IMPORTANT]
-> Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
-> This preview version is provided without a service level agreement and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## What has changed with Flexible orchestration mode?
-One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with Uniform orchestration. During the preview period, there are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
+One of the main advantages of Flexible orchestration is that it provides orchestration features over standard Azure IaaS VMs, instead of scale set child virtual machines. This means you can use all of the standard VM APIs when managing Flexible orchestration instances, instead of the virtual machine scale set VM APIs you use with Uniform orchestration. There are several differences between managing instances in Flexible orchestration versus Uniform orchestration. In general, we recommend that you use the standard Azure IaaS VM APIs when possible. In this section, we highlight examples of best practices for managing VM instances with Flexible orchestration.
 
 ### Assign fault domain during VM creation
 You can choose the number of fault domains for the Flexible orchestration scale set. By default, when you add a VM to a Flexible scale set, Azure evenly spreads instances across fault domains. While it is recommended to let Azure assign the fault domain, for advanced or troubleshooting scenarios you can override this default behavior and specify the fault domain where the instance will land.
@@ -94,7 +89,7 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 ## A comparison of Flexible, Uniform, and Availability Sets
 The following table compares the Flexible orchestration mode, Uniform orchestration mode, and Availability Sets by their features.
 
-| Feature  | Supported by Flexible orchestration (Preview)  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
+| Feature  | Supported by Flexible orchestration  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
 |-|-|-|-|
 | Virtual machine type  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  | Scale Set specific VMs (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Standard Azure IaaS VM (Microsoft.compute /virtualmachines)  |
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD  | All SKUs  | All SKUs  |
@@ -156,20 +151,13 @@ Register and get started with [Flexible orchestration mode](..\virtual-machines\
 
 - **What is the absolute max instance count with guaranteed fault domain availability?**
 
-    | Feature  | Supported by Flexible orchestration (Preview)  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
+    | Feature  | Supported by Flexible orchestration  | Supported by Uniform orchestration (General Availability)  | Supported by AvSets (General Availability)  |
     |-|-|-|-|
     | Maximum Instance Count (with FD availability guarantee)  | 1000  | 3000  | 200  |
 
 ## Troubleshoot scale sets with Flexible orchestration
 Find the right solution to your troubleshooting scenario.
 
-```
-InvalidParameter. The value 'False' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: True
-```
-
-**Cause:** The subscription is not registered for the Flexible orchestration mode Public Preview.
-
-**Solution:** Follow the instructions above to register for the Flexible orchestration mode Public Preview.
 
 ```
 InvalidParameter. The specified fault domain count 2 must fall in the range 1 to 1.
@@ -190,7 +178,7 @@ OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it 
 ```
 InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
 ```
-**Cause:** The subscription is registered for the Flexible orchestration mode preview; however, the `singlePlacementGroup` parameter is set to *True*.
+**Cause:** The `singlePlacementGroup` parameter is set to *True*.
 
 **Solution:** The `singlePlacementGroup` must be set to *False*.
 
