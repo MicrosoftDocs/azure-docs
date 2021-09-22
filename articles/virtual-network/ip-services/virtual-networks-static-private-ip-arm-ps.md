@@ -64,15 +64,14 @@ The following command changes the private IP address of the virtual machine to s
 ```azurepowershell-interactive
 ## Place virtual network configuration into a variable. ##
 $net = @{
-    Name = 'myResourceGroup-vnet'
+    Name = 'myVM'
     ResourceGroupName = 'myResourceGroup'
 }
 $vnet = Get-AzVirtualNetwork @net
 
 ## Place subnet configuration into a variable. ##
 $sub = @{
-    Name = 'default'
-    ResourceGroupName = 'myResourceGroup'
+    Name = 'myVM'
     VirtualNetwork = $vnet
 }
 $subnet = Get-AzVirtualNetworkSubnetConfig @sub
@@ -89,8 +88,8 @@ $nic = Get-AzNetworkInterface -ResourceId $vm.NetworkProfile.NetworkInterfaces.I
 
 ## Set interface configuration. ##
 $config =@{
-    Name = 'ipconfig1'
-    PrivateIpAddress = '10.0.0.4'
+    Name = 'myVM'
+    PrivateIpAddress = '192.168.1.4'
     Subnet = $subnet
 }
 $nic | Set-AzNetworkInterfaceIpConfig @config -Primary
