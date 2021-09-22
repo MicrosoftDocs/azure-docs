@@ -5,8 +5,6 @@
     items:
     - name: What is application management?
       href: what-is-application-management.md
-    - name: What is single sign-on (SSO)?
-      href: what-is-single-sign-on.md
     - name: What's new in docs?
       href: whats-new-docs.md
   - name: Quickstarts
@@ -57,22 +55,10 @@
         href: my-apps-deployment-plan.md
     - name: Single sign-on
       items:
-      - name: Plan a single sign-on deployment
+      - name: What is single sign-on?
+        href: what-is-single-sign-on.md
+      - name: Plan single sign-on deployment
         href: plan-sso-deployment.md
-      - name: Single sign-on options
-        href: sso-options.md
-      - name: OIDC-based SSO
-        href: configure-oidc-single-sign-on.md
-      - name: SAML-based SSO
-        href: configure-saml-single-sign-on.md
-      - name: Password-based SSO
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Linked-based SSO
-        href: configure-linked-sign-on.md
-      - name: Header-based SSO (on-prem apps)
-        href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
-      - name: One-click SSO
-        href: one-click-sso-tutorial.md
     - name: Application security
       items:
       - name: App access options
@@ -158,20 +144,18 @@
       items:
       - name: Secure hybrid access with Azure AD 
         href: secure-hybrid-access.md
-      - name: Secure hybrid access with partner integrations
-        href: secure-hybrid-access-integrations.md
-      - name: Datawiza 
-        href: datawiza-with-azure-ad.md
-      - name: F5 
-        items:
-        - name: F5 and Azure AD integration
-          href: f5-aad-integration.md
-        - name: F5 BIG-IP VE deployment in Azure IaaS
-          href: f5-bigip-deployment-guide.md
-        - name: F5 Big-IP passwordless VPN
-          href: f5-aad-password-less-vpn.md
-      - name: Silverfort
-        href: silverfort-azure-ad-integration.md
+      - name: F5 and Azure AD integration
+        href: f5-aad-integration.md
+      - name: F5 BIG-IP VE deployment in Azure IaaS
+        href: f5-bigip-deployment-guide.md
+      - name: F5 Big-IP with Azure AD for passwordless VPN
+        href: f5-aad-password-less-vpn.md
+    - name: Single sign-on
+      items:
+      - name: Password-based single sign-on
+        href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Linked single sign-on
+        href: configure-linked-sign-on.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot password-based single sign-on
