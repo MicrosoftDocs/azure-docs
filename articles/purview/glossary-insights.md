@@ -48,7 +48,7 @@ In Azure Purview, you can create glossary terms and attach them to assets. Later
 
    :::image type="content" source="./media/glossary-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. In the **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: area, select **Glossary** to display the Purview **Glossary insights** report.
+1. In the **Insights** area, select **Glossary** to display the Purview **Glossary insights** report.
 
 **Glossary Insights** provides you as a business user, valuable information to maintain a well-defined glossary for your organization.
 
