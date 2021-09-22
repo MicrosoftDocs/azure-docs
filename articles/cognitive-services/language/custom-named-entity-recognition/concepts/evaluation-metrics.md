@@ -12,11 +12,7 @@ ms.date: 09/22/2021
 ms.author: aahi
 ---
 
-# Evaluation metrics for Custom NER
-
-
-
-## Evaluation Metrics
+# Evaluation metrics for Custom NER models
 
 Model evaluation in custom entity extraction uses the following metrics:
 
