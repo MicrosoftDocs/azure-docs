@@ -30,9 +30,9 @@ If you want to skip straight to the code, see the [Rust quickstart](https://gith
 - [Git](https://git-scm.com/downloads)
 
 ## Create an Azure Cache for Redis instance
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## Review the code (optional)
 
@@ -172,7 +172,7 @@ fn list() {
 }
 ```
 
-Here you can see some of the `SET` operations. The [sadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.sadd) (high-level API) method is used to add couple of entries to a `SET` named `users`. [SISMEMBER](https://redis.io/commands/hset) is then executed (low-level API) to check whether `user1` exists. Finally, [smembers](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.smembers) is used to fetch and iterate over all the set entries in the form of a Vector ([Vec<String>](https://doc.rust-lang.org/std/vec/struct.Vec.html)).
+Here you can see some of the `SET` operations. The [sadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.sadd) (high-level API) method is used to add couple of entries to a `SET` named `users`. [SISMEMBER](https://redis.io/commands/hset) is then executed (low-level API) to check whether `user1` exists. Finally, [smembers](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.smembers) is used to fetch and iterate over all the set entries in the form of a Vector ([Vec\<String\>](https://doc.rust-lang.org/std/vec/struct.Vec.html)).
 
 ```rust
 fn set() {

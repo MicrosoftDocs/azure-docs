@@ -256,6 +256,8 @@ items:
       href: connector-overview.md
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
+    - name: Amazon RDS for Oracle
+      href: connector-amazon-rds-for-oracle.md     
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
@@ -709,6 +711,8 @@ items:
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+    - name: Run Data Pipelines with Service Level Agreements
+      href: tutorial-operationalize-pipelines.md
     - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
     - name: Copy or clone a data factory

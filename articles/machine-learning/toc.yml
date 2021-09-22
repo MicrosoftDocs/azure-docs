@@ -114,7 +114,7 @@
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
     - name: Designer examples & datasets
-      displayName: example, examples, studio, pipelines, data sets, modules
+      displayName: example, examples, studio, pipelines, data sets, modules, components
       href: samples-designer.md
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
@@ -215,6 +215,8 @@
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Secured workspace traffic flow
+          href: concept-secure-network-traffic-flow.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Security controls by Azure Policy
@@ -771,9 +773,9 @@
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
-    - name: Designer module reference
-      displayName: module, reference, algorithm, studio
-      href: algorithm-module-reference/module-reference.md
+    - name: Designer component reference
+      displayName: component, module, reference, algorithm, studio
+      href: component-reference/component-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
     - name: Machine learning CLI (v1) pipeline YAML reference

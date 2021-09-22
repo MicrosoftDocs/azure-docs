@@ -55,11 +55,11 @@ When a "TMP Importer" dialog prompts you to import TextMesh Pro resources, selec
 
  After the Unity splash screen, you should see a white bounding box. You can use your hand to move, scale, or rotate the bounding box. Place the box to cover the object you want to detect.
 
-Open the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a> and select **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Select **Stop Search** to stop tracking and all detected instances will be removed.
+Open the <a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">hand menu</a> and select **Lock SearchArea** to prevent further movement of the bounding box. Select **Start Search** to start object detection. When the object is detected, a mesh will be rendered on the object. Details of a detected instance will show on the screen, such as updated timestamp and surface coverage ratio. Select **Stop Search** to stop tracking and all detected instances will be removed.
 
 #### The app menus
 
-You can also do other actions using the <a href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_HandMenu.html" target="_blank">hand menu</a>.
+You can also do other actions using the <a href="/windows/mixed-reality/mrtk-unity/features/ux-building-blocks/hand-menu" target="_blank">hand menu</a>.
 
 ##### Primary menu
 

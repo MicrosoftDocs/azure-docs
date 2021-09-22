@@ -21,7 +21,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/articles/active-directory/user-help/active-directory-passwords-reset-register.md",
+      "source_path": "articles/active-directory/user-help/index.yml",
+      "redirect_url": "https://support.microsoft.com/en-us/account-billing/work-or-school-account-help-718b3d92-a8a7-4656-8a05-c0228d346b7d",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/active-directory-passwords-reset-register.md",
       "redirect_url": "https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a",
       "redirect_document_id": false
     },
@@ -6346,6 +6351,26 @@
     {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-supported-blob-storage-features.md",
       "redirect_url": "/azure/storage/blobs/storage-feature-support-in-storage-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-spark.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-hive.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-mapreduce.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-storm.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
       "redirect_document_id": false
     },
     {
@@ -14104,11 +14129,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
-      "redirect_url": "/azure/azure-vmware/introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
@@ -14266,11 +14286,6 @@
     {
       "source_path_from_root": "/articles/azure-vmware/vrealize-operations-for-avs.md",
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-vmware/deploy-disaster-recovery-using-jetstream.md",
-      "redirect_url": "/azure/azure-vmware/concepts-run-command",
       "redirect_document_id": false
     },
     {
@@ -14456,6 +14471,16 @@
     {
       "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
       "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-ssh.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
       "redirect_document_id": false
     },
     {
@@ -16714,6 +16739,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-forescout.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-forescout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-fortinet.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-fortinet",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-palo-alto.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-palo-alto",
       "redirect_document_id": false
@@ -18141,6 +18176,11 @@
     {
       "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
       "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/protect-windows-virtual-desktop.md",
+      "redirect_url": "/azure/firewall/protect-azure-virtual-desktop",
       "redirect_document_id": false
     },
     {
@@ -24464,6 +24504,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/postgresql/hyperscale-preview-features.md",
+      "redirect_url": "/azure/postgresql/hyperscale-product-updates",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/postgresql/policy-samples.md",
       "redirect_url": "/azure/postgresql/policy-reference",
       "redirect_document_id": false
@@ -29276,6 +29321,21 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-storage-explorer.md",
+      "redirect_url": "/azure/vs-azure-tools-storage-explorer-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-cli.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
       "redirect_document_id": false
     },
     {
@@ -45424,6 +45484,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code-angular",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-angular-auth-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-applications-guiding-developers-for-lob-applications.md",
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
@@ -45433,6 +45503,7 @@
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
@@ -56090,7 +56161,7 @@
     },
     {
       "source_path": "articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
       "redirect_document_id": false
     },
     {
@@ -57018,6 +57089,411 @@
       "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": true
     },
+    {  
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-columns.md",
+      "redirect_url": "/azure/machine-learning/component-reference/add-columns",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-rows.md",
+      "redirect_url": "/azure/machine-learning/component-reference/add-rows",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/apply-image-transformation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/apply-image-transformation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/apply-math-operation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/apply-math-operation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/apply-sql-transformation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/apply-sql-transformation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/apply-transformation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/apply-transformation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/assign-data-to-clusters.md",
+      "redirect_url": "/azure/machine-learning/component-reference/assign-data-to-clusters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/boosted-decision-tree-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/boosted-decision-tree-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/clean-missing-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/clean-missing-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/clip-values.md",
+      "redirect_url": "/azure/machine-learning/component-reference/clip-values",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-to-csv.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-to-csv",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-to-dataset.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-to-dataset",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-to-image-directory.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-to-image-directory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-to-indicator-values.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-to-indicator-values",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-word-to-vector.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-word-to-vector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/create-python-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/create-python-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/cross-validate-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/cross-validate-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/decision-forest-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/decision-forest-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/densenet.md",
+      "redirect_url": "/azure/machine-learning/component-reference/densenet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/designer-error-codes.md",
+      "redirect_url": "/azure/machine-learning/component-reference/designer-error-codes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/edit-metadata.md",
+      "redirect_url": "/azure/machine-learning/component-reference/edit-metadata",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/enter-data-manually.md",
+      "redirect_url": "/azure/machine-learning/component-reference/enter-data-manually",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/evaluate-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/evaluate-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/evaluate-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/evaluate-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/execute-python-script.md",
+      "redirect_url": "/azure/machine-learning/component-reference/execute-python-script",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/execute-r-script.md",
+      "redirect_url": "/azure/machine-learning/component-reference/execute-r-script",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/export-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/export-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/extract-n-gram-features-from-text.md",
+      "redirect_url": "/azure/machine-learning/component-reference/extract-n-gram-features-from-text",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/fast-forest-quantile-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/fast-forest-quantile-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/feature-hashing.md",
+      "redirect_url": "/azure/machine-learning/component-reference/feature-hashing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/filter-based-feature-selection.md",
+      "redirect_url": "/azure/machine-learning/component-reference/filter-based-feature-selection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/graph-search-syntax.md",
+      "redirect_url": "/azure/machine-learning/component-reference/graph-search-syntax",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/group-data-into-bins.md",
+      "redirect_url": "/azure/machine-learning/component-reference/group-data-into-bins",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/import-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/import-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/init-image-transformation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/init-image-transformation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/join-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/join-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/k-means-clustering.md",
+      "redirect_url": "/azure/machine-learning/component-reference/k-means-clustering",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/latent-dirichlet-allocation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/latent-dirichlet-allocation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/linear-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/linear-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/module-reference.md",
+      "redirect_url": "/azure/machine-learning/component-reference/component-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree.md",
+      "redirect_url": "/azure/machine-learning/component-reference/multiclass-boosted-decision-tree",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/multiclass-decision-forest.md",
+      "redirect_url": "/azure/machine-learning/component-reference/multiclass-decision-forest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/multiclass-logistic-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/multiclass-logistic-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/multiclass-neural-network.md",
+      "redirect_url": "/azure/machine-learning/component-reference/multiclass-neural-network",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/neural-network-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/neural-network-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/normalize-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/normalize-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/one-vs-all-multiclass.md",
+      "redirect_url": "/azure/machine-learning/component-reference/one-vs-all-multiclass",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/one-vs-one-multiclass.md",
+      "redirect_url": "/azure/machine-learning/component-reference/one-vs-one-multiclass",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/partition-and-sample.md",
+      "redirect_url": "/azure/machine-learning/component-reference/partition-and-sample",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
+      "redirect_url": "/azure/machine-learning/component-reference/pca-based-anomaly-detection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/permutation-feature-importance.md",
+      "redirect_url": "/azure/machine-learning/component-reference/permutation-feature-importance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/poisson-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/poisson-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/preprocess-text.md",
+      "redirect_url": "/azure/machine-learning/component-reference/preprocess-text",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/remove-duplicate-rows.md",
+      "redirect_url": "/azure/machine-learning/component-reference/remove-duplicate-rows",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/resnet.md",
+      "redirect_url": "/azure/machine-learning/component-reference/resnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-image-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-image-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-svd-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-svd-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-vowpal-wabbit-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-vowpal-wabbit-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-wide-and-deep-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-wide-and-deep-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/select-columns-in-dataset.md",
+      "redirect_url": "/azure/machine-learning/component-reference/select-columns-in-dataset",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/select-columns-transform.md",
+      "redirect_url": "/azure/machine-learning/component-reference/select-columns-transform",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/smote.md",
+      "redirect_url": "/azure/machine-learning/component-reference/smote",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/split-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/split-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/split-image-directory.md",
+      "redirect_url": "/azure/machine-learning/component-reference/split-image-directory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/summarize-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/summarize-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-anomaly-detection-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-clustering-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-clustering-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-pytorch-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-pytorch-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-svd-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-svd-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-vowpal-wabbit-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-vowpal-wabbit-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-wide-and-deep-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-wide-and-deep-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/tune-model-hyperparameters.md",
+      "redirect_url": "/azure/machine-learning/component-reference/tune-model-hyperparameters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-averaged-perceptron.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-averaged-perceptron",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-boosted-decision-tree",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-decision-forest.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-decision-forest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-logistic-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-logistic-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-neural-network.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-neural-network",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-support-vector-machine.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-support-vector-machine",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/web-service-input-output.md",
+      "redirect_url": "/azure/machine-learning/component-reference/web-service-input-output",
+      "redirect_document_id": true
+    },
     {
       "source_path_from_root": "/articles/partner-twilio-cloud-services-dotnet-phone-call-web-role.md",
       "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
@@ -57131,6 +57607,86 @@
     {
       "source_path_from_root": "/articles/sentinel/normalization-schema.md",
       "redirect_url": "/azure/sentinel/network-normalization-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/azure-security-benchmark.md",
+      "redirect_url": "/azure/governance/policy/samples/azure-security-benchmark",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-4/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/index.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/dod-impact-level-5/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/gov-dod-impact-level-5",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-m/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-moderate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/index.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/control-mapping.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/fedramp-h/deploy.md",
+      "redirect_url": "/azure/governance/policy/samples/fedramp-high",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/blueprints/samples/nist-sp-800-53-r4.md",
+      "redirect_url": "/azure/governance/policy/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/export-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-stream-analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
+      "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
       "redirect_document_id": false
     }
   ]
