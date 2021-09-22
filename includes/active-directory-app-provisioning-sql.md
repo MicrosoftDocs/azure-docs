@@ -117,7 +117,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
      |Name|SQL|
      |Autosync timer (minutes)|120|
      |Secret Token|Enter your own key here. It should be 12 characters minimum.|
-       |Extension DLL|For a generic SQL connector, select **Microsoft.IAM.Connector.GenericSql.dll**.|
+     |Extension DLL|For a generic SQL connector, select **Microsoft.IAM.Connector.GenericSql.dll**.|
  4. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
      ![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sql\conn-2.png)</br>
      |Property|Description|
