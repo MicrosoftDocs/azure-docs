@@ -27,6 +27,8 @@
     href: tutorial-onboarding.md
   - name: Integrate Forescout
     href: tutorial-forescout.md
+  - name: Integrate Fortinet
+    href: tutorial-fortinet.md
   - name: Integrate Palo Alto
     href: tutorial-palo-alto.md
   - name: Integrate Qradar
@@ -187,10 +189,6 @@
   - name: Set up SNMP MIB monitoring
     href: how-to-set-up-snmp-mib-monitoring.md
     displayName: health
-  - name: Integrate with partners
-    items:
-    - name: Fortinet integration
-      href: integration-fortinet.md
 - name: Reference
   items:
   - name: Work with Defender for IoT APIs

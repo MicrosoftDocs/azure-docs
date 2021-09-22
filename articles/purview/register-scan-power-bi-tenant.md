@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 09/16/2021
 ---
 
 # Register and scan a Power BI tenant (preview)
@@ -55,13 +55,16 @@ To set up authentication, create a security group and add the Purview managed id
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image showing how to allow service principals to get read-only Power BI admin API permissions.":::
 
-1. Select **Admin API settings** > **Enhance admin APIs responses with detailed metadata** > Enable the toggle to allow Purview Data Map automatically discover the detailed metadata of Power BI datasets as part of its scans
+1. Select **Admin API settings** > **Enhance admin APIs responses with detailed metadata** > Enable the toggle to allow Purview Data Map automatically discover the detailed metadata of Power BI datasets as part of its scans.
+
+    > [!IMPORTANT]
+    > After you update the Admin API settings on your power bi tenant, wait around 15 minutes before registering a scan and test connection.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-sub-artifacts.png" alt-text="Image showing the Power BI admin portal config to enable sub-artifact scan.":::
 
     > [!Caution]
     > When you allow the security group you created (that has your Purview managed identity as a member) to use read-only Power BI admin APIs, you also allow it to access the metadata (e.g. dashboard and report names, owners, descriptions, etc.) for all of your Power BI artifacts in this tenant. Once the metadata has been pulled into the Azure Purview, Purview's permissions, not Power BI permissions, determine who can see that metadata.
-
+  
     > [!Note]
     > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Purview account. You can delete it separately, if you wish.
 
@@ -221,6 +224,7 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
 -   For cross-tenant scenario, no UX experience currently available to register and scan cross Power BI tenant.
 -   By Editing the Power BI cross tenant registered with PowerShell using Purview Studio will tamper the data source registration with inconsistent scan behavior.
+-   Review [Power BI Metadata scanning limitations](https://docs.microsoft.com/power-bi/admin/service-admin-metadata-scanning#considerations-and-limitations).
 
         
 ## Next steps
