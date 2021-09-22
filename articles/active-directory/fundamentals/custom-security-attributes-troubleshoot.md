@@ -41,7 +41,7 @@ When signed in to the Azure portal as Global Administrator and you try to click 
 You don't have permissions to add an attribute set. To add an attributes set and custom security attributes, you must be assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) role.
 
 > [!IMPORTANT]
-> [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+> By default, [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 **Solution**
 
@@ -51,7 +51,7 @@ Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** a
 
 **Cause**
 
-You don't have permissions to assign custom security attributes. By default, the [Global Administrator](../roles/permissions-reference.md#global-administrator), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) roles do not have permissions to read, filter, define, manage, or assign custom security attributes.
+You don't have permissions to assign custom security attributes. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 **Solution**
 
