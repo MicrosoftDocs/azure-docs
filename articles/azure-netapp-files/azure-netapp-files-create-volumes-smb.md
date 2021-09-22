@@ -150,6 +150,15 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
 Access to an SMB volume is managed through permissions. 
 
+### Share permissions  
+
+By default, a new volume has the **Everyone / Full Control** share permissions. Members of the Domain Admins group can change the share permissions as follows:  
+
+1. Map the share to a drive.  
+2. Right-click the drive, select **Properties**, then go to the **Security** tab.
+
+[ ![Set share permissions](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
+
 ### NTFS file and folder permissions  
 
 You can set permissions for a file or folder by using the **Security** tab of the object's properties in the Windows SMB client.
