@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 09/22/2021
 ---
 
-# Deliver Service Level Agreement for Data Pipelines
+# Deliver service level agreement for data pipelines
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -18,7 +18,7 @@ Azure Data Factory is loved and trusted by corporations around the world. As Azu
 
 Once data pipelines are published, either through [continuous integration and delivery (CI/CD)](continuous-integration-deployment.md) in Git mode or directly in live mode, they typically run on autopilot. They may run on a pre-defined timetable, with a [Schedule Trigger](how-to-create-schedule-trigger.md) or a [Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md), or they may run in an event driven architecture, with a [Storage Event Trigger](how-to-create-event-trigger.md) or a [Custom Event Trigger](how-to-create-custom-event-trigger.md). They're entrusted with mission critical workloads, preparing data for business reports or data analytics and machine learning projects.
 
-## Preemptive Warnings for Long Running Jobs
+## Preemptive warnings for long-running jobs
 
 There are two major challenges delivering service level agreements (SLAs) for these data pipelines:
 
@@ -29,7 +29,7 @@ To address these issues, when configured properly, pipeline runs emit _Elapsed T
 
 For each pipeline you want to create alerts on, during authoring phase, go to pipeline settings, by clicking on the blank space in the pipeline canvas.
 
-:::image type="content" source="media/tutorial-operationalize-pipelines/elapsed-time-1-set-up.png" alt-text="Specifying expected run duration for a pipeline":::
+:::image type="content" source="media/tutorial-operationalize-pipelines/elapsed-time-1-set-up.png" alt-text="Screenshot showing how to specify expected run duration for a pipeline.":::
 
 Under __Settings__ tab, check Elapsed time metric, and specify expected pipeline run duration, with format `D.HH:MM:SS`. We strongly recommend you to set it to your business SLA, the amount of time that the pipeline can take to meet your business needs. Once a pipeline duration exceeds this setting, Data Factory will log an _Elapsed Time Pipeline Run_ metric (metric ID: `PipelineElapsedTimeRuns`) in Azure Monitor. In other words, you'll get notified about long running pipelines _preemptively_, before the pipeline eventually finishes.
 
