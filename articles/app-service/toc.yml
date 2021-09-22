@@ -100,6 +100,8 @@
     href: samples-powershell.md
   - name: Resource Manager templates
     href: samples-resource-manager-templates.md
+  - name: Bicep
+    href: samples-bicep.md
   - name: Terraform
     href: samples-terraform.md
 - name: Concepts
