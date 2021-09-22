@@ -43,14 +43,14 @@ To complete a successful transition to conditional access, evaluate the existing
 
 1. Select **Sign On** and scroll to the bottom of the page.
 
-   In the following example, our Office 365 application sign-on policy has four separate rules:
+   In the following example, the Office 365 application sign-on policy has four separate rules:
 
-- **Enforce MFA for Mobile Sessions**: Requires MFA from every modern authentication or browser session on iOS or Android.
-- **Allow Trusted Windows Devices**: Prevents your trusted Okta devices from being prompted for more verification or factors.
-- **Require MFA from Untrusted Windows Devices**: Requires MFA from every modern authentication or browser session on untrusted Windows devices.
-- **Block Legacy Authentication**: Prevents any legacy authentication clients from connecting to the service.
+   - **Enforce MFA for Mobile Sessions**: Requires MFA from every modern authentication or browser session on iOS or Android.
+   - **Allow Trusted Windows Devices**: Prevents your trusted Okta devices from being prompted for more verification or factors.
+   - **Require MFA from Untrusted Windows Devices**: Requires MFA from every modern authentication or browser session on untrusted Windows devices.
+   - **Block Legacy Authentication**: Prevents any legacy authentication clients from connecting to the service.
 
-  ![Screenshot showing Office 365 sign-on rules.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
+     ![Screenshot showing Office 365 sign-on rules.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
 
 ## Configure condition prerequisites
 
