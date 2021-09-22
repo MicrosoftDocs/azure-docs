@@ -66,3 +66,7 @@ If your client library or tool doesn't support TLS, then enabling unencrypted co
 * [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 ## Next steps
+
+- [Azure Cache for Redis development FAQs](cache-development-faq.yml)
+- [Performance testing](cache-best-practices-performance.md)
+- [Failover and patching for Azure Cache for Redis](cache-failover.md)

@@ -30,3 +30,6 @@ If you are using TLS and you have a high number of connections, consider scaling
 Distribute the TLS encryption/decryption and TLS connection/disconnection workloads across multiple cores to bring down overall CPU usage on the cache VMs. For more information, see [details around VM sizes and cores](./cache-planning-faq.yml#azure-cache-for-redis-performance).
 
 ## Next steps
+
+- [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
+- [Scale an Azure Cache for Redis instance](cache-how-to-scale.md)

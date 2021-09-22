@@ -54,3 +54,7 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 ```
 
 ## Next steps
+
+- [Development](cache-best-practices-development.md)
+- [Azure Cache for Redis development FAQs](cache-development-faq.yml)
+- [Failover and patching for Azure Cache for Redis](cache-failover.md)
