@@ -1,12 +1,12 @@
 ---
 title: Overview of Partner Center submission API onboarding
-description: An overview of Partner Center submission API onboarding (Azure Marketplace).
+description: An overview of Partner Center submission API onboarding.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 09/17/2021
+ms.date: 09/22/2021
 ---
 
 # Partner Center submission API onboarding
@@ -24,8 +24,8 @@ The Partner Center submissions API requires a few programmatic assets:
 
 Before you start writing code to call the Partner Center submission API, ensure you have completed the following prerequisites.
 
-- You (or your organization) must have an Azure AD directory and you must have [Global administrator](../active-directory/roles/permissions-reference.md) permission for the directory. If you already use Microsoft 365 or other business services from Microsoft, you already have Azure AD directory. Otherwise, you can [create a new Azure AD](/windows/uwp/publish/associate-azure-ad-with-partner-center) in Partner Center at no additional charge.
-- You must [associate an Azure AD application](/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services) with your Partner Center account and obtain your tenant ID, client ID, and key. You need these to obtain the Azure AD access token you will use in calls to the Microsoft Store submission API.
+- You (or your organization) must have an Azure AD directory and you must have [Global administrator](../active-directory/roles/permissions-reference.md) permission for the directory. If you already use Microsoft 365 or other business services from Microsoft, you already have Azure AD directory. Otherwise, you can [create a new Azure AD](manage-tenants.md#create-a-new-tenant) in Partner Center at no additional charge.
+- You must [associate an Azure AD application](manage-aad-apps.md) with your Partner Center account and obtain your tenant ID, client ID, and key. You need these to obtain the Azure AD access token you will use in calls to the Microsoft Store submission API.
 
 #### Associate an Azure AD application with your Partner Center account
 
@@ -34,13 +34,13 @@ To use the Partner Center submission API, you must associate an Azure AD applica
 > [!NOTE]
 > You only need to perform this task once. After you have the tenant ID, client ID and key, you can reuse them any time you need to create a new Azure AD access token.
 
-1. In Partner Center, [associate your organization's Partner Center account](/windows/uwp/publish/associate-azure-ad-with-partner-center) with your organization's Azure AD directory.
+1. In Partner Center, [associate your organization's Partner Center account](manage-tenants.md) with your organization's Azure AD directory.
 
-1. From the **Users** page in the **Account settings** section of Partner Center, [add the Azure AD application](/windows/uwp/publish/add-users-groups-and-azure-ad-applications) that represents the app or service you will use to access submissions for your Partner Center account. Ensure you assign this application the **Manager** role. If the application doesn't exist yet in your Azure AD directory, [create a new Azure AD application](/windows/uwp/publish/add-users-groups-and-azure-ad-applications) in Partner Center.
+1. From the **Users** page in the **Account settings** section of Partner Center, [add the Azure AD application](manage-aad-apps.md) that represents the app or service you will use to access submissions for your Partner Center account. Ensure you assign this application the **Manager** role. If the application doesn't exist yet in your Azure AD directory, [create a new Azure AD application](manage-aad-apps.md#add-new-azure-ad-applications) in Partner Center.
 
 1. Return to the **Users** page, select the name of your Azure AD application to go to the application settings, and copy the **Tenant ID** and **Client ID** values.
 
-1. Select **Add new key**. On the following screen, copy the **Key** value. You won't be able to access this info again after you leave this page. For more information, see [Manage keys for an Azure AD application](/windows/uwp/publish/add-users-groups-and-azure-ad-applications).
+1. Select **Add new key**. On the following screen, copy the **Key** value. You won't be able to access this info again after you leave this page. For more information, see [Manage keys for an Azure AD application](manage-aad-apps.md#manage-keys-for-an-azure-ad-application).
 
 ### Step 2: Obtain an Azure AD access token
 
@@ -59,7 +59,6 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-
 For the tenant_id value in the POST URI and the client_id and client_secret parameters, specify the tenant ID, client ID and the key for your application that you retrieved from Partner Center in the previous section. For the resource parameter, you must specify https://api.partner.microsoft.com.
 
 ### Step 3: Use the Partner Center submission API
@@ -68,4 +67,4 @@ After you have an Azure AD access token, call methods in the Partner Center subm
 
 ## Next steps
 
-- ???
+- Start using the Partner Center submission API as described above
