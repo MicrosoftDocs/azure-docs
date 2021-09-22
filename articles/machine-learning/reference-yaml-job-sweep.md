@@ -40,7 +40,7 @@ ms.reviewer: laobri
 | `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `trial.command` using the `${{ inputs.<input_name> }}` expression. | | |
 | `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string), [JobInputUri](#jobinputuri), or [JobInputDataset](#jobinputdataset). | | |
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `trial.command` using the `${{ outputs.<output_name> }}` expression. | |
-| `outputs.<output_name>` | object | You can either specify an optional `mode` or leave the object empty. For each named output specified in the `outputs` dictionary, Azure ML will autogenerate an output location based on the following templatized path: < TO DO: fill out the path >. Users will be allowed to provide a custom location in a later release. | |
+| `outputs.<output_name>` | object | You can either specify an optional `mode` or leave the object empty. For each named output specified in the `outputs` dictionary, Azure ML will autogenerate an output location based. | |
 | `outputs.<output_name>.mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode the output directory will be a mounted directory. For upload mode the files written to the output directory will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
 
 ### Early termination policies
@@ -137,7 +137,7 @@ ms.reviewer: laobri
 | `max_total_trials` | integer | The maximum time in seconds the job is allowed to run. Once this limit is reached the system will cancel the job. | `1000` |
 | `max_concurrent_trials` | integer | | Defaults to `max_total_trials`. |
 | `timeout` | integer | The maximum time in minutes the entire sweep job is allowed to run. Once this limit is reached the system will cancel the sweep job, including all its trials. | `10080` |
-| `trial_timeout` | integer | The maximum time in seconds each trial job is allowed to run. Once this limit is reached the system will cancel the trial. | ?? |
+| `trial_timeout` | integer | The maximum time in seconds each trial job is allowed to run. Once this limit is reached the system will cancel the trial. | |
 
 ### Attributes of the `trial` key
 
@@ -194,10 +194,6 @@ ms.reviewer: laobri
 ## Remarks
 
 The `az ml job` command can be used for managing Azure Machine Learning jobs.
-
-### Basic Python sweep job
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
 
 ## Schema
 

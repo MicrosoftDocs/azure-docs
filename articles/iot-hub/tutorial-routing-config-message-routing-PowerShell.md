@@ -255,8 +255,8 @@ $condition = 'level="critical"'
 # https://github.com/Azure/azure-powershell/issues
 #   pause for 90 seconds and then start again. 
 # This way, it if didn't get to finish before it tried to move on, 
-#   now it will have time to finish. 
-## Start-Sleep -Seconds 90
+#   now it will have time to finish first.
+   Start-Sleep -Seconds 90
 
 # This command is the one that sometimes doesn't work. It's as if it doesn't have time to
 #   finish before it moves to the next line.

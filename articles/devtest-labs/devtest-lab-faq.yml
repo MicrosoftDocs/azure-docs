@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Azure DevTest Labs FAQ | Microsoft Docs'
+  title: 'Azure DevTest Labs FAQ'
   description: 'This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.'
-  ms.topic: article
+  ms.topic: troubleshooting
   ms.service: azure
   ms.date: 07/17/2020 
   ms.custom: devx-track-azurepowershell, references_regions
