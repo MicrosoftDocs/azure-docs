@@ -6,7 +6,22 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
-ms.date: 06/08/2021
+ms.date: 09/22/2021
+zone_pivot_groups: iot-develop-toolset
+
+#- id: iot-develop-toolset
+## Owner: timlt
+#  title: IoT Devices
+#  prompt: Choose a device.
+#  pivots:
+#  - id: iot-toolset-cmake
+#    title: CMAKE
+#  - id: iot-toolset-iar-ewarm
+#    title: IAR EWARM
+#  - id: iot-toolset-mplab
+#    title: MPLAB IDE
+
+#Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
 # Quickstart: Connect a Microchip ATSAME54-XPro Evaluation kit to IoT Central
@@ -36,6 +51,13 @@ You will complete the following tasks:
     * Ethernet cable
     * Optional: [Weather Click](https://www.mikroe.com/weather-click) sensor. You can add this sensor to the device to monitor weather conditions. If you don't have this sensor, you can still complete this quickstart.
     * Optional: [mikroBUS Xplained Pro](https://www.microchip.com/Developmenttools/ProductDetails/ATMBUSADAPTER-XPRO) adapter. Use this adapter to attach the Weather Click sensor to the Microchip E54. If you don't have the sensor and this adapter, you can still complete this quickstart.
+:::zone pivot="iot-toolset-iar-ewarm"
+* IAR's EWARM. You can download a [30-day free trial of IAR's EWARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
+:::zone-end
+:::zone pivot="iot-toolset-mplab"
+* [MPLAB X IDE 5.35](https://www.microchip.com/mplab/mplab-x-ide)
+* [MPLAB XC32/32++ Compiler 2.4.0 or later](https://www.microchip.com/mplab/compilers)
+:::zone-end
 
 ## Prepare the development environment
 
@@ -53,6 +75,7 @@ git clone --recursive https://github.com/azure-rtos/getting-started.git
 
 ### Install the tools
 
+:::zone pivot="iot-toolset-cmake"
 The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another embedded device quickstart, you don't need to do it again.
 
 > [!NOTE]
@@ -76,6 +99,10 @@ To install the tools:
 To install the remaining tools:
 
 * Install [Microchip Studio for AVR&reg; and SAM devices](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices#). Microchip Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Microchip Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
+Use the installation instructions provided by your toolset's manufacturer to install and prepare your development toolset.
+:::zone-end
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -85,9 +112,21 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 
 ### Add configuration
 
+:::zone pivot="iot-toolset-cmake"
 1. Open the following file in a text editor:
 
     *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm"
+1. Open the ***azure_rtos.eww*** EWARM Workspace in IAR from the extracted zip file.
+
+> ![The EWARM workspace](media/quickstart-devkit-microchip-atsame54-xpro/picture.jpg)
+:::zone-end
+:::zone pivot="iot-toolset-mplab"
+1. Open MPLab and select **File > Open Project** and select all projects from the extracted zip file.
+
+> ![Adding the configuration](media/quickstart-devkit-microchip-atsame54-xpro/picture-2-mplab.jpg)
+:::zone-end
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
@@ -123,7 +162,7 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 
     *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
 
-1. Set the value of the constant `__SENSOR_BME280__` to *1* as shown in the following code from the header file. Setting this value enables the device to use real sensor data from the Weather Click sensor.
+1. Set the value of the constant `__SENSOR_BME280__` to **1** as shown in the following code from the header file. Setting this value enables the device to use real sensor data from the Weather Click sensor.
 
     `#define __SENSOR_BME280__ 1`
 
@@ -131,16 +170,27 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 
 ### Build the image
 
-1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+:::zone pivot="iot-toolset-cmake"
+1. In your console or in File Explorer, run the script ***rebuild.bat*** at the following path to build the image:
 
     *getting-started\Microchip\ATSAME54-XPRO\tools\rebuild.bat*
 
 2. After the build completes, confirm that the binary file was created in the following path:
 
     *getting-started\Microchip\ATSAME54-XPRO\build\app\atsame54_azure_iot.bin*
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm"
+1. In IAR, select **Project > Batch Build*** and choose **build_all** and select **Make** to build all projects. You will observe compilation and linking of all sample projects.
+:::zone-end
+:::zone pivot="iot-toolset-mplab"
+1. Make sure all sample project’s dependent libraries (***azure_iot, threadx, netxduo, same54_lib***) are built by select the project in the **Projects** pane, right click on it and select **Build**.
+
+> ![Building the project](media/quickstart-devkit-microchip-atsame54-xpro/picture-3.jpg)
+:::zone-end
 
 ### Flash the image
 
+:::zone pivot="iot-toolset-cmake"
 1. Open the **Windows Start > Microchip Studio Command Prompt** console and go to the folder of the Microchip E54 binary file that you built.
 
     *getting-started\Microchip\ATSAME54-XPRO\build\app*
@@ -160,6 +210,13 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
     Firmware check OK
     Programming and verification completed successfully.
     ```
+:::zone-end
+:::zone pivot="iot-toolset-iar-ewarm"
+1. In IAR, press the green **Download and Debug** button in the toolbar to download the program and run it. Then press **Go**.
+:::zone-end
+:::zone pivot="iot-toolset-mplab"
+1. In MPLAB, select **Debug > Debug Main Project**.
+:::zone-end
 
 ### Confirm device connection details
 
@@ -219,8 +276,8 @@ Keep Termite open to monitor device output in the following steps.
 
 To view the device status in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
-1. Confirm that the **Device status** is updated to **Provisioned**.
-1. Confirm that the **Device template** is updated to **Getting Started Guide**.
+1. Confirm that the **Device status** is updated to *Provisioned*.
+1. Confirm that the **Device template** is updated to *Getting Started Guide*.
 
     :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
@@ -287,4 +344,3 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-
