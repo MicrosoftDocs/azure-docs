@@ -145,7 +145,7 @@ The following network diagram shows a secured Azure Machine Learning workspace w
 
 You can secure the workspace behind a VNet using a private endpoint and still allow access over the public internet. The initial configuration is the same as [securing the workspace and associated resources](#secure-the-workspace-and-associated-resources). 
 
-After securing the workspace with a private endpoint, use the following steps to enable clients to develope remotely using either the SDK or Azure Machine Learning studio:
+After securing the workspace with a private endpoint, use the following steps to enable clients to develop remotely using either the SDK or Azure Machine Learning studio:
 
 1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace.
 1. [Configure the Azure Storage firewall](/azure/storage/common/storage-network-security?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet.
