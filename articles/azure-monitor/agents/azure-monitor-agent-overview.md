@@ -62,7 +62,7 @@ The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-ov
 Azure virtual machines, virtual machine scale sets, and Azure Arc–enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
 
 ## Supported regions
-Azure Monitor agent is available in all public regions that support Log Analytics, as well as the Azure government and China clouds. Air-gapped clouds are not yet supported.
+Azure Monitor agent is available in all public regions that support Log Analytics, as well as the Azure Government and China clouds. Air-gapped clouds are not yet supported.
 
 ## Supported operating systems
 For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
