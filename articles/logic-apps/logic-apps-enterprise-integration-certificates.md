@@ -87,13 +87,13 @@ To use a *public certificate* in your workflow, you have to first add the certif
    | **Certificate** | Yes | <*certificate-file-name*> | To browse for the certificate file that you want to add, select the folder icon next to the **Certificate** box. |
    |||||
 
-   ![Screenshot showing the Azure portal and integration account with "Add" selected and the "Add Certificate" details.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![Screenshot showing the Azure portal and integration account with "Add" selected and the "Add Certificate" pane with public certificate details.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
 1. When you're done, select **OK**.
 
    After Azure validates your selection, Azure uploads your certificate.
 
-   ![Screenshot showing the Azure portal and integration account with the new certificate in the "Certificates" list.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png)
+   ![Screenshot showing the Azure portal and integration account with the public certificate in the "Certificates" list.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png)
 
 <a name="add-public-certificate"></a>
 
@@ -116,17 +116,22 @@ To use a *private certificate* in your workflow, you have to first add the certi
    | **Name** | Yes | <*certificate-name*> | Your certificate's name, which is `privateCert` in this example |
    | **Certificate Type** | Yes | **Private** | Your certificate's type |
    | **Certificate** | Yes | <*certificate-file-name*> | To browse for the certificate file that you want to add, select the folder icon next to the **Certificate** box. In the key vault that contains your private key, the file you add there is the public certificate. |
-   | **Resource Group** | Yes | <*integration-account-resource-group*> | Your integration account's resource group, which is `MyResourceGroup` in this example |
+   | **Resource Group** | Yes | <*integration-account-resource-group*> | Your integration account's resource group, which is `Integration-Account-RG` in this example |
    | **Key Vault** | Yes | <*key-vault-name*> | Your key vault name |
    | **Key name** | Yes | <*key-name*> | Your key name |
    |||||
 
-   ![Choose "Add", provide certificate details](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
+   ![Screenshot showing the Azure portal and integration account with "Add" selected and the "Add Certificate" pane with private certificate details.](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
+
+1. When you're done, select **OK**.
 
    After Azure validates your selection, Azure uploads your certificate.
 
-   ![Azure displays new certificate](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png) 
+   ![Screenshot showing the Azure portal and integration account with the private certificate in the "Certificates" list.](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png)
 
 ## Next steps
 
-* [Create a B2B agreement](logic-apps-enterprise-integration-agreements.md)
+* [Exchange AS2 messages](logic-apps-enterprise-integration-as2.md)
+* [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md)
+* [Exchange X12 messages](logic-apps-enterprise-integration-x12.md)
+* [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md)
