@@ -79,7 +79,7 @@ In any of the following **Classification insights** graphs, select the **View mo
 
 For example:
 
-:::image type="content" source="media/insights/view-classifications-small.png" alt-text="View all classifications" lightbox="media/insights/view-classifications.png":::
+:::image type="content" source="media/insights/view-classifications-small.png" alt-text="View all classifications":::
 
 Do any of the following to learn more:
 
