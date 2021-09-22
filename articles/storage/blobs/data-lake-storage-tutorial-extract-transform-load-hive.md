@@ -190,13 +190,13 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
 
 3. Save the file by using use CTRL+X and then type `Y` when prompted.
 
-4. To start Hive and run the **flightdelays.hql** file, use the following command:
+4. To start Hive and run the `flightdelays.hql` file, use the following command:
 
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
    ```
 
-5. After the *_flightdelays.hql_* script finishes running, use the following command to open an interactive Beeline session:
+5. After the `flightdelays.hql` script finishes running, use the following command to open an interactive Beeline session:
 
    ```bash
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
