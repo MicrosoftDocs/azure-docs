@@ -85,7 +85,7 @@ The following table explains the fields in the example. For a full list of avail
 | Name                | Type                                                     | Required | Description                                                  |
 | ------------------- | -------------------------------------------------------- | -------- | ------------------------------------------------------------ |
 | name                | string                                                   | Yes      | Name of the component. Must be a unique identifier of the component. Must start with number or letter, and only contain letters, numbers, `_`, and `-`. Maximum length is 255 characters.|
-| version             | integer                                                  | Yes      | Version of the component. Must be an integer. |
+| version             | integer or string                                        | Yes      | Version of the component. Must be an integer or a string. |
 | display_name        | string                                                   | No       | Display name of the component. Defaults to same as `name`. |
 | type                | string                                                   | No       | The type of the component. Currently, this value must be `command`.|
 | description         | string                                                   | No       | Detailed description of the component. |
