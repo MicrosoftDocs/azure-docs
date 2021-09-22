@@ -87,9 +87,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot that shows the default attributes for a SAML token.](./media/appneta-tutorial/edit-attribute.png)
 
-1. In addition to above, AppNeta Performance Manager application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirement.
+1. In addition to above, the AppNeta Performance Manager application expects a few more attributes to be passed back in SAML response, which are shown below. These attributes are also prepopulated, but you can review them as per your requirement.
 
-   | Name      | Source Attribute       |
+   | Name      | Source attribute       |
    | --------- | ---------------------- |
    | firstName | user.givenname         |
    | lastName  | user.surname           |
@@ -100,28 +100,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    | title     | user.jobtitle          |
    |           |                        |
 
-1. In order to properly pass along your ”groups” SAML assertions, you need to configure App roles and set the value to match the role mappings that are set within AppNeta Performance Manager. Under **Azure Active Directory** > **App registrations** >  **All applications**, select **Appneta Performance Manager** .
-
-   ![Screenshot that shows the App Registrations with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-registrations.png)
-
-1. Click **App roles** in the left pane. The following screen will appear:
-
-   ![Screenshot that shows the App Registrations with Appneta Performance Manager at the bottom. ](./media/appneta-tutorial/app-roles.png)
-
+1. To properly pass along your "groups" SAML assertions, you need to configure app roles and set the value to match the role mappings that are set within AppNeta Performance Manager. Under **Azure Active Directory** > **App registrations** >  **All applications**, select **Appneta Performance Manager** .
+1. Click **App roles** in the left pane.
 1. Click **Create App role**.
-1. On the **Create app role** screen, follow these steps:
-   1. In the **Display name** field, enter a name for the role.
-   1. In the **Allowed member types** field, select **Users/Groups**.
-   1. In the **Value** field, enter the value of the security group set in your AppNeta Performance Manager role mappings.
-   1. In the **Description** field, enter a description for the role.
+1. On the **Create app role** pane, complete these steps:
+   1. In **Display name**, enter a name for the role.
+   1. In **Allowed member types**, select **Users/Groups**.
+   1. In **Value**, enter the value of the security group set in your AppNeta Performance Manager role mappings.
+   1. In **Description**, enter a description for the role.
    1. Click **Apply**.
 
-   ![Screenshot of the Create App Role dialog with the fields filled out as described. ](./media/appneta-tutorial/create-app-role.png)
-
-1. After creating the roles, you need to map them to your users/groups. Navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manger** > **Users and groups**.
-1. Select a user/group and then assign your desired App role (created in the previous step).
-1. Once you have mapped the App roles, navigate to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manager** > **Single sign-on**.
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. After you create the roles, you need to map the roles to your users and groups. Go to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manger** > **Users and groups**.
+1. Select a user or group, and then assign the relevant app role for the user or group.
+1. After you map the app roles, go to **Azure Active Directory** > **Enterprise Applications** > **Appneta Performance Manager** > **Single sign-on**.
+1. On the **Set up single sign-on with SAML** pane, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/metadataxml.png)
 
