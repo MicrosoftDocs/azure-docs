@@ -2,8 +2,8 @@
 title: Move Azure Recovery Services vault to another region
 description: In this article, you'll learn how to ensure continued backups after moving the resources across regions.
 ms.topic: conceptual
-ms.date: 08/27/2021
-ms.custom: references_regions 
+ms.date: 09/22/2021
+ms.custom: how-to 
 ---
 # Back up resources in Recovery Services vault after moving across regions
 
@@ -12,13 +12,13 @@ Azure Resource Mover supports the movement of multiple resources across regions.
 To understand the detailed steps to achieve this, refer to the sections below.
 
 >[!Note]
->Azure Backup currently doesn’t support the movement of backup data from one Recovery Services vault to another. To protect your resource in the new region, the resource needs to be registered and backed up to a new/existing vault in the new region. When moving your resources from one region to another, backup data in your existing Recovery services vaults in the older region can be retained/deleted based on your requirement. If you choose to retain data in the old vaults, you will incur backup charges accordingly.
+>Azure Backup currently doesn’t support the movement of backup data from one Recovery Services vault to another. To protect your resource in the new region, the resource needs to be registered and backed up to a new/existing vault in the new region. When moving your resources from one region to another, backup data in your existing Recovery Services vaults in the older region can be retained/deleted based on your requirement. If you choose to retain data in the old vaults, you will incur backup charges accordingly.
 
 ## Back up Azure Virtual Machine after moving across regions
 
 When an Azure Virtual Machine (VM) that’s been protected by a Recovery Services vault is moved from one region to another, it can no longer be backed up to the older vault. The backups in the old vault will start failing with the errors **BCMV2VMNotFound** or [**ResourceNotFound**](./backup-azure-vms-troubleshoot.md#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found).
 
-To protect your VM in the new region, you should follow these steps:
+For information on how to protect your VMs..... see the following sections.
 
 1. Before moving the VM, [select the VM on the **Backup Items** tab](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of existing vault’s dashboard and select **Stop protection** followed by retain/delete data as per your requirement. When the backup data for a VM is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures you always have your backup data ready for restore.
 
