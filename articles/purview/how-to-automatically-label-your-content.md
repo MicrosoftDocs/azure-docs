@@ -55,8 +55,8 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
     Specifically, define autolabeling rules for files and schematized data assets:
 
-    - [Define autolabeling rules for files](#auto-labeling-for-files)
-    - [Define autolabeling rules for schematized data assets](#auto-labeling-for-schematized-data)
+    - [Define autolabeling rules for files](#autolabeling-for-files)
+    - [Define autolabeling rules for schematized data assets](#autolabeling-for-schematized-data)
 
     For more information about configuration options, see [What sensitivity labels can do](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) in the Microsoft 365 documentation.
 
