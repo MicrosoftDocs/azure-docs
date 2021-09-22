@@ -14,19 +14,21 @@ ms.reviewer: sachins
 
 Some sort of intro goes here.
 
-## Set up a storage account
+## Configuring your storage account
 
-Maybe brief discussion of how many accounts to open? Draw from hitch guide.
-Point to article for creating a storage account.
+Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The way that you unlock these capabilities is to enable the hierarchical namespace setting of your Azure Storage account. To learn more, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account). 
 
-Talk about various settings of storage account and that this is actually just a blob storage account.
-Briefly discuss various features such as resiliency.
-Point to blob storage support article for data lake storage gen2.
-Add all content about structuring folders and files from best practices
+Access control lists (ACLs) are one of the few features that pertain only to Data Lake Storage Gen2. The vast majority of features apply to your account whether or not you enable Data Lake Storage Gen2. Best practices around things such as security, high availability, and disaster recovery are well documented in the [Blob storage documentation](storage-blobs-introduction.md) content. Any differences in the behavior of a feature that are specific to Data Lake Storage Gen2, are called out in the body of each article. 
 
-Because customer managed failover is not yet supported you should consider ways for the applications using Data Lake Storage Gen2 to automatically fail over to the secondary region through monitoring triggers or length of failed attempts, or at least send a notification to admins for manual intervention. Keep in mind that there is tradeoff of failing over versus waiting for a service to come back online.
+As you use these settings to secure, protect, and optimize the cost of your data storage, use this general pattern:
 
-## Prepare to ingest data
+1. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether a feature is fully supported in your account. Some features aren't yet supported or have partial support in accounts that have a hierarchical namespace. make sure to periodically review this article for updates as feature support is always expanding.
+
+2. Review the [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article to see if there are any limitations or special guidance around the feature you intend to use.
+
+3. Scan feature articles for any guidance that is specific to accounts that have a hierarchical namespace (Data Lake Storage Gen2).
+
+## Preparing to ingest data
 
 When ingesting data from a source system, the source hardware, source network hardware, or the network connectivity to your storage account can be a bottleneck.  
 
@@ -59,7 +61,7 @@ The following table summarizes the key settings for several popular ingestion to
 
 Your account can scale to provide the necessary throughput for all analytics scenarios. By default, a Data Lake Storage Gen2 enabled account provides enough throughput in its default configuration to meet the needs of a broad category of use cases. If you run into the default limit, the account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
 
-## Plan the structure data sets
+## Planning the structure data sets
 
 When ingesting data, consider pre-planning the structure of your data, as file format, file size, and directory structure can all impact performance and cost. 
 
@@ -134,11 +136,9 @@ For date and time, the following is a common pattern
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
-## Ingest data
+## Ingesting data
 
 This section highlights the different sources of data and the different ways in which that data can be ingested into a Data Lake Storage Gen2 account.
-
-![Ingest data into Data Lake Storage Gen2](./media/data-lake-storage-best-practices/ingest-data.png "Ingest data into Data Lake Storage Gen2")
 
 ### Ad hoc data
 
@@ -213,17 +213,15 @@ For uploading datasets that range in several terabytes, using the methods descri
 
 Azure ExpressRoute lets you create private connections between Azure data centers and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. To learn more, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
-## Set up security
+## Setting up security
 
-For general information about the Data Lake Storage Gen2 access control model, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+Your data lake storage is Blob storage. It's Blob storage in a hierarchical structure that is optimized for high throughput file and directory operations. Because your account is Blob storage account, all of the guidance presented in the following article applies to your account as well: [Security recommendations for Blob storage](security-recommendations.md). Use that article as a general guide to securing your account and its data.
 
-For general security recommendations, see [Security recommendations for Blob storage](security-recommendations.md)
+For guidance specific to Data Lake Storage Gen2, see the following article: [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md). It will help you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system. 
 
 ## Process data
 
 Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. 
-
-![Analyze data in Data Lake Storage Gen2](./media/data-lake-storage-best-practices/analyze-data.png "Analyze data in Data Lake Storage Gen2")
 
 Here's a list of tools that you can use to run data analysis jobs on data that is stored in Data Lake Storage Gen2.
 
@@ -232,7 +230,7 @@ Here's a list of tools that you can use to run data analysis jobs on data that i
 |Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 |Azure Databricks | [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](./data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
-## Visualize and query data
+## Visualizing and querying data
 
 Use the Power BI connector to create visual representations of data stored in Data Lake Storage Gen2. See [Analyze data in Azure Data Lake Storage Gen2 by using Power BI](/power-query/connectors/datalakestorage).
 
@@ -242,15 +240,13 @@ Query acceleration accepts filtering predicates and column projections which ena
 
 To learn more, see [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
 
-## Download data
+## Downloading data
 
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
 * Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or a SQL Server instance.
 
 * Download data to your local computer for processing in IDE environments while building application prototypes.
-
-![Egress data from Data Lake Storage Gen2](./media/data-lake-storage-best-practices/egress-data.png "Egress data from Data Lake Storage Gen2")
 
 Here's a list of tools that you can use to download data from Data Lake Storage Gen2.
 
@@ -261,19 +257,13 @@ Here's a list of tools that you can use to download data from Data Lake Storage 
 |Azure Storage Explorer|[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
 |AzCopy tool|[Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-v10.md#transfer-data)|
 
-## Monitor account telemetry
+## Monitoring telemetry
 
-Understanding how your storage account is used and how it performs is a key component of operationalizing your service and ensuring that it is available for use by any workloads that consume the data contained within it. This includes:
-
-- Being able to audit your storage in terms of frequent operations.
-
-- Having visibility into key performance indicators such as operations with high latency.
-
-- Understanding common errors, the operations that caused the error, and operations which cause service-side throttling.
+Monitoring use and performance is key to operationalizing your service. For example, you might want to audit your account for frequent operations, identify operations with high latency, or identify operations that cause service-side throttling. 
 
 All of the telemetry for your storage account is available through [Azure Storage logs in Azure Monitor](monitor-blob-storage.md). This feature integrates your storage account with Log Analytics and Event Hubs, while also enabling you to archive logs to another storage account. To see the full list of metrics and resources logs and their associated schema, see [Azure Storage monitoring data reference](monitor-blob-storage-reference.md).
 
-Where your choose to store your logs depends on how you plan to access them. For example, if you want to access your logs in near real-time, and be able to correlate events in logs with other metrics from Azure Monitor, you can store your logs in a Log Analytics workspace. This allows you to query your logs using KQL and author queries which enumerate the `StorageBlobLogs` table in your workspace.
+Where you choose to store your logs depends on how you plan to access them. For example, if you want to access your logs in near real-time, and be able to correlate events in logs with other metrics from Azure Monitor, you can store your logs in a Log Analytics workspace. This allows you to query your logs using KQL and author queries which enumerate the `StorageBlobLogs` table in your workspace.
 
 If you want to store your logs for both near real-time query and long term retention, you can configure your diagnostic settings to send logs to both a Log Analytics workspace and a storage account.
 
