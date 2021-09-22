@@ -98,7 +98,7 @@ Replace placeholder `<Your Connection String>` with YOUR connection string from 
 Run your application and open your Application Insights Resource.
 
 > [!NOTE]
-> It may take a couple minutes for data to show up in the Portal.
+> It may take a few minutes for data to show up in the Portal.
 
 :::image type="content" source="media/opentelemetry-python/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
