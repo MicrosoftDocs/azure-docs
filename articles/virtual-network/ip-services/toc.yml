@@ -1,4 +1,6 @@
 items:
+- name: Virtual Network IP Services documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Virtual Network IP Services?
@@ -19,6 +21,7 @@ items:
     href: create-public-ip-prefix-powershell.md
   - name: Create public IP prefix - Azure CLI
     href: create-public-ip-prefix-cli.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Configure VM with internet routing preference
@@ -138,7 +141,7 @@ items:
     - name: Move across regions
       items:
       - name: Public IPs
-      href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        href: /resource-mover/tutorial-move-region-virtual-machines?toc=/azure/virtual-network/toc.json
 - name: Reference
   items:
   - name: Azure CLI
