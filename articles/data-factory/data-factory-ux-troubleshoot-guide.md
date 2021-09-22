@@ -23,7 +23,7 @@ This article explores common troubleshooting methods for [Azure Data Factory Stu
 
 ### Third-party cookies blocked
 
-Azure Data Factory Studio uses browser cookies to persist user session and enable interactive development and monitoring experiences. It is possible your browser blocks third-party cookies because you are using an incognito session or have an ad blocker enabled. Blocking third-party cookies can cause issues when loading the portal, such as being redirected to a blank page, 'https://adf.azure.com/accesstoken.html', or getting a warning message saying that third-party cookies are blocked. To solve this problem, enable third-party cookies options on your browser using the following steps:
+Azure Data Factory Studio uses browser cookies to persist user session state and enable interactive development and monitoring experiences. Your browser could block third-party cookies because you're using an incognito session or have an ad blocker enabled. Blocking third-party cookies can cause issues when loading the portal.  You could be redirected to a blank page, to 'https://adf.azure.com/accesstoken.html', or could encounter  a warning message saying that third-party cookies are blocked. To solve this problem, enable third-party cookies options on your browser using the following steps:
 
 # [Microsoft Edge](#tab/edge)
 
@@ -37,7 +37,7 @@ Azure Data Factory Studio uses browser cookies to persist user session and enabl
 
 #### Only allow Azure Data Factory Studio to use cookies
 
-If you do not want to allow all cookies, you can optionally just allow ADF UX:
+If you don't want to allow all cookies, you can optionally just allow ADF Studio:
 
 1. Visit **edge://settings/content/cookies**.
 1. Under **Allow** section, select **Add** and add **adf.azure.com** site. 
@@ -56,7 +56,8 @@ If you do not want to allow all cookies, you can optionally just allow ADF UX:
 1. Refresh Azure Data Factory Studio and try again.
 
 #### Only allow Azure Data Factory Studio to use cookies
-If you do not want to allow all cookies, you can optionally just allow ADF UX:
+
+If you don't want to allow all cookies, you can optionally just allow ADF Studio:
 1. Visit **chrome://settings/cookies**.
 1. Select **add** under **Sites that can always use cookies** option 
 
@@ -70,7 +71,7 @@ If you do not want to allow all cookies, you can optionally just allow ADF UX:
 
 ## Connection failed error in Azure Data Factory Studio
 
-Sometimes you might see a "Connection failed" error in Azure Data Factory Studio similar to the screenshot below after clicking **Test Connection**, **Preview**, etc. It means the the operation failed because your local machine could not connect to the ADF service.
+Sometimes you might see a "Connection failed" error in Azure Data Factory Studio similar to the screenshot below, for example, after clicking **Test Connection** or **Preview**. It means the operation failed because your local machine couldn't connect to the ADF service.
 
 :::image type="content" source="media/data-factory-ux-troubleshoot-guide/connection-failed.png" alt-text="Connection failed":::
 
@@ -90,15 +91,17 @@ To troubleshoot further, open **Command Prompt** and type `nslookup dpnortheurop
 
 :::image type="content" source="media/data-factory-ux-troubleshoot-guide/command-response-1.png" alt-text="Command response 1":::
 
-- If you see a normal DNS response, further contact your local IT support to check the firewall settings on whether HTTPS connection to this host name is blocked or not. If the issue could not be resolved, file a support ticket with the **Activity ID** from the error message.
+- If you see a normal Domain Name Service (DNS) response, contact your local IT support to check the firewall settings.  Be sure HTTPS connections to this host name are not blocked. If the issue persists, file a support ticket with ADF providing the **Activity ID** from the error message.
 
-- If you see anything else than this, it usually means there is something wrong with your DNS server when resolving the DNS name. Usually changing ISP (Internet Service Provider) or DNS (for example, to Google DNS 8.8.8.8) could be a possible workaround to try. If the issue persists, you could further try `nslookup datafactory.azure.com` and `nslookup azure.com` to see at which level your DNS resolution is failed and submit all information to your local IT support or your ISP for troubleshooting. If they believe the issue is still at Microsoft side, file a support ticket with the **Activity ID** from the error message.
+- An DNS response differing from the normal response above might also mean a problem exists with your DNS server when resolving the DNS name. Changing your DNS server (for example, to Google DNS 8.8.8.8) could workaround the issue in that case. 
+
+- If the issue persists, you could further try `nslookup datafactory.azure.com` and `nslookup azure.com` to see at which level your DNS resolution is failed and submit all information to your local IT support or your ISP for troubleshooting. If they believe the issue is still at Microsoft side, file a support ticket with the **Activity ID** from the error message.
 
     :::image type="content" source="media/data-factory-ux-troubleshoot-guide/command-response-2.png" alt-text="Command response 2":::
 
 ## Change linked service type warning message in datasets
 
-You might encounter the warning message below when you use a file format dataset in an activity, and subsequently want to point to a linked service of a different type from that used in the activity (for example, File System to Azure Data Lake Storage Gen2).
+You might encounter the warning message below when you use a file format dataset in an activity, and later want to point to a linked service of a different type than what you used before in the activity (for example, from File System to Azure Data Lake Storage Gen2).
 
 :::image type="content" source="media/data-factory-ux-troubleshoot-guide/warning-message.png" alt-text="Warning message":::
 
@@ -111,7 +114,7 @@ To learn more on which the supported data store settings for each connector, you
 
 ## Could not load resource while opening pipeline 
 
-When the user accesses a pipeline using Azure Data Factory Studio, an error message indicates, "Could not load resource 'xxxxxx'. Please ensure no mistakes in the JSON and that referenced resources exist. Status: TypeError: Cannot read property 'xxxxx' of undefined, Possible reason: TypeError: Cannot read property 'xxxxxxx' of undefined."
+When the user accesses a pipeline using Azure Data Factory Studio, an error message indicates, "Could not load resource 'xxxxxx'.  Ensure no mistakes in the JSON and that referenced resources exist. Status: TypeError: Cannot read property 'xxxxx' of undefined, Possible reason: TypeError: Cannot read property 'xxxxxxx' of undefined."
 
 The source of the error message is JSON file that describes the pipeline. It happens when customer uses Git integration and pipeline JSON files get corrupted for some reason. You will see an error (red dot with x) left to pipeline name as shown below.
 
