@@ -2,7 +2,7 @@
 title: Overview of transaction processing in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -28,7 +28,14 @@ The operations that can be performed within a transaction scope are as follows:
 * **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send`, `SendAsync`, `SendBatch`, `SendBatchAsync`
 * **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: `Complete`, `CompleteAsync`, `Abandon`, `AbandonAsync`, `Deadletter`, `DeadletterAsync`, `Defer`, `DeferAsync`, `RenewLock`, `RenewLockAsync` 
 
-Receive operations are not included, because it is assumed that the application acquires messages using the [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, inside some receive loop or with an [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) callback, and only then opens a transaction scope for processing the message.
+- Send
+- Complete
+- Abandon
+- Deadletter
+- Defer
+- Renew lock
+
+Receive operations are not included, because it is assumed that the application acquires messages using the peek-lock mode, inside some receive loop or with a callback, and only then opens a transaction scope for processing the message.
 
 The disposition of the message (complete, abandon, dead-letter, defer) then occurs within the scope of, and dependent on, the overall outcome of the transaction.
 
