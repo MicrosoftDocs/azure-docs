@@ -153,7 +153,7 @@ model = f"This is a dummy model with id: {str(uuid4())} generated at: {curtime}\
 
 ```
 
-:::image type="content" source="media/concept-component/component-introduction.png" lightbox="media/concept-component/component-introduction.png" alt-text="Conceptual doc showing mapping between source code elements and component UI" :::
+:::image type="content" source="media/concept-component/component-introduction.png" lightbox="media/concept-component/component-introduction.png" alt-text="Conceptual doc showing mapping between source code elements and component UI." :::
 
 ## Create a component
 
@@ -173,13 +173,13 @@ You can create a component in **Components** page in the studio UI.
 
 1. Click **New Component** in the component page.
 
-:::image type="content" source="./media/concept-component/ui-create-component.png" lightbox="./media/concept-component/ui-create-component.png" alt-text="Screenshot showing new component button":::
+    :::image type="content" source="./media/concept-component/ui-create-component.png" lightbox="./media/concept-component/ui-create-component.png" alt-text="Screenshot showing new component button.":::
 
 1. Follow the wizard to finish the creation process.
 
 ## Use components to build ML pipelines
 
-You can use the Azure CLI 2.0 to create a pipeline job. See \Create and run ML pipelines (CLI).
+You can use the Azure CLI 2.0 to create a pipeline job. See Create and run ML pipelines (CLI).
 
 ## Manage components
 
@@ -204,7 +204,7 @@ You can use `az ml component create --file new_version.yaml` to upgrade a compon
 
 You can also click **Upgrade** in the component detail page to upgrade a new version for the component.
 
-:::image type="content" source="./media/concept-component/upgrade-component.png" lightbox="./media/concept-component/upgrade-component.png" alt-text="Screenshot showing upgrade button":::
+:::image type="content" source="./media/concept-component/upgrade-component.png" lightbox="./media/concept-component/upgrade-component.png" alt-text="Screenshot showing upgrade button.":::
 
 ### Delete a component
 
@@ -212,7 +212,7 @@ You can use `az ml component delete --name component_name` to delete a component
 
 You can also select a component and archive it.
 
-:::image type="content" source="./media/concept-component/archive-component.png" alt-text="Screenshot showing the archive option for a component":::
+:::image type="content" source="./media/concept-component/archive-component.png" alt-text="Screenshot showing the archive option for a component.":::
 
 ## Next steps
 
