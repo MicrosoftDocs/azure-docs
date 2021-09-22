@@ -33,7 +33,7 @@ Video Analyzer can then access storage account on your behalf using the managed 
 
 ### Enable Video Analyzer account to access IoT Hub
 
-In previous section, you created a UAMI that allowed Video Analyzer to access the storage account. In this step, the Video Analyzer account will be granted access to the IoT Hub through the UAMI and then IoT Hub will be linked to your Video Analyzer account. For more details on how managed identity works with IoT Hub  , please refer [IoT Hub managed identity](https://docs.microsoft.com/azure/iot-hub/iot-hub-managed-identity)
+In previous section, you created a UAMI that allowed Video Analyzer to access the storage account. In this step, the Video Analyzer account will be granted access to the IoT Hub through the UAMI and then IoT Hub will be linked to your Video Analyzer account. For more details on how managed identity works with IoT Hub  , please refer [IoT Hub managed identity](../../iot-hub/iot-hub-managed-identity.md)
 
 * Go to Azure portal then Video Analyzer management blade, select 'IoT Hub' under 'settings' on the left pane
 * Then click on ‘Attach IoT Hub’. In the ‘Attach IoT Hub’ configuration pane enter the required values:
