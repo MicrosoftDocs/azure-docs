@@ -74,8 +74,7 @@ To run the sample, issue the following command:
 
 The following output is an example of the output returned when running the application:
 
-```
-
+```text
 Azure Blob storage quick start sample
 Creating a container named quickstart-5568059279520899415
 Creating a dummy file to test the upload and download
@@ -84,8 +83,8 @@ Blob name: 630910657703031215
 Downloaded the blob: hello world
 this is a blob
 Press the enter key to delete the sample files, example container, and exit the application.
-
 ```
+
 When you press the key to continue, the sample program deletes the storage container and the files.
 
 > [!TIP]
