@@ -41,6 +41,8 @@ The following table provides details about the authenticator types permitted for
 | Password + Azure AD joined with software TPM <br>Password + Compliant mobile device<br>Password + Hybrid Azure AD Joined with software TPM <br>Password + Microsoft Authenticator App (Notification) | Memorized Secret + ‎Single-factor crypto SW |
 | Password + Azure AD joined with hardware TPM <br>Password + Hybrid Azure AD joined with hardware TPM | Memorized Secret + ‎Single-factor crypto hardware |
 
+>[!Note]
+>If in a conditional access policy you require a device to be either marked as compliant or hybrid Azure AD joined, then Authenticator acts as Verifier Impersonation Resistance.
 
 ### Our recommendations
 
