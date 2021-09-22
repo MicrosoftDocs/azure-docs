@@ -1,99 +1,106 @@
 ---
 title: Create a VM with a static private IP address - Azure PowerShell
-description: Learn how to create a virtual machine with a private IP address using PowerShell.
-services: virtual-network
-documentationcenter: na
-author: KumudD
-
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
+description: Learn how to create a virtual machine with a static private IP address using Azure PowerShell.
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/07/2019
-ms.author: kumud
-ms.custom: devx-track-azurepowershell
+ms.date: 10/01/2021
+ms.custom: template-how-to 
 ---
 
-# Create a virtual machine with a static private IP address using PowerShell
+# Create a virtual machine with a static private IP address using Azure PowerShell
 
-You can create a virtual machine (VM) with a static private IP address. Assign a static private IP address, rather than a dynamic address, if you want to select which address from a subnet is assigned to a VM. Learn more about [static private IP addresses](public-ip-addresses.md#ip-address-assignment). To change a private IP address assigned to an existing VM from dynamic to static, or to work with public IP addresses, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
+A virtual machine (VM) is automatically assigned a private IP address from a range that you specify. This range is based on the subnet in which the VM is deployed. The VM keeps the address until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. Assign a static IP address to the VM if you want a specific IP address in the subnet.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure PowerShell installed locally or Azure Cloud Shell
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+## Create a resource group
+
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **myResourceGroup** in the **eastus2** location.
+
+```azurepowershell-interactive
+$rg =@{
+    Name = 'myResourceGroup'
+    Location = 'eastus2'
+}
+New-AzResourceGroup @rg
+
+```
 
 ## Create a virtual machine
 
-You can complete the following steps from your local computer or by using the Azure Cloud Shell. To use your local computer, ensure you have the [Azure PowerShell installed](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). To use the Azure Cloud Shell, select **Try It** in the top right corner of any command box that follows. The Cloud Shell signs you into Azure.
+Create a virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). 
 
-1. If using the Cloud Shell, skip to step 2. Open a command session and sign into Azure with `Connect-AzAccount`.
-2. Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. The following example creates a resource group in the East US Azure region:
+The following command creates a Windows Server virtual machine. When prompted, provide a username and password to be used as the credentials for the virtual machine:
 
-   ```azurepowershell-interactive
-   $RgName = "myResourceGroup"
-   $Location = "eastus"
-   New-AzResourceGroup -Name $RgName -Location $Location
-   ```
+```azurepowershell-interactive
+## Create virtual machine. ##
+$vm = @{
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'East US 2'
+    Name = 'myVM'
+    PublicIpAddressName = 'myPublicIP'
+}
+New-AzVM @vm
+```
 
-3. Create a subnet configuration and virtual network with the [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) and [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) commands:
+## Change private IP address to static
 
-   ```azurepowershell-interactive
-   # Create a subnet configuration
-   $SubnetConfig = New-AzVirtualNetworkSubnetConfig `
-   -Name MySubnet `
-   -AddressPrefix 10.0.0.0/24
+In this section, you'll change the private IP address from **dynamic** to **static** for the virtual machine you created previously. 
 
-   # Create a virtual network
-   $VNet = New-AzVirtualNetwork `
-   -ResourceGroupName $RgName `
-   -Location $Location `
-   -Name MyVNet `
-   -AddressPrefix 10.0.0.0/16 `
-   -Subnet $subnetConfig
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to place the virtual network configuration into a variable. Use [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) to place the subnet configuration into a variable. Use [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) to obtain the network interface configuration and place into a variable. Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to set the configuration of the network interface. Finally, use [Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to set the configuration for the virtual machine.
 
-   # Get the subnet object for use in a later step.
-   $Subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
-   ```
+The following command changes the private IP address of the virtual machine to static:
 
-4. Create a network interface in the virtual network and assign a private IP address from the subnet to the network interface with the [New-AzNetworkInterfaceIpConfig](/powershell/module/Az.Network/New-AzNetworkInterfaceIpConfig) and [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) commands:
+```azurepowershell-interactive
+## Place virtual network configuration into a variable. ##
+$net = @{
+    Name = 'myResourceGroup-vnet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
 
-   ```azurepowershell-interactive
-   $IpConfigName1 = "IPConfig-1"
-   $IpConfig1     = New-AzNetworkInterfaceIpConfig `
-     -Name $IpConfigName1 `
-     -Subnet $Subnet `
-     -PrivateIpAddress 10.0.0.4 `
-     -Primary
+## Place subnet configuration into a variable. ##
+$sub = @{
+    Name = 'default'
+    ResourceGroupName = 'myResourceGroup'
+    VirtualNetwork = $vnet
+}
+$subnet = Get-AzVirtualNetworkSubnetConfig @sub
 
-   $NIC = New-AzNetworkInterface `
-     -Name MyNIC `
-     -ResourceGroupName $RgName `
-     -Location $Location `
-     -IpConfiguration $IpConfig1
-   ```
+## Get name of network interface and place into a variable ##
+$int1 = @{
+    Name = 'myVM'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vm = Get-AzVM @int1
 
-5. Create a VM configuration with [New-AzVMConfig](/powershell/module/Az.Compute/New-AzVMConfig), and then create the VM with [New-AzVM](/powershell/module/az.Compute/New-azVM). When prompted, provide a username and password to be used as the sign in credentials for the VM:
+## Place network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -ResourceId $vm.NetworkProfile.NetworkInterfaces.Id
 
-   ```azurepowershell-interactive
-   $VirtualMachine = New-AzVMConfig -VMName MyVM -VMSize "Standard_DS3"
-   $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName MyServerVM -ProvisionVMAgent -EnableAutoUpdate
-   $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
-   $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2012-R2-Datacenter' -Version latest
-   New-AzVM -ResourceGroupName $RgName -Location $Location -VM $VirtualMachine -Verbose
-   ```
+## Set interface configuration. ##
+$config =@{
+    Name = 'ipconfig1'
+    PrivateIpAddress = '10.0.0.4'
+    Subnet = $subnet
+}
+$nic | Set-AzNetworkInterfaceIpConfig @config -Primary
+
+## Save interface configuration. ##
+$nic | Set-AzNetworkInterface
+```
 
 > [!WARNING]
 > Though you can add private IP address settings to the operating system, we recommend not doing so until after reading [Add a private IP address to an operating system](virtual-network-network-interface-addresses.md#private).
-> 
-> 
-> <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
-> 
-> [!IMPORTANT]
-> To access the VM from the internet, you must assign a public IP address to the VM. You can also change a dynamic private IP address assignment to a static assignment. For details, see [Add or change IP addresses](virtual-network-network-interface-addresses.md). Additionally, it's recommended that you limit the network traffic to your VM by associating a network security group to the network interface, the subnet you created the network interface in, or both. For details, see [Manage network security groups](../../virtual-network/manage-network-security-group.md).
 
 ## Clean up resources
 
@@ -105,5 +112,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
+- Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
+- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Learn more about [private IP addresses](private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
 - Learn more about creating [Linux](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Windows](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machines.
