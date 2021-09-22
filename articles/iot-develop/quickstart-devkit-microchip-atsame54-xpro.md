@@ -120,7 +120,7 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 :::zone pivot="iot-toolset-iar-ewarm"
 1. Open the ***azure_rtos.eww*** EWARM Workspace in IAR from the extracted zip file.
 
-> ![The EWARM workspace](media/quickstart-devkit-microchip-atsame54-xpro/picture.jpg)
+> ![The EWARM workspace](media/quickstart-devkit-microchip-atsame54-xpro/picture-2.jpg)
 :::zone-end
 :::zone pivot="iot-toolset-mplab"
 1. Open MPLab and select **File > Open Project** and select all projects from the extracted zip file.
