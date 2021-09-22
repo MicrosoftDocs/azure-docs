@@ -12,9 +12,9 @@ ms.date: 03/09/2021
 
 ## Overview
 
-To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. When your data roams, you want it to do so in a secure way that meets your organization's business and compliance policies.</br>
+To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. When your data roams, you still want it to be secure in a way that meets your organization's business and compliance policies.</br>
 
-Applying sensitivity labels to your content enables you to do so by stating how sensitive certain data is in your organization. It also abstracts away the sensitivity of the data and allows you to use labels to track the type of data.</br>
+Applying sensitivity labels to your content enables you to keep your data secure by stating how sensitive certain data is in your organization. It also abstracts the data itself, so you use labels to track the type of data, without exposing sensitive data on another platform.</br>
 
 For example, applying a sensitivity label ‘highly confidential’ to a document that contains social security number and credit card numbers helps you identify the sensitivity of the document without knowing the actual data in the document.
 

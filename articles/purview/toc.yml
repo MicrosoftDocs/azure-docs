@@ -175,9 +175,9 @@ items:
     items:
     - name: Labeling in Azure Purview
       href: create-sensitivity-label.md
-    - name: How to automatically apply sensitivity labels to your data
+    - name: Automatically apply sensitivity labels
       href: how-to-automatically-label-your-content.md
-    - name: Sensitivity labels in Purview Frequenty Asked questions
+    - name: Sensitivity labels FAQ
       href: labeling-frequently-asked-questions.yml
   - name: Search & browse
     items:
