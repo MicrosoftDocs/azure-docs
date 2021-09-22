@@ -148,7 +148,7 @@ As noted earlier, the `code_configuration.scoring_script` must have an `init()` 
 
 ## Deploy and debug locally by using local endpoints
 
-To save time debugging, we *highly recommend* that you test-run your endpoint locally.
+To save time debugging, we *highly recommend* that you test-run your endpoint locally. For more, see [Debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 > [!NOTE]
 > * To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must be installed.
