@@ -16,13 +16,13 @@ options:
 * Public access
 	* Public IP address is assigned to the coordinator node.
 	* Access to the coordinator node is protected by firewall.
-	* Optionally access to all worker nodes can be enabled. In this case public
+	* Optionally access to all worker nodes can be enabled. In this case, public
 	  IP addresses are assigned to the worker nodes and are secured by the same
 	  firewall.
 * Private access (preview)
 	* Only private IP addresses are assigned to the server group’s nodes.
-	* You need to create a private endpoint for each node to allow hosts in the
-	  selected virtual network to get access to the Hyperscale (Citus) nodes.
+	* Each node requires a private endpoint to allow hosts in the
+	  selected virtual network to access the Hyperscale (Citus) nodes.
 	* Security features of Azure virtual networks such as network security
 	  groups can be used for access control.
 

@@ -11,7 +11,7 @@ ms.date: 09/20/2021
 
 # Set up private access (preview) in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-This how-to establishes [private access](concepts-hyperscale-private-access.md)
+This article establishes [private access](concepts-hyperscale-private-access.md)
 between an Azure virtual machine and an Azure Database for PostgreSQL -
 Hyperscale (Citus) server group.
 
@@ -73,12 +73,12 @@ az vm run-command invoke \
 
 ## Create a server group with a private link
 
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Select **Databases** from the **New** page, and select **Azure Database for
    PostgreSQL** from the **Databases** page.
 
-3. For the deployment option, click the **Create** button under **Hyperscale
+3. For the deployment option, select the **Create** button under **Hyperscale
    (Citus) server group**.
 
 4. Fill out the new server details form with the following information:
@@ -94,15 +94,15 @@ az vm run-command invoke \
 	> creates a DNS entry. If `link-demo-sg` is unavailable, please choose
 	> another name and adjust the steps below accordingly.
 
-5. Click **Configure server group**, choose the **Basic** plan, and click
+5. Select **Configure server group**, choose the **Basic** plan, and select
    **Save**.
 
-6. Click **Next: Networking** at the bottom of the page.
+6. Select **Next: Networking** at the bottom of the page.
 
 7. Select **Private access (preview)**.
 
-8. A blade appears called **Create private endpoint**. Enter these values and
-   click **OK**:
+8. A screen appears called **Create private endpoint**. Enter these values and
+   select **OK**:
 
 	- **Resource group**: `link-demo`
 	- **Location**: `(US) East US`
@@ -112,7 +112,7 @@ az vm run-command invoke \
 	- **Subnet**: `link-demo-subnet`
 	- **Integrate with private DNS zone**: Yes
 
-9. After creating the private endpoint, click **Review + create** to provision
+9. After creating the private endpoint, select **Review + create** to create
    your Hyperscale (Citus) server group.
 
 ## Access the server group privately from the virtual machine
@@ -145,8 +145,8 @@ was able to execute the command, and the private link worked.
 
 ## Clean up resources
 
-Now we've seen how to establish a private link between a virtual machine and a
-Hyperscale (Citus) server group, and we can deprovision the resources.
+We've seen how to create a private link between a virtual machine and a
+Hyperscale (Citus) server group. Now we can deprovision the resources.
 
 Delete the resource group, and the resources inside will be deprovisioned:
 
