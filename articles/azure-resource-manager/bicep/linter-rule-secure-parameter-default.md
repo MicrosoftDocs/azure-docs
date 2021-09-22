@@ -24,11 +24,11 @@ For more information, see [Use Bicep linter](./linter.md).
 
 ## Description
 
-Don't provide a hard-coded default value for a secure parameter in your template, unless it is empty or an expression containing a call to newGuid().
+Don't provide a hard-coded default value for a [secure parameter](./parameters.md#secure-parameters) in your template, unless it is empty or an expression containing a call to [newGuid()](./bicep-functions-string.md#newguid).
 
 You use the @secure() decorator on parameters that contain sensitive values, like passwords. When a parameter uses a secure decorator, the value of the parameter isn't logged or stored in the deployment history. This action prevents a malicious user from discovering the sensitive value.
 
-However, when you provide a default value, that value is discoverable by anyone who can access the template or the deployment history.
+However, when you provide a default value for a secured parameter, that value is discoverable by anyone who can access the template or the deployment history.
 
 ## Examples
 
@@ -40,7 +40,6 @@ param adminPassword string = 'HardcodedPassword'
 ```
 
 The following examples pass this test:
-
 
 ```bicep
 @secure()
