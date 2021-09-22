@@ -42,7 +42,7 @@ See the following table for the validation differences of various properties for
 | appRoles | Supported <br> No limit* | Supported <br> No limit* | Not supported | 
 | Front-channel logout URL | https://localhost is allowed <br><br> `http` scheme isn't allowed <br><br> Maximum length of 255 characters | https://localhost is allowed <br><br> `http` scheme isn't allowed <br><br> Maximum length of 255 characters | <br><br> https://localhost is allowed, http://localhost fails for MSA <br><br> Maximum length of 255 characters <br><br> `http` scheme isn't allowed <br><br> Wildcards aren't supported | 
 
-*There's a global limit of about 1000 items across all the collection properties on the app object.
+There's a global limit of about 1000 items across all the collection properties on the app object.
 
 ## Next steps
 
