@@ -1,4 +1,6 @@
 items:
+- name: Virtual Network IP Services documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Virtual Network IP Services?
