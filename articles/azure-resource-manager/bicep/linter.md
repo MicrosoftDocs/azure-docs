@@ -111,9 +111,9 @@ You can use several values for rule level:
 
 The current set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md). Both Visual Studio Code extension and Bicep CLI check for all available rules by default and all rules are set at warning level. Based on the level of a rule, you see errors or warnings or informational messages within the editor.
 
-- [no-hardcoded-env-urls](./linter-rule-no-hardcoded-env-urls.md)
-- [no-unused-params](./linter-rule-no-unused-params.md)
-- [no-unused-vars](./linter-rule-no-unused-vars.md)
+- [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
+- [no-unused-params](./linter-rule-no-unused-parameters.md)
+- [no-unused-vars](./linter-rule-no-unused-variables.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)

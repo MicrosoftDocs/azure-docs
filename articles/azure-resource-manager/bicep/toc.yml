@@ -89,11 +89,11 @@
       - name: Linter rules
         items:
         - name: No hardcoded environment URLs
-          href: linter-rule-no-hardcoded-env-urls.md
+          href: linter-rule-no-hardcoded-environment-urls.md
         - name: No unused parameters
-          href: linter-rule-no-unused-params.md
+          href: linter-rule-no-unused-parameters.md
         - name: No unused variables
-          href: linter-rule-no-unused-vars.md
+          href: linter-rule-no-unused-variables.md
         - name: Prefer interpolation
           href: linter-rule-prefer-interpolation.md
         - name: Secure parameter default
