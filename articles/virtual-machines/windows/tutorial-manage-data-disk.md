@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
-ms.date: 09/15/2021
+ms.date: 09/22/2021
 ms.custom: template-tutorial, devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
