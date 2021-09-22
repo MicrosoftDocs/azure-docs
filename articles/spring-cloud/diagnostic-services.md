@@ -30,7 +30,7 @@ Choose the log category and metric category you want to monitor.
 |----|----|
 | **ApplicationConsole** | Console log of all customer applications. |
 | **SystemLogs** | Currently, only [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) logs in this category. |
-| **IngressLogs** | [Ingress logs](#Show-ingress-log-entries-containing-specific-host) of all customer's applications, only access logs. |
+| **IngressLogs** | [Ingress logs](#show-ingress-log-entries-containing-specific-host) of all customer's applications, only access logs. |
 
 ## Metrics
 
