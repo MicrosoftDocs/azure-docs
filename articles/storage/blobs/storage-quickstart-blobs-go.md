@@ -176,8 +176,8 @@ handleErrors(err)
 // This function calls StageBlock/CommitBlockList for files larger 256 MBs, and calls Upload for any file smaller
 fmt.Printf("Uploading the file with blob name: %s\n", fileName)
 _, err = azblob.UploadFileToBlockBlob(ctx, file, blobURL, azblob.UploadToBlockBlobOptions{
-	BlockSize:   4 * 1024 * 1024,
-	Parallelism: 16})
+    BlockSize: 4 * 1024 * 1024,
+    Parallelism: 16})
 handleErrors(err)
 ```
 
@@ -189,18 +189,18 @@ Get a list of files in the container using the **ListBlobs** method on a **Conta
 // List the container that we have created above
 fmt.Println("Listing the blobs in the container:")
 for marker := (azblob.Marker{}); marker.NotDone(); {
-	// Get a result segment starting with the blob indicated by the current Marker.
-	listBlob, err := containerURL.ListBlobsFlatSegment(ctx, marker, azblob.ListBlobsSegmentOptions{})
-	handleErrors(err)
+    // Get a result segment starting with the blob indicated by the current Marker.
+    listBlob, err := containerURL.ListBlobsFlatSegment(ctx, marker, azblob.ListBlobsSegmentOptions{})
+    handleErrors(err)
 
-	// ListBlobs returns the start of the next segment; you MUST use this to get
-	// the next segment (after processing the current result segment).
-	marker = listBlob.NextMarker
+    // ListBlobs returns the start of the next segment; you MUST use this to get
+    // the next segment (after processing the current result segment).
+    marker = listBlob.NextMarker
 
-	// Process the blobs returned in this result segment (if the segment is empty, the loop body won't execute)
-	for _, blobInfo := range listBlob.Segment.BlobItems {
-		fmt.Print("	Blob name: " + blobInfo.Name + "\n")
-	}
+    // Process the blobs returned in this result segment (if the segment is empty, the loop body won't execute)
+    for _, blobInfo := range listBlob.Segment.BlobItems {
+        fmt.Print("    Blob name: " + blobInfo.Name + "\n")
+    }
 }
 ```
 
