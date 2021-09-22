@@ -110,7 +110,7 @@ sections:
 
              For any new offer you submit to the commercial marketplace in Partner Center, you can directly upload the two package files, `.pbix` and `.pbiviz`, on the **Technical configuration** page. You are no longer required to work with the PBI support team for the XML manifest file. The use of an XML file for offer submission is no longer necessary. This simplified submission process reduces the time needed to prepare and submit a Power BI visual offer.
 
-             :::image type="content" source="media/power-bi-visual/technical-config.png" alt-text="Shows the technical configuration page in Partner Center.":::
+             :::image type="content" source="media/power-bi-visual/technical-configuration.png" alt-text="Shows the technical configuration page in Partner Center.":::
 
           1. **Enhanced preview options**
 
