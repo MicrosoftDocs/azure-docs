@@ -69,7 +69,8 @@ Kubelet secure port (:10250) should be opened in the cluster's virtual network f
 Container insights officially supports the following configurations:
 
 - Environments: Azure Red Hat OpenShift, Kubernetes on-premises, and the AKS engine on Azure and Azure Stack. For more information, see [the AKS engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
-- The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md). 
+- The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
+- We recommend connecting your cluster to [Azure Arc](../../azure-arc/kubernetes/overview.md) and enabling monitoring through Container Insights via Azure Arc.
 
 ## Network firewall requirements
 
@@ -123,15 +124,14 @@ To enable Container insights, use one of the methods that's described in the fol
 | | [Create an AKS cluster by using Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| You can enable monitoring for a new AKS cluster that you create by using the open-source tool Terraform. |
 | | [Create an OpenShift cluster by using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | You can enable monitoring for a new OpenShift cluster that you create by using a preconfigured Azure Resource Manager template. |
 | | [Create an OpenShift cluster by using the Azure CLI](/cli/azure/openshift#az_openshift_create) | You can enable monitoring when you deploy a new OpenShift cluster by using the Azure CLI. |
-| Existing Kubernetes cluster | [Enable monitoring of an AKS cluster by using the Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | You can enable monitoring for an AKS cluster that's already deployed by using the Azure CLI. |
+| Existing AKS cluster | [Enable monitoring of an AKS cluster by using the Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | You can enable monitoring for an AKS cluster that's already deployed by using the Azure CLI. |
 | |[Enable for AKS cluster using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | You can enable monitoring for an AKS cluster that's already deployed by using the open-source tool Terraform. |
 | | [Enable for AKS cluster from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| You can enable monitoring for one or more AKS clusters that are already deployed from the multi-cluster page in Azure Monitor. |
 | | [Enable from AKS cluster](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| You can enable monitoring directly from an AKS cluster in the Azure portal. |
 | | [Enable for AKS cluster using an Azure Resource Manager template](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| You can enable monitoring for an AKS cluster by using a preconfigured Azure Resource Manager template. |
-| | [Enable for hybrid Kubernetes cluster](container-insights-hybrid-setup.md) | You can enable monitoring for the AKS engine that's hosted on Azure Stack or for a Kubernetes cluster that's hosted on-premises. |
-| | [Enable for Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md). | You can enable monitoring for your Kubernetes clusters that are hosted outside of Azure and enabled with Azure Arc. |
-| | [Enable for OpenShift cluster using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | You can enable monitoring for an existing OpenShift cluster by using a preconfigured Azure Resource Manager template. |
-| | [Enable for OpenShift cluster from Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | You can enable monitoring for one or more OpenShift clusters that are already deployed from the multicluster page in Azure Monitor. |
+| Existing non-AKS Kubernetes cluster | [Enable for non-AKS Kubernetes cluster by using the Azure CLI](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli). | You can enable monitoring for your Kubernetes clusters that are hosted outside of Azure and enabled with Azure Arc, this includes hybrid, OpenShift, and multi-cloud using Azure CLI. |
+| | [Enable for non-AKS Kubernetes cluster using an Azure Resource Manager template](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-resource-manager) | You can enable monitoring for your clusters enabled with Arc by using a preconfigured Azure Resource Manager template. |
+| | [Enable for non-AKS Kubernetes cluster from Azure Monitor](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-portal) | You can enable monitoring for one or more clusters enabled with Arc that are already deployed from the multicluster page in Azure Monitor. |
 
 ## Next steps
 
