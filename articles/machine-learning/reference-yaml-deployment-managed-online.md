@@ -63,10 +63,6 @@ ms.reviewer: laobri
 
 The `az ml online-deployment` commands can be used for managing Azure Machine Learning managed online deployments.
 
-## Examples
-
-[TODO]
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json. The schema is provided below in JSON and YAML formats for convenience.
