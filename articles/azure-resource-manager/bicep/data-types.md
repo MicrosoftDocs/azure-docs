@@ -212,9 +212,9 @@ param password string
 param configValues object
 ```
 
-## Assignability matrix
+## Data type assignability
 
-Type assignability determines whether a value of one type (source type) can be assigned to another type (target type). In the following matrix source types are listed horizontally and target types are listed vertically:
+In Bicep, a value of one type (source type) can be assigned to another type (target type). The following table shows which source type (listed horizontally) can or can't be assigned to which target type (listed vertically). `X` means assignable, empty space means not assignable, and `?` means yes if they types are compatible, otherwise no.
 
 | Types | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | named resource | named module | `scope` |
 |-|-|-|-|-|-|-|-|-|-|-|-|-|
@@ -232,14 +232,6 @@ Type assignability determines whether a value of one type (source type) can be a
 | `scope`        | | | | | | | | | | | |?|
 | **named resource** |X| | | | | | |?| |?| | |
 | **named module**   |X| | | | | | |?| | |?| |
-
-### Legend
-
-| Mark | Source type assignable to target type? |
-|:-|:-|
-| X | Yes |
-|   | No |
-| ? | Yes if types are compatible. Otherwise, no. |
 
 ## Next steps
 
