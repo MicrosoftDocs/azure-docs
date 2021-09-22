@@ -31,7 +31,7 @@ For the bot on surface products, you can take the following steps to create a bo
 2. After having created the KB we can go to **View Options** and click on **Show metadata**. This open up a metadata column for the QnAs.
 
    >[!div class="mx-imgBorder"]
-   >[![Show Metadata]( ../media/qnamaker-tutorial-updates/show-metadata.png) ]( ../media/qnamaker-tutorial-updates/expand/show-metadata.png#lightbox)
+   >[![Show Metadata]( ../media/multiple-domains/show-metadata.png) ]( ../media/multiple-domains/expand/show-metadata.png#lightbox)
 
 
 3. In this knowledge base, we have QnAs on two products and we would like to distinguish them such that we can search for responses amongst QnAs for a given product. In order to do that, we should update the metadata field for the QnA pairs accordingly. 
@@ -39,7 +39,7 @@ For the bot on surface products, you can take the following steps to create a bo
    As you can see in the example below, we have added a metadata with **product** as key and **surface_pen** or **surface_earbuds** as values wherever applicable. You can extend this example to extract data on multiple products and add a different value for each product.
 
    >[!div class="mx-imgBorder"]
-   >[![Metadata]( ../media/qnamaker-tutorial-updates/metadata-example-2.png) ]( ../media/qnamaker-tutorial-updates/expand/metadata-example-2.png#lightbox)
+   >[![Metadata]( ../media/multiple-domains/metadata-example-2.png) ]( ../media/multiple-domains/expand/metadata-example-2.png#lightbox)
 
 4. Now, in order to to restrict the system to search for the response across a particular product you would need to pass that product as a strict filter in the generate Answer API.
 
@@ -70,15 +70,15 @@ For the bot on surface products, you can take the following steps to create a bo
 
     * Explicitly take the domain as input from the user through the bot client. For instance as shown below, you can take product category as input from the user when the conversation is initiated.
 
-      ![Take metadata input](../media/qnamaker-tutorial-updates/expand/explicit-metadata-input.png)
+      ![Take metadata input](../media/multiple-domains/expand/explicit-metadata-input.png)
 
     * Implicitly identify domain based on bot context. For instance, in case the previous question was on a particular Surface product, it can be saved as context by the client. If the user doesn't specify the product in the next query, you could pass on the bot context as metadata to the Generate Answer API.
 
-      ![Pass context]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-context.png)
+      ![Pass context]( ../media/multiple-domains/expand/extract-metadata-from-context.png)
 
     * Extract entity from user query to identify domain to be used for metadata filter. You can use other Cognitive Services such as Text Analytics and LUIS for entity extraction.
 
-      ![Extract metadata from query]( ../media/qnamaker-tutorial-updates/expand/extract-metadata-from-query.png)
+      ![Extract metadata from query]( ../media/multiple-domains/expand/extract-metadata-from-query.png)
 
 ### How large can our knowledge bases be? 
 
@@ -91,7 +91,7 @@ You can also create a separate knowledge base for each domain and maintain the k
 When the user question is received by the service, you would need to pass on the KB ID in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase. You can locate the knowledge base ID in the **Publish** page section as shown below.
 
 >[!div class="mx-imgBorder"]
->![Fetch KB ID](../media/qnamaker-tutorial-updates/fetch-kb-id.png)
+>![Fetch KB ID](../media/multiple-domains/fetch-kb-id.png)
 
 ## Create a separate QnA Maker resource for each domain.
 
