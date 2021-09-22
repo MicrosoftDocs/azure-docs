@@ -39,7 +39,7 @@ The preset override provides you a way to pass in a new custom preset definition
 For reference, see the [presetOverride](https://github.com/Azure/azure-rest-api-specs/blob/ce90f9b45945c73b8f38649ee6ead390ff6efe7b/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01/Encoding.json#L1960) property on the job output entity in the REST documentation.
 
 > [!NOTE]
-> You can only use preset overrides to override the settings on a defined preset in the transform.  You cannot for example switch from one named preset to another. Attempting to switch from the built-in content-aware encoding preset to the audio analyzer preset would result in an error message.
+> You can only use preset overrides to override the settings on a defined preset in the transform.  You cannot switch from one specific preset to another type. Attempting to switch from the built-in content-aware encoding preset to the audio analyzer preset would result in an error message.
 
 
 ## Example of preset override in .NET
