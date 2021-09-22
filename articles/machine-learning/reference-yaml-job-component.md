@@ -26,7 +26,7 @@ ms.reviewer: laobri
 | `component` | object | **Required.** The component to invoke and run in a job. This value can be either a reference to an existing versioned component in the workspace, an inline component specification, or the local path to a separate component YAML specification file. <br><br> To reference an existing component, use the `azureml:<component-name>:<component-version>` syntax. <br><br> To define a component inline or in a separate YAML file, follow the [Command component schema](reference-yaml-component-command.md#yaml-syntax). Exclude the `name` and `version` properties as they are not applicable for inline component specifications. | | |
 | `compute` | string | Name of the compute target to execute the job on. This value should be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. If omitted, Azure ML will use the compute defined in the pipeline job's `settings.compute` property. | | |
 | `inputs` | object | Dictionary of inputs to the job. The key corresponds to the name of one of the component inputs and the value is the runtime input value. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
-| `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string), [JobInputUri](#jobinputuri), or [JobInputDataset](#jobinputdataset). | | |
+| `inputs.<input_name>` | number, integer, boolean, string, or object | One of a literal value (of type number, integer, boolean, or string), [JobInputUri](#jobinputuri), or [JobInputDataset](#jobinputdataset). | | |
 | `outputs` | object | Dictionary of output configurations of the job. The key corresponds to the name corresponding to the name of one of the component outputs and the value is the runtime output configuration. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression. | |
 | `outputs.<output_name>` | object | You can either specify an optional `mode` or leave the object empty. For each named output specified in the `outputs` dictionary, Azure ML will autogenerate an output location based on the following templatized path: `{default-datastore}/azureml/{job-name}/{output-name}/`. Users will be allowed to provide a custom location in a later release. | |
 | `outputs.<output_name>.mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode, the output directory will be a mounted directory. For upload mode, the files written to the output directory will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
@@ -46,12 +46,14 @@ ms.reviewer: laobri
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `dataset` | string or object | **Required.** A dataset to use as input. This value can be either a reference to an existing versioned dataset in the workspace or an inline dataset specification. <br><br> To reference an existing dataset, use the `azureml:<dataset_name>:<dataset_version>` syntax. <br><br> To define a dataset inline, follow the [Dataset schema](reference-yaml-dataset.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline datasets. | | |
+| `dataset` | string or object | **Required.** A dataset to use as input. This value can be either a reference to an existing versioned dataset in the workspace or an inline dataset specification. <br><br> To reference an existing dataset, use the `azureml:<dataset-name>:<dataset-version>` syntax. <br><br> To define a dataset inline, follow the [Dataset schema](reference-yaml-dataset.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline datasets. | | |
 | `mode` | string | Mode of how the dataset should be delivered to the compute target. For read-only mount, the dataset will be consumed as a mount path. For download mode, the dataset will be consumed as a downloaded path. | `ro_mount`, `download` | `ro_mount` |
 
 ## Remarks
 
 Component jobs can be run inside pipeline jobs. `az ml job` commands can be used for managing Azure Machine Learning pipeline jobs.
+
+Component jobs currently cannot be run as standalone jobs and can only be run inside pipelines.
 
 ## Examples
 
