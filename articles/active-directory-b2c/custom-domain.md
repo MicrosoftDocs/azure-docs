@@ -412,7 +412,7 @@ To use your own web application firewall in front of Azure Front Door, you need 
 
 ### Can my Azure Front Door instance be hosted in a different subscription than my Azure AD B2C tenant?
     
-Yes, Azure Front Door can be in different subscription.
+Yes, Azure Front Door can be in a different subscription.
     
 ## Next steps
 
