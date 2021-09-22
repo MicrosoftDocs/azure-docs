@@ -38,14 +38,6 @@ landingContent:
         links:
           - text: Analyze live video
             url: analyze-live-video-without-recording.md
-      - linkListType: reference
-        links:
-          - text: Monthly update
-            url: release-notes.md
-          - text: Pricing
-            url: https://azure.microsoft.com/pricing/details/video-analyzer/
-          - text: FAQ
-            url: faq.yml
         
   - title: Create and deploy pipeline and topology
     linkLists:
@@ -137,4 +129,14 @@ landingContent:
             url: sdk.md
           - text: Direct Methods VS Code
             url: edge/direct-methods.md #should we move it to the AVA root?
-           
+
+  - title: Resources
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Monthly update
+            url: release-notes.md
+          - text: Pricing
+            url: https://azure.microsoft.com/pricing/details/video-analyzer/
+          - text: FAQ
+            url: faq.yml
