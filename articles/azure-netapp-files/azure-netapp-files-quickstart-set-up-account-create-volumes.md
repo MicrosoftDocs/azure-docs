@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 09/15/2021
+ms.date: 10/04/2021
 ms.custom: devx-track-azurecli, subject-armqs
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---

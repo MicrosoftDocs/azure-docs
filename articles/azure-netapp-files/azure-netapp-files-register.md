@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/04/2021
 ms.author: b-juche
 ---
 # Register for NetApp Resource Provider
