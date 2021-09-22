@@ -133,15 +133,16 @@ The following table lists the properties you can specify for attribute sets and 
 Here are some of the limits and constraints for custom security attributes.
 
 > [!div class="mx-tableFixed"]
-> | Resource | Limit |
-> | --- | --- |
-> | Attribute set name | 32 characters long including Unicode characters |
-> | Attribute set description | 128 characters |
-> | Maximum number of attributes in an attribute set | 500 |
-> | Attribute name | 32 characters long including Unicode characters<br/>Cannot include spaces |
-> | Attribute description | 128 characters |
-> | Maximum number of predefined values per attribute | 100 |
-> | Maximum number of attribute values that can assigned per security principal (values can be distributed across single and multi-valued attributes) | 50 |
+> | Resource | Dimension | Limit | Notes |
+> | --- | --- | --- | --- |
+> | Attributes in an attribute set | Per tenant | 500 | Applies only to active attributes in the tenant |
+> | Attribute set name | Per attribute set | 32 | Unicode characters |
+> | Attribute set description | Per attribute set | 128 | Unicode characters |
+> | Attribute name | Per attribute | 32 | Unicode characters<br/>Cannot include spaces |
+> | Attribute description | Per attribute | 128 | Unicode characters |
+> | Predefined values | Per attribute | 100 |  |
+> | Attribute values assigned | Per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
+> | Unallowed characters | Per attribute set name<br/>Per attribute name | No special characters such as:<br/>? / \ . @ | Does not apply to attribute values |
 
 ## Custom security attribute roles
 
