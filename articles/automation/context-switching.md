@@ -38,11 +38,10 @@ Here's a PowerShell runbook code snippet demonstrating context switching using a
 Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with system-assigned managed identity
-Connect-AzAccount -Identity
+$AzureContext = (Connect-AzAccount -Identity).context
 
 # set and store context
-$subID = (Get-AzContext).Subscription.Id
-$AzureContext = Set-AzContext -SubscriptionId $subID
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
 # Pass context object - even though the context had just been set
 # This is the step that guarantees the context will not be switched.
