@@ -138,11 +138,11 @@ Here are some of the limits and constraints for custom security attributes.
 > | Attributes in an attribute set | Per tenant | 500 | Applies only to active attributes in the tenant |
 > | Attribute set name | Per attribute set | 32 | Unicode characters |
 > | Attribute set description | Per attribute set | 128 | Unicode characters |
-> | Attribute name | Per attribute | 32 | Unicode characters<br/>Cannot include spaces |
+> | Attribute name | Per attribute | 32 | Unicode characters |
 > | Attribute description | Per attribute | 128 | Unicode characters |
 > | Predefined values | Per attribute | 100 |  |
 > | Attribute values assigned | Per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
-> | Unallowed characters | Per attribute set name<br/>Per attribute name | No special characters such as:<br/>? / \ . @ | Does not apply to attribute values |
+> | Special characters | Per attribute set name<br/>Per attribute name | No special characters such as:<br/>&lt;space&gt; [ ] { } \| \ / < > ? . , : ; ' " ` ~ ! @ # $ % ^ * ( ) - = +  | Does not apply to attribute values |
 
 ## Custom security attribute roles
 
