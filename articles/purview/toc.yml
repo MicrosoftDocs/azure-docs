@@ -171,8 +171,14 @@ items:
       href: create-a-custom-classification-and-classification-rule.md
     - name: Apply classifications
       href: apply-classifications.md
-    - name: Automatically label your content
+  - name: Label
+    items:
+    - name: Labeling in Azure Purview
       href: create-sensitivity-label.md
+    - name: How to automatically apply sensitivity labels to your data
+      href: how-to-automatically-label-your-content.md
+    - name: Sensitivity labels in Purview Frequenty Asked questions
+      href: labeling-frequently-asked-questions.yml
   - name: Search & browse
     items:
     - name: Browse Data Catalog

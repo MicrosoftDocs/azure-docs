@@ -16,7 +16,7 @@ If you don't already have sensitivity labels, you'll need to create them and mak
 
 ### Step 1: Licensing requirements
 
-Sensitivity labels are created and managed in the Microsoft 365 Security and compliance center. To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 E5 license.
+Sensitivity labels are created and managed in the Microsoft 365 compliance center. To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 E5 license.
 
 If you do not already have the required license, you can sign up for a trial of [Microsoft 365 E5](https://www.microsoft.com/microsoft-365/business/compliance-solutions#midpagectaregion).
 
