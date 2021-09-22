@@ -25,8 +25,8 @@ Regardless of the security principal used, a managed identity or an application 
  
 If you're using the Event Grid SDK, you don't need to worry about the details on how to implement the acquisition of access tokens and how to include it with every request to Event Grid because the [Event Grid data plane SDKs](#publish-events-using-event-grids-client-sdks) do that for you. 
 
-### high-level steps
-Perform the following steps to ready your client to use Azure AD authentication when sending events to a topic, domain, or partner namespace.
+### Client configuration steps to use Azure AD authentication
+Perform the following steps to configure your client to use Azure AD authentication when sending events to a topic, domain, or partner namespace.
 
 1. Create or use a security principal you want to use to authenticate. You can use a [managed identity](#authenticate-using-a-managed-identity) or an [application security principal](#authenticate-using-a-security-principal-of-a-client-application).
 2. [Grant permission to a security principal to publish events](#assign-permission-to-a-security-principal-to-publish-events) by assigning the **EventGrid Data Sender** role to the security principal.
@@ -72,7 +72,7 @@ Following are the prerequisites to authenticate to Event Grid.
 - Install the SDK on your application.
    - [Java](/java/api/overview/azure/messaging-eventgrid-readme#include-the-package)
    - [.NET](/dotnet/api/overview/azure/messaging.eventgrid-readme-pre#install-the-package)
-   - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid.md#install-the-azureeventgrid-package)
+   - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid#install-the-azureeventgrid-package)
    - [Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-eventgrid#install-the-package)
 - Install the Azure Identity client library. The Event Grid SDK depends on the Azure Identity client library for authentication. 
    - [Azure Identity client library for Java](/java/api/overview/azure/identity-readme)
@@ -143,7 +143,7 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
     - Java SDK: [github](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid) | [samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java/com/azure/messaging/eventgrid) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/migration-guide.md)
     - .NET SDK: [github](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid) | [samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventgrid/Azure.Messaging.EventGrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/MigrationGuide.md)
     - Python SDK: [github](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid) | [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventgrid/azure-eventgrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
-    - JavaScript SDK: [github](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/) | [samples](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/migration.md)
+    - JavaScript SDK: [github](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/) | [samples](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/samples) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventgrid/eventgrid/MIGRATION.md)
 - [Event Grid SDK blog](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/)
 - Azure Identity client library
    - [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/README.md)

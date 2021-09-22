@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy sync com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -115,10 +115,10 @@ Sync a virtual directory that has the same name as a blob (add a trailing slash 
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
 ```
 
-Sync an Azure File directory (same syntax as Blob):
+Sync an Azure File directory:
 
 ```azcopy
-azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]" --recursive=true
+azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" --recursive=true
 ```
 
 > [!NOTE]
@@ -130,13 +130,21 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--check-md5** string   Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: `NoCheck`, `LogOnly`, `FailIfDifferent`, `FailIfDifferentOrMissing`. (default `FailIfDifferent`). (default `FailIfDifferent`)
 
+**--cpk-by-name** string          Client provided key by name let clients making requests against Azure Blob Storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
+
+**--cpk-by-value**                Client provided key by name let clients making requests against Azure Blob Storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
+
 **--delete-destination** string   Defines whether to delete extra files from the destination that are not present at the source. Could be set to `true`, `false`, or `prompt`. If set to `prompt`, the user will be asked a question before scheduling files and blobs for deletion. (default `false`). (default `false`)
+
+**--dry-run**                     Prints the path of files that would be copied or removed by the sync command. This flag does not copy or remove the actual files.
 
 **--exclude-attributes** string   (Windows only) Excludes files whose attributes match the attribute list. For example: `A;S;R`
 
 **--exclude-path** string    Exclude these paths when comparing the source against the destination. This option does not support wildcard characters (*). Checks relative path prefix(For example: `myFolder;myFolder/subDirName/file.pdf`).
 
 **--exclude-pattern** string   Exclude files where the name matches the pattern list. For example: `*.jpg;*.pdf;exactName`
+
+**--exclude-regex** string        Exclude the relative path of the files that match with the regular expressions. Separate regular expressions with ';'.
 
 **--help**    help for sync.
 
@@ -148,15 +156,17 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--mirror-mode**          Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to `true`. Default is `false`.
 
-**--preserve-smb-info**   False by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is not preserved for folders.
+**--preserve-smb-info**   True by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is not preserved for folders.
 
-**--preserve-smb-permissions**   False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, `include-pattern`).
+**--preserve-permissions**        False by default. Preserves ACLs between aware resources (Windows and Azure Files, or Data Lake Storage Gen 2 to Data Lake Storage Gen 2). For accounts that have a hierarchical namespace, you will need a container SAS or OAuth token with Modify Ownership and Modify Permissions permissions. For downloads, you will also need the --backup flag to restore permissions where the new Owner will not be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (e.g. include-pattern).
 
 **--put-md5**     Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 
 **--recursive**    `True` by default, look into subdirectories recursively when syncing between directories. (default `True`). 
 
 **--s2s-preserve-access-tier**  Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`). 
+
+**--s2s-preserve-blob-tags**      Preserve index tags during service to service sync from one blob storage to another.
 
 ## Options inherited from parent commands
 

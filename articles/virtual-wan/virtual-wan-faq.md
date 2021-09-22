@@ -31,7 +31,9 @@ Virtual WAN comes in two flavors: Basic and Standard. In Basic Virtual WAN, hubs
 
 ### How are Availability Zones and resiliency handled in Virtual WAN?
 
-Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services (except the Azure Firewall) is deployed in an Availability Zones region, that is if the region supports Availability Zones. If a region becomes an Availability Zone after the initial deployment in the hub, the user can recreate the gateways, which will trigger an Availability Zone deployment. All gateways are provisioned in a hub as active-active, implying there is resiliency built in within a hub. Users can connect to multiple hubs if they want resiliency across regions.
+Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services are automatically deployed across Availabitlity Zones (except Azure Firewall), if the region supports Availability Zones. If a region becomes an Availability Zone after the initial deployment in the hub, the user can recreate the gateways, which will trigger an Availability Zone deployment. All gateways are provisioned in a hub as active-active, implying there is resiliency built in within a hub. Users can connect to multiple hubs if they want resiliency across regions. 
+
+Currently, Azure Firewall can be deployed to support Availability Zones using Azure Firewall Manager Portal,  [PowerShell](/powershell/module/az.network/new-azfirewall?view=azps-6.3.0#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) or CLI. There is currently no way to configure an existing Firewall to be deployed across availability zones. You will need to delete and re-deploy your Azure Firewall. 
 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself were to have an issue, all hubs in that virtual WAN will continue to function as is, but the user will not be able to create new hubs until the virtual WAN region is available.
 
@@ -91,9 +93,13 @@ There are two options to add DNS servers for the P2S clients. The first method i
 
 ### For User VPN (Point-to-site)- how many clients are supported?
 
-Each User VPN P2S gateway has two instances. Each instance supports up to a certain number of connections as the scale unit changes. Scale unit 1-3 supports 500 connections, scale unit 4-6 supports 1000 connections, scale unit 7-12 supports 5000 connections, and scale unit 13-18 supports up to 10,000 connections.
+Each User VPN P2S gateway has two instances. Each instance supports up to a certain number of connections as the scale units change. Scale unit 1-3 supports 500 connections, scale unit 4-6 supports 1000 connections, scale unit 7-12 supports 5000 connections, and scale unit 13-18 supports up to 10,000 connections.
 
 For example, let's say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support up to 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean that you plan for 1000 instead of the 500 for this scale unit. Instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count. Also, be sure to plan for downtime in case you decide to scale up or down on the scale unit, or change the point-to-site configuration on the VPN gateway.
+
+### What are Virtual WAN gateway scale units?
+
+A scale unit is a unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps. 1 scale unit of ExpressRoute = 2 Gbps. Example: 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
@@ -108,11 +114,6 @@ A virtual network gateway VPN is limited to 30 tunnels. For connections, you sho
 ### What is the recommended Packets per Second limit per IPSEC tunnel?
 
 We recommend sending around 95,000 PPS with GCMAES256 algorithm for both IPSEC Encryption and Integrity for optimal performance. Though traffic is not blocked if greater than 95,000 PPS are sent, performance degradation such as latency and packet drops can be expected. Create additional tunnels if greater PPS is required.
-
-
-### What is a Virtual WAN gateway scale unit?
-
-A scale unit is a unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps. 1 scale unit of ExpressRoute = 2 Gbps. Example: 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps
 
 ### Which device providers (Virtual WAN partners) are supported?
 

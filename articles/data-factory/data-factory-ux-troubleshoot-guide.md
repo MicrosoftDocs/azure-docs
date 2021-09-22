@@ -33,7 +33,7 @@ It is possible your browser blocks third-party cookies  because you are using an
 1. Visit **chrome://settings/cookies** in your browser.
 1. Select **Allow all cookies** option 
 
-    ![Allow All Cookies in Chrome](media/data-factory-ux-troubleshoot-guide/chrome-allow-all-cookies.png)
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/chrome-allow-all-cookies.png" alt-text="Allow All Cookies in Chrome":::
 1. Refresh ADF UX and try again.
 
 #### Only allow ADF UX to use cookies
@@ -41,10 +41,10 @@ If you do not want to allow all cookies, you can optionally just allow ADF UX:
 1. Visit **chrome://settings/cookies**.
 1. Select **add** under **Sites that can always use cookies** option 
 
-    ![Add ADF UX to allowed sites in Chrome](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png" alt-text="Add ADF UX to allowed sites in Chrome":::
 1. Add **adf.azure.com** site, check **all cookies** option, and save. 
 
-    ![Allow all cookies from ADF UX site](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png)
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png" alt-text="Allow all cookies from ADF UX site":::
 1. Refresh ADF UX and try again.
 
 ### Microsoft Edge
@@ -52,7 +52,7 @@ If you do not want to allow all cookies, you can optionally just allow ADF UX:
 1. Visit **edge://settings/content/cookies** in your browser.
 1. Ensure **Allow sites to save and read cookie data** is enabled and that **Block third-party cookies** option is disabled 
 
-    ![Allow all cookies in Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-all-cookies.png)
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/edge-allow-all-cookies.png" alt-text="Allow all cookies in Edge":::
 1. Refresh ADF UX and try again.
 
 #### Only allow ADF UX to use cookies
@@ -62,14 +62,14 @@ If you do not want to allow all cookies, you can optionally just allow ADF UX:
 1. Visit **edge://settings/content/cookies**.
 1. Under **Allow** section, select **Add** and add **adf.azure.com** site. 
 
-    ![Add ADF UX to allowed sites in Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png" alt-text="Add ADF UX to allowed sites in Edge":::
 1. Refresh ADF UX and try again.
 
 ## Connection failed on ADF UX
 
 Sometimes you would see "Connection failed" error on ADF UI similar to the screenshot below after clicking **Test Connection**, **Preview**, etc. It means ADF failed to perform the operation because it cannot connect to the ADF service from your machine.
 
-![Connection failed](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
+:::image type="content" source="media/data-factory-ux-troubleshoot-guide/connection-failed.png" alt-text="Connection failed":::
 
 To resolve the issue, you can first try the same operation with InPrivate browsing mode in your browser.
 
@@ -77,21 +77,21 @@ If it’s still not working, find the **server name**  from the error message (i
 
 - If you see 404 in the browser, it usually means your client side is ok and the issue is at ADF service side. File a support ticket with the **Activity ID** from the error message.
 
-    ![Resource not found](media/data-factory-ux-troubleshoot-guide/status-code-404.png)
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/status-code-404.png" alt-text="Resource not found":::
 
 - If you don't see 404 or you see similar error below in the browser, it usually means you have some client-side issue. Further follow the troubleshooting steps.
 
-    ![Client-side error](media/data-factory-ux-troubleshoot-guide/client-side-error.png)
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/client-side-error.png" alt-text="Client-side error":::
 
 To troubleshoot further, open **Command Prompt** and type `nslookup dpnortheurope.svc.datafactory.azure.com`. A normal response should look like below:
 
-![Command response 1](media/data-factory-ux-troubleshoot-guide/command-response-1.png)
+:::image type="content" source="media/data-factory-ux-troubleshoot-guide/command-response-1.png" alt-text="Command response 1":::
 
 - If you see a normal DNS response, further contact your local IT support to check the firewall settings on whether HTTPS connection to this host name is blocked or not. If the issue could not be resolved, file a support ticket with the **Activity ID** from the error message.
 
 - If you see anything else than this, it usually means there is something wrong with your DNS server when resolving the DNS name. Usually changing ISP (Internet Service Provider) or DNS (for example, to Google DNS 8.8.8.8) could be a possible workaround to try. If the issue persists, you could further try `nslookup datafactory.azure.com` and `nslookup azure.com` to see at which level your DNS resolution is failed and submit all information to your local IT support or your ISP for troubleshooting. If they believe the issue is still at Microsoft side, file a support ticket with the **Activity ID** from the error message.
 
-    ![Command response 2](media/data-factory-ux-troubleshoot-guide/command-response-2.png)
+    :::image type="content" source="media/data-factory-ux-troubleshoot-guide/command-response-2.png" alt-text="Command response 2":::
 
 ## Change linked service type in datasets
 
@@ -99,9 +99,9 @@ File format dataset can be used with all the file-based connectors, for example,
 
 On ADF authoring UI, when you use a file format dataset in an activity - including Copy, Lookup, GetMetadata, Delete activities - and in dataset you want to point to a linked service of different type from the current (for example, switch from File System to ADLS Gen2), you would see the following warning message. To make sure it’s a clean switch, upon your consent, the pipelines and activities, which reference this dataset will be modified to use the new type as well, and any existing data store settings, which are incompatible with the new type will be cleared as it no longer applies.
 
-To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
+To learn more on which the supported data store settings for each connector, you can go to the corresponding connector article -> copy activity properties to see the detailed property list. Refer to [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).
 
-![Warning message](media/data-factory-ux-troubleshoot-guide/warning-message.png)
+:::image type="content" source="media/data-factory-ux-troubleshoot-guide/warning-message.png" alt-text="Warning message":::
 
 ## Could not load resource while opening pipeline 
 
@@ -109,7 +109,7 @@ When the user accesses pipeline using ADF GUI authoring tool, the  error message
 
 The source of the error message is JSON file that describes the pipeline. It happens when customer uses Git integration and pipeline JSON files get corrupted for some reason. You will see an error (red dot with x) left to pipeline name as shown below.
 
-![Pipeline JSON error](media/data-factory-ux-troubleshoot-guide/pipeline-json-error.png)
+:::image type="content" source="media/data-factory-ux-troubleshoot-guide/pipeline-json-error.png" alt-text="Pipeline JSON error":::
 
 Solution is to fix JSON files at first and then reopen the pipeline using Authoring tool.
 
@@ -120,7 +120,7 @@ Solution is to fix JSON files at first and then reopen the pipeline using Author
 For more troubleshooting help, try these resources:
 
 * [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)

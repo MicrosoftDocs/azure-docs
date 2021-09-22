@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/24/2021
 
 ms.author: mimart
 author: msmimart
@@ -59,7 +59,7 @@ You can also give Google guest users a direct link to an application or resource
 Starting September 30, 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
-- Microsoft apps (e.g. Teams and PowerApps) on Windows 
+- Microsoft apps (e.g. Teams and Power Apps) on Windows 
 - Windows apps that use the [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
 - Android applications using the WebView UI element 
 - iOS applications using UIWebView/WKWebview 
@@ -67,6 +67,7 @@ The following are known scenarios that will impact Gmail users:
 
 This change does not affect:
 - Web apps
+- Microsoft 365 services that are accessed through a website (for example, SharePoint Online, Office web apps, and Teams web app)
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
 - Google Workspace identities, for example when you’re using [SAML-based federation](direct-federation.md) with Google Workspace
 

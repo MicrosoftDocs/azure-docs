@@ -13,6 +13,8 @@ ms.author: rogardle
 
 # Set up a direct interconnection between Azure and Oracle Cloud Infrastructure  
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 To create an [integrated multi-cloud experience](oracle-oci-overview.md), Microsoft and Oracle offer direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through [ExpressRoute](../../../expressroute/expressroute-introduction.md) and [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Through the ExpressRoute and FastConnect interconnection, customers can experience low latency, high throughput, private direct connectivity between the two clouds.
 
 > [!IMPORTANT]

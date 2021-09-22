@@ -156,7 +156,7 @@ In the **Sectigo Certificate Manager** application integration pane, select **Si
 
 #### Test by using the My Apps portal (IDP-initiated single sign-on)
 
-Select **Sectigo Certificate Manager** in the My Apps portal.  If configured correctly you will be automatically signed in to Sectigo Certificate Manager. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+Select **Sectigo Certificate Manager** in the My Apps portal.  If configured correctly you will be automatically signed in to Sectigo Certificate Manager. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

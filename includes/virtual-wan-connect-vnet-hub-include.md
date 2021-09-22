@@ -4,6 +4,8 @@ ms.author: cherylmc
 ms.date: 08/17/2021
 ms.service: virtual-wan
 ms.topic: include
+
+#This include is used in multiple articles. Before modifying, verify that any changes apply to all articles that use this include.
 ---
 
 1. Navigate to your **Virtual WAN**.
@@ -14,7 +16,7 @@ ms.topic: include
 
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/add.png" alt-text="Screenshot shows add.":::
 
-1. On the **Add connection** page, configure the required settings.
+1. On the **Add connection** page, configure the required settings. For more information about routing settings, see [About routing](../articles/virtual-wan/about-virtual-hub-routing.md).
  
    :::image type="content" source="./media/virtual-wan-connect-vnet-hub/connection.png" alt-text="Screenshot shows VNet connection page.":::
 

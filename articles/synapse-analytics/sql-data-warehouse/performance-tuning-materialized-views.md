@@ -49,10 +49,10 @@ The materialized views implemented in dedicated SQL pool also provide the follow
 
 Compared to other data warehouse providers, the materialized views implemented in dedicated SQL pool also provide the following benefits:
 
+- Broad aggregate function support. See [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql).
+- The support for query-specific materialized view recommendation.  See [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql).
 - Automatic and synchronous data refresh with data changes in base tables. No user action is required.
-- Broad aggregate function support. See [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).
-- The support for query-specific materialized view recommendation.  See [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest).
-
+ 
 ## Common scenarios  
 
 Materialized views are typically used in the following scenarios:

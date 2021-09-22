@@ -15,6 +15,8 @@ ms.reviewer: cynthn
 
 # Bringing and creating Linux images in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
+
 This overview covers the basic concepts around imaging and how to successfully build and use Linux images in Azure. Before you bring a custom image to Azure, you need to be aware of the types and options available to you.
 
 This article will talk through the image decision points and requirements, explain key concepts, so that you can follow this, and be able to create your own custom images to your specification.

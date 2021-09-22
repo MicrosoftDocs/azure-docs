@@ -70,7 +70,7 @@ Blob storage lifecycle management offers a rich, rule-based policy:
 - **Premium**: Expire data at the end of its lifecycle.
 - **Standard**: Transition data to the best access tier and expire data at the end of its lifecycle.
 
-To learn more, see [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md).
+To learn more, see [Manage the Azure Blob storage lifecycle](./lifecycle-management-overview.md).
 
 You can't move data that's stored in a premium block blob storage account between hot, cool, and archive tiers. However, you can copy blobs from a block blob storage account to the hot access tier in a *different* account. To copy data to a different account, use the [Put Block From URL](/rest/api/storageservices/put-block-from-url) API or [AzCopy v10](../common/storage-use-azcopy-v10.md). The **Put Block From URL** API synchronously copies data on the server. The call completes only after all the data is moved from the original server location to the destination location.
 

@@ -22,8 +22,9 @@ ms.reviewer: jrasnick
 **Synapse SQL** is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios.
 
 * Synapse SQL offers both **serverless** and **dedicated** resource models. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
-* Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
-* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+* Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables.
+* Load data into managed tables to get the best query performance or directly query data in [Azure Data Lake Storage](sql/query-data-storage.md) or [Azure Cosmos DB](sql/query-cosmos-db-analytical-store.md) without need to perform periodic import tasks and wait for them to finish.
+* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## Industry-standard Apache Spark
 
@@ -39,8 +40,9 @@ ms.reviewer: jrasnick
 Azure Synapse removes the traditional technology barriers between using SQL and Spark together. You can seamlessly mix and match based on your needs and expertise.
 
 * Tables defined on files in the data lake are seamlessly consumed by either Spark or Hive.
-* SQL and Spark can directly explore and analyze Parquet, CSV, TSV, and JSON files stored in the data lake.
+* SQL and Spark can directly explore and analyze Parquet, CSV, TSV, Delta Lake, and JSON files stored in the data lake.
 * Fast, scalable data loading between SQL and Spark databases
+
 
 ## Built-in data integration
 

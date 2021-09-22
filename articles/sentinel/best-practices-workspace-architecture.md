@@ -21,6 +21,9 @@ When planning your Azure Sentinel workspace deployment, you must also design you
 
 For more information, see [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md) for common scenarios, and [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
+See our video: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
+
+
 ## Tenancy considerations
 
 While fewer workspaces are simpler to manage, you may have specific needs for multiple tenants and workspaces. For example, many organizations have a cloud environment that contains multiple [Azure Active Directory (Azure AD) tenants](../active-directory/develop/quickstart-create-new-tenant.md), resulting from mergers and acquisitions or due to identity separation requirements.
@@ -34,12 +37,12 @@ When determining how many tenants and workspaces to use, consider that most Azur
 
 If you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration) that work only within their own Azure AD tenant.
 
-All connectors based on diagnostics settings, cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](connect-azure-firewall.md), [Azure Storage](connect-azure-storage-account.md), [Azure Activity](connect-azure-activity.md) or [Azure Active Directory](connect-azure-active-directory.md).
+All connectors based on diagnostics settings, cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as [Azure Firewall](./data-connectors-reference.md#azure-firewall), [Azure Storage](./data-connectors-reference.md#azure-storage-account), [Azure Activity](./data-connectors-reference.md#azure-activity) or [Azure Active Directory](connect-azure-active-directory.md).
 
 Use [Azure Lighthouse](../lighthouse/how-to/onboard-customer.md) to help manage multiple Azure Sentinel instances in different tenants.
 
 > [!NOTE]
-> [Partner data connectors](partner-data-connectors.md) are typically based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
+> [Partner data connectors](data-connectors-reference.md) are often based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
 >
 
 

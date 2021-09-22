@@ -13,7 +13,7 @@ ms.author: cavoeg
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service).
+The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service).
 
 > [!NOTE]
 > Each time you create, update, or delete a search parameter you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter to be used in production. Below we will outline how you can test search parameters before reindexing the entire FHIR service.

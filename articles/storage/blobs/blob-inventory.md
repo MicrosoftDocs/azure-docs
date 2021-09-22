@@ -323,6 +323,19 @@ Snapshots and versions of a blob also count towards billing even if you've set `
 
 For more information about pricing for Azure Storage blob inventory, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
+<sup>2</sup>    Feature is supported at the preview level.
+
 ## Known issues
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
@@ -339,4 +352,4 @@ An object replication policy can prevent an inventory job from writing inventory
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
-- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

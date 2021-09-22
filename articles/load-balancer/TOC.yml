@@ -33,6 +33,8 @@
     href: tutorial-multi-availability-sets-portal.md
   - name: Configure port forwarding in Load Balancer
     href: tutorial-load-balancer-port-forwarding-portal.md
+  - name: Load balance multiple IP configurations
+    href: load-balancer-multiple-ip.md
   - name: Cross-region load balancer
     items:
     - name: Create cross-region load balancer - Portal
@@ -57,6 +59,8 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
+  - name: Python
+    href: python-samples.md
 - name: Concepts
   items:
   - name: Portal settings
@@ -113,6 +117,8 @@
     href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
+  - name: Manage load balancer rules
+    href: manage-rules-how-to.md
   - name: Virtual machine scale sets
     items:
     - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
@@ -146,8 +152,6 @@
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
     items:
-    - name: Portal
-      href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
@@ -164,6 +168,8 @@
       href: move-across-regions-internal-load-balancer-powershell.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Outbound only load balancer configuration
+    href: egress-only.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer

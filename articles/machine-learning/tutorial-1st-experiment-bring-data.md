@@ -266,6 +266,8 @@ Select **Save and run script in terminal**  to run the *run-pytorch-data.py* scr
 
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
 
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
 
 ### <a name="inspect-log"></a> Inspect the log file
 
