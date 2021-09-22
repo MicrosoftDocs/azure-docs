@@ -196,8 +196,12 @@
       href: manage-monitor-sql-database-backup.md
   - name: Azure Database for PostgreSQL backup
     items:
+    - name: Overview
+      href: backup-azure-database-postgresql-overview.md
     - name: Backup
       href: backup-azure-database-postgresql.md
+    - name: Restore
+      href: restore-azure-database-postgresql.md
     - name: Manage
       href: manage-azure-database-postgresql.md
   - name: Windows backup using MARS agent
@@ -545,6 +549,8 @@
       href: disk-backup-troubleshoot.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
+    - name: Azure Database for PostgreSQL
+      href: backup-azure-database-postgresql-troubleshoot.md
     - name: SAP HANA backup in Azure VMs
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: System State
