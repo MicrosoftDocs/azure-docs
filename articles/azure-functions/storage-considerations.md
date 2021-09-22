@@ -74,7 +74,7 @@ If Azure Files is not used, you must account for the following:
 * The app cannot use Functions runtime v1
 * Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
-If the above are properly accounted for, you may create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings.
+If the above are properly accounted for, you may create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings. You can do this by generating an ARM template for a standard deployment, removing these two settings, and then deploying the template. 
 
 ## Mount file shares
 

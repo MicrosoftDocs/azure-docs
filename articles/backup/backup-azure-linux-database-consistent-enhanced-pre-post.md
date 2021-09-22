@@ -30,7 +30,7 @@ The new _enhanced_ pre-post script framework has the following key benefits:
 
 The following the list of databases are covered under the enhanced framework:
 
-- [Oracle (Preview)](../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md)
+- [Oracle (Generally Available)](../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md)
 - MySQL (Preview)
 
 ## Prerequisites
