@@ -250,19 +250,14 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
  2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
  3. Go to **Edit Provisioning**.
  4. After 10 minutes, under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
-
      |Property|Value|
      |-----|-----|
      |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
-
- 2. Enter the **Secret Token** value that you defined when you created the connector.
- 3. Select **Test Connection**, and wait one minute.
-
+ 5. Enter the **Secret Token** value that you defined when you created the connector.
+ 6. Select **Test Connection**, and wait one minute.
      ![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-sql\configure-5.png)
- 9. After the connection test is successful, select **Save**.</br>
-
+ 7. After the connection test is successful, select **Save**.</br>
      ![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)
-
 ## Assign users to an application
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you can move on to configuring who's in scope for provisioning. 
 
@@ -270,16 +265,12 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
  2. Select the **On-premises provisioning** application.
  3. On the left, under **Manage**, select **Users and groups**.
  4. Select **Add user/group**.
-
      ![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)
- 5. Under **Users**, select **None Selected**.
-
+5. Under **Users**, select **None Selected**.
      ![Screenshot that shows None Selected.](.\media\active-directory-app-provisioning-sql\app-3.png)
  6. Select users from the right and select the **Select** button.</br>
-
      ![Screenshot that shows Select users.](.\media\active-directory-app-provisioning-sql\app-4.png)
  7. Now select **Assign**.
-
      ![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)
 
 ## Configure attribute mappings
@@ -289,13 +280,10 @@ Now you need to map attributes between the on-premises application and your SQL 
  1. In the Azure AD portal, under **Enterprise applications**, select the **Provisioning** page.
  2. Select **Get started**.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
- 
-    ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)
- 4. Select **Add New Mapping**.
- 
-     ![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)
+     ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)</br>
+4. Select **Add New Mapping**.
+     ![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)</br>
  5. Specify the source and target attributes, and add all the mappings in the following table.
-
       |Mapping type|Source attribute|Target attribute|
       |-----|-----|-----|
       |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
@@ -304,11 +292,8 @@ Now you need to map attributes between the on-premises application and your SQL 
       |Direct|givenName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:FirstName|
       |Direct|surName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:LastName|
       |Direct|mailNickname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID|
-
  6. Select **Save**.
- 
-     ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)
-
+     ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)</br>
 ## Test provisioning
 Now that your attributes are mapped, you can test on-demand provisioning with one of your users.
  
@@ -317,7 +302,6 @@ Now that your attributes are mapped, you can test on-demand provisioning with on
  3. On the left, select **Provisioning**.
  4. Select **Provision on demand**.
  5. Search for one of your test users, and select **Provision**.
- 
      ![Screenshot that shows testing provisioning.](.\media\active-directory-app-provisioning-sql\configure-13.png)
 
 ## Start provisioning users
