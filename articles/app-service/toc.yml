@@ -317,6 +317,12 @@
       href: webjobs-sdk-get-started.md
     - name: Use WebJobs SDK
       href: webjobs-sdk-how-to.md
+  - name: Automate provisioning
+    items:
+    - name: Bicep
+      href: provision-resource-bicep.md
+    - name: Terraform
+      href: provision-resource-terraform.md
 - name: Reference
   items:
   - name: Monitoring data
