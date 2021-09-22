@@ -83,7 +83,6 @@ When you assign a role, you specify one of the following types of scope:
 
 If you specify an Azure AD resource as a scope, it can be one of the following:
 
-- Azure AD groups
 - Enterprise applications
 - Application registrations
 
