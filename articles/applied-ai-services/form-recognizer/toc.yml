@@ -1,3 +1,4 @@
+items:
 - name: Azure Form Recognizer Documentation
   href: index.yml
 - name: Overview
@@ -11,24 +12,22 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
   - name: What's new
     href: whats-new.md
-  - name: "v3.0 | Preview"
-    href: overview-preview.md 
 - name: Quickstarts
   items:
    - name: Form Recognizer v2.1
-     items: 
+     items:
      - name: "Get started: Form Recognizer labeling tool"
-       href: quickstarts/get-started-with-form-recognizer.md
+       href: quickstarts/try-sample-label-tool.md
      - name: "Get started: client libraries and REST API"
-       href: quickstarts/client-library.md
+       href: quickstarts/try-sdk-rest-api.md
    - name: "Form Recognizer v3.0 | Preview"
       items:
        - name: "Get started: Form Recognizer Studio (preview)"
-         href: use-form-recognizer-studio-preview.md
+         href: try-form-recognizer-studio.md
        - name: "Get started: REST API (preview)"
-         href: use-v3-rest-api-preview.md
+         href: try-v3-rest-api.md
        - name: "Get started: client library SDKs (preview)"
-         href: use-v3-client-libraries-sdk-preview.md
+         href: try-v3-client-libraries-sdk.md
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -53,7 +52,7 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
-  - name: Build and train a custom model 
+  - name: Build and train a custom model
     items:
     - name: Assemble a training data set
       href: build-training-data-set.md
@@ -91,13 +90,13 @@
     - name: Use Azure AD authentication
       href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Concepts
-  items: 
+  items:
   - name: Form Recognizer v2.1
     items:
      - name: Layout
        href: concept-layout.md
-     - name: Prebuilt
-        href: concept-prebuilt  
+     - name: Prebuilt models
+        href: concept-prebuilt
      - name: Receipts
        href: concept-receipts.md
      - name: Business cards
@@ -106,18 +105,16 @@
        href: concept-invoices.md
      - name: Identity documents
        href: concept-identification-cards.md
-     - name: Custom
+     - name: Custom models
        href: concept-custom.md
   - name: "Form Recognizer v3.0 | Preview"
     items:
-      - name: Prebuilt models (preview)
-        href: concept-prebuilt-preview.md
-      - name: Custom models (preview)
-        href: concept-custom-preview.md   
+      - name: Prebuilt and custom models (preview)
+        href: concept-v3-prebuilt-custom.md
 - name: Tutorials
   items:
   - name: "Use Azure Form Recognizer and AI Builder"
-    expanded: true 
+    expanded: true
     items:
     - name:  Custom form processing workflow
       href: /ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
@@ -128,7 +125,7 @@
     - name:  Invoice processing workflow
       href: /ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: Receipt processing workflow
-      href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json 
+      href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
   - name: Use Azure Form Recognizer with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Azure Form Recognizer with Azure Functions

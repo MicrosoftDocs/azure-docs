@@ -11,7 +11,7 @@ ms.date: 09/14/2021
 ms.author: lajanuar
 ---
 
-# Form Recognizer prebuilt models | Preview
+# Form Recognizer v3.0 | Preview
 
 >[!NOTE]
 > Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
