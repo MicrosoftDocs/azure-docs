@@ -75,6 +75,7 @@ The SSPK Distribution portal is accessible to registered Interim licensees.
 Interim and Final SSPK licensees can submit technical questions to [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
 ## Microsoft Smooth Streaming Client Interim Product Agreement Licensees
+* Beijing ESWIN Computing Technology Co., Ltd.
 * Enseo, Inc.
 * Fluendo S.A.
 * Guangzhou Dimai Digital Limited Co.
@@ -84,6 +85,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * MediaTek Inc.
 * Montage LZ Technologies Hong Kong Limited
 * Panasonic Corporation
+* Socionext Inc.
 * Synamedia Limited
 * Tatung Technology Inc.
 * Top Victory Investments, Ltd.
@@ -100,6 +102,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * FAIRWIT HONGKONG CO., LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
+* Guangdong Asano Technology CO.,Ltd.
 * Hisense Broadband Multimedia Technologies Co.,Ltd.
 * Hisense International Co., Ltd.
 * Hisense Visual Technology Co., Ltd
@@ -132,9 +135,8 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SKARDIN INDUSTRIAL CORP
 * Sky CP Ltd
 * SMARDTV GLOBAL SAS
-* Sony Corporation
 * SoftAtHome
-* Technicolor Delivery Technologies, SAS
+* Sony Corporation
 * Top Victory Investments, Ltd.
 * Vizio, Inc.
 * Walton Hi-Tech Industries Ltd.

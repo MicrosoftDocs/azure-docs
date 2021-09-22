@@ -16,7 +16,7 @@ You can migrate your data, workloads, and applications from Data Lake Storage Ge
 
 On **Feb 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. This article shows you how to do that.
 
-‎Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-introduction.md) and provides a set of capabilities dedicated to big data analytics. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combines features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), such as file system semantics, directory, and file level security and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
+Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-introduction.md) and provides a set of capabilities dedicated to big data analytics. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combines features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), such as file system semantics, directory, and file level security and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
@@ -34,17 +34,17 @@ To migrate to Gen2, we recommend the following approach.
 :heavy_check_mark: Step 4: Cutover from Gen1 to Gen2
 
 > [!NOTE]
-> Gen1 and Gen2 are different services, there is no in-place upgrade experience, intentional migration effort required. 
+> Gen1 and Gen2 are different services, there is no in-place upgrade experience, intentional migration effort required.
 
 ### Step 1: Assess readiness
 
-1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture. 
+1. Learn about the [Data Lake Storage Gen2 offering](https://azure.microsoft.com/services/storage/data-lake-storage/); it's benefits, costs, and general architecture.
 
-2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Gen1 with those of Gen2. 
+2. [Compare the capabilities](#gen1-gen2-feature-comparison) of Gen1 with those of Gen2.
 
 3. Review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
 
-4. Gen2 supports Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](storage-lifecycle-management-concepts.md). If you're interesting in using any of these features, review [current level of support](./data-lake-storage-supported-blob-storage-features.md).
+4. Gen2 supports Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](./lifecycle-management-overview.md). If you're interesting in using any of these features, review [current level of support](./storage-feature-support-in-storage-accounts.md).
 
 5. Review the current state of [Azure ecosystem support](./data-lake-storage-multi-protocol-access.md) to ensure that Gen2 supports any services that your solutions depend upon.
 
@@ -53,12 +53,12 @@ To migrate to Gen2, we recommend the following approach.
 1. Identify the data sets that you'll migrate.
 
    Take this opportunity to clean up data sets that you no longer use. Unless you plan to migrate all of your data at one time, Take this time to identify logical groups of data that you can migrate in phases.
-   
+
 2. Determine the impact that a migration will have on your business.
 
    For example, consider whether you can afford any downtime while the migration takes place. These considerations can help you to identify a suitable migration pattern, and to choose the most appropriate tools.
 
-3. Create a migration plan. 
+3. Create a migration plan.
 
    We recommend these [migration patterns](#migration-patterns). You can choose one of these patterns, combine them together, or design a custom pattern of your own.
 
@@ -66,12 +66,12 @@ To migrate to Gen2, we recommend the following approach.
 
 Migrate data, workloads, and applications by using the pattern that you prefer. We recommend that you validate scenarios incrementally.
 
-1. [Create a storage account](create-data-lake-storage-account.md) and enable the hierarchical namespace feature. 
+1. [Create a storage account](create-data-lake-storage-account.md) and enable the hierarchical namespace feature.
 
-2. Migrate your data. 
+2. Migrate your data.
 
-3. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint. 
-   
+3. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint.
+
 4. Update applications to use Gen2 APIs. See these guides:
 
 | Environment | Article |
@@ -82,16 +82,16 @@ Migrate data, workloads, and applications by using the pattern that you prefer. 
 |Python|[Use Python to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
 |JavaScript (Node.js)|[Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
 |REST API |[Azure Data Lake Store REST API](/rest/api/storageservices/data-lake-storage-gen2)|
-   
+
 5. Update scripts to use Data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
-   
-6. Search for URI references that contain the string `adl://` in code files, or in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. Replace these references with the [Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account. For example: the Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`. 
+
+6. Search for URI references that contain the string `adl://` in code files, or in Databricks notebooks, Apache Hive HQL files or any other file used as part of your workloads. Replace these references with the [Gen2 formatted URI](data-lake-storage-introduction-abfs-uri.md) of your new storage account. For example: the Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile` might become `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`.
 
 7. Configure the security on your account to include [Azure roles](assign-azure-role-data-access.md), [file and folder level security](data-lake-storage-access-control.md), and [Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 ### Step 4: Cutover from Gen1 to Gen2
 
-After you're confident that your applications and workloads are stable on Gen2, you can begin using Gen2 to satisfy your business scenarios. Turn off any remaining pipelines that are running on Gen1 and decommission your Gen1 account. 
+After you're confident that your applications and workloads are stable on Gen2, you can begin using Gen2 to satisfy your business scenarios. Turn off any remaining pipelines that are running on Gen1 and decommission your Gen1 account.
 
 <a id="gen1-gen2-feature-comparison"></a>
 
@@ -125,10 +125,10 @@ Choose a migration pattern, and then modify that pattern as needed.
 |**Bidirectional sync**|Similar to *dual pipeline*, but with a more phased approach that is suited for more complicated pipelines.|
 
 Let's take a closer look at each pattern.
- 
+
 ### Lift and shift pattern
 
-This is the simplest pattern. 
+This is the simplest pattern.
 
 1. Stop all writes to Gen1.
 
@@ -165,7 +165,6 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 4. Decommission Gen1.
 
 Check out our sample code for the incremental copy pattern in our [Incremental copy migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
-
 
 > [!div class="mx-imgBorder"]
 > ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
@@ -216,7 +215,7 @@ Check out our sample code for the bidirectional sync pattern in our [Bidirection
 
 #### Considerations for using the bi-directional sync pattern:
 
-:heavy_check_mark: Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.  
+:heavy_check_mark: Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.
 
 :heavy_check_mark: Migration effort is high, but it provides side-by-side support for Gen1 and Gen2.
 

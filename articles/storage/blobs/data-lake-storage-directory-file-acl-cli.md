@@ -67,7 +67,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Create a container
 
-A container acts as a file system for your files. You can create one by using the `az storage fs create` command. 
+A container acts as a file system for your files. You can create one by using the `az storage fs create` command.
 
 This example creates a container named `my-file-system`.
 
@@ -97,7 +97,7 @@ az storage fs file list -f my-file-system --account-name mystorageaccount --auth
 
 Delete a container by using the `az storage fs delete` command.
 
-This example deletes a container named `my-file-system`. 
+This example deletes a container named `my-file-system`.
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -105,7 +105,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 ## Create a directory
 
-Create a directory reference by using the `az storage fs directory create` command. 
+Create a directory reference by using the `az storage fs directory create` command.
 
 This example adds a directory named `my-directory` to a container named `my-file-system` that is located in an account named `mystorageaccount`.
 
@@ -141,7 +141,7 @@ az storage fs directory move -n my-directory -f my-file-system --new-directory "
 
 Delete a directory by using the `az storage fs directory delete` command.
 
-This example deletes a directory named `my-directory`. 
+This example deletes a directory named `my-directory`.
 
 ```azurecli
 az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login 
@@ -151,7 +151,7 @@ az storage fs directory delete -n my-directory -f my-file-system  --account-name
 
 Determine if a specific directory exists in the container by using the `az storage fs directory exists` command.
 
-This example reveals whether a directory named `my-directory` exists in the `my-file-system` container. 
+This example reveals whether a directory named `my-directory` exists in the `my-file-system` container.
 
 ```azurecli
 az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
@@ -161,7 +161,7 @@ az storage fs directory exists -n my-directory -f my-file-system --account-name 
 
 Download a file from a directory by using the `az storage fs file download` command.
 
-This example downloads a file named `upload.txt` from a directory named `my-directory`. 
+This example downloads a file named `upload.txt` from a directory named `my-directory`.
 
 ```azurecli
 az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount --auth-mode login
@@ -171,7 +171,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 List the contents of a directory by using the `az storage fs file list` command.
 
-This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` container of a storage account named `mystorageaccount`. 
+This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` container of a storage account named `mystorageaccount`.
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -181,7 +181,7 @@ az storage fs file list -f my-file-system --path my-directory --account-name mys
 
 Upload a file to a directory by using the `az storage fs file upload` command.
 
-This example uploads a file named `upload.txt` to a directory named `my-directory`. 
+This example uploads a file named `upload.txt` to a directory named `my-directory`.
 
 ```azurecli
 az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount --auth-mode login

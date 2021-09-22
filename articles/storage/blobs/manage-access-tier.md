@@ -56,7 +56,7 @@ $ctx = $storageAccount.Context
 #Select the blob from a container
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
-#Change the blob’s access tier to archive
+#Change the blob's access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ```
 
