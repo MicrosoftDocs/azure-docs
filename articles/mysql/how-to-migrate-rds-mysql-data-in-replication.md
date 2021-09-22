@@ -43,29 +43,32 @@ Regardless of where the client computer is located, it requires adequate compute
 - Ensure that there's enough network bandwidth available to the client instance. We recommend using instance types that support accelerated networking feature. For more information, see the Accelerated Networking section in the [Azure Virtual Machine Networking Guide](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 - Ensure that the client machine’s storage layer provides the expected read/write capacity, and we recommend an Azure virtual machine with Premium SSD storage.
 
-## GTID Replication
-A global transaction identifier (GTID) is a unique identifier created and associated with each transaction committed on the server of origin (source). This identifier is unique not only to the server on which it originated, but is unique across all servers in a given replication setup. There is a 1-to-1 mapping between all transactions and all GTIDs.
+## GTID replication
 
-GTID sets are used in the MySQL Server in several ways. For example, the values stored by the gtid_executed and gtid_purged system variables are represented as GTID sets. In addition, the functions GTID_SUBSET() and GTID_SUBTRACT() require GTID sets as input.
+A global transaction identifier (GTID) is a unique identifier that's created and associated with each transaction that's committed on the server of origin (source). This identifier is unique not only to the server on which it originated, but it's also unique across all servers in a specific replication setup. There is a one-to-one mapping between all transactions and all GTIDs.
 
-GTIDs are always preserved between source and replica. This means that you can always determine the source for any transaction applied on any replica by examining its binary log. In addition, once a transaction with a given GTID is committed on a given server, any subsequent transaction having the same GTID is ignored by that server. Thus, a transaction committed on the source can be applied no more than once on the replica, which helps to guarantee consistency.
+GTID sets are used in the MySQL server in several ways. For example, the values stored by the `gtid_executed` and `gtid_purged` system variables are represented as GTID sets. In addition, the functions `GTID_SUBSET()` and `GTID_SUBTRACT()` require GTID sets as input.
 
-To use [GTID replication](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids.html) 
+GTIDs are always preserved between source and replica. You can always determine the source for any transaction applied on any replica by examining its binary log. In addition, after a transaction with a specific GTID is committed on a server, any subsequent transaction that has the same GTID is ignored by that server. Thus, a transaction committed on the source can be applied no more than once on the replica, which helps guarantee consistency.
 
-Check the server parameters to check the GTID parameters for both the Master and the Slave:
+Learn how to use [GTID replication](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids.html).
+
+Check the server parameters to check the GTID parameters for both the master and the slave:
+
  ```
     Mysql> SHOW VARIABLES 'gtid_mode';
     Mysql> SHOW VARIABLES 'enforce_gtid_consistency';
  ```
- Note. to enable GTID 'enforce_gtid_consistency' must first be enabled (ON).
+
+To enable GTID, `enforce_gtid_consistency` must first be enabled (ON).
  
-To enable GTID mode on the master [AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-replication-gtid.html) 
-To enable GTID mode on the slave [Azure](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-server-parameters)
+Learn how to enable GTID mode on the master in [AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-replication-gtid.html).
 
-For Azure MySQL GTID is enabled by default, if not gtid_mode must be enabled in stages i.e. OFF -> OFF_PERMISSIVE -> ON_PERMISSIVE -> ON.
-This can be done either using either the Azure console or Azure CLI.
+Learn how to enable GTID mode on the slave in [Azure](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-server-parameters).
 
-Enabling GTID requires a restart of the MySQL instance.
+For Azure MySQL, GTID is enabled by default. If GTID isn't enabled, enable `gtid_mode` in stages: OFF > OFF_PERMISSIVE > ON_PERMISSIVE > ON. You can enable GTID either by using the Azure console or the Azure CLI.
+
+After you enable GTID, you must restart your MySQL instance.
 
 ## Prerequisites
 
