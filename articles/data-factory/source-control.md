@@ -206,7 +206,7 @@ Each Azure Repos Git repository that's associated with a data factory has a coll
 
 Once the new branch pane appears, enter the name of your feature branch and select a branch to base the work off of.
 
-:::image type="content" source="media/author-visually/create-branch-from-private-branch.png" alt-text="Screenshot shows how to create branch based on private branch.":::
+:::image type="content" source="media/author-visually/create-branch-from-private-branch.png" alt-text="Screenshot showing how to create a branch based on the private branch.":::
 
 When you are ready to merge the changes from your feature branch to your collaboration branch, click on the branch dropdown and select **Create pull request**. This action takes you to Azure Repos Git where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`main` is the default). You are only allowed to publish to the Data Factory service from your collaboration branch. 
 
