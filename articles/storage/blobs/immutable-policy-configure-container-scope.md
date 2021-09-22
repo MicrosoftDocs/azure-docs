@@ -121,7 +121,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy \
     --resource-group <resource-group>
@@ -176,7 +176,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy lock /
     --resource-group <resource-group> /

@@ -280,7 +280,7 @@ For more information on blob versioning, see [Blob versioning](versioning-overvi
 
 ### [Portal](#tab/azure-portal)
 
-The Azure portal displays a list of blobs when you navigate to a container. Each blob displayed represents the current version of the blob. You can access a list of previous versions by selecting the **More** button for a blob and choosing **View previous versions**.  
+The Azure portal displays a list of blobs when you navigate to a container. Each blob displayed represents the current version of the blob. You can access a list of previous versions by selecting the **More** button for a blob and choosing **View previous versions**.
 
 ### Configure a retention policy on the current version of a blob
 
