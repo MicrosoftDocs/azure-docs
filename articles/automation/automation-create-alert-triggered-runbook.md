@@ -3,7 +3,7 @@ title: Use an alert to trigger an Azure Automation runbook
 description: This article tells how to trigger a runbook to run when an Azure alert is raised.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/17/2021
+ms.date: 09/22/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want to trigger a runbook so that VMs can be stopped under certain conditions.
@@ -196,11 +196,10 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
     	        Disable-AzContextAutosave -Scope Process
      
     	        # Connect to Azure with system-assigned managed identity
-    	        Connect-AzAccount -Identity
+    	        $AzureContext = (Connect-AzAccount -Identity).context
   
     	        # set and store context
-    	        $subID = (Get-AzContext).Subscription.Id
-    	        $AzureContext = Set-AzContext -SubscriptionId $subID
+    	        $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
     
                 # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
@@ -224,8 +223,8 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
     ```
 
 1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
-    1. From line 78, remove `Connect-AzAccount -Identity`,
-    1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
+    1. From line 78, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
+    1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
     1. Enter the Client ID you obtained earlier.
 
 1. Select **Save**, **Publish** and then **Yes** when prompted.
