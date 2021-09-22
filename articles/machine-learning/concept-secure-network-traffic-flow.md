@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 09/07/2021
+ms.date: 09/22/2021
 ---
 
 # Network traffic flow when using a secured workspace
@@ -141,3 +141,5 @@ If you provide your own docker images, such as on an Azure Container Registry th
 ## Next steps
 
 Now that you've learned how network traffic flows in a secured configuration, learn more about securing Azure ML in a virtual network by reading the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
+
+For information on best practices, see the [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) article.
