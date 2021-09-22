@@ -234,4 +234,4 @@ The default Okta authorization server should be mapped to Microsoft Graph scopes
 
 - [Migrate Okta sync provisioning to synchronization based on Azure AD Connect](migrate-okta-sync-provisioning-to-azure-active-directory.md)
 
-- [Migrate Okta sign-on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [Migrate Okta sign-on policies to Azure AD conditional access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
