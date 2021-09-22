@@ -22,7 +22,7 @@ In Azure SQL Database, the server is a logical concept and permissions cannot be
 
 These special fixed server-level roles use the prefix **##MS_** and the suffix **##** to distinguish from other regular user-created principals.
 
-Like SQL Server on-premise, server permissions are organized hierarchically. The permissions that are held by these server-level roles can propagate to database permissions. For the permissions to be effectively propagated to the database, a login needs to have a user account in the database.
+Like SQL Server on-premises, server permissions are organized hierarchically. The permissions that are held by these server-level roles can propagate to database permissions. For the permissions to be effectively propagated to the database, a login needs to have a user account in the database.
 
 For example, the server-level role **##MS_ServerStateReader##** holds the permission **VIEW SERVER STATE**. If a login who is member of this role has a user account in the databases *master* and *WideWorldImporters*, this user will have the permission, **VIEW DATABASE STATE** in those two databases. 
 
@@ -44,14 +44,14 @@ The following table shows the fixed server-level roles and their capabilities.
 |------------------------------|-----------------|  
 |**##MS_DefinitionReader##**|Members of the **##MS_DefinitionReader##** fixed server role can read all catalog views that are covered by **VIEW ANY DEFINITION**, respectively **VIEW DEFINITION** on any database on which the member of this role has a user account.|  
 |**##MS_ServerStateReader##**|Members of the **##MS_ServerStateReader##** fixed server role can read all dynamic management views (DMVs) and functions that are covered by **VIEW SERVER STATE**, respectively **VIEW DATABASE STATE** on any database on which the member of this role has a user account.|
-|**##MS_ServerStateManager##**|Members of the **##MS_ServerStateManager##** fixed server role has the same permissions as the **##MS_ServerStateReader##** role. Also, it holds the **ALTER SERVER STATE** permission, which allows access to several management operations, such as: `DBCC FREEPROCCACHE`, `DBCC FREESYSTEMCACHE ('ALL')`, `DBCC SQLPERF()`; |  
+|**##MS_ServerStateManager##**|Members of the **##MS_ServerStateManager##** fixed server role have the same permissions as the **##MS_ServerStateReader##** role. Also, it holds the **ALTER SERVER STATE** permission, which allows access to several management operations, such as: `DBCC FREEPROCCACHE`, `DBCC FREESYSTEMCACHE ('ALL')`, `DBCC SQLPERF()`; |  
 
 
 ## Permissions of fixed server roles
 
 Each built-in server-level role has certain permissions assigned to it. The following table shows the permissions assigned to the server-level roles. It also shows the database-level permissions inherited if a user account exist in the database.
   
-|Fixed server-level role|Server-level permissions|Database-level permissions (if database user exist)  
+|Fixed server-level role|Server-level permissions|Database-level permissions (if a database user matching the login exists)  
 |-------------|----------|-----------------|  
 |**##MS_DefinitionReader##**|VIEW ANY DATABASE, VIEW ANY DEFINITION, VIEW ANY SECURITY DEFINITION|VIEW DEFINITION, VIEW SECURITY DEFINITION|  
 |**##MS_ServerStateReader##**|VIEW SERVER STATE, VIEW SERVER PERFORMANCE STATE, VIEW SERVER SECURITY STATE|VIEW DATABASE STATE, VIEW DATABASE PERFORMANCE STATE, VIEW DATABASE SECURITY STATE|  
@@ -75,7 +75,7 @@ The examples in this section show how to work with server-level roles in Azure S
 
 ### A. Adding a SQL login to a server-level role
 
-The following example adds the SQL login 'Jiao' to the server-level role ##MS_ServerStateReader##.  
+The following example adds the SQL login 'Jiao' to the server-level role ##MS_ServerStateReader##. This statement has to be run in the virtual master database.
   
 ```sql  
 ALTER SERVER ROLE ##MS_ServerStateReader##
@@ -85,7 +85,7 @@ GO
 
 ### B. Listing all principals (SQL authentication) which are members of a server-level role
 
-The following statement returns all members of any fixed server-level role using the `sys.server_role_members` and `sys.sql_logins` catalog views.  
+The following statement returns all members of any fixed server-level role using the `sys.server_role_members` and `sys.sql_logins` catalog views. This statement has to be run in the virtual master database.
   
 ```sql  
 SELECT
@@ -101,13 +101,83 @@ INNER JOIN sys.sql_logins AS sql_logins
 ;  
 GO  
 ```  
+### C. Complete example: Adding a login to a server-level role, retrieving metadata for role membership and permissions, and running a test query
+
+#### Part 1: Preparing role membership and user account
+
+Run this command from the virtual master database.
+
+```sql  
+ALTER SERVER ROLE ##MS_ServerStateReader##
+	ADD MEMBER Jiao
+
+-- check membership in metadata:
+select IS_SRVROLEMEMBER('##MS_ServerStateReader##', 'Jiao')
+--> 1 = Yes
+
+SELECT
+		sql_logins.principal_id			AS MemberPrincipalID
+	,	sql_logins.name					AS MemberPrincipalName
+	,	roles.principal_id				AS RolePrincipalID
+	,	roles.name						AS RolePrincipalName
+FROM sys.server_role_members AS server_role_members
+INNER JOIN sys.server_principals AS roles
+    ON server_role_members.role_principal_id = roles.principal_id
+INNER JOIN sys.sql_logins AS sql_logins 
+    ON server_role_members.member_principal_id = sql_logins.principal_id
+;   
+GO  
+``` 
+
+Here is the result set.
+  
+```
+MemberPrincipalID MemberPrincipalName RolePrincipalID RolePrincipalName        
+------------- ------------- ------------------ -----------   
+6         Jiao      11            ##MS_ServerStateReader##   
+```  
+
+Run this command from a user database.
+
+```sql  
+-- Creating a database-User for 'Jiao'
+CREATE USER Jiao
+	FROM LOGIN Jiao
+;   
+GO  
+``` 
+
+#### Part 2: Testing role membership
+
+Log in as login `Jiao` and connect to the user database used in the example.
+
+```sql  
+-- retrieve server-level permissions of currently logged on User
+SELECT * FROM sys.fn_my_permissions(NULL, 'Server')
+;  
+
+-- check server-role membership for `##MS_ServerStateReader##` of currently logged on User
+SELECT USER_NAME(), IS_SRVROLEMEMBER('##MS_ServerStateReader##')
+--> 1 = Yes
+
+-- Does the currently logged in User have the `VIEW DATABASE STATE`-permission?
+SELECT HAS_PERMS_BY_NAME(NULL, 'DATABASE', 'VIEW DATABASE STATE'); 
+--> 1 = Yes
+
+-- retrieve database-level permissions of currently logged on User
+SELECT * FROM sys.fn_my_permissions(NULL, 'DATABASE')
+GO 
+
+-- example query:
+SELECT * FROM sys.dm_exec_query_stats
+--> will return data since this user has the necessary permission
+
+``` 
 
 ## Limitations of server-level roles
 
 - Role assignments may take up to 5 minutes to become effective. Also for existing sessions, changes to server role assignments don't take effect until the connection is closed and reopened. This is due to the distributed architecture between the *master* database and other databases on the same logical server.
   - Partial workaround: to reduce the waiting period and ensure that server role assignments are current in a database, a server administrator, or an Azure AD administrator can run `DBCC FLUSHAUTHCACHE` in the user database(s) on which the login has access. Current logged on users still have to reconnect after running `DBCC FLUSHAUTHCACHE` for the membership changes to take effect on them.
-
-- Server-level roles in Azure SQL Database can be assigned to SQL logins only. Azure AD logins aren't supported.
 
 - `IS_SRVROLEMEMBER()` isn't supported in the *master* database.
 

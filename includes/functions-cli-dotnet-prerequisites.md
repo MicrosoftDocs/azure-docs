@@ -14,7 +14,7 @@
 
 + [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). Required by the build process.
 
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 3.x.
 

@@ -392,16 +392,13 @@ This *optional* step helps you determine the number of drives required for the e
 
 4. To check the number of disks required for the selected blobs, run the following command:
 
-   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     The parameters are described in the following table:
 
     |Command-line parameter|Description|
     |--------------------------|-----------------|
     |**/logdir:**|Optional. The log directory. Verbose log files are written to this directory. If not specified, the current directory is used as the log directory.|
-    |**/sn:**|Required. The name of the storage account for the export job.|
-    |**/sk:**|Required only if a container SAS is not specified. The account key for the storage account for the export job.|
-    |**/csas:**|Required only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|
     |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs) operation of the Import/Export service REST API.|
     |**/DriveSize:**|Required. The size of drives to use for an export job, *for example*, 500 GB, 1.5 TB.|
 
@@ -414,7 +411,7 @@ This *optional* step helps you determine the number of drives required for the e
 The following example demonstrates the `PreviewExport` command:
 
 ```powershell
-    WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
+    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
 ```
 
 The export blob list file may contain blob names and blob prefixes, as shown here:

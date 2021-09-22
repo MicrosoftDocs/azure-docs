@@ -17,6 +17,10 @@ ms.subservice: B2C
 
 Migrating from another identity provider to Azure Active Directory B2C (Azure AD B2C) might also require migrating existing user accounts. Two migration methods are discussed here, *pre migration* and *seamless migration*. With either approach, you're required to write an application or script that uses the [Microsoft Graph API](microsoft-graph-operations.md) to create user accounts in Azure AD B2C.
 
+Watch this video to learn about Azure AD B2C user migration strategies and steps to consider.
+
+>[!Video https://www.youtube.com/embed/lCWR6PGUgz0]
+
 ## Pre migration
 
 In the pre migration flow, your migration application performs these steps for each user account:

@@ -106,10 +106,7 @@ A managed disk snapshot is a read-only crash-consistent full copy of a managed d
 
 Snapshots are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB. You can see the used size of your snapshots by looking at the [Azure usage report](../cost-management-billing/understand/review-individual-bill.md). For example, if the used data size of a snapshot is 10 GiB, the **daily** usage report will show 10 GiB/(31 days) = 0.3226 as the consumed quantity.
 
-To learn more about how to create snapshots for managed disks, see the following resources:
-
-- [Create a snapshot of a managed disk in Windows](windows/snapshot-copy-managed-disk.md)
-- [Create a snapshot of a managed disk in Linux](linux/snapshot-copy-managed-disk.md)
+To learn more about how to create snapshots for managed disks, see the [Create a snapshot of a managed disk](windows/snapshot-copy-managed-disk.md) article.
 
 ### Images
 

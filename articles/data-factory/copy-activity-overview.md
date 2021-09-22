@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 
@@ -21,7 +21,7 @@ ms.author: jianleishen
 
 In Azure Data Factory and Synapse pipelines, you can use the Copy activity to copy data among data stores located on-premises and in the cloud. After you copy the data, you can use other activities to further transform and analyze it. You can also use the Copy activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
-![The role of the Copy activity](media/copy-activity-overview/copy-activity.png)
+:::image type="content" source="media/copy-activity-overview/copy-activity.png" alt-text="The role of the Copy activity":::
 
 The Copy activity is executed on an [integration runtime](concepts-integration-runtime.md). You can use different types of integration runtimes for different data copy scenarios:
 
@@ -36,7 +36,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 2. Performs serialization/deserialization, compression/decompression, column mapping, and so on. It performs these operations based on the configuration of the input dataset, output dataset, and Copy activity.
 3. Writes data to the sink/destination data store.
 
-![Copy activity overview](media/copy-activity-overview/copy-activity-overview.png)
+:::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Copy activity overview":::
 
 ## Supported data stores and formats
 
@@ -156,7 +156,7 @@ You can leverage the copy activity resume in the following two ways:
 - **Activity level retry:** You can set retry count on copy activity. During the pipeline execution, if this copy activity run fails, the next automatic retry will start from last trial's failure point.
 - **Rerun from failed activity:** After pipeline execution completion, you can also trigger a rerun from the failed activity in the ADF UI monitoring view or programmatically. If the failed activity is a copy activity, the pipeline will not only rerun from this activity, but also resume from the previous run's failure point.
 
-    ![Copy resume](media/copy-activity-overview/resume-copy.png)
+    :::image type="content" source="media/copy-activity-overview/resume-copy.png" alt-text="Copy resume":::
 
 Few points to note:
 
@@ -185,7 +185,7 @@ In addition to copying data from source data store to sink, you can also configu
 
 You can find the following configuration on copy activity source tab. You can also map those additional columns in copy activity [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping) as usual by using your defined column names. 
 
-![Add additional columns in copy activity](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
+:::image type="content" source="./media/copy-activity-overview/copy-activity-add-additional-columns.png" alt-text="Add additional columns in copy activity":::
 
 >[!TIP]
 >This feature works with the latest dataset model. If you don't see this option from the UI, try creating a new dataset.
@@ -250,7 +250,7 @@ This feature is supported when copying data from any source into the following s
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
-![Create sink tables](media/copy-activity-overview/create-sink-table.png)
+:::image type="content" source="media/copy-activity-overview/create-sink-table.png" alt-text="Create sink tables":::
 
 ## Fault tolerance
 
