@@ -86,7 +86,7 @@ On the **Data details**, you can check the data details of the training set. If 
 
 The issues are divided into three types. Referring to the following three tables to check the respective types of errors.
 
-Fix manually the first type of errors listed in the table below, otherwise the data with these errors will be excluded during training.
+Manually fix the first type of errors listed in the table below, otherwise the data with these errors will be excluded during training.
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
