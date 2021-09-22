@@ -10,7 +10,7 @@ ms.date: 09/14/2021
 The linter makes it easier to enforce coding standards by providing guidance during development. The current set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md):
 
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
-- [no-unused-params](./linter-rule-no-unused-parameterss.md)
+- [no-unused-params](./linter-rule-no-unused-parameters.md)
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
