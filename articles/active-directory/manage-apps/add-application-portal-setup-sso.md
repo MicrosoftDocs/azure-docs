@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/07/2021
+ms.date: 09/21/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.

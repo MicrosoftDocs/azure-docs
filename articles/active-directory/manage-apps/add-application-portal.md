@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Add an enterprise application'
-description: In this quickstart, you use the Azure Active Directory Admin Center to add an enterprise application to your Azure Active Directory tenant.
+description: Use the Azure Active Directory Admin Center to add an enterprise application to your Azure Active Directory tenant.
 titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/07/2021
+ms.date: 09/21/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to add an enterprise application.
