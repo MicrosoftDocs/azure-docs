@@ -294,6 +294,10 @@ The `forwardingGateway` section designates which host names are allowed to forwa
 }
 ```
 
+The `allowedForwardedHosts` section specifies which hostnames to accept in the [X-Forwarded-Host](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) header. If a matching domain in the list, Static Web Apps uses the `X-Forwarded-Host` value when constructing redirect URLs, such as after a successful login.
+
+If the `X-Forwarded-Host` header doesn't match a value in the list, the requests still succeed, but the header isn't used in the response.
+
 ### Required headers
 
 Required headers are sent with each request to your site. One use of a required header is to deny access to a site unless one or more header is present in each request.
