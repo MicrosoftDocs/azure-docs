@@ -8,24 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/09/2021
+ms.date: 09/20/2021
 ms.author: aahi
-keywords: text mining
 ---
 
-# What is the entity linking API?
+# What is entity linking?
 
-Azure Language services is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis, including entity linking
+Entity linking is on of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. Entity linking provides the ability to identify and disambiguate the identity of an entity found in text. For example, in the sentence "*We went to Seattle last week.*", the word *Seattle* would be identified, with a link to more information on Wikipedia
+
+you can use this service to help build intelligent applications using: the web-based Language Studio, REST APIs, and client libraries.  
 
 This documentation contains the following types of articles:
 
-* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
-
-## Entity linking
-
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text. 
-
-This feature is a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API and client library.
+* [Quickstarts](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific ways.
 
 ## Typical workflow
 

@@ -11,7 +11,7 @@ ms.date: 08/25/2021
 
 The user can configure QnA Maker to use a different Cognitive search resource. They can also configure App service settings if they are using QnA Maker GA.
 
-## Configure Text Analytics resource to use a different Cognitive Search resource
+## Change Cognitive Search resource
 
 > [!NOTE]
 > If you change the Azure Search service associated with Text Analytics, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.

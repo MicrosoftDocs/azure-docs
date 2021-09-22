@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Pricing
+    href: https://aka.ms/unifiedLanguagePricing
 - name: Custom text classification
   items:
   - name: Overview
@@ -100,10 +102,14 @@ items:
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
-- name: Custom question answering
+- name: Question answering
   items:
+  - name: Overview
+    href: custom-question-answering/overview.md
   - name: Quickstart
     href: custom-question-answering/quickstart/sdk.md
+  - name: Language support
+    href: custom-question-answering/language-support.md
   - name: How-to guides
     items:
     - name: Query with REST APIs
@@ -112,6 +118,8 @@ items:
       href: custom-question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
       href: custom-question-answering/how-to/migrate-knowledge-base.md
+    - name: Add chit-chat
+      href: custom-question-answering/how-to/chit-chat.md
     - name: Change default answer
       href: custom-question-answering/how-to/change-default-answer.md
     - name: Configure resources
@@ -122,6 +130,20 @@ items:
       href: custom-question-answering/how-to/manage-knowledge-base.md
     - name: Generate answer
       href: custom-question-answering/how-to/generate-answer.md
+    - name: Filter responses
+      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language/context/context
+    - name: Manage resources
+      href: custom-question-answering/how-to/manage-resources.md
+  - name: Concepts
+    items:
+    - name: Precise answering
+      href: custom-question-answering/concepts/precise-answering.md
+    - name: Development lifecycle
+      href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language/context/context
+    - name: Data sources and content
+      href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language/context/context
+    - name: Confidence score
+      href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language/context/context
 - name: Entity linking
   items:
   - name: Overview
@@ -234,6 +256,8 @@ items:
     href: text-summarization/overview.md
   - name: Language support
     href: text-summarization/language-support.md
+  - name: Quickstart
+    href: text-summarization/quickstart.md
   - name: How-to guides
     items:
     - name: Call the Text Summarization API

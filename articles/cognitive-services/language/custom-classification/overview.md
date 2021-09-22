@@ -8,13 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 09/20/2021
 ms.author: aahi
 ---
 
 # What is custom text classification?
 
-Custom text classification is one of the features offered by Azure Cognitive Service for language. Custom text classification abstracts away the need for in-house AI expertise, and lets you more easily build models that work on your data. 
+Custom text classification is one of the features offered by [Azure Cognitive Service for language](../overview.md). Custom text classification simplifies many of the details required for building a custom model, and lets you focus on building a model around your data. 
+
 
 Your data can be previously annotated documents, or ones that you upload and tag within the [Language Studio](https://language.azure.com). By building a custom classification model, you can predict the class or classes that 
  your data belongs to. Custom text classification supports two types of projects:

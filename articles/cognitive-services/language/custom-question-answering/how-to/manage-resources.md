@@ -29,8 +29,8 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
 3.  Select the appropriate tiers and regions for the Text Analytics resource. For the custom question answering feature, select search location and pricing tier.
 
-> [!div class="mx-imgBorder"]
-> ![Create a new TA service - pricing tier and regions](../../../qnamaker/media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![Create a new TA service - pricing tier and regions](../../../qnamaker/media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 
    * Choose the **Subscription** under which the Text Analytics resource will be deployed.
    * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with a Text Analytics resource creates fewer Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.

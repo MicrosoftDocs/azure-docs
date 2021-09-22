@@ -23,6 +23,7 @@ The Key Vault VM extension supports these Linux distributions:
 
 - Ubuntu-1804
 - Suse-15 
+- [CBL-Mariner](https://github.com/microsoft/CBL-Mariner)
 
 > [!NOTE]
 > To get extended security features, prepare to upgrade Ubuntu-1604 and Debian-9 systems as these versions are reaching their end of designated support period.

@@ -21,7 +21,7 @@ Custom question answering uses Azure diagnostic logging to store the telemetry d
 
     ![Enable trace logging in QnA Maker managed (Preview)](../media/analytics/qnamaker-v2-enable-trace-logging.png)
 
-## Run queries for other analytics on your QnA Maker knowledge base
+## Kusto queries
 
 ### All QnA chat log
 

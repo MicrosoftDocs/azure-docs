@@ -6324,6 +6324,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-spark.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-hive.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-mapreduce.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-storm.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
       "redirect_url": "/azure/azure-functions/app-service-export-api-to-powerapps-and-flow",
       "redirect_document_id": false
@@ -14079,11 +14099,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/deploy-zerto-disaster-recovery.md",
-      "redirect_url": "/azure/azure-vmware/introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
@@ -14241,11 +14256,6 @@
     {
       "source_path_from_root": "/articles/azure-vmware/vrealize-operations-for-avs.md",
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-vmware/deploy-disaster-recovery-using-jetstream.md",
-      "redirect_url": "/azure/azure-vmware/concepts-run-command",
       "redirect_document_id": false
     },
     {
@@ -14431,6 +14441,16 @@
     {
       "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
       "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-rdp.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-rdp-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/bastion/bastion-connect-vm-ssh.md",
+      "redirect_url": "/azure/bastion/bastion-connect-vm-ssh-linux",
       "redirect_document_id": false
     },
     {
@@ -16689,6 +16709,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-forescout.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-forescout",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-fortinet.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/tutorial-fortinet",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-palo-alto.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-palo-alto",
       "redirect_document_id": false
@@ -18116,6 +18146,11 @@
     {
       "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
       "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/protect-windows-virtual-desktop.md",
+      "redirect_url": "/azure/firewall/protect-azure-virtual-desktop",
       "redirect_document_id": false
     },
     {
@@ -22719,6 +22754,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
+      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/mariadb/policy-samples.md",
       "redirect_url": "/azure/mariadb/policy-reference",
       "redirect_document_id": false
@@ -24436,6 +24476,11 @@
     {
       "source_path_from_root": "/articles/postgresql/howto-hyperscale-scaling.md",
       "redirect_url": "/azure/postgresql/howto-hyperscale-scale-grow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/postgresql/hyperscale-preview-features.md",
+      "redirect_url": "/azure/postgresql/hyperscale-product-updates",
       "redirect_document_id": false
     },
     {
@@ -29251,6 +29296,21 @@
     {
       "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-storage-explorer.md",
+      "redirect_url": "/azure/vs-azure-tools-storage-explorer-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-powershell.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-cli.md",
+      "redirect_url": "/azure/storage/files/storage-how-to-use-files-portal",
       "redirect_document_id": false
     },
     {
@@ -45399,6 +45459,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code-angular",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/tutorial-v2-angular.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-angular-auth-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-applications-guiding-developers-for-lob-applications.md",
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
@@ -45408,6 +45478,7 @@
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
@@ -56065,7 +56136,7 @@
     },
     {
       "source_path": "articles/virtual-desktop/partners.md",
-      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?search=Windows%20virtual%20desktop&page=1",
+      "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
       "redirect_document_id": false
     },
     {
