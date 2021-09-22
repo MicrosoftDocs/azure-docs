@@ -33,7 +33,7 @@ Sensitivity labels are tags that you can apply on assets to classify and protect
 
 :::image type="content" source="media/create-sensitivity-label/apply-label-flow.png" alt-text="Applying labels to assets in Purview flow. Create labels, register asset, scan asset, classifications found, labels applied.":::
 
-Being able to apply labels to your asset in Azure Purvie requires you to perform the following steps:
+Being able to apply labels to your asset in Azure Purview requires you to perform the following steps:
 
 1. [Create or extend existing sensitivity labels to Azure Purview](how-to-automatically-label-your-content.md), in the Microsoft 365 compliance center. Creating sensitivity labels include autolabeling rules that tell us which label should be applied based on the classifications found in your data.
 1. [Register and scan your asset](how-to-automatically-label-your-content.md#scan-your-data-to-apply-sensitivity-labels-automatically) in Azure Purview.
@@ -41,7 +41,7 @@ Being able to apply labels to your asset in Azure Purvie requires you to perform
 1. Azure Purview applies labels: Once classifications are found on an asset, Azure Purview will apply labels to the assets depending on autolabeling rules. Application of labels is done automatically by Azure Purview, there is no action for you as long as you have created labels with autolabeling rules in step 1.
 
 > [!NOTE]
-> Auto-labeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data. When you create your labels, make sure to define autolabeling rules for both files and schematized data to apply your labels automatically with each scan.
+> Autolabeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data. When you create your labels, make sure to define autolabeling rules for both files and schematized data to apply your labels automatically with each scan.
 >
 
 ## Supported data sources
