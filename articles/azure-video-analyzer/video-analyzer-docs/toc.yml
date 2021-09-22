@@ -149,6 +149,8 @@
       href: edge/monitor-log-edge.md 
     - name: Public endpoints
       href: access-public-endpoints-networking.md
+    - name: Use Visual Studio Code extension
+      hfref: edge/use-vscode-extension.md
   - name: Visualize
     items:
     - name: Embed player widget in a web app
