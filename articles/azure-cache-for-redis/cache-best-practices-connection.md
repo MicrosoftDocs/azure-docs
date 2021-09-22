@@ -21,17 +21,19 @@ Test your system's resiliency to connection breaks using a [reboot](cache-admini
 
 ## Configure appropriate timeouts
 
-Configure your client library to use *connect timeout* of 10 to 15 seconds and a *command timeout* of 5 seconds. The *connect timeout* is the time your client waits to establish a connection with Redis server. Most client libraries have another timeout configuration for *command timeouts*, which is the time the client waits for a response from Redis server.
+Two timeout values are important to consider in connection resiliency: [connect timeout](#connect-timeout) and [command timeout](#command-timeout).
 
-Some libraries have the *command timeout* set to 5 seconds by default. Consider setting it higher or lower depending on your scenario and the sizes of the values that are stored in your cache.
+### Connect timeout
 
-If the *command timeout* is too small, the connection can look unstable. However, if the *command timeout* is too large, your application might have to wait for a long time to find out whether the command is going to timeout or not.
+The `connect timeout` is the time your client waits to establish a connection with Redis server. Configure your client library to use a `connect timeout` of five seconds, giving the system sufficient time to connect even under higher CPU conditions.
 
-Configure your client library to use a *connect timeout* of at least 15 seconds, giving the system sufficient time to connect even under higher CPU conditions. A small *connection timeout* value doesn't guarantee a connection is established in that time frame.
+A small `connection timeout` value doesn't guarantee a connection is established in that time frame. If something goes wrong (high client CPU, high server CPU, and so on), then a short `connection timeout` value causes the connection attempt to fail. This behavior often makes a bad situation worse. Instead of helping, shorter timeouts aggravate the problem by forcing the system to restart the process of trying to reconnect, which can lead to a *connect -> fail -> retry* loop.
 
-If something goes wrong (high client CPU, high server CPU, and so on), then a short connection timeout value causes the connection attempt to fail. This behavior often makes a bad situation worse. Instead of helping, shorter timeouts aggravate the problem by forcing the system to restart the process of trying to reconnect, which can lead to a *connect -> fail -> retry* loop.
+### Command timeout
 
-We generally recommend that you leave your *connection timeout* at 15 seconds or higher. It's better to let your connection attempt to succeed after 15 or 20 seconds than to have it fail quickly only to retry. Such a retry loop can cause your outage to last longer than if you let the system just take longer initially.
+Most client libraries have another timeout configuration for `command timeouts`, which is the time the client waits for a response from Redis server. Although we recommend an initial setting of less than five seconds, consider setting the `command timeout` higher or lower depending on your scenario and the sizes of the values that are stored in your cache.
+
+If the `command timeout` is too small, the connection can look unstable. However, if the `command timeout` is too large, your application might have to wait for a long time to find out whether the command is going to time out or not.
 
 ## Avoid client connection spikes
 
@@ -61,3 +63,9 @@ Apply design patterns for resiliency. For more information, see [How do I make m
 ## Idle timeout
 
 Azure Cache for Redis currently has a 10-minute idle timeout for connections, so the idle timeout setting in your client application should be less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
+
+## Next steps
+
+- [Best practices for development](cache-best-practices-development.md)
+- [Azure Cache for Redis development FAQ](cache-development-faq.yml)
+- [Failover and patching](cache-failover.md)
