@@ -44,11 +44,11 @@ The Azure portal supports only Key Vault certificates, not secrets. Application 
 
 For TLS termination, Application Gateway supports certificates in Personal Information Exchange (PFX) format. You can either import an existing certificate or create a new one in your key vault. To avoid any failures, ensure that the certificate's status is set to **Enabled** in Key Vault.
 
-## Process for integration with Key Vault
+## How integration works
 
 Application Gateway integration with Key Vault is a three-step configuration process:
 
-![Key vault certificates](media/key-vault-certs/ag-kv.png)
+![Diagram that shows three steps for integrating Application Gateway with Key Vault.](media/key-vault-certs/ag-kv.png)
 
 ### Create a user-assigned managed identity
 
