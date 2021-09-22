@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/01/2021
+ms.date: 09/08/2021
 ms.author: duau
 ---
 
@@ -28,7 +28,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 ### Create a Route Server
 
-1. Go to https://aka.ms/routeserver.
+1. Sign in to [Azure portal](https://portal.azure.com), search and select **Route Server**.
 
 1. Select **+ Create new route server**.
 

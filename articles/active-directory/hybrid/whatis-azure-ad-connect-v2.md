@@ -35,7 +35,8 @@ SQL Server 2019 requires the Visual C++ Redist 14 runtime, so we are updating th
 
 ### TLS 1.2 
 
-TLS1.0 and TLS 1.1 are protocols that are deemed unsafe and are being deprecated by Microsoft. This release of Azure AD Connect will only support TLS 1.2. If your server does not support TLS 1.2 you will need to enable this before you can deploy Azure AD Connect V2.0. For more information, see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
+TLS1.0 and TLS 1.1 are protocols that are deemed unsafe and are being deprecated by Microsoft. This release of Azure AD Connect will only support TLS 1.2. 
+All versions of Windows Server that are supported for Azure AD Connect V2.0 already default to TLS 1.2. If your server does not support TLS 1.2 you will need to enable this before you can deploy Azure AD Connect V2.0. For more information, see [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
 
 ### All binaries signed with SHA2 
 
@@ -55,7 +56,7 @@ This [article](/windows-server/get-started-19/install-upgrade-migrate-19) descri
 
 This release of Azure AD Connect contains several cmdlets that require PowerShell 5.0, so this requirement is a new prerequisite for Azure AD Connect.  
 
-More details about PowerShell prerequisites can be found [here](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
+More details about PowerShell prerequisites can be found [here](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements#windows-powershell-50).
 
  >[!NOTE]
  >PowerShell 5 is already part of Windows Server 2016 so you probably do not have to take action as long as you are on a recent Window Server version. 
@@ -87,7 +88,7 @@ You should upgrade to Azure AD Connect V2.0 as soon as you can. **__All Azure AD
 Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. 
 
 **After the upgrade of my Azure AD Connect instance to V2.0, will the SQL 2012 components automatically get uninstalled?** </br>
-No, the upgrade to SQL 2019 does not remove any SQL 2012 components from your server. If you no longer need these components then you should follow [the SQL Server uninstallation instructions](https://docs.microsoft.com/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
+No, the upgrade to SQL 2019 does not remove any SQL 2012 components from your server. If you no longer need these components then you should follow [the SQL Server uninstallation instructions](/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
 
 **What happens if I do not upgrade?** </br>
 Until one of the components that are being retired are actually deprecated, you will not see any impact. Azure AD Connect will keep on working. 

@@ -719,7 +719,7 @@ namespace TextTranslator
     }
 }
 ```
-For more information, see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator.
+For more information, see [public documentation](../cognitive-services/translator/translator-overview.md) and [public API documentation](../cognitive-services/translator/reference/v3-0-reference.md) for Translator.
 
 
 ### Next Steps

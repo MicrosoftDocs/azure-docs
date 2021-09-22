@@ -20,13 +20,13 @@ ms.author: sngun
 * Guaranteed high availability.
 * Automatic secondary indexing.
 
-[Azure Data Table SDKs](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/) are available for .NET, Java, Python, Node.js, and Go. These SDKs can be used to target either Table Storage or Cosmos DB Tables. Applications written for Azure Table storage using the Azure Data Tables SDKs can be migrated to the Azure Cosmos DB Table API with no code changes to take advantage of premium capabilities.
+[Azure Tables SDKs](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/) are available for .NET, Java, Python, Node.js, and Go. These SDKs can be used to target either Table Storage or Cosmos DB Tables. Applications written for Azure Table storage using the Azure Tables SDKs can be migrated to the Azure Cosmos DB Table API with no code changes to take advantage of premium capabilities.
 
 > [!NOTE]
 > The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's Table API.
 
 > [!IMPORTANT]
-> The .NET Cosmos DB Table Library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) is in maintenance mode and will be deprecated soon. Please upgrade to the new .NET Azure Data Tables Library [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) to continue to get the latest features supported by the Table API.
+> The .NET Cosmos DB Table Library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) is in maintenance mode and will be deprecated soon. Please upgrade to the new .NET Azure Tables SDK [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) to continue to get the latest features supported by the Table API.
 
 ## Table offerings
 

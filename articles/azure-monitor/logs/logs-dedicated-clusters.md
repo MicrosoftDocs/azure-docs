@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Logs Dedicated Clusters
-description: Customers who ingest more than 1 TB a day of monitoring data may use dedicated rather than shared clusters
+description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
@@ -12,9 +12,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Azure Monitor Logs Dedicated Clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs customers. Customers can select which of their Log Analytics workspaces should be hosted on dedicated clusters.
 
-Dedicated clusters require customers to commit using a capacity of at least 1 TB of data ingestion per day. You can migrate an existing workspace to a dedicated cluster with no data loss or service interruption. 
+Dedicated clusters require customers to commit for at least 500 GB of data ingestion per day. You can migrate an existing workspace to a dedicated cluster with no data loss or service interruption. 
 
-The capabilities that require dedicated clusters:
+Capabilities that require dedicated clusters:
 
 - **[Customer-managed Keys](../logs/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineers access requests to your data.
@@ -25,7 +25,7 @@ The capabilities that require dedicated clusters:
 
 ## Management 
 
-Dedicated clusters are managed with an Azure resource that represents Azure Monitor Log clusters. Operations are performed programmatically using [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights) or the [REST](https://docs.microsoft.com/rest/api/loganalytics/clusters).
+Dedicated clusters are managed with an Azure resource that represents Azure Monitor Log clusters. Operations are performed programmatically using [CLI](/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest), [PowerShell](/powershell/module/az.operationalinsights) or the [REST](/rest/api/loganalytics/clusters).
 
 Once a cluster is created, workspaces can be linked to it and new ingested data to them is stored on the cluster. Workspaces can be unlinked from a cluster at any time and new data is stored in shared Log Analytics clusters. The link and unlink operation doesn’t affect your queries and the access to data before and after the operation with subjection to retention in workspaces. The Cluster and workspaces must be in the same region to allow linking.
 
@@ -78,7 +78,7 @@ After you create your cluster resource, you can edit additional properties such 
 
 You can have up to 2 active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to 4 reserved clusters per subscription per region (active or recently deleted).
 
-> [!INFORMATION]
+> [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
 > Dedicated cluster is billed once provisioned regardless data ingestion and it’s recommended to prepare the deployment to expedite the provisioning and workspaces link to cluster. Verify the following:
 > - A list of initial workspace to be linked to cluster is identified

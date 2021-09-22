@@ -27,7 +27,7 @@ az monitor log-analytics workspace create --resource-group ContosoRG \
    --workspace-name ContosoWorkspace
 ```
 
-For more information about workspaces, see [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs).
+For more information about workspaces, see [Azure Monitor Logs overview](./data-platform-logs.md).
 
 ## List tables in your workspace
 
@@ -51,7 +51,7 @@ az monitor log-analytics workspace table update --resource-group ContosoRG \
 
 The retention time is between 30 and 730 days.
 
-For more information about tables, see [Data structure](/azure/azure-monitor/logs/data-platform-logs#data-structure).
+For more information about tables, see [Data structure](./data-platform-logs.md#data-structure).
 
 ## Export data from selected tables
 
@@ -78,7 +78,7 @@ az monitor log-analytics workspace data-export delete --resource-group ContosoRG
    --workspace-name ContosoWorkspace --name DataExport --yes
 ```
 
-For more information about data export, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export).
+For more information about data export, see [Log Analytics workspace data export in Azure Monitor](./logs-data-export.md).
 
 ## Manage a linked service
 
@@ -127,7 +127,7 @@ az monitor log-analytics workspace linked-storage delete --resource-group Contos
    --workspace-name ContosoWorkspace --type Alerts
 ```
 
-For more information, see, [Using customer-managed storage accounts in Azure Monitor Log Analytics](/azure/azure-monitor/logs/private-storage).
+For more information, see, [Using customer-managed storage accounts in Azure Monitor Log Analytics](./private-storage.md).
 
 ## Manage intelligence packs
 
