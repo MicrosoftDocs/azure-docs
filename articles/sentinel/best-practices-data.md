@@ -12,7 +12,7 @@ ms.date: 07/21/2021
 
 #  Data collection best practices
 
-This section reviews best practices for collecting data using Azure Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel partner data connectors](partner-data-connectors.md), and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
+This section reviews best practices for collecting data using Azure Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel data connectors reference](data-connectors-reference.md), and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
 ## Prioritize your data connectors
 
@@ -20,7 +20,7 @@ If it's unclear to you which data connectors will best serve your environment, s
 
 The free data connectors will start showing value from Azure Sentinel as soon as possible, while you continue to plan other data connectors and budgets.
 
-For your [partner](partner-data-connectors.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices.
+For your [partner](data-connectors-reference.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices.
 
 If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
 
@@ -94,7 +94,7 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](connect-office-365.md) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
+|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](./data-connectors-reference.md#microsoft-office-365) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
 |**Requires RBAC for splitting countries, departments, and so on**     | Customize your data collection by adding tags to data and creating dedicated workspaces for each separation needed.|   Custom data collection has extra ingestion costs.     |
 |**Requires multiple tenants in a single workspace**     |  Customize your data collection using Azure LightHouse and a unified incident view.|  Custom data collection has extra ingestion costs.  <br><br>For more information, see [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).      |
 | | | |

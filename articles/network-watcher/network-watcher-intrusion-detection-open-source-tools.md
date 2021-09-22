@@ -40,7 +40,7 @@ For all other methods of installation, visit https://suricata.readthedocs.io/en/
     ```
     sudo add-apt-repository ppa:oisf/suricata-stable
     sudo apt-get update
-    sudo sudo apt-get install suricata
+    sudo apt-get install suricata
     ```
 
 1. To verify your installation, run the command `suricata -h` to see the full list of commands.

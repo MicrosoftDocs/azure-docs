@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -34,6 +34,30 @@ For the Copy activity, this Snowflake connector supports the following functions
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Snowflake using UI
+
+Use the following steps to create a linked service to Snowflake in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Snowflake and select the Snowflake connector.
+
+    :::image type="content" source="media/connector-snowflake/snowflake-connector.png" alt-text="Screenshot of the Snowflake connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-snowflake/configure-snowflake-linked-service.png" alt-text="Screenshot of linked service configuration for Snowflake.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that define entities specific to a Snowflake connector.
 

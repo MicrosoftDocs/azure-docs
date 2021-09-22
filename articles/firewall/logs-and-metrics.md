@@ -133,7 +133,7 @@ You have three options for storing your logs:
 
    Activity log entries are collected by default, and you can view them in the Azure portal.
 
-   You can use [Azure activity logs](../azure-resource-manager/management/view-activity-logs.md) (formerly known as operational logs and audit logs) to view all operations submitted to your Azure subscription.
+   You can use [Azure activity logs](../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations submitted to your Azure subscription.
 
 ## Metrics
 

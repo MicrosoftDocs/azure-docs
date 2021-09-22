@@ -34,7 +34,7 @@ The Application Gateway instance gets deployed on the hub in a dedicated subnet 
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
+- An Azure account with an active subscription.    
 - An Azure VMware Solution private cloud deployed and running.
 
 ## Deployment and configuration

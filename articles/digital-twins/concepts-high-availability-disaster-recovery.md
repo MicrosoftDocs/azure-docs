@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Describes the Azure and Azure Digital Twins features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/14/2020
+ms.date: 9/16/2021
 ms.topic: conceptual
 ms.service: digital-twins
 

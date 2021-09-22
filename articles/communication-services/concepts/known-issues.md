@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 

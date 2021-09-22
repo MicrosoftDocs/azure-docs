@@ -3,7 +3,7 @@ title: Back up an app
 description: Learn how to create backups of your apps in Azure App Service. Run manual or scheduled backups. Customize backups by including the attached database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 09/02/2021
 ms.custom: seodec18
 
 ---
@@ -42,12 +42,12 @@ The following database solutions are supported with backup feature:
 
 * The Backup and Restore feature requires the App Service plan to be in the **Standard**, **Premium**, or **Isolated** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** and **Isolated** tiers allow a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
-* Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
-* Backups of TLS enabled Azure Database for MySQL is not supported. If a backup is configured, you will encounter backup failures.
-* Backups of TLS enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will encounter backup failures.
-* In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
-* Using a firewall enabled storage account as the destination for your backups is not supported. If a backup is configured, you will encounter backup failures.
-* Currently, you can't use the Backup and Restore feature with Azure storage accounts that are configured to use Private Endpoint.
+* Backups can be up to 10 GB of app and database content, up to 4GB of which can be the database backup. If the backup size exceeds this limit, you get an error.
+* Backups of [TLS enabled Azure Database for MySQL](../mysql/concepts-ssl-connection-security.md) is not supported. If a backup is configured, you will encounter backup failures.
+* Backups of [TLS enabled Azure Database for PostgreSQL](../postgresql/concepts-ssl-connection-security.md) is not supported. If a backup is configured, you will encounter backup failures.
+* In-app MySQL databases are automatically backed up without any configuration. If you make manual settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
+* Using a [firewall enabled storage account](../storage/common/storage-network-security.md) as the destination for your backups is not supported. If a backup is configured, you will encounter backup failures.
+* Using a [private endpoint enabled storage account](../storage/common/storage-private-endpoints.md) for backup and restore is not supported.
 
 <a name="manualbackup"></a>
 
