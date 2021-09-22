@@ -80,7 +80,7 @@ Start off by creating an Azure Policy enforcing SQL Database or Managed Instance
 > [!NOTE]
 > It may take some time for the newly created policy to be enforced.
 
-## Checking policy compliance
+## Check policy compliance
 
 You can check the **Compliance** setting under the **Policy** service to see the compliance state.
 
