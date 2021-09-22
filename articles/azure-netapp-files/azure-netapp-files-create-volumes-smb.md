@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 08/17/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -78,7 +78,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
     * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
 
-        For information about creating a snapshot policy, see [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
+        For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
@@ -148,16 +148,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
 ## Control access to an SMB volume  
 
-Access to an SMB volume is managed through permissions.  
-
-### Share permissions  
-
-By default, a new volume has the **Everyone / Full Control** share permissions. Members of the Domain Admins group can change the share permissions as follows:  
-
-1. Map the share to a drive.  
-2. Right-click the drive, select **Properties**, then go to the **Security** tab.
-
-[ ![Set share permissions](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
+Access to an SMB volume is managed through permissions. 
 
 ### NTFS file and folder permissions  
 
@@ -170,7 +161,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
-* [Convert existing SMB volumes to use Continuous Availability](convert-smb-continuous-availability.md)
+* [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
 * [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)

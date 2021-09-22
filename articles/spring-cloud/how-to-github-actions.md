@@ -36,7 +36,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 
 The command should output a JSON object:
 
-```JSON
+```json
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -48,11 +48,11 @@ The command should output a JSON object:
 
 This example uses the [steeltoe sample on GitHub](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample).  Fork the repository, open the GitHub repository page for the fork, and select the **Settings** tab. Open the **Secrets** menu, and select **New secret**:
 
- ![Add new secret](./media/github-actions/actions1.png)
+![Add new secret](./media/github-actions/actions1.png)
 
 Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading *Set up your GitHub repository and authenticate*.
 
- ![Set secret data](./media/github-actions/actions2.png)
+![Set secret data](./media/github-actions/actions2.png)
 
 You can also get the Azure login credential from Key Vault in GitHub actions as explained in [Authenticate Azure Spring with Key Vault in GitHub Actions](./github-actions-key-vault.md).
 
@@ -86,7 +86,7 @@ az spring-cloud app create --name solar-system-weather
 
 ### Deploy with Azure CLI directly
 
-Create the `.github/workflows/main.yml` file in the repository with the following content. Replace *\<your resource group name>* and *\<your service name>* with the correct values.
+Create the *.github/workflows/main.yml* file in the repository with the following content. Replace *\<your resource group name>* and *\<your service name>* with the correct values.
 
 ```yaml
 name: Steeltoe-CD
@@ -175,7 +175,7 @@ The command should output a JSON object:
 }
 ```
 
-This example uses the [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) sample on GitHub.  Fork the sample, open GitHub repository page, and click **Settings** tab. Open **Secrets** menu, and click **Add a new secret**:
+This example uses the [PiggyMetrics](https://github.com/Azure-Samples/piggymetrics) sample on GitHub.  Fork the sample, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
 
 ![Add new secret](./media/github-actions/actions1.png)
 
@@ -215,7 +215,7 @@ az spring-cloud app create --name account-service
 
 ### Deploy with Azure CLI directly
 
-Create the `.github/workflow/main.yml` file in the repository:
+Create the *.github/workflow/main.yml* file in the repository:
 
 ```yaml
 name: AzureSpringCloud
@@ -265,7 +265,8 @@ The az `run` command will use the latest version of Azure CLI. If there are brea
 > [!Note]
 > This command will run in a new container, so `env` will not work, and cross action file access may have extra restrictions.
 
-Create the .github/workflow/main.yml file in the repository:
+Create the *.github/workflow/main.yml* file in the repository:
+
 ```yaml
 name: AzureSpringCloud
 on: push
@@ -344,13 +345,13 @@ jobs:
 
 ## Run the workflow
 
-GitHub **Actions** should be enabled automatically after you push `.github/workflow/main.yml` to GitHub. The action will be triggered when you push a new commit. If you create this file in the browser, your action should have already run.
+GitHub **Actions** should be enabled automatically after you push *.github/workflow/main.yml* to GitHub. The action will be triggered when you push a new commit. If you create this file in the browser, your action should have already run.
 
-To verify that the action has been enabled, click **Actions** tab on the GitHub repository page:
+To verify that the action has been enabled, select the **Actions** tab on the GitHub repository page:
 
 ![Verify action enabled](./media/github-actions/actions3.png)
 
-If your action runs in error, for example, if you haven't set the Azure credential, you can rerun checks after fixing the error. On the GitHub repository page, click **Actions**, select the specific workflow task, and then click the **Rerun checks** button to rerun checks:
+If your action runs in error, for example, if you haven't set the Azure credential, you can rerun checks after fixing the error. On the GitHub repository page, select **Actions**, select the specific workflow task, and then select the **Rerun checks** button to rerun checks:
 
 ![Rerun checks](./media/github-actions/actions4.png)
 

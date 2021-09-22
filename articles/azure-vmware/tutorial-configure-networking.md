@@ -51,7 +51,7 @@ When you select an existing vNet, the Azure Resource Manager (ARM) template that
 
 ### Create a new vNet
 
-When you create a new vNet, the required components needed to connect to Azure VMware Solution get created automatically.
+When you create a new vNet, the required components to connect to Azure VMware Solution are automatically created.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Connectivity**.
 
@@ -61,7 +61,7 @@ When you create a new vNet, the required components needed to connect to Azure V
 
 3. Provide or update the information for the new vNet and then select **OK**.
 
-   At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, change the network address of either the private cloud or the vNet so they don't overlap. 
+   At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, change the private cloud or vNet's network address so they don't overlap. 
 
    :::image type="content" source="media/networking/create-new-virtual-network.png" alt-text="Screenshot showing the Create virtual network window.":::
 

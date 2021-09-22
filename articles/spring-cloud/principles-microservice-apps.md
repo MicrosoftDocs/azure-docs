@@ -14,18 +14,29 @@ ms.custom: devx-track-java
 **This article applies to:** ✔️ Java
 
 The following are principles for maintaining healthy Java and base operating system for Spring microservice apps.
+
 ## Principles for healthy Java and Base OS
+
 * Shall be the same base operating system across tiers - Basic | Standard | Premium.
+
     * Currently, apps on Azure Spring Cloud use a mix of Debian 10 and Ubuntu 18.04.
     * VMware build service uses Ubuntu 18.04.
+
 * Shall be the same base operating system regardless of deployment starting points - source | JAR
+
     * Currently, apps on Azure Spring Cloud use a mix of Debian 10 and Ubuntu 18.04.
+
 * Base operating system shall be free of security vulnerabilities.
+
     * Debian 10 base operating system has 147 open CVEs.
     * Ubuntu 18.04 base operating system has 132 open CVEs.
+
 * Shall use JRE-headless.
+
     * Currently, apps on Azure Spring Cloud use JDK. JRE-headless is a smaller image.
+
 * Shall use the most recent builds of Java.
+
     * Currently, apps on Azure Spring Cloud use Java 8 build 242. This is an outdated build.
 
 Azul Systems will continuously scan for changes to base operating systems and keep the last built images up to date. Azure Spring Cloud looks for changes to images and continuously updates them across deployments.

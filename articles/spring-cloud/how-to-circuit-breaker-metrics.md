@@ -93,7 +93,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## Locate Resilence4j Metrics from Portal
 
-1. Select the **Application Insights** Blade from Azure Spring Cloud portal, and click **Application Insights**.
+1. Select the **Application Insights** Blade from Azure Spring Cloud portal, and select **Application Insights**.
 
    [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 
@@ -105,11 +105,11 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 2](media/spring-cloud-resilience4j/resilience4J-2.png)](media/spring-cloud-resilience4j/resilience4J-2.PNG)
 
-4. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Click **Add filter**, and then select name as **createNewAccount**.
+4. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**. Select **Add filter**, and then select name as **createNewAccount**.
 
    [ ![resilience4J 3](media/spring-cloud-resilience4j/resilience4J-3.png)](media/spring-cloud-resilience4j/resilience4J-3.PNG)
 
-5. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Then click **Apply splitting**, and select **kind**.
+5. Select **resilience4j_circuitbreaker_calls**  metrics and **Average**.  Then select **Apply splitting**, and select **kind**.
 
    [ ![resilience4J 4](media/spring-cloud-resilience4j/resilience4J-4.png)](media/spring-cloud-resilience4j/resilience4J-4.PNG)
 

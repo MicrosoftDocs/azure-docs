@@ -62,7 +62,7 @@ Add and configure the Azure ML extension:
 az extension add -n ml
 ```
 
-For more on configuring the ML extension, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+For more on configuring the ML extension, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
 
 * The example repository
 

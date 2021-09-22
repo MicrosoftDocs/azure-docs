@@ -63,7 +63,7 @@ Sign in to your Azure account and select your subscription. If you're using Azur
     ```
 
     > [!NOTE]
-    > The **Select-AzSubscription** command is an alias of the [Select-AzContext](/powershell/module/az.accounts/select-azcontex) that allows you to use the subscription name (**Name**) or subscription ID (**Id**) returned by the **Get-AzSubscription** command rather than the more complex context name required for the **Select-AzContext** command.
+    > The **Select-AzSubscription** command is an alias of the [Select-AzContext](/powershell/module/az.accounts/select-azcontext) that allows you to use the subscription name (**Name**) or subscription ID (**Id**) returned by the **Get-AzSubscription** command rather than the more complex context name required for the **Select-AzContext** command.
 
 ## Retrieve your storage account details
 

@@ -34,8 +34,6 @@ Additional resources:
 * [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [Samples](/samples/browse/?products=azure-blob-storage)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)

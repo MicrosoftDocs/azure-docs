@@ -124,7 +124,7 @@ Only block blobs are restored. Page blobs and append blobs are not included in a
 >
 > Read operations from the secondary location may proceed during the restore operation if the storage account is geo-replicated.
 >
-> The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
+> The time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period after up to one hour for the restore job to be picked up. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two-three hours to restore to a point 30 days in the past. A restore with a small number of changes would require up to one hour to restore. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
 
 ### Restore all containers in the account
 

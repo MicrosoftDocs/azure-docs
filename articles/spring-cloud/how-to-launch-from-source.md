@@ -27,6 +27,7 @@ This quickstart explains how to:
 > * Assign public endpoint for your application
 
 ## Prerequisites
+
 Before you begin, ensure that your Azure subscription has the required dependencies:
 
 1. [Install Git](https://git-scm.com/)
@@ -48,7 +49,7 @@ az extension add --name spring-cloud
 
 ## Provision a service instance using the Azure CLI
 
-Login to the Azure CLI and choose your active subscription.
+Sign in to the Azure CLI and choose your active subscription.
 
 ```azurecli
 az login
@@ -96,13 +97,13 @@ To deploy from a JAR built on your local machine, ensure that your build produce
 To deploy the fat-JAR to an active deployment
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
+az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR, for example "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 To deploy the fat-JAR to a specific deployment
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR e.g. "target\hellospring-0.0.1-SNAPSHOT.jar">
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-fat-JAR, for example "target\hellospring-0.0.1-SNAPSHOT.jar">
 ```
 
 ### Deploy from source code

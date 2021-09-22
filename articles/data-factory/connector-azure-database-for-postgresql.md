@@ -1,21 +1,21 @@
 ---
 title: Copy and transform data in Azure Database for PostgreSQL
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory.
-ms.author: susabat
-author: ssabat
+description: Learn how to copy and transform data in Azure Database for PostgreSQL using Azure Data Factory and Synapse Analytics.
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/16/2021
+ms.date: 09/09/2021
 ---
 
-# Copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory
+# Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Database for PostgreSQL, and use Data Flow to transform data in Azure Database for PostgreSQL. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Azure Database for PostgreSQL, and use Data Flow to transform data in Azure Database for PostgreSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 This connector is specialized for the [Azure Database for PostgreSQL service](../postgresql/overview.md). To copy data from a generic PostgreSQL database located on-premises or in the cloud, use the [PostgreSQL connector](connector-postgresql.md).
 
@@ -27,11 +27,35 @@ This Azure Database for PostgreSQL connector is supported for the following acti
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-Currently, data flow in Azure Data Factory supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus); data flow in Azure Synapse Analytics supports all PostgreSQL flavors.
+Currently, data flow supports Azure database for PostgreSQL Single Server but not Flexible Server or Hyperscale (Citus); data flow in Azure Synapse Analytics supports all PostgreSQL flavors.
 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Azure database for PostgreSQL using UI
+
+Use the following steps to create a linked service to Azure database for PostgreSQL in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for PostgreSQL and select the Azure database for PostgreSQL connector.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/azure-database-for-postgresql-connector.png" alt-text="Select the Azure database for PostgreSQL connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-database-for-postgresql/configure-azure-database-for-postgresql-linked-service.png" alt-text="Configure a linked service to Azure database for PostgreSQL.":::
+
+## Connector configuration details
 
 The following sections offer details about properties that are used to define Data Factory entities specific to Azure Database for PostgreSQL connector.
 
@@ -92,7 +116,7 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md). This section provides a list of properties that Azure Database for PostgreSQL  supports in datasets.
+For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md). This section provides a list of properties that Azure Database for PostgreSQL  supports in datasets.
 
 To copy data from Azure Database for PostgreSQL, set the type property of the dataset to **AzurePostgreSqlTable**. The following properties are supported:
 
@@ -119,7 +143,7 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md). This section provides a list of properties supported by an Azure Database for PostgreSQL source.
+For a full list of sections and properties available for defining activities, see [Pipelines and activities](concepts-pipelines-activities.md). This section provides a list of properties supported by an Azure Database for PostgreSQL source.
 
 ### Azure Database for PostgreSql as source
 
@@ -267,7 +291,7 @@ IncomingStream sink(allowSchemaDrift: true,
 
 ## Lookup activity properties
 
-For more information about the properties, see [Lookup activity in Azure Data Factory](control-flow-lookup-activity.md).
+For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

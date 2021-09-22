@@ -2,12 +2,12 @@
 title: Azure Communication Services - known issues
 description: Learn more about Azure Communication Services
 author: rinarish
-manager: jken
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 

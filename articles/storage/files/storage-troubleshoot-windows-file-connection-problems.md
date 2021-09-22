@@ -177,6 +177,49 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Azure role-based access control (Azure RBAC)](../blobs/security-recommendations.md#data-protection).
 
+## Unable to modify or delete an Azure file share (or share snapshots) because of locks or leases
+Azure Files provides two ways to prevent accidental modification or deletion of Azure file shares and share snapshots: 
+
+- **Storage account resource locks**: All Azure resources, including the storage account, support [resource locks](../../azure-resource-manager/management/lock-resources.md). Locks may be put on the storage account by an administrator, or by value-added services such as Azure Backup. Two variations of resource locks exist: modify, which prevents all modifications to the storage account and its resources, and delete, which only prevent deletes of the storage account and its resources. When modifying or deleting shares through the `Microsoft.Storage` resource provider, resource locks will be enforced on Azure file shares and share snapshots. Most portal operations, Azure PowerShell cmdlets for Azure Files with `Rm` in the name (i.e. `Get-AzRmStorageShare`), and Azure CLI commands in the `share-rm` command group (i.e. `az storage share-rm list`) use the `Microsoft.Storage` resource provider. Some tools and utilities such as Storage Explorer, legacy Azure Files PowerShell management cmdlets without `Rm` in the name (i.e. `Get-AzStorageShare`), and legacy Azure Files CLI commands under the `share` command group (i.e. `az storage share list`) use legacy APIs in the FileREST API that bypass the `Microsoft.Storage` resource provider and resource locks. For more information on legacy management APIs exposed in the FileREST API, see [control plane in Azure Files](/rest/api/storageservices/file-service-rest-api#control-plane).
+
+- **Share/share snapshot leases**: Share leases are a kind of proprietary lock for Azure file shares and file share snapshots. Leases may be put on individual Azure file shares or file share snapshots by administrators by calling the API through a script, or by value-added services such as Azure Backup. When a lease is put on an Azure file share or file share snapshot, modifying or deleting the file share/share snapshot can be done with the *lease ID*. Users can also release the lease before modification operations, which requires the lease ID, or break the lease, which does not require the lease ID. For more information on share leases, see [lease share](/rest/api/storageservices/lease-share).
+
+Since resource locks and leases may interfere with intended administrator operations on your storage account/Azure file shares, you may wish to remove any resource locks/leases that may have been put on your resources manually or automatically by value-added services such as Azure Backup. The following script will remove all resource locks and leases. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
+
+To run the following script, you must [install the 3.10.1-preview version](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview) of the Azure Storage PowerShell module.
+
+> [!Important]  
+> Value-added services that take resource locks and share/share snapshot leases on your Azure Files resources may periodically reapply locks and leases. Modifying or deleting locked resources by value-added services may impact regular operation of those services, such as deleting share snapshots that were managed by Azure Backup.
+
+```PowerShell
+# Parameters for storage account resource
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName
+
+# Remove resource locks
+Get-AzResourceLock `
+        -ResourceType "Microsoft.Storage/storageAccounts" `
+        -ResourceGroupName $storageAccount.ResourceGroupName `
+        -ResourceName $storageAccount.StorageAccountName | `
+    Remove-AzResourceLock -Force | `
+    Out-Null
+
+# Remove share and share snapshot leases
+Get-AzStorageShare -Context $storageAccount.Context | `
+    Where-Object { $_.Name -eq $fileShareName } | `
+    ForEach-Object {
+        try {
+            $leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($_.ShareClient)
+            $leaseClient.Break() | Out-Null
+        } catch { }
+    }
+```
+
 <a id="open-handles"></a>
 ## Unable to modify, move/rename, or delete a file or directory
 One of the key purposes of a file share is that multiple users and applications may simultaneously interact with files and directories in the share. To assist with this interaction, file shares provide several ways of mediating access to files and directories.
@@ -443,7 +486,6 @@ $StorageAccountName = "<storage-account-name-here>"
 
 Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
 ```
-
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

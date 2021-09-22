@@ -96,10 +96,11 @@ All configurable properties used to set up private Git repository with basic aut
 | `default-label` | No     | The default label of the Git repository, should be the *branch name*, *tag name*, or *commit-id* of the repository. |
 | `search-paths`  | No     | An array of strings used to search subdirectories of the Git repository. |
 | `username`      | No     | The username that's used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
-| `password`      | No     | The password used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
+| `password`      | No     | The password or personal access token used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
 
 > [!NOTE]
-> Many `Git` repository servers support the use of tokens rather than passwords for HTTP Basic Authentication. Some repositories, such as GitHub, allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps, force tokens to expire in a few hours. Repositories that cause tokens to expire should not use token-based authentication with Azure Spring Cloud.
+> Many `Git` repository servers support the use of tokens rather than passwords for HTTP Basic Authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire should not use token-based authentication with Azure Spring Cloud.
+> Github has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for Github. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
 ### Git repositories with pattern
 
@@ -117,7 +118,7 @@ All configurable properties used to set up Git repositories with pattern are lis
 | `repos."default-label"`            | No             | The default label of the Git repository, should be the *branch name*, *tag name*, or *commit-id* of the repository. |
 | `repos."search-paths`"             | No             | An array of strings used to search subdirectories of the Git repository. |
 | `repos."username"`                 | No             | The username that's used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
-| `repos."password"`                 | No             | The password used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
+| `repos."password"`                 | No             | The password or personal access token used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
 | `repos."private-key"`              | No             | The SSH private key to access Git repository, _required_ when the URI starts with *git@* or *ssh://*. |
 | `repos."host-key"`                 | No             | The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`. |
 | `repos."host-key-algorithm"`       | No             | The host key algorithm, should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. *Required* only if `host-key` exists. |
@@ -135,11 +136,11 @@ Now that your configuration files are saved in a repository, you need to connect
 
 4. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
 
-5. Click **Validate**.
+5. Select **Validate**.
 
     ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-6. When validation is complete, click **Apply** to save your changes.
+6. When validation is complete, select **Apply** to save your changes.
 
     ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
@@ -162,7 +163,8 @@ Now that your configuration files are saved in a repository, you need to connect
     ![The Edit Authentication pane basic auth](media/spring-cloud-tutorial-config-server/basic-auth.png)
 
     > [!CAUTION]
-    > Some Git repository servers, such as GitHub, use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Cloud, because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps, the *access-token* expires in one or two hours. This means that the option isn't viable when you use those repository servers with Azure Spring Cloud.
+    > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Cloud, because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps Server, the *access-token* expires in one or two hours. This means that the option isn't viable when you use those repository servers with Azure Spring Cloud.
+    > Github has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for Github. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
     * **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Be sure to include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
@@ -200,25 +202,25 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
 ### Get repo url and credentials
 
-1. In the Azure Repos portal for your project, click the "Clone" button:
+1. In the Azure Repos portal for your project, select the **Clone** button:
 
     ![Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
 
 1. Copy the clone URL from the textbox. This URL will typically be in the form:
 
-    ```Text
+    ```text
     https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
     Remove everything after `https://` and before `dev.azure.com`, including the `@`. The resulting URL should be in the form:
 
-    ```Text
+    ```text
     https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
     Save this URL for use in the next section.
 
-1. Click "Generate Git Credentials". A username and password will appear. Save these for use in the next section.
+1. Select **Generate Git Credentials**. A username and password will appear. Save these for use in the next section.
 
 ### Configure Azure Spring Cloud to access the Git repository
 
@@ -230,11 +232,11 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
 1. In the left pane of the service page, under **Settings**, select the **Config Server** tab. Configure the repository we previously created:
 
-   - Add the repository URL that you have saved from the previous section
-   - Click on `Authentication` and select `HTTP Basic`
-   - The __username__ is the username saved from the previous section
-   - The __password__ is the password saved from the previous section
-   - Click on "Apply" and wait for the operation to succeed
+   - Add the repository URL that you have saved from the previous section.
+   - Select **Authentication** and then select **HTTP Basic**.
+   - The __username__ is the username saved from the previous section.
+   - The __password__ is the password saved from the previous section.
+   - Select **Apply** and then wait for the operation to succeed.
 
    ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
@@ -259,7 +261,7 @@ When properties are changed, services consuming those properties need to be noti
 - Second enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 5 seconds, which is the minimum value you can set for refresh interval.
 By default auto-refresh is set to false and refresh-interval is set to 60 seconds.
 
-  ``` yml
+  ```yml
   spring:
     cloud:
       config:
@@ -269,7 +271,7 @@ By default auto-refresh is set to false and refresh-interval is set to 60 second
 
 - Finally add @refreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 5 seconds.
 
-  ``` java
+  ```java
   @RestController
   @RefreshScope
   public class HelloController {

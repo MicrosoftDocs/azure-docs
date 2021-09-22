@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 08/24/2021
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn

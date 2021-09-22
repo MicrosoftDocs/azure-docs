@@ -41,6 +41,7 @@ The following is a quick checklist of VM size best practices for running your SQ
 - Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads. 
 - Use the Azure Virtual Machine marketplace images as the SQL Server settings and storage options are configured for optimal SQL Server performance. 
 - Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.
+- Use the [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) [SKU recommendation](/sql/dma/dma-sku-recommend-sql-db) tool to find the right VM size for your existing SQL Server workload.
 
 To learn more, see the comprehensive [VM size best practices](performance-guidelines-best-practices-vm-size.md). 
 
@@ -55,7 +56,7 @@ The following is a quick checklist of storage configuration best practices for r
     - For the log drive plan for capacity and test performance versus cost while evaluating the [premium P30 - P80 disks](../../../virtual-machines/disks-types.md#premium-ssd).
       - If submillisecond storage latency is required, use [Azure ultra disks](../../../virtual-machines/disks-types.md#ultra-disk) for the transaction log. 
       - For M-series virtual machine deployments consider [Write Accelerator](../../../virtual-machines/how-to-enable-write-accelerator.md) over using Azure ultra disks.
-    - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD `D:\` drive for most SQL Server workloads after choosing the optimal VM size. 
+    - Place [tempdb](/sql/relational-databases/databases/tempdb-database) on the local ephemeral SSD (default `D:\`) drive for most SQL Server workloads after choosing the optimal VM size. 
       - If the capacity of the local drive is not enough for tempdb, consider sizing up the VM. See [Data file caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies) for more information.
 - Stripe multiple Azure data disks using [Storage Spaces](/windows-server/storage/storage-spaces/overview) to increase I/O bandwidth up to the target virtual machine's IOPS and throughput limits.
 - Set [host caching](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) to read-only for data file disks.
@@ -108,7 +109,7 @@ The following is a quick checklist of best practices for Azure-specific guidance
 - Leverage [Azure Security Center](../../../security-center/index.yml) to improve the overall security posture of your virtual machine deployment.
 - Leverage [Azure Defender](../../../security-center/azure-defender.md), integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), for specific [SQL Server VM coverage](../../../security-center/defender-for-sql-introduction.md) including vulnerability assessments, and just-in-time access, which reduces the attack service while allowing legitimate users to access virtual machines when necessary. To learn more, see [vulnerability assessments](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md), [enable vulnerability assessments for SQL Server VMs](../../../security-center/defender-for-sql-on-machines-vulnerability-assessment.md) and [just-in-time access](../../../security-center/just-in-time-explained.md). 
 - Leverage [Azure Advisor](../../../advisor/advisor-overview.md) to address [performance](../../../advisor/advisor-performance-recommendations.md), [cost](../../../advisor/advisor-cost-recommendations.md), [reliability](../../../advisor/advisor-high-availability-recommendations.md), [operational excellence](../../../advisor/advisor-operational-excellence-recommendations.md), and [security recommendations](../../../advisor/advisor-security-recommendations.md).
-- Leverage [Azure Monitor](../../../azure-monitor/vm/quick-monitor-azure-vm.md) to collect, analyze, and act on telemetry data from your SQL Server environment. This includes identifying infrastructure issues with [VM insights](../../../azure-monitor/vm/vminsights-overview.md) and monitoring data with [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) for deeper diagnostics.
+- Leverage [Azure Monitor](../../../azure-monitor/vm/monitor-virtual-machine.md) to collect, analyze, and act on telemetry data from your SQL Server environment. This includes identifying infrastructure issues with [VM insights](../../../azure-monitor/vm/vminsights-overview.md) and monitoring data with [Log Analytics](../../../azure-monitor/logs/log-query-overview.md) for deeper diagnostics.
 - Enable [Autoshutdown](../../../automation/automation-solution-vm-management.md) for development and test environments. 
 - Implement a high availability and disaster recovery (HADR) solution that meets  your business continuity SLAs, see the [HADR options](business-continuity-high-availability-disaster-recovery-hadr-overview.md#deployment-architectures) options available for SQL Server on Azure VMs. 
 - Use the Azure portal (support + troubleshooting) to evaluate [resource health](../../../service-health/resource-health-overview.md) and history; submit new support requests when needed.
@@ -139,8 +140,9 @@ For your SQL Server availability group or failover cluster instance, consider th
 * If optimizing SQL Server VM performance does not resolve your unexpected failovers, consider [relaxing the monitoring](hadr-cluster-best-practices.md#relaxed-monitoring) for the availability group or failover cluster instance. However, doing so may not address the underlying source of the issue and could mask symptoms by reducing the likelihood of failure. You may still need to investigate and address the underlying root cause. For Windows Server 2012 or higher, use the following recommended values: 
    - **Lease timeout**: Use this equation to calculate the maximum lease time out value:   
     `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.    
-    Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value.    
-   - **Max failures in a specified period**: Set this value to 6. 
+    Start with 40 seconds. If you're using the relaxed `SameSubnetThreshold` and `SameSubnetDelay` values recommended previously, do not exceed 80 seconds for the lease timeout value. 
+   - **Max failures in a specified period**: You can set this value to 6.
+   - **Healthcheck timeout**: You can set this value to 60000 initially, adjust as necessary. 
 * When using the virtual network name (VNN) to connect to your HADR solution, specify `MultiSubnetFailover = true` in the connection string, even if your cluster only spans one subnet. 
    - If the client does not support `MultiSubnetFailover = True` you may need to set `RegisterAllProvidersIP = 0` and `HostRecordTTL = 300` to cache client credentials for shorter durations. However, doing so may cause additional queries to the DNS server. 
 - To connect to your HADR solution using the distributed network name (DNN), consider the following:

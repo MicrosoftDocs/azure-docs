@@ -172,7 +172,7 @@ You can change the state of an alert to **Acknowledged** or **Closed** by clicki
 
 > [!NOTE]
 > - In Backup center, only alerts for Azure-based workloads are displayed currently. To view alerts for on-premises resources, navigate to the Recovery Services vault and click the **Alerts** menu item.
-> - Only Azure Monitor alerts are displayed in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](/azure/backup/backup-azure-monitoring-built-in-monitor#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) are not displayed in Backup center.
+> - Only Azure Monitor alerts are displayed in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) are not displayed in Backup center.
 For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ### Configuring notifications for alerts

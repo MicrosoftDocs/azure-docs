@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart 
-ms.date: 04/05/2021
+ms.date: 09/10/2021
 ms.author: rabhaiya
 ---
 
@@ -158,7 +158,7 @@ Preserve this connection string to be used at a later step.
 
 Azure offers an extensive suite of IoT products to connect and manage your IoT devices. You can build your own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. For this tutorial, we'll leverage Azure IoT Central, which has industry-focused solution templates to help you get started.
 
-Deploy the [Continuous patient monitoring application template](../../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template). This template includes two simulated devices producing real-time data to help you get started: **Smart Vitals Patch** and **Smart Knee Brace**.
+Deploy the [Continuous patient monitoring application template](../../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-continuous-patient-monitoring-application). This template includes two simulated devices producing real-time data to help you get started: **Smart Vitals Patch** and **Smart Knee Brace**.
 
 > [!NOTE]
 > Whenever your real devices are ready, you can use same IoT Central application to [onboard your devices](../../iot-central/core/howto-set-up-template.md) and replace device simulators. Your device data will automatically start flowing to FHIR as well. 
@@ -186,7 +186,7 @@ Create a new data export:
 
 ## View device data in Azure API for FHIR
 
-You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. Set up your [Postman to access Azure API for FHIR](access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value. 
+You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. For information, see [Access the FHIR service using Postman](./../use-postman.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value. 
 
 > [!TIP]
 > Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign required data plane roles.
