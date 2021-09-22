@@ -35,7 +35,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 ## <a id="permission-model"></a> Permission model
 
 > [!IMPORTANT]
-> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations on management resources, for example:
+> This permission model covers only database operations that involve reading and writing data. It does *not* cover any kind of management operations on management resources, for example:
 > - Create/Replace/Delete Database
 > - Create/Replace/Delete Container
 > - Replace Container Throughput
@@ -43,16 +43,16 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 > - Create/Replace/Delete/Read Triggers
 > - Create/Replace/Delete/Read User Defined Functions
 >
->   This means that you **cannot use any Azure Cosmos DB data plane SDK** to authenticate management operations with an AAD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
-> - [Azure Resource Manager (ARM) templates](manage-with-templates.md)
-> - [Azure PowerShell scripts](manage-with-powershell.md),
-> - [Azure CLI scripts](sql/manage-with-cli.md),
-> - Azure management libraries available in
+> You *cannot use any Azure Cosmos DB data plane SDK* to authenticate management operations with an Azure AD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through one of the following options:
+> - [Azure Resource Manager templates (ARM templates)](./sql/manage-with-templates.md)
+> - [Azure PowerShell scripts](./sql/manage-with-powershell.md)
+> - [Azure CLI scripts](./sql/manage-with-cli.md)
+> - Azure management libraries available in:
 >   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 >   
->   Note that Read Database and Read Container are considered [metadata requests](#metadata-requests) and access to these can be granted as stated in the following section.
+> Read Database and Read Container are considered [metadata requests](#metadata-requests). Access to these operations can be granted as stated in the following section.
 
 The table below lists all the actions exposed by the permission model.
 
