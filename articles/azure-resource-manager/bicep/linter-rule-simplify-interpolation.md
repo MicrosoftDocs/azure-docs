@@ -7,7 +7,7 @@ ms.date: 09/14/2021
 
 # Linter rule - simplify interpolation
 
-The linter makes it easier to enforce coding standards by providing guidance during development. The current set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md).
+The linter makes it easier to enforce coding standards by providing guidance during development. The current set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md):
 
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-env-urls.md)
 - [no-unused-params](./linter-rule-no-unused-params.md)
