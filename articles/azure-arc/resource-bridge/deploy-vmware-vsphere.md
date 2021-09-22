@@ -141,11 +141,15 @@ The `resource.yaml` file contains all the information related to the Azure Resou
 
 ## Deployment
 
+Perform the following steps to deploy the Arc resource bridge in your vSphere environment.
+
 1. Create the resource bridge vSphere virtual machine running the following command. It creates a kubeconfig file after a successful deployment.
 
     ```bash
     az arcappliance deploy vmware --config-file <path and name of the appliance.yaml> --out-file kubeconfig
     ```
+
+  This step can take around 30 minutes to complete. 
 
 2. Run the following command to create the resource bridge resource in Azure:
 
@@ -159,9 +163,7 @@ The resource in Azure will take several minutes to connect to the virtual machin
 az arcappliance show -n <resourceName> -g <resourceGroupName>
 ```
 
-The output resembles the following:
-
-<Example image or verbatim output>
+The output results for the property `provisioningState` has a value of `Succeeded` and for the property `status`, a value of `Running`.
 
 ## Next steps
 

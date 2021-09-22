@@ -54,7 +54,7 @@ A vSphere account that can read all inventory, deploy and update VMs to all the 
 
 If you are using the [Azure VMware solution](../../azure-vmware/introduction.md), this account would be the **cloudadmin** account.
 
-### Required permissions
+### Required Azure permissions
 
 * To onboard the Arc resource bridge, you are a member of the **Name of role** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
