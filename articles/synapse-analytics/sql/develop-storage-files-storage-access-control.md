@@ -206,7 +206,7 @@ Shared access signatures cannot be used to access firewall-protected storage.
 
 ### [Service Principal](#tab/service-principal)
 
-???
+Service Principal cannot be used to access firewall-protected storage. Use Managed Identity instead.
 
 ### [Managed Identity](#tab/managed-identity)
 
@@ -217,6 +217,14 @@ In this case, the scope of access for the instance corresponds to the Azure role
 
 You cannot access firewall-protected storage using anonymous access.
 
+In the table below you can find the available authorization types for different login methods into Synapse Serverless SQL endpoint:
+
+| Authorization type                    | *SQL user*    | *Azure AD user*     | *Service Principal* |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not supported | Supported      | Not supported|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Not supported     | Not supported      | Not supported|
+| [Service Principal](?tabs=service-principal#supported-storage-authorization-types) | Not upported | Not supported      | Not supported|
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      | Supported|
 ---
 
 ## Credentials
