@@ -119,7 +119,7 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
    - Using access policies (that is, Permission model is set to Vault access policy):
 
      - Set Get and List permissions on secrets.
-     - Learn about [Assign an Azure Key Vault access policy](/azure/key-vault/general/assign-access-policy&preserve-view=true?tabs=azure-portal)
+     - Learn about [Assign an Azure Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal)
 
      :::image type="content" source="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-inline.png" alt-text="Screenshot showing the option to grant permission using Permission model is set to Vault access policy model." lightbox="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-expanded.png":::  
  
