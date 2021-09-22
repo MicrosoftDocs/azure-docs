@@ -7,7 +7,7 @@ ms.reviewer: stmummer
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 02/18/2021
+ms.date: 09/22/2021
 ---
 
 # Reference architecture diagram
