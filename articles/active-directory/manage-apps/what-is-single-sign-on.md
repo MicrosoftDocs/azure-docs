@@ -42,7 +42,7 @@ Choosing an SSO method depends on how the application is configured for authenti
 
 - **Linked** - Linked sign-on can provide a consistent user experience while you migrate applications over a period of time. If you're migrating applications to Azure AD, you can use linked-based SSO to quickly publish links to all the applications you intend to migrate. Users can find all the links in the My Apps or Microsoft 365 portals.
 
-    After a user has authenticated with a linked application, an account needs to be created before the user is provided single sign-on access. Provisioning this account can either occur automatically, or it can occur manually by an administrator. You cannot apply conditional access policies or multi-factor authentication to a linked application because a linked application does not provide single sign-on capabilities through Azure AD. When you configure a linked application you are simply adding a link that appears for launching the app.
+    After a user has authenticated with a linked application, an account needs to be created before the user is provided single sign-on access. Provisioning this account can either occur automatically, or it can occur manually by an administrator. You cannot apply conditional access policies or multifactor authentication to a linked application because a linked application does not provide single sign-on capabilities through Azure AD. When you configure a linked application, you are simply adding a link that appears for launching the application.
 
 - **Disabled** - When SSO is disabled, it isn't available for the application. When single sign-on is disabled, users might need to authenticate twice. First, users authenticate to Azure AD, and then they sign in to the application.
 
@@ -52,7 +52,7 @@ Choosing an SSO method depends on how the application is configured for authenti
     - You're testing other aspects of the application
     - An on-premises application doesn't require users to authenticate, but you want them to. With SSO disabled, the user needs to authenticate.
 
-    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To achieve this, you need to [disable the ability for users to sign-in](disable-user-sign-in-portal.md).
+    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To achieve this, you need to [disable the ability for users to sign in](disable-user-sign-in-portal.md).
 
 ## Plan SSO deployment
 

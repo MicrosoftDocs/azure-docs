@@ -46,7 +46,7 @@ To learn more about Azure AD administrative roles, see [Azure AD built-in roles]
 
 When you enable federated SSO for your application, Azure AD creates a certificate that is by default valid for three years. You can customize the expiration date for that certificate if needed. Ensure that you have processes in place to renew certificates prior to their expiration. 
 
-You change that certificate duration in the Azure portal. Make sure to document the expiration and know how you will manage your certificate renewal. It’s important to identify the right roles and email distribution lists involved with managing the lifecycle of the signing certificate. The following roles are recommend:
+You change that certificate duration in the Azure portal. Make sure to document the expiration and know how you will manage your certificate renewal. It’s important to identify the right roles and email distribution lists involved with managing the lifecycle of the signing certificate. The following roles are recommended:
 
 - Owner for updating user properties in the application
 - Owner On-Call for application troubleshooting support
@@ -86,7 +86,7 @@ From the sign-in perspective, applications with shared accounts aren't different
 
 ## Single sign-on options
 
-There are several ways you can configure an application for SSO. Choosing a SSO method depends on how the application is configured for authentication.
+There are several ways you can configure an application for SSO. Choosing an SSO method depends on how the application is configured for authentication.
 - Cloud applications can use OpenID Connect, OAuth, SAML, password-based, or linked for SSO. Single sign-on can also be disabled.
 - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked for SSO. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
 
