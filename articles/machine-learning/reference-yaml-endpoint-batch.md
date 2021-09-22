@@ -33,10 +33,6 @@ ms.reviewer: laobri
 
 The `az ml batch-endpoint` commands can be used for managing Azure Machine Learning endpoints.
 
-## Examples
-
-[TODO]
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json. The schema is provided below in JSON and YAML formats for convenience.
