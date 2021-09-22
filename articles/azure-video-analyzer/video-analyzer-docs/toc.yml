@@ -147,6 +147,8 @@
     items:
     - name: Monitor and logging
       href: edge/monitor-log-edge.md 
+    - name: Public endpoints
+      href: access-public-endpoints-networking.md
   - name: Visualize
     items:
     - name: Embed player widget in a web app
