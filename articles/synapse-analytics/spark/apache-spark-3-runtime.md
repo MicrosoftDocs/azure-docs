@@ -6,7 +6,7 @@ author: midesa
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 08/23/2021 
+ms.date: 09/22/2021 
 ms.author: midesa 
 ms.custom: has-adal-ref
 ---
