@@ -5,7 +5,7 @@ services: synapse-analytics
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: include
-ms.date: 04/15/2021
+ms.date: 09/22/2021
 ms.author: jburchel
 ms.custom: include file
 ---
@@ -48,6 +48,7 @@ Azure Synapse Analytics has the following default limits to ensure customer's su
 | Monitoring queries per minute | 1,000 | 1,000 |
 | Maximum time of data flow debug session | 8 hrs | 8 hrs |
 | Concurrent number of data flows per integration runtime | 50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Concurrent number of data flows per integration runtime in managed vNet| 20 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent number of data flow debug sessions per user per workspace | 3 | 3 |
 | Data Flow Azure IR TTL limit | 4 hrs |  4 hrs |
 | Meta Data Entity Size limit in a workspace | 2 GB | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
