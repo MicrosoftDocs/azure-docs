@@ -1,6 +1,6 @@
 ---
-title: Deploy Open Service Mesh (Preview)
-description: Deploy Open Service Mesh on Azure Kubernetes Service (AKS)
+title: Deploy Open Service Mesh
+description: Deploy Open Service Mesh on Azure Kubernetes Service (AKS) using Azure CLI
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
@@ -8,7 +8,8 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-# Deploy the Open Service Mesh AKS add-on (Preview)
+# Deploy the Open Service Mesh AKS add-on using Azure CLI
+
 This article will discuss how to deploy the OSM add-on to AKS.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
@@ -18,11 +19,10 @@ This article will discuss how to deploy the OSM add-on to AKS.
 - The Azure CLI, version 2.20.0 or later
 - The `aks-preview` extension version 0.5.5 or later
 - OSM version v0.9.1 or later
-- JSON processor "jq" version 1.6+
 
 ## Install the aks-preview extension
 
-You will need the *aks-preview* Azure CLI extension version 0.5.24 or greater. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+You will need the _aks-preview_ Azure CLI extension version 0.5.24 or greater. Install the _aks-preview_ Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -60,7 +60,7 @@ For a new AKS cluster deployment scenario, you will start with a brand new deplo
 
 ### Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example is used to create a resource group in a specified location (region):
 
 ```azurecli-interactive
 az group create --name <my-osm-aks-cluster-rg> --location <azure-region>
@@ -71,7 +71,7 @@ az group create --name <my-osm-aks-cluster-rg> --location <azure-region>
 You'll now deploy a new AKS cluster with the OSM add-on enabled.
 
 > [!NOTE]
-> Please be aware the following AKS deployment command utilizes OS ephemeral disks for an example AKS deployment. You can find more information here about [Ephemeral OS disks for AKS](./cluster-configuration.md#ephemeral-os)
+> Please be aware the following AKS deployment command utilizes OS ephemeral disks. You can find more information here about [Ephemeral OS disks for AKS](./cluster-configuration.md#ephemeral-os)
 
 ```azurecli-interactive
 az aks create -n <my-osm-aks-cluster-name> -g <my-osm-aks-cluster-rg> --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
@@ -187,7 +187,7 @@ spec:
     useHTTPSIngress: false
 ```
 
-Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services. For more detailed information about permissive traffic mode, please visit and read the [Permissive Traffic Policy Mode](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) article. 
+Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
 > [!WARNING]
 > Before proceeding please verify that your permissive traffic policy mode is set to true, if not please change it to **true** using the command below
@@ -195,3 +195,12 @@ Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Perm
 ```OSM Permissive Mode to True
 kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}' --type=merge
 ```
+
+<!-- Links -->
+<!-- Internal -->
+
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
