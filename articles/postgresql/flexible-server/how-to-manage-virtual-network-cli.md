@@ -77,7 +77,7 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
 Refer to the Azure CLI [reference documentation](/cli/azure/postgres/flexible-server) for the complete list of configurable CLI parameters.
 
 >[!Important]
-> If you get an error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, this means you may be running an older version of Azure CLI. Please [upgrade Azure CLI](https://docs.microsoft.com/cli/azure/update-azure-cli) and retry the operation.
+> If you get an error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, this means you may be running an older version of Azure CLI. Please [upgrade Azure CLI](/cli/azure/update-azure-cli) and retry the operation.
 
 ## Next steps
 - Learn more about [networking in Azure Database for PostgreSQL - Flexible Server](./concepts-networking.md).

@@ -3,12 +3,12 @@ title: Encryption in Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Encryption in Azure Data Lake Storage Gen1 helps you protect your data, implement enterprise security policies, and meet regulatory compliance requirements. This article provides an overview of the design, and discusses some of the technical aspects of implementation.
 services: data-lake-store
 documentationcenter: ''
-author: esung22
+author: twooley
 
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: yagupta
+ms.author: twooley
 ---
 
 # Encryption of data in Azure Data Lake Storage Gen1

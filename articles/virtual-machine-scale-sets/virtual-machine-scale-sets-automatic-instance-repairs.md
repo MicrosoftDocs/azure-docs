@@ -13,6 +13,8 @@ ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Automatic instance repairs for Azure virtual machine scale sets
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 Enabling automatic instance repairs for Azure virtual machine scale sets helps achieve high availability for applications by maintaining a set of healthy instances. If an instance in the scale set is found to be unhealthy as reported by [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md), then this feature automatically performs instance repair by deleting the unhealthy instance and creating a new one to replace it.
 
 ## Requirements for using automatic instance repairs
@@ -33,7 +35,7 @@ For instances marked as "Unhealthy", automatic repairs are triggered by the scal
 
 **Maximum number of instances in the scale set**
 
-This feature is currently available only for scale sets that have a maximum of 500 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 200 if automatic instance repairs is enabled for the scale set.
+This feature is currently available only for scale sets that have a maximum of 500 instances. The scale set can be deployed as either a single placement group or a multi-placement group, however the instance count cannot be above 500 if automatic instance repairs is enabled for the scale set.
 
 **API version**
 

@@ -116,4 +116,5 @@ The Kubernetes metrics server provides autoscaling pipelines such as [Horizontal
 
 ## Next steps
 
-Learn how to [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot.md).
+Learn how to [Monitor using Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).
+Learn how to [Run diagnostics and collect logs](azure-stack-edge-gpu-troubleshoot.md)

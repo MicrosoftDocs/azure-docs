@@ -25,7 +25,7 @@ This article gives an overview of the APIs available, and the methods for intera
 
 ## Overview: control plane APIs
 
-The control plane APIs are [ARM](../azure-resource-manager/management/overview.md) APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
+The control plane APIs are [ARM](../azure-resource-manager/management/overview.md) APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You'll also use these APIs to create and delete endpoints.
 
 The most current control plane API version is _**2020-12-01**_.
 
@@ -42,7 +42,7 @@ You can also exercise control plane APIs by interacting with Azure Digital Twins
 
 ## Overview: data plane APIs
 
-The data plane APIs are the Azure Digital Twins APIs used to manage the elements within your Azure Digital Twins instance. They  include operations like creating routes, uploading models, creating relationships, and managing twins. They can be broadly divided into the following categories:
+The data plane APIs are the Azure Digital Twins APIs used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins, and can be broadly divided into the following categories:
 * **DigitalTwinModels** - The DigitalTwinModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, retrieval, and deletion of models authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
@@ -76,50 +76,20 @@ You can also exercise date plane APIs by interacting with Azure Digital Twins th
 
 ## .NET (C#) SDK (data plane)
 
-The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It is open source, and is based on the Azure Digital Twins data plane APIs.
+The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It's open source, and is based on the Azure Digital Twins data plane APIs.
 
 > [!NOTE]
 > For more information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You will also need the latest version of the **Azure.Identity** package. In Visual Studio, you can add these packages using the NuGet Package Manager (accessed through *Tools > NuGet Package Manager > Manage NuGet Packages for Solution*). Alternatively, you can use the .NET command line tool with the commands found in the NuGet package links below to add these to your project:
-* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
-* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
+To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You'll also need the latest version of the **Azure.Identity** package. In Visual Studio, you can add these packages using the NuGet Package Manager (accessed through *Tools > NuGet Package Manager > Manage NuGet Packages for Solution*). You can also use the .NET command-line tool with the commands found in the NuGet package links below to add these to your project:
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core): The package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity): The library that provides tools to help with authentication against Azure.
 
-For a detailed walk-through of using the APIs in practice, see the [Tutorial: Code a client app](tutorial-code.md). 
+For a detailed walk-through of using the APIs in practice, see [Code a client app](tutorial-code.md). 
 
-### .NET SDK usage examples
+### Serialization helpers
 
-Here are some code samples illustrating use of the .NET SDK.
-
-Authenticate against the service:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/authentication.cs" id="DefaultAzureCredential_basic":::
-
-[!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-note.md)] 
-
-Upload a model:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
-
-List models:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="GetModels":::
-
-Create twins:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
-
-Query twins and loop through results:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="FullQuerySample":::
-
-See the [Tutorial: Code a client app](tutorial-code.md) for a walk-through of this sample app code. 
-
-You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
-
-#### Serialization Helpers
-
-Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
+Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break down the twin data further.
 
 The available helper classes are:
 * `BasicDigitalTwin`: Generically represents the core data of a digital twin
@@ -127,60 +97,17 @@ The available helper classes are:
 * `BasicRelationship`: Generically represents the core data of a relationship
 * `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
 
-##### Deserialize a digital twin
-
-You can always deserialize twin data using the JSON library of your choice, like `System.Text.Json` or `Newtonsoft.Json`. For basic access to a twin, the helper classes can make this more convenient.
-
-The `BasicDigitalTwin` helper class also gives you access to properties defined on the twin, through a `Dictionary<string, object>`. To list properties of the twin, you can use:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
-
-> [!NOTE]
-> `BasicDigitalTwin` uses `System.Text.Json` attributes. In order to use `BasicDigitalTwin` with your [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), you must either initialize the client with the default constructor, or, if you want to customize the serializer option, use the [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
-
-##### Create a digital twin
-
-Using the `BasicDigitalTwin` class, you can prepare data for creating a twin instance:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
-
-The code above is equivalent to the following "manual" variant:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
-
-##### Deserialize a relationship
-
-You can always deserialize relationship data to a type of your choice. For basic access to a relationship, use the type `BasicRelationship`.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
-
-The `BasicRelationship` helper class also gives you access to properties defined on the relationship, through an `IDictionary<string, object>`. To list properties, you can use:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
-
-##### Create a relationship
-
-Using the `BasicRelationship` class, you can also prepare data for creating relationships on a twin instance:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
-
-##### Create a patch for twin update
-
-Update calls for twins and relationships use [JSON Patch](http://jsonpatch.com/) structure. To create lists of JSON Patch operations, you can use the `JsonPatchDocument` as shown below.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
-
 ## General API/SDK usage notes
 
 > [!NOTE]
 > Please note that Azure Digital Twins doesn't currently support **Cross-Origin Resource Sharing (CORS)**. For more info about the impact and resolution strategies, see the [Cross-Origin Resource Sharing (CORS)](concepts-security.md#cross-origin-resource-sharing-cors) section of *Concepts: Security for Azure Digital Twins solutions*.
 
-The following list provides additional detail and general guidelines for using the APIs and SDKs.
+The following list provides more detail and general guidelines for using the APIs and SDKs.
 
-* You can use an HTTP REST-testing tool like Postman to make direct calls to the Azure Digital Twins APIs. For more information about this process, see [How-to: Make requests with Postman](how-to-use-postman.md).
-* To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with a variety of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
-* You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true), which you will likely use to authenticate [Azure functions set up with MSI](../app-service/overview-managed-identity.md?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
-* Requests to the Azure Digital Twins APIs require a user or service principal that is a part of the same [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) tenant where the Azure Digital Twins instance resides. To prevent malicious scanning of Azure Digital Twins endpoints, requests with access tokens from outside the originating tenant will be returned a "404 Sub-Domain not found" error message. This error will be returned *even if* the user or service principal was given an Azure Digital Twins Data Owner or Azure Digital Twins Data Reader role through [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) collaboration. For information on how to achieve access across multiple tenants, see [How-to: Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
+* You can use an HTTP REST-testing tool like Postman to make direct calls to the Azure Digital Twins APIs. For more information about this process, see [Make API requests with Postman](how-to-use-postman.md).
+* To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with different kinds of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
+* You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true), which you'll likely use to authenticate [Azure functions set up with MSI](../app-service/overview-managed-identity.md?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
+* Requests to the Azure Digital Twins APIs require a user or service principal that is a part of the same [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) tenant where the Azure Digital Twins instance exists. To prevent malicious scanning of Azure Digital Twins endpoints, requests with access tokens from outside the originating tenant will be returned a "404 Sub-Domain not found" error message. This error will be returned *even if* the user or service principal was given an Azure Digital Twins Data Owner or Azure Digital Twins Data Reader role through [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) collaboration. For information on how to achieve access across multiple tenants, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
 * All service API calls are exposed as member functions on the `DigitalTwinsClient` class.
 * All service functions exist in synchronous and asynchronous versions.
 * All service functions throw an exception for any return status of 400 or above. Make sure you wrap calls into a `try` section, and catch at least `RequestFailedExceptions`. For more about this type of exception, see its [reference documentation](/dotnet/api/azure.requestfailedexception?view=azure-dotnet&preserve-view=true).
@@ -190,7 +117,7 @@ The following list provides additional detail and general guidelines for using t
 * The underlying SDK is `Azure.Core`. See the [Azure namespace documentation](/dotnet/api/azure?view=azure-dotnet&preserve-view=true) for reference on the SDK infrastructure and types.
 
 
-Service methods return strongly-typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
+Service methods return strongly typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
 
 ## Monitor API metrics
 
@@ -205,7 +132,7 @@ From here, you can view the metrics for your instance and create custom views.
 ## Next steps
 
 See how to make direct requests to the APIs using Postman:
-* [How-to: Make requests with Postman](how-to-use-postman.md)
+* [Make API requests with Postman](how-to-use-postman.md)
 
 Or, practice using the .NET SDK by creating a client app with this tutorial:
-* [Tutorial: Code a client app](tutorial-code.md)
+* [Code a client app](tutorial-code.md)

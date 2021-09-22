@@ -9,10 +9,13 @@ ms.date: 11/17/2020
 ---
 
 # Resource Manager template samples for data collection rules in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create an association between a [data collection rule](data-collection-rule-overview.md) and the [Azure Monitor agent](./azure-monitor-agent-overview.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create an association between a [data collection rule](data-collection-rule-overview.md) and the [Azure Monitor agent](./azure-monitor-agent-overview.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
+## Create rule (sample)
+
+View [template format](/azure/templates/microsoft.insights/datacollectionrules)
 
 ## Create association with Azure VM
 
@@ -108,7 +111,7 @@ The following sample creates an association between an Azure Arc-enabled server 
     "resources": [
         {
             "type": "Microsoft.HybridCompute/machines/providers/dataCollectionRuleAssociations",
-            "name": "[concat(parameters('machineName'),'/microsoft.insights/', parameters('associationName'))]",
+            "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('associationName'))]",
             "apiVersion": "2019-11-01-preview",
             "properties": {
                 "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",

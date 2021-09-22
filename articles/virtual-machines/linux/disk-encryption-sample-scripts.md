@@ -14,7 +14,9 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 # Azure Disk Encryption sample scripts for Linux VMs
 
-This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
+This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.  
 
 > [!NOTE]
 > All scripts refer to the latest, non-AAD version of ADE, except where noted.
@@ -61,7 +63,7 @@ The following table shows which parameters can be used in the PowerShell script:
 
 ### Encrypt or decrypt VMs without an Azure AD app
 
-- [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)
+- [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad)
 - [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)
     - Disabling encryption is only allowed on Data volumes for Linux VMs.
 
@@ -70,11 +72,11 @@ The following table shows which parameters can be used in the PowerShell script:
 - [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm)
 
 
--  [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm)
+-  [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-linux-vm)
     - Disabling encryption is only allowed on Data volumes for Linux VMs.
 
 
-- [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+- [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/create-encrypted-managed-disk)
     - Creates a new encrypted managed disk provided a pre-encrypted VHD and its corresponding encryption settings
 
 ## Encrypting an OS drive on a running Linux VM
@@ -84,7 +86,7 @@ The following table shows which parameters can be used in the PowerShell script:
 * The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption supported operating systems](disk-encryption-overview.md#supported-vms)
 * The VM must be created from the Marketplace image in Azure Resource Manager.
 * Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
-* (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
+* (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/sect-security-enhanced_linux-working_with_selinux-changing_selinux_modes#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
 * After you disable SELinux, reboot the VM at least once.
 
 ### Steps

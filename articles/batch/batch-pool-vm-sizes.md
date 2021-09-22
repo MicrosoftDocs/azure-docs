@@ -2,20 +2,29 @@
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ms.custom: seodec18
 
 ---
 
 # Choose a VM size and image for compute nodes in an Azure Batch pool
 
-When you select a node size for an Azure Batch pool, you can choose from among almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
+When you select a node size for an Azure Batch pool, you can choose from almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
 
 ## Supported VM series and sizes
 
 ### Pools in Virtual Machine configuration
 
-Batch pools in the Virtual Machine configuration support almost all [VM sizes](../virtual-machines/sizes.md). See the following table to learn more about supported sizes and restrictions.
+Batch pools in the Virtual Machine configuration support almost all [VM sizes](../virtual-machines/sizes.md). The supported VM sizes in a region can be obtained via [Batch Management APIs](batch-apis-tools.md#batch-management-apis), as well as the [command line tools](batch-apis-tools.md#batch-command-line-tools) (PowerShell cmdlets and Azure CLI).  For example, the [Azure Batch CLI command](/cli/azure/batch/location#az_batch_location_list_skus) to list supported VM sizes in a region is:
+
+```azurecli-interactive
+az batch location list-skus --location
+                            [--filter]
+                            [--maxresults]
+                            [--subscription] 
+```
+
+For each VM series, the following table also lists whether the VM series and VM sizes are supported by Batch.
 
 | VM series  | Supported sizes |
 |------------|---------|
@@ -31,10 +40,11 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
 | Eav4, Easv4 | All sizes |
-| Edv4, Edsv4 |  All sizes, except for Standard_E20d_v4, Standard_E20ds_v4, Standard_E80ids_v4 |
+| Edv4, Edsv4 | All sizes |
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
+| FX<sup>1</sup> | All sizes |
 | G, Gs | All sizes |
 | H | All sizes |
 | HB | All sizes |
@@ -50,6 +60,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | NCv3 | All sizes |
 | NCasT4_v3 | All sizes |
 | ND | All sizes |
+| NDv4 | All sizes |
 | NDv2 | None - not yet available |
 | NP | All sizes |
 | NV | All sizes |

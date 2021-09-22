@@ -2,8 +2,7 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 03/09/2021
-ms.custom: devx-track-csharp
+ms.date: 08/30/2021
 ---
 
 # Best Practices for performance improvements using Service Bus Messaging
@@ -63,7 +62,7 @@ You can also utilize Azure Monitor to [automatically scale the Service Bus names
 
 ### Sharding across namespaces
 
-While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **may not** provide a linear increase in the throughput. This is because of Service Bus internals (storage, network, etc.) which may be limiting the throughput.
+While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **may not** provide a linear increase in the throughput. This is because of Service Bus internals (storage, network, etc.), which may be limiting the throughput.
 
 The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces. You may also consider sharding across different namespaces in different Azure regions.
 
@@ -80,13 +79,14 @@ AMQP is the most efficient, because it maintains the connection to Service Bus. 
 > The SBMP is only available for .NET Framework. AMQP is the default for .NET Standard.
 
 ## Choosing the appropriate Service Bus .NET SDK
-There are three supported Azure Service Bus .NET SDKs. Their APIs are similar, and it can be confusing which one to choose. Refer to the following table to help guide your decision. Azure.Messaging.ServiceBus SDK is the latest and we recommend using it over other SDKs. Both Azure.Messaging.ServiceBus and Microsoft.Azure.ServiceBus SDKs are modern, performant, and cross-platform compatible. Additionally, they support AMQP over WebSockets and are part of the Azure .NET SDK collection of open-source projects.
+
+The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SDK available as of November 2020. There are two older .NET SDKs that will continue to receive critical bug fixes, but we strongly encourage you to use the latest SDK instead. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for details on how to move from the older SDKs.
 
 | NuGet Package | Primary Namespace(s) | Minimum Platform(s) | Protocol(s) |
 |---------------|----------------------|---------------------|-------------|
-| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
+| [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) (**latest**) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
 | [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
-| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) (**legacy**) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 For more information on minimum .NET Standard platform support, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).
 
@@ -98,9 +98,13 @@ We recommend that you don't close or dispose these objects after sending or rece
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
+> Please note, a newer package Azure.Messaging.ServiceBus is available as of November 2020. While the Microsoft.Azure.ServiceBus package will continue to receive critical bug fixes, we strongly encourage you to upgrade. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for more details.
+
 Service Bus client objects, such as implementations of [`IQueueClient`][QueueClient] or [`IMessageSender`][MessageSender], should be registered for dependency injection as singletons (or instantiated once and shared). We recommend that you don't close messaging factories, queue, topic, or subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service. A new connection is established when recreating the factory. 
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
+
+> Please note, a newer package Azure.Messaging.ServiceBus is available as of November 2020. While the WindowsAzure.ServiceBus package will continue to receive critical bug fixes, we strongly encourage you to upgrade. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for more details.
 
 Service Bus client objects, such as `QueueClient` or `MessageSender`, are created through a [MessagingFactory][MessagingFactory] object, which also provides internal management of connections. We recommend that you don't close messaging factories, queue, topic, or subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. 
 
@@ -109,7 +113,7 @@ Service Bus client objects, such as `QueueClient` or `MessageSender`, are create
 The following note applies to all SDKs:
 
 > [!NOTE]
-> Establishing a connection is an expensive operation that you can avoid by reusing the same factory and client objects for multiple operations. You can safely use these client objects for concurrent asynchronous operations and from multiple threads.
+> Establishing a connection is an expensive operation that you can avoid by reusing the same factory or client objects for multiple operations. You can safely use these client objects for concurrent asynchronous operations and from multiple threads.
 
 ## Concurrent operations
 Operations such as send, receive, delete, and so on, take some time. This time includes the time that the Service Bus service takes to process the operation and the latency of the request and the response. To increase the number of operations per time, operations must execute concurrently.
@@ -214,7 +218,7 @@ await processor.StartProcessingAsync();
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-See the GitHub repository for full <a href="https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues" target="_blank">source code examples <span class="docon docon-navigate-external x-hidden-focus"></span></a>:
+See the [GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues) for full source code examples. 
 
 ```csharp
 var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
@@ -242,7 +246,7 @@ The `MessageReceiver` object is instantiated with the connection string, queue n
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
-See the GitHub repository for full <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues" target="_blank">source code examples <span class="docon docon-navigate-external x-hidden-focus"></span></a>:
+See the [GitHub repository](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/SendersReceiversWithQueues) for full source code examples.
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString(connectionString);
@@ -357,9 +361,9 @@ var queue = await managementClient.CreateQueueAsync(queueDescription);
 ```
 
 For more information, see the following articles:
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+- [QueueDescription.EnableBatchedOperations property](/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations)
+- [SubscriptionDescription.EnabledBatchedOperations property](/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations)
+* [TopicDescription.EnableBatchedOperations](/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations)
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
@@ -374,9 +378,9 @@ var queue = namespaceManager.CreateQueue(queueDescription);
 ```
 
 For more information, see the following articles:
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations)
+* [`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations)
+* [`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations`](/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations).
 
 ---
 
@@ -408,15 +412,15 @@ You can set values for these properties in [ServiceBusReceiverOptions](/dotnet/a
 
 For more information, see the following `PrefetchCount` properties:
 
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount" target="_blank">`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount" target="_blank">`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.Azure.ServiceBus.QueueClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount)
+* [`Microsoft.Azure.ServiceBus.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.prefetchcount)
 
 # [WindowsAzure.ServiceBus SDK](#tab/net-framework-sdk)
 
 For more information, see the following `PrefetchCount` properties:
 
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount" target="_blank">`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* [`Microsoft.ServiceBus.Messaging.QueueClient.PrefetchCount`](/dotnet/api/microsoft.servicebus.messaging.queueclient.prefetchcount)
+* [`Microsoft.ServiceBus.Messaging.SubscriptionClient.PrefetchCount`](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.prefetchcount)
 
 ---
 

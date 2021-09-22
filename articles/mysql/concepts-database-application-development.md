@@ -9,6 +9,9 @@ ms.date: 3/18/2020
 ---
 
 # Application development overview for Azure Database for MySQL 
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This article discusses design considerations that a developer should follow when writing application code to connect to Azure Database for MySQL. 
 
 > [!TIP]

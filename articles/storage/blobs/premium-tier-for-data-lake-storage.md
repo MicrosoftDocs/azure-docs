@@ -5,8 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.custom: references_regions
-ms.date: 10/30/2020
+ms.date: 06/21/2021
 ms.author: normesta
 ---
 
@@ -48,7 +47,7 @@ For more information about pricing, see the [Azure Data Lake Storage Gen2 pricin
 
 ## Feature availability 
 
-Some Blob storage features might not be available or might only have partial support with the premium performance tier. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
+Some Blob storage features might not be available or might only have partial support with the premium performance tier. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
 
 ## Enabling the premium performance tier 
 
@@ -65,39 +64,6 @@ The following image shows this setting in the **Create storage account** page.
 
 > [!div class="mx-imgBorder"]
 > ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
-
-## Regional availability
-
-Premium tier for Azure Data Lake Storage is available in the following regions.
-
-|Region|Redundancy|
-|--|--|
-|East US|LRS, ZRS|
-|East US 2|LRS, ZRS|
-|Central US|LRS|
-|West US|LRS|
-|West US 2|LRS, ZRS|
-|West Central US|LRS|
-|South Central US|LRS|
-|Canada Central|LRS|
-|Canada East|LRS|
-|North Europe|LRS, ZRS|
-|West Europe|LRS, ZRS|
-|UK South|LRS|
-|UK West|LRS|
-|France Central|LRS|
-|Asia East|LRS|
-|Korea Central|LRS|
-|Korea South|LRS|
-|Central India|LRS|
-|West India|LRS|
-|UAE North|LRS|
-|Japan East|LRS|
-|Japan West|LRS|
-|South East Asia|LRS, ZRS|
-|Australia East|LRS, ZRS|
-|Australia South East|LRS|
-|Brazil South|LRS|
 
 ## Next steps
 

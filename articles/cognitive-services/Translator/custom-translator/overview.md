@@ -17,7 +17,7 @@ ms.topic: overview
 
 Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, secure, high performance, highly scalable Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl), that powers billions of translations  every day.
 
-Custom Translator supports more than three dozen languages, and maps directly to the languages available for NMT. For a complete list, see  [Microsoft Translator Languages](../language-support.md#customization).
+Custom Translator supports more than three dozen languages, and maps directly to the languages available for NMT. For a complete list, see  [Microsoft Translator Languages](../language-support.md).
 
 This documentation contains the following article types:
 

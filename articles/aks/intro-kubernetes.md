@@ -151,7 +151,7 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[compliance-doc]: https://azure.microsoft.com/en-us/overview/trusted-cloud/compliance/
+[compliance-doc]: https://azure.microsoft.com/overview/trusted-cloud/compliance/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -163,12 +163,12 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: ../dev-spaces/index.yml
+[azure-dev-spaces]: /previous-versions/azure/dev-spaces/
 [azure-devops]: ../devops-project/overview.md
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
-[aks-master-logs]: ./view-control-plane-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [kubernetes-rbac]: concepts-identity.md#kubernetes-rbac

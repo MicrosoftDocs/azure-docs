@@ -24,7 +24,8 @@ After initial replication for the VM is complete, the replication process transi
 
 VMware changed block tracking (CBT) technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. Only the data that has changed since the previous completed replication cycle is replicated to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the virtual machine.
 
-When you perform the migrate operation on a replicating virtual machine, there's an on-demand delta replication cycle that replicates the remaining changes since the last replication cycle. After the on-demand cycle completes, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure. When you trigger migrate, you must shut down the on-premises virtual machine. Shutting down the virtual machines ensures zero data loss during migration.
+When you perform the migrate operation on a replicating virtual machine, there's an on-demand delta replication cycle that replicates the remaining changes since the last replication cycle. After the on-demand cycle completes, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure. Right before triggering migrate/failover, you must shut down the on-premises virtual machine. Shutting down the virtual machine ensures zero data loss during migration.
+
 
 Once the migration is successful and the VM boots up in Azure, ensure that you stop the replication of the VM. Stopping the replication will delete the intermediate disks (seed disks) that were created during data replication, and you'll also avoid incurring extra charges associated with the storage transactions on these disks.
 
@@ -53,7 +54,7 @@ A cycle is said to be complete once the disks are consolidated.
 | Recovery services vault | Azure Migrate project's region | Azure Migrate project's subscription | Used to orchestrate data replication |
 | Service Bus | Target region | Azure Migrate project's subscription | Used for communication between cloud service and Azure Migrate appliance |
 | Log storage account | Target region | Azure Migrate project's subscription | Used to store replication data, which is read by the service and applied on customer's managed disk |
-| Appliance storage account | Target region | Azure Migrate project's subscription | Used to store machine states during replication |
+| Gateway storage account | Target region | Azure Migrate project's subscription | Used to store machine states during replication |
 | Key vault | Target region | Azure Migrate project's subscription | Manages connection strings for service bus and access keys for the log storage account |
 | Azure Virtual Machine | Target region | Target subscription | VM created in Azure when you migrate |
 | Azure Managed Disks | Target region | Target subscription | Managed disks attached to Azure VMs |
@@ -63,13 +64,14 @@ A cycle is said to be complete once the disks are consolidated.
 
 When you start replication for the first time, the logged-in user must be assigned the following roles:
 
-- Owner or Contributor and User Access Administrator in the Azure subscription to create an instance of Azure Key Vault
+- Owner or Contributor and User Access Administrator on the Azure Migrate project's Resource Group and the target Resource Group
 
 For the subsequent replications, the logged-in user must be assigned the following roles:
 
-- Owner or Contributor
+- Owner or Contributor on the Azure Migrate project's Resource Group and the target Resource Group
 
-If you have created a custom role for the logged-in user, ensure that the permissions for the custom role map to the permissions of the aforementioned built-in roles.
+In addition to the roles described above, the logged-in user would need the following permission at a subscription level - Microsoft.Resources/subscriptions/resourceGroups/read
+
 
 ## Data integrity
 
@@ -98,7 +100,7 @@ When a VM undergoes replication, there are few states that are possible:
 - **Not applicable:** When the VM has successfully migrated and/or when you have stopped replication, the status changes to not applicable. Once you stop replication and the operation finishes successfully, the VM will be removed from the list of replicating machines. You can find the VM in the virtual machines tab in the Replicate wizard.
 
 > [!Note]
->Some VMs are put in queued state to ensure minimal impact on the source environment due to storage IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
+> Some VMs are put in queued state to ensure minimal impact on the source environment due to storage IOPS consumption. These VMs are processed based on the scheduling logic as described in the next section.
 
 ## Scheduling logic
 
@@ -113,7 +115,7 @@ max [(Previous delta replication cycle time/2), 1 hour]
 That is, next delta replication will be scheduled no sooner than one hour. For example, if a VM takes four hours for a delta replication cycle, the next delta replication cycle is scheduled in two hours, and not in the next hour.
 
 > [!Note]
-> The process is different after initial replication, when the first delta cycle is scheduled immediately.
+> The scheduling logic is different after the initial replication completes. The first delta cycle is scheduled immediately after the initial replication completes and subsequent cycles follow the scheduling logic described above.
 
 - When you trigger migration, an on-demand delta replication cycle (pre-failover delta replication cycle) is performed for the VM prior to migration.
 
@@ -171,7 +173,7 @@ You could create a policy on the Azure Migrate appliance to throttle replication
 > [!NOTE]
 > This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
 
-You can also increase and decrease replication bandwidth based on a schedule using the [sample script](https://go.microsoft.com/fwlink/?linkid=2165036).
+You can also increase and decrease replication bandwidth based on a schedule using the [sample script](./common-questions-server-migration.md).
 
 ### Blackout window
 

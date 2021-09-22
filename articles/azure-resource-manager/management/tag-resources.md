@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 07/29/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -463,7 +463,7 @@ The following example deploys a storage account with three tags. Two of the tags
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -487,7 +487,7 @@ The following example deploys a storage account with three tags. Two of the tags
 param location string = resourceGroup().location
 param utcShort string = utcNow('d')
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -530,7 +530,7 @@ You can define an object parameter that stores several tags, and apply that obje
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -553,7 +553,7 @@ param tagValues object = {
   Environment: 'Production'
 }
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -585,7 +585,7 @@ To store many values in a single tag, apply a JSON string that represents the va
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -606,7 +606,7 @@ To store many values in a single tag, apply a JSON string that represents the va
 ```Bicep
 param location string = resourceGroup().location
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -640,7 +640,7 @@ To apply tags from a resource group to a resource, use the [resourceGroup()](../
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2021-04-01",
       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -662,7 +662,7 @@ To apply tags from a resource group to a resource, use the [resourceGroup()](../
 ```Bicep
 param location string = resourceGroup().location
 
-resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -838,14 +838,19 @@ The following limitations apply to tags:
 * Each resource, resource group, and subscription can have a maximum of 50 tag name/value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. A resource group or subscription can contain many resources that each have 50 tag name/value pairs.
 * The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
 * Tags can't be applied to classic resources such as Cloud Services.
+* Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update) command.
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
    > * Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number.
    >
-   > * Azure Front Door doesn't support the use of `#` in the tag name.
+   > * Azure Front Door doesn't support the use of `#` or `:` in the tag name.
    >
-   > * Azure Automation and Azure CDN only support 15 tags on resources.
+   > * The following Azure resources only support 15 tags:
+   >     * Azure Automation
+   >     * Azure CDN
+   >     * Azure DNS (Zone and A records)
+   >     * Azure Private DNS (Zone, A records, and virtual network link)
 
 ## Next steps
 

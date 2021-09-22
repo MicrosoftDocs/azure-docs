@@ -6,6 +6,7 @@ ms.date: 03/10/2021
 ms.author: nikuklic
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -31,17 +32,21 @@ Modify `startCall` event handler that will be performed when the *Start Call* bu
 
 ```swift
 func startCall() {
-    // Ask permissions
-    AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
-        if granted {
-            let startCallOptions = ACSStartCallOptions()
-            startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
-            self.call = self.callAgent!.startCall([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
-            self.callDelegate = CallDelegate(self)
-            self.call!.delegate = self.callDelegate
+        // Ask permissions
+        AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
+            if granted {
+                let startCallOptions = StartCallOptions()
+                startCallOptions.alternateCallerId = PhoneNumberIdentifier(phoneNumber: "<YOUR AZURE REGISTERED PHONE NUMBER>")
+                self.callAgent!.startCall(participants: [PhoneNumberIdentifier(phoneNumber: self.callee)], options: startCallOptions) { (call, error) in
+                    if (error == nil) {
+                        self.call = call
+                    } else {
+                        print("Failed to get call object")
+                    }
+                }
+            }
         }
     }
-}
 ```
 
 ## Run the code
@@ -52,7 +57,7 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 You can make an call to phone by providing a phone number in the added text field and clicking the **Start Call** button.
 > [!WARNING]
-> Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
+> Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 
 > [!NOTE]
 > The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.

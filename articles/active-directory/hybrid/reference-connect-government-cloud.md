@@ -31,7 +31,7 @@ The following information describes implementation of Pass-through Authenticatio
 Before you deploy the Pass-through Authentication agent, verify whether a firewall exists between your servers and Azure AD. If your firewall or proxy allows Domain Name System (DNS) blocked or safe programs, add the following connections.
 
 > [!NOTE]
-> The following guidance also applies to installing the [Azure AD Application Proxy connector](../manage-apps/what-is-application-proxy.md) for Azure Government environments.
+> The following guidance also applies to installing the [Azure AD Application Proxy connector](../app-proxy/what-is-application-proxy.md) for Azure Government environments.
 
 |URL |How it's used|
 |-----|-----|

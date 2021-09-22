@@ -2,7 +2,7 @@
 title: Tutorial - Deploy an Azure VMware Solution private cloud
 description: Learn how to create and deploy an Azure VMware Solution private cloud
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 06/11/2021
 ---
 
 # Tutorial: Deploy an Azure VMware Solution private cloud
@@ -16,7 +16,7 @@ You use vSphere and NSX-T Manager to manage most other aspects of cluster config
 >[!TIP]
 >You can always extend the cluster and add additional clusters later if you need to go beyond the initial deployment number.
 
-Because Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter at launch, extra configuration is needed. These procedures and related prerequisites are covered in this tutorial.
+Because Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter at launch, you'll need to do additional steps for the configuration.  This tutorial covers these steps and related prerequisites.
 
 In this tutorial, you'll learn how to:
 
@@ -26,11 +26,10 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Appropriate administrative rights and permission to create a private cloud. You must be at minimum contributor level in the subscription.
-- Follow the information you gathered in the [planning](production-ready-deployment-steps.md) article to deploy Azure VMware Solution.
-- Ensure you have the appropriate networking configured as described in [Network planning checklist](tutorial-network-checklist.md).
-- Hosts have been provisioned and the Microsoft.AVS [resource provider has been registered](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider).
+- Follow the information you gathered in the [planning](plan-private-cloud-deployment.md) tutorial to deploy Azure VMware Solution.
+- Ensure you have the appropriate networking configured as described in the [Network planning checklist](tutorial-network-checklist.md).
+- Hosts provisioned and the Microsoft.AVS [resource provider has been registered](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider).
 
 ## Create a private cloud
 
@@ -45,7 +44,7 @@ In this tutorial, you've learned how to:
 > * Verify the private cloud deployed
 > * Delete an Azure VMware Solution private cloud
 
-Continue to the next tutorial to learn how to create a jump box. You use the jump box to connect to your environment so that you can manage your private cloud locally.
+Continue to the next tutorial to learn how to create a jump box. You use the jump box to connect to your environment to manage your private cloud locally.
 
 
 > [!div class="nextstepaction"]

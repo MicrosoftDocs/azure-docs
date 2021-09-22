@@ -5,6 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.date: 01/22/2018 
 ms.custom: devx-track-azurepowershell
@@ -37,7 +38,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/) article to install latest version of Azure PowerShell on your computer.
-* See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md) to learn about Azure Resource Manager templates. 
+* See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/syntax.md) to learn about Azure Resource Manager templates. 
 
 ## In this tutorial
 
@@ -325,20 +326,20 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 ## Monitor pipeline
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
-     ![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
+     :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png" alt-text="Browse->Data factories":::
 2. In the **Data Factories** blade, click the data factory (**TutorialFactoryARM**) you created.    
 3. In the **Data Factory** blade for your data factory, click **Diagram**.
 
-     ![Diagram Tile](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+     :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png" alt-text="Diagram Tile":::
 4. In the **Diagram View**, you see an overview of the pipelines, and datasets used in this tutorial.
    
-   ![Diagram View](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png" alt-text="Diagram View"::: 
 5. In the Diagram View, double-click the dataset **AzureBlobOutput**. You see that the slice that is currently being processed.
    
-    ![Screenshot that shows the AzureBlobOutput dataset.](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png" alt-text="Screenshot that shows the AzureBlobOutput dataset.":::
 6. When processing is done, you see the slice in **Ready** state. Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.
    
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png" alt-text="Dataset":::    
 7. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
 
 See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure portal blades to monitor the pipeline and datasets you have created in this tutorial.
@@ -618,4 +619,3 @@ This template creates a data factory named GatewayUsingArmDF with a gateway name
 | [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
 | [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
-

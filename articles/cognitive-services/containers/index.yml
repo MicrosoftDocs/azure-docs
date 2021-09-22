@@ -46,8 +46,6 @@ landingContent:
           text: Spatial analysis
         - url: ../face/face-how-to-install-containers.md
           text: Face
-        - url: ../form-recognizer/form-recognizer-container-howto.md
-          text: Form Recognizer
 - title: Language containers
   linkLists:
       - linkListType: how-to-guide

@@ -234,10 +234,6 @@ Note the following guidelines on availability group listener in Azure using inte
 
 * Create a service endpoint when using a standard load balancer with Azure Storage for the cloud witness. For more information, see [Grant access from a virtual network](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
-## For more information
-
-For more information, see [Configure Always On availability group in Azure VM manually](availability-group-manually-configure-tutorial.md).
-
 ## PowerShell cmdlets
 
 Use the following PowerShell cmdlets to create an internal load balancer for Azure Virtual Machines.
@@ -248,3 +244,13 @@ Use the following PowerShell cmdlets to create an internal load balancer for Azu
 * [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerBackendAddressPoolConfig) creates a backend address pool configuration for a load balancer. 
 * [New-AzLoadBalancerProbeConfig](/powershell/module/Azurerm.Network/New-AzureRmLoadBalancerProbeConfig) creates a probe configuration for a load balancer.
 * [Remove-AzLoadBalancer](/powershell/module/Azurerm.Network/Remove-AzureRmLoadBalancer) removes a load balancer from an Azure resource group.
+
+## Next steps 
+
+
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)

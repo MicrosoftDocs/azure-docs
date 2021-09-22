@@ -4,8 +4,8 @@ description: How to migrate to Cloud Services (extended support) using the Azure
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-author: tanmaygore
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: 
@@ -14,10 +14,6 @@ ms.custom:
 # Migrate to Cloud Services (extended support) using the Azure portal
 
 This article shows you how to use the Azure portal to migrate from [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Cloud Services (extended support)](overview.md).
-
-> [!IMPORTANT]
-> Migrating from Cloud Services (classic) to Cloud Services (extended support) using the migration tool is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Before you begin
 
@@ -62,7 +58,7 @@ If you're not able to add a co-administrator, contact a service administrator or
 
     If the prepare is successful, the migration is ready for commit.
     
-    :::image type="content" source="media/in-place-migration-portal-4.png" alt-text="Image shows validation passing in the Azure portal.":::
+    :::image type="content" source="media/in-place-migration-portal-4.png" alt-text="Image shows validation passing in the Azure portal."::: 
 
     If the prepare fails, review the error, address any issues, and retry the prepare. 
 
@@ -90,4 +86,5 @@ If you're not able to add a co-administrator, contact a service administrator or
     Type in "yes" to confirm and commit to the migration. The migration is now complete. The migrated Cloud Services (extended support) deployment is unlocked for all operations". 
 
 ## Next steps
-Review the [Post migration changes](in-place-migration-overview.md#post-migration-changes) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.
+
+Review the [Post migration changes](post-migration-changes.md) section to see changes in deployment files, automation and other attributes of your new Cloud Services (extended support) deployment.

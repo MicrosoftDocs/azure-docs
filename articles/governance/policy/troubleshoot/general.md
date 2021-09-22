@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 04/19/2021
+ms.date: 09/01/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -98,6 +98,11 @@ To troubleshoot your policy definition, do the following:
    of the definition to the evaluated property value indicates why a resource was noncompliant.
    - If the **target value** is wrong, revise the policy definition.
    - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
+1. For a [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes)
+   definition that supports a RegEx string parameter (such as `Microsoft.Kubernetes.Data` and the
+   built-in definition "Container images should be deployed from trusted registries only"), validate
+   that the [RegEx string](/dotnet/standard/base-types/regular-expression-language-quick-reference)
+   parameter is correct.
 1. For other common issues and solutions, see
    [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
 
@@ -185,6 +190,22 @@ resource types.
 If an alias is used, make sure that the alias gets evaluated against only the resource type it
 belongs to by adding a type condition before it. An alternative is to split the policy definition
 into multiple definitions to avoid targeting multiple resource types.
+
+### Scenario: Subscription limit exceeded
+
+#### Issue
+
+An error message on the compliance page in Azure portal is shown when retrieving compliance for
+policy assignments.
+
+#### Cause
+
+The number of subscriptions under the selected scopes in the request has exceeded the limit of 5000
+subscriptions. The compliance results may be partially displayed.
+
+#### Resolution
+
+Select a more granular scope with fewer child subscriptions to see the complete results.
 
 ## Template errors
 
@@ -390,6 +411,31 @@ This error means that the subscription was determined to be problematic, and the
 #### Resolution
 
 To investigate and resolve this issue, [contact the feature team](mailto:azuredg@microsoft.com).
+
+### Scenario: Definitions in category "Guest Configuration" cannot be duplicated from Azure portal
+
+#### Issue
+
+When attempting to create a custom policy definition from the Azure portal page for policy
+definitions, you select the "Duplicate definition" button. After assigning the policy, you
+find machines are _NonCompliant_ because no guest configuration assignment resource exists.
+
+#### Cause
+
+Guest configuration relies on custom metadata added to policy definitions when
+creating guest configuration assignment resources. The "Duplicate definition" activity in
+the Azure portal does not copy custom metadata.
+
+#### Resolution
+
+Instead of using the portal, duplicate the policy definition using the Policy
+Insights API. The following PowerShell sample provides an option.
+
+```powershell
+# duplicates the built-in policy which audits Windows machines for pending reboots
+$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+```
 
 ## Next steps
 

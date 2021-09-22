@@ -96,7 +96,7 @@ In Azure Functions, a function project is the context for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains the Dockerfile other files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). By default, the *local.settings.json* file is excluded from source control in the *.gitignore* file. This exclusion is because the file can contain secrets that are downloaded from Azure.
+    This folder contains the Dockerfile other files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). By default, the *local.settings.json* file is excluded from source control in the *.gitignore* file. This exclusion is because the file can contain secrets that are downloaded from Azure.
 
 1. Open the generated `Dockerfile` and locate the `3.0` tag for the base image. If there's a `3.0` tag, replace it with a `3.0.15885` tag. For example, in a JavaScript application, the Docker file should be modified to have `FROM mcr.microsoft.com/azure-functions/node:3.0.15885`. This version of the base image supports deployment to an Azure Arc-enabled Kubernetes cluster. 
 

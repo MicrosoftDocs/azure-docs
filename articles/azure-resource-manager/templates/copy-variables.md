@@ -312,6 +312,7 @@ The following examples show common scenarios for creating more than one value fo
 |---------|---------|
 |[Copy variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstrates the different ways of iterating on variables. |
 |[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Deploys several security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Copy storage with variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewithvariables.json) | Example of how to iterate a variable and create multiple storage accounts. |
 
 ## Next steps
 
@@ -320,5 +321,5 @@ The following examples show common scenarios for creating more than one value fo
   - [Resource iteration in ARM templates](copy-resources.md)
   - [Property iteration in ARM templates](copy-properties.md)
   - [Output iteration in ARM templates](copy-outputs.md)
-- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+- If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 - To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

@@ -62,7 +62,7 @@ For example, if using the [Node.js Interactive Window](/visualstudio/javascript/
 .npm install react-jsx
 ```
 
-To create your first Node.js with React app in Visual Studio, see [Tutorial: Create a Node.js and React app in Visual Studio](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx.md?view=vs-2019&preserve-view=true).
+To create your first Node.js with React app in Visual Studio, see [Tutorial: Create a Node.js and React app in Visual Studio](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx?view=vs-2019&preserve-view=true).
 
 ### Install debugger extensions
 

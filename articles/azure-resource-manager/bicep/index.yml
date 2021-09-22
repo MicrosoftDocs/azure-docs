@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 05/20/2021
+  ms.date: 08/18/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -103,7 +103,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-        - text: Template reference
+        - text: Bicep resource reference
           url: /azure/templates/
         - text: Azure PowerShell
           url: /powershell/module/az.resources

@@ -16,7 +16,7 @@ ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
 ---
 
-# How to: Add app roles to your application and receive them in the token
+# Add app roles to your application and receive them in the token
 
 Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
@@ -199,7 +199,8 @@ Learn more about app roles with the following resources.
 
 - Code samples on GitHub
   - [Add authorization using groups and group claims to an ASP.NET Core web app](https://aka.ms/groupssample)
-  - [Angular single-page application (SPA) calling a .NET Core web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+  - [Angular single-page application (SPA) calling a .NET Core web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl)
+  - [React single-page application (SPA) calling a Node.js web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/5-AccessControl)
 - Reference documentation
   - [Azure AD app manifest](./reference-app-manifest.md)
   - [Azure AD access tokens](access-tokens.md)

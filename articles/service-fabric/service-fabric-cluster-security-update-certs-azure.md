@@ -278,6 +278,8 @@ To deploy a certificate you use for your applications to your cluster, see [this
 ## Next steps
 Read these articles for more information on cluster management:
 
+* [Certificate management in Service Fabric clusters](cluster-security-certificate-management.md)
+
 * [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
 * [Setup role-based access for clients](service-fabric-cluster-security-roles.md)
 

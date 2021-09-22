@@ -16,6 +16,7 @@
 | Levels of management group hierarchy | Root level plus 6 levels<sup>1</sup> |
 | Direct parent management group per management group | One |
 | [Management group level deployments](../articles/azure-resource-manager/templates/deploy-to-management-group.md) per location | 800<sup>2</sup> |
+| Locations of [Management group level deployments](../articles/azure-resource-manager/templates/deploy-to-management-group.md) | 10 |
 
 <sup>1</sup>The 6 levels don't include the subscription level.
 

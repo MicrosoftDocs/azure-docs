@@ -4,7 +4,7 @@ description: Learn about the Azure Video Analyzer SDKs
 author: bennage
 ms.author: christb
 ms.topic: reference
-ms.date: 05/14/2021
+ms.date: 06/01/2021
 
 ---
 
@@ -14,7 +14,7 @@ Azure Video Analyzer includes two groups of SDKs. The management SDKs are used f
 
 ## Management SDKs
 
-The management SDKs allow you to interact with the resources exposed by Azure Resource Manager. You can create Video Analyzer account, generate provisioning tokens for edge modules, manage access policies for videos and more. The SDKs are built on top of an underlying [REST API].
+The management SDKs allow you to interact with the resources exposed by Azure Resource Manager. You can create Video Analyzer account, generate provisioning tokens for edge modules, manage access policies for videos and more. The SDKs are built on top of an underlying [REST API](/rest/api/videoanalyzer/?branch=video).
 
 The following platforms are supported:
 
@@ -32,8 +32,12 @@ The following platforms are supported:
 - [Python](https://aka.ms/ava/sdk/client/python)
 - [Java](https://aka.ms/ava/sdk/client/java)
 
+## See Also
+
+- You can also refer [Azure Video Analyzer APIs](/rest/api/videoanalyzer/)
+
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
-[docs-iot-hub-sdks]: /azure/iot-hub/iot-hub-devguide-sdks
+[docs-iot-hub-sdks]: ../../iot-hub/iot-hub-devguide-sdks.md
 
 [REST API]: https://aka.ms/ava/api/rest

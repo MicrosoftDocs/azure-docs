@@ -7,8 +7,8 @@ ms.author: nikuklic
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)
 
 ## Prerequisites
 
@@ -16,7 +16,6 @@ ms.author: nikuklic
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - A phone number acquired in your Communication Services resource. [how to get a phone number](../../../telephony-sms/get-phone-number.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
-
 
 [!INCLUDE [Calling with JavaScript](../get-started/get-started-javascript-setup.md)]
 
@@ -119,7 +118,6 @@ The `forEveryone` property ends the call for all call participants.
 ## Run the code
 
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host on a local webserver:
-
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map

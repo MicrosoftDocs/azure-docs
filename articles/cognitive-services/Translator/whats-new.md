@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 05/18/2021
+ms.date: 06/22/2021
 ms.author: lajanuar
 
 ---
@@ -17,15 +17,29 @@ ms.author: lajanuar
 
 Review the latest updates to the text Translator service. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## June 2021
+
+### [Document Translation client libraries for C#/.NET and Python](document-translation/client-sdks.md)—now available in prerelease.
+
+## May 2021
+
+### [Document Translation ― now in general availability](https://www.microsoft.com/translator/blog/2021/05/25/translate-full-documents-with-document-translation-%e2%80%95-now-in-general-availability/)
+
+* **Feature release**: Translator's [Document Translation](document-translation/overview.md)  feature is generally available. Document Translation is designed to translate large files and batch documents with rich content while preserving original structure and format. You can also use custom glossaries and custom models built with [Custom Translator](custom-translator/overview.md) to ensure your documents are translated quickly and accurately.
+
+### [Translator service available in containers](https://www.microsoft.com/translator/blog/2021/05/25/translator-service-now-available-in-containers/)
+
+* **New release**: Translator service is available in containers as a gated preview. [Submit an online request](https://aka.ms/csgate-translator) and have it approved prior to getting started. Containers enable you to run several Translator service features in your own environment and are great for specific security and data governance requirements. *See*, [Install and run Translator containers (preview)](containers/translator-how-to-install-container.md)
+
 ## February 2021
 
 ### [Document Translation public preview](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
 * **New release**:  [Document Translation](document-translation/overview.md) is available as a preview feature of the Translator Service. Preview features are still in development and aren't meant for production use. They're made available on a "preview" basis so customers can get early access and provide feedback. Document Translation enables you to translate large documents and process batch files while still preserving the original structure and format. _See_ [Microsoft Translator blog: Introducing Document Translation](https://www.microsoft.com/translator/blog/2021/02/17/introducing-document-translation/)
 
-### [Text translation support for 9 added languages](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
+### [Text translation support for nine added languages](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
 
-* Translator service has [text translation language support](language-support.md#text-translation) for the following languages:
+* Translator service has [text translation language support](language-support.md) for the following languages:
 
   * **Albanian**. An isolate language unrelated to any other and spoken by nearly 8 million people.
   * **Amharic**. An official language of Ethiopia spoken by approximately 32 million people. It's also the liturgical language of the Ethiopian Orthodox church.
@@ -41,7 +55,7 @@ Review the latest updates to the text Translator service. Bookmark this page to 
 
 ### [Text translation support for Inuktitut](https://www.microsoft.com/translator/blog/2021/01/27/inuktitut-is-now-available-in-microsoft-translator/)
 
-* Translator service has [text translation language support](language-support.md#text-translation) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
+* Translator service has [text translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
 
 ## November 2020
 
@@ -53,13 +67,13 @@ Review the latest updates to the text Translator service. Bookmark this page to 
 
 ### [Text translation support for Canadian French](https://www.microsoft.com/translator/blog/2020/10/20/cest-tiguidou-ca-translator-adds-canadian-french/)
 
-* Translator service has [text translation language support](language-support.md#text-translation) for **Canadian French**. Canadian French and European French are similar to one another and are mutually understandable. However, there can be significant differences in vocabulary, grammar, writing, and pronunciation. Over 7 million Canadians (20 percent of the population) speak French as their first language.
+* Translator service has [text translation language support](language-support.md) for **Canadian French**. Canadian French and European French are similar to one another and are mutually understandable. However, there can be significant differences in vocabulary, grammar, writing, and pronunciation. Over 7 million Canadians (20 percent of the population) speak French as their first language.
 
 ## September 2020
 
 ### [Text translation support for Assamese and Axomiya](https://www.microsoft.com/translator/blog/2020/09/29/assamese-text-translation-is-here/)
 
-* Translator service has [text translation language support](language-support.md#text-translation) for **Assamese** also knows as **Axomiya**.  Assamese / Axomiya is primarily spoken in Eastern India by approximately 14 million people.
+* Translator service has [text translation language support](language-support.md) for **Assamese** also knows as **Axomiya**.  Assamese / Axomiya is primarily spoken in Eastern India by approximately 14 million people.
 
 ## August 2020
 
@@ -81,4 +95,4 @@ Review the latest updates to the text Translator service. Bookmark this page to 
 
 ### [Text translation support for Odia](https://www.microsoft.com/translator/blog/2020/08/13/odia-language-text-translation-is-now-available-in-microsoft-translator/)
 
-* **Odia** is a classical language spoken by 35 million people in India and across the world. It joins **Bangla**, **Gujarati**, **Hindi**, **Kannada**, **Malayalam**, **Marathi**, **Punjabi**, **Tamil**, **Telugu**, **Urdu**, and **English** as the twelfth most used language of India supported by Microsoft Translator.
+* **Odia** is a classical language spoken by 35 million people in India and across the world. It joins **Bangla**, **Gujarati**, **Hindi**, **Kannada**, **Malayalam**, **Marathi**, **Punjabi**, **Tamil**, **Telugu**, **Urdu**, and **English** as the 12th most used language of India supported by Microsoft Translator.

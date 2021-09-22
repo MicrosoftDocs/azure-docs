@@ -117,5 +117,5 @@ Read more about [Diagnose and remediate duplicated attribute sync errors](how-to
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
 * [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health Version History](reference-connect-health-version-history.md)

@@ -217,7 +217,7 @@ Access vCenter from your Private Cloud to create a Veeam service account, instal
 5. Create the VMs for the Veeam backup and proxy servers in vCenter as per the [Veeam system requirements](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95). You can use Windows 2012 R2 or Linux. For more information see [Requirements for using Linux backup repositories](https://www.veeam.com/kb2216).
 6. Mount the installable Veeam ISO as a CDROM device in the Veeam backup server VM.
 7. Using an RDP session to the Windows 2012 R2 machine (the target for the Veeam installation), [install Veeam B&R 9.5u3](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) in a Windows 2012 R2 VM.
-8. Find the internal IP address of the Veeam backup server VM and configure the IP address to be static in the DHCP server. The exact steps required to do this depend on the DHCP server. As an example, the Netgate article <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">static DHCP mappings</a> explains how to configure a DHCP server using a pfSense router.
+8. Find the internal IP address of the Veeam backup server VM and configure the IP address to be static in the DHCP server. The exact steps required to do this depend on the DHCP server. As an example, the Netgate article <a href="https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html" target="_blank">static DHCP mappings</a> explains how to configure a DHCP server using a pfSense router.
 
 ### Veeam console: Install Veeam backup and recovery software
 
@@ -297,4 +297,4 @@ To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-p
 
 * [Create an XFS volume on the managed disk - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs)
 * [How To Set Up an NFS Mount on CentOS 7 - HowToForge](https://www.howtoforge.com/nfs-server-and-client-on-centos-7)
-* [Configuring the DHCP Server - Netgate](https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html)
+* [Configuring the DHCP Server - Netgate](https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html)

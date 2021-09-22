@@ -124,9 +124,7 @@ In the **SQL Server settings** tab, select **Enable** under **Automated backup**
 
 ## Configure existing VMs
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-For existing SQL Server virtual machines, go to the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) and then select **Backups** to configure your automated backups.
+For existing SQL Server virtual machines, go to the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource) and then select **Backups** to configure your automated backups.
 
 ![SQL Automated Backup for existing VMs](./media/automated-backup/sql-server-configuration.png)
 
@@ -313,7 +311,7 @@ First, you can poll the status by calling [msdb.managed_backup.sp_get_backup_dia
 Another option is to take advantage of the built-in Database Mail feature for notifications.
 
 1. Call the [msdb.managed_backup.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) stored procedure to assign an email address to the **SSMBackup2WANotificationEmailIds** parameter. 
-1. Enable [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) to send the emails from the Azure VM.
+1. Enable [SendGrid](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) to send the emails from the Azure VM.
 1. Use the SMTP server and user name to configure Database Mail. You can configure Database Mail in SQL Server Management Studio or with Transact-SQL commands. For more information, see [Database Mail](/sql/relational-databases/database-mail/database-mail).
 1. [Configure SQL Server Agent to use Database Mail](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verify that the SMTP port is allowed both through the local VM firewall and the network security group for the VM.

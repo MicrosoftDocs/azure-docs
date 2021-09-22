@@ -4,6 +4,7 @@ description: A list of video tutorials explaining mapping data flow concepts
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 05/18/2021
 ---
@@ -33,6 +34,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Benchmark timings](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 [Debugging workflows for data flows](https://youtu.be/y3suL7UsWVw)
+
+[Updated monitoring view](https://www.youtube.com/watch?v=FWCBslsk6KE)
 
 ## Transformation overviews
 

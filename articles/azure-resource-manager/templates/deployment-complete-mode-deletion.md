@@ -18,7 +18,7 @@ If you deploy to [more than one resource group in a template](./deploy-to-resour
 The resources are listed by resource provider namespace. To match a resource provider namespace with its Azure service name, see [Resource providers for Azure services](../management/azure-services-resource-providers.md).
 
 > [!NOTE]
-> Always use the [what-if operation](template-deploy-what-if.md) before deploying a template in complete mode. What-if shows you which resources will be created, deleted, or modified. Use what-if to avoid unintentionally deleting resources.
+> Always use the [what-if operation](./deploy-what-if.md) before deploying a template in complete mode. What-if shows you which resources will be created, deleted, or modified. Use what-if to avoid unintentionally deleting resources.
 
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]

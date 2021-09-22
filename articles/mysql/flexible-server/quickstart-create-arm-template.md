@@ -11,6 +11,8 @@ ms.date: 10/23/2020
 
 # Quickstart: Use an ARM template to create an Azure Database for MySQL - Flexible Server (Preview)
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
@@ -20,7 +22,9 @@ Azure Database for MySQL - Flexible Server (Preview) is a managed service that y
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+An Azure account with an active subscription. 
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 ## Review the template
 

@@ -3,7 +3,7 @@ title: Record and stream inference metadata with video - Azure Video Analyzer
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to record video and inference metadata to the cloud and play back the recording with the visual inference metadata.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 06/01/2021
 
 ---
 # Tutorial: Record and stream inference metadata with video
@@ -128,7 +128,7 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
 1. Next, under the **livePipelineSet** and **pipelineTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the above pipeline topology:
 
     `"pipelineTopologyName" : "CVRHttpExtensionObjectTracking"`
-1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-objTracking/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-cvr-with-inference-metadata`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.  
+1. Open the [pipeline topology](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-with-httpExtension-and-objectTracking/topology.json) in a browser, and look at videoName - it is hard-coded to `sample-cvr-with-inference-metadata`. This is acceptable for a tutorial. In production, you would take care to ensure that each unique RTSP camera is recorded to a video resource with a unique name.  
 
 1. Examine the settings for the HTTP extension node.
 
@@ -139,7 +139,8 @@ Next, browse to the src/cloud-to-device-console-app folder. Here you'll see the 
     }
   ```
 
-Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing - hence `maximumSamplesPerSecond` is set to 2.
+Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
+
 
 ## Run the sample program
 
@@ -376,20 +377,15 @@ You can examine the Video Analyzer video resource that was created by the live p
 1. You'll find a video listed with the name `sample-cvr-with-inference-metadata`. This is the name chosen in your pipeline topology file.
 1. Select the video.
 1. On the video details page, click the **Play** icon
-
+1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon (circled in red)
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/record-stream-inference-data-with-video/video-playback.png" alt-text="Screenshot of video playback":::
-   
-1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Bounding box icon":::
 
-> [!NOTE]
-> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Clean up resources
 
-If you intend to try the other tutorials, hold on to the resources you created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this tutorial, and delete the resource group.
+[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
 
 ## Next steps
 

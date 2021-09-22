@@ -63,4 +63,4 @@ volume measures, EPS rates and time last log received.
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
 ## Next steps
-Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](get-visibility.md).

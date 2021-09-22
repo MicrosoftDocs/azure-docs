@@ -48,7 +48,7 @@ Application Gateway provides several built‑in timing metrics related to the re
 
   Average time that it takes for a request to be received, processed and its response to be sent. 
 
-  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, time taken by Application Gateway to send all the response and the *Client RTT*.
+  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, and the time taken by Application Gateway to send all the response.
 
 - **Client RTT**
 

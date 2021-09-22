@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
+> Static websites are now available for general-purpose v2 Standard storage accounts as well as storage accounts with hierarchical namespace enabled.
 
 This tutorial uses [Visual Studio Code](https://code.visualstudio.com/download), a free tool for programmers, to build the static website and deploy it to an Azure Storage account.
 
@@ -99,6 +99,17 @@ Next, create a Hello World web page with Visual Studio Code and deploy it to the
 Visual Studio Code will now upload your files to your web endpoint, and show the success status bar. Launch the website to view it in Azure.
 
 You've successfully completed the tutorial and deployed a static website to Azure.
+
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
 ## Next steps
 

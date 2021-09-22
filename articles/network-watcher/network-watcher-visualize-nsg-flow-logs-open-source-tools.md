@@ -36,7 +36,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Download the correct binary package for your system:
 
    ```bash

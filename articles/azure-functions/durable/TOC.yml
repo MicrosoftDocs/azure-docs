@@ -29,7 +29,7 @@
   items:
   - name: Function chaining
     href: durable-functions-sequence.md
-  - name: Fan-in/fan-out
+  - name: Fan-out/fan-in
     href: durable-functions-cloud-backup.md
   - name: Monitors (C#, JavaScript)
     href: durable-functions-monitor.md

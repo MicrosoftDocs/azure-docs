@@ -8,9 +8,9 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: mathoma
+author: danimir
+ms.author: danil
+ms.reviewer: mathoma, urmilano
 ms.date: 02/07/2019
 ---
 # General Purpose service tier - Azure SQL Database and Azure SQL Managed Instance

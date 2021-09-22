@@ -14,6 +14,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Create Windows VM images with Azure PowerShell
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 Images can be used to bootstrap deployments and ensure consistency across multiple VMs. In this tutorial, you create your own specialized image of an Azure virtual machine using PowerShell and store it in a Shared Image Gallery. You learn how to:
 
@@ -40,7 +41,7 @@ The Shared Image Gallery lets you share your custom VM images with others. Choos
 
 The Shared Image Gallery feature has multiple resource types:
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## Launch Azure Cloud Shell
@@ -90,7 +91,7 @@ $gallery = New-AzGallery `
 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `

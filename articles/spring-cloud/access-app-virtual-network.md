@@ -1,8 +1,8 @@
 ---
 title:  "Azure Spring Cloud access app in virtual network"
 description: Access app in an Azure Spring Cloud in virtual network.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
@@ -21,9 +21,12 @@ The following procedure creates a private DNS zone for an application in the pri
 
 1. Open the Azure portal. From the top search box, search for **Private DNS zones**, and select **Private DNS zones** from the result.
 
-2. On the **Private DNS zones** page, select **+ Add**.
+2. On the **Private DNS zones** page, select **Add**.
 
 3. Fill out the form on the **Create Private DNS zone** page. Enter **<span>private.azuremicroservices.io</span>** as the **Name** of the zone.
+
+    >[!NOTE]
+    > If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 4. Select **Review + Create**.
 
@@ -35,7 +38,7 @@ It may take a few minutes to create the zone.
 
 To link the private DNS zone to the virtual network, you need to create a virtual network link.
 
-1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>** 
+1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>**
 
 2. On the left pane, select **Virtual network links**.
 
@@ -47,7 +50,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
     ![Add virtual network link](media/spring-cloud-access-app-vnet/add-virtual-network-link.png)
 
-6. Click **OK**.
+6. Select **OK**.
 
 ## Create DNS record
 
@@ -76,7 +79,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 4. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>**.
 
-5. Select **+ Record set**.
+5. Select **Record set**.
 
 6. In **Add record set**, enter or select this information:
 

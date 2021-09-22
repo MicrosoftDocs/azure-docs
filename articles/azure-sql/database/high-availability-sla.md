@@ -10,14 +10,14 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: sstein, emlisa
+ms.reviewer: mathoma, emlisa
 ms.date: 10/28/2020
 ---
 
 # High availability for Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-The goal of the high availability architecture in Azure SQL Database and SQL Managed Instance is to guarantee that your database is up and running minimum of 99.99% of time (For more information regarding specific SLA for different tiers, Please refer [SLA for Azure SQL Database and SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/sql-database/)), without worrying about the impact of maintenance operations and outages. Azure automatically handles critical servicing tasks, such as patching, backups, Windows and Azure SQL upgrades, as well as unplanned events such as underlying hardware, software, or network failures.  When the underlying database in Azure SQL Database is patched or fails over, the downtime is not noticeable if you [employ retry logic](develop-overview.md#resiliency) in your app. SQL Database and SQL Managed Instance can quickly recover even in the most critical circumstances ensuring that your data is always available.
+The goal of the high availability architecture in Azure SQL Database and SQL Managed Instance is to guarantee that your database is up and running minimum of 99.99% of time (For more information regarding specific SLA for different tiers, Please refer [SLA for Azure SQL Database and SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-database)), without worrying about the impact of maintenance operations and outages. Azure automatically handles critical servicing tasks, such as patching, backups, Windows and Azure SQL upgrades, as well as unplanned events such as underlying hardware, software, or network failures.  When the underlying database in Azure SQL Database is patched or fails over, the downtime is not noticeable if you [employ retry logic](develop-overview.md#resiliency) in your app. SQL Database and SQL Managed Instance can quickly recover even in the most critical circumstances ensuring that your data is always available.
 
 The high availability solution is designed to ensure that committed data is never lost due to failures, that maintenance operations do not affect your workload, and that the database will not be a single point of failure in your software architecture. There are no maintenance windows or downtimes that should require you to stop the workload while the database is upgraded or maintained.
 
@@ -43,7 +43,7 @@ Whenever the database engine or the operating system is upgraded, or a failure i
 
 ## General Purpose service tier zone redundant availability (Preview)
 
-Zone redundant configuration for the general purpose service tier is offered for both serverless and provisioned compute. This configuration utilizes [Azure Availability Zones](../../availability-zones/az-overview.md)  to replicate databases across multiple physical locations within an Azure region. By selecting zone redundancy, you can make your new and existing serverlesss and provisioned general purpose single databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic.
+Zone redundant configuration for the general purpose service tier is offered for both serverless and provisioned compute. This configuration utilizes [Azure Availability Zones](../../availability-zones/az-overview.md)  to replicate databases across multiple physical locations within an Azure region. By selecting zone redundancy, you can make your new and existing serverless and provisioned general purpose single databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic.
 
 Zone redundant configuration for the general purpose tier has two layers:  
 

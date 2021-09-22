@@ -53,7 +53,7 @@ By assigning logged items to a category, you have more control over telemetry ge
 
 ### Custom telemetry data
 
-In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions) and [JavaScript](functions-reference-node.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
+In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#log-custom-telemetry), and [Python](functions-reference-python.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
 
 ### Dependencies
 
@@ -76,6 +76,7 @@ In addition to automatic dependency data collection, you can also use one of the
 
 + [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 + [Log custom telemetry in JavaScript functions](functions-reference-node.md#log-custom-telemetry) 
++ [Log custom telemetry in Python functions](functions-reference-python.md#log-custom-telemetry)
 
 ## Writing to logs 
 
@@ -119,6 +120,10 @@ _This feature is in preview._
 The [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs. This controller makes decisions about when to add or remove instances based on current performance. You can have the scale controller emit logs to Application Insights to better understand the decisions the scale controller is making for your function app. You can also store the generated logs in Blob storage for analysis by another service. 
 
 To enable this feature, you add an application setting named `SCALE_CONTROLLER_LOGGING_ENABLED` to your function app settings. To learn how, see [Configure scale controller logs](configure-monitoring.md#configure-scale-controller-logs).
+
+## Azure Monitor metrics
+
+In addition to log-based telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). To learn more, see [Using Azure Monitor Metric with Azure Functions](monitor-metrics.md).
 
 ## Report issues
 

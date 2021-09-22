@@ -117,7 +117,7 @@ With psql, connect using the below command. Replace values with your actual serv
 psql -h mydemoserver.postgres.database.azure.com -u mydemouser -p
 ```
 >[!Note]
-> If you get an error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, this means you may be running an older version of Azure CLI. Please [upgrade Azure CLI](https://docs.microsoft.com/cli/azure/update-azure-cli) and retry the operation.
+> If you get an error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, this means you may be running an older version of Azure CLI. Please [upgrade Azure CLI](/cli/azure/update-azure-cli) and retry the operation.
 
 ## Clean up resources
 

@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 * Complete the steps in the [Apache Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
 
-* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) or an equivalent, such as OpenJDK.
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 

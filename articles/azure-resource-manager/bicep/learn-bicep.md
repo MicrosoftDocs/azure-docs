@@ -1,30 +1,44 @@
 ---
-title: Discover Bicep in Microsoft Learn
-description: Provides an overview of the units that are available in Microsoft Learn for Bicep.
+title: Discover Bicep on Microsoft Learn
+description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 08/26/2021
 ---
-# Bicep in Microsoft Learn
+# Bicep on Microsoft Learn
 
-For step-by-step guidance on using Bicep to deploy your infrastructure to Azure, Microsoft Learn offers several learning modules.
+Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses on Microsoft Learn.
 
-## Available units
+## Get started
 
-The following modules cover Bicep.
+These two learning paths will help you get started:
 
-* [Introduction to infrastructure as code using Bicep](/learn/modules/introduction-to-infrastructure-as-code-using-bicep/) - This module describes the benefits of using infrastructure as code, Azure Resource Manager, and Bicep to quickly and confidently scale your cloud deployments. It helps you determine the types of deployments for which Bicep is a good deployment tool.
+:::row:::
+:::column:::
+<img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
 
-* [Deploy Azure resources by using Bicep templates](/learn/modules/deploy-azure-resources-by-using-bicep-templates/) - In this module, you define Azure resources within a Bicep template. You improve the consistency and reliability of your deployments, reduce the manual effort required, and scale your deployments across environments. Your template will be flexible and reusable by using parameters, variables, expressions, and modules.
+[Part 1: Deploy and manage resources in Azure by using Bicep](/learn/paths/bicep-deploy/)
 
-* [Build reusable Bicep templates by using parameters](/learn/modules/build-reusable-bicep-templates-parameters/) - This module describes how you can use Bicep parameters to provide information for your template during each deployment. You'll learn about parameter decorators, which make your parameters easy to understand and work with. You'll also learn about the different ways that you can provide parameter values and protect them when you're working with secure information.
+:::column-end:::
+:::column:::
+<img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
 
-* [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) - Learn how to use conditions to deploy resources only when specific constraints are in place. Also learn how to use loops to deploy multiple resources that have similar properties.
+[Part 2: Build Azure infrastructure in a team environment by using Bicep](/learn/paths/bicep-collaborate/)
 
-* [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates/) - This module shows how to deploy various Azure resources in your Bicep code. Learn about child and extension resources, and how they can be defined and used within Bicep. Use Bicep to work with resources that you created outside a Bicep template or module.
+:::column-end:::
+:::row-end:::
 
-* [Extend templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/) - Learn how to add custom steps to your Bicep file or Azure Resource Manager template (ARM template) by using deployment scripts.
+## Azure Pipelines and GitHub Actions modules
+
+In addition to the preceding learning paths, the following modules contain Bicep content related to Azure Pipelines and GitHub Actions.
+
+| Learn module | Description |
+| ------------ | ----------- |
+| [Build your first Bicep deployment pipeline by using Azure Pipelines](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) | Build a basic deployment pipeline for Bicep code. Use a service connection to securely identify your pipeline to Azure. Configure when the pipeline runs by using triggers. |
+| [Build your first Bicep deployment workflow by using GitHub Actions](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/) | Build a basic deployment workflow for Bicep code. Use a secret to securely identify your GitHub Actions workflow to Azure, and then set when the workflow runs by using triggers and schedules. |
+| [Authenticate your Azure deployment pipeline by using service principals](/learn/modules/authenticate-azure-deployment-pipeline-service-principals/) | Service principals enable your deployment pipelines to authenticate securely with Azure. In this module, you'll learn what service principals are, how they work, and how to create them. You'll also learn how to grant them permission to your Azure resources so that your pipelines can deploy your Bicep files. |
+| [Test your Bicep code by using Azure Pipelines](/learn/modules/test-bicep-code-using-azure-pipelines/) | Validate and test your Bicep code in your deployment pipeline. You'll use linting, preflight validation, and the what-if operation to validate your Azure changes before you deploy, and you'll test your resources after each deployment. |
 
 ## Next steps
 
-* For short introduction to Bicep, see [Bicep quickstart](quickstart-create-bicep-use-visual-studio-code.md).
+* For a short introduction to Bicep, see [Bicep quickstart](quickstart-create-bicep-use-visual-studio-code.md).
 * For suggestions about how to improve your Bicep files, see [Best practices for Bicep](best-practices.md).

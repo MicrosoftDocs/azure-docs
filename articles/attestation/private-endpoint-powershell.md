@@ -34,9 +34,9 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 ```azurepowershell-interactive
 ## Create to your Azure account subscription and create a resource group in a desired location. ##
 Connect-AzAccount
-Set-AzSubscription “mySubscription”
-$rg = “CreateAttestationPrivateLinkTutorial-rg”
-$loc= "eastus”
+Set-AzSubscription "mySubscription"
+$rg = "CreateAttestationPrivateLinkTutorial-rg"
+$loc= "eastus"
 New-AzResourceGroup -Name $rg -Location $loc
 ```
 
@@ -107,14 +107,14 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 $attestationProviderName = "myattestationprovider"
 $attestationProvider = New-AzAttestation -Name $attestationProviderName -ResourceGroupName $rg -Location $loc
 $attestationProviderId = $attestationProvider.Id
-
+```
 ## Access the attestation provider from local machine ##
-Enter nslookup <provider-name>.attest.azure.net. Replace <provider-name> with the name of the attestation provider instance you created in the previous steps. 
-
-You'll receive a message similar to what is displayed below:
-
-## PowerShell copy. ##
+Enter `nslookup <provider-name>.attest.azure.net`. Replace **\<provider-name>** with the name of the attestation provider instance you created in the previous steps. 
+```azurepowershell-interactive
+## Access the attestation provider from local machine ##
 nslookup myattestationprovider.eus.attest.azure.net
+
+<# You'll receive a message similar to what is displayed below:
 
 Server:  cdns01.comcast.net
 Address:  2001:558:feed::1
@@ -124,6 +124,8 @@ Name:    eus.service.attest.azure.net
 Address:  20.62.219.160
 Aliases:  myattestationprovider.eus.attest.azure.net
 	attesteusatm.trafficmanager.net
+
+#>
 ```
 
 ## Create private endpoint
@@ -138,7 +140,7 @@ In this section, you'll create the private endpoint and connection using:
 $privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" -PrivateLinkServiceId $attestationProviderId -GroupID "Standard"
 
 ## Disable private endpoint network policy ##
- $vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled" 
+$vnet.Subnets[0].PrivateEndpointNetworkPolicies = "Disabled" 
 $vnet | Set-AzVirtualNetwork
 
 ## Create private endpoint
@@ -187,23 +189,30 @@ In this section, you'll use the virtual machine you created in the previous step
 
 8. Open Windows PowerShell on the server after you connect.
 
-9. Enter `nslookup <provider-name>.attest.azure.net`. Replace **\<provider-name>** with the name of the attestation provider instance you created in the previous steps. You'll receive a message similar to what is displayed below:
+9. Enter `nslookup <provider-name>.attest.azure.net`. Replace **\<provider-name>** with the name of the attestation provider instance you created in the previous steps:
 
-	```powershell
-
+	```azurepowershell-interactive
 	## Access the attestation provider from local machine ##
 	nslookup myattestationprovider.eus.attest.azure.net
-
+	
+	<# You'll receive a message similar to what is displayed below:
+	
 	Server:  cdns01.comcast.net
 	Address:  2001:558:feed::1
 
 	cdns01.comcast.net can't find myattestationprovider.eus.attest.azure.net: Non-existent domain
-
+	
+	#>
+	
 	## Access the attestation provider from the VM created in the same virtual network as the private endpoint.   ##
 	nslookup myattestationprovider.eus.attest.azure.net
-
+	
+	<# You'll receive a message similar to what is displayed below:
+	
 	Server:  UnKnown
 	Address:  168.63.129.16
 	Non-authoritative answer:
 	Name:    myattestationprovider.eastus.test.attest.azure.net
+	
+	#>
 	```

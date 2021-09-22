@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 07/01/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro FPGA is and how it works so I can use it to process and transform data before sending to Azure.
 ---

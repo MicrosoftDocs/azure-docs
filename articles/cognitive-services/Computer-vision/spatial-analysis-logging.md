@@ -3,13 +3,13 @@ title: Telemetry and logging for Spatial Analysis containers
 titleSuffix: Azure Cognitive Services
 description: Spatial Analysis provides each container with a common configuration framework insights, logging, and security settings.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # Telemetry and troubleshooting

@@ -8,7 +8,7 @@ ms.date: 12/06/2019
 
 # Use Apache Sqoop with Hadoop in HDInsight
 
-[!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
+[!INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
 Learn how to use Apache Sqoop in HDInsight to import and export data between an HDInsight cluster and Azure SQL Database.
 

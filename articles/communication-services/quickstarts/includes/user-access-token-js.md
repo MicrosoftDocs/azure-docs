@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -102,7 +102,7 @@ const tokenCredential = new AzureKeyCredential(accessKey);
 const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
 ```
 
-If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+If you have an Azure Active Directory Application setup, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
 const tokenCredential = new DefaultAzureCredential();
@@ -150,7 +150,7 @@ console.log(token);
 Refreshing access tokens is as easy as calling `getToken` with the same identity that was used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens.
 
 ```javascript
-// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+// Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
 let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 ```
 

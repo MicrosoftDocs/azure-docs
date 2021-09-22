@@ -4,7 +4,7 @@ description: Create parameter file for passing in values during deployment of a 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/16/2021
 ---
 
 # Create Bicep parameter file
@@ -30,31 +30,7 @@ A parameter file uses the following format:
 }
 ```
 
-Notice that the parameter file stores parameter values as plain text. This approach works for values that aren't sensitive, such as a resource SKU. Plain text doesn't work for sensitive values, such as passwords. If you need to pass a parameter that contains a sensitive value, store the value in a key vault. Then reference the key vault in your parameter file. The sensitive value is securely retrieved during deployment.
-
-The following parameter file includes a plain text value and a sensitive value that's stored in a key vault.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "<first-parameter-name>": {
-      "value": "<first-value>"
-    },
-    "<second-parameter-name>": {
-      "reference": {
-        "keyVault": {
-          "id": "<resource-id-key-vault>"
-        },
-        "secretName": "<secret-name>"
-      }
-    }
-  }
-}
-```
-
-For more information about using values from a key vault, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
+Notice that the parameter file stores parameter values as plain text. This approach works for values that aren't sensitive, such as a resource SKU. Plain text doesn't work for sensitive values, such as passwords. If you need to pass a parameter that contains a sensitive value, store the value in a key vault. Instead of adding the sensitive value to your parameter file, retrieve it with the [getSecret function](bicep-functions-resource.md#getsecret). For more information, see [Use Azure Key Vault to pass secure parameter value during Bicep deployment](key-vault-parameter.md).
 
 ## Define parameter values
 
@@ -178,7 +154,7 @@ The following example shows the formats of different parameter types: string, in
 
 ## Deploy Bicep file with parameter file
 
-From Azure CLI you pass a local parameter file using `@` and the parameter file name. For example, `@storage.parameters.json`.
+From Azure CLI, pass a local parameter file using `@` and the parameter file name. For example, `@storage.parameters.json`.
 
 ```azurecli
 az deployment group create \
@@ -190,7 +166,7 @@ az deployment group create \
 
 For more information, see [Deploy resources with Bicep and Azure CLI](./deploy-cli.md#parameters). To deploy _.bicep_ files you need Azure CLI version 2.20 or higher.
 
-From Azure PowerShell you pass a local parameter file using the `TemplateParameterFile` parameter.
+From Azure PowerShell, pass a local parameter file using the `TemplateParameterFile` parameter.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -219,4 +195,4 @@ If your Bicep file includes a parameter with the same name as one of the paramet
 ## Next steps
 
 - For more information about how to define parameters in a Bicep file, see [Parameters in Bicep](./parameters.md).
-- For more information about using values from a key vault, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
+- To get sensitive values, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).

@@ -14,6 +14,8 @@ ms.custom: mimckitt, subject-armqs, devx-track-azurepowershell
 
 # Quickstart: Create a Windows virtual machine scale set with an ARM template
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
@@ -30,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/vmss-windows-webapp-dsc-autoscale/).
 
 :::code language="json" source="~/quickstart-templates/demos/vmss-windows-webapp-dsc-autoscale/azuredeploy.json":::
 

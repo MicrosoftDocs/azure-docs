@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 01/20/2021
+ms.date: 07/06/2021
 ---
 # Use read-only replicas to offload read-only query workloads
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,10 +39,12 @@ If you wish to ensure that the application connects to the primary replica regar
 
 ## Data consistency
 
-One of the benefits of replicas is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read scale-out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it may be redirected to a replica that is not 100% up-to-date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible on the replica. The latency is caused by an asynchronous transaction log redo operation.
+Data changes made on the primary replica propagate to read-only replicas asynchronously. Within a session connected to a read-only replica, reads are always transactionally consistent. However, because data propagation latency is variable, different replicas can return data at slightly different points in time relative to the primary and each other. If a read-only replica becomes unavailable and the session reconnects, it may connect to a replica that is at a different point in time than the original replica. Likewise, if an application changes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest changes are not immediately visible on the read-only replica.
+
+Typical data propagation latency between the primary replica and read-only replicas varies in the range from tens of milliseconds to single-digit seconds. However, there is no fixed upper bound on data propagation latency. Conditions such as high resource utilization on the replica can increase latency substantially. Applications that require guaranteed data consistency across sessions, or require committed data to be readable immediately should use the primary replica.
 
 > [!NOTE]
-> Replication latencies within the region are low, and this situation is rare. To monitor replication latency, see [Monitoring and troubleshooting read-only replica](#monitoring-and-troubleshooting-read-only-replicas).
+> To monitor data propagation latency, see [Monitoring and troubleshooting read-only replica](#monitoring-and-troubleshooting-read-only-replicas).
 
 ## Connect to a read-only replica
 
@@ -83,7 +85,7 @@ Commonly used views are:
 |:---|:---|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Provides resource utilization metrics for the last hour, including CPU, data IO, and log write utilization relative to service objective limits.|
 |[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Provides aggregate wait statistics for the database engine instance. |
-|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Provides replica health state and synchronization statistics. Redo queue size and redo rate serve as indicators of data latency on the read-only replica. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Provides replica health state and synchronization statistics. Redo queue size and redo rate serve as indicators of data propagation latency on the read-only replica. |
 |[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Provides database engine performance counters.|
 |[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Provides per-query execution statistics such as number of executions, CPU time used, etc.|
 |[sys.dm_exec_query_plan()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Provides cached query plans. |
@@ -117,7 +119,7 @@ If a long-running query on a read-only replica causes this kind of blocking, it 
 > If you receive error 3961, 1219, or 3947 when running queries against a read-only replica, retry the query.
 
 > [!TIP]
-> In Premium and Business Critical service tiers, when connected to a read-only replica, the `redo_queue_size` and `redo_rate` columns in the [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV may be used to monitor data synchronization process, serving as indicators of data latency on the read-only replica.
+> In Premium and Business Critical service tiers, when connected to a read-only replica, the `redo_queue_size` and `redo_rate` columns in the [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV may be used to monitor data synchronization process, serving as indicators of data propagation latency on the read-only replica.
 > 
 
 ## Enable and disable read scale-out

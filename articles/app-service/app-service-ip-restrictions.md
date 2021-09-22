@@ -91,7 +91,7 @@ You can't use service endpoints to restrict access to apps that run in an App Se
 With service endpoints, you can configure your app with application gateways or other web application firewall (WAF) devices. You can also configure multi-tier applications with secure back ends. For more information, see [Networking features and App Service](networking-features.md) and [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> - Service endpoints aren't currently supported for web apps that use IP Secure Sockets Layer (SSL) virtual IP (VIP).
+> - Service endpoints aren't currently supported for web apps that use IP-based TLS/SSL bindings with a virtual IP (VIP).
 >
 #### Set a service tag-based rule
 

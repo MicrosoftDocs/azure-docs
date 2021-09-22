@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -106,7 +106,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
-If you have managed identity set up, see [Use managed identities](../managed-identity.md), you may also authenticate with managed identity.
+If you have an Azure Active Directory(AD) application set up, see [Use service principals](../identity/service-principal.md), you may also authenticate with AD.
 ```java
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 TokenCredential credential = new DefaultAzureCredentialBuilder().build();
@@ -163,7 +163,7 @@ To refresh an access token, use the `CommunicationUserIdentifier` object to reis
 
 ```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity);
+CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity.getId());
 AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 ```
 

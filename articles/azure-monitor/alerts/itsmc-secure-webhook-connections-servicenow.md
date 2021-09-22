@@ -26,6 +26,7 @@ Ensure that you've met the following prerequisites:
 1. Use the link https://(instance name).service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor the URI for the secure export definition.
 
 2. Follow the instructions according to the version:
+   * [Quebec](https://docs.servicenow.com/bundle/quebec-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Orlando](https://docs.servicenow.com/bundle/orlando-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [New York](https://docs.servicenow.com/bundle/newyork-it-operations-management/page/product/event-management/concept/azure-integration.html)

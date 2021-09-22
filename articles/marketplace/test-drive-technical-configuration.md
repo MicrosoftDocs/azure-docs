@@ -92,8 +92,6 @@ If you are currently creating your test drive in Partner Center, select **Save d
 
 For step by step instructions on listing and configuring your Hosted Test Drive, please visit the [Detailed configuration for hosted test drive](./test-drive-hosted-detailed-config.md) page.
 
-## Additional Resources
-
 ## Next steps
 
 - [Test Drive Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)

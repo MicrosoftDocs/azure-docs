@@ -25,7 +25,9 @@ Azure Policy provides a built-in policy to ensure that secure transfer is requir
 Connecting to an Azure file share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1 or SMB 3.x without encryption.
 
 > [!NOTE]
-> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name. And classic storage accounts are not supported.
+> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name.
+> 
+> This secure transfer setting does not apply to TCP. Connections via NFS 3.0 protocol support in Azure Blob Storage using TCP, which is not secured, will succeed.  
 
 ## Require secure transfer in the Azure portal
 

@@ -5,13 +5,13 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 06/14/2021
 ms.author: banders
 ---
 
 # View reservation purchase and refund transactions
 
-There are a few different ways to view reservation purchase and refund transactions. You can use the Azure portal, Power BI, and REST APIs.
+There are a few different ways to view reservation purchase and refund transactions. You can use the Azure portal, Power BI, and REST APIs. You can view an exchanged reservation as refund and purchase in the transactions.
 
 ## View reservation purchases in the Azure portal
 
@@ -41,7 +41,7 @@ An Enterprise enrollment or Microsoft Customer Agreement billing administrator c
 
 ## View reservation transactions in Power BI
 
-An Enterprise enrollment or Microsoft Customer Agreement billing administrator can view reservation transactions with the Cost Management Power BI app.
+An Enterprise enrollment administrator can view reservation transactions with the Cost Management Power BI app.
 
 1. Get the [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 1. Navigate to the RI Purchases report.

@@ -159,8 +159,8 @@ For a subdomain like `www` in `www.contoso.com`, create two records according to
 
     |Record type|Host|Value|
     |--- |--- |--- |
-    |A|<subdomain> (for example, www)|IP address from Copy the app's IP address|
-    |TXT|asuid.<subdomain> (for example, asuid.www)|The verification ID you got earlier|
+    |A|\<subdomain\> (for example, www)|IP address from Copy the app's IP address|
+    |TXT|asuid.\<subdomain\> (for example, asuid.www)|The verification ID you got earlier|
     
 # [Wildcard (CNAME)](#tab/wildcard)
 
@@ -300,7 +300,7 @@ You can automate management of custom domains with scripts by using the [Azure C
 
 The following command adds a configured custom DNS name to an App Service app.
 
-```bash 
+```azurecli 
 az webapp config hostname add \
     --webapp-name <app-name> \
     --resource-group <resource_group_name> \

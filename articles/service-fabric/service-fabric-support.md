@@ -59,9 +59,9 @@ Learn more about:
 
 Get answers to Service Fabric questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
-[Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-service-fabric.html) is Azure's recommended source of community support.
+[Microsoft Q&A](/answers/topics/azure-service-fabric.html) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the [**azure-service-fabric**](https://docs.microsoft.com/answers/topics/azure-service-fabric.html) tag. Here are some Microsoft Q&A tips for writing [high-quality questions](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html).
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the [**azure-service-fabric**](/answers/topics/azure-service-fabric.html) tag. Here are some Microsoft Q&A tips for writing [high-quality questions](/answers/articles/24951/how-to-write-a-quality-question.html).
 
 ## Open a GitHub issue
 <div class='icon is-large'>
@@ -76,20 +76,6 @@ Report Azure Service Fabric issues at the [Service Fabric GitHub](https://github
 </div>
 
 The `azure-service-fabric` tag on [StackOverflow][stackoverflow] is used for asking general questions about how the platform works and how you may use it to accomplish certain tasks.
-
-## Submit feedback on Azure Feedback
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting significant product feature ideas. We review the most popular requests and factor them for our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
-
-
-> [!Note]
-> **Service Fabric preview versions are not supported for production use.** Occasionally we make special preview releases containing significant feature changes for which we would like to survey early feedback. You should only use preview versions in isolated test environments that do not serve production workloads. Your production cluster should always be running a supported, stable, Service Fabric version. We don't offer a paid support option for these preview releases.
->
-> A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, this version is in preview and is only intended to be used in test clusters. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included. Please use one of the options listed above to provide feedback.
-
 
 ## Stay informed of updates and new releases
 

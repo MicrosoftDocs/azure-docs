@@ -33,15 +33,12 @@
     href: ./tutorials/protect-new-resources.md
   - name: "Learn: Govern multiple subscriptions by using Azure Blueprints"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
+    href: /learn/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
   - name: Index
     displayName: list, examples
     href: ./samples/index.md
-  - name: Azure Security Benchmark
-    displayName: standards, azure, benchmark
-    href: ./samples/azure-security-benchmark.md
   - name: Azure Security Benchmark Foundation
     items:
     - name: Overview
@@ -72,50 +69,6 @@
   - name: CMMC Level 3
     displayName: standards, cmmc
     href: ./samples/cmmc-l3.md
-  - name: DoD Impact Level 4
-    items:
-    - name: Overview
-      displayName: standards, DoD, IL4
-      href: ./samples/dod-impact-level-4/index.md
-    - name: Control mapping
-      displayName: standards, DoD, IL4
-      href: ./samples/dod-impact-level-4/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, DoD, IL4
-      href: ./samples/dod-impact-level-4/deploy.md
-  - name: DoD Impact Level 5
-    items:
-    - name: Overview
-      displayName: standards, DoD, IL5
-      href: ./samples/dod-impact-level-5/index.md
-    - name: Control mapping
-      displayName: standards, DoD, IL5
-      href: ./samples/dod-impact-level-5/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, DoD, IL5
-      href: ./samples/dod-impact-level-5/deploy.md
-  - name: FedRAMP Moderate
-    items:
-    - name: Overview
-      displayName: standards, fedramp, moderate
-      href: ./samples/fedramp-m/index.md
-    - name: Control mapping
-      displayName: standards, fedramp, moderate
-      href: ./samples/fedramp-m/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, fedramp, moderate
-      href: ./samples/fedramp-m/deploy.md
-  - name: FedRAMP High
-    items:
-    - name: Overview
-      displayName: standards, fedramp, high
-      href: ./samples/fedramp-h/index.md
-    - name: Control mapping
-      displayName: standards, fedramp, high
-      href: ./samples/fedramp-h/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, fedramp, high
-      href: ./samples/fedramp-h/deploy.md
   - name: HIPAA HITRUST 9.2
     displayName: standards, HIPAA HITRUST
     href: ./samples/hipaa-hitrust-9-2.md
@@ -160,9 +113,6 @@
   - name: New Zealand ISM Restricted
     displayName: standards, NZISM
     href: ./samples/new-zealand-ism.md
-  - name: NIST SP 800-53 R4
-    displayName: standards, nist, 800-53, rev 4
-    href: ./samples/nist-sp-800-53-r4.md
   - name: NIST SP 800-171 R2
     displayName: standards, nist, 800-171, rev 2
     href: ./samples/nist-sp-800-171-r2.md
@@ -268,8 +218,8 @@
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Azure Blueprints Overview
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice

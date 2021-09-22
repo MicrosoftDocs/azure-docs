@@ -3,9 +3,8 @@ title: 'Tutorial: REST and AI over Azure blobs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in Blob Storage using Postman and the Azure Cognitive Search REST APIs. 
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
@@ -196,7 +195,7 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
       "skills":
       [
         {
-          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+          "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
           "categories": [ "Person", "Organization", "Location" ],
           "defaultLanguageCode": "en",
           "inputs": [
