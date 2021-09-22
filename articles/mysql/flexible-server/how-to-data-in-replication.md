@@ -28,6 +28,30 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 2. Create the same user accounts and corresponding privileges.
 
    User accounts aren't replicated from the source server to the replica server. If you plan on providing users with access to the replica server, you need to create all accounts and corresponding privileges manually on this newly created Azure Database for MySQL Flexible Server.
+   
+## GTID replication
+
+A global transaction identifier (GTID) is a unique identifier that's created and associated with each transaction that's committed on the server of origin (source). This identifier is unique not only to the server on which it originated, but it's also unique across all servers in a specific replication setup. There is a one-to-one mapping between all transactions and all GTIDs.
+
+GTIDs are always preserved between source and replica. You can always determine the source for any transaction applied on any replica by examining its binary log. In addition, after a transaction with a specific GTID is committed on a server, any subsequent transaction that has the same GTID is ignored by that server. Thus, a transaction committed on the source can be applied no more than once on the replica, which helps guarantee consistency.
+
+Learn how to use [GTID replication](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids.html).
+
+Check the master and slave server parameters to check the GTID parameters:
+
+ ```
+    Mysql> SHOW VARIABLES 'gtid_mode';
+    Mysql> SHOW VARIABLES 'enforce_gtid_consistency';
+ ```
+ 
+Learn how to enable GTID mode for Azure MySQL [here](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-server-parameters).
+
+In summary the steps:
+1. GTID consistency enforcement must be enabled by setting the parameter `enforce_gtid_consistency` to 'ON'
+2. Enable `gtid_mode` in stages: OFF > OFF_PERMISSIVE > ON_PERMISSIVE > ON.
+3. After GTID mode is enabled, the MySQL instance will require a restart.
+This can be done either within the Azure console or by using the Azure CLI.
+
 
 ## Configure the source MySQL server
 
