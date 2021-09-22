@@ -12,7 +12,7 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Quickstart: use Language Studio to being using custom text classification
+# Quickstart: use Language Studio to start using custom text classification
 
 In this article, we use the Language studio to demonstrate key concepts of Custom text classification. As an example we will build a custom classification model to triage support tickets.
 

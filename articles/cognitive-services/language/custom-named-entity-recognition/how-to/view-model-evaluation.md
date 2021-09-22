@@ -41,8 +41,8 @@ Model evaluation in custom entity extraction uses the following metrics:
 
 |Metric |Description  |Calculation  |
 |---------|---------|---------|
-|Precision     |  The ratio of successful attempted recognitions to all attempts.       | `Precision = #True_Positive / (#True_Positive + #False_Positive)`        |
-|Recall     | The ratio of successful attempted recognitions to the actual number of entities present.        | `Recall = #True_Positive / (#True_Positive + #False_Negatives)`        |
+|Precision     |  The ratio of successful recognitions to all attempted recognitions. This shows how many times the model's entity recognition is truly a good recognition.       | `Precision = #True_Positive / (#True_Positive + #False_Positive)`        |
+|Recall     | The ratio of successful recognitions to the actual number of entities present.        | `Recall = #True_Positive / (#True_Positive + #False_Negatives)`        |
 |F1 score    |  The combination of precision and recall.       |  `F1 Score = 2 * Precision * Recall / (Precision + Recall)`       |
 
 ## Model-level and entity-level evaluation metrics
@@ -123,7 +123,10 @@ So what does it actually mean to have high precision or high recall for a certai
 A Confusion matrix is an N x N matrix used for model performance evaluation, where N is the number of entities.
 The matrix compares the actual tags with the tags predicted by the model.
 This gives a holistic view of how well the model is performing and what kinds of errors it is making.
-The highlighted diagonal is the correctly predicted entities, where the predicted tag is the same as the actual tag.
+
+You can use the Confusion matrix to identify entities that are too close to each other and often get mistaken (ambiguity). In this case consider merging these entity types together. If that isn't possible, consider adding more tagged examples of both entities to help the model differentiate between them.
+
+The highlighted diagonal in the image below is the correctly predicted entities, where the predicted tag is the same as the actual tag.
 
 :::image type="content" source="../media/confusion-matrix-example.png" alt-text="A screenshot of an example confusion matrix" lightbox="../media/confusion-matrix-example.png":::
 
