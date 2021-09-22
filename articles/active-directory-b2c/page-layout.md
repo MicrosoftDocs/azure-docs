@@ -54,7 +54,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 **2.1.8**
 
-- The claim name is added to the the `class` attribute of the `<li>` HTML element that surrounding the user's attribute input elements. The class name allows you to create a CSS selector to select the parent `<li>` for a certain user attribute input element. The following HTML markup shows the class attribute for the sign-up page:
+- The claim name is added to the `class` attribute of the `<li>` HTML element that surrounding the user's attribute input elements. The class name allows you to create a CSS selector to select the parent `<li>` for a certain user attribute input element. The following HTML markup shows the class attribute for the sign-up page:
   
   ```html
   <div id="attributeList" class="attr">
