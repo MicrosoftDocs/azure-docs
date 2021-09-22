@@ -104,13 +104,13 @@ In the example directory, the `pipeline.yaml` file looks like the following code
 
 If you open the job's URL in Studio (the value of `interaction_endpoints.Studio.endpoint` from the `job create` command), you'll see a graph representation of your pipeline:
 
-:::image type="content" source="media/how-to-create-pipelines-cli/pipeline-graph.png" lightbox="media/how-to-create-pipelines-cli/pipeline-graph.png" alt-text="The pipeline's graph representation in Studio":::
+:::image type="content" source="media/how-to-create-component-pipelines-cli/pipeline-graph.png" lightbox="media/how-to-create-component-pipelines-cli/pipeline-graph.png" alt-text="The pipeline's graph representation in Studio":::
 
 There are no dependencies between the components in this pipeline. Generally, pipelines will have dependencies and this page will show them visually. Since these components are not dependent upon each other, and since the `cpu-cluster` had sufficient nodes, they ran concurrently. 
 
 If you double-click on a component in the pipeline graph, you can see details of the component's child run. 
 
-:::image type="content" source="media/how-to-create-pipelines-cli/component-details.png" alt-text="Screenshot showing the details and outputs of a component's child run" lightbox="media/how-to-create-pipelines-cli/component-details.png"::: 
+:::image type="content" source="media/how-to-create-component-pipelines-cli/component-details.png" alt-text="Screenshot showing the details and outputs of a component's child run" lightbox="media/how-to-create-component-pipelines-cli/component-details.png"::: 
 
 ## Upload and use data
 
@@ -118,7 +118,7 @@ The example `3b_pipeline_with_data` demonstrates how you define input and output
 
 You define input data directories for your pipeline in the pipeline YAML file using the `inputs` path. You define output and intermediate data directories using the `outputs` path. You use these definitions in the `jobs.{component_name}.inputs` and `jobs.{component_name}.outputs` paths, as shown in the following image:
 
-:::image type="content" source="media/how-to-create-pipelines-cli/inputs-and-outputs.png" alt-text="Image showing how the inputs and outputs paths map to the jobs inputs and outputs paths" lightbox="media/how-to-create-pipelines-cli/inputs-and-outputs.png":::
+:::image type="content" source="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png" alt-text="Image showing how the inputs and outputs paths map to the jobs inputs and outputs paths" lightbox="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png":::
 
 1. The `inputs.pipeline_sample_input_data` path creates a key identifier and uploads the input data from the `local_path` directory. This key `inputs.pipeline_sample_input_data` is then used as the value of the `jobs.componentA_job.inputs.componentA_input` key. 
 1. The `outputs.pipeline_sample_output_data_A` path creates a key identifier and specifies that this output data should be stored in the default workspace blobstore, at the `simple_pipeline_A` path. This key `outputs.pipeline_sample_output_data_A` is then used as the value of the `jobs.componentA_job.outputs.componentA_output` key. 
@@ -126,7 +126,7 @@ You define input data directories for your pipeline in the pipeline YAML file us
 
 Studio's visualization of this pipeline looks like this: 
 
-:::image type="content" source="media/how-to-create-pipelines-cli/pipeline-graph-dependencies.png" alt-text="Screenshot showing Studio's graph view of a pipeline with data dependencies" lightbox="media/how-to-create-pipelines-cli/pipeline-graph-dependencies.png":::
+:::image type="content" source="media/how-to-create-component-pipelines-cli/pipeline-graph-dependencies.png" alt-text="Screenshot showing Studio's graph view of a pipeline with data dependencies" lightbox="media/how-to-create-component-pipelines-cli/pipeline-graph-dependencies.png":::
 
 You can see that `inputs.pipeline_sample_input_data` is represented as a `Dataset`. The keys of the `jobs.{component_name}.inputs` and `outputs` paths are shown as data flows between the pipeline components.
 
@@ -174,7 +174,7 @@ As described previously, these entries specify the input data to the pipeline, i
 
 Notice how `jobs.train_job.outputs.model_output` is used as an input to both the prediction job and the scoring job, as shown in the following diagram: 
 
-:::image type="content" source="media/how-to-create-pipelines-cli/regression-graph.png" alt-text="pipeline graph of the NYC taxi-fare prediction task" lightbox="media/how-to-create-pipelines-cli/regression-graph.png":::
+:::image type="content" source="media/how-to-create-component-pipelines-cli/regression-graph.png" alt-text="pipeline graph of the NYC taxi-fare prediction task" lightbox="media/how-to-create-component-pipelines-cli/regression-graph.png":::
 
 ## Caching & reuse  
 
