@@ -64,7 +64,7 @@ To enable GTID, `enforce_gtid_consistency` must first be enabled (ON).
  
 Learn how to enable GTID mode on the master in [AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-replication-gtid.html).
 
-Learn how to enable GTID mode on the slave in [Azure](https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-server-parameters).
+Learn how to enable GTID mode on the slave in [Azure](/flexible-server/concepts-server-parameters.md).
 
 For Azure MySQL, GTID is enabled by default. If GTID isn't enabled, enable `gtid_mode` in stages: OFF > OFF_PERMISSIVE > ON_PERMISSIVE > ON. You can enable GTID either by using the Azure console or the Azure CLI.
 
