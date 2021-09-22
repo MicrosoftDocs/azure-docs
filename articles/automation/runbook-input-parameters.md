@@ -313,9 +313,9 @@ Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup -DefaultPro
 ```
 
 If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
-    1. From line 10, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
-    1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
-    1. Enter the Client ID.
+1. From line 10, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
+1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
+1. Enter the Client ID.
 
 Save and publish this runbook in your Automation account.
 
