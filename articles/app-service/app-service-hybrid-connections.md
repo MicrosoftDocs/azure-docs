@@ -1,12 +1,12 @@
 ---
 title: Hybrid connections 
 description: Learn how to create and use hybrid connections in Azure App Service to access resources in disparate networks. 
-author: ccompy
+author: madsd
 
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 05/05/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18, fasttrack-edit
 ---
 
