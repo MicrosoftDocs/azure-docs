@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Arc resource bridge on VMware vSphere
 description: Learn how to deploy Azure Arc resource bridge to VMware vSphere.
-ms.date: 09/17/2021
+ms.date: 09/22/2021
 ms.topic: overview
 ---
 
@@ -62,7 +62,7 @@ The `appliance.yaml` file is the main configuration file that specifies the path
     
     # IP address to be used for control plane/API server from the DHCP range available in the environment. This IP address must be reserved for this, and can't be changed. If it is changed, the resource bridge will not be reachable by all the other Arc agents and services.
     applianceClusterConfig:
-        controlPlaneEndpoint: xxx.xxx.xxx.xxx
+        controlPlaneEndpoint: <ipAddress>
     ```
 
     If your environment requires a proxy server, you can add the following under section `applianceClusterConifg`
@@ -73,14 +73,14 @@ The `appliance.yaml` file is the main configuration file that specifies the path
       networking:
         # Specify the proxy configuration.
         proxy:
-          http: "..."
-          https: "..."
+          http: "<http://<proxyURL>:<proxyport>"
+          https: "<https://<proxyURL>:<proxyport>"
           noproxy: "..."
           # Specify certificate if applicable
-          certificateFilePath: "..."
+          certificateFilePath: "<certificatePath>"
     ```
 
-2. Edit the values for **controlPlaneEndpoint**. If communicating through a proxy server, edit the values for **http** or **https**, and **certificateFilePath**. 
+2. Edit the values for **controlPlaneEndpoint**. If communicating through a proxy server, edit the values for **http** or **https** depending on if your proxy server only supports HTTP or HTTPS, and **certificateFilePath**. 
 
 3. Save this file as `appliance.yaml` to a local folder.
 
@@ -90,27 +90,27 @@ The `infra.yaml` file includes specific information to enable deployment of the 
 
 1. Copy and paste the following syntax into your file:
 
-    ```sh
+    ```bash
     vsphereprovider:
       # vCenter credentials, which will be used to create the resource bridge.
       credentials:
-        address: <vcenter address>
-        username: <username>
+        address: <vcenterAddress>
+        username: <userName>
         password: <password>
       # Current deployment uses the template and snapshot to create the resource bridge VM.
       appliancevm:
-        vmtemplate: <template name>
-        templatesnapshot: <snapshot name>
+        vmtemplate: <templateName>
+        templatesnapshot: <snapshotName>
       # The datacenter where the resource bridge VM will be created on.
-      datacenter: <datacenter name>
+      datacenter: <datacenteName>
        # The datastore used by the resource bridge VM
-      datastore: <datastore name>
+      datastore: <datastoreName>
       # The network interface used by the resource bridge VM
-      network: <network interface name>
+      network: <networkInterfaceName>
       # The resource pool where the resource bridge VM will be created on.
-      resourcepool: <resource pool name>
+      resourcepool: <resourcePoolName>
       # The folder where the resource bridge will be created under.
-      folder: <folder name>
+      folder: <folderName>
     
     # The following is only required for the current release
      applianceagents:
@@ -129,8 +129,8 @@ The `resource.yaml` file contains all the information related to the Azure Resou
 
     ```bash
     resource:
-        resource_group: <resource_group>
-        name: <resource_name>
+        resource_group: <resourceGroupName>
+        name: <resourceName>
         location: <location>
         subscription: <subscription>
     ```
@@ -150,13 +150,19 @@ The `resource.yaml` file contains all the information related to the Azure Resou
 2. Run the following command to create the resource bridge resource in Azure:
 
     ```bash
-    az arcappliance create vmware --config-file examples/example-appliance.yaml --kubeconfig <path to kubeconfig created above>
+    az arcappliance create vmware --config-file appliance.yaml --kubeconfig <path to kubeconfig created earlier>
     ```
 
 The resource in Azure will take several minutes to connect to the virtual machine deployed in vSphere. Run the following command to check the `provisioningState` and `status` of the Arc resource bridge.  
 
 ```bash
-az arcappliance show -n <resource name> -g <resource group>
+az arcappliance show -n <resourceName> -g <resourceGroupName>
 ```
 
 The output resembles the following:
+
+<Example image or verbatim output>
+
+## Next steps
+
+Learn how to perform common management operations on the VMware virtual machines that are enabled by Azure Arc.
