@@ -1,5 +1,5 @@
 ---
-title: Create and run ML pipelines (CLI)
+title: Create and run component-based ML pipelines (CLI)
 titleSuffix: Azure Machine Learning
 description: Create and run machine learning pipelines using the Azure Machine Learning CLI. 
 services: machine-learning
@@ -12,9 +12,9 @@ ms.topic: how-to
 
 ---
 
-# Create and run machine learning pipelines with the Azure Machine Learning CLI (Preview)
+# Create and run machine learning pipelines using components with the Azure Machine Learning CLI (Preview)
 
-In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
+In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and [Components](concept-components.md). You can create pipelines without using components (for more, see TODOO), but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -48,7 +48,7 @@ Azure has other types of pipelines: Azure Data Factory pipelines have strong sup
 
 ## Create your first pipeline
 
-From the `cli/pipelines/samples` directory of the`azureml-examples` repository, navigate to the `3a_basic_pipeline` subdirectory. List your available compute resources with the following command: 
+From the `cli/jobs/pipelines-with-components/basics` directory of the`azureml-examples` repository, navigate to the `3a_basic_pipeline` subdirectory. List your available compute resources with the following command: 
 
 ```azurecli
 az ml compute list
@@ -81,9 +81,9 @@ You should receive a JSON dictionary with information about the pipeline job, in
 
 Open `ComponentA.yaml` to see how the first component is defined: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/pipelines/samples/basics/3a_basic_pipeline/componentA.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
 
-In the current preview, only components of type `command_component` are supported. The `name` and `display_name` values are the unique identifier and the name used in Studio to describe the component. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
+In the current preview, only components of type `command_component` are supported {>> TODO Is this now `command`? <<}. The `name` and `display_name` values are the unique identifier and the name used in Studio to describe the component. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
 
 All files in the `code.local_path` value will be uploaded to Azure for processing. 
 
@@ -100,7 +100,7 @@ For more information on components and their specification, see "What is an Azur
 
 In the example directory, the `pipeline.yaml` file looks like the following code:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/pipelines/samples/basics/3a_basic_pipeline/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/pipeline.yml":::
 
 If you open the job's URL in Studio (the value of `interaction_endpoints.Studio.endpoint` from the `job create` command), you'll see a graph representation of your pipeline:
 
@@ -162,15 +162,15 @@ One of the common scenarios for machine learning pipelines has three major phase
 1. Training
 1. Evaluating the model
 
-Each of these phases may have multiple components. For instance, the data preparation step may have separate steps for loading and transforming the training data. The examples repository contains an end-to-end example pipeline in the `pipelines/samples/nyc_taxi_data_regression` directory. 
+Each of these phases may have multiple components. For instance, the data preparation step may have separate steps for loading and transforming the training data. The examples repository contains an end-to-end example pipeline in the `cli/jobs/pipelines-with-components/nyc_taxi_data_regression` directory. 
 
-The `pipeline.yml` begins with the `name` of the job and the mandatory `type: pipeline_job` key-value pair. Then, it defines inputs and outputs as follows:
+The `pipeline.yml` begins with the `name` of the job and the mandatory `type: pipeline_job` key-value pair {>> TODO Nope <<}. Then, it defines inputs and outputs as follows:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/pipelines/samples/nyc_taxi_data_regression/pipeline.yml" id="inputs_and_outputs":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" id="inputs_and_outputs":::
 
 As described previously, these entries specify the input data to the pipeline, in this case the dataset in `./data`, and the intermediate and final outputs of the pipeline, which are stored in separate paths. The names within these input and output entries become values in the `inputs` and `outputs` entries of the individual jobs: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/pipelines/samples/nyc_taxi_data_regression/pipeline.yml" id="jobs":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" id="jobs":::
 
 Notice how `jobs.train_job.outputs.model_output` is used as an input to both the prediction job and the scoring job, as shown in the following diagram: 
 
