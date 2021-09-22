@@ -12,6 +12,9 @@ ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Working with large virtual machine scale sets
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 You can now create Azure [virtual machine scale sets](./index.yml) with a capacity of up to 1,000 VMs. In this document, a _large virtual machine scale set_ is defined as a scale set capable of scaling to greater than 100 VMs. This capability is set by a scale set property (_singlePlacementGroup=False_). 
 
 Certain aspects of large scale sets, such as load balancing and fault domains behave differently to a standard scale set. This document explains the characteristics of large scale sets, and describes what you need to know to successfully use them in your applications. 

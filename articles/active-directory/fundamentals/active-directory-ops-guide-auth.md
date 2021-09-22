@@ -84,7 +84,7 @@ At a minimum, it is recommended you deploy Azure AD [self-service password reset
 
 ### Strong credential management
 
-Passwords by themselves aren't secure enough to prevent bad actors from gaining access to your environment. At a minimum, any user with a privileged account must be enabled for multi-factor authentication (MFA). Ideally, you should enable [combined registration](../authentication/concept-registration-mfa-sspr-combined.md) and require all users to register for MFA and SSPR using the [combined registration experience](../user-help/security-info-setup-signin.md). Eventually, we recommend you adopt a strategy to [provide resilience](../authentication/concept-resilient-controls.md) to reduce the risk of lockout due to unforeseen circumstances.
+Passwords by themselves aren't secure enough to prevent bad actors from gaining access to your environment. At a minimum, any user with a privileged account must be enabled for multi-factor authentication (MFA). Ideally, you should enable [combined registration](../authentication/concept-registration-mfa-sspr-combined.md) and require all users to register for MFA and SSPR using the [combined registration experience](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8). Eventually, we recommend you adopt a strategy to [provide resilience](../authentication/concept-resilient-controls.md) to reduce the risk of lockout due to unforeseen circumstances.
 
 ![Combined user experience flow](./media/active-directory-ops-guide/active-directory-ops-img4.png)
 

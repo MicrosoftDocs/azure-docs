@@ -42,24 +42,18 @@ You can use any of these tools to upload content to the **$web** container:
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code extension](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
+> * [Visual Studio Code extension](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## Viewing content
 
 Users can view site content from a browser by using the public URL of the website. You can find the URL by using the Azure portal, Azure CLI, or PowerShell. See [Find the website URL](storage-blob-static-website-how-to.md#portal-find-url).
 
+The index document that you specify when you enable static website hosting appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).
+
 If the server returns a 404 error, and you have not specified an error document when you enabled the website, then a default 404 page is returned to the user.
 
 > [!NOTE]
 > [Cross-Origin Resource Sharing (CORS) support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) is not supported with static website.
-
-### Regional codes
-
-The URL of your site contains a regional code. For example, the URL `https://contosoblobaccount.z22.web.core.windows.net/` contains regional code `z22`.
-
-While that code must remain in the URL, it is only for internal use, and you won't have to use that code in any other way.
-
-The index document that you specify when you enable static website hosting, appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### Secondary endpoints
 
@@ -116,15 +110,26 @@ You can enable metrics on static website pages. Once you've enabled metrics, tra
 
 To enable metrics on your static website pages, see [Enable metrics on static website pages](storage-blob-static-website-how-to.md#metrics).
 
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
 ## FAQ
 
 ##### Does the Azure Storage firewall work with a static website?
 
-The storage account has a built-in [firewall feature](../common/storage-network-security.md), but this firewall does not affect the static website endpoint. It can be used only to protect other storage endpoints, such as the blob, file, table, and queue service endpoints. 
+Yes. Storage account [network security rules](../common/storage-network-security.md), including IP-based and VNET firewalls, are supported for the static website endpoint, and may be used to protect your website.
 
 ##### Do static websites support Azure Active Directory (Azure AD)?
 
-Yes. However, there is no option to use Social Identity Providers, such as Google authentication or Facebook, using OpenID.
+No. A static website only supports anonymous public read access for files in the **$web** container.
 
 ##### How do I use a custom domain with a static website?
 

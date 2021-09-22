@@ -195,4 +195,4 @@ With either the version 3 or version 4 sample of the FPS Server SDK, if a master
 
 ## Offline Fairplay questions
 
-See [offline fairplay questions](questions-collection.md#why-does-only-audio-play-but-not-video-during-offline-mode).
+See [offline fairplay questions in the FAQ](frequently-asked-questions.yml).

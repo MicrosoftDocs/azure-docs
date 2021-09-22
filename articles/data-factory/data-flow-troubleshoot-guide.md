@@ -490,7 +490,7 @@ This article explores common troubleshooting methods for mapping data flows in A
         
       :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Screenshot that shows the configuration of Compute type.":::   
 
-  - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](./concepts-data-flow-performance.md#cluster-size).
+  - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](./concepts-integration-runtime-performance.md#cluster-size).
   
   - Option-3: Repartition your input data. For the task running on the data flow spark cluster, one partition is one task and runs on one node. If data in one partition is too large, the related task running on the node needs to consume more memory than the node itself, which causes failure. So you can use repartition to avoid data skew, and ensure that data size in each partition is average while the memory consumption is not too heavy.
     
@@ -701,7 +701,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
   Successful execution of data flows depends on many factors, including the compute size/type, numbers of source/sinks to process, the partition specification, transformations involved, sizes of datasets, the data skewness and so on.<br/>
   
-  For more guidance, see [Optimizing the Azure Integration Runtime](concepts-data-flow-performance.md#ir).
+  For more guidance, see [Integration Runtime performance](concepts-integration-runtime-performance.md).
 
 #### Scenario 2: Using debug sessions with parallel activities
 
@@ -720,7 +720,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 For more help with troubleshooting, see these resources:
 
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)

@@ -3,7 +3,7 @@ title: Tutorial - Define a new gateway device type in Azure IoT Central | Micros
 description: This tutorial shows you, as a builder, how to define a new IoT gateway device type in your Azure IoT Central application.
 author: rangv
 ms.author: rangv
-ms.date: 10/22/2019
+ms.date: 08/18/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

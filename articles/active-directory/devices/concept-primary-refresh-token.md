@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ---
@@ -65,14 +65,14 @@ In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary 
 
 ## What is the lifetime of a PRT?
 
-Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.  
+Once issued, a PRT is valid for 90 days and is continuously renewed as long as the user actively uses the device.  
 
 ## How is a PRT used?
 
 A PRT is used by two key components in Windows:
 
 * **Azure AD CloudAP plugin**: During Windows sign in, the Azure AD CloudAP plugin requests a PRT from Azure AD using the credentials provided by the user. It also caches the PRT to enable cached sign in when the user does not have access to an internet connection.
-* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively) and Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions).
+* **Azure AD WAM plugin**: When users try to access applications, the Azure AD WAM plugin uses the PRT to enable SSO on Windows 10. Azure AD WAM plugin uses the PRT to request refresh and access tokens for applications that rely on WAM for token requests. It also enables SSO on browsers by injecting the PRT into browser requests. Browser SSO in Windows 10 is supported on Microsoft Edge (natively), Chrome (via the [Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) or [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) extensions) or Mozilla Firefox v91+ (Firefox [Windows SSO setting](https://support.mozilla.org/kb/windows-sso))
 
 ## How is a PRT renewed?
 
@@ -106,7 +106,7 @@ By securing these keys with the TPM, we enhance the security for PRT from  malic
 
 **App tokens**: When an app requests token through WAM, Azure AD issues a refresh token and an access token. However, WAM only returns the access token to the app and secures the refresh token in its cache by encrypting it with the user’s data protection application programming interface (DPAPI) key. WAM securely uses the refresh token by signing requests with the session key to issue further access tokens. The DPAPI key is secured by an Azure AD based symmetric key in Azure AD itself. When the device needs to decrypt the user profile with the DPAPI key, Azure AD provides the DPAPI key encrypted by the session key, which CloudAP plugin requests TPM to decrypt. This functionality ensures consistency in securing refresh tokens and avoids applications implementing their own protection mechanisms.  
 
-**Browser cookies**: In Windows 10, Azure AD supports browser SSO in Internet Explorer and Microsoft Edge natively or in Google Chrome via the Windows 10 accounts extension. The security is built not only to protect the cookies but also the endpoints to which the cookies are sent. Browser cookies are protected the same way a PRT is, by utilizing the session key to sign and protect the cookies.
+**Browser cookies**: In Windows 10, Azure AD supports browser SSO in Internet Explorer and Microsoft Edge natively, in Google Chrome via the Windows 10 accounts extension and in Mozilla Firefox v91+ via a browser setting. The security is built not only to protect the cookies but also the endpoints to which the cookies are sent. Browser cookies are protected the same way a PRT is, by utilizing the session key to sign and protect the cookies.
 
 When a user initiates a browser interaction, the browser (or extension) invokes a COM native client host. The native client host ensures that the page is from one of the allowed domains. The browser could send other parameters to the native client host, including a nonce, however the native client host guarantees validation of the hostname. The native client host requests a PRT-cookie from CloudAP plugin, which creates and signs it with the TPM-protected session key. As the PRT-cookie is signed by the session key, it is very difficult to tamper with. This PRT-cookie is included in the request header for Azure AD to validate the device it is originating from. If using the Chrome browser, only the extension explicitly defined in the native client host’s manifest can invoke it preventing arbitrary extensions from making these requests. Once Azure AD validates the PRT cookie, it issues a session cookie to the browser. This session cookie also contains the same session key issued with a PRT. During subsequent requests, the session key is validated effectively binding the cookie to the device and preventing replays from elsewhere.
 
@@ -196,7 +196,7 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
 
 > [!NOTE]
-> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, or Incognito in Google Chrome (when using the Microsoft Accounts extension).
+> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, Incognito in Google Chrome (when using the Microsoft Accounts extension) or in private mode in Mozilla Firefox v91+
 
 ## Next steps
 

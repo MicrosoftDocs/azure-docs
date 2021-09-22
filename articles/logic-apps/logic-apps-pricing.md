@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/09/2021
+ms.date: 08/23/2021
 ---
 
 # Usage metering, billing, and pricing models for Azure Logic Apps
@@ -37,7 +37,7 @@ The following table summarizes how the Consumption model handles metering and bi
 
 Except for the initial number of free built-in operation executions, per Azure subscription, that a workflow can run, the Consumption model meters and bills an operation based on *each execution*, whether or not the overall workflow successfully runs, finishes, or is even instantiated. An operation usually makes a single execution [unless the operation has retry attempts enabled](#other-operation-behavior). In turn, an execution usually makes a single call [unless the operation supports and enables chunking or pagination to get large amounts of data](logic-apps-handle-large-messages.md). If chunking or pagination is enabled, an operation execution might have to make multiple calls. The Consumption model meters and bills an operation *per execution, not per call*.
 
-For example, suppose a workflow starts with a polling trigger that gets records by regularly making outbound calls to an endpoint. The outbound call is metered and billed as a single execution, whether or not the trigger fires or is skipped. The trigger state controls whether or not the workflow instance is created and run. Now, suppose the operation also supports and has enabled chunking or pagination. If the operation has to make 10 calls to finish getting all the data, the operation is still metered and billed as a *single execution*, despite making multiple calls.
+For example, suppose a workflow starts with a polling trigger that gets records by regularly making outbound calls to an endpoint. The outbound call is metered and billed as a single execution, whether or not the trigger fires or is skipped, such as when a trigger checks an endpoint but doesn't find any data or events. The trigger state controls whether or not the workflow instance is created and run. Now, suppose the operation also supports and has enabled chunking or pagination. If the operation has to make 10 calls to finish getting all the data, the operation is still metered and billed as a *single execution*, despite making multiple calls.
 
 The following table summarizes how the Consumption model handles metering and billing for these operation types when used with a logic app and workflow in multi-tenant Azure Logic Apps:
 

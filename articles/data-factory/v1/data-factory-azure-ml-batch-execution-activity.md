@@ -1,15 +1,16 @@
 ---
 title: Create predictive data pipelines using Azure Data Factory 
-description: Describes how to create create predictive pipelines using Azure Data Factory and ML Studio (classic)
+description: Describes how to create create predictive pipelines using Azure Data Factory and Machine Learning Studio (classic)
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/22/2018
 ---
 
-# Create predictive pipelines using ML Studio (classic) and Azure Data Factory
+# Create predictive pipelines using Machine Learning Studio (classic) and Azure Data Factory
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive Activity](data-factory-hive-activity.md)
@@ -27,7 +28,7 @@ ms.date: 01/22/2018
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using machine learning in Data Factory](../transform-data-using-machine-learning.md).
 
-### ML Studio (classic)
+### Machine Learning Studio (classic)
 [ML Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using ML Studio (classic). Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
@@ -60,9 +61,9 @@ You use Azure Data Factory to orchestrate data movement and processing, and then
    2. **API key** for the published Studio (classic) web service. You can find the API key by clicking the web service that you have published.
    3. Use the **AzureMLBatchExecution** activity.
 
-      ![Machine Learning Studio (classic) Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
+      :::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png" alt-text="Machine Learning Studio (classic) Dashboard":::
 
-      ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
+      :::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png" alt-text="Batch URI":::
 
 ### Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
 In this scenario, the Studio (classic) Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the web service by using the **webServiceInput** JSON property. The **DecisionTreeResultBlob** is passed as an output to the Web service by using the **webServiceOutputs** JSON property.
@@ -344,7 +345,7 @@ Big data pipelines with activities such as Pig and Hive can produce one or more 
 
 When using the reader module in a Studio (classic) experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (Example: 000000_0) that are produced by a Pig and Hive script running on HDInsight. The reader module allows you to read files (with no extensions) by configuring the **Path to container, directory/blob**. The **Path to container** points to the container and **directory/blob** points to folder that contains the files as shown in the following image. The asterisk that is, \*) **specifies that all the files in the container/folder (that is, data/aggregateddata/year=2014/month-6/\*)** are read as part of the experiment.
 
-![Azure Blob properties](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+:::image type="content" source="./media/data-factory-create-predictive-pipelines/azure-blob-properties.png" alt-text="Azure Blob properties":::
 
 ### Example
 #### Pipeline with AzureMLBatchExecution activity with Web Service Parameters

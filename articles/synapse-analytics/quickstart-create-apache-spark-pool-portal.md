@@ -6,7 +6,7 @@ author: julieMSFT
 ms.service: synapse-analytics 
 ms.topic: quickstart 
 ms.subservice: spark
-ms.date: 04/15/2020 
+ms.date: 08/19/2021 
 ms.author: jrasnick 
 ms.reviewer: jrasnick 
 ---

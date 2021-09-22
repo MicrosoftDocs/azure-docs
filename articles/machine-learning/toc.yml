@@ -11,6 +11,20 @@
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
+    - name: "Migrate from ML Studio (classic)"
+      items: 
+        - name: Migration overview
+          href: migrate-overview.md
+        - name: Migrate datasets
+          href: migrate-register-dataset.md
+        - name: Rebuild experiments
+          href: migrate-rebuild-experiment.md
+        - name: Rebuild web services
+          href: migrate-rebuild-web-service.md
+        - name: Migrate client applications
+          href: migrate-rebuild-integrate-with-client-app.md
+        - name: Rebuild Execute R Script components
+          href: migrate-execute-r-script.md
 - name: Quickstart
   expanded: true
   items: 
@@ -203,6 +217,8 @@
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Secured workspace traffic flow
+          href: concept-secure-network-traffic-flow.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Security controls by Azure Policy
@@ -249,8 +265,9 @@
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
-            - name: Configure Firewall
+            - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
+              displayName: firewall, user-defined route, udr
         - name: Data protection
           items:
             - name: Failover & disaster recovery
@@ -422,6 +439,9 @@
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
+          - name: Distributed GPU guide
+            displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
+            href: how-to-train-distributed-gpu.md
           - name: Scikit-learn
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
@@ -532,6 +552,8 @@
             items:
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
+            - name: Batch endpoints in studio
+              href: how-to-use-batch-endpoints-studio.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets

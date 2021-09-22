@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/15/2021
+ms.date: 09/09/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -40,13 +40,36 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 > [!IMPORTANT]
 > If you copy data by using an Azure Integration Runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../azure-sql/database/logical-servers.md).
 > If you copy data by using a self-hosted integration runtime, configure the firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure Synapse Analytics.
-
 ## Get started
 
 > [!TIP]
 > To achieve best performance, use PolyBase or COPY statement to load data into Azure Synapse Analytics. The [Use PolyBase to load data into Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) and [Use COPY statement to load data into Azure Synapse Analytics](#use-copy-statement) sections have details. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics under 15 minutes with Azure Data Factory](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create an Azure Synapse Analytics linked service using UI
+
+Use the following steps to create an Azure Synapse Analytics linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Synapse and select the Azure Synapse Analytics connector.
+
+    :::image type="content" source="media/connector-azure-sql-data-warehouse/azure-sql-data-warehouse-connector.png" alt-text="Screenshot of the Azure Synapse Analytics connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-sql-data-warehouse/configure-azure-sql-data-warehouse-linked-service.png" alt-text="Screenshot of configuration for an Azure Synapse Analytics linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that define Data Factory and Synapse pipeline entities specific to an Azure Synapse Analytics connector.
 
@@ -408,7 +431,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 
 The Azure Synapse Analytics connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
 
-![Screenshot of partition options](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Screenshot of partition options":::
 
 When you enable partitioned copy, copy activity runs parallel queries against your Azure Synapse Analytics source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure Synapse Analytics.
 
@@ -856,7 +879,7 @@ SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2
 - Serializable
 - None (ignore isolation level)
 
-![Isolation Level](media/data-flow/isolationlevel.png)
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
 
 ### Sink transformation
 
@@ -879,7 +902,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts":::
 
 ### Error row handling
 

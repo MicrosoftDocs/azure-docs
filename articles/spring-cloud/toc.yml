@@ -64,6 +64,8 @@
   items:
     - name: Security controls
       href: concept-security-controls.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-cloud/toc.json
     - name: Azure Policy Security controls
       href: ./security-controls-policy.md
     - name: Understand app status
@@ -132,8 +134,12 @@
           href: how-to-circuit-breaker-metrics.md
         - name: Structured application log
           href: structured-app-log.md
+        - name: Use Dynatrace Java OneAgent
+          href: how-to-dynatrace-one-agent-monitor.md
         - name: New Relic Java in-process agent
           href: how-to-new-relic-monitor.md
+        - name: Monitor app lifecycle events
+          href: monitor-app-lifecycle-events.md
     - name: Network
       items:
         - name: Deploy Azure Spring Cloud in a virtual network
