@@ -101,19 +101,22 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
  
 
  ## Configure the Azure AD ECMA Connector Host
+
+
+## Create a generic SQL connector
  1. Select the ECMA Connector Host shortcut on the desktop.
  2. Select **New Connector**.
      ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)</br>
  3. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
      ![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-sql\conn-1.png)</br>  
-     |Property|Value|
-     |-----|-----|
-     |Name|SQL|
-     |Autosync timer (minutes)|120|
-     |Secret Token|Enter your own key here. It should be 12 characters minimum.|
-     |Extension DLL|For a generic SQL connector, select **Microsoft.IAM.Connector.GenericSql.dll**.|
-
- 
+ 4. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+     ![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sql\conn-2.png)</br>
+ 5. On the **Schema 1** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+     ![Screenshot that shows the Schema 1 page.](.\media\active-directory-app-provisioning-sql\conn-3.png)</br>
+ 6. On the **Schema 2** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
+     ![Screenshot that shows the Schema 2 page.](.\media\active-directory-app-provisioning-sql\conn-4.png)</br>
+7.  On the **Schema 3** page, fill in the boxes and select **Next**. 
+     ![Screenshot that shows the Schema 3 page.](.\media\on-premises-sql-connector-configure\conn-5.png)
 
 ## Ensure ECMA2Host service is running
  1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
