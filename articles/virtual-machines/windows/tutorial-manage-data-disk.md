@@ -189,7 +189,7 @@ After a data disk is attached to the VM, the OS needs to be configured to use th
 
 1. After you establish an RDP connection to the remote VM, select the Windows **Start** menu. Enter **PowerShell** in the search box and select **Windows PowerShell** to open a PowerShell window.
 
-    [![Image alt text.](media\tutorial-manage-data-disk\initialize-disk-sml.png)](media\tutorial-manage-data-disk\initialize-disk-lrg.png#lightbox)
+    [![Image of a remote desktop connection window.](media\tutorial-manage-data-disk\initialize-disk-sml.png)](media\tutorial-manage-data-disk\initialize-disk-lrg.png#lightbox)
 
 1. In the open PowerShell window, run the following script.
 
@@ -333,7 +333,7 @@ Before you can take advantage of the new disk size, you need to expand the volum
 
 1. After you've established an RDP connection to the remote VM, select the Windows **Start** menu. Enter **PowerShell** in the search box and select **Windows PowerShell** to open a PowerShell window.
 
-    [![Image alt text.](media\tutorial-manage-data-disk\initialize-disk-sml.png)](media\tutorial-manage-data-disk\initialize-disk-lrg.png#lightbox)
+    [![Image of a remote desktop connection window.](media\tutorial-manage-data-disk\initialize-disk-sml.png)](media\tutorial-manage-data-disk\initialize-disk-lrg.png#lightbox)
 
 1. Open PowerShell and run the following script. Change the value of the `-DriveLetter` parameter as appropriate. For example, to assign a drive letter of **F:**, use `$driveLetter = "F"`.
 
