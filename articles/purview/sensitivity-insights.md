@@ -70,7 +70,7 @@ Purview uses the same classifications, also known as [sensitive information type
     > [!NOTE]
     > If this report is empty, you may not have extended your sensitivity labels to Azure Purview. For more information, see [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
-   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Sensitivity labeling insights" lightbox="media/insights/sensitivity-labeling-insights.png":::
+   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Sensitivity labeling insights":::
 
    The main **Sensitivity labeling insights** page displays the following areas:
 
@@ -95,7 +95,7 @@ In any of the following **Sensitivity labeling insights** graphs, select the **V
 
 For example:
 
-:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Sensitivity label drilldown" lightbox="media/insights/sensitivity-label-drilldown.png":::
+:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Sensitivity label drilldown":::
 
 Do any of the following to learn more:
 
