@@ -67,7 +67,8 @@ In the current preview state, the following limitations apply to email as an alt
     * Skype for Business
     * Microsoft Office on macOS
     * Microsoft Teams on web
-    * OneDrive, when the sign-in flow does not involve Multi-Factor Authentication
+    * OneDrive, when the sign-in flow does not involve Multi-Factor Authentication.
+    * Microsoft 365 Admin Portal
 
 * **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 
