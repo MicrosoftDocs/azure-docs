@@ -1263,7 +1263,7 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
 
 ### RHEL 7 from a kickstart file
 
-1.  Create a kickstart file that includes the following content, and save the file. For details about kickstart installation, see the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1.  Create a kickstart file that includes the following content, and save the file. For details about kickstart installation, see the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/chap-kickstart-installations).
 
     ```text
     # Kickstart for provisioning a RHEL 7 Azure VM

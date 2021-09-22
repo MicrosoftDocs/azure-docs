@@ -414,6 +414,8 @@ View all the modules running on your IoT Edge device. When the service starts fo
    sudo iotedge list
    ```
 
+When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+
 ## Offline or specific version installation (optional)
 
 The steps in this section are for scenarios not covered by the standard installation steps. This may include:

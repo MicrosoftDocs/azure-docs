@@ -4,29 +4,12 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 06/01/2021
+ms.date: 09/10/2021
 
 ---
 # Array functions for Bicep
 
-Resource Manager provides several functions for working with arrays in Bicep:
-
-* [array](#array)
-* [concat](#concat)
-* [contains](#contains)
-* [empty](#empty)
-* [first](#first)
-* [intersection](#intersection)
-* [last](#last)
-* [length](#length)
-* [max](#max)
-* [min](#min)
-* [range](#range)
-* [skip](#skip)
-* [take](#take)
-* [union](#union)
-
-To get an array of string values delimited by a value, see [split](./bicep-functions-string.md#split).
+This article describes the Bicep functions for working with arrays.
 
 ## array
 
@@ -80,7 +63,7 @@ Combines multiple arrays and returns the concatenated array.
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array |The first array for concatenation. |
-| additional arguments |No |array |Additional arrays in sequential order for concatenation. |
+| more arguments |No |array |More arrays in sequential order for concatenation. |
 
 This function takes any number of arrays and combines them.
 
@@ -176,7 +159,7 @@ Determines if an array, object, or string is empty.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it is empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
 
 ### Return value
 
@@ -254,11 +237,11 @@ Returns a single array or object with the common elements from the parameters.
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or object |The first value to use for finding common elements. |
 | arg2 |Yes |array or object |The second value to use for finding common elements. |
-| additional arguments |No |array or object |Additional values to use for finding common elements. |
+| more arguments |No |array or object |More values to use for finding common elements. |
 
 ### Return value
 
-An array or object with the common elements.
+An array or object with the common elements. The order of the elements is determined by the first array parameter.
 
 ### Example
 
@@ -298,6 +281,40 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
+
+The first array parameter determines the order of the intersected elements. The following example shows how the order of the returned elements is based on which array is first.
+
+```bicep
+var array1 = [
+  1
+  2
+  3
+  4
+]
+
+var array2 = [
+  3
+  2
+  1
+]
+
+var array3 = [
+  4
+  1
+  3
+  2
+]
+
+output commonUp array = intersection(array1, array2, array3)
+output commonDown array = intersection(array2, array3, array1)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| commonUp | array | [1, 2, 3] |
+| commonDown | array | [3, 2, 1] |
 
 ## last
 
@@ -471,7 +488,7 @@ The output from the preceding example with the default values is:
 
 `range(startIndex, count)`
 
-Creates an array of integers from a starting integer and containing a number of items.
+Creates an array of integers from a starting integer and containing the number of items.
 
 ### Parameters
 
@@ -512,7 +529,7 @@ Returns an array with all the elements after the specified number in the array, 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
-| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it is larger than the length of the array or string, an empty array or string is returned. |
+| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
 
 ### Return value
 
@@ -554,7 +571,7 @@ Returns an array with the specified number of elements from the start of the arr
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to take the elements from. |
-| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned. |
+| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
 
 ### Return value
 
@@ -597,7 +614,7 @@ Returns a single array or object with all elements from the parameters. Duplicat
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |array or object |The first value to use for joining elements. |
 | arg2 |Yes |array or object |The second value to use for joining elements. |
-| additional arguments |No |array or object |Additional values to use for joining elements. |
+| more arguments |No |array or object |More values to use for joining elements. |
 
 ### Return value
 
@@ -644,4 +661,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in a Bicep file, see [Understand the structure and syntax of Bicep files](./file.md).
+* To get an array of string values delimited by a value, see [split](./bicep-functions-string.md#split).

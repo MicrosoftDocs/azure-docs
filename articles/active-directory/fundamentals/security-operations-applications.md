@@ -67,7 +67,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md)
 
@@ -157,7 +157,7 @@ For more information on consent operations, see the following resources:
 
 * [Managing consent to applications and evaluating consent requests in Azure Active Directory](../manage-apps/manage-consent-requests.md)
 
-* [Detect and Remediate Illicit Consent Grants - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants?view=o365-worldwide)
+* [Detect and Remediate Illicit Consent Grants - Office 365](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)
 
 * [Incident response playbook - App consent grant investigation](/security/compass/incident-response-playbook-app-consent)
 

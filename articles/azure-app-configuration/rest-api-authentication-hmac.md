@@ -234,7 +234,7 @@ using (var client = new HttpClient())
 
 static class HttpRequestMessageExtensions
 {
-    public static HttpRequestMessage Sign(this HttpRequestMessage request, string credential, byte[] secret)
+    public static HttpRequestMessage Sign(this HttpRequestMessage request, string credential, string secret)
     {
         string host = request.RequestUri.Authority;
         string verb = request.Method.ToString().ToUpper();
@@ -253,7 +253,7 @@ static class HttpRequestMessageExtensions
         // Signature
         string signature;
 
-        using (var hmac = new HMACSHA256(secret))
+        using (var hmac = new HMACSHA256(Convert.FromBase64String(secret)))
         {
             signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.ASCII.GetBytes(stringToSign)));
         }

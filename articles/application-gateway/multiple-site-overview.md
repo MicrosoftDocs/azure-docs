@@ -4,14 +4,14 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 07/20/2020
+ms.date: 08/31/2021
 ms.author: azhussai
 ms.topic: conceptual
 ---
 
 # Application Gateway multiple site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same port of an application gateway. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
+Multiple site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
 
 You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener-preview).
 

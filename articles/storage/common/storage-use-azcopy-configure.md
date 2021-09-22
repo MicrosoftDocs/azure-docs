@@ -69,8 +69,7 @@ azcopy jobs show <job-id> --with-status=Failed
 Use the following command to resume a failed/canceled job. This command uses its identifier along with the SAS token as it isn't persistent for security reasons:
 
 ```
-azcopy jobs resume <job-id> --source-sas="<sas-token>"
-azcopy jobs resume <job-id> --destination-sas="<sas-token>"
+azcopy jobs resume <job-id> --source-sas="<sas-token>" --destination-sas="<sas-token>"
 ```
 
 > [!TIP]

@@ -7,7 +7,7 @@ ms.date: 04/21/2021
 
 # Tutorial: Create a policy assignment to identify non-compliant resources
 
-The first step in understanding compliance in Azure is to identify the status of your resources. Azure Policy supports auditing the state of your Arc-enabled server with guest configuration policies. Azure Policy's guest configuration definitions can audit or apply settings inside the machine. This tutorial steps you through the process of creating and assigning a policy, identifying which of your Arc-enabled servers don't have the Log Analytics agent installed.
+The first step in understanding compliance in Azure is to identify the status of your resources. Azure Policy supports auditing the state of your Azure Arc-enabled server with guest configuration policies. Azure Policy's guest configuration definitions can audit or apply settings inside the machine. This tutorial steps you through the process of creating and assigning a policy, identifying which of your Azure Arc-enabled servers don't have the Log Analytics agent installed.
 
 At the end of this process, you'll successfully identify machines that don't have the Log Analytics agent for Windows or Linux installed. They're _non-compliant_ with the policy assignment.
 

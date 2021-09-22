@@ -39,6 +39,9 @@ Once the infrastructure is prepared, deploy Azure Arc-enabled data services in t
 1. Create an Azure Arc-enabled data controller on one of the validated distributions of a Kubernetes cluster
 1. Create an Azure Arc-enabled SQL managed instance and/or an Azure Arc-enabled PostgreSQL Hyperscale server group.
 
+> [!CAUTION]
+> Some of the data services tiers and modes are [generally available](release-notes.md) and some are in preview. We recommend that you don't mix GA and preview services on the same data controller. If you mix GA and preview services on the same data controller, you can't upgrade in place. In that scenario, when you want to upgrade, you must remove and re-create the data controller and data services.
+
 ## Overview: Create the Azure Arc-enabled data controller
 
 You can create Azure Arc-enabled data services on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
@@ -72,12 +75,12 @@ Regardless of the option you choose, during the creation process you will need t
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.  All Azure Arc-enabled SQL Managed Instances and PostgreSQL Hyperscale server groups will also be created in this resource group.
 - **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). The metadata and billing information about the Azure resources managed by the data controller that you are deploying will be stored only in the location in Azure that you specify as the location parameter. If you are deploying in the directly connected mode, the location parameter for the data controller will be the same as the location of the custom location resource that you target.
 - **Service Principal information** - as described in the [Upload prerequisites](upload-metrics-and-logs-to-azure-monitor.md) article, you will need the Service Principal information during Azure Arc data controller create when deploying in *direct* connectivity mode. For *indirect* connectivity mode, the Service Principal is still needed to export and upload manually but after the Azure Arc data controller is created.
-- **Infrastructure** - For billing purposes, it is required to indicate the infrastructure on which you are running Arc enabled data services.  The options are `alibaba`, `aws`, `azure`, `gcp`, `onpremises`, or `other`.
+- **Infrastructure** - For billing purposes, it is required to indicate the infrastructure on which you are running Azure Arc-enabled data services.  The options are `alibaba`, `aws`, `azure`, `gcp`, `onpremises`, or `other`.
 
 ## Additional concepts for direct connected mode
 
 As described in the [connectivity modes](./connectivity.md), Azure Arc data controller can be deployed in **direct** or **indirect** connectivity modes. Deploying Azure Arc data services in **direct** connected mode requires understanding of some additional concepts and considerations.
-First, the Kubernetes cluster where the Arc enabled data services will be deployed needs to be an [Azure Arc-enabled Kubernetes cluster](../kubernetes/overview.md). Onboarding the Kubernetes cluster to Azure Arc provides Azure connectivity that is leveraged for capabilities such as automatic upload of usage information, logs, metrics etc. Connecting your Kubernetes cluster to Azure also allows you to deploy and manage Azure Arc data services to your cluster directly from the Azure portal.
+First, the Kubernetes cluster where the Azure Arc-enabled data services will be deployed needs to be an [Azure Arc-enabled Kubernetes cluster](../kubernetes/overview.md). Onboarding the Kubernetes cluster to Azure Arc provides Azure connectivity that is leveraged for capabilities such as automatic upload of usage information, logs, metrics etc. Connecting your Kubernetes cluster to Azure also allows you to deploy and manage Azure Arc data services to your cluster directly from the Azure portal.
 
 Connecting your Kubernetes cluster to Azure involves the following steps:
 - [Connect your cluster to Azure](../kubernetes/quickstart-connect-cluster.md)
@@ -104,4 +107,3 @@ There are multiple options for creating the Azure Arc data controller:
 - [Create a data controller in indirect connected mode with Azure Data Studio](create-data-controller-indirect-azure-data-studio.md)
 - [Create a data controller in indirect connected mode from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-indirect-azure-portal.md)
 - [Create a data controller in indirect connected mode with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)
-
