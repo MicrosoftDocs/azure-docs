@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Add an enterprise application'
-description: Use the Azure Active Directory Admin Center to add an enterprise application to your Azure Active Directory tenant.
+description: Add an enterprise application in Azure Active Directory.
 titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/21/2021
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to add an enterprise application.
 ---
 
-# Quickstart: Add an enterprise application
+# Quickstart: Add an enterprise application in Azure Active Directory
 
 In this quickstart, you use the Azure Active Directory Admin Center to add an enterprise application to your Azure Active Directory (Azure AD) tenant. Azure AD has a gallery that contains thousands of enterprise applications that have been pre-integrated. Many of the applications your organization uses are probably already in the gallery. This quickstart uses the application named **Azure AD SAML Toolkit** as an example, but the concepts apply for most [enterprise applications in the gallery](../saas-apps/tutorial-list.md).
 

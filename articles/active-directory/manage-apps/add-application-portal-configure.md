@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Configure enterprise application properties'
 titleSuffix: Azure AD
-description: In this quickstart, you configure an enterprise application that has been added to your Azure Active Directory tenant using the Azure portal.
+description: Configure the properties of an enterprise application in Azure Active Directory.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/07/2021
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
 ---
 
-# Quickstart: Configure properties for an application
+# Quickstart: Configure enterprise application properties in Azure Active Directory
 
 In this quickstart, you use the Azure Active Directory Admin Center to configure the properties of an enterprise application that you previously added to your Azure Active Directory (Azure AD) tenant.
 
@@ -48,13 +48,13 @@ To edit the application properties:
 1. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 1. Select **Yes** or **No** to decide whether the application is enabled for users to sign in.
 1. Select **Yes** or **No** to decide whether only user accounts that have been assigned to the application can sign in.
-1. Select **Yes** or **No** to decide whether users assigned to an application can see it in My Apps and Microsoft 365 application launcher. 
+1. Select **Yes** or **No** to decide whether users assigned to an application can see it in My Apps and Microsoft 365 portals. 
 
     :::image type="content" source="media/add-application-portal-configure/configure-properties.png" alt-text="Configure the properties of an enterprise application.":::
 
 ## Use a custom logo
 
-The application logo is seen on My Apps and in the Microsoft 365 application launcher, and when administrators view this application in the enterprise application gallery. Custom logos must be exactly 215x215 pixels in size and be in the PNG format. It is recommended that you use a solid color background with no transparency in your application logo so that it appears best to users.
+The application logo is seen on the My Apps and Microsoft 365 portals, and when administrators view this application in the enterprise application gallery. Custom logos must be exactly 215x215 pixels in size and be in the PNG format. It is recommended that you use a solid color background with no transparency in your application logo so that it appears best to users.
 
 To use a custom logo:
 

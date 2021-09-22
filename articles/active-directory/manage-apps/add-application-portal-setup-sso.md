@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Enable single sign-on'
-titleSuffix: Azure Active Directory
-description: Enable single sign-on for an enterprise application in your Azure Active Directory tenant using the Azure portal.
+title: 'Quickstart: Enable single sign-on for an enterprise application'
+titleSuffix: Azure AD
+description: Enable single sign-on for an enterprise application in Azure Active Directory.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -15,7 +15,7 @@ ms.reviewer: ergleenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
 ---
 
-# Quickstart: Enable single sign-on
+# Quickstart: Enable single sign-on for an enterprise application in Azure Active Directory
 
 In this quickstart, you use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
 
@@ -25,7 +25,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 ## Prerequisites
 
-To configure single sign-on, you need:
+To configure SSO, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
@@ -33,7 +33,7 @@ To configure single sign-on, you need:
 
 ## Enable single sign-on
 
-To enable single sign-on for an application:
+To enable SSO for an application:
 
 1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to use. For example, **Azure AD SAML Toolkit 1**.
@@ -47,9 +47,9 @@ To enable single sign-on for an application:
 
 ## Configure single sign-on in the tenant
 
-You add sign-in and reply URL values, you and download a certificate to begin the configuration of single sign-on in the tenant.
+You add sign-in and reply URL values, and you download a certificate to begin the configuration of SSO in Azure AD.
 
-To configure single sign-on in the tenant:
+To configure SSO in Azure AD:
 
 1. In the Azure portal, select **Edit** in the **Basic SAML Configuration** section on the **Set up single sign-on** pane. 
 1. For **Reply URL (Assertion Consumer Service URL)**, enter `https://samltoolkit.azurewebsites.net/SAML/Consume`.
