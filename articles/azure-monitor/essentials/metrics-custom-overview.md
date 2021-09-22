@@ -1,19 +1,19 @@
 ---
-title: Custom metrics in Azure Monitor (Preview)
-description: Learn about custom metrics in Azure Monitor and how they are modeled.
+title: Custom metrics in Azure Monitor (preview)
+description: Learn about custom metrics in Azure Monitor and how they're modeled.
 author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
 ---
-# Custom metrics in Azure Monitor (Preview)
+# Custom metrics in Azure Monitor (preview)
 
 As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](./metrics-supported.md). However, they're limited in nature. 
 
-You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights. These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
+You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights. These *custom* metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system. They can then be submitted directly to Azure Monitor. After custom metrics are published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
 
-Azure Monitor custom metrics are current in public preview. 
+Azure Monitor custom metrics are currently in public preview. 
 
 ## Methods to send custom metrics
 
@@ -36,7 +36,7 @@ Custom metrics are retained for the [same amount of time as platform metrics](..
 
 ## How to send custom metrics
 
-When you send custom metrics to Azure Monitor, each data point, or value, reported must include the following information.
+When you send custom metrics to Azure Monitor, each data point, or value, reported metrics must include the following information.
 
 ### Authentication
 To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Azure Active Directory (Azure AD) token in the **Bearer** header of the request. There are a few supported ways to acquire a valid bearer token:
@@ -72,18 +72,22 @@ Namespaces are a way to categorize or group similar metrics together. By using n
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
-A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory-specific processes use or to identify the top five processes by memory usage.
+A dimension is a key/value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. 
+
+For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory-specific processes use or to identify the top five processes by memory usage.
+
 Dimensions are optional, not all metrics may have dimensions. A custom metric can have up to 10 dimensions.
 
 ### Dimension values
-When reporting a metric data point, for each dimension key on the metric being reported, there's a corresponding dimension value. For example, you might want to report the memory used by the ContosoApp on your VM:
+When you're reporting a metric data point, for each dimension key on the metric being reported, there's a corresponding dimension value. For example, you might want to report the memory used by the ContosoApp on your VM:
 
 * The metric name would be **Memory Bytes in Use**.
 * The dimension key would be **Process**.
 * The dimension value would be **ContosoApp.exe**.
 
 When publishing a metric value, you can only specify a single dimension value per dimension key. If you collect the same memory utilization for multiple processes on the VM, you can report multiple metric values for that timestamp. Each metric value would specify a different dimension value for the **Process** dimension key.
-Dimensions are optional, not all metrics may have dimensions. If a metric post defines dimension keys, corresponding dimension values are mandatory.
+
+Although dimensions are optional, if a metric post defines dimension keys, corresponding dimension values are mandatory.
 
 ### Metric values
 Azure Monitor stores all metrics at one-minute granularity intervals. We understand that during a given minute, a metric might need to be sampled several times. An example is CPU utilization. Or it might need to be measured for many discrete events. An example is sign-in transaction latencies. To limit the number of raw values you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
@@ -219,17 +223,21 @@ Again, this limit is not for an individual metric. It’s for the sum of all suc
 
 ## Design limitations and considerations
 
-**Do not use Application Insights for the purpose of auditing** – The Application Insights telemetry pipeline is optimized for minimizing the performance impact and limiting the network traffic from monitoring your application. As such, it throttles or samples (takes only a percentage of your telemetry and ignores the rest) if the initial dataset becomes too large. Because of this behavior, you cannot use it for auditing purposes as some records are likely to be dropped. 
+**Do not use Application Insights for the purpose of auditing**. The Application Insights telemetry pipeline is optimized for minimizing the performance impact and limiting the network traffic from monitoring your application. As such, it throttles or samples (takes only a percentage of your telemetry and ignores the rest) if the initial dataset becomes too large. Because of this behavior, you cannot use it for auditing purposes as some records are likely to be dropped. 
 
-**Metrics with a variable in the name** – Do not use a variable as part of the metric name, use a constant instead. Each time the variable changes its value, Azure Monitor will generate a new metric, quickly hitting the limits on the number of metrics. Generally, when the developers want to include a variable in the metric name, they really want to track multiple timeseries within one metric and should use dimensions instead of variable metric names. 
+**Metrics with a variable in the name**. Do not use a variable as part of the metric name. Use a constant instead. Each time the variable changes its value, Azure Monitor will generate a new metric, quickly hitting the limits on the number of metrics. Generally, when the developers want to include a variable in the metric name, they really want to track multiple timeseries within one metric and should use dimensions instead of variable metric names. 
 
-**High cardinality metric dimensions** - Metrics with too many valid values in a dimension (a “high cardinality”) are much more likely to hit the 50k limit. In general, you should never use a constantly changing value in a dimension. Timestamp, for example, should NEVER be a dimension. Server, customer or productid could be used, but only if you have a smaller number of each of those types. As a test, ask yourself if you would ever chart such data on a graph.  If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1000, the resulting graph would likely be difficult if not impossible to read. Best practice is to keep it to fewer to 100 valid values. Up to 300 is a grey area.  If you need to go over this amount, use Azure Monitor custom logs instead.   
+**High cardinality metric dimensions**. Metrics with too many valid values in a dimension (a "high cardinality") are much more likely to hit the 50k limit. In general, you should never use a constantly changing value in a dimension. Timestamp, for example, should never be a dimension. Server, customer, or productid could be used, but only if you have a smaller number of each of those types. 
 
-If you have a variable in the name or a high cardinality dimension, the following can occur:
-- Metrics become unreliable due to throttling
-- Metrics Explorer won’t work
-- Alerting and notifications become unpredictable
-- Costs can increase unexpectedly -  Microsoft is not charging for custom metrics with dimensions while this feature is in Public Preview. However, once charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time-series monitored and number of API calls made.
+As a test, ask yourself if you would ever chart such data on a graph.  If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1000, the resulting graph would likely be difficult if not impossible to read. 
+
+A best practice is to keep it to fewer to 100 valid values. Up to 300 is a grey area.  If you need to go over this amount, use Azure Monitor custom logs instead.   
+
+If you have a variable in the name or a high-cardinality dimension, the following can occur:
+- Metrics become unreliable due to throttling.
+- Metrics Explorer won't work.
+- Alerting and notifications become unpredictable.
+- Costs can increase unexpectedly. Microsoft is not charging for custom metrics with dimensions while this feature is in Public Preview. However, once charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time-series monitored and number of API calls made.
 
 ## Next steps
 Use custom metrics from different services: 
