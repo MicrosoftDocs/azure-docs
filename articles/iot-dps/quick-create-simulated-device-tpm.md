@@ -711,7 +711,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
     :::zone pivot="programming-language-csharp"
 
-      ![Device is registered with the IoT hub for CSharp](./media/quick-create-simulated-device-tpm-csharp/hub-registration-csharp.png)
+      ![Device is registered with the IoT hub for CSharp](./media/quick-create-simulated-device-tpm/hub-registration-csharp.png)
 
     ::: zone-end
 
