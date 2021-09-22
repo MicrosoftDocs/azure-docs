@@ -25,7 +25,7 @@ The Hive View default timeout value may not be suitable for the query you are ru
 
 ## Resolution
 
-1. Increase the Apache Ambari Hive View timeouts by setting the following properties in `/etc/ambari-server/conf/ambari.properties` **both headnodes**.
+1. Increase the Apache Ambari Hive View timeouts by setting the following properties in `/etc/ambari-server/conf/ambari.properties` for **both headnodes**.
   ```
   views.ambari.request.read.timeout.millis=300000
   views.request.read.timeout.millis=300000
