@@ -79,6 +79,9 @@ By design, Azure integration runtime in managed virtual network takes longer que
 > [!NOTE]
 > Copy activity doesn't have TTL support yet.
 
+> [!NOTE]
+> 2 DIU for Copy activity is not supported in managed virtual network.
+
 ## Create managed virtual network via Azure PowerShell
 ```powershell
 $subscriptionId = ""

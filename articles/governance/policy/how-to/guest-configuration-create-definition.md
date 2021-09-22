@@ -111,7 +111,7 @@ configuration package, in a specified path:
 
 ```powershell
 New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID'
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'My audit policy.' `
   -Description 'Details about my policy.' `
@@ -126,7 +126,7 @@ configuration package, in a specified path:
 
 ```powershell
 New-GuestConfigurationPolicy `
-  -PolicyId 'My GUID'
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'My audit policy.' `
   -Description 'Details about my policy.' `
@@ -212,7 +212,7 @@ $PolicyParameterInfo = @(
 )
 
 New-GuestConfigurationPolicy
-  -PolicyId 'My GUID'
+  -PolicyId 'My GUID' `
   -ContentUri '<paste the ContentUri output from the Publish command>' `
   -DisplayName 'Audit Windows Service.' `
   -Description 'Audit if a Windows Service isn't enabled on Windows machine.' `
