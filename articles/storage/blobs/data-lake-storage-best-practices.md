@@ -12,11 +12,11 @@ ms.reviewer: sachins
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-Some sort of intro goes here.
+This article provides best practice guidelines to set up a secure, performant, and cost-effective enterprise data lake with Azure Storage.  
 
-## Configuring your storage account
+## Configure your storage account
 
-Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The way that you unlock these capabilities is to enable the hierarchical namespace setting of your Azure Storage account. To learn more, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account). 
+Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The way that you unlock these capabilities is to enable the hierarchical namespace setting of your Azure Storage account. To learn more, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md). 
 
 Access control lists (ACLs) are one of the few features that pertain only to Data Lake Storage Gen2. The vast majority of features apply to your account whether or not you enable Data Lake Storage Gen2. Best practices around things such as security, high availability, and disaster recovery are well documented in the [Blob storage documentation](storage-blobs-introduction.md) content. Any differences in the behavior of a feature that are specific to Data Lake Storage Gen2, are called out in the body of each article. 
 
@@ -28,7 +28,7 @@ As you use these settings to secure, protect, and optimize the cost of your data
 
 3. Scan feature articles for any guidance that is specific to accounts that have a hierarchical namespace (Data Lake Storage Gen2).
 
-## Preparing to ingest data
+## Prepare to ingest data
 
 When ingesting data from a source system, the source hardware, source network hardware, or the network connectivity to your storage account can be a bottleneck.  
 
@@ -61,13 +61,13 @@ The following table summarizes the key settings for several popular ingestion to
 
 Your account can scale to provide the necessary throughput for all analytics scenarios. By default, a Data Lake Storage Gen2 enabled account provides enough throughput in its default configuration to meet the needs of a broad category of use cases. If you run into the default limit, the account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
 
-## Planning the structure data sets
+## Plan the structure of data sets
 
-When ingesting data, consider pre-planning the structure of your data, as file format, file size, and directory structure can all impact performance and cost. 
+Consider pre-planning the structure of your data, as file format, file size, and directory structure can all impact performance and cost. 
 
 ### File formats
 
-Data can be ingested in a variety of formats. For example, data can be appear in human readable formats such as JSON, CSV or XML. Data can also appear as compressed binary formats such as `.tar.gz`. Data can come in a variety of sizes as well. Some files can be very large (a few Terabytes) such as data from an export of a SQL table from your on-premise systems. Data can also come in the form of a large number of tiny files (a few kilobytes) such as data from real-time events from an Internet of things (IoT) solution. You can optimize efficiency and costs by choosing an appropriate file format and file size. 
+Data can be ingested in a variety of formats. For example, data can be appear in human readable formats such as JSON, CSV or XML. Data can also appear as compressed binary formats such as `.tar.gz`. Data can come in a variety of sizes as well. Some files can be very large (a few terabytes) such as data from an export of a SQL table from your on-premise systems. Data can also come in the form of a large number of tiny files (a few kilobytes) such as data from real-time events from an Internet of things (IoT) solution. You can optimize efficiency and costs by choosing an appropriate file format and file size. 
 
 Hadoop supports a set of file formats that are optimized for storing and processing structured data. Some common formats are Avro, Parquet and Optimized Row Columnar (ORC) format. All of these formats are machine-readable binary file formats. They are compressed to help you manage file size. They have a schema embedded in each file which makes them self-describing. The difference between these formats is in how data is stored. Avro stores data in a row-based format and the Parquet and ORC formats store data in a columnar format.
 
@@ -136,7 +136,13 @@ For date and time, the following is a common pattern
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 
-## Ingesting data
+## Set up security
+
+Your data lake storage is Blob storage. It's Blob storage in a hierarchical structure that is optimized for high throughput file and directory operations. Because your account is Blob storage account, all of the guidance presented in the following article applies to your account as well: [Security recommendations for Blob storage](security-recommendations.md). Use that article as a general guide to securing your account and its data.
+
+For guidance specific to Data Lake Storage Gen2, see the following article: [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md). It will help you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system. 
+
+## Ingest data
 
 This section highlights the different sources of data and the different ways in which that data can be ingested into a Data Lake Storage Gen2 account.
 
@@ -213,12 +219,6 @@ For uploading datasets that range in several terabytes, using the methods descri
 
 Azure ExpressRoute lets you create private connections between Azure data centers and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. To learn more, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
-## Setting up security
-
-Your data lake storage is Blob storage. It's Blob storage in a hierarchical structure that is optimized for high throughput file and directory operations. Because your account is Blob storage account, all of the guidance presented in the following article applies to your account as well: [Security recommendations for Blob storage](security-recommendations.md). Use that article as a general guide to securing your account and its data.
-
-For guidance specific to Data Lake Storage Gen2, see the following article: [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md). It will help you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system. 
-
 ## Process data
 
 Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. 
@@ -230,7 +230,7 @@ Here's a list of tools that you can use to run data analysis jobs on data that i
 |Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 |Azure Databricks | [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](./data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
-## Visualizing and querying data
+## Visualize and query data
 
 Use the Power BI connector to create visual representations of data stored in Data Lake Storage Gen2. See [Analyze data in Azure Data Lake Storage Gen2 by using Power BI](/power-query/connectors/datalakestorage).
 
@@ -240,7 +240,7 @@ Query acceleration accepts filtering predicates and column projections which ena
 
 To learn more, see [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
 
-## Downloading data
+## Download data
 
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
@@ -257,7 +257,7 @@ Here's a list of tools that you can use to download data from Data Lake Storage 
 |Azure Storage Explorer|[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
 |AzCopy tool|[Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-v10.md#transfer-data)|
 
-## Monitoring telemetry
+## Monitor telemetry
 
 Monitoring use and performance is key to operationalizing your service. For example, you might want to audit your account for frequent operations, identify operations with high latency, or identify operations that cause service-side throttling. 
 
