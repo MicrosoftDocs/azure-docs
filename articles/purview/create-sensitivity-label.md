@@ -22,7 +22,7 @@ For example, applying a sensitivity label ‘highly confidential’ to a documen
 
 Azure Purview allows you to apply sensitivity labels to assets, enabling you to classify and protect your data.
 
-* **Label travels with the data:** The sensitivity labels used in Purview are currently recognized in Microsoft 365, SharePoint, Teams, Power BI, and SQL. If a label is applied on an asset in Purview and your data travels to any of the other platforms like PBI or Office, the label also travels with the data. Similarly, if a label is applied on a word document and then scanned by Purview, the label will flow to Purview.
+* **Label travels with the data:** The sensitivity labels used in Purview are currently recognized in Microsoft 365, SharePoint, Teams, Power BI, and SQL. If a label is applied on an asset in Purview and your data travels to any of the other platforms like Power BI or Office, the label also travels with the data. Similarly, if a label is applied on a Word document and then scanned by Purview, the label will flow to Purview.
 * **Overview of your data estate:** Purview provides insights into your data through pre-canned reports. When you scan data in Purview, we hydrate the reports with information on what assets you have, scan history, classifications found in your data, labels applied, glossary terms, etc.
 * **Automatic labeling:** Labels can be applied automatically based on sensitivity of the data. When an asset is scanned for sensitive data, autolabeling rules are used to decide which sensitivity label to apply. You can create autolabeling rules for each sensitivity label, defining which classification/sensitive information type constitutes a label.
 * **Apply labels to files and schematized data:** Labels can be applied to files in storage like Azure Data Lake, Azure Files, etc. and to schematized data like columns in Azure SQL DB, Cosmos DB, etc.
@@ -33,7 +33,7 @@ Sensitivity labels are tags that you can apply on assets to classify and protect
 
 :::image type="content" source="media/create-sensitivity-label/apply-label-flow.png" alt-text="Applying labels to assets in Purview flow. Create labels, register asset, scan asset, classifications found, labels applied.":::
 
-Being able to apply labels to your asset in Azure Purview, requires you to perform the below steps:
+Being able to apply labels to your asset in Azure Purvie requires you to perform the following steps:
 
 1. [Create or extend existing sensitivity labels to Azure Purview](how-to-automatically-label-your-content.md), in the Microsoft 365 compliance center. Creating sensitivity labels include autolabeling rules that tell us which label should be applied based on the classifications found in your data.
 1. [Register and scan your asset](how-to-automatically-label-your-content.md#scan-your-data-to-apply-sensitivity-labels-automatically) in Azure Purview.
@@ -41,7 +41,7 @@ Being able to apply labels to your asset in Azure Purview, requires you to perfo
 1. Azure Purview applies labels: Once classifications are found on an asset, Azure Purview will apply labels to the assets depending on autolabeling rules. Application of labels is done automatically by Azure Purview, there is no action for you as long as you have created labels with autolabeling rules in step 1.
 
 > [!NOTE]
-> Auto-labeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data. When you create your labels, make sure to define auto-labeling rules for both files and schematized data to apply your labels automatically with each scan.
+> Auto-labeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data. When you create your labels, make sure to define autolabeling rules for both files and schematized data to apply your labels automatically with each scan.
 >
 
 ## Supported data sources
