@@ -17,7 +17,7 @@ There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-ha
 
 ## I'm getting a `quota exceeded` error during creation or upgrade. What should I do? 
 
- [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+ [Request more cores](../azure-portal/supportability/regional-quota-requests.md).
 
 ## I'm getting an `insufficientSubnetSize` error while deploying an AKS cluster with advanced networking. What should I do?
 
@@ -99,7 +99,7 @@ You might be getting this error because you've modified the tags in the agent no
 This error occurs when clusters enter a failed state for multiple reasons. Follow the steps below to resolve your cluster failed state before retrying the previously failed operation:
 
 1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations won't succeed. Common root issues and resolutions include:
-    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md) before trying to scale up again beyond initial quota limits.
+    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/regional-quota-requests.md) before trying to scale up again beyond initial quota limits.
     * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/templates/error-resource-quota.md#solution) before trying to scale up again beyond initial quota limits.
 2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
 

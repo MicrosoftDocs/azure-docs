@@ -358,6 +358,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-dotnet-core-functions-integration",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
@@ -816,6 +822,7 @@
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
+    ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.iot-hub.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",

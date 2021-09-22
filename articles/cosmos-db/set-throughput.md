@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 09/16/2021
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
@@ -105,7 +105,7 @@ The actual minimum RU/s may vary depending on your account configuration. But ge
 
 * 400 RU/s 
 * Current storage in GB * 10 RU/s (this constraint can be relaxed in some cases, see our [high storage / low throughput program](#high-storage-low-throughput-program))
-* Highest RU/s provisioned on the database or container / 100
+* Highest RU/s ever provisioned on the database or container / 100
 
 ### Changing the provisioned throughput
 
@@ -117,6 +117,8 @@ You can scale the provisioned throughput of a container or a database through th
 If you are **reducing the provisioned throughput**, you will be able to do it up to the [minimum](#current-provisioned-throughput).
 
 If you are **increasing the provisioned throughput**, most of the time, the operation is instantaneous. There are however, cases where the operation can take longer time due to the system tasks to provision the required resources. In this case, an attempt to modify the provisioned throughput while this operation is in progress will yield an HTTP 423 response with an error message explaining that another scaling operation is in progress.
+
+Learn more in the [Best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md) article.
 
 > [!NOTE]
 > If you are planning for a very large ingestion workload that will require a big increase in provisioned throughput, keep in mind that the scaling operation has no SLA and, as mentioned in the previous paragraph, it can take a long time when the increase is large. You might want to plan ahead and start the scaling before the workload starts and use the below methods to check progress.

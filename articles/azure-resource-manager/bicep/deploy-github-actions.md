@@ -4,15 +4,15 @@ description: Describes how to deploy Bicep files by using GitHub Actions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 09/02/2021
 ms.custom: github-actions-azure
 ---
 
 # Deploy Bicep files by using GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
+[GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows.
 
-Use the [Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
+Use the [GitHub Action for Azure Resource Manager deployment](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
 
 ## Prerequisites
 
@@ -36,19 +36,19 @@ The file has two sections:
 
 You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
-Create a resource group if you do not already have one.
+Create a resource group if you don't already have one.
 
 ```azurecli-interactive
-    az group create -n {MyResourceGroup} -l {location}
+az group create -n {MyResourceGroup} -l {location}
 ```
 
 Replace the placeholder `myApp` with the name of your application.
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
+az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You will only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values.
+In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You'll only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values.
 
 ```output
   {
@@ -71,23 +71,21 @@ You need to create secrets for your Azure credentials, resource group, and subsc
 
 1. Select **Settings > Secrets > New secret**.
 
-1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
+1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`.
 
 1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (example: `myResourceGroup`).
 
-1. Create an additional secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
+1. Create another secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
 
 ## Add a Bicep file
 
 Add a Bicep file to your GitHub repository. The following Bicep file creates a storage account:
 
-```url
-https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/get-started-with-bicep-files/add-variable/azuredeploy.bicep
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/azuredeploy.bicep" :::
 
-The Bicep file takes one parameter called **storagePrefix** with 3 to 11 characters.
+The Bicep file requires one parameter called **storagePrefix** with 3 to 11 characters.
 
-You can put the file anywhere in the repository. The workflow sample in the next section assumes the Bicep file is named **azuredeploy.bicep**, and it is stored at the root of your repository.
+You can put the file anywhere in the repository. The workflow sample in the next section assumes the Bicep file is named **azuredeploy.bicep**, and it's stored at the root of your repository.
 
 ## Create workflow
 
@@ -97,7 +95,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
 1. Select **New workflow**.
 1. Select **set up a workflow yourself**.
 1. Rename the workflow file if you prefer a different name other than **main.yml**. For example: **deployBicepFile.yml**.
-1. Replace the content of the yml file with the following:
+1. Replace the content of the yml file with the following code:
 
     ```yml
     on: [push]
@@ -126,7 +124,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
             failOnStdErr: false
     ```
 
-    Replace **mystore** with your own storage account name prefix.
+    Replace `mystore` with your own storage account name prefix.
 
     > [!NOTE]
     > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).
@@ -134,17 +132,17 @@ The workflow file must be stored in the **.github/workflows** folder at the root
     The first section of the workflow file includes:
 
     - **name**: The name of the workflow.
-    - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the Bicep file.
+    - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there's a push event on the main branch, which modifies at least one of the two files specified. The two files are the workflow file and the Bicep file.
 
 1. Select **Start commit**.
 1. Select **Commit directly to the main branch**.
 1. Select **Commit new file** (or **Commit changes**).
 
-Because the workflow is configured to be triggered by either the workflow file or the Bicep file being updated, the workflow starts right after you commit the changes.
+Updating either the workflow file or Bicep file triggers the workflow. The workflow starts right after you commit the changes.
 
 ## Check workflow status
 
-1. Select the **Actions** tab. You will see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to run the workflow.
+1. Select the **Actions** tab. You'll see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to run the workflow.
 1. Select the workflow to open it.
 1. Select **Run ARM deploy** from the menu to verify the deployment.
 

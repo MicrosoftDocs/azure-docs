@@ -2,54 +2,21 @@
 title: Export template in Azure portal
 description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/01/2021
 ---
-# Single and multi-resource export to a template in Azure portal
+# Use Azure portal to export a template
 
-To assist with creating Azure Resource Manager templates, you can export a template from existing resources. The exported template helps you understand the JSON syntax and properties that deploy your resources. To automate future deployments, start with the exported template and modify it for your scenario.
+[!INCLUDE [Export template intro](../../../includes/resource-manager-export-template-intro.md)]
 
-Resource Manager enables you to pick one or more resources for exporting to a template. You can focus on exactly the resources you need in the template.
+This article shows how to export templates through the **portal**. For other options, see:
 
-This article shows how to export templates through the portal. You can also use [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+* [Export template with Azure CLI](export-template-cli.md)
+* [Export template with Azure PowerShell](export-template-powershell.md)
+* [REST API export from resource group](/rest/api/resources/resourcegroups/exporttemplate) and [REST API export from deployment history](/rest/api/resources/deployments/export-template).
 
-## Choose the right export option
+[!INCLUDE [Export template choose option](../../../includes/resource-manager-export-template-choose-option.md)]
 
-There are two ways to export a template:
-
-* **Export from resource group or resource**. This option generates a new template from existing resources. The exported template is a "snapshot" of the current state of the resource group. You can export an entire resource group or specific resources within that resource group.
-
-* **Export before deployment or from history**. This option retrieves an exact copy of a template used for deployment.
-
-Depending on the option you choose, the exported templates have different qualities.
-
-| From resource group or resource | Before deployment or from history |
-| --------------------- | ----------------- |
-| Template is snapshot of the resources' current state. It includes any manual changes you made after deployment. | Template only shows state of resources at the time of deployment. Any manual changes you made after deployment aren't included. |
-| You can select which resources from a resource group to export. | All resources for a specific deployment are included. You can't pick a subset of those resources or add resources that were added at a different time. |
-| Template includes all properties for the resources, including some properties you wouldn't normally set during deployment. You might want to remove or clean up these properties before reusing the template. | Template includes only the properties needed for the deployment. The template is ready-to-use. |
-| Template probably doesn't include all of the parameters you need for reuse. Most property values are hard-coded in the template. To redeploy the template in other environments, you need to add parameters that increase the ability to configure the resources.  You can unselect **Include parameters** so that you can author your own parameters. | Template includes parameters that make it easy to redeploy in different environments. |
-
-Export the template from a resource group or resource, when:
-
-* You need to capture changes to the resources that were made after the original deployment.
-* You want to select which resources are exported.
-
-Export the template before deployment or from the history, when:
-
-* You want an easy-to-reuse template.
-* You don't need to include changes you made after the original deployment.
-
-## Limitations
-
-When exporting from a resource group or resource, the exported template is generated from the [published schemas](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) for each resource type. Occasionally, the schema doesn't have the latest version for a resource type. Check your exported template to make sure it includes the properties you need. If necessary, edit the exported template to use the API version you need.
-
-The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
-
-To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-If you get a warning when exporting a template that indicates a resource type wasn't exported, you can still discover the properties for that resource. To learn about the different options for viewing resource properties, see [Discover resource properties](view-resources.md). You can also look at the [Azure REST API](/rest/api/azure/) for the resource type.
-
-There's a limit of 200 resources in the resource group you create the exported template for. If you attempt to export a resource group that has more than 200 resources, the error message `Export template is not supported for resource groups more than 200 resources` is shown.
+[!INCLUDE [Export template limitations](../../../includes/resource-manager-export-template-limitations.md)]
 
 ## Export template from a resource group
 
@@ -84,7 +51,9 @@ To export one resource:
 
 1. The exported template is displayed, and is available to download and deploy. The template only contains the single resource. **Include parameters** is selected by default.  When selected, all template parameters will be included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
 
-## Export template before deployment
+## Download template before deployment
+
+The portal has the option of downloading a template before deploying it. This option isn't available through PowerShell or Azure CLI.
 
 1. Select the Azure service you want to deploy.
 
@@ -95,7 +64,6 @@ To export one resource:
    ![Download template](./media/export-template-portal/download-before-deployment.png)
 
 1. The template is displayed and is available for download and deploy.
-
 
 ## Export template after deployment
 
@@ -117,7 +85,6 @@ You can export the template that was used to deploy existing resources. The temp
 
 ## Next steps
 
-- Learn how to export templates with [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+- Learn how to export templates with [Azure CLI](export-template-cli.md), [Azure PowerShell](export-template-powershell.md), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
-- To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

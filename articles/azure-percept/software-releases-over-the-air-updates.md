@@ -2,7 +2,7 @@
 title: Software releases for Azure Percept DK OTA updates
 description: Information and download links for the Azure Percept DK over-the-air update packages
 author: EthanChangAED
-ms.author: hschang
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021

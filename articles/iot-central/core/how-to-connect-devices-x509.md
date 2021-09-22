@@ -87,7 +87,7 @@ Make a note of the location of these files. You need it later.
 
 1. Open your IoT Central application and navigate to **Administration**  in the left pane and select **Device connection**.
 
-1. Select **+ Create enrollment group**, and create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**.
+1. Select **+ New**, and create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**.
 
 1. Open the enrollment group you created and select **Manage Primary**.
 
@@ -396,7 +396,7 @@ To modify the sample code to use the certificates:
 1. Execute the script and verify the device provisions successfully:
 
     ```cmd/sh
-    node simple_thermostat.js
+    node pnpTemperatureController.js
     ```
 
 :::zone-end
@@ -517,7 +517,7 @@ The device is now provisioned with X.509 certificate.
 
 ### Run a sample individual enrollment device
 
-1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **simple_thermostat.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
+1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **pnpTemperatureController.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
 
 1. Modify the environment variables you used in the sample above as follows:
 
@@ -575,7 +575,7 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
     sudo systemctl restart iotedge
     ```
 
-To learn more, see [Create and provision an IoT Edge device using X.509 certificates](../../iot-edge/how-to-auto-provision-x509-certs.md).
+To learn more, see [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](../../iot-edge/how-to-provision-devices-at-scale-linux-x509.md).
 
 ## Connect an IoT Edge leaf device
 

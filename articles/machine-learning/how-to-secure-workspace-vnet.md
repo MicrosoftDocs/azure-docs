@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/04/2021
+ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -42,6 +42,8 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + Read the [Network security overview](how-to-network-security-overview.md) article to understand common virtual network scenarios and overall virtual network architecture.
 
++ Read the [Azure Machine Learning best practices for enterprise security](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security) article to learn about best practices.
+
 + An existing virtual network and subnet to use with your compute resources.
 
     > [!TIP]
@@ -74,6 +76,9 @@ When ACR is behind a virtual network, Azure Machine Learning cannot use it to di
 
 > [!IMPORTANT]
 > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](how-to-train-with-custom-image.md) that already include the packages.
+
+> [!WARNING]
+> If your Azure Container Registry uses a private endpoint to communicate with the virtual network, you cannot use a managed identity with an Azure Machine Learning compute cluster. To use a managed identity with a compute cluster, use a service endpoint with the Azure Container Registry for the workspace.
 
 ## Required public internet access
 
@@ -164,7 +169,7 @@ Azure key vault can be configured to use either service endpoints or private end
 > [!TIP]
 > If you did not use an existing Azure Container Registry when creating the workspace, one may not exist. By default, the workspace will not create an ACR instance until it needs one. To force the creation of one, train or deploy a model using your workspace before using the steps in this section.
 
-Azure Container Registry can configured to use either service endpoints or private endpoints. Use the following steps to configure your workspace to use ACR when it is in the virtual network:
+Azure Container Registry can be configured to use either service endpoints or private endpoints. Use the following steps to configure your workspace to use ACR when it is in the virtual network:
 
 1. Find the name of the Azure Container Registry for your workspace, using one of the following methods:
 
@@ -260,18 +265,7 @@ validate=False)
 
 ## Securely connect to your workspace
 
-The following methods can be used to connect to the secure workspace:
-
-* [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) - Connects on-premises networks to the VNet over a private connection. Connection is made over the public internet. There are two types of VPN gateways that you might use:
-
-    * [Point-to-site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md): Each client computer uses a VPN client to connect to the VNet.
-    * [Site-to-site](../vpn-gateway/tutorial-site-to-site-portal.md): A VPN device connects the VNet to your on-premises network.
-
-* [ExpressRoute](https://azure.microsoft.com/services/expressroute/) - Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider.
-* [Azure Bastion](../bastion/bastion-overview.md) - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the VNet. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the VNet, it can directly access the workspace. For an example of using a jump box, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
-
-> [!IMPORTANT]
-> When using a __VPN gateway__ or __ExpressRoute__, you will need to plan how name resolution works between your on-premises resources and those in the VNet. For more information, see [Use a custom DNS server](how-to-custom-dns.md).
+[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
 
 ## Workspace diagnostics
 
