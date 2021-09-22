@@ -14,7 +14,7 @@ ms.custom: devx-track-js
 
 # Use JavaScript SDK in Node.js to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use Node.js to get, set, and update the access control lists of directories and files. 
+This article shows you how to use Node.js to get, set, and update the access control lists of directories and files.
 
 [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
@@ -28,10 +28,10 @@ This article shows you how to use Node.js to get, set, and update the access con
 
 - One of the following security permissions:
 
-  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
+  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.
 
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
-  
+
   - Storage account key..
 
 ## Set up your project
@@ -42,7 +42,7 @@ Install Data Lake client library for JavaScript by opening a terminal window, an
 npm install @azure/storage-file-datalake
 ```
 
-Import the `storage-file-datalake` package by placing this statement at the top of your code file. 
+Import the `storage-file-datalake` package by placing this statement at the top of your code file.
 
 ```javascript
 const {
@@ -54,7 +54,7 @@ StorageSharedKeyCredential
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
 
 ### Connect by using Azure Active Directory (AD)
 
@@ -63,20 +63,20 @@ To use the snippets in this article, you'll need to create a **DataLakeServiceCl
 
 You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
 
-Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
+Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal.
 
 |Role|ACL setting capability|
 |--|--|
 |[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
 |[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.
 
 ```javascript
 function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
 
   const credential = new ClientSecretCredential(tenantID, clientID, clientSecret);
-  
+
   const datalakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, credential);
 
@@ -89,7 +89,7 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 
 ### Connect by using an account key
 
-This is the easiest way to connect to an account. 
+This is the easiest way to connect to an account.
 
 This example creates a **DataLakeServiceClient** instance by using an account key.
 
@@ -99,12 +99,12 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
   const sharedKeyCredential = 
      new StorageSharedKeyCredential(accountName, accountKey);
-  
+
   const datalakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, sharedKeyCredential);
 
   return datalakeServiceClient;             
-}      
+}
 
 ```
 

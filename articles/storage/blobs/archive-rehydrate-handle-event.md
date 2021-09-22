@@ -243,7 +243,7 @@ Follow these steps to publish the function:
 
     :::image type="content" source="media/archive-rehydrate-handle-event/visual-studio-publish-azure-function.png" alt-text="Screenshot showing page to publish Azure Function from Visual Studio":::
 
-Whenever you make changes to the code in your Azure Function, you must publish the updated function to Azure. 
+Whenever you make changes to the code in your Azure Function, you must publish the updated function to Azure.
 
 ## Subscribe to blob rehydration events from a storage account
 
@@ -281,7 +281,7 @@ The Azure Function shown in this article writes to a log blob in two scenarios:
 - When the event is **Microsoft.Storage.BlobCreated** and the API operation is **Copy Blob**.
 - When the event is **Microsoft.Storage.BlobTierChanged** and the API operation is **Set Blob Tier**.
 
-To learn how to test the function by rehydrating a blob, see one of these two procedures:  
+To learn how to test the function by rehydrating a blob, see one of these two procedures:
 
 - [Rehydrate a blob with a copy operation](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-a-copy-operation)
 - [Rehydrate a blob by changing its tier](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier)

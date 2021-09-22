@@ -255,7 +255,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-By default, the **Restore-AzStorageBlobRange** command runs asynchronously. When you initiate a restore operation asynchronously, PowerShell immediately displays a table of properties for the operation:  
+By default, the **Restore-AzStorageBlobRange** command runs asynchronously. When you initiate a restore operation asynchronously, PowerShell immediately displays a table of properties for the operation:
 
 ```powershell
 Status     RestoreId                            FailureReason Parameters.TimeToRestore     Parameters.BlobRanges

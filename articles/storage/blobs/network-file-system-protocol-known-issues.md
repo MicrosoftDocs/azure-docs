@@ -10,6 +10,7 @@ ms.author: normesta
 ms.reviewer: yzheng
 
 ---
+
 # Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage
 
 This article describes limitations and known issues of Network File System (NFS) 3.0 protocol support in Azure Blob Storage.
@@ -47,7 +48,7 @@ Windows client for NFS is not yet supported
 
 ## Blob Storage features
 
-When you enable NFS 3.0 protocol support, some Blob Storage features will be fully supported, but some features might be supported only at the preview level or not yet supported at all.  
+When you enable NFS 3.0 protocol support, some Blob Storage features will be fully supported, but some features might be supported only at the preview level or not yet supported at all.
 
 To see how each Blob Storage feature is supported in accounts that have NFS 3.0 support enabled, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
