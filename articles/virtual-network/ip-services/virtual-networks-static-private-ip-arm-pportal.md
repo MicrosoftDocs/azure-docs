@@ -1,130 +1,130 @@
 ---
-title: Configure private IP addresses for VMs - Azure portal
-description: Learn how to configure private IP addresses for virtual machines using the Azure portal.
-services: virtual-network
-documentationcenter: na
-author: KumudD
-manager: twooley
-
-tags: azure-resource-manager
-
-ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
+title: Create a VM with a static private IP address - Azure portal
+description: Learn how to create a virtual machine with a static private IP address using the Azure portal.
+author: asudbring
+ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/07/2020
-ms.author: kumud
-
+ms.date: 10/01/2021
+ms.custom: template-how-to 
 ---
-# Configure a private IP address for a VM using the Azure portal
 
-[!INCLUDE [virtual-networks-static-private-ip-intro-include](../../../includes/virtual-networks-static-private-ip-intro-include.md)]
+# Create a virtual machine with a static private IP address using the Azure portal
 
-[!INCLUDE [virtual-networks-static-ip-scenario-include](../../../includes/virtual-networks-static-ip-scenario-include.md)]
+A virtual machine (VM) is automatically assigned a private IP address from a range that you specify, based on the subnet in which the VM is deployed. The VM retains the address until the VM is deleted. Azure dynamically assigns the next available private IP address from the subnet you create a VM in. If you want a specific IP address from the subnet assigned to the VM, assign a static IP address.
 
-The following sample steps expect a simple environment to already be created. If you want to run the steps as they're displayed in this document, first [create a virtual network](../../virtual-network/quick-create-portal.md#create-a-virtual-network). However, in step 3, use these values instead:
+## Prerequisites
 
-| Setting | Value |
-| ------- | ----- |
-| Name | *TestVNet* |
-| Address space | *192.168.0.0/16* |
-| Resource group | **TestRG** (if necessary, select **Create new** to create it) |
-| Subnet - Name | *FrontEnd* |
-| Subnet - Address range | *192.168.1.0/24* |
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a VM for testing static private IP addresses
-When you create a VM in Resource Manager deployment mode, you can't set a static private IP address using the Azure portal. Instead, you create the VM first. Then you can set its private IP to be static.
+## Create virtual machine
 
-To create a VM named *DNS01* in the *FrontEnd* subnet of a virtual network named *TestVNet*, follow these steps:
+An Azure virtual machine can have a static or dynamic private IP address. Use the following steps to create a virtual machine, virtual network, and subnet.
 
-1. From the [Azure portal](https://portal.azure.com) menu, select **Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    ![Create a resource, Azure portal](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
-2. Select **Compute** > **Virtual machine**.
+2. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-    ![Create VM, Azure portal](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
-3. In **Basics**, specify values for items as described in the following table. Then select **Next&nbsp;:&nbsp;Disks** and then **Next&nbsp;:&nbsp;Networking**.
+3. Select **+ Create**, then **+ Virtual machine** in **Virtual machines**.
 
-    | Item | Value |
-    | --- | --- |
-    | **Subscription** | Your current subscription |
-    | **Resource group** | **TestRG** (select from dropdown list) |
-    | **Virtual machine name** | *DNS01* |
-    | **Region** | **(US) East US** |
-    | **Image** | **Windows Server 2019 Datacenter** |
-    | **Size** | **VM Size** of **B1ls**, **Offering** of **Standard** |
-    | **Username** | The user name of your administrator account |
-    | **Password** | The password for your administrator account's user name |
-    | **Confirm password** | The password again |
+4. In **Create a virtual machine**, enter or select the following information:
 
-    ![Basics tab, Create a virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-basics.png)
-4. In **Networking**, specify values for items as described in the following table, and then select **Next**.
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroup** in **Name**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Virtual machine name | Enter **myVM**. |
+    | Region | Select **(US) East US 2**. |
+    | Availability options | Select **No infrastructure redundancy required**. |
+    | Image | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Azure Spot instance | Leave unchecked. |
+    | Size | Select a size. |
+    | **Administrator account** |   |
+    | Username | Enter a username. |
+    | Password | Enter a password. |
+    | Confirm password | Re-enter password. |
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Select **RDP (3389)** |
 
-    | Item | Value |
-    | --- | --- |
-    | **Virtual network** | **TestVNet** |
-    | **Subnet** | **FrontEnd** |
+    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/create-vm.png" alt-text="Screenshot of create virtual machine.":::
 
-    ![Networking tab, Create a virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
-5. In **Management**, under **Diagnostics storage account**, choose **vnetstorage**. If that storage account doesn't appear in the list, select **Create new**, specify a **Name** of *vnetstorage*, and select **OK**. Finally, select **Review&nbsp;+&nbsp;create**.
+    > [!WARNING]
+    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../../bastion/bastion-overview.md)**
 
-    ![Management tab, Create a virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-management.png)
-6. In **Review + create**, review the overview information, and then select **Create**.
+3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+4. In the Networking tab, select or enter:
 
-    ![Review + create tab, Create a virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-review-create.png)
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | Accept the default network name. |
+    | Subnet | Accept the default subnet configuration. |
+    | Public IP | Accept the default public IP configuration. |
+    | NIC network security group | Select **Basic** |
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Select **RDP (3389)** |
 
-The following message appears once the VM is created.
+5. Select **Review + create**. 
+  
+6. Review the settings, and then select **Create**.
 
-![Deployment completion message, Create a virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/deployment-is-complete.png)
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
-## Retrieve private IP address information for a VM
-To view the private IP address information for your new VM:
+## Change private IP address to static
 
-1. Go to the [Azure portal](https://portal.azure.com) to find your VM. Search for and select **Virtual machines**.
+In this section, you'll change the private IP address from **dynamic** to **static** for the virtual machine you created previously.
 
-    ![Virtual machines, Search box, Azure portal](./media/virtual-networks-static-ip-arm-pportal/search-box-virtual-machines.png)
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select the name of your new VM (**DNS01**).
+2. In **Virtual machines**, select **myVM**.
 
-    ![Virtual machine list, Azure portal](./media/virtual-networks-static-ip-arm-pportal/virtual-machine-list.png)
+3. Select **Networking** in **Settings** in **myVM**.
 
-3. Choose **Networking**, and select the sole network interface listed.
+4. In **Networking**, select the name of the network interface next to **Network interface**. In this example the name of the NIC is **myvm472**.
 
-    ![Network interface, networking, virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/networking-network-interface.png)
+    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-nic.png" alt-text="Screenshot of select network interface.":::
 
-4. Choose **IP configurations**, and select the IP configuration listed in the table.
+5. In the network interface properties, select **IP configurations** in **Settings**.
 
-    ![IP configuration, Network interface, networking, virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/network-interface-ip-configurations.png)
+6. Select **ipconfig1** in the **IP configurations** page.
 
-5. In **Private IP address settings**, under the **TestVNet/FrontEnd** virtual network/subnet, note the **Assignment** value (**Dynamic** or **Static**) and the **IP address**.
+    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-ip-configuration.png" alt-text="Screenshot of select ip configuration.":::
 
-    ![Dynamic or static assignment, old private IP address settings, IP configuration, Network interface, networking, virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/private-ip-address-settings-old.png)
+7. Select **Static** in **Assignment**. Select **Save**.
 
-## Add a static private IP address to an existing VM
-To add a static private IP address to your new VM:
+    :::image type="content" source="./media/virtual-networks-static-private-ip-arm-pportal/select-static-assignment.png" alt-text="Screenshot of select static assignment.":::
 
-1. In the IP configuration page, set the assignment for your private IP address to **Static**.
-2. Change your private **IP address** to *192.168.1.101*, and then select **Save**.
-   
-    ![Dynamic or static assignment, new private IP address settings, IP configuration, Network interface, networking, virtual machine, Azure portal](./media/virtual-networks-static-ip-arm-pportal/private-ip-address-settings-new.png)
+    > [!NOTE]
+    > If you notice after selecting **Save** that the assignment is still set to **Dynamic**, the IP address you typed is already in use. Try another IP address.
 
-> [!NOTE]
-> If you notice after selecting **Save** that the assignment is still set to **Dynamic**, the IP address you typed is already in use. Try another IP address.
+To change the IP address back to dynamic set the assignment for your private IP address to **Dynamic**, and then select **Save**.
 
-## Remove a static private IP address from a VM
-To remove the static private IP address from your VM:
+> [!WARNING]
+> From within the operating system of a VM, you shouldn't statically assign the *private* IP that's assigned to the Azure VM. Only do static assignment of a private IP when it's necessary, such as when [assigning many IP addresses to VMs](virtual-network-multiple-ip-addresses-portal.md). 
+>
+>If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
 
-In the IP configuration page, set the assignment for your private IP address to **Dynamic**, and then select **Save**.
+## Clean up resources
 
-## Set IP addresses within the operating system
+When no longer needed, delete the resource group and all of the resources it contains:
 
-From within the operating system of a VM, you shouldn't statically assign the *private* IP that's assigned to the Azure VM. Only do static assignment of a private IP when it's necessary, such as when [assigning many IP addresses to VMs](virtual-network-multiple-ip-addresses-portal.md). If you manually set the private IP address within the operating system, make sure it matches the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings). Otherwise, you can lose connectivity to the VM. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings.
+1. Enter **myResourceGroup** in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
 
-Also, you should never manually assign the *public* IP address assigned to an Azure virtual machine within the virtual machine's operating system.
+2. Select **Delete resource group**.
+
+3. Enter **myResourceGroup** for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
 ## Next steps
 
-Learn about managing [IP address settings](virtual-network-network-interface-addresses.md).
+- Learn more about [static public IP addresses](public-ip-addresses.md#ip-address-assignment).
+
+- Learn more about [public IP addresses](public-ip-addresses.md#public-ip-addresses) in Azure.
+
+- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+
+- Learn more about [private IP addresses](private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
+

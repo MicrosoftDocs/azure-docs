@@ -43,6 +43,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Username | Enter a username |
     | Password | Enter a password |
     | Confirm password | Reenter password |
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Select **RDP (3389)** |
+
+    > [!WARNING]
+    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../../bastion/bastion-overview.md)**
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
@@ -54,12 +59,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Virtual network | Accept the default network name. |
     | Subnet | Accept the default subnet configuration. |
     | Public IP | Select **Create new**. </br> In **Create public IP address**, in name enter **myPublicIP**. </br> For **SKU**, select **Standard**. </br> **Assignment**, select **Static**. </br> Select **OK**.  |
-    | NIC network security group | Select **Basic**|
+    | NIC network security group | Select **Basic** |
     | Public inbound ports | Select **Allow selected ports**. |
     | Select inbound ports | Select **RDP (3389)** |
-
-    > [!WARNING]
-    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../../bastion/bastion-overview.md)**
    
 5. Select **Review + create**. 
   
