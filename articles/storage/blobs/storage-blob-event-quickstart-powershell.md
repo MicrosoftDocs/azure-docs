@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Route storage events to web endpoint with PowerShell
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result. 
+Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result.
 
 Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
@@ -47,7 +47,7 @@ Event Grid topics are Azure resources, and must be placed in an Azure resource g
 
 Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command.
 
-The following example creates a resource group named **gridResourceGroup** in the **westus2** location.  
+The following example creates a resource group named **gridResourceGroup** in the **westus2** location.
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
@@ -58,7 +58,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Blob storage events are available in general-purpose v2 storage accounts and Blob storage accounts. **General-purpose v2** storage accounts  support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
-Create a Blob storage account with LRS replication using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage (LRS). 
+Create a Blob storage account with LRS replication using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), then retrieve the storage account context that defines the storage account to be used. When acting on a storage account, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called **gridstorage** with locally redundant storage (LRS).
 
 > [!NOTE]
 > Storage account names are in a global name space so you need to append some random characters to the name provided in this script.
@@ -158,6 +158,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ```
 
 ## Clean up resources
+
 If you plan to continue working with this storage account and event subscription, don't clean up the resources created in this article. If you don't plan to continue, use the following command to delete the resources you created in this article.
 
 ```powershell
