@@ -246,7 +246,10 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
 
 ## Test the application connection
- 1. After 10 minutes, under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
+ 1. Sign in to the Azure portal.
+ 2. Go to **Enterprise applications** and the **On-premises ECMA app** application.
+ 3. Go to **Edit Provisioning**.
+ 4. After 10 minutes, under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
 
      |Property|Value|
      |-----|-----|
