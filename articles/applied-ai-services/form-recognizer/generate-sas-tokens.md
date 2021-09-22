@@ -115,7 +115,7 @@ To get started, you'll need:
 }
 ```
 
-## Create a SAS with Azure Command-Line Interface ()
+## Create a SAS with Azure Command-Line Interface (CLI)
 
 1. To create a user delegation SAS for a container using the Azure CLI, make sure that you have installed version 2.0.78 or later. To check your installed version, use the `az --version` command.
 

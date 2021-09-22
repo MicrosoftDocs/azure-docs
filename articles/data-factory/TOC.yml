@@ -883,7 +883,7 @@ items:
       displayName: diu  
   - name: Troubleshooting guides
     items:
-    - name: Data Factory UX
+    - name: Azure Data Factory Studio
       href: data-factory-ux-troubleshoot-guide.md
     - name: Activities
       href: data-factory-troubleshoot-guide.md
