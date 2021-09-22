@@ -25,7 +25,7 @@ There are two major challenges delivering service level agreements (SLAs) for th
 * Compute environment for activities, for instance SQL for a Stored Procedure activity, may throttle, slowing down the whole data pipeline and jeopardizing pipeline SLA.
 * Pipeline developers aren't always actively monitoring the factory, and proactively seeking out long running pipelines that will miss SLAs.
 
-To address these issues, when configured properly, pipeline runs emit _Elapsed Time Pipeline Run_ metrics in cases of missing SLA. Combined with [Data Factory Alerts](monitor-metrics-alerts.md#data-factory-alerts.md), we empower data pipelines developers to better deliver SLAs to their customers: you tell us how long a pipeline should run, and we'll notify you, proactively, when the pipeline runs longer than expected.
+To address these issues, when configured properly, pipeline runs emit _Elapsed Time Pipeline Run_ metrics in cases of missing SLA. Combined with [Data Factory Alerts](monitor-metrics-alerts.md#data-factory-alerts), we empower data pipelines developers to better deliver SLAs to their customers: you tell us how long a pipeline should run, and we'll notify you, proactively, when the pipeline runs longer than expected.
 
 For each pipeline you want to create alerts on, during authoring phase, go to pipeline settings, by clicking on the blank space in the pipeline canvas.
 
@@ -38,7 +38,7 @@ We understand some pipelines will naturally take more time to finish than others
 > [!NOTE]
 > This is a per pipeline opt in feature. No metric will ever be logged for a pipeline, if no expected run duration is specified for the aforementioned pipeline.
 
-Follow the steps to set up [Data Factory Alerts](monitor-metrics-alerts.md#data-factory-alerts.md) on the metric. Your engineers will get notified to intervene and take steps to meet the SLAs, through emails or SMSs.
+Follow the steps to set up [Data Factory Alerts](monitor-metrics-alerts.md#data-factory-alerts) on the metric. Your engineers will get notified to intervene and take steps to meet the SLAs, through emails or SMSs.
 
 ## Next steps
 
