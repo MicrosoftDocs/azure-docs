@@ -37,11 +37,11 @@ To set up OIDC-based single sign-on for an application:
 1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. 
 1. In the **Enterprise applications** pane, select **New application**.
 1. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated SSO and provisioning. Search for and select the application. In this example, **SmartSheet** is being used.
-1. Select **Sign-up** and you will see the sign-in page. Sign in with the user account credentials from Azure Active Directory. If you already have a subscription to the application then user details and tenant information is validated. If the application is not able to verify the user then it redirects you to sign up for the application service.
+1. Select **Sign-up**. Sign in with the user account credentials from Azure Active Directory. If you already have a subscription to the application, then user details and tenant information is validated. If the application is not able to verify the user, then it redirects you to sign up for the application service.
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/oidc-sso-configuration.png" alt-text="Complete the consent screen for an application.":::
 
-1. After successful authentication, a dialog appears asking for admin consent. Select **Consent on behalf of your organization** and then select **Accept**. The application is added to your tenant and the application home page appears. To learn more about user and admin consent, see [Understand user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
+1. Select **Consent on behalf of your organization** and then select **Accept**. The application is added to your tenant and the application home page appears. To learn more about user and admin consent, see [Understand user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
 ## Next steps
 
