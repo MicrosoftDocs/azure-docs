@@ -40,11 +40,11 @@ The following private cloud environments and their versions are officially suppo
 
 ### vCenter requirements
 
-For the VMware vCenter Server Appliance, allow inbound connections on TCP port 443 to enable the Arc resource bridge and VMware cluster extension to communicate with the appliance. 
+* For the VMware vCenter Server Appliance, allow inbound connections on TCP port 443 to enable the Arc resource bridge and VMware cluster extension to communicate with the appliance. 
 
-* A resourcepool with minimum free capacity of 16 GB of RAM, 4 vCPUs.
+* A resource pool with capacity to allocate 16 GB of RAM and 4 vCPUs.
     
-* A datastore with minimum 100 GB of free disk space available through the resource pool.
+* A datastore with a minimum of 100 GB free disk space available through the resource pool.
 
 * An external virtual network/switch and internet access, direct or through a proxy server to support outbound communication from Arc resource bridge.
 
