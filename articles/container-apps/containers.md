@@ -1,6 +1,6 @@
 ---
 title: Containers in Azure Container Apps
-description: Learn how containers are managed in Azure Container Apps.
+description: Learn how containers are managed and configured in Azure Container Apps.
 services: app-service
 author: craigshoemaker
 ms.service: app-service
@@ -11,72 +11,140 @@ ms.author: cshoe
 
 # Containers in Azure Container Apps
 
-<!-- PRELIMINARY OUTLINE
-## Container image
-How do containers run in Azure Container Apps?
-  Run any container image
-    Linux only
-  Don't need a base image
-  Can use favorite stack/framework
+Azure Container Apps manages the details of Kubernetes and container orchestrations for you. Containers can use any runtime, programming language, or development stack of your choice.
 
-make it as painless as possible
- you provide the container and we run it for you
+Azure Container Apps supports:
 
-## Container registry
-Container image can be from any container registry
-There are three required fields
-    address of server
-    username
-    password <-- secret ref
+- Any Linux-based container image
+- Containers from any container registry
 
-## Container concepts
-What is available & what is required
+There is no required base container image when running containers in Azure Container Apps.
 
-### Pods
-a group of containers that have shared storage and network resources 
-   they exist in a semi-isolated network
+## Configuration
 
-why is this important
-    run containers in separate pods or in the same pod
-    Container Apps: if you have a multi-container app, or two separate apps in different container apps instances
-        whether or not those two containers want to share storage and network resources
-            two containers that talk to each other, use ports on the same network?
-            if in separate pods - then have to use the formal networking system.
+The following example configuration shows the options available when setting up a container. Any changes to the `containers` section trigger the creation of a new [container app revision](application-lifecycle-management.md).
 
-  do you want to use the same hard drive and network to connect to another pod?
+```json
+{
+  "template": {
+    "containers": [
+      {
+        "image": "myacr.azurecr.io/myrepo/api-service:v1",
+        "name": ["my-container-image"],
+        "command": "/bin/queue",
+        "args": [],
+        "env": [
+          {
+            "name": "HTTP_PORT",
+            "value": "8080"
+          }
+        ],
+        "resources": {
+            "cpu": 1,
+            "memory": "250Mb"
+        }
+    }]
+  }
+}
+```
 
-containers int the same pod share the same scale rules
-    they scale together in tandem
+| Setting | Description | Remarks |
+|---|---|---|
+| `image` | The container image name for your container app. | Takes the form of `publisher/image-name:tag`. |
+| `name` | Friendly name of the container. | |
+| `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field. The values in the array are joined together and separated by spaces, which allows you to have spaces in your command.  |
+| `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
+| `env` | An array of key/value pairs that define environment variables. | |
+| `resources.cpu` | The number of CPUs allocated to the container. | Possible values include: `1`, `2`, or `4`. |
+| `resources.memory` | The amount of RAM allocated to the container. | Possible values include: `250mb`... Each [replica](application-lifecycle-management.md) is assigned the amount of memory defined here. |
 
-Why separate pods?
-    run as a sidecar vs a microservice
-    different scale needs
+## Multiple containers
 
-Sidecar example:
-    backend service with a sidecar with logging service
-    health checks
-    metrics
+You can define multiple containers in a single container app. Containers in the same container app share hard disk and network resources, and run in a semi-isolated network.
 
-### Configuration options
+Reasons to group containers together include:
 
-Resource requests: CPU and memory
-Environment variables
+- Share scale rules among containers.
+- Enable direct communication via server addresses and ports on the same network.
+- Use of a shared disk space and virtual network.
 
-Start up command
+Reasons to separate containers include:
 
-## Requirements
-What fields are necessary
+- If you want to run an app as a sidecar or a separate microservice.
+- If your apps have different scaling needs.
+
+## Using a container registry
+
+To use a container registry, you first define add the required fields to the `registries` section.
+
+```json
+{
+  ...
+  "registries": {
+    "server": "docker.io",
+    "username": "my-registry-user-name",
+    "passwordSecretRef": "my-password-secretref-name"
+  }
+}
+```
+
+With this set up, the saved credentials are used when you reference a container image in the `image` property of the `containers` array.
+
+## Private Registries
+
+You can deploy images hosted on private registries where credentials are provided through the Container Apps configuration.
+
+The following example shows how to deploy an app from the Azure Container Registry.
+
+# [ARM template](#tab/arm-template)
+
+```json
+{
+  ...
+  "configuration": {
+      "secrets": [
+          {
+              "name": "acr-password",
+              "value": "myacrpassword"
+          }
+      ],
+      "registries": [
+          {
+              "server": "myacr.azurecr.io",
+              "username": "someuser",
+              "passwordSecretRef": "acr-password"
+          }
+      ]
+  }
+}
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```sh
+# When creating a container app
+az containerapp create --name myapp \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --environment $CONTAINERAPPS_ENVIRONMENT_NAME \
+  --image myacr.azurecr.io/myrepo/api-service:v1 \
+  --registry-login-server myacr.azurecr.io \
+  --registry-username someuser \
+  --registry-password myacrpassword
+
+# When updating a container app
+az containerapp update --name myapp \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --image myacr.azurecr.io/myrepo/api-service:v1 \
+  --registry-login-server myacr.azurecr.io \
+  --registry-username someuser \
+  --registry-password myacrpassword
+```
+
+---
 
 ## Limitations
-Can't run init/privileged  containers
 
-privileged container
-    the program has root access to the container
-
-If you have a program that wants to spawn a shell and run a script that wants root access
-    it'll cause a runtime error in the app
-    you don't have access to system resources that require root access
--->
+Azure Container Apps can't run init/privileged containers. If your program attempts to run a process that requires root access, the application inside the container experiences a runtime error.
 
 ## Next steps
 
