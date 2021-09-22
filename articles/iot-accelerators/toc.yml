@@ -2,32 +2,14 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are IoT solution accelerators
-    href: about-iot-accelerators.md
-  - name: AzureIoTSolutions.com
-    href: iot-accelerators-permissions.md
   - name: Industrial IoT
-    href: overview-iot-industrial.md
-    items:
-    - name: What is Connected Factory
-      href: iot-accelerators-connected-factory-features.md
 - name: Quickstarts
-  items:
-  - name: Try a connected factory solution
-    href: quickstart-connected-factory-deploy.md
   expanded: true
 - name: How-to guides
   items:
   - name: Industrial IoT
     items:
     - name: Connected Factory
-      items:
-      - name: Use the dashboard
-        href: iot-accelerators-connected-factory-dashboard.md
-      - name: Configure the solution accelerator
-        href: iot-accelerators-connected-factory-configure.md
-      - name: Customize the solution accelerator
-        href: iot-accelerators-connected-factory-customize.md
 - name: Resources
   items:
   - name: Support and help options
