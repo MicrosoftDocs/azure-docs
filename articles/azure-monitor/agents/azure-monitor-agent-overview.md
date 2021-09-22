@@ -73,7 +73,7 @@ The following table shows the current support for the Azure Monitor agent with o
 | Azure service | Current support | More information |
 |:---|:---|:---|
 | [Azure Security Center](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
-| [Azure Sentinel](../../sentinel/overview.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
+| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>Windows Event Forwarding (WEF): Private preview</li><li>Windows Security Events: [Public preview](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Sign-up link](https://aka.ms/AMAgent) </li><li>No sign-up needed</li></ul> |
 
 The following table shows the current support for the Azure Monitor agent with Azure Monitor features.
 
