@@ -8,7 +8,7 @@
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
-- name: Azure resource bridge
+- name: Azure Arc resource bridge
   items:
     - name: Overview
       href: /resource-bridge/overview.md
