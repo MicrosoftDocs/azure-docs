@@ -1,6 +1,6 @@
 ---
 title: Containers in Azure Container Apps
-description: Learn how containers are managed and configured in Azure Container Apps.
+description: Learn how containers are managed and configured in Azure Container Apps
 services: app-service
 author: craigshoemaker
 ms.service: app-service
@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Containers in Azure Container Apps
 
-Azure Container Apps manages the details of Kubernetes and container orchestrations for you. Containers can use any runtime, programming language, or development stack of your choice.
+Azure Container Apps manages the details of Kubernetes and container orchestrations for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
 
 Azure Container Apps supports:
 
@@ -22,10 +22,13 @@ There is no required base container image when running containers in Azure Conta
 
 ## Configuration
 
-The following example configuration shows the options available when setting up a container. Any changes to the `containers` section trigger the creation of a new [container app revision](application-lifecycle-management.md).
+The following example configuration shows the options available when setting up a container.
+
+Any changes to the `containers` section triggers a new [container app revision](application-lifecycle-management.md).
 
 ```json
 {
+  ...
   "template": {
     "containers": [
       {
@@ -50,13 +53,13 @@ The following example configuration shows the options available when setting up 
 
 | Setting | Description | Remarks |
 |---|---|---|
-| `image` | The container image name for your container app. | Takes the form of `publisher/image-name:tag`. |
-| `name` | Friendly name of the container. | |
-| `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field. The values in the array are joined together and separated by spaces, which allows you to have spaces in your command.  |
+| `image` | The container image name for your container app. | This value takes the form of `publisher/image-name:tag`. |
+| `name` | Friendly name of the container. | Used for reporting and identification. |
+| `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field. The values in the array are joined together and separated by spaces. This concatenation which allows you to have spaces in your startup command.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | |
 | `resources.cpu` | The number of CPUs allocated to the container. | Possible values include: `1`, `2`, or `4`. |
-| `resources.memory` | The amount of RAM allocated to the container. | Possible values include: `250mb`... Each [replica](application-lifecycle-management.md) is assigned the amount of memory defined here. |
+| `resources.memory` | The amount of RAM allocated to the container. | Possible values include: `250mb`. Each [replica](application-lifecycle-management.md) is assigned the amount of memory defined here. |
 
 ## Multiple containers
 
@@ -105,7 +108,7 @@ The following example shows how to deploy an app from the Azure Container Regist
       "secrets": [
           {
               "name": "acr-password",
-              "value": "myacrpassword"
+              "value": "my-acr-password"
           }
       ],
       "registries": [
@@ -144,7 +147,11 @@ az containerapp update --name myapp \
 
 ## Limitations
 
-Azure Container Apps can't run init/privileged containers. If your program attempts to run a process that requires root access, the application inside the container experiences a runtime error.
+Azure Container Apps has the following limitations:
+
+- **Privileged containers**: Azure Container Apps can't run privileged containers. If your program attempts to run a process that requires root access, the application inside the container experiences a runtime error.
+
+- **Operating system**: Requires Linux-based container images.
 
 ## Next steps
 
