@@ -47,7 +47,7 @@ In Azure Purview, you can register and scan source types. Once the scan is compl
 
    :::image type="content" source="./media/asset-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. In the **Insights** :::image type="icon" source="media/asset-insights/ico-insights.png" border="false"::: area, select **Assets** to display the Purview **Asset insights** report.
+1. In the **Insights** area, select **Assets** to display the Purview **Asset insights** report.
 
 ### View Asset Insights
 
