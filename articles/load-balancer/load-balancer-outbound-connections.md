@@ -171,6 +171,14 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
 
+## <a name="preallocatedports"></a> Manual port allocation
+
+Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
+
+You can manually allocate SNAT ports either by "ports per instance" or "maximum number of backend instances". If you have Virtual Machines in the backend, it's recommended that you allocate ports by "ports per instance" to get maximum SNAT port usage. Ports per instance should be calculated as below: No. of frontend IP * 64K / No. of backend instances. Otherwise, if you have Virtual Machine Scale Sets in the backend, it's recommende to allocate ports by "maximum number of backend instances". 
+
+However, if more VMs are added to the backend than remaining SNAT ports allowed, it's possible that VMSS scaling up could be blocked or that the new VMs will not be getting sufficient SNAT ports. 
+
 ## Constraints
 
 *	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.

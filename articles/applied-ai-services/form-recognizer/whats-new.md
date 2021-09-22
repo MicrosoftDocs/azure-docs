@@ -23,7 +23,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 [Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) available on your Form Recognizer resource overview page in the Azure portal. 
 
-:::image type="content" source="media/portal-metrics.png" alt-text="{alt-text}":::
+:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot: metrics charts in Azure portal.":::
 
 ## July 2021
 
