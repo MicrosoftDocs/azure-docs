@@ -45473,7 +45473,7 @@
       "redirect_url": "/azure/active-directory/develop/v2-overview",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path_from_root": "/articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/disable-user-sign-in-portal",
@@ -57155,6 +57155,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/sso-options.md",
+      "redirect_url": "/azure/active-directory/manage-apps/plan-sso-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/configure-oidc-single-sign-on.md",
+      "redirect_url": "/azure/active-directory/develop/active-directory-v2-protocols",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/configure-saml-single-sign-on.md",
+      "redirect_url": "/azure/active-directory/develop/single-sign-on-saml-protocol",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/governance/policy/how-to/guestconfiguration-create-linux.md",
       "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
       "redirect_document_id": false
@@ -57253,10 +57268,11 @@
       "source_path_from_root": "/articles/azure-monitor/app/code-sample-export-sql-stream-analytics.md",
       "redirect_url": "/azure/stream-analytics/app-insights-export-sql-stream-analytics",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-deploy-add-on.md",
+      "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
+      "redirect_document_id": false
     }
   ]
 }
-
-
-
- 
