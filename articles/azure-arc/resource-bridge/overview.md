@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge overview
 description: Learn how to use Azure Arc resource bridge to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 09/17/2021
+ms.date: 09/22/2021
 ms.topic: overview
 ---
 
@@ -35,8 +35,24 @@ Azure Arc resource bridge currently supports the following Azure regions:
 
 The following private cloud environments and their versions are officially supported for the Azure Arc resource bridge:
 
-* VMware vSphere
+* VMware vSphere version 6.7
 * Azure Stack HCI
+
+### vCenter requirements
+
+For the VMware vCenter Server Appliance, allow inbound connections on TCP port 443 to enable the Arc resource bridge and VMware cluster extension to communicate with the appliance. 
+
+* A resourcepool with minimum free capacity of 16 GB of RAM, 4 vCPUs.
+    
+* A datastore with minimum 100 GB of free disk space available through the resource pool.
+
+* An external virtual network/switch and internet access, direct or through a proxy server to support outbound communication from Arc resource bridge.
+
+### vSphere requirements
+
+A vSphere account that can read all inventory, deploy and update VMs to all the resource pools (or clusters), networks and virtual machine templates that you want to use with Azure Arc. The account is also used for ongoing operations of the Arc-enabled VMware vSphere, and deployment of the Arc resource bridge VM.
+
+If you are using the [Azure VMware solution](../../azure-vmware/introduction.md), this account would be the **cloudadmin** account.
 
 ### Required permissions
 
