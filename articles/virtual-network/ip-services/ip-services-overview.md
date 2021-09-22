@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subService: ip-services
 ms.topic: overview
-ms.date: 09/02/2021
+ms.date: 10/01/2021
 ms.custom: template-overview
 ---
 
