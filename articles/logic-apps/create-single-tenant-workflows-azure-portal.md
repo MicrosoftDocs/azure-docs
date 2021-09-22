@@ -55,7 +55,7 @@ As you progress, you'll complete these high-level tasks:
 
 * If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
-* To deploy your **Logic App (Standard)** resource to an [App Service Environment v3 (ASEv3)](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app resource. For more information, review [Create an App Service Environment](../app-service/environment/creation.md).
+* To deploy your **Logic App (Standard)** resource to an [App Service Environment v3 (ASEv3)](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app resource. For more information, review [Resources types and environments](single-tenant-overview-compare.md#resource-environment-differences) and [Create an App Service Environment](../app-service/environment/creation.md).
 
 <a name="create-logic-app-resource"></a>
 
