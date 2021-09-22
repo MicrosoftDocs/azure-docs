@@ -1,13 +1,22 @@
 ---
-title: Linter rule - no hardcoded environment URL
-description: Linter rule - no hardcoded environment URL
+title: Linter rule - no unused parameters
+description: Linter rule - no unused parameters
 ms.topic: conceptual
 ms.date: 09/14/2021
 ---
 
-# Linter rule - no hardcoded environment URL
+# Linter rule - no unused parameters
 
-The Bicep linter can be used to analyze Bicep files. It enables you to find syntax errors and best practice violations before you build or deploy your Bicep file. You can customize the set of authoring best practices to use for checking the file. The linter makes it easier to enforce coding standards by providing guidance during development.
+The linter makes it easier to enforce coding standards by providing guidance during development. The current set of linter rules is minimal and taken from [arm-ttk test cases](../templates/template-test-cases.md).
+
+- [no-hardcoded-env-urls](./linter-rule-no-hardcoded-env-urls.md)
+- [no-unused-params](./linter-rule-no-unused-params.md)
+- [no-unused-vars](./linter-rule-no-unused-vars.md)
+- [prefer-interpolation](./linter-rule-prefer-interpolation.md)
+- [secure-parameter-default](./linter-rule-secure-parameter-default.md)
+- [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+
+For more information, see [Use Bicep linter](./linter.md).
 
 ## Code
 

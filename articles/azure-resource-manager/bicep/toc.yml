@@ -83,7 +83,21 @@
         href: deploy-to-tenant.md
         displayName: assign role
     - name: Linter
-      href: linter.md
+      items:
+      - name: Linter
+        href: linter.md
+      - name: Rule - no hardcoded environment URLs
+        href: linter-rule-no-hardcoded-env-urls.md
+      - name: Rule - no unused parameters
+        href: linter-rule-no-unused-params.md
+      - name: Rule - no unused variables
+        href: linter-rule-no-unused-vars.md
+      - name: Rule - prefer interpolation
+        href: linter-rule-prefer-interpolation.md
+      - name: Rule - secure parameter default
+        href: linter-rule-secure-parameter-default.md
+      - name: Rule - simplify interpolation
+        href: linter-rule-simplify-interpolation.md
     - name: Best practices
       href: best-practices.md
     - name: Patterns
