@@ -214,7 +214,7 @@ param configValues object
 
 ## Data type assignability
 
-In Bicep, a value of one type (source type) can be assigned to another type (target type). The following table shows which source type (listed horizontally) can or can't be assigned to which target type (listed vertically). `X` means assignable, empty space means not assignable, and `?` means yes if they types are compatible, otherwise no.
+In Bicep, a value of one type (source type) can be assigned to another type (target type). The following table shows which source type (listed horizontally) can or can't be assigned to which target type (listed vertically). In the table, `X` means assignable, empty space means not assignable, and `?` means only if they types are compatible.
 
 | Types | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | named resource | named module | `scope` |
 |-|-|-|-|-|-|-|-|-|-|-|-|-|
