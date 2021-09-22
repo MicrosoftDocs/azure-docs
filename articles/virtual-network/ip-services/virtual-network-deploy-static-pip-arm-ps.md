@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 9/20/2021
+ms.date: 10/01/2021
 ms.custom: template-how-to
 ---
 
