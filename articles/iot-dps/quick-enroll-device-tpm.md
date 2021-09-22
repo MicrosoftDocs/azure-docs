@@ -34,7 +34,7 @@ Although these steps work on both Windows and Linux computers, this article uses
     dotnet --info
     ```
 
-* (Optional) If you want to enroll a simulated device at the end of this quickstart, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm-csharp.md) up to the step where you get an endorsement key for the device. Save the endorsement key, registration ID, and, optionally, the device ID.
+* (Optional) If you want to enroll a simulated device at the end of this quickstart, follow the procedure in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md) up to the step where you get an endorsement key for the device. Save the endorsement key, registration ID, and, optionally, the device ID.
 
 :::zone-end
 
@@ -179,7 +179,6 @@ For the sample in this quickstart, you'll need to copy the connection string for
 
     ![Get provisioning service connection string from the portal](media/quick-enroll-device-tpm/get-service-connection-string.png)
 
-
 ## Create the individual enrollment sample
 
 :::zone pivot="programming-language-csharp"
@@ -236,7 +235,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
 13. Replace the `ProvisioningServiceConnectionString` placeholder value with the connection string of the provisioning service that you copied in the previous section.
 
-14. If you're using this quickstart together with the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm-csharp.md) quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted in that quickstart. You can replace the device ID with the value suggested in that quickstart, use your own value, or use the default value in this sample.
+14. If you're using this quickstart together with the [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md) quickstart to provision a simulated device, replace the endorsement key and registration ID with the values that you noted in that quickstart. You can replace the device ID with the value suggested in that quickstart, use your own value, or use the default value in this sample.
 
 15. Add the following method to the `Program` class.  This code creates individual enrollment entry and then calls the `CreateOrUpdateIndividualEnrollmentAsync` method on the `ProvisioningServiceClient` to add the individual enrollment to the provisioning service.
 
@@ -585,7 +584,7 @@ If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials]
 
 10. At the top of **Certificate Details**, select **Delete**.  
 
-11. If you followed the steps in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm-csharp.md) to create a simulated TPM device, do the following steps:
+11. If you followed the steps in [Create and provision a simulated TPM device](quick-create-simulated-device-tpm.md) to create a simulated TPM device, do the following steps:
 
     1. Close the TPM simulator window and the sample output window for the simulated device.
 

@@ -598,7 +598,7 @@ To enroll a single X.509 device, modify the *individual enrollment* sample code 
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
 
-4. Save, build, and run the *individual enrollment* sample file, using the steps in the section [Build and run the sample code for individual enrollment](quick-enroll-device-tpm-java.md#runjavasample).
+4. Save, build, and run the *individual enrollment* sample file, using the steps in the section [Create the individual enrollment sample](quick-enroll-device-tpm.md).
 
 :::zone-end
 

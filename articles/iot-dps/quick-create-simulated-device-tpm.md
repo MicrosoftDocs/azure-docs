@@ -78,7 +78,6 @@ The following prerequisites are for a Windows development environment. For Linux
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
-
 <a id="setupdevbox"></a>
 
 ## Prepare your development environment
