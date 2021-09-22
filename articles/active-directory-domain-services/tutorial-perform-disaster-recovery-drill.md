@@ -23,15 +23,15 @@ The DR drill will cover:
 
 1. A client machine is connected to a given replica set. It can authenticate to the domain and perform LDAP queries.
 1. The client’s connection to the replica set will be terminated. This will happen by restricting network access.
-1. The client will subsequently establish a new connection with the other replica set. Once that happens, the client will be able to authenticate to the domain and perform LDAP queries. 
-1. The domain member will be rebooted, and a domain user will be able to login post reboot.
+1. The client will then establish a new connection with the other replica set. Once that happens, the client will be able to authenticate to the domain and perform LDAP queries. 
+1. The domain member will be rebooted, and a domain user will be able to log in post reboot.
 1. The network restrictions will be removed, and the client will be able to connect to original replica set. 
 
 ## Prerequisites 
 
 The following requirements must be in place to complete the DR drill: 
 
-- An active Azure AD DS instance deployed with at least one additional replica set in place. The domain must be in a healthy state. 
+- An active Azure AD DS instance deployed with at least one extra replica set in place. The domain must be in a healthy state. 
 - A client machine that is joined to the Azure AD DS hosted domain.  The client must be in its own virtual network, virtual network peering enabled with both replica set virtual networks, and the virtual network must have the IP addresses of all domain controllers in the replica sets listed in DNS. 
 
 ## Environment validation 
