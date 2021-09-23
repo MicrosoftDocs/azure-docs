@@ -1,0 +1,47 @@
+- name: Azure DevTest Offer Docs
+  href: index.yml
+- name: Overview
+  items: 
+    - name: What is Azure Machine Learning?
+      displayName: AML, services, overview, introduction
+      href: overview-what-is-azure-machine-learning.md
+- name: Quickstart
+- name: Tutorials
+  expanded: true
+  items: 
+    - name: "Python get started (Day 1)"
+      expanded: true
+      items:
+        - name: 3. Use your own data
+          href: tutorial-1st-experiment-bring-data.md
+- name: Samples
+  items: 
+    - name: Jupyter Notebooks
+      displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
+      href: samples-notebooks.md
+    - name: Example repository
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/Azure/azureml-examples
+    - name: Designer examples & datasets
+      displayName: example, examples, studio, pipelines, data sets, modules
+      href: samples-designer.md
+    - name: End-to-end MLOps examples
+      href: https://github.com/microsoft/MLOps
+    - name: Open Datasets (public)
+      href: ../open-datasets/samples.md?context=azure%2fmachine-learning%2fcontext%2fml-context
+- name: Concepts
+  items: 
+  - name: Automated ML
+    displayName: automl, auto ml
+    href: concept-automated-ml.md     
+- name: How-to guides
+- name: Resources
+  items: 
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/machine-learning-services/
+    - name: Service limits
+      href: resource-limits-quotas-capacity.md      
+    - name: Regional availability
+      href: https://azure.microsoft.com/regions/services/
