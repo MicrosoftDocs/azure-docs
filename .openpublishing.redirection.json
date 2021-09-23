@@ -18164,6 +18164,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/active-ftp-support.md",
+      "redirect_url": "/azure/firewall/ftp-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/governance-in-azure.md",
       "redirect_url": "/azure/governance/",
       "redirect_document_id": false

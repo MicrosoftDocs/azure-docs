@@ -70,7 +70,7 @@
     - name: Security baseline
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
     - name: FTP support
-      href: active-ftp-support.md
+      href: ftp-support.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
