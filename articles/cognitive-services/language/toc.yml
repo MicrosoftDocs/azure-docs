@@ -18,7 +18,7 @@ items:
     href: custom-classification/faq.md
   - name: Language support
     href: custom-classification/language-support.md
-  - name: Quickstarts
+  - name: Quickstart
     href: custom-classification/quickstart.md
   - name: How-to guides
     items:
