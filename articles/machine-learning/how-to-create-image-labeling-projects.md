@@ -195,6 +195,10 @@ Use these tips if you see any of these issues.
 
 [!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
 
+### Object detection
+
+|Issue  |Resolution  |
+|---------|---------|
 |Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
 
 ## Next steps
