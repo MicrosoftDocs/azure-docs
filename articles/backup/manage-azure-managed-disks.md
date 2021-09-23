@@ -99,7 +99,7 @@ To delete a disk backup instance, follow these steps:
 
    :::image type="content" source="./media/manage-azure-managed-disks/initiate-deleting-backup-instance-inline.png" alt-text="Screenshot showing the process to delete a backup instance." lightbox="./media/manage-azure-managed-disks/initiate-deleting-backup-instance-expanded.png":::
 
-1. Provide confirmation details including name of the Backup instance, reason for deletion and additional comments.
+1. Provide confirmation details including name of the Backup instance, reason for deletion, and additional comments.
 
    :::image type="content" source="./media/manage-azure-managed-disks/confirm-deleting-backup-instance-inline.png" alt-text="{alt-text}" lightbox="./media/manage-azure-managed-disks/confirm-deleting-backup-instance-expanded.png":::
 
