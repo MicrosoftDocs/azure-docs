@@ -9,9 +9,6 @@ ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-> [!NOTE]
-> Publish this doc around Sep 30th 2021 and remove this note.
-
 # Application Insights Java In-Process Agent in Azure Spring Cloud
 
 This article explains how to monitor apps and microservices by using the Application Insights Java agent in Azure Spring Cloud.
@@ -33,10 +30,6 @@ Application Insights provide many observable perspectives, including:
 * Metrics
 * Live Metrics
 * Availability
-
-> [!NOTE]
-> This feature is now in GA status since Sep 30th, 2021.   
-> Enabling Application Insights will also enable Java In-Proccess Agent and vice versa.
 
 ## Enable Java In-Process Agent for Application Insights
 
@@ -131,8 +124,8 @@ To be added!
 
 Apply ARM template with the CLI command:
 
->Note
-In below CLI commands, `serviceName` refer to name of Azure Spring Cloud instance.
+> [!NOTE]
+> In below CLI commands, `serviceName` refer to name of Azure Spring Cloud instance.
 
 * For configuring Application Insights when creating Azure Spring Cloud instance
   * Enable with Application Insights name or resource id.
