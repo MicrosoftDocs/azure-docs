@@ -13,7 +13,7 @@ ms.date: 09/10/2021
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we will remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we will remove it from this article.
 
 You can use various methods, such as MySQL dump and restore, MySQL Workbench Export/Import, or Azure Database Migration Service (DMS), to migrate your MySQL databases to Azure Database for MySQL. However, by using a combination of open-source tools such as MySQL dump and restore or mydumper/myloader with Data-in replication, you can migrate your workloads with minimum downtime.
 
