@@ -34,7 +34,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 The streaming endpoint portal page now provides an easy way for you to manage your egress capacity and estimate your audience  reach with and without a CDN configured.  Simply adjust the delivery bitrate and expected CDN cache hit ratio to get quick estimations of your audience size and help you determine if you need to scale up to more Premium streaming endpoints.
 
-   ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor.png#lightbox)
+   [ ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor-inline.png) ](./media/release-notes/streaming-endpoint-monitor.png#lightbox)
 
 ### Streaming Endpoint portal page now shows CPU, egress and latency metrics
 
@@ -48,12 +48,12 @@ Using User-Assigned Managed Identities, customers will now be able to enable bet
 
 You can now assign and manage user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI) for your storage accounts directly in the Azure portal for Media Services.
 
-  ![Configure user or system-assigned managed identities on storage accounts](./media/release-notes/storage-managed-identity.png#lightbox)
+  [ ![Configure user or system-assigned managed identities on storage accounts](./media/release-notes/storage-managed-identity.png)](./media/release-notes/storage-managed-identity.png#lightbox)
 
 ### Bring your own key page now also supports both UAMI and SAMI.
 The key management portal page for Media Services now supports configuration and management of  user-assigned managed identities (UAMI) or system-assigned managed identities (SAMI).
 
-   ![Bring your own keys for account encryption](./media/release-notes/byok-managed-identity.png#lightbox)
+   [ ![Bring your own keys for account encryption](./media/release-notes/byok-managed-identity.png)](./media/release-notes/byok-managed-identity.png)
 
 
 ### Private Link support for Media services
