@@ -328,7 +328,7 @@ To replace an expiring certificate, how you update the certificate binding with 
 ### Renew an App Service certificate
 
 > [!NOTE]
-> Starting Sept 23 2021, certificates will require domain validation every 395 days. Unlike App Service Managed Certificate, domain re-validation for App Service Certificate will NOT be automated.
+> Starting Sept 23 2021, App Service certificates will require domain validation every 395 days. Unlike App Service Managed Certificate, domain re-validation for App Service Certificate will NOT be automated.
 
 > [!NOTE]
 > The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
