@@ -279,7 +279,7 @@ related resources to match.
   - Specifies when the existence of the related resources should be evaluated. The delay is only
     used for evaluations that are a result of a create or update resource request.
   - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure`,
-    or an ISO 8601 duration between 10 and 360 minutes.
+    or an ISO 8601 duration between 0 and 360 minutes.
   - The _AfterProvisioning_ values inspect the provisioning result of the resource that was
     evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a

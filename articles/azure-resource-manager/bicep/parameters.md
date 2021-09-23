@@ -4,7 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/13/2021
 ---
 
 # Parameters in Bicep
@@ -15,7 +15,11 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-## Minimal declaration
+### Microsoft Learn
+
+To learn more about parameters, and for hands-on guidance, see [Build reusable Bicep templates by using parameters](/learn/modules/build-reusable-bicep-templates-parameters) on **Microsoft Learn**.
+
+## Declaration
 
 Each parameter needs a name and type. A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
 
@@ -27,18 +31,27 @@ param demoObject object
 param demoArray array
 ```
 
-## Decorators
+## Default value
 
-Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration.
+You can specify a default value for a parameter. The default value is used when a value isn't provided during deployment.
 
 ```bicep
-@expression
-param stgAcctName string
+param demoParam string = 'Contoso'
 ```
 
-In the sections below, this article shows how to use the decorators that are available in a Bicep file.
+You can use expressions with the default value. Expressions aren't allowed with other parameter properties. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the resource's runtime state, and can't be executed before deployment when parameters are resolved.
+
+```bicep
+param location string = resourceGroup().location
+```
+
+You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
 ## Secure parameters
+
+Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration.
 
 You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
 
@@ -60,39 +73,6 @@ You can define allowed values for a parameter. You provide the allowed values in
   'two'
 ])
 param demoEnum string
-```
-
-## Default value
-
-You can specify a default value for a parameter. The default value is used when a value isn't provided during deployment.
-
-```bicep
-param demoParam string = 'Contoso'
-```
-
-To specify a default value along with other properties for the parameter, use the following syntax.
-
-```bicep
-@allowed([
-  'Contoso'
-  'Fabrikam'
-])
-param demoParam string = 'Contoso'
-```
-
-You can use expressions with the default value. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the resource's runtime state, and can't be executed before deployment when parameters are resolved.
-
-Expressions aren't allowed with other parameter properties.
-
-```bicep
-param location string = resourceGroup().location
-```
-
-You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
-
-```bicep
-param siteName string = 'site${uniqueString(resourceGroup().id)}'
-param hostingPlanName string = '${siteName}-plan'
 ```
 
 ## Length constraints
@@ -149,62 +129,8 @@ It can be easier to organize related values by passing them in as an object. Thi
 
 The following example shows a parameter that is an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
 
-```bicep
-param vNetSettings object = {
-  name: 'VNet1'
-  location: 'eastus'
-  addressPrefixes: [
-    {
-      name: 'firstPrefix'
-      addressPrefix: '10.0.0.0/22'
-    }
-  ]
-  subnets: [
-    {
-      name: 'firstSubnet'
-      addressPrefix: '10.0.0.0/24'
-    }
-    {
-      name: 'secondSubnet'
-      addressPrefix: '10.0.1.0/24'
-    }
-  ]
-}
-resource vnet 'Microsoft.Network/virtualNetworks@2020-06-01' = {
-  name: vNetSettings.name
-  location: vNetSettings.location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        vNetSettings.addressPrefixes[0].addressPrefix
-      ]
-    }
-    subnets: [
-      {
-        name: vNetSettings.subnets[0].name
-        properties: {
-          addressPrefix: vNetSettings.subnets[0].addressPrefix
-        }
-      }
-      {
-        name: vNetSettings.subnets[1].name
-        properties: {
-          addressPrefix: vNetSettings.subnets[1].addressPrefix
-        }
-      }
-    ]
-  }
-}
-```
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterobject.bicep":::
 
-## Example templates
-
-The following examples demonstrate scenarios for using parameters.
-
-|Template  |Description  |
-|---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterswithfunctions.bicep) | Demonstrates how to use Bicep functions when defining default values for parameters. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
-|[parameter object](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterobject.bicep) | Demonstrates using an object for a parameter. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
 
 ## Next steps
 

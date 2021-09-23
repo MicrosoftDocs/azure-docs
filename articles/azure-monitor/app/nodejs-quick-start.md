@@ -34,13 +34,15 @@ Application Insights can gather telemetry data from any internet-connected appli
    > [!NOTE]
    >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](../app/create-new-resource.md) doc.
 
-   A configuration page appears; use the following table to fill out the input fields. 
+   A configuration page appears. Use the following table to fill out the input fields: 
 
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Globally Unique Value | Name that identifies the app you're monitoring |
-   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host AppInsights data. You can create a new resource group or use an existing one. |
-   | **Location** | East US | Choose a location near you, or near where your app is hosted |
+   | **Name**      | Globally Unique Value | Name that identifies the app you're monitoring. |
+   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host Application Insights data. You can create a new resource group or use an existing one. |
+   | **Location** | East US | Choose a location near you, or near where your app is hosted. |
+   | **Resource Mode** | Workspace-based | If there's an option to choose the resource mode, select **Workspace-based**.  |
+   | **Log Analytics Workspace** | | Accept the default value. |
 
 3. Select **Create**.
 

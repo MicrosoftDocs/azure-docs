@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ---
 
 # Troubleshoot copy activity performance
@@ -19,7 +19,7 @@ This article outlines how to troubleshoot copy activity performance issue in Azu
 
 After you run a copy activity, you can collect the run result and performance statistics in [copy activity monitoring](copy-activity-monitoring.md) view. The following is an example.
 
-![Monitor copy activity run details](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
+:::image type="content" source="./media/copy-activity-overview/monitor-copy-activity-run-details.png" alt-text="Monitor copy activity run details":::
 
 ## Performance tuning tips
 
