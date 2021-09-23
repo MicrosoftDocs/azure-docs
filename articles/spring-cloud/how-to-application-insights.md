@@ -122,10 +122,7 @@ To be added!
 
 ## CLI
 
-Apply ARM template with the CLI command:
-
-> [!NOTE]
-> In below CLI commands, `serviceName` refer to name of Azure Spring Cloud instance.
+Manage Application Insights with the CLI command. Note `serviceName` below referf to name of Azure Spring Cloud instance.
 
 * For configuring Application Insights when creating Azure Spring Cloud instance
   * Enable with Application Insights name or resource id.
