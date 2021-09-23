@@ -105,7 +105,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 1. Save your changes.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of how to enable soft delete in the Azure portal in accounts that have a hierarchical namespace.](./media/soft-delete-blob-enable/blob-soft-delete-configuration-portal-hierarchical-namespace.png)
+> ![Screenshot showing how to enable soft delete in the Azure portal in accounts that have a hierarchical namespace.](./media/soft-delete-blob-enable/blob-soft-delete-configuration-portal-hierarchical-namespace.png)
 
 ### [PowerShell](#tab/azure-powershell)
 

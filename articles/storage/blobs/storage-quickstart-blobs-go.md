@@ -67,7 +67,7 @@ This sample creates a test file in the current folder, uploads the test file to 
 
 To run the sample, issue the following command: 
 
-```go run storage-quickstart.go```
+`go run storage-quickstart.go`
 
 The following output is an example of the output returned when running the application:
   
