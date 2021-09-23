@@ -29,7 +29,7 @@ You'll also need the following software installed on your computer.
 First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld). The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
 
 ```cli
-git clone https://github.com/microsoft/FluidHelloWorld.git
+git clone -b main-azure https://github.com/microsoft/FluidHelloWorld.git
 ```
 
 Navigate to the newly created folder, install dependencies, and start the app.
@@ -42,57 +42,28 @@ npm start
 ```
 
 
-When you run the `npm start` command, two things will happen. First, a Fluid server will be launched in a local process using [Tinylicious](https://www.npmjs.com/package/tinylicious). This server is intended for development only. You'll upgrade to an Azure-hosted production server later. Second, a new browser tab will open to a page that contains a new instance of the dice roller app. 
+When you run the `npm start` command, two things will happen. First, a Fluid server will be launched in a local process. This server is intended for development only. You'll upgrade to an Azure-hosted production server later. Second, a new browser tab will open to a page that contains a new instance of the dice roller app. 
 
 You can open new tabs with the same URL to create additional instances of the dice roller app. Each instance of the app is configured by default to use your local Fluid service. Click the **Roll** button in any instance of the app, and note that the state of the dice changes in every client.
 
 ## Upgrading to Azure Fluid Relay
 
-To run against the Azure Fluid Relay service, you'll need to update your app's configuration to connect to your Azure service instead of your local Tinylicious server.
+To run against the Azure Fluid Relay service, you'll need to update your app's configuration to connect to your Azure service instead of your local server.
 
-### Remove the Tinylicious client from the app
+### Configure and create an Azure client
 
-Since you're not going to use the Tinylicious server anymore, we don't need to create a client in the app. Open `app.js` and delete this line of code.
-
-```javascript
-const client = new TinyliciousClient();
-```
-
-### Install and import the Azure client package
-
-To connect to your Azure service, first install Fluid Framework's Azure client and a library of testing utilities.
-
-```cli
-npm i @fluidframework/azure-client @fluidframework/test-client-utils
-```
-
-Next, import the Azure client and update your app's configuration with the required connection information. Open
-`app.js` and import the client. You'll also import a token provider to use for testing.
+To configure the Azure client, replace the values in the `serviceConfig` object in `app.js` with your Azure Fluid Relay
+service configuration values.
 
 ```javascript
-import { AzureClient } from "@fluidframework/azure-client";
-import { InsecureTokenProvider } from "@fluidframework/test-client-utils";
-```
-
-### Configure and create an Azure Client
-
-Finally, configure and create a new Azure client.
-
-```javascript
-const azureUser = {
-  userId: "Test User",
-    userName: "test-user"
-}
-
-// This configures the AzureClient to use a remote Azure Fluid Service instance.
-const prodConfig = {
-    tenantId: "[REPLACE WITH YOUR TENANT GUID]",
-    tokenProvider: new InsecureTokenProvider("", azureUser),
-    orderer: "[REPLACE WITH YOUR ORDERER URL]",
-    storage: "[REPLACE WITH YOUR STORAGE URL]",
+const serviceConfig = {
+    connection: {
+        tenantId: LOCAL_MODE_TENANT_ID, // REPLACE WITH YOUR TENANT ID
+        tokenProvider: new InsecureTokenProvider("" /* REPLACE WITH YOUR PRIMARY KEY */, { id: "userId" }),
+        orderer: "http://localhost:7070", // REPLACE WITH YOUR ORDERER ENDPOINT
+        storage: "http://localhost:7070", // REPLACE WITH YOUR STORAGE ENDPOINT
+    }
 };
-
-const client = new AzureClient(prodConfig);
 ```
 
 > [!WARNING]
@@ -100,13 +71,10 @@ const client = new AzureClient(prodConfig);
 
 ### Build and run the client only
 
-Now that you've pointed your app to use Azure instead of Tinylicious, you don't need to launch the local Fluid server along with your client app. You can launch the client without also launching the server with this command. 
+Now that you've pointed your app to use Azure instead of a local server, you don't need to launch the local Fluid server along with your client app. You can launch the client without also launching the server with this command. 
 
 ```bash
 npm run start:client
 ```
 
 🥳**Congratulations**🎉 You have successfully taken the first step towards unlocking the world of Fluid collaboration.
-
-
-
