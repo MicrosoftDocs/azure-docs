@@ -132,7 +132,7 @@ Next determine where the model will be trained. An automated ML training experim
 
 There are several options that you can use to configure your automated ML experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) for a full list of parameters.
 
-The following example is for a classification task. The experiment uses AUC weighted as the [primary metric](#primary-metric) and has an experiment timeout set to 30 minutes and 2 cross-validation folds.
+The following example is for a classification task. The experiment uses AUC weighted as the [primary metric](#primary-metric) and has an experiment time out set to 30 minutes and 2 cross-validation folds.
 
 ```python
     automl_classifier=AutoMLConfig(task='classification',
@@ -201,13 +201,13 @@ Classification | Regression | Time Series Forecasting
 
 The `primary_metric` parameter determines the metric to be used during model training for optimization. The available metrics you can select is determined by the task type you choose.
 
-Choosing a primary metric for automated ML to optimize depends on many factors. We recommend your primary consideration be to choose a metric which best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.). The following sections summarizes the recommended primary metrics based on task type and business scenario. 
+Choosing a primary metric for automated ML to optimize depends on many factors. We recommend your primary consideration be to choose a metric that best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.). The following sections summarize the recommended primary metrics based on task type and business scenario. 
 
 Learn about the specific definitions of these metrics in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 #### Metrics for classification scenarios 
 
-Post-thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets which are small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated ML completes, you can choose the winning model based on the metric best suited to your business needs.
+Post-thresholded metrics, like `accuracy`, `average_precision_score_weighted`, `norm_macro_recall`, and `precision_score_weighted` may not optimize as well for datasets that are small, have very large class skew (class imbalance), or when the expected metric value is very close to 0.0 or 1.0. In those cases, `AUC_weighted` can be a better choice for the primary metric. After automated ML completes, you can choose the winning model based on the metric best suited to your business needs.
 
 | Metric | Example use case(s) |
 | ------ | ------- |
@@ -370,7 +370,7 @@ run = experiment.submit(automl_config, show_output=True)
 >Dependencies are first installed on a new machine.  It may take up to 10 minutes before output is shown.
 >Setting `show_output` to `True` results in output being shown on the console.
 
-### Multiple child runs on clusters
+### Multiple children runs on clusters
 
 Automated ML experiment child runs can be performed on a cluster that is already running another experiment. However, the timing depends on how many nodes the cluster has, and if those nodes are available to run a different experiment.
 
@@ -416,7 +416,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-For a local or remote run that was just submitted and trained from within the same experiment notebook, you can pass in the best model using the `get_output()` method. 
+For a local or remote run that was submitted and trained from within the same experiment notebook, you can pass in the best model using the `get_output()` method. 
 
 ```python
 best_run, fitted_model = run.get_output()
