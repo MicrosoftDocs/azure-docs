@@ -48,7 +48,7 @@ To get started, you'll need:
 
 ## Upload your documents
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  **Your storage account** → **Data storage** → **containers**
+1. Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as follows:  **Your storage account** → **Data storage** → **Containers**
 
    :::image type="content" source="media/sas-tokens/data-storage-menu.png" alt-text="Screenshot: Data storage menu in the Azure portal.":::
 
@@ -73,7 +73,7 @@ To get started, you'll need:
 
 1. In the [Azure portal](https://ms.portal.azure.com/#home), navigate as follows:
 
-     **Your storage account** → **containers**
+     **Your storage account** → **Containers**
 1. Select a container from the list.
 1. Navigate to the right of the main window and select the three ellipses associated with your chosen container.
 1. Select **Generate SAS** from the drop-down menu to open the **Generate SAS Window**.
