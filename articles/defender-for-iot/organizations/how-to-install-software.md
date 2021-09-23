@@ -1386,7 +1386,7 @@ A vSwitch does not have mirroring capabilities, but you can use a workaround to 
 
 1. Select **OK**.
 
-1. Connect to the sensor and verify that mirroring works.
+1. Connect to the sensor, and verify that mirroring works.
 
 ### Configure a SPAN port with Hyper-V
 
