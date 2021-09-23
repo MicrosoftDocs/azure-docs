@@ -128,54 +128,66 @@ Manage Application Insights with the CLI command. Note `serviceName` below refer
   * Enable with Application Insights name or resource id.
    
       ```azurecli
-      az spring-cloud create [--app-insights] "name or resourceId" \
-          [--sampling-rate] "samplingRate" \
-          --name "serviceName" --resource-group "resourceGroupName"
+      az spring-cloud create \
+          --resource-group "resourceGroupName" \
+          --name "serviceName" \
+          [--app-insights] "name or resourceId" \
+          [--sampling-rate] "samplingRate"
       ```
 
-   * Enable with Application Insights Connection string (recommended) or Instrumentation key.
+   * Enable with Application Insights Connection string or Instrumentation key, we recommend to use Connection string.
    
       ```azurecli
-      az spring-cloud create [--app-insights-key] "connectionString or instrumentationKey" \
-          [--sampling-rate] "samplingRate" \
-          --name "serviceName" --resource-group "resourceGroupName"
+      az spring-cloud create \
+          --resource-group "resourceGroupName" \
+          --name "serviceName" \
+          [--app-insights-key] "connectionString or instrumentationKey" \
+          [--sampling-rate] "samplingRate"
       ```
 
    * Disable Application Insights
 
       ```azurecli
-      az spring-cloud create [--disable-app-insights] \
-          --name "serviceName" --resource-group "resourceGroupName"
+      az spring-cloud create \
+          --resource-group "resourceGroupName" \
+          --name "serviceName" \
+          [--disable-app-insights]
       ```
 
 * For an existing Azure Spring Cloud instance:
    * Check Application Insights settings
 
       ```azurecli
-      az spring-cloud app-insights show --name "serviceName" --resource-group  "resourceGroupName"
+      az spring-cloud app-insights show --resource-group "resourceGroupName" --name "serviceName"
       ```
 
-   * Enable Application Insights with Connection string (recommended) or Instrumentation key.
+   * Enable Application Insights with Connection string or Instrumentation key, we recommend to use Connection string.
 
       ```azurecli
-      az spring-cloud app-insights update [--app-insights-key] "connectionString or instrumentationKey" \
-         [--sampling-rate] "samplingRate" \
-         --name "serviceName" --resource-group "resourceGroupName"
+      az spring-cloud app-insights update \
+         --resource-group "resourceGroupName" \
+         --name "serviceName" \
+         [--app-insights-key] "connectionString or instrumentationKey" \
+         [--sampling-rate] "samplingRate"
       ```
 
    * Enable Application Insights with its name or resource id.
 
       ```azurecli
-      az spring-cloud app-insights update [--app-insights] "name or resourceId" \
-         [--sampling-rate] "samplingRate" \
-         --name "serviceName" --resource-group "resourceGroupName"
+      az spring-cloud app-insights update \
+         --resource-group "resourceGroupName" \
+         --name "serviceName" \
+         [--app-insights] "name or resourceId" \
+         [--sampling-rate] "samplingRate"
       ```
 
    * Disable Application Insights
 
       ```azurecli
-      az spring-cloud app-insights update --disable \
-         --name "serviceName" --resource-group "resourceGroupName"
+      az spring-cloud app-insights update \
+         --resource-group "resourceGroupName" \
+         --name "serviceName" \
+         --disable
       ```
 ## Java agent update/upgrade
 
