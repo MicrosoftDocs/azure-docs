@@ -2,7 +2,7 @@
 title: Azure IoT Hub operations monitoring (deprecated) | Microsoft Docs
 description: How to use Azure IoT Hub operations monitoring to monitor the status of operations on your IoT hub in real time.
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

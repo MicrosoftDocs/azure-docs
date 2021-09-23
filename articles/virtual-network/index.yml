@@ -57,7 +57,9 @@ landingContent:
           - text: Virtual network service endpoints
             url: virtual-network-service-endpoints-overview.md
           - text: Virtual network security FAQ
-            url: virtual-networks-faq.md#security            
+            url: virtual-networks-faq.md#security
+          - text: Default outbound access
+            url: default-outbound-access.md            
       - linkListType: tutorial
         links:
           - text: Filter network traffic using network security groups

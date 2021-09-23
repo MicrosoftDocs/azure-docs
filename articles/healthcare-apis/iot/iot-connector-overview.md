@@ -6,11 +6,14 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 08/06/2021
 ms.author: ginle
 ---
 
 # What is the IoT Connector?
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 IoT Connector is an optional feature of Azure Healthcare APIs that provides the capability to ingest data from Internet of Medical Things (IoMT) devices.
 
@@ -20,7 +23,7 @@ Below are the different stages that data goes through once it is received by Azu
 
 ## Ingest
 
-Ingest is the first stage where device data is received into the IoT Connector service. The ingestion endpoint for device data is hosted on an Azure Event Hub. [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/) platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the IoT Connector service to consume messages asynchronously; thus, removing the need for devices to wait while device data gets processed.
+Ingest is the first stage where device data is received into the IoT Connector service. The ingestion endpoint for device data is hosted on an Azure Event Hub. [Azure Event Hub](../../event-hubs/index.yml) platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the IoT Connector service to consume messages asynchronously; thus, removing the need for devices to wait while device data gets processed.
 
 > [!NOTE]
 > JSON is the only supported format at this time for device data.
@@ -69,6 +72,3 @@ For more information about the IoT Connector mapping templates, see
 
 >[!div class="nextstepaction"]
 >[How to use the FHIR mapping template](how-to-use-fhir-mapping-iot.md)
-
-
-

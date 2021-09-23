@@ -7,6 +7,7 @@ ms.topic: article
 ms.date: 08/06/2021
 author: smannepalle
 ms.author: smannepalle
+ms.reviewer: sroy
 ---
 
 # List of system queries

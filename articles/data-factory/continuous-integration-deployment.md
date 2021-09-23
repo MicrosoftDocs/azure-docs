@@ -47,7 +47,7 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
 The below image highlights the different steps of this lifecycle.
 
-![Diagram of continuous integration with Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
+:::image type="content" source="media/continuous-integration-deployment/continuous-integration-image12.png" alt-text="Diagram of continuous integration with Azure Pipelines":::
 
 ## Automate continuous integration by using Azure Pipelines releases
 
@@ -67,25 +67,25 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
 1.  On the left side of the page, select **Pipelines**, and then select **Releases**.
 
-    ![Select Pipelines, Releases](media/continuous-integration-deployment/continuous-integration-image6.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image6.png" alt-text="Select Pipelines, Releases":::
 
 1.  Select **New pipeline**, or, if you have existing pipelines, select **New** and then **New release pipeline**.
 
 1.  Select the **Empty job** template.
 
-    ![Select Empty job](media/continuous-integration-deployment/continuous-integration-image13.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image13.png" alt-text="Select Empty job":::
 
 1.  In the **Stage name** box, enter the name of your environment.
 
 1.  Select **Add artifact**, and then select the git repository configured with your development data factory. Select the [publish branch](source-control.md#configure-publishing-settings) of the repository for the **Default branch**. By default, this publish branch is `adf_publish`. For the **Default version**, select **Latest from default branch**.
 
-    ![Add an artifact](media/continuous-integration-deployment/continuous-integration-image7.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image7.png" alt-text="Add an artifact":::
 
 1.  Add an Azure Resource Manager Deployment task:
 
     a.  In the stage view, select **View stage tasks**.
 
-    ![Stage view](media/continuous-integration-deployment/continuous-integration-image14.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image14.png" alt-text="Stage view":::
 
     b.  Create a new task. Search for **ARM Template Deployment**, and then select **Add**.
 
@@ -104,13 +104,13 @@ The following is a guide for setting up an Azure Pipelines release that automate
     > [!WARNING]
     > In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../azure-resource-manager/templates/deployment-modes.md)
 
-    ![Data Factory Prod Deployment](media/continuous-integration-deployment/continuous-integration-image9.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image9.png" alt-text="Data Factory Prod Deployment":::
 
 1.  Save the release pipeline.
 
 1. To trigger a release, select **Create release**. To automate the creation of releases, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers)
 
-   ![Select Create release](media/continuous-integration-deployment/continuous-integration-image10.png)
+   :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image10.png" alt-text="Select Create release":::
 
 > [!IMPORTANT]
 > In CI/CD scenarios, the integration runtime (IR) type in different environments must be the same. For example, if you have a self-hosted IR in the development environment, the same IR must also be of type self-hosted in other environments, such as test and production. Similarly, if you're sharing integration runtimes across multiple stages, you have to configure the integration runtimes as linked self-hosted in all environments, such as development, test, and production.
@@ -150,7 +150,7 @@ There are two ways to handle secrets:
 
     1.  In the Key Vault task, select the subscription in which you created the key vault. Provide credentials if necessary, and then select the key vault.
 
-    ![Add a Key Vault task](media/continuous-integration-deployment/continuous-integration-image8.png)
+    :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image8.png" alt-text="Add a Key Vault task":::
 
 #### Grant permissions to the Azure Pipelines agent
 
@@ -186,19 +186,19 @@ The data factory team has provided a [sample pre- and post-deployment script](#s
 
 1. Go to **Manage** hub in your data factory, and select **ARM template** in the "Source control" section. Under **ARM template** section, select **Export ARM template** to export the Resource Manager template for your data factory in the development environment.
 
-   ![Export a Resource Manager template](media/continuous-integration-deployment/continuous-integration-image-1.png)
+   :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image-1.png" alt-text="Export a Resource Manager template":::
 
 1. In your test and production data factories, select **Import ARM Template**. This action takes you to the Azure portal, where you can import the exported template. Select **Build your own template in the editor** to open the Resource Manager template editor.
 
-   ![Build your own template](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
+   :::image type="content" source="media/continuous-integration-deployment/custom-deployment-build-your-own-template.png" alt-text="Build your own template"::: 
 
 1. Select **Load file**, and then select the generated Resource Manager template. This is the **arm_template.json** file located in the .zip file exported in step 1.
 
-   ![Edit template](media/continuous-integration-deployment/custom-deployment-edit-template.png)
+   :::image type="content" source="media/continuous-integration-deployment/custom-deployment-edit-template.png" alt-text="Edit template":::
 
 1. In the settings section, enter the configuration values, like linked service credentials. When you're done, select **Purchase** to deploy the Resource Manager template.
 
-   ![Settings section](media/continuous-integration-deployment/continuous-integration-image5.png)
+   :::image type="content" source="media/continuous-integration-deployment/continuous-integration-image5.png" alt-text="Settings section":::
 
 ## Use custom parameters with the Resource Manager template
 
@@ -215,14 +215,14 @@ If your development factory has an associated git repository, you can override t
 
 To override the default Resource Manager parameter configuration, go to the **Manage** hub and select **ARM template** in the "Source control" section. Under **ARM parameter configuration** section, click **Edit** icon in "Edit parameter configuration" to open the Resource Manager parameter configuration code editor.
 
-![Manage custom parameters](media/author-management-hub/management-hub-custom-parameters.png)
+:::image type="content" source="media/author-management-hub/management-hub-custom-parameters.png" alt-text="Manage custom parameters":::
 
 > [!NOTE]
 > **ARM parameter configuration** is only enabled in "GIT mode". Currently it is disabled in "live mode" or "Data Factory" mode.
 
 Creating a custom Resource Manager parameter configuration creates a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
 
-![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
+:::image type="content" source="media/continuous-integration-deployment/custom-parameters.png" alt-text="Custom parameters file":::
 
 When publishing from the collaboration branch, Data Factory will read this file and use its configuration to generate which properties get parameterized. If no file is found, the default template is used.
 
@@ -338,7 +338,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 * Although type-specific customization is available for datasets, you can provide configuration without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
 
 > [!NOTE]
-> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](./monitor-using-azure-monitor.md#data-factory-metrics)
+> If **Azure alerts and matrices** are configured for a pipeline, they are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](./monitor-metrics-alerts.md)
 > 
 
 ### Default parameterization template
@@ -611,7 +611,7 @@ If you've set up CI/CD for your data factories, you might exceed the Azure Resou
 
 If you've configured Git, the linked templates are generated and saved alongside the full Resource Manager templates in the adf_publish branch in a new folder called linkedTemplates:
 
-![Linked Resource Manager templates folder](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+:::image type="content" source="media/continuous-integration-deployment/linked-resource-manager-templates.png" alt-text="Linked Resource Manager templates folder":::
 
 The linked Resource Manager templates usually consist of a master template and a set of child templates that are linked to the master. The parent template is called ArmTemplate_master.json, and child templates are named with the pattern ArmTemplate_0.json, ArmTemplate_1.json, and so on. 
 
@@ -713,7 +713,7 @@ When running a post-deployment script, you will need to specify a variation of t
 > [!NOTE]
 > The `-deleteDeployment` flag is used to specify the deletion of the ADF deployment entry from the deployment history in ARM.
 
-![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+:::image type="content" source="media/continuous-integration-deployment/continuous-integration-image11.png" alt-text="Azure PowerShell task":::
 
 Here is the script that can be used for pre- and post-deployment. It accounts for deleted resources and resource references.
 

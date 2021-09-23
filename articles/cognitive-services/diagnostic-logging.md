@@ -24,7 +24,7 @@ To enable diagnostic logging, you'll need somewhere to store your log data. This
 
 > [!NOTE]
 > * Additional configuration options are available. To learn more, see [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
-> * "Trace" in diagnostic logging is only available for [Custom question answering](/azure/cognitive-services/qnamaker/how-to/get-analytics-knowledge-base?tabs=v2).
+> * "Trace" in diagnostic logging is only available for [Custom question answering](./qnamaker/how-to/get-analytics-knowledge-base.md?tabs=v2).
 
 ## Enable diagnostic log collection  
 

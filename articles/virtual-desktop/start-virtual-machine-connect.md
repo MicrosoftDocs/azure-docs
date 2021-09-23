@@ -3,7 +3,7 @@ title: Start virtual machine connect - Azure
 description: How to configure the start virtual machine on connect feature.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 09/17/2021
 ms.author: helohr
 manager: femila
 ---
@@ -45,10 +45,16 @@ To use the Azure portal to assign a custom role for Start VM on Connect:
 
 3. Next, name the custom role and add a description. We recommend you name it “start VM on connect.”
 
-4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to: 
+4. On the **Permissions** tab, add one of the two following sets of permissions to the subscription you're assigning the role to: 
  
    - Microsoft.Compute/virtualMachines/start/action
-   - Microsoft.Compute/virtualMachines/read
+   - Microsoft.Compute/virtualMachines/read 
+   - Microsoft.Compute/virtualMachines/instanceView/read 
+
+   You can also use these permissions instead:
+
+   - Microsoft.Compute/virtualMachines/start/action
+   - Microsoft.Compute/virtualMachines/*/read 
 
 5. When you're finished, select **Ok**.
 
@@ -60,7 +66,7 @@ To assign the custom role:
 
 2. Select the role you just created.
 
-3. In the search bar, enter and select **Azure Virtual Desktop**.
+3. In the search bar, enter and select **Windows Virtual Desktop** (this will soon be updated to "Azure Virtual Desktop").
 
       >[!NOTE]
       >You might see two apps if you have deployed Azure Virtual Desktop (classic). Assign the role to both apps you see.
@@ -79,7 +85,7 @@ If you're using a JSON file to create the custom role, the following example sho
   "Description": "Start VM on connect with AVD (Custom)",
   "Actions": [
     "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/read"
+    "Microsoft.Compute/virtualMachines/*/read"
   ],
   "NotActions": [],
   "DataActions": [],

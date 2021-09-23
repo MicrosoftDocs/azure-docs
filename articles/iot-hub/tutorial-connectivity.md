@@ -3,7 +3,7 @@ title: Tutorial - Check device connectivity to Azure IoT Hub
 description: Tutorial - Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 ms.date: 02/22/2019

@@ -132,7 +132,9 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
     - The available secret versions.
 
     > [!NOTE]
-    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed. 
+    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
+    >
+    > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Screenshot of selecting secret version on update custom domain page.":::
  
 5. When you use your own certificate, domain validation isn't required. Continue to [Wait for propagation](#wait-for-propagation).
 

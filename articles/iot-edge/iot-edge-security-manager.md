@@ -4,7 +4,7 @@ description: Manages the IoT Edge device security stance and the integrity of se
 services: iot-edge
 keywords: security, secure element, enclave, TEE, IoT Edge
 author: eustacea
-manager: philmea
+
 
 ms.author: eustacea
 ms.date: 08/30/2019

@@ -23,7 +23,7 @@ This article provides background information and steps to configure a [customer-
 
 ## Prerequisites
 
-- The CMK capability requires a Log Analytics dedicated cluster with at least a 1 TB/day commitment tier. Several workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
+- The CMK capability requires a Log Analytics dedicated cluster with at least a 500 GB/day commitment tier. Multiple workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
 
 - After you complete the steps in this guide and before you use the workspace, for onboarding confirmation, contact the [Azure Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com).
 
@@ -140,6 +140,6 @@ Azure Sentinel does not support replacing a customer-managed key. You should use
 
 ## Next steps
 In this document, you learned how to set up a customer-managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

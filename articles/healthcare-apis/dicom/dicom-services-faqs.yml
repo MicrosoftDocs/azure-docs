@@ -62,6 +62,5 @@ sections:
       
       - question: What is REST API versioning in the DICOM service?
         answer: |
-          DICOM service has versions for the REST API used to access the service. The version is specified as a URL path in the requests. For more information visit the [API Versioning for DICOM service Documentation](https://docs.microsoft.com/azure/healthcare-apis/dicom/api-versioning-dicom-service).
-          
+          DICOM service has versions for the REST API used to access the service. The version is specified as a URL path in the requests. For more information visit the [API Versioning for DICOM service Documentation](./api-versioning-dicom-service.md).
           

@@ -46,7 +46,7 @@ Avoiding the SNAT port problem means avoiding the creation of new connections re
 
 If your destination is an Azure service that supports service endpoints, you can avoid SNAT port exhaustion issues by using [regional VNet Integration](./web-sites-integrate-with-vnet.md) and service endpoints or private endpoints. When you use regional VNet Integration and place service endpoints on the integration subnet, your app outbound traffic to those services will not have outbound SNAT port restrictions. Likewise, if you use regional VNet Integration and private endpoints, you will not have any outbound SNAT port issues to that destination. 
 
-If your destination is an external endpoint outside of Azure, [using a NAT gateway](/azure/app-service/networking/nat-gateway-integration) gives you 64k outbound SNAT ports. It also gives you a dedicated outbound address that you don't share with anybody. 
+If your destination is an external endpoint outside of Azure, [using a NAT gateway](./networking/nat-gateway-integration.md) gives you 64k outbound SNAT ports. It also gives you a dedicated outbound address that you don't share with anybody. 
 
 If possible, improve your code to use connection pools and avoid the entire situation. It isn't always possible to change code fast enough to mitigate this situation. For the cases where you can't change your code in time, take advantage of the other solutions. The best solution to the problem is to combine all of the solutions as best you can. Try to use service endpoints and private endpoints to Azure services and the NAT gateway for the rest. 
 

@@ -20,7 +20,7 @@ Data Lake Storage Gen2 supports the following authorization mechanisms:
 
 [Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Azure Active Directory (Azure AD). With these two forms of authentication, Azure RBAC and ACLs have no effect.
 
-Azure RBAC and ACL both require the user (or application) to have an identity in Azure AD.  Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account, while ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.  
+Azure RBAC and ACL both require the user (or application) to have an identity in Azure AD.  Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account, while ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.
 
 This article focuses on Azure RBAC and ACLs, and how the system evaluates them together to make authorization decisions for storage account resources.
 
@@ -28,7 +28,7 @@ This article focuses on Azure RBAC and ACLs, and how the system evaluates them t
 
 ## Role-based access control (Azure RBAC)
 
-Azure RBAC uses role assignments to apply sets of permissions to [security principals](../../role-based-access-control/overview.md#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container. 
+Azure RBAC uses role assignments to apply sets of permissions to [security principals](../../role-based-access-control/overview.md#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container.
 
 The following roles permit a security principal to access data in a storage account.
 
@@ -57,7 +57,7 @@ During security principal-based authorization, permissions are evaluated in the 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
+Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored.
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
@@ -69,9 +69,9 @@ The following diagram shows the permission flow for three common operations: lis
 The following table shows you how to combine Azure roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 
-|    Operation             | Assigned Azure role               |    /        | Oregon/     | Portland/ | Data.txt |             
+|    Operation             | Assigned Azure role               |    /        | Oregon/     | Portland/ | Data.txt |
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
-| Read Data.txt            |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |  
+| Read Data.txt            |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |
 |                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
 |                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
 |                          |   None                           | `--X`    | `--X`    | `--X`     | `R--`  |
@@ -100,9 +100,8 @@ This table shows a column that represents each level of a fictitious directory h
 |                          |   Storage Blob Data Reader       | N/A      | N/A      | N/A       | N/A    |
 |                          |   None                           | `--X`    | `--X`    | `R-X`     | N/A    |
 
-
-> [!NOTE] 
-> To view the contents of a container in Azure Storage Explorer, security principals must [sign into Storage Explorer by using Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.   
+> [!NOTE]
+> To view the contents of a container in Azure Storage Explorer, security principals must [sign into Storage Explorer by using Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.
 
 ## Security groups
 
@@ -112,7 +111,7 @@ This table shows a column that represents each level of a fictitious directory h
 
 By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACL entries per file or directory. The following table describes these limits.
 
-[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)]
 
 ## Shared Key and Shared Access Signature (SAS) authorization
 

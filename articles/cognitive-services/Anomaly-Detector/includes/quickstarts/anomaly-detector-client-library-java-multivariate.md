@@ -184,34 +184,45 @@ Integer window = 28;
 AlignMode alignMode = AlignMode.OUTER;
 FillNAMethod fillNAMethod = FillNAMethod.LINEAR;
 Integer paddingValue = 0;
-AlignPolicy alignPolicy = new AlignPolicy().setAlignMode(alignMode).setFillNAMethod(fillNAMethod).setPaddingValue(paddingValue);
+AlignPolicy alignPolicy = new AlignPolicy()
+                                .setAlignMode(alignMode)
+                                .setFillNAMethod(fillNAMethod)
+                                .setPaddingValue(paddingValue);
 String source = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
 OffsetDateTime startTime = OffsetDateTime.of(2021, 1, 2, 0, 0, 0, 0, ZoneOffset.UTC);
-;
 OffsetDateTime endTime = OffsetDateTime.of(2021, 1, 3, 0, 0, 0, 0, ZoneOffset.UTC);
-;
 String displayName = "Devops-MultiAD";
 
-ModelInfo request = new ModelInfo().setSlidingWindow(window).setAlignPolicy(alignPolicy).setSource(source).setStartTime(startTime).setEndTime(endTime).setDisplayName(displayName);
+ModelInfo request = new ModelInfo()
+                        .setSlidingWindow(window)
+                        .setAlignPolicy(alignPolicy)
+                        .setSource(source)
+                        .setStartTime(startTime)
+                        .setEndTime(endTime)
+                        .setDisplayName(displayName);
 TrainMultivariateModelResponse trainMultivariateModelResponse = anomalyDetectorClient.trainMultivariateModelWithResponse(request, Context.NONE);
 String header = trainMultivariateModelResponse.getDeserializedHeaders().getLocation();
-String[] model_ids = header.split("/");
-UUID model_id = UUID.fromString(model_ids[model_ids.length - 1]);
-System.out.println(model_id);
+String[] substring = header.split("/");
+UUID modelId = UUID.fromString(substring[substring.length - 1]);
+System.out.println(modelId);
 
-Integer skip = 0;
-Integer top = 5;
-PagedIterable<ModelSnapshot> response = anomalyDetectorClient.listMultivariateModel(skip, top);
-Iterator<PagedResponse<ModelSnapshot>> ite = response.iterableByPage().iterator();
-
+//Check model status until the model is ready
+Response<Model> trainResponse;
 while (true) {
-    Response<Model> response_model = anomalyDetectorClient.getMultivariateModelWithResponse(model_id, Context.NONE);
-    UUID model = response_model.getValue().getModelId();
-    System.out.println(response_model.getStatusCode());
-    System.out.println(response_model.getValue().getModelInfo().getStatus());
-    System.out.println(model);
-    if (response_model.getValue().getModelInfo().getStatus() == ModelStatus.READY) {
+    trainResponse = anomalyDetectorClient.getMultivariateModelWithResponse(modelId, Context.NONE);
+    ModelStatus modelStatus = trainResponse.getValue().getModelInfo().getStatus();
+    if (modelStatus == ModelStatus.READY || modelStatus == ModelStatus.FAILED) {
         break;
+    }
+    TimeUnit.SECONDS.sleep(10);
+}
+
+if (trainResponse.getValue().getModelInfo().getStatus() != ModelStatus.READY){
+    System.out.println("Training failed.");
+    List<ErrorResponse> errorMessages = trainResponse.getValue().getModelInfo().getErrors();
+    for (ErrorResponse errorMessage : errorMessages) {
+        System.out.println("Error code:  " + errorMessage.getCode());
+        System.out.println("Error message:  " + errorMessage.getMessage());
     }
 }
 ```
@@ -220,19 +231,27 @@ while (true) {
 
 ```java
 DetectionRequest detectionRequest = new DetectionRequest().setSource(source).setStartTime(startTime).setEndTime(endTime);
-DetectAnomalyResponse detectAnomalyResponse = anomalyDetectorClient.detectAnomalyWithResponse(model_id, detectionRequest, Context.NONE);
-String result = detectAnomalyResponse.getDeserializedHeaders().getLocation();
+DetectAnomalyResponse detectAnomalyResponse = anomalyDetectorClient.detectAnomalyWithResponse(modelId, detectionRequest, Context.NONE);
+String location = detectAnomalyResponse.getDeserializedHeaders().getLocation();
+String[] substring = location.split("/");
+UUID resultId = UUID.fromString(substring[substring.length - 1]);
 
-String[] result_list = result.split("/");
-UUID result_id = UUID.fromString(result_list[result_list.length - 1]);
-
+DetectionResult detectionResult;
 while (true) {
-    DetectionResult response_result = anomalyDetectorClient.getDetectionResult(result_id);
-    if (response_result.getSummary().getStatus() == DetectionStatus.READY) {
+    detectionResult = anomalyDetectorClient.getDetectionResult(resultId);
+    DetectionStatus detectionStatus = detectionResult.getSummary().getStatus();;
+    if (detectionStatus == DetectionStatus.READY || detectionStatus == DetectionStatus.FAILED) {
         break;
     }
-    else if(response_result.getSummary().getStatus() == DetectionStatus.FAILED){
+    TimeUnit.SECONDS.sleep(10);
+}
 
+if (detectionResult.getSummary().getStatus() != DetectionStatus.READY){
+    System.out.println("Inference failed");
+    List<ErrorResponse> detectErrorMessages = detectionResult.getSummary().getErrors();
+    for (ErrorResponse errorMessage : detectErrorMessages) {
+        System.out.println("Error code:  " + errorMessage.getCode());
+        System.out.println("Error message:  " + errorMessage.getMessage());
     }
 }
 ```

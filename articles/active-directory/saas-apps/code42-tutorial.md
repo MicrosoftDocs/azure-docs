@@ -33,6 +33,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Code42 supports **SP** initiated SSO.
+* Code42 supports [**automated user provisioning and deprovisioning**](code42-provisioning-tutorial.md) (recommended).
+
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -120,7 +122,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Code42 Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Code42 tile in the My Apps, this will redirect to Code42 Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Code42 tile in the My Apps, this will redirect to Code42 Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

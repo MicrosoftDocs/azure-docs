@@ -19,7 +19,7 @@ ms.date: 08/04/2021
 
 ## Overview
 
-Azure Government is used by the US Department of Defense (DoD) entities to deploy a broad range of workloads and solutions, including workloads subject to the DoD Cloud Computing [Security Requirements Guide](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html) (SRG) Impact Level 4 (IL4) and Impact Level 5 (IL5) restrictions. Azure Government was the first hyperscale cloud services platform to be awarded a DoD IL5 Provisional Authorization (PA) by the Defense Information Systems Agency (DISA). For more information about DISA and DoD IL5, see [Department of Defense (DoD) Impact Level 5](/azure/compliance/offerings/offering-dod-il5) compliance documentation.
+Azure Government is used by the US Department of Defense (DoD) entities to deploy a broad range of workloads and solutions. Some of these workloads can be subject to the DoD Cloud Computing [Security Requirements Guide](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html) (SRG) Impact Level 4 (IL4) and Impact Level 5 (IL5) restrictions. Azure Government was the first hyperscale cloud services platform to be awarded a DoD IL5 Provisional Authorization (PA) by the Defense Information Systems Agency (DISA). For more information about DISA and DoD IL5, see [Department of Defense (DoD) Impact Level 5](/azure/compliance/offerings/offering-dod-il5) compliance documentation.
 
 Azure Government offers the following regions to DoD mission owners and their partners:
 
@@ -28,7 +28,7 @@ Azure Government offers the following regions to DoD mission owners and their pa
 |US Gov Arizona </br> US Gov Texas </br> US Gov Virginia|FedRAMP High, DoD IL4, DoD IL5|138|
 |US DoD Central </br> US DoD East|DoD IL5|64|
 
-**Azure Government regions** (US Gov Arizona, US Gov Texas, and US Gov Virginia) are intended for US federal (including DoD), state, and local government agencies, and their partners. **Azure Government DoD regions** (US DoD Central and US DoD East) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East). 
+**Azure Government regions** (US Gov Arizona, US Gov Texas, and US Gov Virginia) are intended for US federal (including DoD), state, and local government agencies, and their partners. **Azure Government DoD regions** (US DoD Central and US DoD East) are reserved for exclusive DoD use. Separate DoD IL5 PAs are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East).
 
 The primary differences between DoD IL5 PAs that are in place for Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) vs. Azure Government DoD regions (US DoD Central and US DoD East) are:
 
@@ -60,10 +60,12 @@ The following services are in scope for DoD IL5 PA in Azure Government DoD regio
 - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
 - [Azure Backup](https://azure.microsoft.com/services/backup/)
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
+- [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/)
 - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)
 - [Azure DNS](https://azure.microsoft.com/services/dns/)
+- [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)
 - [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)
 - [Azure Front Door](https://azure.microsoft.com/services/frontdoor/)
 - [Azure Functions](https://azure.microsoft.com/services/functions/)
@@ -78,30 +80,28 @@ The following services are in scope for DoD IL5 PA in Azure Government DoD regio
 - [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/)
 - [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100))
 - [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) (incl. [Azure SQL MI](https://azure.microsoft.com/products/azure-sql/managed-instance/))
-- [Azure Synapse Analytics (formerly SQL Data Warehouse)](https://azure.microsoft.com/services/synapse-analytics/)
+- [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) (incl. [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/))
+- [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/)
 - [Batch](https://azure.microsoft.com/services/batch/)
-- [Cloud Services](https://azure.microsoft.com/services/cloud-services/)
+- [Dataverse](/powerapps/maker/data-platform/data-platform-intro) (formerly Common Data Service)
 - [Dynamics 365 Customer Service](/dynamics365/customer-service/overview)
 - [Dynamics 365 Field Service](/dynamics365/field-service/overview)
 - [Dynamics 365 Project Service Automation](/dynamics365/project-operations/psa/overview)
 - [Dynamics 365 Sales](/dynamics365/sales-enterprise/overview)
 - [Event Grid](https://azure.microsoft.com/services/event-grid/)
 - [Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-- [ExpressRoute](https://azure.microsoft.com/services/expressroute/)
 - [Import/Export](https://azure.microsoft.com/services/storage/import-export/)
 - [Key Vault](https://azure.microsoft.com/services/key-vault/)
 - [Load Balancer](https://azure.microsoft.com/services/load-balancer/)
 - [Microsoft Azure porta](https://azure.microsoft.com/features/azure-portal/)
-- [Microsoft Dataverse (formerly Common Data Service)](/powerapps/maker/data-platform/data-platform-intro)
-- [Microsoft Defender for Endpoint (formerly Microsoft Defender Advanced Threat Protection)](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)
+- [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) (formerly Microsoft Defender Advanced Threat Protection)
 - [Microsoft Graph](/graph/overview)
 - [Microsoft Stream](/stream/overview)
 - [Network Watcher](https://azure.microsoft.com/services/network-watcher/)
 - [Network Watcher Traffic Analytics](../network-watcher/traffic-analytics.md)
 - [Power Apps](/powerapps/powerapps-overview)
 - [Power Apps portal](https://powerapps.microsoft.com/portals/)
-- [Power Automate (formerly Microsoft Flow)](/power-automate/getting-started)
+- [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow)
 - [Power BI](https://powerbi.microsoft.com/)
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
 - [Service Bus](https://azure.microsoft.com/services/service-bus/)
@@ -130,7 +130,7 @@ Azure Government is a US government community cloud providing services for feder
 Azure provides [extensive support for tenant isolation](./azure-secure-isolation-guidance.md) across compute, storage, and networking services to segregate each customer's applications and data. This approach provides the scale and economic benefits of multi-tenant cloud services while rigorously helping prevent other customers from accessing your data or applications. Moreover, some Azure services deployed in Azure Government regions (US Gov Arizona, US Gov Texas, and US Gov Virginia) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).
 
 ### What is IL5 data? 
-IL5 accommodates controlled unclassified information (CUI) that requires a higher level of protection than that afforded by IL4 as deemed necessary by the information owner, public law, or other government regulations. IL5 also supports unclassified National Security Systems (NSS). This impact level accommodates NSS and CUI categorizations based on CNSSI 1253 up to moderate confidentiality and moderate integrity (M-M-x). For more information on IL5 data, see [DoD IL5 overview](/azure/compliance/offerings/offering-dod-il5#dod-il5-overview).
+IL5 accommodates controlled unclassified information (CUI) that requires a higher level of protection than is afforded by IL4 as deemed necessary by the information owner, public law, or other government regulations. IL5 also supports unclassified National Security Systems (NSS). This impact level accommodates NSS and CUI categorizations based on CNSSI 1253 up to moderate confidentiality and moderate integrity (M-M-x). For more information on IL5 data, see [DoD IL5 overview](/azure/compliance/offerings/offering-dod-il5#dod-il5-overview).
 
 ### What is the difference between IL4 and IL5 data?  
 IL4 data is controlled unclassified information (CUI) that may include data subject to export control, protected health information, and other data requiring explicit CUI designation (for example, For Official Use Only, Law Enforcement Sensitive, and Sensitive Security Information).

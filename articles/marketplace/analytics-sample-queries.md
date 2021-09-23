@@ -6,6 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: smannepalle
 ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 8/06/2021
 ---
 

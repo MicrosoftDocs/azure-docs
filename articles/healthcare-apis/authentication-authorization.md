@@ -18,7 +18,7 @@ This article provides an overview of the authentication and authorization proces
 
 ## Authentication
 
-The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
+The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](../active-directory/index.yml), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
 
 For the Healthcare APIs services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -84,7 +84,7 @@ The Healthcare APIs typically expect a [JSON Web Token](https://en.wikipedia.org
 
 [ ![JASON web token signature.](media/azure-access-token.png) ](media/azure-access-token.png#lightbox)
 
-You can use online tools such as [https://jwt.ms](https://jwt.ms/) or [https://jwt.io](https://jwt.io/) to view the token content. For example, you can view the claims details.
+You can use online tools such as [https://jwt.ms](https://jwt.ms/) to view the token content. For example, you can view the claims details.
 
 |**Claim type**          |**Value**               |**Notes**                               |
 |------------------------|------------------------|----------------------------------------|
@@ -107,6 +107,14 @@ You can use online tools such as [https://jwt.ms](https://jwt.ms/) or [https://j
 **The access token is valid for one hour by default. You can obtain a new token or renew it using the refresh token before it expires.**
 
 To obtain an access token, you can use tools such as Postman, the Rest Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Azure AD authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+
+## Encryption
+
+When you create a new service of Azure Healthcare APIs, your data is encrypted using **Microsoft-managed keys** by default. 
+
+* FHIR service provides encryption of data at rest when data is persisted in the data store.
+* DICOM service provides encryption of data at rest when imaging data including embedded metadata is persisted in the data store. When metadata is extracted and persisted in the FHIR service, it is encrypted automatically.
+* IoT Connector, after data mapping and normalization, persists device messages to the FHIR service, which is encrypted automatically. In cases where device messages are sent to Azure event hubs, which uses Azure Storage to store the data, data is automatically encrypted with Azure Storage Service Encryption (Azure SSE).
 
 ## Next steps
 
