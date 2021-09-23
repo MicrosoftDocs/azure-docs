@@ -34,6 +34,8 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 The streaming endpoint Azure portal page now provides an easy way to manage your egress capacity and estimate your audience delivery reach. You can easily configure scale units based on live event bitrate profile and estimate their audience reach limits.
 
+   ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor.png)
+
 ### Streaming Endpoint portal page now shows CPU, egress and latency metrics
 
 You can now visualize the CPU load, egress bandwidth and end-to-end latency metrics on their streaming endpoints in the Azure portal. You can now create monitoring alerts based on the CPU, egress or latency metrics directly in the portal using the power of Azure Monitor. 
@@ -42,12 +44,19 @@ You can now visualize the CPU load, egress bandwidth and end-to-end latency metr
 
 Using User-Assigned Managed Identities, customers will now be able to enable better security of their storage accounts and associated key vaults. Access to the customer storage account and key vaults will be limited to the user assigned managed identity.  You have full control over the lifetime of user-managed identities and can easily revoke the media service account’s access to any specific storage account as needed.
 
+   ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor.png)
+
 ### Media services storage accounts page in the portal now support both UAMI and SAMI
 
 You can now assign and manage user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI) for your storage accounts directly in the Azure portal for Media Services.
 
+  ![Bring your own keys for account encryption](./media/release-notes/storage-managed-identity.png)
+
 ### Bring your own key page now also supports both UAMI and SAMI.
 The key management portal page for Media Services now supports configuration and management of  user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI). 
+
+   ![Bring your own keys for account encryption](./media/release-notes/byok-managed-identity.png)
+
 
 ### Private Link support for Media services
 You can now restrict public access to your live events, streaming endpoints, and key delivery services endpoint for content protection and DRM by creating a private endpoint for each of the services. This will limit public access to each of these services. Only traffic originating from your configured virtual network (VNET), configured in Private Endpoint, will be able reach these endpoints.
