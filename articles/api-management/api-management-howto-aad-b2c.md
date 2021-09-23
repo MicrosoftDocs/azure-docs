@@ -29,7 +29,7 @@ For information about enabling access to the developer portal by using classic A
 
 ## Configure sign up and sign in user flow
 
-In this section, create a user flow in your Azure AD B2C tenant containing both sign up and sign in policies. For detailed steps, see [Create user flows and custom policies in Azure AD B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
+In this section, you'll create a user flow in your Azure AD B2C tenant containing both sign up and sign in policies. For detailed steps, see [Create user flows and custom policies in Azure AD B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
 
 1. In the [Azure portal](https://portal.azure.com), access your Azure AD B2C tenant.
 1. Under **Policies**, select **User flows** > **+ New user flow**.
@@ -99,11 +99,11 @@ In the developer portal, sign-in with Azure AD B2C is possible with the **Sign-i
     :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-sign-in.png" alt-text="Sign in to developer portal":::
 1. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address in the AD B2C tenant
 
-When the sign-up is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
+When the signup is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
 
 :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-home.png" alt-text="Sign in to developer portal complete":::
 
-Although a new account is automatically created whenever a new user signs in with Azure AD B2C, you may consider adding the same widget to the sign-up page.
+Although a new account is automatically created whenever a new user signs in with Azure AD B2C, you may consider adding the same widget to the signup page.
 
 The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
@@ -112,7 +112,7 @@ The **Sign-up form: OAuth** widget represents a form used for signing up with OA
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 > [!NOTE]
-> Currently, to properly integrate B2C with the legacy developer portal, use **standard v1** user flows, in combination with enabling [password reset](/active-directory-b2c/user-flow-self-service-password-reset.md) before signing up/signing into a developer account using Azure AD B2C. 
+> To properly integrate B2C with the legacy developer portal, use **standard v1** user flows, in combination with enabling [password reset](/active-directory-b2c/user-flow-self-service-password-reset.md) before signing up/signing into a developer account using Azure AD B2C. 
 
 1. Open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
 
@@ -122,10 +122,10 @@ The **Sign-up form: OAuth** widget represents a form used for signing up with OA
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="Sign up  with Azure AD B2C":::
 
-1. You're redirected to the sign-up policy you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
+1. You're redirected to the signup policy you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
 
    > [!NOTE]
-   > If Azure AD B2C is the only option that's enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
+   > If Azure AD B2C is the only option enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
 
    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="Sign up options in legacy developer portal":::
 
