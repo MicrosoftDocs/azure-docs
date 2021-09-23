@@ -73,81 +73,12 @@ When you create the assignment by using the Azure portal, you have the option of
 ## Diagnostic settings
 [Diagnostic settings](essentials/diagnostic-settings.md) collect resource logs and metrics from Azure resources and route them to multiple locations. A typical location is a Log Analytics workspace, which allows you to analyze the data with [log queries](logs/log-query-overview.md) and [log alerts](alerts/alerts-log.md). Use Azure Policy to automatically create a diagnostic setting each time you create a resource.
 
-Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
-### Built-in policy definitions for Azure Monitor
-There are two built-in policy definitions for each resource type: one to send to a Log Analytics workspace and another to send to an event hub. If you need only one location, assign that policy for the resource type. If you need both, assign both policy definitions for the resource.
 
-For example, the following image shows the built-in diagnostic setting policy definitions for Azure Data Lake Analytics.
 
-![Partial screenshot from the Azure Policy Definitions page showing two built-in diagnostic setting policy definitions for Data Lake Analytics.](media/deploy-scale/builtin-diagnostic-settings.png)
 
-### Custom policy definitions
-For resource types that don't have a built-in policy, you need to create a custom policy definition. You could do this manually in the Azure portal by copying an existing built-in policy and then modifying it for your resource type. It's more efficient, though, to create the policy programmatically by using a script in the PowerShell Gallery.
 
-The script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) creates policy files for a particular resource type that you can install by using PowerShell or the Azure CLI. Use the following procedure to create a custom policy definition for diagnostic settings:
 
-1. Ensure that you have [Azure PowerShell](/powershell/azure/install-az-ps) installed.
-2. Install the script by using the following command:
-  
-    ```azurepowershell
-    Install-Script -Name Create-AzDiagPolicy
-    ```
-
-3. Run the script by using the parameters to specify where to send the logs. You'll be prompted to specify a subscription and resource type. 
-
-   For example, to create a policy definition that sends logs to a Log Analytics workspace and an event hub, use the following command:
-
-   ```azurepowershell
-   Create-AzDiagPolicy.ps1 -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
-   ```
-
-   Alternatively, you can specify a subscription and resource type in the command. For example, to create a policy definition that sends logs to a Log Analytics workspace and an event hub for SQL Server databases, use the following command:
-
-   ```azurepowershell
-   Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
-   ```
-
-5. The script creates separate folders for each policy definition. Each folder contains three files named *azurepolicy.json*, *azurepolicy.rules.json*, and *azurepolicy.parameters.json*. If you want to create the policy manually in the Azure portal, you can copy and paste the contents of *azurepolicy.json* because it includes the entire policy definition. Use the other two files with PowerShell or the Azure CLI to create the policy definition from a command line.
-
-   The following examples show how to install the policy definition from both PowerShell and the Azure CLI. Each example includes metadata to specify a category of **Monitoring** to group the new policy definition with the built-in policy definitions.
-
-   ```azurepowershell
-   New-AzPolicyDefinition -name "Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace" -policy .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json -parameter .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json -mode All -Metadata '{"category":"Monitoring"}'
-   ```
-
-   ```azurecli
-   az policy definition create --name 'deploy-diag-setting-sql-database--workspace' --display-name 'Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace'  --rules 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json' --params 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json' --subscription 'AzureMonitor_Docs' --mode All
-   ```
-
-### Initiative
-Rather than create an assignment for each policy definition, a common strategy is to create an initiative that includes the policy definitions to create diagnostic settings for each Azure service. Create an assignment between the initiative and a management group, subscription, or resource group, depending on how you manage your environment. This strategy offers the following benefits:
-
-- Create a single assignment for the initiative instead of multiple assignments for each resource type. Use the same initiative for multiple monitoring groups, subscriptions, or resource groups.
-- Modify the initiative when you need to add a new resource type or destination. For example, your initial requirements might be to send data only to a Log Analytics workspace, but later you want to add an event hub. Modify the initiative instead of creating new assignments.
-
-For details on creating an initiative, see [Create and assign an initiative definition](../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition). Consider the following recommendations:
-
-- Set **Category** to **Monitoring** to group it with related built-in and custom policy definitions.
-- Instead of specifying the details for the Log Analytics workspace and the event hub for policy definitions included in the initiative, use a common initiative parameter. This parameter allows you to easily specify a common value for all policy definitions and change that value if necessary.
-
-![Screenshot that shows settings for initiative definition.](media/deploy-scale/initiative-definition.png)
-
-### Assignment 
-Assign the initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
-
-![Screenshot of the settings for the Basics tab in the Assign initiative section of the Diagnostic settings to Log Analytics workspace in the Azure portal.](media/deploy-scale/initiative-assignment.png)
-
-By using initiative parameters, you can specify the workspace or any other details once for all of the policy definitions in the initiative. 
-
-![Screenshot that shows initiative parameters on the Parameters tab.](media/deploy-scale/initiative-parameters.png)
-
-### Remediation
-The initiative will apply to each virtual machine as it's created. A [remediation task](../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can create diagnostic settings for any resources that were already created. 
-
-When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md) for details on the remediation.
-
-![Screenshot that shows initiative remediation for a Log Analytics workspace.](media/deploy-scale/initiative-remediation.png)
 
 ## VM insights
 [VM insights](vm/vminsights-overview.md) is the primary tool in Azure Monitor for monitoring virtual machines. Enabling VM insights installs both the Log Analytics agent and the Dependency agent. Rather than perform these tasks manually, use Azure Policy to have each virtual machine configured as you create it.
@@ -155,12 +86,6 @@ When you create the assignment by using the Azure portal, you have the option of
 > [!NOTE]
 > VM insights includes a feature called **VM insights Policy Coverage** that helps you discover and remediate noncompliant VMs in your environment. You can use this feature instead of working directly with Azure Policy for Azure VMs and for hybrid virtual machines connected with Azure Arc. For Azure virtual machine scale sets, you must create the assignment by using Azure Policy. 
 
-VM insights includes the following built-in initiatives that install both agents to enable full monitoring. 
-
-|Name |Description |
-|:---|:---|
-|Enable VM insights | Installs the Log Analytics agent and Dependency agent on Azure VMs and hybrid VMs connected with Azure Arc. |
-|Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale sets. |
 
 ### Virtual machines
 Instead of creating assignments for these initiatives by using the Azure Policy interface, VM insights includes a feature that allows you to inspect the number of virtual machines in each scope to determine whether the initiative has been applied. You can then configure the workspace and create any required assignments by using that interface.
@@ -170,17 +95,6 @@ For details of this process, see [Enable VM insights by using Azure Policy](./vm
 ![Screenshot that shows a VM insights policy.](media/deploy-scale/vminsights-policy.png)
 
 ### Virtual machine scale sets
-To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for Virtual Machine Scale Sets** initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
-
-![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for Virtual Machine Scale Sets.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
-
-Select the workspace that the data will be sent to. This workspace must have the *VMInsights* solution installed, as described in [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md).
-
-![Screenshot that shows selecting a workspace.](media/deploy-scale/virtual-machine-scale-set-workspace.png)
-
-Create a remediation task if you have existing virtual machine scale sets that need to be assigned this policy.
-
-![Screenshot that shows creating a remediation task.](media/deploy-scale/virtual-machine-scale-set-remediation.png)
 
 ### Log Analytics agent
 You might have scenarios where you want to install the Log Analytics agent but not the Dependency agent. There is no built-in initiative for just the agent, but you can create your own based on the built-in policy definitions provided by VM insights. The following table lists the policies.

@@ -14,6 +14,7 @@ Enabling Azure Monitor to monitor of all your Azure resources is a combination o
 > [!IMPORTANT]
 > The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step below will identify whether there is potential cost, and you should assess these costs before proceeding with that step. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for complete pricing details.
 
+
 ## Configuration goals
 The goal of a complete implementation of Azure Monitor is to collect all available data from all of your cloud resources and applications and enable as many features in Azure Monitor as possible based on that data.
 
@@ -28,11 +29,7 @@ You may have additional requirements such as monitoring resources outside of Azu
 - Understand SLA, latency, and urgency considerations for each monitored device and application.
 - Understand data privacy, retention, residency, and compliance requirements.
 
-### Decide on monitoring solution
 
-- Azure Monitor for all Azure resources and cloud native applications.
-- Azure Monitor for hybrid monitoring scenarios where it's sufficient.
-- SCOM for VM workload monitoring and on-premises devices. See [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview) and [Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)
 
 ### Evaluate requirements for custom instrumentation and data collection
 (remove section?)

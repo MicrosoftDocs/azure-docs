@@ -162,10 +162,20 @@
       href: .//security-controls-policy.md
 - name: How-to guides
   items:
+  - name: Deploy Azure Monitor
+    items:
+    - name: Overview
+      href: deploy.md
+    - name: Plan
+      href: deploy-plan.md
+    - name: Design
+      href: deploy-design.md
+    - name: Data collection
+      href: deploy-data-collection.md
+    - name: Optimize
+      href: deploy-optimize.md
   - name: Scenarios
     items:
-    - name: Monitor Azure resource
-      href: essentials/monitor-azure-resource.md
     - name: Monitor virtual machines
       items:
       - name: Overview

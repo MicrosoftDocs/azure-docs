@@ -8,82 +8,10 @@ ms.date: 07/27/2020
 
 ---
 
-# Best practices for deploying Azure Monitor
-Enabling Azure Monitor to monitor of all your Azure resources is a combination of configuring Azure Monitor components and configuring Azure resources to generate monitoring data for Azure Monitor to collect. This article describes the different steps required for a complete implementation of Azure Monitor using a common configuration to monitor all of the resources in your Azure subscription. Basic descriptions for each step are provided with links to other documentation for detailed configuration requirements.
-
-> [!IMPORTANT]
-> The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step below will identify whether there is potential cost, and you should assess these costs before proceeding with that step. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for complete pricing details.
-
-## Configuration goals
-The goal of a complete implementation of Azure Monitor is to collect all available data from all of your cloud resources and applications and enable as many features in Azure Monitor as possible based on that data.
-
-Data collected by Azure Monitor is sent to either [Azure Monitor Metrics](essentials/data-platform-metrics.md) or [Azure Monitor Logs](logs/data-platform-logs.md). Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](alerts/alerts-overview.md) for a description of different alert types. 
-
-Some data can be sent to both Metrics and Logs in order to leverage it using different features. In these cases, you may need to configure each separately. For example, metric data is automatically sent by Azure resources to Metrics, which supports metrics explorer and metric alerts. You have to create a diagnostic setting for each resource to send that same metric data to Logs, which allows you to analyze performance trends with other log data using Log Analytics. The sections below identify where data is sent and includes each step required to send data to all possible locations.
-
-You may have additional requirements such as monitoring resources outside of Azure and sending data outside of Azure Monitor. Requirements such as these can be achieved with additional configuration of the features described in this article. Follow the links to documentation in each step for additional configuration options.
+# Best practices for deploying Azure Monitor - Configure data collection
 
 
-## Planning
-Before implementing Azure Monitor, you should determine the configuration that will best support your monitoring requirements. 
-
-## Understand Azure Monitor costs
-Some data collection and features in Azure Monitor have no cost while other have costs based on configuration or the amount of data collected. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for a list of of all Azure Monitor costs. 
-
-### Define strategy
-If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor/) which is part of the [Microsoft Cloud Adoption Framework for Azure](/cloud-adoption-framework/). 
-
-[Cloud monitoring guide: Formulate a monitoring strategy](/azure/cloud-adoption-framework/strategy/monitoring-strategy) in particular provides a number of factors that you should consider when developing a monitoring strategy. You should also refer to [Monitoring strategy for cloud deployment models](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview) which will assist in comparing completely cloud based monitoring with a hybrid model.
-
-## Gather required information
-Before you determine the details of your implementation, you should gather the information required to define those details.
-
- ### What needs to be monitored?
- You won't necessarily configure complete monitoring for all of your cloud resources but instead focus on those critical applications and components that require monitoring. This will not only potentially reduce your monitoring costs but also reduce the complexity of your monitoring environment. See [Cloud monitoring guide: Collect the right data](/azure/cloud-adoption-framework/manage/monitor/data-collection) for guidance on defining the data that you require.
-
-The following features of Azure Monitor are enabled with no configuration required when you create an Azure subscription. There is no cost associated with this monitoring.
-
-- [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) - Provides tenant-level history of sign-in activity and audit trail of changes made in Azure Active Directory. See [Audit activity reports in the Azure Active Directory portal](../active-directory/reports-monitoring/concept-audit-logs.md) and [Sign-in activity reports in the Azure Active Directory portal](../active-directory/reports-monitoring/concept-sign-ins.md) for details of the Azure Active Directory logs and how to view them in the Azure portal.
-- [Activity log](essentials/platform-logs-overview.md) - Provides insight into management group and subscription-level events that have occurred in Azure. Events are automatically written to the Activity log when you create a new Azure resource, modify a resource, or perform a significant activity. You can view events in the Azure portal and create Activity log alerts when particular events are created. See [Azure Activity log](essentials/activity-log.md) for details of the Activity log and how to view it in the Azure portal.
-- [Platform metrics](essentials/metrics-supported.md) - Collected automatically from Azure services into [Azure Monitor Metrics](essentials/data-platform-metrics.md). This data is often presented on the **Overview** page in the Azure portal for different services. See [Getting started with Azure Metrics Explorer](essentials/metrics-getting-started.md) for details on analyzing platform metrics in the Azure portal. 
-
-### Who needs to have access and be notified
-As you configure your monitoring environment, you need to determine which users should have access to monitoring data and which users need to be notified when an issue is detected. These may be application and resource owners, or you may have a centralized monitoring team. 
-
-### Service level agreements 
-Your organization may have SLAs that define your commitments for performance and uptime of your applications. These SLAs may determine how you need to configure time sensitive features of Azure Monitor such as alerts. You will also need to understand [data latency in Azure Monitor](logs/data-ingestion-time.md) since this will affect the responsiveness of monitoring scenarios.
-
-
-
-
-
-
-## Design monitoring environment
-
-### Log Analytics workspace
-You require at least one Log Analytics workspace to enable [Azure Monitor Logs](logs/data-platform-logs.md), which is required for collecting such data as logs from Azure resources, collecting data from the guest operating system of Azure virtual machines, and for most Azure Monitor insights. Other services such as Azure Sentinel and Azure Security Center also use a Log Analytics workspace and can share the same one that you use for Azure Monitor. You can start with a single workspace to support this monitoring, but see  [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md) for guidance on when to use multiple workspaces.
-
-There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details.  
-
-See [Create a Log Analytics workspace in the Azure portal](logs/quick-create-workspace.md) to create an initial Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](logs/manage-access.md) to configure access. 
-
-
-
-### Configure workspace for VM insights
-VM insights requires a Log Analytics workspace which will typically be the same as the one created to collect data from other Azure resources. Before you enable any virtual machines, you must add the solution required for VM insights to the workspace.
-
-See [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md) for details on configuring your Log Analytics workspace for VM insights.
-
-
-### Separate or single Application Insights Resource 
-
-
-### Network configuration for hybrid resources
-
-
-## Configure data collection
-
-### Create diagnostic setting to collect tenant and subscription logs
+## Create diagnostic setting to collect tenant and subscription logs
 While the [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [Activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically, sending them to a Log Analytics workspace enables you to analyze these events with other log data using log queries in Log Analytics. This also allows you to create log query alerts which is the only way to alert on Azure Active Directory logs and provide more complex logic than Activity log alerts.
 
 There's no cost for sending the Activity log to a workspace, but there is a data ingestion and retention charge for Azure Active Directory logs. 
@@ -94,13 +22,13 @@ See [Create diagnostic setting to collect resource logs and metrics in Azure](es
 
 
 
-### Create diagnostic setting to collect resource logs and platform metrics
+## Create diagnostic setting to collect resource logs and platform metrics
 Resources in Azure automatically generate [resource logs](essentials/platform-logs-overview.md) that provide details of operations performed within the resource. Unlike platform metrics though, you need to configure resource logs to be collected. Create a diagnostic setting to send them to a Log Analytics workspace to combine them with the other data used with Azure Monitor Logs. The same diagnostic setting can be used to also send the platform metrics for most resources to the same workspace, which allows you to analyze metric data using log queries with other collected data.
 
 There is a cost for this collection so refer to [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before implementing across a significant number of resources. Also see [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details on optimizing the cost of your log collection.
 
 
-### Onboard at scale
+## Onboard at scale
 Although some Azure Monitor features are configured once or a limited number of times, such creating a Log Analytics workspace or configuring a data collection rule, others must be repeated for each resource that you want to monitor. In addition to performing this configuration quickly for existing resources, you should have the expectation that monitoring is automatically configured for any new resources as they're created.
 
 The tasks that will require at-scale configuration include the following:
@@ -111,7 +39,7 @@ The tasks that will require at-scale configuration include the following:
 Each of these tasks can be performed for existing resources using command line methods including PowerShell and CLI. Use Azure Policy to automate these tasks for any new resources. See [Deploy Azure Monitor at scale by using Azure Policy](deploy-scale.md) for details on this configuration.
 
 
-### Enable insights
+## Enable insights
 Insights provide specialized monitoring for a particular service. Insights use more recent features of Azure Monitor such as workbooks, so you should use an insight if it's available for your service. They are automatically available in every Azure subscription but may require some configuration for full functionality. They will typically use platform metrics and resources logs that you previously configured and could collect additional data.
 
 There is no cost for insights, but you may be charged for any data they collect.
@@ -196,106 +124,3 @@ See [Profile production applications in Azure with Application Insights](app/pro
 Snapshot Debugger in Application Insights monitors exception telemetry from your .NET application and collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. The process for configuring Snapshot Debugger varies depending on the type of application. 
 
 See [Debug snapshots on exceptions in .NET apps](app/snapshot-debugger.md) for details on configuring Snapshot Debugger.
-
-
-## Visualize data
-Insights and solutions will include their own workbooks and views for analyzing their data. In addition to these, you can create your own [visualizations](visualizations.md) including workbooks for Azure Monitor data and dashboards to combine Azure Monitor data with data from other services in Azure.
-
-
-### Create workbooks
-[Workbooks](visualize/workbooks-overview.md) in Azure Monitor allow you to create rich visual reports in the Azure portal. You can combine different sets of data from Azure Monitor Metrics and Azure Monitor Logs to create unified interactive experiences. You can access a gallery of workbooks in the **Workbooks** tab of the Azure Monitor menu. 
-
-See [Azure Monitor Workbooks](visualize/workbooks-overview.md) for details on creating custom workbooks.
-
-### Create dashboards
-[Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure and allow you to combine Azure Monitor data with data from other services to provide a single pane of glass over your Azure infrastructure. See [Create and share dashboards of Log Analytics data](visualize/tutorial-logs-dashboards.md) for details on creating a dashboard that includes data from Azure Monitor Logs. 
-
-See [Create custom KPI dashboards using Azure Application Insights](app/tutorial-app-dashboards.md) for details on creating a dashboard that includes data from Application Insights. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Optimize costs
-
-### Reduce application data volume
-
-### Reduce AKS data volume
-
-### Reduce Logs data volume
-Since you're charged for both ingestion and retention of data in a Log Analytics workspace, you can reduce your costs by reducing the amount of log data collected. For example, limit guest level events from virtual machines to only particular categories and severity levels. You can also modify the frequency that performance data is collected to reduce your costs.
-
-See [Tips for reducing data volume](logs/manage-cost-storage.md#tips-for-reducing-data-volume) for a list of recommendations for different data sources.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Alerts
-Alerts in Azure Monitor proactively notify you of important data or patterns identified in your monitoring data. Some insights will generate alerts without configuration. For other scenarios, you need to create [alert rules](alerts/alerts-overview.md) that include the data to analyze and the criteria for when to generate an alert, and action groups which define the action to take when an alert is generated. 
-
-
-### Create action groups
-[Action groups](alerts/action-groups.md) are a collection of notification preferences used by alert rules to determine the action to perform when an alert is triggered. Examples of actions include sending a mail or text, calling a webhook, or send data to an ITSM tool. Each alert rule requires at least one action group, and a single action group can be used by multiple alert rules.
-
-See [Create and manage action groups in the Azure portal](alerts/action-groups.md) for details on creating an action group and a description of the different actions it can include.
-
-
-### Create alert rules
-There are multiple types of alert rules defined by the type of data that they use. Each has different capabilities, and a different cost. The basic strategy you should follow is to use the alert rule type with the lowest cost that provides the logic that you require.
-
-- [Activity log rules](alerts/activity-log-alerts.md). Creates an alert in response to a new Activity log event that matches specified conditions. There is no cost to these alerts so they should be your first choice. See [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md) for details on creating an Activity log alert.
-- [Metric alert rules](alerts/alerts-metric-overview.md). Creates an alert in response to one or more metric values exceeding a threshold. Metric alerts are stateful meaning that the alert will automatically close when the value drops below the threshold, and it will only send out notifications when the state changes. There is a cost to metric alerts, but this is significantly less than log alerts. See [Create, view, and manage metric alerts using Azure Monitor](alerts/alerts-metric.md) for details on creating a metric alert.
-- [Log alert rules](alerts/alerts-unified-log.md). Creates an alert when the results of a schedule query matches specified criteria. They are the most expensive of the alert rules, but they allow the most complex criteria. See [Create, view, and manage log alerts using Azure Monitor](alerts/alerts-log.md) for details on creating a log query alert.
-- [Application alerts](app/monitor-web-app-availability.md) allow you to perform proactive performance and availability testing of your web application. You can perform a simple ping test at no cost, but there is a cost to more complex testing. See [Monitor the availability of any website](app/monitor-web-app-availability.md) for a description of the different tests and details on creating them.
-
-
-
-
-
-## Collect data from Azure resources
-
-> [!NOTE]
-> See [Monitoring Azure resources with Azure Monitor](essentials/monitor-azure-resource.md) for a complete guide on monitoring virtual machines with Azure Monitor.
-
-Some monitoring of Azure resources is available automatically with no configuration required, while you must perform configuration steps to collect additional monitoring data. The following table illustrates the configuration steps required to collect all available data from your Azure resources, including at which step data is sent to Azure Monitor Metrics and Azure Monitor Logs. The sections below describe each step in further detail.
-
-[ ![Deploy Azure resource monitoring](media/deploy/deploy-azure-resources.png) ](media/deploy/deploy-azure-resources.png#lightbox)
