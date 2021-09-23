@@ -100,11 +100,11 @@ The specified VM Size failed to provision due to a lack of Azure Machine Learnin
 
 ### ERR_1102: No more role assignments
 
-Delete some unused role assignments of this subscription. You can check all role assignments on Azure portal under Access Control menu.
+Delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal in the Access Control menu.
 
 ### ERR_1103: Endpoint quota reached
 
-Delete some unused endpoints under this subscription.
+Delete some unused endpoints in this subscription.
 
 ### ERR_1200: Unable to download user container image
 
