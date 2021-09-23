@@ -26,13 +26,13 @@ Read operations on a blob that was created with an encryption scope happen trans
 
 ### Key management
 
-When you define an encryption scope, you can specify whether the scope is protected with a Microsoft-managed key or with a customer-managed key that is stored in Azure Key Vault. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys. You can also switch the type of key used to protect an encryption scope from a customer-managed key to  a Microsoft-managed key, or vice versa, at any time. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md). For more information about Microsoft-managed keys, see [About encryption key management](../common/storage-service-encryption.md#about-encryption-key-management).
+When you define an encryption scope, you can specify whether the scope is protected with a Microsoft-managed key or with a customer-managed key that is stored in Azure Key Vault. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys. You can also switch the type of key used to protect an encryption scope from a customer-managed key to a Microsoft-managed key, or vice versa, at any time. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md). For more information about Microsoft-managed keys, see [About encryption key management](../common/storage-service-encryption.md#about-encryption-key-management).
 
 If you define an encryption scope with a customer-managed key, then you can choose to update the key version either automatically or manually. If you choose to automatically update the key version, then Azure Storage checks the key vault or managed HSM daily for a new version of the customer-managed key and automatically updates the key to the latest version. For more information about updating the key version for a customer-managed key, see [Update the key version](../common/customer-managed-keys-overview.md#update-the-key-version).
 
 Azure Policy provides a built-in policy to require that encryption scopes use customer-managed keys. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
-A storage account may have up to 10,000 encryption scopes that are protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys that are being automatically updated, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.  
+A storage account may have up to 10,000 encryption scopes that are protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys that are being automatically updated, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.
 
 ### Infrastructure encryption
 
@@ -51,7 +51,7 @@ When you create a container, you can specify a default encryption scope for the 
 
 The following table summarizes the behavior of a blob upload operation, depending on how the default encryption scope is configured for the container:
 
-| The encryption scope defined on the container is… | Uploading a blob with the default encryption scope… | Uploading a blob with an encryption scope other than the default scope… |
+| The encryption scope defined on the container is... | Uploading a blob with the default encryption scope... | Uploading a blob with an encryption scope other than the default scope... |
 |--|--|--|
 | A default encryption scope with overrides permitted | Succeeds | Succeeds |
 | A default encryption scope with overrides prohibited | Succeeds | Fails |
@@ -78,11 +78,11 @@ Keep in mind that customer-managed keys are protected by soft delete and purge p
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | 
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
 
 <sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.

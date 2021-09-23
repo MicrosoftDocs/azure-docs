@@ -48,12 +48,14 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 1. To create a Node.js application in the folder of your choice, run the following command in a node command prompt.
 
-    ```npm init```
+   `npm init`
 
-    Answer the questions and your project will be ready to go.
+   Answer the questions and your project will be ready to go.
 
 2. Add a new file to the folder and name it ```index.js```.
+
 3. Install the necessary packages using one of the ```npm install``` options:
+
    * Mongoose: ```npm install mongoose@5 --save```
 
      > [!Note]
@@ -64,7 +66,7 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
      >[!Note]
      > The ```--save``` flag adds the dependency to the package.json file.
 
-4. Import the dependencies in your index.js file.
+4. Import the dependencies in your `index.js` file.
 
     ```JavaScript
    var mongoose = require('mongoose');
