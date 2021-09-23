@@ -40,15 +40,15 @@ In Azure Purview, you can create glossary terms and attach them to assets. Later
 
 1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview** account tile.
+1. On the **Overview** page, in the **Get Started** section, select **Open Purview Studio** account tile.
 
    :::image type="content" source="./media/glossary-insights/portal-access.png" alt-text="Launch Purview from the Azure portal":::
 
-1. On the Purview **Home** page, select the **View insights** tile to access your **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: area.
+1. On the Purview **Home** page, select **Insights** on the left menu.
 
    :::image type="content" source="./media/glossary-insights/view-insights.png" alt-text="View your insights in the Azure portal":::
 
-1. In the **Insights** :::image type="icon" source="media/glossary-insights/ico-insights.png" border="false"::: area, select **Glossary** to display the Purview **Glossary insights** report.
+1. In the **Insights** area, select **Glossary** to display the Purview **Glossary insights** report.
 
 **Glossary Insights** provides you as a business user, valuable information to maintain a well-defined glossary for your organization.
 

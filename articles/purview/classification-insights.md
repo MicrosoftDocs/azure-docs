@@ -48,13 +48,13 @@ Purview uses the same sensitive information types as Microsoft 365, allowing you
 
 1. Go to the **Azure Purview** [instance screen in the Azure portal](https://aka.ms/purviewportal) and select your Purview account.
 
-1. On the **Overview** page, in the **Get Started** section, select the **Launch Purview account** tile.
+1. On the **Overview** page, in the **Get Started** section, select the **Purview Studio** tile.
 
 1. In Purview, select the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: menu item on the left to access your **Insights** area.
 
 1. In the **Insights** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: area, select **Classification** to display the Purview **Classification insights** report.
 
-   :::image type="content" source="./media/insights/select-classification-labeling-small.png" alt-text="Classification insights report" lightbox="media/insights/select-classification-labeling.png":::
+   :::image type="content" source="./media/insights/select-classification-labeling.png" alt-text="Classification insights report" lightbox="media/insights/select-classification-labeling.png":::
 
    The main **Classification insights** page displays the following areas:
 
@@ -79,7 +79,7 @@ In any of the following **Classification insights** graphs, select the **View mo
 
 For example:
 
-:::image type="content" source="media/insights/view-classifications-small.png" alt-text="View all classifications" lightbox="media/insights/view-classifications.png":::
+:::image type="content" source="media/insights/view-classifications-small.png" alt-text="View all classifications":::
 
 Do any of the following to learn more:
 

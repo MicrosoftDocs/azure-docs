@@ -38,9 +38,9 @@ Multiple Azure Data Factories can connect to a single Azure Purview to push line
 >[!Note]
 >To add or remove the Data Factory connections, you need to be assigned the following role. Role inheritance from management group is not supported.
 >- For Purview account created **on or after August 18, 2021**: **Collection admins** role on the root collection.
->- For Purview account created **before August 18, 2021**: **Owner** or **User Access Administrator** role. 
+>- For Purview account created **before August 18, 2021**: **Owner** or **User Access Administrator** role.
 >
-> Besides, it requires the users to be the data factory's "Owner" or "Contributor". 
+> Besides, it requires the users to be the data factory's "Owner" or "Contributor".
 
 Follow the steps below to connect an existing data factory to your Purview account. You can also [connect Data Factory to Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
@@ -56,7 +56,7 @@ Follow the steps below to connect an existing data factory to your Purview accou
 
     A warning message will be displayed if any of the selected Data Factories are already connected to other Purview account. By selecting OK, the Data Factory connection with the other Purview account will be disconnected. No additional confirmations are required.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
 >[!Note]
 >We now support adding no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket.
@@ -127,7 +127,7 @@ An example of this pattern would be the following:
 - 1 sink/output: *Customer1.csv* (Azure Blob)
 - 1 process: *CopyCustomerInfo1\#Customer1.csv* (Data Factory Copy activity)
 
-:::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="Screenshot showing the lineage for a one to one Data Factory Copy operation." lightbox="./media/how-to-link-azure-data-factory/adf-copy-lineage.png":::
+:::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="Screenshot showing the lineage for a one to one Data Factory Copy operation.":::
 
 ### Data movement with 1:1 lineage and wildcard support
 
