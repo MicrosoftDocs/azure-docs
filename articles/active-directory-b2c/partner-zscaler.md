@@ -112,7 +112,7 @@ The rest of the steps aren't relevant to this tutorial.
 
 Next, you need to obtain a SAML metadata URL in the following format:
 
-```https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata```
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata`
 
 Note that `<tenant-name>` is the name of your Azure AD B2C tenant, and `<policy-name>` is the name of the custom SAML policy that you created in the preceding step.
 

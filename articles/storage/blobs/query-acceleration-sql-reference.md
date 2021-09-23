@@ -70,7 +70,7 @@ When reading values from CSV-formatted data, all values are read as strings.  St
 
 For JSON-formatted data, or CSV-formatted data with a header row, fields may be referenced by name.  Field names can be quoted or unquoted. Quoted field names are enclosed in double-quote characters (`"`), may contain spaces, and are case-sensitive.  Unquoted field names are case-insensitive, and may not contain any special characters.
 
-In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (_) character.  For example, the first field may be referenced as `_1`, or the eleventh field may be referenced as `_11`. Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
+In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (`_`) character.  For example, the first field may be referenced as `_1`, or the eleventh field may be referenced as `_11`. Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
 
 ### Operators
 
@@ -149,10 +149,9 @@ The query acceleration SQL language supports year, month, day, hour, minute, sec
 
 Examples:
 
-``sql
+```sql
 DATE_ADD(datepart, quantity, timestamp)
 DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
-
 ```
 
 #### DATE_DIFF function
@@ -162,7 +161,6 @@ The query acceleration SQL language supports year, month, day, hour, minute, sec
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
 DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00') 
-
 ```
 
 #### EXTRACT function
@@ -174,7 +172,6 @@ Examples:
 ```sql
 EXTRACT(datepart FROM timestampstring)
 EXTRACT(YEAR FROM '2010-01-01T')
-
 ```
 
 #### TO_STRING function
@@ -184,7 +181,6 @@ Examples:
 ```sql
 TO_STRING(TimeStamp , format)
 TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
-
 ```
 
 This table describes strings that you can use to specify the output format of the ``TO_STRING`` function.
@@ -196,8 +192,8 @@ This table describes strings that you can use to specify the output format of th
 |yyyy             |Year in 4 digit format               |
 |M                |Month of year – 1                    |
 |MM               |Zero padded Month – 01               |
-|MMM              |Abbr. month of Year  -JAN            |
-|MMMM             |Full month – May                      |
+|MMM              |Abbr. month of Year – JAN            |
+|MMMM             |Full month – May                     |
 |d                |Day of month (1-31)                  |
 |dd               |Zero padded day of Month (01-31)     |
 |a                |AM or PM                             |
@@ -228,7 +224,6 @@ Examples:
 ```sql
 TO_TIMESTAMP(string)
 TO_TIMESTAMP('2007T')
-
 ```
 
 > [!NOTE]
@@ -299,7 +294,6 @@ This is our sample data:
     }
   ]
 }
-
 ```
 
 You might be interested only in the `warehouses` JSON object from the above data. The `warehouses` object is a JSON array type, so you can mention this in the FROM clause. Your sample query can look something like this.
@@ -336,7 +330,6 @@ This is a special form of the SELECT statement, which is available only for CSV-
 
 ```sql
 SELECT sys.split(split_size)FROM BlobStorage
-
 ```
 
 Use this statement in cases where you want to download and then process CSV data records in batches. That way you can process records in parallel instead of having to download all records at one time. This statement doesn't return records from the CSV file. Instead, it returns a collection of batch sizes. You can then use each batch size to retrieve a batch of data records.

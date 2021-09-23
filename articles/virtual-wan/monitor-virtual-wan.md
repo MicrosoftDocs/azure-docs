@@ -163,7 +163,7 @@ If you selected to send diagnostic data to a Log Analytics Workspace, then you c
 These queries use a SQL-like Log Analytics Query Language, you can learn more about this language from [this article](https://docs.microsoft.com/services-hub/health/log_analytics_query_language).
  The following example contains a query to obtain site-to-site route diagnostics.
 
-```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
 
 Replace the values below, after the **= =**, as needed based on the tables reported in the previous section of this article.
 
