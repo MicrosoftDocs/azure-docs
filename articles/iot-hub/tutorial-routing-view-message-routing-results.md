@@ -225,40 +225,25 @@ Now, with the application still running, set up the Power BI visualization to se
 
 1. Sign in to your [Power BI](https:// powerbi.microsoft.com /) account.
 
-2. Select **My Workspace**. It shows at least one dataset that was just created.  
+2. Select **My Workspace**. It shows at least one dataset that was just created. If there's nothing there, run the **Simulated Device** application for another 5-10 minutes to stream more data. After the workspace appears, it will have a dataset called ContosoDataset. Right-click on the three vertical dots to the right of the dataset name. In the dropdown list, select **Create report**.
 
-3. Right-click on the three vertical dots to the right of the dataset name. (This tutorial uses dataset ContosoDataset.) In the dropdown list, select **Create report**.
+     ![Power BI creating report](./media/tutorial-routing-view-message-routing-results/BI-my-workspace.png)
 
-     ![Power BI creating report](./media/tutorial-routing-view-message-routing-results/BI-my-workspaces.png)
+3. Look in the **Visualizations** section on the right-hand side and select **Line chart**. This inserts a line chart in the BI report page. Drag the graphic so it fills the space horizontally. Now in the **Fields** section on the right, open ContosoTable. Select **EventEnqueuedUtcTime**. It should put it across the X-Axis. Select **temperature** and drag it into the **Values** field for temperature. This adds temperature to the chart. You should have something that looks like the following graphic:
 
+     ![Power BI graph of temperature](./media/tutorial-routing-view-message-routing-results/BI-chart-temperature.png)
 
-   You should see the listed dataset that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosodataset**. (It may take 5-10 minutes for the dataset to show up the first time.)
+4. Click in the bottom half of the chart area. Select **Line Chart** again. It creates a chart under the first one.
 
-4. Under **ACTIONS**, select the first icon to create a report.
+5. In the table, select **EventQueuedTime**, it will put it in the Axis field. Drag **humidity** to the Values field. Now you see both charts.
 
-   ![Power BI workspace with Actions and report icon highlighted](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
+     ![Power BI graph of both fields](./media/tutorial-routing-view-message-routing-results/BI-chart-both.png)
 
-5. Create a line chart to show real-time temperature over time.
+You sent messages from the default endpoint of the IoT Hub to the Azure Stream Analytics. Then you added a PowerBI report to show the data, adding two charts to represent the temperature and the humidity. 
 
-   * On the report creation page, add a line chart by selecting the line chart icon.
+7. Select **File > Save** to save the report, entering a name for the report when prompted. Save your report in your workspace.
 
-     ![The visualizations and fields](./media/tutorial-routing-view-message-routing-results/power-bi-visualizations-and-fields.png)
-
-   * On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosotable**.
-
-   * Drag **EventEnqueuedUtcTime** to **Axis** on the **Visualizations** pane.
-
-   * Drag **temperature** to **Values**.
-
-   A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
-
-6. Create another line chart to show real-time humidity over time. To set up the second chart, follow the same process for the first chart, placing **EventEnqueuedUtcTime** on the x-axis (**Axis**) and **humidity** on the y-axis (**Values**).
-
-   ![The final Power BI report with the two charts](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
-
-7. Select **Save** to save the report, entering a name for the report if prompted.
-
-You should be able to see data on both charts. This result means the following statements are true:
+You able to see data on both charts. This result means the following statements are true:
 
    * The routing to the default endpoint is working correctly.
    * The Azure Stream Analytics job is streaming correctly.
