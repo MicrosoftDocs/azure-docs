@@ -178,7 +178,7 @@ items:
     - name: How to label your data
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
-      href: labeling-frequently-asked-questions.yml
+      href: sensitivity-labels-frequently-asked-questions.yml
   - name: Search & browse
     items:
     - name: Browse Data Catalog
