@@ -178,7 +178,7 @@ az ml endpoint get-logs
 
 ### ERR_2101: Kubernetes unschedulable
 
-The requested CPU or memory cann't be satisfied, please adjust your request or the cluster.
+The requested CPU or memory can't be satisfied. Please adjust your request or the cluster.
 
 ### ERR_2200: User container has crashed\terminated
 
