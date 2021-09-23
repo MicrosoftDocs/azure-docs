@@ -38,11 +38,11 @@ The streaming endpoint Azure portal page now provides an easy way to manage your
 
 You can now visualize the CPU load, egress bandwidth and end-to-end latency metrics on their streaming endpoints in the Azure portal. You can now create monitoring alerts based on the CPU, egress or latency metrics directly in the portal using the power of Azure Monitor. 
 
-### User Assigned Managed Identities support for Media Services accounts
+### User-Assigned Managed Identities support for Media Services accounts
 
-Using User Assigned Managed Identities, customers will now be able to enable better security of their storage accounts and associated key vaults. Access to the customer storage account and key vaults will be limited to the user assigned managed identity.  You have full control over the lifetime of user managed identities and can easily revoke the media service account’s access to any specific storage account as needed.
+Using User-Assigned Managed Identities, customers will now be able to enable better security of their storage accounts and associated key vaults. Access to the customer storage account and key vaults will be limited to the user assigned managed identity.  You have full control over the lifetime of user-managed identities and can easily revoke the media service account’s access to any specific storage account as needed.
 
-### Media services storage accounts portal settings now support both UAMI and SAMI
+### Media services storage accounts page in the portal now support both UAMI and SAMI
 
 You can now assign and manage user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI) for your storage accounts directly in the Azure portal for Media Services.
 
