@@ -18,7 +18,7 @@ ms.reviewer: manrath
 
 When registering an application with the Microsoft identity platform for developers, you're asked to select which account types your application supports. In the application object and manifest, this property is `signInAudience`.
 
-The options include the following properties:
+The options include the following values:
 
 - **AzureADMyOrg**: Only accounts in the organizational directory where the app is registered (single-tenant).
 - **AzureADMultipleOrgs**: Accounts in any organizational directory (multi-tenant).
