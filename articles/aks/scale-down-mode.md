@@ -87,6 +87,9 @@ To delete your deallocated nodes, you can change your Scale-down Mode to `Delete
 az aks nodepool update --scale-down-mode Delete --name nodepool2 --cluster-name myAKSCluster --resource-group myResourceGroup
 ```
 
+> [!NOTE]
+> Changing your scale-down mode from `Deallocate` to `Delete` then back to `Deallocate` will delete all deallocated nodes while keeping your node pool in `Deallocate` scale-down mode.
+
 ## Using Scale-down Mode to delete nodes on scale-down
 
 The default behavior of AKS without using Scale-down Mode is to delete your nodes when you scale-down your cluster. Using Scale-down Mode, this can be explicitly achieved by setting `--scale-down-mode Delete`.

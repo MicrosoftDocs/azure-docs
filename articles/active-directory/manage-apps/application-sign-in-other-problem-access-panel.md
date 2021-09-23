@@ -38,7 +38,7 @@ Here are some things to check if an app is appearing or not appearing:
 
 ## General issues to check first
 
-- Make sure the web browser meets the requirements, see [My Apps supported browsers](../user-help/my-apps-portal-end-user-access.md).
+- Make sure the web browser meets the requirements, see [My Apps supported browsers](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 - Make sure the user’s browser has added the URL of the application to its **trusted sites**.
 - Make sure to check the application is **configured** correctly.
 - Make sure the user’s account is **enabled** for sign-ins.

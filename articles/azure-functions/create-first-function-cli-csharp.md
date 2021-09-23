@@ -1,25 +1,23 @@
 ---
 title: Create a C# function from the command line - Azure Functions
 description: Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 08/15/2021
+ms.date: 09/14/2021
 ms.topic: quickstart
 ms.custom: [devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell]
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
+zone_pivot_groups: runtime-version-programming-functions
 ---
 
 # Quickstart: Create a C# function in Azure from the command line
 
-[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
+[!INCLUDE [functions-runtime-version-dotnet](../../includes/functions-runtime-version-dotnet.md)]
 
 In this article, you use command-line tools to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-This article supports creating both types of compiled C# functions: 
-
-+ [In-process](create-first-function-cli-csharp.md?tabs=in-process) - runs in the same process as the Functions host process. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-+ [Isolated process](create-first-function-cli-csharp.md?tabs=isolated-process) - runs in a separate .NET worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+[!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -29,9 +27,39 @@ There is also a [Visual Studio Code-based version](create-first-function-vs-code
 
 Before you begin, you must have the following:
 
+::: zone pivot="programming-runtime-functions-v3"
 [!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
+::: zone-end
+::: zone pivot="programming-runtime-functions-v4"
+# [In-process](#tab/in-process)    
 
-+ You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
+
++ [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
+
++ One of the following tools for creating Azure resources:
+
+    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+
+    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
+
+# [Isolated process](#tab/isolated-process)
+
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
+
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). Required by the build process.
+
++ [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
+
++ One of the following tools for creating Azure resources:
+
+    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
+
+    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
+---
+::: zone-end
+
+You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### Prerequisite check
 
@@ -198,6 +226,11 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. 
 
     ---
+
+    ::: zone pivot="programming-runtime-functions-v4"
+    > [!NOTE]
+    > This command creates a function app using the 3.x version of the Azure Functions runtime. The `func azure functionapp publish` command that you'll run later updates the app to version 4.x.
+    ::: zone-end
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
     

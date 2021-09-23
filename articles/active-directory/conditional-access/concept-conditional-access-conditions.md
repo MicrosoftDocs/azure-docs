@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 09/13/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -104,7 +104,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 
 | OS | Browsers |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome, [Firefox 91+](https://support.mozilla.org/kb/windows-sso) |
 | Windows 8 / 8.1 | Internet Explorer, Chrome |
 | Windows 7 | Internet Explorer, Chrome |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |

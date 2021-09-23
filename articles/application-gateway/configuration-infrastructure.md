@@ -112,7 +112,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 
   **Scenario 1**: UDR for Virtual Appliances
 
-  Any scenario where 0.0.0.0/0 needs to be redirected through any virtual appliance, a hub/spoke virtual network, or on-premise (forced tunneling) isn't supported for V2.
+  Any scenario where 0.0.0.0/0 needs to be redirected through any virtual appliance, a hub/spoke virtual network, or on-premises (forced tunneling) isn't supported for V2.
 
 ## Next steps
 

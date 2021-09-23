@@ -18,7 +18,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account.md).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
 
 - A system-assigned managed identity. For instructions, see [Using a system-assigned managed identity for an Azure Automation account (preview)](enable-managed-identity-for-automation.md).
 
