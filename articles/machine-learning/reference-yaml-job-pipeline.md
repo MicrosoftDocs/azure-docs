@@ -28,7 +28,7 @@ ms.reviewer: laobri
 | `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
-| `settings` | object | Default settings for the pipeline job. See [Attributes of the `settings` key](#attributes-of-the-settings-key) for the set of configurable properties. | | |
+| `settings` | object | Default settings for the pipeline job. See [Attributes of the `settings` key](#attributes-of-the-defaults-key) for the set of configurable properties. | | |
 | `jobs` | object | **Required.** Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. <br><br> The key is the name of the step within the context of the pipeline job. This name is different from the unique job name of the child job. The value is the job specification, which can follow the [command job schema](reference-yaml-job-command.md#yaml-syntax) or [component job schema](reference-yaml-job-component.md#yaml-syntax). Currently only command jobs and component jobs running command components can be run in a pipeline. Later releases will have support for other job types. | | |
 | `inputs` | object | Dictionary of inputs to the pipeline job. The key is a name for the input within the context of the job and the value is the input value. <br><br> These pipeline inputs can be referenced by the inputs of an individual step job in the pipeline using the `${{ inputs.<input_name> }}` expression. | | |
 | `inputs.<input_name>` | number, integer, boolean, string, or object | One of a literal value (of type number, integer, boolean, or string), [JobInputUri](#jobinputuri), or [JobInputDataset](#jobinputdataset). | | |
@@ -37,7 +37,7 @@ ms.reviewer: laobri
 | `outputs.<output_name>.mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode, the output directory will be a mounted directory. For upload mode, the files written to the output directory will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
 | `compute` | string | Name of the default compute target to execute a step job on, if the individual step does not have compute specified. This value must be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. |
 
-### Attributes of the `settings` key
+### Attributes of the `defaults` key
 
 | Key | Type | Description |
 | --- | ---- | ----------- |
