@@ -12,14 +12,14 @@ ms.reviewer: stewu
 
 # Optimize Azure Data Lake Storage Gen2 for performance
 
-Azure Data Lake Storage Gen2 supports high-throughput for I/O intensive analytics and data movement. This article helps you to optimize for throughput and efficient data access. 
+Azure Data Lake Storage Gen2 supports high-throughput for I/O intensive analytics and data movement. This article helps you to optimize for throughput and efficient data access.
 
 > [!NOTE]
 > The overall performance of your analytics pipeline also depend on factors that are specific to the analytics engines. For the best up-to-date guidance on workload performance optimization, see the documentation for each system that you intend to use.
 
 ## Optimize data ingestion
 
-When ingesting data from a source system, the source hardware, source network hardware, or the network connectivity to your storage account can be a bottleneck.  
+When ingesting data from a source system, the source hardware, source network hardware, or the network connectivity to your storage account can be a bottleneck.
 
 ![Diagram that shows the factors to consider when ingesting data from a source system to Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -37,13 +37,13 @@ To achieve the best performance, use all available throughput by performing as m
 
 ![Data Lake Storage Gen2 performance](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-The following table summarizes the key settings for several popular ingestion tools.  
+The following table summarizes the key settings for several popular ingestion tools.
 
-| Tool               | Settings | 
+| Tool               | Settings |
 |--------------------|------------------------------------------------------|
 | [DistCp](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)             | -m (mapper)	|
-| [Azure Data Factory](../../data-factory/copy-activity-performance.md) | parallelCopies	| 
-| [Sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)          | fs.azure.block.size, -m (mapper)	|	
+| [Azure Data Factory](../../data-factory/copy-activity-performance.md) | parallelCopies	|
+| [Sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)          | fs.azure.block.size, -m (mapper)	|
 
 Your account can scale to provide the necessary throughput for all analytics scenarios. By default, a Data Lake Storage Gen2 enabled account provides enough throughput in its default configuration to meet the needs of a broad category of use cases. If you run into the default limit, the account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
 
@@ -63,7 +63,7 @@ For more information about data formats, see [data format section of best practi
 
 ### Organizing time series data in folders
 
-For Hive workloads, partition pruning of time-series data can help some queries read only a subset of the data, which improves performance.    
+For Hive workloads, partition pruning of time-series data can help some queries read only a subset of the data, which improves performance.
 
 Those pipelines that ingest time-series data, often place their files with a very structured naming for files and folders. Below is a very common example we see for data that is structured by date:
 
@@ -83,7 +83,7 @@ For other directory layout structure suggestions, see [Directory structure](data
 
 Query acceleration enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
 
-Query acceleration accepts filtering predicates and column projections which enable applications to filter rows and columns at the time that data is read from disk. Only the data that meets the conditions of a predicate are transferred over the network to the application. This reduces network latency and compute cost. 
+Query acceleration accepts filtering predicates and column projections which enable applications to filter rows and columns at the time that data is read from disk. Only the data that meets the conditions of a predicate are transferred over the network to the application. This reduces network latency and compute cost.
 
 To learn more, see [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
 
@@ -93,16 +93,16 @@ I/O intensive jobs spend most of their time doing I/O.  A common example is a co
 
 ### I/O intensive jobs with HDInsight clusters
 
-* **HDInsight versions.** For best performance, use the latest release of HDInsight.
-* **Regions.** Place the Data Lake Storage Gen2 account in the same region as the HDInsight cluster.  
+- **HDInsight versions.** For best performance, use the latest release of HDInsight.
+- **Regions.** Place the Data Lake Storage Gen2 account in the same region as the HDInsight cluster.
 
 An HDInsight cluster is composed of two head nodes and some worker nodes. Each worker node provides a specific number of cores and memory, which is determined by the VM-type.  When running a job, YARN is the resource negotiator that allocates the available memory and cores to create containers.  Each container runs the tasks needed to complete the job.  Containers run in parallel to process tasks quickly. Therefore, performance is improved by running as many parallel containers as possible.
 
-There are three layers within an HDInsight cluster that can be tuned to increase the number of containers and use all available throughput.  
+There are three layers within an HDInsight cluster that can be tuned to increase the number of containers and use all available throughput.
 
-* **Physical layer**
-* **YARN layer**
-* **Workload layer**
+- **Physical layer**
+- **YARN layer**
+- **Workload layer**
 
 ### Physical Layer
 
@@ -118,7 +118,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 ![Diagram that shows the outcome when you reduce the size of each YARN container to create more containers.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
-Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It's common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.  
+Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1GB. It's common to see 3GB YARN containers. For some workloads, you may need larger YARN containers.
 
 **Increase cores per YARN container.**  Increase the number of cores allocated to each container to increase the number of parallel tasks that run in each container.  This works for applications like Spark which run multiple tasks per container.  For applications like Hive which run a single thread in each container, it is better to have more containers rather than more cores per container.
 
@@ -136,4 +136,3 @@ In addition to the general guidelines above, each analytics system or framework 
 
 - [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
 - [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
-

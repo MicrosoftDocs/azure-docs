@@ -9,15 +9,16 @@ ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
 ---
+
 # Using Azure Data Lake Storage Gen2 for big data requirements
 
 There are four key stages in big data processing:
 
 > [!div class="checklist"]
-> * Ingesting large amounts of data into a data store, at real-time or in batches
-> * Processing the data
-> * Downloading the data
-> * Visualizing the data
+> - Ingesting large amounts of data into a data store, at real-time or in batches
+> - Processing the data
+> - Downloading the data
+> - Visualizing the data
 
 This article highlights the options and tools for each processing phase.
 
@@ -31,7 +32,7 @@ This section highlights the different sources of data and the different ways in 
 
 ### Ad hoc data
 
-This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data. 
+This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data.
 
 Here's a list of tools that you can use to ingest ad hoc data.
 
@@ -98,13 +99,13 @@ Large amounts of data may be stored in existing Hadoop clusters, locally on mach
 
 ### Really large datasets
 
-For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use Azure ExpressRoute.  
+For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use Azure ExpressRoute.
 
 Azure ExpressRoute lets you create private connections between Azure data centers and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. To learn more, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
 ## Process the data
 
-Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. 
+Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications.
 
 ![Analyze data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analyze data in Data Lake Storage Gen2")
 
@@ -123,9 +124,9 @@ Use the Power BI connector to create visual representations of data stored in Da
 
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
-* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or a SQL Server instance.
+- Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or a SQL Server instance.
 
-* Download data to your local computer for processing in IDE environments while building application prototypes.
+- Download data to your local computer for processing in IDE environments while building application prototypes.
 
 ![Egress data from Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Egress data from Data Lake Storage Gen2")
 
