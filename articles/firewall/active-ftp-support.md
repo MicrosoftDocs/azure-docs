@@ -12,7 +12,7 @@ ms.author: victorh
 # Azure Firewall FTP support
 
 To support FTP, a firewall must consider the following key aspects:
-- FTP mode – active or passive
+- FTP mode – Active or Passive
 - Client/server location -  Internet or intranet
 - Flow direction - inbound or outbound. 
 
