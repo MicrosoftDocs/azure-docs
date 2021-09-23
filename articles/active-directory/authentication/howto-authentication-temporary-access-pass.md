@@ -137,7 +137,7 @@ If MFA is required for the resource tenant, the guest user needs to perform MFA 
 ### Expiration
 
 An expired or deleted Temporary Access Pass can’t be used for interactive or non-interactive authentication. 
-Users need to reauthenticate after the Temporary Access Pass is expired or deleted. 
+Users need to reauthenticate with different authentication methods after the Temporary Access Pass is expired or deleted. 
 
 ## Delete an expired Temporary Access Pass
 
