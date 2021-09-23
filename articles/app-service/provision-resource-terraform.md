@@ -1,14 +1,14 @@
 ---
-title: Deploy apps with Terraform templates
-description: Find guidance on creating Terraform templates to provision and deploy App Service apps.
+title: 'Create an App Service app using a Terraform template'
+description: Create your first app to Azure App Service in seconds using a Terraform template, which is one of many ways to deploy to App Service.
 author: seligj95
-ms.author: jordanselig
+ms.author: msangapu
 ms.topic: article
 ms.date: 8/26/2021
 ms.custom: subject-terraform
 ---
 
-# Guidance on deploying web apps using Terraform templates
+# Create App Service app using a Terraform template
 
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using [Terraform](/azure/developer/terraform/). Because you use a free App Service tier, you incur no costs to complete this quickstart.
 

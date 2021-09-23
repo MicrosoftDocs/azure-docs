@@ -1,13 +1,13 @@
 ---
-title: Deploy apps with Bicep files
-description: Find guidance on creating Bicep files to provision and deploy App Service apps.
+title: 'Create an App Service app using Azure Bicep'
+description: Create your first app to Azure App Service in seconds using Azure Bicep, which is one of many ways to deploy to App Service.
 author: seligj95
-ms.author: jordanselig
+ms.author: msangapu
 ms.topic: article
 ms.date: 8/26/2021
 ---
 
-# Guidance on deploying web apps using Azure Bicep files
+# Create App Service app using Bicep
 
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using a [Bicep](/azure/azure-resource-manager/bicep/) file and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
 
