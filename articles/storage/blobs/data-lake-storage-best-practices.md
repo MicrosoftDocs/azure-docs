@@ -116,7 +116,7 @@ For example, a marketing firm receives daily data extracts of customer updates f
 *NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\
 *NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*
 
-In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn’t a need for an **/in** or **/out** directory because the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective directories. Then, a service such as [Azure Data Factory](../../data-factory/introduction.md), [Apache Oozie](https://oozie.apache.org/), or [Apache Airflow](https://airflow.apache.org/) would trigger a daily Hive or Spark job to process and write the data into a Hive table.
+In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn't a need for an **/in** or **/out** directory because the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective directories. Then, a service such as [Azure Data Factory](../../data-factory/introduction.md), [Apache Oozie](https://oozie.apache.org/), or [Apache Airflow](https://airflow.apache.org/) would trigger a daily Hive or Spark job to process and write the data into a Hive table.
 
 #### Time series data structure
 
@@ -240,4 +240,3 @@ Azure Storage logs in Azure Monitor can be enabled through the Azure Portal, Pow
 - [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)
 - [The hitchhiker's guide to the Data Lake](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
 - [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
-

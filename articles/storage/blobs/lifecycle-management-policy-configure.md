@@ -9,7 +9,7 @@ ms.date: 08/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: yzheng 
+ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell"
 ---
 
