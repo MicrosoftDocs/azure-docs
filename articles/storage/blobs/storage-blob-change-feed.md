@@ -150,7 +150,7 @@ The change feed is a log of changes that are organized into **hourly** *segments
 
 An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. You can use that list to filter out the segments of logs that are of interest to you.
 
-```text
+```output
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
 ----------------------------------------------------------------------  -----------  -----------  --------  ----------------
 $blobchangefeed/idx/segments/1601/01/01/0000/meta.json                  BlockBlob                      584  application/json
