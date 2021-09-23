@@ -249,16 +249,17 @@ Now you need to map attributes between the on-premises application and your SQL 
 4. Select **Add New Mapping**.
      ![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)</br>
  5. Specify the source and target attributes, and add all the mappings in the following table.
+     ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)</br>
      
-      |Mapping type|Source attribute|Target attribute|
-      |-----|-----|-----|
-      |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
-      |Direct|objectID|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:AzureID|
-      |Direct|mail|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email|
-      |Direct|givenName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:FirstName|
-      |Direct|surName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:LastName|
-      |Direct|mailNickname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID|
-      ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)</br>
+     |Mapping type|Source attribute|Target attribute|
+     |-----|-----|-----|
+     |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
+     |Direct|objectID|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:AzureID|
+     |Direct|mail|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email|
+     |Direct|givenName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:FirstName|
+     |Direct|surName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:LastName|
+     |Direct|mailNickname|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID|
+ 
  6. Select **Save**.
      
 ## Test provisioning
