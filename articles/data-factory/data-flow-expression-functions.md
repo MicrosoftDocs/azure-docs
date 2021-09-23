@@ -340,7 +340,7 @@ The following functions are only available in window transformations.
 
 Following is an alphabetical listing of all functions available in mapping data flows.
 
-<a name="abs" />
+<a name="abs" ></a>
 
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -350,7 +350,7 @@ Absolute value of a number.
 ___   
 
 
-<a name="acos" />
+<a name="acos" ></a>
 
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -359,7 +359,7 @@ Calculates a cosine inverse value.
 ___
 
 
-<a name="add" />
+<a name="add" ></a>
 
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -375,7 +375,7 @@ Adds a pair of strings or numbers. Adds a date to a number of days. Adds a durat
 ___
 
 
-<a name="addDays" />
+<a name="addDays" ></a>
 
 ### <code>addDays</code>
 <code><b>addDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to add&gt;</i> : integral) => datetime</b></code><br/><br/>
@@ -384,7 +384,7 @@ Add days to a date or timestamp. Same as the + operator for date.
 ___
 
 
-<a name="addMonths" />
+<a name="addMonths" ></a>
 
 ### <code>addMonths</code>
 <code><b>addMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to add&gt;</i> : integral, [<i>&lt;value3&gt;</i> : string]) => datetime</b></code><br/><br/>
@@ -394,7 +394,7 @@ Add months to a date or timestamp. You can optionally pass a timezone.
 ___
 
 
-<a name="and" />
+<a name="and" ></a>
 
 ### <code>and</code>
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -404,7 +404,7 @@ Logical AND operator. Same as &&.
 ___
 
 
-<a name="approxDistinctCount" />
+<a name="approxDistinctCount" ></a>
 
 ### <code>approxDistinctCount</code>
 <code><b>approxDistinctCount(<i>&lt;value1&gt;</i> : any, [ <i>&lt;value2&gt;</i> : double ]) => long</b></code><br/><br/>
@@ -413,7 +413,7 @@ Gets the approximate aggregate count of distinct values for a column. The option
 ___
 
 
-<a name="array" />
+<a name="array" ></a>
 
 ### <code>array</code>
 <code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
@@ -425,7 +425,7 @@ Creates an array of items. All items should be of the same type. If no items are
 ___
 
 
-<a name="asin" />
+<a name="asin" ></a>
 
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -434,7 +434,7 @@ Calculates an inverse sine value.
 ___
 
 
-<a name="associate" />
+<a name="associate" ></a>
 
 ### <code>associate</code>
 <code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
@@ -443,7 +443,7 @@ Creates a map of key/values. All the keys & values should be of the same type. I
 ___
 
 
-<a name="at" />
+<a name="at" ></a>
 
 ### <code>at</code>
 <code><b>at(<i>&lt;value1&gt;</i> : array/map, <i>&lt;value2&gt;</i> : integer/key type) => array</b></code><br/><br/>
@@ -453,7 +453,7 @@ Finds the element at an array index. The index is 1-based. Out of bounds index r
 ___
 
 
-<a name="atan" />
+<a name="atan" ></a>
 
 ### <code>atan</code>
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -462,7 +462,7 @@ Calculates a inverse tangent value.
 ___
 
 
-<a name="atan2" />
+<a name="atan2" ></a>
 
 ### <code>atan2</code>
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -471,7 +471,7 @@ Returns the angle in radians between the positive x-axis of a plane and the poin
 ___
 
 
-<a name="avg" />
+<a name="avg" ></a>
 
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -480,7 +480,7 @@ Gets the average of values of a column.
 ___
 
 
-<a name="avgIf" />
+<a name="avgIf" ></a>
 
 ### <code>avgIf</code>
 <code><b>avgIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
@@ -489,7 +489,7 @@ Based on a criteria gets the average of values of a column.
 ___
 
 
-<a name="between" />
+<a name="between" ></a>
 
 ### <code>between</code>
 <code><b>between(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -501,7 +501,7 @@ Checks if the first value is in between two other values inclusively. Numeric, s
 ___
 
 
-<a name="bitwiseAnd" />
+<a name="bitwiseAnd" ></a>
 
 ### <code>bitwiseAnd</code>
 <code><b>bitwiseAnd(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
@@ -513,7 +513,7 @@ Bitwise And operator across integral types. Same as & operator
 ___
 
 
-<a name="bitwiseOr" />
+<a name="bitwiseOr" ></a>
 
 ### <code>bitwiseOr</code>
 <code><b>bitwiseOr(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
@@ -525,7 +525,7 @@ Bitwise Or operator across integral types. Same as | operator
 ___
 
 
-<a name="bitwiseXor" />
+<a name="bitwiseXor" ></a>
 
 ### <code>bitwiseXor</code>
 <code><b>bitwiseXor(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -541,7 +541,7 @@ Bitwise Or operator across integral types. Same as | operator
 ___
 
 
-<a name="blake2b" />
+<a name="blake2b" ></a>
 
 ### <code>blake2b</code>
 <code><b>blake2b(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
@@ -551,7 +551,7 @@ Calculates the Blake2 digest of set of column of varying primitive datatypes giv
 ___
 
 
-<a name="blake2bBinary" />
+<a name="blake2bBinary" ></a>
 
 ### <code>blake2bBinary</code>
 <code><b>blake2bBinary(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => binary</b></code><br/><br/>
@@ -561,7 +561,7 @@ Calculates the Blake2 digest of set of column of varying primitive datatypes giv
 ___
 
 
-<a name="byItem" />
+<a name="byItem" ></a>
 
 ### <code>byItem</code>
 <code><b>byItem(<i>&lt;parent column&gt;</i> : any, <i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
@@ -573,7 +573,7 @@ Find a sub item within a structure or array of structure If there are multiple m
 ___
 
 
-<a name="byName" />
+<a name="byName" ></a>
 
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
@@ -587,7 +587,7 @@ Selects a column value by name in the stream. You can pass a optional stream nam
 ___
 
 
-<a name="byNames" />
+<a name="byNames" ></a>
 
 ### <code>byNames</code>
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
@@ -604,7 +604,7 @@ Select an array of columns by name in the stream. You can pass a optional stream
 ___
 
 
-<a name="byOrigin" />
+<a name="byOrigin" ></a>
 
 ### <code>byOrigin</code>
 <code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
@@ -613,7 +613,7 @@ Selects a column value by name in the origin stream. The second argument is the 
 ___
 
 
-<a name="byOrigins" />
+<a name="byOrigins" ></a>
 
 ### <code>byOrigins</code>
 <code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
@@ -622,7 +622,7 @@ Selects an array of columns by name in the stream. The second argument is the st
 ___
 
 
-<a name="byPath" />
+<a name="byPath" ></a>
 
 ### <code>byPath</code>
 <code><b>byPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => any</b></code><br/><br/>
@@ -631,7 +631,7 @@ Finds a hierarchical path by name in the stream. You can pass an optional stream
 ___
 
 
-<a name="byPosition" />
+<a name="byPosition" ></a>
 
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
@@ -644,7 +644,7 @@ Selects a column value by its relative position(1 based) in the stream. If the p
 ___
 
 
-<a name="case" />
+<a name="case" ></a>
 
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -656,7 +656,7 @@ Based on alternating conditions applies one value or the other. If the number of
 ___
 
 
-<a name="cbrt" />
+<a name="cbrt" ></a>
 
 ### <code>cbrt</code>
 <code><b>cbrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -665,7 +665,7 @@ Calculates the cube root of a number.
 ___
 
 
-<a name="ceil" />
+<a name="ceil" ></a>
 
 ### <code>ceil</code>
 <code><b>ceil(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -674,7 +674,7 @@ Returns the smallest integer not smaller than the number.
 ___
 
 
-<a name="coalesce" />
+<a name="coalesce" ></a>
 
 ### <code>coalesce</code>
 <code><b>coalesce(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -684,7 +684,7 @@ Returns the first not null value from a set of inputs. All inputs should be of t
 ___
 
 
-<a name="collect" />
+<a name="collect" ></a>
 
 ### <code>collect</code>
 <code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
@@ -695,7 +695,7 @@ Collects all values of the expression in the aggregated group into an array. Str
 ___
 
 
-<a name="columnNames" />
+<a name="columnNames" ></a>
 
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
@@ -705,7 +705,7 @@ Gets the names of all output columns for a stream. You can pass an optional stre
 ___
 
 
-<a name="columns" />
+<a name="columns" ></a>
 
 ### <code>columns</code>
 <code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
@@ -715,7 +715,7 @@ Gets the values of all output columns for a stream. You can pass an optional str
 ___
 
 
-<a name="compare" />
+<a name="compare" ></a>
 
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
@@ -725,7 +725,7 @@ Compares two values of the same type. Returns negative integer if value1 < value
 ___
 
 
-<a name="concat" />
+<a name="concat" ></a>
 
 ### <code>concat</code>
 <code><b>concat(<i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
@@ -736,7 +736,7 @@ Concatenates a variable number of strings together. Same as the + operator with 
 ___
 
 
-<a name="concatWS" />
+<a name="concatWS" ></a>
 
 ### <code>concatWS</code>
 <code><b>concatWS(<i>&lt;separator&gt;</i> : string, <i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
@@ -747,7 +747,7 @@ Concatenates a variable number of strings together with a separator. The first p
 ___
 
 
-<a name="contains" />
+<a name="contains" ></a>
 
 ### <code>contains</code>
 <code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
@@ -757,7 +757,7 @@ Returns true if any element in the provided array evaluates as true in the provi
 ___
 
 
-<a name="cos" />
+<a name="cos" ></a>
 
 ### <code>cos</code>
 <code><b>cos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -766,7 +766,7 @@ Calculates a cosine value.
 ___
 
 
-<a name="cosh" />
+<a name="cosh" ></a>
 
 ### <code>cosh</code>
 <code><b>cosh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -775,7 +775,7 @@ Calculates a hyperbolic cosine of a value.
 ___
 
 
-<a name="count" />
+<a name="count" ></a>
 
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
@@ -787,7 +787,7 @@ Gets the aggregate count of values. If the optional column(s) is specified, it i
 ___
 
 
-<a name="countDistinct" />
+<a name="countDistinct" ></a>
 
 ### <code>countDistinct</code>
 <code><b>countDistinct(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => long</b></code><br/><br/>
@@ -796,7 +796,7 @@ Gets the aggregate count of distinct values of a set of columns.
 ___
 
 
-<a name="countIf" />
+<a name="countIf" ></a>
 
 ### <code>countIf</code>
 <code><b>countIf(<i>&lt;value1&gt;</i> : boolean, [<i>&lt;value2&gt;</i> : any]) => long</b></code><br/><br/>
@@ -805,7 +805,7 @@ Based on a criteria gets the aggregate count of values. If the optional column i
 ___
 
 
-<a name="covariancePopulation" />
+<a name="covariancePopulation" ></a>
 
 ### <code>covariancePopulation</code>
 <code><b>covariancePopulation(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -814,7 +814,7 @@ Gets the population covariance between two columns.
 ___
 
 
-<a name="covariancePopulationIf" />
+<a name="covariancePopulationIf" ></a>
 
 ### <code>covariancePopulationIf</code>
 <code><b>covariancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
@@ -823,7 +823,7 @@ Based on a criteria, gets the population covariance of two columns.
 ___
 
 
-<a name="covarianceSample" />
+<a name="covarianceSample" ></a>
 
 ### <code>covarianceSample</code>
 <code><b>covarianceSample(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -832,7 +832,7 @@ Gets the sample covariance of two columns.
 ___
 
 
-<a name="covarianceSampleIf" />
+<a name="covarianceSampleIf" ></a>
 
 ### <code>covarianceSampleIf</code>
 <code><b>covarianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
@@ -842,7 +842,7 @@ ___
 
 
 
-<a name="crc32" />
+<a name="crc32" ></a>
 
 ### <code>crc32</code>
 <code><b>crc32(<i>&lt;value1&gt;</i> : any, ...) => long</b></code><br/><br/>
@@ -851,7 +851,7 @@ Calculates the CRC32 hash of set of column of varying primitive datatypes given 
 ___
 
 
-<a name="cumeDist" />
+<a name="cumeDist" ></a>
 
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
@@ -860,7 +860,7 @@ The CumeDist function computes the position of a value relative to all values in
 ___
 
 
-<a name="currentDate" />
+<a name="currentDate" ></a>
 
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
@@ -871,7 +871,7 @@ Gets the current date when this job starts to run. You can pass an optional time
 ___
 
 
-<a name="currentTimestamp" />
+<a name="currentTimestamp" ></a>
 
 ### <code>currentTimestamp</code>
 <code><b>currentTimestamp() => timestamp</b></code><br/><br/>
@@ -880,7 +880,7 @@ Gets the current timestamp when the job starts to run with local time zone.
 ___
 
 
-<a name="currentUTC" />
+<a name="currentUTC" ></a>
 
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
@@ -891,7 +891,7 @@ Gets the current timestamp as UTC. If you want your current time to be interpret
 ___
 
 
-<a name="dayOfMonth" />
+<a name="dayOfMonth" ></a>
 
 ### <code>dayOfMonth</code>
 <code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
@@ -900,7 +900,7 @@ Gets the day of the month given a date.
 ___
 
 
-<a name="dayOfWeek" />
+<a name="dayOfWeek" ></a>
 
 ### <code>dayOfWeek</code>
 <code><b>dayOfWeek(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
@@ -909,7 +909,7 @@ Gets the day of the week given a date. 1 - Sunday, 2 - Monday ..., 7 - Saturday.
 ___
 
 
-<a name="dayOfYear" />
+<a name="dayOfYear" ></a>
 
 ### <code>dayOfYear</code>
 <code><b>dayOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
@@ -918,7 +918,7 @@ Gets the day of the year given a date.
 ___
 
 
-<a name="days" />
+<a name="days" ></a>
 
 ### <code>days</code>
 <code><b>days(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -927,7 +927,7 @@ Duration in milliseconds for number of days.
 ___
 
 
-<a name="degrees" />
+<a name="degrees" ></a>
 
 ### <code>degrees</code>
 <code><b>degrees(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -936,7 +936,7 @@ Converts radians to degrees.
 ___
 
 
-<a name="denseRank" />
+<a name="denseRank" ></a>
 
 ### <code>denseRank</code>
 <code><b>denseRank() => integer</b></code><br/><br/>
@@ -945,7 +945,7 @@ Computes the rank of a value in a group of values specified in a window's order 
 ___
 
 
-<a name="distinct" />
+<a name="distinct" ></a>
 
 ### <code>distinct</code>
 <code><b>distinct(<i>&lt;value1&gt;</i> : array) => array</b></code><br/><br/>
@@ -954,7 +954,7 @@ Returns a distinct set of items from an array.
 ___
 
 
-<a name="divide" />
+<a name="divide" ></a>
 
 ### <code>divide</code>
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -964,7 +964,7 @@ Divides pair of numbers. Same as the `/` operator.
 ___
 
 
-<a name="dropLeft" />
+<a name="dropLeft" ></a>
 
 ### <code>dropLeft</code>
 <code><b>dropLeft(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
@@ -974,7 +974,7 @@ Removes as many characters from the left of the string. If the drop requested ex
 ___
 
 
-<a name="dropRight" />
+<a name="dropRight" ></a>
 
 ### <code>dropRight</code>
 <code><b>dropRight(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
@@ -984,7 +984,7 @@ Removes as many characters from the right of the string. If the drop requested e
 ___
 
 
-<a name="endsWith" />
+<a name="endsWith" ></a>
 
 ### <code>endsWith</code>
 <code><b>endsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -993,7 +993,7 @@ Checks if the string ends with the supplied string.
 ___
 
 
-<a name="equals" />
+<a name="equals" ></a>
 
 ### <code>equals</code>
 <code><b>equals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1006,7 +1006,7 @@ Comparison equals operator. Same as == operator.
 ___
 
 
-<a name="equalsIgnoreCase" />
+<a name="equalsIgnoreCase" ></a>
 
 ### <code>equalsIgnoreCase</code>
 <code><b>equalsIgnoreCase(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -1016,7 +1016,7 @@ Comparison equals operator ignoring case. Same as <=> operator.
 ___
 
 
-<a name="escape" />
+<a name="escape" ></a>
 
 ### <code>escape</code>
 <code><b>escape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
@@ -1024,7 +1024,7 @@ Escapes a string according to a format. Literal values for acceptable format are
 ___
 
 
-<a name="except" />
+<a name="except" ></a>
 
 ### <code>except</code>
 <code><b>except(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
@@ -1033,7 +1033,7 @@ Returns a difference set of one array from another dropping duplicates.
 ___
 
 
-<a name="expr" />
+<a name="expr" ></a>
 
 ### <code>expr</code>
 <code><b>expr(<i>&lt;expr&gt;</i> : string) => any</b></code><br/><br/>
@@ -1042,7 +1042,7 @@ Results in a expression from a string. This is the same as writing this expressi
 ___
 
 
-<a name="factorial" />
+<a name="factorial" ></a>
 
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
@@ -1051,7 +1051,7 @@ Calculates the factorial of a number.
 ___
 
 
-<a name="false" />
+<a name="false" ></a>
 
 ### <code>false</code>
 <code><b>false() => boolean</b></code><br/><br/>
@@ -1061,7 +1061,7 @@ Always returns a false value. Use the function `syntax(false())` if there is a c
 ___
 
 
-<a name="filter" />
+<a name="filter" ></a>
 
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
@@ -1071,7 +1071,7 @@ Filters elements out of the array that do not meet the provided predicate. Filte
 ___
 
 
-<a name="find" />
+<a name="find" ></a>
 
 ### <code>find</code>
 <code><b>find(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -1108,7 +1108,7 @@ Find the first item from an array that match the condition. It takes a filter fu
 ___
 
 
-<a name="first" />
+<a name="first" ></a>
 
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
@@ -1119,7 +1119,7 @@ ___
 
 
 
-<a name="flatten" />
+<a name="flatten" ></a>
 
 ### <code>flatten</code>
 <code><b>flatten(<i>&lt;array&gt;</i> : array, <i>&lt;value2&gt;</i> : array ..., <i>&lt;value2&gt;</i> : boolean) => array</b></code><br/><br/>
@@ -1129,7 +1129,7 @@ Flattens array or arrays into a single array. Arrays of atomic items are returne
 ___
 
 
-<a name="floor" />
+<a name="floor" ></a>
 
 ### <code>floor</code>
 <code><b>floor(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1138,7 +1138,7 @@ Returns the largest integer not greater than the number.
 ___
 
 
-<a name="fromBase64" />
+<a name="fromBase64" ></a>
 
 ### <code>fromBase64</code>
 <code><b>fromBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -1147,7 +1147,7 @@ Decodes the given base64-encoded string.
 ___
 
 
-<a name="fromUTC" />
+<a name="fromUTC" ></a>
 
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
@@ -1157,7 +1157,7 @@ Converts to the timestamp from UTC. You can optionally pass the timezone in the 
 ___
 
 
-<a name="greater" />
+<a name="greater" ></a>
 
 ### <code>greater</code>
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1168,7 +1168,7 @@ Comparison greater operator. Same as > operator.
 ___
 
 
-<a name="greaterOrEqual" />
+<a name="greaterOrEqual" ></a>
 
 ### <code>greaterOrEqual</code>
 <code><b>greaterOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1178,7 +1178,7 @@ Comparison greater than or equal operator. Same as >= operator.
 ___
 
 
-<a name="greatest" />
+<a name="greatest" ></a>
 
 ### <code>greatest</code>
 <code><b>greatest(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -1190,7 +1190,7 @@ Returns the greatest value among the list of values as input skipping null value
 ___
 
 
-<a name="hasColumn" />
+<a name="hasColumn" ></a>
 
 ### <code>hasColumn</code>
 <code><b>hasColumn(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => boolean</b></code><br/><br/>
@@ -1199,7 +1199,7 @@ Checks for a column value by name in the stream. You can pass a optional stream 
 ___
 
 
-<a name="hasPath" />
+<a name="hasPath" ></a>
 
 ### <code>hasPath</code>
 <code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
@@ -1208,7 +1208,7 @@ Checks if a certain hierarchical path exists by name in the stream. You can pass
 ___  
 
 
-<a name="hex" />
+<a name="hex" ></a>
 
 ### <code>hex</code>
 <code><b>hex(<i>\<value1\></i>: binary) => string</b></code><br/><br/>
@@ -1217,7 +1217,7 @@ Returns a hex string representation of a binary value
 ___
 
 
-<a name="hour" />
+<a name="hour" ></a>
 
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
@@ -1227,7 +1227,7 @@ Gets the hour value of a timestamp. You can pass an optional timezone in the for
 ___
 
 
-<a name="hours" />
+<a name="hours" ></a>
 
 ### <code>hours</code>
 <code><b>hours(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -1236,7 +1236,7 @@ Duration in milliseconds for number of hours.
 ___
 
 
-<a name="iif" />
+<a name="iif" ></a>
 
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
@@ -1247,7 +1247,7 @@ Based on a condition applies one value or the other. If other is unspecified it 
 ___
 
 
-<a name="iifNull" />
+<a name="iifNull" ></a>
 
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
@@ -1259,7 +1259,7 @@ Checks if the first parameter is null. If not null, the first parameter is retur
 ___
 
 
-<a name="in" />
+<a name="in" ></a>
 
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1269,7 +1269,7 @@ Checks if an item is in the array.
 ___
 
 
-<a name="initCap" />
+<a name="initCap" ></a>
 
 ### <code>initCap</code>
 <code><b>initCap(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -1278,7 +1278,7 @@ Converts the first letter of every word to uppercase. Words are identified as se
 ___
 
 
-<a name="instr" />
+<a name="instr" ></a>
 
 ### <code>instr</code>
 <code><b>instr(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string) => integer</b></code><br/><br/>
@@ -1289,7 +1289,7 @@ Finds the position(1 based) of the substring within a string. 0 is returned if n
 ___
 
 
-<a name="intersect" />
+<a name="intersect" ></a>
 
 ### <code>intersect</code>
 <code><b>intersect(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
@@ -1298,7 +1298,7 @@ Returns an intersection set of distinct items from 2 arrays.
 ___
 
 
-<a name="isBitSet" />
+<a name="isBitSet" ></a>
 
 ### <code>isBitSet</code>
 <code><b>isBitSet (<i><i>\<value1\></i></i> : array, <i>\<value2\></i>:integer ) => boolean</b></code><br/><br/>
@@ -1307,7 +1307,7 @@ Checks if a bit position is set in this bitset
 ___
 
 
-<a name="isBoolean" />
+<a name="isBoolean" ></a>
 
 ### <code>isBoolean</code>
 <code><b>isBoolean(<i>\<value1\></i>: string) => boolean</b></code><br/><br/>
@@ -1318,7 +1318,7 @@ Checks if the string value is a boolean value according to the rules of ``toBool
 ___
 
 
-<a name="isByte" />
+<a name="isByte" ></a>
 
 ### <code>isByte</code>
 <code><b>isByte(<i>\<value1\></i> : string) => boolean</b></code><br/><br/>
@@ -1328,7 +1328,7 @@ Checks if the string value is a byte value given an optional format according to
 ___
 
 
-<a name="isDate" />
+<a name="isDate" ></a>
 
 ### <code>isDate</code>
 <code><b>isDate (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
@@ -1338,7 +1338,7 @@ Checks if the input date string is a date using an optional input date format. R
 ___
 
 
-<a name="isDecimal" />
+<a name="isDecimal" ></a>
 
 ### <code>isDecimal</code>
 <code><b>isDecimal (<i>\<value1\></i> : string) => boolean</b></code><br/><br/>
@@ -1348,7 +1348,7 @@ Checks of the string value is a decimal value given an optional format according
 ___
 
 
-<a name="isDelete" />
+<a name="isDelete" ></a>
 
 ### <code>isDelete</code>
 <code><b>isDelete([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
@@ -1358,7 +1358,7 @@ Checks if the row is marked for delete. For transformations taking more than one
 ___
 
 
-<a name="isDistinct" />
+<a name="isDistinct" ></a>
 
 ### <code>isDistinct</code>
 <code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1368,7 +1368,7 @@ ___
 
 
 
-<a name="isDouble" />
+<a name="isDouble" ></a>
 
 ### <code>isDouble</code>
 <code><b>isDouble (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
@@ -1379,7 +1379,7 @@ Checks of the string value is a double value given an optional format according 
 ___
 
 
-<a name="isError" />
+<a name="isError" ></a>
 
 ### <code>isError</code>
 <code><b>isError([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
@@ -1389,7 +1389,7 @@ Checks if the row is marked as error. For transformations taking more than one i
 ___
 
 
-<a name="isFloat" />
+<a name="isFloat" ></a>
 
 ### <code>isFloat</code>
 <code><b>isFloat (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
@@ -1400,7 +1400,7 @@ Checks of the string value is a float value given an optional format according t
 ___
 
 
-<a name="isIgnore" />
+<a name="isIgnore" ></a>
 
 ### <code>isIgnore</code>
 <code><b>isIgnore([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
@@ -1410,7 +1410,7 @@ Checks if the row is marked to be ignored. For transformations taking more than 
 ___
 
 
-<a name="isInsert" />
+<a name="isInsert" ></a>
 
 ### <code>isInsert</code>
 <code><b>isInsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
@@ -1420,7 +1420,7 @@ Checks if the row is marked for insert. For transformations taking more than one
 ___
 
 
-<a name="isInteger" />
+<a name="isInteger" ></a>
 
 ### <code>isInteger</code>
 <code><b>isInteger (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
@@ -1431,7 +1431,7 @@ Checks of the string value is a integer value given an optional format according
 ___
 
 
-<a name="isLong" />
+<a name="isLong" ></a>
 
 ### <code>isLong</code>
 <code><b>isLong (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
@@ -1442,7 +1442,7 @@ Checks of the string value is a long value given an optional format according to
 ___
 
 
-<a name="isMatch" />
+<a name="isMatch" ></a>
 
 ### <code>isMatch</code>
 <code><b>isMatch([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
@@ -1452,7 +1452,7 @@ Checks if the row is matched at lookup. For transformations taking more than one
 ___
 
 
-<a name="isNan" />
+<a name="isNan" ></a>
 
 ### <code>isNan</code>
 <code><b>isNan (<i>\<value1\></i> : integral) => boolean</b></code><br/><br/>
@@ -1461,7 +1461,7 @@ Check if this is not a number.
 ___
 
 
-<a name="isNull" />
+<a name="isNull" ></a>
 
 ### <code>isNull</code>
 <code><b>isNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1471,7 +1471,7 @@ Checks if the value is NULL.
 ___
 
 
-<a name="isShort" />
+<a name="isShort" ></a>
 
 ### <code>isShort</code>
 <code><b>isShort (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
@@ -1482,7 +1482,7 @@ Checks of the string value is a short value given an optional format according t
 ___
 
 
-<a name="isTimestamp" />
+<a name="isTimestamp" ></a>
 
 ### <code>isTimestamp</code>
 <code><b>isTimestamp (<i>\<value1\></i> : string, [&lt;format&gt;: string]) => boolean</b></code><br/><br/>
@@ -1493,7 +1493,7 @@ Checks if the input date string is a timestamp using an optional input timestamp
 ___
 
 
-<a name="isUpdate" />
+<a name="isUpdate" ></a>
 
 ### <code>isUpdate</code>
 <code><b>isUpdate([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
@@ -1503,7 +1503,7 @@ Checks if the row is marked for update. For transformations taking more than one
 ___
 
 
-<a name="isUpsert" />
+<a name="isUpsert" ></a>
 
 ### <code>isUpsert</code>
 <code><b>isUpsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
@@ -1513,7 +1513,7 @@ Checks if the row is marked for insert. For transformations taking more than one
 ___
 
 
-<a name="jaroWinkler" />
+<a name="jaroWinkler" ></a>
 
 ### <code>jaroWinkler</code>
 <code><b>jaroWinkler(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => double</b></code><br/><br/>
@@ -1522,7 +1522,7 @@ Gets the JaroWinkler distance between two strings.
 ___
 
 
-<a name="keyValues" />
+<a name="keyValues" ></a>
 
 ### <code>keyValues</code>
 <code><b>keyValues(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => map</b></code><br/><br/>
@@ -1531,7 +1531,7 @@ Creates a map of key/values. The first parameter is an array of keys and second 
 ___ 
 
 
-<a name="kurtosis" />
+<a name="kurtosis" ></a>
 
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -1540,7 +1540,7 @@ Gets the kurtosis of a column.
 ___
 
 
-<a name="kurtosisIf" />
+<a name="kurtosisIf" ></a>
 
 ### <code>kurtosisIf</code>
 <code><b>kurtosisIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -1549,7 +1549,7 @@ Based on a criteria, gets the kurtosis of a column.
 ___
 
 
-<a name="lag" />
+<a name="lag" ></a>
 
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
@@ -1559,7 +1559,7 @@ Gets the value of the first parameter evaluated n rows before the current row. T
 ___
 
 
-<a name="last" />
+<a name="last" ></a>
 
 ### <code>last</code>
 <code><b>last(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
@@ -1569,7 +1569,7 @@ Gets the last value of a column group. If the second parameter ignoreNulls is om
 ___
 
 
-<a name="lastDayOfMonth" />
+<a name="lastDayOfMonth" ></a>
 
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
@@ -1578,7 +1578,7 @@ Gets the last date of the month given a date.
 ___
 
 
-<a name="lead" />
+<a name="lead" ></a>
 
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
@@ -1588,7 +1588,7 @@ Gets the value of the first parameter evaluated n rows after the current row. Th
 ___
 
 
-<a name="least" />
+<a name="least" ></a>
 
 ### <code>least</code>
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -1598,7 +1598,7 @@ Comparison lesser than or equal operator. Same as <= operator.
 ___
 
 
-<a name="left" />
+<a name="left" ></a>
 
 ### <code>left</code>
 <code><b>left(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
@@ -1608,7 +1608,7 @@ Extracts a substring start at index 1 with number of characters. Same as SUBSTRI
 ___
 
 
-<a name="length" />
+<a name="length" ></a>
 
 ### <code>length</code>
 <code><b>length(<i>&lt;value1&gt;</i> : string) => integer</b></code><br/><br/>
@@ -1617,7 +1617,7 @@ Returns the length of the string.
 ___
 
 
-<a name="lesser" />
+<a name="lesser" ></a>
 
 ### <code>lesser</code>
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1628,7 +1628,7 @@ Comparison less operator. Same as < operator.
 ___
 
 
-<a name="lesserOrEqual" />
+<a name="lesserOrEqual" ></a>
 
 ### <code>lesserOrEqual</code>
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1638,7 +1638,7 @@ Comparison lesser than or equal operator. Same as <= operator.
 ___
 
 
-<a name="levenshtein" />
+<a name="levenshtein" ></a>
 
 ### <code>levenshtein</code>
 <code><b>levenshtein(<i>&lt;from string&gt;</i> : string, <i>&lt;to string&gt;</i> : string) => integer</b></code><br/><br/>
@@ -1647,7 +1647,7 @@ Gets the levenshtein distance between two strings.
 ___
 
 
-<a name="like" />
+<a name="like" ></a>
 
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -1658,7 +1658,7 @@ The pattern is a string that is matched literally. The exceptions are the follow
 ___
 
 
-<a name="locate" />
+<a name="locate" ></a>
 
 ### <code>locate</code>
 <code><b>locate(<i>&lt;substring to find&gt;</i> : string, <i>&lt;string&gt;</i> : string, [<i>&lt;from index - 1-based&gt;</i> : integral]) => integer</b></code><br/><br/>
@@ -1669,7 +1669,7 @@ Finds the position(1 based) of the substring within a string starting a certain 
 ___
 
 
-<a name="log" />
+<a name="log" ></a>
 
 ### <code>log</code>
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
@@ -1678,7 +1678,7 @@ Calculates log value. An optional base can be supplied else a Euler number if us
 ___
 
 
-<a name="log10" />
+<a name="log10" ></a>
 
 ### <code>log10</code>
 <code><b>log10(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -1687,7 +1687,7 @@ Calculates log value based on 10 base.
 ___
 
 
-<a name="lookup" />
+<a name="lookup" ></a>
 
 ### <code>lookup</code>
 <code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
@@ -1696,7 +1696,7 @@ Looks up the first row from the cached sink using the specified keys that match 
 ___
 
 
-<a name="lower" />
+<a name="lower" ></a>
 
 ### <code>lower</code>
 <code><b>lower(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -1705,7 +1705,7 @@ Lowercases a string.
 ___
 
 
-<a name="lpad" />
+<a name="lpad" ></a>
 
 ### <code>lpad</code>
 <code><b>lpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
@@ -1716,7 +1716,7 @@ Left pads the string by the supplied padding until it is of a certain length. If
 ___
 
 
-<a name="ltrim" />
+<a name="ltrim" ></a>
 
 ### <code>ltrim</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
@@ -1726,7 +1726,7 @@ Left trims a string of leading characters. If second parameter is unspecified, i
 ___
 
 
-<a name="map" />
+<a name="map" ></a>
 
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -1736,7 +1736,7 @@ Maps each element of the array to a new element using the provided expression. M
 ___
 
 
-<a name="mapAssociation" />
+<a name="mapAssociation" ></a>
 
 ### <code>mapAssociation</code>
 <code><b>mapAssociation(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => array</b></code><br/><br/>
@@ -1745,7 +1745,7 @@ Transforms a map by associating the keys to new values. Returns an array. It tak
 ___ 
 
 
-<a name="mapIf" />
+<a name="mapIf" ></a>
 
 ### <code>mapIf</code>
 <code><b>mapIf (<i>\<value1\></i> : array, <i>\<value2\></i> : binaryfunction, \<value3\>: binaryFunction) => any</b></code><br/><br/>
@@ -1755,7 +1755,7 @@ Conditionally maps an array to another array of same or smaller length. The valu
 ___
 
 
-<a name="mapIndex" />
+<a name="mapIndex" ></a>
 
 ### <code>mapIndex</code>
 <code><b>mapIndex(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => any</b></code><br/><br/>
@@ -1764,7 +1764,7 @@ Maps each element of the array to a new element using the provided expression. M
 ___
 
 
-<a name="mapLoop" />
+<a name="mapLoop" ></a>
 
 ### <code>mapLoop</code>
 <code><b>mapLoop(<i>\<value1\></i> : integer, <i>\<value2\></i> : unaryfunction) => any</b></code><br/><br/>
@@ -1773,7 +1773,7 @@ Loops through from 1 to length to create an array of that length. It takes a map
 ___
 
 
-<a name="max" />
+<a name="max" ></a>
 
 ### <code>max</code>
 <code><b>max(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
@@ -1782,7 +1782,7 @@ Gets the maximum value of a column.
 ___
 
 
-<a name="maxIf" />
+<a name="maxIf" ></a>
 
 ### <code>maxIf</code>
 <code><b>maxIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -1791,7 +1791,7 @@ Based on a criteria, gets the maximum value of a column.
 ___
 
 
-<a name="md5" />
+<a name="md5" ></a>
 
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
@@ -1800,7 +1800,7 @@ Calculates the MD5 digest of set of column of varying primitive datatypes and re
 ___
 
 
-<a name="mean" />
+<a name="mean" ></a>
 
 ### <code>mean</code>
 <code><b>mean(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1809,7 +1809,7 @@ Gets the mean of values of a column. Same as AVG.
 ___
 
 
-<a name="meanIf" />
+<a name="meanIf" ></a>
 
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
@@ -1818,7 +1818,7 @@ Based on a criteria gets the mean of values of a column. Same as avgIf.
 ___
 
 
-<a name="millisecond" />
+<a name="millisecond" ></a>
 
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
@@ -1827,7 +1827,7 @@ Gets the millisecond value of a date. You can pass an optional timezone in the f
 ___
 
 
-<a name="milliseconds" />
+<a name="milliseconds" ></a>
 
 ### <code>milliseconds</code>
 <code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -1836,7 +1836,7 @@ Duration in milliseconds for number of milliseconds.
 ___
 
 
-<a name="min" />
+<a name="min" ></a>
 
 ### <code>min</code>
 <code><b>min(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
@@ -1845,7 +1845,7 @@ Gets the minimum value of a column.
 ___
 
 
-<a name="minIf" />
+<a name="minIf" ></a>
 
 ### <code>minIf</code>
 <code><b>minIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -1854,7 +1854,7 @@ Based on a criteria, gets the minimum value of a column.
 ___
 
 
-<a name="minus" />
+<a name="minus" ></a>
 
 ### <code>minus</code>
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -1868,7 +1868,7 @@ Subtracts numbers. Subtract number of days from a date. Subtract duration from a
 ___
 
 
-<a name="minute" />
+<a name="minute" ></a>
 
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
@@ -1878,7 +1878,7 @@ Gets the minute value of a timestamp. You can pass an optional timezone in the f
 ___
 
 
-<a name="minutes" />
+<a name="minutes" ></a>
 
 ### <code>minutes</code>
 <code><b>minutes(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -1887,7 +1887,7 @@ Duration in milliseconds for number of minutes.
 ___
 
 
-<a name="mlookup" />
+<a name="mlookup" ></a>
 
 ### <code>mlookup</code>
 <code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
@@ -1896,7 +1896,7 @@ Looks up the all matching rows from the cached sink using the specified keys tha
 ___
 
 
-<a name="mod" />
+<a name="mod" ></a>
 
 ### <code>mod</code>
 <code><b>mod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -1906,7 +1906,7 @@ Modulus of pair of numbers. Same as the % operator.
 ___
 
 
-<a name="month" />
+<a name="month" ></a>
 
 ### <code>month</code>
 <code><b>month(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
@@ -1915,7 +1915,7 @@ Gets the month value of a date or timestamp.
 ___
 
 
-<a name="monthsBetween" />
+<a name="monthsBetween" ></a>
 
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
@@ -1924,7 +1924,7 @@ Gets the number of months between two dates. You can round off the calculation.Y
 ___
 
 
-<a name="multiply" />
+<a name="multiply" ></a>
 
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -1934,7 +1934,7 @@ Multiplies pair of numbers. Same as the * operator.
 ___
 
 
-<a name="negate" />
+<a name="negate" ></a>
 
 ### <code>negate</code>
 <code><b>negate(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1943,7 +1943,7 @@ Negates a number. Turns positive numbers to negative and vice versa.
 ___
 
 
-<a name="nextSequence" />
+<a name="nextSequence" ></a>
 
 ### <code>nextSequence</code>
 <code><b>nextSequence() => long</b></code><br/><br/>
@@ -1952,7 +1952,7 @@ Returns the next unique sequence. The number is consecutive only within a partit
 ___
 
 
-<a name="normalize" />
+<a name="normalize" ></a>
 
 ### <code>normalize</code>
 <code><b>normalize(<i>&lt;String to normalize&gt;</i> : string) => string</b></code><br/><br/>
@@ -1961,7 +1961,7 @@ Normalizes the string value to separate accented unicode characters.
 ___
 
 
-<a name="not" />
+<a name="not" ></a>
 
 ### <code>not</code>
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -1971,7 +1971,7 @@ Logical negation operator.
 ___
 
 
-<a name="notEquals" />
+<a name="notEquals" ></a>
 
 ### <code>notEquals</code>
 <code><b>notEquals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1981,7 +1981,7 @@ Comparison not equals operator. Same as != operator.
 ___
 
 
-<a name="notNull" />
+<a name="notNull" ></a>
 
 ### <code>notNull</code>
 <code><b>notNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -1991,7 +1991,7 @@ Checks if the value is not NULL.
 ___
 
 
-<a name="nTile" />
+<a name="nTile" ></a>
 
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
@@ -2001,7 +2001,7 @@ The ```NTile``` function divides the rows for each window partition into `n` buc
 ___
 
 
-<a name="null" />
+<a name="null" ></a>
 
 ### <code>null</code>
 <code><b>null() => null</b></code><br/><br/>
@@ -2014,7 +2014,7 @@ Returns a NULL value. Use the function `syntax(null())` if there is a column nam
 ___
 
 
-<a name="or" />
+<a name="or" ></a>
 
 ### <code>or</code>
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -2024,7 +2024,7 @@ Logical OR operator. Same as ||.
 ___
 
 
-<a name="originColumns" />
+<a name="originColumns" ></a>
 
 ### <code>originColumns</code>
 <code><b>originColumns(<i>&lt;streamName&gt;</i> : string) => any</b></code><br/><br/>
@@ -2033,7 +2033,7 @@ Gets all output columns for a origin stream where columns were created. Must be 
 ___  
 
 
-<a name="output" />
+<a name="output" ></a>
 
 ### <code>output</code>
 <code><b>output() => any</b></code><br/><br/>
@@ -2042,7 +2042,7 @@ Returns the first row of the results of the cache sink
 ___
 
 
-<a name="outputs" />
+<a name="outputs" ></a>
 
 ### <code>outputs</code>
 <code><b>output() => any</b></code><br/><br/>
@@ -2052,7 +2052,7 @@ ___
 
 
 
-<a name="partitionId" />
+<a name="partitionId" ></a>
 
 ### <code>partitionId</code>
 <code><b>partitionId() => integer</b></code><br/><br/>
@@ -2061,7 +2061,7 @@ Returns the current partition ID the input row is in.
 ___
 
 
-<a name="pMod" />
+<a name="pMod" ></a>
 
 ### <code>pMod</code>
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
@@ -2070,7 +2070,7 @@ Positive Modulus of pair of numbers.
 ___
 
 
-<a name="power" />
+<a name="power" ></a>
 
 ### <code>power</code>
 <code><b>power(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -2079,7 +2079,7 @@ Raises one number to the power of another.
 ___
 
 
-<a name="radians" />
+<a name="radians" ></a>
 
 ### <code>radians</code>
 <code><b>radians(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2088,7 +2088,7 @@ Converts degrees to radians
 ___
 
 
-<a name="random" />
+<a name="random" ></a>
 
 ### <code>random</code>
 <code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
@@ -2097,7 +2097,7 @@ Returns a random number given an optional seed within a partition. The seed shou
 ___
 
 
-<a name="rank" />
+<a name="rank" ></a>
 
 ### <code>rank</code>
 <code><b>rank() => integer</b></code><br/><br/>
@@ -2106,7 +2106,7 @@ Computes the rank of a value in a group of values specified in a window's order 
 ___
 
 
-<a name="reassociate" />
+<a name="reassociate" ></a>
 
 ### <code>reassociate</code>
 <code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
@@ -2116,7 +2116,7 @@ ___
   
 
 
-<a name="reduce" />
+<a name="reduce" ></a>
 
 ### <code>reduce</code>
 <code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -2125,7 +2125,7 @@ Accumulates elements in an array. Reduce expects a reference to an accumulator a
 ___
 
 
-<a name="regexExtract" />
+<a name="regexExtract" ></a>
 
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
@@ -2135,7 +2135,7 @@ Extract a matching substring for a given regex pattern. The last parameter ident
 ___
 
 
-<a name="regexMatch" />
+<a name="regexMatch" ></a>
 
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -2145,7 +2145,7 @@ Checks if the string matches the given regex pattern. Use `<regex>`(back quote) 
 ___
 
 
-<a name="regexReplace" />
+<a name="regexReplace" ></a>
 
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
@@ -2155,7 +2155,7 @@ Replace all occurrences of a regex pattern with another substring in the given s
 ___
 
 
-<a name="regexSplit" />
+<a name="regexSplit" ></a>
 
 ### <code>regexSplit</code>
 <code><b>regexSplit(<i>&lt;string to split&gt;</i> : string, <i>&lt;regex expression&gt;</i> : string) => array</b></code><br/><br/>
@@ -2167,7 +2167,7 @@ Splits a string based on a delimiter based on regex and returns an array of stri
 ___
 
 
-<a name="replace" />
+<a name="replace" ></a>
 
 ### <code>replace</code>
 <code><b>replace(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string, [<i>&lt;substring to replace&gt;</i> : string]) => string</b></code><br/><br/>
@@ -2178,7 +2178,7 @@ Replace all occurrences of a substring with another substring in the given strin
 ___
 
 
-<a name="reverse" />
+<a name="reverse" ></a>
 
 ### <code>reverse</code>
 <code><b>reverse(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -2187,7 +2187,7 @@ Reverses a string.
 ___
 
 
-<a name="right" />
+<a name="right" ></a>
 
 ### <code>right</code>
 <code><b>right(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
@@ -2197,7 +2197,7 @@ Extracts a substring with number of characters from the right. Same as SUBSTRING
 ___
 
 
-<a name="rlike" />
+<a name="rlike" ></a>
 
 ### <code>rlike</code>
 <code><b>rlike(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -2207,7 +2207,7 @@ Checks if the string matches the given regex pattern.
 ___
 
 
-<a name="round" />
+<a name="round" ></a>
 
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
@@ -2226,7 +2226,7 @@ Rounds a number given an optional scale and an optional rounding mode. If the sc
 ___
 
 
-<a name="rowNumber" />
+<a name="rowNumber" ></a>
 
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
@@ -2235,7 +2235,7 @@ Assigns a sequential row numbering for rows in a window starting with 1.
 
 
 
-<a name="rpad" />
+<a name="rpad" ></a>
 
 ### <code>rpad</code>
 <code><b>rpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
@@ -2246,7 +2246,7 @@ Right pads the string by the supplied padding until it is of a certain length. I
 ___
 
 
-<a name="rtrim" />
+<a name="rtrim" ></a>
 
 ### <code>rtrim</code>
 <code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
@@ -2256,7 +2256,7 @@ Right trims a string of trailing characters. If second parameter is unspecified,
 ___
 
 
-<a name="second" />
+<a name="second" ></a>
 
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
@@ -2265,7 +2265,7 @@ Gets the second value of a date. You can pass an optional timezone in the form o
 ___
 
 
-<a name="seconds" />
+<a name="seconds" ></a>
 
 ### <code>seconds</code>
 <code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -2274,7 +2274,7 @@ Duration in milliseconds for number of seconds.
 ___
 
 
-<a name="setBitSet" />
+<a name="setBitSet" ></a>
 
 ### <code>setBitSet</code>
 <code><b>setBitSet (<i>\<value1\></i>: array, <i>\<value2\></i>:array) => array</b></code><br/><br/>
@@ -2283,7 +2283,7 @@ Sets bit positions in this bitset
 ___  
 
 
-<a name="sha1" />
+<a name="sha1" ></a>
 
 ### <code>sha1</code>
 <code><b>sha1(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
@@ -2292,7 +2292,7 @@ Calculates the SHA-1 digest of set of column of varying primitive datatypes and 
 ___
 
 
-<a name="sha2" />
+<a name="sha2" ></a>
 
 ### <code>sha2</code>
 <code><b>sha2(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
@@ -2301,7 +2301,7 @@ Calculates the SHA-2 digest of set of column of varying primitive datatypes give
 ___
 
 
-<a name="sin" />
+<a name="sin" ></a>
 
 ### <code>sin</code>
 <code><b>sin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2310,7 +2310,7 @@ Calculates a sine value.
 ___
 
 
-<a name="sinh" />
+<a name="sinh" ></a>
 
 ### <code>sinh</code>
 <code><b>sinh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2319,7 +2319,7 @@ Calculates a hyperbolic sine value.
 ___
 
 
-<a name="size" />
+<a name="size" ></a>
 
 ### <code>size</code>
 <code><b>size(<i>&lt;value1&gt;</i> : any) => integer</b></code><br/><br/>
@@ -2329,7 +2329,7 @@ Finds the size of an array or map type
 ___
 
 
-<a name="skewness" />
+<a name="skewness" ></a>
 
 ### <code>skewness</code>
 <code><b>skewness(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2338,7 +2338,7 @@ Gets the skewness of a column.
 ___
 
 
-<a name="skewnessIf" />
+<a name="skewnessIf" ></a>
 
 ### <code>skewnessIf</code>
 <code><b>skewnessIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -2347,7 +2347,7 @@ Based on a criteria, gets the skewness of a column.
 ___
 
 
-<a name="slice" />
+<a name="slice" ></a>
 
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
@@ -2361,7 +2361,7 @@ Extracts a subset of an array from a position. Position is 1 based. If the lengt
 ___
 
 
-<a name="sort" />
+<a name="sort" ></a>
 
 ### <code>sort</code>
 <code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
@@ -2371,7 +2371,7 @@ Sorts the array using the provided predicate function. Sort expects a reference 
 ___
 
 
-<a name="soundex" />
+<a name="soundex" ></a>
 
 ### <code>soundex</code>
 <code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -2380,7 +2380,7 @@ Gets the ```soundex``` code for the string.
 ___
 
 
-<a name="split" />
+<a name="split" ></a>
 
 ### <code>split</code>
 <code><b>split(<i>&lt;string to split&gt;</i> : string, <i>&lt;split characters&gt;</i> : string) => array</b></code><br/><br/>
@@ -2395,7 +2395,7 @@ Splits a string based on a delimiter and returns an array of strings.
 ___
 
 
-<a name="sqrt" />
+<a name="sqrt" ></a>
 
 ### <code>sqrt</code>
 <code><b>sqrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2404,7 +2404,7 @@ Calculates the square root of a number.
 ___
 
 
-<a name="startsWith" />
+<a name="startsWith" ></a>
 
 ### <code>startsWith</code>
 <code><b>startsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -2413,7 +2413,7 @@ Checks if the string starts with the supplied string.
 ___
 
 
-<a name="stddev" />
+<a name="stddev" ></a>
 
 ### <code>stddev</code>
 <code><b>stddev(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2422,7 +2422,7 @@ Gets the standard deviation of a column.
 ___
 
 
-<a name="stddevIf" />
+<a name="stddevIf" ></a>
 
 ### <code>stddevIf</code>
 <code><b>stddevIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -2431,7 +2431,7 @@ Based on a criteria, gets the standard deviation of a column.
 ___
 
 
-<a name="stddevPopulation" />
+<a name="stddevPopulation" ></a>
 
 ### <code>stddevPopulation</code>
 <code><b>stddevPopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2440,7 +2440,7 @@ Gets the population standard deviation of a column.
 ___
 
 
-<a name="stddevPopulationIf" />
+<a name="stddevPopulationIf" ></a>
 
 ### <code>stddevPopulationIf</code>
 <code><b>stddevPopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -2449,7 +2449,7 @@ Based on a criteria, gets the population standard deviation of a column.
 ___
 
 
-<a name="stddevSample" />
+<a name="stddevSample" ></a>
 
 ### <code>stddevSample</code>
 <code><b>stddevSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2458,7 +2458,7 @@ Gets the sample standard deviation of a column.
 ___
 
 
-<a name="stddevSampleIf" />
+<a name="stddevSampleIf" ></a>
 
 ### <code>stddevSampleIf</code>
 <code><b>stddevSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -2467,7 +2467,7 @@ Based on a criteria, gets the sample standard deviation of a column.
 ___
 
 
-<a name="subDays" />
+<a name="subDays" ></a>
 
 ### <code>subDays</code>
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
@@ -2476,7 +2476,7 @@ Subtract days from a date or timestamp. Same as the - operator for date.
 ___
 
 
-<a name="subMonths" />
+<a name="subMonths" ></a>
 
 ### <code>subMonths</code>
 <code><b>subMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
@@ -2485,7 +2485,7 @@ Subtract months from a date or timestamp.
 ___
 
 
-<a name="substring" />
+<a name="substring" ></a>
 
 ### <code>substring</code>
 <code><b>substring(<i>&lt;string to subset&gt;</i> : string, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of characters&gt;</i> : integral]) => string</b></code><br/><br/>
@@ -2497,7 +2497,7 @@ Extracts a substring of a certain length from a position. Position is 1 based. I
 ___
 
 
-<a name="sum" />
+<a name="sum" ></a>
 
 ### <code>sum</code>
 <code><b>sum(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -2506,7 +2506,7 @@ Gets the aggregate sum of a numeric column.
 ___
 
 
-<a name="sumDistinct" />
+<a name="sumDistinct" ></a>
 
 ### <code>sumDistinct</code>
 <code><b>sumDistinct(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -2515,7 +2515,7 @@ Gets the aggregate sum of distinct values of a numeric column.
 ___
 
 
-<a name="sumDistinctIf" />
+<a name="sumDistinctIf" ></a>
 
 ### <code>sumDistinctIf</code>
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
@@ -2525,7 +2525,7 @@ Based on criteria gets the aggregate sum of a numeric column. The condition can 
 ___
 
 
-<a name="sumIf" />
+<a name="sumIf" ></a>
 
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
@@ -2535,7 +2535,7 @@ Based on criteria gets the aggregate sum of a numeric column. The condition can 
 ___
 
 
-<a name="tan" />
+<a name="tan" ></a>
 
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2544,7 +2544,7 @@ Calculates a tangent value.
 ___
 
 
-<a name="tanh" />
+<a name="tanh" ></a>
 
 ### <code>tanh</code>
 <code><b>tanh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2553,7 +2553,7 @@ Calculates a hyperbolic tangent value.
 ___
 
 
-<a name="toBase64" />
+<a name="toBase64" ></a>
 
 ### <code>toBase64</code>
 <code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -2562,7 +2562,7 @@ Encodes the given string in base64.
 ___
 
 
-<a name="toBinary" />
+<a name="toBinary" ></a>
 
 ### <code>toBinary</code>
 <code><b>toBinary(<i>&lt;value1&gt;</i> : any) => binary</b></code><br/><br/>
@@ -2571,7 +2571,7 @@ Converts any numeric/date/timestamp/string to binary representation.
 ___
 
 
-<a name="toBoolean" />
+<a name="toBoolean" ></a>
 
 ### <code>toBoolean</code>
 <code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -2582,7 +2582,7 @@ Converts a value of ('t', 'true', 'y', 'yes', '1') to true and ('f', 'false', 'n
 ___
 
 
-<a name="toByte" />
+<a name="toByte" ></a>
 
 ### <code>toByte</code>
 <code><b>toByte(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => byte</b></code><br/><br/>
@@ -2596,7 +2596,7 @@ Converts any numeric or string to a byte value. An optional Java decimal format 
 ___
 
 
-<a name="toDate" />
+<a name="toDate" ></a>
 
 ### <code>toDate</code>
 <code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
@@ -2606,7 +2606,7 @@ Converts input date string to date using an optional input date format. Refer Ja
 ___
 
 
-<a name="toDecimal" />
+<a name="toDecimal" ></a>
 
 ### <code>toDecimal</code>
 <code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
@@ -2618,7 +2618,7 @@ Converts any numeric or string to a decimal value. If precision and scale are no
 ___
 
 
-<a name="toDouble" />
+<a name="toDouble" ></a>
 
 ### <code>toDouble</code>
 <code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
@@ -2630,7 +2630,7 @@ Converts any numeric or string to a double value. An optional Java decimal forma
 ___
 
 
-<a name="toFloat" />
+<a name="toFloat" ></a>
 
 ### <code>toFloat</code>
 <code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
@@ -2641,7 +2641,7 @@ Converts any numeric or string to a float value. An optional Java decimal format
 ___
 
 
-<a name="toInteger" />
+<a name="toInteger" ></a>
 
 ### <code>toInteger</code>
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
@@ -2652,7 +2652,7 @@ Converts any numeric or string to an integer value. An optional Java decimal for
 ___
 
 
-<a name="toLong" />
+<a name="toLong" ></a>
 
 ### <code>toLong</code>
 <code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
@@ -2663,7 +2663,7 @@ Converts any numeric or string to a long value. An optional Java decimal format 
 ___
 
 
-<a name="toShort" />
+<a name="toShort" ></a>
 
 ### <code>toShort</code>
 <code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
@@ -2674,7 +2674,7 @@ Converts any numeric or string to a short value. An optional Java decimal format
 ___
 
 
-<a name="toString" />
+<a name="toString" ></a>
 
 ### <code>toString</code>
 <code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
@@ -2690,7 +2690,7 @@ Converts a primitive datatype to a string. For numbers and date a format can be 
 ___
 
 
-<a name="toTimestamp" />
+<a name="toTimestamp" ></a>
 
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
@@ -2702,7 +2702,7 @@ Converts a string to a timestamp given an optional timestamp format. If the time
 ___
 
 
-<a name="toUTC" />
+<a name="toUTC" ></a>
 
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
@@ -2712,7 +2712,7 @@ Converts the timestamp to UTC. You can pass an optional timezone in the form of 
 
 
 
-<a name="translate" />
+<a name="translate" ></a>
 
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
@@ -2722,7 +2722,7 @@ Replace one set of characters by another set of characters in the string. Charac
 ___
 
 
-<a name="trim" />
+<a name="trim" ></a>
 
 ### <code>trim</code>
 <code><b>trim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
@@ -2732,7 +2732,7 @@ Trims a string of leading and trailing characters. If second parameter is unspec
 ___
 
 
-<a name="true" />
+<a name="true" ></a>
 
 ### <code>true</code>
 <code><b>true() => boolean</b></code><br/><br/>
@@ -2742,7 +2742,7 @@ Always returns a true value. Use the function `syntax(true())` if there is a col
 ___
 
 
-<a name="typeMatch" />
+<a name="typeMatch" ></a>
 
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
@@ -2752,7 +2752,7 @@ Matches the type of the column. Can only be used in pattern expressions.number m
 ___
 
 
-<a name="unescape" />
+<a name="unescape" ></a>
 
 ### <code>unescape</code>
 <code><b>unescape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
@@ -2762,7 +2762,7 @@ Unescapes a string according to a format. Literal values for acceptable format a
 ___
 
 
-<a name="unfold" />
+<a name="unfold" ></a>
 
 ### <code>unfold</code>
 <code><b>unfold (<i>&lt;value1&gt;</i>: array) => any</b></code><br/><br/>
@@ -2772,7 +2772,7 @@ Unfolds an array into a set of rows and repeats the values for the remaining col
 ___  
 
 
-<a name="unhex" />
+<a name="unhex" ></a>
 
 ### <code>unhex</code>
 <code><b>unhex(<i>\<value1\></i>: string) => binary</b></code><br/><br/>
@@ -2782,7 +2782,7 @@ Unhexes a binary value from its string representation. This can be used in conju
 
 
 
-<a name="union" />
+<a name="union" ></a>
 
 ### <code>union</code>
 <code><b>union(<i>&lt;value1&gt;</i>: array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
@@ -2792,7 +2792,7 @@ ___
   
 
 
-<a name="upper" />
+<a name="upper" ></a>
 
 ### <code>upper</code>
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -2801,7 +2801,7 @@ Uppercases a string.
 ___
 
 
-<a name="uuid" />
+<a name="uuid" ></a>
 
 ### <code>uuid</code>
 <code><b>uuid() => string</b></code><br/><br/>
@@ -2810,7 +2810,7 @@ Returns the generated UUID.
 ___
 
 
-<a name="variance" />
+<a name="variance" ></a>
 
 ### <code>variance</code>
 <code><b>variance(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2819,7 +2819,7 @@ Gets the variance of a column.
 ___
 
 
-<a name="varianceIf" />
+<a name="varianceIf" ></a>
 
 ### <code>varianceIf</code>
 <code><b>varianceIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -2828,7 +2828,7 @@ Based on a criteria, gets the variance of a column.
 ___
 
 
-<a name="variancePopulation" />
+<a name="variancePopulation" ></a>
 
 ### <code>variancePopulation</code>
 <code><b>variancePopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2837,7 +2837,7 @@ Gets the population variance of a column.
 ___
 
 
-<a name="variancePopulationIf" />
+<a name="variancePopulationIf" ></a>
 
 ### <code>variancePopulationIf</code>
 <code><b>variancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -2846,7 +2846,7 @@ Based on a criteria, gets the population variance of a column.
 ___
 
 
-<a name="varianceSample" />
+<a name="varianceSample" ></a>
 
 ### <code>varianceSample</code>
 <code><b>varianceSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
@@ -2855,7 +2855,7 @@ Gets the unbiased variance of a column.
 ___
 
 
-<a name="varianceSampleIf" />
+<a name="varianceSampleIf" ></a>
 
 ### <code>varianceSampleIf</code>
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
@@ -2864,7 +2864,7 @@ Based on a criteria, gets the unbiased variance of a column.
 
 
 
-<a name="weekOfYear" />
+<a name="weekOfYear" ></a>
 
 ### <code>weekOfYear</code>
 <code><b>weekOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
@@ -2873,7 +2873,7 @@ Gets the week of the year given a date.
 ___
 
 
-<a name="weeks" />
+<a name="weeks" ></a>
 
 ### <code>weeks</code>
 <code><b>weeks(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
@@ -2882,7 +2882,7 @@ Duration in milliseconds for number of weeks.
 ___
 
 
-<a name="xor" />
+<a name="xor" ></a>
 
 ### <code>xor</code>
 <code><b>xor(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
@@ -2893,7 +2893,7 @@ Logical XOR operator. Same as ^ operator.
 ___
 
 
-<a name="year" />
+<a name="year" ></a>
 
 ### <code>year</code>
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
