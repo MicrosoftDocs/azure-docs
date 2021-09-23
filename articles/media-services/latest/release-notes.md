@@ -44,8 +44,6 @@ You can now visualize the CPU load, egress bandwidth and end-to-end latency metr
 
 Using User-Assigned Managed Identities, customers will now be able to enable better security of their storage accounts and associated key vaults. Access to the customer storage account and key vaults will be limited to the user assigned managed identity.  You have full control over the lifetime of user-managed identities and can easily revoke the media service account’s access to any specific storage account as needed.
 
-   ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor.png)
-
 ### Media services storage accounts page in the portal now support both UAMI and SAMI
 
 You can now assign and manage user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI) for your storage accounts directly in the Azure portal for Media Services.
