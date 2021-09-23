@@ -1018,7 +1018,7 @@ This section provides the Nuvo 5006LP installation procedure. Before installing 
 
 The following procedure describes how to configure the Nuvo 5006LP BIOS. Make sure the operating system was previously installed on the appliance.
 
-To configure the BIOS:
+**To configure the BIOS**:
 
 1. Power on the appliance.
 
@@ -1035,6 +1035,8 @@ To configure the BIOS:
 #### Software installation (Nuvo 5006LP)
 
 The installation process takes approximately 20 minutes. After installation, the system is restarted several times.
+
+**To install the software**:
 
 1. Connect the external CD, or disk on key with the ISO image.
 
@@ -1079,6 +1081,8 @@ This section provides the Fitlet2 installation procedure. Before installing the 
 
 #### Configure the Fitlet2 BIOS
 
+**To configure the Fitlet2 BIOS**:
+
 1. Power on the appliance.
 
 1. Navigate to **Main** > **OS Selection**.
@@ -1110,7 +1114,9 @@ This section provides the Fitlet2 installation procedure. Before installing the 
 1. Navigate to **CSM Configuration** > **CSM Support**.
 
 1. Press **+/-** to select **Enabled**.
+
 1. Navigate to **Advanced** > **Boot option filter [Legacy only]** and change setting in the following fields to **Legacy**:
+
     - Network
     - Storage
     - Video
@@ -1207,6 +1213,7 @@ Post-installation validation must include the following tests:
 - **Task Manager**: Translates the tasks that appear in the table of processes to the following layers:
   
   - Persistent layer (Redis)
+
   - Cash layer (SQL)
 
 - **Network Statistics**: Displays your network statistics.
@@ -1214,10 +1221,15 @@ Post-installation validation must include the following tests:
 - **TOP**: Shows the table of processes. It's a Linux command that provides a dynamic real-time view of the running system.
 
 - **Backup Memory Check**: Provides the status of the backup memory, checking the following:
+
   - The location of the backup folder
+
   - The size of the backup folder
+
   - The limitations of the backup folder
+
   - When the last backup happened
+
   - How much space there is for the extra backup files
 
 - **ifconfig**: Displays the parameters for the appliance's physical interfaces.
@@ -1226,7 +1238,7 @@ Post-installation validation must include the following tests:
 
 - **Errors from Core, log**: Displays errors from the core log file.
 
-To access the tool:
+**To access the tool**:
 
 1. Sign in to the sensor with the **Support** user credentials.
 
@@ -1236,9 +1248,9 @@ To access the tool:
 
 ### Check system health by using the CLI
 
-**Test 1: Sanity**
+Verify that the system is up, and running prior to testing the system's sanity.
 
-Verify that the system is up and running:
+**To test the system's sanity**:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
@@ -1250,9 +1262,9 @@ Verify that the system is up and running:
 
 1. Verify that **System is UP! (prod)** appears at the bottom.
 
-**Test 2: Version check**
-
 Verify that the correct version is used:
+
+**To check the system's version**:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
@@ -1260,9 +1272,9 @@ Verify that the correct version is used:
 
 1. Check that the correct version appears.
 
-**Test 3: Network validation**
-
 Verify that all the input interfaces configured during the installation process are running:
+
+**To validate the system's network status**:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
@@ -1272,9 +1284,9 @@ Verify that all the input interfaces configured during the installation process 
 
     :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Screenshot that shows the list of interfaces.":::
 
-**Test 4: Management access to the UI**
-
 Verify that you can access the console web GUI:
+
+**To check that management has access to the UI**:
 
 1. Connect a laptop with an Ethernet cable to the management port (**Gb1**).
 
@@ -1495,13 +1507,13 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 |--|--|
 | vSwitch_Span | Newly added SPAN virtual switch name |
 
-## Appendix B: Access sensors from the on-premises management console
+## Access sensors from the on-premises management console
 
 You can enhance system security by preventing direct user access to the sensor. Instead, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
 
 :::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor.":::
 
-To enable tunneling:
+**To enable tunneling**:
 
 1. Sign in to the on-premises management console's CLI with the **CyberX**, or the **Support** user credentials.
 
