@@ -46,7 +46,7 @@ After you create your Azure Synapse workspace, do the following steps.
     For the `bulk` parameter, use the URL of the inventory report CSV file that you want to analyze.
 
     ```sql
-    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container, 
+    SELECT LEFT([Name], CHARINDEX('/', [Name]) - 1) AS Container,
             COUNT(*) As TotalBlobCount,
             SUM([Content-Length]) As TotalBlobSize
     FROM OPENROWSET(

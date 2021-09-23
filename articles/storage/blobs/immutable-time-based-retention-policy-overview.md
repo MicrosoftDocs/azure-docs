@@ -1,5 +1,5 @@
 ---
-title: Time-based retention policies for immutable blob data 
+title: Time-based retention policies for immutable blob data
 titleSuffix: Azure Storage
 description: Time-based retention policies store blob data in a Write-Once, Read-Many (WORM) state for a specified interval. You can configure a time-based retention policy that is scoped to a blob version (preview) or to a container.
 services: storage
@@ -122,7 +122,7 @@ As this setting is part of a time-based retention policy, the append blobs remai
 
 For example, suppose that a user creates a time-based retention policy with the **AllowProtectedAppendWrites** property enabled and a retention interval of 90 days. An append blob, *logblob1*, is created in the container today, new logs continue to be added to the append blob for the next 10 days, so that the effective retention period for *logblob1* is 100 days from today (the time of its last append + 90 days).
 
-Unlocked time-based retention policies allow the the **AllowProtectedAppendWrites** property setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the **AllowProtectedAppendWrites** property setting cannot be changed.
+Unlocked time-based retention policies allow the **AllowProtectedAppendWrites** property setting to be enabled and disabled at any time. Once the time-based retention policy is locked, the **AllowProtectedAppendWrites** property setting cannot be changed.
 
 ## Audit logging
 

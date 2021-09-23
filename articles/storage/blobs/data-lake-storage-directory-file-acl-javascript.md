@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-
 ---
 
 # Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage Gen2
@@ -22,7 +21,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. For more information, see [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
@@ -60,13 +59,13 @@ This example creates a **DataLakeServiceClient** instance by using an account ke
 
 function GetDataLakeServiceClient(accountName, accountKey) {
 
-  const sharedKeyCredential = 
+  const sharedKeyCredential =
      new StorageSharedKeyCredential(accountName, accountKey);
 
   const datalakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, sharedKeyCredential);
 
-  return datalakeServiceClient;             
+  return datalakeServiceClient;
 }
 
 ```
@@ -78,7 +77,7 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
 You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID. To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
 
 ```javascript
 function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
@@ -88,7 +87,7 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
   const datalakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, credential);
 
-  return datalakeServiceClient;             
+  return datalakeServiceClient;
 }
 ```
 
@@ -138,7 +137,7 @@ This example renames a sub-directory to the name `my-directory-renamed`.
 ```javascript
 async function RenameDirectory(fileSystemClient) {
 
-  const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
+  const directoryClient = fileSystemClient.getDirectoryClient("my-directory");
   await directoryClient.move("my-directory-renamed");
 
 }
@@ -149,7 +148,7 @@ This example moves a directory named `my-directory-renamed` to a sub-directory o
 ```javascript
 async function MoveDirectory(fileSystemClient) {
 
-  const directoryClient = fileSystemClient.getDirectoryClient("my-directory-renamed"); 
+  const directoryClient = fileSystemClient.getDirectoryClient("my-directory-renamed");
   await directoryClient.move("my-directory-2/my-directory-renamed");
 
 }
@@ -164,7 +163,7 @@ This example deletes a directory named `my-directory`.
 ```javascript
 async function DeleteDirectory(fileSystemClient) {
 
-  const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
+  const directoryClient = fileSystemClient.getDirectoryClient("my-directory");
   await directoryClient.delete();
 
 }
@@ -183,7 +182,7 @@ async function UploadFile(fileSystemClient) {
 
   var content = "";
 
-  fs.readFile('mytestfile.txt', (err, data) => { 
+  fs.readFile('mytestfile.txt', (err, data) => {
       if (err) throw err;
 
       content = data.toString();

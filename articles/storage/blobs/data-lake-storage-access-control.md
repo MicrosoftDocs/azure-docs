@@ -1,6 +1,6 @@
 ---
-title: Access control lists in Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Understand how POSIX-like ACLs access control lists work in Azure Data Lake Storage Gen2. 
+title: Access control lists in Azure Data Lake Storage Gen2
+description: Understand how POSIX-like ACLs access control lists work in Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -137,17 +137,18 @@ In the POSIX ACLs, every user is associated with a *primary group*. For example,
 
 #### Assigning the owning group for a new file or directory
 
-- **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 container is created. In this case, the owning group is set to the user who created the container if it was done using OAuth. If the container is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
-- **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent directory.
+- **Case 1:** The root directory `/`. This directory is created when a Data Lake Storage Gen2 container is created. In this case, the owning group is set to the user who created the container if it was done using OAuth. If the container is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to `$superuser`.
+- **Case 2 (every other case):** When a new item is created, the owning group is copied from the parent directory.
 
 #### Changing the owning group
 
 The owning group can be changed by:
+
 - Any super-users.
 - The owning user, if the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning group cannot change the ACLs of a file or directory.  While the owning group is set to the user who created the account in the case of the root directory, **Case 1** above, a single user account isn't valid for providing permissions via the owning group. You can assign this permission to a valid user group if applicable.
+> The owning group cannot change the ACLs of a file or directory. While the owning group is set to the user who created the account in the case of the root directory, **Case 1** above, a single user account isn't valid for providing permissions via the owning group. You can assign this permission to a valid user group if applicable.
 
 ## How permissions are evaluated
 
@@ -164,7 +165,7 @@ If more than one of these identities applies to a security principal, then the p
 The following pseudocode represents the access check algorithm for storage accounts. This algorithm shows the order in which identities are evaluated.
 
 ```python
-def access_check( user, desired_perms, path ) : 
+def access_check( user, desired_perms, path ) :
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
   # desired_perms is a simple integer with values from 0 to 7 ( R=4, W=2, X=1). User desires these permissions
@@ -338,7 +339,7 @@ When you have the correct OID for the service principal, go to the Storage Explo
 
 ### Can I set the ACL of a container?
 
-No. A container does not have an ACL. However, you can set the ACL of the container's root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, then the root directory  is named `my-container/`.
+No. A container does not have an ACL. However, you can set the ACL of the container's root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, then the root directory is named `my-container/`.
 
 The Azure Storage REST API does contain an operation named [Set Container ACL](/rest/api/storageservices/set-container-acl), but that operation cannot be used to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container [may be accessed publicly](anonymous-read-access-configure.md).
 
