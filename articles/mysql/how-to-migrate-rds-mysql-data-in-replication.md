@@ -43,13 +43,13 @@ Regardless of where the client computer is located, it requires adequate compute
 - Ensure that there's enough network bandwidth available to the client instance. We recommend using instance types that support accelerated networking feature. For more information, see the Accelerated Networking section in the [Azure Virtual Machine Networking Guide](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 - Ensure that the client machine’s storage layer provides the expected read/write capacity, and we recommend an Azure virtual machine with Premium SSD storage.
 
-## GTID replication
+## GTID Mode
+
+Shoudld GTID mode be enabled on the master it will be required on the Azure MySQL slave. This can be done following the steps below.
 
 A global transaction identifier (GTID) is a unique identifier that's created and associated with each transaction that's committed on the server of origin (source). This identifier is unique not only to the server on which it originated, but it's also unique across all servers in a specific replication setup. There is a one-to-one mapping between all transactions and all GTIDs.
 
 GTIDs are always preserved between source and replica. You can always determine the source for any transaction applied on any replica by examining its binary log. In addition, after a transaction with a specific GTID is committed on a server, any subsequent transaction that has the same GTID is ignored by that server. Thus, a transaction committed on the source can be applied no more than once on the replica, which helps guarantee consistency.
-
-Learn how to use [GTID replication](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids.html).
 
 Check the master and slave server parameters to check the GTID parameters:
 
