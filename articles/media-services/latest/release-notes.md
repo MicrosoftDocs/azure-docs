@@ -32,7 +32,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ### Improved scale management and monitoring for a Streaming Endpoint in the portal
 
-The streaming endpoint Azure portal page now provides an easy way to manage your egress capacity and estimate your audience delivery reach. You can easily configure scale units based on live event bitrate profile and estimate their audience reach limits.
+The streaming endpoint portal page now provides an easy way for you to manage your egress capacity and estimate your audience  reach with and without a CDN configured.  Simply adjust the delivery bitrate and expected CDN cache hit ratio to get quick estimations of your audience size and help you determine if you need to scale up to more Premium streaming endpoints.
 
    ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor.png)
 
