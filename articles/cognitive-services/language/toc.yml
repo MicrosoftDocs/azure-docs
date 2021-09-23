@@ -19,11 +19,7 @@ items:
   - name: Language support
     href: custom-classification/language-support.md
   - name: Quickstarts
-    items:
-    - name: Use Language Studio
-      href: custom-classification/quickstart/using-language-studio.md
-    - name: Use the API
-      href: custom-classification/quickstart/using-api.md
+    href: custom-classification/quickstart.md
   - name: How-to guides
     items:
     - name: Using Azure resources
