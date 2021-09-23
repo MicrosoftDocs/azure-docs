@@ -36,6 +36,7 @@ Composites enable developers to easily integrate a whole calling experience into
 |                                                                                                 | Video on/off on call                                   |
 |                                                                                                 | End call                                               |
 
+
 ## Supported Identities
 
 An Azure Communication Services identity is required to initialize the composites and authenticate to the service.

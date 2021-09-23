@@ -16,12 +16,32 @@ UI Mobile Library is an Azure Communication Services capability focused on commo
 
 The UI Mobile Library objective is provide these capabilities available to you in a turnkey, composite format. You drop the UI SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is very lightly, you can take advantage of reduce the development time and engineering complexity.
 
+## Composites
+
+Composites are higher-level components composed of UI components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
+Developers can easily instantiate the Composite using an Azure Communication Services access token and the required configuration attributed for call or chat.
+
+| Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                    |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video and see other participants, including those with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
+
 ## Platform support
 
 |Platform | Versions|
 |---------|---------|
 | iOS     | iOS 13+ |
 | Android | v23+    |
+
+## Installing Mobile UI Library
+
+``` java
+TBD Maven Android repo
+```
+
+``` iOS
+TBD Cocoapods iOS repo
+```
+
 
 ## Scenarios
 
@@ -39,7 +59,7 @@ As a participant of any of the meetings, you can set up a default configuration 
 
 Customize the user experience, adjust the capabilities accordingly to your needs. You will control the overall experience during the meetings.
 
-<img src="../media/mobile-ui/teams_meet-join.png" alt="Meeting experience" width="40%"/>
+<img src="../media/mobile-ui/Calling_composite.png" alt="Meeting experience" width="40%"/>
 
 ### Quality and security
 
@@ -58,6 +78,24 @@ More scenarios please visit [use cases site](mobile-ui-usesscenarios.md) to disc
 - **Multilingual support**: Support 56 languages during the whole teams experience.
 
 ***We expect to add more scenarios ahead of the UI Library being in General Availability.***
+
+## What UI Artifact is Best for my Project?
+
+Understanding these requirements will help you choose the right client library:
+
+- **How much customization do you desire?** Azure Communication core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
+- **What platforms are you targeting?** Different platforms have different capabilities.
+
+
+Details about feature availability in the [UI Library is available here](mobile-ui-usesscenarios.md), but key trade-offs are summarized below.
+
+| Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop) |
+| --------------------- | ------------------------- | --------------------- |  ---- | ----------------------------------------------------------------------------------------------- |
+| Composite Components  | Low                       | Low                   |         ✔    | ✔                                                                                               |
+| Base Components       | Medium                    | Medium                |         ✔    | ✔                                                                                               |
+| Core client libraries | High                      | High                  |         ✔    | ✔                                                                                               |
+
+
 
 ## Learn and go
 
