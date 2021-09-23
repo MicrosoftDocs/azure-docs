@@ -37,7 +37,7 @@ Application settings:
 APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define application settings in the _local.settings.json_ file when you're running the application locally. This file defines application settings in the `Values` property of the configuration.
 
 > [!NOTE]
-> _local.settings.json_ is only used for local development. Use the [Azure Portal](https://portal.azure.com) to configure application settings for production.
+> The _local.settings.json_ file is only used for local development. Use the [Azure Portal](https://portal.azure.com) to configure application settings for production.
 
 The following sample _local.settings.json_ shows how to add a value for the `DATABASE_CONNECTION_STRING`.
 
