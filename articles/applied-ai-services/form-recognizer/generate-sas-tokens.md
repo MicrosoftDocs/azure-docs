@@ -84,7 +84,7 @@ To get started, you'll need:
 
 1. Define **Permissions** by checking or clearing the appropriate checkbox. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are selected.
 
-    :::image type="content" source="media/sas-tokens/sas-permissions.png" alt-text="Screenshot (Azure protal): SAS permission fields.":::
+    :::image type="content" source="media/sas-tokens/sas-permissions.png" alt-text="Screenshot (Azure portal): SAS permission fields.":::
 
     >[!IMPORTANT]
     >
