@@ -61,7 +61,7 @@ To start training your model:
 
 2. Select the model you want to train from the **Model name** dropdown. If you don’t have models already, type in the name of your model and click on **create new model**.
 
-    :::image type="content" source="../../media/train-model-1.png" alt-text="Select the model you want to train" lightbox="../../media/train-model-1.png":::
+    :::image type="content" source="../../media/train-model.png" alt-text="Select the model you want to train" lightbox="../../media/train-model.png":::
 
 3. Click on the **Train** button at the bottom of the page.
 
