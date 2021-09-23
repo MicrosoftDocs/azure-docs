@@ -62,7 +62,7 @@ For the aforementioned modes, it is also possible to add a SQL-like filter predi
 > [!NOTE]
 > `Replace` is a good candidate where the user expects some of the properties to be always present and allows you to assert/enforce that.
 
-## Partial document update (patch) specification
+## Partial document update specification
 
 The client facing component of the Partial Document Update capability is implemented as a top-level REST API. Here is an example of how a `Conditional Add` operation is modeled by Azure Cosmos DB:
 
