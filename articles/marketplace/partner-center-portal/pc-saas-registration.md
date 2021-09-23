@@ -112,7 +112,6 @@ Sample response:
 | Element | Description |
 | ------- | ----------- |
 | `access_token` | This element is the `<access_token>` that you will pass as authorization parameter when calling all SaaS fulfillment and Marketplace metering APIs. When calling a secured REST API, the token is embedded in the `Authorization` request header field as a "bearer" token, allowing the API to authenticate the caller. | 
-| `refresh_token` | Not used by managed identities for Azure resources. |
 | `expires_in` | The number of seconds the access token continues to be valid, before expiring, from time of issuance. Time of issuance can be found in the token's `iat` claim. |
 | `expires_on` | The timespan when the access token expires. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC"  (corresponds to the token's `exp` claim). |
 | `not_before` | The timespan when the access token takes effect, and can be accepted. The date is represented as the number of seconds from "1970-01-01T0:0:0Z UTC" (corresponds to the token's `nbf` claim). |
