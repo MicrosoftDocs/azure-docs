@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/22/2021
+ms.date: 09/23/2021
 ms.author: danlep
 ---
 
@@ -99,7 +99,7 @@ In the developer portal, sign-in with Azure AD B2C is possible with the **Sign-i
     :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-sign-in.png" alt-text="Sign in to developer portal":::
 1. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address in the AD B2C tenant
 
-When the signup is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
+When the sign-up is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
 
 :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-home.png" alt-text="Sign in to developer portal complete":::
 
@@ -111,7 +111,8 @@ The **Sign-up form: OAuth** widget represents a form used for signing up with OA
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-Before signing up/signing into a developer account using Azure AD B2C, enable password reset using the [Self-service password reset](/active-directory-b2c/user-flow-self-service-password-reset.md) instructions. 
+> [!NOTE]
+> Currently, to properly integrate B2C with the legacy developer portal, use **standard v1** user flows, in combination with enabling [password reset](/active-directory-b2c/user-flow-self-service-password-reset.md) before signing up/signing into a developer account using Azure AD B2C. 
 
 1. Open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
 
@@ -121,7 +122,7 @@ Before signing up/signing into a developer account using Azure AD B2C, enable pa
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="Sign up  with Azure AD B2C":::
 
-1. You're redirected to the sign-up policy  you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
+1. You're redirected to the sign-up policy you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
 
    > [!NOTE]
    > If Azure AD B2C is the only option that's enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
