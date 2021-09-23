@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/23/2021
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -45,7 +45,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
-|  Number of cross-region replication data protection volumes (destination volumes)     |    5    |    Yes    |     
+|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |     
 
 For more information, see [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs).
 
