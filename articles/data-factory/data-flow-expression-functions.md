@@ -21,8 +21,8 @@ This article provides details about expressions and functions supported by Azure
 
 In Data Factory and Synapse pipelines, use the expression language of the mapping data flow feature to configure data transformations.
 
-| Expression function | Task | 
-| ----- | ----- |
+| Expression function | Task |
+|-----|-----|
 | [abs](data-flow-expression-functions.md#abs) | Absolute value of a number.  |
 | [acos](data-flow-expression-functions.md#acos) | Calculates a cosine inverse value.  |
 | [add](data-flow-expression-functions.md#add) | Adds a pair of strings or numbers. Adds a date to a number of days. Adds a duration to a timestamp. Appends one array of similar type to another. Same as the + operator.  |
@@ -170,7 +170,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 The following functions are only available in aggregate, pivot, unpivot, and window transformations.
 
 | Aggregate function | Task |
-| --- | --- |
+|----|----|
 | [approxDistinctCount](data-flow-expression-functions.md#approxDistinctCount) | Gets the approximate aggregate count of distinct values for a column. The optional second parameter is to control the estimation error.|
 | [avg](data-flow-expression-functions.md#avg) | Gets the average of values of a column.  |
 | [avgIf](data-flow-expression-functions.md#avgIf) | Based on a criteria gets the average of values of a column.  |
@@ -221,7 +221,7 @@ Array functions perform transformations on data structures that are arrays. Thes
 * ```#item``` represents the current element value in the array
 
 | Array function | Task |
-| --- | --- |
+|----|----|
 | [array](data-flow-expression-functions.md#array) | Creates an array of items. All items should be of the same type. If no items are specified, an empty string array is the default. Same as a [] creation operator.  |
 | [at](data-flow-expression-functions.md#at) | Finds the element at an array index. The index is 1-based. Out of bounds index results in a null value. Finds a value in a map given a key. If the key is not found it returns null.|
 | [contains](data-flow-expression-functions.md#contains) | Returns true if any element in the provided array evaluates as true in the provided predicate. Contains expects a reference to one element in the predicate function as #item.  |
@@ -248,7 +248,7 @@ Array functions perform transformations on data structures that are arrays. Thes
 The following functions are only available when using a cached lookup when you've included a cached sink.
 
 | Cached lookup function | Task |
-| --- | --- |
+|----|----|
 | [lookup](data-flow-expression-functions.md#lookup) | Looks up the first row from the cached sink using the specified keys that match the keys from the cached sink.|
 | [mlookup](data-flow-expression-functions.md#mlookup) | Looks up the all matching rows from the cached sink using the specified keys that match the keys from the cached sink.|
 | [output](data-flow-expression-functions.md#output) | Returns the first row of the results of the cache sink|
@@ -260,7 +260,7 @@ The following functions are only available when using a cached lookup when you'v
 Conversion functions are used to convert data and test for data types
 
 | Conversion function | Task |
-| --- | --- |
+|----|----|
 | [isBitSet](data-flow-expression-functions.md#isBitSet) | Checks if a bit position is set in this bitset|
 | [setBitSet](data-flow-expression-functions.md#setBitSet) | Sets bit positions in this bitset|
 | [isBoolean](data-flow-expression-functions.md#isBoolean) | Checks if the string value is a boolean value according to the rules of ``toBoolean()``|
@@ -295,7 +295,7 @@ Conversion functions are used to convert data and test for data types
   Map functions perform operations on map data types
 
 | Map function | Task |
-| --- | --- |
+|----|----|
 | [associate](data-flow-expression-functions.md#associate) | Creates a map of key/values. All the keys & values should be of the same type. If no items are specified, it is defaulted to a map of string to string type.Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.|
 | [keyValues](data-flow-expression-functions.md#keyValues) | Creates a map of key/values. The first parameter is an array of keys and second is the array of values. Both arrays should have equal length.|
 | [mapAssociation](data-flow-expression-functions.md#mapAssociation) | Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and current value as #value. |
@@ -307,7 +307,7 @@ Conversion functions are used to convert data and test for data types
 Metafunctions primarily function on metadata in your data flow
 
 | Metafunction  | Task |
-| --- | --- |
+|----|----|
 | [byItem](data-flow-expression-functions.md#byItem) | Find a sub item within a structure or array of structure If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions(? date, ? string ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions  |
 | [byOrigin](data-flow-expression-functions.md#byOrigin) | Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...). Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.  |
 | [byOrigins](data-flow-expression-functions.md#byOrigins) | Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.|
@@ -326,7 +326,7 @@ Metafunctions primarily function on metadata in your data flow
 The following functions are only available in window transformations.
 
 | Windows function | Task |
-| --- | --- |
+|----|----|
 | [cumeDist](data-flow-expression-functions.md#cumeDist) | The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the  ordering will evaluate to the same position.  |
 | [denseRank](data-flow-expression-functions.md#denseRank) | Computes the rank of a value in a group of values specified in a window's order by clause. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will not produce gaps in the sequence. Dense Rank works even when data is not sorted and looks for change in values.  |
 | [lag](data-flow-expression-functions.md#lag) | Gets the value of the first parameter evaluated n rows before the current row. The second parameter is the number of rows to look back and the default value is 1. If there are not as many rows a value of null is returned unless a default value is specified.  |
