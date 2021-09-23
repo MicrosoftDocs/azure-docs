@@ -7,7 +7,7 @@ ms.date: 10/04/2021
 
 # Service Fabric managed cluster node types
 
-Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters you make any required changes through the Service Fabric managed cluster resource provider instead of against the resource directly. This encapsulation model helps... 
+Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters, you make any required changes through a single Service Fabric managed cluster resource provider. All of the underlying resources for the cluster are abstracted away and managed by Azure on your behalf. This helps to simplify cluster node type deployment and management, prevent operation errors such as deleting a seed node, and application of best practices such as validating a VM SKU is safe to use.
 
 The rest of this document will cover how to adjust various settings from node type instance count, OS Image, and configuring placement properties.
 
@@ -15,9 +15,9 @@ The rest of this document will cover how to adjust various settings from node ty
 
 ## Scale a Service Fabric managed cluster node type manually with portal
 
-In this walkthrough you will learn how to modify the node count for a node type using portal.
+In this walkthrough, you will learn how to modify the node count for a node type using portal.
 
-1) Login to [Azure Portal](https://portal.azure.com/)
+1) Log in to [Azure portal](https://portal.azure.com/)
 
 2) Navigate to your cluster resource Overview page. 
 ![Sample Overview page][overview]
@@ -26,7 +26,7 @@ In this walkthrough you will learn how to modify the node count for a node type 
 
 4) Select the `Node type name` you want to modify
 
-5) Adjust the `Node count` to the new value you want and select `Apply` at the bottom. In this screenshot the value was `3` and adjusted to `5`.
+5) Adjust the `Node count` to the new value you want and select `Apply` at the bottom. In this screenshot, the value was `3` and adjusted to `5`.
 ![Sample showing a node count increase][adjust-node-count]
 
 6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
@@ -68,9 +68,9 @@ Service Fabric managed cluster does not support in-place modification of the VM 
 
 ## Modify the OS image for a node type with portal
 
-In this walkthrough you will learn how to modify the node count for a node type using portal.
+In this walkthrough, you will learn how to modify the OS image for a node type using portal.
 
-1) Login to [Azure Portal](https://portal.azure.com/)
+1) Log in to [Azure portal](https://portal.azure.com/)
 
 2) Navigate to your cluster resource Overview page. 
 ![Sample Overview page][overview]
@@ -115,9 +115,9 @@ To modify the OS image used for a node type using an ARM Template, adjust the `v
 
 ## Configure placement properties for a node type with portal
 
-In this walkthrough you will learn how to modify a placement property for a node type using portal.
+In this walkthrough, you will learn how to modify a placement property for a node type using portal.
 
-1) Login to [Azure Portal](https://portal.azure.com/)
+1) Log in to [Azure portal](https://portal.azure.com/)
 
 2) Navigate to your cluster resource Overview page. 
 ![Sample Overview page][overview]
@@ -126,7 +126,7 @@ In this walkthrough you will learn how to modify a placement property for a node
 
 4) Select the `Node type name` you want to modify
 
-5) In the `Placement properties` section add the name and value you want and select `Apply` at the bottom. In this screenshot the `Name` `SSD_Premium` was used with `Value` of `true`.
+5) In the `Placement properties` section add the name and value you want and select `Apply` at the bottom. In this screenshot, the `Name` `SSD_Premium` was used with `Value` of `true`.
 ![Sample showing adding a placement property][nodetype-placement-property]
 
 6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
