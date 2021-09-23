@@ -87,9 +87,12 @@ In the left navigation pane, select **Application Insights** to jump to the **Ov
    [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## Automation
+
+The following sections describe how to automate your deployment using ARM templates or Terraform.
+	
 ### ARM Template
 
-To deploy using an Azure Resource Manager template, copy the following content into the *azuredeploy.json* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
+To deploy using an Azure Resource Manager template, copy the following content into an *azuredeploy.json* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
 
 
 ```json
