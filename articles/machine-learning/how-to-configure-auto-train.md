@@ -273,15 +273,15 @@ Ensemble training can be disabled by using the `enable_voting_ensemble` and `ena
 
 ```python
 automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        training_data=data_train,
-        label_column_name=label,
-        n_cross_validations=5,
-        enable_voting_ensemble=False,
-        enable_stack_ensemble=False
-        )
+                                 task='classification',
+                                 primary_metric='AUC_weighted',
+                                 experiment_timeout_minutes=30,
+                                 training_data=data_train,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 enable_voting_ensemble=False,
+                                 enable_stack_ensemble=False
+                                )
 ```
 
 To alter the default ensemble behavior, there are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object.
@@ -306,27 +306,27 @@ The following code shows an example of specifying custom ensemble behavior in an
 
 ```python
 ensemble_settings = {
-    "ensemble_download_models_timeout_sec": 600
-    "stack_meta_learner_type": "LogisticRegressionCV",
-    "stack_meta_learner_train_percentage": 0.3,
-    "stack_meta_learner_kwargs": {
-        "refit": True,
-        "fit_intercept": False,
-        "class_weight": "balanced",
-        "multi_class": "auto",
-        "n_jobs": -1
-    }
-}
+                     "ensemble_download_models_timeout_sec": 600
+                     "stack_meta_learner_type": "LogisticRegressionCV",
+                     "stack_meta_learner_train_percentage": 0.3,
+                     "stack_meta_learner_kwargs": {
+                                                    "refit": True,
+                                                    "fit_intercept": False,
+                                                    "class_weight": "balanced",
+                                                    "multi_class": "auto",
+                                                    "n_jobs": -1
+                                                  }
+                    }
 
 automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        training_data=train_data,
-        label_column_name=label,
-        n_cross_validations=5,
-        **ensemble_settings
-        )
+                                 task='classification',
+                                 primary_metric='AUC_weighted',
+                                 experiment_timeout_minutes=30,
+                                 training_data=train_data,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 **ensemble_settings
+                                )
 ```
 
 <a name="exit"></a> 
