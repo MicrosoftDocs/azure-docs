@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. In the **Provider Name** text box, type the name; for example, Azure.
 
-	b. Select **Yes** for **Allow Provider Intitated Sign-On**.
+	b. Select **Yes** for **Allow Provider Initiated Sign-On**.
 
 	c. In the **Target Url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
 
