@@ -85,7 +85,7 @@ In the left navigation pane, select **Application Insights** to jump to the **Ov
 ## Automation
 ### ARM Template
 
-To use the Azure Resource Manager template, copy following content to `azuredeploy.json`. Refer to [Microsoft.AppPlatform Spring/monitoringSettings](https://docs.microsoft.com/en-us/azure/templates/microsoft.appplatform/spring/monitoringsettings) for more details.
+To use the Azure Resource Manager template, copy following content to `azuredeploy.json`. Refer to [Microsoft.AppPlatform Spring/monitoringSettings](https://docs.microsoft.com/azure/templates/microsoft.appplatform/spring/monitoringsettings) for more details.
 
 ```json
 {
