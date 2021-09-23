@@ -11,9 +11,10 @@ keywords: private template, sas token template, storage account, template securi
 When your Azure Resource Manager template (ARM template) is located in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This article explains how to use Azure PowerShell or Azure CLI to securely deploy an ARM template with a SAS token.
 
 You will find information on how to protect and manage access to your private ARM templates with directions on how to do the following:
-•	Create storage account with secured container
-•	Upload template to storage account
-•	Provide SAS token during deployment
+
+* Create storage account with secured container
+* Upload template to storage account
+* Provide SAS token during deployment
 
 > [!IMPORTANT]
 > Instead of securing your private template with a SAS token, consider using [template specs](template-specs.md). With template specs, you can share your templates with other users in your organization and manage access to the templates through Azure RBAC.
