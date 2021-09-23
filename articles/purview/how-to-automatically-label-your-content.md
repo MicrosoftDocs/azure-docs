@@ -12,6 +12,10 @@ ms.date: 03/09/2021
 
 ## Create or extend existing sensitivity labels to Azure Purview
 
+> [!IMPORTANT]
+> Azure Purview Sensitivity Labels are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 If you don't already have sensitivity labels, you'll need to create them and make them available for Azure Purview. Existing sensitivity labels can also be modified to make them available for Azure Purview.
 
 ### Step 1: Licensing requirements

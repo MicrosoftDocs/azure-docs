@@ -14,6 +14,10 @@ title: Sensitivity labels in Azure Purview FAQ
 summary: |
   This article lists frequently asked questions about sensitivity labeling in Azure Purview, with their answers and links to more information as needed.</br></br>
 
+  > [!IMPORTANT]
+  > Azure Purview Sensitivity Labels are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+  >
+
 sections:
   - name: Licensing and setup
     questions:
