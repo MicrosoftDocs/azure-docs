@@ -188,7 +188,7 @@ To configure the enterprise application registration for Okta:
     >[!IMPORTANT]
     >If your UPNs in Okta and Azure AD don't match, select an attribute that's common between users.
 
-18. Finish your selections for autoprovisioning. By default, if a user doesn't match in Okta, the system will attempt to provision them in Azure AD. If you have migrated provisioning away from Okta, select **Redirect to Okta sign-in page**.
+18. Finish your selections for autoprovisioning. By default, if a user doesn't match in Okta, the system will attempt to provision the user in Azure AD. If you have migrated provisioning away from Okta, select **Redirect to Okta sign-in page**.
 
     ![Screenshot that shows the "Redirect to Okta sign-in page" option.](media/migrate-okta-federation-to-azure-active-directory/redirect-okta.png)
 
