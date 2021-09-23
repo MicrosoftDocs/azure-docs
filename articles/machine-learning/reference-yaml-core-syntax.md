@@ -47,9 +47,9 @@ To use this data URI format, the storage service you want to reference must firs
 
 The Azure ML data URI format is supported in addition to the direct storage URI formats supported.
 
-### Shortform
+### Short-form
 
-The shortform consists of a datastore in the current workspace and the path on the datastore to the file or folder you want to point to:
+The short-form consists of a datastore in the current workspace and the path on the datastore to the file or folder you want to point to:
 
 `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/`
 
@@ -57,7 +57,7 @@ For example:
 * `azureml://datastores/mydatastore/paths/mnist/`
 * `azureml://datastores/mydatastore/paths/iris.csv/`
 
-### Longform
+### Long-form
 
 The long-form syntax uses the following format:
 
