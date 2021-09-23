@@ -671,6 +671,18 @@ If you are executing the same query and observing variations in the query durati
 - Statistics might expire after some time, so periodically you might observe an impact on performance because the serverless pool must scan and re-built the statistics. You might notice additional “global statistics creation” queries in the SQL request list, that are executed before your query.
 - Check is there some additional workload that is running on the same endpoint when you executed the query with the longer duration. The serverless SQL endpoint will equally allocate the resources to all queries that are executed in parallel, and the query might be delayed.
 
+## Connections
+
+### Sql on demand is current unavailable
+
+Serverless SQL pool endpoint is automatically deactivated when it is not used. The endpoint is automatically activated when the next SQL request is received from any client. In some cases, the endpoint might not properly start when a first query is executed. In most cases this is a transient error. Retrying the query will activate the instance.
+
+if you are seeing this message for a longer time, file a support ticket.
+
+###  Cannot connect from Synapse Studio
+
+See [Synapse studio section](#synapse-studio).
+
 ## Security
 
 ### AAD service principal login failures when SPI is creating a role assignment

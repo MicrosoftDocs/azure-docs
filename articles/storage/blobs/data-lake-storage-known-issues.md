@@ -1,5 +1,5 @@
 ---
-title: Known issues with Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Known issues with Azure Data Lake Storage Gen2
 description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -25,13 +25,13 @@ An increasing number of Blob storage features now work with accounts that have a
 
 Azure Data Lake Storage Gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+For more information, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 ## Supported open source platforms
 
 Several open source platforms support Data Lake Storage Gen2. For a complete list, see [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
-See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+For more information, see [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
 ## Blob storage APIs
 
@@ -88,8 +88,7 @@ ACLs are not yet supported.
 
 ## Third party applications
 
-Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2.
-Applications that call Blob APIs will likely work.
+Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. Applications that call Blob APIs will likely work.
 
 ## Storage Analytics logs (classic)
 
@@ -114,4 +113,4 @@ If parent directories for soft-deleted files or directories are renamed, the sof
 If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions.
 
 > [!TIP]
-> Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). 
+> Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).

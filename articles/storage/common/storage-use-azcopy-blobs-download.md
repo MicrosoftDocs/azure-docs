@@ -34,7 +34,7 @@ Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
 
 **Syntax**
 
-``azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'``
+`azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'`
 
 **Example**
 
