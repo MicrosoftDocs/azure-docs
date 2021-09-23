@@ -9,36 +9,34 @@ manager: femila
 ---
 # Autoscaling for Azure Virtual Desktop session hosts
 
-The autoscale feature is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!IMPORTANT]
+> The autoscale feature is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Automate scaling up or scaling down virtual machines to optimize the costs of your Azure Virtual Desktop deployment. Based on the needs in your environment scale VMs by:
+The autoscaling feature (preview) lets you scale your Azure Virtual Desktop deployment's virtual machines (VMs) up or down to optimize deployment costs. Based on your needs, you can make a scaling plan based on:
 
 - Time of day
-- Days of the week
+- Specific days of the week
 - Session limits per session host
 
 >[!NOTE]
->This feature is not supported with Windows Virtual Desktop (classic). Scaling of ephemeral disks is not supported.
+>Windows Virtual Desktop (classic) doesn't support the autoscaling feature. It also doesn't support scaling ephermal disks.
 
-For best results we strongly recommend using autoscale with VMs deployed using Azure Virtual Desktop ARM templates or tools provided by Microsoft or partners.
+For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
 ## Requirements
 
-Ensure you confirm these requirements before configuring your first scaling plan:
+Before you create your first scaling plan, make sure you follow these guidelines:
 
-- Autoscale currently can only be configured with existing host pools of type pooled.
-
-- Those host pools need to have the MaxSessionLimit configured (don’t use the default value). To configure the value go to the settings of the host pools you want to apply this feature or leverage PowerShell ([New-AZWvdHostPool](powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0))
-
-- Azure Virtual Desktop needs to be given access on the Compute resources to power manage VMs.
+- You can currently only configure autoscale with pooled existing host pools.
+- All host pools you autoscale must have a configured MaxSessionLimit parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AZWvdHostPool](powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0) cmdlets in PowerShell.
+- You must grant Azure Virtual Desktop access to manage power on your VM Compute resources.
 
 ## Create a Custom RBAC role
 
-In the following we will create a custom role to allow the Windows Virtual Desktop Service to power manage the VMs in your subscription.
+To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It'll also let the service apply actions on both host pools and VMs when there are no active user sessions.
 
-Set up a custom RBAC role and add the following rights for the service to power manage the VM and to allow the Autoscale service to apply actions both on host pools and VMs when no active sessions are registered.
-
-When creating custom roles follow instructions for [Azure Custom Roles here](../role-based-access-control/custom-roles.md). Use this JSON example when creating your role:
+To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md), using this JSON template:
 
 ```json
  "properties": {
@@ -73,7 +71,11 @@ When creating custom roles follow instructions for [Azure Custom Roles here](../
 }
 ```
 
-## Assign custom roles with the Azure portal
+## Assign custom roles
+
+Next, you'll need to use the Azure portal to assign the custom role you created to your subscription.
+
+To assign the custom role:
 
 1. Open the Azure portal and go to **Subscriptions**.
 
@@ -81,9 +83,9 @@ When creating custom roles follow instructions for [Azure Custom Roles here](../
 
     ![](media/0ef363a33292ebbc8864945e31ca6fb2.png)
 
-1. Next, name the custom role and add a description. We recommend you name it “Autoscale”
+3. Next, name the custom role and add a description. We recommend you name the role “Autoscale.”
 
-2. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to:
+4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to:
 
 ```azcopy
 "Microsoft.Compute/virtualMachines/deallocate/action", 
@@ -100,11 +102,11 @@ When creating custom roles follow instructions for [Azure Custom Roles here](../
 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
 ```
 
-3. When you're finished, select **Ok**.
+5. When you're finished, select **Ok**.
 
 After that, you'll need to assign the role to grant access to Azure Virtual Desktop.
 
-To assign the custom role:
+To assign the custom role to grant access:
 
 1. In the **Access control (IAM) tab**, select **Add role assignments**.
 
@@ -114,63 +116,60 @@ To assign the custom role:
 
 ![Graphical user interface, text, application Description automatically generated](media/faf200da1a48e409516c08f76db2f414.png)
 
-When adding the custom role in the Azure portal verify you have selected these
-permissions:
+When adding the custom role in the Azure portal, make sure you've selected the correct permissions.
 
 ![Graphical user interface, application Description automatically generated](media/89705981d48f02c2efefaae38e21fe96.png)
 
-## Create a scaling plan
+## How creating a scaling plan works
 
-Before you create your plan, keep the following considerations in mind:
+Before you create your plan, keep the following things in mind:
 
-- One scaling plan can be assigned to one or more host pools of the same host pool type. This means that the same schedule will be applied across all assigned host pools.
+- You can assign one scaling plan to one or more host pools of the same host pool type. The scaling plan's schedule will also be applied across all assigned host pools.
 
-- Each host pool can be associated with only one scaling plan.
+- You can only associate one scaling plan per host pool. If you assign a single scaling plan to multiple host pools, those host pools can't be assigned to another scaling plan.
 
-- A scaling plan is tied and operates in a configured time zone.
+- A scaling plan is can only operate in its configured time zone.
 
-- A scaling plan can have one or more schedules (E.g.: different schedule for weekday versus weekend). Understand usage patterns before you define a schedule. Take the following phases into account:
+- A scaling plan can have one or multiple schedules. For example, different schedules during weekdays versus the weekend.
 
-    - Ramp up covers the start of the day.
-    - Peak hours: define the scaling preference.
-    - Ramp-down covers shutting down VMs at the end of day.
-    - Off peak hours: define the number of VMs which should be up and running outside of the regular hours.
+- Make sure you understand usage patterns before defining your schedule. You'll need to schedule around the following times of day:
 
-1. Scaling plan takes effect immediately when enabled.
+    - Ramp-up: the start of the day, when usage picks up.
+    - Peak hours: the time of day when usage is highest.
+    - Ramp-down: when usage tapers off. This is usually when you shut down your VMs to save costs.
+    - Off-peak hours: the time with the lowest possible usage. You can define the maximum number of VMs that can be active during this time.
+
+- The scaling plan will take effect as soon as you enable it.
 
 Also, keep these limitations in mind:
 
-2. Don’t use autoscale in combination with other scaling Microsoft or third-party scaling tools. Ensure that you disable those for the host pools you apply the scaling plans.
+- Don’t use autoscale in combination with other scaling Microsoft or third-party scaling tools. Ensure that you disable those for the host pools you apply the scaling plans.
 
-3. Autoscale overwrites Drain mode. Use exclusion tags when updating VMs in host pools.
+- Autoscale overwrites drain mode, so make sure to use exclusion tags when updating VMs in host pools.
 
-4. Load balancing algorithm configured in the host pool settings is ignored when a scaling plan is assigned to a host pool. Autoscale applies load balancing based on preferred configuration in the schedule.
+- Autoscaling ignores existing load-balancing algorithms in your host pool settings, and instead applies load balancing based on your schedule configuration.
 
-### Assign a role with the Azure portal
+## Create a scaling plan
 
-To use the Azure portal to assign a role:
+To create a scaling plan:
 
-#### Create a Scaling Plan (Basics tab)
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 
-Creating a scaling plan includes the following steps:
+2. Go to **Azure Virtual Desktop** > **Scaling Plans**, then select **Create**.
 
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
+3. In the **Basics** tab, look under **Project details** and select the name of the subscription you will assign the scaling plan to.
 
-- Navigate to Azure Virtual Desktop. Select **Scaling Plans** and select **Create.**
+4. If you want to make a new resource group, select **Create new**. If you want to use an existing resource group, select its name from the drop-down menu.
 
-- In the **Basics** tab, select the correct subscription under Project details.
+5. Enter a name for the scaling plan into the **Name** field.
 
-- Either select **Create new** to make a new resource group or select an existing resource group from the drop-down menu.
+6. Optionally, you can also add a "friendly" name that will be displayed to your users and a description for your plan.
 
-- Enter a **name** for the scaling plan.
+7. For **Region**, select a region for your scaling plan. The metadata for the object will be stored in the geography associated with the region. Currently, autoscaling only supports the Central US and East US 2 regions. To learn more about regions, see [Data locations](data-locations.md).
 
-- Optionally add a friendly name and a description of the plan.
+8. For **Time zone**, select the time zone you'll use with your plan.
 
-- Select a **region** for the Scaling Plan object. The metadata for the object will be stored in the geography associated with the region. In preview only Central US and East US 2 are supported.
-
-- **Select a time zone** to which the triggers to start or stop VMs are bound to.
-
-- Use **Exclusion tags** associated with VMs to exclude them from scaling operations. As an example, you might want to use this functionality for maintenance. When you have set VMs on Drain mode use the tag so autoscale doesn’t override drain mode.
+9. In **Exclusion tags**, enter tags for VMs you don't want to include in scaling operations. For example, you might want to use this functionality for maintenance. When you have set VMs on Drain mode use the tag so autoscale doesn’t override drain mode.
 
 - Select next to move to **schedules**.
 
