@@ -159,19 +159,19 @@ The following table recommends tools that you can use to ingest data from each s
 
 | Tool | Ad hoc | Streamed data   | Relational data  | Web server log data | Azure HDInsight clusters | Hadoop clusters |
 |------|--------|-----------------|------------------|---------------------|--------------------------|-----------------|
-| [Azure Portal]() | ![Yes](../media/icons/yes-icon.png) |  |  |  |  |  |  |
+| Azure Portal | ![Yes](../media/icons/yes-icon.png) |  |  |  |  |  |  
 | [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md) | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  | 
 | [Azure CLI](data-lake-storage-directory-file-acl-cli.md) | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  |  
-| [REST]() | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  |  
+| [REST](/rest/api/storageservices/data-lake-storage-gen2) | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  |  
 | Azure SDKs <sup>1</sup> | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  |
-|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)| ![Yes](../media/icons/yes-icon.png) |||||
+|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) | ![Yes](../media/icons/yes-icon.png) ||||| |
 | [Apache DistCp](data-lake-storage-use-distcp.md) | ![Yes](../media/icons/yes-icon.png) |  |  |  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |  
 | [AzCopy](../common/storage-use-azcopy-v10.md) | ![Yes](../media/icons/yes-icon.png) |  |  |  | ![Yes](../media/icons/yes-icon.png) |  |  
-| [Azure Data Box]() |  |  |  |  |  | ![Yes](../media/icons/yes-icon.png) |  
+| [Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md) |  |  |  |  |  | ![Yes](../media/icons/yes-icon.png) |  
 | [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) | ![Yes](../media/icons/yes-icon.png) |  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [HDInsight Storm](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |  | ![Yes](../media/icons/yes-icon.png) |  |  |  |  |   
 | [Azure Stream Analytics](../../stream-analytics/stream-analytics-quick-create-portal.md) |  | ![Yes](../media/icons/yes-icon.png) |  |  |  |  |  
-| [WANdisco LiveData Migrator for Azure]() |  |  |  |  |  | ![Yes](../media/icons/yes-icon.png) |  
+| [WANdisco LiveData Migrator for Azure](migrate-gen2-wandisco-live-data-platform.md) |  |  |  |  |  | ![Yes](../media/icons/yes-icon.png) |  
 
 <sup>1</sup>    SDKs include [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [Node.js](data-lake-storage-directory-file-acl-javascript.md).
 
@@ -182,9 +182,11 @@ For uploading datasets that range in several terabytes, using the methods descri
 
 Azure ExpressRoute lets you create private connections between Azure data centers and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. To learn more, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
-## Analyze, visualize, and download data
+## Analyze, visualize, and download
 
 Once the data is available in Data Lake Storage Gen2 you can run analysis on that data, create visualizations, and even download data to your local machine or to other repositories such as an Azure SQL database or SQL Server instance. 
+
+The following table recommends tools that you can use to analyze, visualize, and download data.
 
 | Task | Tool |
 |--|--|
