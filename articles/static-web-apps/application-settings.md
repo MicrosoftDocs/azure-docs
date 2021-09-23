@@ -16,7 +16,7 @@ Application settings hold configuration settings for values that may change, suc
 
 Application settings:
 
-- Are available as enironment variables to the backend API of a static web app
+- Are available as environment variables to the backend API of a static web app
 - Can be used to store secrets used in [authentication configuration](key-vault-secrets.md)
 - Are encrypted at rest
 - Are copied to [staging](review-publish-pull-requests.md) and production environments
@@ -32,12 +32,12 @@ Application settings:
 - An Azure Static Web Apps application
 - [Azure CLI](/cli/azure/install-azure-cli) — required if you are using the command line
 
-## Configuring API application settings for local development
+## Configure API application settings for local development
 
 APIs in Azure Static Web Apps are powered by Azure Functions, which allows you to define application settings in the _local.settings.json_ file when you're running the application locally. This file defines application settings in the `Values` property of the configuration.
 
 > [!NOTE]
-> The _local.settings.json_ file is only used for local development. Use the [Azure Portal](https://portal.azure.com) to configure application settings for production.
+> The _local.settings.json_ file is only used for local development. Use the [Azure portal](https://portal.azure.com) to configure application settings for production.
 
 The following sample _local.settings.json_ shows how to add a value for the `DATABASE_CONNECTION_STRING`.
 
@@ -62,11 +62,11 @@ The `local.settings.json` file is not tracked by the GitHub repository because s
 
 Generally, configuring your settings is done infrequently, and isn't required with every build.
 
-## Configuring application settings
+## Configure application settings
 
 You can configure application settings via the Azure portal or with the Azure CLI.
 
-### Using the Azure portal
+### Use the Azure portal
 
 The Azure portal provides an interface for creating, updating and deleting application settings.
 
@@ -88,7 +88,7 @@ The Azure portal provides an interface for creating, updating and deleting appli
 
 1. Click **Save**.
 
-### Using the Azure CLI
+### Use the Azure CLI
 
 You can use the `az rest` command to do bulk uploads of your settings to Azure. The command accepts application settings as JSON objects in a parent property called `properties`.
 
