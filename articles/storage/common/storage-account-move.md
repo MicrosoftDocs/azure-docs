@@ -185,11 +185,11 @@ Deploy the template to create a new storage account in the target region.
 
 2. Enter or select the property values:
 
-- **Subscription**: Select an Azure subscription.
+   - **Subscription**: Select an Azure subscription.
 
-- **Resource group**: Select **Create new** and give the resource group a name.
+   - **Resource group**: Select **Create new** and give the resource group a name.
 
-- **Location**: Select an Azure location.
+   - **Location**: Select an Azure location.
 
 3. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
 
