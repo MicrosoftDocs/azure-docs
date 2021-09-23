@@ -588,7 +588,7 @@ It's important to note, that you cannot directly set the pronunciation of a phra
   </lexeme>
 ```
 > [!Note]
-> The syllable boundary is '.' in IPA.
+> The syllable boundary is '.' in the International Phonetic Alphabet.
 
 You could also directly provide your expected `alias` for the acronym or abbreviated term. For example:
 ```xml
