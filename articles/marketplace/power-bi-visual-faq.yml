@@ -5,7 +5,7 @@ metadata:
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
-  ms.date: 09/03/2021
+  ms.date: 09/27/2021
   author: posurnis
   ms.author: pooja.surnis
   ms.reviewer: pooja.surnis
@@ -82,7 +82,7 @@ sections:
           
           **Access the right program in Partner Center**
 
-          #### [Workspaces view](#tab/new-web-form)
+          #### [Workspaces view](#tab/workspaces-view)
 
           1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials as before. You'll see the tiles associated with the programs you are enrolled in, such as the MPN program, the Office Store, and the commercial marketplace. 
 
@@ -90,7 +90,7 @@ sections:
 
               [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-          #### [Current view](#tab/old-web-form)
+          #### [Current view](#tab/current-view)
 
           1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials as before. The navigation menu on the left (left-nav menu) displays options associated with the programs you are enrolled in, such as the MPN program, the Office Store, and the commercial marketplace.
 
@@ -129,13 +129,13 @@ sections:
 
           1. **Branding and navigation changes**
 
-              #### [Workspaces view](#tab/new-web-form)   
+              #### [Workspaces view](#tab/workspaces-view)   
           
               You’ll notice some branding changes. For example, **products** are branded as **offers** in the commercial marketplace:
 
               :::image type="content" source="media/power-bi-visual/branding-navigation-workspaces.png" alt-text="Shows the offer Overview page in Partner Center.":::
 
-              #### [Current view](#tab/old-web-form)
+              #### [Current view](#tab/current-view)
 
               You’ll notice some branding changes. For example, **products** are branded as **offers** in the commercial marketplace:
 

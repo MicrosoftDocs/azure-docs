@@ -7,7 +7,7 @@ ms.reviewer: ""
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 09/27/2021
 ---
 
 # Create a Power BI visual offer
@@ -24,7 +24,7 @@ Review [Plan a Power BI visual offer](marketplace-power-bi-visual.md). It will e
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Workspaces view](#tab/new-web-form)
+#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -36,7 +36,7 @@ Review [Plan a Power BI visual offer](marketplace-power-bi-visual.md). It will e
 
     [ ![Shows the left pane menu options and the 'New offer' button.](media/power-bi-visual/new-offer-power-bi-visual-workspaces.png) ](media/power-bi-visual/new-offer-power-bi-visual-workspaces.png#lightbox)
 
-#### [Current view](#tab/old-web-form)
+#### [Current view](#tab/current-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
