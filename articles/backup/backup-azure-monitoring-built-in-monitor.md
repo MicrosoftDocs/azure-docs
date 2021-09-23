@@ -151,13 +151,13 @@ To opt-in to Azure Monitor alerts for backup failure and restore failure scenari
     > [!NOTE]
     > It may take up to 24 hours for the registration to take effect. To enable this feature for multiple subscriptions, repeat the above process by selecting the relevant subscription at the top of the screen. We also recommend to re-register the preview flag if a new resource has been created in the subscription after the initial registration to continue receiving alerts.
 
-4. As a best practice, it is also recommended to register the resource provider to ensure that the feature registration information gets synced with Azure Backup service as expected. To register the resource provider, run the following PowerShell command in the context of the subscription for which you have registered the feature flag.
+4. As a best practice, we also recommend you to register the resource provider to ensure that the feature registration information gets synced with the Azure Backup service as expected. To register the resource provider, run the following PowerShell command in the subscription for which you have registered the feature flag.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace <ProviderNamespace>
 ```
 
-To receive alerts for Recovery services vaults, use the value 'Microsoft.RecoveryServices' for the ProviderNamespace parameter. To receive alerts for Backup vaults, use 'Microsoft.DataProtection'.
+To receive alerts for Recovery Services vaults, use the value _Microsoft.RecoveryServices_ for the _ProviderNamespace_ parameter. To receive alerts for Backup vaults, use the value _Microsoft.DataProtection_.
 
 ### Viewing fired alerts in the Azure portal 
 
