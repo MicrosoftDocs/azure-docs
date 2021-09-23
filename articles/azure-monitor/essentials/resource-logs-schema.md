@@ -39,9 +39,9 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 ## Service-specific schemas
 
-The schema for resource logs varies depending on the resource and log category. This list shows services that make available resource logs and links to the service and category-specific schema where available. This list is changing all the time as new services are added, so if you don't see what you need below, use a search engine to discover additional documentation. Feel free to open a GitHub issue on this article so we can update it.
+The schema for resource logs varies depending on the resource and log category. The following list shows services that make available resource logs and links to the service and category-specific schema (where available). The list is changing all the time as new services are added. If you don't see what you need, use a search engine to discover additional documentation. Feel free to open a GitHub issue on this article so we can update it.
 
-| Service | Schema & Docs |
+| Service | Schema and documentation |
 | --- | --- |
 | Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/overview-reports.md) and [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | [Azure Analysis Services - Setup diagnostic logging](../../analysis-services/analysis-services-logging.md) |
