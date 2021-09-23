@@ -164,3 +164,11 @@ az group delete --resource-group link-demo
 ```
 
 ## Next steps
+
+* Learn more about [private access](concepts-hyperscale-private-access.md)
+  (preview)
+* Learn about [private
+  endpoints](/azure/private-link/private-endpoint-overview)
+* Learn about [virtual
+  networks](/azure/virtual-network/concepts-and-best-practices)
+* Learn about [private DNS zones](/azure/dns/private-dns-overview)

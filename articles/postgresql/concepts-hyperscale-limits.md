@@ -48,7 +48,7 @@ client connections.
 
 ### Server group name
 
-Hyperscale (Citus) server group names are limited to forty characters.
+Hyperscale (Citus) server group names are limited to 40 characters.
 
 ## Storage
 
