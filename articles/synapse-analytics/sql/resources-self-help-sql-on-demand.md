@@ -130,11 +130,11 @@ FROM
 ```
 causes:
 
-```Error handling external file: ‘Max error count reached’. File/External table name: [filepath].```
+`Error handling external file: ‘Max error count reached’. File/External table name: [filepath].`
 
 As soon as parser version is changed from version 2.0 to version 1.0, the error messages help to identify the problem. The new error message is now instead: 
 
-```Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]```
+`Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]`
 
 Truncation tells us that our column type is too small to fit our data. The longest first name in this ‘names.csv’ file has seven characters. Therefore, the according data type to be used should be at least VARCHAR(7). 
 The error is caused by this line of code: 
@@ -205,7 +205,7 @@ FROM
 ```
 
 causes this error: 
-```Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]```
+`Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]`
 
 It is necessary to browse the data and make an informed decision to handle this problem. 
 To look at the data that causes this problem, the data type needs to be changed first. Instead of querying column “ID” with the data type “SMALLINT”, VARCHAR(100) is now used to analyze this issue. 
@@ -379,9 +379,10 @@ FROM
 
     AS [result]
 ```
+
 causes this error: 
 
-```Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.```
+`Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.`
 
 This error message tells us that data types are not compatible and already comes with the suggestion to use the FLOAT instead of INT. 
 The error is hence caused by this line of code: 
