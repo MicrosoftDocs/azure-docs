@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 09/24/2021
 ---
 
 # Understanding resource sets
@@ -40,13 +40,13 @@ Purview intentionally doesn't try to classify most document file types like Word
 
 ## How Azure Purview scans resource sets
 
-When Azure Purview detects resources that it thinks are part of a resource set, it switches from a full scan to a sample scan. In a sample scan, it opens only a subset of the files that it thinks are in the resource set. For each file it does open, it uses its schema and runs its classifiers. Azure Purview then finds the newest resource among the opened resources and uses that resource's schema and classifications in the entry for the entire resource set in the catalog.
+When Azure Purview detects resources that it thinks are part of a resource set, it switches from a full scan to a sample scan. A sample scan opens only a subset of the files that it thinks are in the resource set. For each file it opens, it uses its schema and runs its classifiers. Azure Purview then finds the newest resource among the opened resources and uses that resource's schema and classifications in the entry for the entire resource set in the catalog.
 
 ## Advanced resource sets
 
-By default, Azure Purview determines the schema and classifications for resource sets based upon the [resource set file sampling rules](sources-and-scans.md#resource-set-file-sampling). Azure Purview can customize and further enrich your resource set assets through the **Advanced Resource Sets** capability. When advanced resource sets is enabled, additional aggregations are made to compute the the following information about resource set assets:
+By default, Azure Purview determines the schema and classifications for resource sets based upon the [resource set file sampling rules](sources-and-scans.md#resource-set-file-sampling). Azure Purview can customize and further enrich your resource set assets through the **Advanced Resource Sets** capability. When Advanced Resource Sets are enabled, Azure Purview run extra aggregations to compute the following information about resource set assets:
 
-- More up-to-date schema and classifications to accurately reflect schema drift from changing metadata.
+- Most up-to-date schema and classifications to accurately reflect schema drift from changing metadata.
 - A sample path from a file that comprises the resource set.
 - A partition count that shows how many files make up the resource set. 
 - A schema count that shows how many unique schemas were found. This value is either a number between 1–5, or for values greater than 5, 5+.
