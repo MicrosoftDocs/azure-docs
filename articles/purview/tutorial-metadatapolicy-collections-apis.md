@@ -5,7 +5,7 @@ author: abandyop
 ms.author: arindamba
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 09/24/2021
 # Customer intent: As a Purview collection administrator, I want to manage Collections and control access to each Collection in the Purview account by adding or removing users, groups, or service principals via REST API Interface.
 ---
@@ -891,8 +891,13 @@ On success, you will get response 200.
 Note: The user who calls this API must have owner or UAA permission on Purview account to execute a write action on the account.
 
 
-# 6. Purview REST API Specs Combined Archive
+## 6. Purview REST API Specs Combined Archive
 Note: To help you get quick-started with Purview APIs here is an archive of all the Purview REST API Specs collected and combined at one place : [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest) or Postman collection of Purview APIs.
 
-# 7. PowerShell Tool To Run Purview APIs
+## 7. PowerShell Utility To Run Purview APIs
 Note: You may choose to execute Purview REST APis using PowerShell Utility [Purview-API-PowerShell](https://aka.ms/purview-api-ps) - It can be readily installed from PS Gallery.
+
+> [!div class="nextstepaction"] 
+> [Purview-API-PowerShell](https://aka.ms/purview-api-ps) 
+
+
