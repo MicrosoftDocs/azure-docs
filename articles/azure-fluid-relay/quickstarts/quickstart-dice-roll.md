@@ -43,7 +43,6 @@ npm start
 
 
 When you run the `npm start` command, two things will happen. First, a Fluid server will be launched in a local process. This server is intended for development only. You'll upgrade to an Azure-hosted production server later. Second, a new browser tab will open to a page that contains a new instance of the dice roller app. 
-
 You can open new tabs with the same URL to create additional instances of the dice roller app. Each instance of the app is configured by default to use your local Fluid service. Click the **Roll** button in any instance of the app, and note that the state of the dice changes in every client.
 
 ## Upgrading to Azure Fluid Relay
