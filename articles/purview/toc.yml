@@ -29,8 +29,8 @@ items:
     - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
   - name: Register and scan an on-prem SQL server
-    href: register-scan-on-premises-sql-server.md
-  - name: Call the REST APIs for the catalog
+    href: tutorial-register-scan-on-premises-sql-server.md
+  - name: How to use REST APIs for Purview Data Planes
     href: tutorial-using-rest-apis.md
 - name: Concepts
   items:
