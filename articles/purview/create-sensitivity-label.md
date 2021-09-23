@@ -10,7 +10,6 @@ ms.date: 03/09/2021
 ---
 # Labeling in Azure Purview
 
-## Overview
 
 To get work done, people in your organization collaborate with others both inside and outside the organization. Data doesn't always stay in your cloud, and often roams everywhere, across devices, apps, and services. When your data roams, you still want it to be secure in a way that meets your organization's business and compliance policies.</br>
 
