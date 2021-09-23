@@ -1,6 +1,6 @@
 ---
 title: Enable and manage soft delete for containers
-titleSuffix: Azure Storage 
+titleSuffix: Azure Storage
 description: Enable container soft delete to more easily recover your data when it is erroneously modified or deleted.
 services: storage
 author: tamram
@@ -41,7 +41,7 @@ To enable container soft delete with PowerShell, first install the [Az.Storage](
 ```azurepowershell-interactive
 Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
-    -RetentionDays 7 
+    -RetentionDays 7
 ```
 
 To disable container soft delete, call the **Disable-AzStorageContainerDeleteRetentionPolicy** command.
