@@ -1,11 +1,11 @@
 ---
 title: Migrate Amazon RDS for MySQL to Azure Database for MySQL using Data-in Replication
 description: This article describes how to migrate Amazon RDS for MySQL to Azure Database for MySQL by using Data-in Replication.
-author: HJToland3
+author: SudheeshGH
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 09/24/2021
 ---
 
 # Migrate Amazon RDS for MySQL to Azure Database for MySQL using Data-in replication
@@ -42,33 +42,6 @@ Regardless of where the client computer is located, it requires adequate compute
 - If the dump or restore involves real-time processing of data, for example, compression or decompression, choose an instance class with at least one CPU core per dump/restore thread.
 - Ensure that there's enough network bandwidth available to the client instance. We recommend using instance types that support accelerated networking feature. For more information, see the Accelerated Networking section in the [Azure Virtual Machine Networking Guide](/azure/virtual-network/create-vm-accelerated-networking-cli).
 - Ensure that the client machine’s storage layer provides the expected read/write capacity, and we recommend an Azure virtual machine with Premium SSD storage.
-
-## GTID replication
-
-A global transaction identifier (GTID) is a unique identifier that's created and associated with each transaction that's committed on the server of origin (source). This identifier is unique not only to the server on which it originated, but it's also unique across all servers in a specific replication setup. There is a one-to-one mapping between all transactions and all GTIDs.
-
-GTID sets are used in the MySQL server in several ways. For example, the values stored by the `gtid_executed` and `gtid_purged` system variables are represented as GTID sets. In addition, the functions `GTID_SUBSET()` and `GTID_SUBTRACT()` require GTID sets as input.
-
-GTIDs are always preserved between source and replica. You can always determine the source for any transaction applied on any replica by examining its binary log. In addition, after a transaction with a specific GTID is committed on a server, any subsequent transaction that has the same GTID is ignored by that server. Thus, a transaction committed on the source can be applied no more than once on the replica, which helps guarantee consistency.
-
-Learn how to use [GTID replication](https://dev.mysql.com/doc/refman/8.0/en/replication-gtids.html).
-
-Check the server parameters to check the GTID parameters for both the master and the slave:
-
-```
-Mysql> SHOW VARIABLES 'gtid_mode';
-Mysql> SHOW VARIABLES 'enforce_gtid_consistency';
-```
-
-To enable GTID, `enforce_gtid_consistency` must first be enabled (ON).
- 
-Learn how to enable GTID mode on the master in [AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-replication-gtid.html).
-
-Learn how to enable GTID mode on the slave in [Azure](/flexible-server/concepts-server-parameters.md).
-
-For Azure MySQL, GTID is enabled by default. If GTID isn't enabled, enable `gtid_mode` in stages: OFF > OFF_PERMISSIVE > ON_PERMISSIVE > ON. You can enable GTID either by using the Azure console or the Azure CLI.
-
-After you enable GTID, you must restart your MySQL instance.
 
 ## Prerequisites
 
