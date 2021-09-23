@@ -69,7 +69,7 @@
       href: dns-details.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/firewall-security-baseline?toc=/azure/firewall/toc.json
-    - name: Active FTP support
+    - name: FTP support
       href: active-ftp-support.md
 - name: How-to guides
   items:

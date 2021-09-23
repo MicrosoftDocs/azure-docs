@@ -1,26 +1,38 @@
 ---
-title: Azure Firewall Active FTP support
+title: Azure Firewall FTP support
 description: By default, Active FTP is disabled on Azure Firewall. You can enable it using PowerShell, CLI, and ARM template.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/23/2021
 ms.author: victorh
 ---
 
-# Azure Firewall Active FTP support
+# Azure Firewall FTP support
 
-With Active FTP, the FTP server initiates the data connection to the designated FTP client data port. Firewalls on the client-side network normally block an outside connection request to an internal client port. For more information, see [Active FTP vs. Passive FTP, a Definitive Explanation](https://slacksite.com/other/ftp.html).
+To support FTP, a firewall must consider the following key aspects:
+- FTP mode – active or passive
+- Client/server location like internet or intranet
+- flow direction (inbound vs. outbound). 
 
-By default, Active FTP support is disabled on Azure Firewall to protect against FTP bounce attacks using the FTP `PORT` command. However, you can enable Active FTP when you deploy using Azure PowerShell, the Azure CLI, or an Azure ARM template.
+Azure Firewall supports both Active and Passive FTP scenarios. For more information about FTP mode, see [Active FTP vs. Passive FTP, a Definitive Explanation](https://slacksite.com/other/ftp.html). 
 
-To support active mode FTP the following TCP ports need to be opened:
+By default, Passive FTP is enabled and Active FTP support is disabled to protect against FTP bounce attacks using the FTP PORT command. However, you can enable Active FTP when you deploy using Azure PowerShell, the Azure CLI, or an Azure ARM template. Azure Firewall can support both Active and Passive FTP simultaneously. *Active FTP* is a Firewall property that can be enabled for both Premium and Standard SKUs, secure hub and VNet firewalls, and when using Firewall Policy and Classic Rules.
 
-- FTP server's port 21 from anywhere (client initiates connection)
-- FTP server's port 21 to ports > 1023 (server responds to client's control port)
-- FTP server's port 20 to ports > 1023 on clients (server initiates data connection to client's data port)
-- FTP server's port 20 from ports > 1023 on clients (client sends ACKs to server's data port)
+
+The following table shows the configuration required to support various FTP scenarios:
+
+
+|Firewall Scenario  |Active FTP mode   |Passive FTP mode  |
+|---------|---------|---------|
+|VNet-VNet     |Network Rules to configure:<br>- Allow From Source VNet to Dest IP port 21<br>- Allow From Dest IP port 20 to Source VNet |Network Rules to configure:<br>- Allow From Source VNet to Dest IP port 21<br>- Allow From Source VNet to Dest IP \<Range of Data Ports>|
+|Outbound VNet - Internet<br><br>(FTP client in VNet, server on Internet)      |Not supported *|**Pre-Condition**: Configure FTP server to accept data and control channels from different source IP addresses. Alternatively, configure Azure Firewall with single Public IP address.<br><br>Network Rules to configure:<br>- Allow From Source VNet to Dest IP port 21<br>- Allow From Source VNet to Dest IP \<Range of Data Ports> |
+|Inbound DNAT<br><br>(FTP client on Internet, server in VNet)      |DNAT rule to configure:<br>- DNAT From Internet Source to VNet IP port 21<br><br>Network rule to configure:<br>- Allow From VNet IP port 20 to Internet Source |**Pre-Condition**:<br>Configure FTP server to accept data and control channels from different source IP addresses.<br><br>Tip: Azure Firewall supports limited number of DNAT rules. It is important to configure the FTP server to use a small port range on the Data channel.<br><br>DNAT Rules to configure:<br>- DNAT From Internet Source to VNet IP port 21<br>- DNAT From Internet Source to VNet IP \<Range of Data Ports> |
+|Row4     |         |         |
+
+\* Active FTP will not work when the FTP client must reach an FTP server on the Internet. Active FTP uses a PORT command from the FTP client that tells the FTP server what IP address and port to use for the data channel. This PORT command uses the private IP address of the client which cannot be changed. Client-side traffic traversing the Azure Firewall will be NATed for Internet-based communications, so the PORT command is seen as invalid by the FTP server. This is a general limitation of Active FTP when used with a client-side NAT. 
+
 
 ## Azure PowerShell
 
