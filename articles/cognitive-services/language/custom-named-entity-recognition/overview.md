@@ -26,6 +26,13 @@ This documentation contains the following article types:
 * [Concepts](concepts/recommended-practices.md) provide explanations of the service functionality and features.
 * [How-to guides](how-to/tag-data.md) contain instructions for using the service in more specific or customized ways.
 
+## Example: Use Custom NER for information extraction
+
+With an abundance of electronic documents in an enterprise, the process of extracting information from them can be difficult and time consuming. With Custom NER, you can save a significant amount of time and effort by building custom models to ease the process of information extraction from unstructured documents like contracts or financial documents.
+
+## Example: Use Custom NER for to enrich semantic search
+
+Search can be foundational to apps that deliver text content to users, with common scenarios including: catalog or document search, retail product search, or knowledge mining for data science. Custom NER enables you to build your own custom models to extract specific entities from your unstructured text. You can also integrate the service with [Cognitive Search](/azure/search/search-what-is-azure-search) to enrich your index with the extracted entities from files.
 
 ## Development life cycle
 

@@ -159,11 +159,11 @@ The following steps help you create, edit, and view diagnostic settings:
 
 ### <a name="sample-query"></a>Log Analytics sample query
 
-If you selected to send diagnostic data to a Log Analytics Workspace, then you can use queries as the example below to examine. 
-These queries use a SQL-like Log Analytics Query Language, you can learn more about this language from [this article](https://docs.microsoft.com/services-hub/health/log_analytics_query_language).
- The following example contains a query to obtain site-to-site route diagnostics.
+If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries such as the example below to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log_analytics_query_language).
 
-```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
+The following example contains a query to obtain site-to-site route diagnostics.
+
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
 
 Replace the values below, after the **= =**, as needed based on the tables reported in the previous section of this article.
 

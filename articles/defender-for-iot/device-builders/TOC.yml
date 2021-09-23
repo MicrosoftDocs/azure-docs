@@ -74,7 +74,7 @@
     - name: Defender-IoT-micro-agent
       displayName: device twins, Defender-IoT-micro-agent twin
       href: concept-security-module.md
-    - name: Edge Defender-IoT-micro-agent
+    - name: Edge azureiotsecurity
       href: security-edge-architecture.md
     - name: Security agents
       href: overview-security-agents.md
@@ -138,7 +138,7 @@
           href: azure-iot-security-local-configuration-c.md
         - name: Local configuration C#
           href: azure-iot-security-local-configuration-csharp.md 
-      - name: Deploy Edge Defender-IoT-micro-agent
+      - name: Deploy Edge azureiotsecurity
         href: how-to-deploy-edge.md
       - name: Configure security agents
         displayName: property
