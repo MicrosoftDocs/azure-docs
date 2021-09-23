@@ -4,7 +4,7 @@ description: How to suspend, remove, force delete, and flush Azure HPC Cache sto
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/22/2021
+ms.date: 09/23/2021
 ms.author: v-erkel
 ---
 
@@ -71,7 +71,6 @@ This action skips the step that synchronizes files in the cache with the files i
 There also is no guarantee that the back-end storage system will be accessible after it is removed from the cache.
 
 Usually, force remove is used only when a storage target has become unresponsive or otherwise is in a bad state. This option lets you remove the bad storage target instead of having to take more drastic action.
-<!-- https://msazure.visualstudio.com/One/_workitems/edit/8267141 -->
 
 ### Delete a storage target
 
@@ -130,7 +129,7 @@ The **State** value affects which management options you can use. Here is a shor
 * **Ready** - The storage target is operating normally and available to clients. You can use any of the management options on this storage target (except for **Resume**, which only is valid for suspended storage targets).
 * **Busy** - The storage target is processing another operation. You can delete or force remove the storage target.
 * **Suspended** - The storage target has been taken offline. You can still flush, delete, or force remove this storage target. Choose **Resume** to put the target back in service.
-* **Flushing** - The storage target is writing data to the back-end storage. <!-- can it serve/queue client requests? -->
+* **Flushing** - The storage target is writing data to the back-end storage. The target can't process client requests while flushing, but it will automatically go back to its previous state after it finishes writing data.
 
 ## Next steps
 
