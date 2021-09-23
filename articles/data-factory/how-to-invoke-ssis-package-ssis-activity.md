@@ -31,15 +31,15 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
 1. On your Data Factory overview or home page in the Azure portal, select the **Author & Monitor** tile to start the Data Factory UI or app in a separate tab. 
 
-   ![Data Factory home page](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png" alt-text="Data Factory home page":::
 
    On the home page, select **Orchestrate**. 
 
-   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the ADF home page.":::
 
 1. In the **Activities** toolbox, expand **General**. Then drag an **Execute SSIS Package** activity to the pipeline designer surface. 
 
-   ![Drag an Execute SSIS Package activity to the designer surface](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png" alt-text="Drag an Execute SSIS Package activity to the designer surface"::: 
 
    Select the Execute SSIS Package activity object to configure its **General**, **Settings**, **SSIS Parameters**, **Connection Managers**, and **Property Overrides** tabs.
 
@@ -47,7 +47,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
 On the **General** tab of Execute SSIS Package activity, complete the following steps.
 
-![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png" alt-text="Set properties on the General tab":::
 
    1. For **Name**, enter the name of your Execute SSIS Package activity.
 
@@ -67,7 +67,7 @@ On the **General** tab of Execute SSIS Package activity, complete the following 
 
 On the **Settings** tab of Execute SSIS Package activity, complete the following steps.
 
-![Set properties on the Settings tab - Automatic](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png" alt-text="Set properties on the Settings tab - Automatic":::
 
    1. For **Azure-SSIS IR**, select the designated Azure-SSIS IR to run your Execute SSIS Package activity.
 
@@ -93,13 +93,13 @@ On the **Settings** tab of Execute SSIS Package activity, complete the following
 
    1. If your Azure-SSIS IR isn't running or the **Manual entries** check box is selected, enter your package and environment paths from SSISDB directly in the following formats: `<folder name>/<project name>/<package name>.dtsx` and `<folder name>/<environment name>`.
 
-      ![Set properties on the Settings tab - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png" alt-text="Set properties on the Settings tab - Manual":::
 
 ##### Package location: File System (Package)
 
 **File System (Package)** as your package location is automatically selected if your Azure-SSIS IR was provisioned without SSISDB or you can select it yourself. If it's selected, complete the following steps.
 
-![Set properties on the Settings tab - File System (Package)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png" alt-text="Set properties on the Settings tab - File System (Package)":::
    
    1. Specify your package to run by providing a Universal Naming Convention (UNC) path to your package file (with `.dtsx`) in the **Package path** box. You can browse and select your package by selecting **Browse file storage** or enter its path manually. For example, if you store your package in Azure Files, its path is `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
    
@@ -129,7 +129,7 @@ For all UNC paths previously mentioned, the fully qualified file name must be fe
 
 If you select **File System (Project)** as your package location, complete the following steps.
 
-![Set properties on the Settings tab - File System (Project)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png" alt-text="Set properties on the Settings tab - File System (Project)":::
 
    1. Specify your package to run by providing a UNC path to your project file (with `.ispac`) in the **Project path** box and a package file (with `.dtsx`) from your project in the **Package name** box. You can browse and select your project by selecting **Browse file storage** or enter its path manually. For example, if you store your project in Azure Files, its path is `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
 
@@ -157,7 +157,7 @@ For all UNC paths previously mentioned, the fully qualified file name must be fe
 
 If you select **Embedded package** as your package location, complete the following steps.
 
-![Set properties on the Settings tab - Embedded package](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png" alt-text="Set properties on the Settings tab - Embedded package":::
 
    1. Drag and drop your package file (with `.dtsx`) or **Upload** it from a file folder into the box provided. Your package will be automatically compressed and embedded in the activity payload. Once embedded, you can **Download** your package later for editing. You can also **Parameterize** your embedded package by assigning it to a pipeline parameter that can be used in multiple activities, hence optimizing the size of your pipeline payload. Embedding project files (with `.ispac`) is currently unsupported, so you can't use SSIS parameters/connection managers with project-level scope in your embedded packages.
    
@@ -185,7 +185,7 @@ For all UNC paths previously mentioned, the fully qualified file name must be fe
 
 If you select **Package store** as your package location, complete the following steps.
 
-![Set properties on the Settings tab - Package store](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png" alt-text="Set properties on the Settings tab - Package store":::
    
    1. For **Package store name**, select an existing package store that's attached to your Azure-SSIS IR.
 
@@ -217,7 +217,7 @@ For all UNC paths previously mentioned, the fully qualified file name must be fe
 
 On the **SSIS Parameters** tab of Execute SSIS Package activity, complete the following steps.
 
-![Set properties on the SSIS Parameters tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png" alt-text="Set properties on the SSIS Parameters tab":::
 
    1. If your Azure-SSIS IR is running, **SSISDB** is selected as your package location, and the **Manual entries** check box on the **Settings** tab is cleared, the existing SSIS parameters in your selected project and package from SSISDB are displayed for you to assign values to them. Otherwise, you can enter them one by one to assign values to them manually. Make sure that they exist and are correctly entered for your package execution to succeed. 
    
@@ -231,19 +231,19 @@ Alternatively, you can use secrets stored in your Azure Key Vault as their value
 
 On the **Connection Managers** tab of Execute SSIS Package activity, complete the following steps.
 
-![Set properties on the Connection Managers tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png" alt-text="Set properties on the Connection Managers tab":::
 
    1. If your Azure-SSIS IR is running, **SSISDB** is selected as your package location, and the **Manual entries** check box on the **Settings** tab is cleared, the existing connection managers in your selected project and package from SSISDB are displayed for you to assign values to their properties. Otherwise, you can enter them one by one to assign values to their properties manually. Make sure that they exist and are correctly entered for your package execution to succeed. 
    
       You can obtain the correct **SCOPE**, **NAME**, and **PROPERTY** names for any connection manager by opening the package that contains it on SSDT. After the package is opened, select the relevant connection manager to show the names and values for all of its properties on the **Properties** window of SSDT. With this info, you can override the values of any connection manager properties at run-time. 
 
-      ![Get connection manager properties from SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png" alt-text="Get connection manager properties from SSDT":::
 
       For example, without modifying your original package on SSDT, you can convert its on-premises-to-on-premises data flows running on SQL Server into on-premises-to-cloud data flows running on SSIS IR in ADF by overriding the values of **ConnectByProxy**, **ConnectionString**, and **ConnectUsingManagedIdentity** properties in existing connection managers at run-time.
       
       These run-time overrides can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Azure Active Directory (AAD) authentication with ADF managed identity, see [Configuring AAD authentication with ADF managed identity for OLEDB connections](/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication).
 
-      ![Set properties from SSDT on the Connection Managers tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png" alt-text="Set properties from SSDT on the Connection Managers tab":::
    
    1. If you used the **EncryptSensitiveWithUserKey** protection level when you created your package via SSDT and **File System (Package)**, **File System (Project)**, **Embedded package**, or **Package store** is selected as your package location, you also need to reenter your sensitive connection manager properties to assign values to them on this tab. 
 
@@ -255,23 +255,23 @@ Alternatively, you can use secrets stored in your Azure Key Vault as their value
 
 On the **Property Overrides** tab of Execute SSIS Package activity, complete the following steps.
 
-![Set properties on the Property Overrides tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png" alt-text="Set properties on the Property Overrides tab":::
 
    1. Enter the paths of existing properties in your selected package one by one to assign values to them manually. Make sure that they exist and are correctly entered for your package execution to succeed. For example, to override the value of your user variable, enter its path in the following format: `\Package.Variables[User::<variable name>].Value`. 
 
       You can obtain the correct **PROPERTY PATH** for any package property by opening the package that contains it on SSDT. After the package is opened, select its control flow and **Configurations** property on the **Properties** window of SSDT. Next, select the ellipsis (**...**) button next to its **Configurations** property to open the **Package Configurations Organizer** that's normally used to [create package configurations in Package Deployment Model](/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
-      ![Get package properties from SSDT - Configurations property](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png" alt-text="Get package properties from SSDT - Configurations property":::
 
       On the **Package Configurations Organizer**, select the **Enable package configurations** check box and the **Add...** button to open the **Package Configuration Wizard**. 
       
       On the **Package Configuration Wizard**, select the **XML configuration file** item in **Configuration type** dropdown menu and the **Specify configuration settings directly** button, enter your configuration file name, and select the **Next >** button. 
 
-      ![Get package properties from SSDT - Configurations organizer](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png" alt-text="Get package properties from SSDT - Configurations organizer":::
 
       Finally, select the package properties whose path you want and the **Next >** button.  You can now see, copy & paste the package property paths you want and save them in your configuration file. With this info, you can override the values of any package properties at run-time. 
 
-      ![Get package properties from SSDT - Configuration wizard](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
+      :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png" alt-text="Get package properties from SSDT - Configuration wizard":::
    
    1. If you used the **EncryptSensitiveWithUserKey** protection level when you created your package via SSDT and **File System (Package)**, **File System (Project)**, **Embedded package**, or **Package store** is selected as your package location, you also need to reenter your sensitive package properties to assign values to them on this tab. 
    
@@ -288,7 +288,7 @@ In this step, you trigger a pipeline run.
 
 1. To trigger a pipeline run, select **Trigger** on the toolbar, and select **Trigger now**. 
 
-   ![Trigger now](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png" alt-text="Trigger now":::
 
 2. In the **Pipeline Run** window, select **Finish**. 
 
@@ -296,11 +296,11 @@ In this step, you trigger a pipeline run.
 
 1. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information, such as the **Run Start** time. To refresh the view, select **Refresh**.
 
-   ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png" alt-text="Pipeline runs":::
 
 2. Select the **View Activity Runs** link in the **Actions** column. You see only one activity run because the pipeline has only one activity. It's the Execute SSIS Package activity.
 
-   ![Activity runs](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png" alt-text="Activity runs":::
 
 3. Run the following query against the SSISDB database in your SQL server to verify that the package executed. 
 
@@ -308,11 +308,11 @@ In this step, you trigger a pipeline run.
    select * from catalog.executions
    ```
 
-   ![Verify package executions](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
+   :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png" alt-text="Verify package executions":::
 
 4. You can also get the SSISDB execution ID from the output of the pipeline activity run and use the ID to check more comprehensive execution logs and error messages in SQL Server Management Studio.
 
-   ![Get the execution ID.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
+   :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png" alt-text="Get the execution ID.":::
 
 ### Schedule the pipeline with a trigger
 

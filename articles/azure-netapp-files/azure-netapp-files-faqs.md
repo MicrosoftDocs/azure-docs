@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -48,6 +48,10 @@ No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment
 ### Does Azure NetApp Files support dual stack (IPv4 and IPv6) VNet?
 
 No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
+
+### Is the number of the IP addresses using Azure VMware Solutions for Guest OS mounts [limited to 1000](azure-netapp-files-resource-limits.md#resource-limits)?
+
+No. Azure VMware Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
  
 ## Security FAQs
 
@@ -99,7 +103,7 @@ However, you cannot create Azure policies (custom naming policies) on the Azure 
 
 ### When I delete an Azure NetApp Files volume, is the data deleted safely? 
 
-Deletion of an Azure NetApp Files volume is performed in the backend (physical infrastructure layer) programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
+Deletion of an Azure NetApp Files volume is performed programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
 
 ## Performance FAQs
 
@@ -268,7 +272,7 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the provisioned space in the volume. In case the volume runs full, consider taking the following actions:
 
 * [Resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).
-* [Remove older snapshots](azure-netapp-files-manage-snapshots.md#delete-snapshots) to free up space in the hosting volume. 
+* [Remove older snapshots](snapshots-delete.md) to free up space in the hosting volume. 
 
 ### Does Azure NetApp Files support auto-grow for volumes or capacity pools?
 
@@ -308,7 +312,7 @@ By default, your data stays within the region where you deploy your Azure NetApp
 	
 Azure NetApp Files provides NFS and SMB volumes.  Any file based-copy tool can be used to replicate data between Azure regions. 
 
-The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume).
+The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](snapshots-restore-new-volume.md).
 
 NetApp offers a SaaS based solution, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
 
@@ -336,7 +340,7 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 
 ### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
-Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
+Using Azure NetApp Files NFS or SMB volumes with AVS for *Guest OS mounts* is supported in [all AVS and ANF enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
 
 ### Does Azure NetApp Files work with Azure Policy?
 

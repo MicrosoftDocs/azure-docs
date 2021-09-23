@@ -4,8 +4,10 @@ titleSuffix: An Azure Communication Services quickstart
 description: Azure Active Directory lets you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
 services: azure-communication-services
 author: peiliu
+
 ms.service: azure-communication-services
-ms.topic: how-to
+ms.subservice: identity
+ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: peiliu
 ms.reviewer: mikben

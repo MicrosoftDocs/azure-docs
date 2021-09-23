@@ -14,9 +14,9 @@ ms.custom: devx-track-azurepowershell
 
 # Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use PowerShell to get, set, and update the access control lists of directories and files. 
+This article shows you how to use PowerShell to get, set, and update the access control lists of directories and files.
 
-ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. 
+ACL inheritance is already available for new child items that are created under a parent directory. But you can also add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
 [Reference](/powershell/module/Az.Storage/) | [Recursive ACL Samples](https://recursiveaclpr.blob.core.windows.net/privatedrop/samplePS.ps1?sv=2019-02-02&st=2020-08-24T17%3A04%3A44Z&se=2021-08-25T17%3A04%3A00Z&sr=b&sp=r&sig=dNNKS%2BZcp%2F1gl6yOx6QLZ6OpmXkN88ZjBeBtym1Mejo%3D) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
@@ -30,15 +30,15 @@ ACL inheritance is already available for new child items that are created under 
 
 - One of the following security permissions:
 
-  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
+  - A provisioned Azure Active Directory (AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.
 
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
-  
+
   - Storage account key.
 
 ## Install the PowerShell module
 
-1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
+1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString() 
@@ -56,7 +56,7 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Connect to the account
 
-Choose how you want your commands to obtain authorization to the storage account. 
+Choose how you want your commands to obtain authorization to the storage account.
 
 ### Option 1: Obtain authorization by using Azure Active Directory (AD)
 
@@ -75,7 +75,7 @@ With this approach, the system ensures that your user account has the appropriat
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>
-   ``` 
+   ```
 
 3. Get the storage account context.
 
@@ -128,7 +128,7 @@ In this example, the owning user has read, write, and execute permissions. The o
 
 ## Set ACLs
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.  
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.
 
 If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities).
 
@@ -167,7 +167,7 @@ $dir.ACL
 ```
 
 > [!NOTE]
-> If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`. 
+> If you want to set a **default** ACL entry, use the **-DefaultScope** parameter when you run the **Set-AzDataLakeGen2ItemAclObject** command. For example: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
 This example sets the ACL on a **file** for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -205,7 +205,7 @@ $userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
 $acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx 
 $acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission r-x -InputObject $acl 
 $acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "---" -InputObject $acl
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission r-x -InputObject $acl 
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission r-x -InputObject $acl
 
 Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 
@@ -300,13 +300,13 @@ You can remove one or more ACL entries recursively. To remove an ACL entry, crea
 
 Remove ACL entries by using the **Remove-AzDataLakeGen2AclRecursive** cmdlet.
 
-This example removes an ACL entry from the root directory of the container.  
+This example removes an ACL entry from the root directory of the container.
 
 ```powershell
 $filesystemName = "my-container"
 $userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" 
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---"
 
 Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
 ```
@@ -318,7 +318,7 @@ To see an example that removes ACLs recursively in batches by specifying a batch
 
 ## Recover from failures
 
-You might encounter runtime or permission errors when modifying ACLs recursively. 
+You might encounter runtime or permission errors when modifying ACLs recursively.
 
 For runtime errors, restart the process from the beginning. Permission errors can occur if the security principal doesn't have sufficient permission to modify the ACL of a directory or file that is in the directory hierarchy being modified. Address the permission issue, and then choose to either resume the process from the point of failure by using a continuation token, or restart the process from beginning. You don't have to use the continuation token if you prefer to restart from the beginning. You can reapply ACL entries without any negative impact.
 
@@ -342,7 +342,7 @@ To see an example that sets ACLs recursively in batches by specifying a batch si
 
 If you want the process to complete uninterrupted by permission errors, you can specify that.
 
-This example uses the `ContinueOnFailure` parameter so that execution continues even if the operation encounters a permission error. 
+This example uses the `ContinueOnFailure` parameter so that execution continues even if the operation encounters a permission error.
 
 ```powershell
 $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure

@@ -88,7 +88,7 @@ Use a metric measurement rule with the following query.
 Heartbeat
 | summarize TimeGenerated=max(TimeGenerated) by Computer
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
-| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,1)
+| summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m)
 ```
 
 **Single alert**

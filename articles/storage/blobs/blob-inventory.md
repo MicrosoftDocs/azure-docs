@@ -27,7 +27,7 @@ The following list describes features and capabilities that are available in the
 
 - **Custom Schema**
 
-  You can choose which fields appear in reports. Choose from a list of supported fields. That list appears later in this article. 
+  You can choose which fields appear in reports. Choose from a list of supported fields. That list appears later in this article.
 
 - **CSV and Apache Parquet output format**
 
@@ -41,7 +41,7 @@ The following list describes features and capabilities that are available in the
 
 Enable blob inventory reports by adding a policy with one or more rules to your storage account. For guidance, see [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md).
 
-## Upgrading an inventory policy 
+## Upgrading an inventory policy
 
 If you are an existing Azure Storage blob inventory user who has configured inventory prior to June 2021, you can start using the new features by loading the policy, and then saving the policy back after making changes. When you reload the policy, the new fields in the policy will be populated with default values. You can change these values if you want. Also, the following two features will be available.
 
@@ -180,8 +180,6 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - Metadata
 - LastAccessTime
 
-
-
 ### Custom schema fields supported for container inventory
 
 - Name (Required)
@@ -258,9 +256,8 @@ Each inventory run for a rule generates the following files:
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Screenshot of an inventory CSV file opened in Microsoft Excel":::
 
-  > [!NOTE] 
+  > [!NOTE]
   > Reports in the Apache Parquet format present dates in the following format: `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
-
 
 - **Checksum file**: A checksum file contains the MD5 checksum of the contents of manifest.json file. The name of the checksum file is `<ruleName>-manifest.checksum`. Generation of the checksum file marks the completion of an inventory rule run.
 
@@ -307,6 +304,7 @@ Each inventory run for a rule generates the following files:
 	}, 
 	"version" : "1.0" 
 	} 
+
    ```
 
 ## Pricing and billing
@@ -322,6 +320,19 @@ If a rule contains a prefix that overlaps with a prefix of any other rule, then 
 Snapshots and versions of a blob also count towards billing even if you've set `includeSnapshots` and `includeVersions` filters to `false`. Those filter values don't affect billing. You can use them only to filter what appears in the report.
 
 For more information about pricing for Azure Storage blob inventory, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
+<sup>2</sup>    Feature is supported at the preview level.
 
 ## Known issues
 
@@ -339,4 +350,4 @@ An object replication policy can prevent an inventory job from writing inventory
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
-- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 06/04/2021
+ms.date: 08/26/2021
 
 ---
 
@@ -80,6 +80,9 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 - [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 - [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)
 - [A whitepaper on next-gen app development with Azure Cosmos DB](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
+- Trying to do capacity planning for a migration to Azure Cosmos DB?
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)

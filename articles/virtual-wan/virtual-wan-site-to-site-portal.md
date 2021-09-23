@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -17,8 +17,8 @@ In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual WAN
-> * Create a hub
-> * Create a site-to-site VPN gateway
+> * Configure hub Basic settings
+> * Configure site-to-site VPN gateway settings
 > * Create a site
 > * Connect a site to a hub
 > * Connect a VPN site to a hub
@@ -42,15 +42,15 @@ Verify that you have met the following criteria before beginning your configurat
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
-## <a name="hub"></a>Create a hub
+## <a name="hub"></a>Configure hub settings
 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. Note that it is possible to create an empty hub (a hub that does not contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites or create any gateways within the hub.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="gateway"></a>Create a site-to-site VPN gateway
+## <a name="gateway"></a>Configure a site-to-site gateway
 
-In this step, you configure site-to-site connectivity settings, and then proceed to create the hub and S2S VPN gateway. A hub and gateway can take about 30 minutes to create.
+In this section, you configure site-to-site connectivity settings, and then proceed to create the hub and site-to-site VPN gateway. A hub and gateway can take about 30 minutes to create.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
@@ -60,31 +60,33 @@ In this section, you create site. Sites correspond to your physical locations. C
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-## <a name="connectsites"></a>Connect the VPN site to the hub
+## <a name="connectsites"></a>Connect the VPN site to a hub
 
-In this step, you connect your VPN site to the hub.
+In this section, you connect your VPN site to the hub.
 
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-## <a name="vnet"></a>Connect the VNet to the hub
+## <a name="vnet"></a>Connect a VNet to the hub
 
-In this section, you create a connection between your hub and VNet.
+In this section, you create a connection between the hub and your VNet.
 
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="device"></a>Download VPN configuration
 
-Use the VPN device configuration to configure your on-premises VPN device.
+Use the VPN device configuration file to configure your on-premises VPN device. The basic steps are listed below. The information about what the configuration file contains and how to configure your VPN device are 
 
-1. On the page for your virtual WAN, click **Overview**.
+1. Navigate to your **Virtual HUB -> VPN (Site to site)** page.
 
-1. At the top of the **Hub ->VPNSite** page, click **Download VPN config**. Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
+1. At the top of the **VPN (Site to site)** page, click **Download VPN Config**. You will see a series of messages as Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN.
 
-1. Once the file has finished creating, you can click the link to download it.
+1. Once the file has finished creating, click the link to download the file. To learn about the contents of the file, see [About the VPN device configuration file](#config-file) in this section.
 
-1. Apply the configuration to your on-premises VPN device.
+1. Apply the configuration to your on-premises VPN device. For more information, see [VPN device configuration](#vpn-device) in this section.
 
-### About the VPN device configuration file
+1. After you have applied the configuration to your VPN devices, it isn't necessary to keep the storage account that Azure created. You can delete it.
+
+### <a name="config-file"></a>About the VPN device configuration file
 
 The device configuration file contains the settings to use when configuring your on-premises VPN device. When you view this file, notice the following information:
 
@@ -101,7 +103,7 @@ The device configuration file contains the settings to use when configuring your
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
-    * **IP addresses** of the virtual hub vpngateway. Because each connection of the  vpngateway is composed of two tunnels in active-active configuration, you'll see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.<br>Example:
+    * **IP addresses** of the virtual hub vpngateway. Because each connection of the vpngateway is composed of two tunnels in active-active configuration, you'll see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.<br>Example:
 
         ``` 
         "Instance0":"104.45.18.186"
@@ -214,7 +216,7 @@ The device configuration file contains the settings to use when configuring your
    }
   ```
 
-### Configuring your VPN device
+### <a name="vpn-device"></a>Configuring your VPN device
 
 >[!NOTE]
 > If you are working with a Virtual WAN partner solution, VPN device configuration automatically happens. The device controller obtains the configuration file from Azure and applies to the device to set up connection to Azure. This means you don't need to know how to manually configure your VPN device.

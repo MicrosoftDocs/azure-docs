@@ -78,7 +78,7 @@ More information about generating and validating tokens can be found in [Apple's
 ### Sign the client secret JWT
 You'll use the `.p8` file you downloaded previously to sign the client secret JWT. This file is a [PCKS#8 file](https://en.wikipedia.org/wiki/PKCS_8) that contains the private signing key in PEM format. There are many libraries that can create and sign the JWT for you. 
 
-There are different kinds of open-source libraries available online for creating and signing JWT tokens. For more information about generating JWT tokens, see jwt.io. For example, one way of generating the client secret is by importing the [Microsoft.IdentityModel.Tokens NuGet package](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) and running a small amount of C# code shown below.
+There are different kinds of open-source libraries available online for creating and signing JWT tokens. For more information about generating JWT tokens, see [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). For example, one way of generating the client secret is by importing the [Microsoft.IdentityModel.Tokens NuGet package](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) and running a small amount of C# code shown below.
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;

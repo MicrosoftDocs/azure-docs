@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Introduction to Azure Data Lake Storage Gen2
 
-‎Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on [Azure Blob Storage](storage-blobs-introduction.md). 
+Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on [Azure Blob Storage](storage-blobs-introduction.md).
 
 Data Lake Storage Gen2 converges the capabilities of [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you'll also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
@@ -38,7 +38,7 @@ Also, Data Lake Storage Gen2 is very cost effective because it is built on top o
 
 -   **A superset of POSIX permissions**: The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through Storage Explorer or through frameworks like Hive and Spark.
 
--   **Cost effective**: Data Lake Storage Gen2 offers low-cost storage capacity and transactions. Features such as [Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md) optimize costs as data transitions through its lifecycle.
+-   **Cost effective**: Data Lake Storage Gen2 offers low-cost storage capacity and transactions. Features such as [Azure Blob Storage lifecycle](./lifecycle-management-overview.md) optimize costs as data transitions through its lifecycle.
 
 -   **Optimized driver**: The ABFS driver is [optimized specifically](data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the endpoint `dfs.core.windows.net`.
 
@@ -63,15 +63,15 @@ The following are the equivalent entities, as described by different concepts. U
 | Blobs – General purpose object storage | Container              | Virtual directory (SDK only – does not provide atomic manipulation) | Blob           |
 | Azure Data Lake Storage Gen2 – Analytics Storage          | Container            | Directory                                                           | File           |
 
-## Supported Blob storage features
+## Supported Blob Storage features
 
-Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](storage-lifecycle-management-concepts.md) are available to your account. 
+Blob Storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob Storage lifecycle management policies](./lifecycle-management-overview.md) are available to your account. Most Blob Storage features are fully supported, but some features are supported only at the preview level or not yet supported.
 
-For a list of supported Blob storage features, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+To see how each Blob Storage feature is supported with Data Lake Storage Gen2, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
 ## Supported Azure service integrations
 
-Data Lake Storage gen2 supports several Azure services. You can use them to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+Data Lake Storage gen2 supports several Azure services. You can use them to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 ## Supported open source platforms
 

@@ -65,12 +65,20 @@
           href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Automation
           href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json#geo-replication-in-azure-automation
+        - name: Azure Backup (Recovery Services vault)
+          href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json 
         - name: Azure Batch
           href: ../../batch/account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Cognitive Search
           href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Cosmos DB
           href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Azure Database for MariaDB Server
+          href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Azure Database for MySQL Server
+          href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Azure Database for PostgreSQL Server
+          href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Event Hubs
           href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure IoT Hub
@@ -81,8 +89,6 @@
           href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure SQL DB & MI
           href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: SQL Server on Azure VM
-          href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure VMs
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Logic apps
@@ -99,14 +105,12 @@
             href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
           - name: Public IP addresses
             href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: Power BI
+          href: /power-bi/admin/service-admin-region-move
         - name: Site Recovery (Recovery Services vaults)
           href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Database for PostgreSQL Server
-          href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Database for MariaDB Server
-          href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Database for MySQL Server
-          href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: SQL Server on Azure VM
+          href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
   - name: Tags
     items:
     - name: Decision guide
@@ -119,6 +123,14 @@
       href: tag-support.md
     - name: Azure Resource Graph queries
       href: ./resource-graph-samples.md
+  - name: Private link access
+    items:
+    - name: Create - portal
+      href: create-private-link-access-portal.md
+    - name: Create - REST
+      href: create-private-link-access-rest.md
+    - name: Manage - REST
+      href: manage-private-link-access-rest.md
   - name: Manage resource groups
     items:
     - name: Azure portal
@@ -143,14 +155,14 @@
       href: manage-resources-powershell.md
   - name: Resource providers and types
     href: resource-providers-and-types.md
+  - name: Preview features
+    href: preview-features.md
   - name: Delete resource groups and resources
     href: delete-resource-group.md
   - name: Lock resources
     href: lock-resources.md
   - name: Authenticate across tenants
     href: authenticate-multi-tenant.md
-  - name: View activity logs
-    href: view-activity-logs.md
   - name: Throttling requests
     href: request-limits-and-throttling.md
   - name: Track asynchronous operations

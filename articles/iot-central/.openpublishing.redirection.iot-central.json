@@ -257,12 +257,17 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-connect-powerbi-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-powerbi",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-solution-builder/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-connect-powerbi.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-powerbi/",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-solution-builder/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-connect-powerbi.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-solution-builder/",
       "redirect_document_id": false
     },
     {

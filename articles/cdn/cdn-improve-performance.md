@@ -117,11 +117,8 @@ These profiles support the following compression encodings:
 - gzip (GNU zip)
 - DEFLATE
 - bzip2
-- brotli 
 
-If the request supports more than one compression type, those compression types take precedence over brotli compression.
-
-When a request for an asset specifies brotli compression (HTTP header is `Accept-Encoding: br`) and the request results in a cache miss, Azure CDN performs brotli compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache.
+Azure CDN from Verizon does not support brotli compression. When the HTTP request has the header `Accept-Encoding: br`, the CDN responds with an uncompressed response.
 
 ### Azure CDN Standard from Akamai profiles
 
