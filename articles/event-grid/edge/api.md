@@ -757,7 +757,7 @@ To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and pro
 * connectionString: Connection string for the Storage Account the Storage Queue is in.
 
   >[!NOTE]
-  > Unline Event Hubs, Service Bus Queues, and Service Bus Topics, the connection string used for Storage Queues is not entity specific. Instead, it must but the connection string for the Storage Account.
+  > Unlike Event Hubs, Service Bus Queues, and Service Bus Topics, the connection string used for Storage Queues is not entity specific. Instead, it must be the connection string for the Storage Account.
 
   ```json
   {
