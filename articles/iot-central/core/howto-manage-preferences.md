@@ -27,10 +27,3 @@ We have support for both dark theme and light theme. While the light theme is th
 
 > [!NOTE]
 > The option to choose between light and dark themes isn't available if your administrator has configured a custom theme for the application.
-
-## Next steps
-
-Now that you've learned how to manage your profile in Azure IoT Central, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [Toggle live chat](howto-show-hide-chat.md)
