@@ -313,9 +313,8 @@ The following table displays the current Azure Defender for IoT feature availabi
 | Feature | Azure | Azure Government |
 |--|--|--|
 | [Micro agent for Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| - [Configure Sentinel with Azure Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | Not Available |
+| - [Configure Sentinel with Azure Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Private Preview | Private Preview |
 | **Standalone micro agent for Linux** |  |  |
-| - [Standalone micro agent overview](../../defender-for-iot/concept-standalone-micro-agent-overview.md) | Public Preview | Public Preview |
 | - [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
 
 ## Next steps
