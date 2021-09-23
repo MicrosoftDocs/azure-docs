@@ -79,13 +79,18 @@ unless you select one of the private DNS zones previously created by Hyperscale
 overview](/azure/dns/private-dns-overview).
 
 Hyperscale (Citus) service creates DNS records such as
-`c.private.mygroup01.postgres.database.azure.com` for each node with a private
-endpoint in the selected private DNS zone. The CNAME record allows the
-connection string to stay the same when public access is switched to private
-access.
+`c.private.mygroup01.postgres.database.azure.com`  in the selected private DNS
+zone for each node with a private endpoint. When you connect to a Hyperscale
+(Citus) node from an Azure VM via private endpoint, Azure DNS resolves the
+node’s FQDN into a private IP address.
 
-When you connect to a Hyperscale (Citus) node from an Azure VM via private
-endpoint, Azure DNS would resolve node’s FQDN into a private IP address.
+> [!NOTE]
+>
+> The service also always creates public CNAME records such as
+> `c.mygroup01.postgres.database.azure.com` for every node. However, selected
+> computers on the public internet can connect to the public hostname only if
+> the database administrator enables [public
+> access](concepts-hyperscale-firewall-rules.md) to the server group.
 
 If you're using a custom DNS server, you must use a DNS forwarder to resolve
 the FQDN of Hyperscale (Citus) nodes. The forwarder IP address should be
