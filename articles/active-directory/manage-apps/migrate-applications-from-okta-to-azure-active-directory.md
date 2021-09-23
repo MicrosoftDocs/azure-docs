@@ -57,7 +57,7 @@ Follow these steps to create an application inventory:
 
 8. After the API is imported, change the **Environment** selection to **{yourOktaDomain}**.
 
-   ![Screenshot that shows how to change the environment.](media/migrate-applications-from-okta-to-azure-active-directory/change-environment.png)
+   :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/change-environment.png" alt-text="Screenshot that shows how to change the environment." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/change-environment.png":::
 
 9. Edit your Okta environment by selecting the eye icon. Then select **Edit**.
 
@@ -65,7 +65,7 @@ Follow these steps to create an application inventory:
 
 10. Update the values for the URL and API key in the **Initial Value** and **Current Value** fields. Change the name to reflect your environment. Then save the values.
 
-   ![Screenshot that shows how to update values for the A P I.](media/migrate-applications-from-okta-to-azure-active-directory/update-values-for-api.png)
+    ![Screenshot that shows how to update values for the A P I.](media/migrate-applications-from-okta-to-azure-active-directory/update-values-for-api.png)
 
 11. [Load the API into Postman](https://app.getpostman.com/run-collection/377eaf77fdbeaedced17).
 
@@ -108,7 +108,7 @@ To complete the migration, repeat the configuration steps for all applications d
 
 6. Upload the XML file that you downloaded from the Azure AD portal. Then select **Create**.
 
-   ![Screenshot that shows where to upload the XML file.](media/migrate-applications-from-okta-to-azure-active-directory/upload-xml-file.png)
+   :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/upload-xml-file.png" alt-text="Screenshot that shows where to upload the XML file." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/upload-xml-file.png":::
 
 7. Upload the certificate that you downloaded from Azure. Then select **Save** to create the SAML provider in Salesforce.
 
@@ -129,36 +129,36 @@ To complete the migration, repeat the configuration steps for all applications d
 
 10. In the Salesforce administration console, select **Company Settings** > **My Domain**. Go to **Authentication Configuration** and then select **Edit**.
 
-   ![Screenshot that shows how to edit company settings.](media/migrate-applications-from-okta-to-azure-active-directory/edit-company-settings.png)
+    ![Screenshot that shows how to edit company settings.](media/migrate-applications-from-okta-to-azure-active-directory/edit-company-settings.png)
 
 11. For a sign-in option, select the new SAML provider you configured earlier. Then select **Save**.
 
-   ![Screenshot that shows where to save the SAML provider option.](media/migrate-applications-from-okta-to-azure-active-directory/save-saml-provider.png)
+    ![Screenshot that shows where to save the SAML provider option.](media/migrate-applications-from-okta-to-azure-active-directory/save-saml-provider.png)
 
 12. In Azure AD, on the **Enterprise applications** page, select **Users and groups**. Then add test users.
 
-   ![Screenshot that shows added test users.](media/migrate-applications-from-okta-to-azure-active-directory/add-test-user.png)
+    ![Screenshot that shows added test users.](media/migrate-applications-from-okta-to-azure-active-directory/add-test-user.png)
 
 13. To test the configuration, sign in as one of the test users. Go to your Microsoft [apps gallery](https://aka.ms/myapps) and then select **Salesforce**.
 
-   ![Screenshot that shows how to open Salesforce from the app gallery.](media/migrate-applications-from-okta-to-azure-active-directory/test-user-sign-in.png)
+    ![Screenshot that shows how to open Salesforce from the app gallery.](media/migrate-applications-from-okta-to-azure-active-directory/test-user-sign-in.png)
 
 14. Select the newly configured identity provider (IdP) to sign in.
 
-   ![Screenshot that shows where to sign in.](media/migrate-applications-from-okta-to-azure-active-directory/new-identity-provider.png)
+    ![Screenshot that shows where to sign in.](media/migrate-applications-from-okta-to-azure-active-directory/new-identity-provider.png)
 
-   If everything has been correctly configured, the test user will land on the Salesforce homepage. For troubleshooting help, see the [debugging guide](../manage-apps/debug-saml-sso-issues.md).
+    If everything has been correctly configured, the test user will land on the Salesforce homepage. For troubleshooting help, see the [debugging guide](../manage-apps/debug-saml-sso-issues.md).
 
 16. On the **Enterprise applications** page, assign the remaining users to the Salesforce application with the correct roles.
 
-   >[!NOTE]
-   >After you add the remaining users to the Azure AD application, the users should test the connection to ensure they have access. Test the connection before you move on to the next step.
+    >[!NOTE]
+    >After you add the remaining users to the Azure AD application, the users should test the connection to ensure they have access. Test the connection before you move on to the next step.
 
 17. On the Salesforce administration console, select **Company Settings** > **My Domain**.
 
 18. Under **Authentication Configuration**, select **Edit**. Clear the selection for **Okta** as an authentication service.
 
-   ![Screenshot that shows where to clear the selection for Okta as an authentication service.](media/migrate-applications-from-okta-to-azure-active-directory/deselect-okta.png)
+    ![Screenshot that shows where to clear the selection for Okta as an authentication service.](media/migrate-applications-from-okta-to-azure-active-directory/deselect-okta.png)
 
 Salesforce is now successfully configured with Azure AD for SSO. Later in this tutorial, follow the steps to clean up the Okta portal.
 
@@ -172,7 +172,7 @@ To complete the migration, repeat the following configuration steps for all appl
 
 2. Select **Create your own application**. In the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. Then select **Create**.
 
-   ![Screenshot that shows how to create an OIDC application.](media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png)
+   :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png" alt-text="Screenshot that shows how to create an OIDC application." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png":::
 
 3. On the next page, set up the tenancy of your application registration. For more information, see [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
 
@@ -204,19 +204,19 @@ To complete the migration, repeat the following configuration steps for all appl
 
 10. In the **OpenId permissions** section, select **email**, **openid**, and **profile**. Then select **Add permissions**.
 
-   ![Screenshot that shows where to add Open I D permissions.](media/migrate-applications-from-okta-to-azure-active-directory/add-openid-permission.png)
+    :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/add-openid-permission.png" alt-text="Screenshot that shows where to add Open I D permissions." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/add-openid-permission.png":::
 
 11. To improve user experience and suppress user consent prompts, select **Grant admin consent for Tenant Domain Name**. Then wait for the **Granted** status to appear.
 
-   ![Screenshot that shows where to grant admin consent.](media/migrate-applications-from-okta-to-azure-active-directory/grant-admin-consent.png)
+    ![Screenshot that shows where to grant admin consent.](media/migrate-applications-from-okta-to-azure-active-directory/grant-admin-consent.png)
 
 12. If your application has a redirect URI, enter the appropriate URI. If the reply URL targets the **Authentication** tab, followed by **Add a platform** and **Web**, enter the appropriate URL. Select **Access tokens** and **ID tokens**. Then select **Configure**.
 
-   ![Screenshot that shows how to configure tokens.](media/migrate-applications-from-okta-to-azure-active-directory/configure-tokens.png)
+    :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/configure-tokens.png" alt-text="Screenshot that shows how to configure tokens." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/configure-tokens.png":::
+    
+    In the **Authentication** menu, under **Advanced settings** and **Allow public client flows**, if necessary, select **Yes**.
 
-   In the **Authentication** menu, under **Advanced settings** and **Allow public client flows**, if necessary, select **Yes**.
-
-   ![Screenshot that shows how to allow public client flows.](media/migrate-applications-from-okta-to-azure-active-directory/allow-client-flows.png)
+    ![Screenshot that shows how to allow public client flows.](media/migrate-applications-from-okta-to-azure-active-directory/allow-client-flows.png)
 
 13. In your OIDC-configured application, import the application ID and client secret before you test. Follow the preceding steps to configure your application with settings such as client ID, secret, and scopes.
 
