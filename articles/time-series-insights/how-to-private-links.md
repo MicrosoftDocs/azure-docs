@@ -60,7 +60,7 @@ This will open a page to enter the details of a new private endpoint.
 
 After filling out the configuration options, Hit **OK** to finish.
 
-This will return you to the **Networking** tab of the Azure Time Series Insights Gen2 environment setup, where your new endpoint should be visible under **Private endpoint connections.
+This will return you to the **Networking** tab of the Azure Time Series Insights Gen2 environment setup, where your new endpoint should be visible under **Private endpoint connections**.
 
 You can then use the bottom navigation buttons to continue with the rest of environment setup.
 
