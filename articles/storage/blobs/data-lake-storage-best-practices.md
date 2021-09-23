@@ -1,6 +1,6 @@
 ---
 title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen2
+description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -12,23 +12,21 @@ ms.reviewer: sachins
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-This article provides best practice guidelines to set up a secure, performant, and cost-effective enterprise data lake with Azure Storage.  
+This article provides best practice guidelines that help you optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.  
 
-## Configure your storage account
+## Configure storage accounts
 
-Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The way that you unlock these capabilities is to enable the hierarchical namespace setting of your Azure Storage account. To learn more, see [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md). 
+Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The way that you unlock these capabilities is to enable the hierarchical namespace setting of your Azure Storage account.  
 
-Access control lists (ACLs) are one of the few features that pertain only to Data Lake Storage Gen2. The vast majority of features apply to your account whether or not you enable Data Lake Storage Gen2. Best practices around things such as security, high availability, and disaster recovery are well documented in the [Blob storage documentation](storage-blobs-introduction.md) content. Any differences in the behavior of a feature that are specific to Data Lake Storage Gen2, are called out in the body of each article. 
+Access control lists (ACLs) are one of the few storage account features that pertain only to Data Lake Storage Gen2. The vast majority of features are available to your account whether or not you enable Data Lake Storage Gen2. Best practices around things such as security, high availability, and disaster recovery are well documented in the [Blob storage documentation](storage-blobs-introduction.md) content. Any guidance specific to Data Lake Storage Gen2, is called out in the body of each feature article. Use the following pattern as you evaluate these features.
 
-As you use these settings to secure, protect, and optimize the cost of your data storage, use this general pattern:
-
-1. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether a feature is fully supported in your account. Some features aren't yet supported or have partial support in accounts that have a hierarchical namespace. make sure to periodically review this article for updates as feature support is always expanding.
+1. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether a feature is fully supported in your account. Some features aren't yet supported or have partial support in Data Lake Storage Gen2 enabled accounts. Feature support is always expanding so make sure to periodically review this article for updates.
 
 2. Review the [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article to see if there are any limitations or special guidance around the feature you intend to use.
 
-3. Scan feature articles for any guidance that is specific to accounts that have a hierarchical namespace (Data Lake Storage Gen2).
+3. Scan feature articles for any guidance that is specific to Data Lake Storage Gen2 enabled accounts.
 
-## Prepare to ingest data
+## Optimize for data ingest
 
 When ingesting data from a source system, the source hardware, source network hardware, or the network connectivity to your storage account can be a bottleneck.  
 
@@ -67,7 +65,7 @@ Consider pre-planning the structure of your data, as file format, file size, and
 
 ### File formats
 
-Data can be ingested in a variety of formats. For example, data can be appear in human readable formats such as JSON, CSV or XML. Data can also appear as compressed binary formats such as `.tar.gz`. Data can come in a variety of sizes as well. Some files can be very large (a few terabytes) such as data from an export of a SQL table from your on-premise systems. Data can also come in the form of a large number of tiny files (a few kilobytes) such as data from real-time events from an Internet of things (IoT) solution. You can optimize efficiency and costs by choosing an appropriate file format and file size. 
+Data can be ingested in a variety of formats. Data can be appear in human readable formats such as JSON, CSV or XML or as compressed binary formats such as `.tar.gz`. Data can come in a variety of sizes as well. Data can be comprised of very large files (a few terabytes) such as data from an export of a SQL table from your on-premise systems. Data can also come in the form of a large number of tiny files (a few kilobytes) such as data from real-time events from an Internet of things (IoT) solution. You can optimize efficiency and costs by choosing an appropriate file format and file size. 
 
 Hadoop supports a set of file formats that are optimized for storing and processing structured data. Some common formats are Avro, Parquet and Optimized Row Columnar (ORC) format. All of these formats are machine-readable binary file formats. They are compressed to help you manage file size. They have a schema embedded in each file which makes them self-describing. The difference between these formats is in how data is stored. Avro stores data in a row-based format and the Parquet and ORC formats store data in a columnar format.
 
@@ -75,17 +73,17 @@ Consider using the Avro file format in cases where your I/O patterns are more wr
 
 Consider Parquet and ORC file formats when the I/O patterns are more read heavy or when the query patterns are focused on a subset of columns in the records. Read transactions can be optimized to retrieve specific columns instead of reading the entire record.
 
+Apache Parquet is an open source file format that is optimized for read heavy analytics pipelines. The columnar storage structure of Parquet lets you skip over non-relevant data. You're queries are much more efficient because they can narrowly scope which data to send from storage to the analytics engine. Also, because similar data types (for a column) are stored together, Parquet supports efficient data compression and encoding schemes that can lower data storage costs. Services such as [Azure Synapse Analytics](../../synapse-analytics/overview-what-is.md), [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and [Azure Data Factory](../../data-factory/introduction.md) have native functionality that take advantage of Parquet file formats.
+
 ### File size
 
 Larger files lead to better performance and reduced costs. 
 
-Typically, analytics engines such as HDInsight have a per-file overhead that involve tasks such as listing, checking access, and performing various metadata operations. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256MB to 100GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100GB in size.
+Typically, analytics engines such as HDInsight have a per-file overhead that involve tasks such as listing, checking access, and performing various metadata operations. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256MB to 100GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100GB in size. 
 
-You can also reduce costs by increasing file sizes. Read and write operations are billed in 4 megabyte increments so you're charged for operation whether or not the file contains 4 megabytes or only a few kilobytes. For pricing information, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+Increasing file size can also reduce transaction costs. Read and write operations are billed in 4 megabyte increments so you're charged for operation whether or not the file contains 4 megabytes or only a few kilobytes. For pricing information, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
-Sometimes, data pipelines have limited control over the raw data which has lots of small files. In general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications. If you're processing data in real-time, you can use a real time streaming engine (such as [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or [Spark Streaming](https://databricks.com/glossary/what-is-spark-streaming)) together with a message broker (such as [Event Hub](../../event-hubs/event-hubs-about.md) or [Apache Kafka](https://kafka.apache.org/)) to store your data as larger files.
-
-As you aggregate small files into larger ones, consider saving them in a read-optimized format such as [Apache Parquet](https://parquet.apache.org/) for downstream processing. Apache Parquet is an open source file format that is optimized for read heavy analytics pipelines. The columnar storage structure of Parquet lets you skip over non-relevant data. You're queries are much more efficient because they can narrowly scope which data to send from storage to the analytics engine. Also, because similar data types (for a column) are stored together, Parquet supports efficient data compression and encoding schemes that can lower data storage costs. Services such as [Azure Synapse Analytics](../../synapse-analytics/overview-what-is.md), [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) and [Azure Data Factory](../../data-factory/introduction.md) have native functionality that take advantage of Parquet file formats.
+Sometimes, data pipelines have limited control over the raw data which has lots of small files. In general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications. If you're processing data in real-time, you can use a real time streaming engine (such as [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) or [Spark Streaming](https://databricks.com/glossary/what-is-spark-streaming)) together with a message broker (such as [Event Hub](../../event-hubs/event-hubs-about.md) or [Apache Kafka](https://kafka.apache.org/)) to store your data as larger files. As you aggregate small files into larger ones, consider saving them in a read-optimized format such as [Apache Parquet](https://parquet.apache.org/) for downstream processing. 
 
 ### Directory structure
 
@@ -138,82 +136,47 @@ Again, the choice you make with the folder and file organization should optimize
 
 ## Set up security
 
-Your data lake storage is Blob storage. It's Blob storage in a hierarchical structure that is optimized for high throughput file and directory operations. Because your account is Blob storage account, all of the guidance presented in the following article applies to your account as well: [Security recommendations for Blob storage](security-recommendations.md). Use that article as a general guide to securing your account and its data.
+Start by reviewing the recommendations in the [Security recommendations for Blob storage](security-recommendations.md) article. You'll find best practice guidance about how to protect your data from accidental or malicious deletion, secure data behind a firewall, and use Azure Active Directory (Azure AD) as the basis of identity management. 
 
-For guidance specific to Data Lake Storage Gen2, see the following article: [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md). It will help you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system. 
+Then, review the [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md) article for guidance that is specific to Data Lake Storage Gen2 enabled accounts. This article helps you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system. 
 
 ## Ingest data
 
 This section highlights the different sources of data and the different ways in which that data can be ingested into a Data Lake Storage Gen2 account.
 
-### Ad hoc data
+| Data source | Description |
+|---|---|
+|Ad hoc|Smaller data sets that are used for prototyping a big data application. |
+|Streamed| Generated by various sources such as applications, devices, and sensors. Tools used to ingest this type of data usually capture and process the data on an event-by-event basis in real-time, and then write the events in batches into your account.|
+|Relational|Relational databases collect a huge number of records which can provide key insights if processed through a big data pipeline.|
+|Web server logs| Log files that contain information such as the history of page requests. Consider writing custom scripts or applications to upload this data so you'll have the flexibility to include your data uploading component as part of your larger big data application. |
+|HDInsight clusters| Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Storage Gen2 as a data storage repository.|
+|Hadoop clusters|These clusters might running on-premise or in the cloud.|
 
-This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data. 
 
-Here's a list of tools that you can use to ingest ad hoc data.
+The following table recommends tools that you can use to ingest data from each source described above.
 
-| Data Source | Ingest it using |
-| --- | --- |
-| Local computer |[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)<br><br>[Azure CLI](data-lake-storage-directory-file-acl-cli.md)<br><br>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)|
-| Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)<br><br>[DistCp running on HDInsight cluster](data-lake-storage-use-distcp.md)|
 
-### Streamed data
+| Tool | Ad hoc | Streamed data   | Relational data  | Web server log data | Azure HDInsight clusters | Hadoop clusters |
+|---------------|-------------------|---|---|--|--|--|
+| [Azure Portal]() | ![Yes](../media/icons/yes-icon.png) |  |  |  |  |  |  |
+| [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md) | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  | 
+| [Azure CLI](data-lake-storage-directory-file-acl-cli.md) | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  |  
+| [REST]() | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  |  
+| Azure SDKs <sup>1</sup> | ![Yes](../media/icons/yes-icon.png) |  |  | ![Yes](../media/icons/yes-icon.png) |  |  |
+|[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)| ![Yes](../media/icons/yes-icon.png) |||||
+| [Apache DistCp](data-lake-storage-use-distcp.md) | ![Yes](../media/icons/yes-icon.png) |  |  |  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |  
+| [AzCopy](../common/storage-use-azcopy-v10.md) | ![Yes](../media/icons/yes-icon.png) |  |  |  | ![Yes](../media/icons/yes-icon.png) |  |  
+| [Azure Data Box]() |  |  |  |  |  | ![Yes](../media/icons/yes-icon.png) |  
+| [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) | ![Yes](../media/icons/yes-icon.png) |  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| [HDInsight Storm](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |  | ![Yes](../media/icons/yes-icon.png) |  |  |  |  |   
+| [Azure Stream Analytics](../../stream-analytics/stream-analytics-quick-create-portal.md) |  | ![Yes](../media/icons/yes-icon.png) |  |  |  |  |  
+| [WANdisco LiveData Migrator for Azure]() |  |  |  |  |  | ![Yes](../media/icons/yes-icon.png) |  
 
-This represents data that can be generated by various sources such as applications, devices, sensors, etc. This data can be ingested into Data Lake Storage Gen2 by a variety of tools. These tools will usually capture and process the data on an event-by-event basis in real-time, and then write the events in batches into Data Lake Storage Gen2 so that they can be further processed.
+<sup>1</sup>    SDKs include [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [Node.js](data-lake-storage-directory-file-acl-javascript.md).
 
-Here's a list of tools that you can use to ingest streamed data.
 
-|Tool | Guidance |
-|---|--|
-|Azure Stream Analytics|[Quickstart: Create a Stream Analytics job by using the Azure portal](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Egress to Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
-|Azure HDInsight Storm | [Write to Apache Hadoop HDFS from Apache Storm on HDInsight](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |
-
-### Relational data
-
-You can also source data from relational databases. Over a period of time, relational databases collect huge amounts of data which can provide key insights if processed through a big data pipeline. You can use the following tools to move such data into Data Lake Storage Gen2.
-
-Here's a list of tools that you can use to ingest relational data.
-
-|Tool | Guidance |
-|---|--|
-|Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md) |
-
-### Web server log data (upload using custom applications)
-
-This type of dataset is specifically called out because analysis of web server log data is a common use case for big data applications and requires large volumes of log files to be uploaded to Data Lake Storage Gen2. You can use any of the following tools to write your own scripts or applications to upload such data.
-
-Here's a list of tools that you can use to ingest Web server log data.
-
-|Tool | Guidance |
-|---|--|
-|Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md)  |
-|Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
-|Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
-
-For uploading web server log data, and also for uploading other kinds of data (e.g. social sentiments data), it is a good approach to write your own custom scripts/applications because it gives you the flexibility to include your data uploading component as part of your larger big data application. In some cases this code may take the form of a script or simple command line utility. In other cases, the code may be used to integrate big data processing into a business application or solution.
-
-### Data associated with Azure HDInsight clusters
-
-Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Storage Gen2 as a data storage repository. HDInsight clusters access data from Azure Storage Blobs (WASB). For better performance, you can copy the data from WASB into a Data Lake Storage Gen2 account associated with the cluster. You can use the following tools to copy the data.
-
-Here's a list of tools that you can use to ingest data associated with HDInsight clusters.
-
-|Tool | Guidance |
-|---|--|
-|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
-|AzCopy tool | [Transfer data with the AzCopy](../common/storage-use-azcopy-v10.md) |
-|Azure Data Factory | [Copy data to or from Azure Data Lake Storage Gen2 by using Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |
-
-### Data stored in on-premises or IaaS Hadoop clusters
-
-Large amounts of data may be stored in existing Hadoop clusters, locally on machines using HDFS. The Hadoop clusters may be in an on-premises deployment or may be within an IaaS cluster on Azure. There could be requirements to copy such data to Azure Data Lake Storage Gen2 for a one-off approach or in a recurring fashion. There are various options that you can use to achieve this. Below is a list of alternatives and the associated trade-offs.
-
-| Approach | Details | Advantages | Considerations |
-| --- | --- | --- | --- |
-| Use Azure Data Factory (ADF) to copy data directly from Hadoop clusters to Azure Data Lake Storage Gen2 |[ADF supports HDFS as a data source](../../data-factory/connector-hdfs.md) |ADF provides out-of-the-box support for HDFS and first class end-to-end management and monitoring |Requires Data Management Gateway to be deployed on-premises or in the IaaS cluster |
-| Use Distcp to copy data from Hadoop to Azure Storage. Then copy data from Azure Storage to Data Lake Storage Gen2 using appropriate mechanism. |You can copy data from Azure Storage to Data Lake Storage Gen2 using: <ul><li>[Azure Data Factory](../../data-factory/copy-activity-overview.md)</li><li>[AzCopy tool](../common/storage-use-azcopy-v10.md)</li><li>[Apache DistCp running on HDInsight clusters](data-lake-storage-use-distcp.md)</li></ul> |You can use open-source tools. |Multi-step process that involves multiple technologies |
-
-### Really large datasets
+### Large data sets
 
 For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use Azure ExpressRoute.  
 
@@ -259,7 +222,7 @@ Here's a list of tools that you can use to download data from Data Lake Storage 
 
 ## Monitor telemetry
 
-Monitoring use and performance is key to operationalizing your service. For example, you might want to audit your account for frequent operations, identify operations with high latency, or identify operations that cause service-side throttling. 
+Monitoring use and performance is an important part of operationalizing your service. Examples include frequent operations, operations with high latency, or operations that cause service-side throttling. 
 
 All of the telemetry for your storage account is available through [Azure Storage logs in Azure Monitor](monitor-blob-storage.md). This feature integrates your storage account with Log Analytics and Event Hubs, while also enabling you to archive logs to another storage account. To see the full list of metrics and resources logs and their associated schema, see [Azure Storage monitoring data reference](monitor-blob-storage-reference.md).
 
