@@ -27,7 +27,7 @@ What happens as it scales?
     If ingress, them proxy handles load balancing across replicas
 
 Graceful shutdowns
-    send a "sigterm" to your app
+    send a "sigterm" to your container
         Timeout for responding to sigterm
             TODO: how long is the duration?
             send a "sigkill" if you don't respond to sigterm
@@ -47,7 +47,7 @@ How do I make changes?
     - managing secrets
     - managing traffic (% splitting)
     - ingress settings: toggling ingress on/off
-    - registries: credentials for private containers repositories for Docker Hub or ACR
+    - registries section: credentials for private containers repositories for Docker Hub or ACR
 - revision scope
     - container changes / code changes
     - scale rules
@@ -87,6 +87,14 @@ Deleting an application
 
 -->
 
+You have multiple revisions for:
+ [A/B testing](https://wikipedia.org/wiki/A/B_testing)
+ [Blue Green deployment scenarios](https://martinfowler.com/bliki/BlueGreenDeployment.html)
+
+
+diagram with on revision
+diagram with ingress
+ balancing
 
 ## Next steps
 
