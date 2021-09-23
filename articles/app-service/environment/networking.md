@@ -24,9 +24,9 @@ The subnet must be delegated to Microsoft.Web/hostingEnvironments and must be em
 
 The size of the subnet can affect the scaling limits of the App Service Plan instances within the ASE. We recommend using a /24 address space (256 addresses) for your subnet to ensure enough addresses to support production scale.
 
-If you require a limited number of instances and would like to minimize the size of the subnet, this is the guidance you can follow.
+To use a smaller subnet, you should be aware of the following details of the ASE and network setup.
 
-Any given subnet has five addresses reserved for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 4 and 27 addresses depending on configuration, scale and load. Additional addresses are used for instances in the App Service Plan. The minimal size of your subnet is a /27 address space (32 addresses).
+Any given subnet has five addresses reserved for management purposes. On top of the management addresses, ASE will dynamically scale the supporting infrastructure and will use between 4 and 27 addresses depending on configuration, scale, and load. The remaining addresses can be used for instances in the App Service Plan. The minimal size of your subnet is a /27 address space (32 addresses).
 
 The effect of running out of addresses is, that you can be restricted from scaling out your App Service Plans in the ASE or you can experience increased latency during intensive traffic load if we are not able scale the supporting infrastructure.
 
@@ -39,7 +39,7 @@ The ASE has the following network information at creation:
 | ASE virtual network | The VNet the ASE is deployed into |
 | ASE subnet | The subnet that the ASE is deployed into |
 | Domain suffix | The domain suffix that is used by the apps made in this ASE |
-| Virtual IP | This is the VIP type used by the ASE. The two possible values are internal and external |
+| Virtual IP | This setting is the VIP type used by the ASE. The two possible values are internal and external |
 | Inbound address | The inbound address is the address your apps on this ASE are reached at. If you have an internal VIP, it is an address in your ASE subnet. If the address is external, it will be a public facing address |
 | Default outbound addresses | The apps in this ASE will use this address, by default, when making outbound calls to the internet. |
 
