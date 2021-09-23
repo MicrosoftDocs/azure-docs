@@ -185,11 +185,11 @@ Based on storage provider recommendations, the following mount options are confi
 
 These mount points are configured in /etc/fstab as shown in the following screenshots:
 
-[![Screenshot showing fstab of mounted volumes in HANA Large Instance unit.](./media/hana-installation/image1_fstab.PNG)](./media/hana-installation/image1_fstab.PNG#lightbox)
+![Screenshot showing fstab of mounted volumes in HANA Large Instance unit.](./media/hana-installation/image1_fstab.PNG)
 
 The output of the command df -h on a S72m HANA Large Instance looks like:
 
-[![Screenshot showing output of the command for HANA Large Instance.](./media/hana-installation/image2_df_output.PNG)](./media/hana-installation/image2_df_output.PNG#lightbox)
+![Screenshot showing output of the command for HANA Large Instance.](./media/hana-installation/image2_df_output.PNG)
 
 
 The storage controller and nodes in the Large Instance stamps are synchronized to NTP servers. Synchronizing the SAP HANA on Azure (Large Instances) and Azure VMs against an NTP server is important. It eliminates significant time drift between the infrastructure and the compute units in Azure or Large Instance stamps.
