@@ -1,13 +1,12 @@
 ---
 title: Overview of security in Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Learn about security capabilities of Azure Data Lake Storage Gen1, including authentication, authorization, network isolation, data protection, and auditing.
-services: data-lake-store
-author: twooley
 
+author: normesta
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Security in Azure Data Lake Storage Gen1

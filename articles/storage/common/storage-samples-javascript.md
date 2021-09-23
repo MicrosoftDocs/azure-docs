@@ -146,7 +146,6 @@ The following tables provide an overview of our samples repository and the scena
    :::column-end:::
 :::row-end:::
 
-
 ## Data Lake Storage Gen2 samples
 
 :::row:::
@@ -402,10 +401,10 @@ The following tables provide an overview of our samples repository and the scena
 
 To view the complete JavaScript sample libraries, go to:
 
-* [Azure Blob code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
-* [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
-* [Azure Files code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
-* [Azure Queue code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
+- [Azure Blob code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
+- [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
+- [Azure Files code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
+- [Azure Queue code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
 
 You can browse and clone the GitHub repository for each library.
 
@@ -413,16 +412,16 @@ You can browse and clone the GitHub repository for each library.
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in JavaScript](../blobs/storage-quickstart-blobs-nodejs.md)
-* [Getting Started with Azure Queue Service in JavaScript](../queues/storage-quickstart-queues-nodejs.md)
-* [Getting Started with Azure Table Service in JavaScript](../../cosmos-db/table-storage-how-to-use-nodejs.md)
+- [Getting Started with Azure Blob Service in JavaScript](../blobs/storage-quickstart-blobs-nodejs.md)
+- [Getting Started with Azure Queue Service in JavaScript](../queues/storage-quickstart-queues-nodejs.md)
+- [Getting Started with Azure Table Service in JavaScript](../../cosmos-db/table-storage-how-to-use-nodejs.md)
 
 ## Next steps
 
 For information on samples for other languages:
 
-* .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
-* Java: [Azure Storage samples using Java](storage-samples-java.md)
-* Python: [Azure Storage samples using Python](storage-samples-python.md)
-* C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
-* All other languages: [Azure Storage samples](storage-samples.md)
+- .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
+- Java: [Azure Storage samples using Java](storage-samples-java.md)
+- Python: [Azure Storage samples using Python](storage-samples-python.md)
+- C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
+- All other languages: [Azure Storage samples](storage-samples.md)
