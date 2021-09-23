@@ -89,7 +89,7 @@ var distributionPolicy = await client.SetDistributionPolicyAsync(
 
 ## Create a queue
 
-Job Router's ability to queue Jobs requires the definition of a Queue, which requires a Distribution Policy. Provide the Distribution Policy object's ID you created above when defining the Queue.
+Jobs are organized into a logical Queue. Create the Queue by specifying an **ID**, **name**, and provide the **Distribution Policy** object's ID you created above.
 
 ```csharp
 var queue = await client.SetQueueAsync(
@@ -118,7 +118,7 @@ var job = await client.CreateJobAsync(
 ```
 
 ## Register a worker
-Register a Worker by referencing the Queue ID created previously along with a capacity value, labels, and channel configuration to ensure the `EdmontonWorker` is assigned to the `XBOX_Queue`
+Register a Worker by referencing the Queue ID created previously along with a **capacity** value, **labels**, and **channel configuration** to ensure the `EdmontonWorker` is assigned to the `XBOX_Queue'.
 
 ```csharp
 var edmontonWorker = await client.RegisterWorkerAsync(

@@ -1,0 +1,89 @@
+---
+title: Classify a job dynamically
+titleSuffix: An Azure Communication Services how-to guide
+description: Use Azure Communication Services SDKs to change the properties of a job
+author: jasonshave
+ms.author: jassha
+ms.service: azure-communication-services
+ms.subservice: routing
+ms.topic: how-to 
+ms.date: 09/22/2021
+ms.custom: template-how-to
+
+#Customer intent: As a developer, I want Job Router to classify my Job for me.
+---
+
+# Dynamically classify a job
+
+Learn to use a classification policy in Job Router to dynamically define the queue and priority while also adjusting the worker requirements of a Job.
+
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+- Optional: Complete the quickstart to [get started with Job Router](../../../quickstarts/router/get-started-router.md)
+
+## What is dynamic classification of a job?
+
+An easy way of submitting a Job is to specify the priority, queue and worker requirements during submission. When doing so, the sender is required to have knowledge about these characteristics. To avoid the sender having explicit knowledge about the inner workings of the Job Router's behavior, the sender can specify a **classification policy** along with a generic **labels** collection to invoke the dynamic behavior.
+
+## Create a classification policy
+
+The following classification policy will use the low-code **PowerFx** expression language to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE` if found, otherwise the `XBOX_DEFAULT_QUEUE`. Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
+
+```csharp
+var policy = await client.SetClassificationPolicyAsync(
+    id: "XBOX_NA_QUEUE_Priority_1_10",
+    name: "Select XBOX Queue and set priority to 1 or 10",
+    queueSelectionPolicy: new QueueSelectionPolicy(
+        new ExpressionRuleContainer()
+        {
+            Language = ExpressionLanguage.PowerFx,
+            Expression = $"If(job.Region = \"NA\", \"XBOX_NA_QUEUE\", \"XBOX_DEFAULT_QUEUE\")"
+        }
+    ),
+    workerRequirementAttachments: new List<RequirementAttachment>(),
+    prioritizationRules: new ExpressionRuleContainer()
+    {
+        Language = ExpressionLanguage.PowerFx,
+        Expression = "If(job.Hardware_VIP = true, 10, 1)"
+    }
+);
+```
+
+## Submit the job
+
+The following example will cause the classification policy to evaluate the Job labels. The outcome will place the Job in the queue called `XBOX_NA_QUEUE` and set the priority to `1`.
+
+```csharp
+var job = await client.CreateJobAsync(
+    channelId: ManagedChannels.AcsVoiceChannel,
+    channelReference: "my_custom_reference_number",
+    classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10",
+    labels: new LabelCollection()
+    {
+        { "Region", "NA" },
+        { "Caller_Id", "tel:7805551212" },
+        { "Caller_NPA_NXX", "780555" },
+    }
+);
+
+// returns a new GUID such as: 4ad7f4b9-a0ff-458d-b3ec-9f84be26012b
+```
+
+## Reclassify a job after submission
+
+Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job to `10`, simply by specifying the Job **ID**, calling the `ReclassifyJobAsync` method, and including the `Hardware_VIP` label.
+
+```csharp
+var job = await client.ReclassifyJobAsync(
+    jobId: "4ad7f4b9-a0ff-458d-b3ec-9f84be26012b",
+    classificationPolicyId: null,
+    labelsToUpdate: new LabelCollection()
+    {
+        { "Hardware_VIP", true }
+    }
+);
+```
