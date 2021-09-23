@@ -567,9 +567,7 @@ ___
 <code><b>byItem(<i>&lt;parent column&gt;</i> : any, <i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
 Find a sub item within a structure or array of structure If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions(? date, ? string ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions  
 * ``byItem( byName('customer'), 'orderItems') ? (itemName as string, itemQty as integer)``
-* ````
 * ``byItem( byItem( byName('customer'), 'orderItems'), 'itemName') ? string``
-* ````
 ___
 
 
