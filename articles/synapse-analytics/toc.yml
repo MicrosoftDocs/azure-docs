@@ -232,11 +232,7 @@ items:
       href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context
     - name: Cost management for serverless SQL pool
       href: sql/data-processed.md
-    - name: Best practices serverless SQL pool
-      href: sql/best-practices-serverless-sql-pool.md
-    - name: Best practices dedicated SQL pools
-      href: sql/best-practices-dedicated-sql-pool.md
-  - name: Quickstarts
+x  - name: Quickstarts
     items:
     - name: Use serverless SQL pool
       href: quickstart-sql-on-demand.md
@@ -297,8 +293,10 @@ items:
       items:
       - name: Overview
         href: sql/develop-overview.md
-      - name: Best practices
-        href: sql/develop-best-practices.md
+      - name: Best practices serverless SQL pool
+        href: sql/best-practices-serverless-sql-pool.md
+      - name: Best practices dedicated SQL pools
+        href: sql/best-practices-dedicated-sql-pool.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
