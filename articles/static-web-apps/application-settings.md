@@ -114,7 +114,7 @@ The easiest way to create a JSON file with the appropriate values is to create a
    }
    ```
 
-1. Execute thw following command to list the static web apps in your subscription and display their details.
+1. Execute the following command to list the static web apps in your subscription and display their details.
 
     ```bash
     az staticwebapp list -o json
