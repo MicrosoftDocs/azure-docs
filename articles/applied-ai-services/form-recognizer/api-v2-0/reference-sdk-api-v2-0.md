@@ -2,7 +2,6 @@
 title: "Reference: Form Recognizer client library 3.0.0 and REST API v2.0"
 titleSuffix: Azure Cognitive Services
 description: Use the Form Recognizer client library v3.0.0 or REST API v2.0 to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

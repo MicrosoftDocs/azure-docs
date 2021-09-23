@@ -8,6 +8,7 @@ ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
 ---
+
 # Azure Policy built-in definitions for Azure Storage
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy

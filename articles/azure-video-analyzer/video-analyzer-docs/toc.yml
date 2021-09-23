@@ -91,59 +91,61 @@
           href: analyze-live-video-without-recording.md
 - name: How-to guides
   items:
-  - name: Setup
-    items:
-    - name: Create a new account
-      href: create-video-analyzer-account.md
-    - name: Managed identity
-      href: managed-identity.md
-    - name: Customer managed keys
-      href: customer-managed-keys.md
-  - name: Deploy
-    items:  
-    - name: Deploy to an IoT Edge device
-      href: deploy-iot-edge-device.md
-    - name: Deploy to an IoT Edge for Linux on Windows
-      href: deploy-iot-edge-linux-on-windows.md
-    - name: Deploy on Azure Stack Edge
-      href: deploy-on-stack-edge.md
-  - name: Playback
-    items:     
-    - name: Use access policies for playback
-      href: access-policies.md
-    - name: Playback a recording
-      href: playback-recordings-how-to.md
-    - name: Player widget sample app 
-      href: sample-player-widget.md
-    - name: Building your own player widget
-      href: player-widget.md
-  - name: Record
-    items:
-    - name: Manage recording policy
-      href: manage-recording-policy.md
-    - name: Configure a signal gate
-      href: configure-signal-gate.md
-  - name: Apply AI
-    items:      
-    - name: Develop and deploy gRPC inference server
-      href: develop-deploy-grpc-inference-srv.md
-    - name: Analyze using AI composition
-      href: analyze-ai-composition.md
-  - name: Portal
-    items:      
-    - name: Invoke direct methods with the portal
-      href: use-azure-portal-to-invoke-direct-methods.md
-  - name: Operate
-    items:
-    - name: Monitor and logging
-      href: monitor-log-edge.md 
-  - name: Visualize
-    items:
-    - name: Embed player widget in Power BI
-      href: embed-player-in-power-bi.md
-  - name: Troubleshoot
-    href: troubleshoot.md
-- name: Reference 
+    - name: Setup
+      items:
+        - name: Create a new account
+          href: create-video-analyzer-account.md
+        - name: Managed identity
+          href: managed-identity.md
+        - name: Customer managed keys
+          href: customer-managed-keys.md
+    - name: Deploy
+      items:
+        - name: Deploy to an IoT Edge device
+          href: deploy-iot-edge-device.md
+        - name: Deploy to an IoT Edge for Linux on Windows
+          href: deploy-iot-edge-linux-on-windows.md
+        - name: Deploy on Azure Stack Edge
+          href: deploy-on-stack-edge.md
+    - name: Playback
+      items:
+        - name: Playback a recording
+          href: playback-recordings-how-to.md
+        - name: Using the Azure Video Analyzer player widget
+          href: player-widget.md
+        - name: Player widget sample app 
+          href: sample-player-widget.md           
+        - name: Use access policies for playback
+          href: access-policies.md
+    - name: Record
+      items:
+        - name: Manage recording policy
+          href: manage-recording-policy.md
+        - name: Configure a signal gate
+          href: configure-signal-gate.md
+    - name: Apply AI
+      items:
+        - name: Develop and deploy gRPC inference server
+          href: develop-deploy-grpc-inference-srv.md
+        - name: Analyze using AI composition
+          href: analyze-ai-composition.md
+    - name: Portal
+      items:
+        - name: Invoke direct methods with the portal
+          href: use-azure-portal-to-invoke-direct-methods.md
+    - name: Operate
+      items:
+        - name: Monitor and logging
+          href: monitor-log-edge.md
+        - name: Public endpoints
+          href: access-public-endpoints-networking.md
+    - name: Visualize
+      items:
+        - name: Embed player widget in Power BI
+          href: embed-player-in-power-bi.md
+    - name: Troubleshoot
+      href: troubleshoot.md
+- name: Reference
   items:
     - name: Developer SDKs
       href: sdk.md
@@ -175,3 +177,5 @@
       href: faq-edge.yml
     - name: Quotas and limitations
       href: quotas-limitations.md
+    - name: Azure Video Analytics Terraform resource
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/video_analyzer
