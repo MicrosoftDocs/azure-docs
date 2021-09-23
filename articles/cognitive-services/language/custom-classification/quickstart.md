@@ -31,9 +31,9 @@ Use this article to get started with Custom text classification using Language S
 
 ## Next steps
 
-* [Send text classification requests to your model](../how-to/run-inference.md)
-* [Improve your model's performance](../how-to/improve-model.md).
-* [View recommended practices](../concepts/recommended-practices.md)
-* [View your model's evaluation and confusion matrix](../how-to/view-model-evaluation.md).
-* [Learn about the evaluation metrics](../concepts/evaluation.md)
+* [Send text classification requests to your model](how-to/run-inference.md)
+* [Improve your model's performance](how-to/improve-model.md).
+* [View recommended practices](concepts/recommended-practices.md)
+* [View your model's evaluation and confusion matrix](how-to/view-model-evaluation.md).
+* [Learn about the evaluation metrics](concepts/evaluation.md)
 

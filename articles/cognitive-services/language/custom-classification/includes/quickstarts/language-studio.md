@@ -12,7 +12,7 @@ ms.author: aahi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
-[!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
+[!INCLUDE [create a new resource from the Azure portal](../../includes/resource-creation-azure-portal.md)]
 
 ## Upload sample data to blob container
 
@@ -30,7 +30,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If you're using a preexisting resource, see [Creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
+4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If you're using a preexisting resource, see [Creating Azure resources](../../how-to/use-azure-resources.md). When you are done, select **Next**. 
  
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
@@ -51,7 +51,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 ## Tagging your data
 
-Typically, after creating a project, you would start [tagging your data](../how-to/tag-data.md) before training the classification model. For this quickstart, because you selected choosing an existing tags file, you can see tagged data already. Refer to this [guide](../how-to/tag-data.md) if you  would like to edit the existing tags.
+Typically, after creating a project, you would start [tagging your data](../../how-to/tag-data.md) before training the classification model. For this quickstart, you will use the example data provided.
 
 ## Train your model
 
@@ -61,7 +61,7 @@ To start training your model:
 
 2. Select the model you want to train from the **Model name** dropdown. If you don’t have models already, type in the name of your model and click on **create new model**.
 
-    :::image type="content" source="../media/train-model-1.png" alt-text="Select the model you want to train" lightbox="../media/train-model-1.png":::
+    :::image type="content" source="../../media/train-model-1.png" alt-text="Select the model you want to train" lightbox="../../media/train-model-1.png":::
 
 3. Click on the **Train** button at the bottom of the page.
 
@@ -72,7 +72,7 @@ To start training your model:
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and make adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and make adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
 
 >[!NOTE]
 >You can only have one deployed model per project. Deploying a new model replaces any existing deployed model.
@@ -93,9 +93,9 @@ Generally after training a model you would review it's [evaluation details](../h
 
 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. 
 
-    :::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-results.png":::
+    :::image type="content" source="../../media/test-model-results.png" alt-text="View the test results" lightbox="../../media/test-model-results.png":::
 
-After you've tested your model, you can start sending [text classification requests](../how-to/run-inference.md).
+After you've tested your model, you can start sending [text classification requests](../../how-to/run-inference.md).
 
 ## Clean up resources
 
