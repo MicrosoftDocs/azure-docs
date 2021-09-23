@@ -32,7 +32,7 @@ To send data from Application Insights to certain regions, you'll need to overri
   </TelemetryModules>
    ...
   <TelemetrySinks>
-    < Add Name = "default">
+    <Add Name = "default">
       <TelemetryChannel>
          <EndpointAddress>TelemetryChannel_Endpoint_Address</EndpointAddress>
       </TelemetryChannel>
