@@ -56,11 +56,11 @@ After the module is installed, import it, and follow these steps to connect to t
 
 1. Enter your global administrator credentials in the modern authentication window.
 
-   ![Screenshot showing import-module.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/import-module.png)
+   ![Screenshot that shows import-module.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/import-module.png)
 
 1. After you connect to the tenant, verify the settings for your ImmutableID values. The example shown uses Okta defaults of objectGUID to ImmutableID.
 
-   ![Screenshot showing Okta defaults of objectGUID to ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/okta-default-objectid.png)
+   ![Screenshot that shows Okta defaults of objectGUID to ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/okta-default-objectid.png)
 
 1. There are several ways to manually confirm the objectGUID to Base64 conversion on-premises. For individual validation, use this example:
 
@@ -71,7 +71,7 @@ After the module is installed, import it, and follow these steps to connect to t
    [system.convert]::ToBase64String(([GUID]$objectGUID).ToByteArray())
    ```
 
-   ![Screenshot showing how to manually change Okta objectGUID to ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/manual-objectguid.png)
+   ![Screenshot that shows how to manually change Okta objectGUID to ImmutableID.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/manual-objectguid.png)
 
 ## Mass validation methods for objectGUID
 
@@ -89,7 +89,7 @@ The example will grab *all* on-premises Azure AD users and export a list of thei
    } } | export-csv C:\\Temp\\OnPremIDs.csv
    ```
 
-   ![Screenshot showing domain controller on-premises commands.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/domain-controller.png)
+   ![Screenshot that shows domain controller on-premises commands.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/domain-controller.png)
 
 1. Run these commands in an Azure AD PowerShell session to gather the already synchronized values:
 
@@ -102,7 +102,7 @@ The example will grab *all* on-premises Azure AD users and export a list of thei
    ImmutableID | export-csv C:\\temp\\AzureADSyncedIDS.csv
    ```
 
-   ![Screenshot showing an Azure AD PowerShell session.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azure-ad-powershell.png)
+   ![Screenshot that shows an Azure AD PowerShell session.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azure-ad-powershell.png)
 
    After you have both exports, confirm that the ImmutableID for each user matches.
 
@@ -120,11 +120,11 @@ After you've prepared your list of source and destination targets, it's time to 
    >[!WARNING]
    >This is the most critical step on this page. Before you select **Next**, ensure that the attribute you're selecting for a source anchor is what *currently* populates your existing Azure AD users. If you select the wrong attribute, you must uninstall and reinstall Azure AD Connect to reselect this option.
 
-   ![Screenshot showing mS-DS-ConsistencyGuid.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/consistency-guid.png)
+   ![Screenshot that shows mS-DS-ConsistencyGuid.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/consistency-guid.png)
 
 1. On the **Configure** page, make sure to select the **Enable staging mode** checkbox. Then select **Install**.
 
-   ![Screenshot showing the Enable staging mode checkbox.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/enable-staging-mode.png)
+   ![Screenshot that shows the Enable staging mode checkbox.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/enable-staging-mode.png)
 
 1. After the configuration is complete, select **Exit**.
 
@@ -132,27 +132,27 @@ After you've prepared your list of source and destination targets, it's time to 
 
 1. Open **Synchronization Service** as an administrator.
 
-   ![Screenshot showing opening Synchronization Service.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/open-sync-service.png)
+   ![Screenshot that shows opening Synchronization Service.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/open-sync-service.png)
 
 1. Check that **Full Synchronization** to the domain.onmicrosoft.com connector space has users displaying under the **Connectors with Flow Updates** tab.
 
-   ![Screenshot showing the Connectors with Flow Updates tab.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/connector-flow-update.png)
+   ![Screenshot that shows the Connectors with Flow Updates tab.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/connector-flow-update.png)
 
 1. Verify there are no deletions pending in the export. Select the **Connectors** tab, and then highlight the domain.onmicrosoft.com connector space. Then select **Search Connector Space**.
 
-   ![Screenshot showing the Search Connector Space action.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/search-connector-space.png)
+   ![Screenshot that shows the Search Connector Space action.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/search-connector-space.png)
 
 1. In the **Search Connector Space** dialog, select the **Scope** dropdown and select **Pending Export**.
 
-   ![Screenshot showing Pending Export.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/pending-export.png)
+   ![Screenshot that shows Pending Export.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/pending-export.png)
 
 1. Select **Delete**, and then select **Search**. If all objects have matched properly, there should be zero matching records for **Deletes**. Record any objects pending deletion and their on-premises values.
 
-   ![Screenshot showing deleted matching records.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/delete-matching-records.png)
+   ![Screenshot that shows deleted matching records.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/delete-matching-records.png)
 
 1. Clear **Delete**, and select **Add** and **Modify**, followed by a search. You should see update functions for all users currently being synchronized to Azure AD via Okta. Add any new objects that Okta isn't currently syncing, but that exist in the organizational unit (OU) structure that was selected during the Azure AD Connect installation.
 
-   ![Screenshot showing adding a new object.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/add-new-object.png)
+   ![Screenshot that shows adding a new object.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/add-new-object.png)
 
 1. Double-clicking on updates shows what Azure AD Connect will communicate with Azure AD.
 
@@ -162,7 +162,7 @@ After you've prepared your list of source and destination targets, it's time to 
 
    Verify that your updates still include all attributes expected in Azure AD. If multiple attributes are being deleted, you might need to manually populate these on-premises AD values before you remove the staging mode.
 
-   ![Screenshot showing populating on-premises add values.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/on-premises-ad-values.png)
+   ![Screenshot that shows populating on-premises add values.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/on-premises-ad-values.png)
 
    >[!NOTE]
    >Before you continue to the next step, ensure all user attributes are syncing properly and show on the **Pending Export** tab as expected. If they're deleted, make sure their ImmutableID values match and the user is in one of the selected OUs for synchronization.
@@ -177,11 +177,11 @@ After you've verified the Azure AD Connect installation and your pending exports
 
 1. Go to your Okta portal, select **Applications**, and then select your Okta app used to provision users to Azure AD. Open the **Provisioning** tab, and select the **Integration** section.
 
-   ![Screenshot showing the Integration section in Okta.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/integration-section.png)
+   ![Screenshot that shows the Integration section in Okta.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/integration-section.png)
 
 1. Select **Edit**, clear the **Enable API integration** option, and select **Save**.
 
-   ![Screenshot showing editing the Enable API integration in Okta.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/edit-api-integration.png)
+   ![Screenshot that shows editing the Enable API integration in Okta.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/edit-api-integration.png)
 
    >[!NOTE]
    >If you have multiple Office 365 apps handling provisioning to Azure AD, ensure they're all switched off.
@@ -192,23 +192,23 @@ After you disable Okta provisioning, the Azure AD Connect server is ready to beg
 
 1. Run the installation wizard from the desktop again, and select **Configure**.
 
-   ![Screenshot showing the Azure AD Connect server.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azure-ad-connect-server.png)
+   ![Screenshot that shows the Azure AD Connect server.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/azure-ad-connect-server.png)
 
 1. Select **Configure staging mode**, and then select **Next**. Enter your global administrator credentials.
 
-   ![Screenshot showing the Configure staging mode option.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/configure-staging-mode.png)
+   ![Screenshot that shows the Configure staging mode option.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/configure-staging-mode.png)
 
 1. Clear the **Enable staging mode** option, and select **Next**.
 
-   ![Screenshot showing clearing the Enable staging mode option.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/uncheck-enable-staging-mode.png)
+   ![Screenshot that shows clearing the Enable staging mode option.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/uncheck-enable-staging-mode.png)
 
 1. Select **Configure** to continue.
 
-   ![Screenshot showing selecting the Configure button.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/ready-to-configure.png)
+   ![Screenshot that shows selecting the Configure button.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/ready-to-configure.png)
 
 1. After the configuration completes, open the **Synchronization Service** as an administrator. View the **Export** on the domain.onmicrosoft.com connector. Verify that all additions, updates, and deletions are done as expected.
 
-   ![Screenshot showing verifying the sync service.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/verify-sync-service.png)
+   ![Screenshot that shows verifying the sync service.](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/verify-sync-service.png)
 
 You've now successfully migrated to Azure AD Connect server-based provisioning. Updates and expansions to the feature set of Azure AD Connect can be done by rerunning the installation wizard.
 
