@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Register preview feature.
 > * Create supporting network resources.
 > * Create a gateway load balancer.
-> * Configure a backend load balancer pool for NVAs.
+> * Add NVAs to backend bool of load balancer.
 
 > [!IMPORTANT]
 > Gateway Azure Load Balancer is currently in public preview.
@@ -120,16 +120,42 @@ New-AzBastion @bastion -AsJob
 
 ## Create gateway load balancer
 
-In this section, you'll create the configuration and deploy the gateway load balancer.
+In this section, you'll create the configuration and deploy the gateway load balancer. Use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create the frontend IP configuration of the load balancer. 
+
+You'll use [New-AzLoadBalancerTunnelInterface](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create two tunnel interfaces for the load balancer. 
+
+Create a backend pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for the NVAs. 
+
+A health probe is required to monitor the health of the backend instances in the load balancer. Use [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) to create the health probe.
+
+Traffic destined for the backend instances is routed with a load-balancing rule. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig)  to create the load-balancing rule.
+
+To create the deploy the load balancer, use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
+
+```azurepowershell-interactive
+## Place virtual network configuration in a variable for later use. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'TutorGwLB-rg'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Create load balancer frontend configuration and place in variable. ## 
+$fe = @{
+    Name = 'myFrontend'
+    SubnetId = $vnet.subnets.[0].id
+}
+$feip = New-AzLoadBalancerFrontendIpConfig
+
+## Create backend address pool configuration and place in variable. ## 
 
 
 
 
 
-<!-- 6. Clean up resources
-Required. If resources were created during the tutorial. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
+
+
+```
 
 ## Clean up resources
 
