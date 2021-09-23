@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 
 # Data transfer for large datasets with low or no network bandwidth
- 
+
 This article provides an overview of the data transfer solutions when you have limited to no network bandwidth in your environment and you are planning to transfer large data sets. The article also describes the recommended data transfer options and the respective key capability matrix for this scenario.
 
 To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md).
@@ -26,7 +26,7 @@ Large datasets imply that you have few TBs to few PBs of data. You have limited 
 
 In all the above instances, use a physical device to do a one-time bulk data  transfer. Choose from Data Box Disk, Data Box, Data Box Heavy devices which are supplied by Microsoft, or Import/Export using your own disks.
 
-To confirm whether a physical device is the right option, use the following table. It shows the projected time for network data transfer, for various available bandwidths (assuming 90% utilization). If network transfer is projected to be too slow, you should use a physical device.  
+To confirm whether a physical device is the right option, use the following table. It shows the projected time for network data transfer, for various available bandwidths (assuming 90% utilization). If network transfer is projected to be too slow, you should use a physical device.
 
 ![Network transfer or offline transfer](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
@@ -34,7 +34,7 @@ To confirm whether a physical device is the right option, use the following tabl
 
 The options available in this scenario are devices for Azure Data Box offline transfer or Azure Import/Export.
 
-- **Azure Data Box family for offline transfers** – Use devices from Microsoft-supplied Data Box devices to move large amounts of data to Azure when you’re limited by time, network availability, or costs. Copy on-premises data using tools such as Robocopy. Depending on the data size intended for transfer, you can choose from Data Box Disk, Data Box, or Data Box Heavy.
+- **Azure Data Box family for offline transfers** – Use devices from Microsoft-supplied Data Box devices to move large amounts of data to Azure when you're limited by time, network availability, or costs. Copy on-premises data using tools such as Robocopy. Depending on the data size intended for transfer, you can choose from Data Box Disk, Data Box, or Data Box Heavy.
 - **Azure Import/Export** – Use Azure Import/Export service by shipping your own disk drives to securely import large amounts of data to Azure Blob storage and Azure Files. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites.
 
 ## Comparison of key capabilities
@@ -57,11 +57,10 @@ The following table summarizes the differences in key capabilities.
 | **Use when data moves**     |Within a commerce boundary|Within a commerce boundary|Within a commerce boundary|Across geographic boundaries, e.g. US to EU|
 |    **Pricing**                      |    [Pricing](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
-
 ## Next steps
 
 - Understand how to
 
-    - [Transfer data with Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
-    - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
-    - [Transfer data with Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
+  - [Transfer data with Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+  - [Transfer data with Data Box](../../databox/data-box-quickstart-portal.md).
+  - [Transfer data with Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
