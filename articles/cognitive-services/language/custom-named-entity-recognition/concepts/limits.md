@@ -66,11 +66,11 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * You can only train one model at a time per project.
 
-* You can have only 1 deployed model per project.
-
 ## Entity
 
-* Your tagged entity is recmended to be 10 words bt the maximum allowed is 100 characters. 
+* Your tagged entity is recomended to be 10 words but the maximum allowed is 100 characters.
+
+* You should have at least 1 entity in your project and the maximum is 200 entities.
 
 * It is recomended to have around 200 tagged instances per entity and you must have a minium of 10 of tagged instances per entity.
 
