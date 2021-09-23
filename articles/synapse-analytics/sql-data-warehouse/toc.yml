@@ -137,7 +137,7 @@
     - name: Overview
       href: design-elt-data-loading.md
     - name: Best practices
-      href: guidance-for-loading-data.md
+      href: ../sql/data-loading-best-practices.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Columnstore compression
       href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
   - name: Development

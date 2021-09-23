@@ -1,28 +1,23 @@
 ---
-title: Azure Government Overview | Microsoft Docs
+title: Azure Government Overview
 description: Overview of Azure Government capabilities, including security and compliance capabilities applicable to federal, state, and local government organizations and their partners
-services: azure-government
-cloud: gov
-documentationcenter: ''
-author: stevevi
-ms.author: stevevi
 ms.service: azure-government
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/02/2021
+ms.author: stevevi
+author: stevevi
+ms.date: 09/19/2021
 ---
 
 # What is Azure Government?
 
-US government agencies or their partners interested in cloud services that meet government security and compliance requirements, can be confident that [Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/) provides world-class [security, protection, and compliance services](../compliance/index.yml). Azure Government delivers a dedicated cloud enabling government agencies and their partners to transform mission-critical workloads to the cloud. Azure Government services handle data that is subject to various government regulations and requirements, such as FedRAMP, DoD IL4 and IL5, CJIS, IRS 1075, ITAR, CMMC, NIST 800-171, and others. To provide you with the highest level of security and compliance, Azure Government uses physically isolated datacenters and networks (located in the US only).
+US government agencies or their partners interested in cloud services that meet government security and compliance requirements, can be confident that [Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/) provides world-class [security, protection, and compliance services](../compliance/index.yml). Azure Government delivers a dedicated cloud enabling government agencies and their partners to transform mission-critical workloads to the cloud. Azure Government services handle data that is subject to various government regulations and requirements, such as FedRAMP, DoD IL4 and IL5, CJIS, IRS 1075, ITAR, CMMC, NIST 800-171, and others. To provide you with the highest level of security and compliance, Azure Government uses physically isolated datacenters and networks located in the US only.
 
 Azure Government customers (US federal, state, and local government or their partners) are subject to validation of eligibility. If there is a question about eligibility for Azure Government, you should consult your account team. To sign up for trial, request your [trial subscription](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial).
 
-The following video provides a good introduction to Azure Government:
+The following video provides a good introduction to Azure Government: </br>
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Government/player]
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Enable-government-missions-in-the-cloud-with-Azure-Government/player]
 
 ## Compare Azure Government and global Azure
 

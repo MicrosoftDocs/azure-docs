@@ -87,6 +87,74 @@ To extend a role assignment, browse to the role or assignment view in Privileged
 
 ![Azure AD Roles - Assignments page listing eligible roles with links to extend](./media/pim-how-to-renew-extend/extend-admin-extend.png)
 
+## Extend role assignments using Graph API
+
+Extend an active assignment using Graph API.
+
+#### HTTP request
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+ 
+{ 
+    "action": "AdminExtend", 
+    "justification": "abcde", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    `"principalId": "<principal-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "AfterDuration", 
+            "duration": "PT3H" 
+        } 
+    } 
+}
+````
+
+#### HTTP response
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "<assignment-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T20:26:44.865248Z", 
+    "completedDateTime": "2021-07-15T20:26:47.9434068Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminExtend", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T20:26:47.9434068Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT3H" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
+
 ## Renew role assignments
 
 While conceptually similar to the process for requesting an extension, the process to renew an expired role assignment is different. Using the following steps, assignments and administrators can renew access to expired roles when necessary.
