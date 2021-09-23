@@ -5,7 +5,6 @@ description: Use Azure Communication Services SDKs to change the properties of a
 author: jasonshave
 ms.author: jassha
 ms.service: azure-communication-services
-ms.subservice: routing
 ms.topic: how-to 
 ms.date: 09/22/2021
 ms.custom: template-how-to
@@ -17,13 +16,13 @@ ms.custom: template-how-to
 
 Learn to use a classification policy in Job Router to dynamically define the queue and priority while also adjusting the worker requirements of a Job.
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- Optional: Complete the quickstart to [get started with Job Router](../../../quickstarts/router/get-started-router.md)
+- Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 
 ## What is dynamic classification of a job?
 

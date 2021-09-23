@@ -14,13 +14,13 @@ ms.service: azure-communication-services
 
 # Job Router concepts
 
-[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-The Azure Communication Services Job Router, put simply, solves the problem of matching some abstract supply with some abstract demand on a system. Using the power of an event-driven architecture, combined with Azure Communication Services Event Grid messaging, Job Router provides real-time notifications to your custom applications so you can respond and react to key events within your resource instance.
+The Azure Communication Services Job Router, put simply, solves the problem of matching some abstract supply with some abstract demand on a system. Using the power of an event-driven architecture, combined with Azure Communication Services Event Grid messaging, Job Router provides real-time notifications to your custom applications so you can respond and react to key events.
 
 ## Job Router overview
 
-The Job Router SDKs can be used to build various business scenarios where the need to match a unit of work, such as a series of phone calls with many potential contact center agents, or a web chat request with a live agent handling multiple concurrent sessions with other people. The need to route some abstract unit of work to an available resource requires you to define the work, known as a [Job](#job), a [Queue](#queue), the [Worker](#worker), and a set of [Policies](#policies), which define the behavioral aspects of how these constructs interact with each other. Event Grid notifications provide your application with awareness about the key steps involved in the lifecycle of your Job and how Workers are interacting with the Job Router.
+The Job Router SDKs can be used to build various business scenarios where the need to match a unit of work to a resource exists. For example, the work could be defined as a series of phone calls with many potential contact center agents, or a web chat request with a live agent handling multiple concurrent sessions with other people. The need to route some abstract unit of work to an available resource requires you to define the work, known as a [Job](#job), a [Queue](#queue), the [Worker](#worker), and a set of [Policies](#policies), which define the behavioral aspects of how these constructs interact with each other. Event Grid notifications provide your application with awareness about the key steps involved in the lifecycle of your Job and how Workers are interacting with the Job Router.
 
 ## Job Router architecture
 
