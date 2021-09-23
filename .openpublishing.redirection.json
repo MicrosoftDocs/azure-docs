@@ -45269,7 +45269,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/app-provisioning/n-premises-ecma-configure.md",
+      "source_path_from_root": "/articles/active-directory/app-provisioning/on-premises-ecma-configure.md",
       "redirect_url": "/azure/active-directory/app-provisioning/on-premises-sql-connector-configure.md#configure-the-azure-ad-ecma-connector-host",
       "redirect_document_id": false
     },
