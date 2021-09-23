@@ -225,9 +225,12 @@ Now, with the application still running, set up the Power BI visualization to se
 
 1. Sign in to your [Power BI](https:// powerbi.microsoft.com /) account.
 
-2. Go to **Workspaces** and select the workspace that you set when you created the output for the Stream Analytics job. This tutorial uses **My Workspace**. 
+2. Select **My Workspace**. It shows at least one dataset that was just created.  
 
-3. Select **Datasets**. If you don't have any datasets, wait a few minutes and check again.
+3. Right-click on the three vertical dots to the right of the dataset name. (This tutorial uses dataset ContosoDataset.) In the dropdown list, select **Create report**.
+
+     ![Power BI creating report](./media/tutorial-routing-view-message-routing-results/BI-my-workspaces.png)
+
 
    You should see the listed dataset that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosodataset**. (It may take 5-10 minutes for the dataset to show up the first time.)
 
