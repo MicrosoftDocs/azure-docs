@@ -118,7 +118,7 @@ To use the Azure Resource Manager template, copy following content to `azuredepl
 ```
 
 ### Terraform
-Here is an example usages, please refer to [azurerm_spring_cloud_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service) for more details.
+Here is an example usage, please refer to [azurerm_spring_cloud_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service) for more details.
 
 ```terraform
 provider "azurerm" {
@@ -159,8 +159,6 @@ resource "azurerm_spring_cloud_service" "example" {
   }
 }
 ```
-
-
 
 
 ## CLI
