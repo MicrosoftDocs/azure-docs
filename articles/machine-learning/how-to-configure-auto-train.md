@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/01/2021
+ms.date: 09/27/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack
 ---
@@ -71,7 +71,8 @@ The following code creates a TabularDataset from a web url. See [Create a Tabula
 from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
-  ```
+```
+
 **For local compute experiments**, we recommend pandas dataframes for faster processing times.
 
   ```python
@@ -131,9 +132,20 @@ Next determine where the model will be trained. An automated ML training experim
 
 There are several options that you can use to configure your automated ML experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) for a full list of parameters.
 
-Fore example, forecasting tasks require extra setup, see the [Set up AutoML for time-series forecasting](how-to-auto-train-forecast.md) article for more details. 
+The following example is for a classification task. The experiment uses AUC weighted as the [primary metric](#primary-metric) and has an experiment timeout set to 30 minutes and 2 cross-validation folds.
 
-    ```python
+```python
+    automl_classifier=AutoMLConfig(task='classification',
+                                   primary_metric='AUC_weighted',
+                                   experiment_timeout_minutes=30,
+                                   blocked_models=['XGBoostClassifier'],
+                                   training_data=train_data,
+                                   label_column_name=label,
+                                   n_cross_validations=2)
+```
+You can also configure forecasting tasks, which requires extra setup. See the [Set up AutoML for time-series forecasting](how-to-auto-train-forecast.md) article for more details. 
+
+```python
     time_series_settings = {
                             'time_column_name': time_column_name,
                             'time_series_id_column_names': time_series_id_column_names,
@@ -152,7 +164,7 @@ Fore example, forecasting tasks require extra setup, see the [Set up AutoML for 
                                  verbosity=logging.INFO,
                                  **time_series_settings
                                 )
-    ```
+```
     
 ### Supported models
 
@@ -185,11 +197,11 @@ Classification | Regression | Time Series Forecasting
 ||| SeasonalAverage
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
 
-### Primary Metric
+### Primary metric
 
-The `primary metric` parameter determines the metric to be used during model training for optimization. The available metrics you can select is determined by the task type you choose, and the following table shows valid primary metrics for each task type.
+The `primary_metric` parameter determines the metric to be used during model training for optimization. The available metrics you can select is determined by the task type you choose.
 
-Choosing a primary metric for automated ML to optimize depends on many factors. We recommend your primary consideration be to choose a metric which best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.).
+Choosing a primary metric for automated ML to optimize depends on many factors. We recommend your primary consideration be to choose a metric which best represents your business needs. Then consider if the metric is suitable for your dataset profile (data size, range, class distribution, etc.). The following sections summarizes the recommended primary metrics based on task type and business scenario. 
 
 Learn about the specific definitions of these metrics in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
@@ -219,6 +231,7 @@ Metrics like `r2_score` and `spearman_correlation` can better represent the qual
 | `normalized_mean_absolute_error` |  |
 
 #### Metrics for time series forecasting scenarios
+
 The recommendations are similar to those noted for regression scenarios. 
 
 | Metric | Example use case(s) |
