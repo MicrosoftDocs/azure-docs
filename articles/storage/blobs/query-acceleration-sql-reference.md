@@ -32,7 +32,7 @@ In the following example, for each row for which the WHERE *expression* returns 
 SELECT expression [, expression ...] FROM table [WHERE expression] [LIMIT limit]
 ```
 
-You can specify one or more specific columns as part of the SELECT expression (For example: `SELECT Title, Author, ISBN`).
+You can specify one or more specific columns as part of the SELECT expression (for example, `SELECT Title, Author, ISBN`).
 
 > [!NOTE]
 > The maximum number of specific columns that you can use in the SELECT expression is 49. If you need your SELECT statement to return more than 49 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`).
@@ -138,47 +138,51 @@ Here's a few examples:
 
 The following standard SQL date functions are supported:
 
-``DATE_ADD``, ``DATE_DIFF``, ``EXTRACT``, ``TO_STRING``, ``TO_TIMESTAMP``.
+- `DATE_ADD`
+- `DATE_DIFF`
+- `EXTRACT`
+- `TO_STRING`
+- `TO_TIMESTAMP`
 
-Currently we convert all the [date formats of standard IS08601](https://www.w3.org/TR/NOTE-datetime).
+Currently, all [date formats of standard IS08601](https://www.w3.org/TR/NOTE-datetime) are converted.
 
 #### DATE_ADD function
 
-The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_ADD`` function.
+The query acceleration SQL language supports year, month, day, hour, minute, second for the `DATE_ADD` function.
 
 Examples:
 
-``sql DATE_ADD(datepart, quantity, timestamp) DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
-
+```sql
+DATE_ADD(datepart, quantity, timestamp) DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 ```
 
 #### DATE_DIFF function
 
-The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_DIFF`` function.
+The query acceleration SQL language supports year, month, day, hour, minute, second for the `DATE_DIFF` function.
 
-```sql DATE_DIFF(datepart, timestamp, timestamp) DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
-
+```sql
+DATE_DIFF(datepart, timestamp, timestamp) DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 ```
 
 #### EXTRACT function
 
-For EXTRACT other than date part supported for the ``DATE_ADD`` function, the query acceleration SQL language supports timezone_hour and timezone_minute as date part.
+For EXTRACT other than date part supported for the `DATE_ADD` function, the query acceleration SQL language supports timezone_hour and timezone_minute as date part.
 
 Examples:
 
-```sql EXTRACT(datepart FROM timestampstring) EXTRACT(YEAR FROM '2010-01-01T')
-
+```sql
+EXTRACT(datepart FROM timestampstring) EXTRACT(YEAR FROM '2010-01-01T')
 ```
 
 #### TO_STRING function
 
 Examples:
 
-```sql TO_STRING(TimeStamp , format) TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
-
+```sql
+TO_STRING(TimeStamp , format) TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 ```
 
-This table describes strings that you can use to specify the output format of the ``TO_STRING`` function.
+This table describes strings that you can use to specify the output format of the `TO_STRING` function.
 
 |Format string    |Output                               |
 |-----------------|-------------------------------------|
@@ -187,7 +191,7 @@ This table describes strings that you can use to specify the output format of th
 |yyyy             |Year in 4 digit format               |
 |M                |Month of year - 1                    |
 |MM               |Zero padded Month - 01               |
-|MMM              |Abbr. month of Year  -JAN            |
+|MMM              |Abbr. month of Year - JAN            |
 |MMMM             |Full month - May                      |
 |d                |Day of month (1-31)                  |
 |dd               |Zero padded day of Month (01-31)     |
@@ -216,16 +220,16 @@ Only IS08601 formats are supported.
 
 Examples:
 
-```sql TO_TIMESTAMP(string) TO_TIMESTAMP('2007T')
-
+```sql
+TO_TIMESTAMP(string) TO_TIMESTAMP('2007T')
 ```
 
 > [!NOTE]
-> You can also use the ``UTCNOW`` function to get the system time.
+> You can also use the `UTCNOW` function to get the system time.
 
 ## Aggregate Expressions
 
-A SELECT statement may contain either one or more projection expressions or a single aggregate expression.  The following aggregate expressions are supported:
+A SELECT statement may contain either one or more projection expressions or a single aggregate expression. The following aggregate expressions are supported:
 
 |Expression|Description|
 |--|--|
@@ -238,22 +242,22 @@ A SELECT statement may contain either one or more projection expressions or a si
 
 ### MISSING
 
-The ``IS MISSING`` operator is the only non-standard that the query acceleration SQL language supports.  For JSON data, if a field is missing from a particular input record, the expression field ``IS MISSING`` will evaluate to the Boolean value true.
+The `IS MISSING` operator is the only non-standard that the query acceleration SQL language supports. For JSON data, if a field is missing from a particular input record, the expression field `IS MISSING` will evaluate to the Boolean value true.
 
 <a id="table-descriptors"></a>
 
 ## Table Descriptors
 
-For CSV data, the table name is always `BlobStorage`.  For example:
+For CSV data, the table name is always `BlobStorage`. For example:
 
-```sql SELECT * FROM BlobStorage
-
+```sql
+SELECT * FROM BlobStorage
 ```
 
 For JSON data, additional options are available:
 
-```sql SELECT * FROM BlobStorage[*].path
-
+```sql
+SELECT * FROM BlobStorage[*].path
 ```
 
 This allows queries over subsets of the JSON data.
@@ -291,22 +295,22 @@ This is our sample data:
 
 You might be interested only in the `warehouses` JSON object from the above data. The `warehouses` object is a JSON array type, so you can mention this in the FROM clause. Your sample query can look something like this.
 
-```sql SELECT latitude FROM BlobStorage[*].warehouses[*]
-
+```sql
+SELECT latitude FROM BlobStorage[*].warehouses[*]
 ```
 
 The query gets all fields but selects only the latitude.
 
 If you wanted to access only the `dimensions` JSON object value, you could use refer to that object in your query. For example:
 
-```sql SELECT length FROM BlobStorage[*].dimensions
-
+```sql
+SELECT length FROM BlobStorage[*].dimensions
 ```
 
 This also limits your access to members of the `dimensions` object. If you want to access other members of JSON fields and inner values of JSON objects, then you might use a queries such as shown in the following example:
 
-```sql SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
-
+```sql
+SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
@@ -318,8 +322,8 @@ This also limits your access to members of the `dimensions` object. If you want 
 
 This is a special form of the SELECT statement, which is available only for CSV-formatted data.
 
-```sql SELECT sys.split(split_size) FROM BlobStorage
-
+```sql
+SELECT sys.split(split_size) FROM BlobStorage
 ```
 
 Use this statement in cases where you want to download and then process CSV data records in batches. That way you can process records in parallel instead of having to download all records at one time. This statement doesn't return records from the CSV file. Instead, it returns a collection of batch sizes. You can then use each batch size to retrieve a batch of data records.

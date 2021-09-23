@@ -69,6 +69,6 @@ The following image shows this setting in the **Create storage account** page.
 
 Use the premium tier for Azure Data Lake Storage with your favorite analytics service such as Azure Databricks, Azure HDInsight and Azure Synapse Analytics.
 
-- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md)
-- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) HDInsight currently supports an account that uses the premium performance tier along with an HBase cluster that has accelerated writes enabled.
+- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks, and Spark](data-lake-storage-use-databricks-spark.md)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). HDInsight currently supports an account that uses the premium performance tier along with an HBase cluster that has accelerated writes enabled.
 - [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md)

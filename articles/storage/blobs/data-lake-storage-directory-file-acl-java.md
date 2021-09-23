@@ -29,7 +29,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 To get started, open [this page](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) and find the latest version of the Java library. Then, open the *pom.xml* file in your text editor. Add a dependency element that references that version.
 
-If you plan to authenticate your client application by using Azure Active Directory (Azure AD), then add a dependency to the Azure Secret Client Library. See [Adding the Secret Client Library package to your project](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
+If you plan to authenticate your client application by using Azure Active Directory (Azure AD), then add a dependency to the Azure Secret Client Library. For more information, see [Adding the Secret Client Library package to your project](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
 
 Next, add these imports statements to your code file.
 
