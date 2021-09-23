@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
-ms.date: 09/22/2021
+ms.date: 09/23/2021
 ms.custom: template-tutorial, devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
@@ -342,7 +342,7 @@ Before you can take advantage of the new disk size, you need to expand the volum
         -ResourceGroupName $azResourceGroup | Out-Host -Paging
     ```
 
-## Upgrade a managed disk
+## Upgrade a disk
 
 There are several ways to respond to changes in your organization's workloads. For example, you may choose to upgrade a standard HDD to a premium SSD to handle increased demand.
 
