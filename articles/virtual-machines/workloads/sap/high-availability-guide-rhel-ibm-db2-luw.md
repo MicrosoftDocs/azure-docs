@@ -1,11 +1,8 @@
 ---
 title: Set up IBM Db2 HADR on Azure virtual machines (VMs) on RHEL | Microsoft Docs
 description: Establish high availability of IBM Db2 LUW on Azure virtual machines (VMs) RHEL.
-services: virtual-machines-linux
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: 'SAP'
 ms.service: virtual-machines-sap
@@ -650,10 +647,10 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 sudo pcs resource move Db2_HADR_<b>ID2</b>-clone --master
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-clone</code></pre>
 
-- **On RHEL 7.x - pcs resource move \<res_name> <host>:** Creates location constraints and can cause issues with takeover
-- **On RHEL 8.x - pcs resource move \<res_name> --master:** Creates location constraints and can cause issues with takeover
-- **pcs resource clear \<res_name>**: Clears location constraints
-- **pcs resource cleanup \<res_name>**: Clears all errors of the resource
+- **On RHEL 7.x - pcs resource move \<res_name\> \<host\>:** Creates location constraints and can cause issues with takeover
+- **On RHEL 8.x - pcs resource move \<res_name\> --master:** Creates location constraints and can cause issues with takeover
+- **pcs resource clear \<res_name\>**: Clears location constraints
+- **pcs resource cleanup \<res_name\>**: Clears all errors of the resource
 
 ### Test a manual takeover
 
