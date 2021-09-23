@@ -96,14 +96,13 @@ To install the tools:
 > *getting-started\tools\get-toolchain.bat*
 
 2. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
-1. Run the following code to confirm that CMake version 3.14 or later is installed.
+3. Run the following code to confirm that CMake version 3.14 or later is installed.
 
     ```shell
     cmake --version
     ```
-To install the remaining tools:
 
-* Install [Microchip Studio for AVR&reg; and SAM devices](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices#). Microchip Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Microchip Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
+4. Install [Microchip Studio for AVR&reg; and SAM devices](https://www.microchip.com/en-us/development-tools-tools-and-software/microchip-studio-for-avr-and-sam-devices#). Microchip Studio is a device development environment that includes the tools to program and flash the Microchip E54. For this tutorial, you use Microchip Studio only to flash the Microchip E54. The installation takes several minutes, and prompts you several times to approve the installation of components.
 
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mplab"
