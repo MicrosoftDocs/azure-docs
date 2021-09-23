@@ -36,7 +36,7 @@ If you have any questions about the SBC certification program for Communication 
 |:--- |:--- |:--- 
 |[AudioCodes](https://www.audiocodes.com/media/lbjfezwn/mediant-sbc-with-microsoft-azure-communication-services.pdf)|Mediant SBC|7.40A
 |Metaswitch|Perimeta SBC|4.9|
-|[Oracle](https://www.oracle.com/technical-resources/documentation/acme-packet.html)|Acme Packet SBC|8.4.0|
+|[Oracle](https://www.oracle.com/technical-resources/documentation/acme-packet.html)|Oracle Acme Packet SBC|8.4|
 |Ribbon Communications|SBC SWe|9.02|
 ||SBC SWe Lite|9.0
 
