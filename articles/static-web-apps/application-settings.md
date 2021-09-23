@@ -135,10 +135,10 @@ The easiest way to create a JSON file with the appropriate values is to create a
 
 Application settings are available to view through the Azure CLI.
 
-- From a terminal or command line, execute the following command. Make sure to replace the placeholders `<YOUR_SUBSCRIPTION_ID>`, `<YOUR_RESOURCE_GROUP_NAME>`, `<YOUR_STATIC_SITE_NAME>` with your values.
+- From a terminal or command line, execute the following command. Make sure to replace the placeholder `<YOUR_APP_ID>` with your value.
 
    ```bash
-   az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"
+   az rest --method post --uri "<YOUR_APP_ID>/listFunctionAppSettings?api-version=2019-12-01-preview"
    ```
 
 ## Next steps
