@@ -85,7 +85,7 @@ In the left navigation pane, select **Application Insights** to jump to the **Ov
 ## Automation
 ### ARM Template
 
-To use the Azure Resource Manager template, copy following content to `azuredeploy.json`.
+To use the Azure Resource Manager template, copy following content to `azuredeploy.json`. Refer to [Microsoft.AppPlatform Spring/monitoringSettings](https://docs.microsoft.com/en-us/azure/templates/microsoft.appplatform/spring/monitoringsettings) for more details.
 
 ```json
 {
@@ -118,7 +118,50 @@ To use the Azure Resource Manager template, copy following content to `azuredepl
 ```
 
 ### Terraform
-To be added!
+Here is an example usages, please refer to [azurerm_spring_cloud_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service) for more details.
+
+```terraform
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+resource "azurerm_application_insights" "example" {
+  name                = "tf-test-appinsights"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  application_type    = "web"
+}
+
+resource "azurerm_spring_cloud_service" "example" {
+  name                = "example-springcloud"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  sku_name            = "S0"
+
+  config_server_git_setting {
+    uri          = "https://github.com/Azure-Samples/piggymetrics"
+    label        = "config"
+    search_paths = ["dir1", "dir2"]
+  }
+
+  trace {
+    connection_string = azurerm_application_insights.example.connection_string
+    sample_rate       = 10.0
+  }
+
+  tags = {
+    Env = "staging"
+  }
+}
+```
+
+
+
 
 ## CLI
 
