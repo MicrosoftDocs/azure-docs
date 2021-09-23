@@ -190,26 +190,28 @@ Check that the zipped file is secure, before you deploy it.
 ### 3. Run the Azure Migrate installer script
 
 1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
-2. Launch PowerShell on the above server with administrative (elevated) privilege.
-3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
-4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Launch PowerShell on the above server with administrative (elevated) privilege.
+
+3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
+
+4. Run the script named `AzureMigrateInstaller.ps1` by running the following command:
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+   :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
 
 6. The installer script does the following:
 
- - Installs agents and a web application.
- - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
- - Download and installs an IIS rewritable module.
- - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
- - Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+   - Installs agents and a web application.
+   - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+   - Download and installs an IIS rewritable module.
+   - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+   - Creates the following files under the path:
+     - **Config Files:** `%ProgramData%\Microsoft Azure\Config`
+     - **Log Files:** `%ProgramData%\Microsoft Azure\Logs`
 
 After the script has executed successfully, the appliance configuration manager will be launched automatically.
 
@@ -227,15 +229,15 @@ Set up the appliance for the first time.
 1. Open a browser on any server that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the desktop by clicking the app shortcut.
-2. Accept the **license terms**, and read the third-party information.
+1. Accept the **license terms**, and read the third-party information.
 1. In the web app > **Set up prerequisites**, do the following:
-    - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
-        - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
-        - Specify credentials if the proxy needs authentication.
-        - Only HTTP proxy is supported.
-        - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
-    - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
-    - **Install updates**: Azure Migrate: Discovery and assessment checks that the appliance has the latest updates installed. After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
+   - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
+     - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
+     - Specify credentials if the proxy needs authentication.
+     - Only HTTP proxy is supported.
+     - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
+   - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
+   - **Install updates**: Azure Migrate: Discovery and assessment checks that the appliance has the latest updates installed. After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
 
 ### Register the appliance with Azure Migrate
 
@@ -245,14 +247,11 @@ Set up the appliance for the first time.
     ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, paste the device code and sign-in by using your Azure username and password.
-   
-   Sign-in with a PIN isn't supported.
-3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
+1. On the new tab, paste the device code and sign-in by using your Azure username and password. Sign-in with a PIN isn't supported.
+1. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
 1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
-4. If the Azure user account used for logging has the right [permissions]() on the Azure resources created during key generation, the appliance registration will be initiated.
+1. If the Azure user account used for logging has the right [permissions]() on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
-
 
 ## Start continuous discovery
 
