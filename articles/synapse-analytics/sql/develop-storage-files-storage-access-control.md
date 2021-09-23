@@ -121,6 +121,15 @@ When accessing storage that is protected with the firewall, you can use **User I
 > The firewall feature on Storage is in public preview and is available in all public cloud regions. 
 
 
+In the table below you can find the available authorization types for different login methods into Synapse Serverless SQL endpoint:
+
+| Authorization type                    | *SQL user*    | *Azure AD user*     | *Service Principal* |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not supported | Supported      | Not supported|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Not supported     | Not supported      | Not supported|
+| [Service Principal](?tabs=service-principal#supported-storage-authorization-types) | Not upported | Not supported      | Not supported|
+| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      | Supported|
+
 ### [User Identity](#tab/user-identity)
 
 To access storage that is protected with the firewall via User Identity, you can use Azure portal UI or PowerShell module Az.Storage.
@@ -217,14 +226,6 @@ In this case, the scope of access for the instance corresponds to the Azure role
 
 You cannot access firewall-protected storage using anonymous access.
 
-In the table below you can find the available authorization types for different login methods into Synapse Serverless SQL endpoint:
-
-| Authorization type                    | *SQL user*    | *Azure AD user*     | *Service Principal* |
-| ------------------------------------- | ------------- | -----------    | -------- |
-| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not supported | Supported      | Not supported|
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Not supported     | Not supported      | Not supported|
-| [Service Principal](?tabs=service-principal#supported-storage-authorization-types) | Not upported | Not supported      | Not supported|
-| [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      | Supported|
 ---
 
 ## Credentials
