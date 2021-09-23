@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to integrate Azure Defender fo
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/14/2021
+ms.date: 09/23/2021
 ms.custom: template-tutorial
 ---
 
@@ -41,6 +41,8 @@ In this tutorial, you learn how to:
 > - Verify communication
 > - View device attributes in Forescout
 > - Create Azure Defender for IoT policies in Forescout
+
+If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
