@@ -35,13 +35,18 @@ You must have an Azure account with an active subscription. If you don't have an
 
 The exercises in this tutorial require a VM. Follow the steps in this section to create one.
 
-In the following sample code, change the value of the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet's `-Location` parameter to reflect your desired region. Use the code to deploy a VM within a new resource group. You're prompted for username and password values for the VM's local administrator account.
+Before you begin, find the `$azRegion` variable located in the first line of sample code and update the value to reflect your desired region. For example, to specify the **Central US** region, use `$azRegion = "Central US"`. Next, use the code to deploy a VM within a new resource group. You're prompted for username and password values for the VM's local administrator account.
 
 ```azurepowershell-interactive
+$azRegion        = "[Your Region]"
+$azResourceGroup = "myDemoResourceGroup"
+$azVMName        = "myDemoVM"
+$azDataDiskName  = "myDemoDataDisk"
+
 New-AzVm `
-    -Location "Central US" `
-    -Name "myDemoVM" `
-    -ResourceGroupName "myDemoResourceGroup" `
+    -Location $azRegion `
+    -ResourceGroupName $azResourceGroup `
+    -Name $azVMName `
     -Size "Standard_D2s_v3" `
     -VirtualNetworkName "myDemoVnet" `
     -SubnetName "myDemoSubnet" `
@@ -69,8 +74,8 @@ FullyQualifiedDomainName : mydemovm-abc123.Central US.cloudapp.azure.com
 
 The VM is provisioned, and two disks are automatically created and attached.
 
-- An **operating system disk** hosts the virtual machine's operating system.
-- A **temporary disk** is primarily used for operations such as temporary data processing.
+- An **operating system disk**, which hosts the virtual machine's operating system.
+- A **temporary disk**, which is primarily used for operations such as temporary data processing.
 
 ## Add a data disk
 
@@ -86,7 +91,7 @@ This section guides you through the creation of a data disk.
 
     ```azurepowershell-interactive
     $diskConfig = New-AzDiskConfig `
-        -Location "CentralUS" `
+        -Location $azRegion `
         -CreateOption Empty `
         -DiskSizeGB 128 `
         -SkuName "Standard_LRS"
@@ -96,8 +101,8 @@ This section guides you through the creation of a data disk.
 
     ```azurepowershell-interactive
     $dataDisk = New-AzDisk `
-        -ResourceGroupName "myDemoResourceGroup" `
-        -DiskName "myDemoDataDisk" `
+        -ResourceGroupName $azResourceGroup `
+        -DiskName $azDataDiskName `
         -Disk $diskConfig
     ```
 
@@ -105,8 +110,8 @@ This section guides you through the creation of a data disk.
 
     ```azurepowershell-interactive
     Get-AzDisk `
-        -ResourceGroupName "myDemoResourceGroup" `
-        -DiskName "myDemoDataDisk"
+        -ResourceGroupName $azResourceGroup `
+        -DiskName $azDataDiskName
     ```
 
     In this example, the output confirms that the disk was created. The `DiskState` and `ManagedBy` property values confirm that the disk is not yet attached.
@@ -132,24 +137,9 @@ A data disk must be attached to a VM before the VM can access it. Complete the s
 1. Get the VM to which you'll attach the data disk. The following sample code uses the [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to create a reference to the VM.
 
     ```azurepowershell-interactive
-    $vm = Get-AzVM -ResourceGroupName "myDemoResourceGroup" -Name "myDemoVM"
-    ```
-
-    The output shows that the reference to the VM is set.
-
-    ```Output
-    ResourceGroupName : myDemoResourceGroup
-    Id                : /subscriptions/{GUID}/resourceGroups/myDemoResourceGroup/providers/Microsoft.Compute/virtualMachines/myDemoVM
-    VmId              : {GUID}
-    Name              : myDemoVM
-    Type              : Microsoft.Compute/virtualMachines
-    Location          : centralus
-    Tags              : {}
-    HardwareProfile   : {VmSize}
-    NetworkProfile    : {NetworkInterfaces}
-    OSProfile         : {ComputerName, AdminUsername, WindowsConfiguration, Secrets, AllowExtensionOperations, RequireGuestProvisionSignal}
-    ProvisioningState : Succeeded
-    StorageProfile    : {ImageReference, OsDisk, DataDisks}
+    $vm = Get-AzVM `
+        -ResourceGroupName $azResourceGroup `
+        -Name $azVMName
     ```
 
 1. Next, attach the data disk to the VM's configuration with the [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk) cmdlet.
@@ -157,7 +147,7 @@ A data disk must be attached to a VM before the VM can access it. Complete the s
     ```azurepowershell-interactive
     $vm = Add-AzVMDataDisk `
         -VM $vm `
-        -Name "myDemoDataDisk" `
+        -Name $azDataDiskName `
         -CreateOption Attach `
         -ManagedDiskId $dataDisk.Id `
         -Lun 1
@@ -167,11 +157,11 @@ A data disk must be attached to a VM before the VM can access it. Complete the s
 
     ```azurepowershell-interactive
     Update-AzVM `
-        -ResourceGroupName "myDemoResourceGroup" `
+        -ResourceGroupName $azResourceGroup `
         -VM $vm
     ```
 
-    The output confirms a successful attachment.
+    After a brief pause, the output confirms a successful attachment.
 
     ```Output
     RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -224,8 +214,8 @@ Follow the steps below to resize either the OS disk or a data disk.
 
     ```azurepowershell-interactive
      $vm = Get-AzVM `
-       -ResourceGroupName "myDemoResourceGroup" `
-       -Name "myDemoVM"
+       -ResourceGroupName $azResourceGroup `
+       -Name $azVMName
     ```
 
 1. Before you can resize a VM's disk, you must stop the VM. Use the `Stop-AzVM` cmdlet to stop the VM. You'll be prompted for confirmation.
@@ -235,8 +225,8 @@ Follow the steps below to resize either the OS disk or a data disk.
 
     ```azurepowershell-interactive
     Stop-AzVM `
-        -ResourceGroupName "myDemoResourceGroup" `
-        -Name "myDemoVM"
+        -ResourceGroupName $azResourceGroup `
+        -Name $azVMName
     ```
 
     After a short pause, the output confirms that the machine is successfully stopped.
@@ -255,7 +245,7 @@ Follow the steps below to resize either the OS disk or a data disk.
 
     ```azurepowershell-interactive
     $disk= Get-AzDisk `
-        -ResourceGroupName "myDemoResourceGroup" `
+        -ResourceGroupName $azResourceGroup `
         -DiskName $vm.StorageProfile.OsDisk.Name
     ```
 
@@ -263,14 +253,14 @@ Follow the steps below to resize either the OS disk or a data disk.
 
     ```azurepowershell-interactive
         $disk= Get-AzDisk `
-            -ResourceGroupName "myDemoResourceGroup" `
+            -ResourceGroupName $azResourceGroup `
             -DiskName $vm.StorageProfile.DataDisks[0].Name
     ```
 
-1. Now that you have a reference to the disk, set the size of the disk to 250 gigabytes.
+1. Now that you have a reference to the disk, set the size of the disk to 250 GiB.
 
     > [!IMPORTANT]
-    > The new size should be greater than the existing disk size. The maximum allowed is 4,095 GB for OS disks.
+    > The new size should be greater than the existing disk size. The maximum allowed is 4,095 GiB for OS disks.
 
     ```azurepowershell-interactive
     $disk.DiskSizeGB = 250
@@ -280,7 +270,7 @@ Follow the steps below to resize either the OS disk or a data disk.
 
     ```azurepowershell-interactive
     Update-AzDisk `
-        -ResourceGroupName "myDemoResourceGroup" `
+        -ResourceGroupName $azResourceGroup `
         -Disk $disk -DiskName $disk.Name
     ```
 
@@ -309,8 +299,8 @@ Follow the steps below to resize either the OS disk or a data disk.
 
     ```azurepowershell-interactive
     Start-AzVM `
-        -ResourceGroupName "myDemoResourceGroup" `
-        -Name "myDemoVM"
+        -ResourceGroupName $azResourceGroup `
+        -Name $azVMName
     ```
 
     After a short pause, the output confirms that the machine is successfully started.
@@ -335,7 +325,7 @@ Before you can take advantage of the new disk size, you need to expand the volum
 
     [![Image of a remote desktop connection window.](media\tutorial-manage-data-disk\initialize-disk-sml.png)](media\tutorial-manage-data-disk\initialize-disk-lrg.png#lightbox)
 
-1. Open PowerShell and run the following script. Change the value of the `-DriveLetter` parameter as appropriate. For example, to assign a drive letter of **F:**, use `$driveLetter = "F"`.
+1. Open PowerShell and run the following script. Change the value of the `-DriveLetter` variable as appropriate. For example, to resize the partition on the **F:** drive, use `$driveLetter = "F"`.
 
     ```powershell
     $driveLetter = "[Drive Letter]" `
@@ -349,21 +339,21 @@ Before you can take advantage of the new disk size, you need to expand the volum
 
     ```azurepowershell-interactive
     Get-AzDisk `
-        -ResourceGroupName "myDemoResourceGroup" | Out-Host -Paging
+        -ResourceGroupName $azResourceGroup | Out-Host -Paging
     ```
 
 ## Upgrade a managed disk
 
-You can choose to upgrade or downgrade your VM's disk types in response to your organization's workloads and performance needs. For example, you may choose to upgrade a standard HDD to a premium SSD to handle increased demand.
+There are several ways to respond to changes in your organization's workloads. For example, you may choose to upgrade a standard HDD to a premium SSD to handle increased demand.
 
-In this section, you upgrade a managed disk from standard to premium.
+Follow the steps in this section to upgrade a managed disk from standard to premium.
 
 1. Select the VM that contains the disk that you'll upgrade with the `Get-AzVM` cmdlet.
 
     ```azurepowershell-interactive
      $vm = Get-AzVM `
-       -ResourceGroupName "myDemoResourceGroup" `
-       -Name "myDemoVM"
+       -ResourceGroupName $azResourceGroup `
+       -Name $azVMName
     ```
 
 1. Before you can upgrade a VM's disk, you must stop the VM. Use the `Stop-AzVM` cmdlet to stop the VM. You'll be prompted for confirmation.
@@ -373,8 +363,8 @@ In this section, you upgrade a managed disk from standard to premium.
 
     ```azurepowershell-interactive
     Stop-AzVM `
-        -ResourceGroupName "myDemoResourceGroup" `
-        -Name "myDemoVM"
+        -ResourceGroupName $azResourceGroup `
+        -Name $azVMName
     ```
 
     After a short pause, the output confirms that the machine is successfully stopped.
@@ -393,7 +383,7 @@ In this section, you upgrade a managed disk from standard to premium.
 
     ```azurepowershell-interactive
     $disk= Get-AzDisk `
-        -ResourceGroupName "myDemoResourceGroup" `
+        -ResourceGroupName $azResourceGroup `
         -DiskName $vm.StorageProfile.OsDisk.Name
     ```
 
@@ -401,7 +391,7 @@ In this section, you upgrade a managed disk from standard to premium.
 
     ```azurepowershell-interactive
         $disk= Get-AzDisk `
-            -ResourceGroupName "myDemoResourceGroup" `
+            -ResourceGroupName $azResourceGroup `
             -DiskName $vm.StorageProfile.DataDisks[0].Name
     ```
 
@@ -415,7 +405,7 @@ In this section, you upgrade a managed disk from standard to premium.
 
     ```azurepowershell-interactive
     Update-AzDisk `
-        -ResourceGroupName "myDemoResourceGroup" `
+        -ResourceGroupName $azResourceGroup `
         -Disk $disk -DiskName $disk.Name
     ```
 
@@ -435,8 +425,8 @@ In this section, you upgrade a managed disk from standard to premium.
 
     ```azurepowershell-interactive
     Start-AzVM `
-        -ResourceGroupName "myDemoResourceGroup" `
-        -Name "myDemoVM"
+        -ResourceGroupName $azResourceGroup `
+        -Name $azVMName
     ```
 
     After a short pause, the output confirms that the machine is successfully started.
@@ -457,16 +447,16 @@ You can detach a data disk from a VM when it's no longer needed. A detached disk
 
     ```azurepowershell-interactive
     $vm = Get-AzVM `
-       -ResourceGroupName "myDemoResourceGroup" `
-       -Name "myDemoVM"
+       -ResourceGroupName $azResourceGroup `
+       -Name $azVMName
     ```
 
 1. Select the disk you want to remove with the `Get-AzDisk` cmdlet.
 
      ```azurepowershell-interactive
     $vm = Get-AzVM `
-       -ResourceGroupName "myDemoResourceGroup" `
-       -Name "myDemoVM"
+       -ResourceGroupName $azResourceGroup `
+       -Name $azVMName
     ```
 
 1. Next, detach the disk from the VM with the `Remove-AzVMDataDisk` cmdlet.
@@ -474,26 +464,34 @@ You can detach a data disk from a VM when it's no longer needed. A detached disk
     ```azurepowershell-interactive
     Remove-AzVMDataDisk `
         -VM $vm `
-        -Name "myDemoDataDisk"
+        -Name $azDataDiskName
     ```
 
 1. Update the state of the VM with the `Update-AzVM` cmdlet to remove the data disk.
 
     ```azurepowershell-interactive
     Update-AzVM `
-        -ResourceGroupName "myDemoResourceGroup" `
+        -ResourceGroupName $azResourceGroup `
         -VM $vm
+    ```
+
+    After a short pause, the output confirms that the VM is successfully updated.
+
+    ```output
+    RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+    --------- ------------------- ---------- ------------
+                             True         OK OK
     ```
 
 ## Delete a data disk
 
-When you delete a VM, any disks that were attached remain inside your storage account. This default behavior helps prevent data loss caused by unintentional deletion. After a VM is deleted, unattached disks will continue to incur charges until they're deleted.
+When you delete a VM, data disks attached to the VM remain provisioned and continue to incur charges until they're deleted. This default behavior helps prevent data loss caused by unintentional deletion.
 
-You can use the following sample PowerShell script to delete unattached disks. The retrieval of disks is limited to the **myDemoResourceGroup** because the  `-ResourceGroupName` switch was used with the `Get-AzDisk` cmdlet.
+You can use the following sample PowerShell script to delete unattached disks. The retrieval of disks is limited to the **myDemoResourceGroup** because the  `-ResourceGroupName` switch is used with the `Get-AzDisk` cmdlet.
 
 ```azurepowershell
-# Get all disks in resource group "myDemoResourceGroup"
-$allDisks = Get-AzDisk -ResourceGroupName "myDemoResourceGroup"
+# Get all disks in resource group $azResourceGroup
+$allDisks = Get-AzDisk -ResourceGroupName $azResourceGroup
 
 # Determine the number of disks in the collection
 if($allDisks.Count -ne 0) {
@@ -521,7 +519,15 @@ if($allDisks.Count -ne 0) {
 }
 ```
 
-The unattached data disk is deleted.
+The unattached data disk is deleted as shown by the output.
+
+```output
+Name      : abcd1234-ab12-cd34-ef56-abcdef123456
+StartTime : 9/13/2021 10:14:05 AM
+EndTime   : 9/13/2021 10:14:35 AM
+Status    : Succeeded
+Error     :
+```
 
 ## Clean up resources
 
@@ -531,7 +537,7 @@ When no longer needed, delete the resource group, VM, and all related resources.
 > Use caution when deleting a resource group. To avoid the loss of important data, always confirm that there are no important resources or data contained within the resource group before it is deleted.
 
 ```azurepowershell-interactive
-    Remove-AzResourceGroup -Name "myDemoResourceGroup"
+    Remove-AzResourceGroup -Name $azResourceGroup
 ```
 
 You're prompted for confirmation. After a short pause, the `True` response confirms that the **myDemoResourceGroup** is successfully deleted.
