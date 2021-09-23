@@ -1,6 +1,6 @@
 # Azure Purview Metadata Policy & Metadata Roles APIs: Quickstart Tutorial – Manage Fine Grained Access Control over Purview Collections
 
-In August 2021, Azure Purview moved to support authorization & access control from IAM (control plane) to Azure Purview [Collections](https://docs.microsoft.com/en-us/azure/purview/how-to-create-and-manage-collections) (data plane). This tutorial: How to Add or Remove a [User/Group/ServicePrincipal] to a Collection as one of the 4 built-in Metadata Roles [Collection Administrator, Data Source Administrator, Data Curator or Data Reader] talks about managing fine grained access control over these collections to users, groups or service principals within your enterprise via Azure Purview APIs. This is an alternative method as against using the Azure Portal or Purview Studio to achieve the same fine grained access control.
+In August 2021, Azure Purview moved to support authorization & access control from IAM (control plane) to Azure Purview [Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This tutorial: How to Add or Remove a [User/Group/ServicePrincipal] to a Collection as one of the 4 built-in Metadata Roles [Collection Administrator, Data Source Administrator, Data Curator or Data Reader] talks about managing fine grained access control over these collections to users, groups or service principals within your enterprise via Azure Purview APIs. This is an alternative method as against using the Azure Portal or Purview Studio to achieve the same fine grained access control.
 
 # Metadata Policy API Reference Summary
 This table gives an overview of the **Purview Metadata Policy APIs**. 
@@ -18,12 +18,12 @@ Replace {pv-acc-name} by the name of your purview account before running these A
 This table gives an overview of the **Purview Collections APIs**. Click each of the API "OPERATIONS" below to get complete documentation about each API.
 | **OPERATIONS** | **Description** |
 | :- | :- |
-| [Create Or Update Collection](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/create-or-update-collection) | Creates or updates a collection entity. |
-| [Delete Collection](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/delete-collection) |Deletes a Collection entity. |
-| [Get Collection](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/get-collection) |Get a collection|
-| [Get Collection Path](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/get-collection-path) |Gets the parent name and parent friendly name chains that represent the collection path.|
-| [List Child Collection Names](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/list-child-collection-names) |Lists the child collections names in the collection.|
-| [List Collections](https://docs.microsoft.com/en-us/rest/api/purview/accountdataplane/collections/list-collections) |List the collections in the account.|
+| [Create Or Update Collection](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/create-or-update-collection) | Creates or updates a collection entity. |
+| [Delete Collection](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/delete-collection) |Deletes a Collection entity. |
+| [Get Collection](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/get-collection) |Get a collection|
+| [Get Collection Path](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/get-collection-path) |Gets the parent name and parent friendly name chains that represent the collection path.|
+| [List Child Collection Names](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/list-child-collection-names) |Lists the child collections names in the collection.|
+| [List Collections](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/list-collections) |List the collections in the account.|
 
 # Tutorial: Create Collection Hierarchy using Azure Portal or APIs.	
 **Using APIs:**
@@ -777,7 +777,7 @@ Essentially you will update the Policy JSON obtained in previous step and push i
 Whether you wish to **add** or **remove** User/Group/SP(ServicePrincipal), the process is identical using this API in all the cases.
 
 - You need to pass the User/Group/ServicePrincipal Object ID {guid} in an array format in "attributeValueIncludedIn" array of the JSON.
-- Search the JSON output of the Get-Policy-by-ID API for "attributeValueIncludedIn" array in the previous step and **Add** or  **Remove** the User/Group/ServicePrincipal Object ID in the array. If unsure about how to fetch user or group Object ID, read this tutorial to [search and fetch a user / group / service principal’s Object ID](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
+- Search the JSON output of the Get-Policy-by-ID API for "attributeValueIncludedIn" array in the previous step and **Add** or  **Remove** the User/Group/ServicePrincipal Object ID in the array. If unsure about how to fetch user or group Object ID, read this tutorial to [search and fetch a user / group / service principal’s Object ID](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0)
 - Notice that there could be multiple sections in the JSON pertaining to each of the 4 metadatapolicy roles. For collection administrator, use the section bearing "id" called "purviewmetadatarole_builtin_collection-administrator". Likewise, use the corresponding section for the other roles.
 - To better understand the Add/Remove operation API, notice that in the JSON below I'm adding User ID : "3a3a3a3a-2c2c-4b4b-1c1c-2a3b4c5d6e7f" As Collection Administrator.
 
