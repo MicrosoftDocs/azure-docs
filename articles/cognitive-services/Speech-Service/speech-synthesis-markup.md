@@ -624,7 +624,7 @@ After you've published your custom lexicon, you can reference it from your SSML.
 
 When using this custom lexicon, "BTW" will be read as "By the way". "Benigni" will be read with the provided IPA "bɛˈniːnji".
 
-As it's easy to make mistakes in custom lexicon, Microsoft has provided [validation tool for custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It could help you check error and provide detailed error message. Before you send SSML with custom lexicon to service, you should check your custom lexicon with this tool. 
+Since it's easy to make mistakes in custom lexicon, Microsoft has provided [validation tool for custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It provides detailed error messages that help you find errors. Before you send SSML with custom lexicon to the Speech service, you should check your custom lexicon with this tool. 
 
 **Limitations**
 - File size: custom lexicon file size maximum limit is 100KB, if beyond this size, synthesis request will fail.
