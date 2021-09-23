@@ -205,7 +205,7 @@ Some things to consider:
    Suppose you set a rule to scale out when average CPU is greater than 50% over five minutes, and to scale in when average CPU is less than 50%. This setting would cause a "flapping" problem when CPU usage is close to the threshold, with scale actions constantly increasing and decreasing the size of the set. Because of this setting, the autoscale service tries to prevent "flapping", which can manifest as not scaling. Therefore, be sure your scale-out and scale-in thresholds are sufficiently different to allow some space in between scaling.
 
 * Can you scale in or out a node type?
-   Adjust the count of nodes at the node type level and make sure it completes successfully. [How to scale a node type on a managed cluster](./how-to-managed-cluster-scale-node-type.md)
+   Adjust the count of nodes at the node type level and make sure it completes successfully. [How to scale a node type on a managed cluster](./how-to-managed-cluster-modify-node-type.md)
 
 * Check your Microsoft.ServiceFabric/managedclusters/nodetypes, and Microsoft.Insights resources in the Azure Resource Explorer
 

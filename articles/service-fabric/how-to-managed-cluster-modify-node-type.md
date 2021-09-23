@@ -130,7 +130,7 @@ In this walkthrough, you will learn how to modify a placement property for a nod
 ![Sample showing adding a placement property][nodetype-placement-property]
 
 6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
-![Sample showing a node count updating][node-count-updating]
+![Sample showing a node type updating][node-type-updating]
 
 You can now use that [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
 
