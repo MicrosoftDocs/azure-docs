@@ -11,6 +11,7 @@ Each node type in a Service Fabric managed cluster is backed by a virtual machin
 
 The rest of this document will cover how to adjust various settings from node type instance count, OS Image, and configuring placement properties.
 
+> [!NOTE] You will not be able to modify the node type while a change is in progress. It is recommended to let any requested change complete before doing another.
 
 ## Scale a Service Fabric managed cluster node type manually with portal
 
@@ -78,11 +79,11 @@ In this walkthrough you will learn how to modify the node count for a node type 
 
 4) Select the `Node type name` you want to modify
 
-5) Adjust the `Node count` to the new value you want and select `Apply` at the bottom. In this screenshot the value was `3` and adjusted to `5`.
-![Sample showing a node count increase][adjust-node-count]
+5) Adjust the `OS Image` to the new value you want and select `Apply` at the bottom. 
+![Sample showing changing the OS image][change-os-image]
 
-6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
-![Sample showing a node count updating][node-count-updating]
+6) The `Provisioning state` will now show a status of `Updating` and will proceed one upgrade domain at a time. When complete, it will show `Succeeded` again.
+![Sample showing a node type updating][node-type-updating]
 
 
 ## Modify the OS image for a node type with a template
@@ -114,7 +115,7 @@ To modify the OS image used for a node type using an ARM Template, adjust the `v
 
 ## Configure placement properties for a node type with portal
 
-In this walkthrough you will learn how to modify the node count for a node type using portal.
+In this walkthrough you will learn how to modify a placement property for a node type using portal.
 
 1) Login to [Azure Portal](https://portal.azure.com/)
 
@@ -125,12 +126,13 @@ In this walkthrough you will learn how to modify the node count for a node type 
 
 4) Select the `Node type name` you want to modify
 
-5) Adjust the `Node count` to the new value you want and select `Apply` at the bottom. In this screenshot the value was `3` and adjusted to `5`.
-![Sample showing a node count increase][adjust-node-count]
+5) In the `Placement properties` section add the name and value you want and select `Apply` at the bottom. In this screenshot the `Name` `SSD_Premium` was used with `Value` of `true`.
+![Sample showing adding a placement property][nodetype-placement-property]
 
 6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
 ![Sample showing a node count updating][node-count-updating]
 
+You can now use that [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
 
 ## Configure placement properties for a node type with a template
 
@@ -172,6 +174,8 @@ To adjust the placement properties for a node type using an ARM Template, adjust
 
 
 [overview]: ./media/how-to-managed-cluster-modify-node-type/sfmc-overview.png
-[node-count-updating]: ./media/how-to-managed-cluster-modify-node-type/sfmc-adjust-node-count-updating.png
+[node-type-updating]: ./media/how-to-managed-cluster-modify-node-type/sfmc-adjust-node-type-updating.png
 [adjust-node-count]: ./media/how-to-managed-cluster-modify-node-type/sfmc-adjust-node-counts.png
-[??]: ./media/how-to-managed-cluster-modify-node-type/
+[change-nodetype-os-image]: ./media/how-to-managed-cluster-modify-node-type/sfmc-change-os-image.png
+[nodetype-placement-property]: ./media/how-to-managed-cluster-modify-node-type/sfmc-nodetype-placement-property.png
+

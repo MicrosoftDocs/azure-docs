@@ -6,14 +6,14 @@ ms.date: 10/04/2021
 ---
 
 # Introduction to Auto Scaling on Service Fabric managed clusters
-[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) enables a Service Fabric managed cluster secondary node type to automatically increase or decrease the number of nodes that run your application. Auto scaling gives great elasticity and enables provisioning of additional or reduction of nodes on demand. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the acceptable performance for a positive customer experience. When those defined thresholds are met, auto scale rules take action to adjust the capacity of your scale set. Auto scaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable auto scaling, and how to configure an example auto scale policy.
+[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) enables a Service Fabric managed cluster secondary node type to automatically increase or decrease the number of nodes that run your application. Auto scaling gives great elasticity and enables provisioning of additional or reduction of nodes on demand. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the acceptable performance for a positive customer experience. When those defined thresholds are met, auto scale rules take action to adjust the capacity of your node type. Auto scaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable auto scaling, and how to configure an example auto scale policy.
 
 
 **Requirements and supported metrics:**
 * In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
 * The cluster SKU must be Standard.
 * Can only be configured on a secondary node type in your cluster.
-* On a node where auto scale is enabled, `vmInstanceCount` property should be set to `-1` in the cluster resource
+* On a node type where auto scale is enabled, `vmInstanceCount` property should be set to `-1` in the cluster resource
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
 A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
