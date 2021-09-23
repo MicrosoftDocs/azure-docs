@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 
 This article provides a collection of best practices to help you achieve optimal performance for dedicated SQL pools in Azure Synapse Analytics.  If you're working with serverless SQL pool, see [Best practices for serverless SQL pools](best-practices-serverless-sql-pool.md) for specific guidance.Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
 
-## Dedicated SQ pools loading
+## Dedicated SQL pools loading
 
 For dedicated SQL pools loading guidance, see [Guidance for loading data](data-loading-best-practices.md).
 
