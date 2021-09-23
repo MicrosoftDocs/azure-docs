@@ -4,6 +4,7 @@ description: Set up a data gateway to move data between on-premises and the clou
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
