@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/20/2021
 ms.author: lajanuar
+recommendations: false
 keywords: automated data processing, document processing, automated data entry, forms processing
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
@@ -39,7 +40,7 @@ This documentation contains the following article types:
 ### [Form Recognizer v2.1](#tab/v2.1)
 
 The following features are supported by the Form Recognizer service v2.1. Use the links in the table to learn more about each feature and browse the API references.
-| Feature | Description | Development options <img width=500/>|
+| Feature | Description | Development options <img width=300/>|
 |----------|--------------|-------------------------|
 |[**Layout**](concept-layout.md) | Extraction and analysis of text, selection marks, and table structures,  along with their bounding box coordinates, from forms and documents. | <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Prebuilt business card model**](concept-prebuilt.md#business-card) | Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
@@ -52,20 +53,20 @@ The following features are supported by the Form Recognizer service v2.1. Use th
 
 The following features  and development options are supported by the Form Recognizer service v3.0. Use the links in the table to learn more about each feature and browse the API references.
 
-| Feature | Description | Development options<img width=500/> |
+| Feature | Description | Development options<img width=300/> |
 |----------|--------------|-------------------------|
-|[🆕 **Prebuilt document**](concept-prebuilt.md#document)|extract text, tables, structure, key-value pairs and named entities.|<ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
-|[**Prebuilt layout (updated)**](concept-prebuilt.md#layout) | Extraction and analysis of text, selection marks, and tables structures, along with their bounding box coordinates, from forms and documents. | <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
-|[**Prebuilt receipt (updated)**](concept-prebuilt.md#receipt) | Automated data processing and extraction of key information from sales receipts.| <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
-|[**Prebuilt identity document (updated)**](concept-prebuilt.md#identity-document) | Automated data processing and extraction of key information from US driver's licenses and international passports.| <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
-|[**Custom model (updated)**](concept-prebuilt.md#business-card) | Extraction and analysis of data from forms and documents specific to distinct business data and use cases.| <ul><li>[**Form Recognizer Studio**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|[🆕 **Prebuilt document**](concept-prebuilt.md#document)|Extract text, tables, structure, key-value pairs and named entities.|<ul ><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul> |
+|[**Prebuilt layout**](concept-prebuilt.md#layout) | Extract text, selection marks, and tables structures, along with their bounding box coordinates, from forms and documents. | <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
+|[**Custom model (updated)**](concept-prebuilt.md#business-card) | Extraction and analysis of data from forms and documents specific to distinct business data and use cases.</br></br>Custom model API v3.0 supports **signature detection for custom forms**.</li></ul>| <ul><li>[**Form Recognizer Studio**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
+|[**Prebuilt receipt (updated)**](concept-prebuilt.md#receipt) | Automated data processing and extraction of key information from sales receipts.</br></br>Prebuilt receipt API v3.0 supports processing of **single-page hotel receipts**.| <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
+|[**Prebuilt identity document (updated)**](concept-prebuilt.md#identity-document) |Automated data processing and extraction of key information from US driver's licenses and international passports.</br></br>Prebuilt ID document API suports the **extraction of endorsements, restrictions, and vehicle classifications from US driver's licenses**. |<ul><li> [**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
 |[**Prebuilt invoice model**](concept-prebuilt.md#invoice) | Automated data processing and extraction of key information from sales invoices. | <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
-|[**Prebuilt business card model**](concept-prebuilt.md#business-card) | Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
+|[**Prebuilt business card model**](concept-prebuilt.md#business-card) |Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
 ---
 
 ## Prerequisites
 
-* You'll need an Azure subscription— [**create one for free**](https://azure.microsoft.com/free/cognitive-services).
+* You'll need an Azure subscription—[**create one for free**](https://azure.microsoft.com/free/cognitive-services).
 
 * Once you have your subscription, create a [**Form Recognizer resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
@@ -77,41 +78,38 @@ The following features  and development options are supported by the Form Recogn
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-## Getting started workflows
+## REST API workflows
 
-### [Form Recognizer v2.1](#tab/v2.1)
-
-| Document type | Considerations | Solution |
+| Document type | Considerations | Solution<img width=300/> |
 | -----------------|-------------------| ----------|
-|**Identity document**| Is your document a US driver's license or an international passport?| <ul><li>Yes → [**Prebuilt identity document model**](concept-prebuilt.md#identity-document)</li><li>No → [**prebuilt layout**](concept-prebuilt.md#layout) </li></ul>
-
-
-
-
-1. If your document is a US driver's license or an international passport, start with the **identity document prebuilt model**. If not, start with the Layout API.
-
-1. If your document is an English-text **invoice, receipt, or business card**, start with the corresponding prebuilt model. If not, start with the Layout API. *See* [language support](language-support.md)
-
-1. If your document or form is one commonly used in business and industry, start wit the Layout API. If you need to further refine your results, add additional field data with the [Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/) or [train a custom model](label-tool.md).
-
-1. If your form or document is unique and/or specific to your business, [train a custom model](quickstarts/try-sample-label-tool.md#train-a-custom-form-model), start by [building a training data set]build-training-data-set.md) and [training a custom model](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model) with unlabeled data to see if the desired results or returned or train your model with labeled data.
-
-### [Form Recognizer v3.0](#tab/v3.0)
+|<ul><li>**Identity document**</li></ul>| Is your document a US driver's license or an international passport?| <ul><li>Yes → [Use **Prebuilt identity document model**](concept-prebuilt.md#identity-document)</li><li>No → [Use **Prebuilt layout**](concept-prebuilt.md#layout) </li></ul>|
+|<ul><li>**Invoice**</li><li>**Receipt**</li><li>**Business card**</li></ul>| Is your document composed of English-text? | <ul><li>Yes → Use corresponding, [**Prebuilt Invoice**](concept-prebuilt.md#invoice), [**Prebuilt Receipt**](concept-prebuilt.md#receipt), or [**Prebuilt Business Card**](concept-prebuilt.md#business-card) models</li><li>No → [Use **Prebuilt layout**](concept-prebuilt.md#layout) </li></ul>|
+|<ul><li>**Form**</li></ul>| Is your form an industry-standarsd format commonly used in your business or industry?| Yes → [Use **Prebuilt layout**](concept-prebuilt.md#identity-document)</li><li>No → [Train and build a custom model**](concept-prebuilt.md#layout) 
 
 ## Data privacy and security
 
-* As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more. </br></br>
 
-* Form Recognizer doesn't store or process customer data outside the region where the customer deploys the service instance.
+Form Recognizer doesn't store or process customer data outside the region where the customer deploys the service instance.
 
 ## Next steps
 
-* Try our online tool and quickstart to learn more about the Form Recognizer service.
+### [Form Recognizer v2.1](#tab/v2.1)
 
-  > [!div class="nextstepaction"]
-  > [Try Form Recognizer](https://aka.ms/fott-2.1-ga/)
-  >
+> [!div class="checklist"]
+>
+> * Try our [**Sample Labeling online tool**](https://aka.ms/fott-2.1-ga/)
+> * Follow our [**client library / REST API quickstart**](./quickstarts/try-sdk-rest-api.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+> * Explore the [**REST API reference documentation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) to learn more. 
+> If you're familiar with a previous version of the API, see the [**What's new**](./whats-new.md) article to learn about recent changes.
 
-* Follow the [client library / REST API quickstart](./quickstarts/try-sdk-rest-api.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+### [Form Recognizer v3.0](#tab/v3.0)
 
-* Explore the [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
+> [!div class="checklist"]
+>
+> * Try our [**Form Recognizer Studio**]()
+> * Follow our [**Client library SDKs quickstart (preview)](./quickstarts/try-v3-client-libraries.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+> * Explore the [**REST API reference documentation**]() to learn more. 
+> If you're familiar with a previous version of the API, see the [**What's new**](./whats-new.md) article to learn about recent changes.
+
+---
