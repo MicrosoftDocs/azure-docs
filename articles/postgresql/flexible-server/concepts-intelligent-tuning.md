@@ -10,8 +10,6 @@ ms.date: 08/04/2021
 
 # Perform Intelligent Tuning on your PostgreSQL Flex Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
 
 > [!IMPORTANT]
 > Intelligent Tuning is in preview

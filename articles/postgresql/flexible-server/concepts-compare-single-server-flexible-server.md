@@ -10,8 +10,7 @@ ms.date: 08/02/2021
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 The following table provides a high-level features and capabilities comparisons between Single Server and Flexible Server.
 
