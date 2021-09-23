@@ -30,14 +30,19 @@ In this article, we set up a virtual machine to use managed identities to connec
 - You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 - A resource group that we can use to create all resources.
 
+## Create a resource group
 
-## Get a virtual machine with a managed identity
+Create a resource groups called **mi-test** for all resources used in this tutorial. 
 
-For the purposes of this tutorial you need a virtual machine in Azure. You may have one already available and in that case you need to enable a system-assigned managed identity or assign a user-assigned managed identity. If you have no virtual machine available to go over these steps you can create one.
+- [Portal](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups)
+- [CLI](../../azure-resource-manager/management/manage-resource-groups-cli.md#create-resource-groups)
+- [PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md#create-resource-groups)
 
-### System assigned
+## Create an Azure VM with a managed identity
 
-#### Create a VM with a system assigned managed identity
+For this tutorial you need an Azure virtual machine(VM). Create a virtual machine with either a system-assigned managed identity enabled or a user-assigned managed identity called **mi-vm-01** in the resource group we created earlier. If you used the name suggested the resource group is called **mi-test**.   
+
+### Create a VM with a system-assigned managed identity
 
 To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD role assignments are required.
 
@@ -119,46 +124,10 @@ When you're done, the following sections should be added to the `resource` secti
 
 ---
 
-#### Enable system assigned managed identities on existing VMs
 
-If you have an existing virtual machine, you can enable system assigned managed identities anytime.
+### Create a VM with a user-assigned managed identity
 
-# [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
-
-2. Navigate to the desired Virtual Machine and select **Identity**.
-
-3. Under **System assigned**, **Status**, select **On** and then click **Save**:
-
-# [PowerShell](#tab/azure-powershell)
-
-Retrieve the VM properties using the `Get-AzVM` cm dlet. Then to enable a system-assigned managed identity, use the `-IdentityType` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet:
-
-   ```azurepowershell-interactive
-   $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType SystemAssigned
-   ```
-
-# [Azure CLI](#tab/azure-cli)
-
-Use [az vm identity assign](/cli/azure/vm/identity/) with the `identity assign` command enable the system-assigned identity to an existing VM:
-
-   ```azurecli-interactive
-   az vm identity assign -g myResourceGroup -n myVm
-   ```
-
-# [Resource Manager Template](#tab/azure-resource-manager)
-
-TBD
-
----
-
-### User-assigned managed identities
-
-User-assigned managed identities may be used with multiple resources. For information on how to create or delete user-assigned managed identities you can review [Manage user-assigned managed identities](how-manage-user-assigned-managed-identities.md)
-
-To assign a user-assigned identity to a VM, your account needs the Virtual Machine Contributor and Managed Identity Operator role assignments. No other Azure AD directory role assignments are required.
+User-assigned managed identities may be used with multiple resources. Create a user assigned managed identity called **mi-ua-01** following the steps in [Manage user-assigned managed identities](how-manage-user-assigned-managed-identities.md)
 
 #### Create a virtual machine with a user-assigned managed identity assigned
 
@@ -248,52 +217,6 @@ Under the resources element, add the following entry to assign a user-assigned m
 
 ---
 
-#### Assign a user-assigned managed identity to an existing Virtual machine
-
-
-
-# [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
-2. Navigate to the desired VM and click **Identity**, **User assigned** and then **\+Add**.
-3. Click the user-assigned identity you want to add to the VM and then click **Add**.
-
-
-# [PowerShell](#tab/azure-powershell)
-
-To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No other Azure AD directory role assignments are required.
-
-
-```azurepowershell-interactive
-New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
-```
-
-Retrieve the VM properties using the `Get-AzVM` cmdlet. Then to assign a user-assigned managed identity to the Azure VM, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet.  The value for the`-IdentityId` parameter is the `Id` you noted in the previous step.  Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.
-
-> [!WARNING]
-> To retain any previously user-assigned managed identities assigned to the VM, query the `Identity` property of the VM object (for example, `$vm.Identity`).  If any user assigned managed identities are returned, include them in the following command along with the new user assigned managed identity you would like to assign to the VM. 
-
-
-```azurepowershell-interactive
-$vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
-Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM associated with a user-assigned managed identity, as specified by the `--assign-identity` parameter. Replace the `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values. 
-
-```azurecli-interactive 
-az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
-```
-
-
-# [Resource Manager Template](#tab/azure-resource-manager)
-
-Assign a user assigned managed identity to an existing VM
-
-
----
 ## Create a Cosmos DB Account
 We need a Cosmos DB account available where you have administrative rights. If you need to create a new Cosmos DB Account do so using the following parameters:
 
@@ -382,7 +305,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ## Access data
 
-Getting access to Cosmos using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) directly or use [DefaultAzureCredential](). 
+Getting access to Cosmos using managed identities may be achieved using the Azure.identity library to enable authentication in your application. You can call [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) directly or use [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). 
 
 The ManagedIdentityCredential class attempts to authentication using a managed identity assigned to the deployment environment. The DefaultAzureCredential class goes through different authentication options in order. The second authentication option that DefaultAzureCredential attempts is Managed identities. 
 
@@ -411,10 +334,10 @@ namespace MITest
     {
         static async Task Main(string[] args)
         {
-            var subscriptionId = "8b33b5f4-de62-4c08-a38c-cd5235813308";
-            var resourceGroupName = "mi-test";
-            var accountName = "cosmos-mi";
-            var databaseName = "DB02";
+            var subscriptionId = "Your subscription ID";
+            var resourceGroupName = "You resource group";
+            var accountName = "Cosmos DB Account name";
+            var databaseName = "mi-test";
             var containerName = "container01";
 
             var tokenCredential = new DefaultAzureCredential();
@@ -423,15 +346,18 @@ namespace MITest
             var managementClient = new CosmosDBManagementClient(subscriptionId, tokenCredential);
 
             // create the data client
-            var dataClient = new CosmosClient("https://cosmos-mi.documents.azure.com:443/", tokenCredential);
+            var dataClient = new CosmosClient("https://[Account].documents.azure.com:443/", tokenCredential);
 
-            // create a new database
-            await managementClient.SqlResources.StartCreateUpdateSqlDatabaseAsync(resourceGroupName, accountName, databaseName,
+            // create a new database 
+            var createDatabaseOperation = await managementClient.SqlResources.StartCreateUpdateSqlDatabaseAsync(resourceGroupName, accountName, databaseName,
                 new SqlDatabaseCreateUpdateParameters(new SqlDatabaseResource(databaseName), new CreateUpdateOptions()));
+            await createDatabaseOperation.WaitForCompletionAsync();
 
             // create a new container
-            await managementClient.SqlResources.StartCreateUpdateSqlContainerAsync(resourceGroupName, accountName, databaseName, containerName,
+            var createContainerOperation = await managementClient.SqlResources.StartCreateUpdateSqlContainerAsync(resourceGroupName, accountName, databaseName, containerName,
                 new SqlContainerCreateUpdateParameters(new SqlContainerResource(containerName), new CreateUpdateOptions()));
+            await createContainerOperation.WaitForCompletionAsync();
+
 
             // create a new item 
             var partitionKey = "pkey";
@@ -455,7 +381,7 @@ namespace MITest
 
 ```
 
-Next steps are language-specific:
+Language specific examples using ManagedIdentityCredential:
 
 ### .NET
 
@@ -468,6 +394,7 @@ CosmosClient client = new CosmosClient("<account-endpoint>", new ManagedIdentity
 Then [read and write data](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples).
 
 ### Java
+
 Initialize your Cosmos DB client:
 
 ```java
@@ -478,6 +405,7 @@ Then read and write data as described in [these samples](https://docs.microsoft.
 )
 
 ### JavaScript
+
 Initialize your Cosmos DB client:
 
 ```javascript
@@ -517,10 +445,6 @@ az resource delete \
   --name ExampleVM \
   --resource-type "Microsoft.Compute/virtualMachines"
 ```
-
-### [Resource Manager Template](#tab/azure-resource-manager)
-
-TBD what we would show here
 
 ---
 
