@@ -98,6 +98,14 @@ A possible mitigation is to check if there are unused deployments that can be de
 
 The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
 
+### ERR_1102: No more role assignments
+
+Delete some unused role assignments of this subscription. You can check all role assignments on Azure portal under Access Control menu.
+
+### ERR_1103: Endpoint quota reached
+
+Delete some unused endpoints under this subscription.
+
 ### ERR_1200: Unable to download user container image
 
 During deployment creation after the compute provisioning, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR). There could be two possible issues.
@@ -167,6 +175,10 @@ To get the exact reason for an error, run:
 ```azurecli
 az ml endpoint get-logs
 ```
+
+### ERR_2101: Kubernetes unschedulable
+
+The requested CPU or memory cann't be satisfied, please adjust your request or the cluster.
 
 ### ERR_2200: User container has crashed\terminated
 
