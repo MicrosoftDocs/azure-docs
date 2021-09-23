@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob storage client library v10 for JavaScript"
 description: Create, upload, and delete blobs and containers in Node.js with the Azure Storage client library v10 for JavaScript
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
