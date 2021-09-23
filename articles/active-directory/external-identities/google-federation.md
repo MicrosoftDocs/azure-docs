@@ -70,11 +70,7 @@ This change does not affect:
 - Microsoft 365 services that are accessed through a website (for example, SharePoint Online, Office web apps, and Teams web app)
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
 - Google Workspace identities, for example when you’re using [SAML-based federation](direct-federation.md) with Google Workspace
-
-We’re confirming with Google whether this change affects the following:
 - Windows apps that use the Web Account Manager (WAM) or Web Authentication Broker (WAB).  
-
-We’re continuing to test various platforms and scenarios, and will update this article accordingly.
 
 ### Action needed for embedded web-views
 
@@ -82,20 +78,52 @@ Modify your apps to use the system browser for sign-in. For details, see [Embedd
 
 ### What to expect
 
-Before Google puts these changes into place on September 30, 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked. Users who sign in with a Gmail account in an embedded web-view will be prompted to enter a code in a separate browser to finish signing in.
+Globally rolling out starting September 30, 2021, Microsoft will deploy device login flow that serves as a workaround for apps still using embedded web-views to ensure that authentication isn't blocked. 
+
+### How to sign in with device login flow
+The device login flow will prompt users signing in with a Gmail account in an embedded web-view to enter a code in a separate browser to finish signing in. The following is what users can expect to see if they are signing in with their Gmail account for the first time with no active sessions in the browser. If there is an existing Gmail already signed in, some steps may be eliminated.
+
+1. On the Sign in screen, users have the option to enter their Gmail then click "Next," or go to "Sign-in options" then select "Sign in from another device."
+
+   ![image](https://user-images.githubusercontent.com/15203472/134457320-7d1e5636-f163-4a51-ab0f-5fae168a0a5c.png)
+   
+2. They will see the following screen that prompts them to open a new window to navigate to https://microsoft.com/devicelogin and enter the 9-digit alphanumeric code displayed on the screen.
+
+   ![image](https://user-images.githubusercontent.com/15203472/134458974-8ea88a64-f45e-4801-b82a-86ac9fcc6bd8.png)
+
+3. The device login page will prompt the user to enter code. 
+
+   ![image](https://user-images.githubusercontent.com/15203472/134457819-b2f0706c-8493-4a3d-9437-577a5420dfd2.png)
+   
+4. If the codes match, for security purposes, the user will be asked to enter their email again to confirm they are signing in to the app and location displayed.
+
+   ![image](https://user-images.githubusercontent.com/15203472/134458107-0ab2496f-9956-4b97-9a99-77d5b3389721.png)
+   
+5. The user will sign in through Google by entering email and password.
+
+   ![image](https://user-images.githubusercontent.com/15203472/134458704-7399bb72-8dfb-411d-9690-3e1932f35bc2.png)
+   
+7. Once again, they will be asked to confirm the application they're signing into.
+
+   ![image](https://user-images.githubusercontent.com/15203472/134458470-b51c5892-4eeb-4e21-a512-07d2d291b80b.png)
+
+7. If confirmed, the user will be successfully signed in and asked to close the tab or window to go back to the first screen where the user is now signed into the app.
+
+   ![image](https://user-images.githubusercontent.com/15203472/134458364-659c8835-2895-41a3-86af-2ed63f5fcfa7.png)
 
 Alternatively, you can have your existing and new Gmail users sign in with email one-time passcode. To have your Gmail users use email one-time passcode:
 1. [Enable email one-time passcode](one-time-passcode.md#enable-email-one-time-passcode)
 2. [Remove Google Federation](google-federation.md#how-do-i-remove-google-federation)
 3. [Reset redemption status](reset-redemption-status.md) of your Gmail users so they can use email one-time passcode going forward.
 
+If you wish to request extension, impacted customers with affected OAuth client ID(s) should have received an email from Google Developers with the following information regarding a one-time policy enforcement extension that needs to be filled out by Jan 31, 2022:
+>If necessary, you may request a one-time [policy enforcement extension for embedded webviews](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fnotifications.google.com%2Fg%2Fp%2FAD-FnEz_hbffaJlsX17rxSVBgq0aEQtIZGZdcC8wspVMZ_TP939PQLp-J-DQekKQXV4xybzyGqpZZG0tzVXwzfdwwQJVX4wT9bBMTLdAt-s0gpn142uWYRhs8Ym07tlbNKd5hYE8UAxftcGW-eIM7Rbt9QYUNMU1ghtiHAyFCh6_qVc8jkiQFxADCEMDYYPsLjcCmnErQCvJRrbXn0SVPowayOIQCT5EXjJ6LZfm&data=04%7C01%7CLinda.Park%40microsoft.com%7C16025a5cd67b494a544908d97a3f60e6%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637675234894428918%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=mnxmd9v5nOGOqnGkVw6Dn%2FxKESKFAbTmoznFqL7K%2BjI%3D&reserved=0) for each listed OAuth client ID until January 31, 2022. For clarity, the policy for embedded webviews will be enforced on February 1, 2022 with no exceptions or extensions.
+
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
 
 If applications are not migrated to an allowed web-view for authentication, then affected Gmail users will see the following screen.
 
 ![Google sign-in error if apps are not migrated to system browsers](media/google-federation/google-sign-in-error-ewv.png)
-
-We will update this document as dates and further details are shared by Google.
 
 ### Distinguishing between CEF/Electron and embedded web-views
 
