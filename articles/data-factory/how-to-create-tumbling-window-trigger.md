@@ -216,6 +216,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
           "frequency": "Minute",
           "interval": "15",
           "startTime": "2017-09-08T05:30:00Z",
+          "endTime" : "2017-09-08T06:30:00Z",
           "delay": "00:00:01",
           "retryPolicy": {
             "count": 2,
@@ -238,31 +239,31 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     }
     ```
 
-2. Create a trigger by using the **Set-AzDataFactoryV2Trigger** cmdlet:
+2. Create a trigger by using the [Set-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/set-azdatafactoryv2trigger) cmdlet:
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
+3. Confirm that the status of the trigger is **Stopped** by using the [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger) cmdlet:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Start the trigger by using the **Start-AzDataFactoryV2Trigger** cmdlet:
+4. Start the trigger by using the [Start-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/start-azdatafactoryv2trigger) cmdlet:
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirm that the status of the trigger is **Started** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
+5. Confirm that the status of the trigger is **Started** by using the [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger) cmdlet:
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Get the trigger runs in Azure PowerShell by using the **Get-AzDataFactoryV2TriggerRun** cmdlet. To get information about the trigger runs, execute the following command periodically. Update the **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in your trigger definition:
+6. Get the trigger runs in Azure PowerShell by using the [Get-AzDataFactoryV2TriggerRun](/powershell/module/az.datafactory/get-azdatafactoryv2triggerrun) cmdlet. To get information about the trigger runs, execute the following command periodically. Update the **TriggerRunStartedAfter** and **TriggerRunStartedBefore** values to match the values in your trigger definition:
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -272,67 +273,73 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
 This section shows you how to use Azure CLI to create, start, and monitor a trigger.
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
 1. In your working directory create a JSON file named **MyTrigger.json** with the following content:
 
     > [!IMPORTANT]
-    > Before you save the JSON file, set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
+    > Before you save the JSON file, set the value of **referenceName** to your pipeline name. Set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
 
     ```json
     {
-       "type": "TumblingWindowTrigger",
-       "typeProperties": {
-         "frequency": "Minute",
-         "interval": "15",
-         "startTime": "2017-09-08T05:30:00Z",
-         "delay": "00:00:01",
-         "retryPolicy": {
-          "count": 2,
-           "intervalInSeconds": 30
-         },
-         "maxConcurrency": 50
-       },
-       "pipeline": {
-         "pipelineReference": {
-           "type": "PipelineReference",
-           "referenceName": "DynamicsToBlobPerfPipeline"
-         },
-         "parameters": {
-           "windowStart": "@trigger().outputs.windowStartTime",
-           "windowEnd": "@trigger().outputs.windowEndTime"
-         }
-       },
-       "runtimeState": "Started"
+        "type": "TumblingWindowTrigger",
+        "typeProperties": {
+          "frequency": "Minute",
+          "interval": "15",
+          "startTime": "2017-12-08T00:00:00Z",
+          "endTime": "2017-12-08T01:00:00Z",
+          "delay": "00:00:01",
+          "retryPolicy": {
+            "count": 2,
+            "intervalInSeconds": 30
+          },
+          "maxConcurrency": 50
+        },
+        "pipeline": {
+          "pipelineReference": {
+            "type": "PipelineReference",
+            "referenceName": "DynamicsToBlobPerfPipeline"
+          },
+          "parameters": {
+            "windowStart": "@trigger().outputs.windowStartTime",
+            "windowEnd": "@trigger().outputs.windowEndTime"
+          }
+        },
+        "runtimeState": "Started"
     }
     ```
 
-2. Create a trigger by using the **az datafactory trigger create** command:
+2. Create a trigger by using the [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) command:
+
+    > [!IMPORTANT]
+    > For this step and all subsequent steps replace `ResourceGroupName` with your resource group name. Replace `DataFactoryName` with your data factory's name.
 
     ```azurecli
-    az datafactory trigger create --resource-group "ResourceGroupName" --factory-name "DataFactoryName"  --name "MyTrigger" --properties MyTrigger.json  
+    az datafactory trigger create --resource-group "ResourceGroupName" --factory-name "DataFactoryName"  --name "MyTrigger" --properties @MyTrigger.json  
     ```
 
-3. Confirm that the status of the trigger is **Stopped** by using the **az datafactory trigger show** command:
+3. Confirm that the status of the trigger is **Stopped** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
 
     ```azurecli
     az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-4. Start the trigger by using the **az datafactory trigger start** command:
+4. Start the trigger by using the [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) command:
 
     ```azurecli
     az datafactory trigger start --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-5. Confirm that the status of the trigger is **Started** by using the **az datafactory trigger show** command:
+5. Confirm that the status of the trigger is **Started** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
 
     ```azurecli
     az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-6. Get the trigger runs in Azure CLI by using the **az datafactory trigger-run query-by-factory** command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and **last-updated-before** values to match the values in your trigger definition:
+6. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and **last-updated-before** values to match the values in your trigger definition:
 
     ```azurecli
-    az datafactory trigger-run query-by-factory --resource-group "ResourceGroupName" --factory-name "DataFactoryName" -TriggerName "MyTrigger" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00Z" --last-updated-before "2017-12-08T01:00:00Z"
+    az datafactory trigger-run query-by-factory --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00Z" --last-updated-before "2017-12-08T01:00:00Z"
     ```
 ---
 
