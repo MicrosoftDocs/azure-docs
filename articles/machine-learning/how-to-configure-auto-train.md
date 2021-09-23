@@ -370,7 +370,7 @@ run = experiment.submit(automl_config, show_output=True)
 >Dependencies are first installed on a new machine.  It may take up to 10 minutes before output is shown.
 >Setting `show_output` to `True` results in output being shown on the console.
 
-### Multiple children runs on clusters
+### Multiple child runs on clusters
 
 Automated ML experiment child runs can be performed on a cluster that is already running another experiment. However, the timing depends on how many nodes the cluster has, and if those nodes are available to run a different experiment.
 
