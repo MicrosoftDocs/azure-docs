@@ -24,7 +24,7 @@ In this tutorial, you will:
 
 ## Before you begin
 
-The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./open-service-mesh-deploy-add-on.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
+The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./open-service-mesh-deploy-addon-az-cli.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
 You must have the following resources installed:
 
@@ -95,10 +95,10 @@ Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Perm
 
 In this tutorial we will be using the OSM bookstore application that has the following application components:
 
-- bookbuyer
-- bookthief
-- bookstore
-- bookwarehouse
+- `bookbuyer`
+- `bookthief`
+- `bookstore`
+- `bookwarehouse`
 
 Create namespaces for each of these application components.
 
@@ -170,9 +170,9 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-## Update the Bookbuyer Service
+## Update the `Bookbuyer` Service
 
-Update the bookbuyer service to the correct inbound port configuration with the following service manifest.
+Update the `bookbuyer` service to the correct inbound port configuration with the following service manifest.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -194,22 +194,22 @@ EOF
 
 ## Verify the Bookstore application
 
-As of now we have deployed the bookstore multi-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
+As of now we have deployed the bookstore multi-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the `bookbuyer` component UI.
 
-First let's get the bookbuyer pod's name
+First let's get the `bookbuyer` pod's name
 
 ```azurecli-interactive
 kubectl get pod -n bookbuyer
 ```
 
-You should see output similar to the following. Your bookbuyer pod will have a unique name appended.
+You should see output similar to the following. Your `bookbuyer` pod will have a unique name appended.
 
 ```Output
 NAME                         READY   STATUS    RESTARTS   AGE
 bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
 ```
 
-Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specific bookbuyer pod name.
+Once we have the pod's name, we can now use the port-forward command to set up a tunnel from our local system to the application inside the AKS cluster. Run the following command to set up the port forward for the local system port 8080. Again use your specific `bookbuyer` pod name.
 
 ```azurecli-interactive
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
@@ -222,11 +222,11 @@ Forwarding from 127.0.0.1:8080 -> 14001
 Forwarding from [::1]:8080 -> 14001
 ```
 
-While the port forwarding session is in place, navigate to the following url from a browser `http://localhost:8080`. You should now be able to see the bookbuyer application UI in the browser similar to the image below.
+While the port forwarding session is in place, navigate to the following url from a browser `http://localhost:8080`. You should now be able to see the `bookbuyer` application UI in the browser similar to the image below.
 
 ![OSM bookbuyer app for App Gateway UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
-## Create an Azure Application Gateway to expose the bookbuyer application 
+## Create an Azure Application Gateway to expose the `bookbuyer` application
 
 > [!NOTE]
 > The following directions will create a new instance of the Azure Application Gateway to be used for ingress. If you have an existing Azure Application Gateway you wish to use, skip to the section for enabling the Application Gateway Ingress Controller add-on.
@@ -282,9 +282,9 @@ appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
 
-## Expose the bookbuyer service to the internet
+## Expose the `bookbuyer` service to the internet
 
-Apply the following ingress manifest to the AKS cluster to expose the bookbuyer service to the internet via the Azure Application Gateway.
+Apply the following ingress manifest to the AKS cluster to expose the `bookbuyer` service to the internet via the Azure Application Gateway.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -321,7 +321,7 @@ Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.2
 ingress.extensions/bookbuyer-ingress created
 ```
 
-Since the host name in the ingress manifest is a pseudo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the Azure Application Gateway public IP address and receive a 200 code successfully connecting us to the bookbuyer service.
+Since the host name in the ingress manifest is a pseudo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the Azure Application Gateway public IP address and receive a 200 code successfully connecting us to the `bookbuyer` service.
 
 ```azurecli-interactive
 appGWPIP=$(az network public-ip show -g MyResourceGroup -n myPublicIp -o tsv --query "ipAddress")
