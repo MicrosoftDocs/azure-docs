@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-
 ---
 
 # Network File System (NFS) 3.0 performance considerations in Azure Blob storage
@@ -17,7 +16,7 @@ Blob storage now supports the Network File System (NFS) 3.0 protocol. This artic
 
 ## Add clients to increase throughput
 
-Azure Blob Storage scales linearly until it reaches the maximum storage account egress and ingress limit. Therefore, your applications can achieve higher throughput by using more clients.  To view storage account egress and ingress limits, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md).
+Azure Blob Storage scales linearly until it reaches the maximum storage account egress and ingress limit. Therefore, your applications can achieve higher throughput by using more clients. To view storage account egress and ingress limits, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md).
 
 The following chart shows how bandwidth increases as you add more clients. In this chart, a client is a Virtual Machine (VM) and the account uses the standard performance tier.
 
@@ -54,14 +53,13 @@ It takes longer time to complete an overwrite operation than a new write operati
 
 ## Deploy Azure HPC Cache for latency sensitive applications
 
-Some applications may require low latency in addition to high throughput. You can deploy [Azure HPC Cache](../../hpc-cache/nfs-blob-considerations.md) to improve latency significantly. 
-Learn more about [Latency in Blob storage](storage-blobs-latency.md).
+Some applications may require low latency in addition to high throughput. You can deploy [Azure HPC Cache](../../hpc-cache/nfs-blob-considerations.md) to improve latency significantly. Learn more about [Latency in Blob storage](storage-blobs-latency.md).
 
 ## Other best practice recommendations
 
 - Use VMs with sufficient network bandwidth.
 
-- Use multiple mount points when your workloads allow  it.
+- Use multiple mount points when your workloads allow it.
 
 - Use as many threads as possible.
 

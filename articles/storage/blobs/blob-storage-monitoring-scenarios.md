@@ -1,6 +1,6 @@
 ---
 title: Best practices for monitoring Azure Blob Storage
-description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Blob Storage. 
+description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Blob Storage.
 author: normesta
 ms.service: storage
 ms.subservice: blobs
@@ -68,9 +68,9 @@ StorageBlobLogs
 | where OperationName == "PutBlob" or
   OperationName == "PutBlock" or
   OperationName == "PutBlockList" or
-  OperationName == "AppendBlock" or 
+  OperationName == "AppendBlock" or
   OperationName == "SnapshotBlob" or
-  OperationName == "CopyBlob" or 
+  OperationName == "CopyBlob" or
   OperationName == "SetBlobTier"
 | extend ContainerName = split(parse_url(Uri).Path, "/")[1]
 | summarize WriteSize = sum(RequestBodySize), WriteCount = count() by tostring(ContainerName)
@@ -148,15 +148,15 @@ Shared Key and SAS authentication provide no means of auditing individual identi
 
 ## Optimize cost for infrequent queries
 
-You can export logs to Log Analytics for rich native query capabilities. When you have massive transactions on your storage account, the cost of using logs with Log Analytics might be high. See [Azure Log Analytics Pricing](https://azure.microsoft.com/pricing/details/monitor/). If you only plan to query logs occasionally (for example, query logs for compliance auditing), you can consider reducing the total cost by exporting logs to storage account, and then using a serverless query solution on top of log data, for example, Azure Synapse.
+You can export logs to Log Analytics for rich native query capabilities. When you have massive transactions on your storage account, the cost of using logs with Log Analytics might be high. For more information, see [Azure Log Analytics Pricing](https://azure.microsoft.com/pricing/details/monitor/). If you only plan to query logs occasionally (for example, query logs for compliance auditing), you can consider reducing the total cost by exporting logs to storage account, and then using a serverless query solution on top of log data, for example, Azure Synapse.
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly.
 
-1. Export logs to storage account. See [Creating a diagnostic setting](monitor-blob-storage.md#creating-a-diagnostic-setting).
+1. Export logs to storage account. For more information, see [Creating a diagnostic setting](monitor-blob-storage.md#creating-a-diagnostic-setting).
 
-2. Create and configure a Synapse workspace. See [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md).
+2. Create and configure a Synapse workspace. For more information, see [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md).
 
-2. Query logs. See [Query JSON files using serverless SQL pool in Azure Synapse Analytics](../../synapse-analytics/sql/query-json-files.md).
+2. Query logs. For more information, see [Query JSON files using serverless SQL pool in Azure Synapse Analytics](../../synapse-analytics/sql/query-json-files.md).
 
    Here's an example:
 
@@ -164,7 +164,7 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
     select
         JSON_VALUE(doc, '$.time') AS time,
         JSON_VALUE(doc, '$.properties.accountName') AS accountName,
-        JSON_VALUE(doc, '$.identity.type') AS identityType,    
+        JSON_VALUE(doc, '$.identity.type') AS identityType,
         JSON_VALUE(doc, '$.identity.requester.objectId') AS requesterObjectId,
         JSON_VALUE(doc, '$.operationName') AS operationName,
         JSON_VALUE(doc, '$.callerIpAddress') AS callerIpAddress,

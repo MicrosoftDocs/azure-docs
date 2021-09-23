@@ -1,5 +1,5 @@
 ---
-title: 'Migrate from on-prem HDFS store to Azure Storage with Azure Data Box'
+title: Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 author: normesta
 ms.service: storage
@@ -60,7 +60,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
 3. Add the endpoint and the Data Box or Data Box Heavy node IP address to `/etc/hosts` on each node.
 
-    ```    
+    ```
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
     ```
 
@@ -131,7 +131,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
     - Replace the `<destination_directory>` placeholder with the name of the directory that you want to copy your data to.
 
-    The `-libjars` option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This    may already occur for some clusters.
+    The `-libjars` option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This may already occur for some clusters.
 
     The following example shows how the `distcp` command is used to copy data.
 
@@ -328,4 +328,4 @@ Here's an example:
 
 ## Next steps
 
-Learn how Data Lake Storage Gen2 works with HDInsight clusters. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

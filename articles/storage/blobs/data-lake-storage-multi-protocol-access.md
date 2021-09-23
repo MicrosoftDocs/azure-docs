@@ -1,5 +1,5 @@
 ---
-title: Multi-protocol access on Azure Data Lake Storage | Microsoft Docs
+title: Multi-protocol access on Azure Data Lake Storage
 description: Use Blob APIs and applications that use Blob APIs with Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -21,7 +21,7 @@ With multi-protocol access on Data Lake Storage, you can work with your data by 
 Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](./lifecycle-management-overview.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your blob Storage accounts without losing access to these important features.
 
 > [!NOTE]
-> Multi-protocol access on Data Lake Storage is generally available and is available in all regions. Some Azure services or Blob storage features enabled by multi-protocol access remain in preview.  These articles summarize the current support for Blob storage features and Azure service integrations. 
+> Multi-protocol access on Data Lake Storage is generally available and is available in all regions. Some Azure services or Blob storage features enabled by multi-protocol access remain in preview. These articles summarize the current support for Blob storage features and Azure service integrations.
 >
 > [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md)
 >

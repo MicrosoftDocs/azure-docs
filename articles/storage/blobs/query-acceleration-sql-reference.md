@@ -14,7 +14,7 @@ ms.reviewer: ereilebr
 
 # Query acceleration SQL language reference
 
-Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents.  The query acceleration SQL dialect is a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON.
+Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents. The query acceleration SQL dialect is a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON.
 
 ## SELECT Syntax
 
@@ -24,13 +24,12 @@ The only SQL statement supported by query acceleration is the SELECT statement. 
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-For CSV-formatted data, *table* must be `BlobStorage`.  This means that the query will run against whichever blob was specified in the REST call.
-For JSON-formatted data, *table* is a "table descriptor."   See the [Table Descriptors](#table-descriptors) section of this article.
+For CSV-formatted data, *table* must be `BlobStorage`. This means that the query will run against whichever blob was specified in the REST call. For JSON-formatted data, *table* is a "table descriptor."   See the [Table Descriptors](#table-descriptors) section of this article.
 
 In the following example, for each row for which the WHERE *expression* returns true, this statement will return a new row that is made from evaluating each of the projection expressions.
 
 ```sql
-SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
+SELECT expression [, expression ...] FROM table [WHERE expression] [LIMIT limit]
 ```
 
 You can specify one or more specific columns as part of the SELECT expression (For example: `SELECT Title, Author, ISBN`).
@@ -44,7 +43,7 @@ The following example returns an aggregate computation (For example: the average
 SELECT aggregate_expression FROM table [WHERE expression] [LIMIT limit]
 ```
 
-The following example returns suitable offsets for splitting a CSV-formatted blob.  See the [Sys.Split](#sys-split) section of this article.
+The following example returns suitable offsets for splitting a CSV-formatted blob. See the [Sys.Split](#sys-split) section of this article.
 
 ```sql
 SELECT sys.split(split_size)FROM BlobStorage
@@ -62,15 +61,15 @@ SELECT sys.split(split_size)FROM BlobStorage
 |TIMESTAMP|A point in time.                           |
 |BOOLEAN  |True or false.                             |
 
-When reading values from CSV-formatted data, all values are read as strings.  String values may be converted to other types using CAST expressions.  Values may be implicitly cast to other types depending on context. for more info, see [Data type precedence (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
+When reading values from CSV-formatted data, all values are read as strings. String values may be converted to other types using CAST expressions. Values may be implicitly cast to other types depending on context. for more info, see [Data type precedence (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## Expressions
 
 ### Referencing fields
 
-For JSON-formatted data, or CSV-formatted data with a header row, fields may be referenced by name.  Field names can be quoted or unquoted. Quoted field names are enclosed in double-quote characters (`"`), may contain spaces, and are case-sensitive.  Unquoted field names are case-insensitive, and may not contain any special characters.
+For JSON-formatted data, or CSV-formatted data with a header row, fields may be referenced by name. Field names can be quoted or unquoted. Quoted field names are enclosed in double-quote characters (`"`), may contain spaces, and are case-sensitive. Unquoted field names are case-insensitive, and may not contain any special characters.
 
-In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (_) character.  For example, the first field may be referenced as `_1`, or the eleventh field may be referenced as `_11`. Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
+In CSV-formatted data, fields may also be referenced by ordinal, prefixed with an underscore (_) character. For example, the first field may be referenced as `_1`, or the eleventh field may be referenced as `_11`. Referencing fields by ordinal is useful for CSV-formatted data that does not contain a header row, in which case the only way to reference a particular field is by ordinal.
 
 ### Operators
 
@@ -101,13 +100,13 @@ The following standard SQL operators are supported:
 
 If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
-The query acceleration SQL language supports only a very small subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
+The query acceleration SQL language supports only a very small subset of the data types discussed in that article. See the [Data Types](#data-types) section of this article.
 
 ### Casts
 
 The query acceleration SQL language supports the CAST operator, according to the rules here: [Data type conversion (Database Engine)](/sql/t-sql/data-types/data-type-conversion-database-engine).
 
-The query acceleration SQL language supports only a tiny subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
+The query acceleration SQL language supports only a tiny subset of the data types discussed in that article. See the [Data Types](#data-types) section of this article.
 
 ### String functions
 
@@ -149,9 +148,7 @@ The query acceleration SQL language supports year, month, day, hour, minute, sec
 
 Examples:
 
-``sql
-DATE_ADD(datepart, quantity, timestamp)
-DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
+``sql DATE_ADD(datepart, quantity, timestamp) DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 
 ```
 
@@ -159,9 +156,7 @@ DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 
 The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_DIFF`` function.
 
-```sql
-DATE_DIFF(datepart, timestamp, timestamp)
-DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00') 
+```sql DATE_DIFF(datepart, timestamp, timestamp) DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 ```
 
@@ -171,9 +166,7 @@ For EXTRACT other than date part supported for the ``DATE_ADD`` function, the qu
 
 Examples:
 
-```sql
-EXTRACT(datepart FROM timestampstring)
-EXTRACT(YEAR FROM '2010-01-01T')
+```sql EXTRACT(datepart FROM timestampstring) EXTRACT(YEAR FROM '2010-01-01T')
 
 ```
 
@@ -181,9 +174,7 @@ EXTRACT(YEAR FROM '2010-01-01T')
 
 Examples:
 
-```sql
-TO_STRING(TimeStamp , format)
-TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
+```sql TO_STRING(TimeStamp , format) TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 
 ```
 
@@ -191,13 +182,13 @@ This table describes strings that you can use to specify the output format of th
 
 |Format string    |Output                               |
 |-----------------|-------------------------------------|
-|yy               |Year in 2 digit format – 1999 as '99'|
+|yy               |Year in 2 digit format - 1999 as '99'|
 |y                |Year in 4 digit format               |
 |yyyy             |Year in 4 digit format               |
-|M                |Month of year – 1                    |
-|MM               |Zero padded Month – 01               |
+|M                |Month of year - 1                    |
+|MM               |Zero padded Month - 01               |
 |MMM              |Abbr. month of Year  -JAN            |
-|MMMM             |Full month – May                      |
+|MMMM             |Full month - May                      |
 |d                |Day of month (1-31)                  |
 |dd               |Zero padded day of Month (01-31)     |
 |a                |AM or PM                             |
@@ -225,9 +216,7 @@ Only IS08601 formats are supported.
 
 Examples:
 
-```sql
-TO_TIMESTAMP(string)
-TO_TIMESTAMP('2007T')
+```sql TO_TIMESTAMP(string) TO_TIMESTAMP('2007T')
 
 ```
 
@@ -257,15 +246,13 @@ The ``IS MISSING`` operator is the only non-standard that the query acceleration
 
 For CSV data, the table name is always `BlobStorage`.  For example:
 
-```sql
-SELECT * FROM BlobStorage
+```sql SELECT * FROM BlobStorage
 
 ```
 
 For JSON data, additional options are available:
 
-```sql
-SELECT * FROM BlobStorage[*].path
+```sql SELECT * FROM BlobStorage[*].path
 
 ```
 
@@ -304,8 +291,7 @@ This is our sample data:
 
 You might be interested only in the `warehouses` JSON object from the above data. The `warehouses` object is a JSON array type, so you can mention this in the FROM clause. Your sample query can look something like this.
 
-```sql
-SELECT latitude FROM BlobStorage[*].warehouses[*]
+```sql SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 ```
 
@@ -313,15 +299,13 @@ The query gets all fields but selects only the latitude.
 
 If you wanted to access only the `dimensions` JSON object value, you could use refer to that object in your query. For example:
 
-```sql
-SELECT length FROM BlobStorage[*].dimensions
+```sql SELECT length FROM BlobStorage[*].dimensions
 
 ```
 
 This also limits your access to members of the `dimensions` object. If you want to access other members of JSON fields and inner values of JSON objects, then you might use a queries such as shown in the following example:
 
-```sql
-SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
+```sql SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 
 ```
 
@@ -334,8 +318,7 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 
 This is a special form of the SELECT statement, which is available only for CSV-formatted data.
 
-```sql
-SELECT sys.split(split_size)FROM BlobStorage
+```sql SELECT sys.split(split_size) FROM BlobStorage
 
 ```
 

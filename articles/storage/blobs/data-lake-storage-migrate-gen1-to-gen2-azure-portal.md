@@ -1,6 +1,7 @@
 ---
 title: Migrate using Azure portal (Data Lake Storage Gen1 to Gen2)
-description: You can simplify the task of migrating between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2 by using the Azure portal.  
+description: You can simplify the task of migrating between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2 by using the Azure portal.
+
 author: normesta
 ms.topic: how-to
 ms.author: normesta
@@ -32,7 +33,7 @@ This article guides through the following tasks:
 
 - Step 6: Complete the migration
 
-Be sure to read the general guidance about how to migrate from Gen1 to Gen2. See [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
+Be sure to read the general guidance about how to migrate from Gen1 to Gen2. For more information, see [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
 
 > [!NOTE]
 > For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
@@ -196,10 +197,10 @@ This is not supported, after the migration completes, the data in your Gen1 acco
 
 Once the migration is complete, both in "Copy data" and "Complete migration" options, you can go ahead and change the redundancy option to GRS as long as you don't plan to use the application compatibility layer. The application compatibility will not work on accounts that use GRS redundancy.
 
-#### Gen1 doesn't have containers and Gen2 has them – what should I expect?
+#### Gen1 doesn't have containers and Gen2 has them - what should I expect?
 
 When we copy the data over to your Gen2-enabled account, we automatically create a container named `Gen1`. If you choose to copy only data, then you can rename that container after the data copy is complete. If you perform a complete migration, and you plan to use the application compatibility layer, then you should avoid changing the container name. When you no longer want to use the compatibility layer, you can change the name of the container.
 
 ## Next steps
 
-- Learn about migration in general. See [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
+- Learn about migration in general. For more information, see [Migrate Azure Data Lake Storage from Gen1 to Gen2](data-lake-storage-migrate-gen1-to-gen2.md).
