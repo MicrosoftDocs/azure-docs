@@ -19,11 +19,11 @@ Similarly, you can use private endpoints for your Time Series Insights instance 
 
 The private endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Time Series Insights instance traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure to the public internet. Here is a visual representation of this system: 
 
-[![Time Series Private Links overview](media/private-links/tsidns.png)](media/private-links/tsidns.png#lightbox)
+[![Time Series Private Links DNS](media/private-links/tsidns.png)](media/private-links/tsidns.png#lightbox)
 
 Customers can also block access to TSI environment for public access so that it will be accessible from the VNET only. Configuring a private endpoint for your Time Series Insights instance enables you to secure your Time Series Insights instance and eliminate public exposure, as well as avoid data exfiltration from your VNet. 
 
-[![Time Series Private Links overview](media/private-links/tsinetworkaccess.png)](media/private-links/tsinetworkaccess.png#lightbox)
+[![Time Series Private Links Network](media/private-links/tsinetworkaccess.png)](media/private-links/tsinetworkaccess.png#lightbox)
 
 Once a private endpoint is enabled and public access is restricted customer will have to use a different address for TSI Explorer to access TSI Environment. That address can be found in Azure Portal under Overview section. 
 

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/01/2021
 ---
 
-# Enable private access with Private Link (preview)
+# Enable private access for TSI with Private Link (preview)
 
 This article describes how to [enable Private Link with a private endpoint for an Azure Time Series Insights Gen2 environment](concepts-private-links.md) (currently in preview). Configuring a private endpoint for your Azure Time Series Insights Gen2 environment enables you to secure your Azure Time Series Insights environment and eliminate public exposure, as well as avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
@@ -38,7 +38,7 @@ Either of these creation methods will give the same configuration options and th
 
 ### Add a private endpoint during environment creation
 
-In this section, you'll enable Private Link with a private endpoint on an Azure Time Series Insights Gen2 environment that is currently being created. This section focuses on the networking step of the creation process; for a complete walkthrough of creating a new Azure Time Series Insights Gen2 environment, see [*How-to: Set up an environment*](tutoriak-set-up-environment.md).
+In this section, you'll enable Private Link with a private endpoint on an Azure Time Series Insights Gen2 environment that is currently being created. This section focuses on the networking step of the creation process; for a complete walkthrough of creating a new Azure Time Series Insights Gen2 environment, see [*How-to: Set up an environment*](tutorial-set-up-environment.md).
 
 The Private Link options are located in the **Networking** tab of environment setup.
 
@@ -89,7 +89,7 @@ In this section, you'll enable Private Link with a private endpoint for an Azure
     * **Subscription**: Enter your subscription.
     * **Resource type**: Select **Microsoft.TimeSeriesInsights/environments**
     * **Resource**: Select the name of your Azure Time Series Insights Gen2 environment.
-    * **Target sub-resource**: Select **environment**.
+    * **Target sub-resource**: Select **environment** or **tsiExplorer**.
 
     :::image type="content" source="media/private-links/create-private-endpoint-3.png" alt-text="Screenshot of the Azure portal showing the second (Resource) tab of the Create a private endpoint dialog. It contains the fields described above.":::
 
