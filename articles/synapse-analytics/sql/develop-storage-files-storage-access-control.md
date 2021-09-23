@@ -31,7 +31,7 @@ As an alternative, you can make your files publicly available by allowing anonym
 
 ## Supported storage authorization types
 
-A user that has logged into a serverless SQL pool must be authorized to access and query the files in Azure Storage if the files aren't publicly available. You can use four authorization types to access non-public storage - [User Identity](?tabs=user-identity), [Shared access signature](?tabs=shared-access-signature), [Service Principal](#tab/service-principal) and [Managed Identity](?tabs=managed-identity).
+A user that has logged into a serverless SQL pool must be authorized to access and query the files in Azure Storage if the files aren't publicly available. You can use four authorization types to access non-public storage - [User Identity](?tabs=user-identity), [Shared access signature](?tabs=shared-access-signature), [Service Principal](?tab/service-principal) and [Managed Identity](?tabs=managed-identity).
 
 > [!NOTE]
 > **Azure AD pass-through** is the default behavior when you create a workspace.
@@ -70,7 +70,7 @@ To enable access using an SAS token, you need to create a database-scoped or ser
 ### [Service Principal](#tab/service-principal)
 **Service Principal** is the local representation of a global application object in a particular AAD tenant. This authentication method is appropriate in case when storage access is to be authorized for a user app, service or automation tool. 
 
-The application needs to be registered in Azure Active Directory. For registration process you can consult [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app). Once the application is registered, its Service Principal can be used for authorization. 
+The application needs to be registered in Azure Active Directory. For registration process you can consult [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Once the application is registered, its Service Principal can be used for authorization. 
 
 Service Principal should be assigned Storage Blob Data Owner/Contributor/Reader role in order for the application to access the data. Even if Service Principal is Owner of a Storage Account, it still needs to be granted an appropriate Storage Blob Data role. As an alternative way of granting access to storage files and folders, fine-grained ACL rules for Service Principal can be defined. 
 To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
