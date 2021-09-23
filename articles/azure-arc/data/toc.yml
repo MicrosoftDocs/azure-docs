@@ -199,6 +199,10 @@ items:
               href: migrate-to-managed-instance.md
             - name: Restore AdventureWorks
               href: restore-adventureworks-sample-db.md
+        - name: Configure business continuity
+          items:
+            - name: Restore to a point in time 
+              href: point-in-time-restore-arcmi.md
 - name: Reference
   items:
   - name: Release version log
