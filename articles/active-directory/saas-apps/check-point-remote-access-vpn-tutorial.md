@@ -274,13 +274,21 @@ By default, the Windows client uses its embedded browser and the macOS client us
 For Windows client to change this behavior to use Internet Explorer instead:
 
    1. On the client machine, open a plain-text editor as an Administrator.
+
    2. Open the `trac.defaults` file in the text editor.
+
       - On 32-bit Windows:
+
         `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+
       - On 64-bit Windows:
+
         `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
-    3. Change the `idp_browser_mode` attribute value from `embedded` to `IE`:
+
+    3. Change the `idp_browser_mode` attribute value from `embedded` to `IE`.
+
     4. Save the file.
+
     5. Restart the Check Point Endpoint Security VPN client service.
 
    Open the Windows Command Prompt as an Administrator and run these commands:
@@ -292,14 +300,25 @@ For Windows client to change this behavior to use Internet Explorer instead:
 1. Start authentication with browser running in background:
 
    1. On the client machine, open a plain-text editor as an Administrator.
+
    2. Open the `trac.defaults` file in the text editor.
+
       - On 32-bit Windows:
+
         `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+
       - On 64-bit Windows:
+
         `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
-      - On macOS: `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
-    3. Change the value of **idp_show_browser_primary_auth_flow** to **false**
+
+      - On macOS:
+      
+        `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
+
+    3. Change the value of `idp_show_browser_primary_auth_flow` to `false`.
+
     4. Save the file.
+
     5. Restart the Check Point Endpoint Security VPN client service.
        - On Windows clients, open the Windows Command Prompt as an Administrator and run these commands:
 
@@ -319,7 +338,7 @@ In this section, you create a user called Britta Simon in Check Point Remote Sec
 
 ## Test SSO 
 
-1. Open the VPN client and click **Connect to…**.
+1. Open the VPN client and click **Connect to...**.
 
     ![screenshot for Connect to.](./media/check-point-remote-access-vpn-tutorial/connect.png)
 
