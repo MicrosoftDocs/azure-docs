@@ -3,12 +3,7 @@ title: Configure private IP addresses for VMs (Classic) - Azure portal | Microso
 description: Learn how to configure private IP addresses for virtual machines (Classic) using the Azure portal.
 services: virtual-network
 documentationcenter: na
-author: genlin
-manager: dcscontentpm
-
-tags: azure-service-management
-
-ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8
+author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
@@ -16,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
-ms.author: genli
+ms.author: allensu
 ms.custom: H1Hack27Feb2017
 
 ---
