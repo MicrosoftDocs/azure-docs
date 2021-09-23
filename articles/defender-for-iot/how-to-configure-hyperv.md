@@ -1,7 +1,7 @@
 ---
 title: Configure SPAN for Hyper-V
 description: This article explains how to configure SPAN for Hyper-V.
-ms.date: 08/08/2021
+ms.date: 09/02/2021
 ms.topic: how-to
 ---
 
@@ -127,19 +127,3 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 | Parameter | Description |
 |--|--|
 | vSwitch_Span | Newly added SPAN virtual switch name |
-
-## Set the Local SPAN in a Cisco Switch
-
-Use the following commands to set the local span on a Cisco switch where you plan to test SPAN:
-
-- Add the source:
-
-    ```bash
-    monitor session 1 source interface gigabitEthernet 1/0/1 both
-    ```
-
-- Add the destination:
-
-    ```bash
-    monitor session 1 destination interface gigabitEthernet 1/0/11
-    ```
