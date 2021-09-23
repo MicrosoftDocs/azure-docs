@@ -1361,11 +1361,11 @@ groups:
 # Owner: timlt
 - id: iot-develop-toolset
   title: IoT Devices
-  prompt: Choose a toolset
+  prompt: Choose a build environment
   pivots:
   - id: iot-toolset-cmake
-    title: CMAKE
+    title: CMake
   - id: iot-toolset-iar-ewarm
     title: IAR EWARM
   - id: iot-toolset-mplab
-    title: MPLAB IDE
+    title: MPLAB
