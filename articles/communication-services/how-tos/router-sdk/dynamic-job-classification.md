@@ -1,5 +1,5 @@
 ---
-title: Classify a job dynamically
+title: Classify a Job
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to change the properties of a job
 author: jasonshave
@@ -12,7 +12,7 @@ ms.custom: template-how-to
 #Customer intent: As a developer, I want Job Router to classify my Job for me.
 ---
 
-# Dynamically classify a job
+# Classifying a job
 
 Learn to use a classification policy in Job Router to dynamically define the queue and priority while also adjusting the worker requirements of a Job.
 
@@ -24,11 +24,36 @@ Learn to use a classification policy in Job Router to dynamically define the que
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 
-## What is dynamic classification of a job?
+## Static classification
 
-An easy way of submitting a Job is to specify the priority, queue and worker requirements during submission. When doing so, the sender is required to have knowledge about these characteristics. To avoid the sender having explicit knowledge about the inner workings of the Job Router's behavior, the sender can specify a **classification policy** along with a generic **labels** collection to invoke the dynamic behavior.
+When creating a Job with the SDK, specify the queue, priority, and worker requirements only; this method is known as **static classification**. The following example would place a Job in the `XBOX_DEFAULT_QUEUE` with a priority of `1` and require workers to have a skill of `XBOX_Hardware` greater than or equal to `7`.
 
-## Create a classification policy
+> [!NOTE]
+> A Job can be [reclassified after submission](#reclassify-a-job-after-submission) even if it was initially created without a classification policy. In this case, Job Router will evaluate the policy's behavior against the **labels** and make the necessary adjustments to the queue, priority, and worker requirements.
+
+```csharp
+var job = await client.CreateJobAsync(
+    channelId: ManagedChannels.AcsVoiceChannel,
+    channelReference: "my_custom_reference_number",
+    queueId: "XBOX_DEFAULT_QUEUE",
+    priority: 1,
+    workerRequirements: new List<RouterRequirement>()
+    {
+        new (
+            key: "XBOX_Hardware",
+            @operator: RequirementOperator.GreaterThanEqual,
+            value: 7)
+    }
+);
+
+// returns a new GUID such as: 4ad7f4b9-a0ff-458d-b3ec-9f84be26012b
+```
+
+## Dynamic classification
+
+As described above, an easy way of submitting a Job is to specify the priority, queue, and worker requirements during submission. When doing so, the sender is required to have knowledge about these characteristics. To avoid the sender having explicit knowledge about the inner workings of the Job Router's behavior, the sender can specify a **classification policy** along with a generic **labels** collection to invoke the dynamic behavior.
+
+### Create a classification policy
 
 The following classification policy will use the low-code **PowerFx** expression language to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE` if found, otherwise the `XBOX_DEFAULT_QUEUE`. Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
 
@@ -36,7 +61,8 @@ The following classification policy will use the low-code **PowerFx** expression
 var policy = await client.SetClassificationPolicyAsync(
     id: "XBOX_NA_QUEUE_Priority_1_10",
     name: "Select XBOX Queue and set priority to 1 or 10",
-    queueSelectionPolicy: new QueueSelectionPolicy(
+    defaultQueueId: "DEFAULT_QUEUE",
+    queueSelectionPolicy: new QueueIdentitySelectionPolicy(
         new ExpressionRuleContainer()
         {
             Language = ExpressionLanguage.PowerFx,
@@ -52,12 +78,12 @@ var policy = await client.SetClassificationPolicyAsync(
 );
 ```
 
-## Submit the job
+### Submit the job
 
 The following example will cause the classification policy to evaluate the Job labels. The outcome will place the Job in the queue called `XBOX_NA_QUEUE` and set the priority to `1`.
 
 ```csharp
-var job = await client.CreateJobAsync(
+var dynamicJob = await client.CreateJobAsync(
     channelId: ManagedChannels.AcsVoiceChannel,
     channelReference: "my_custom_reference_number",
     classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10",
@@ -66,6 +92,7 @@ var job = await client.CreateJobAsync(
         { "Region", "NA" },
         { "Caller_Id", "tel:7805551212" },
         { "Caller_NPA_NXX", "780555" },
+        { "XBOX_Hardware", 7 }
     }
 );
 
