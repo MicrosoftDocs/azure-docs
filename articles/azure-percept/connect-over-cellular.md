@@ -5,7 +5,7 @@ author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 07/28/2021
+ms.date: 09/23/2021
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ The benefits of connecting Edge AI devices over 5G/LTE networks are many. Scenar
 
 ## Options for connecting the Azure Percept DK over 5G or LTE networks
 With additional hardware, you can connect the Azure Percept DK using 5G/LTE connectivity. There are three options supported today, you can find a link to more details for each option:
-- **NEW: USB 5G/LTE Modem device** - We have now released a new SW image that supports open-source ModemManger SW that adds USB modem support to our Linux Operating System. This allows you to connect your Azure Percept over LTE or 5G networks using various often inexpensive USB modems. More info here [Connecting using USB modem](./connect-over-cellular-usb.md).   
+- **USB 5G/LTE Modem device** - We have now released a new SW image that supports open-source ModemManger SW that adds USB modem support to our Linux Operating System. This allows you to connect your Azure Percept over LTE or 5G networks using various often inexpensive USB modems. More info here [Connecting using USB modem](./connect-over-cellular-usb.md).   
 - **5G/LTE Ethernet gateway device** - Here Azure Percept is connected to the 5G/LTE gateway over Ethernet. More info here [Connecting using cellular gateway](./connect-over-cellular-gateway.md).
 - **5G/LTE Wi-Fi hotspot device** - Where Azure Percept is connected to the Wi-Fi network that the Wi-Fi hotspot provides. In this case, the dev kit connects to the network like any other Wi-Fi network. For more instructions, follow the [Azure Percept DK Setup Guide](./quickstart-percept-dk-set-up.md) and select the 5G/LTE Wi-Fi network broadcasted from the hotspot.
 

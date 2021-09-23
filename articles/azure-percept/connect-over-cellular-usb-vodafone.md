@@ -5,27 +5,27 @@ author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 09/14/2021
+ms.date: 09/23/2021
 ms.custom: template-how-to
 ---
 
-# Vodafone USB Connect 4G v2 modem 
+# Connect Azure Percept over LTE with USB modem Vodafone USB connect 4G
 Here are steps how to connect your Azure Percept using Vodafone USB Connect 4G v2.
 More info on this particular modem HW can be found from Vodafone following this page:
 https://www.vodafone.com/business/iot/iot-devices/integrated-terminals
 
-## Preparation:
+## Using the modem to connect
 Make sure you have done the Azure Percept DK preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md).   
 
-**1. Plug a SIM card in the Vodafone modem**
+### 1. Plug a SIM card in the Vodafone modem
 
-**2. Plug the Vodafone modem into the Azure Percept USB A port**
+### 2. Plug the Vodafone modem into the Azure Percept USB A port
 
-**3. Power-up Azure Percept**
+### 3. Power-up Azure Percept
 
-**4. SSH into the Azure Percept DK**
+### 4. SSH into the Azure Percept DK
 
-### 5. Ensure ModemManager is running**
+### 5. Ensure ModemManager is running
 Write the following command to your SSH prompt:
 ```
 systemctl status ModemManager
@@ -306,3 +306,7 @@ Once installed, reload UDEV rules and restart ModemManager:
 udevadm control -R
 systemctl restart ModemManager
 ```
+## Next steps
+
+Back to the main article on LTE and 5G:
+- [Connecting using LTE or 5G](./connect-over-cellular.md).

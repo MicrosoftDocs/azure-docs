@@ -1,5 +1,5 @@
 ---
-title: Connect Azure Percept over 5G or LTE with USB modem Quectel
+title: Connect Azure Percept over 5G or LTE with USB modem Quectel RM500
 description: This article explains how to connect the Azure Percept DK over 5G or LTE networks using Quectel USB modem.
 author: juhaluoto
 ms.author: amiyouss
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 09/03/2021
 ms.custom: template-how-to
 ---
-# Quectel 5G RM500-GL 
+# Connect Azure Percept over 5G or LTE with USB modem Quectel 5G RM500-GL 
 
 :::image type="Image" source="media/connect-over-cellular/Quectel_5G_dk_75.png" alt-text="Quectel 5G DK":::
 
@@ -17,6 +17,18 @@ Here are steps on how to connect your Azure Percept using Quectel RM500-GL 5G mo
 northamerica-sales@quectel.com – for NA customers
 
 sales@quectel.com – for global customers
+
+## Special note about 5G modems and USB cables
+5G modems require more power than simple LTE modems. Also the USB cable can become a bottleneck for best possible 5G data rates. In order to supply enough and consistent power to a 5G modem, you should make sure the USB cable is not too long and can withstand at least 3A current. For maximum throughput, you should use USB 3.1 Gen2 cables and make sure there is a USB-IF logo stating the certification. So as a summary:
+
+**For Power:**
+- Max amperage should be equal or greater than 3 Amp
+- Less than 1 m long
+- When using 5G modems, only one USB A port on Azure Percept DK should be active 
+
+**For throughput:**
+- USB 3.1 Gen2
+- USB-IF certified
 
 ## Preparation:
 Make sure you have done the Azure Percept preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md) and that you have noted the comments on USB cables that should be used. 
@@ -55,11 +67,11 @@ AT+CFUN=1,1
 At this point, the modem should disconnect and later reconnect to the USB port.
 
 
-## Using the modem
+## Using the modem to connect
 
-**1. Put a SIM card in the Quectel modem**
-**2. Plug the Quectel modem to Azure Percept USB port** Remember to use a proper USB cable.
-**3. Power-up Azure Percept**
+### 1. Put a SIM card in the Quectel modem
+### 2. Plug the Quectel modem to Azure Percept USB port. Remember to use a proper USB cable!
+### 3. Power-up Azure Percept
 
 ### 4. Ensure ModemManager is running
 ```
@@ -379,4 +391,10 @@ rtt min/avg/max/mdev = 113.899/125.530/137.162/11.636 ms
 ```
 
 ## Debugging
-See [Connecting using USB modem](./connect-over-cellular-usb.md).   
+See [Connecting using USB modem](./connect-over-cellular-usb.md).
+
+## Next steps
+
+Back to the main article on LTE and 5G:
+- [Connecting using LTE or 5G](./connect-over-cellular.md).
+  

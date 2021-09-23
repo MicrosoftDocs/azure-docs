@@ -1,18 +1,21 @@
 ---
-title: Connect Azure Percept over 5G or LTE with USB modem Multitech
+title: Connect Azure Percept over LTE with USB modem Multitech Multiconnect
 description: This article explains how to connect the Azure Percept DK over 5G or LTE networks using Multitech USB modem.
 author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to 
-ms.date: 09/14/2021
+ms.date: 09/23/2021
 ms.custom: template-how-to
 ---
 
-# Multitech Multiconnect USB LTE modem 
+# Connect Azure Percept over LTE with USB modem Multitech Multiconnect 
 Here are steps how to connect your Azure Percept using Multitech Multiconnect (MTCM-LNA3-B03) USB modem. Note, there are several models and we used LNA3 that works at least with Verizon and Vodafone SIM cards. We were not able to connect to an AT&T network, but we are investigating that and will modify this if we find the root cause. More info on this particular modem HW can be found following this page:
 
 https://www.multitech.com/brands/multiconnect-microcell
+
+## Preparation:
+Make sure you have done the Azure Percept preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md) and that you have noted the comments on USB cables that should be used. 
 
 ### Preparation of the modem
 In order to get started, we need the modem to be in MBIM mode. How to do it, can be found from AT command reference guide here:
@@ -46,18 +49,18 @@ AT#REBOOT
 ```
 At this point, the modem should disconnect and later reconnect to the USB port using the above set mode.
 
-## Preparation:
+## Using the modem to connect
 Make sure you have done the Azure Percept preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md).   
 
-**1. Plug a SIM card in the Multitech modem**
+### 1. Plug a SIM card in the Multitech modem
 
-**2. Plug the Multitech modem into the Azure Percept USB A port**
+### 2. Plug the Multitech modem into the Azure Percept USB A port
 
-**3. Power-up Azure Percept**
+### 3. Power-up Azure Percept
 
-**4. SSH into the Azure Percept DK**
+### 4. SSH into the Azure Percept DK
 
-### 5. Ensure ModemManager is running**
+### 5. Ensure ModemManager is running
 Write the following command to your SSH prompt:
 ```
 systemctl status ModemManager
@@ -287,5 +290,10 @@ rtt min/avg/max/mdev = 88.779/97.254/110.964/9.787 ms
 
 ## Debugging
 In general, see [Connecting using USB modem](./connect-over-cellular-usb.md).
+
+## Next steps
+
+Back to the main article on LTE and 5G:
+- [Connecting using LTE or 5G](./connect-over-cellular.md).
    
 
