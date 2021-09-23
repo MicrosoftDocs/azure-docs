@@ -118,11 +118,11 @@ If you need to update a storage target's DNS-provided IP address, use the **Stor
 
 If successful, the update should take less than two minutes. You can only refresh one storage target at a time; wait for the previous operation to complete before trying another.
 
-### Understand storage target state
+## Understand storage target state
 
 The storage target list shows two types of status: **State** and **Provisioning state**.
 
-* **State** indicates the operational state of the storage target. This value updates regularly and helps you understand whether or not the storage target is available for client requests and which of the management options are available.
+* **State** indicates the operational state of the storage target. This value updates regularly and helps you understand whether or not the storage target is available for client requests, and also which of the management options are available.
 * **Provisioning state** tells you whether the last action to add or edit the storage target was successful. This value is only updated if you edit the storage target.
 
 The **State** value affects which management options you can use. Here is a short explanation of the values and their effects.
@@ -130,7 +130,7 @@ The **State** value affects which management options you can use. Here is a shor
 * **Ready** - The storage target is operating normally and available to clients. You can use any of the management options on this storage target (except for **Resume**, which only is valid for suspended storage targets).
 * **Busy** - The storage target is processing another operation. You can delete or force remove the storage target.
 * **Suspended** - The storage target has been taken offline. You can still flush, delete, or force remove this storage target. Choose **Resume** to put the target back in service.
-* **Flushing** - The storage target is writing data to the back-end storage.
+* **Flushing** - The storage target is writing data to the back-end storage. <!-- can it serve/queue client requests? -->
 
 ## Next steps
 
