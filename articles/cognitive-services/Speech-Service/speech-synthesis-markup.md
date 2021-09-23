@@ -571,7 +571,7 @@ To define how multiple entities are read, you can create a custom lexicon, which
 The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced. When `alias` and `phoneme` element are provided with the same `grapheme` element, `alias` has higher priority.
 
 > [!IMPORTANT]
-> The `lexeme` element is case sensitive in custom lexicon, so if only provide phoneme for `lexeme` 'Hello', it will not work for `lexeme` 'hello'.
+> The `lexeme` element is case sensitive in custom lexicon. For example, if you only provide a phoneme for `lexeme` 'Hello', it will not work for `lexeme` 'hello'.
 
 Lexicon contains necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so apply it for a different locale it won't work.
 
