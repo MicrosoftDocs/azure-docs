@@ -1,5 +1,5 @@
 ---
-title: 'Migrate from on-prem HDFS store to Azure Storage with Azure Data Box'
+title: Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 author: normesta
 ms.service: storage
@@ -17,32 +17,32 @@ You can migrate data from an on-premises HDFS store of your Hadoop cluster into 
 This article helps you complete these tasks:
 
 > [!div class="checklist"]
-> * Prepare to migrate your data.
-> * Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device.
-> * Ship the device back to Microsoft.
-> * Apply access permissions to files and directories (Data Lake Storage Gen2 only)
+> - Prepare to migrate your data.
+> - Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device.
+> - Ship the device back to Microsoft.
+> - Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
 ## Prerequisites
 
 You need these things to complete the migration.
 
-* An Azure Storage account.
+- An Azure Storage account.
 
-* An on-premises Hadoop cluster that contains your source data.
+- An on-premises Hadoop cluster that contains your source data.
 
-* An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/).
+- An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Order your Data Box](../../databox/data-box-deploy-ordered.md) or [Data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md). 
+  - [Order your Data Box](../../databox/data-box-deploy-ordered.md) or [Data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md).
 
-  * Cable and connect your [Data Box](../../databox/data-box-deploy-set-up.md) or [Data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md) to an on-premises network.
+  - Cable and connect your [Data Box](../../databox/data-box-deploy-set-up.md) or [Data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md) to an on-premises network.
 
 If you are ready, let's start.
 
 ## Copy your data to a Data Box device
 
-If your data fits into a single Data Box device, then you'll copy the data to the Data Box device. 
+If your data fits into a single Data Box device, then you'll copy the data to the Data Box device.
 
-If your data size exceeds the capacity of the Data Box device, then use the [optional procedure to split the data across multiple Data Box devices](#appendix-split-data-across-multiple-data-box-devices) and then perform this step. 
+If your data size exceeds the capacity of the Data Box device, then use the [optional procedure to split the data across multiple Data Box devices](#appendix-split-data-across-multiple-data-box-devices) and then perform this step.
 
 To copy the data from your on-premises HDFS store to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
@@ -54,13 +54,13 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
 2. In the Access storage account and upload data dialog, copy the **Blob service endpoint** and the **Storage account key**. From the blob service endpoint, omit the `https://` and the trailing slash.
 
-    In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you'll use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](../../databox/data-box-deploy-copy-data-via-rest.md). 
+    In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you'll use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](../../databox/data-box-deploy-copy-data-via-rest.md).
 
      !["Access storage account and upload data" dialog](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
 3. Add the endpoint and the Data Box or Data Box Heavy node IP address to `/etc/hosts` on each node.
 
-    ```    
+    ```
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
     ```
 
@@ -84,13 +84,13 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
+    - Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
 
-    * Replace the `<account_key>` placeholder with the access key of your account.
+    - Replace the `<account_key>` placeholder with the access key of your account.
 
-    * Replace the `<container-name>` placeholder with the name of your container.
+    - Replace the `<container-name>` placeholder with the name of your container.
 
-    * Replace the `<destination_directory>` placeholder with the name of the directory that you want to copy your data to.
+    - Replace the `<destination_directory>` placeholder with the name of the directory that you want to copy your data to.
 
 6. Run a list command to ensure that your container and directory were created.
 
@@ -101,11 +101,11 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     -ls -R  wasb://<container_name>@<blob_service_endpoint>/
     ```
 
-   * Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
+   - Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
 
-   * Replace the `<account_key>` placeholder with the access key of your account.
+   - Replace the `<account_key>` placeholder with the access key of your account.
 
-   * Replace the `<container-name>` placeholder with the name of your container.
+   - Replace the `<container-name>` placeholder with the name of your container.
 
 7. Copy data from the Hadoop HDFS to Data Box Blob storage, into the container that you created earlier. If the directory that you are copying into is not found, the command automatically creates it.
 
@@ -119,19 +119,19 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
            wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
+    - Replace the `<blob_service_endpoint>` placeholder with the name of your blob service endpoint.
 
-    * Replace the `<account_key>` placeholder with the access key of your account.
+    - Replace the `<account_key>` placeholder with the access key of your account.
 
-    * Replace the `<container-name>` placeholder with the name of your container.
+    - Replace the `<container-name>` placeholder with the name of your container.
 
-    * Replace the `<exlusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
+    - Replace the `<exlusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
 
-    * Replace the `<source_directory>` placeholder with the name of the directory that contains the data that you want to copy.
+    - Replace the `<source_directory>` placeholder with the name of the directory that contains the data that you want to copy.
 
-    * Replace the `<destination_directory>` placeholder with the name of the directory that you want to copy your data to.
+    - Replace the `<destination_directory>` placeholder with the name of the directory that you want to copy your data to.
 
-    The `-libjars` option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This    may already occur for some clusters.
+    The `-libjars` option is used to make the `hadoop-azure*.jar` and the dependent `azure-storage*.jar` files available to `distcp`. This may already occur for some clusters.
 
     The following example shows how the `distcp` command is used to copy data.
 
@@ -144,14 +144,14 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     /data/testfiles \
     wasb://hdfscontainer@mystorageaccount.blob.mydataboxno.microsoftdatabox.com/data
     ```
-  
+
     To improve the copy speed:
 
-    * Try changing the number of mappers. (The above example uses `m` = 4 mappers.)
+    - Try changing the number of mappers. (The above example uses `m` = 4 mappers.)
 
-    * Try running multiple `distcp` in parallel.
+    - Try running multiple `distcp` in parallel.
 
-    * Remember that large files perform better than small files.
+    - Remember that large files perform better than small files.
 
 ## Ship the Data Box to Microsoft
 
@@ -165,11 +165,11 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 4. Schedule a pickup with UPS.
 
-    * For Data Box devices, see [Ship your Data Box](../../databox/data-box-deploy-picked-up.md).
+    - For Data Box devices, see [Ship your Data Box](../../databox/data-box-deploy-picked-up.md).
 
-    * For Data Box Heavy devices, see [Ship your Data Box Heavy](../../databox/data-box-heavy-deploy-picked-up.md).
+    - For Data Box Heavy devices, see [Ship your Data Box Heavy](../../databox/data-box-heavy-deploy-picked-up.md).
 
-5. After Microsoft receives your device, it is connected to the data center network and the data is uploaded to the storage account you specified when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure. 
+5. After Microsoft receives your device, it is connected to the data center network and the data is uploaded to the storage account you specified when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure.
 
 ## Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
@@ -182,9 +182,9 @@ You already have the data into your Azure Storage account. Now you will apply ac
 
 To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-* When performing the steps in the [Assign the application to a role](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+- When performing the steps in the [Assign the application to a role](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
-* When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) section of the article, save application ID, and client secret values into a text file. You'll need those soon.
+- When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) section of the article, save application ID, and client secret values into a text file. You'll need those soon.
 
 ### Generate a list of copied files with their permissions
 
@@ -207,7 +207,7 @@ This command generates a list of copied files with their permissions.
 2. Run this command to generate a list of unique identities.
 
    ```bash
-   
+
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
@@ -225,11 +225,11 @@ Run this command to apply permissions to the data that you copied into the Data 
 ./copy-acls.py -s ./filelist.json -i ./id_map.json  -A <storage-account-name> -C <container-name> --dest-spn-id <application-id>  --dest-spn-secret <client-secret>
 ```
 
-* Replace the `<storage-account-name>` placeholder with the name of your storage account.
+- Replace the `<storage-account-name>` placeholder with the name of your storage account.
 
-* Replace the `<container-name>` placeholder with the name of your container.
+- Replace the `<container-name>` placeholder with the name of your container.
 
-* Replace the `<application-id>` and `<client-secret>` placeholders with the application ID and client secret that you collected when you created the service principal.
+- Replace the `<application-id>` and `<client-secret>` placeholders with the application ID and client secret that you collected when you created the service principal.
 
 ## Appendix: Split data across multiple Data Box devices
 
@@ -242,7 +242,7 @@ Before you move your data onto a Data Box device, you'll need to download some h
 1. From your edge or head node of your on-premises Hadoop cluster, run this command:
 
    ```bash
-   
+
    git clone https://github.com/jamesbak/databox-adls-loader.git
    cd databox-adls-loader
    ```
@@ -252,21 +252,21 @@ Before you move your data onto a Data Box device, you'll need to download some h
 2. Make sure that have the [jq](https://stedolan.github.io/jq/) package installed on your local computer.
 
    ```bash
-   
+
    sudo apt-get install jq
    ```
 
 3. Install the [Requests](https://2.python-requests.org/en/master/) python package.
 
    ```bash
-   
+
    pip install requests
    ```
 
 4. Set execute permissions on the required scripts.
 
    ```bash
-   
+
    chmod +x *.py *.sh
 
    ```
@@ -328,4 +328,4 @@ Here's an example:
 
 ## Next steps
 
-Learn how Data Lake Storage Gen2 works with HDInsight clusters. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
