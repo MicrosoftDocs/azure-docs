@@ -22,7 +22,7 @@ It is recommended that you use a non-production environment to test the steps in
 
 ## Prerequisites
 
-To set up OIDC-based SSO, you need:
+To configure OIDC-based SSO, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
@@ -31,7 +31,7 @@ To set up OIDC-based SSO, you need:
 
 When you add an enterprise application that uses the OIDC standard for SSO, you select a setup button. When you select the button, you complete the sign-up process for the application.
 
-To set up OIDC-based single sign-on for an application:
+To configure OIDC-based SSO for an application:
 
 1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. 
