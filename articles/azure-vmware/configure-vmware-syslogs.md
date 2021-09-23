@@ -26,6 +26,9 @@ Make sure you have an Azure VMware Solution private cloud with access to the vCe
 
 
 1. Select the **vmwaresyslog**, **Allmetrics**, and **Archive to storage account** options.
+
+   >[!IMPORTANT]
+   >The **Send to log analytics workspace** option does not currently work.
  
 1. Select the storage account where you want to store the logs and then select **Save**.
 
