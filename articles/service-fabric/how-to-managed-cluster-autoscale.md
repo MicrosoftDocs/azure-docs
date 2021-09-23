@@ -6,19 +6,19 @@ ms.date: 10/04/2021
 ---
 
 # Introduction to Auto Scaling on Service Fabric managed clusters
-[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) enables a Service Fabric managed cluster to dynamically scale a secondary node type based on the usage of resources. Auto scaling gives great elasticity and enables provisioning of additional or reduction of instances on demand. Auto scaling is an automated and transparent capability eliminating any need for manual scaling operations. Auto scaling on a managed cluster node type can be enabled, disabled, or configured at any time.
+[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) enables a Service Fabric managed cluster secondary node type to automatically increase or decrease the number of nodes that run your application. Auto scaling gives great elasticity and enables provisioning of additional or reduction of nodes on demand. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the acceptable performance for a positive customer experience. When those defined thresholds are met, auto scale rules take action to adjust the capacity of your scale set. Auto scaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable auto scaling, and how to configure an example auto scale policy.
+
 
 **Requirements and supported metrics:**
 * In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
 * The cluster SKU must be Standard.
 * Can only be configured on a secondary node type in your cluster.
+* On a node where auto scale is enabled, `vmInstanceCount` property should be set to `-1` in the cluster resource
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
-A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like:
+A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
 * If all instances of my gateway are using more than 70% on average, then scale the gateway service out by adding two more instance. Do this every 30 minutes, but never have more than twenty instances in total.
 * If all instances of my gateway are using less than 40% cores on average, then scale the service in by removing one instance. Do this every 30 minutes, but never have fewer than three instances in total.
-
-The rest of this article describes an example deployment, how to enable or disable auto scaling, and set example auto scale policies.
 
 ## Example auto scale deployment
 
@@ -27,11 +27,11 @@ This example will walk through:
 * Adding auto scale rules to the secondary node type, `NT2`.
 
 >[!NOTE] 
-> Auto-scale of the node type is done based on managed VMSS CPU host metrics. 
+> Auto-scale of the node type is done based on the managed cluster VMSS CPU host metrics. 
 > VMSS resource is auto-resolved in the template. 
 
 
-The following steps will take you step by step through an end to end setup of a cluster with auto scale configured.
+The following will take you step by step through setup of a cluster with auto scale configured.
 
 1) Create resource group in a region
 

@@ -12,7 +12,7 @@ Each node type in a Service Fabric managed cluster is backed by a virtual machin
 The rest of this document will cover how to adjust various settings from node type instance count, OS Image, and configuring placement properties.
 
 
-## Scale a Service Fabric managed cluster node type with portal
+## Scale a Service Fabric managed cluster node type manually with portal
 
 In this walkthrough you will learn how to modify the node count for a node type using portal.
 
@@ -32,7 +32,7 @@ In this walkthrough you will learn how to modify the node count for a node type 
 ![Sample showing a node count updating][node-count-updating]
 
 
-## Scale a Service Fabric managed cluster node type with a template
+## Scale a Service Fabric managed cluster node type manually with a template
 
 To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
 
@@ -55,6 +55,15 @@ To adjust the node count for a node type using an ARM Template, adjust the `vmIn
         }
 }
 ```
+
+## Modify the VM SKU for a node type
+
+Service Fabric managed cluster does not support in-place modification of the VM SKU. In order to accomplish this you'll need to do the following:
+* provision a new node type
+* migrate workload over
+* delete old node type
+
+
 
 ## Modify the OS image for a node type with portal
 
@@ -157,6 +166,7 @@ To adjust the placement properties for a node type using an ARM Template, adjust
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Auto scale a Service Fabric managed cluster node type](how-to-managed-cluster-autoscale.md)
 > [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
 > [Deploy an app to a Service Fabric managed cluster](./tutorial-managed-cluster-deploy-app.md)
 
