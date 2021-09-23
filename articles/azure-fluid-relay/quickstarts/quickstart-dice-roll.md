@@ -12,7 +12,7 @@ ms.author: hickeys
 
 In this quickstart, we'll walk through through the process of creating a dice roller app that uses the Azure Fluid Relay service. The quickstart is broken into two parts. In part one, we'll create the app itself and run it against a local Fluid server. In part two, we'll reconfigure the app to run against the Azure Fluid Relay service instead of the local dev server.
 
-The sample code used in this quickstart is available [here](https://github.com/microsoft/FluidHelloWorld).
+The sample code used in this quickstart is available [here](https://github.com/microsoft/FluidHelloWorld/tree/main-azure).
 
 ## Set up your development environment
 
@@ -26,13 +26,13 @@ You'll also need the following software installed on your computer.
 
 ## Getting Started Locally
 
-First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld) The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
+First, you'll need to download the sample app from GitHub. Open a new command window and navigate to the folder where you'd like to download the code and use Git to clone the [FluidHelloWorld repo](https://github.com/microsoft/FluidHelloWorld). The cloning process will create a subfolder named FluidHelloWorld with the project files in it.
 
 ```cli
 git clone https://github.com/microsoft/FluidHelloWorld.git
 ```
 
-Navigate to the newly created folder, install Node.js, and start the app.
+Navigate to the newly created folder, install dependencies, and start the app.
 
 ```cli
 cd FluidHelloWorld
@@ -42,7 +42,7 @@ npm start
 ```
 
 
-When you run the `npm start` command, two things will happen. First, a Fluid server will be launched in a local process using [Tinylicious](https://www.npmjs.com/package/tinylicious). This server is intended for development only. We'll upgrade to an Azure-hosted production server later. Second, a new browser tab will open to a page that contains a new instance of the dice roller app. 
+When you run the `npm start` command, two things will happen. First, a Fluid server will be launched in a local process using [Tinylicious](https://www.npmjs.com/package/tinylicious). This server is intended for development only. You'll upgrade to an Azure-hosted production server later. Second, a new browser tab will open to a page that contains a new instance of the dice roller app. 
 
 You can open new tabs with the same URL to create additional instances of the dice roller app. Each instance of the app is configured by default to use your local Fluid service. Click the **Roll** button in any instance of the app, and note that the state of the dice changes in every client.
 
@@ -52,31 +52,33 @@ To run against the Azure Fluid Relay service, you'll need to update your app's c
 
 ### Remove the Tinylicious client from the app
 
-Since we're not going to use the Tinylicious server anymore, we don't need to create a client in the app. Open `app.ts` and delete this line of code.
+Since you're not going to use the Tinylicious server anymore, we don't need to create a client in the app. Open `app.js` and delete this line of code.
 
-```typescript
+```javascript
 const client = new TinyliciousClient();
 ```
 
 ### Install and import the Azure client package
 
-To connect to your Azure service, first install Fluid Framework's Azure client.
+To connect to your Azure service, first install Fluid Framework's Azure client and a library of testing utilities.
 
 ```cli
-npm i @fluidframework/azure-client
+npm i @fluidframework/azure-client @fluidframework/test-client-utils
 ```
 
-Next, import the Azure client and update your app's configuration with the required connection information. Open `app.ts` and import the client.
+Next, import the Azure client and update your app's configuration with the required connection information. Open
+`app.js` and import the client. You'll also import a token provider to use for testing.
 
-```typescript
-import { AzureClient, InsecureTokenProvider } from "@fluidframework/azure-client";
+```javascript
+import { AzureClient } from "@fluidframework/azure-client";
+import { InsecureTokenProvider } from "@fluidframework/test-client-utils";
 ```
 
 ### Configure and create an Azure Client
 
 Finally, configure and create a new Azure client.
 
-```typescript
+```javascript
 const azureUser = {
   userId: "Test User",
     userName: "test-user"
