@@ -153,8 +153,8 @@ Use the **Export** button on the **Project details** page of your labeling proje
 
 You can export:
 
-    * A CSV file. The CSV file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/csv*. 
-    * An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
+* A CSV file. The CSV file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/csv*. 
+* An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
 
 Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 

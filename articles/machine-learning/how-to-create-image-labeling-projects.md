@@ -1,7 +1,7 @@
 ---
-title: Image labeling and text labeling
+title: Image labeling
 titleSuffix: Azure Machine Learning
-description: Use our data labeling tool to label images or label text. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
+description: Use our data labeling tool to label images. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
