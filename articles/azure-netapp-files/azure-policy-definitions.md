@@ -28,8 +28,6 @@ The process of [creating and implementing a policy in Azure Policy](../governanc
 
 Azure NetApp Files supports Azure Policy. You can integrate Azure NetApp Files with Azure Policy through [creating custom policy definitions](../governance/policy/tutorials/create-custom-policy-definition.md). You can find examples in [Enforce Snapshot Policies with Azure Policy](https://anfcommunity.com/2021/08/30/enforce-snapshot-policies-with-azure-policy/) and [Azure Policy now available for Azure NetApp Files](https://anfcommunity.com/2021/04/19/azure-policy-now-available-for-azure-netapp-files/).
 
-To obtain support about custom policy definitions, contact [Azure Support](../azure-portal/supportability/how-to-create-azure-support-request.md) directly. 
-
 ## Built-in policy definitions
 
 The Azure Policy built-in definitions for Azure NetApp Files enable organization admins to restrict creation of unsecure volumes or audit existing volumes. Each policy definition in Azure Policy has a single *effect*. That effect determines what happens when the policy rule is evaluated to match.  
