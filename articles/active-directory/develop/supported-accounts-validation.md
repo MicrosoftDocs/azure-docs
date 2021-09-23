@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: lenalepa, manrath
+ms.reviewer: manrath
 ---
 
 # Validation differences by supported account types (signInAudience)
