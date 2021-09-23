@@ -34,8 +34,8 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [atan2](data-flow-expression-functions.md#atan2) | Returns the angle in radians between the positive x-axis of a plane and the point given by the coordinates.  |
 | [between](data-flow-expression-functions.md#between) | Checks if the first value is in between two other values inclusively. Numeric, string and datetime values can be compared  |
 | [bitwiseAnd](data-flow-expression-functions.md#bitwiseAnd) | Bitwise And operator across integral types. Same as & operator  |
-| [bitwiseOr](data-flow-expression-functions.md#bitwiseOr) | Bitwise Or operator across integral types. Same as | operator  |
-| [bitwiseXor](data-flow-expression-functions.md#bitwiseXor) | Bitwise Or operator across integral types. Same as | operator  |
+| [bitwiseOr](data-flow-expression-functions.md#bitwiseOr) | Bitwise Or operator across integral types. Same as \| operator  |
+| [bitwiseXor](data-flow-expression-functions.md#bitwiseXor) | Bitwise Or operator across integral types. Same as \| operator  |
 | [blake2b](data-flow-expression-functions.md#blake2b) | Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  |
 | [blake2bBinary](data-flow-expression-functions.md#blake2bBinary) | Calculates the Blake2 digest of set of column of varying primitive datatypes given a bit length which can only be multiples of 8 between 8 & 512. It can be used to calculate a fingerprint for a row  |
 | [case](data-flow-expression-functions.md#case) | Based on alternating conditions applies one value or the other. If the number of inputs are even, the other is defaulted to NULL for last condition.  |
@@ -121,7 +121,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [notEquals](data-flow-expression-functions.md#notEquals) | Comparison not equals operator. Same as != operator.  |
 | [notNull](data-flow-expression-functions.md#notNull) | Checks if the value is not NULL.  |
 | [null](data-flow-expression-functions.md#null) | Returns a NULL value. Use the function `syntax(null())` if there is a column named 'null'. Any operation that uses will result in a NULL.  |
-| [or](data-flow-expression-functions.md#or) | Logical OR operator. Same as ||.  |
+| [or](data-flow-expression-functions.md#or) | Logical OR operator. Same as \|\|.  |
 | [pMod](data-flow-expression-functions.md#pMod) | Positive Modulus of pair of numbers.  |
 | [partitionId](data-flow-expression-functions.md#partitionId) | Returns the current partition ID the input row is in.  |
 | [power](data-flow-expression-functions.md#power) | Raises one number to the power of another.  |
