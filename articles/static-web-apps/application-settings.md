@@ -17,7 +17,7 @@ Application settings hold configuration settings for values that may change, suc
 Application settings:
 
 - Are available as enironment variables to the backend API of a static web app
-- Can be used to store secrets used in [authentication configuration](key-vault-secrets)
+- Can be used to store secrets used in [authentication configuration](key-vault-secrets.md)
 - Are encrypted at rest
 - Are copied to [staging](review-publish-pull-requests.md) and production environments
 - May only be alphanumeric characters, `.`, and `_`
