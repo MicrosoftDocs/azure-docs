@@ -25,7 +25,6 @@ For more general comparisons, see the [this article](storage-introduction.md) to
 |Scale     | Up to 2 PiB for a single volume. <br></br> Up to ~4.75 TiB max for a single file.<br></br>No minimum capacity requirements.         |Up to 100 TiB for a single file share.<br></br>Up to 4 TiB for a single file.<br></br>100 GiB min capacity.         |Up to 100 TiB for a single volume.<br></br>Up to 16 TiB for a single file.<br></br>Consistent hybrid cloud experience.         |
 |Pricing     |[Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)         |[Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)         |[Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/)         |
 
-
 ## Next steps
 
 - To access Blob storage with NFS, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage (preview)](../blobs/network-file-system-protocol-support.md).
