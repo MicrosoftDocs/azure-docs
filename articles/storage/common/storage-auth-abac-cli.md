@@ -11,9 +11,10 @@ ms.reviewer:
 ms.subservice: common
 ms.date: 05/06/2021
 
-#Customer intent: 
+#Customer intent:
 
 ---
+
 # Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)
 
 > [!IMPORTANT]
@@ -21,14 +22,13 @@ ms.date: 05/06/2021
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
 In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more fine-grained access control by adding a role assignment condition.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add a condition to a role assignment
-> * Restrict access to blobs based on a blob index tag
+> - Add a condition to a role assignment
+> - Restrict access to blobs based on a blob index tag
 
 ## Prerequisites
 
@@ -103,7 +103,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 1. Add the following blob index tag to the text file. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
-    > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. 
+    > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions.
 
     | Key | Value |
     | --- | --- |
@@ -222,7 +222,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     ```
 
     Here's an example of the output. Notice that you **can't** read the file because of the condition you added.
-    
+
     ```azurecli
     You do not have the required permissions needed to perform this operation.
     Depending on your operation, you may need to be assigned one of the following roles:
@@ -230,10 +230,10 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
         "Storage Blob Data Reader"
         "Storage Queue Data Contributor"
         "Storage Queue Data Reader"
-    
+
     If you want to use the old authentication method and allow querying for the right account key, please use the "--auth-mode" parameter and "key" value.
     ```
-    
+
 1. Read the properties of the file for the Cascade project.
 
     ```azurecli
@@ -241,7 +241,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     ```
 
     Here's an example of the output. Notice that you can read the properties of the file because it has the tag Project=Cascade.
-    
+
     ```azurecli
     {
       "container": "<containerName>",
@@ -280,7 +280,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     ```
 
     The output will be similar to the following:
-    
+
     ```azurecli
     [
       {
@@ -328,7 +328,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     ```azurecli
     az role assignment update --role-assignment "./path/roleassignment.json"
     ```
-    
+
 ## Step 8: Clean up resources
 
 1. Use [az role assignment delete](/cli/azure/role/assignment#az_role_assignment_delete) to remove the role assignment and condition you added.

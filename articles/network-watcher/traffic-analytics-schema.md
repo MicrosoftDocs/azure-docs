@@ -1,16 +1,10 @@
 ﻿---
 title: Azure traffic analytics schema | Microsoft Docs
 description: Understand schema of Traffic Analytics to analyze Azure network security group flow logs.
-services: network-watcher
-documentationcenter: na
 author: vinynigam
 manager: agummadi
-editor:
-
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
@@ -140,7 +134,7 @@ Listed below are the fields in the schema and what they signify
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Source IP in the flow |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Destination IP in the flow |
 | ConnectionType_s | Possible values are VNetPeering, VpnGateway, and ExpressRoute |	Connection Type |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Connection Name. For flow type P2S, this will be formatted as <gateway name>_<VPN Client IP> |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Connection Name. For flow type P2S, this will be formatted as \<gateway name\>_\<VPN Client IP\> |
 | ConnectingVNets_s	| Space separated list of virtual network names | In case of hub and spoke topology, hub virtual networks will be populated here |
 | Country_s | Two letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs_s field will share the same country code |
 | AzureRegion_s | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs_s field will share the Azure region |
