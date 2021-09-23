@@ -194,7 +194,8 @@ spec:
     objects:  |
       array:
         - |
-          objectName: <secret-name>       # In this example, 'ExampleSecret'   
+          objectName: <secret-name>       # In this example, 'ExampleSecret' 
+          objectAlias: <secret-alias>     # [OPTIONAL] specify the filename of the object when written to disk - defaults to objectName if not provided
           objectType: secret              # Object types: secret, key or cert
           objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
     tenantId: "<tenant-id>"               # the tenant ID containing the Azure Key Vault instance
