@@ -46,7 +46,7 @@ There's a global limit of about 1000 items across all the collection properties 
 
 ## Next steps
 
-For more information about application registration and manifest, see:
+For more information about application registrations and their JSON manifest, see:
 
 - [Application registration](app-objects-and-service-principals.md)
 - [Application manifest](reference-app-manifest.md)
