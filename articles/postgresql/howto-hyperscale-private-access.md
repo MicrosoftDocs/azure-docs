@@ -101,6 +101,13 @@ az vm run-command invoke \
 
 7. Select **Private access (preview)**.
 
+	> [!NOTE]
+	>
+	> If the private access option is not selectable for your server group,
+	> please open an Azure [support
+	> request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest),
+	> and include your Azure subscription ID, to get access.
+
 8. A screen appears called **Create private endpoint**. Enter these values and
    select **OK**:
 
