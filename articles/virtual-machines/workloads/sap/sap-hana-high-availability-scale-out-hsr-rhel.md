@@ -315,12 +315,13 @@ Configure and prepare your OS by doing the following steps:
 
 2. **[A]** Install the NFS client package.  
 
-    ```yum install nfs-utils ```
+   `yum install nfs-utils`
 
 
 3. **[AH]** Red Hat for HANA configuration.  
 
-    Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:  
+   Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:
+
    - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
    - [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
    - [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
@@ -332,7 +333,7 @@ Configure and prepare your OS by doing the following steps:
 
 In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.  
 
-1. **[AH]** Create mount points for the HANA database volumes.  
+1. **[AH]** Create mount points for the HANA database volumes.
 
     ```bash
     mkdir -p /hana/shared

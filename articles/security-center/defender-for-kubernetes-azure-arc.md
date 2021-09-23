@@ -154,7 +154,7 @@ To use the REST API to deploy the Azure Defender extension, you'll need a Log An
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
-    ```az account get-access-token --subscription <your-subscription-id>```
+    `az account get-access-token --subscription <your-subscription-id>`
     Use the following structure for the body of your message:
     ```json
     { 
