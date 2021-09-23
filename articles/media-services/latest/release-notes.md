@@ -34,11 +34,11 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 The streaming endpoint portal page now provides an easy way for you to manage your egress capacity and estimate your audience  reach with and without a CDN configured.  Simply adjust the delivery bitrate and expected CDN cache hit ratio to get quick estimations of your audience size and help you determine if you need to scale up to more Premium streaming endpoints.
 
-   ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor.png)
+   ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor.png#lightbox)
 
 ### Streaming Endpoint portal page now shows CPU, egress and latency metrics
 
-You can now visualize the CPU load, egress bandwidth and end-to-end latency metrics on their streaming endpoints in the Azure portal. You can now create monitoring alerts based on the CPU, egress or latency metrics directly in the portal using the power of Azure Monitor. 
+You can now visualize the CPU load, egress bandwidth and end-to-end latency metrics on their streaming endpoints in the Azure portal. You can now create monitoring alerts based on the CPU, egress or latency metrics directly in the portal using the power of Azure Monitor.
 
 ### User-Assigned Managed Identities support for Media Services accounts
 
@@ -48,12 +48,12 @@ Using User-Assigned Managed Identities, customers will now be able to enable bet
 
 You can now assign and manage user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI) for your storage accounts directly in the Azure portal for Media Services.
 
-  ![Configure user or system-assigned managed identities on storage accounts](./media/release-notes/storage-managed-identity.png)
+  ![Configure user or system-assigned managed identities on storage accounts](./media/release-notes/storage-managed-identity.png#lightbox)
 
 ### Bring your own key page now also supports both UAMI and SAMI.
-The key management portal page for Media Services now supports configuration and management of  user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI). 
+The key management portal page for Media Services now supports configuration and management of  user-assigned managed identities (UAMI) or system-assigned managed identities (SAMI).
 
-   ![Bring your own keys for account encryption](./media/release-notes/byok-managed-identity.png)
+   ![Bring your own keys for account encryption](./media/release-notes/byok-managed-identity.png#lightbox)
 
 
 ### Private Link support for Media services
@@ -106,9 +106,9 @@ For details on how to use Media Services with private links, see [Create a Media
 
 The US West 3 region is now GA and available for customers to use when creating new Media Services accounts.
 
-### Key delivery supports IP allowlist restrictions
+### Key delivery supports IP allow list restrictions
 
-Media Services accounts can now be configured with IP allowlist restrictions on key delivery. The new allowlist setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
+Media Services accounts can now be configured with IP allow list restrictions on key delivery. The new allow list setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
 This allows operators to restrict delivery of DRM licenses and AES-128 content keys to specific IPv4 ranges.
 
 This feature can also be used to shut off all public internet delivery of DRM licenses or AES-128 keys and restrict delivery to a private network endpoint.
@@ -197,7 +197,7 @@ Version 3 provides:
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
 - Customer managed keys, trusted storage integration, private link support, and [more](./migrate-v-2-v-3-migration-benefits.md)
 
-As part of the update to v3 API and SDKs, Media Reserve Units (MRUs) are no longer needed for any Media Services account as the system will automaticlaly scale up and down based on load. Please refer to the [MRUs migration guidance](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md) for more information.
+As part of the update to v3 API and SDKs, Media Reserve Units (MRUs) are no longer needed for any Media Services account as the system will automatically scale up and down based on load. Please refer to the [MRUs migration guidance](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md) for more information.
 
 #### Action Required
 
