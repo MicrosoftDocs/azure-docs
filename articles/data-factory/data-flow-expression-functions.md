@@ -291,13 +291,16 @@ Conversion functions are used to convert data and test for data types
 |||
 
 ## Map functions
-  
-Map functions perform operations on map data types
 
+  Map functions perform operations on map data types
+
+| Map function | Task |
+| --- | --- |
 | [associate](data-flow-expression-functions.md#associate) | Creates a map of key/values. All the keys & values should be of the same type. If no items are specified, it is defaulted to a map of string to string type.Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.|
 | [keyValues](data-flow-expression-functions.md#keyValues) | Creates a map of key/values. The first parameter is an array of keys and second is the array of values. Both arrays should have equal length.|
 | [mapAssociation](data-flow-expression-functions.md#mapAssociation) | Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and current value as #value. |
 | [reassociate](data-flow-expression-functions.md#reassociate) | Transforms a map by associating the keys to new values. It takes a mapping function where you can address the item as #key and current value as #value.  |
+|||
 
 ## Metafunctions
 
@@ -319,6 +322,7 @@ Metafunctions primarily function on metadata in your data flow
 |||
 
 ## Window functions
+
 The following functions are only available in window transformations.
 | Windows function | Task |
 | --- | --- |
