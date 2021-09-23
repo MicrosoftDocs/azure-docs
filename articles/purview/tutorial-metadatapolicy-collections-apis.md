@@ -1,5 +1,5 @@
 ---
-title: Azure Purview Collections Metadata Policy & Roles APIs: Quickstart Tutorial – Manage Fine Grained Access Control over Purview Collections
+title: Azure Purview Collections Metadata Policy & Roles APIs Quickstart Tutorial – Manage Fine Grained Access Control over Purview Collections
 description:  This tutorial talks about managing fine grained access control over these collections to users, groups or service principals within your enterprise via Azure Purview APIs.
 author: abandyop
 ms.author: arindamba
