@@ -215,7 +215,7 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
 > [!NOTE]
-> A published generation requires at least one of its images to stay live. An ISV cannot delete a published generation.
+> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page (see first section in this article).
 
 ### VM images
 
