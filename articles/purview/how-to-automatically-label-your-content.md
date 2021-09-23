@@ -148,4 +148,4 @@ Find insights on your classified and labeled data in Azure Purview use the **Cla
 > [Overview of Labeling in Azure Purview](create-sensitivity-label.md)
 
 > [!dive class="nextstepaction"]
-> [Labeling Frequently Asked Questions](labeling-frequently-asked-questions.yml)
+> [Labeling Frequently Asked Questions](sensitivity-labels-frequently-asked-questions.yml)

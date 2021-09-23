@@ -69,4 +69,4 @@ For more information, see the [SQL data discovery and classification documentati
 > [Sensitivity label insights](sensitivity-insights.md)
 
 > [!div class="nextstepaction"]
-> [Labeling Frequently Asked Questions](labeling-frequently-asked-questions.yml)
+> [Labeling Frequently Asked Questions](sensitivity-labels-frequently-asked-questions.yml)
