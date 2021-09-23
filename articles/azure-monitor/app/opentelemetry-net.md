@@ -235,7 +235,7 @@ You may use Enrich option from [instrumentation libraries](#Instrumentation-Libr
 <!-- For more information, see [GitHub Repo](link). -->
 
 ### Filter Telemetry
-You may use following two ways to filter out telemetry before leaving your application. 
+You may use following three ways to filter out telemetry before leaving your application. 
 1. Filter option provided by many instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#Instrumentation-Libraries) for more details.
 
 2. Using custom processor:
