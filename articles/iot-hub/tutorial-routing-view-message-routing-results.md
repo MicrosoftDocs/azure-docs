@@ -293,15 +293,14 @@ In this 2-part tutorial, you learned how to use message routing to route IoT Hub
 > [!div class="checklist"]
 > * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
 > * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
-<!-->
+>
 > * Create a Power BI visualization for data sent to the default endpoint.
--->
+>
 > * View the results ...
 > * ...in the Service Bus queue and e-mails.
 > * ...in the storage account.
-<!-->
 > * ...in the Power BI visualization.
--->
+
 
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
