@@ -13,13 +13,13 @@ ms.date: 09/10/2021
 [!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we will remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we will remove it from this article.
 
 You can use various methods, such as MySQL dump and restore, MySQL Workbench Export/Import, or Azure Database Migration Service (DMS), to migrate your MySQL databases to Azure Database for MySQL. However, by using a combination of open-source tools such as MySQL dump and restore or mydumper/myloader with Data-in replication, you can migrate your workloads with minimum downtime.
 
 Data-in replication is a technique that replicates data changes from the source server to the destination server based on the binary log file position method. In this scenario, the MySQL instance operating as the source (on which the database changes originate) writes updates and changes as “events” to the binary log. The information in the binary log is stored in different logging formats according to the database changes being recorded. Replicas are configured to read the binary log from the source and to execute the events in the binary log on the replica's local database.
 
-If you set up [Data-in replication](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-data-in-replication) to synchronize data from a source MySQL server to a target MySQL server, you can do a selective cutover of your applications from the primary (or source database) to the replica (or target database).
+If you set up [Data-in replication](/azure/mysql/flexible-server/concepts-data-in-replication) to synchronize data from a source MySQL server to a target MySQL server, you can do a selective cutover of your applications from the primary (or source database) to the replica (or target database).
 
 In this tutorial, you’ll learn how to set up Data-in replication between a source server running AWS RDS for MySQL and a target server running Azure Database for MySQL.
 
@@ -40,7 +40,7 @@ In the above case, you can move dump files between client machines using file tr
 Regardless of where the client computer is located, it requires adequate compute, I/O, and network capacity to perform the requested operations. The general recommendations are as follows:
 
 - If the dump or restore involves real-time processing of data, for example, compression or decompression, choose an instance class with at least one CPU core per dump/restore thread.
-- Ensure that there's enough network bandwidth available to the client instance. We recommend using instance types that support accelerated networking feature. For more information, see the Accelerated Networking section in the [Azure Virtual Machine Networking Guide](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+- Ensure that there's enough network bandwidth available to the client instance. We recommend using instance types that support accelerated networking feature. For more information, see the Accelerated Networking section in the [Azure Virtual Machine Networking Guide](/azure/virtual-network/create-vm-accelerated-networking-cli).
 - Ensure that the client machine’s storage layer provides the expected read/write capacity, and we recommend an Azure virtual machine with Premium SSD storage.
 
 ## GTID replication
@@ -55,10 +55,10 @@ Learn how to use [GTID replication](https://dev.mysql.com/doc/refman/8.0/en/repl
 
 Check the server parameters to check the GTID parameters for both the master and the slave:
 
- ```
-    Mysql> SHOW VARIABLES 'gtid_mode';
-    Mysql> SHOW VARIABLES 'enforce_gtid_consistency';
- ```
+```
+Mysql> SHOW VARIABLES 'gtid_mode';
+Mysql> SHOW VARIABLES 'enforce_gtid_consistency';
+```
 
 To enable GTID, `enforce_gtid_consistency` must first be enabled (ON).
  
@@ -104,7 +104,7 @@ Finally, to prepare for Data-in replication:
 
 - Verify that the target Azure Database for MySQL server can connect to the source AWS RDS for MySQL server over port 3306.
 - Ensure that the source AWS RDS for MySQL server allows both inbound and outbound traffic on port 3306.
-- Make sure you provide [site-to-site connectivity](https://docs.microsoft.com/azure/vpn-gateway/tutorial-site-to-site-portal) to your source server by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a virtual network, see the [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+- Make sure you provide [site-to-site connectivity](/azure/vpn-gateway/tutorial-site-to-site-portal) to your source server by using either [ExpressRoute](/azure/expressroute/expressroute-introduction) or [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a virtual network, see the [Virtual Network documentation](/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 - Configure your source database server’s network security groups to allow the target Azure Database for MySQL’s server IP address.
 
 ## Configure the target instance of Azure Database for MySQL
@@ -120,7 +120,7 @@ To configure the target instance of Azure Database for MySQL (the target for Dat
 4. Scale up the storage size to get more IOPS during the migration or increase the maximum IOPS for the migration.
 
    > [!NOTE]
-   > Available max IOPS are determined by compute size. For more information, see the IOPS section in [Compute and storage options in Azure Database for MySQL - Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-compute-storage#iops).
+   > Available max IOPS are determined by compute size. For more information, see the IOPS section in [Compute and storage options in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-compute-storage#iops).
 
 ## Configure the source AWS RDS for MySQL server
 
@@ -191,7 +191,7 @@ There are two ways to take dump of data from the source Amazon RDS for MySQL ser
         ```
 
     > [!NOTE]
-    > You can also use mydumper for taking a parallelized dump of your data from your source AWS RDS for MySQL database. For more information, see [Migrating large database to Azure Database for MySQL using mydumper/myloader](https://docs.microsoft.com/azure/mysql/concepts-migrate-mydumper-myloader).
+    > You can also use mydumper for taking a parallelized dump of your data from your source AWS RDS for MySQL database. For more information, see [Migrating large database to Azure Database for MySQL using mydumper/myloader](/azure/mysql/concepts-migrate-mydumper-myloader).
 
 ## Link source and replica servers to start Data-in replication
 
@@ -202,7 +202,7 @@ There are two ways to take dump of data from the source Amazon RDS for MySQL ser
     ```
 
    > [!NOTE]
-   > If you’re instead using myloader, see [Migrating large database to Azure Database for MySQL using mydumper/myloader](https://docs.microsoft.com/azure/mysql/concepts-migrate-mydumper-myloader).
+   > If you’re instead using myloader, see [Migrating large database to Azure Database for MySQL using mydumper/myloader](/azure/mysql/concepts-migrate-mydumper-myloader).
 
 2. Sign into the source AWS RDS for MySQL server, set up a replication user, and then grant the necessary privileges to this user.
 
@@ -222,7 +222,7 @@ There are two ways to take dump of data from the source Amazon RDS for MySQL ser
         Mysql> SHOW GRANTS FOR syncuser@'%';
         ```
 
-    All Data-in replication functions are done by stored procedures. For information about all procedures, see [Data-in replication stored procedures](https://docs.microsoft.com/azure/mysql/reference-stored-procedures#data-in-replication-stored-procedures). You can run these stored procedures in the MySQL shell or MySQL Workbench.
+    All Data-in replication functions are done by stored procedures. For information about all procedures, see [Data-in replication stored procedures](/azure/mysql/reference-stored-procedures#data-in-replication-stored-procedures). You can run these stored procedures in the MySQL shell or MySQL Workbench.
 
 3. To link the AWS RDS for MySQL source server and the Azure Database for MySQL target server, sign into the target Azure Database for MySQL server and set the AWS RDS for MySQL server as the source server by running the following command:
 

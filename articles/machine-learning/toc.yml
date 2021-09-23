@@ -555,7 +555,7 @@
             - name: Debug managed online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
             - name: Troubleshoot managed online endpoints
-              href: how-to-troubleshoot-managed-online-endpoints.md
+              href: how-to-troubleshoot-online-endpoints.md
           - name: Batch
             items:
             - name: Batch scoring with batch endpoints
