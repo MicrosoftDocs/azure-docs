@@ -50,7 +50,7 @@ Using User-Assigned Managed Identities, customers will now be able to enable bet
 
 You can now assign and manage user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI) for your storage accounts directly in the Azure portal for Media Services.
 
-  ![Bring your own keys for account encryption](./media/release-notes/storage-managed-identity.png)
+  ![Configure user or system-assigned managed identities on storage accounts](./media/release-notes/storage-managed-identity.png)
 
 ### Bring your own key page now also supports both UAMI and SAMI.
 The key management portal page for Media Services now supports configuration and management of  user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI). 
