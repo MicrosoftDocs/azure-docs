@@ -120,12 +120,12 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 :::zone pivot="iot-toolset-iar-ewarm"
 1. Open the ***azure_rtos.eww*** EWARM Workspace in IAR from the extracted zip file.
 
-> ![The EWARM workspace](media/quickstart-devkit-microchip-atsame54-xpro/picture-2.jpg)
+> ![The EWARM workspace](media/quickstart-devkit-microchip-atsame54-xpro/picture-2.png)
 :::zone-end
 :::zone pivot="iot-toolset-mplab"
 1. Open MPLab and select **File > Open Project** and select all projects from the extracted zip file.
 
-> ![Adding the configuration](media/quickstart-devkit-microchip-atsame54-xpro/picture-2-mplab.jpg)
+> ![Adding the configuration](media/quickstart-devkit-microchip-atsame54-xpro/picture-2-mplab.png)
 :::zone-end
 
 1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
@@ -185,7 +185,7 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 :::zone pivot="iot-toolset-mplab"
 1. Make sure all sample project’s dependent libraries (***azure_iot, threadx, netxduo, same54_lib***) are built by select the project in the **Projects** pane, right click on it and select **Build**.
 
-> ![Building the project](media/quickstart-devkit-microchip-atsame54-xpro/picture-3.jpg)
+> ![Building the project](media/quickstart-devkit-microchip-atsame54-xpro/picture-3.png)
 :::zone-end
 
 ### Flash the image
