@@ -160,6 +160,8 @@ Version 3 provides:
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
 - Customer managed keys, trusted storage integration, private link support, and [more](./migrate-v-2-v-3-migration-benefits.md)
 
+As part of the update to v3 API and SDKs, Media Reserve Units (MRUs) are no longer needed for any Media Services account as the system will automaticlaly scale up and down based on load. Please refer to the [MRUs migration guidance](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md) for more information.
+
 #### Action Required
 
 To minimize disruption to your workloads, review the [migration guide](./migrate-v-2-v-3-migration-introduction.md) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
