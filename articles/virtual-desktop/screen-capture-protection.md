@@ -11,6 +11,9 @@ ms.service: virtual-desktop
 
 # Screen capture protection
 
+>[!IMPORTANT]
+>Screen capture protection is not yet supported for Microsoft 365 Government (GCC), GCC-High and Microsoft 365 DoD environments.
+
 The screen capture protection feature prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. Also, the Remote Desktop client will hide content from malicious software that may be capturing the screen.
 
 ## Prerequisites
@@ -42,6 +45,7 @@ Suppose the user attempts to use an unsupported client to connect to the protect
 - This feature protects the Remote Desktop window from being captured through a specific set of public operating system features and APIs. However, there's no guarantee that this feature will strictly protect content, for example, where someone takes photography of the screen.
 - Customers should use the feature together with disabling clipboard, drive, and printer redirection. Disabling redirection will help to prevent the user from copying the captured screen content from the remote session.
 - Users can't share the Remote Desktop window using local collaboration software, such as Microsoft Teams, when the feature is enabled. If Microsoft Teams is used, both the local Teams app and Teams running with media optimizations can't share the protected content.
+- When users are trying to connect to a protected resource with web client 1.0.24.14, they will receive an authentication prompt instead of the error message.
 
 ## Next steps
 

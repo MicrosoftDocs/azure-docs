@@ -6,7 +6,7 @@ ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.date: 10/20/2019
+ms.date: 08/17/2021
 ---
 
 # Tutorial: Deploy and walk through the digital distribution center application template
