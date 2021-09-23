@@ -181,13 +181,13 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54 as shown in the following photo:
 > :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mikroBUS Xplained Pro adapter on the Microchip ES4":::
 
-1. Reopen the configuration file you edited previously:
+2. Reopen the configuration file you edited previously:
 > *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
 
-1. Set the value of the constant `__SENSOR_BME280__` to **1** as shown in the following code from the header file. Setting this value enables the device to use real sensor data from the Weather Click sensor.
+3. Set the value of the constant `__SENSOR_BME280__` to **1** as shown in the following code from the header file. Setting this value enables the device to use real sensor data from the Weather Click sensor.
 > `#define __SENSOR_BME280__ 1`
 
-1. Save and close the file.
+4. Save and close the file.
 
 ### Build the image
 
@@ -202,10 +202,12 @@ If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, foll
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
 
-1. In IAR, select **Project > Batch Build*** and choose **build_all** and select **Make** to build all projects. You will observe compilation and linking of all sample projects.
+In IAR, select **Project > Batch Build*** and choose **build_all** and select **Make** to build all projects. You will observe compilation and linking of all sample projects.
+
 :::zone-end
 :::zone pivot="iot-toolset-mplab"
-2. Make sure all sample project’s dependent libraries (***azure_iot, threadx, netxduo, same54_lib***) are built by select the project in the **Projects** pane, right click on it and select **Build**.
+
+Make sure all sample project’s dependent libraries (***azure_iot, threadx, netxduo, same54_lib***) are built by select the project in the **Projects** pane, right click on it and select **Build**.
 
 :::zone-end
 
