@@ -24,7 +24,7 @@ An IoT Central application:
 
 ## IoT Central
 
-IoT Central is an IoT application platform hosted in the cloud. Its primary interface is a web UI. Also, there's a [REST API](#rest-api) that lets you interact with your application programmatically.
+IoT Central is a ready-made environment for IoT solution development. It's an aPaaS IoT solution platform and its primary interface is a web UI. Also, there's a [REST API](#rest-api) that lets you interact with your application programmatically.
 
 This section describes the key capabilities of an IoT Central application.
 
@@ -45,6 +45,7 @@ In an IoT Central application, you can view and analyze data for individual devi
 
 - Use device templates to define [custom views](howto-set-up-template.md#views) for individual devices of specific types. For example, you can plot temperature over time for an individual thermostat or show the live location of a delivery truck.
 - Use the built-in [analytics](tutorial-use-device-groups.md) to view aggregate data for multiple devices. For example, you can see the total occupancy across multiple retail stores or identifying the stores with the highest or lowest occupancy rates.
+- Create custom [dashboards](howto-manage-dashboards.md) to help you manage your devices. For example, you can add maps, tiles, and charts that show device telemtry data.  
 
 ### Secure your solution
 
