@@ -22,6 +22,12 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * All files uploaded in your container must contain data, no empty files are allowed for training.
 
+* All files should be available at the root of your container.
+
+* Maximum allowed length for your file sis 17,500 characters which is approcimatley 3,800 words or 8 pages.
+
+* Your [training dataset](../how-to/train-model#data-split) should include at least 10 files and not more than 1,000,000 files.
+
 ## API limits
 
 **Authoring API**
@@ -63,7 +69,11 @@ Use this article to learn about the data and rate limits when using custom entit
 
 * You can only train one model at a time per project.
 
-* You can have only 1 deployed model per project.
+## Classes
+
+* You should have at least 2 classes in your project. and the maximum is 200 classes.
+
+* It is recomended to have around 200 tagged instances per class and you must have a minium of 10 of tagged instances per class.
 
 ## Naming limits
 
