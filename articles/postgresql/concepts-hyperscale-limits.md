@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 09/23/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations
@@ -14,7 +14,9 @@ ms.date: 08/03/2021
 The following section describes capacity and functional limits in the
 Hyperscale (Citus) service.
 
-## Maximum connections
+## Networking
+
+### Maximum connections
 
 Every PostgreSQL connection (even idle ones) uses at least 10 MB of memory, so
 it's important to limit simultaneous connections. Here are the limits we chose
@@ -37,33 +39,41 @@ Attempts to connect beyond these limits will fail with an error. The system
 reserves three connections for monitoring nodes, which is why there are three
 fewer connections available for user queries than connections total.
 
-### Connection pooling
+#### Connection pooling
 
 You can scale connections further using [connection
 pooling](concepts-hyperscale-connection-pool.md). Hyperscale (Citus) offers a
 managed pgBouncer connection pooler configured for up to 2,000 simultaneous
 client connections.
 
-## Storage scaling
+### Server group name
+
+Hyperscale (Citus) server group names are limited to forty characters.
+
+## Storage
+
+### Storage scaling
 
 Storage on coordinator and worker nodes can be scaled up (increased) but can't
 be scaled down (decreased).
 
-## Storage size
+### Storage size
 
 Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
 available storage options and IOPS calculation
 [above](concepts-hyperscale-configuration-options.md#compute-and-storage) for
 node and cluster sizes.
 
-## Database creation
+## PostgreSQL
+
+### Database creation
 
 The Azure portal provides credentials to connect to exactly one database per
 Hyperscale (Citus) server group, the `citus` database. Creating another
 database is currently not allowed, and the CREATE DATABASE command will fail
 with an error.
 
-## Columnar storage
+### Columnar storage
 
 Hyperscale (Citus) currently has these limitations with [columnar
 tables](concepts-hyperscale-columnar.md):
