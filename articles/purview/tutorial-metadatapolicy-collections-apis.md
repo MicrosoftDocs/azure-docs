@@ -224,7 +224,7 @@ The output JSON will describe the roles and their associated permissions in this
 ## 2. API: Get All Metadata Policies
 **GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies?api-version=2021-07-01**
 
-Lists all the Metadata Policies available across the entire collections hierarchy including and beginning with the Root Collection, as well as all its child policies in tree format. The heirarchy begins with the Root Collection at the top followed by its child collection. Each child collection encapsulates each of its next level children.
+Lists all the Metadata Policies available across the entire collections hierarchy including and beginning with the Root Collection, as well as all its child policies in tree format. The hierarchy begins with the Root Collection at the top followed by its child collection. Each child collection encapsulates each of its next level children.
 Example:
 
 ```json
