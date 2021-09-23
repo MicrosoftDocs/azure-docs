@@ -1,6 +1,6 @@
 ---
-title: Store and share application packages (preview)
-description: Learn how to store and share application packages using an Azure Compute Gallery.
+title: Store and share vm application packages (preview)
+description: Learn how to store and share vm application packages using an Azure Compute Gallery.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.custom:
 
 ---
 
-# How to store and share application packages (preview)
+# How to store and share vm application packages (preview)
 
 
 
@@ -24,7 +24,7 @@ ms.custom:
 
 
 > [!IMPORTANT]
-> **Feature** is currently in public preview.
+> **VM application packages in Azure Compute Gallery** are currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -35,23 +35,24 @@ Before you get started, make sure you have the following:
 
 - All files need to be byte aligned. You can do this using PowerShell:
 
-```powershell
-$inputFile = \<the file you want to pad>
+    ```powershell
+    $inputFile = \<the file you want to pad>
 
-$fileInfo = Get-Item -Path $inputFile
+    $fileInfo = Get-Item -Path $inputFile
 
-$remainder = $fileInfo.Length % 512
+    $remainder = $fileInfo.Length % 512
 
-if ($remainder -ne 0){
+    if ($remainder -ne 0){
 
-$difference = 512 - $remainder
+    $difference = 512 - $remainder
 
-$bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],
-$difference)
+    $bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],$difference)
 
-Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
-}
-```
+    Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
+        }
+    ```
+
+This article assumes you already have an Azure Compute Gallery. If you don't already have a gallery, create one first. To learn more, see [Create a gallery for storing and sharing resources](create-gallery.md).
 
 ## Register the feature
 
@@ -125,9 +126,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ---
 ## Do something
 
-<!-- Give this section a short title and then an intro paragraph -->
-
-<!-- In this template, we are going to cover multi ways to do something. For this, we use "tabbed content". Each tab starts with a ### and the type of tool. Delete the sections you aren't covering.-->
+Choose an option below for creating your app definition and version:
 
 ### [Portal](#tab/portal2)
 
@@ -148,13 +147,16 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
 ### [PowerShell](#tab/powershell2)
 
-Create the application definition using `New-AzGalleryApplication`. In this example, we are creating an app named *myApp* in the *myGallery* Azure Compute Gallery, in the *myGallery* resource group. Replace the values of the variables as needed.
+Create the VM application definition using `New-AzGalleryApplication`. In this example, we are creating an app named *myApp* in the *myGallery* Azure Compute Gallery, in the *myGallery* resource group. Replace the values of the variables as needed.
 
 ```azurepowershell-interactive
 $galleryName = myGallery
 $rgName = myResourceGroup
 $applicationName = myApp
-New-AzGalleryApplication -ResourceGroupName $rgName -GalleryName $galleryName -Name $applicationName
+New-AzGalleryApplication `
+  -ResourceGroupName $rgName `
+  -GalleryName $galleryName `
+  -Name $applicationName
 ```
 
 Create a version of your application using `New-AzGalleryApplicationVersion`. Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
@@ -290,11 +292,11 @@ All VM Applications must have a package. Fill in the blanks for the following sc
 
 ```azurepowershell-interactive
 
-Login-AzureRMAccount
+Login-AzAccount
 
 $subid = {your subscription id}
 
-Set-AzureRmContext -SubscriptionId $subid
+Set-AzContext -SubscriptionId $subid
 
 $rg = {your resource group}
 
@@ -305,10 +307,10 @@ $containerName = {container name where your blobs will be stored}
 # Uncomment to create a new storage account if you don't already have
 one
 
-#New-AzureRmStorageAccount -name $saName -ResourceGroupName $rg -SkuName
+#New-AzStorageAccount -name $saName -ResourceGroupName $rg -SkuName
 "Standard_LRS" -Location $location
 
-$sa = Get-AzureRMStorageAccount -Name $saName -ResourceGroupName $rg
+$sa = Get-AzStorageAccount -Name $saName -ResourceGroupName $rg
 
 New-AzureStorageContainer -Name $containerName -Context $sa.Context
 -Permission Blob
@@ -339,11 +341,11 @@ The default config is optional, but if provided will be downloaded to each VM un
 
 ```azurepowershell-interactive
 
-Login-AzureRMAccount
+Login-AzAccount
 
 $subid = {your subscription id}
 
-Set-AzureRmContext -SubscriptionId $subid
+Set-AzContext -SubscriptionId $subid
 
 $rg = {your resource group}
 
@@ -351,7 +353,7 @@ $saName = {your storage account name}
 
 $containerName = {container name where your blobs will be stored}
 
-$sa = Get-AzureRMStorageAccount -Name $saName -ResourceGroupName $rg
+$sa = Get-AzStorageAccount -Name $saName -ResourceGroupName $rg
 
 # Create the default config blob. This is the config that will be used
 if not overridden during VM deployment.
@@ -381,7 +383,7 @@ $galleryName = "MyGallery"
 
 $location = {location for the gallery}
 
-New-AzureRmGallery -ResourceGroupName $rg -Name $galleryName -Location
+New-AzGallery -ResourceGroupName $rg -Name $galleryName -Location
 $location
 ```
 
@@ -394,9 +396,9 @@ later in this document for the REST API definitions.
 ```azurepowershell-interactive
 $subid = {your subscription id}
 
-Set-AzureRmContext -SubscriptionId $subid
+Set-AzContext -SubscriptionId $subid
 
-$context = Get-AzureRmContext
+$context = Get-AzContext
 
 $azureRmProfile =
 \[Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider\]::Instance.Profile;
@@ -503,9 +505,9 @@ The following will create both VM application versions.
 ```azurepowershell-interactive
 $subid = {your subscription id}
 
-Set-AzureRmContext -SubscriptionId $subid
+Set-AzContext -SubscriptionId $subid
 
-$context = Get-AzureRmContext
+$context = Get-AzContext
 
 $azureRmProfile =
 \[Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider\]::Instance.Profile;
@@ -714,7 +716,7 @@ automatically be installed on the VM. It is not possible to remove it.
 
 To see the current deployment status, run:
 
-Get-AzureRmVM -Status -ResourceGroupName $rg -Name $VMName
+Get-AzVM -Status -ResourceGroupName $rg -Name $VMName
 
 ![](media/image6.emf)
 
@@ -1109,7 +1111,7 @@ Read more about getting the status of VM extensions
 
 To get status of VMSS extensions use the command
 
-Get-AzureRmVmss -name \<VMSS name> -ResourceGroupName \<resource group
+Get-AzVmss -name \<VMSS name> -ResourceGroupName \<resource group
 name> -InstanceView \| convertto-json
 
 ### Status file for VMApplication extension
