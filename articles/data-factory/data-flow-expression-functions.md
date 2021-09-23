@@ -22,7 +22,7 @@ This article provides details about expressions and functions supported by Azure
 In Data Factory and Synapse pipelines, use the expression language of the mapping data flow feature to configure data transformations.
 
 | Expression function | Task | 
-| --- | --- |
+| ----- | ----- |
 | [abs](data-flow-expression-functions.md#abs) | Absolute value of a number.  |
 | [acos](data-flow-expression-functions.md#acos) | Calculates a cosine inverse value.  |
 | [add](data-flow-expression-functions.md#add) | Adds a pair of strings or numbers. Adds a date to a number of days. Adds a duration to a timestamp. Appends one array of similar type to another. Same as the + operator.  |
@@ -324,6 +324,7 @@ Metafunctions primarily function on metadata in your data flow
 ## Window functions
 
 The following functions are only available in window transformations.
+
 | Windows function | Task |
 | --- | --- |
 | [cumeDist](data-flow-expression-functions.md#cumeDist) | The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the  ordering will evaluate to the same position.  |
