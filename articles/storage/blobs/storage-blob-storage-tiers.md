@@ -4,7 +4,7 @@ description: Read about hot, cool, and archive access tiers for Azure Blob Stora
 author: tamram
 
 ms.author: tamram
-ms.date: 03/18/2021
+ms.date: 09/23/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -13,11 +13,18 @@ ms.reviewer: klaasl
 
 # Access tiers for Azure Blob Storage - hot, cool, and archive
 
-Azure storage offers different access tiers, allowing you to store blob object data in the most cost-effective manner. Available access tiers include:
+Data stored in the cloud grows at an exponential pace. To manage costs for your expanding storage needs, it can be helpful to organize your data based on how frequently it will be accessed and how long it will be retained. Azure storage offers different access tiers so that you can store your blob data in the most cost-effective manner. Azure Storage access tiers include:
 
-- **Hot** - Optimized for storing data that is accessed frequently.
-- **Cool** - Optimized for storing data that is infrequently accessed and stored for at least 30 days.
-- **Archive** - Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements, on the order of hours.
+- **Hot tier** - Optimized for storing data that is accessed or modified frequently.
+- **Cool tier** - Optimized for storing data that is infrequently accessed or modified. Microsoft recommends that data in the cool tier is stored for at least 30 days.
+- **Archive tier** - Optimized for storing data that is rarely accessed. Data stored in the archive tier  for at least 180 days with flexible latency requirements, on the order of hours.
+
+
+Data stored in the cloud can be different based on how it's generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed after it's stored.
+
+Each of these data access scenarios benefits from a different access tier that is optimized for a particular access pattern. With hot, cool, and archive access tiers, Azure Blob Storage addresses this need for differentiated access tiers with separate pricing models.
+
+
 
 The following considerations apply to the different access tiers:
 
@@ -27,10 +34,6 @@ The following considerations apply to the different access tiers:
 - Data in the archive access tier is stored offline. The archive tier offers the lowest storage costs but also the highest access costs and latency.
 - The hot and cool tiers support all redundancy options. The archive tier supports only LRS, GRS, and RA-GRS.
 - Data storage limits are set at the account level and not per access tier. You can choose to use all of your limit in one tier or across all three tiers.
-
-Data stored in the cloud grows at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency-of-access and planned retention period to optimize costs. Data stored in the cloud can be different based on how it's generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed after it's stored.
-
-Each of these data access scenarios benefits from a different access tier that is optimized for a particular access pattern. With hot, cool, and archive access tiers, Azure Blob Storage addresses this need for differentiated access tiers with separate pricing models.
 
 The following tools and client libraries all support blob-level tiering and archive storage.
 
