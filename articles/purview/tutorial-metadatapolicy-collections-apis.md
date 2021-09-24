@@ -93,7 +93,7 @@ Details on some of the important identifiers in the JSON output received from th
 
 ## Tutorial: Using Purview REST APIs to Add or Remove a [User/Group/ServicePrincipal] to a Collection
 
-## Get All Metadata Roles
+## Get all metadata roles
 ```ruby
 GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataroles?api-version=2021-07-01
 ```
