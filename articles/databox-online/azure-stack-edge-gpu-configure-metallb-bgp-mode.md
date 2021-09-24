@@ -50,7 +50,8 @@ For a basic configuration featuring one BGP router and one IP address range, you
 - The ASN MetalLB should use. ASNs are 16 bit numbers between 1 and 65534 and 32 bit numbers between 131072 and 4294967294.
 - An IP address range expressed as a CIDR prefix. The IP address range that you provide is the range of available IPs in the same subnet as the port that you enabled for compute.
 
-1. Connect to the [PowerShell interface of the device]().
+1. [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of the device.
+ 
 1. Run the `Get-HcsExternalVirtualSwitch` cmdlet to get the name of the external virtual switch that you'll use for BGP mode.
 
     ```powershell
@@ -59,7 +60,7 @@ For a basic configuration featuring one BGP router and one IP address range, you
 1. Run the `Set-HcsBGPPeer` cmdlet to establish a BGP peer session.
 
     ```powershell
-    Set-HcsBGPPeer -PeerAddress <IP address in the subnet that you enabled compute network> -PeerAsn <Random number 1> -SelfAsn <Random number 2> -SwitchName <Name of virtual switch that you enabled for compute> -HoldTimeInSeconds <Optional hold time in seconds> 
+    Set-HcsBGPPeer -PeerAddress <IP address of the port that you enabled for compute> -PeerAsn <ASN for the peer> -SelfAsn <Your ASN> -SwitchName <Name of virtual switch on the port enabled for compute> -HoldTimeInSeconds <Optional hold time in seconds> 
     ```
 1. Once you have established the session, run the `Get-HcsBGPPeers` cmdlet to get the peer sessions that exist on a virtual switch.
 
@@ -68,7 +69,77 @@ For a basic configuration featuring one BGP router and one IP address range, you
     ```
 1. Run the `Remove-HcsBGPPeer` cmdlet to remove the peer session. 
 
+    ```powershell
+    Remove-HcsBGPPeer -PeerAddress <IP address of the port that you enabled for compute> -SwitchName <Name of virtual switch on the port enabled for compute>
+    ```
 
+1. Run the `Get-HcsBGPPeers` to verify that the peer session is removed.
+
+Here is an example output: 
+
+```powershell
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\WINDOWS\system32> $Name = "dbe-1csphq2.microsoftdatabox.com"
+PS C:\WINDOWS\system32> Set-Item WSMan:\localhost\Client\TrustedHosts $Name -Concatenate -Force
+PS C:\WINDOWS\system32> $sessOptions = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+PS C:\WINDOWS\system32> Enter-PSSession -ComputerName $Name -Credential ~\EdgeUser -ConfigurationName Minishell -UseSSL -SessionOption $sessOptions
+WARNING: The Windows PowerShell interface of your device is intended to
+be used only for the initial network configuration. Please
+engage Microsoft Support if you need to access this interface
+to troubleshoot any potential issues you may be experiencing.
+Changes made through this interface without involving Microsoft
+Support could result in an unsupported configuration.
+[dbe-1csphq2.microsoftdatabox.com]: PS>Get-HcsExternalVirtualSwitch
+
+Name                          : vSwitch1
+InterfaceAlias                : {Port2}
+EnableIov                     : False
+MacAddressPools               :
+IPAddressPools                : {}
+BGPPeers                      :
+ConfigurationSource           : Dsc
+EnabledForCompute             : False
+EnabledForStorage             : False
+EnabledForMgmt                : True
+SupportsAcceleratedNetworking : False
+DbeDhcpHostVnicName           : 3cb2d0ae-6a7b-44cc-8a5d-8eac2d1c0436
+VirtualNetworks               : {}
+EnableEmbeddedTeaming         : True
+Vnics                         : {}
+Type                          : External
+
+Name                          : vSwitch2
+InterfaceAlias                : {Port3, Port4}
+EnableIov                     : False
+MacAddressPools               :
+IPAddressPools                : {}
+BGPPeers                      :
+ConfigurationSource           : Dsc
+EnabledForCompute             : False
+EnabledForStorage             : True
+EnabledForMgmt                : False
+SupportsAcceleratedNetworking : False
+DbeDhcpHostVnicName           : 8dd480c0-8f22-42b1-8621-d2a43f70690d
+VirtualNetworks               : {}
+EnableEmbeddedTeaming         : True
+Vnics                         : {}
+Type                          : External
+
+[dbe-1csphq2.microsoftdatabox.com]: PS>Set-HcsBGPPeer -PeerAddress 10.126.77.125 -PeerAsn 64512 -SelfAsn 64513 -SwitchName vSwitch1 -HoldTimeInSeconds 15
+[dbe-1csphq2.microsoftdatabox.com]: PS>Get-HcsBGPPeers -SwitchName vSwitch1
+
+PeerAddress   PeerAsn SelfAsn HoldTime
+-----------   ------- ------- --------
+10.126.77.125 64512   64513         15
+
+[dbe-1csphq2.microsoftdatabox.com]: PS>Remove-HcsBGPPeer -PeerAddress 10.126.77.125 -SwitchName vSwitch1
+[dbe-1csphq2.microsoftdatabox.com]: PS>Get-HcsBGPPeers -SwitchName vSwitch1
+[dbe-1csphq2.microsoftdatabox.com]: PS>
+```
 
 ## Next steps
 
