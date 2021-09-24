@@ -1,5 +1,5 @@
 ---
-title: 'How to scan Azure Synapse Analytics workspaces'
+title: 'How to register and scan Azure Synapse Analytics workspaces'
 description: Learn how to scan an Azure Synapse workspace in your Azure Purview data catalog. 
 author: viseshag
 ms.author: viseshag
@@ -203,7 +203,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in Purview Studio.
+1. Select the **Data Map** tab on the left pane in [Purview Studio](https://ms.web.purview.azure.com/resource/).
 
 1. Select the data source that you registered.
 

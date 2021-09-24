@@ -1,6 +1,6 @@
 ---
-title: 'How to scan Azure Data Explorer'
-description: This how to guide describes details of how to scan Azure Data Explorer. 
+title: 'How to register and scan Azure Data Explorer'
+description: This how to guide describes details of how to scan Azure Data Explorer in Azure Purview. 
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -85,7 +85,7 @@ On the **Register sources (Azure Data Explorer (Kusto))** screen, do the followi
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://ms.web.purview.azure.com/resource/).
 
 1. Select the Azure Data Explorer source that you registered.
 

@@ -55,4 +55,4 @@ Relevance is the default sort order in the search result page. The search releva
 
 * [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
 * [Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell.md)
-* [Quickstart: Use Purview Studio](use-purview-studio.md)
+* [Use the Purview Studio](use-purview-studio.md)

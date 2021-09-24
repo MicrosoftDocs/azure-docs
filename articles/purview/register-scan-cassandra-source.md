@@ -1,5 +1,5 @@
 ---
-title: Register Cassandra as a source and setup scans in Azure Purview
+title: Register Cassandra as a source and setup scans
 description: This article outlines how to register Cassandra server in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra

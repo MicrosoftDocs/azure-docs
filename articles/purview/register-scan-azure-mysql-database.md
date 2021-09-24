@@ -1,6 +1,6 @@
 ---
 title: 'Register and scan an Azure MySQL database'
-description: This tutorial describes how to scan an Azure MySQL database
+description: This tutorial describes how to register and scan an Azure MySQL database in Azure Purview.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
@@ -68,7 +68,7 @@ On the **Register sources (Azure MySQL Database)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://ms.web.purview.azure.com/resource/).
 
 1. Select the Azure Database for MySQL source that you registered.
 

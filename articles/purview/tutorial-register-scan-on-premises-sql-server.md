@@ -34,7 +34,7 @@ In this tutorial, you'll learn how to:
 
 ## Sign in to Purview Studio
 
-To interact with Purview, you'll connect to the Purview Studio through the Azure portal. You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Purview Studio** tile on the overview page.
+To interact with Purview, you'll connect to the [Purview Studio](https://ms.web.purview.azure.com/resource/) through the Azure portal. You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Purview Studio** tile on the overview page.
 
 :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Purview window in Azure portal, with Purview Studio button highlighted." border="true":::
 
@@ -255,7 +255,7 @@ If you're not going to continue to use this Purview or SQL source moving forward
 
 ### Remove SHIR from Purview
 
-1. On the home page of Purview Studio, select **Data Map** from the left navigation pane.
+1. On the home page of [Purview Studio](https://ms.web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
 1. Under **Source management** on the left pane, select **Integration runtimes**.
 

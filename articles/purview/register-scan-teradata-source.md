@@ -1,5 +1,5 @@
 ---
-title: Register a Teradata source and setup scans in Azure Purview
+title: Register a Teradata source and setup scans
 description: This article outlines how to register a Teradata source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -80,7 +80,7 @@ To create and run a new scan, do the following:
 
 1.  In the Management Center, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to setup a self-hosted integration runtime
 
-2.  Select the **Data Map** tab on the left pane in the Purview Studio.
+2.  Select the **Data Map** tab on the left pane in the [Purview Studio](https://ms.web.purview.azure.com/resource/).
 
 3.  Select the registered Teradata source.
 

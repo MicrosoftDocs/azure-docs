@@ -1,5 +1,5 @@
 ---
-title: Manage data sources in Azure Purview
+title: How to manage multi-cloud data sources
 description: Learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview.
 author: viseshag
 ms.author: viseshag
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/25/2020
 ---
 
-# Manage data sources in Azure Purview]
+# Manage data sources in Azure Purview
 
 In this article, you learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview.
 
@@ -17,7 +17,7 @@ In this article, you learn how to register new data sources, manage collections 
 
 Use the following steps to register a new source.
 
-1. Open Purview Studio, navigate to the **Data Map**, **Sources**, and select **Register**.
+1. Open [Purview Studio](https://ms.web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
 
    :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Azure Purview Studio":::
 

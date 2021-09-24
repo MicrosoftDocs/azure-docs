@@ -1,5 +1,5 @@
 ---
-title: Create Purview Account using .NET SDK
+title: 'Quickstart: Create Purview Account using .NET SDK'
 description: Create an Azure Purview Account using .NET SDK.
 author: nayenama
 ms.author: nayenama
@@ -103,32 +103,32 @@ Next, create a C# .NET console application in Visual Studio:
 Add the following code to the **Main** method that creates a **Purview Account**.
 
 ```csharp
-	// Create a purview Account
-    Console.WriteLine("Creating Purview Account " + purviewAccountName + "...");
-    Account account = new Account()
-    {
-    Location = region,
-    Identity = new Identity(type: "SystemAssigned"),
-    Sku = new AccountSku(name: "Standard", capacity: 4)
-    };            
-    try
-    {
-      client.Accounts.CreateOrUpdate(resourceGroup, purviewAccountName, account);
-      Console.WriteLine(client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState);                
-    }
-    catch (ErrorResponseModelException purviewException)
-    {
-      Console.WriteLine(purviewException.StackTrace);
-    }
-    Console.WriteLine(
-      SafeJsonConvert.SerializeObject(account, client.SerializationSettings));
-    while (client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState ==
-           "PendingCreation")
-    {
-      System.Threading.Thread.Sleep(1000);
-    }
-	Console.WriteLine("\nPress any key to exit...");
-    Console.ReadKey();
+// Create a purview Account
+Console.WriteLine("Creating Purview Account " + purviewAccountName + "...");
+Account account = new Account()
+{
+Location = region,
+Identity = new Identity(type: "SystemAssigned"),
+Sku = new AccountSku(name: "Standard", capacity: 4)
+};            
+try
+{
+  client.Accounts.CreateOrUpdate(resourceGroup, purviewAccountName, account);
+  Console.WriteLine(client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState);                
+}
+catch (ErrorResponseModelException purviewException)
+{
+Console.WriteLine(purviewException.StackTrace);
+  }
+  Console.WriteLine(
+    SafeJsonConvert.SerializeObject(account, client.SerializationSettings));
+  while (client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState ==
+         "PendingCreation")
+  {
+    System.Threading.Thread.Sleep(1000);
+  }
+Console.WriteLine("\nPress any key to exit...");
+Console.ReadKey();
 ```
 
 ## Run the code
@@ -165,8 +165,8 @@ Go to the **Purview accounts** page in the [Azure portal](https://portal.azure.c
 To programmatically delete a Purview Account, add the following lines of code to the program:
 
 ```csharp
-	Console.WriteLine("Deleting the Purview Account");
-	client.Accounts.Delete(resourceGroup, purviewAccountName);
+Console.WriteLine("Deleting the Purview Account");
+client.Accounts.Delete(resourceGroup, purviewAccountName);
 ```
 
 ## Check if Purview account name is available
@@ -174,13 +174,13 @@ To programmatically delete a Purview Account, add the following lines of code to
 To check availability of a purview account, use the following code:
 
 ```csharp
-	CheckNameAvailabilityRequest checkNameAvailabilityRequest = new CheckNameAvailabilityRequest()
-	{
-      Name = purviewAccountName,
-      Type =  "Microsoft.Purview/accounts"
-    };
-	Console.WriteLine("Check Purview account name");
-	Console.WriteLine(client.Accounts.CheckNameAvailability(checkNameAvailabilityRequest).NameAvailable);
+CheckNameAvailabilityRequest checkNameAvailabilityRequest = newCheckNameAvailabilityRequest()
+{
+    Name = purviewAccountName,
+    Type =  "Microsoft.Purview/accounts"
+};
+Console.WriteLine("Check Purview account name");
+Console.WriteLine(client.Accounts.CheckNameAvailability(checkNameAvailabilityRequest).NameAvailable);
 ```
 
 The above code with print 'True' if the name is available and 'False' if the name is not available.

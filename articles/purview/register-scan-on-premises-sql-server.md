@@ -1,6 +1,6 @@
 ---
 title: 'Register and scan an on-premises SQL server'
-description: This tutorial describes how to scan on-prem SQL server using a self-hosted IR. 
+description: This tutorial describes how to scan on-prem SQL server using a self-hosted IR in Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -105,7 +105,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://ms.web.purview.azure.com/resource/).
 
 1. Select the SQL Server source that you registered.
 

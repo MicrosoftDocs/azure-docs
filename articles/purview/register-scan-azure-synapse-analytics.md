@@ -1,6 +1,6 @@
 ---
-title: 'How to scan Dedicated SQL pools'
-description: This how to guide describes details of how to scan Dedicated SQL pools. 
+title: 'How to scan dedicated SQL pools'
+description: This how to guide describes details of how to scan Dedicated SQL pools in Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -135,7 +135,7 @@ On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://ms.web.purview.azure.com/resource/).
 
 1. Select the SQL dedicated pool source that you registered.
 

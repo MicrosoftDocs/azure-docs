@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a collection'
-description: This article describes how to create a collection and add permissions and sources in Azure Purview
+description: Collections are used for access control, and asset organization in Azure Purview. This article describes how to create a collection and add permissions, register sources, and register assets to collections.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
