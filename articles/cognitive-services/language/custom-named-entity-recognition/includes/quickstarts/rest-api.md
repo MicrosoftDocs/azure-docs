@@ -1,3 +1,13 @@
+---
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: text-analytics
+ms.topic: include
+ms.date: 09/24/2021
+ms.author: aahi
+---
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
@@ -16,9 +26,9 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 ### Get your resource keys endpoint
 
-* Go to your resource overview page in the [Azure Portal](https://ms.portal.azure.com/#home)
+* Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
-* From the left side menu select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
+* From the menu of the left side of the screen, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 :::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="../../../media/azure-portal-resource-credentials.png":::
 
 ## Create project
