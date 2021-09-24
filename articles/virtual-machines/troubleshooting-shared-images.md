@@ -1,15 +1,11 @@
 ---
 title: Troubleshoot problems with shared images in Azure 
 description: Learn how to troubleshoot problems with shared image galleries.
-author: olayemio
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 7/1/2021
-ms.author: olayemio
-ms.reviewer: cynthn
-
 ---
 
 # Troubleshoot shared image galleries in Azure
