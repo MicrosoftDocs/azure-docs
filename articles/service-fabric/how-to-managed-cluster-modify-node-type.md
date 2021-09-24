@@ -38,10 +38,10 @@ In this walkthrough, you will learn how to modify the node count for a node type
 
 To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
 
-> [!NOTE]
-> The managed cluster provider will block instance count adjustments that go below the required minimums for a given deployment type.
-
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
+
+> [!NOTE]
+> The managed cluster provider will block scale adjustments and return an error if the scaling request violates required minimums.
 
 ```json
      {
@@ -57,14 +57,6 @@ To adjust the node count for a node type using an ARM Template, adjust the `vmIn
         }
 }
 ```
-
-## Modify the VM SKU for a node type
-
-Service Fabric managed cluster does not support in-place modification of the VM SKU. In order to accomplish this you'll need to do the following:
-* provision a new node type
-* migrate workload over
-* delete old node type
-
 
 
 ## Modify the OS image for a node type with portal
@@ -89,10 +81,7 @@ In this walkthrough, you will learn how to modify the OS image for a node type u
 
 ## Modify the OS image for a node type with a template
 
-To modify the OS image used for a node type using an ARM Template, adjust the `vmImageSku` property with the new value and do a cluster deployment for the setting to take affect.
-
-> [!NOTE]
-> The managed cluster provider will re-image each instance by upgrade domain.
+To modify the OS image used for a node type using an ARM Template, adjust the `vmImageSku` property with the new value and do a cluster deployment for the setting to take affect. The managed cluster provider will re-image each instance by upgrade domain.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -164,6 +153,14 @@ To adjust the placement properties for a node type using an ARM Template, adjust
         }
 }
 ```
+
+
+## Modify the VM SKU for a node type
+
+Service Fabric managed cluster does not support in-place modification of the VM SKU. In order to accomplish this you'll need to do the following:
+* provision a new node type
+* migrate workload over
+* delete old node type
 
 
 ## Next steps
