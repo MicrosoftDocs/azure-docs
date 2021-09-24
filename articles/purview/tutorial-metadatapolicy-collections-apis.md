@@ -38,7 +38,7 @@ This table gives an overview of the **Purview Collections APIs**. Click each of 
 | [List Collections](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/list-collections) |List the collections in the account.|
 
 ## Tutorial: Create Collection Hierarchy using Azure Portal or APIs.	
-**Using APIs:**
+### Using APIs:
 
 API: PUT [https://{your-purview-account-name}.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview](https://hoc-purviewga1.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview)
 
