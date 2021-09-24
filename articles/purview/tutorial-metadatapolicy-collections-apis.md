@@ -602,7 +602,7 @@ This API fetches the Policy either by CollectionName or by PolicyID.
 At this point you would want to choose the particular policy to modify (add/remove users). Pick the particular PolicyID from the previous step’s JSON output. 
 Now you can choose to use either API 3A or 3B below. Both serve the same purpose, it is your choice whether to use {collectionName} or {PolicyID}.
 
-## 3A. Get MetadataPolicy of the collection by collectionName
+### Get MetadataPolicy of the collection by collectionName
 **GET https://{your-purview-account-name}.purview.azure.com/policystore/collections/{collectionName}/metadataPolicy?api-version=2021-07-01**
 
 1. The Purview account name is {your-purview-account-name}. Replace it with your Purview Account name.
