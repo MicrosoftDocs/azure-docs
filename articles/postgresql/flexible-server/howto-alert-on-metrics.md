@@ -10,8 +10,7 @@ ms.date: 09/22/2020
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 

@@ -13,8 +13,7 @@ ms.date: 07/29/2021
 
 Azure Database for PostgreSQL Flexible Server is a managed service that you can use to run, manage, and scale highly available PostgreSQL servers in the cloud. This quickstart shows you how to create a flexible server in a virtual network by using the Azure portal.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL Flexible Server is currently in public preview.
+
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 

@@ -12,14 +12,13 @@ ms.custom: template-how-to
 
 # Use an Azure free account to try Azure Database for PostgreSQL - Flexible Server for free
 
-Azure Database for PostgreSQL - Flexible Server (Preview) is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. With an Azure free account, you can use Flexible Server for **free for 12 months** with **monthly limits** of up to:
+Azure Database for PostgreSQL - Flexible Server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. With an Azure free account, you can use Flexible Server for **free for 12 months** with **monthly limits** of up to:
 - **750 hours** of **Burstable B1MS** instance, enough hours to run a database instance continuously each month.
 - **32 GB storage and 32 GB backup storage**.
 
 This article shows you how to create and use a flexible server for free using an [Azure free account](https://azure.microsoft.com/free/). 
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is currently in public preview.
+
 
 
 ## Prerequisites
@@ -48,7 +47,7 @@ To complete this tutorial, you need:
 
 1. Select **Create**.
 
-1. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible Server (Preview)**.
+1. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible Server **.
     
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-postgresql-deployment-option.png" alt-text="Screenshot that shows the Flexible Server Deployment Option to be chosen.":::
 

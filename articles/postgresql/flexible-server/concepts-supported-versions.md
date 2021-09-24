@@ -10,8 +10,7 @@ ms.date: 06/23/2021
 
 # Supported PostgreSQL major versions in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Azure Database for PostgreSQL - Flexible Server currently supports the following major versions:
 
