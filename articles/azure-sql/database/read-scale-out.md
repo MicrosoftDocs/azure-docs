@@ -21,18 +21,18 @@ The *read scale-out* feature is also available in the Hyperscale service tier wh
 
 The High Availability architecture of Basic, Standard, and General Purpose service tiers does not include any replicas. The *read scale-out* feature is not available in these service tiers.
 
-The following diagram illustrates the feature.
+The following diagram illustrates the feature for Premium and Business Critical databases and managed instances.
 
 ![Readonly replicas](./media/read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-The *read scale-out* feature is enabled by default on new Premium,  Business Critical, and Hyperscale databases. For Hyperscale, one secondary replica is created by default for new databases. 
+The *read scale-out* feature is enabled by default on new Premium,  Business Critical, and Hyperscale databases.
 
 > [!NOTE]
-> Read scale-out is always enabled in the Business Critical service tier of Managed Instance.
+> Read scale-out is always enabled in the Business Critical service tier of Managed Instance, and for Hyperscale databases with at least one secondary replica.
 
 If your SQL connection string is configured with `ApplicationIntent=ReadOnly`, the application will be redirected to a read-only replica of that database or managed instance. For information on how to use the `ApplicationIntent` property, see [Specifying Application Intent](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or when altering its configuration. For example, if you upgrade your database from Standard or General Purpose tier to Premium, Business Critical or Hyperscale tier and want to make sure all your connections continue to go to the primary replica, disable read scale-out. For details on how to disable it, see [Enable and disable read scale-out](#enable-and-disable-read-scale-out).
+If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or when altering its configuration. For example, if you upgrade your database from Standard or General Purpose tier to Premium or Business Critical and want to make sure all your connections continue to go to the primary replica, disable read scale-out. For details on how to disable it, see [Enable and disable read scale-out](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
 > Query Store and SQL Profiler features are not supported on read-only replicas. 
@@ -79,7 +79,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 When connected to a read-only replica, Dynamic Management Views (DMVs) reflect the state of the replica, and can be queried for monitoring and troubleshooting purposes. The database engine provides multiple views to expose a wide variety of monitoring data. 
 
-Commonly used views are:
+The following views are commonly used for replica monitoring and troubleshooting:
 
 | Name | Purpose |
 |:---|:---|
@@ -124,7 +124,7 @@ If a long-running query on a read-only replica directly or indirectly causes thi
 
 ## Enable and disable read scale-out
 
-Read scale-out is enabled by default on Premium, Business Critical, and Hyperscale service tiers. Read scale-out cannot be enabled in Basic, Standard, or General Purpose service tiers. Read scale-out is automatically disabled on Hyperscale databases configured with zero replicas.
+Read scale-out is enabled by default on Premium, Business Critical, and Hyperscale service tiers. Read scale-out cannot be enabled in Basic, Standard, or General Purpose service tiers. Read scale-out is automatically disabled on Hyperscale databases configured with zero secondary replicas.
 
 You can disable and re-enable read scale-out on single databases and elastic pool databases in the Premium or Business Critical service tiers using the following methods.
 
@@ -180,16 +180,16 @@ For more information, see [Databases - Create or update](/rest/api/sql/databases
 
 ## Using the `tempdb` database on a read-only replica
 
-The `tempdb` database on the primary replica is not replicated to the read-only replicas. Each replica has its own `tempdb` database that is created when the replica is created. This ensures that `tempdb` is updateable and can be modified during your query execution. If your read-only workload depends on using `tempdb` objects, you should create these objects as part of your query script.
+The `tempdb` database on the primary replica is not replicated to the read-only replicas. Each replica has its own `tempdb` database that is created when the replica is created. This ensures that `tempdb` is updateable and can be modified during your query execution. If your read-only workload depends on using `tempdb` objects, you should create these objects as part of the same workload, while connected to a read-only replica.
 
 ## Using read scale-out with geo-replicated databases
 
-Geo-replicated secondary databases have the same High Availability architecture as the primary databases. If you're connecting to the geo-replicated secondary database with read scale-out enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the high availability replicas in the same way they are routed on the primary writeable database. The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, which is also read-only. 
+Geo-replicated secondary databases have the same High Availability architecture as primary databases. If you're connecting to the geo-replicated secondary database with read scale-out enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the high availability replicas in the same way they are routed on the primary writeable database. The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, which is also read-only. 
 
-In this fashion, creating a geo-replica provides two more read-only replicas for a read-write primary database, for a total of three read-only replicas. Each additional geo-replica provides another pair of read-only replicas. Geo-replicas can be created in any Azure region, including the region of the primary database.
+In this fashion, creating a geo-replica can provide multiple additional read-only replicas for a read-write primary database. Each additional geo-replica provides another set of read-only replicas. Geo-replicas can be created in any Azure region, including the region of the primary database.
 
 > [!NOTE]
-> There is no automatic round-robin or any other load-balanced routing between the replicas of a geo-replicated secondary database.
+> There is no automatic round-robin or any other load-balanced routing between the replicas of a geo-replicated secondary database, with the exception of a Hyperscale geo-replica with more than one HA replica. In that case, sessions with read-only intent are distributed over all HA replicas of a geo-replica.
 
 ## Next steps
 
