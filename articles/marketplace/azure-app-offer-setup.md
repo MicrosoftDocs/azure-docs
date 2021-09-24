@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 09/13/2021
 ---
 
 # Create an Azure application offer
@@ -108,3 +108,4 @@ Connect your customer relationship management (CRM) system with your commercial 
 ## Next steps
 
 - [Configure Azure application properties](azure-app-properties.md)
+<!--- [Updated for Workspaces]() --->

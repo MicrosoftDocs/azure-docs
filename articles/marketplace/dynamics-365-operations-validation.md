@@ -37,7 +37,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
 ### Option 2: Upload a demo video and LCS screenshots
 
-#### [Workspaces view](#tab/new-web-form)
+#### [Workspaces view](#tab/workspaces-view)
 
 1. Record a video and upload the address to the hosting site of your choice. Follow these guidelines:
 
@@ -74,7 +74,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
     [ ![Illustrates a zip file uploaded to the Supplemental content page.](./media//dynamics-365-operations/supplemental-content-workspaces.png) ](./media//dynamics-365-operations/supplemental-content-workspaces.png#lightbox)
 
-#### [Current view](#tab/old-web-form)
+#### [Current view](#tab/current-view)
 
 1. Record a video and upload the address to the hosting site of your choice. Follow these guidelines:
 

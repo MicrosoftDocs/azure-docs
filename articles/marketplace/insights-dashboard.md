@@ -35,7 +35,7 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Workspaces view](#tab/new-web-form)
+#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -44,7 +44,7 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 
 1. In the left menu, select **Marketplace insights**.
 
-#### [Current view](#tab/old-web-form)
+#### [Current view](#tab/current-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Marketplace insights**.
@@ -57,13 +57,13 @@ The Marketplace Insights dashboard displays web telemetry details for Azure Mark
 
 ### Month range
 
-#### [Workspaces view](#tab/new-web-form)
+#### [Workspaces view](#tab/workspaces-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 [ ![Illustrates the month filters on the Marketplace Insights dashboard.](./media/insights-dashboard/marketplace-insights-filters.png) ](./media/insights-dashboard/marketplace-insights-filters.png#lightbox)
 
-#### [Current view](#tab/old-web-form)
+#### [Current view](#tab/current-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
