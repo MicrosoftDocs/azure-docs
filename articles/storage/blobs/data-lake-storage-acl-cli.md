@@ -8,7 +8,7 @@ ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
-ms.reviewer: prishet 
+ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ---
 
@@ -22,7 +22,7 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. For more information, see [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
@@ -30,10 +30,10 @@ ACL inheritance is already available for new child items that are created under 
 
 - One of the following security permissions:
 
-  - A provisioned Azure Active Directory (Azure AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.  
+  - A provisioned Azure Active Directory (Azure AD) [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, parent resource group or subscription.
 
   - Owning user of the target container or directory to which you plan to apply ACL settings. To set ACLs recursively, this includes all child items in the target container or directory.
-  
+
   - Storage account key.
 
 ## Ensure that you have the correct version of Azure CLI installed
@@ -46,7 +46,7 @@ ACL inheritance is already available for new child items that are created under 
     az --version
    ```
 
-   If your version of Azure CLI is lower than `2.14.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+   If your version of Azure CLI is lower than `2.14.0`, then install a later version. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to the account
 
@@ -83,7 +83,7 @@ This example gets the ACL of a directory, and then prints the ACL to the console
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Get the access permissions of a **file** by using the [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) command. 
+Get the access permissions of a **file** by using the [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) command.
 
 This example gets the ACL of a file and then prints the ACL to the console.
 
@@ -99,7 +99,7 @@ In this example, the owning user has read, write, and execute permissions. The o
 
 ## Set ACLs
 
-When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.  
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update ACLs](#update-acls) section of this article.
 
 If you choose to *set* the ACL, you must add an entry for the owning user, an entry for the owning group, and an entry for all other users. To learn more about the owning user, the owning group, and all other users, see [Users and identities](data-lake-storage-access-control.md#users-and-identities).
 
@@ -110,7 +110,7 @@ This section shows you how to:
 
 ### Set an ACL
 
-Use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command to set the ACL of a **directory**. 
+Use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command to set the ACL of a **directory**.
 
 This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -124,7 +124,7 @@ This example sets the *default* ACL on a directory for the owning user, owning g
 az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command to set the acl of a **file**. 
+Use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command to set the acl of a **file**.
 
 This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
 
@@ -156,7 +156,7 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 
 ## Update ACLs
 
-When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set ACLs](#set-acls) section of this article.
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL. To replace the ACL instead of update it, see the [Set ACLs](#set-acls) section of this article.
 
 To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
 
@@ -167,7 +167,7 @@ This section shows you how to:
 
 ### Update an ACL
 
-Another way to set this permission is to use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command. 
+Another way to set this permission is to use the [az storage fs access set](/cli/azure/storage/fs/access#az_storage_fs_access_set) command.
 
 Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
 
@@ -194,7 +194,7 @@ This example changes the owner of a directory.
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-This example changes the owner of a file. 
+This example changes the owner of a file.
 
 ```azurecli
 az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -203,7 +203,7 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ### Update ACLs recursively
 
-Update ACLs recursively by using the  [az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) command.
+Update ACLs recursively by using the [az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) command.
 
 This example updates an ACL entry with write permission.
 
@@ -220,7 +220,7 @@ You can remove one or more ACL entries recursively. To remove an ACL entry, crea
 
 Remove ACL entries by using the [az storage fs access remove-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_remove_recursive) command.
 
-This example removes an ACL entry from the root directory of the container.  
+This example removes an ACL entry from the root directory of the container.
 
 ```azurecli
 az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login
