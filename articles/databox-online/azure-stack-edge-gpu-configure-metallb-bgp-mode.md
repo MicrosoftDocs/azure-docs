@@ -24,7 +24,7 @@ For more information, see [BGP mode for MetalL](https://metallb.universe.tf/conf
 
 ## MetalLB on Azure Stack Edge
 
-There are multiple networking components such as Calico, MetalLB, and Core DNS that are installed on your Azure Stack Edge device. MetalLB hooks into the Kubernetes cluster running on your Azure Stack Edge device, and allows you to create Kubernetes services of type `LoadBalancer` in the cluster.
+There are multiple networking components such as Calico, MetalLB, and Core DNS installed on your Azure Stack Edge device. MetalLB hooks into the Kubernetes cluster running on your Azure Stack Edge device, and allows you to create Kubernetes services of type `LoadBalancer` in the cluster.
 
 In BGP mode, all machines in the cluster establish BGP peering sessions with nearby routers that you control, and tell those routers how to forward traffic to the service IPs.MetalLB with the Border Gateway Protocol (BGP) is not the default networking mode for the Kubernetes cluster running on your device. To configure MetalLB via BGP, you designate the top-of-rack (ToR) switch as the load balancer and set up peer sessions. 
 
@@ -37,18 +37,18 @@ You can configure MetalLB in BGP mode by connecting to the PowerShell interface 
 ### Prerequisites
 
 Before you begin, make sure that:
-- One port on the device has compute enabled. This creates a virtual switch on that port. 
+- Compute is enabled on one port of the device. This creates a virtual switch on that port. 
     - To enable compute, in the local UI for your device, go to **Advanced networking** page and select a port on which you want to enable compute. 
     - In the **Network settings** page, enable the port for compute. **Apply** the settings.
 - You have available IPs in the same subnet the port that you enabled for compute on your device. 
 
 ### Configuration
 
-For a basic configuration featuring one BGP router and one IP address range, you need 4 pieces of information:
+For a basic configuration featuring one BGP router and one IP address range, you need four pieces of information:
 
 - The peer IP address that MetalLB should connect to.
 - The peer's Autonomous System Number (ASN). BGP requires that routes are announced with an ASN for peer sessions.
-- The ASN MetalLB should use. ASNs are 16 bit numbers between 1 and 65534 and 32 bit numbers between 131072 and 4294967294.
+- The ASN MetalLB should use. ASNs are 16-bit numbers between 1 and 65534 and 32-bit numbers between 131072 and 4294967294.
 - An IP address range expressed as a CIDR prefix. The IP address range that you provide is the range of available IPs in the same subnet as the port that you enabled for compute.
 
 
