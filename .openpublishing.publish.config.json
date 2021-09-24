@@ -817,14 +817,15 @@
   },
   "redirection_files": [
     ".openpublishing.redirection.json",
+    ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
+    ".openpublishing.redirection.iot-hub.json",
+    ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.synapse-analytics.json",
-    ".openpublishing.redirection.key-vault.json",
-    ".openpublishing.redirection.iot-hub.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
     "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
@@ -838,9 +839,10 @@
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
     "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
+    "articles/object-anchors/.openpublishing.redirection.object-anchors.json",
     "articles/purview/.openpublishing.redirection.purview.json",
-    "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
-    "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json"
+    "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
+    "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
   ]
 }
