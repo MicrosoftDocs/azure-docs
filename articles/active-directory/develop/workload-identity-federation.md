@@ -31,13 +31,16 @@ GitHub Actions CI/CD to Azure without storing service principal secrets in Git
 
 
 ## Generic work flow/pattern: 
-While each scenario has it's own unique specialized ways to make it easy for developers to accomplish this, the underlying pattern remains the same.  This pattern will be utilized in each scenario. 
+While each scenario has it's own unique specialized ways to make it easy for developers to accomplish this, the underlying pattern remains the same.  This pattern will be utilized in each scenario. First, configure the trust between the identity provider and Microsoft identity platform. This trust is at the level of a application, by calling an Microsoft Graph API to configure a federated identity credential on the workload identity.  Right now, this is only at the app object/SP level.  Even on MS Graph, doing a POST on applications.
 
-1. **Create the trust.** Configure the trust between the identity provider and AAD. This trust is at the level of a service principal, by calling an AAD API to configure a federated identity credential on the workload identity.  Right now, this is only at the app object/SP level.  Even on MS Graph, doing a POST on applications.
+:::image type="content" source="media/workload-identity-federation/workflow.png" alt-text="Shows a foreign token exchanged for an access token and accessing Azure" border="false":::
 
-2. **Request the token from Microsoft identity platform using the foreign token.** AAD will support an OAuth Confidential Client with a token as a client assertion. This will allow anyone to send the foreign token as a client assertion when requesting an AAD token
-
-3. **Access Azure resources using the token.** The token can then be used to access the specific Azure resource for which it was requested. 
+1. Request a token from the foreign issuer
+1. Get the token: {subject: <id>, audience: AAD}
+1. Request the token from Microsoft identity platform using the foreign token. AAD will support an OAuth Confidential Client with a token as a client assertion. This will allow anyone to send the foreign token as a client assertion when requesting an AAD token
+1. Identity platform checks the trust on the app and validates the incoming token.
+1. Identity platform issues a token: {sub: <appid>, aud: <aud>}
+1. Access Azure resources using the token. The token can then be used to access the specific Azure resource for which it was requested. 
 
  
 ## Next steps
