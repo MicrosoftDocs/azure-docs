@@ -44,7 +44,7 @@ API: PUT [https://{your-purview-account-name}.purview.azure.com/collections/coll
 
 Note: If using API, the above API is part of account data plane and the Service Principal (SP), User or Group executing the API should have ‘Collection Admin’ role assigned in Purview to execute this API successfully.
 
-**Using Azure Portal / Purview Studio:**
+### Using Azure portal / Purview studio:
 
 If a collection is created using Azure Portal Web UI, the “name” of the collection will be different from display name “friendlyName” as purview generates a unique alphanumeric “name” behind the scenes.  If using APIs, then the name and friendly name will be same. For policy APIs you will need name (and not display/friendly name).
 
