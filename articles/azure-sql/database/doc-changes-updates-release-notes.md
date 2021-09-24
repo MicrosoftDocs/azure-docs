@@ -163,7 +163,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
 
-### Misleading error message on Azure portal suggesting re-creation of the Service Principal
+### Misleading error message on Azure portal suggesting recreation of the Service Principal
 
 _Active Directory admin_ blade of Azure portal for Azure SQL Managed Instance may be showing the following error message even though Service Principal already exists:
 
