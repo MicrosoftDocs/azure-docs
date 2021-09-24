@@ -1,0 +1,109 @@
+---
+title: Quickstart - Create registry - Bicep
+description: Learn how to create an Azure container registry by using a Bicep file.
+services: azure-resource-manager
+author: mumian
+ms.author: jgao
+ms.date: 09/23/2021
+ms.topic: quickstart
+ms.service: azure-resource-manager
+---
+
+# Quickstart: Create a container registry by using a Bicep file
+
+This quickstart shows how to create an Azure Container Registry instance by using a Bicep file.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+## Review the Bicep file
+
+Use Visual studio code or your favorite editor to create a file with the following content and name it **main.bicep**:
+
+```bicep
+@minLength(5)
+@maxLength(50)
+@description('Provide a globally unique name of your Azure Container Registry')
+param acrName string = 'acr${uniqueString(resourceGroup().id)}'
+
+@description('Provide a location for registry home replica.')
+param location string = resourceGroup().location
+
+@description('Provide a tier of your Azure Container Registry.')
+param acrSku string = 'Basic'
+
+resource acrResource 'Microsoft.ContainerRegistry/registries@2021-06-01-preview' = {
+  name: acrName
+  location: location
+  sku: {
+    name: acrSku
+  }
+  properties: {
+    adminUserEnabled: false
+  }
+}
+```
+
+The following resource is defined in the Bidep file:
+
+* **[Microsoft.ContainerRegistry/registries](/azure/templates/microsoft.containerregistry/registries)**: create an Azure container registry
+
+More Azure Container Registry template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerregistry&pageNumber=1&sort=Popular).
+
+## Deploy the Bicep file
+
+To deploy the file you've created, open PowerShell or Azure CLI. If you want to use the integrated Visual Studio Code terminal, select the `ctrl` + ```` ` ```` key combination. Change the current directory to where the Bicep file is located.
+
+# [CLI](#tab/CLI)
+
+```azurecli
+az group create --name exampleRG --location eastus
+
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters acrName={your-unique-name}
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+New-AzResourceGroup -Name exampleRG -Location eastus
+
+New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -acrName "{your-unique-name}"
+```
+
+---
+
+> [!NOTE]
+> Replace **{your-unique-name}**, including the curly braces, with a unique container registry name.
+
+When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+## Review deployed resources
+
+Use the Azure portal or a tool such as the Azure CLI to review the properties of the container registry.
+
+1. In the portal, search for Container Registries, and select the container registry you created.
+
+1. On the **Overview** page, note the **Login server** of the registry. Use this URI when you use Docker to tag and push images to your registry. For information, see [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
+
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Registry overview":::
+
+## Clean up resources
+
+When you no longer need them, delete the resource group, the registry, and the registry replica. To do so, go to the Azure portal, select the resource group that contains the registry, and then select **Delete resource group**.
+
+:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Delete resource group":::
+
+## Next steps
+
+In this quickstart, you created an Azure Container Registry with an ARM template, and configured a registry replica in another location. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
+
+> [!div class="nextstepaction"]
+> [Azure Container Registry tutorials](container-registry-tutorial-prepare-registry.md)
+
+For a step-by-step tutorial that guides you through the process of creating a template, see:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
