@@ -149,7 +149,7 @@
       href: edge/monitor-log-edge.md 
     - name: Public endpoints
       href: access-public-endpoints-networking.md
-    - name: Use Visual Studio Code extension
+    - name: Use the Visual Studio Code extension
       hfref: edge/use-vscode-extension.md
   - name: Visualize
     items:
