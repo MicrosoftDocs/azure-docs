@@ -41,7 +41,7 @@ To enable SSO for an application:
 1. Select **SAML** to open the SSO configuration page. After the application is configured, users can sign in to it by using their credentials from the Azure AD tenant.
 1. The process of configuring an application to use Azure AD for SAML-based SSO varies depending on the application. For any of the enterprise applications in the gallery, use the link to find information about the steps needed to configure the application. The steps for the **Azure AD SAML Toolkit** are listed in this quickstart.
 
-    :::image type="content" source="/media/add-application-portal-setup-sso/saml-configuration.png" alt-text="Configure single sign-on for an enterprise application.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/saml-configuration.png" alt-text="Configure single sign-on for an enterprise application.":::
 
 1. In the **Set up Azure AD SAML Toolkit 1** section, record the values of the **Login URL**, **Azure AD Identifier**, and **Logout URL** properties to be used later.
 
@@ -68,7 +68,7 @@ To register a user account with the application:
 1. Open a new browser window and browse to the sign-in URL for the application. For the **Azure AD SAML Toolkit** application, the address is `https://samltoolkit.azurewebsites.net`.
 1. Select **Register** in the upper right corner of the page.
 
-    :::image type="content" source="/media/add-application-portal-setup-sso/toolkit-register.png" alt-text="Register a user account in the Azure AD SAML Toolkit application.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/toolkit-register.png" alt-text="Register a user account in the Azure AD SAML Toolkit application.":::
 
 1. For **Email**, enter the email address of the user that will access the application. For example, in a previous quickstart, the user account was created that uses the address of `contosouser1@contoso.com`. Be sure to change `contoso.com` to the domain of your tenant.
 1. Enter a **Password** and confirm it.

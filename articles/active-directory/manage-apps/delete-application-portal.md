@@ -36,7 +36,7 @@ To delete an enterprise application:
 1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
 1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. Search for and select the application that you want to delete. For example, **Azure AD SAML Toolkit 1**.
 1. In the **Manage** section of the left menu, select **Properties**.
-1. At the top of the **Properties** pane, select**Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
+1. At the top of the **Properties** pane, select **Delete**, and then select **Yes** to confirm you want to delete the application from your Azure AD tenant.
 
     :::image type="content" source="media/delete-application-portal/delete-application.png" alt-text="Delete an enterprise application.":::
 

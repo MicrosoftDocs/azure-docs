@@ -17,7 +17,7 @@ ms.reviewer: alamaral
 
 # Quickstart: Create and assign a user account in Azure Active Directory
 
-In this quickstart, you use the Azure Active Directory Admin Center to create a user account in your Azure Active Directory (Azure AD) tenant. After you create the account, you can assign it to the enterprise application that you added.
+In this quickstart, you use the Azure Active Directory Admin Center to create a user account in your Azure Active Directory (Azure AD) tenant. After you create the account, you can assign it to the enterprise application that you added to your tenant.
 
 It is recommended that you use a non-production environment to test the steps in this quickstart.
 
@@ -40,7 +40,7 @@ To create a user account in your Azure AD tenant:
     :::image type="content" source="media/add-application-portal-assign-users/new-user.png" alt-text="Add a new user account to your Azure AD tenant.":::
     
 1. In the **User name** field, enter the username of the user account. For example, `contosouser1@contoso.com`. Be sure to change `contoso.com` to the name of your tenant domain.
-1. In the Name field, enter the name of the user of the account. For example, `contosouser1`.
+1. In the **Name** field, enter the name of the user of the account. For example, `contosouser1`.
 1. Leave **Auto-generate password** selected, and then select **Show password**. Write down the value that's displayed in the Password box.
 1. Select **Create**.
 
@@ -48,7 +48,7 @@ To create a user account in your Azure AD tenant:
 
 To assign a user account to an enterprise application:
 
-1. In the [Azure Active Directory Admin Center](https://aad.portal.azure.com), select **Enterprise applications**, and then find and select the application to which you want to assign the user account. For example, the application that you created in the previous quickstart named **Azure AD SAML Toolkit 1**.
+1. In the [Azure Active Directory Admin Center](https://aad.portal.azure.com), select **Enterprise applications**, and then search for and select the application to which you want to assign the user account. For example, the application that you created in the previous quickstart named **Azure AD SAML Toolkit 1**.
 1. In the left pane, select **Users and groups**, and then select **Add user/group**.
 
     :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Assign user account to zn application in your Azure AD tenant.":::
