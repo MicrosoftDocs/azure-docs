@@ -794,7 +794,7 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 
 This step will update the Policy JSON obtained in previous step and push it to Purview Service using a PUT REST Method.
 
-Whether you wish to **add** or **remove** User/Group/SP(ServicePrincipal), the process is identical using this API in all the cases.
+Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'll follow the same API process.
 
 - You need to pass the User/Group/ServicePrincipal Object ID {guid} in an array format in "attributeValueIncludedIn" array of the JSON.
 - Search the JSON output of the Get-Policy-by-ID API for "attributeValueIncludedIn" array in the previous step and **Add** or  **Remove** the User/Group/ServicePrincipal Object ID in the array. If unsure about how to fetch user or group Object ID, read this tutorial [Get-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser)
