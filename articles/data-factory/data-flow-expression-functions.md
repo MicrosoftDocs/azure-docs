@@ -15,6 +15,8 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 ## Expression functions
 
 In Data Factory and Synapse pipelines, use the expression language of the mapping data flow feature to configure data transformations.
