@@ -10,8 +10,7 @@ ms.date: 04/22/2021
 
 # Point-in-time restore of a Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups. You can perform either to a latest restore point or a custom restore point within your retention period.
 

@@ -10,8 +10,7 @@ ms.date: 09/22/2020
 
 # Scale operations in Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 This article provides steps to perform scaling operations for compute and storage. You will be able to change your compute tiers between burstable, general purpose, and memory optimized SKUs, including choosing the number of vCores that is suitable to run your application. You can also scale up your storage. Expected IOPS are shown based on the compute tier, vCores and the storage capacity. The cost estimate is also shown based on your selection.
 
