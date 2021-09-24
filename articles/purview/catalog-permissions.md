@@ -1,6 +1,6 @@
 ---
-title: Purview Permissions
-description: This article gives an overview of how to configure access control in the Azure Purview.
+title: Understand access and permissions
+description: This article gives an overview permissions, access control, and collections in Azure Purview. Role-based access control (RBAC) is managed within Azure Purview itself, so this guide will cover the basics to secure your information.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -26,10 +26,10 @@ A collection is a tool Azure Purview uses to group assets, sources, and other ar
 
 Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
-- **Collection admins** - can edit Purview collections, their details, and add subcollections. They can also add users into other Purview roles on collections where they're admins.
-- **Data source admins** - can manage data sources and data scans.
-- **Data curators** - can create, read, modify, and delete catalog data assets and establish relationships between assets.
-- **Data readers** - can access but not modify catalog data assets.
+- **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
+- **Data curators** - a role  that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and review isights. Data curators can create, read, modify, move, apply annotations to, and delete assets.
+- **Data source admins** - a role that can manage data sources and scans. A user in the Data source admin role alone doesn't have access to the Azure Purview studio. Combining this role with the Data reader or Data curator roles provides roader access.
+- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections, glossary, and insights.
 
 ## Who should be assigned to what role?
 
