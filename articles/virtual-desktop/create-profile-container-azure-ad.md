@@ -78,7 +78,7 @@ To configure Azure Files:
     Install-Module -Name AzureAD
     ```
 
-    Additional information about [installing the Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
+    For more information, see [Install the Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
 
 3. Configure the Azure AD service principal and application.
 
