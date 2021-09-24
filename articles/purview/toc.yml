@@ -10,27 +10,27 @@ items:
   items:
   - name: Create Purview account
     items:
-    - name: Create a Purview account - Azure portal
+    - name: Create Purview account - Portal
       href: create-catalog-portal.md
-    - name: Create a Purview account - Azure PowerShell
+    - name: Create Purview account - PowerShell
       href: create-catalog-powershell.md
-    - name: Create a Purview account - .NET SDK
+    - name: Create Purview account - .NET SDK
       href: create-purview-dotnet.md
-    - name: Create a Purview account - Python
+    - name: Create Purview account - Python
       href: create-purview-python.md
-  - name: Create a collection - Azure Purview Studio
+  - name: Create a collection - Portal
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
-  - name: Onboarding Azure data sources at scale
+  - name: Onboard Azure sources at scale
     items:
-    - name: Azure data sources readiness check at scale
+    - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
-    - name: Azure Purview MSI configuration at scale
+    - name: Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Onboard an on-prem SQL Server
+  - name: Onboard an on-prem SQL server
     href: tutorial-register-scan-on-premises-sql-server.md
-  - name: Use REST APIs for Purview Data Planes
+  - name: Use REST APIs for Purview data planes
     href: tutorial-using-rest-apis.md
 - name: Concepts
   items:
@@ -64,37 +64,23 @@ items:
       href: concept-asset-normalization.md
   - name: Data insights
     href: concept-insights.md
-  - name: Supported Browsers
-    href: supported-browsers.md
-  - name: Asset normalization
-    href: concept-asset-normalization.md
-  - name: Frequently asked questions
-    href: ./frequently-asked-questions.yml
   - name: Upgraded Purview accounts
     href: concept-account-upgrade.md
 - name: How-to guides
   items:
   - name: Create and manage collections
     href: how-to-create-and-manage-collections.md
-  - name: Register & scan
-    items:
+  - name: Manage sources
+    items: 
+    - name: Supported sources
+      href: purview-connector-overview.md
+    - name: Manage data sources
+      href: manage-data-sources.md
     - name: Manage Credentials
       href: manage-credentials.md
       displayName: Create and manage Credentials
-    - name: Create a scan rule set
-      href: create-a-scan-rule-set.md
-    - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
-    - name: Troubleshoot connection issues
-      href: troubleshoot-connections.md
-    - name: Resource set pattern rules
-      href: how-to-resource-set-pattern-rules.md
     - name: Sources
-      items:
-      - name: Manage data sources
-        href: manage-data-sources.md
-      - name: Azure Purview Connectors
-        href: purview-connector-overview.md
+      items: 
       - name: Azure Multiple Source
         href: register-scan-azure-multiple-sources.md
       - name: Azure Synapse Analytics workspaces
@@ -157,35 +143,21 @@ items:
         href: register-scan-amazon-s3.md
   - name: Scan
     items:
-    - name: Create, import, & export glossary terms
-      href: how-to-create-import-export-glossary.md
-    - name: Manage term templates
-      href: how-to-manage-term-templates.md  
-  - name: Bulk edit
-    items:
-    - name: Bulk edit assets to tag annotations and contacts 
-      href: how-to-bulk-edit-assets.md
-  - name: Classify
-    items: 
-    - name: Create custom classification & classification rule
-      href: create-a-custom-classification-and-classification-rule.md
-    - name: Apply classifications
-      href: apply-classifications.md
-  - name: Label
-    items:
-    - name: Labeling in Azure Purview
-      href: create-sensitivity-label.md
-    - name: How to label your data
-      href: how-to-automatically-label-your-content.md
-    - name: Sensitivity labels FAQ
-      href: sensitivity-labels-frequently-asked-questions.yml
-  - name: Search & browse
+    - name: Create a scan rule set
+      href: create-a-scan-rule-set.md
+    - name: Resource set pattern rules
+      href: how-to-resource-set-pattern-rules.md
+    - name: Manage integration runtimes
+      href: manage-integration-runtimes.md
+    - name: Troubleshoot connection issues
+      href: troubleshoot-connections.md
+  - name: Data discovery
     items:
     - name: Browse Data Catalog
       href: how-to-browse-catalog.md
     - name: Search Data Catalog
       href: how-to-search-catalog.md
-    - name: View, edit, and delete Catalog assets
+    - name: Manage catalog assets
       href: catalog-asset-details.md
   - name: Lineage 
     items:
@@ -219,10 +191,28 @@ items:
       href: how-to-lineage-sql-server-integration-services.md
     - name: Teradata lineage
       href: how-to-lineage-teradata.md
-  - name: Monitor
+  - name: Business glossary
     items:
-    - name: Monitor with Azure Monitor
-      href: how-to-monitor-with-azure-monitor.md
+    - name: Create, import, & export glossary terms
+      href: how-to-create-import-export-glossary.md
+    - name: Manage term templates
+      href: how-to-manage-term-templates.md  
+  - name: Bulk edit assets
+    href: how-to-bulk-edit-assets.md
+  - name: Classify
+    items: 
+    - name: Create custom classifications
+      href: create-a-custom-classification-and-classification-rule.md
+    - name: Apply classifications
+      href: apply-classifications.md
+  - name: Label
+    items:
+    - name: Labeling in Azure Purview
+      href: create-sensitivity-label.md
+    - name: How to label your data
+      href: how-to-automatically-label-your-content.md
+    - name: Sensitivity labels FAQ
+      href: sensitivity-labels-frequently-asked-questions.yml
   - name: Insights
     items:
     - name: View asset insights
@@ -243,12 +233,10 @@ items:
       items:
       - name: Private endpoints overview
         href: catalog-private-link.md
-      - name: Isolate network for Purview account and portal
-        href: catalog-private-link-account-portal.md
-      - name: Isolate network for scans
-        href: catalog-private-link-ingestion.md
       - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
+      - name: Isolate network for Purview account and portal
+        href: catalog-private-link-account-portal.md
       - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints
@@ -261,8 +249,20 @@ items:
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
     href: disaster-recovery.md
+  - name: Monitor with Azure Monitor
+    href: how-to-monitor-with-azure-monitor.md
 - name: Reference
   items:
+    - name: Azure Purview product glossary
+      href: reference-purview-glossary.md
+    - name: Supported browsers
+      href: supported-browsers.md
+    - name: Supported data sources and file types
+      href: sources-and-scans.md
+    - name: Supported classifications
+      href: supported-classifications.md
+    - name: Azure Purview limits
+      href: how-to-manage-quotas.md
     - name: Java
       href: /samples/browse/?products=azure&languages=java&terms=purview
     - name: .NET
@@ -273,12 +273,10 @@ items:
       href: /python/api/azure-mgmt-purview/
     - name: REST
       href: /rest/api/purview/
-    - name: Supported classifications
-      href: supported-classifications.md
-    - name: Azure Purview product glossary
-      href: reference-purview-glossary.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
+    - name: Frequently asked questions
+      href: ./frequently-asked-questions.yml
 - name: Resources
   items:
     - name: Pricing calculator

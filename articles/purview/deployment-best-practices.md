@@ -249,7 +249,7 @@ The above phases should be followed to create an effective information governanc
 * Successfully meet infrastructure and security requirements for production
 * Successfully meet all use cases required by the users
 
-## Platform Hardening
+## Platform hardening
 
 Additional hardening steps can be taken:
 

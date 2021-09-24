@@ -24,7 +24,7 @@ For more information about Purview, [see our overview page](overview.md). For mo
 
 1. Go to the **Purview accounts** page in the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure Portal":::
+    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure portal":::
 
 1. Select **Create** to create a new Azure Purview account.
 
