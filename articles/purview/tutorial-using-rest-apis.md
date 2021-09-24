@@ -105,4 +105,4 @@ Use the access token above to call the Data plane APIs.
 
 > [!div class="nextstepaction"]
 > [Manage data sources](manage-data-sources.md)
-> [Purview Data Plane REST APIs](https://docs.microsoft.com/rest/api/purview/)
+> [Purview Data Plane REST APIs](/rest/api/purview/)
