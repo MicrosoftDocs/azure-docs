@@ -79,7 +79,7 @@ This section shows you how to convert the NFSv3 volume to NFSv4.1.
     
 3. Wait for the conversion operation to complete. Then remount the volume. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
 
-4. Run `mount –v` and locate your volume in the list. Verify the version in the `nfsvers` parameter in the output. 
+4. Run `mount –v` and locate your volume in the list. Verify in the output that the version shows `nfsvers=4.1`. 
 
     Example:   
     `mount -v | grep /path/to/vol1`  
@@ -110,7 +110,7 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
     
 3. Wait for the conversion operation to complete. Then remount the volume. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
 
-4. Run `mount –v` and locate your volume in the list. Verify the version in the `nfsvers` parameter in the output. 
+4. Run `mount –v` and locate your volume in the list. Verify in the output that the version shows `nfsvers=3`. 
 
     Example:   
     `mount -v | grep /path/to/vol1`  
