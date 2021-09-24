@@ -80,7 +80,7 @@ If a collection is created using Azure Portal Web UI, the “name” of the coll
 > [!NOTE]
 > If using API, the above API is part of account data plane and the Service Principal (SP), User or Group executing the API should have ‘Collection Admin’ role assigned in Purview to execute this API successfully.
 
-### Policy JSON Description
+### Policy JSON description
 Details on some of the important identifiers in the JSON output received from the Collection APIs.
 
 **Name**: Name of the policy. 
