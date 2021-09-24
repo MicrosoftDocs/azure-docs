@@ -59,7 +59,7 @@ We offer quickstarts in several popular programming languages, each designed to 
 * [Extract information from health-related text](health/quickstart.md)
 * [Key phrase extraction quickstart](key-phrase-extraction/quickstart.md)
 * [Question answering quickstart](custom-question-answering/quickstart/sdk.md)
-* [Custom classification quickstart](custom-classification/quickstart/using-language-studio.md)
+* [Custom classification quickstart](custom-classification/quickstart.md)
 * [Custom NER quickstart](custom-named-entity-recognition/quickstart.md)
 * [Custom conversational language understanding quickstart](custom-language-understanding/quickstart.md) 
 

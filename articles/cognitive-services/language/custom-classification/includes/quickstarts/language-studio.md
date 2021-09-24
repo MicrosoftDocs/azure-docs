@@ -32,7 +32,7 @@ After you have created an Azure storage account and linked it to your Language S
 
     :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
 
-4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If you're using a preexisting resource, see [Creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**.
+4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If you're using a preexisting resource, see [Creating Azure resources](../../how-to/use-azure-resources.md). When you are done, select **Next**.
  
     >[!NOTE]
     > * You only need to do this step once for each new resource you use. 
@@ -40,7 +40,7 @@ After you have created an Azure storage account and linked it to your Language S
     > * You can only connect your resource to one storage account.
     > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
 
-    :::image type="content" source="../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../custom-named-entity-recognition/media/connect-storage.png":::
+    :::image type="content" source="../../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../../custom-named-entity-recognition/media/connect-storage.png":::
 
 5. Select your project type. For this quickstart we will create a multi label classification project. Then click **Next**.
 

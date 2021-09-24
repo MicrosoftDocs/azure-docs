@@ -18,7 +18,7 @@ When you create a custom text classification project, you will connect it to a b
 
 ## Creating new Azure resources
 
-Before you start using custom classification, you will need a Language Services resource. We recommend the steps in the [quickstart](../quickstart/using-language-studio.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. 
+Before you start using custom classification, you will need a Language Services resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. 
 
 # [Azure portal](#tab/portal)
 
@@ -114,5 +114,5 @@ To set proper roles on your storage account:
 
 ## Next steps
 
-* [Custom classification quickstart](../quickstart/using-language-studio.md)
+* [Custom classification quickstart](../quickstart.md)
 * [Recommended practices](../concepts/recommended-practices.md)
