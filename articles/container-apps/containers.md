@@ -55,7 +55,7 @@ Any changes to the `containers` section triggers a new [container app revision](
 |---|---|---|
 | `image` | The container image name for your container app. | This value takes the form of `publisher/image-name:tag`. |
 | `name` | Friendly name of the container. | Used for reporting and identification. |
-| `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field. The values in the array are joined together and separated by spaces. This concatenation which allows you to have spaces in your startup command.  |
+| `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field. The values in the array are joined together and separated by spaces. This concatenation allows you to have spaces in your startup command.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | |
 | `resources.cpu` | The number of CPUs allocated to the container. | Possible values include: `1`, `2`, or `4`. |
