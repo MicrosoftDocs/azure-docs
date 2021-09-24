@@ -7,25 +7,23 @@ ms.date: 9/24/2021
 ms.author: cachai
 ---
 
-# Overview 
-
 This page describes the new Azure Functions **Dynamic Concurrency** feature for Service Bus, which simplifies configuring concurrency for your function apps. This article also provides an overview of the existing concurrency model in Azure Functions. For steps on how to use Dynamic Concurrency, [jump here](dynamic-concurrency.md#dynamic-concurrency-configuration).
 
-# Benefits
+## Benefits
 
 Using Dynamic Concurrency provides the following benefits: 
 - **Simplified configuration** - you no longer have to manually determine per trigger concurrency settings. The system will learn the optimal values for your workload over time. 
 - **Dynamic adjustments** - concurrency is adjusted up/down dynamically in real time, allowing the system to adapt to changing load patterns over time. 
 - **Instance health protection** - Dynamic Concurrency will limit concurrency to values a host instance can comfortably handle. This protects the host from overloading itself by taking on more work than it should. 
-- **Improved throughput** - overall throughput is improved because individual instances aren't pulling more work than they can quickly process. This allows work to be load balanced more effectively across instances. In addition, for functions that can handle higher load, concurrency can be increased to high values (beyond default config values), resulting in higher throughput. 
+- **Improved throughput** - overall throughput is improved because individual instances aren't pulling more work than they can quickly process. This allows work to be load balanced more effectively across instances. In addition, for functions that can handle higher load, concurrency can be increased to high values (beyond default config values), resulting in higher throughput.
 
-# Concurrency
+## Concurrency
 
 The hosting model for Azure Functions allows multiple function invocations to run concurrently on a single compute instance. For example, if you have 3 different functions in your function app, each function will be processing invocations on each instance your app is scaled to. The function invocations on a single instance will therefore be sharing the same VM compute resources like memory, CPU, etc. If you're in one of our Dynamic SKUs, the platform will scale the number of these instances up or down based on load (see [Event Driven Scaling](./Event-Driven-Scaling.md)). If you're in an App Service plan, you choose the number of instances your app will run on. 
 
 Because multiple function invocations can run on each instance concurrently, each function needs to have a way to throttle how many concurrent invocations it's processing at any given time. 
 
-# Static Concurrency Configuration 
+### Static Concurrency Configuration 
 
 Many of the Azure Functions triggers support a host level static configuration model for specifying per instance concurrency for that trigger type. For example, the [ServiceBusTrigger](./functions-bindings-service-bus-trigger.md) exposes **MaxConcurrentCalls** and **MaxConcurrentSessions** which together govern the maximum number of messages each function will process concurrently on each instance. Other trigger types have built in mechanisms for load balancing invocations across instances (e.g. the partition based schemes used by EventHubs and CosmosDB). 
 
@@ -35,7 +33,7 @@ While this does give you total control, it is often difficult to determine optim
 
 What you really want is for the system to just "do the right thing" and allow instances to process as much work as they can while keeping each instance healthy and latencies low. That's what Dynamic Concurrency is designed to do.
 
-# Dynamic Concurrency Configuration 
+### Dynamic Concurrency Configuration 
 
 Using Dynamic Concurrency, you don't have to configure per trigger concurrency settings. When enabled at the host level, any extensions you use in your Function App that support Dynamic Concurrency will ignore their static configuration options and instead adjust concurrency dynamically as needed. You can enable Dynamic Concurrency in host.json as follows: 
 
@@ -51,11 +49,11 @@ Using Dynamic Concurrency, you don't have to configure per trigger concurrency s
 
 By default Dynamic Concurrency is disabled. When Dynamic Concurrency is enabled, concurrency will start at 1 for each function, and will be quickly adjusted up to an optimal value. If the SnapshotPersistenceEnabled option is true (the default), these learned concurrency values are periodically persisted to storage so new instances start from those values rather than having to start from 1. 
 
-# Extension Support 
+## Extension Support 
 
 As mentioned above, Dynamic Concurrency is enabled globally at the host level, and any extensions that support Dynamic Concurrency will then operate in that mode. Dynamic Concurrency requires collaboration between the host and individual trigger extensions. For preview, only the latest versions of the following extensions support Dynamic Concurrency.
 
-# Service Bus 
+### Service Bus 
 
 ServiceBusTrigger currently supports 3 different execution models. Dynamic Concurrency support details for each are as follows: 
 - **Single dispatch topic/queue processing** - Each invocation of your function processes a single message. When using static config, concurrency is governed by the MaxConcurrentCalls config option. When using Dynamic Concurrency, that config value is ignored, and concurrency is adjusted dynamically. 
@@ -64,7 +62,7 @@ ServiceBusTrigger currently supports 3 different execution models. Dynamic Concu
 
 To use Dynamic Concurrency for ServiceBus, you must use version 5.x of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension. You also need to [enable Dynamic Concurrency](./dynamic-concurrency.md#dynamic-concurrency-configuration) in your host.json.
 
-# Concurrency Manager 
+## Concurrency Manager 
 
 Behind the scenes, when Dynamic Concurrency is enabled there's a **ConcurrencyManager** component running in the background that constantly monitors instance health metrics like CPU, thread utilization, etc., and enables/disables throttles as needed. When one or more throttles are enabled, function concurrency will be adjusted down until the host is healthy again. When throttles are disabled, concurrency is allowed to increase. Various heuristics are used to intelligently adjust concurrency up or down as needed based on these throttles. Thus, over time concurrency for each function will stabilize to a particular level. Dynamic Concurrency regulates per function concurrency to limit the total amount of work the instance is processing at any given time.  
 
@@ -72,6 +70,6 @@ Concurrency levels are managed for each individual function. So if you have one 
 
 When Dynamic Concurrency is enabled, you'll see Dynamic Concurrency concurrency decisions in your logs. For example, you'll see logs when various throttles are enabled, and whenever concurrency is adjusted up or down for each function. These logs are written under the "Host.Concurrency" log category. 
 
-# Feedback 
+## Feedback 
 
 The Dynamic Concurrency feature is currently in preview. Feel free to try it, and provide us feedback via regular channels, and log any issues in our [github repo](https://github.com/Azure/azure-functions-host)! 
