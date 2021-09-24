@@ -11,7 +11,8 @@ Each node type in a Service Fabric managed cluster is backed by a virtual machin
 
 The rest of this document will cover how to adjust various settings from node type instance count, OS Image, and configuring placement properties.
 
-> [!NOTE] You will not be able to modify the node type while a change is in progress. It is recommended to let any requested change complete before doing another.
+> [!NOTE]
+> You will not be able to modify the node type while a change is in progress. It is recommended to let any requested change complete before doing another.
 
 ## Scale a Service Fabric managed cluster node type manually with portal
 
