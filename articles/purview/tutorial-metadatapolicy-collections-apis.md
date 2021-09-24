@@ -599,7 +599,7 @@ Example:
 }
 ```
 
-## Get Selected Metadata Policy 
+## Get selected metadata policy 
 There are two APIs to fetch a particular collection's Metadata Policy's JSON structure - either by supplying {collectionName} or {PolicyID}.
 Both APIs (described in the following two sections) serve the same purpose and the JSON outputs of both are exactly the same.
 
