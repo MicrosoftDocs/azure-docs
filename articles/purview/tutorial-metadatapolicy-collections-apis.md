@@ -796,7 +796,7 @@ This step will update the Policy JSON obtained in previous step and push it to P
 
 Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'll follow the same API process.
 
-- You need to pass the User/Group/ServicePrincipal Object ID {guid} in an array format in "attributeValueIncludedIn" array of the JSON.
+1. You need to pass the User/Group/ServicePrincipal Object ID {guid} in an array format in "attributeValueIncludedIn" array of the JSON.
 - Search the JSON output of the Get-Policy-by-ID API for "attributeValueIncludedIn" array in the previous step and **Add** or  **Remove** the User/Group/ServicePrincipal Object ID in the array. If unsure about how to fetch user or group Object ID, read this tutorial [Get-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser)
 1. Notice that there could be multiple sections in the JSON pertaining to each of the 4 metadatapolicy roles. For collection administrator, use the section bearing "id" called "purviewmetadatarole_builtin_collection-administrator". Likewise, use the corresponding section for the other roles.
 1. To better understand the Add/Remove operation API, notice that in the JSON below I'm adding User ID : "3a3a3a3a-2c2c-4b4b-1c1c-2a3b4c5d6e7f" As Collection Administrator.
