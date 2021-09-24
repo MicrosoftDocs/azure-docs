@@ -3,7 +3,7 @@ title: Tutorial - Create a PowerShell Workflow runbook in Azure Automation
 description: This tutorial teaches you to create, test, and publish a PowerShell Workflow runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/20/2021
+ms.date: 09/23/2021
 ms.topic: tutorial 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
@@ -184,19 +184,18 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    Disable-AzContextAutosave -Scope Process
     
    # Connect to Azure with system-assigned managed identity
-   Connect-AzAccount -Identity
+   $AzureContext = (Connect-AzAccount -Identity).context
     
    # set and store context
-   $subID = (Get-AzContext).Subscription.Id
-   $AzureContext = Set-AzContext -SubscriptionId $subID   
+   $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext   
    }
    ```
 
    Edit the `$resourceGroup` variable with a valid value representing your resource group.
 
 1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
-    1. From line 9, remove `Connect-AzAccount -Identity`,
-    1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
+    1. From line 9, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
+    1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
     1. Enter the Client ID you obtained earlier.
 
 1. Select **Save** and then **Test pane**.
@@ -234,7 +233,7 @@ Your runbook currently starts the VM that you've hardcoded in the runbook. It wi
 
 1. Replace the previous `Start-AzVM` command with the following:
 
-   ```powewrshell
+   ```powershell
    Start-AzVM -Name $VMName -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
    ```
 
@@ -262,11 +261,10 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     Disable-AzContextAutosave -Scope Process
     
     # Connect to Azure with system-assigned managed identity
-    Connect-AzAccount -Identity
+    $AzureContext = (Connect-AzAccount -Identity).context
     
     # set and store context
-    $subID = (Get-AzContext).Subscription.Id
-    $AzureContext = Set-AzContext -SubscriptionId $subID   
+    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext   
     
     # Start or stop VMs in parallel
     if($action -eq "Start")
@@ -290,8 +288,8 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     ```
 
 1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
-    1. From line 13, remove `Connect-AzAccount -Identity`,
-    1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
+    1. From line 13, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
+    1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
     1. Enter the Client ID you obtained earlier.
 
 1. Select **Save**, then **Publish**, and then **Yes** when prompted.
