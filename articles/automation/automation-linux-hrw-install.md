@@ -1,5 +1,5 @@
 ---
-title: Deploy an OMS solution based Windows Hybrid Runbook Worker in Automation
+title: Deploy an OMS solution based Linux Hybrid Runbook Worker in Automation
 description: This article tells how to install an agent-based  Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
-# Deploy an OMS solution-based Windows Hybrid Runbook Worker in Automation
+# Deploy an OMS solution-based Linux Hybrid Runbook Worker in Automation
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
 

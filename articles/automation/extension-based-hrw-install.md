@@ -413,7 +413,7 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
 
 The Azure resources defined in the template:
 
-- [hybridRunbookWorkerGroups/hybridRunbookWorkers](TBD) ???
+- hybridRunbookWorkerGroups/hybridRunbookWorkers
 - [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions): 
 
 ### Review parameters
