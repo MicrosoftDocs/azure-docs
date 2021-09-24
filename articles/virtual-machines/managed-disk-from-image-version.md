@@ -1,6 +1,6 @@
 ---
 title: Export an image version to a managed disk
-description: Export an image version from a shared image gallery to a managed disk.
+description: Export an image version from an Azure Compute Gallery to a managed disk.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-You can export the OS or a single data disk from an image version as a managed disk from an image version stored in a Shared Image Gallery.
+You can export the OS or a single data disk from an image version as a managed disk from an image version stored in anAzure Compute Gallery.
 
 
 ## CLI

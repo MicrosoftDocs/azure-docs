@@ -77,7 +77,7 @@ No additional cost to existing VM pricing.
 **The following features are not supported in this preview**:
 - Backup
 - Azure Site Recovery
-- Shared Image Gallery
+- Azure Compute Gallery
 - Ephemeral OS disk
 - Shared disk
 - Managed image

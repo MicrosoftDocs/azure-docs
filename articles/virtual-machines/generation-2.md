@@ -106,7 +106,7 @@ For more information, see [Trusted launch (preview)](trusted-launch.md).
 | Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
-| Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Compute Gallery              | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 

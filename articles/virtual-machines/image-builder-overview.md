@@ -17,7 +17,7 @@ ms.reviewer: cynthn
 
 Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a configuration describing your image, submit it to the service, and the image is built, and distributed.
  
-The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/) you will see some similarities, but have the benefit of a managed service. You can also specify where you would like your images hosted, in the [Azure Shared Image Gallery](shared-image-galleries.md), as a managed image or a VHD.
+The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/) you will see some similarities, but have the benefit of a managed service. You can also specify where you would like your images hosted, in the [Azure Compute Gallery](shared-image-galleries.md), as a managed image or a VHD.
 
 
 ## Features
@@ -28,7 +28,7 @@ Azure Image Builder supports the following features:
 - Integration of core applications, so VM can take on workloads after creation, or add configurations to support Azure Virtual Desktop images.
 - Patching of existing images, Image Builder will allow you to continually patch existing custom images.
 - Connect image builder to your existing virtual networks, so you can connect to existing configuration servers (DSC, Chef, Puppet etc.), file shares, or any other routable servers/services.
-- Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
+- Integration with the Azure Compute Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
 - Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Image Builder Azure DevOps Task.
 - Migrate an existing image customization pipeline to Azure. Use your existing scripts, commands, and processes to customize images.
 - Creation of images in VHD format to support Azure Stack.
@@ -56,7 +56,7 @@ We have listed the operating systems we have tested and know work with Azure Ima
 
 The Azure VM Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. Provide a configuration to the service that specifies the source image, customization to perform and where the new image is to be distributed to, the diagram below shows a high level workflow:
 
-![Conceptual drawing of the Azure Image Builder process showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Restart & Update, adding files) and global distribution with the Azure Shared Image Gallery](./media/image-builder-overview/image-builder-flow.png)
+![Conceptual drawing of the Azure Image Builder process showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Restart & Update, adding files) and global distribution with the Azure Compute Gallery](./media/image-builder-overview/image-builder-flow.png)
 
 Template configurations can be passed using PowerShell, Az CLI, ARM templates and using the Azure VM Image Builder DevOps task, when you submit it to the service we will create an Image Template Resource. When the Image Template Resource is created you will see a staging resource group created in your subscription, in the format: IT_\<DestinationResourceGroup>_\<TemplateName>_\(GUID). The staging resource group contains files and scripts referenced in the File, Shell, PowerShell customization in the ScriptURI property.
 
@@ -72,7 +72,7 @@ The image template resource is immutable and contains links to resources and the
 ## Permissions
 When you register for the (AIB), this grants the AIB Service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. This is done by an AIB Service Principal Name (SPN) being made available in your subscription during a successful registration.
 
-To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private and public containers.
+To allow Azure VM Image Builder to distribute images to either the managed images or to an Azure Compute Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private and public containers.
 
 Permissions are explained in more detail for [PowerShell](./linux/image-builder-permissions-powershell.md), and [AZ CLI](./linux/image-builder-permissions-cli.md).
 
@@ -86,7 +86,7 @@ Image Builder creates a VM using a D1v2 VM size, and the storage, and networking
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
 
 ## Hyper-V generation
-Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. 
+Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Azure Compute Gallery or Managed Image. 
  
 ## Next steps 
  

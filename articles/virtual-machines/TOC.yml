@@ -825,11 +825,11 @@
         href: ./windows/share-images-across-tenants.md
     - name: Resource Manager Templates
       items:
-      - name: Create a Shared Image Gallery
+      - name: Create an Azure Compute Gallery
         href: https://azure.microsoft.com/resources/templates/sig-create/
-      - name: Create an Image Definition in a Shared Image Gallery
+      - name: Create an Image Definition in an Azure Compute Gallery
         href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
-      - name: Create an Image Version in a Shared Image Gallery
+      - name: Create an Image Version in an Azure Compute Gallery
         href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible

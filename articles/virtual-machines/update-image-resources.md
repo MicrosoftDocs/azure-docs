@@ -1,6 +1,6 @@
 ---
 title: List, update, and delete image resources 
-description: List, update, and delete image resources in your shared image gallery.
+description: List, update, and delete image resources in your Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # List, update, and delete image resources 
 
-You can manage your shared image gallery resources using the Azure CLI or Azure PowerShell.
+You can manage your Azure Compute Gallery resources using the Azure CLI or Azure PowerShell.
 
 ## List information
 
@@ -90,7 +90,7 @@ Remove-AzGalleryImageVersion `
 ### [CLI](#tab/cli)
 There are some limitations on what can be updated. The following items can be updated: 
 
-Shared image gallery:
+Azure Compute Gallery:
 - Description
 
 Image definition:
@@ -165,7 +165,7 @@ az sig image-version update \
 
 There are some limitations on what can be updated. The following items can be updated: 
 
-Shared image gallery:
+Azure Compute Gallery:
 - Description
 
 Image definition:

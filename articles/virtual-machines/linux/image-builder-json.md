@@ -83,7 +83,7 @@ The location is the region where the custom image will be created. The following
 The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
 
 ### Zone Redundancy
-Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) if specified.
+Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Azure Compute Gallery version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) if specified.
  
 ## vmProfile
 ## buildVM
@@ -153,12 +153,12 @@ For more information on deploying this feature, see [Configure managed identitie
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
+The `source` section contains information about the source image that will be used by Image Builder. Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Compute Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
 
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
 - PlatformImage - indicated the source image is a Marketplace image.
 - ManagedImage - use this when starting from a regular managed image.
-- SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
+- SharedImageVersion - this is used when you are using an image version in an Azure Compute Gallery as the source.
 
 
 > [!NOTE]
@@ -184,7 +184,7 @@ The properties here are the same that are used to create VM's, using AZ CLI, run
 az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
 ```
 
-You can use 'latest' in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Shared Image Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
+You can use 'latest' in the version, the version is evaluated when the image build takes place, not when the template is submitted. If you use this functionality with the Azure Compute Gallery destination, you can avoid resubmitting the template, and rerun the image build at intervals, so your images are recreated from the most recent images.
 
 #### Support for Market Place Plan Information
 You can also specify plan information, for example:
@@ -219,7 +219,7 @@ The `imageId` should be the ResourceId of the managed image. Use `az image list`
 
 
 ### SharedImageVersion source
-Sets the source image an existing image version in a Shared Image Gallery.
+Sets the source image an existing image version in an Azure Compute Gallery.
 
 > [!NOTE]
 > The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
@@ -521,7 +521,7 @@ Image Builder will read these commands, these are written out to the AIB logs, �
 Azure Image Builder supports three distribution targets: 
 
 - **managedImage** - managed image.
-- **sharedImage** - Shared Image Gallery.
+- **sharedImage** - Azure Compute Gallery.
 - **VHD** - VHD in a storage account.
 
 You can distribute an image to both of the target types in the same configuration.
@@ -529,7 +529,7 @@ You can distribute an image to both of the target types in the same configuratio
 > [!NOTE]
 > The default AIB sysprep command does not include "/mode:vm", however this maybe required when create images that will have the HyperV role installed. If you need to add this command argument, you must override the sysprep command.
 
-Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example, this is querying a Shared Image Gallery distribution:
+Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to, or SIG Image version created. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target. Here is an example, this is querying an Azure Compute Gallery distribution:
 
 ```bash
 subscriptionID=<subcriptionID>
@@ -592,9 +592,9 @@ Distribute properties:
 > If you want the image distributed to a different region, it will increase the deployment time. 
 
 ### Distribute: sharedImage 
-The Azure Shared Image Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Shared Image Galleries. 
+The Azure Compute Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Shared Image Galleries. 
  
-A Shared Image Gallery is made up of: 
+an Azure Compute Gallery is made up of: 
  
 - Gallery - Container for multiple shared images. A gallery is deployed in one region.
 - Image definitions - a conceptual grouping for images. 
@@ -621,7 +621,7 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 Distribute properties for shared image galleries:
 
 - **type** - sharedImage  
-- **galleryImageId** – ID of the shared image gallery, this can specified in two formats:
+- **galleryImageId** – ID of the Azure Compute Gallery, this can specified in two formats:
     * Automatic versioning - Image Builder will generate a monotonic version number for you, this is useful for when you want to keep rebuilding images from the same template: The format is: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
     * Explicit versioning - You can pass in the version number you want image builder to use. The format is:
     `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
@@ -629,7 +629,7 @@ Distribute properties for shared image galleries:
 - **runOutputName** – unique name for identifying the distribution.  
 - **artifactTags** - Optional user specified key value pair tags.
 - **replicationRegions** - Array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions will mean an increase of build time, as the build does not complete until the replication has completed.
-- **excludeFromLatest** (optional) This allows you to mark the image version you create not be used as the latest version in the SIG definition, the default is 'false'.
+- **excludeFromLatest** (optional) This allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
 - **storageAccountType** (optional) AIB supports specifying these types of storage for the image version that is to be created:
     * "Standard_LRS"
     * "Standard_ZRS"

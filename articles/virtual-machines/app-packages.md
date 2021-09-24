@@ -15,7 +15,7 @@ ms.custom:
 
 # Application packages overview (preview)
 
-VM Applications are a new resource type in Azure Compute Gallery (currently known as Shared Image Gallery) that simplifies management,sharing and global distribution of application packages.
+VM Applications are a new resource type in Azure Compute Gallery (currently known as Azure Compute Gallery) that simplifies management,sharing and global distribution of application packages.
 
 If your workload requires downloading and installing any of the following, then your workload will benefit from using VM Applications:
 

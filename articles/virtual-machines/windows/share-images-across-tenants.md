@@ -80,4 +80,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## Next steps
 
-Create [shared image gallery resources](../image-version.md).
+Create [Azure Compute Gallery resources](../image-version.md).
