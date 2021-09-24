@@ -20,11 +20,11 @@ Azure Container Apps supports:
 
 There is no required base container image when running containers in Azure Container Apps.
 
+Any changes to the `containers` section triggers a new [container app revision](application-lifecycle-management.md).
+
 ## Configuration
 
 The following example configuration shows the options available when setting up a container.
-
-Any changes to the `containers` section triggers a new [container app revision](application-lifecycle-management.md).
 
 ```json
 {
@@ -67,18 +67,13 @@ You can define multiple containers in a single container app. Groups of containe
 
 You run multiple containers together by defining more than one container in the configuration's `containers` array.
 
-Reasons to run containers together include:
+Reasons to run containers together in a pod include:
 
 - Use a container as a sidecar to your primary app.
 - Use of a shared disk space and virtual network.
 - Share scale rules among containers.
 - Group together multiple containers that need to always run together.
-- Enable direct communication on the same host.
-
-Reasons to separate containers include:
-
-- If you want to run an app as a separate microservice.
-- If your apps have different scaling needs.
+- Enable direct communication among containers on the same host.
 
 ## Container registries
 
