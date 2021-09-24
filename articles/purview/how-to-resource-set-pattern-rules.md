@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 09/24/2021
 ---
 
 # Create resource set pattern rules
 
-At-scale data processing systems typically store a single table on a disk as multiple files. This concept is represented in Azure Purview by using resource sets. A resource set is a single object in the data catalog that represents a large number of assets in storage. To learn more, see [Understanding resource sets](concept-resource-sets.md).
+At-scale data processing systems typically store a single table in storage as multiple files. This concept is represented in Azure Purview by using resource sets. A resource set is a single object in the data catalog that represents a large number of assets in storage. To learn more, see [Understanding resource sets](concept-resource-sets.md).
 
 When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Azure Purview's resource set grouping may not accurately reflect your data estate. Resource set pattern rules allow you to customize or override how Azure Purview detects which assets are grouped as resource sets and how they are displayed within the catalog.
 
@@ -21,12 +21,13 @@ Pattern rules are currently supported in the following source types:
 - Azure Files
 - Amazon S3
 
+The Advanced resource set feature set must be enabled to create resource set pattern rules. To learn more, see [Understanding Advanced resource sets](concept-resource-sets.md#advanced-resource-sets).
 
 ## How to create a resource set pattern rule
 
 Follow the steps below to create a new resource set pattern rule:
 
-1. Go to the management center. Select **Pattern rules** from the menu under the Resource sets heading. Select **+ New** to create a new rule set.
+1. Go to the data map. Select **Pattern rules** from the menu under the Source management heading. Select **+ New** to create a new rule set.
 
    :::image type="content" source="media/how-to-resource-set-pattern-rules/create-new-scoped-resource-set-rule.png" alt-text="Create new resource set pattern rule" border="true":::
 
