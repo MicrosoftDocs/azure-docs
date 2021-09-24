@@ -135,7 +135,7 @@ key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/
 application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
 ```
 
-:::code language="yml" source="~/azureml-examples-main/cli/resources/workspace/with-existing-resources.yml":::
+:::code language="yml" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
 
 Then, you can reference this configuration file as part of the workspace creation CLI command.
 
@@ -216,7 +216,7 @@ For more details on how to use these commands, see the [CLI reference pages](/cl
 
 When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. Hence, you must set the image_build_compute property to a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the public_network_access property.
 
-:::code language="yml" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
+:::code language="yml" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
 
 > [!NOTE]
 > Note that you cannot use the Azure CLI to create a private link endpoint for your Azure Machine Learning workspace today. You must use the Azure portal, Azure Resource Manager or Terraform options to create the private link endpoint.
@@ -251,7 +251,7 @@ Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
 
-:::code language="yml" source="~/azureml-examples-main/cli/resources/workspace/cmk.yml":::
+:::code language="yml" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
 
 Then, you can reference this configuration file as part of the workspace creation CLI command.
 
