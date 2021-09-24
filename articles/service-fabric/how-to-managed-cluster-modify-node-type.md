@@ -159,9 +159,9 @@ Service Fabric managed cluster does not support in-place modification of the VM 
 
 > [!div class="nextstepaction"]
 > [Auto scale a Service Fabric managed cluster node type](how-to-managed-cluster-autoscale.md)
-
+> [!div class="nextstepaction"]
 > [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
-
+> [!div class="nextstepaction"]
 > [Deploy an app to a Service Fabric managed cluster](./tutorial-managed-cluster-deploy-app.md)
 
 
