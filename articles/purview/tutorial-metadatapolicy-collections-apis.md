@@ -101,7 +101,7 @@ Lists all the Metadata Access Permission Roles available.
 
 The output JSON will describe the roles and their associated permissions in this format.
 
-### Default Metadata Roles
+### Default metadata roles
 
 |**Role ID**|**Permissions**|**Role Description**|
 |:-|:-|:-|
