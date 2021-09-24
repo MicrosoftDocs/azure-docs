@@ -1,38 +1,29 @@
----
-author: aahill
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: text-analytics
-ms.topic: include
-ms.date: 09/23/2021
-ms.author: aahi
----
-
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-[!INCLUDE [create a new resource from the Azure portal](../../includes/resource-creation-azure-portal.md)]
+### Create new resource from Azure portal
 
-## Upload sample data to blob container
+Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom NER API.  
 
-After you have created an Azure storage account and linked it to your Language Service resource
+|Requirement  |Required value  |
+|---------|---------|
+|Location | "West US 2" or "West Europe"         |
+|Pricing tier     | Standard (**S**) pricing tier        |
 
-1. [Download sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
+> [!IMPORTANT]
+> In the **Custom NER & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use Custom NER. While you can specify a storage account later, it's easier to do it now. 
 
-2. Go to your Azure storage account in the [Azure portal](https://ms.portal.azure.com), create a new container and upload sample data to it.
+### Get your resource keys endpoint
 
-### Get your resource keys and endpoint
+* Go to your resource overview page in the [Azure Portal](https://ms.portal.azure.com/#home)
 
-* Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
-
-* From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
-
-:::image type="content" source="../../media/get-endpoint-azure.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../media/get-endpoint-azure.png":::
+* From the left side menu select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
+:::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen for an Azure resource." lightbox="../../../media/azure-portal-resource-credentials.png:::
 
 ## Create project
 
-To start creating a custom classification model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
+To start creating a custom NER model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models.
 
 > [!NOTE]
 > The project name is case sensitive for all operations.
@@ -41,10 +32,10 @@ Create a **POST** request using the following URL, headers, and JSON body to cre
 
 ### Request URL
 
-Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
+Use the following URL when creating your API request. Replace the placeholder values below with your own values.
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects. 
+{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects`. 
 ```
 
 |Placeholder  |Value  | Example |
@@ -53,23 +44,21 @@ Use the following URL when creating your API request. Replace the placeholder va
 
 ### Headers
 
-Use the following header to authenticate your request. 
+Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|`Ocp-Apim-Subscription-Key`| Your Subscription key which provides access to this API.|
 
-### Body
-
-Use the following JSON in your request. Replace the placeholder values below with your own values. 
+### Request body
 
 ```json
 {
     "name": "MyProject",
-    "modelType": "MultiClassification",
+    "modelType": "Extraction",
     "multiLingual": false,
-    "description": "My new custom classification project",
-    "culture": "en-US",
+    "description": "My new CT project",
+    "culture": "string",
     "storageInputContainerName": "{YOUR-CONTAINER-NAME}",
     "labelsLocation": "{YOUR-LABEL-FILE-LOCATION}"
 }
@@ -80,21 +69,25 @@ Use the following JSON in your request. Replace the placeholder values below wit
 |`{YOUR-CONTAINER-NAME}`     | The name of your Azure blob storage container.   | `myContainer` |
 |`{YOUR-LABEL-FILE-LOCATION}`     | The location of the label file in your storage container.   | `myLabels.json` |
 
+
+> [!TIP]
+> In future projects, if your files will be in multiple languages set `multiLingual` to `true`, and set `culture` to the culture of the majority of your files.
+
 This request will return an error if:
 
-* The selected resource doesn't have proper permission for the storage account. 
+* The resource selected doesn't have proper permission for the storage account.
 * The labels file location is not valid.
 
 ## Start training your model
 
-After your project has been created, you can begin training a text classification model. Create a **POST** request using the following URL, headers, and JSON body to start training a text classification model.
+After your project has been created, you can begin training an NER model. Create a **POST** request using the following URL, headers, and JSON body to start training an NER model.
 
 ### Request URL
 
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/train`. 
+{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/train
 ```
 
 |Placeholder  |Value  | Example |
@@ -108,9 +101,9 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|`Ocp-Apim-Subscription-Key`| Your Subscription key which provides access to this API.|
 
-### Request body
+#### Request body
 
 Use the following JSON in your request. the model will be named `MyModel` once training is complete.  
 
@@ -132,10 +125,13 @@ Once you send your API request, you will receive a `202` response indicating suc
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status. 
 
-## Get Training Status
+## Get training status
 
-Use the following **GET** request to query the status of your model's training process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+To get the status of the model training process, you can create a **GET** request to query the status of your model's training process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
+### Request URL
+
+Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
 {YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/train/jobs/{jobId}
@@ -149,61 +145,58 @@ Use the following **GET** request to query the status of your model's training p
 
 ### Headers
 
-Use the following header to authenticate your request. 
-
 |Key|Value|
 |--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests. |
 
-
-### Response Body
+### Response body
 
 Once you send the request, you will get the following response. 
 
 ```json
-{
-    "tasks": [
-        {
-        "trainingModelName": "MyModel",
-        "evaluationStatus": {
+    {
+        "tasks": [
+            {
+            "trainingModelName": "MyModel",
+            "evaluationStatus": {
+                "status": "notStarted",
+                "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
+                "error": {
+                "code": "NotFound",
+                "message": "Error Message"
+                }
+            },
             "status": "notStarted",
             "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
             "error": {
-            "code": "NotFound",
-            "message": "Error Message"
+                "code": "NotFound",
+                "message": "Error Message"
             }
-        },
-        "status": "notStarted",
+            }
+        ],
+        "inProgress": 0,
+        "completed": 0,
+        "failed": 0,
+        "total": 0,
+        "jobId": "123456789",
+        "createdDateTime": "2021-05-18T20:31:04.592Z",
         "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
-        "error": {
+        "expirationDateTime": "2021-05-19T11:44:08.555Z",
+        "status": "notStarted",
+        "errors": [
+            {
             "code": "NotFound",
-            "message": "Error Message"
-        }
-        }
-    ],
-    "inProgress": 0,
-    "completed": 0,
-    "failed": 0,
-    "total": 0,
-    "jobId": "123456789",
-    "createdDateTime": "2021-05-18T20:31:04.592Z",
-    "lastUpdatedDateTime": "2021-05-18T20:31:04.592Z",
-    "expirationDateTime": "2021-05-19T11:44:08.555Z",
-    "status": "notStarted",
-    "errors": [
-        {
-        "code": "NotFound",
-        "message": "string"
-        }
-    ]
-}
+            "message": "string"
+            }
+        ]
+    }
 ```
 
 ## Publish your model
 
-Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [improve model](../../how-to/improve-model.md) if necessary. In this quickstart, you will just publish your model, and make it available for you to try. 
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [improve the model](../../how-to/improve-model.md) if necessary. In this quickstart, you will just publish your model, and make it available for you to try. 
 
-Create a **POST** request using the following URL, headers, and JSON body to start publishing a text classification model.
+Create a **POST** request using the following URL, headers, and JSON body to start publishing a custom NER model.
 
 ```rest
 {YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/publish
@@ -220,7 +213,7 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|Ocp-Apim-Subscription-Key| The key to your resource. Used for authenticating your API requests.|
 
 ### Request body
 
@@ -242,11 +235,11 @@ Once you send your API request, you will receive a `202` response indicating suc
 {YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
 ``` 
 
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the publishing status.
+`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the deployment status.
 
-## Get the publishing status
+## Get the publish status
 
-Use the following **GET** request to query the status of your model's publishing process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+Use the following **GET** request to query the status of your model's training process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
 {YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/publish/jobs/{JOB-ID}
@@ -264,7 +257,7 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
+|Ocp-Apim-Subscription-Key| The key to your resource. Used for authenticating your API requests.|
 
 
 ### Response Body
@@ -302,11 +295,11 @@ Once you send the request, you will get the following response.
 }
 ```
 
-## Start a text classification task
+## Start custom entity recognition task
 
-Now that your model is published, you can begin sending text classification tasks to it 
+Now that your model is deployed, you can begin sending entity recognition tasks to it 
 
-Create a **POST** request using the following URL, headers, and JSON body to start publishing a text classification model.
+Create a **POST** request using the following URL, headers, and JSON body to send a request to your model.
 
 ```rest
 {YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze
@@ -344,7 +337,7 @@ Use the following JSON in your request. Replace the `modelId` placeholder value 
             ]
         },
         "tasks": {
-            "customMultiClassificationTasks": [      
+            "customEntityRecognitionTasks": [      
                 {
                     "parameters": {
                         "modelId": "{YOUR-MODEL-ID}",
@@ -368,9 +361,9 @@ Once you send your API request, you will receive a `202` response indicating suc
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the task status and results.
 
-## Get the classification task status and results
+## Get the entity extraction task status and results
 
-After you've created a classification task, you can create a **GET** request to query the status of the task. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+After you've created an NER task, you can create a **GET** request to query the status of the task. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
 {YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/{JOB-ID}
@@ -387,11 +380,11 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| The key to your resource. Used for authenticating your API requests.|
+|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests. |
 
-### Response body
+### Response Body
 
-The response will be a JSON document with the following parameters.
+The response will be a JSON document with the following parameters
 
 ```json
 {
@@ -413,7 +406,7 @@ The response will be a JSON document with the following parameters.
         "inProgress": 0,
         "total": 1,
         "tasks": {
-    "customMultiClassificationTasks": [
+    "customEntityRecognitionTasks": [
         {
             "lastUpdateDateTime": "2021-05-19T14:32:25.579Z",
             "name": "MyJobName",
@@ -422,9 +415,12 @@ The response will be a JSON document with the following parameters.
                 "documents": [
                     {
                         "id": "doc1",
-                        "classes": [
+                        "entities": [
                             {
-                                "category": "Class_1",
+                                "text": "Government",
+                                "category": "restaurant_name",
+                                "offset": 23,
+                                "length": 10,
                                 "confidenceScore": 0.0551877357
                             }
                         ],
@@ -432,14 +428,13 @@ The response will be a JSON document with the following parameters.
                     },
                     {
                         "id": "doc2",
-                        "classes": [
+                        "entities": [
                             {
-                                "category": "Class_1",
-                                "confidenceScore": 0.0551877357
-                            },
-                                                        {
-                                "category": "Class_2",
-                                "confidenceScore": 0.0551877357
+                                "text": "David Schmidt",
+                                "category": "artist",
+                                "offset": 0,
+                                "length": 13,
+                                "confidenceScore": 0.8022353
                             }
                         ],
                         "warnings": []
