@@ -45,7 +45,7 @@ This table gives an overview of the **Purview Collections APIs**. Click each of 
 ## Create collection hierarchy using Azure portal or APIs
 ### Using APIs:
 ```http
-PUT [https://{your-purview-account-name}.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview]
+PUT https://{your_purview_account_name}.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview
 ```
 > [!NOTE]
 > If using API, the above API is part of account data plane and the Service Principal (SP), User or Group executing the API should have [Collection Admin](how-to-create-and-manage-collections.md#check-permissions) role assigned in Purview to execute this API successfully.
@@ -62,7 +62,7 @@ Sample Collection Created via Azure Portal:
     "friendlyName": "Friendly Name",
     "parentCollection": {
         "type": "CollectionReference",
-        "referenceName": "{your-purview-account-name}"
+        "referenceName": "{your_purview_account_name}"
     },
     "systemData": {
         "createdBy": "{guid}",
@@ -95,7 +95,7 @@ Details on some of the important identifiers in the JSON output received from th
 
 ## Get All Metadata Roles
 ```http
-GET [https://{your-purview-account-name}.purview.azure.com/policystore/metadataroles?api-version=2021-07-01
+GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataroles?api-version=2021-07-01
 ```
 Lists all the Metadata Access Permission Roles available.
 
@@ -232,7 +232,7 @@ The output JSON will describe the roles and their associated permissions in this
 
 # Get All Metadata Policies
 ```http
-GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies?api-version=2021-07-01
+https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies?api-version=2021-07-01
 ```
 Lists all the Metadata Policies available across the entire collections hierarchy including and beginning with the Root Collection, as well as all its child policies in tree format. The hierarchy begins with the Root Collection at the top followed by its child collection. Each child collection encapsulates each of its next level children.
 Example:
@@ -606,11 +606,11 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 
 ### Get MetadataPolicy of the collection by collectionName
 ```http
-GET https://{your-purview-account-name}.purview.azure.com/policystore/collections/{collectionName}/metadataPolicy?api-version=2021-07-01
+GET https://{your_purview_account_name}.purview.azure.com/policystore/collections/{collectionName}/metadataPolicy?api-version=2021-07-01
 ```
-1. The Purview account name is {your-purview-account-name}. Replace it with your Purview Account name.
+1. The Purview account name is {your_purview_account_name}. Replace it with your Purview Account name.
 1. In the JSON output of the previous API "Get All Metadata Policies" Look for the section resembling : { "type": "CollectionReference", "referenceName": "7xkdg2"}
-1. Replace "{collectionName}" in the API URL with the value of "referenceName": "{6-char-collection-name}". So if your 6-character-collection-name is "7xkdg2" the API URL will look like  https://{your-purview-account-name}.purview.azure.com/policystore/collections/7xkdg2/metadataPolicy?api-version=2021-07-01
+1. Replace "{collectionName}" in the API URL with the value of "referenceName": "{6-char-collection-name}". So if your 6-character-collection-name is "7xkdg2" the API URL will look like  https://{your_purview_account_name}.purview.azure.com/policystore/collections/7xkdg2/metadataPolicy?api-version=2021-07-01
 1. Now execute this API. 
 
 ```json
@@ -700,11 +700,11 @@ GET https://{your-purview-account-name}.purview.azure.com/policystore/collection
 
 ### Get MetadataPolicy of the collection by policyID
 ```http
-GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
+GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
 ```
-1. The Purview account name is {your-purview-account-name}. Replace with your Purview account name.
+1. The Purview account name is {your_purview_account_name}. Replace with your Purview account name.
 1. In the JSON output of the previous API "Get All Metadata Policies" look for the section resembling : {.... "name": "policy_qu45fs", "id": "{policy-guid}", "version": N ....}
-1. Replace "{policyId}" in the API URL with the value of "id". So if your "{policy-guid}" is "c6639bb2-9c41-4be0-912b-775750e725de" the API URL will look like  https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/c6639bb2-9c41-4be0-912b-775750e725de?api-version=2021-07-01
+1. Replace "{policyId}" in the API URL with the value of "id". So if your "{policy-guid}" is "c6639bb2-9c41-4be0-912b-775750e725de" the API URL will look like  https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/c6639bb2-9c41-4be0-912b-775750e725de?api-version=2021-07-01
 1. Now execute this API. Notice that output of this API call and the previous API call are the same. You can choose either one as previously mentioned in the tutorial.
 
 ```json
@@ -795,7 +795,7 @@ GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPo
 
 ## 4. API: Update Policy: Add / Remove User, Group, Or Service Principal to Collection
 ```http
-PUT https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
+PUT https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
 ```
 
 This step will update the Policy JSON obtained in previous step and push it to Purview Service using a PUT REST Method.
