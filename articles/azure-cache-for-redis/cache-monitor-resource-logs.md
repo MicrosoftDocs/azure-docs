@@ -1,6 +1,7 @@
 ---
-title: Monitor Azure Cache for Redis data by using Azure Diagnostic settings
-description: Learn how to use Azure diagnostic settings to monitor the performance and availability of data stored in Azure Cache for Redis
+title: Monitor Azure Cache for Redis connections using Azure diagnostic settings
+titleSuffix: Azure Cache for Redis
+description: Learn how to use Azure diagnostic settings to monitor connected ip addresses to your Azure Cache for Redis.
 author: curib
 ms.author: cauribeg
 ms.service: cache
@@ -16,12 +17,14 @@ Required. Lead with a light intro that describes, in customer-friendly language,
 what the customer will learn, or do, or accomplish. Answer the fundamental “why 
 would I want to do this?” question. Keep it short.
 -->
-Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs". Some examples of the data plane operations include delete, insert, and readFeed. The content of these logs varies by resource type.
+Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs".
 
-Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic setting for Azure Cache for Redis accounts and send resource logs to the following sources:
+Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. 
 
-- Log Analytics workspaces
-  - Data sent to Log Analytics can be written into **Azure Diagnostics (legacy)** or **Resource-specific (preview)** tables
+Log data that is collected: Customers can see logs of all clients (IP address and counts) connected to their cache (snapshots taken at 10 sec intervals).
+
+You can turn on diagnostic setting for Azure Cache for Redis accounts and send resource logs to the following sources:
+
 - Event hub
 - Storage Account
 
@@ -48,115 +51,82 @@ Jeffrey are there any pre-reqs
    <!-- :::image type="content" source="./media/monitor-cosmos-db/diagnostics-settings-selection.png" alt-text="Select diagnostics"::: -->
 
 
+
 3. In the **Diagnostic settings** pane, fill the form with your preferred categories.
 
 ### Choose log categories
 
    |Category  |API   | Definition  | Key Properties   |
    |---------|---------|---------|---------|
-   |DataPlaneRequests     |  All APIs        |     Logs back-end requests as data plane operations which are requests executed to create, update, delete or retrieve data within the account.   |   `Requestcharge`, `statusCode`, `clientIPaddress`, `partitionID`, `resourceTokenPermissionId` `resourceTokenPermissionMode`      |
+   |ConnectedClientList |  All APIs        |     IP addresses and counts of clients connected to the cache at regular intervals.   |   `connectedClients` and nested within `ip`, `count`, `privateLinkIpv6`    |
   
 4. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
 
     <!-- :::image type="content" source="./media/monitor-cosmos-db/diagnostics-resource-specific.png" alt-text="Select enable resource-specific"::: -->
 
 ## Create diagnostic setting via REST API
-<!-- Is this part of the AzCforR feature too? The Cosmos DB has this section -->
-
-Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate) for creating a diagnostic setting via the interactive console.
-> [!Note]
-> We recommend setting the **logAnalyticsDestinationType** property to **Dedicated** for enabling resource specific tables.
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console.
 
 
 ### Request
 
-   ```HTTP
-   PUT
-   https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnosticSettings/service?api-version={api-version}
-   ```
-
+```HTTP
+PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}?api-version=2017-05-01-preview
+```
 ### Headers
 
    |Parameters/Headers  | Value/Description  |
    |---------|---------|
    |name     |  The name of your Diagnostic setting.      |
-   |resourceUri     |   subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}      |
-   |api-version     |    2017-05-01-preview     |
+   |resourceUri     |  subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME}       |
+   |api-version     |    2017-05-01-preview  |
    |Content-Type     |    application/json     |
+
+<!-- {resourceUri} is something like: subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME} -->
 
 ### Body
 
 ```json
 {
-    "id": "/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDb/databaseAccounts/{ACCOUNT_NAME}/providers/microsoft.insights/diagnosticSettings/{DIAGNOSTIC_SETTING_NAME}",
-    "type": "Microsoft.Insights/diagnosticSettings",
-    "name": "name",
-    "location": null,
-    "kind": null,
-    "tags": null,
     "properties": {
-        "storageAccountId": null,
-        "serviceBusRuleId": null,
-        "workspaceId": "/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}",
-        "eventHubAuthorizationRuleId": null,
-        "eventHubName": null,
-        "logs": [
-            {
-                "category": "DataPlaneRequests",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                    "enabled": false,
-                    "days": 0
-                }
-            },
-            {
-                "category": "QueryRuntimeStatistics",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                    "enabled": false,
-                    "days": 0
-                }
-            },
-            {
-                "category": "PartitionKeyStatistics",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                    "enabled": false,
-                    "days": 0
-                }
-            },
-            {
-                "category": "PartitionKeyRUConsumption",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                    "enabled": false,
-                    "days": 0
-                }
-            },
-            {
-                "category": "ControlPlaneRequests",
-                "categoryGroup": null,
-                "enabled": true,
-                "retentionPolicy": {
-                    "enabled": false,
-                    "days": 0
-                }
-            }
-        ],
-        "logAnalyticsDestinationType": "Dedicated"
-    },
-    "identity": null
+      "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+      "eventHubAuthorizationRuleId": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+      "eventHubName": "myeventhub",
+      "logs": [
+        {
+          "category": "ConnectedClientList",
+          "enabled": true,
+          "retentionPolicy": {
+            "enabled": false,
+            "days": 0
+          }
+        }
+      ]
+    }
 }
 ```
 
-## Create diagnostic setting via Azure CLI
-Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
 
-`
+-----
+
+
+
+## Create diagnostic setting via Azure CLI
+Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
+
+```azurecli
+az monitor diagnostic-settings create --resource /subscriptions/13c7d7df-f56e-4645-91b5-c08688d518e5/resourceGroups/Jeffrey/providers/Microsoft.Cache/Redis/jc-cs --name clitest --logs '[{"category": "ConnectedClientList","enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' --event-hub MyEventHubName --event-hub-rule /subscriptions/13c7d7df-f56e-4645-91b5-c08688d518e5/resourceGroups/jeffrey/providers/Microsoft.EventHub/namespaces/jc-eventhub/authorizationrules/RootManageSharedAccessKey --storage-account /subscriptions/13c7d7df-f56e-4645-91b5-c08688d518e5/resourceGroups/jeffrey/providers/Microsoft.Storage/storageAccounts/jceaup
+```
+<!-- Clean-up the command to remove user data. -->
+
+## Private Link Clients
+
+## Runner IP addresses
+
+Customers might notice  monitoring "runner" IP addresses show up in the logs, which may cause some confusion. 
+
+There is some work going on to shut these down but in the meantime we should document these IPs somewhere. See Lavanya/Alfan for these IP
+
 ## Enable full-text query for logging query text
 
 > [!Note]
@@ -172,7 +142,6 @@ Azure Cache for Redis provides advanced logging for detailed troubleshooting. By
    
     <!-- :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="Select enable full-text"::: -->
 
-To learn how to query using this newly enabled feature visit [advanced queries](cosmos-db-advanced-queries.md).
 
 
 
