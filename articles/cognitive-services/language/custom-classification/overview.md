@@ -52,4 +52,4 @@ Follow these steps to get the most out of your model:
 
 ## Next steps
 
-Use the [quickstart article](quickstart/using-language-studio.md) to start sending requests using Language Studio.  
+Use the [quickstart article](quickstart.md) to start sending requests using Language Studio.  
