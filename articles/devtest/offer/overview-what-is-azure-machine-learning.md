@@ -120,7 +120,6 @@ Other languages and frameworks are supported as well, including:
 - R
 - .NET
 
-See [Open-source integration with Azure DevTest Offer../machine-learning/concept-open-source.md).
 
 ### Automated featurization and algorithm selection (AutoML)
 
@@ -170,12 +169,6 @@ See:
 ## MLOps: DevOps for machine learning 
 
 DevOps for machine learning models, often called MLOps, is a process for developing models for production. A model's lifecycle from training to deployment must be auditable if not reproducible.
-
-### ML model lifecycle 
-
-![Machine learning model lifecycle - MLOps](../../machine-learning/media/overview-what-is-azure-machine-learning/model-lifecycle.png)
-
-Learn more about [MLOps in Azure DevTest Offer](../../machine-learning/concept-model-management-and-deployment.md).
 
 
 ## Next steps

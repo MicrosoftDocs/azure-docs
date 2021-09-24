@@ -13,7 +13,7 @@
       expanded: true
       items:
         - name: 3. Use your own data
-          href: tutorial-1st-experiment-bring-data.md
+          href: tutorial-experiment-bring-data.md
 - name: Samples
 - name: Concepts
   items: 
