@@ -10,8 +10,7 @@ ms.date: 09/22/2020
 
 # Servers - Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL - Flexible Server.
 

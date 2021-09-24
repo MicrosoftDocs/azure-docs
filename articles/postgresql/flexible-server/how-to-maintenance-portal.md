@@ -12,8 +12,7 @@ ms.date: 09/22/2020
  
 You can specify maintenance options for each Flexible server in your Azure subscription. Options include the maintenance schedule and notification settings for upcoming and finished maintenance events.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible server is in preview.
+
 
 ## Prerequisites
 To complete this how-to guide, you need:

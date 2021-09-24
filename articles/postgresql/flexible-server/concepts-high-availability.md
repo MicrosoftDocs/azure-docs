@@ -268,7 +268,7 @@ Here are some failure scenarios that require user action to recover:
     Since the replication happens in synchronous mode, no data loss is expected.
 
 * **Do you offer SLA for the failover time?** <br>
-    For the failover time, we provide guidelines on how long it typically takes for the operation. The official SLA is provided for the overall uptime 99.99% for servers where HA is configured. 
+    For the failover time, we provide guidelines on how long it typically takes for the operation. The official SLA is provided for the overall uptime. 
 
 * **Does the application automatically connect to the server after the failover?** <br>
     No. Applications should have retry mechanism to reconnect to the same endpoint (hostname).
