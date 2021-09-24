@@ -289,7 +289,7 @@ When the application runs, a Kubernetes service exposes the application front en
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
 ```azurecli-interactive
-kubectl get service django-app --watch
+kubectl get service python-svc --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *django-app* service is shown as *pending*.
