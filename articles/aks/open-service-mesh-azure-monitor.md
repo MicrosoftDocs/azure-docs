@@ -20,7 +20,7 @@ The OSM AKS add-on will have deep integrations into both of these Azure services
 
 Once the osm aks-addon has been enabled on the AKS cluster, Azure Monitor needs to be enabled in the cluster. This can be done by clicking on the AKS cluster in Azure Portal, going to the "Insights" tab under "Monitoring," and clicking "Enable." 
 
-Once Azure Monitor has been enabled, you should be able to see the following logs in the osm-system namespace: 
+Once Azure Monitor has been enabled, you should be able to see the following logs in the kube-system namespace: 
 
 ```
 kube-system     omsagent-5pn4c                        1/1     Running   0          24m
