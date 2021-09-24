@@ -74,7 +74,7 @@ In the left navigation pane, select **Application Insights** to jump to the **Ov
 
    [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
-* In the left navigation pane, select **Live Metrics** to see the real time metrics for different dimensions.
+* In the left navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
 
    [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
@@ -84,11 +84,11 @@ In the left navigation pane, select **Application Insights** to jump to the **Ov
 
 ## Automation
 
-The following sections describe how to automate your deployment using ARM templates or Terraform.
+The following sections describe how to automate your deployment using Azure Resource Manager templates (ARM templates) or Terraform.
 	
-### ARM template
+### ARM templates
 
-To deploy using an Azure Resource Manager template, copy the following content into an *azuredeploy.json* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
+To deploy using an ARM template, copy the following content into an *azuredeploy.json* file. For more information, see [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
 
 ```json
 {
@@ -236,7 +236,7 @@ az spring-cloud app-insights update \
 
 ## Java agent update/upgrade
 
-The Java agent will be updated/upgraded regularly with the JDK, which may impact the following scenarios.
+The Java agent will be updated/upgraded regularly with the JDK, which may affect the following scenarios.
 
 > [!Note]
 > The JDK version will be updated/upgraded quarterly per year.
