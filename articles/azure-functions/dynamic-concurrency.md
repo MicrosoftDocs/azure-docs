@@ -71,7 +71,3 @@ Behind the scenes, when Dynamic Concurrency is enabled there's a **ConcurrencyMa
 Concurrency levels are managed for each individual function. So if you have one particularly resource intensive function that can only handle a low level of concurrency, and several others that are lightweight and can handle much higher concurrency, the system will attempt to arrive at concurrency levels for each that maintains overall host health.  
 
 When Dynamic Concurrency is enabled, you'll see Dynamic Concurrency concurrency decisions in your logs. For example, you'll see logs when various throttles are enabled, and whenever concurrency is adjusted up or down for each function. These logs are written under the "Host.Concurrency" log category. 
-
-## Feedback 
-
-The Dynamic Concurrency feature is currently in preview. Feel free to try it, and provide us feedback via regular channels, and log any issues in our [github repo](https://github.com/Azure/azure-functions-host)! 
