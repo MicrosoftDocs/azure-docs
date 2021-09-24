@@ -2,7 +2,7 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources. 
 ms.topic: conceptual
-ms.date: 09/17/2021 
+ms.date: 09/24/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -121,6 +121,8 @@ If you choose to integrate your private endpoint with private DNS zones, Backup 
 
 ![DNS configuration in Azure private DNS zone](./media/private-endpoints/dns-configuration.png)
 
+>[!Note]
+>If you're using proxy servers, you can choose to bypass the proxy server or perform your backups through the proxy server. To bypass a proxy server, see the following sections. To use the proxy server for performing your backups, see [proxy server setup details for Recovery Services vault](#set-up-proxy-server-for-recovery-services-vault-with-private-endpoint).
 #### Validate virtual network links in private DNS zones
 
 For **each private DNS** zone listed above (for Backup, Blobs and Queues), do the following:
