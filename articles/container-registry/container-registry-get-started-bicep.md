@@ -98,12 +98,12 @@ When you no longer need them, delete the resource group, the registry, and the r
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with an ARM template, and configured a registry replica in another location. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
+In this quickstart, you created an Azure Container Registry with a Bicep file, and configured a registry replica in another location. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry tutorials](container-registry-tutorial-prepare-registry.md)
 
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+For a step-by-step tutorial that guides you through the process of creating a Bicep file, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Quickstart: Create Bicep files with Visual Studio Code](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md)
