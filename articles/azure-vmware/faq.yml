@@ -78,7 +78,7 @@ sections:
         answer: You'll need an Azure account in an Azure subscription.
 
       - question: Are Red Hat solutions supported on Azure VMware Solution?
-        answer: Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and intergrated support umbrella. Red Hat Enterprise Linux supports running on top of Azure VMware Solution within Azure.
+        answer: Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and integrated support umbrella. Red Hat Enterprise Linux supports running on top of Azure VMware Solution within Azure.
 
 
 
