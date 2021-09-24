@@ -90,7 +90,7 @@ Details on some of the important identifiers in the JSON output received from th
 
 **Version**: latest version number of the policy. \*\*(Version number gets incremented each time Update-Metadata-Policy API is called. So, it is necessary to fetch the latest copy of the policy all the time. To achieve this, you must call Get-Policy-by-Policy-ID API every time before updating it, so that you always have the latest version of the JSON)
 
-**DecisionRules**:  List the rules and effect of this policy. For metadata polices, the effect is always “Permit”.
+**DecisionRules**:  List the rules and effect of this policy. For metadata policies, the effect is always “Permit”.
 
 ## Tutorial: Using Purview REST APIs to Add or Remove a [User/Group/ServicePrincipal] to a Collection
 
@@ -912,7 +912,7 @@ On success, you will get HTTP Response 200 OK.
 To help you get quick-started with Purview APIs here is an archive of all the Purview REST API Specs collected together at one place: [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest) or Postman collection of Purview APIs.
 
 ## PowerShell utility to run Purview APIs
-You may choose to execute Purview REST APIs using PowerShell Utility [Purview-API-PowerShell](https://aka.ms/purview-api-ps). It can be readily installed from PS Gallery. It will execute all the same commands, from a PowerShell framework.
+You may choose to execute Purview REST APIs using PowerShell Utility [Purview-API-PowerShell](https://aka.ms/purview-api-ps). It can be readily installed from PowerShell Gallery. It will execute all the same commands, albeit from the Windows PowerShell.
 
 > [!div class="nextstepaction"] 
 > [Purview-API-PowerShell](https://aka.ms/purview-api-ps) 
