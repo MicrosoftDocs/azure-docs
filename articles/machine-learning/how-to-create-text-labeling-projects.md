@@ -123,7 +123,21 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 ### Dashboard
 
-[!INCLUDE [dashboard](../../includes/machine-learning-data-labeling-dashboard.md)]
+
+The **Dashboard** tab shows the progress of the labeling task.
+
+:::image type="content" source="../articles/machine-learning/media/how-to-create-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
+
+The progress chart shows how many items have been labeled and how many are not yet done.  Items pending may be:
+
+* Not yet added to a task
+* Included in a task that is assigned to a labeler but not yet completed 
+* In the queue of tasks yet to be assigned
+
+The middle section shows the queue of tasks yet to be assigned. 
+
+
+On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
 
 ### Data tab
 
