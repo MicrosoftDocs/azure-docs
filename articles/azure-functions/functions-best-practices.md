@@ -74,7 +74,7 @@ Keep in mind the following considerations when creating this storage account:
 
 ### Handling large data sets
 
-When running on Linux, you can add extra storage by mounting a file share. Mounting a share is a convenient way to a function process a large existing data set. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
+When running on Linux, you can add extra storage by mounting a file share. Mounting a share is a convenient way for a function to process a large existing data set. To learn more, see [Mount file shares](storage-considerations.md#mount-file-shares).
 
 ## Organize your functions 
 
