@@ -159,7 +159,81 @@ if (response.isSuccessStatusCode()) {
 
 ## Node
 
-TODO
+TODO add sample repo information
+
+**Executing a single patch operation**
+
+```javascript
+const patchSource = itemDefList[1];
+
+const replaceOperation: PatchOperation[] = 
+    [{ 
+      op: "replace", 
+      path: "/lastName", 
+      value: "Martin" 
+    }];
+
+const { resource: patchSource1 } = await container.item(patchSource.lastName).patch(replaceOperation); 
+console.log(`Patched ${patchSource1.lastName} to new ${patchSource1.lastName}.`); 
+```
+
+**Combining multiple patch operations**
+
+```javascript
+const multipleOperations: PatchOperation[] = [ 
+    { 
+      op: "add", 
+      path: "/aka", 
+      value: "MeFamily" 
+    }, 
+    { 
+      op: "add", 
+      path: "/years", 
+      value: 12 
+    }, 
+    { 
+      op: "replace", 
+      path: "/lastName", 
+      value: "Jose" 
+    }, 
+    { 
+      op: "remove", 
+      path: "/parents" 
+    }, 
+    { 
+      op: "set", 
+      path: "/children/firstName", 
+      value: "Anderson" 
+    }, 
+    { 
+      op: "incr", 
+      path: "/years", 
+      value: 5 
+    } 
+  ]; 
+
+const { resource: patchSource2  } = await container.item(patchSource.id).patch(multipleOperations); 
+ ```
+
+**Conditional patch syntax based on filter predicate**
+
+```javascript
+const operations : PatchOperation[] = [ 
+    { 
+      op: "add", 
+      path: "/newImproved", 
+      value: "it works" 
+    } 
+  ]; 
+
+const condition = "from c where NOT IS_DEFINED(c.newImproved)"; 
+
+const { resource: patchSource3 } = await container 
+    .item(patchSource.id) 
+    .patch({ condition, operations }); 
+
+console.log(`Patched ${patchSource3} to new ${patchSource3}.`); 
+```
 
 ## Server-Side programming support
 
