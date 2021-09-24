@@ -178,7 +178,7 @@ However, if you are **not** deploying an MLflow model, you need to provide two m
 
 Invoking a batch endpoint triggers an asynchronous batch inference job. Compute resources are automatically provisioned when the job starts, and automatically de-allocated as the job completes. So you only pay for compute when you use it.
 
-You can [override compute resource settings](how-to-use-batch-endpoint.md#overwrite-settings) (like instance count) and advanced settings (like mini batch size, error threshold, and so on) for each individual batch inference job to speed up execution and reduce cost.
+You can [override compute resource settings](how-to-use-batch-endpoint.md#configure-the-output-location-and-overwrite-settings) (like instance count) and advanced settings (like mini batch size, error threshold, and so on) for each individual batch inference job to speed up execution and reduce cost.
 
 ### Flexible data sources and storage
 

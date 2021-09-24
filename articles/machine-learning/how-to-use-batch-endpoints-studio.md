@@ -80,7 +80,7 @@ A batch scoring workload runs as an offline job. By default, batch scoring store
 
 ### Overwrite settings
 
-Some settings can be overwritten when you start a batch scoring job. For example, you might overwrite settings to make better use of the compute resource, or to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#overwrite-settings).
+Some settings can be overwritten when you start a batch scoring job. For example, you might overwrite settings to make better use of the compute resource, or to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#configure-the-output-location-and-overwrite-settings).
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job":::
 
