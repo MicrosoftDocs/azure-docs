@@ -55,4 +55,4 @@ This article lists current metros containing point-of-presence (POP) locations, 
 
 ## Next steps
 
-* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/cdn/edgenodes).
+* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/edge-nodes/list).
