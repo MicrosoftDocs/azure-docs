@@ -16,7 +16,7 @@ ms.author: rifox
 Call transcription is an extended feature of the core `Call` API. You first need to obtain the transcription feature API object:
 
 ```java
-TranscriptionFeature callTranscriptionFeature = call.api(TranscriptionFeature.class);
+TranscriptionCallFeature callTranscriptionFeature = call.api(Features.TRANSCRIPTION);
 ```
 
 Then, to check if the call is being transcribed, inspect the `isTranscriptionActive` property of `callTranscriptionFeature`. It returns `boolean`.
