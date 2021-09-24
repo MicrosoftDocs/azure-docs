@@ -125,7 +125,7 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 
 ### Register your model and environment separately
 
-In this example, we specify the model and environment properties inline: `name`, `version`, and `local_path` (where to upload files from). The CLI automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the YAML. Use the form `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
+In this example, we specify the `local_path` (where to upload files from) inline. The CLI automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the YAML. Use the form `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
 
 For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
