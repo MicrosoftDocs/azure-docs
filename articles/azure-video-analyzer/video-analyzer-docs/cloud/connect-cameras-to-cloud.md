@@ -15,7 +15,8 @@ Azure Video Analyzer allows users to connect cameras directly to the cloud in or
 ## Connecting via a transparent gateway
 This method allows cameras to connect to Video Analyzer via the Video Analyzer Edge module acting as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md). This approach is useful in the following scenarios:
 
-* TODO: rephrase the "Downstream device isolation" section in https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-as-gateway?view=iotedge-2020-11
+* When cameras/devices connected to the gateway need to be shielded from exposure to the internet
+* When cameras/devices do not have the functionality to connect to IoT Hub independently
 * When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
 
 ## Connecting behind a firewall using an IoT PnP command
