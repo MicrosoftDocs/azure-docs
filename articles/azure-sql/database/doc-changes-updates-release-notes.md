@@ -128,7 +128,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
-|[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-Azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021|||
+|[Misleading error message on Azure portal suggesting recreation of the Service Principal](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Sep 2021|||
 |[Changing the connection type does not affect connections through the failover group endpoint](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Jan 2021|Has Workaround||
 |[Procedure sp_send_dbmail may transiently fail when @query parameter is used](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Jan 2021|Has Workaround||
 |[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
@@ -173,7 +173,7 @@ You can neglect this error message if Service Principal for the managed instance
 
 To check whether Service Principal exists, navigate to the _Enterprise applications_ page on the Azure portal, choose _Managed Identities_ from the _Application type_ dropdown list, click _Apply_ and type the name of the managed instance in the search box. If the instance name shows up in the result list, Service Principal already exists and no further actions are needed.
 
-If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly-created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by folowing [instructions](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#powershell).
+If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly-created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by folowing [instructions](./authentication-aad-configure.md?tabs=azure-powershell#powershell).
 
 ### Changing the connection type does not affect connections through the failover group endpoint
 
