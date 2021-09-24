@@ -150,11 +150,11 @@
         href: f5-aad-password-less-vpn.md
     - name: Single sign-on
       items:
-      - name: Linked-based
+      - name: Linked
         href: configure-linked-sign-on.md
-      - name: OIDC-based single
+      - name: OpenID Connect
         href: add-application-portal-setup-oidc-sso.md
-      - name: Password-based
+      - name: Password
         href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:
