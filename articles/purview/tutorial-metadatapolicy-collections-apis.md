@@ -10,7 +10,7 @@ ms.date: 09/24/2021
 # Customer intent: As a Purview collection administrator, I want to manage Collections and control access to each Collection in the Purview account by adding or removing users, groups, or service principals via REST API Interface.
 ---
 
-# Tutorial: Use APIs to manage Azure Purview collections and access control
+# Tutorial: Use APIs to manage role based access control (RBAC) on Azure Purview Collections 
 
 In August 2021, access control in Azure Purview moved from Access Control (IAM) (control plane) to [Azure Purview Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This move allows data curators and owners to have more precise access control on their data stores, and allows organizations to audit right-access and right-use of their data.
 
@@ -44,9 +44,9 @@ This table gives an overview of the **Purview Collections APIs**. Click each of 
 
 ## Create collection hierarchy using Azure portal or APIs
 ### Using APIs:
-
-API: PUT [https://{your-purview-account-name}.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview](https://hoc-purviewga1.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview)
-
+```http
+PUT [https://{your-purview-account-name}.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview]
+```
 > [!NOTE]
 > If using API, the above API is part of account data plane and the Service Principal (SP), User or Group executing the API should have [Collection Admin](how-to-create-and-manage-collections.md#check-permissions) role assigned in Purview to execute this API successfully.
 
@@ -94,8 +94,9 @@ Details on some of the important identifiers in the JSON output received from th
 ## Tutorial: How to Add or Remove a [User/Group/ServicePrincipal] to a Collection as one of the 4 built-in Metadata Roles [Collection Administrator, Data Source Administrator, Data Curator or Data Reader]
 
 ## Get All Metadata Roles
-**GET [https://{your-purview-account-name}.purview.azure.com/policystore/metadataroles?api-version=2021-07-01**]()**
-
+```http
+GET [https://{your-purview-account-name}.purview.azure.com/policystore/metadataroles?api-version=2021-07-01
+```
 Lists all the Metadata Access Permission Roles available.
 
 The output JSON will describe the roles and their associated permissions in this format.
@@ -230,8 +231,9 @@ The output JSON will describe the roles and their associated permissions in this
 ```
 
 # Get All Metadata Policies
-**GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies?api-version=2021-07-01**
-
+```http
+GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies?api-version=2021-07-01
+```
 Lists all the Metadata Policies available across the entire collections hierarchy including and beginning with the Root Collection, as well as all its child policies in tree format. The hierarchy begins with the Root Collection at the top followed by its child collection. Each child collection encapsulates each of its next level children.
 Example:
 
@@ -597,14 +599,15 @@ Example:
 }
 ```
 
-## Get One Metadata Policy
+## Get Selected Metadata Policy 
 This API fetches the Policy either by CollectionName or by PolicyID.
 At this point you would want to choose the particular policy to modify (add/remove users). Pick the particular PolicyID from the previous step’s JSON output. 
 Now you can choose to use either API 3A or 3B below. Both serve the same purpose, it is your choice whether to use {collectionName} or {PolicyID}.
 
 ### Get MetadataPolicy of the collection by collectionName
-**GET https://{your-purview-account-name}.purview.azure.com/policystore/collections/{collectionName}/metadataPolicy?api-version=2021-07-01**
-
+```http
+GET https://{your-purview-account-name}.purview.azure.com/policystore/collections/{collectionName}/metadataPolicy?api-version=2021-07-01
+```
 1. The Purview account name is {your-purview-account-name}. Replace it with your Purview Account name.
 1. In the JSON output of the previous API "Get All Metadata Policies" Look for the section resembling : { "type": "CollectionReference", "referenceName": "7xkdg2"}
 1. Replace "{collectionName}" in the API URL with the value of "referenceName": "{6-char-collection-name}". So if your 6-character-collection-name is "7xkdg2" the API URL will look like  https://{your-purview-account-name}.purview.azure.com/policystore/collections/7xkdg2/metadataPolicy?api-version=2021-07-01
@@ -696,8 +699,9 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 ```
 
 ### Get MetadataPolicy of the collection by policyID
-**GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01**
-
+```http
+GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
+```
 1. The Purview account name is {your-purview-account-name}. Replace with your Purview account name.
 1. In the JSON output of the previous API "Get All Metadata Policies" look for the section resembling : {.... "name": "policy_qu45fs", "id": "{policy-guid}", "version": N ....}
 1. Replace "{policyId}" in the API URL with the value of "id". So if your "{policy-guid}" is "c6639bb2-9c41-4be0-912b-775750e725de" the API URL will look like  https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/c6639bb2-9c41-4be0-912b-775750e725de?api-version=2021-07-01
@@ -790,7 +794,9 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 
 
 ## 4. API: Update Policy: Add / Remove User, Group, Or Service Principal to Collection
-**PUT** **https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01**
+```http
+PUT https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
+```
 
 This step will update the Policy JSON obtained in previous step and push it to Purview Service using a PUT REST Method.
 
@@ -889,7 +895,9 @@ Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'l
 ## Add root collection admin
 In some cases, an organization needs to add a different root collection admin using the API instead of the Purview Studio. It is possible that the current root collection admin doesn’t exist in the organization anymore. 
 
-**POST https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01**
+```http
+POST https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01
+```
 
 You only need to pass in the objectId for the user or group
 ```json
