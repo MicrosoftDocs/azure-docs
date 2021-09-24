@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 09/24/2021
 ---
 
 # Use Purview Studio
@@ -45,17 +45,16 @@ The following list summarizes the main features of **Home page**. Each number in
 
 4. The quick access buttons give access to frequently used functions of the application. The buttons that are presented, depend on the role assigned to your user account at the root collection.
 
-   * For *data curator*, the buttons are **Knowledge Center**, **Browse Assets**, **Manage Glossary** and **View Insights**.
-   * For *data reader*, the featured buttons are **Knowledge Center**, **Browse Assets**, **View Glossary**, and **View Insights**.
-   * For *data source administrator* + *data curator*, the featured buttons are **Knowledge Center**, **Register Data Sources**, **Browse Assets**, and **Manage Glossary**.
-   * For *data source administrator* + *data reader*, the featured buttons are **Knowledge Center**, **Register Data Sources**, **Browse Assets**, and **View Glossary**.
-
-5. The left navigation bar helps you locate the main pages of the application. The buttons that are presented, depend on the role assigned to your user account at the root collection.
-
-   * For *data curator*, the buttons are **Home**, **Glossary**, **Insights**, and **Management center**.
-   * For *data reader*, the buttons are **Home**, **Glossary**, **Insights**, and **Management center**.
-   * For *data source administrator* or *data curator/reader*, the buttons are **Home**, **Sources**, **Glossary**, **Insights**, and **Management Center**.
+   * For *collection admin*, the available button is **Knowledge center**.
+   * For *data curator*, the buttons are **Browse assets**, **Manage glossary**, and **Knowledge center**.
+   * For *data reader*, the buttons are **Browse assets**, **View glossary**, and **Knowledge center**.
+   * For *data source admin* + *data curator*, the buttons are **Browse assets**, **Manage glossary**, and **Knowledge center**.
+   * For *data source admin* + *data reader*, the buttons are **Browse assets**, **View glossary**, and **Knowledge center**.
   
+  > [!NOTE]
+  > For more information about Azure Purview roles, see [Access control in Azure Purview](catalog-permissions.md).
+
+5. The left navigation bar helps you locate the main pages of the application.   
 6. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the Data Catalog](how-to-search-catalog.md) and [Browse by asset type](how-to-browse-catalog.md#browse-experience).  **My items** tab is a list of data assets owned by the logged-on user.
 7. **Links** contains links to region status, documentation, pricing, overview, and Purview status
 8. The top navigation bar contains information about release notes/updates, change purview account, notifications, help, and feedback sections.
