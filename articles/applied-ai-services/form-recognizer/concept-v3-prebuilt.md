@@ -16,34 +16,35 @@ ms.author: lajanuar
 >[!NOTE]
 > Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
 
+| **Model ID**   | **Description**   |
+| --- | --- |
+| prebuilt:layout  | Extracts text and layout information from documents.  |
+| prebuilt:document  | extract text, tables, structure, key-value pairs and named entities.  |
+| prebuilt:invoice  | Extract key information from English invoices.  |
+| prebuilt:receipt  | Extract key information from English receipts.  |
+| prebuilt:idDocument  | Extract key information from US driver licenses and international passports.  |
+| prebuilt:businessCard  | Extract key information from English business cards.  |
+
 **Analysis Features**
 
 | **Model ID**   | **Text Extraction**   | **Selection Marks**   | **Tables**   | **Key-Value Pairs**   | **Entities**   | **Document Analysis**   |
 | --- | --- | --- | --- | --- | --- | --- |
 | prebuilt:layout  | ✓  | ✓  | ✓  |   |   |   |
 | prebuilt:document  | ✓  | ✓  | ✓  | ✓  | ✓  |   |
-| prebuilt:businessCard  | ✓  |   |   |   |   | ✓  |
-| prebuilt:idDocument  | ✓  |   |   |   |   | ✓  |
 | prebuilt:invoice  | ✓  | ✓  | ✓  |   |   | ✓  |
 | prebuilt:receipt  | ✓  |   |   |   |   | ✓  |
+| prebuilt:idDocument  | ✓  |   |   |   |   | ✓  |
+| prebuilt:businessCard  | ✓  |   |   |   |   | ✓  |
 
-| **Model ID**   | **Description**   |
-| --- | --- |
-| prebuilt:layout  | Extracts text and layout information from documents.  |
-| prebuilt:document  | extract text, tables, structure, key-value pairs and named entities.  |
-| prebuilt:businessCard  | Extract key information from English business cards.  |
-| prebuilt:idDocument  | Extract key information from US driver licenses and international passports.  |
-| prebuilt:invoice  | Extract key information from English invoices.  |
-| prebuilt:receipt  | Extract key information from English receipts.  |
 
 v3.0 consolidates the analysis operations for layout analysis, prebuilt models, and custom models into a single pair of operations by assigning modelIds to layout analysis and prebuilt models. 
 
 * [**Prebuilt Layout**](#prebuilt-layout)
 * [**Prebuilt Document**](#prebuilt-document)
-* [**Prebuilt Business Card**](#prebuilt-businessCard)
-* [**Prebuilt ID Document**](#prebuilt-idDocument)
 * [**Prebuilt invoice**](#prebuilt-invoice)
 * [**Prebuilt receipt**](#prebuilt-receipt)
+* [**Prebuilt ID Document**](#prebuilt-idDocument)
+* [**Prebuilt Business Card**](#prebuilt-businessCard)
 
 POST /documentModels/{modelId}:analyze 
 

@@ -93,24 +93,18 @@ items:
   items:
   - name: Form Recognizer v2.1
     items:
-     - name: Layout
+     - name: Layout API
        href: concept-layout.md
      - name: Prebuilt models
-        href: concept-prebuilt
-     - name: Receipts
-       href: concept-receipts.md
-     - name: Business cards
-       href: concept-business-cards.md
-     - name: Invoices
-       href: concept-invoices.md
-     - name: Identity documents
-       href: concept-identification-cards.md
+       href: concept-prebuilt.md
      - name: Custom models
        href: concept-custom.md
   - name: "Form Recognizer v3.0 | Preview"
     items:
-      - name: Prebuilt and custom models (preview)
-        href: concept-v3-prebuilt-custom.md
+      - name: Prebuilt models (preview)
+        href: concept-v3-prebuilt.md
+      - name: Custom models (preview)
+        href: concept-v3-custom.md
 - name: Tutorials
   items:
   - name: "Use Azure Form Recognizer and AI Builder"
