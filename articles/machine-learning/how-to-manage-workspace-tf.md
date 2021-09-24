@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: denniseik
-ms.date: 08/18/2021
+ms.date: 09/21/2021
 ms.topic: how-to
 ms.custom: 
 
@@ -15,7 +15,9 @@ ms.custom:
 
 # Manage Azure Machine Learning workspaces using Terraform (preview)
 
-In this article, you learn how to create and manage an Azure Machine Learning workspace using Terraform configuration files. [Terraform](/azure/developer/terraform/)'s template-based configuration files enable you to define, provision, and configure Azure resources in a repeatable and predictable manner. A Terraform configuration is a document that defines the resources that are needed for a deployment. It may also specify deployment variables. Variables are used to provide input values when using the configuration.
+In this article, you learn how to create and manage an Azure Machine Learning workspace using Terraform configuration files. [Terraform](/azure/developer/terraform/)'s template-based configuration files enable you to define, provision, and configure Azure resources in a repeatable and predictable manner. Terraform tracks resource state and is able to clean up and destroy resources. 
+
+A Terraform configuration is a document that defines the resources that are needed for a deployment. It may also specify deployment variables. Variables are used to provide input values when using the configuration.
 
 ## Prerequisites
 
@@ -60,16 +62,18 @@ The configuration below creates a workspace in an isolated network environment u
 
 Some resources in Azure require globally unique names. Before deploying your resources using the below templates, set the `resourceprefix` variable to a value that is unique.
 
-There are several options to connect to your private link endpoint workspace. To learn more about these options, refer to [Securely connect to your workspace](/azure/machine-learning/how-to-secure-workspace-vnet#securely-connect-to-your-workspace).
-
 **variables.tf**:
-:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/variables.tf":::
+:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-moderately-secure/variables.tf":::
 
 **network.tf**:
-:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/network.tf":::
+:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-moderately-secure/network.tf":::
 
 **workspace.tf**:
-:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/workspace.tf":::
+:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-moderately-secure/workspace.tf":::
+
+When using private link endpoints for both Azure Container Registry and Azure Machine Learning, Azure Container Registry tasks cannot be used to build environment images on. Instead you can build images using an Azure Machine Learning compute cluster. To configure the cluster name of use, set the [image_build_compute_name](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument. You can configure to [allow public access](/azure/machine-learning/how-to-configure-private-link?tabs=python#enable-public-access) to a workspaces that has a private link endpoint using the `public_network_access_enabled` argument. 
+
+There are several options to connect to your private link endpoint workspace. To learn more about these options, refer to [Securely connect to your workspace](/azure/machine-learning/how-to-secure-workspace-vnet#securely-connect-to-your-workspace).
 
 ---
 
@@ -82,6 +86,7 @@ There are several options to connect to your private link endpoint workspace. To
 ## Next steps
 
 * To learn more about Terraform support on Azure, see [Terraform on Azure documentation](/azure/developer/terraform/).
-* To find "quick start" examples for Terraform, see [Azure Terraform QuickStart Templates](https://github.com/Azure/terraform/tree/master/quickstart).
-* For alternative ARM template-based deployments, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
+* To find "quick start" template examples for Terraform, see [Azure Terraform QuickStart Templates](https://github.com/Azure/terraform/tree/master/quickstart).
+* For details on the Terraform Azure provider, see [Terraform Registry Azure Resource Manager Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs).
 * To learn more about network configuration options, see [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview).
+* For alternative ARM template-based deployments, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
