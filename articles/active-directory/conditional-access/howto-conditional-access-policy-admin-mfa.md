@@ -21,13 +21,16 @@ Accounts that are assigned administrative rights are targeted by attackers. Requ
 
 Microsoft recommends you require MFA on the following roles at a minimum:
 
+* Application administrator
 * Authentication Administrator
 * Billing administrator
+* Cloud application administrator
 * Conditional Access administrator
 * Exchange administrator
 * Global administrator
 * Helpdesk administrator
 * Password administrator
+* Privileged authentication administrator
 * Privileged Role Administrator
 * Security administrator
 * SharePoint administrator
@@ -54,13 +57,17 @@ The following steps will help create a Conditional Access policy to require thos
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **Directory roles** and choose built-in roles like:
+      * Application administrator
       * Authentication Administrator
       * Billing administrator
+      * Cloud application administrator
       * Conditional Access administrator
       * Exchange administrator
       * Global administrator
       * Helpdesk administrator
       * Password administrator
+      * Privileged authentication administrator
+      * Privileged Role Administrator
       * Security administrator
       * SharePoint administrator
       * User administrator
