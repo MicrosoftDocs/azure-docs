@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 # Automation Hybrid Runbook Worker overview
 
-Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
+Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
 Azure Automation provides native integration of Hybrid Runbook Workers through virtual machine (VM) extensions for both Windows and Linux Azure VMs through Azure Agent & non-Azure machines through Azure Arc connected agent. There are two types of Hybrid Runbook Workers based on its installation method:
 
@@ -30,7 +30,7 @@ An extension-based approach of onboarding hybrid workers offers you key benefits
 |Ease of Manageability| Native integration with ARM identity for Hybrid worker and provides the flexibility for governance at scale through policies and templates. |
 |Azure AD based authentication| Uses VM system assigned-identities provided by Azure AD. This centralizes control and management of identities and resource credentials.|
 
-For Hybrid Runbook Worker operations after installation, the process of executing runbooks on Hybrid Runbook Workers will be the same. The purpose of the new extension-based approach is to simplify the Hybrid Runbook Worker onboarding and remove much of the manual intervention required in the traditional approach. The new extension-based onboarding doesn't affect the traditional agent-based onboarding of Hybrid Runbook Workers. Both OMS Solution (V1) and VM Extension (V2) workers can co-exist on the same machine. The extension-based onboarding is only for user Hybrid Runbook Workers and doesn't change the system Hybrid Runbook Worker onboarding for update management scenario in any way. PowerShell support for onboarding Hybrid Runbook Workers through VM Extension (V2) will be available in the future. 
+For Hybrid Runbook Worker operations after installation, the process of executing runbooks on Hybrid Runbook Workers will be the same. The purpose of the new extension-based approach is to simplify the Hybrid Runbook Worker onboarding and remove much of the manual intervention in the traditional approach. The new extension-based onboarding doesn't affect the traditional agent-based onboarding of Hybrid Runbook Workers. Both OMS Solution (V1) and VM Extension (V2) workers can coexist on the same machine. The extension-based onboarding is only for user Hybrid Runbook Workers and doesn't change the system Hybrid Runbook Worker onboarding for an update management scenario. PowerShell support for onboarding Hybrid Runbook Workers through VM Extension (V2) will be available in the future. 
 
 ## Runbook Worker types
 
@@ -43,7 +43,7 @@ There are two types of Runbook Workers - system and user. The following table de
 
 A Hybrid Runbook Worker can run on either the Windows or the Linux operating system, and this role relies on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md). The workspace isn't only to monitor the machine for the supported operating system, but also to download the components required to install the Hybrid Runbook Worker.
 
-When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and for Linux, see [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
+When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy an OMS solution-based Windows Hybrid Runbook Worker in Automation](automation-windows-hrw-install.md) and for Linux, see [Deploy an OMS solution-based Linux Hybrid Runbook Worker in Automation](automation-linux-hrw-install.md).
 
 ## Runbook Worker limits
 
@@ -72,9 +72,9 @@ The process to install a user Hybrid Runbook Worker depends on the operating sys
 
 |Operating System  |Deployment Types  |
 |---------|---------|
-|Windows     | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
-|Linux     | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker)        |
-|Either | For User Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hrw-install.md)|
+|Windows | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment) |
+|Linux   | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) |
+|Either  | For User Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hrw-install.md)|
 
 The recommended installation method for a Windows machine is to use an Azure Automation runbook to completely automate the process of configuring it. If that isn't feasible, you can follow a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine.
 

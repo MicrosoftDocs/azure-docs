@@ -1,5 +1,5 @@
 ---
-title: Deploy an OMS solution based Linux Hybrid Runbook Worker in Automation
+title: Deploy an OMS solution-based Linux Hybrid Runbook Worker in Automation
 description: This article tells how to install an agent-based  Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
 
-The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. This article describes how to install the Hybrid Runbook Worker on a Linux machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group. For User Hybrid Runbook Workers, see also [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hrw-install.md)
+The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. This article describes how to: install the Hybrid Runbook Worker on a Linux machine, remove the worker, and remove a Hybrid Runbook Worker group. For User Hybrid Runbook Workers, see also [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hrw-install.md)
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
@@ -88,7 +88,7 @@ Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Aut
 
 |Runbook type | Supported |
 |-------------|-----------|
-|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8 and CentOS 8|
+|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8, and CentOS 8|
 |Python 2 |Yes, for any distro that doesn't require Python 3<sup>1</sup> |
 |PowerShell |Yes<sup>2</sup> |
 |PowerShell Workflow |No |
@@ -105,7 +105,7 @@ For networking requirements for the Hybrid Runbook Worker, see [Configuring your
 
 ## Install a Linux Hybrid Runbook Worker
 
-There are two methods to deploy a Hybrid Runbook Worker. You can import and run a runbook from the Runbook Gallery in the Azure portal, or you can manually run a series of PowerShell commands to accomplish the same task.
+There are two methods to deploy a Hybrid Runbook Worker. You can import and run a runbook from the Runbook Gallery in the Azure portal, or you can manually run a series of PowerShell commands.
 
 ### Importing a runbook from the Runbook Gallery
 
