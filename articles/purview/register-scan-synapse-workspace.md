@@ -133,6 +133,7 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+
 #### Use a managed identity for serverless SQL databases
 
 1. Go to your Azure Synapse workspace.
@@ -143,6 +144,14 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+
+#### Grant permission to use credentials for external tables
+
+If the Azure Synapse workspace has any external tables, the Azure Purview managed identity must be given References permission on the external table scoped credentials. With the References permission, Azure Purview can read data from external tables.
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
+```
 
 #### Use a service principal for dedicated SQL databases
 
