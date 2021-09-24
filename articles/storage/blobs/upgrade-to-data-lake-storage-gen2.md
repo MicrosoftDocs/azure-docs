@@ -57,6 +57,10 @@ A Blob storage account that does not have a hierarchical namespace organizes fil
 
 Your new account has a hierarchical namespace. That means that directories are not virtual. They are concrete, independent objects that you can operate on directly. A directory can exist without containing any files. When you delete a directory, all of the files in that directory are removed. You no longer have to delete each individual blob before the directory disappears. 
 
+### Blob metadata
+
+Before migration, blob metadata is associated with the blob name along with it's entire virtual path. After migration, the metadata is associated only with the blob. The virtual path to the blob becomes a collection of directories. Metadata of a blob is not applied to any of those directories. 
+
 ### Put operations
 
 When you upload a blob, and the path that you specify includes a directory that doesn't exist, the operation creates that directory, and then adds a blob to it. This behavior is logical in the context of a hierarchical folder structure. In a Blob storage account that does not have a hierarchical namespace, the operation doesn't create a directory. Instead, the directory name is added to the blob's namespace. 

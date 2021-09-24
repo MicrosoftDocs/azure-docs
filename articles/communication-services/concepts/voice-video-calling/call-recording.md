@@ -2,15 +2,16 @@
 title: Azure Communication Services Call Recording overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Call Recording feature and APIs.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
 
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Calling Recording overview
 
@@ -50,7 +51,7 @@ Run-time control APIs can be used to manage recording via internal business logi
 An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (e.g. meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
 
 ### Notification Schema Reference
-```
+```typescript
 {
     "id": string, // Unique guid for event
     "topic": string, // Azure Communication Services resource id
@@ -84,6 +85,6 @@ Many countries and states have laws and regulations that apply to the recording 
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the MRIs in the `participants` array with your internal user identities to identify participants in a call. An example of a recording metadata file is provided below for reference.
 
 ## Next steps
-Check out the [Call Recoding Quickstart Sample](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
+Check out the [Call Recoding Quickstart](../../quickstarts/voice-video-calling/call-recording-sample.md) to learn more.
 
 Learn more about [Call Automation APIs](./call-automation-apis.md).

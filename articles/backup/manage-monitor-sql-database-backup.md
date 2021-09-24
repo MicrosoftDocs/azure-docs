@@ -120,7 +120,7 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
 >[!Note]
->Modification of policy will affect existing recovery points also. <br><br> For recovery points in archive that haven't stayed for a duration of 180 days in Archive Tier, deletion of those recovery points lead to early deletion cost. [Learn more](/azure/storage/blobs/storage-blob-storage-tiers#cool-and-archive-early-deletion).
+>Modification of policy will affect existing recovery points also. <br><br> For recovery points in archive that haven't stayed for a duration of 180 days in Archive Tier, deletion of those recovery points lead to early deletion cost. [Learn more](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
 
 ### Inconsistent policy
 

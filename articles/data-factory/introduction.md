@@ -4,6 +4,7 @@ description: Learn about Azure Data Factory, a cloud data integration service th
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: overview
 ms.date: 06/08/2021
 ---
@@ -26,7 +27,7 @@ Azure Data Factory is the platform that solves such data scenarios. It is the *c
 
 Additionally, you can publish your transformed data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications to consume. Ultimately, through Azure Data Factory, raw data can be organized into meaningful data stores and data lakes for better business decisions.
 
-![Top-level view of Data Factory](media/data-flow/overview.png)
+:::image type="content" source="media/data-flow/overview.png" alt-text="Top-level view of Data Factory":::
 
 ## How does it work?
 

@@ -31,9 +31,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
-1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select **Roles and administrators** > ***role name***.
+1. Select **Azure Active Directory** > **Roles and administrators** > *role name*.
 
 1. Select the group from which you want to remove the role assignment and select **Remove assignment**.
 

@@ -11,6 +11,9 @@ ms.author: aersoy
 
 # Register a service client application
 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 In this article, you'll learn how to register a service client application in Azure Active Directory (Azure AD).
 
 ## Application registrations in the Azure portal

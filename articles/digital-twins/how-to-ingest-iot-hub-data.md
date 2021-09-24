@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to ingest device telemetry messages from IoT Hub.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/15/2020
+ms.date: 9/9/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -31,7 +31,7 @@ Before continuing with this example, you'll need to set up the following resourc
 
 This article also uses **Visual Studio**. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
-### Example telemetry scenario
+## Example telemetry scenario
 
 This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using a function in Azure. There are many possible configurations and matching strategies you can use for sending messages, but the example for this article contains the following parts:
 * A thermostat device in IoT Hub, with a known device ID
@@ -66,11 +66,7 @@ When the twin is created successfully, the CLI output from the command should lo
   "$metadata": {
     "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
     "Temperature": {
-      "ackCode": 200,
-      "ackDescription": "Auto-Sync",
-      "ackVersion": 1,
-      "desiredValue": 0.0,
-      "desiredVersion": 1
+      "lastUpdateTime": "2021-09-09T20:32:46.6692326Z"
     }
   },
   "Temperature": 0.0
@@ -95,6 +91,10 @@ In this section, you'll create an Azure function to access Azure Digital Twins a
     Save your function code.
 
 4. Publish the project with the *IoTHubtoTwins.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+
+[!INCLUDE [digital-twins-verify-function-publish.md](../../includes/digital-twins-verify-function-publish.md)]
+
+To access Azure Digital Twins, your function app needs a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
 
 ### Configure the function app
 

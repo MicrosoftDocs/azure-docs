@@ -19,6 +19,10 @@ ms.collection: M365-identity-device-management
 
 This article contains the currently available app registration permissions for custom role definitions in Azure Active Directory (Azure AD).
 
+## License requirements
+
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
+
 ## Permissions for managing single-tenant applications
 
 When choosing the permissions for your custom role, you have the option to grant access to manage only single-tenant applications. single-tenant applications are available only to users in the Azure AD organization where the application is registered. single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only." In the Graph API, single-tenant applications have the signInAudience property set to "AzureADMyOrg."
@@ -27,7 +31,7 @@ To grant access to manage only single-tenant applications, use the permissions b
 
 See the [custom roles overview](custom-overview.md) for an explanation of what the general terms subtype, permission, and property set mean. The following information is specific to application registrations.
 
-### Create and delete
+## Create and delete
 
 There are two permissions available for granting the ability to create application registrations, each with different behavior:
 
@@ -60,7 +64,7 @@ Grants the ability to delete app registrations restricted to those that are acce
 > [!NOTE]
 > When assigning a role that contains create permissions, the role assignment must be made at the directory scope. A create permission assigned at a resource scope does not grant the ability to create app registrations.
 
-### Read
+## Read
 
 All member users in the organization can read app registration information by default. However, guest users and application service principals can't. If you plan to assign a role to a guest user or application, you must include the appropriate read permissions.
 
@@ -86,7 +90,7 @@ Grants access to read standard application registration properties. This include
 
 Grants the same permissions as microsoft.directory/applications/standard/read, but for only single-tenant applications.
 
-### Update
+## Update
 
 #### microsoft.directory/applications/allProperties/update
 
@@ -157,10 +161,6 @@ Ability to update the delegated permissions, application permissions, authorized
 #### microsoft.directory/applications.myOrganization/permissions/update
 
 Grants the same permissions as microsoft.directory/applications/permissions/update, but only for single-tenant applications.
-
-## License requirements
-
-[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## Next steps
 

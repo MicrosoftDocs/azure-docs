@@ -21,14 +21,14 @@ In this article, you will learn how to access the Azure Healthcare APIs with cUR
 ### PowerShell
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, install [PowerShell](https://docs.microsoft.com/powershell/module/powershellget/) and [Azure Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* If you want to run the code locally, install [PowerShell](/powershell/module/powershellget/) and [Azure Az PowerShell](/powershell/azure/install-az-ps).
 * Optionally, you can run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).
 
 ### CLI
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+* If you want to run the code locally, install [Azure CLI](/cli/azure/install-azure-cli). 
 * Optionally, install a Bash shell, such as Git Bash, which it is included in [Git for Windows](https://gitforwindows.org/).
 * Optionally, run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).

@@ -16,6 +16,10 @@ ms.date: 07/11/2021
 
 Azure Sentinel watchlists enable the collection of data from external data sources for correlation with the events in your Azure Sentinel environment. Once created, you can use watchlists in your search, detection rules, threat hunting, and response playbooks. Watchlists are stored in your Azure Sentinel workspace as name-value pairs and are cached for optimal query performance and low latency.
 
+> [!IMPORTANT]
+> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 Common scenarios for using watchlists include:
 
 - **Investigating threats** and responding to incidents quickly with the rapid import of IP addresses, file hashes, and other data from CSV files. Once imported, you can use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and general queries.
@@ -28,9 +32,9 @@ Common scenarios for using watchlists include:
 
 > [!NOTE]
 > - The use of watchlists should be limited to reference data, as they are not designed for large data volumes.
-> 
+>
 > - The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items do not count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
-> 
+>
 > - Watchlists can only be referenced from within the same workspace. Cross-workspace and/or Lighthouse scenarios are currently not supported.
 
 ## Create a new watchlist
@@ -51,7 +55,7 @@ Common scenarios for using watchlists include:
 
 1. In the **SearchKey** field, enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains country names and their respective two-letter country codes, and you expect to use the country codes often for search or joins, use the **Code** column as the SearchKey.
 
-1. Select **Next: Review and Create**.
+1. <a name="review-and-create"></a>Select **Next: Review and Create**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="watchlist source page" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
@@ -67,6 +71,27 @@ Common scenarios for using watchlists include:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="watchlist successful creation notification" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
 
+
+## Create a new watchlist using a template (Public preview)
+
+1. From the Azure portal, navigate to **Azure Sentinel** > **Configuration** > **Watchlist** > **Templates (Preview)**.
+
+1. Select a template from the list to view details on the right, and then select **Create from template** to create your watchlist.
+
+    :::image type="content" source="./media/watchlists/create-watchlist-from-template.png" alt-text="Create a watchlist from a built-in template." lightbox="./media/watchlists/create-watchlist-from-template.png":::
+
+1. Continue in the **Watchlist wizard**:
+
+    - When using a watchlist template, the the watchlist's **Name**, **Description**, and **Watchlist Alias** values are all read-only.
+
+    - Select **Download Schema** to download a CSV file that contains the relevant schema expected for the selected watchlist template.
+
+    Each built-in watchlist template has it's own set of data listed in the CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md)
+
+1.  Populate your local version of the CSV file, and then upload it back into the wizard.
+
+1. Continue as you would when [creating a new watchlist from scratch](#review-and-create), and then use your watchlist with [queries](#use-watchlists-in-queries) and [analytics rules](#use-watchlists-in-analytics-rules).
+
 ## Use watchlists in queries
 
 > [!TIP]
@@ -74,7 +99,7 @@ Common scenarios for using watchlists include:
 
 1. From the Azure portal, navigate to **Azure Sentinel** > **Configuration** > **Watchlist**, select the watchlist you want to use, and then select **View in Log Analytics**.
 
-    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="use watchlists in queries" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="use watchlists in queries" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png" :::
 
 1. The items in your watchlist are automatically extracted for your query, and will appear on the **Results** tab. The example below shows the results of the extraction of the **Name** and **IP Address** fields. The **SearchKey** is shown as its own column.
 
@@ -82,7 +107,7 @@ Common scenarios for using watchlists include:
     > The timestamp on your queries will be ignored in both the query UI and in scheduled alerts.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="queries with watchlist fields" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
-    
+
 1. You can query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. Use **SearchKey** as the key for your join.
 
     ```kusto
@@ -151,6 +176,6 @@ You can also view, edit, and create new watchlist items directly from the Watchl
 
 ## Next steps
 In this document, you learned how to use watchlists in Azure Sentinel to enrich data and improve investigations. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

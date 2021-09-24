@@ -65,7 +65,7 @@ The "searchFields" parameter is crucial to returning a high quality answer, both
 
 + "searchFields" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. For precise guidance on how to set this field so that it works for both captions and answers, see [Set searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
++ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of ten.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
 ## Deconstruct an answer from the response
 

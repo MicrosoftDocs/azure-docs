@@ -10,6 +10,10 @@ ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell
 ---
 # Change the availability set for a VM using Azure PowerShell    
+
+**Applies to:** :heavy_check_mark: Windows VMs 
+
+
 The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. To change the availability set, you need to delete and then recreate the virtual machine. 
 
 This article applies to both Linux and Windows VMs.

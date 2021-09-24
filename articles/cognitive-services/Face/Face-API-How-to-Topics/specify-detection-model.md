@@ -29,7 +29,7 @@ If you aren't sure whether you should use the latest model, skip to the [Evaluat
 You should be familiar with the concept of AI face detection. If you aren't, see the face detection conceptual guide or how-to guide:
 
 * [Face detection concepts](../concepts/face-detection.md)
-* [How to detect faces in an image](HowtoDetectFacesinImage.md)
+* [Call the detect API](HowtoDetectFacesinImage.md)
 
 ## Detect faces with specified model
 

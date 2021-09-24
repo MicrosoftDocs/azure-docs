@@ -103,7 +103,7 @@ You can find your enabled rule in the **Active rules** tab of the **Analytics** 
 
 According to the default settings, each time the rule runs on its schedule, any results found will generate a security alert. Security alerts in Azure Sentinel can be viewed in the **Logs** section of Azure Sentinel, in the **SecurityAlert** table under the **Azure Sentinel** group.
 
-In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./tutorial-investigate-cases.md).
+In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./investigate-cases.md).
 
 For more details on using threat indicators in your analytics rules, see [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md#detect-threats-with-threat-indicator-based-analytics).
 
@@ -122,5 +122,5 @@ In this document, you learned about the threat intelligence capabilities of Azur
 - [Connect threat intelligence platforms](./connect-threat-intelligence-tip.md) to Azure Sentinel.
 - See which [TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Azure Sentinel.
 - [Work with threat indicators](work-with-threat-indicators.md) throughout the Azure Sentinel experience.
-- Detect threats with [built-in](./tutorial-detect-threats-built-in.md) or [custom](./tutorial-detect-threats-custom.md) analytics rules in Azure Sentinel
-- [Investigate incidents](./tutorial-investigate-cases.md) in Azure Sentinel.
+- Detect threats with [built-in](./detect-threats-built-in.md) or [custom](./detect-threats-custom.md) analytics rules in Azure Sentinel
+- [Investigate incidents](./investigate-cases.md) in Azure Sentinel.

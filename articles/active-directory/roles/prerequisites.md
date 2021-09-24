@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 07/30/2021
+ms.date: 08/06/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -106,7 +106,7 @@ To use PowerShell commands to do the following:
 
 You must have the following module installed:
 
-- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.129 or later
+- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later
 
 
 #### Check AzureADPreview version
@@ -122,7 +122,7 @@ You should see output similar to the following:
 ```powershell
 Version    Name                                Repository           Description
 -------    ----                                ----------           -----------
-2.0.2.129  AzureADPreview                      PSGallery            Azure Active Directory V2 Preview Module. ...
+2.0.2.138  AzureADPreview                      PSGallery            Azure Active Directory V2 Preview Module. ...
 ```
 
 #### Install AzureADPreview
@@ -168,22 +168,22 @@ To use AzureADPreview, follow these steps to make sure it is imported into the c
     ```powershell
     ModuleType Version    Name                                ExportedCommands
     ---------- -------    ----                                ----------------
-    Binary     2.0.2.129  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
+    Binary     2.0.2.138  AzureADPreview                      {Add-AzureADAdministrativeUnitMember, Add-AzureADApplicati...
     ```
 
 ## Graph Explorer
 
 To manage Azure AD roles using the [Microsoft Graph API](/graph/overview) and [Graph Explorer](/graph/graph-explorer/graph-explorer-overview), you must do the following:
 
-1. In the Azure portal, open **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Click **Enterprise applications**.
+1. Select **Azure Active Directory** > **Enterprise applications**.
 
-1. In the applications list, find and click **Graph explorer**.
+1. In the applications list, find and select **Graph explorer**.
 
-1. Click **Permissions**.
+1. Select **Permissions**.
 
-1. Click **Grant admin consent for Graph explorer**.
+1. Select **Grant admin consent for Graph explorer**.
 
     ![Screenshot showing the "Grant admin consent for Graph explorer" link.](./media/prerequisites/select-graph-explorer.png)
 

@@ -56,9 +56,9 @@ You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft
 
 ### Azure portal
 
-1. In the Azure portal, go to **Azure AD**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select **Administrative units**, and then select the administrative unit that you want to assign a user role scope to. 
+1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit that you want to assign a user role scope to. 
 
 1. On the left pane, select **Roles and administrators** to list all the available roles.
 
@@ -113,9 +113,9 @@ You can view a list of scoped admins by using the Azure portal, PowerShell, or M
 
 You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. In the Azure portal, go to **Azure AD**.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. In the left pane, select **Administrative units**, and then select the administrative unit for the list of role assignments you want to view. 
+1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit for the list of role assignments you want to view. 
 
 1. Select **Roles and administrators**, and then open a role to view the assignments in the administrative unit.
 

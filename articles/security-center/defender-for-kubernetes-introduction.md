@@ -30,10 +30,10 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
+|Release state:|General availability (GA)|
 |Pricing:|**Azure Defender for Kubernetes** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 ## What are the benefits of Azure Defender for Kubernetes?

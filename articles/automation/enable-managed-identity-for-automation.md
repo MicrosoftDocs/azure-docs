@@ -3,7 +3,7 @@ title: Using a system-assigned managed identity for an Azure Automation account 
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2021
+ms.date: 09/23/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,7 +16,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account.md).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
 
 - The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
 
@@ -43,7 +43,7 @@ You can enable a system-assigned managed identity for an Azure Automation accoun
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -252,6 +252,8 @@ An Automation account can use its system-assigned managed identity to get tokens
 
 Before you can use your system-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
+Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.This example uses Azure PowerShell to show how to assign the Contributor
+
 This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example, and may or may not be required in your case.
 
 ```powershell
@@ -263,11 +265,17 @@ New-AzRoleAssignment `
 
 ## Authenticate access with system-assigned managed identity
 
-After you enable the managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference. Replace `SubscriptionID` with your actual subscription ID and then execute the following command:
+After you enable the managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
 
 ```powershell
-Connect-AzAccount -Identity
-$AzureContext = Set-AzContext -SubscriptionId "SubscriptionID"
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 > [!NOTE]

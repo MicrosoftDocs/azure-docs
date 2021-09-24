@@ -86,8 +86,8 @@ This section describes the global configuration settings available for this bind
             },
             "batchOptions": {
                 "maxMessageCount": 1000,
-                "operationTimeout": "00:01:00"
-                "autoComplete": "true"
+                "operationTimeout": "00:01:00",
+                "autoComplete": true
             }
         }
     }
@@ -116,7 +116,7 @@ The example host.json file below contains only the settings for version 5.0.0 an
     "version": "2.0",
     "extensions": {
         "serviceBus": {
-            "retryOptions":{
+            "clientRetryOptions":{
                 "mode": "exponential",
                 "tryTimeout": "00:01:00",
                 "delay": "00:00:00.80",

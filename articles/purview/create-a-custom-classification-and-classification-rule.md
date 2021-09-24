@@ -12,13 +12,16 @@ ms.date: 3/24/2021
 
 This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
 
-## Default classifications
+## Default system classifications
 
-The Azure Purview Data Catalog provides a large set of default classifications that represent typical personal data types that you might have in your data estate.
+The Azure Purview Data Catalog provides a large set of default system classifications that represent typical personal data types that you might have in your data estate. For the entire list of available system classifications, see [Supported classifications in Azure Purview](supported-classifications.md).
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classification.png" alt-text="select classification" border="true":::
 
 You also have the ability to create custom classifications, if any of the default classifications don't meet your needs.
+
+> [!Note]
+> Our [data sampling rules](sources-and-scans.md#sampling-within-a-file) are applied to both system and custom classifications.  
 
 ## Steps to create a custom classification
 
@@ -119,7 +122,7 @@ To create a custom classification rule:
    |Data Pattern    |Optional. A regular expression that represents the data that's stored in the data field. The limit is very large. In the previous example, the data patterns test for an employee ID that's literally the word `Employee{GUID}`.  |
    |Column Pattern    |Optional. A regular expression that represents the column names that you want to match. The limit is very large. |
 
-1. Under **Data Pattern** you can use the **Minimum match threshold** to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. You need to be careful with this setting. If you reduce the level below 60%, you might introduce false-positive classifications into your catalog. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
+1. Under **Data Pattern** you can use the **Minimum match threshold** to set the minimum percentage of the distinct data value matches in a column that must be found by the scanner for the classification to be applied. The suggested value is 60%. If you specify multiple data patterns, this setting is disabled and the value is fixed at 60%.
 
    > [!Note]
    > The Minimum match threshold must be at least 1%.

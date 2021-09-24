@@ -24,7 +24,7 @@ Azure Spring Cloud enhances the application diagnostics experience for developer
 
 ### How secure is Azure Spring Cloud?
 
-Security and privacy are among the top priorities for Azure and Azure Spring Cloud customers. Azure helps ensure that only customers have access to application data, logs, or configurations by securely encrypting all of this data. 
+Security and privacy are among the top priorities for Azure and Azure Spring Cloud customers. Azure helps ensure that only customers have access to application data, logs, or configurations by securely encrypting all of this data.
 
 * The service instances in Azure Spring Cloud are isolated from each other.
 * Azure Spring Cloud provides complete TLS/SSL and certificate management.
@@ -41,13 +41,15 @@ Azure Spring Cloud is a regional service. All customer data in Azure Spring Clou
 ### What are the known limitations of Azure Spring Cloud?
 
 Azure Spring Cloud has the following known limitations:
-	
+
 * `spring.application.name` will be overridden by the application name that's used to create each application.
 * `server.port` defaults to port 1025. If any other value is applied, it will be overridden. Please also respect this setting and not specify server port in your code.
 * The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
 
-### What pricing tiers are available? 
+### What pricing tiers are available?
+
 Which one should I use and what are the limits within each tier?
+
 * Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](https://azure.microsoft.com/pricing/details/spring-cloud/) for limits and feature level comparison.
 
 ### How can I provide feedback and report issues?
@@ -69,15 +71,15 @@ Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#j
 We've identified an issue with Spring Boot 2.4 and are currently working with the Spring community to resolve it. In the meantime, please include these two dependencies to enable TLS authentication between your apps and Eureka.
 
 ```xml
-<dependency> 
-	<groupId>com.sun.jersey</groupId>
-	<artifactId>jersey-client</artifactId>
-	<version>1.19.4</version>
+<dependency>
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>1.19.4</version>
 </dependency>
 <dependency>
-	<groupId>com.sun.jersey.contribs</groupId>
-	<artifactId>jersey-apache-client4</artifactId>
-	<version>1.19.4</version>
+    <groupId>com.sun.jersey.contribs</groupId>
+    <artifactId>jersey-apache-client4</artifactId>
+    <version>1.19.4</version>
 </dependency>
 ```
 
@@ -97,6 +99,7 @@ Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spr
 ### What resource types does Service Binding support?
 
 Three services are currently supported:
+
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Azure Cache for Redis.
@@ -108,14 +111,13 @@ Yes.
 
 ### How many outbound public IP addresses does an Azure Spring Cloud instance have?
 
-The number of outbound public IP addresses may vary according to the tiers and other factors. 
+The number of outbound public IP addresses may vary according to the tiers and other factors.
 
 | Azure Spring Cloud instance type | Default number of outbound public IP addresses |
 | -------------------------------- | ---------------------------------------------- |
 | Basic Tier instances             | 1                                              |
 | Standard Tier instances          | 2                                              |
 | VNet injection instances         | 1                                              |
-
 
 ### Can I increase the number of outbound public IP addresses?
 
@@ -181,6 +183,7 @@ Critical security patches (CVE score >= 9) applicable to Azure Spring Cloud are 
 ## Deployment
 
 ### Does Azure Spring Cloud support blue-green deployment?
+
 Yes. For more information, see [Set up a staging environment](./how-to-staging-environment.md).
 
 ### Can I access Kubernetes to manipulate my application containers?
@@ -199,6 +202,7 @@ Yes.  For more information, see [Setup autoscale](./how-to-setup-autoscale.md).
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
 
 As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, it's a good idea to observe the following best practices:
+
 * All application dependencies need to be resolved.
 * Prepare your configuration entries, environment variables, and JVM parameters so that you can compare them with the deployment in Azure Spring Cloud.
 * If you want to use Service Binding, go through your Azure services and ensure that you've set the appropriate access permissions.
@@ -220,21 +224,21 @@ After the migration, monitor your CPU/RAM metrics and network traffic to ensure 
 Until Dec 3, 2022. See [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 ::: zone-end
 
-
 ## Troubleshooting
 
 ### What are the impacts of service registry rarely unavailable?
 
-In some rarely happened scenario, you may see some errors like 
-```
+In some rarely happened scenario, you may see some errors like the following one from your application logs:
+
+```output
 RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
 ```
-from your logs of applications. This issue introduced by spring framework with very low rate due to network unstable or other network issues. 
+
+This issue is introduced by the Spring framework with very low rate due to network instability or other network issues.
 
 There should be no impacts to user experience, eureka client has both heartbeat and retry policy to take care of this. You could consider it as one transient error and skip it safely.
 
 We will enhance this part and avoid this error from users’ applications in short future.
-
 
 ## Next steps
 

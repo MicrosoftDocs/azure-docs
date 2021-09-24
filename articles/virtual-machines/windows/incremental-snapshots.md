@@ -13,4 +13,7 @@ ms.collection: windows
 
 ---
 # Back up Azure unmanaged VM disks with incremental snapshots
+
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

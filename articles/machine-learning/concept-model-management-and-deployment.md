@@ -90,9 +90,9 @@ For more information on ONNX with Azure Machine Learning, see the [Create and ac
 
 ### Use models
 
-Trained machine learning models are deployed as web services in the cloud or locally. You can also deploy models to Azure IoT Edge devices. Deployments use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
+Trained machine learning models are deployed as web services in the cloud or locally. Deployments use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
 
-When using a model as a web service or IoT Edge device, you provide the following items:
+When using a model as a web service, you provide the following items:
 
 * The model(s) that are used to score data submitted to the service/device.
 * An entry script. This script accepts requests, uses the model(s) to score the data, and return a response.
@@ -101,7 +101,7 @@ When using a model as a web service or IoT Edge device, you provide the followin
 
 You also provide the configuration of the target deployment platform. For example, the VM family type, available memory, and number of cores when deploying to Azure Kubernetes Service.
 
-When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
+When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service.
 
 #### Batch scoring
 Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](./tutorial-pipeline-batch-scoring-classification.md).
@@ -131,12 +131,6 @@ When deploying to Azure Kubernetes Service, you can use controlled rollout to en
 * Switch between endpoint versions by updating the traffic percentage in endpoint configuration.
 
 For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
-
-#### IoT Edge devices
-
-You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to a hardware device, which enables inference, or model scoring, on the device.
-
-For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 ### Analytics
 

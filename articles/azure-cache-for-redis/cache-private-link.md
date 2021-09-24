@@ -234,6 +234,10 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
+### How can I migrate my VNet injected cache to a Private Link cache?
+
+Please refer to our [migration guide](cache-vnet-migration.md) for different approaches on how to migrate your VNet injected caches to Private Link caches. 
+
 ### How can I have multiple endpoints in different virtual networks?
 
 To have multiple private endpoints in different virtual networks, the private DNS zone must be manually configured to the multiple virtual networks _before_ creating the private endpoint. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md). 
@@ -252,9 +256,6 @@ Control the traffic by using NSG rules for outbound traffic on source clients. D
 
 It's only linked to your VNet. Because it's not in your VNet, NSG rules don't need to be modified for dependent endpoints.
 
-### How can I migrate my VNet injected cache to a private endpoint cache?
-
-Delete your VNet injected cache and create a new cache instance with a private endpoint. For more information, see [migrate to Azure Cache for Redis](cache-migration-guide.md)
 
 ## Next steps
 

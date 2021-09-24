@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/21/2021
+ms.date: 08/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -72,7 +72,7 @@ Determines whether a numeric claim is greater, lesser, equal, or not equal to a 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | int | The first numeric claim to compare whether it is greater, lesser, equal, or not equal than the second number. Null value throws an exception. |
-| InputParameter | CompareToValue | boolean | The second number to compare whether it is greater, lesser, equal, or not equal than the first number. |
+| InputParameter | CompareToValue | int | The second number to compare whether it is greater, lesser, equal, or not equal than the first number. |
 | InputParameter | Operator | string | Possible values: `LESSTHAN`, `GREATERTHAN`, `GREATERTHANOREQUAL`, `LESSTHANOREQUAL`, `EQUAL`, `NOTEQUAL`. |
 | InputParameter | throwError | boolean | Specifies whether this assertion should throw an error if the comparison result is `true`. Possible values: `true` (default), or `false`. <br />&nbsp;<br />When set to `true` (Assertion mode), and the comparison result is `true`, an exception will be thrown. When set to `false` (Evaluation mode), the result is a new boolean claim type with a value of `true`, or `false`.| 
 | OutputClaim | outputClaim | boolean | If `ThrowError` is set to `false`, this output claim contains `true`, or `false` according to the comparison result. |

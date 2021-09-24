@@ -6,11 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
 ---
 
 # Using $patient-everything in FHIR service
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The [$patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a patient with access to their entire record or for a provider or other user to perform a bulk data download. This operation is used to return all the information related to one or more patients described in the resource or context on which this operation is invoked.  
 
@@ -20,7 +23,7 @@ To call patient-everything, use the following command:
 ```json
 GET {FHIRURL}/Patient/{ID}/$everything
 ```
-The FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
+The FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
 * [Patient resource](https://www.hl7.org/fhir/patient.html) 
 * Resources that are directly referenced by the Patient resource (except link) 
 * Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
@@ -53,7 +56,7 @@ GET {FHIRURL}/Patient/{ID}/$everything?start=2010&end=2020
 
 To use $patient-everything to query a patient’s Observation and Encounter, use the following call: 
 ```json
-GET {FHIRURL}/Patient/{ID}/$everything_type=Observation,Encounter 
+GET {FHIRURL}/Patient/{ID}/$everything?_type=Observation,Encounter 
 ```
 
 To use $patient-everything to query a patient’s “everything” since 2021-05-27T05:00:00Z, use the following call: 

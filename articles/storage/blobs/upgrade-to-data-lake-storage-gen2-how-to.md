@@ -4,7 +4,7 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 09/24/2021
 ms.author: normesta
 
 ---
@@ -17,101 +17,6 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 > [!IMPORTANT]
 > An upgrade is one-way. There's no way to revert your account once you've performed the upgrade. We recommend that you validate your upgrade in a nonproduction environment.
-
-## Enable the ability to upgrade your account
-
-To upgrade your account, you must register the `HnsOnMigration` feature with your subscription, and then verify that the registration is complete before you begin the upgrade process. 
-
-### Register the feature
-
-#### [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Locate your subscription, and in configuration page of your subscription, select **Preview features**.
-
-3. In the **Preview features** page, select the **ADLS enable Hierarchical Namespace for existing account** feature, and then select **Register**.
-
-   > [!div class="mx-imgBorder"]
-   > ![Register feature in Azure portal](./media/upgrade-to-data-lake-storage-gen2-how-to/register-feature-in-azure-portal.png)
-
-#### [PowerShell](#tab/powershell)
-
-1. Open a Windows PowerShell command window.
-
-1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-2. If your identity is associated with more than one subscription, then set your active subscription.
-
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Register the `HnsOnMigration` feature by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-   ```powershell
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName HnsOnMigration
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
-#### [Azure CLI](#tab/azure-cli)
-
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
-
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Register the `HnsOnMigration` feature by using the [az feature register](/cli/azure/feature#az_feature_register) command.
-
-   ```azurecli
-   az feature register --namespace Microsoft.Storage --name HnsOnMigration
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
----
-
-### Verify that the feature is registered
-
-#### [Portal](#tab/azure-portal)
-
-In the **Preview features** page of your subscription, locate the **ADLS enable Hierarchical Namespace for existing account** feature, and then make sure that **Registered** appears in the **State** column.
-
-> [!div class="mx-imgBorder"]
-> ![Verify that the feature is registered in Azure portal](./media/upgrade-to-data-lake-storage-gen2-how-to/verify-register-feature-in-azure-portal.png)
-
-#### [PowerShell](#tab/powershell)
-
-To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName HnsOnMigration
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name HnsOnMigration
-```
-
----
 
 ## Perform the upgrade
 

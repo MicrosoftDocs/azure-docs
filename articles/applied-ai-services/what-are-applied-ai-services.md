@@ -22,7 +22,7 @@ Enabling organizations in all industries to consume information hidden within do
 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. 
 
-[Learn more about Azure Form Recognizer](../cognitive-services/form-recognizer/index.yml)​​
+[Learn more about Azure Form Recognizer](./form-recognizer/index.yml)​​
 
 ## Azure Metrics Advisor
 
@@ -40,7 +40,7 @@ Unlock valuable information lying latent in all your content in order to perform
 
 Enhance reading comprehension and achievement with AI. Azure Immersive Reader is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft OneNote to improve your web applications. Azure Immersive Reader is built using Translation and Text to Speech from Azure Cognitive Services.
 
-[Learn more about Azure Immersive Reader](../cognitive-services/immersive-reader/index.yml)
+[Learn more about Azure Immersive Reader](./immersive-reader/index.yml)
 
 ## Azure Bot Service
 

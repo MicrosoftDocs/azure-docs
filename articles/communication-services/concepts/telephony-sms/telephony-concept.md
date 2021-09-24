@@ -7,8 +7,9 @@ services: azure-communication-services
 
 ms.author: bobazile
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 
 # Telephony concepts
@@ -73,7 +74,7 @@ This option requires:
 ### Conceptual documentation
 
 - [Phone number types in Azure Communication Services](./plan-solution.md)
-- [Plan for Azure direct routing](./sip-interface-infrastructure.md)
+- [Plan for Azure direct routing](./direct-routing-infrastructure.md)
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Pricing](../pricing.md)
 
