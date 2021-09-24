@@ -894,17 +894,16 @@ Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'l
 }
 ```
 ## Add root collection admin
-In some cases, an organization needs to add a different root collection admin using the API instead of the Purview Studio. It is possible that the current root collection admin doesn’t exist in the organization anymore. 
+By default, the user who created the Purview account is the root collection admin (administrator of the topmost level of the collection heirarchy). However, in some cases, an organization needs to change the root collection admin using the API. It is possible that the current root collection admin doesn’t exist in the organization anymore. In these cases the Azure portal may not be accessible to anyone in the organization. Hence, usage of API to manage collection permissions becomes unavoidable and the only way to regain access to the Purview account.
 
 ```ruby
-POST https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01
 ```
-
-You only need to pass in the objectId for the user or group
+You only need to pass the new root collection administrator's Object ID whether it is a user, group or service principal.
 ```json
 {"objectId": "{guid}"}
 ```
-On success, you will get response 200.
+On success, you will get HTTP Response 200 OK.
 
 > [!NOTE]
 > The user who calls this API must have owner or UAA permission on Purview account to execute a write action on the account.
