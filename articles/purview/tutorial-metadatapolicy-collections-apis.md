@@ -14,7 +14,7 @@ ms.date: 09/24/2021
 
 In August 2021, access control in Purview moved from Azure IAM (control plane) to [Azure Purview Collections](how-to-create-and-manage-collections.md) (data plane). This change allows enterprise data curators and admins to have more precise granular access control on their data sources scanned by Purview, and enables organizations to audit right-access and right-use of their data.
 
-This tutorial guides you through step-by-step usage of the **[Azure Purview Metadata Policy APIs](~/rest/api/purview/metadatapolicydataplane/metadata-policy)** to add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure Portal or Purview Studio to achieve the same granular role-based access control.
+This tutorial guides you through step-by-step usage of the **[Azure Purview Metadata Policy APIs](/rest/api/purview/metadatapolicydataplane/metadata-policy)** to add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure Portal or Purview Studio to achieve the same granular role-based access control.
 
 [Purview permissions guide](catalog-permissions.md#roles) covers more information about each of the built-in roles in Azure Purview, and maps the role to the level of access permissions granted to the user.
 
