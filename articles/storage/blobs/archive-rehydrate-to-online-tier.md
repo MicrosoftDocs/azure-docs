@@ -115,7 +115,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Change the blob’s access tier to hot with standard priority.
+# Change the blob's access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 $blob.BlobClient.SetAccessTier("Hot", $null, "High")
 ```
