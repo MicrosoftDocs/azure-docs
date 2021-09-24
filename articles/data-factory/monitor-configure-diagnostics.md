@@ -51,7 +51,7 @@ Create or add diagnostic settings for your data factory.
    :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Screenshot that shows naming your settings and selecting a Log Analytics workspace.":::
 
     > [!NOTE]
-    > Because an Azure log table can't have more than 500 columns, we *highly recommended* that you select _Resource-Specific mode_. For more information, see [Azure diagnostics logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).
+    > Because an Azure log table can't have more than 500 columns, we *highly recommend* that you select _Resource-Specific mode_. For more information, see [Azure diagnostics logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Select **Save**.
 

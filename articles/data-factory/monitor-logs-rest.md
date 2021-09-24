@@ -27,6 +27,8 @@ Use diagnostic settings to configure diagnostic logs for noncompute resources. T
 
 ## Enable diagnostic logs via the Monitor REST API
 
+Use the Monitor REST API to enable diagnostic logs.
+
 ### Create or update a diagnostics setting in the Monitor REST API
 
 #### Request
