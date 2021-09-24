@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: stevevi
 ms.author: stevevi
-ms.date: 09/13/2021
+ms.date: 09/22/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -186,20 +186,11 @@ You can see a demo on how to build data-centric solutions on Azure Government us
 
 ### [Power BI](/power-bi/service-govus-overview)
 
-The following Power BI **features are not currently available** in Azure Government:
-
-- Portal support
-
-You can see a demo on [how to build data-centric solutions on Azure Government using Power BI](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/).
-
-> [!NOTE]
-> The content pack that typically makes activity logs and such available is not intended for use on Government tenants. The intention is to use Log Analytics for the purpose of the logs that aren't available through the content pack.
+For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). You can also see a demo on [how to build data-centric solutions on Azure Government using Power BI](https://channel9.msdn.com/Blogs/Azure/Cognitive-Services-HDInsight-and-Power-BI-on-Azure-Government/).
 
 ### [Power BI Embedded](/azure/power-bi-embedded/)
 
-The following Power BI Embedded **features are not yet available** in Azure Government:
-
-- Portal support
+To learn how to embed analytical content within your business process application, see [Tutorial: Embed a Power BI content into your application for national clouds](/power-bi/developer/embedded/embed-sample-for-customers-national-clouds).
 
 
 ## Compute
@@ -212,20 +203,10 @@ The following Virtual Machines **features are not currently available** in Azure
 
 - Settings
     - Continuous delivery
-- Operations
-    - Auto shutdown
 - Monitoring
     - Application Insights
 - Support + troubleshooting
     - Ubuntu Advantage support plan
-
-### [Azure Functions](../azure-functions/index.yml)
-
-The following Functions **features are not currently available** in Azure Government:
-
-- Running .NET 5 apps
-
-When connecting your Functions app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 
 ## Containers
@@ -265,17 +246,6 @@ The following Azure SQL Managed Instance **features are not currently available*
 - Long-term retention
 
 
-## Developer Tools
-
-This section outlines variations and considerations when using Developer Tools services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=app-configuration,devtest-lab,lab-services,azure-devops&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
-
-### [Azure DevTest Labs](../devtest-labs/devtest-lab-overview.md)
-
-The following Azure DevTest Labs **features are not currently available** in Azure Government:
-
-- Auto shutdown feature for Azure Compute VMs; however, setting auto shutdown for [Labs](https://azure.microsoft.com/updates/azure-devtest-labs-auto-shutdown-notification/) and [Lab Virtual Machines](https://azure.microsoft.com/updates/azure-devtest-labs-set-auto-shutdown-for-a-single-lab-vm/) is available.
-
-
 ## Identity
 
 This section outlines variations and considerations when using Identity services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=information-protection,active-directory-ds,active-directory&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
@@ -289,6 +259,8 @@ The following features have known limitations in Azure Government:
     - B2B collaboration is supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. Azure US Government tenants that support B2B collaboration can also collaborate with social users using Microsoft, Google accounts, or email one-time passcode accounts. If you invite a user outside of these groups (for example, if the user is in a tenant that isn't part of the Azure US Government cloud or doesn't yet support B2B collaboration), the invitation will fail or the user will be unable to redeem the invitation.
     - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
     - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
+
+- Limitations with SQL tools:
     - Some SQL tools such as SQL Server Management Studio (SSMS) require you to set the appropriate cloud parameter. In the tool's Azure service setup options, set the cloud parameter to Azure Government.
 
 - Limitations with multifactor authentication:
@@ -429,10 +401,6 @@ For information on how to connect to Media Services v2, see [Access the Azure Me
 
 - Analyzing – the Azure Media Indexer 2 Preview Azure Media Analytics media processor is not available in Azure Government.
 - CDN integration – there is no CDN integration with streaming endpoints in Azure Government data centers.
-
-### Media Services Video Indexer
-
-For more information, see [Create a Video Indexer account](../azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure.md#create-a-new-account-on-azure).
 
 
 ## Migration
@@ -604,6 +572,14 @@ The following App Service **features are not currently available** in Azure Gove
     - Resource explorer
 - Azure Government portal
     - Private endpoints for Web Apps cannot be configured in the UI; however, private endpoints are enabled in Azure Government and you can use the Private Link Center if you need the UI.
+
+### [Azure Functions](../azure-functions/index.yml)
+
+The following Functions **features are not currently available** in Azure Government:
+
+- Running .NET 5 apps
+
+When connecting your Functions app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 
 ## Next steps
