@@ -1,19 +1,19 @@
 ---
 title: Text data labeling
 titleSuffix: Azure Machine Learning
-description: Use our data labeling tool to label text. Apply either a single label or multiple labels to a piece of text.
+description: Create a project to label text using the data labeling tool. Specify either a single label or multiple labels to be applied to each piece of text.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 09/24/2021
 ms.custom: data4ml
 ---
 
-# Create a text data labeling project and export labels (preview)
+# Create a text labeling project and export labels (preview)
 
-Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
+Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Specify either a single label or multiple labels to be applied to each piece of text.
 
 > [!IMPORTANT]
 > Text labeling is currently in public preview.
@@ -22,20 +22,20 @@ Learn how to create and run data labeling projects to label text data in Azure M
 
 ## Data labeling capabilities
 
-> [!Important]
-> Text must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
- 
-Text data can be either ".txt" or ".csv" files.
-
-* For ".txt" files, each file represents one item to be labeled.
-* For ".csv" files, each row of the file is one item to be labeled.
-
-Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
+Azure Machine Learning data labeling is a central place to create, manage, and monitor data labeling projects:
 
 - Coordinate data, labels, and team members to efficiently manage labeling tasks. 
 - Tracks progress and maintains the queue of incomplete labeling tasks.
 - Start and stop the project and control the labeling progress.
 - Review the labeled data and export labeled as an Azure Machine Learning dataset.
+
+> [!Important]
+> Text data must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
+
+Text data can be either ".txt" or ".csv" files.
+
+* For ".txt" files, each file represents one item to be labeled.
+* For ".csv" files, each row represents one item presented to the labeler.  You can display one or more columns to use whgen labeling that row.
 
 ## Prerequisites
 
@@ -70,13 +70,14 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you are using a .csv file, where each row is a response.
+    * Select **Tabular** if you are using a .csv file, where each row contains a response.
     * Select **File** if you are using separate .txt files for each response.
+1. Provide a description for your dataset.
+1. Select **Next**.
 1. Select the datastore.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
     * Append "**/*.*" to include all the data in the current container and its subfolders.
-1. Provide a description for your dataset.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
@@ -89,11 +90,15 @@ To directly upload your data:
 1. Choose the **Dataset type**.
     * Select **Tabular** if you are using a .csv file, where each row is a response.
     * Select **File** if you are using separate .txt files for each response.
-1. *Optional:* Select **Advanced settings** to customize the datastore, container, and path to your data.
-1. Select **Browse** to select the local files to upload.
 1. Provide a description of your dataset.
+1. Select **Next**
+1. Select **Upload** to select the local file(s) to upload.
 1. Select **Next**.
-1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
+1. If uploading .csv files:
+    * Confirm the settings and preview, select **Next**.
+    * Include all columns of text you'd like the labeler to see when classifying that row.
+    * Select **Next**.
+1.  Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
 The data gets uploaded to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 

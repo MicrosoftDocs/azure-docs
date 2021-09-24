@@ -1,13 +1,13 @@
 ---
 title: Labeling images and text documents
 title.suffix: Azure Machine Learning
-description: Learn how to use the data labeling tools to rapidly prepare text or image data for a Machine Learning in a data labeling project.
+description: Use data labeling tools to rapidly label text or label images for a Machine Learning in a data labeling project.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 09/24/2021
 ms.custom: data4ml
 ---
 
@@ -19,7 +19,6 @@ After your project administrator [creates a data labeling project](./how-to-crea
 > * How to access your labeling projects
 > * The labeling tools
 > * How to use the tools for specific labeling tasks
-
 
 ## Prerequisites
 
@@ -158,7 +157,7 @@ To delete *all* polygons in the current image, select the **Delete all regions**
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
-## Annotate text (preview)
+## Label text (preview)
 
 > [!IMPORTANT]
 > Text labeling is in public preview.

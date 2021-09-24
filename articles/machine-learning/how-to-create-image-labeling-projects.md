@@ -1,13 +1,13 @@
 ---
 title: Image labeling
 titleSuffix: Azure Machine Learning
-description: Use our data labeling tool to label images. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
+description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 09/24/2021
 ms.custom: data4ml
 ---
 
@@ -17,18 +17,17 @@ Learn how to create and run data labeling projects to label images in Azure Mach
 
 ## Data labeling capabilities
 
-> [!Important]
-> Data images must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
-
-Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff", ".dcm", ".dicom". Each file is an item to be labeled.
-
-
-Azure Machine Learning data labeling is a central place to create, manage, and monitor labeling projects:
+Azure Machine Learning data labeling is a central place to create, manage, and monitor data labeling projects:
 
 - Coordinate data, labels, and team members to efficiently manage labeling tasks. 
 - Tracks progress and maintains the queue of incomplete labeling tasks.
 - Start and stop the project and control the labeling progress.
-- Review the labeled data and export labeled in COCO format or as an Azure Machine Learning dataset.
+- Review the labeled data and export labeled as an Azure Machine Learning dataset.
+
+> [!Important]
+> Data images must be files available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
+
+Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff", ".dcm", ".dicom". Each file is an item to be labeled.
 
 ## Prerequisites
 
