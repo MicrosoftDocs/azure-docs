@@ -134,14 +134,14 @@ To get the status of the model training process, you can create a **GET** reques
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/train/jobs/{jobId}
+{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/train/jobs/{JOB-ID}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `myProject` |
+|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
 
@@ -199,7 +199,7 @@ Generally after training a model you would review it's [evaluation details](../.
 Create a **POST** request using the following URL, headers, and JSON body to start publishing a custom NER model.
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/publish
+{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/publish
 ```
 
 |Placeholder  |Value  | Example |
@@ -249,7 +249,7 @@ Use the following **GET** request to query the status of your model's training p
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `myProject` |
+|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
 
@@ -372,7 +372,7 @@ After you've created an NER task, you can create a **GET** request to query the 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `myProject` |
+|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
 
