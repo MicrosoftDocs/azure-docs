@@ -792,7 +792,7 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 ## 4. API: Update Policy: Add / Remove User, Group, Or Service Principal to Collection
 **PUT** **https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01**
 
-Essentially you will update the Policy JSON obtained in previous step and push it to Purview Service using a PUT REST Method.
+This step will update the Policy JSON obtained in previous step and push it to Purview Service using a PUT REST Method.
 
 Whether you wish to **add** or **remove** User/Group/SP(ServicePrincipal), the process is identical using this API in all the cases.
 
