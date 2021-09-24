@@ -52,7 +52,7 @@ To run against the Azure Fluid Relay service, you'll need to update your app's c
 ### Configure and create an Azure client
 
 To configure the Azure client, replace the values in the `serviceConfig` object in `app.js` with your Azure Fluid Relay
-service configuration values.
+service configuration values. These values can be found in the "Access Key" section of the Fluid Relay resource in the Azure portal.
 
 ```javascript
 const serviceConfig = {
