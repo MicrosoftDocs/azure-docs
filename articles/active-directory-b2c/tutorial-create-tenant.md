@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/24/2021
+ms.date: 09/25/2021
 ms.author: msmimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -44,19 +44,18 @@ You learn how to register an application in the next tutorial.
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
 1. Select the directory that contains your subscription:
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon 
+    1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon. 
     
     ![Directories + subscriptions filter icon](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
 
-    1. In the new window, select **Directories + subscriptions** in the left menu.
-    1. Identify the directory that contains your subscription and select **Switch** button on it. Switching a directory will reload the portal.
+    1. Find the directory that contains your subscription and select the **Switch** button next to it. Switching a directory reloads the portal.
 
     ![Directories + subscriptions with Switch button](media/tutorial-create-tenant/switch-directory.png)
 
 1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription your're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
     1. On the Azure portal menu or from the **Home** page, select **Subscriptions**.
-    2. Select your subscription, and then select **Resource providers** on the left menu.
+    2. Select your subscription, and then in the left menu, select **Resource providers** .
     3. Make sure the **Microsoft.AzureActiveDirectory** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
@@ -79,17 +78,17 @@ You learn how to register an application in the next tutorial.
     ![Create tenant form in with example values in Azure portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Select **Review + create**.
-1. Review your directory settings. Then select **Create**. Learn more on [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
+1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
 
 You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes. To link a tenant, you must be an admin in the Azure AD B2C tenant and be assigned at least a Contributor role within the Azure subscription. See [Link an Azure AD B2C tenant to a subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
 ## Select your B2C tenant directory
 
 To start using your new Azure AD B2C tenant, you need to switch to the directory that contains the tenant:
-1. Select the **Directories + subscriptions** filter icon in the top menu of the Azure portal, 
-1. From the **All Directories** tab, identify the directory that contains your Azure AD B2C tenant and select **Switch** button on it.
+1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon.
+1. On the **All Directories** tab, find the directory that contains your Azure AD B2C tenant and then select the **Switch** button next to it.
 
-If at first you don't see your new Azure B2C tenant in the list, refresh your browser window or logout and login, then select the **Directories + subscriptions** filter again in the top menu.
+If at first you don't see your new Azure B2C tenant in the list, refresh your browser window or sign out and sign back in. Then in the Azure portal toolbar, select the **Directories + subscriptions** filter again.
 
 
 ## Add Azure AD B2C as a favorite (optional)
