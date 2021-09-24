@@ -83,7 +83,7 @@ This section shows you how to convert the NFSv3 volume to NFSv4.1.
 
     Example:   
     `mount -v | grep /path/to/vol1`  
-    `vol1:/path/to/vol1 on /path type nfs (rw,intr,tcp,nfsvers=4.1,rsize=16384,wsize=16384,addr=192.168.1.1)`
+    `vol1:/path/to/vol1 on /path type nfs (rw,intr,tcp,`**`nfsvers=4.1,`**`rsize=16384,wsize=16384,addr=192.168.1.1)`
 
 
 ## Convert from NFSv4.1 to NFSv3
@@ -114,7 +114,7 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
 
     Example:   
     `mount -v | grep /path/to/vol1`  
-    `vol1:/path/to/vol1 on /path type nfs (rw,intr,tcp,nfsvers=3,rsize=16384,wsize=16384,addr=192.168.1.1)`
+    `vol1:/path/to/vol1 on /path type nfs (rw,intr,tcp,`**`nfsvers=3,`**`rsize=16384,wsize=16384,addr=192.168.1.1)`
 
 ## Next steps  
 
