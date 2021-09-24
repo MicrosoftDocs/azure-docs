@@ -46,9 +46,13 @@ pooling](concepts-hyperscale-connection-pool.md). Hyperscale (Citus) offers a
 managed pgBouncer connection pooler configured for up to 2,000 simultaneous
 client connections.
 
-### Server group name
+### Private access
 
-Hyperscale (Citus) server group names are limited to 40 characters.
+#### Server group name
+
+To be compatible with [private access](concepts-hyperscale-private-access.md),
+a Hyperscale (Citus) server group must have a name that is 40 characters or
+shorter.
 
 ## Storage
 
