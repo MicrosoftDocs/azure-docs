@@ -794,19 +794,18 @@ GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPo
 ```
 
 
-## 4. API: Update Policy: Add / Remove User, Group, Or Service Principal to Collection
+## 4. API: Update Policy: Add/Remove User/Group from Collection using RBAC
 ```ruby
 PUT https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
 ```
 
 This step will update the Policy JSON obtained in previous step and push it to Purview Service using a PUT REST Method.
-
 Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'll follow the same API process.
 
 1. You need to pass the User/Group/ServicePrincipal Object ID {guid} in an array format in "attributeValueIncludedIn" array of the JSON.
 - Search the JSON output of the Get-Policy-by-ID API for "attributeValueIncludedIn" array in the previous step and **Add** or  **Remove** the User/Group/ServicePrincipal Object ID in the array. If unsure about how to fetch user or group Object ID, read this tutorial [Get-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser)
-1. Notice that there could be multiple sections in the JSON pertaining to each of the 4 metadatapolicy roles. For collection administrator, use the section bearing "id" called "purviewmetadatarole_builtin_collection-administrator". Likewise, use the corresponding section for the other roles.
-1. To better understand the Add/Remove operation API, notice that in the JSON below I'm adding User ID : "3a3a3a3a-2c2c-4b4b-1c1c-2a3b4c5d6e7f" As Collection Administrator.
+1. Notice that there could be multiple sections in the JSON pertaining to each of the 4 metadatapolicy roles. For collection administrator permission role, use the section bearing "ID" called "purviewmetadatarole_builtin_collection-administrator". Likewise, use the corresponding section for the other roles.
+1. To better understand the Add/Remove operation, carefully examine the difference between the JSON output from the previous API and the one below. You'll notice that in the JSON output below we've added User ID : "3a3a3a3a-2c2c-4b4b-1c1c-2a3b4c5d6e7f" As Collection Administrator.
 
 ```json
 {
