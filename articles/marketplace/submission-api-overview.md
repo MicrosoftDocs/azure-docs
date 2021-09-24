@@ -35,7 +35,7 @@ Refer to the following table for supported submission APIs for each offer type.
 | Software as a Service |  | &#x2714; |
 |
 
-M365 Office add-ins, M365 SharePoint solutions, M365 Teams apps, and Power BI Visuals don’t have submission API support.
+Microsoft 365 Office add-ins, Microsoft 365 SharePoint solutions, Microsoft 365 Teams apps, and Power BI Visuals don’t have submission API support.
 
 ## Next steps
 
