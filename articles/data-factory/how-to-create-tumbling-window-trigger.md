@@ -285,7 +285,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli) to create a data factory and a pipeline.
+- Follow the instructions in [Create an Azure Data Factory using Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli) to create a data factory and a pipeline.
 
 ### Sample Code
 
@@ -350,7 +350,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
     az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-6. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and **last-updated-before** values to match the values in your trigger definition:
+6. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and  **last-updated-before** values to match the values in your trigger definition:
 
     ```azurecli
     az datafactory trigger-run query-by-factory --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00Z" --last-updated-before "2017-12-08T01:00:00Z"
