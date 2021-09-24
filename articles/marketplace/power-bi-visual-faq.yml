@@ -92,7 +92,7 @@ sections:
 
               [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-              If you signed up for more than one marketplace program, you will see the tabs at the top of the _Marketplace offers_ page. If so, make sure the **Commercial marketplace** tab is selected. If you don't see the **Commercial marketplace** tab, it means that you are not enrolled in the commercial marketplace and you are only signed up for the Office store.
+              If you signed up for more than one marketplace program, you will see the tabs at the top of the _Marketplace offers_ page. If so, make sure the **Commercial marketplace** tab is selected. If you don't see the **Commercial marketplace** tab, it means that you are not enrolled in the commercial marketplace yet and you are only signed up for the Office store.
 
               [ ![Shows the Commercial marketplace tab on the Marketplace offers page.](media/workspaces/commercial-marketplace-tab.png) ](media/workspaces/commercial-marketplace-tab.png#lightbox)
 
@@ -100,7 +100,7 @@ sections:
 
           1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) with the same credentials as before. The navigation menu on the left (left-nav menu) displays options associated with the programs you are enrolled in, such as the MPN program, the Office Store, and the commercial marketplace.
 
-          1. Select **Commercial Marketplace** > **Overview** to access your offers. If you don’t see the commercial marketplace in the left-nav menu, it means your account is not enrolled in the commercial marketplace.
+          1. Select **Commercial Marketplace** > **Overview** to access your offers. If you don’t see the commercial marketplace in the left-nav menu, it means your account is not enrolled in the commercial marketplace yet.
 
              :::image type="content" source="media/power-bi-visual/overview-tab.png" alt-text="Shows the Overview tab in Partner Center.":::
 
