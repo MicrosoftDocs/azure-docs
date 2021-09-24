@@ -212,7 +212,7 @@ Some things to consider:
    The Azure Resource Explorer is an indispensable troubleshooting tool that shows you the state of your Azure Resource Manager resources. Click on your subscription and look at the Resource Group you are troubleshooting. Under the `ServiceFabric/managedclusters/clustername` resource provider, look under `NodeTypes` for node types you created and check properties to validate `provisioningState` is `Succeeded`. Then, go into the Microsoft.Insights resource provider under `clustername` and check that the autoscale rules look right. 
 
 * Are your emitted metric values as expected?
-   Use the `Get-AzMetric` [PowerShell module to get the metric values of a resource](../../powershell/module/az.monitor/get-azmetric?view=azps-6.4.0) and review
+   Use the `Get-AzMetric` [PowerShell module to get the metric values of a resource](/powershell/module/az.monitor/get-azmetric) and review
 
 
 Once you've been through these steps, if you're still having autoscale problems, you can try the following resources:
@@ -222,7 +222,9 @@ Once you've been through these steps, if you're still having autoscale problems,
 ## Next steps
 > [!div class="nextstepaction"]
 > [Read about Azure Monitor auto scale support](../azure-monitor/autoscale/autoscale-overview.md)
+> [!div class="nextstepaction"]
 > [Review Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
+> [!div class="nextstepaction"]
 > [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
 
 [autoscale-are-tree]: ./media/how-to-managed-cluster-autoscale/autoscale-are-tree.png
