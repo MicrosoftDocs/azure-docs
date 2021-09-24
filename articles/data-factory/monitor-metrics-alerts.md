@@ -65,11 +65,11 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
     > [!NOTE]
     > Make sure to select **All** in the **Filter by resource type** dropdown list.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text="Screenshot that shows &quot;Define alert condition&quot; > &quot;Select target&quot;, which opens the &quot;Select a resource&quot; pane.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text="Screenshot that shows the selections for opening the pane for choosing a resource.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" alt-text="Screenshot that shows &quot;Define alert condition&quot; > &quot;Add criteria&quot;, which opens the &quot;Configure signal logic&quot; pane.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" alt-text="Screenshot that shows the selections for opening the pane for configuring signal logic.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" alt-text="Screenshot that shows the &quot;Configure signal type&quot; pane.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" alt-text="Screenshot that shows configuring the signal logic.":::
 
 1. Define the alert details.
 
@@ -77,7 +77,7 @@ Sign in to the Azure portal, and select **Monitor** > **Alerts** to create alert
 
 1. Define the action group.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Screenshot that shows creating a rule, with &quot;New action group&quot; highlighted.":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="Screenshot that shows creating a rule, with New action group highlighted.":::
 
     :::image type="content" source="media/monitor-using-azure-monitor/alerts_image10.png" alt-text="Screenshot that shows creating a new action group.":::
 
