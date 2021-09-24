@@ -697,7 +697,7 @@ GET https://{your_purview_account_name}.purview.azure.com/policystore/collection
 }
 ```
 
-### Get MetadataPolicy of the collection by policyID
+### Get metadataPolicy of the collection by policyID
 ```ruby
 GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
 ```
