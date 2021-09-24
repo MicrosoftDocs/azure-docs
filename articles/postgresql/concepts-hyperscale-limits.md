@@ -46,13 +46,28 @@ pooling](concepts-hyperscale-connection-pool.md). Hyperscale (Citus) offers a
 managed pgBouncer connection pooler configured for up to 2,000 simultaneous
 client connections.
 
-### Private access
+### Private access (preview)
 
 #### Server group name
 
 To be compatible with [private access](concepts-hyperscale-private-access.md),
 a Hyperscale (Citus) server group must have a name that is 40 characters or
 shorter.
+
+#### Regions
+
+The private access feature is available in preview in only these regions:
+
+* Americas
+	* East US
+	* West US 2
+* Asia Pacific
+	* Japan East
+	* Japan West
+	* Korea Central
+* Europe
+	* Germany West Central
+	* West Europe
 
 ## Storage
 

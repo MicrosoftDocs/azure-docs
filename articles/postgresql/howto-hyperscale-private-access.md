@@ -103,7 +103,11 @@ az vm run-command invoke \
 
 	> [!NOTE]
 	>
-	> If the private access option is not selectable for your server group,
+	> Private access is available for preview in only [certain
+	> regions](concepts-hyperscale-limits.md#regions).
+	>
+	> If the private access option is not selectable for your server group
+	> even though your server group is within an allowed region,
 	> please open an Azure [support
 	> request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest),
 	> and include your Azure subscription ID, to get access.
