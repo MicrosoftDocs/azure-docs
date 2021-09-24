@@ -92,7 +92,7 @@ Details on some of the important identifiers in the JSON output received from th
 
 ## Tutorial: How to Add or Remove a [User/Group/ServicePrincipal] to a Collection as one of the 4 built-in Metadata Roles [Collection Administrator, Data Source Administrator, Data Curator or Data Reader]
 
-## 1. API: Get All Metadata Roles
+## Get All Metadata Roles
 **GET [https://{your-purview-account-name}.purview.azure.com/policystore/metadataroles?api-version=2021-07-01**]()**
 
 Lists all the Metadata Access Permission Roles available.
