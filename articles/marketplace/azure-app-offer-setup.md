@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Create an Azure application offer
@@ -20,7 +20,7 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### [Workspaces view](#tab/new-web-form)
+#### [Workspaces view](#tab/workspaces-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -45,7 +45,7 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
 
 1. To generate the offer and continue, select  **Create**.
 
-#### [Current view](#tab/old-web-form)
+#### [Current view](#tab/current-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -108,4 +108,3 @@ Connect your customer relationship management (CRM) system with your commercial 
 ## Next steps
 
 - [Configure Azure application properties](azure-app-properties.md)
-<!--- [Updated for Workspaces]() --->
