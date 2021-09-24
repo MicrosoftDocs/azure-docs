@@ -19,7 +19,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 - A virtual machine template resource on which on which you have Arc Private Cloud Resource User Role
 
-- [Optional] A virtual network resource on which on which you have Arc Private Cloud Resource User Role
+- (Optional) A virtual network resource on which on which you have Arc Private Cloud Resource User Role
 
 ## How to create a VM in Azure portal
 
@@ -39,7 +39,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 7. Select a **Custom location** that your administrator has shared with you.
 
-8. If multiple kinds of VMs are supported, pick ***VMware***  as the **Virtual machine kind**.
+8. If multiple kinds of VMs are supported, select ***VMware***  as the **Virtual machine kind**.
 
 9. Pick the **Resource pool/cluster/host** into which the VM should be deployed.
 

@@ -1,64 +1,60 @@
 ---
-title: Browse and enable your VMware vCenter resources in Azure
-description: This article will help you understand how to browse your vCenter inventory and represent your VMware vCenter resources in Azure
+title: Enable your VMware vCenter resources in Azure
+description: Learn how to browse your vCenter inventory and represent a subset of your VMware vCenter resources in Azure to enable self-service.
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 10/25/2021
 
-#Customer intent: As a VI admin, I want to represent a subset of  my vCenter resources in Azure so that I can enable self-service
+# Customer intent: As a VI admin, I want to represent a subset of my vCenter resources in Azure to enable self-service.
 ---
 
-# Browse and enable your VMware vCenter resources in Azure
+# Enable your VMware vCenter resources in Azure
 
-Once you have connected your VMware vCenter to Azure, your vCenter will get a representation in Azure and you can browse your vCenter inventory in Azure portal. 
+After you've connected your VMware vCenter to Azure, you'll represent it in Azure. Representing your vCenter in Azure allows you to browse your vCenter inventory from the Azure portal. 
 
-![Browse your VMware Inventory ](../docs/media/browse-vmware-inventory.png)
+:::image type="content" source="media/browse-vmware-inventory.png" alt-text="Screenshot of where to browse your VMware Inventory from the Azure portal." lightbox="media/browse-vmware-inventory.png":::
 
-You can visiting the VMware vCenter blade in Azure arc and view all the connected vCenters. In your vCenter you can browse all your virtual machines, resource pools, templates and networks. From the inventory of your vCenter resources, you can select one or more resources to enable them in Azure. Enabling a vCenter resource in Azure creates an Azure resource that represents your vCenter resource. Such Azure resources can then be used to assign permissions or perform management operations.
+You can visit the VMware vCenter blade in Azure arc to view all the connected vCenters. From here, you'll browse all your virtual machines (VMs), resource pools, templates, and networks.  From the inventory of your vCenter resources, you can select and enable one or more resources in Azure.  When you enable a vCenter resource in Azure, it creates an Azure resource that represents your vCenter resource. You can use this Azure resource to assign permissions or conduct management operations. 
 
-## Enable resource pools, networks and VM templates in Azure
-In this section we will be creating a representation of few VMware resources in Azure.
 
-1. Visit the [vCenters blade on Azure Arc Center](https://portal.azure.com/?microsoft_azure_hybridcompute_assettypeoptions=%7B%22VMwarevCenter%22%3A%7B%22options%22%3A%22%22%7D%7D&feature.customportal=false&feature.canmodifystamps=true&feature.azurestackhci=true&feature.scvmmdisktoc=true&feature.scvmmnettoc=true&feature.scvmmsizetoc=true&feature.scvmmvmnetworkingtab=true&feature.scvmmvmdiskstab=true&feature.vmwarearcvm=true&feature.vmwarevmnetworktab=true&feature.vmwarevmdiskstab=true&feature.appliances=true&feature.customlocations=true&feature.arcvmguestmanagement=true&feature.vmwareExtensionToc=true&feature.arcvmextensions=true&feature.vcenters=true&feature.vcenterguestmanagement=true&feature.hideassettypes=Microsoft_Azure_Compute_VirtualMachine&feature.showassettypes=Microsoft_Azure_Compute_AllVirtualMachine#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/vCenter).
+## Create a representation of VMware resources in Azure
 
-2. Select and navigate to your vCenter
+In this section, you'll enable resource pools, networks, and VM templates in Azure. 
 
-3. Navigate to appropriate inventory resources blade, select the resource(s) you want to enable.
+>[!NOTE]
+>Enabling Arc on a VMware vSphere resource is a read-only operation on vCenter—that is, it doesn't make changes to your resource in vCenter.
 
-4. Click on **Enable in Azure**
+1. From your browser, go to the [vCenters blade on Azure Arc Center](https://portal.azure.com/?microsoft_azure_hybridcompute_assettypeoptions=%7B%22VMwarevCenter%22%3A%7B%22options%22%3A%22%22%7D%7D&feature.customportal=false&feature.canmodifystamps=true&feature.azurestackhci=true&feature.scvmmdisktoc=true&feature.scvmmnettoc=true&feature.scvmmsizetoc=true&feature.scvmmvmnetworkingtab=true&feature.scvmmvmdiskstab=true&feature.vmwarearcvm=true&feature.vmwarevmnetworktab=true&feature.vmwarevmdiskstab=true&feature.appliances=true&feature.customlocations=true&feature.arcvmguestmanagement=true&feature.vmwareExtensionToc=true&feature.arcvmextensions=true&feature.vcenters=true&feature.vcenterguestmanagement=true&feature.hideassettypes=Microsoft_Azure_Compute_VirtualMachine&feature.showassettypes=Microsoft_Azure_Compute_AllVirtualMachine#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/vCenter) and navigate to your inventory resources blade. 
 
-5. Select your Azure Subscription and Resource Group in the right pane and click on **Enable**
+1. Select the resource or resources you want to enable and then select **Enable in Azure**.
 
-This will start a deployment and create a resource in Azure. Creating representations for your VMware vSphere resources in Azure allows you to granularly manage who can access those resources through Azure Arc.
+1. Select your Azure Subscription and Resource Group and then select **Enable**.
 
-6. Perform steps 3,4,5 for one or more network, resource pool and VM template resources.
+   This starts a deployment and creates a resource in Azure, creating representations for your VMware vSphere resources.  It allows you to manage who can access those resources through Azure Arc granularly. 
 
-> [!NOTE]
-> Enabling Arc on a VMware vSphere resource is a read-only operation on vCenter i.e. it doesn't make any changes to your resource in vCenter.
+6. Repeat these steps for one or more network, resource pool, and VM template resources.
+
+
 
 ## Enable existing virtual machines in Azure
 
-![Enable Guest Management](../docs/media/enable-guest-management.png)
+![Enable Guest Management]()
 
-1. Visit the [vCenters blade on Azure Arc Center](https://portal.azure.com/?microsoft_azure_hybridcompute_assettypeoptions=%7B%22VMwarevCenter%22%3A%7B%22options%22%3A%22%22%7D%7D&feature.customportal=false&feature.canmodifystamps=true&feature.azurestackhci=true&feature.scvmmdisktoc=true&feature.scvmmnettoc=true&feature.scvmmsizetoc=true&feature.scvmmvmnetworkingtab=true&feature.scvmmvmdiskstab=true&feature.vmwarearcvm=true&feature.vmwarevmnetworktab=true&feature.vmwarevmdiskstab=true&feature.appliances=true&feature.customlocations=true&feature.arcvmguestmanagement=true&feature.vmwareExtensionToc=true&feature.arcvmextensions=true&feature.vcenters=true&feature.vcenterguestmanagement=true&feature.hideassettypes=Microsoft_Azure_Compute_VirtualMachine&feature.showassettypes=Microsoft_Azure_Compute_AllVirtualMachine#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/vCenter).
+1. From your browser, go to the [vCenters blade on Azure Arc Center](https://portal.azure.com/?microsoft_azure_hybridcompute_assettypeoptions=%7B%22VMwarevCenter%22%3A%7B%22options%22%3A%22%22%7D%7D&feature.customportal=false&feature.canmodifystamps=true&feature.azurestackhci=true&feature.scvmmdisktoc=true&feature.scvmmnettoc=true&feature.scvmmsizetoc=true&feature.scvmmvmnetworkingtab=true&feature.scvmmvmdiskstab=true&feature.vmwarearcvm=true&feature.vmwarevmnetworktab=true&feature.vmwarevmdiskstab=true&feature.appliances=true&feature.customlocations=true&feature.arcvmguestmanagement=true&feature.vmwareExtensionToc=true&feature.arcvmextensions=true&feature.vcenters=true&feature.vcenterguestmanagement=true&feature.hideassettypes=Microsoft_Azure_Compute_VirtualMachine&feature.showassettypes=Microsoft_Azure_Compute_AllVirtualMachine#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/vCenter) and navigate to your vCenter.
 
-2. Select and navigate to your vCenter
+   :::image type="content" source="media/media/enable-guest-management.png" alt-text="Screenshot of how to enable an existing virtual machine in the Azure portal." lightbox="media/media/enable-guest-management.png":::
 
-3. Navigate to virtual machine inventory resource blade, select the virtual machine(s) you want to enable.
+1. Navigate to the VM inventory resource blade, select the VMs you want to enable, and then select **Enable in Azure**.
 
-3. Click on **Enable in Azure**
+1. Select your Azure Subscription and Resource Group.
 
-4. Select your Azure Subscription and Resource Group in the right pane
+1. (Optional) Select **Install guest agent** and then provide the Administrator username and password of the guest operating system.
 
-5. [Optional] Tick on **Install guest agent** 
-
-6. [Optional] Provide Administrator username and password of the guest OS 
-
-Guest agent is the Connected Machine agent. You can read more about it [here](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview). You can install this agent later as well by selecting the virtual machine in the virtual machine inventory resource blade on your vCenter and clicking **Enable guest managemement**. The pre-requisites of enabling guest management are listed [here](../docs/manage-vmware-vms-in-azure.md)
+   The [guest agent](./servers/agent-overview) is the connected machine agent. You can install this agent later by selecting the VM in the virtual machine inventory resource blade on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc enabled VMware vSphere](manage-vmware-vms-in-azure.md).
  
-7. Click **Enable**
+1. Select **Enable** to start the deployment of the VM represented in Azure. 
 
-This will start a deployment and on completion, you will have the VM represented in Azure. We will talk about the capabilities enabled by Guest agent in [later](../docs/perform-vm-operations.md) section.
+For information on the capabilities enabled by a guest agent, see [what topic is this? the preview content points to perform-vm-operations.md but it doesn't exist]().
 
 ## Next Steps
 
-- [Manage access to VMware resources through Azure Role Based Access Control](manage-access-to-arc-vmware-resources.md)
+- [Manage access to VMware resources through Azure RBAC](manage-access-to-arc-vmware-resources.md)
