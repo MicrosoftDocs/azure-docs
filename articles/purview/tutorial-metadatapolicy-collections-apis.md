@@ -47,7 +47,8 @@ This table gives an overview of the **Purview Collections APIs**. Click each of 
 
 API: PUT [https://{your-purview-account-name}.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview](https://hoc-purviewga1.purview.azure.com/collections/collectiontest?api-version=2019-11-01-preview)
 
-Note: If using API, the above API is part of account data plane and the Service Principal (SP), User or Group executing the API should have ‘Collection Admin’ role assigned in Purview to execute this API successfully.
+> [!NOTE]
+> If using API, the above API is part of account data plane and the Service Principal (SP), User or Group executing the API should have [Collection Admin](how-to-create-and-manage-collections.md#check-permissions) role assigned in Purview to execute this API successfully.
 
 ### Using Azure portal / Purview studio:
 
