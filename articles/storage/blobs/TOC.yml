@@ -209,7 +209,7 @@ items:
     - name: Blob access tiers and lifecycle management
       items:
       - name: Overview
-        href: storage-blob-storage-tiers.md
+        href: access-tiers-overview.md
       - name: Archive storage for blob data
         href: archive-rehydrate-overview.md
       - name: Lifecycle management policies
