@@ -7,6 +7,8 @@ ms.date: 9/24/2021
 ms.author: cachai
 ---
 
+# Dynamic Concurrency (Preview)
+
 This page describes the new Azure Functions **Dynamic Concurrency** feature for Service Bus, which simplifies configuring concurrency for your function apps. This article also provides an overview of the existing concurrency model in Azure Functions. For steps on how to use Dynamic Concurrency, [jump here](dynamic-concurrency.md#dynamic-concurrency-configuration).
 
 ## Benefits
