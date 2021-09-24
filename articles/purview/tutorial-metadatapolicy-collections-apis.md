@@ -231,7 +231,7 @@ The output JSON will describe the roles and their associated permissions in this
 }
 ```
 
-# Get All Metadata Policies
+## Get All Metadata Policies
 ```ruby
 GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies?api-version=2021-07-01
 ```
