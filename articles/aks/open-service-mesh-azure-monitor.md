@@ -10,7 +10,7 @@ ms.author: pgibson
 
 # Open Service Mesh (OSM) Monitoring and Observability using Azure Monitor and Applications Insights
 
-Both Azure Monitor and Azure Application Insights assist with maximizing the availability and performance of your applications and services. This is done by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+Both Azure Monitor and Azure Application Insights assist with maximizing the availability and performance of your applications and services. These services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -18,7 +18,7 @@ The OSM AKS add-on will have deep integrations into both of these Azure services
 
 ## Enable Azure Monitor
 
-Once the osm aks-addon has been enabled on the AKS cluster, Azure Monitor needs to be enabled in the cluster. This can be done by clicking on the AKS cluster in Azure Portal, going to the "Insights" tab under "Monitoring," and clicking "Enable." 
+Once the OSM AKS add-on has been enabled on the AKS cluster, Azure Monitor needs to be enabled in the cluster via Azure portal. Click on the AKS cluster, navigate to the "Insights" tab under "Monitoring," and select "Enable." 
 
 Once Azure Monitor has been enabled, you should be able to see the following logs in the kube-system namespace: 
 
@@ -86,7 +86,7 @@ data:
 
 ## View Metrics on Azure Portal
 
-In Azure Portal, click on the Kubernetes Cluster and then the "Logs" tab under "Monitoring." You should be now able to query the `InsightsMetrics` table to view metrics in the enabled namespaces. For instance, if you wanted to see the envoy metrics for bookbuyer, you would use the following query:
+In Azure portal, select the Kubernetes cluster and then the "Logs" tab under "Monitoring." You should be now able to query the `InsightsMetrics` table to view metrics in the enabled namespaces. For instance, if you wanted to see the envoy metrics for `bookbuyer`, you would use the following query:
 
 ```sh
 InsightsMetrics
