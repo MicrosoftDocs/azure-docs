@@ -1,6 +1,6 @@
 ---
 title: Azure Purview Collections Metadata Policy & Roles APIs Quickstart Tutorial – Manage Fine Grained Access Control over Purview Collections
-description:  This tutorial talks about managing fine grained access control over these collections to users, groups or service principals within your enterprise via Azure Purview APIs.
+description:  This tutorial talks about managing fine grained access control over these collections to users, groups, or service principals within your enterprise via Azure Purview APIs.
 author: abandyop
 ms.author: arindamba
 ms.service: purview
@@ -12,11 +12,11 @@ ms.date: 09/24/2021
 
 # Tutorial: Use REST APIs to manage Role Based Access Control (RBAC) on Azure Purview Collections 
 
-In August 2021, access control in Azure Purview moved from Access Control (IAM) (control plane) to [Azure Purview Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This move allows data curators and owners to have more precise access control on their data stores, and allows organizations to audit right-access and right-use of their data.
+In August 2021, access control in Azure Purview moved from Access Control (IAM) (control plane) to [Azure Purview Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This change allows enterprise data curators and admins to have more precise access control on their data sources scanned by Purview, and allows organizations to audit right-access and right-use of their data.
 
-This tutorial guides you through using the Azure Purview APIs to add  users, groups, or service principals to a collection, and manage or remove their roles within that collection. This is an alternative method to using the Azure Portal or Purview Studio to achieve the same fine grained access control.
+This tutorial guides you through using the Azure Purview APIs to add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure Portal or Purview Studio to achieve the same fine grained access control.
 
-For more information about the access roles in Azure Purview, the [Purview permissions guide](catalog-permissions.md#roles) covers the kinds of roles available,  and the roles a user would need to be able to meet common permissions scenarios.
+For more information about the access roles in Azure Purview, the [Purview permissions guide](catalog-permissions.md#roles) covers the kinds of roles available, and the roles a user would need to be able to meet common permissions scenarios.
 
 
 ## Metadata Policy API Reference Summary
@@ -53,7 +53,7 @@ PUT https://{your_purview_account_name}.purview.azure.com/collections/{collectio
 
 ### Using Azure portal / Purview studio:
 
-If a collection is created using Azure Portal Web UI, the “name” of the collection will be different from display name “friendlyName” as purview generates a unique alphanumeric “name” behind the scenes.  If using APIs, then the name and friendly name will be same. For policy APIs you will need name (and not display/friendly name).
+If a collection is created using Azure Portal Web UI, the “name” of the collection will be different from display name “friendlyName” as purview generates a unique alphanumeric “name” behind the scenes.  If using APIs, then the name and friendly name will be same. For policy APIs, you will need name (and not display/friendly name).
 
 Sample Collection Created via Azure Portal: 
 
@@ -106,8 +106,8 @@ The output JSON will describe the roles and their associated permissions in this
 
 |**Role ID**|**Permissions**|**Role Description**|
 | :- | :- | :- |
-|purviewmetadatarole\_builtin\_data-source-administrator|Microsoft.Purview/accounts/scan/read Microsoft.Purview/accounts/scan/write Microsoft.Purview/accounts/collection/read|Grants access to others to read, write collection, register data sources and trigger scans.|
-|purviewmetadatarole\_builtin\_collection-administrator|Microsoft.Purview/accounts/collection/read Microsoft.Purview/accounts/collection/write|Admin level full access to entire collection, including add, remove users and SPNs to the collection, management rights, grant and revoke access. In some cases, collection admin may be different from the creator of the collection.|
+|purviewmetadatarole\_builtin\_data-source-administrator|Microsoft.Purview/accounts/scan/read Microsoft.Purview/accounts/scan/write Microsoft.Purview/accounts/collection/read|Grants access to others to read, write collection, register data sources, and trigger scans.|
+|purviewmetadatarole\_builtin\_collection-administrator|Microsoft.Purview/accounts/collection/read Microsoft.Purview/accounts/collection/write|Admin level full access to entire collection, including add, remove users and SPNs to the collection, management rights, grant, and revoke access. In some cases, collection admin may be different from the creator of the collection.|
 |purviewmetadatarole\_builtin\_purview-reader|Microsoft.Purview/accounts/data/read Microsoft.Purview/accounts/collection/read|Grants only read access to data handling and all metadata including (classifications, sensitivity labels, insights, read assets in a collection) except scan bindings.|
 |purviewmetadatarole\_builtin\_data-curator|Microsoft.Purview/accounts/data/read Microsoft.Purview/accounts/data/write Microsoft.Purview/accounts/collection/read|Grants full access to data handling and all metadata including (classifications, sensitivity labels, insights, read assets in a collection) except scan bindings.|
 |purviewmetadatarole\_builtin\_data-share-contributor|Microsoft.Purview/accounts/share/read Microsoft.Purview/accounts/share/write|Grants access to data shares as a contributor|
