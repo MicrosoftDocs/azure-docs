@@ -10,7 +10,7 @@ ms.date: 09/24/2021
 # Customer intent: As a Purview collection administrator, I want to manage Collections and control access to each Collection in the Purview account by adding or removing users, groups, or service principals via REST API Interface.
 ---
 
-# Tutorial: Use APIs to manage role based access control (RBAC) on Azure Purview Collections 
+# Tutorial: Use REST APIs to manage Role Based Access Control (RBAC) on Azure Purview Collections 
 
 In August 2021, access control in Azure Purview moved from Access Control (IAM) (control plane) to [Azure Purview Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This move allows data curators and owners to have more precise access control on their data stores, and allows organizations to audit right-access and right-use of their data.
 
@@ -92,7 +92,7 @@ Details on some of the important identifiers in the JSON output received from th
 
 **DecisionRules**:  List the rules and effect of this policy. For metadata polices, the effect is always “Permit”.
 
-## Tutorial: How to Add or Remove a [User/Group/ServicePrincipal] to a Collection as one of the 4 built-in Metadata Roles [Collection Administrator, Data Source Administrator, Data Curator or Data Reader]
+## Tutorial: Using Purview REST APIs to Add or Remove a [User/Group/ServicePrincipal] to a Collection
 
 ## Get All Metadata Roles
 ```ruby
