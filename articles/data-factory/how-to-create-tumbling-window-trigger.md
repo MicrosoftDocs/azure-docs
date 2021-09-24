@@ -198,6 +198,8 @@ You can also rerun a canceled window. The rerun will take the _latest_ published
 
 # [Azure PowerShell](#tab/azure-powershell)
 
+This section shows you how to use Azure PowerShell to create, start, and monitor a trigger.
+
 ### Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -208,7 +210,7 @@ You can also rerun a canceled window. The rerun will take the _latest_ published
 
 - **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using PowerShell](/azure/data-factory/quickstart-create-data-factory-powershell) to create a data factory and a pipeline.
 
-This section shows you how to use Azure PowerShell to create, start, and monitor a trigger.
+### Sample Code
 
 1. Create a JSON file named **MyTrigger.json** in the C:\ADFv2QuickStartPSH\ folder with the following content:
 
@@ -284,6 +286,8 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli) to create a data factory and a pipeline.
+
+### Sample Code
 
 1. In your working directory create a JSON file named **MyTrigger.json** with the following content:
 
