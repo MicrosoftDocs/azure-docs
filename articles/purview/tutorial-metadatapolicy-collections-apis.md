@@ -53,9 +53,7 @@ PUT https://{your_purview_account_name}.purview.azure.com/collections/{collectio
 
 ### Using Azure portal / Purview studio:
 
-If a collection is created using Azure Portal Web UI, the “name” of the collection will be different from display name “friendlyName” as purview generates a unique alphanumeric “name” behind the scenes.  If using APIs, then the name and friendly name will be same. For policy APIs, you will need name (and not display/friendly name).
-
-Sample Collection Created via Azure Portal: 
+If a collection is created using Azure Portal Web UI, the “name” of the collection will be different from display name "friendlyName", since purview generates a unique six-character alphanumeric "name" behind the scenes.  When using APIs, the name and friendly name will be same. For policy APIs, you will need "name" (and not "friendlyName").
 
 ```json
 {
@@ -602,7 +600,7 @@ Example:
 
 ## Get Selected Metadata Policy 
 This API fetches the Policy either by CollectionName or by PolicyID.
-At this point you would want to choose the particular policy to modify (add/remove users). Pick the particular PolicyID from the previous step’s JSON output. 
+At this point, you would want to choose the particular policy to modify (add/remove users). Pick the particular PolicyID from the previous step’s JSON output. 
 Now you can choose to use either API 3A or 3B below. Both serve the same purpose, you may choose whether to use {collectionName} or {PolicyID}.
 
 ### Get MetadataPolicy of the collection by collectionName
@@ -610,7 +608,7 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 GET https://{your_purview_account_name}.purview.azure.com/policystore/collections/{collectionName}/metadataPolicy?api-version=2021-07-01
 ```
 1. The Purview account name is {your_purview_account_name}. Replace it with your Purview Account name.
-1. In the JSON structure of the previous API "Get All Metadata Policies" look for the section: { "type": "CollectionReference", "referenceName": "7xkdg2"}
+1. In the JSON output of the previous API "Get All Metadata Policies", look for the section: { "type": "CollectionReference", "referenceName": "7xkdg2"}
 1. Replace "{collectionName}" in the API URL with the value of "referenceName": "{6-char-collection-name}". So if your 6-character-collection-name is "7xkdg2" the API URL will look like  https://{your_purview_account_name}.purview.azure.com/policystore/collections/7xkdg2/metadataPolicy?api-version=2021-07-01
 1. Now execute this API. 
 
@@ -704,7 +702,7 @@ GET https://{your_purview_account_name}.purview.azure.com/policystore/collection
 GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
 ```
 1. The Purview account name is {your_purview_account_name}. Replace with your Purview account name.
-1. In the JSON structure of the previous API "Get All Metadata Policies" look for the section: {.... "name": "policy_qu45fs", "id": "{policy-guid}", "version": N ....}
+1. In the JSON output of the previous API "Get All Metadata Policies", look for the section: {.... "name": "policy_qu45fs", "id": "{policy-guid}", "version": N ....}
 1. Replace "{policyId}" in the API URL with the value of "id". So if your "{policy-guid}" is "c6639bb2-9c41-4be0-912b-775750e725de" the API URL will look like  https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/c6639bb2-9c41-4be0-912b-775750e725de?api-version=2021-07-01
 1. Now execute this API. Notice that output of this API call and the previous API call is the same. You can choose either one as previously mentioned in the tutorial.
 
@@ -802,7 +800,7 @@ PUT https://{your_purview_account_name}.purview.azure.com/policystore/metadataPo
 This step will update the Policy JSON obtained in previous step and push it to Purview Service using a PUT REST Method.
 Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'll follow the same API process.
 
-1. You need to pass the User/Group/ServicePrincipal Object ID {guid} in an array format in "attributeValueIncludedIn" array of the JSON.
+1. Supply the User/Group/ServicePrincipal Object IDs {guid} in the "attributeValueIncludedIn" array of the JSON.
 1. Search the JSON output of the Get-Policy-by-ID API for "attributeValueIncludedIn" array in the previous step and **Add** or  **Remove** the User/Group/ServicePrincipal Object ID in the array. If unsure about how to fetch user or group Object ID, read this tutorial [Get-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser)
 1. Notice that there could be multiple sections in the JSON pertaining to each of the 4 roles. For collection administrator permission role, use the section bearing "ID" called "purviewmetadatarole_builtin_collection-administrator". Likewise, use the corresponding section for the other roles.
 1. To better understand the Add/Remove operation, carefully examine the difference between the JSON output from the previous API and the one below. You'll notice that in the JSON output below we've added User ID: "3a3a3a3a-2c2c-4b4b-1c1c-2a3b4c5d6e7f" As Collection Administrator.
@@ -898,7 +896,7 @@ By default, the user who created the Purview account is the root collection admi
 ```ruby
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01
 ```
-You only need to pass the new root collection administrator's Object ID whether it is a user, group or service principal.
+You only need to pass the new root collection administrator's Object ID whether it is a user, group, or service principal.
 ```json
 {"objectId": "{guid}"}
 ```
@@ -909,7 +907,7 @@ On success, you will get HTTP Response 200 OK.
 
 
 ##  Purview REST API Combined Archive
-To help you get quick-started with Purview APIs here is an archive of all the Purview REST API Specs collected together at one place: [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest) or Postman collection of Purview APIs.
+To help you get quick-started with Purview APIs here is an archive of all the Purview REST API Specs collected together at one place: [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest), or Postman collection of Purview APIs.
 
 ## PowerShell utility to run Purview APIs
 You may choose to execute Purview REST APIs using PowerShell Utility [Purview-API-PowerShell](https://aka.ms/purview-api-ps). It can be readily installed from PowerShell Gallery. It will execute all the same commands, albeit from the Windows PowerShell.
