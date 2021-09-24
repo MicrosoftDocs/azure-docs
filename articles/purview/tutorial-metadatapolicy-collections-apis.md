@@ -695,7 +695,7 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 }
 ```
 
-## 3B. Get MetadataPolicy of the collection by policyID
+### Get MetadataPolicy of the collection by policyID
 **GET https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01**
 
 - The Purview account name is {your-purview-account-name}
