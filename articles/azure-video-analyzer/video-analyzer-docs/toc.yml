@@ -12,79 +12,79 @@
       href: release-notes.md  
 - name: Quickstarts
   items:
-    - name: Edge module
+  - name: Edge module
+    items:
+    - name: Get started 
       items:
-      - name: Get started 
-        items:
-        - name: Use ARM template
-          href: edge/get-started-detect-motion-emit-events.md
-        - name: Use portal
-          href: edge/get-started-detect-motion-emit-events-portal.md
-      - name: Detect motion and emit events    
-        href: edge/detect-motion-emit-events-quickstart.md
-      - name: Detect motion, record video
-        items:
-        - name: Record locally on edge
-          href: edge/detect-motion-record-video-edge-devices.md
-        - name: Record to the cloud
-          href: edge/detect-motion-record-video-clips-cloud.md
-      - name: Analyze live video
-        items:
-        - name: Use gRPC
-          displayName: analyze live video
-          href: edge/analyze-live-video-use-your-model-grpc.md
-        - name: Use HTTP
-          displayName: analyze live video
-          href: edge/analyze-live-video-use-your-model-http.md
-      - name: Track objects in live videos
-        href: edge/track-objects-live-video.md
-    - name: Cloud pipelines
+      - name: Use ARM template
+        href: edge/get-started-detect-motion-emit-events.md
+      - name: Use portal
+        href: edge/get-started-detect-motion-emit-events-portal.md
+    - name: Detect motion and emit events    
+      href: edge/detect-motion-emit-events-quickstart.md
+    - name: Detect motion, record video
       items:
-      - name: Get started 
-        items:
-          - name: Using portal
-            href: overview.md  
+      - name: Record locally on edge
+        href: edge/detect-motion-record-video-edge-devices.md
+      - name: Record to the cloud
+        href: edge/detect-motion-record-video-clips-cloud.md
+    - name: Analyze live video
+      items:
+      - name: Use gRPC
+        displayName: analyze live video
+        href: edge/analyze-live-video-use-your-model-grpc.md
+      - name: Use HTTP
+        displayName: analyze live video
+        href: edge/analyze-live-video-use-your-model-http.md
+    - name: Track objects in live videos
+      href: edge/track-objects-live-video.md
+  - name: Cloud pipelines
+    items:
+    - name: Get started 
+      items:
+        - name: Using portal
+          href: overview.md  
 - name: Tutorials
   items:
-    - name: Edge module
+  - name: Edge module
+    items:
+    - name: Continuous video recording to cloud
+      href: edge/use-continuous-video-recording.md
+    - name: Event-based video recording
+      href: edge/record-event-based-live-video.md
+    - name: Record and stream inference data with video
+      href: edge/record-stream-inference-data-with-video.md
+    - name: Use line crossing
+      href: edge/use-line-crossing.md
+    - name: Analyze live video
       items:
-      - name: Continuous video recording to cloud
-        href: edge/use-continuous-video-recording.md
-      - name: Event-based video recording
-        href: edge/record-event-based-live-video.md
-      - name: Record and stream inference data with video
-        href: edge/record-stream-inference-data-with-video.md
-      - name: Use line crossing
-        href: edge/use-line-crossing.md
-      - name: Analyze live video
-        items:
-        - name: With OVMS via HTTP extension
-          displayName: analyze live video, intel, OpenVINO 
-          href: edge/use-intel-openvino-tutorial.md
-        - name: With OV DL Streamer via gRPC extension
-          displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
-          href: edge/use-intel-grpc-video-analytics-serving-tutorial.md
-        - name: With Custom Vision
-          displayName: analyze live video    
-          href: edge/analyze-live-video-custom-vision.md 
-        - name: With Spatial Analysis
-          href: edge/computer-vision-for-spatial-analysis.md    
-    - name: Cloud pipelines
-      items:
-      - name: Connect camera to cloud using portal
-        href: overview.md
-      - name: Export a clip (batch pipeline)
-        href: overview.md
-    - name: Visualize AI inference events
-      href: visualize-ai-events-power-bi.md
+      - name: With OVMS via HTTP extension
+        displayName: analyze live video, intel, OpenVINO 
+        href: edge/use-intel-openvino-tutorial.md
+      - name: With OV DL Streamer via gRPC extension
+        displayName: analyze live video, intel, OpenVINO, DL Streamer, VAS
+        href: edge/use-intel-grpc-video-analytics-serving-tutorial.md
+      - name: With Custom Vision
+        displayName: analyze live video    
+        href: edge/analyze-live-video-custom-vision.md 
+      - name: With Spatial Analysis
+        href: edge/computer-vision-for-spatial-analysis.md    
+  - name: Cloud pipelines
+    items:
+    - name: Connect camera to cloud using portal
+      href: overview.md
+    - name: Export a clip (batch pipeline)
+      href: overview.md
+  - name: Visualize AI inference events
+    href: visualize-ai-events-power-bi.md
 - name: GitHub samples
   items:
-    - name: C# sample repository
-      href: https://go.microsoft.com/fwlink/?linkid=2163551
-    - name: Python sample repository
-      href: https://go.microsoft.com/fwlink/?linkid=2163454
-    - name: Widgets sample repository
-      href: https://go.microsoft.com/fwlink/?linkid=2173229
+  - name: C# sample repository
+    href: https://go.microsoft.com/fwlink/?linkid=2163551
+  - name: Python sample repository
+    href: https://go.microsoft.com/fwlink/?linkid=2163454
+  - name: Widgets sample repository
+    href: https://go.microsoft.com/fwlink/?linkid=2173229
 - name: Concepts
   items:
   - name: Pipeline
