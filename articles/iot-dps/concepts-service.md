@@ -33,7 +33,7 @@ The Device Provisioning Service can only provision devices to IoT hubs that have
 
 ## Allocation policy
 
-The service-level setting that determines how Device Provisioning Service assigns devices to an IoT hub. There are three supported allocation policies:
+The service-level setting that determines how Device Provisioning Service assigns devices to an IoT hub. There are four supported allocation policies:
 
 * **Evenly weighted distribution**: linked IoT hubs are equally likely to have devices provisioned to them. The default setting. If you are provisioning devices to only one IoT hub, you can keep this setting.
 
@@ -41,7 +41,7 @@ The service-level setting that determines how Device Provisioning Service assign
 
 * **Static configuration via the enrollment list**: specification of the desired IoT hub in the enrollment list takes priority over the service-level allocation policy.
 
-* **Custom (Use Azure Function)**: A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device.
+* **Custom (Use Azure Function)**: A [custom allocation policy](how-to-use-custom-allocation-policies) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device.
 
 ## Enrollment
 
