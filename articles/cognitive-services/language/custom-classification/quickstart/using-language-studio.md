@@ -22,6 +22,8 @@ In this article, we use the Language studio to demonstrate key concepts of Custo
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
+You can use an existing Language resource to get started with custom features, Learn more about this [here](../how-to/use-azure-resources.md#optional-using-a-preexisting-azure-resource)
+
 ## Upload Sample data to blob container
 
 After you have created an Azure storage account and linked it to your Language Service resource
