@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/23/2021
 ms.author: duau
 ---
 
@@ -21,7 +21,7 @@ When your NVA advertises the default route, Azure Route Server programs it for a
 | 0.0.0.0/0 | Internet |
 
 
-### Why can I ping from my NVA to the BGP peer IP on Azure Route Server but after I set up the BGP peering between them, I can’t ping the same IP anymore? Why does the BGP peering go down?
+### Why can I ping from my NVA to the BGP peer IP on Azure Route Server but after I set up the BGP peering between them, I can’t ping the same IP anymore? Or, why is the BGP peering flapping?
 
 In some NVA, you need to add a static route for the Azure Route Server subnet. For example, if Azure Route Server is in 10.0.255.0/27 and your NVA is in 10.0.1.0/24, you need to add the following route to the routing table in the NVA:
 
@@ -35,10 +35,6 @@ In some NVA, you need to add a static route for the Azure Route Server subnet. F
 When you deploy Azure Route Server to a virtual network, we need to update the control plane between the gateways and the virtual network. During this update, there's a period of time when the VMs in the virtual network will lose connectivity to the on-premises network. We strongly recommend that you schedule a maintenance to deploy Azure Route Server in your production environment.  
 
 ## Control plane issues
-
-### Why is the BGP peering between my NVA and the Azure Route Server going up and down (“flapping”)?
-
-The cause of the flapping could be because of the BGP timer setting. By default, the Keep-alive timer on Azure Route Server is set to 60 seconds and the Hold-down timer is 180 seconds.
 
 ### Why does my on-premises network connected to Azure VPN gateway not receive the default route advertised by Azure Route Server?
 
