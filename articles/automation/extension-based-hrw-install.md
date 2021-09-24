@@ -6,7 +6,7 @@ ms.subservice: process-automation
 ms.date: 09/24/2021
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
----
+--- 
 
 # Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation (Preview)
 
@@ -53,7 +53,7 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
 
 ### Network requirements
-?
+See [Configuring your network ](./automation-hybrid-runbook-worker.md#network-planning)
 
 ## Create hybrid worker group 
 
@@ -83,7 +83,7 @@ Perform the following steps to create a hybrid worker group in the Azure porta
 
 1. Select **Next** to advance to the **Review + Create** tab. 
 
-1. Select **Create**. This operation will install the hybrid worker extension on the machine and will register the hybrid worker to the hybrid worker group. You can verify that the hybrid worker has been created under **Process Automation** > **Hybrid worker groups** > **User hybrid worker groups**. You may need to select **Refresh**. If you select the group name, it will show you the hybrid worker details.
+1. Select **Create**. The hybrid worker extension installs on the machine and the hybrid worker gets registered to the hybrid worker group. You can verify creation under **Process Automation** > **Hybrid worker groups** > **User hybrid worker groups**. You may need to select **Refresh**. Adding a hybrid worker to the group happens immediately, while installation of the extension might take a few minutes. Select the group name to view the hybrid worker details.
 
 > [!NOTE]
 > The selected machine will not be added to the hybrid worker group if it is already part of another hybrid worker group.
@@ -100,7 +100,7 @@ You can also create an empty hybrid worker group and then add machines.
 
 1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.
 
-1. Select **Add** to add the machine to the group. Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. You also see the **Worker Type** as **HybridV1** (agent-based) or **HybridV2** (extension-based).
+1. Select **Add** to add the machine to the group. Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. The **Platform** field shows the worker as **OMS Solution (V1)** or **VM Extension (V2)**.
 
 ## Delete a Hybrid Runbook Worker
 
@@ -112,7 +112,10 @@ You can delete the Hybrid Runbook Worker from the portal.
 
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
 
-1. Select **Delete**.  You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the hybrid worker v2 (extension-based) or remove the hybrid worker v1 (agent-based) entry from the portal.
+1. Select **Delete**.  You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the VM Extension (V2) worker or remove the OMS Solution (V1) entry from the portal. However, it leaves the stale hybrid worker on the VM. To manually uninstall the agent, see [Uninstall agent](../azure-monitor/agents/agent-manage.md#uninstall-agent).
+
+> [!NOTE]
+> A hybrid worker can co-exist with both platforms: OMS Solution (V1) & VM Extension (V2). If you install VM Extension (V2) on a hybrid worker already running OMS Solution (V1), then you would see 2 entries of the hybrid worker in the group. One with Platform as VM Extension (V2) and the other as OMS Solution (V1).
 
 ## Delete a Hybrid Runbook Worker group
 

@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
 
-# Troubleshoot extension-based Hybrid Runbook Worker issues in Automation
+# Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation
 
 This article provides information on troubleshooting and resolving issues with Azure Automation extension-based Hybrid Runbook Workers. For troubleshooting agent-based workers, see [Troubleshoot agent-based Hybrid Runbook Worker issues in Automation](./hybrid-runbook-worker.md). For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
 
@@ -21,7 +21,7 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 
 - Check whether the system-assigned managed identity is enabled on the VM. Azure VMs and Arc enabled Azure Machines should be enabled with a system-assigned managed identity.
 
-- Check whether the extension is enabled with the right settings. Setting file should have right `AutomationAccountURL`. Cross check the URL with Automation account property - `AutomationHybridServiceUrl`.  
+- Check whether the extension is enabled with the right settings. Setting file should have right `AutomationAccountURL`. Cross-check the URL with Automation account property - `AutomationHybridServiceUrl`.  
   - For windows: you can find the settings file at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin`.
   - For Linux: you can find the settings file at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/`.
 
@@ -31,7 +31,7 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
   - For windows: you can find the troubleshooter at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\TroubleShootWindowsExtension.ps1`.
   - For Linux: you can find the troubleshooter at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/troubleshootLinuxExtension.py`.
 
-- For Linux machines, check whether the user `hweautomation` is setup with the correct permissions.  
+- For Linux machines, check whether the user `hweautomation` is set up with the correct permissions.  
 
 - Check whether the hybrid worker process is running.
    - For Windows: check the `Hybrid Worker Service` service.
@@ -43,7 +43,7 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 
 ## Next steps
 
-If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
+If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
