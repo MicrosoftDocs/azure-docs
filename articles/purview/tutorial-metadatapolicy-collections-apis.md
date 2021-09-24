@@ -597,7 +597,7 @@ Example:
 }
 ```
 
-## 3. Get Metadata Policy
+## Get One Metadata Policy
 This API fetches the Policy either by CollectionName or by PolicyID.
 At this point you would want to choose the particular policy to modify (add/remove users). Pick the particular PolicyID from the previous step’s JSON output. 
 Now you can choose to use either API 3A or 3B below. Both serve the same purpose, it is your choice whether to use {collectionName} or {PolicyID}.
