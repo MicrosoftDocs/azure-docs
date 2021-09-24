@@ -28,7 +28,7 @@ The hot and cool tiers support all redundancy configurations. For more informati
 
 ### Hot tier
 
-The hot tier is the default tier for a new blob. The hot tier has the highest storage costs, but the lowest access costs. Example usage scenarios for the hot tier include:
+The hot tier has the highest storage costs, but the lowest access costs. Example usage scenarios for the hot tier include:
 
 - Data that's in active use or is expected to be read from and written to frequently.
 - Data that's staged for processing and eventual migration to the cool access tier.
@@ -43,8 +43,26 @@ The cool access tier has lower storage costs and higher access costs compared to
 
 Data in the cool tier has slightly lower availability, but offers the same high durability, retrieval latency, and throughput characteristics as the hot tier. For data in the cool tier, slightly lower availability and higher access costs may be acceptable trade-offs for lower overall storage costs, as compared to the hot tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
-You can upload a blob to the cool tier by setting the tier at create time.
+A blob in the cool tier in a general-purpose v2 accounts is subject to an early deletion penalty if it is deleted or moved to a different tier before 30 days has elapsed. This charge is prorated. For example, if a blob is moved to the cool tier and then deleted after 21 days, you'll be charged an early deletion fee equivalent to 9 (30 minus 21) days of storing that blob in the cool tier.
 
+???There are some details when moving between the cool and archive tiers:
+
+1. If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
+1. If a blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
+
+Calculate the early deletion time by using the **Last-Modified** blob property, if there have been no access tier changes. Otherwise, use when the access tier was last modified to cool or archive by viewing the blob property: **access-tier-change-time**. For more information on blob properties, see [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
+
+### Default access tier setting
+
+Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot or cool. Users can override the default setting when uploading a blob. For example, when the default access tier is set to hot, new blobs are uploaded to the hot tier, unless a different tier is specified at upload. Similarly, when the default access tier is set to cool, new blobs are uploaded to the cool tier by default.
+
+By default, the default access tier for a new storage account is set to hot. You can change the default access tier setting when you create a storage account or after it is created.
+
+When a blob's access tier 
+
+It's not possible to set the default access tier for a storage account to the archive tier.
+
+## Archive tier
 
 The following considerations apply to the different access tiers:
 
@@ -55,15 +73,11 @@ The following considerations apply to the different access tiers:
 - Data storage limits are set at the account level and not per access tier. You can choose to use all of your limit in one tier or across all three tiers.
 
 
-## Storage accounts that support tiering
+## Setting tier
 
-Object storage data tiering between hot, cool, and archive is supported in general-purpose v2 and Blob Storage accounts. General Purpose v1 (GPv1) accounts don't support tiering. You can easily convert your existing GPv1 or Blob Storage accounts to general-purpose v2 accounts through the Azure portal. General-purpose v2 accounts provide new pricing and features for blobs, files, and queues. Some features and price cuts are only offered in general-purpose v2 accounts. Some workloads can be more expensive on General-purpose v2 accounts than GPv1. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
+You can upload a blob to the cool tier by setting the tier at create time. You can also set the default tier for the storage account, and new blobs will then be uploaded to the cool tier by default. A user can override the default tier setting for the storage account when uploading a blob, for example by setting it to hot instead.
 
-Blob Storage and general-purpose v2 accounts expose the **Access Tier** attribute at the account level. This attribute allows you to specify the default access tier for any blob that doesn't have it explicitly set at the object level. For objects with the tier explicitly set, the account tier won't apply. The archive tier can be applied only at the object level. You can switch between access tiers at any time.
-
-Use General-purpose v2 accounts instead of Blob Storage accounts for tiering. General-purpose v2 accounts supports all the features that Blob Storage accounts support, plus a lot more. Pricing between Blob Storage and General-purpose v2 accounts is almost identical, but some new features and price cuts are only available on general-purpose v2 accounts.
-
-Pricing structure between GPv1 and general-purpose v2 accounts is different and customers should carefully evaluate both before deciding to use general-purpose v2 accounts. You can easily convert an existing Blob Storage or GPv1 account to general-purpose v2 through a simple one-click process. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
+You can change a blob's tier???
 
 ## Account-level tiering
 
@@ -100,14 +114,6 @@ The following table summarizes how tier changes are billed.
 
 ### Cool and archive early deletion
 
-Any blob that is moved into the cool tier (general-purpose v2 accounts only) is subject to a cool early deletion period of 30 days. Any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. This charge is prorated. For example, if a blob is moved to archive and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
-
-There are some details when moving between the cool and archive tiers:
-
-1. If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
-1. If a blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
-
-Calculate the early deletion time by using the **Last-Modified** blob property, if there have been no access tier changes. Otherwise, use when the access tier was last modified to cool or archive by viewing the blob property: **access-tier-change-time**. For more information on blob properties, see [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
 ## Blob lifecycle management
 

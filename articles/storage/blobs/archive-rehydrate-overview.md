@@ -41,7 +41,9 @@ Example usage scenarios for the archive access tier include:
 > [!NOTE]
 > The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was set to LRS. An account can be moved back to GRS if the update is done less than 30 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
 
+Any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. 
 
+For example, if a blob is moved to archive and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
 
 ## Rehydration priority
 
