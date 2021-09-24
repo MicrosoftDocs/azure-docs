@@ -43,14 +43,9 @@ This table gives an overview of the **Purview Collections APIs**. Click each of 
 | [List Child Collection Names](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/list-child-collection-names) |Lists the child collections names in the collection.|
 | [List Collections](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/list-collections) |List the collections in the account.|
 
-## Create collection hierarchy using Azure portal or APIs
-### Using APIs:
-```ruby
-PUT https://{your_purview_account_name}.purview.azure.com/collections/{collectionName}?api-version=2019-11-01-preview
-```
 > [!NOTE]
 > If using API, the above API is part of account data plane and the Service Principal (SP), User or Group executing the API should have [Collection Admin](how-to-create-and-manage-collections.md#check-permissions) role assigned in Purview to execute this API successfully.
-> Replace {collectionName} with the 
+> Replace {collectionName} with the actual six-character alphanumeric collection name string. Note that this is different from the friendly displa
 
 ### Using Azure portal / Purview studio:
 
