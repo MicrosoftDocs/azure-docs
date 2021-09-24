@@ -383,7 +383,7 @@ Here are the log attributes of runtime statistics for data flow components that 
 | **startTime**              | String | The time when execution phase starts in UTC format                  | `2017-06-28T21:00:27.3534352Z` |
 | **endTime**                | String | The time when execution phase ends in UTC format                    | `2017-06-28T21:00:27.3534352Z` |
 | **executionPath**          | String | The path of execution for data flow task                            | `\Transformation\Data Flow Task` |
-| **resourceId**             | String | The unique ID of your ADF resource                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **resourceId**             | String | The unique ID of your data factory resource                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### SSIS execution data statistics log attributes
 
