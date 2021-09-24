@@ -88,7 +88,7 @@ To complete this tutorial, you need to:
 1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate and select **OK**.
 1. Specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
 
-        :::image type="content" source="./media/tutorial-sql-server-to-virtual-machine-offline-ads/target-virtual-machine.png" alt-text="Target SQL Server on Azure Virtual Machine":::
+    :::image type="content" source="./media/tutorial-sql-server-to-virtual-machine-offline-ads/target-virtual-machine.png" alt-text="Target SQL Server on Azure Virtual Machine":::
 
 ## Configure migration settings
 1. Select **Offline migration** as the migration mode.
@@ -155,6 +155,6 @@ After all database backups are restored on SQL Server on Azure Virtual Machine, 
 
 ## Next steps
 
-* For a tutorial showing you how to migrate a database to SQL Server on Azure Virtual Machines using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](../azure-sql/virtual-machines/migrate-to-vm-from-sql-server.md).
-* For information about SQL Server on Azure Virtual Machines, see [Overview of SQL Server on Azure Windows Virtual Machines](../azure-sql/virtual-machine/sql-server-on-azure-vm-iaas-what-is-overview.md).
-* For information about connecting apps to SQL Server on Azure Virtual Machines, see [Connect applications](../azure-sql/virtual-machine/ways-to-connect-to-sql.md).
+* For a tutorial showing you how to migrate a database to SQL Server on Azure Virtual Machines using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
+* For information about SQL Server on Azure Virtual Machines, see [Overview of SQL Server on Azure Windows Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
+* For information about connecting apps to SQL Server on Azure Virtual Machines, see [Connect applications](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md).
