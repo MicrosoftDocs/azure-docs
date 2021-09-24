@@ -72,7 +72,7 @@ A live pipeline is an instance of a pipeline topology. The variables in a pipeli
 
 ![Gif showing how to create and activate a live pipeline](./media/use-vscode-extension/CreateAndActivate.gif)
 
-Now that a live pipeline has been activated, operational events can be viewed by clicking on the **Start Monitoring Built-in Event Endpoint** button on the IoT Hub extension, as shown in the [Continuous video recording and playback](./use-continuous-video-recording#prepare-to-monitor-the-modules.md) tutorial.
+Now that a live pipeline has been activated, operational events can be viewed by clicking on the **Start Monitoring Built-in Event Endpoint** button on the IoT Hub extension, as shown in the [Continuous video recording and playback](./use-continuous-video-recording.md#prepare-to-monitor-the-modules) tutorial.
 
 ## Next steps
 
