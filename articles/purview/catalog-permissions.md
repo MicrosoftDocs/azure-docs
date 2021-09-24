@@ -47,7 +47,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 
 ## Understand how to use Azure Purview's roles and collections
 
-All access control is managed in Purview's collections. Purview's collections can be found in the [Purview Studio](use-purview-studio.md). Open your Purview account in the [Azure portal](https://portal.azure.com) and select the Purview Studio tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
+All access control is managed in Purview's collections. Purview's collections can be found in the [Purview Studio](https://ms.web.purview.azure.com/resource/). Open your Purview account in the [Azure portal](https://portal.azure.com) and select the Purview Studio tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
 
 When an Azure Purview account is created, it starts with a root collection that has the same name as the Purview account itself. The creator of the Purview account is automatically added as a Collection Admin, Data Source Admin, Data Curator, and Data Reader on this root collection, and can edit and manage this collection.
 
@@ -86,7 +86,7 @@ Similarly with the Data Curator and Data Source Admin roles, permissions for tho
 
 ### Add users to roles
 
-Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the Purview Studio, navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
+Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Purview Studio](https://ms.web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
 

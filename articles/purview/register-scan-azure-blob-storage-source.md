@@ -111,7 +111,7 @@ It is required to get the Service Principal's application ID and secret:
 
 To register a new blob account in your data catalog, do the following:
 
-1. Navigate to the Purview Studio from your Purview account in the portal.
+1. Navigate to the [Purview Studio](https://ms.web.purview.azure.com/resource/) from your Purview account in the portal.
 1. Select **Register Sources** on the home page of the Purview Studio.
 1. Select **Register**
 1. On **Register sources**, select **Azure Blob Storage**
@@ -131,7 +131,7 @@ On the **Register sources (Azure Blob Storage)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://ms.web.purview.azure.com/resource/).
 
 1. Select the Azure Blob data source that you registered.
 
