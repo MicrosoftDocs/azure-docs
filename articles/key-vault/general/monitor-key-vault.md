@@ -8,12 +8,12 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 09/21/2021
 ms.author: mbaldwin
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ---
 
-# Monitoring Key Vault
+# Monitoring Azure Key Vault
 
 When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. For Azure Key Vault, it is important to monitor your service as you start to scale, because the number of requests sent to your key vault will rise. This has a potential to increase the latency of your requests and, in extreme cases, cause your requests to be throttled, which will impact the performance of your service.
 
@@ -193,5 +193,5 @@ See [Alerting for Azure Key Vault](alert.md) for more details.
 
 Congratulations, you are now monitoring Azure Key Vault. If you wish to set up alerts as well, see [Alerting for Azure Key Vault](alert.md).
 
-- See [Monitoring [service-name] data reference](monitor-key-vault-reference.md) for a reference of the metrics, logs, and other important values created by Key Vault.
+- See [Monitoring Azure Key Vault data reference](monitor-key-vault-reference.md) for a reference of the metrics, logs, and other important values created by Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.

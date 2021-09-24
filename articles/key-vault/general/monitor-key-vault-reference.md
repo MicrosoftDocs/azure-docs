@@ -37,7 +37,7 @@ Resource Provider and Type: [Microsoft.KeyVault/vaults](/azure-monitor/essential
 
 For more information, see a list of [all platform metrics supported in Azure Monitor](/azure-monitor/platform/metrics-supported).
 
-## Metric Dimensions
+## Metric dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
@@ -92,9 +92,7 @@ Key Vault uses the [Azure Diagnostics](/azure-monitor/reference/tables/azurediag
 | ResultSignature | |
 | TimeGenerated | Date and time the record was created |
 
-
-
-## See Also
+## See also
 
 - See [Monitoring Azure Key Vault](monitor-key-vault.md) for a description of monitoring Azure Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
