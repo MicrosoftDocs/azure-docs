@@ -40,7 +40,7 @@ Before you begin, make sure that:
 - One port on the device has compute enabled. This creates a virtual switch on that port. 
     - To enable compute, in the local UI for your device, go to **Advanced networking** page and select a port on which you want to enable compute. 
     - In the **Network settings** page, enable the port for compute. **Apply** the settings.
-- You have available IPs in the same subnet as that of the virtual switch that you enabled for compute on your device. 
+- You have available IPs in the same subnet the port that you enabled for compute on your device. 
 
 ### Configuration
 
