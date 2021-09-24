@@ -58,7 +58,7 @@
         displayName: SSL, TLS, PKI, Locally-signed, CA-signed
         href: how-to-deploy-certificates.md
       - name: Install software
-        displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
+        displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports, hyper-v, NDIS, ClearPass, span, 
         href: how-to-install-software.md
       - name: Connect sensors with a proxy
         displayName: Squid, proxy, connect, direct internet access, access, internet, tunnel

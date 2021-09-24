@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 ms.reviewer: laobri
-author: ssambare
-ms.date: 09/25/2021
+author: shivanissambare
+ms.date: 09/27/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
 
 # How to deploy an AutoML model to an online endpoint (preview)
 
-In this article, you'll learn how to deploy an AutoML-trained machine learning model to an online endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see (What is automated machine learning (AutoML)?)[concept-automated-ml.md]
+In this article, you'll learn how to deploy an AutoML-trained machine learning model to an online endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see [What is automated machine learning (AutoML)?](concept-automated-ml.md).
 
 In this article you'll know how to deploy AutoML trained machine learning model to online endpoints using: 
 
