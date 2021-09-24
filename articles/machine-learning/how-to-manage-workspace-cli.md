@@ -125,17 +125,7 @@ az ml workspace create -w <workspace-name>
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
-```yaml workspace.yml
-name: azureml888
-location: EastUS
-description: Description of my workspace
-storage_account: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
-container_registry: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.ContainerRegistry/registries/<registry-name>
-key_vault: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.KeyVault/vaults/<vault-name>
-application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/components/<application-insights-name>
-```
-
-:::code language="yml" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
+:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/with-existing-resources.yml":::
 
 Then, you can reference this configuration file as part of the workspace creation CLI command.
 
@@ -216,7 +206,11 @@ For more details on how to use these commands, see the [CLI reference pages](/cl
 
 When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. Hence, you must set the image_build_compute property to a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the public_network_access property.
 
-:::code language="yml" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
+:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/privatelink.yml":::
+
+```azurecli-interactive
+az ml workspace create -g <resource-group-name> --file privatelink.yml
+```
 
 > [!NOTE]
 > Note that you cannot use the Azure CLI to create a private link endpoint for your Azure Machine Learning workspace today. You must use the Azure portal, Azure Resource Manager or Terraform options to create the private link endpoint.
@@ -251,12 +245,12 @@ Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
 
-:::code language="yml" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
+:::code language="YAML" source="~/azureml-examples-cli-preview/cli/resources/workspace/cmk.yml":::
 
 Then, you can reference this configuration file as part of the workspace creation CLI command.
 
 ```azurecli-interactive
-az ml workspace create -g <resource-group-name> --file workspace.yml
+az ml workspace create -g <resource-group-name> --file cmk.yml
 ```
 ---
 
@@ -272,16 +266,6 @@ az ml workspace create -g <resource-group-name> --file workspace.yml
 For more information on customer-managed keys and high business impact workspace, see [Enterprise security for Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ## Using the CLI to manage workspaces
-
-### List workspaces
-
-To list all the workspaces for your Azure subscription, use the following command:
-
-```azurecli-interactive
-az ml workspace list
-```
-
-For more information, see the [az ml workspace list](/cli/azure/ml/workspace#az_ml_workspace_list) documentation.
 
 ### Get workspace information
 
