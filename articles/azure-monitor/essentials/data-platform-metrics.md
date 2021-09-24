@@ -32,7 +32,7 @@ The following table lists the ways that you can use the Metrics feature in Azure
 | **Alert** | Configure a [metric alert rule](../alerts/alerts-metric.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the metric value crosses a threshold. |
 | **Visualize** | Pin a chart from Metrics Explorer to an [Azure dashboard](../app/tutorial-app-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to use its dashboarding and combine with other data sources. |
 | **Automate** |  Use [Autoscale](../autoscale/autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
-| **Retrieve** | Access metric values from a command line by using  [PowerShell cmdlets](/powershell/module/az.monitor)<br>Access metric values from a custom application by using the [REST API](./rest-api-walkthrough.md).<br>Access metric values from a command line by using the [Azure CLI](/cli/azure/monitor/metrics). |
+| **Retrieve** | Access metric values from a command line by using [PowerShell cmdlets](/powershell/module/az.monitor).<br>Access metric values from a custom application by using the [REST API](./rest-api-walkthrough.md).<br>Access metric values from a command line by using the [Azure CLI](/cli/azure/monitor/metrics). |
 | **Export** | [Route metrics to logs](./resource-logs.md#send-to-azure-storage) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream metrics to an [event hub](./stream-monitoring-data-event-hubs.md) to route them to external systems. |
 | **Archive** | [Archive](./platform-logs-overview.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes. |
 
@@ -41,13 +41,13 @@ The following table lists the ways that you can use the Metrics feature in Azure
 ## Data collection
 Azure Monitor collects metrics from the following sources. After these metrics are collected in the Azure Monitor metric database, they can be evaluated together regardless of their source.
 
-**Azure resources**. Platform metrics are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](./metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition. 
+- **Azure resources**. Platform metrics are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](./metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition. 
 
-**Applications**. Application Insights creates metrics for your monitored applications to help you detect performance issues and track trends in how your application is being used. Values include _Server response time_ and _Browser exceptions_.
+- **Applications**. Application Insights creates metrics for your monitored applications to help you detect performance issues and track trends in how your application is being used. Values include _Server response time_ and _Browser exceptions_.
 
-**Virtual machine agents**. Metrics are collected from the guest operating system of a virtual machine. You can enable guest OS metrics for Windows virtual machines by using the [Windows diagnostic extension](../agents/diagnostics-extension-overview.md) and for Linux virtual machines by using the [InfluxData Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/).
+- **Virtual machine agents**. Metrics are collected from the guest operating system of a virtual machine. You can enable guest OS metrics for Windows virtual machines by using the [Windows diagnostic extension](../agents/diagnostics-extension-overview.md) and for Linux virtual machines by using the [InfluxData Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/).
 
-**Custom metrics**. You can define metrics in addition to the standard metrics that are automatically available. You can [define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights or create custom metrics for an Azure service by using the [custom metrics API](./metrics-store-custom-rest-api.md).
+- **Custom metrics**. You can define metrics in addition to the standard metrics that are automatically available. You can [define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights or create custom metrics for an Azure service by using the [custom metrics API](./metrics-store-custom-rest-api.md).
 
 For a complete list of data sources that can send data to Azure Monitor Metrics, see [What is monitored by Azure Monitor?](../monitor-reference.md).
 

@@ -60,8 +60,8 @@ The region property captures the Azure region where the resource you're emitting
 > [!NOTE]  
 > During the public preview, custom metrics are available in only a subset of Azure regions. A list of supported regions is documented in a [later section of this article](#supported-regions).
 
-### Time stamp
-Each data point sent to Azure Monitor must be marked with a time stamp. This time stamp captures the date and time at which the metric value is measured or collected. Azure Monitor accepts metric data with time stamps as far as 20 minutes in the past and 5 minutes in the future. The time stamp must be in ISO 8601 format.
+### Timestamp
+Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the date and time at which the metric value is measured or collected. Azure Monitor accepts metric data with timestamps as far as 20 minutes in the past and 5 minutes in the future. The timestamp must be in ISO 8601 format.
 
 ### Namespace
 Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **contosomemorymetrics** that tracks memory-use metrics which profile your app. Another namespace called **contosoapptransaction** might track all metrics about user transactions in your application.
@@ -83,7 +83,7 @@ When you're reporting a metric data point, for each dimension key on the reporte
 * The dimension key would be **Process**.
 * The dimension value would be **ContosoApp.exe**.
 
-When you're publishing a metric value, you can specify only a single dimension value per dimension key. If you collect the same memory utilization for multiple processes on the VM, you can report multiple metric values for that time stamp. Each metric value would specify a different dimension value for the **Process** dimension key.
+When you're publishing a metric value, you can specify only a single dimension value per dimension key. If you collect the same memory utilization for multiple processes on the VM, you can report multiple metric values for that timestamp. Each metric value would specify a different dimension value for the **Process** dimension key.
 
 Although dimensions are optional, if a metric post defines dimension keys, corresponding dimension values are mandatory.
 
@@ -118,7 +118,7 @@ If your application can't pre-aggregate locally and needs to emit each discrete 
 With this process, you can emit multiple values for the same metric/dimension combination during a given minute. Azure Monitor then takes all the raw values emitted for a given minute and aggregates them.
 
 ### Sample custom metric publication
-In the following example, you create a custom metric called **Memory Bytes in Use** under the metric namespace **Memory Profile** for a virtual machine. The metric has a single dimension called **Process**. For the time stamp, metric values are emitted for two processes.
+In the following example, you create a custom metric called **Memory Bytes in Use** under the metric namespace **Memory Profile** for a virtual machine. The metric has a single dimension called **Process**. For the timestamp, metric values are emitted for two processes.
 
 ```json
 {
@@ -219,11 +219,11 @@ Again, this limit is not for an individual metric. It's for the sum of all such 
 
 ## Design limitations and considerations
 
-**Don't use Application Insights for the purpose of auditing**. The Application Insights telemetry pipeline is optimized for minimizing the performance impact and limiting the network traffic from monitoring your application. As such, it throttles or samples (takes only a percentage of your telemetry and ignores the rest) if the initial dataset becomes too large. Because of this behavior, you can't use it for auditing purposes because some records are likely to be dropped. 
+**Using Application Insights for the purpose of auditing**. The Application Insights telemetry pipeline is optimized for minimizing the performance impact and limiting the network traffic from monitoring your application. As such, it throttles or samples (takes only a percentage of your telemetry and ignores the rest) if the initial dataset becomes too large. Because of this behavior, you can't use it for auditing purposes because some records are likely to be dropped. 
 
 **Metrics with a variable in the name**. Don't use a variable as part of the metric name. Use a constant instead. Each time the variable changes its value, Azure Monitor will generate a new metric. Azure Monitor will then quickly hit the limit on the number of metrics. Generally, when the developers want to include a variable in the metric name, they really want to track multiple time series within one metric and should use dimensions instead of variable metric names. 
 
-**High-cardinality metric dimensions**. Metrics with too many valid values in a dimension (a *high cardinality*) are much more likely to hit the 50,000 limit. In general, you should never use a constantly changing value in a dimension. Time stamp, for example, should never be a dimension. You can use server, customer, or product ID, but only if you have a smaller number of each of those types. 
+**High-cardinality metric dimensions**. Metrics with too many valid values in a dimension (a *high cardinality*) are much more likely to hit the 50,000 limit. In general, you should never use a constantly changing value in a dimension. Timestamp, for example, should never be a dimension. You can use server, customer, or product ID, but only if you have a smaller number of each of those types. 
 
 As a test, ask yourself if you would ever chart such data on a graph. If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1,000, the resulting graph would likely be difficult or impossible to read. 
 

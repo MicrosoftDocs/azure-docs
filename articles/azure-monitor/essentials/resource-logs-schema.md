@@ -21,7 +21,7 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 | Name | Required or optional | Description |
 |---|---|---|
-| `time` | Required | The time stamp (UTC) of the event. |
+| `time` | Required | The timestamp (UTC) of the event. |
 | `resourceId` | Required | The resource ID of the resource that emitted the event. For tenant services, this is of the form */tenants/tenant-id/providers/provider-name*. |
 | `tenantId` | Required for tenant logs | The tenant ID of the Active Directory tenant that this event is tied to. This property is used only for tenant-level logs. It does not appear in resource-level logs. |
 | `operationName` | Required | The name of the operation that this event represents. If the event represents an Azure role-based access control (RBAC) operation, this is the Azure RBAC operation name (for example, `Microsoft.Storage/storageAccounts/blobServices/blobs/Read`). This name is typically modeled in the form of an Azure Resource Manager operation, even if it's not a documented Resource Manager operation: (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
