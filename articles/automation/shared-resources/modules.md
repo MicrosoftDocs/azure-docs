@@ -60,6 +60,7 @@ The default modules are also known as global modules. In the Azure portal, the *
 
 |Module name|Version|
 |---|---|
+|Az.* | See full list under **Package Details** at [PowerShell Gallery](https://www.powershellgallery.com/packages/Az)|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
 | Azure.Storage | 1.0.3 |
