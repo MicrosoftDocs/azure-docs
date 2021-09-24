@@ -100,7 +100,7 @@
 - name: Reference
   expanded: true
   items:
-  - name: Basic info identifiers in the Azure AD sign-in log
+  - name: Basic info identifiers in the sign-in log
     href: reference-basic-info-identifiers.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
