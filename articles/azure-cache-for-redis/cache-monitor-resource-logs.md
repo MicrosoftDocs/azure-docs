@@ -47,13 +47,11 @@ Jeffrey are there any pre-reqs
 
    :::image type="content" source="media/cache-monitor-resource-logs/cache-monitor-diagnostic-setting.png" alt-text="Select diagnostics":::
 
-1. In the **Diagnostic settings** pane, fill the form with your preferred categories.
-
-### Choose log categories
+1. In the **Diagnostic settings** pane, select **ConnectedClientList** from **Category details**.
 
    |Category  |API   | Definition  | Key Properties   |
    |---------|---------|---------|---------|
-   |ConnectedClientList |  All APIs        |     IP addresses and counts of clients connected to the cache at regular intervals.   |   `connectedClients` and nested within `ip`, `count`, `privateLinkIpv6`    |
+   |ConnectedClientList | All APIs | IP addresses and counts of clients connected to the cache at regular intervals. |   `connectedClients` and nested within `ip`, `count`, `privateLinkIpv6`    |
   
 1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
 
@@ -65,18 +63,18 @@ Use the Azure Monitor REST API for creating a diagnostic setting via the interac
 
 ### Request
 
-```HTTP
+```http
 PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}?api-version=2017-05-01-preview
 ```
 
 ### Headers
 
-   |Parameters/Headers  | Value/Description  |
+   | Parameters/Headers | Value/Description |
    |---------|---------|
-   |name     |  The name of your Diagnostic setting.      |
-   |resourceUri     |  subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME}       |
-   |api-version     |    2017-05-01-preview  |
-   |Content-Type     |    application/json     |
+   |name |The name of your Diagnostic setting. |
+   |resourceUri     | subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME} |
+   |api-version     | 2017-05-01-preview |
+   |Content-Type     | application/json |
 
 <!-- {resourceUri} is something like: subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME} -->
 
@@ -119,23 +117,9 @@ This address is exposed because when customers run the `MONITOR` command or `CLI
 
 ## Runner IP addresses
 
-Customers might notice  monitoring "runner" IP addresses show up in the logs, which may cause some confusion.
+Customers might notice *runner* IP addresses show up in the logs. Runner IP addresses are used internally by Azure Cache for Redis for adminstrative tasks and are not actual client connections. The *runner* IP addresses should be ignored in your analysis.
 
-There is some work going on to shut these down but in the meantime we should document these IPs somewhere. See Lavanya/Alfan for these IP
-
-## Enable full-text query for logging query text
-
-> [!Note]
-> Enabling this feature may result in additional logging costs, for pricing details visit [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). It is recommended to disable this feature after troubleshooting.
-
-Azure Cache for Redis provides advanced logging for detailed troubleshooting. By enabling full-text query, you’ll be able to view the deobfuscated query for all requests within your Azure Cache for Redis account.  You’ll also give permission for Azure Cache for Redis to access and surface this data in your logs.
-
-1. To enable this feature, navigate to the `Features` blade in your Cosmos DB account.
-
-   <!-- :::image type="content" source="./media/monitor-cosmos-db/full-text-query-features.png" alt-text="Navigate to Features blade"::: -->
-
-2. Select `Enable`, this setting will then be applied in the within the next few minutes. All newly ingested logs will have the full-text or PIICommand text for each request.
-    <!-- :::image type="content" source="./media/monitor-cosmos-db/select-enable-full-text.png" alt-text="Select enable full-text"::: -->
+<!-- See Lavanya/Alfan for these IP -->
 
 ## Next steps
 
@@ -144,8 +128,4 @@ Required. Provide at least one next step and no more than three. Include some
 context so the customer can determine why they would click the link.
 -->
 
-- For more information on how to query resource-specific tables see .
-
-- For more information on how to query AzureDiagnostics tables see .
-
-- For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
+- For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) article.
