@@ -608,7 +608,7 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 1. The Purview account name is {your-purview-account-name}. Replace it with your Purview Account name.
 - In the JSON output of the previous API "Get All Metadata Policies" Look for the section resembling : { "type": "CollectionReference", "referenceName": "7xkdg2"}
 1. Replace "{collectionName}" in the API URL with the value of "referenceName": "{6-char-collection-name}". So if your 6-character-collection-name is "7xkdg2" the API URL will look like  https://{your-purview-account-name}.purview.azure.com/policystore/collections/7xkdg2/metadataPolicy?api-version=2021-07-01
-- Now execute this API. 
+1. Now execute this API. 
 
 ```json
 {
