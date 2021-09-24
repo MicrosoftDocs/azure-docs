@@ -247,9 +247,23 @@ items:
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
-      href: continuous-integration-deployment.md
+      items:
+      - name: Overview
+        href: continuous-integration-delivery.md
+      - name: Automate with Azure Pipelines releases
+        href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Manually promote a Resource Manager template for each environment
+        href: continuous-integration-delivery-manual-promotion.md
+      - name: Use custom parameters with a Resource Manager template
+        href: continuous-integration-delivery-resource-manager-custom-parameters.md
+      - name: Linked Resource Manager templates
+        href: continuous-integration-delivery-linked-templates.md
+      - name: Using a hotfix production environment
+        href: continuous-integration-delivery-hotfix-environment.md
+      - name: Sample pre- and post-deployment script
+        href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
-      href: continuous-integration-deployment-improvements.md
+      href: continuous-integration-delivery-improvements.md
   - name: Connectors
     items:
     - name: Connector overview

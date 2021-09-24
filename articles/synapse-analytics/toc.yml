@@ -109,7 +109,7 @@ items:
     - name: Source control
       href: ./cicd/source-control.md
     - name: Continuous integration and delivery
-      href: ./cicd/continuous-integration-deployment.md
+      href: ./cicd/continuous-integration-delivery.md
     - name: Security
       items:
       - name: Security baseline
