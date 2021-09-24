@@ -99,9 +99,9 @@ diagram with ingress
 
 https://github.com/microsoft/azure-worker-apps-preview/blob/main/docs/revisions.md
 
-The Azure Container Apps application lifecycle revolves around container revisions. A revision is an immutable, and whenever the Container Apps template is changed, a new revision is created.
+The Azure Container Apps application lifecycle revolves around container revisions. A revision is an immutable snapshot of a container app, and new revisions are created when a container app's template changes.
 
-While revisions are immutable, they are affected by changes global configuration values which apply to all revisions of a container app.
+While revisions remain immutable, they are affected by changes to global configuration values which apply to all revisions.
 
 
 ## Next steps
