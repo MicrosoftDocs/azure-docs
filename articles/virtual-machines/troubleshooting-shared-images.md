@@ -28,13 +28,6 @@ If you have problems performing any operations on shared image galleries, image 
 - Contains only English letters, numbers, underscores, and periods
 - Starts and ends with English letters or numbers
 
-**Message**: *The entity name 'galleryName' is invalid according to its validation rule: ^[^\_\W][\w-.\_]{0,79}(?<![-.])$.*  
-**Cause**: The gallery name does not meet the naming requirements.  
-**Workaround**: Choose a name for the gallery that meets the following conditions: 
-- Has an 80-character limit
-- Contains only English letters, numbers, underscores, and periods
-- Starts and ends with English letters or numbers
-
 **Message**: *The provided resource name \<galleryName\> has these invalid trailing characters: \<character\>. The name can not end with characters: \<character\>*  
 **Cause**: The name for the gallery ends with a period or underscore.  
 **Workaround**: Choose a name for the gallery that meets the following conditions: 
