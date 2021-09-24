@@ -902,7 +902,7 @@ On success, you will get response 200.
 
 
 ##  Purview REST API Combined Archive
-Note: To help you get quick-started with Purview APIs here is an archive of all the Purview REST API Specs collected and combined at one place : [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest) or Postman collection of Purview APIs.
+To help you get quick-started with Purview APIs here is an archive of all the Purview REST API Specs collected and combined at one place : [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest) or Postman collection of Purview APIs.
 
 ## PowerShell utility to run Purview APIs
 You may choose to execute Purview REST APIs using PowerShell Utility [Purview-API-PowerShell](https://aka.ms/purview-api-ps). It can be readily installed from PS Gallery. It will execute all the same commands, from a PowerShell framework.
