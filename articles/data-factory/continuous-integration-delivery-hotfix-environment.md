@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Using a hotfix production environment
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
 1.    In Azure DevOps, go to the release that was deployed to production. Find the last commit that was deployed.

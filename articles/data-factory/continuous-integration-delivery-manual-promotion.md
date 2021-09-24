@@ -11,7 +11,11 @@ ms.date: 09/24/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Manually promote a Resource Manager template for each environment
+# Manually promote a Resource Manager template to each environment
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+Use the steps below to promote a Resource Manager template to each environment for continuous integration and delivery in Azure Data Factory.
 
 1. Go to **Manage** hub in your data factory, and select **ARM template** in the "Source control" section. Under **ARM template** section, select **Export ARM template** to export the Resource Manager template for your data factory in the development environment.
 

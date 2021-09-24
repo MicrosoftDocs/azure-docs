@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Automate continuous integration using Azure Pipelines releases
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 The following is a guide for setting up an Azure Pipelines release that automates the deployment of a data factory to multiple environments.
 
 ## Requirements
