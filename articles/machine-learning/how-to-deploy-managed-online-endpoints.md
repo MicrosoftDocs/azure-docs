@@ -104,9 +104,9 @@ The example contains all the files needed to deploy a model on an online endpoin
 - An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
-The following snippet shows the *endpoints/online/managed/saferollout/blue-deployment.yml* file, with all the required inputs: 
+The following snippet shows the *endpoints/online/managed/sample/blue-deployment.yml* file, with all the required inputs: 
 
-:::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/saferollout/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
 The table describes the attributes of a `deployment`:
 
@@ -207,11 +207,11 @@ Next, deploy your managed online endpoint to Azure.
 
 To deploy the YAML configuration to the cloud, run the following code:
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
 
 To create the deployment named blue under the endpoint, run the following code:
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
 
 This deployment might take up to 15 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
 
