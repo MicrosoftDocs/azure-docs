@@ -792,7 +792,7 @@ GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPo
 ```
 
 
-## 4. API: Update Policy: Add/Remove User/Group from Collection using RBAC
+## Update policy: Add/remove user/group from collection
 ```ruby
 PUT https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies/{policyId}?api-version=2021-07-01
 ```
