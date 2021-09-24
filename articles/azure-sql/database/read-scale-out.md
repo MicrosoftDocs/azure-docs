@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 07/06/2021
+ms.date: 09/23/2021
 ---
 # Use read-only replicas to offload read-only query workloads
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 As part of [High Availability architecture](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability), each single database, elastic pool database, and managed instance in the Premium and Business Critical service tier is automatically provisioned with a primary read-write replica and several secondary read-only replicas. The secondary replicas are provisioned with the same compute size as the primary replica. The *read scale-out* feature allows you to offload read-only workloads using the compute capacity of one of the read-only replicas, instead of running them on the read-write replica. This way, some read-only workloads can be isolated from the read-write workloads, and will not affect their performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics. In the Premium and Business Critical service tiers, applications could gain performance benefits using this additional capacity at no extra cost.
 
-The *read scale-out* feature is also available in the Hyperscale service tier when at least one secondary replica is created. Multiple secondary replicas can be used for load-balancing read-only workloads that require more resources than available on one secondary replica.
+The *read scale-out* feature is also available in the Hyperscale service tier when at least one [secondary replica](service-tier-hyperscale-replicas.md) is added. Hyperscale secondary [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview) provide independent scaling, access isolation, workload isolation, massive read scale-out, and other benefits. Multiple secondary [HA replicas](service-tier-hyperscale-replicas.md#high-availability-replica) can be used for load-balancing read-only workloads that require more resources than available on one secondary HA replica. 
 
 The High Availability architecture of Basic, Standard, and General Purpose service tiers does not include any replicas. The *read scale-out* feature is not available in these service tiers.
 
@@ -111,12 +111,12 @@ In rare cases, if a snapshot isolation transaction accesses object metadata that
 
 ### Long-running queries on read-only replicas
 
-Queries running on read-only replicas need to access metadata for the objects referenced in the query (tables, indexes, statistics, etc.) In rare cases, if a metadata object is modified on the primary replica while a query holds a lock on the same object on the read-only replica, the query can [block](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) the process that applies changes from the primary replica to the read-only replica. If such a query were to run for a long time, it would cause the read-only replica to be significantly out of sync with the primary replica.
+Queries running on read-only replicas need to access metadata for the objects referenced in the query (tables, indexes, statistics, etc.) In rare cases, if object metadata is modified on the primary replica while a query holds a lock on the same object on the read-only replica, the query can [block](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) the process that applies changes from the primary replica to the read-only replica. If such a query were to run for a long time, it would cause the read-only replica to be significantly out of sync with the primary replica. For replicas that are potential failover targets (secondary replicas in Premium and Business Critical service tiers, Hyperscale HA replicas, and all geo-replicas), this would also delay database recovery if a failover were to occur, causing longer than expected downtime.
 
-If a long-running query on a read-only replica causes this kind of blocking, it will be automatically terminated. The session will receive error 1219, "Your session has been disconnected because of a high priority DDL operation", or error 3947, "The transaction was aborted because the secondary compute failed to catch up redo. Retry the transaction."
+If a long-running query on a read-only replica directly or indirectly causes this kind of blocking, it may be automatically terminated to avoid excessive data latency and potential database availability impact. The session will receive error 1219, "Your session has been disconnected because of a high priority DDL operation", or error 3947, "The transaction was aborted because the secondary compute failed to catch up redo. Retry the transaction."
 
 > [!NOTE]
-> If you receive error 3961, 1219, or 3947 when running queries against a read-only replica, retry the query.
+> If you receive error 3961, 1219, or 3947 when running queries against a read-only replica, retry the query. Alternatively, avoid operations that modify object metadata (schema changes, index maintenance, statistics updates, etc.) on the primary replica while long-running queries execute on secondary replicas.
 
 > [!TIP]
 > In Premium and Business Critical service tiers, when connected to a read-only replica, the `redo_queue_size` and `redo_rate` columns in the [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) DMV may be used to monitor data synchronization process, serving as indicators of data propagation latency on the read-only replica.
