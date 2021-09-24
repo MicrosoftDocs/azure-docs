@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # License dashboard in commercial marketplace analytics
@@ -113,5 +113,3 @@ You can use the download icon in the upper-right corner of any widget to downloa
 ## Next steps
 
 - For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).
-
-<!--- [Updated for Workspaces]() --->

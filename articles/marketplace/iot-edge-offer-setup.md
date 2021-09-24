@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Create an IoT Edge Module offer
@@ -81,5 +81,3 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 - [Configure offer properties](iot-edge-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
-
-<!--- [Updated for Workspaces]() --->

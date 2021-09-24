@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Create Dynamics 365 for Customer Engagement & Power Apps plans
@@ -84,4 +84,3 @@ You need to copy the Service ID of each plan you created so you can map them to 
 ## Next steps
 
 - Go to [Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration](dynamics-365-customer-engage-technical-configuration.md) to upload the solution package to your offer.
-<!--- [Updated for Workspaces]() --->

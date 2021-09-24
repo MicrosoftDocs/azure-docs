@@ -7,7 +7,7 @@ ms.reviewer: anbene
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Create a Managed Service offer for the commercial marketplace

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Dynamics 365 for Operations functional validation
@@ -117,4 +117,3 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
 - To start creating an offer, see [Planning a Microsoft Dynamics 365 offer](marketplace-dynamics-365.md)
 - If you're finished creating your offer, it's time to [Review and publish](dynamics-365-review-publish.md)
-<!--- [Updated for Workspaces]() --->

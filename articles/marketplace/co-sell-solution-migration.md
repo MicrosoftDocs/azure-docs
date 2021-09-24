@@ -7,7 +7,7 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace

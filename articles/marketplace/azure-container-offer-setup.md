@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Create an Azure Container offer

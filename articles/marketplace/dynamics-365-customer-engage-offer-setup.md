@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Create a Dynamics 365 for Customer Engagement & PowerApps offer

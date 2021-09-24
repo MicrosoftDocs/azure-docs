@@ -7,7 +7,7 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Verify Co-sell status of a commercial marketplace offer
@@ -53,4 +53,3 @@ The following table shows all possible co-sell statuses. To learn about the requ
 
 - For information about Co-sell requirements, see [Co-sell ready requirements](co-sell-requirements.md).
 - For help configuring an offer for Co-sell, see [Configure Co-sell for a commercial marketplace offer](co-sell-configure.md).
-<!--- [Updated for Workspaces]() --->

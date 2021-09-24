@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Detailed configuration for hosted test drives

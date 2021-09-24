@@ -7,7 +7,7 @@ ms.topic: how-to
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Switch accounts in Partner Center
@@ -62,4 +62,3 @@ In the following example, the signed-in user is part of the three highlighted ac
 ## Next steps
 
 - [Add and manage users for the commercial marketplace](add-manage-users.md)
-<!--- [Updated for Workspaces]() --->

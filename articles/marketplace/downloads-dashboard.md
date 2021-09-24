@@ -7,7 +7,7 @@ ms.topic: article
 author: shganesh-dev
 ms.author: shganesh
 ms.reviewer: sroy
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Downloads dashboard in commercial marketplace analytics
@@ -82,5 +82,3 @@ A user can schedule asynchronous downloads of reports from the Downloads dashboa
 - For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](customer-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](ratings-reviews.md).
 - For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).
-
-<!--- [Updated for Workspaces]() --->

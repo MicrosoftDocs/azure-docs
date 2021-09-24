@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Create a virtual machine offer on Azure Marketplace

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: sayantanroy83
 ms.author: sroy
-ms.date: 9/13/2021
+ms.date: 9/27/2021
 ---
 
 # Manage metered billing anomalies in Partner Center
@@ -130,5 +130,3 @@ After you mark an overage usage as an anomaly or acknowledge a model that flagge
 - [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md)
 - [Managed application metered billing](marketplace-metering-service-apis.md)
 - [Anomaly detection service for metered billing](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)
-
-<!--- [Updated for Workspaces]() --->

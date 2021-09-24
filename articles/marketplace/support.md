@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Support for the commercial marketplace program in Partner Center
@@ -167,4 +167,3 @@ To generate a HAR file using **Safari**:
 ## Next steps
 
 - [Update an existing offer in the Commercial Marketplace](update-existing-offer.md)
-<!--- [Updated for Workspaces]() --->

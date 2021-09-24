@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Ratings and Reviews dashboard in commercial marketplace analytics
@@ -118,5 +118,3 @@ When posting a review, a user can give consent to be contacted by the publisher.
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
 - For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](customer-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](downloads-dashboard.md).
-
-<!--- [Updated for Workspaces]() --->

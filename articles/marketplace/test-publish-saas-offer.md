@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # How to test and publish a SaaS offer to the commercial marketplace
@@ -98,5 +98,3 @@ After these validation checks are complete, your offer will be live in the marke
 ## Next steps
 
 - [Access analytic reports for the commercial marketplace in Partner Center](analytics.md)
-
-<!--- [Updated for Workspaces]() --->

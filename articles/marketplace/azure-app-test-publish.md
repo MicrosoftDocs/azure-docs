@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Test and publish an Azure application offer
@@ -87,4 +87,3 @@ If you have errors in one or more of the publishing steps, correct them before r
 
 - [Access analytic reports for the commercial marketplace](analytics.md)
 - [Sell your Azure application offer](azure-app-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
-<!--- [Updated for Workspaces]() --->

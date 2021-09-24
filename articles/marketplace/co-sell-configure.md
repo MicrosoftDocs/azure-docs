@@ -7,7 +7,7 @@ ms.topic: how-to
 author: sharath-satish-msft
 ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 09/13/2021
+ms.date: 09/27/2021
 ---
 
 # Configure co-sell for a commercial marketplace offer
@@ -200,4 +200,3 @@ Your contact information lets Microsoft sales teams and channel resellers reques
 
 - For details about republishing an offer, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md).
 - For information about commercial marketplace rewards and technical benefits, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
-<!--- [Updated for Workspaces]() --->
