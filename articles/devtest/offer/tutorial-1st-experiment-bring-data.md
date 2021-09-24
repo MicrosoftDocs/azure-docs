@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: What is this?"
+title: 'Tutorial: What is this?'
 titleSuffix: Azure Machine Learning
 description: Set up or that thing.
 ms.topic: tutorial
