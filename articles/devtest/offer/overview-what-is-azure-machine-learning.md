@@ -1,6 +1,6 @@
 ---
 title: What is this offer?
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure DevTest Offer
 description: Learn how to use Azure DevTest offer to.
 ms.topic: overview
 ms.prod: visual-studio-windows
@@ -13,16 +13,16 @@ adobe-target: true
 
 # What is Azure DevTest Offer?
 
-Azure Machine Learning is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models, and manage MLOps.
+Azure DevTest Offer is a cloud service for accelerating and managing the machine learning project lifecycle. Machine learning professionals, data scientists, and engineers can use it in their day-to-day workflows: Train and deploy models, and manage MLOps.
 
-You can create a model in Azure Machine Learning or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models. 
+You can create a model in Azure DevTest Offer or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models. 
 
 > [!Tip]
-> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure DevTest Offer](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
-## Who is Azure Machine Learning for?
+## Who is Azure DevTest Offer for?
 
-Azure Machine Learning is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable production environment.
+Azure DevTest Offer is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable production environment.
 
 Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager APIs, for building advanced ML tooling.
 
@@ -30,7 +30,7 @@ Enterprises working in the Microsoft Azure cloud will find familiar security and
 
 ### Collaboration for machine learning teams
 
-Machine learning projects often require a team with varied skillsets to build and maintain. Azure Machine Learning has tools that help enable collaboration, such as:
+Machine learning projects often require a team with varied skillsets to build and maintain. Azure DevTest Offer has tools that help enable collaboration, such as:
 
 - Shared notebooks, compute resources, data, and environments
 - Tracking and auditability that shows who made changes and when
@@ -38,7 +38,7 @@ Machine learning projects often require a team with varied skillsets to build an
 
 ### Tools for developers
 
-Developers find familiar interfaces in Azure Machine Learning, such as:
+Developers find familiar interfaces in Azure DevTest Offer, such as:
 
 - [Python SDK](/python/api/overview/azure/ml/)
 - [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
@@ -46,7 +46,7 @@ Developers find familiar interfaces in Azure Machine Learning, such as:
 
 ### Studio UI 
 
-The [Azure Machine Learning studio](https://ml.azure.com) is a graphical user interface for a project workspace. In the studio, you can:
+The [Azure DevTest Offer studio](https://ml.azure.com) is a graphical user interface for a project workspace. In the studio, you can:
 
 - View runs, metrics, logs, outputs, and so on.
 - Author and edit notebooks and files.
@@ -60,11 +60,11 @@ The [Azure Machine Learning studio](https://ml.azure.com) is a graphical user in
 
 Plus, the designer has a drag-and-drop interface where you can train and deploy models. 
 
-If you're a ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Machine Learning studio](../../machine-learning/overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
+If you're a ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure DevTest Offer studio](../../machine-learning/overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
 
 ## Enterprise-readiness and security
 
-Azure Machine Learning integrates with the Azure cloud platform to add security to ML projects. 
+Azure DevTest Offer integrates with the Azure cloud platform to add security to ML projects. 
 
 Security integrations include:
 
@@ -96,7 +96,7 @@ While the project lifecycle can vary by project, it will often look like this:
 
 A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
 
-For more information, see [Manage Azure Machine Learning workspaces](../../machine-learning/how-to-manage-workspace.md?tabs=python).
+For more information, see [Manage Azure DevTest Offer workspaces](../../machine-learning/how-to-manage-workspace.md?tabs=python).
 
 When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or HTTPS request.
 
@@ -104,11 +104,11 @@ Models can be deployed to the managed inferencing solution, for both real-time a
 
 ## Train models
 
-In Azure Machine Learning, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks, so they can operationalize them in the cloud. 
+In Azure DevTest Offer, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks, so they can operationalize them in the cloud. 
 
 ### Open and interoperable
 
-Data scientists can use models in Azure Machine Learning that they've created in common Python frameworks, such as: 
+Data scientists can use models in Azure DevTest Offer that they've created in common Python frameworks, such as: 
 
 - PyTorch
 - TensorFlow
@@ -120,7 +120,7 @@ Other languages and frameworks are supported as well, including:
 - R
 - .NET
 
-See [Open-source integration with Azure Machine Learning../machine-learning/concept-open-source.md).
+See [Open-source integration with Azure DevTest Offer../machine-learning/concept-open-source.md).
 
 ### Automated featurization and algorithm selection (AutoML)
 
@@ -130,13 +130,13 @@ See [What is automated machine learning?](../../machine-learning/concept-automat
 
 ### Hyperparameter optimization
 
-Hyperparameter optimization, or hyperparameter tuning, can be a tedious task. Azure Machine Learning can automate this task for arbitrary parameterized commands with little modification to your job definition. Results are visualized in the studio.
+Hyperparameter optimization, or hyperparameter tuning, can be a tedious task. Azure DevTest Offer can automate this task for arbitrary parameterized commands with little modification to your job definition. Results are visualized in the studio.
 
 See [How to tune hyperparameters](../../machine-learning/how-to-tune-hyperparameters.md).
 
 ### Multinode distributed training
 
-Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
+Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure DevTest Offer compute clusters offer the latest GPU options.
 
 Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clusters:
 
@@ -146,7 +146,7 @@ Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clust
 
 The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
 
-See [Distributed training with Azure Machine Learning](../../machine-learning/concept-distributed-training.md).
+See [Distributed training with Azure DevTest Offer](../../machine-learning/concept-distributed-training.md).
 
 ### Embarrassingly parallel training
 
@@ -154,7 +154,7 @@ Scaling a machine learning project may require scaling embarrassingly parallel m
 
 ## Deploy models
 
-To bring a model into production, it is deployed. Azure Machine Learning's managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
+To bring a model into production, it is deployed. Azure DevTest Offer's managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
 
 ### Real-time and batch scoring (inferencing)
 
@@ -175,12 +175,12 @@ DevOps for machine learning models, often called MLOps, is a process for develop
 
 ![Machine learning model lifecycle - MLOps](../../machine-learning/media/overview-what-is-azure-machine-learning/model-lifecycle.png)
 
-Learn more about [MLOps in Azure Machine Learning](../../machine-learning/concept-model-management-and-deployment.md).
+Learn more about [MLOps in Azure DevTest Offer](../../machine-learning/concept-model-management-and-deployment.md).
 
 
 ## Next steps
 
-Start using Azure Machine Learning:
-- [Set up an Azure Machine Learning workspace](../../machine-learning/quickstart-create-resources.md)
+Start using Azure DevTest Offer:
+- [Set up an Azure DevTest Offer workspace](../../machine-learning/quickstart-create-resources.md)
 - [Tutorial: Build a first machine learning project](../../machine-learning/tutorial-1st-experiment-hello-world.md)
 - [Preview: Run model training jobs with the v2 CLI](../../machine-learning/how-to-train-cli.md)
