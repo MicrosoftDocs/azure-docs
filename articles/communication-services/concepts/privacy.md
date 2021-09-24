@@ -71,11 +71,11 @@ Sent and received SMS messages are ephemerally processed by the service and not 
 
 ### PSTN voice calling
 
-Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
+Audio and video communication is ephemerally processed by the service and no call processing data is retained in your resource other than Azure Monitor logs.
 
 ### Internet voice and video calling
 
-Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
+Audio and video communication is ephemerally processed by the service and no call processing data is retained in your resource other than Azure Monitor logs.
 
 ### Call Recording
 
