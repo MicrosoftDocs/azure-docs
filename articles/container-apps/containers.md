@@ -33,8 +33,8 @@ Any changes to the `containers` section triggers a new [container app revision](
     "containers": [
       {
         "image": "myacr.azurecr.io/myrepo/api-service:v1",
-        "name": ["my-container-image"],
-        "command": "/bin/queue",
+        "name": "my-container-image",
+        "command": ["/bin/queue"],
         "args": [],
         "env": [
           {
@@ -72,10 +72,11 @@ Reasons to run containers together include:
 - Share scale rules among containers.
 - Enable direct communication via server addresses and ports on the same network.
 - Use of a shared disk space and virtual network.
+- Use a container as a sidecar to your primary app.
 
 Reasons to separate containers include:
 
-- If you want to run an app as a sidecar or a separate microservice.
+- If you want to run an app as a separate microservice.
 - If your apps have different scaling needs.
 
 ## Using a container registry
@@ -127,7 +128,7 @@ The following example shows how to deploy an app from the Azure Container Regist
 # [Azure CLI](#tab/azure-cli)
 
 ```sh
-# When creating a container app
+# To create a container app
 az containerapp create --name myapp \
   --resource-group $RESOURCE_GROUP_NAME \
   --environment $CONTAINERAPPS_ENVIRONMENT_NAME \
@@ -136,7 +137,7 @@ az containerapp create --name myapp \
   --registry-username someuser \
   --registry-password myacrpassword
 
-# When updating a container app
+# To update an existing container app
 az containerapp update --name myapp \
   --resource-group $RESOURCE_GROUP_NAME \
   --image myacr.azurecr.io/myrepo/api-service:v1 \
