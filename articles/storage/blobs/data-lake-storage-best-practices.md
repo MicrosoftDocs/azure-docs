@@ -16,21 +16,21 @@ This article provides best practice guidelines that help you optimize performanc
 
 ## Find documentation
 
-Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The way that you unlock these capabilities is to enable the hierarchical namespace setting of your Azure Storage account. The Data Lake Storage Gen2 documentation provides best practices and guidance only for using these capabilities. Refer to the [Blob storage documentation](storage-blobs-introduction.md) content, for all other aspects of account management such as setting up network security, designing for high availability, and disaster recovery.  The overall performance of your analytics pipeline also depend on factors that are specific to the analytics engines. For the best up-to-date guidance on workload performance optimization, see the documentation for each system that you intend to use. You'll find links to guidance for various analytics engines later in this article.
+Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The Data Lake Storage Gen2 documentation provides best practices and guidance for using these capabilities. Refer to the [Blob storage documentation](storage-blobs-introduction.md) content, for all other aspects of account management such as setting up network security, designing for high availability, and disaster recovery. 
 
-#### Understand the terms used in documentation
+#### Evaluate feature support and known issues
 
-As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the [Blob storage documentation](storage-blobs-introduction.md), will use the term *blob* instead of *file*. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, this can cause confusion if you're use to the term *file*. You'll also see the term *container* used to refer to a *file system*. Consider these terms as synonymous.
-
-## Configure storage accounts
-
-Access control lists (ACLs) are one of the few storage account features that pertain only to Data Lake Storage Gen2. Best practices around all other storage account features are well documented in the [Blob storage documentation](storage-blobs-introduction.md) content. Any guidance specific to Data Lake Storage Gen2, is called out in the body of each feature article. Use the following pattern as you evaluate and implement these features.
+Use the following pattern as you configure your account to use Blob storage features.
 
 1. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether a feature is fully supported in your account. Some features aren't yet supported or have partial support in Data Lake Storage Gen2 enabled accounts. Feature support is always expanding so make sure to periodically review this article for updates.
 
 2. Review the [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article to see if there are any limitations or special guidance around the feature you intend to use.
 
-3. Scan feature articles for any guidance that is specific to Data Lake Storage Gen2 enabled accounts.
+3. Scan feature articles for any guidance that is specific to Data Lake Storage Gen2 enabled accounts. 
+
+#### Understand the terms used in documentation
+
+As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the [Blob storage documentation](storage-blobs-introduction.md), will use the term *blob* instead of *file*. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, this can cause confusion if you're use to the term *file*. You'll also see the term *container* used to refer to a *file system*. Consider these terms as synonymous.
 
 ## Optimize for data ingest
 
@@ -67,7 +67,7 @@ Your account can scale to provide the necessary throughput for all analytics sce
 
 ## Structure data sets
 
-Consider pre-planning the structure of your data, as file format, file size, and directory structure can all impact performance and cost. 
+Consider pre-planning the structure of your data. File format, file size, and directory structure can all impact performance and cost. 
 
 ### File formats
 
@@ -152,7 +152,7 @@ This section highlights the different sources of data and the different ways in 
 
 #### Ad hoc data
 
-Smaller data sets that are used for prototyping a big data application. Use any of these tools to ingest data: 
+Smaller data sets that are used for prototyping a big data application. Consider using any of these tools to ingest data: 
 
 - Azure portal
 - [Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)
@@ -164,7 +164,7 @@ Smaller data sets that are used for prototyping a big data application. Use any 
 
 #### Streamed data
 
-Generated by various sources such as applications, devices, and sensors. Tools used to ingest this type of data usually capture and process the data on an event-by-event basis in real time, and then write the events in batches into your account. Use any of these tools to ingest data:
+Generated by various sources such as applications, devices, and sensors. Tools used to ingest this type of data usually capture and process the data on an event-by-event basis in real time, and then write the events in batches into your account. Consider using any of these tools to ingest data:
 
 - [HDInsight Storm](../../hdinsight/storm/apache-storm-write-data-lake-store.md)
 - [Azure Stream Analytics](../../stream-analytics/stream-analytics-quick-create-portal.md)
@@ -185,7 +185,7 @@ Log files that contain information such as the history of page requests. Conside
 
 #### HDInsight clusters
 
-Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Storage Gen2 as a data storage repository. Use any of these tools to ingest data:
+Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Storage Gen2 as a data storage repository. Consider using any of these tools to ingest data:
 
 - [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
 - [Apache DistCp](data-lake-storage-use-distcp.md)
@@ -193,7 +193,7 @@ Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Storage Ge
 
 #### Hadoop clusters
 
-These clusters might running on-premise or in the cloud. Use any of these tools to ingest data:
+These clusters might running on-premise or in the cloud. Consider using any of these tools to ingest data:
 
 - [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
 - [Apache DistCp](data-lake-storage-use-distcp.md)
