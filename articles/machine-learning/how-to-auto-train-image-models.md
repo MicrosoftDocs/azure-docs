@@ -3,44 +3,32 @@ title: Set up AutoML for images
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train computer vision models with the Azure Machine Learning Python SDK.
 services: machine-learning
-author: nibaccam
-ms.author: nibaccam
+author: swatig007
+ms.author: swatig
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom:  automl
-ms.date: 10/06/20 21
+ms.custom: automl
+ms.date: 10/06/2021
+
+# Customer intent: I'm a data scientist with ML knowledge in the Computer Vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters and training and deployment environments.
+
 ---
 
-# Set up AutoML to train an image model with Python 
-In this article, you learn how to train computer vision models on image data using Azure Machine Learning Automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
-To do so, you will 
+# Set up AutoML to train an image model with Python
 
-* Select the task type
-* Specify the training and validation data
-* Learn about data augmentations for image tasks
-* Choose your compute target
-* Configure model algorithms and hyperparameters
-* Optionally, perform a hyperparameter sweep to optimize model performance
-* Run an AutoML experiment to train an image model
-* Explore model metrics
-* Register and deploy model
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## What is AutoML for Images?
-AutoML for Images supports computer vision tasks such as Image Classification, Object Detection and Instance Segmentation.
+In this article, you learn how to train computer vision models on image data with automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
-[Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf]
+Automated ML supports model training for computer vision tasks, image classification, object detection, and instance segmentation. Authoring AutoML models for vision tasks is currently supported via the Azure ML Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md)
 
-With AutoML support for vision tasks, customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging AzureML [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
+With AutoML support for vision tasks, customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
 
-Authoring AutoML models for vision tasks is currently supported via the Azure ML Python SDK. The resulting experimentation runs, models and outputs will be accessible from the Azure ML Studio UI.
-
-## Target audience
-This feature is targeted to data scientists with ML knowledge in the Computer Vision space, looking to build ML models using image data in Azure Machine Learning. It targets to boost data scientist productivity, while allowing full control of the model algorithm, hyperparameters and training and deployment environments.
-
-## Prerequisites <!--TODO - verify that these steps work once the final public preview package is ready--> 
-For this article you need,
+> [!NOTE]
+> Automated ML for computer vision tasks is only available via the Azure Machine Learning Python SDK. 
+## Prerequisites
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -53,39 +41,38 @@ For this article you need,
     > [!NOTE]
     > Only Python 3.7 is compatible with `Automl for Images`. 
 
-## How to use AutoML to build models for computer vision tasks?
-AutoML allows you to easily train models for Image Classification, Object Detection & Instance Segmentation on your image data. You can control the model algorithm to be used, specify hyperparameter values for your model as well as perform a sweep across the hyperparameter space to generate an optimal model. Parameters for configuring your AutoML run for image related tasks are specified using the 'AutoMLImageConfig' in the Python SDK.
+## Select your task type
+Automated ML for images supports the following task types:
 
-### Select your task type
-AutoML for Images supports the following task types:
-<ul>
-<li>image-classification</li>
-<li>image-multi-labeling</li>
-<li>image-object-detection</li>
-<li>image-instance-segmentation</li>
-</ul>
+* image classification
+* image multi-labeling
+* image object detection
+* image instance segmentation
 
-This task type is a required parameter and is passed in using the `task` parameter in the AutoMLImageConfig. For example:
+
+This task type is a required parameter and is passed in using the `task` parameter in the `AutoMLImageConfig`. For example:
 
 ```python
 from azureml.train.automl import AutoMLImageConfig
 automl_image_config = AutoMLImageConfig(task='image-object-detection')
 ```
 
-### Training and Validation data <!--TODO - update this section to use Tabular datasets once this piece is verified--> 
-In order to generate Vision models, you will need to bring in labeled image data as input for model training in the form of an AzureML [Tabular Dataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `Tabular Dataset` that you have exported from a Data Labeling project (using the Export as Azure ML Dataset option), or create a new `Tabular Dataset` with your labeled training data.
+## Training and Validation data <!--TODO - update this section to use Tabular datasets once this piece is verified--> 
+
+In order to generate computer vision models, you need to bring in labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have exported from a data labeling project (using the Export as Azure ML Dataset option), or create a new `TabularDataset` with your labeled training data. Creation of tabular datasets is supported from data in JSONL format.
 
 The structure of the tabular dataset depends upon the task at hand. For Image task types, it consists of the following fields:
-<ul>
-<li>image_url: contains filepath as a StreamInfo object</li>
-<li>image_details: image metatadata information consist of height, width and format. This field is optional and hence may or may not exist. This restriction might become mandatory in the future.</li>
-<li>label: a json representation of the image label, based on the task type</li>
-</ul>
 
-Creation of tabular datasets is supported from data in JSONL format.
+Field| description
+---|---
+image_url| contains filepath as a StreamInfo object
+image_details|image metadata information consists of height, width, and format. This field is optional and hence may or may not exist. This restriction might become mandatory in the future.
+label| a json representation of the image label, based on the task type</li>
+
 
 #### JSONL sample schema for each task type
-Here is a sample JSONL file for Image classfication:
+
+Here is a sample JSONL file for Image classification:
 ```python
 {
       "image_url": "AmlDatastore://image_data/Image_01.png",
@@ -109,7 +96,7 @@ Here is a sample JSONL file for Image classfication:
   }
   ```
 
-  And here is a sample JSONL file for Object Detection:
+  And here is a sample JSONL file for object detection:
   ```python
   {
       "image_url": "AmlDatastore://image_data/Image_01.png",
@@ -150,7 +137,7 @@ Here is a sample JSONL file for Image classfication:
   ```
 
 
-If your training data is in a different format (e.g. pascal VOC or COCO), you can leverage the helper scripts included with the sample notebooks to convert the data to JSONL. Once your data is in JSONL format, you can create a tabular dataset using this snippet:
+If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. Once your data is in JSONL format, you can create a tabular dataset using this snippet:
 
 ```python
 from azureml.core import Dataset
@@ -170,12 +157,12 @@ from azureml.train.automl import AutoMLImageConfig
 automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 ```
 
-### Data augmentations 
+## Data augmentations 
 <!--TODO - add a section on data augmentations for OD and IC-->
 
-### Compute to run experiment
+## Compute to run experiment
 
-You need to provide a [Compute Target](concept-azure-machine-learning-architecture.md#compute-target) that will be used for your AutoML model training. AutoML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend using the NCsv3-series (with v100 GPUs) for faster training. Using a compute target with a multi-GPU VM SKU will leverage the multiple GPUs to speed up training. Additionally, setting up a compute target with multiple nodes will allow for faster model training by leveraging parallelism, when tuning hyperparameters for your model.
+You need to provide a [Compute Target](concept-azure-machine-learning-architecture.md#compute-target)  your AutoML model training. AutoML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend using the NCsv3-series (with v100 GPUs) for faster training. Using a compute target with a multi-GPU VM SKU leverages multiple GPUs to speed up training. Additionally, setting up a compute target with multiple nodes will allow for faster model training by leveraging parallelism, when tuning hyperparameters for your model.
 
 The compute target is a required parameter and is passed in using the `compute_target` parameter of the `AutoMLImageConfig`. For example:
 
@@ -184,29 +171,32 @@ from azureml.train.automl import AutoMLImageConfig
 automl_image_config = AutoMLImageConfig(compute_target=compute_target)
 ```
 
-### Configure model algorithms and hyperparameters
+## Configure model algorithms and hyperparameters
 When using AutoML to build computer vision models, users can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep.
 
-The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single model_name or choose between multiple.
+The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple.
 
-#### Currently supported model algorithms:
-<ul>
-<li><b>Image Classification (multi-class and multi-label):</b> 'resnet18', 'resnet34', 'resnet50', 'mobilenetv2', 'seresnext'</li>
-<li><b>Object Detection (OD): </b>'yolov5', 'fasterrcnn_resnet50_fpn', 'fasterrcnn_resnet34_fpn', 'fasterrcnn_resnet18_fpn', 'retinanet_resnet50_fpn'</li>
-<li><b>Instance segmentation (IS): </b>'maskrcnn_resnet50_fpn'</li>
-</ul>
 
-#### Hyperparameters for model training
+### Supported model algorithms
 
-In addition to controlling the model algorthm used, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, some are task-specific and a few are model-specific.
+The following table summarizes the supported models for each computer vision task. 
+
+Task | supported model algorithms
+---|---
+Image Classification<br> (multi-class and multi-label)|<li>`resnet18`<li>`resnet34`<li> `resnet50` <li> 'mobilenetv2'<li> 'seresnext'
+Object Detection (OD)| <li>'yolov5' <li> 'fasterrcnn_resnet50_fpn'<li> 'fasterrcnn_resnet34_fpn'<li> 'fasterrcnn_resnet18_fpn'<li> 'retinanet_resnet50_fpn'
+Instance segmentation (IS)| 'maskrcnn_resnet50_fpn'
+
+### Hyperparameters for model training
+In addition to controlling the model algorithm used, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, some are task-specific and a few are model-specific.
 
 The following tables list out the details of the hyperparameters  and their default values for each:
 
-<b>Model-agnostic hyperparameters</b>
+Model-agnostic hyperparameters</b>
 
 | Parameter Name| Description   | Default  |
 | ------------- |-------------| -----|
-| number_of_epochs | Number of training epochs <br> `Optional, Positive Integer` |  all (except yolov5) : 15 <br>yolov5: 30 |
+| number_of_epochs | Number of training epochs <br> `Optional, Positive Integer` |  all (except yolov5): 15 <br>yolov5: 30 |
 | training_batch_size | Training batch size <br> *Note: the defaults are largest batch size <br>which can be used on 12GiB GPU memory* <br> `Optional, Positive Integer` | multi-class / multi-label: 78 <br>OD (except yolov5) / IS: 2 <br>yolov5: 16 |
 | validation_batch_size | Validation batch size <br> *Note: the defaults are largest batch size <br>which can be used on 12GiB GPU memory*  <br> `Optional, Positive Integer` | multi-class / multi-label: 78 <br>OD (except yolov5) / IS: 2 <br>yolov5: 16  |
 | early_stopping | Enable early stopping logic during training <br> `Optional, 0 or 1`| 1 |
@@ -239,10 +229,10 @@ The following tables list out the details of the hyperparameters  and their defa
 | Parameter Name       | Description           | Default  |
 | ------------- |-------------| -----|
 | weighted_loss | 0 for no weighted loss<br>1 for weighted loss with sqrt(class_weights),<br>and 2 for weighted loss with class_weights <br> `Optional, 0 or 1 or 2` | 0 |
-| resize_size | Image size to which to resize before cropping for validation dataset <br> *Note: unlike others, seresnext doesn't take an arbitary size <br> Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 256  |
-| crop_size | Image crop size which is input to your neural network <br> *Note: unlike others, seresnext doesn't take an arbitary size <br> Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 224 |
+| resize_size | Image size to which to resize before cropping for validation dataset <br> *Note: unlike others, seresnext doesn't take an arbitrary size <br> Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 256  |
+| crop_size | Image crop size which is input to your neural network <br> *Note: unlike others, seresnext doesn't take an arbitrary size <br> Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 224 |
 
-<br>
+
 <b>For Object Detection (except yolov5) and Instance Segmentation: </b>
 
 | Parameter Name       | Description           | Default  |
@@ -254,9 +244,9 @@ The following tables list out the details of the hyperparameters  and their defa
 | box_nms_thresh | NMS threshold for the prediction head. Used during inference <br> `Optional, float in [0, 1]` | 0.5 |
 | box_detections_per_img | Maximum number of detections per image, for all classes <br> `Optional, Positive Integer` | 100 |
 
-<br>
+
 <b>Model-specific hyperparameters</b>
-<br>
+
 
 <b>For yolov5: </b>
 | Parameter Name       | Description           | Default  |
@@ -269,74 +259,9 @@ The following tables list out the details of the hyperparameters  and their defa
 | box_iou_thresh | IoU threshold used during inference in nms post processing <br> `Optional, float in [0, 1]` | 0.5 |
 <br>
 
-### Sweeping hyperparameters for your model
-When training vision models, model performance depends heavily on the hyperparameter values selected. Often times, you might want to tune the hyperparameters to get optimal performance.
-AutoML for Images allows you to sweep hyperparameters to find the optimal settings for your model. It leverages the hyperparameter tuning capabilities in Azure Machine Learning - you can learn more [here](how-to-tune-hyperparameters).
+## Configure your experiment settings
 
-#### Define the parameter search space
-You can define the model algorithms and hyperparameters to sweep in the parameter space. See [Configure model algorithms and hyperparameters](#Configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms and hyperparameters for each task type. Details on supported distributions for discrete and continuous hyperparameters can be found [here](how-to-tune-hyperparameters#define-the-search-space).
-
-#### Sampling methods for the sweep
-When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. AutoML for Images supports the following sampling methods using the `hyperparameter_sampling` parameter:
-<ul>
-<li>Random Sampling</li>
-<li>Grid Sampling (not supported yet for conditional spaces)</li>
-<li>Bayesian Sampling (not supported yet for conditional spaces)</li>
-</ul>
-
-You can learn more about each of these sampling methods [here](how-to-tune-hyperparameters#sampling-the-hyperparameter-space).
-
-#### Early termination policies
-When using AutoML to sweep hyperparameters for your vision models, you can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. AutoML for Images supports the following early termination policies using the `policy` parameter -
-<ul>
-<li>Bandit Policy</li>
-<li>Median Stopping Policy</li>
-<li>Truncation Selection Policy</li>
-</ul>
-
-If no termination policy is specified, all configurations are run to completion.
-You can learn more about configuring the early termination policy for your hyperparameter sweep [here](how-to-tune-hyperparameters#early-termination).
-
-#### Resources for the sweep
-You can control the resources spent on your hyperparameter sweep by specifying the `iterations` and the `max_concurrent_iterations` for the sweep.
-<ul>
-<li>iterations (required when sweeping): Maximum number of configurations to sweep. Must be an integer between 1 and 1000. </li>
-<li>max_concurrent_iterations: (optional) Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  (NOTE: The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.)</li>
-</ul>
-
-### Optimization metric
-You can specify the metric to be used for model optimization and hyperparameter tuning using the optional `primary_metric` parameter. Default values depend on the task type -
-<ul>
-<li>'accuracy' for image-classification</li>
-<li>'iou' for image-multi-labeling</li>
-<li>'mean_average_precision' for image-object-detection</li>
-<li>'mean_average_precision' for image-instance-segmentation</li>
-</ul>
-
-### Experiment budget
-You can optionally specify the maximum time budget for your AutoML Vison experiment using `experiment_timeout_hours` - the amount of time in hours before the experiment terminates. If none specified, default experiment timeout is 6 days.
-
-<!---
-### Early stopping
-You can optionally enable early stopping for your AutoML Vision experiment using `enable_early_stopping` parameter.
-| Parameter Name       | Description           | Default  |
-| ------------- |-------------| -----|
-| early_stopping | Enable early stopping logic during training | 1 |
-| early_stopping_patience | Minimum number of epochs/validation evaluations<br> with no primary metric score improvement before the run is stopped | 5 |
-| early_stopping_delay | Minimum number of epochs/validation evaluations<br> to wait before primary metric score improvement is tracked for early stopping | 5 |
-<br>
--->
-### Arguments
-You can pass fixed settings or parameters that don't change during the parameter space sweep as arguments. Arguments are passed in name-value pairs and the name must be prefixed by a double dash. For example:
-
-```python
-from azureml.train.automl import AutoMLImageConfig
-arguments = ["--early_stopping", 1, "--evaluation_frequency", 2]
-automl_image_config = AutoMLImageConfig(arguments=arguments)
-```
-
-### Configure your experiment settings
-Before doing a large sweep to search for the optimal models and hyperparameters, we recommend trying the default values to get a first baseline. Next, you can explore multiple hyperparameters for the same model before sweeping over multiple models and their parameters. This is for employing a more iterative approach, because with multiple models and multiple hyperparameters for each (as we showcase in the next section), the search space grows exponentially and you need more iterations to find optimal configurations.
+Before doing a large sweep to search for the optimal models and hyperparameters, we recommend trying the default values to get a first baseline. Next, you can explore multiple hyperparameters for the same model before sweeping over multiple models and their parameters. This is for employing a more iterative approach, because with multiple models and multiple hyperparameters for each, the search space grows exponentially and you need more iterations to find optimal configurations.
 
 If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify the config for your AutoML Image runs as follows:
 
@@ -351,7 +276,7 @@ automl_image_config_yolov5 = AutoMLImageConfig(task='image-object-detection',
                                         hyperparameter_sampling=GridParameterSampling({'model_name': choice('yolov5')}))
 ```
 
-Once you've built a baseline model using AutoML for Images, you might want to optimize model perfromance in order to sweep over the model algorithm and hyperparamter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc, to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for the specified algorithm.
+Once you've built a baseline model using AutoML for Images, you might want to optimize model performance in order to sweep over the model algorithm and hyperparamter space. You can use the following sample config to sweep over the hyperparameters for each algorithm, choosing from a range of values for learning_rate, optimizer, lr_scheduler, etc, to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for the specified algorithm.
 
 ```python
 from azureml.train.automl import AutoMLImageConfig
@@ -393,24 +318,97 @@ automl_image_config = AutoMLImageConfig(task='image-object-detection',
                                         **tuning_settings)
 ```
 
-### Run an AutoML experiment to train an image model
-When you have your 'AutoMLImageConfig' object ready, you can submit the experiment.
+### Optimization metric
+You can specify the metric to be used for model optimization and hyperparameter tuning using the optional `primary_metric` parameter. Default values depend on the task type.
+
+* `accuracy` for image-classification</li>
+* `iou` for image-multi-labeling</li>
+* `mean_average_precision` for image-object-detection
+* `mean_average_precision` for image-instance-segmentation
+
+### Experiment budget
+You can optionally specify the maximum time budget for your AutoML Vision experiment using `experiment_timeout_hours` - the amount of time in hours before the experiment terminates. If none specified, default experiment timeout is six days.
+
+<!---
+### Early stopping
+You can optionally enable early stopping for your AutoML Vision experiment using `enable_early_stopping` parameter.
+| Parameter Name       | Description           | Default  |
+| ------------- |-------------| -----|
+| early_stopping | Enable early stopping logic during training | 1 |
+| early_stopping_patience | Minimum number of epochs/validation evaluations<br> with no primary metric score improvement before the run is stopped | 5 |
+| early_stopping_delay | Minimum number of epochs/validation evaluations<br> to wait before primary metric score improvement is tracked for early stopping | 5 |
+<br>
+-->
+
+## Sweeping hyperparameters for your model
+
+When training vision models, model performance depends heavily on the hyperparameter values selected. Often times, you might want to tune the hyperparameters to get optimal performance.
+AutoML for Images allows you to sweep hyperparameters to find the optimal settings for your model. It leverages the hyperparameter tuning capabilities in Azure Machine Learning - you can learn more [here](how-to-tune-hyperparameters.md).
+
+### Define the parameter search space
+
+You can define the model algorithms and hyperparameters to sweep in the parameter space. See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms and hyperparameters for each task type. Details on supported distributions for discrete and continuous hyperparameters can be found [here](how-to-tune-hyperparameters,md#define-the-search-space).
+
+### Sampling methods for the sweep
+When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. AutoML for Images supports the following sampling methods using the `hyperparameter_sampling` parameter:
+
+* Random Sampling
+* Grid Sampling (not supported yet for conditional spaces)
+* Bayesian Sampling (not supported yet for conditional spaces)
+
+You can learn more about each of these sampling methods [here](how-to-tune-hyperparameters#sampling-the-hyperparameter-space).
+
+### Early termination policies
+When using AutoML to sweep hyperparameters for your vision models, you can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. AutoML for Images supports the following early termination policies using the `policy` parameter -
+
+* bandit Policy
+* Median Stopping Policy
+* truncation Selection Policy
+
+If no termination policy is specified, all configurations are run to completion.
+You can learn more about configuring the early termination policy for your hyperparameter sweep [here](how-to-tune-hyperparameters#early-termination).
+
+### Resources for the sweep
+You can control the resources spent on your hyperparameter sweep by specifying the `iterations` and the `max_concurrent_iterations` for the sweep.
+
+* iterations (required when sweeping): Maximum number of configurations to sweep. Must be an integer between 1 and 1000. </li>
+<li>max_concurrent_iterations: (optional) Maximum number of runs that can run concurrently. If not specified, all runs launch in parallel. If specified, must be an integer between 1 and 100.  (NOTE: The number of concurrent runs is gated on the resources available in the specified compute target. Ensure that the compute target has the available resources for the desired concurrency.)</li>
+
+
+### Arguments
+You can pass fixed settings or parameters that don't change during the parameter space sweep as arguments. Arguments are passed in name-value pairs and the name must be prefixed by a double dash. For example:
+
+```python
+from azureml.train.automl import AutoMLImageConfig
+arguments = ["--early_stopping", 1, "--evaluation_frequency", 2]
+automl_image_config = AutoMLImageConfig(arguments=arguments)
+```
+
+
+## Submit the run
+
+When you have your `AutoMLImageConfig` object ready, you can submit the experiment.
+
 ```python
 ws = Workspace.from_config()
 experiment = Experiment(ws, "Tutorial-automl-image-object-detection")
 automl_image_run = experiment.submit(automl_image_config)
 ```
 
-### Register and deploy model
-Once the run completes, we can register the model that was created from the best run (configuration that resulted in the best primary metric)
+## Register and deploy model
+
+Once the run completes, you can register the model that was created from the best run (configuration that resulted in the best primary metric)
+
 ```Python
 best_child_run = automl_image_run.get_best_child()
 model_name = best_child_run.properties['model_name']
 model = best_child_run.register_model(model_name = model_name, model_path='outputs/model.pt')
 ```
-Once you have your trained model, you can deploy the model on Azure. You can deploy your trained model as a web service on Azure Container Instances (ACI) or Azure Kubernetes Service (AKS). ACI is the perfect option for testing deployments, while AKS is better suited for for high-scale, production usage.
+
+After you register the model you want to use, you can deploy it as a web service on Azure Container Instances (ACI) or Azure Kubernetes Service (AKS). ACI is the perfect option for testing deployments, while AKS is better suited for high-scale, production usage.
 
 This example deploys the model as a web service in AKS. You will need to first create an AKS compute cluster, or use an existing AKS cluster. You can use either GPU or CPU VM SKUs for your deployment cluster
+
 ```python
 
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -471,10 +469,9 @@ print(aks_service.state)
 ```
 
 ## Example notebooks
-<!--  example link to notebook syntax -->
-[example object detection notebook](https://github.com/swatig007/automlForImages/blob/main/ObjectDetection/AutoMLImage_ObjectDetection_SampleNotebook.ipynb)
+For a detailed code example, see the [object detection notebook](https://github.com/swatig007/automlForImages/blob/main/ObjectDetection/AutoMLImage_ObjectDetection_SampleNotebook.ipynb)
 
 
 ## Next steps
 
-<!-- What are some logical next steps. We typically link to other docs that would help users -->
+[Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
