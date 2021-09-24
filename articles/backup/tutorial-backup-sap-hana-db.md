@@ -59,7 +59,7 @@ More details around using these options are shared below:
 
 ### Private endpoints
 
-Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
+Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses a private IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. A private endpoint is assigned to a specific subnet of a virtual network and can't be used for Azure Active Directory. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
 ### NSG tags
 
@@ -107,12 +107,9 @@ Since the streams primarily deal with disks, you need to understand the disk per
 
 **The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these are not guaranteed speeds and depend on following factors:
 
-- Maximum Uncached disk throughput of the VM
-- Underlying disk type and its throughput
-- The number of processes which are trying to read and write into the same disk at the same time
-- VM’s maximum uncached disk throughput – read from data or log
-- Underlying disk type and its throughput – read from data or log
-- VM’s maximum network throughput – write to Recovery Services vault
+- Maximum Uncached disk throughput of the VM – read from data or log area.
+- Underlying disk type and its throughput – read from data or log area.
+- VM’s maximum network throughput – write to Recovery Services vault.
 - If the VNET has NVA/firewall, it's network throughput
 - If the data/log on Azure NetApp Files – both read from ANF and write to Vault consume VM’s network.
 
@@ -229,6 +226,12 @@ To create a Recovery Services vault:
    ![Select Review & Create](./media/tutorial-backup-sap-hana-db/review-create.png)
 
 The Recovery Services vault is now created.
+
+## Enable Cross Region Restore
+
+At the Recovery Services vault, you can enable Cross Region Restore. You must Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+[Learn more](/azure/backup/backup-azure-recovery-services-vault-overview) about Cross Region Restore.
 
 ## Discover the databases
 
