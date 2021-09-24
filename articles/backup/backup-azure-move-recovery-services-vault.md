@@ -2,7 +2,7 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 09/24/2021
 ms.custom: references_regions 
 ---
 
@@ -114,20 +114,19 @@ When an Azure Virtual Machine (VM) that’s been protected by a Recovery Service
 
 #### Prepare to move VMs
 
-Before you move a VM, ensure the following prerequistes are met:
+Before you move a VM, ensure the following prerequisites are met:
 
 1. See the [prerequisites associated with VM move](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) and ensure that the VM is eligible for move.
 1. [Select the VM on the **Backup Items** tab](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of existing vault’s dashboard and select **Stop protection** followed by retain/delete data as per your requirement. When the backup data for a VM is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures you always have your backup data ready for restore.
-1. The VMs are turned on. All VMs’ disks that needs are available in the destination region are attached and initialized in the VMs.
-1. VMs  have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do this:
-   - On Windows VMs latest Windows updates are installed.
-   - On Linux VMs, refer to distributor guidance and esnrue t machines have the latest certificates and CRL.
+   >[!Note]
+   >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using the  [Delete data option](./backup-azure-manage-vms.md#delete-backup-data).
+1. Ensure that the VMs are turned on. All VMs’ disks that need to be available in the destination region are attached and initialized in the VMs.
+1. Ensure that VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do so:
+   - On Windows VMs, install the latest Windows updates.
+   - On Linux VMs, refer to distributor guidance to ensure that machines have the latest certificates and CRL.
 1. Allow outbound connectivity from VMs:
    - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
    - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
-
->[!Note]
->Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using the  [Delete data option](./backup-azure-manage-vms.md#delete-backup-data).
 
 #### Move VMs
 
@@ -147,12 +146,12 @@ Azure Backup offers [a snapshot management solution](./backup-afs.md) for your A
 
 Before you move the Storage Account, ensure the following prerequisites are met:
 
-1.	See the [prerequisites](/azure/storage/common/storage-account-move?tabs=azure-portal#prerequisites). 
+1.	See the [prerequisites to move Storage Account](/azure/storage/common/storage-account-move?tabs=azure-portal#prerequisites). 
 1. Export and modify a Resource Move template. For more information, see [Prepare Storage Account for region move](/azure/storage/common/storage-account-move?tabs=azure-portal#prepare).
 
 #### Move Azure File Share
 
-To move your Storage Accounts along with the file shares in them from one region to another, see [Move an Azure Storage account to another region](../storage/common/storage-account-move.md).
+To move your Storage Accounts along with the Azure File Shares in them from one region to another, see [Move an Azure Storage account to another region](../storage/common/storage-account-move.md).
 
 >[!Note]
 >When Azure File Share is copied across regions, its associated snapshots don’t move along with it. In order to move the snapshots data to the new region, you need to move the individual files and directories of the snapshots to the Storage Account in the new region using [AzCopy](../storage/common/storage-use-azcopy-files.md#copy-all-file-shares-directories-and-files-to-another-storage-account).
@@ -165,32 +164,31 @@ Once the Azure File Share is copied to the new region, you can choose to stop pr
    
 This ensures that you will always have your snapshots ready for restore from the older vault. 
  
-### Back up SQL Server/SAP HANA in Azure VM
+### Back up SQL Server/SAP HANA in Azure VM after moving across regions
 
 When you move a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, see the follow sections.
 
-#### Prepare to move a VM running on SQL Server/SAP HANA
+#### Prepare to move SQL Server/SAP HANA in a VM
 
-Before you move a VM running SQL Server/SAP HANA to a new region, ensure the following prerequisites are met:
+Before you move SQL Server/SAP HANA running in a VM to a new region, ensure the following prerequisites are met:
 
 1. See the [prerequisites associated with VM move](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) and ensure that the VM is eligible for move. 
 1. Select the VM on the [Backup Items tab](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures that you always have your backup data ready for restore.
-1. The VMs to be moved are turned on. All VMs disks that needs to be available in the destination region are attached and initialized in the VMs.
-1. The VMs should have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do this:
+   >[!Note]
+   >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using [Delete data option](./backup-azure-manage-vms.md#delete-backup-data).
+1. Ensure that the VMs to be moved are turned on. All VMs disks that need to be available in the destination region are attached and initialized in the VMs.
+1. Ensure that VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do so:
    - On Windows VMs, install the latest Windows updates.
-   - On Linux VMs, refer to the distributor guidance so that machines have the latest certificates and CRL.
+   - On Linux VMs, refer to the distributor guidance and ensure that machines have the latest certificates and CRL.
 1. Allow outbound connectivity from VMs:
    - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
    - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
 
->[!Note]
->Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using [Delete data option](./backup-azure-manage-vms.md#delete-backup-data).
-
-#### Move VM running on SQL Server/SAP HANA
+#### Move SQL Server/SAP HANA in a VM
 
 Move your VM to the new region using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md).
 
-#### Protect VMs running on SQL Server/SAP HANA using Azure Backup
+#### Protect SQL Server/SAP HANA in a VM using Azure Backup
 
 Start protecting the VM in a new/existing Recovery Services vault in the new region. When you need to restore from your older backups, you can still do it from your old Recovery Services vault.
  
