@@ -1,0 +1,33 @@
+- name: Azure DevTest Offer Docs
+  href: index.yml
+- name: Overview
+  items: 
+    - name: What is Azure Machine Learning?
+      displayName: AML, services, overview, introduction
+      href: overview-what-is-azure-machine-learning.md
+- name: Quickstart
+- name: Tutorials
+  expanded: true
+  items: 
+    - name: "Python get started (Day 1)"
+      expanded: true
+      items:
+        - name: 3. Use your own data
+          href: tutorial-experiment-bring-data.md
+- name: Samples
+- name: Concepts
+  items: 
+  - name: Automated ML
+    displayName: automl, auto ml
+    href: concept-automated-ml.md     
+- name: How-to guides
+- name: Resources
+  items: 
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/machine-learning-services/
+    - name: Service limits
+      href: ../../machine-learning/resource-limits-quotas-capacity.md      
+    - name: Regional availability
+      href: https://azure.microsoft.com/regions/services/
