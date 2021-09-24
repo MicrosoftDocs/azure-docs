@@ -16,7 +16,7 @@ In August 2021, access control in Purview moved from Azure IAM (control plane) t
 
 This tutorial guides you through using the Azure Purview APIs to add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure Portal or Purview Studio to achieve the same granular role-based access control.
 
-[Purview permissions guide](catalog-permissions.md#roles) covers more information about each of the built-in access roles in Azure Purview, and provides a mapping between the roles and the level of access permissions granted by the role.
+[Purview permissions guide](catalog-permissions.md#roles) covers more information about each of the built-in roles in Azure Purview, and maps the role to the level of access permissions granted to the user.
 
 
 ## Metadata Policy API Reference Summary
@@ -86,7 +86,7 @@ Details on some of the important identifiers in the JSON output received from th
 
 **Id**: Unique identifier for the policy
 
-**Version**: latest version number of the policy. \*\*(Version number gets incremented each time Update-Metadata-Policy API is called. Ensure to fetch the latest copy of the policy all the time. To achieve this, you must call Get-Policy-by-Policy-ID API every time before calling the Update Policy (PUT) API, so that you always have the latest version of the JSON)
+**Version**: latest version number of the policy. \*\*(Version number gets incremented each time Update-Metadata-Policy API is called. Ensure to fetch the latest copy of the policy by invoking Get-Policy-by-Policy-ID API. This refresh must be performed every time before calling the Update Policy (PUT) API, so that you always have the latest version of the JSON)
 
 **DecisionRules**:  List the rules and effect of this policy. For metadata policies, the effect is always “Permit”.
 
@@ -890,7 +890,7 @@ Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'l
 }
 ```
 ## Add root collection admin
-By default, the user who created the Purview account is the root collection admin (administrator of the topmost level of the collection hierarchy). However, in some cases, an organization needs to change the root collection admin using the API. For instance, it's possible that the current root collection admin doesn’t exist in the organization anymore. In these cases the Azure portal may not be accessible to anyone in the organization because of which, usage of API to assign a new collection administrator and manage collection permissions becomes unavoidable and the only way to regain access to the Purview account.
+By default, the user who created the Purview account is the root collection admin (administrator of the topmost level of the collection hierarchy). However, in some cases, an organization needs to change the root collection admin using the API. For instance, it's possible that the current root collection admin doesn’t exist in the organization anymore. In these cases, the Azure portal may not be accessible to anyone in the organization because of which, usage of API to assign a new collection administrator and manage collection permissions becomes unavoidable and the only way to regain access to the Purview account.
 
 ```ruby
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01
@@ -906,7 +906,7 @@ On success, all REST APIs return HTTP Response 200 OK.
 
 
 ##  Purview REST API Combined Archive
-To help you get quick-started with Purview APIs here is an archive of all the Purview REST API Specs collected together at one place: [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest), or Postman collection of Purview APIs.
+To help you get quick-started with Purview APIs - [Download](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) an archive of all the Purview REST API Specs collected together at one place: [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest), or Postman collection of Purview APIs.
 
 ## PowerShell utility to run Purview APIs
 You may choose to execute Purview REST APIs using PowerShell Utility [Purview-API-PowerShell](https://aka.ms/purview-api-ps). It can be readily installed from PowerShell Gallery. It will execute all the same commands, albeit from the Windows PowerShell.
