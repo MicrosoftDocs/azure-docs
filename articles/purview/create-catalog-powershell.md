@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI'
+title: 'Quickstart: Create a Purview account with PowerShell/Azure CLI'
 description: This Quickstart describes how to create an Azure Purview account using Azure PowerShell/Azure CLI.
 author: hophanms
 ms.author: hophan

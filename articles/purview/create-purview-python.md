@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Purview account using Python'
+title: 'Quickstart: Create a Purview account using Python'
 description: Create an Azure Purview account using Python.
 author: nayenama
 ms.author: nayenama

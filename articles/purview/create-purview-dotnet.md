@@ -1,5 +1,5 @@
 ---
-title: Create Purview Account using .NET SDK
+title: 'Quickstart: Create Purview Account using .NET SDK'
 description: Create an Azure Purview Account using .NET SDK.
 author: nayenama
 ms.author: nayenama
