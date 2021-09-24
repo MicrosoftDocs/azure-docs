@@ -3,7 +3,7 @@ title: Context switching in Azure Automation
 description: This article explains context switching and how to avoid runbook issues.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2021
+ms.date: 09/24/2021
 ms.topic: conceptual 
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
 ---
@@ -21,11 +21,11 @@ Context switching is when the context in one process changes the context in a di
 |Tenant | A dedicated and trusted instance of Azure Active Directory that represents a single organization.|
 |Credentials | The information used by Azure to verify your identity and confirm your authorization to access resources in Azure.|
 
-When an account signs on that can access several subscriptions, any of those subscriptions may be added to the user's context. To guarantee the correct subscription, you must declare it when connecting. For example, use `Add-AzAccount -Credential $Cred -subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749'`. However, issues can arise when a runbook managing one subscription runs in the same sandbox process as another runbook that is managing another subscription. Changes to the context made by one runbook can affect other runbooks that are using the default context. As the context includes information, such as the credentials to use and the subscription to target, cmdlets could target the wrong subscription resulting in `not found` or permissions errors. This issue is known as **Context Switching**.
+When an account signs on that can access several subscriptions, any of those subscriptions may be added to the user's context. To guarantee the correct subscription, you must declare it when connecting. For example, use `Add-AzAccount -Credential $Cred -subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749'`. However, issues can arise when your runbooks managing one subscription runs in the same sandbox process as your other runbooks managing resources in another subscription from the same Automation account. Changes to the context made by one runbook can affect your other runbooks using the default context. As the context includes information, such as the credentials to use and the subscription to target, cmdlets could target the wrong subscription resulting in `not found` or permissions errors. This issue is known as **Context Switching**.
 
-## Context management
+## Manage Azure contexts
 
-To avoid accidentally trying to access the incorrect subscription, follow the guidance below.
+To avoid your runbooks from running against resources in the wrong subscription, review the following recommendations:
 
 1. Disable sandbox context saving within your Automation runbook by using the following command at the start of each runbook: `Disable-AzContextAutosave -Scope Process`.
 1. The Azure PowerShell cmdlets support the `-DefaultProfile` parameter. This parameter was added to all Az and Azure Resource Manager (AzureRM) cmdlets to support running multiple scripts in the same process, allowing you to specify for each cmdlet which context to use. Save your context object in your runbook when it's created and every time it's changed. Then reference it in every call made with the Az or AzureRM cmdlet. For example, `$AzureContext = Set-AzContext -SubscriptionId $subID`.
