@@ -83,6 +83,10 @@ There are several options to connect to your private link endpoint workspace. To
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
+### Current limitations
+
+It is currently not possible to deploy workspaces using customer-managed encryption keys.
+
 ## Next steps
 
 * To learn more about Terraform support on Azure, see [Terraform on Azure documentation](/azure/developer/terraform/).
