@@ -15,6 +15,8 @@ ms.custom: data4ml
 
 Learn how to create and run data labeling projects to label images in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
 
+You can also use the data labeling tool to [create a text labeling project](how-to-create-text-labeling-projects.md).
+
 ## Data labeling capabilities
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor data labeling projects:

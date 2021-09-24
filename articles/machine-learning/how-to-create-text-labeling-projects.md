@@ -15,6 +15,8 @@ ms.custom: data4ml
 
 Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Specify either a single label or multiple labels to be applied to each piece of text.
 
+You can also use the data labeling tool to [create an image labeling project](how-to-create-image-labeling-projects.md).
+
 > [!IMPORTANT]
 > Text labeling is currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
