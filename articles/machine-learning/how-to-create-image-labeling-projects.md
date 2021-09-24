@@ -33,7 +33,7 @@ Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe"
 
 [!INCLUDE [prerequisites](../../includes/machine-learning-data-labeling-prerequisites.md)]
 
-## Create a data labeling project
+## Create an image labeling project
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
@@ -95,7 +95,7 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
 
-## Describe the data labeling task
+## Describe the image labeling task
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
 
@@ -141,7 +141,7 @@ After enough labels are submitted, a classification model is used to predict tag
 
 Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled items to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Items with predictions more confident than this threshold are used for pre-labeling.
 
-## Initialize the data labeling project
+## Initialize the image labeling project
 
 [!INCLUDE [initialize](../../includes/machine-learning-data-labeling-initialize.md)]
 

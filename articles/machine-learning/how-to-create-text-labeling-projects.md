@@ -110,7 +110,7 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
 
-## Describe the data labeling task
+## Describe the text labeling task
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
 
@@ -118,7 +118,7 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
 
-## Initialize the data labeling project
+## Initialize the text labeling project
 
 [!INCLUDE [initialize](../../includes/machine-learning-data-labeling-initialize.md)]
 
