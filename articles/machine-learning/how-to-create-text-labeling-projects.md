@@ -133,11 +133,8 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="./media/how-to-create-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
 
-The progress chart shows how many items have been labeled and how many are not yet done.  Items pending may be:
 
-* Not yet added to a task
-* Included in a task that is assigned to a labeler but not yet completed 
-* In the queue of tasks yet to be assigned
+The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of item in each section.
 
 The middle section shows the queue of tasks yet to be assigned. 
 
@@ -146,7 +143,7 @@ On the right side is a distribution of the labels for those tasks that are compl
 
 ### Data tab
 
-On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
+On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
 ### Details tab
 
