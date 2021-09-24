@@ -10,7 +10,7 @@ ms.date: 09/24/2021
 # Customer intent: As a Purview collection administrator, I want to manage Collections and control access to each Collection in the Purview account by adding or removing users, groups, or service principals via REST API Interface.
 ---
 
-# Azure Purview Collections Metadata Policy & Roles APIs: Quickstart Tutorial – Manage Fine Grained Access Control over Purview Collections
+# Tutorial: Use APIs to manage Azure Purview collections and access control
 
 In August 2021, Azure Purview moved to support authorization & access control from IAM (control plane) to Azure Purview [Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This tutorial: How to Add or Remove a [User/Group/ServicePrincipal] to a Collection as one of the 4 built-in Metadata Roles [Collection Administrator, Data Source Administrator, Data Curator or Data Reader] talks about managing fine grained access control over these collections to users, groups or service principals within your enterprise via Azure Purview APIs. This is an alternative method as against using the Azure Portal or Purview Studio to achieve the same fine grained access control.
 
