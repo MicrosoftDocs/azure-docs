@@ -16,9 +16,6 @@ ms.custom: devx-track-azurecli
 
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
-> [!NOTE]
-> Examples in this article refer to both 1.0 CLI and CLI (v2) versions. The machine learning CLI (v2) is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
-
 ## Prerequisites
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
