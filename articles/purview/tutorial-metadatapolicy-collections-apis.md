@@ -599,9 +599,8 @@ Example:
 ```
 
 ## Get Selected Metadata Policy 
-This API fetches the Policy either by CollectionName or by PolicyID.
-At this point, you would want to choose the particular policy to modify (add/remove users). Pick the particular PolicyID from the previous step’s JSON output. 
-Now you can choose to use either API 3A or 3B below. Both serve the same purpose, you may choose whether to use {collectionName} or {PolicyID}.
+There are two APIs to fetch a particular collection's Metadata Policy's JSON structure - either by supplying {collectionName} or {PolicyID}.
+Both APIs (described in the following two sections) serve the same purpose and the JSON outputs of both are exactly the same.
 
 ### Get MetadataPolicy of the collection by collectionName
 ```ruby
@@ -802,7 +801,7 @@ Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'l
 
 1. Supply the User/Group/ServicePrincipal Object IDs {guid} in the "attributeValueIncludedIn" array of the JSON.
 1. Search the JSON output of the Get-Policy-by-ID API for "attributeValueIncludedIn" array in the previous step and **Add** or  **Remove** the User/Group/ServicePrincipal Object ID in the array. If unsure about how to fetch user or group Object ID, read this tutorial [Get-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser)
-1. Notice that there could be multiple sections in the JSON pertaining to each of the 4 roles. For collection administrator permission role, use the section bearing "ID" called "purviewmetadatarole_builtin_collection-administrator". Likewise, use the corresponding section for the other roles.
+1. Notice that there will be multiple sections in the JSON mapping to each of the 4 roles. For collection administrator permission role, use the section bearing "ID" called "purviewmetadatarole_builtin_collection-administrator". Likewise, use the corresponding section for the other roles.
 1. To better understand the Add/Remove operation, carefully examine the difference between the JSON output from the previous API and the one below. You'll notice that in the JSON output below we've added User ID: "3a3a3a3a-2c2c-4b4b-1c1c-2a3b4c5d6e7f" As Collection Administrator.
 
 ```json
@@ -896,11 +895,11 @@ By default, the user who created the Purview account is the root collection admi
 ```ruby
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01
 ```
-You only need to pass the new root collection administrator's Object ID whether it is a user, group, or service principal.
+You only need to pass the new root collection administrator's Object ID. As mentioned before, the Object ID can be that of any user, group, or service principal.
 ```json
 {"objectId": "{guid}"}
 ```
-On success, you will get HTTP Response 200 OK.
+On success, all REST APIs return HTTP Response 200 OK.
 
 > [!NOTE]
 > The user who calls this API must have owner or UAA permission on Purview account to execute a write action on the account.
