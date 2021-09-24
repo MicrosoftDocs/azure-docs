@@ -22,8 +22,8 @@ When creating a new VM for your golden image choose an OS that is [compatible wi
 ### Take your first snapshot
 [Create the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) for your chosen image.  Once it has completed deploying, create a Snapshot of the disk of your image VM.  Give the snapshot an identifying name, since you will be taking further snapshots during the image build process. Snapshots will allow you to roll back if there are issues at any stage of the image build. 
 
-### Add applications to VM
-Login to the VM and start installing the required applications. If the VM needs to be domain-joined during customization, remove it from the domain before sysprep. If there are a large number of applications to be installed, it is recommended to take periodic snapshots to allow for rollback if a problem occurs. 
+### Apply customization
+Login to the VM and start customizing your VM with applications, updates or anything you need for your image. If the VM needs to be domain-joined during customization, remove it from the domain before sysprep. If there are a large number of applications to be installed, it is recommended to take periodic snapshots to allow for rollback if a problem occurs. 
 
 Install Windows updates if needed before you take the final snapshot. Any required cleanup operations such as cleaning up Temp files, defragmenting disks and removing user profiles should also be done at this stage.
 
