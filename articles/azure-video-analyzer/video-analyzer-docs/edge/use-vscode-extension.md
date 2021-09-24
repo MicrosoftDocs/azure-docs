@@ -47,9 +47,9 @@ Using your IoT Hub connection string, connect the Visual Studio Code extension t
 
 ![Gif showing how to enter the connection string](./media/use-vscode-extension/EnterConnectionString.gif)
 
-The Video Anylzer extension pane should now show the connected device with all of its modules. Below the modules are where pipeline topologies are listed. By default, there are no pipeline topologies deployed.
+The Video Analyzer extension pane should now show the connected device with all of its modules. Below the modules are where pipeline topologies are listed. By default, there are no pipeline topologies deployed.
 
-## Deploy a pipeline topology 
+## Create a pipeline topology 
 
 A [pipeline topology](../pipeline.md) enables you to describe how live video or recorded videos should be processed and analyzed for your custom needs through a set of interconnected nodes. 
 
@@ -61,7 +61,7 @@ A [pipeline topology](../pipeline.md) enables you to describe how live video or 
 
 Notice that there is now an entry in the **Pipeline topologies** list on the left labeled **CVRToVideoSink**. This is a pipeline topology, where some of the parameters are defined as variables.
 
-## Deploy a live pipeline
+## Create a live pipeline
 
 A live pipeline is an instance of a pipeline topology. The variables in a pipeline topology are filled when a live pipeline is created.
 
@@ -76,4 +76,4 @@ Now that a live pipeline has been activated, operational events can be viewed by
 
 ## Next steps
 
-Create your own custom pipeline topology by dragging and dropping topology components in the Visual Studio Code extension. Learn how to parameterize variables and how modules are connected by following the [Visual Studio Code extension for Azure Video Analyzer](../visual-studio-code-extension.md) reference.
+Load another one of the sample pipeline topologies through the Visual Studio Code extension and view the properties of each node. Learn how to parameterize variables and how modules are connected by following the [Visual Studio Code extension for Azure Video Analyzer](../visual-studio-code-extension.md) reference.
