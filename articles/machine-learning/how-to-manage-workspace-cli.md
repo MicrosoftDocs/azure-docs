@@ -121,7 +121,7 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# [Bring existing resources (CLI (v2) - preview)](#tab/bringexistingresources2)
+# [Bring existing resources (2.0 CLI)](#tab/bringexistingresources2)
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
@@ -202,7 +202,7 @@ az ml workspace create -w <workspace-name>
 
 For more details on how to use these commands, see the [CLI reference pages](/cli/azure/ml(v1)/workspace).
 
-# [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
+# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
 
 When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. Hence, you must set the image_build_compute property to a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the public_network_access property.
 
@@ -239,7 +239,7 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
+# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
 
 Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault.
 
