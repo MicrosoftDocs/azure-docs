@@ -166,7 +166,7 @@ To view the scoring results:
 1. On the resulting blobstore page, paste the above path into the search box. You'll find the scoring outputs in the folder.
 :::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.gif" alt-text="Screencast of opening the score folder and scoring output" lightbox="media/how-to-use-batch-endpoint/scoring-view.gif":::
 
-## Create a batch endpoint
+## Create a batch endpoint with no code
 
 If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
 
