@@ -128,7 +128,7 @@ For the properties used for device rules, see [Rules for devices](#rules-for-dev
 
 ## Supported expression operators
 
-The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix. The Contain operator does partial string matches, not item in a collection matches.
+The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix. The **Contains** operator does partial string matches but not item in a collection matches.
 
 | Operator | Syntax |
 | --- | --- |
