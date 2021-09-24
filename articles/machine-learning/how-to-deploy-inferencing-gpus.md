@@ -9,8 +9,8 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
+ms.topic: how-to
+ms.custom: devx-track-python, deploy
 ---
 
 # Deploy a deep learning model for inference with GPU
@@ -19,6 +19,8 @@ ms.custom: how-to, devx-track-python, deploy
 This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 
 Inference, or model scoring, is the phase where the deployed model is used to make predictions. Using GPUs instead of CPUs offers performance advantages on highly parallelizable computation.
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 > [!IMPORTANT]
 > For web service deployments, GPU inference is only supported on Azure Kubernetes Service. For inference using a __machine learning pipeline__, GPUs are only supported on Azure Machine Learning Compute. For more information on using ML pipelines, see [Tutorial: Build an Azure Machine Learning pipeline for batch scoring](tutorial-pipeline-batch-scoring-classification.md). 

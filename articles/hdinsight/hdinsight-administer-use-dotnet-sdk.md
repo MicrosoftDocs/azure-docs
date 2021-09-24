@@ -11,7 +11,7 @@ ms.date: 05/14/2018
 ---
 # Manage Apache Hadoop clusters in HDInsight by using .NET SDK
 
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
 Learn how to manage HDInsight clusters using [HDInsight.NET SDK](/dotnet/api/overview/azure/hdinsight).
 
@@ -164,7 +164,7 @@ The impact of changing the number of data nodes for each type of cluster support
     
     The Storm web UI is available on the HDInsight cluster:
     
-    ![HDInsight Storm scale rebalance](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    :::image type="content" source="./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="HDInsight Storm scale rebalance":::
     
     Here is an example how to use the CLI command to rebalance the Storm topology:
     

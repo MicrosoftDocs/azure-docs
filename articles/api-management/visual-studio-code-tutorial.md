@@ -3,7 +3,7 @@ title: Tutorial - Import and manage APIs - Azure API Management and Visual Studi
 description: In this tutorial, learn how to use the Azure API Management Extension for Visual Studio Code to import, test, and manage APIs.
 ms.service: api-management
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.topic: tutorial
 ms.date: 12/10/2020
 ---
@@ -96,7 +96,7 @@ To test the imported API you imported and the policies that are applied, you nee
 ### Test an API operation
 
 1. In the Explorer pane, expand the **Operations** node under the *demo-conference-api* that you imported.
-1. Select an operation such as *GetSpeakers*.
+1. Select an operation such as *GetSpeakers*, and then right-click the operation and select **Test Operation**.
 1. In the editor window, next to **Ocp-Apim-Subscription-Key**, replace `{{SubscriptionKey}}` with the subscription key that you copied.
 1. Select **Send request**. 
 

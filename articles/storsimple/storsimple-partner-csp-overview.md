@@ -28,7 +28,7 @@ StorSimple Virtual Array for Cloud Solutions Provider (CSP) enables partners to 
 
 For more information about StorSimple for CSP, visit the [Azure CSP overview](/azure/cloud-solution-provider/overview/azure-csp-overview) page.
 
-For more information on billing, pricing, incentives, and getting support in CSP, go to [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.md). 
+For more information on billing, pricing, incentives, and getting support in CSP, go to [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.yml). 
 
 ## Deploy and manage StorSimple for CSP
 
@@ -38,5 +38,5 @@ For more information, go to [Deploy and manage your StorSimple Virtual Array for
 
 ## Next steps
 
-- If you have more questions regarding the StorSimple in CSP, go to [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md).
+- If you have more questions regarding the StorSimple in CSP, go to [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.yml).
 - If you are ready to deploy your StorSimple, go to [Deploy your StorSimple for CSP](storsimple-partner-csp-deploy.md).

@@ -2,11 +2,9 @@
 title: Tutorial - Quick container image build
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 07/20/2021
 ms.custom: "seodec18, mvc, devx-track-azurecli"
-# Customer intent: As a developer or devops engineer, I want to quickly build
-# container images in Azure, without having to install dependencies like Docker
-# Engine, so that I can simplify my inner-loop development pipeline.
+# Customer intent: As a developer or devops engineer, I want to quickly build container images in Azure, without having to install dependencies like Docker Engine, so that I can simplify my inner-loop development pipeline.
 ---
 
 # Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks
@@ -72,7 +70,7 @@ To make executing the sample commands easier, the tutorials in this series use s
 ACR_NAME=<registry-name>
 ```
 
-With the container registry environment variable populated, you should now be able to copy and paste the remainder of the commands in the tutorial without editing any values. Execute the following commands to create a resource group and container registry:
+With the container registry environment variable populated, you should now be able to copy and paste the remainder of the commands in the tutorial without editing any values. Execute the following commands to create a resource group and container registry.
 
 ```azurecli
 RES_GROUP=$ACR_NAME # Resource Group name
@@ -81,7 +79,9 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Now that you have a registry, use ACR Tasks to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *quick task*:
+Now that you have a registry, use ACR Tasks to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *quick task*.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -182,7 +182,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 You now need to create a service principal and store its credentials in your key vault.
 
-Use the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] to store the service principal's **password** in the vault:
+Use the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] to store the service principal's **password** in the vault. Use Azure CLI version **2.25.0** or later for these commands:
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -206,7 +206,7 @@ Next, store the service principal's *appId* in the vault, which is the **usernam
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
-    --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
+    --value $(az ad sp list --display-name $ACR_NAME-pull --query [].appId --output tsv)
 ```
 
 You've created an Azure Key Vault and stored two secrets in it:
@@ -299,14 +299,14 @@ Now that you've tested your inner loop with a quick task, configure a **build ta
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-keyvault-create]: /cli/azure/keyvault/secret#az-keyvault-create
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
-[az-login]: /cli/azure/reference-index#az-login
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-keyvault-create]: /cli/azure/keyvault/secret#az_keyvault_create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set
+[az-login]: /cli/azure/reference-index#az_login
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->

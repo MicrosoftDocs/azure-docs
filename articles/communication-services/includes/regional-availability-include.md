@@ -1,9 +1,9 @@
 ---
-author: mikben
+author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 11/29/2020
-ms.author: mikben
+ms.date: 06/30/2021
+ms.author: rifox
 ms.custom: references_regions
 ---
 > [!IMPORTANT]

@@ -5,9 +5,9 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: genemi
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
 ---

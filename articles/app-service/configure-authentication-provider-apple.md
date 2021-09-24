@@ -35,7 +35,7 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 ![Registering a new service identifier in the Apple Developer Portal](media/configure-authentication-provider-apple/apple-register-service.jpg)
 8. On the **Register a Services ID** page, provide a description and an identifier. The description is what will be shown to the user on the consent screen. The identifier will be your client ID used in configuring the Apple provider with your app service. Then select **Configure**.
 ![Providing a description and an identifier](media/configure-authentication-provider-apple/apple-configure-service-1.jpg)
-9. On the pop-up window, set the Primary App Id to the App Id you created earlier. Specify your application's domain in the domain section. For the return URL, use the URL `<app-url>/.auth/login/apple/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Then select **Add** and **Save**.
+9. On the pop-up window, set the Primary App ID to the App ID you created earlier. Specify your application's domain in the domain section. For the return URL, use the URL `<app-url>/.auth/login/apple/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/apple/callback`. Then select **Add** and **Save**.
 ![Specifying the domain and return URL for the registration](media/configure-authentication-provider-apple/apple-configure-service-2.jpg)
 10. Review the service registration information and select **Save**.
 
@@ -69,7 +69,7 @@ Apple requires the client secret be the base64-encoding of a JWT token. The deco
 - **exp**: No more than six months after **nbf**
 
 The base64-encoded version of the above payload looks like this: 
-```eyJhbGciOiJFUzI1NiIsImtpZCI6IlVSS0VZSUQwMDEifQ.eyJzdWIiOiJjb20ueW91cmNvbXBhbnkuYXBwMSIsIm5iZiI6MTU2MDIwMzIwNywiZXhwIjoxNTYwMjg5NjA3LCJpc3MiOiJBQkMxMjNERUZHIiwiYXVkIjoiaHR0cHM6Ly9hcHBsZWlkLmFwcGxlLmNvbSJ9.ABSXELWuTbgqfrIUz7bLi6nXvkXAz5O8vt0jB2dSHTQTib1x1DSP4__4UrlKI-pdzNg1sgeocolPNTmDKazO8-BHAZCsdeeTNlgFEzBytIpMKFfVEQbEtGRkam5IeclUK7S9oOva4EK4jV4VmgDrr-LGWWO3TaAxAvy3_ZoKohvFFkVG```
+`eyJhbGciOiJFUzI1NiIsImtpZCI6IlVSS0VZSUQwMDEifQ.eyJzdWIiOiJjb20ueW91cmNvbXBhbnkuYXBwMSIsIm5iZiI6MTU2MDIwMzIwNywiZXhwIjoxNTYwMjg5NjA3LCJpc3MiOiJBQkMxMjNERUZHIiwiYXVkIjoiaHR0cHM6Ly9hcHBsZWlkLmFwcGxlLmNvbSJ9.ABSXELWuTbgqfrIUz7bLi6nXvkXAz5O8vt0jB2dSHTQTib1x1DSP4__4UrlKI-pdzNg1sgeocolPNTmDKazO8-BHAZCsdeeTNlgFEzBytIpMKFfVEQbEtGRkam5IeclUK7S9oOva4EK4jV4VmgDrr-LGWWO3TaAxAvy3_ZoKohvFFkVG`
 
 _Note: Apple doesn't accept client secret JWTs with an expiration date more than six months after the creation (or nbf) date. That means you'll need to rotate your client secret, at minimum, every six months._
 
@@ -78,7 +78,7 @@ More information about generating and validating tokens can be found in [Apple's
 ### Sign the client secret JWT
 You'll use the `.p8` file you downloaded previously to sign the client secret JWT. This file is a [PCKS#8 file](https://en.wikipedia.org/wiki/PKCS_8) that contains the private signing key in PEM format. There are many libraries that can create and sign the JWT for you. 
 
-There are different kinds of open-source libraries available online for creating and signing JWT tokens. For more information about generating JWT tokens, see jwt.io. For example, one way of generating the client secret is by importing the [Microsoft.IdentityModel.Tokens NuGet package](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) and running a small amount of C# code shown below.
+There are different kinds of open-source libraries available online for creating and signing JWT tokens. For more information about generating JWT tokens, see [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). For example, one way of generating the client secret is by importing the [Microsoft.IdentityModel.Tokens NuGet package](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) and running a small amount of C# code shown below.
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;
@@ -134,7 +134,7 @@ Add the client secret as an [application setting](./configure-common.md#configur
 ## <a name="configure"> </a>Add provider information to your application
 
 > [!NOTE]
-> The required configuration is in a new API format, currently only supported by [file-based configuration (preview)](.\app-service-authentication-how-to.md#config-file). You will need to follow the below steps using such a file.
+> The required configuration is in a new API format, currently only supported by [file-based configuration (preview)](configure-authentication-file-based.md). You will need to follow the below steps using such a file.
 
 This section will walk you through updating the configuration to include your new IDP. An example configuration follows.
 
@@ -144,7 +144,7 @@ This section will walk you through updating the configuration to include your ne
     ```json
     "apple" : {
        "registration" : {
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "clientSecretSettingName": "APP_SETTING_CONTAINING_APPLE_CLIENT_SECRET" 
         },
        "login": {

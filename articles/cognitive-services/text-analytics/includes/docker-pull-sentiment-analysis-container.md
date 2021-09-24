@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 09/21/2021
 ms.author: aahi
 ---
 
@@ -23,15 +23,20 @@ To download the container for another language, replace `en` with one of the lan
 
 | Text Analytics Container | Language code |
 |--|--|
-| English | `en` |
-| Spanish | `es` |
-| French | `fr` |
-| Italian | `it` |
-| German | `de` |
-| Chinese - simplified | `zh` |
-| Chinese - traditional | `zht` |
-| Japanese | `ja` |
-| Portuguese | `pt` |
-| Dutch | `nl` |
+| Chinese-Simplified    |   `zh-hans`   |
+| Chinese-Traditional   |   `zh-hant`   |
+| Dutch                 |     `nl`      |
+| English               |     `en`      |
+| French                |     `fr`      |
+| German                |     `de`      |
+| Hindi                 |    `hi`       |
+| Italian               |     `it`      |
+| Japanese              |     `ja`      |
+| Korean                |     `ko`      |
+| Norwegian  (Bokmål)   |     `no`      |
+| Portuguese (Brazil)   |    `pt-BR`    |
+| Portuguese (Portugal) |    `pt-PT`    |
+| Spanish               |     `es`      |
+| Turkish               |     `tr`      |
 
 For a full description of available tags for the Text Analytics containers, see [Docker Hub](https://go.microsoft.com/fwlink/?linkid=2018654).

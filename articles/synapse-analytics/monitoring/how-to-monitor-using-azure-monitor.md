@@ -98,10 +98,14 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 Here are the logs emitted by Azure Synapse Analytics workspaces:
 
-| Log Analytics table name | Log category name                 | Description |
-|-------------------------------|-------------------------------------------------|-------------|
-| SynapseGatewayApiRequests     | GatewayApiRequests             | Azure Synapse gateway API requests. |
-| SynapseRbacOperations         | SynapseRbacOperations          | Azure Synapse role-based access control (SRBAC) operations. |
+| Log Analytics table name       | Log category name              | Description          |
+|--------------------------------|--------------------------------|----------------------|
+| SynapseGatewayApiRequests      | GatewayApiRequests             | Azure Synapse gateway API requests. |
+| SynapseRbacOperations          | SynapseRbacOperations          | Azure Synapse role-based access control (SRBAC) operations. |
+| SynapseBuiltinSqlReqsEnded     | BuiltinSqlReqsEnded            | Azure Synapse built-in serverless SQL pool ended requests. |
+| SynapseIntegrationPipelineRuns | IntegrationPipelineRuns        | Azure Synapse integration pipeline runs. |
+| SynapseIntegrationActivityRuns | IntegrationActivityRuns        | Azure Synapse integration activity runs. |
+| SynapseIntegrationTriggerRuns  | IntegrationTriggerRuns         | Azure Synapse integration trigger runs. |
 
 ### Dedicated SQL pool logs
 
@@ -166,7 +170,7 @@ Create or add diagnostic settings for your workspace, dedicated SQL pool, or Apa
 1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics workspace**.
 
     > [!NOTE]
-    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Select **Save**.
 

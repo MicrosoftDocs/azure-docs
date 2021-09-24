@@ -3,13 +3,13 @@ title: "Azure CLI: Import BACPAC file to database in Azure SQL Database"
 description: Azure CLI example script to import a BACPAC file into a database in Azure SQL Database 
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: backup-restore
 ms.custom: load & move data, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma
 ms.date: 05/24/2019
 ---
 # Use CLI to import a BACPAC file into a database in SQL Database
@@ -43,7 +43,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server commands. |
-| [az sql db import](/cli/azure/sql/db#az-sql-db-import) | Database import command. |
+| [az sql db import](/cli/azure/sql/db#az_sql_db_import) | Database import command. |
 
 ## Next steps
 

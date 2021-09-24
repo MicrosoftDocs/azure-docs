@@ -8,11 +8,11 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 06/11/2021
 ---
 # Synonyms in Azure Cognitive Search
 
-With synonym maps, you can associate equivalent terms, expanding the scope of a query without the user having to actually provide the term. For example, assuming "dog", "canine", and "puppy" are synonyms, a query on "canine" will match on a document containing "dog".
+Within a search service, synonym maps are a global resource that associate equivalent terms, expanding the scope of a query without the user having to actually provide the term. For example, assuming "dog", "canine", and "puppy" are mapped synonyms, a query on "canine" will match on a document containing "dog".
 
 ## Create synonyms
 
@@ -33,7 +33,13 @@ POST /synonymmaps?api-version=2020-06-30
 }
 ```
 
-To create a synonym map, use the [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map) or an Azure SDK. For C# developers, we recommend starting with [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
+To create a synonym map, do so programmatically (the portal doesn't support synonym map definitions):
+
++ [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map). This reference is the most descriptive.
++ [SynonymMap class (.NET)](/dotnet/api/azure.search.documents.indexes.models.synonymmap) and [Add Synonyms using C#](search-synonyms-tutorial-sdk.md)
++ [SynonymMap class (Python)](/python/api/azure-search-documents/azure.search.documents.indexes.models.synonymmap)
++ [SynonymMap interface (JavaScript)](/javascript/api/@azure/search-documents/synonymmap)
++ [SynonymMap class (Java)](/java/api/com.azure.search.documents.indexes.models.synonymmap)
 
 ## Define rules
 
@@ -80,7 +86,14 @@ In the explicit case, a query for `Washington`, `Wash.` or `WA` will be rewritte
 
 ### Escaping special characters
 
-Synonyms are analyzed during query processing. If you need to define synonyms that contain commas or other special characters, you can escape them with a backslash, like in this example:
+In full text search, synonyms are analyzed during query processing just like any other query term, which means that rules around reserved and special characters apply to the terms in your synonym map. The list of characters that requires escaping varies between the simple syntax and full syntax:
+
++ [simple syntax](query-simple-syntax.md)  `+ | " ( ) ' \`
++ [full syntax](query-lucene-syntax.md) `+ - & | ! ( ) { } [ ] ^ " ~ * ? : \ /`
+
+Recall that if you need to preserve characters that would otherwise be discarded by the default analyzer during indexing, you should substitute an analyzer that preserves them. Some choices include Microsoft natural [language analyzers](index-add-language-analyzers.md), which preserves hyphenated words, or a custom analyzer for more complex patterns. For more information, see [Partial terms, patterns, and special characters](search-query-partial-matching.md).
+
+The following example shows an example of how to escape a character with a backslash:
 
 ```json
 {

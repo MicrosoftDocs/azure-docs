@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 05/28/2021
 ---
 
 # Back up SAP HANA databases in Azure VMs
@@ -79,7 +79,7 @@ You can also use the following FQDNs to allow access to the required services fr
 | Service    | Domain  names to be accessed                             |
 | -------------- | ------------------------------------------------------------ |
 | Azure  Backup  | `*.backup.windowsazure.com`                             |
-| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |
 | Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### Use an HTTP proxy server to route traffic
@@ -194,7 +194,7 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 
 1. In the vault menu, select **Backup items**.
 2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained according to the policy associated with this backup item.
+3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained for 45 days.
 4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 By default, the retention of on-demand backups is 45 days.

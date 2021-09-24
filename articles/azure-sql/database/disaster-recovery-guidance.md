@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 06/21/2019
 ---
 # Restore your Azure SQL Database or failover to a secondary
@@ -60,7 +60,7 @@ Use the [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v
 
 ## Wait for service recovery
 
-The Azure teams work diligently to restore service availability as quickly as possible but depending on the root cause it can take hours or days.  If your application can tolerate significant downtime you can simply wait for the recovery to complete. In this case, no action on your part is required. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/). After the recovery of the region, your application’s availability is restored.
+The Azure teams work diligently to restore service availability as quickly as possible but depending on the root cause it can take hours or days.  If your application can tolerate significant downtime you can simply wait for the recovery to complete. In this case, no action on your part is required. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/). After the recovery of the region, your application's availability is restored.
 
 ## Fail over to geo-replicated secondary server in the failover group
 
@@ -72,7 +72,7 @@ Use one of the following guides to fail over to a geo-replicated secondary datab
 
 - [Fail over to a geo-replicated secondary server using the Azure portal](active-geo-replication-configure-portal.md)
 - [Fail over to the secondary server using PowerShell](scripts/setup-geodr-and-failover-database-powershell.md)
-- [Fail over to a secondary server using Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Fail over to a secondary server using Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true#e-failover-to-a-geo-replication-secondary)
 
 ## Recover using geo-restore
 
@@ -84,7 +84,7 @@ If you are using geo-restore to recover from an outage, you must make sure that 
 
 ### Update connection strings
 
-Because your recovered database resides in a different server, you need to update your application’s connection string to point to that server.
+Because your recovered database resides in a different server, you need to update your application's connection string to point to that server.
 
 For more information about changing connection strings, see the appropriate development language for your [connection library](connect-query-content-reference-guide.md#libraries).
 

@@ -37,7 +37,7 @@ To get your endpoint details:
 
     ![Screenshot of endpoint details](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
-    # [QnA Maker managed (preview release)](#tab/v2)
+    # [Custom question answering (preview release)](#tab/v2)
 
     ![Screenshot of endpoint details managed](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
 
@@ -169,11 +169,15 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 The previous JSON requested only answers that are at 30% or above the threshold score.
 
-## Return Precise Answers
+## Get precise answers with GenerateAnswer API
 
-### Generate Answer API 
+# [QnA Maker GA (stable release)](#tab/v1)
 
-The user can enable [precise answers](../reference-precise-answering.md) when using the QnA Maker managed resource. The answerSpanRequest parameter has to be updated for the same.
+We offer precise answer feature only with the QnA Maker managed version.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+The user can enable [precise answers](../reference-precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
 
 ```json
 {
@@ -206,6 +210,8 @@ If you want to configure precise answer settings for your bot service, navigate 
 |Precise Answers Only|true|true|
 |Long Answers Only|false|false|
 |Both Long and Precise Answers|true|false|
+
+---
 
 ## Common HTTP errors
 

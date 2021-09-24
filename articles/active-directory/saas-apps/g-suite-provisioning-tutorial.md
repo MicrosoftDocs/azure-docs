@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure G Suite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to G Suite.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/06/2020
-ms.author: Zhchia
+ms.date: 03/18/2021
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure G Suite for automatic user provisioning
@@ -268,6 +268,7 @@ Once you've configured provisioning, use the following resources to monitor your
 * 10/17/2020 - Added support for additional G Suite user and group attributes.
 * 10/17/2020 - Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
 * 10/17/2020 - Updated default attribute mappings.
+* 03/18/2021 - Manager email is now synchronized instead of ID for all new users. For any existing users that were provisioned with a manager as an ID, you can do a restart through [Microsoft Graph](/graph/api/synchronization-synchronizationjob-restart?preserve-view=true&tabs=http&view=graph-rest-beta) with scope "full" to ensure that the email is provisioned. This change only impacts the GSuite provisioning job and not the older provisioning job beginning with Goov2OutDelta. Note, the manager email is provisioned when the user is first created or when the manager changes. The manager email is not provisioned if the manager changes their email address. 
 
 ## Additional resources
 

@@ -11,7 +11,10 @@ ms.author: yegu
 
 In this article, you'll learn how to configure an active geo-replicated Azure Cache using the Azure portal.
 
-Active geo-replication groups two or more Enterprise Azure Cache for Redis instances into a single cache that spans across Azure regions. All instance act as the local primaries. An application decides which instance(s) to use for read and write requests.
+Active geo-replication groups two Enterprise Azure Cache for Redis instances into a single cache that spans across Azure regions. Both instances act as the local primaries. An application decides which instance(s) to use for read and write requests.
+
+> [!NOTE]
+> Data transfer between Azure regions will be charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## Create or join an active geo-replication group
 
@@ -20,19 +23,21 @@ Active geo-replication groups two or more Enterprise Azure Cache for Redis insta
 >
 >
 
-1. In the **New Redis Cache** creation UI, click **Configure** to set up **Active geo-replication** in the **Advanced** tab.
+1. In the **Advanced** tab of **New Redis Cache** creation UI, select **Enterprise** for **Clustering Policy**.
 
     ![Configure active geo-replication](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
+
+1. Select **Configure** to set up **Active geo-replication**.
 
 1. Create a new replication group, for a first cache instance, or select an existing one from the list.
 
     ![Link caches](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-new-group.png)
 
-1. Click **Configure** to finish.
+1. Select **Configure** to finish.
 
     ![Active geo-replication configured](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
-1. Repeat the above steps for each additional cache instance in the geo-replication group.
+1. Wait for the first cache to be created successfully. Repeat the above steps for each additional cache instance in the geo-replication group.
 
 ## Remove from an active geo-replication group
 

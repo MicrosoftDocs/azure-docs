@@ -30,7 +30,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](tutorial
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#az-group-create).
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#az_group_create).
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -94,7 +94,7 @@ az network application-gateway create \
 
 ## Create a Virtual Machine Scale Set
 
-In this example, you create a virtual machine scale set that provides servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, use [az vmss create](/cli/azure/vmss#az-vmss-create).
+In this example, you create a virtual machine scale set that provides servers for the backend pool in the application gateway. The virtual machines in the scale set are associated with *myBackendSubnet* and *appGatewayBackendPool*. To create the scale set, use [az vmss create](/cli/azure/vmss#az_vmss_create).
 
 ```azurecli-interactive
 az vmss create \

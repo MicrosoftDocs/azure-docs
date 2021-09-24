@@ -8,7 +8,7 @@ author: chadmath
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 02/10/2021
+ms.date: 03/22/2021
 ms.author: genli
 ---
 
@@ -53,9 +53,7 @@ The Policy-based virtual network gateway has limit of 200 subnet Security Associ
 
 ### Step 6 Check on-premises VPN device external interface address
 
-- If the Internet facing IP address of the VPN device is included in the **Local network gateway** definition in Azure, you may experience sporadic disconnections.
-- The device's external interface must be directly on the Internet. There should be no Network Address Translation (NAT) or firewall between the Internet and the device.
--  If you configure Firewall Clustering to have a virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
+If the Internet facing IP address of the VPN device is included in the **Local network gateway address space** definition in Azure, you may experience sporadic disconnections.
 
 ### Step 7 Check whether the on-premises VPN device has Perfect Forward Secrecy enabled
 

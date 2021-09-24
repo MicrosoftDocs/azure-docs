@@ -25,7 +25,7 @@ Follow the steps in this guide to create a CI/CD pipeline for Stream Analytics.
 
 2. Commit your Azure Stream Analytics projects to your source control system, like a Git repository.
 
-3. Use [Azure Stream Analytics CI/CD tools](cicd-tools.md) to build the projects and generate Azure Resource Management Templates for the deployment.
+3. Use [Azure Stream Analytics CI/CD tools](cicd-tools.md) to build the projects and generate Azure Resource Manager templates for the deployment.
 
 4. Run [automated script tests](cicd-tools.md#automated-test) for quality regression.
 

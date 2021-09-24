@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 11/16/2020
+ms.date: 04/08/2021
 ---
 # Git integration for Azure Machine Learning
 
@@ -19,6 +19,11 @@ Azure Machine Learning fully supports Git repositories for tracking work - you c
 When submitting a job to Azure Machine Learning, if source files are stored in a local git repository then information about the repo is tracked as part of the training process.
 
 Since Azure Machine Learning tracks information from a local git repo, it isn't tied to any specific central repository. Your repository can be cloned from GitHub, GitLab, Bitbucket, Azure DevOps, or any other git-compatible service.
+
+> [!TIP]
+> Use Visual Studio Code to interact with Git through a graphical user interface. To connect to an Azure Machine Learning remote compute instance using Visual Studio Code, see [Connect to an Azure Machine Learning compute instance in Visual Studio Code (preview)](how-to-set-up-vs-code-remote.md)
+>
+> For more information on Visual Studio Code version control features, see [Using Version Control in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol) and [Working with GitHub in VS Code](https://code.visualstudio.com/docs/editor/github).
 
 ## Clone Git repositories into your workspace file system
 Azure Machine Learning provides a shared file system for all users in the workspace.
@@ -142,7 +147,7 @@ If your training files are not located in a git repository on your development e
 
 ## View the logged information
 
-The git information is stored in the properties for a training run. You can view this information using the Azure portal, Python SDK, and CLI. 
+The git information is stored in the properties for a training run. You can view this information using the Azure portal, Python SDK, and Azure CLI. 
 
 ### Azure portal
 
@@ -178,7 +183,7 @@ After submitting a training run, a [Run](/python/api/azureml-core/azureml.core.r
 run.properties['azureml.git.commit']
 ```
 
-### CLI
+### Azure CLI
 
 The `az ml run` CLI command can be used to retrieve the properties from a run. For example, the following command returns the properties for the last run in the experiment named `train-on-amlcompute`:
 
@@ -186,7 +191,7 @@ The `az ml run` CLI command can be used to retrieve the properties from a run. F
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-For more information, see the [az ml run](/cli/azure/ext/azure-cli-ml/ml/run) reference documentation.
+For more information, see the [az ml run](/cli/azure/ml(v1)/run) reference documentation.
 
 ## Next steps
 

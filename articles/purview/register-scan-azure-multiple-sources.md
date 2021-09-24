@@ -1,135 +1,142 @@
 ---
-title: 'How to scan Azure multiple sources'
+title: 'Scan multiple sources in Azure Purview'
 description: Learn how to scan an entire Azure subscription or resource group in your Azure Purview data catalog. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/26/2021
+ms.date: 05/08/2021
 ---
 
-# Register and scan Azure multiple sources
+# Register and scan multiple sources in Azure Purview
 
-This article outlines how to register an Azure Multiple Source  (Azure Subscriptions or Resource Groups) in Purview and set up a scan on it.
+This article outlines how to register multiple sources (Azure subscriptions or resource groups) in Azure Purview and set up a scan on them.
 
 ## Supported capabilities
 
-Azure multiple Source supports scans to capture metadata and schema on most Azure resource types that Purview supports. It also classifies the data automatically based on system and custom classification rules.
+You can scan multiple sources to capture metadata and schema on most Azure resource types that Azure Purview supports. Azure Purview classifies the data automatically based on system and custom classification rules.
 
 ## Prerequisites
 
-- Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-- You need to be an Azure Purview Data Source Admin
-- Setting up authentication as described in the sections below
+- Before you register data sources, create an Azure Purview account. For more information, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
+- Make sure you're an Azure Purview Data Source Administrator. You must also be an owner or user access administrator to add a role on a subscription or resource group.
+- Set up authentication as described in the following sections.
 
-### Setting up authentication for enumerating resources under a subscription or resource group
+### Set up authentication for enumerating resources under a subscription or resource group
 
-1. Navigate to the subscription or the resource group in the Azure portal.  
-1. Select **Access Control (IAM)** from the left navigation menu 
-1. You must be owner or user access administrator to add a role on the subscription or resource group. Select *+Add* button. 
-1. Set the **Reader** Role and enter your Azure Purview account name (which represents its MSI) under Select input box. Click *Save* to finish the role assignment.
+1. Go to the subscription or the resource group in the Azure portal.  
+1. Select **Access Control (IAM)** from the left menu. 
+1. Select **+Add**. 
+1. In the **Select input** box, select the **Reader** role and enter your Azure Purview account name (which represents its MSI file name). 
+1. Select **Save** to finish the role assignment.
 
-### Setting up authentication to scan resources under a subscription or resource group
+### Set up authentication to scan resources under a subscription or resource group
 
-There are two ways to set up authentication for Azure multiple source:
+There are two ways to set up authentication for multiple sources in Azure:
 
-- Managed Identity
-- Service Principal
+- Managed identity
+- Service principal
 
-> [!NOTE]
-> You must set up authentication on each resource within your subscription or resource group, that you intend to register and scan. Azure storage resource types (Azure blob storage and Azure Data Lake Storage Gen2) make it easy by allowing you to add the MSI or Service Principal at the subscription/Resource group level as storage blob data reader.The permissions then trickle down to each storage account within that subscription or resource group. For all other resource types, you must apply the MSI or service principal on each resource, or device a script to do so. Here's how to add permissions on each resource type within a subscription or resource group.
+You must set up authentication on each resource within your subscription or resource group that you want to register and scan. Azure Storage resource types (Azure Blob Storage and Azure Data Lake Storage Gen2) make it easy by allowing you to add the MSI file or service principal at the subscription or resource group level as a storage blob data reader. The permissions then trickle down to each storage account within that subscription or resource group. For all other resource types, you must apply the MSI file or service principal on each resource, or create a script to do so. 
+
+To learn how to add permissions on each resource type within a subscription or resource group, see the following resources:
     
 - [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
+- [Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
  
-## Register an Azure multiple Source
+## Register multiple sources
 
-To register a new Azure multiple Source in your data catalog, do the following:
+To register new multiple sources in your data catalog, do the following:
 
-1. Navigate to your Purview account
-1. Select **Sources** on the left navigation
-1. Select **Register**
-1. On **Register sources**, select **Azure (multiple)**
-1. Select **Continue**
+1. Go to your Azure Purview account.
+1. Select **Data Map** on the left menu.
+1. Select **Register**.
+1. On **Register sources**, select **Azure (multiple)**.
 
-   :::image type="content" source="media/register-scan-azure-multiple-sources/register-azure-multiple.png" alt-text="Register Azure multiple source":::
+   :::image type="content" source="media/register-scan-azure-multiple-sources/register-azure-multiple.png" alt-text="Screenshot that shows the tile for Azure Multiple on the screen for registering multiple sources.":::
+1. Select **Continue**.
+1. On the **Register sources (Azure)** screen, do the following:
 
-On the **Register sources (Azure multiple)** screen, do the following:
+   1. In the **Name** box, enter a name that the data source will be listed with in the catalog. 
+   1. In the **Management group** box, optionally choose a management group to filter down to.
+   1. In the **Subscription** and **Resource group** dropdown list boxes, select a subscription or a specific resource group, respectively. The registration scope will be set to the selected subscription or resource group.  
 
-1. Enter a **Name** that the data source will be listed with in the Catalog 
-1. Optionally choose a **management group** to filter down to
-1. **Select a subscription or a specific resource group** under a given subscription in the dropdown. The registration scope will be set to the selected subscription or the resource group  
-1. Select a **collection** or create a new one (Optional)
-1. **Finish** to register the data source
+      :::image type="content" source="media/register-scan-azure-multiple-sources/azure-multiple-source-setup.png" alt-text="Screenshot that shows the boxes for selecting a subscription and resource group.":::
+   1. In the **Select a collection** box, select a collection or create a new one (optional).
+   1. Select **Register** to register the data sources.
 
-   :::image type="content" source="media/register-scan-azure-multiple-sources/azure-multiple-source-setup.png" alt-text="Set up Azure multiple source":::
 
-## Creating and running a scan
+## Create and run a scan
 
 To create and run a new scan, do the following:
 
-1. Navigate to the **Sources** section
+1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the data source that you registered.
+1. Select **View details** > **+ New scan**, or use the **Scan** quick-action icon on the source tile.
+1. For **Name**, fill in the name.
+1. For **Type**, select the types of resources that you want to scan within this source. Choose one of these options:
 
-1. Select the data source that you registered
-
-1. Click on view details and Select **+ New scan** or use the scan quick action icon on the source tile
-
-1. Fill in the *name* and select all the types of resource you want to scan within this source
-
-    1. You can leave it as *All* (This includes future resource types that may not currently exist within that subscription or resource group)
-    1. You can **specifically select resource types** you want to scan. If you choose this option future resource types that may be created within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future
+    - Leave it as **All**. This selection includes future resource types that might not currently exist within that subscription or resource group.
+    - Use the boxes to specifically select resource types that you want to scan. If you choose this option, future resource types that might be created within this subscription or resource group won't be included for scans, unless the scan is explicitly edited in the future.
     
-    :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-scan.png" alt-text="Azure multiple Source scan":::
+    :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-scan.png" alt-text="Screenshot that shows options for scanning multiple sources.":::
 
-1. Select the credential to connect to the resources within your data source. 
-    1. You can select a **credential at the parent level** as MSI or a particular service principal type credential, which you can choose to use for all the resource types under the subscription or resource group
-    1. You can also specifically **select the resource type and apply a different credential** for that resource type
-    1. Each credential will be considered as the method of authentication for all the resources under a particular type
-    1. You must set the chosen credential on the resources in order to successfully scan them as described in this [section](#setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) above
-1. Within each type you can select to either scan all the resources or a subset of them by name.
-    1. If you leave the option as **all** then future resources of that type will also be scanned in future scan runs
-    1. If you select specific storage accounts or SQL databases, then future resources created of that type within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future
+1. Select the credential to connect to the resources within your data source: 
+    - You can select a credential at the parent level as an MSI file, or you can select a credential for a particular service principal type. You can then use that credential for all the resource types under the subscription or resource group.
+    - You can specifically select the resource type and apply a different credential for that resource type.
+    
+    Each credential will be considered as the method of authentication for all the resources under a particular type. You must set the chosen credential on the resources in order to successfully scan them, as described [earlier in this article](#set-up-authentication-to-scan-resources-under-a-subscription-or-resource-group).
+1. Within each type, you can select to either scan all the resources or scan a subset of them by name:
+    - If you leave the option as **All**, then future resources of that type will also be scanned in future scan runs.
+    - If you select specific storage accounts or SQL databases, then future resources of that type created within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future.
  
-1.	Click **Continue** to proceed. We will test access to check if you have applied the Purview MSI as a reader on the subscription or resource group. If an error message is thrown, follow instructions [here](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
+1. Select **Continue** to proceed. Azure Purview tests access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#set-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group) to resolve it.
 
-1.	Select **scan rule sets** for each resource type chosen in the previous step. You can also create scan rule sets inline.
-  :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Azure multiple scan rule set selection":::
+1. Select scan rule sets for each resource type that you chose in the previous step. You can also create scan rule sets inline.
+  
+   :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Screenshot that shows scan rules for each resource type.":::
 
-1. Choose your scan trigger. You can scheduled it to run **weekly/monthly** or **once**
+1. Choose your scan trigger. You can schedule it to run weekly, monthly, or once.
 
-1. Review your scan and select Save to complete set up   
+1. Review your scan and select **Save** to complete setup. 
 
-## Viewing your scans and scan runs
+## View your scans and scan runs
 
-1. View source details by clicking on **view details** on the tile under the sources section. 
+1. View source details by selecting **View details** on the tile under the **Data Map** section. 
 
-      :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-detail.png" alt-text="Azure multiple Source details"::: 
+    :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-detail.png" alt-text="Screenshot that shows source details."::: 
 
-1. View scan run details by navigating to the **scan details** page.
-    1. The *status bar* is a brief summary on the running status of the children resources. It will be displayed on the subscription or resource group level
-    1. Green means successful, while red means failed. Grey means that the scan is still in-progress
-    1. You can click into each scan to view more fine grained details
+1. View scan run details by going to the **Scan details** page.
+   
+    The *status bar* is a brief summary of the running status of the child resources. It's displayed on the subscription level or resource group level. The colors have the following meanings:
+    
+    - Green: The scan was successful.
+    - Red: The scan failed. 
+    - Gray: The scan is still in progress.
+   
+    You can select each scan to view finer details.
 
-      :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-full-details.png" alt-text="Azure multiple scan details":::
+    :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-full-details.png" alt-text="Screenshot that shows scan details.":::
 
-1. View a summary of recent failed scan runs at the bottom of the source details page. You can also click into view more granular details pertaining to these runs.
+1. View a summary of recent failed scan runs at the bottom of the source details. You can also view more granular details about these runs.
 
-## Manage your scans - edit, delete, or cancel
-To manage or delete a scan, do the following:
+## Manage your scans: edit, delete, or cancel
+To manage a scan, do the following:
 
-- Navigate to the management center. Select Data sources under the Sources and scanning section then select on the desired data source
+1. Go to the management center.
+1. Select **Data sources** under the **Sources and scanning** section, and then select the desired data source.
+1. Select the scan that you want to manage. Then: 
 
-- Select the scan you would like to manage. You can edit the scan by selecting Edit
-
-- You can delete your scan by selecting Delete
-- If a scan is running, you can cancel it as well
+   - You can edit the scan by selecting **Edit**.
+   - You can delete the scan by selecting **Delete**.
+   - If the scan is running, you can cancel it by selecting **Cancel**.
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)    
+- [Browse the Azure Purview data catalog](how-to-browse-catalog.md)
+- [Search the Azure Purview data catalog](how-to-search-catalog.md)    

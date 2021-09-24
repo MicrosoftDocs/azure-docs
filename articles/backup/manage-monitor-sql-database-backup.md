@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 07/27/2021
 ---
 
 # Manage and monitor backed up SQL Server databases
@@ -74,8 +74,8 @@ To stop protection for a database:
 >
 >For more information about the delete data option, see the FAQ below:
 >
->- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.yml#if-i-delete-a-database-from-an-autoprotected-instance--what-will-happen-to-the-backups-)
+>- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.yml#if-i-change-the-name-of-the-database-after-it-has-been-protected--what-will-be-the-behavior-)
 >
 >
 
@@ -118,6 +118,9 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
   ![Modify backup policy](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
+
+>[!Note]
+>Modification of policy will affect existing recovery points also. <br><br> For recovery points in archive that haven't stayed for a duration of 180 days in Archive Tier, deletion of those recovery points lead to early deletion cost. [Learn more](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion).
 
 ### Inconsistent policy
 

@@ -8,21 +8,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 01/27/2021
 ---
 
 # Monitor operations and activity of Azure Cognitive Search
 
-This article is an overview of monitoring concepts and tools for Azure Cognitive Search. For holistic monitoring, you can use a combination of built-in functionality and add-on services like Azure Monitor.
+This article is an overview of monitoring concepts and tools for Azure Cognitive Search. For holistic monitoring, you should use a combination of built-in functionality and add-on services like Azure Monitor.
 
 Altogether, you can track the following:
 
-* Service: health/availability and changes to service configuration.
-* Storage: both used and available, with counts for each content type relative to the quota allowed for the service tier.
+* Search service: health and changes to service configuration.
+* Storage consumption: both used and available.
+* Object limits on indexes, indexers, and other objects, with counts for each type, relative to the [maximum allowed](search-limits-quotas-capacity.md) for the service tier.
 * Query activity: volume, latency, and throttled or dropped queries. Logged query requests require [Azure Monitor](#add-azure-monitor).
 * Indexing activity: requires [diagnostic logging](#add-azure-monitor) with Azure Monitor.
 
-A search service does not support per-user authentication, so no identity information will be found in the logs.
+A search service does not support per-user authentication, so no user identity information will be found in the logs.
 
 ## Built-in monitoring
 
@@ -34,9 +35,9 @@ The following screenshot helps you locate monitoring information in the portal. 
 
 * **Monitoring** tab, on the main Overview page, shows query volume, latency, and whether the service is under pressure.
 * **Activity log**, in the left navigation pane, is connected to Azure Resource Manager. The activity log reports on actions undertaken by Resource Manager: service availability and status, changes to capacity (replicas and partitions), and API key-related activities.
-* **Monitoring** settings, further down, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
+* **Monitoring** settings, further down, provides configurable alerts, metrics visualization, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
 
-![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
+  ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
  "Azure Monitor integration in a search service")
 
 > [!NOTE]
@@ -44,9 +45,9 @@ The following screenshot helps you locate monitoring information in the portal. 
 
 <a name="monitoring-apis"> </a>
 
-### APIs useful for monitoring
+### REST APIs useful for monitoring
 
-You can use the following APIs to retrieve the same information found in the Monitoring and Usage tabs in the portal.
+You can use [Postman](search-get-started-rest.md) and the following APIs to retrieve the same information found in the Monitoring and Usage tabs in the portal. You will need to provide an [admin API key](search-security-api-keys.md) to get system information.
 
 * [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
 * [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
@@ -79,19 +80,18 @@ The following illustration is for the free service, which is capped at 3 objects
 
 Many services, including Azure Cognitive Search, integrate with [Azure Monitor](../azure-monitor/index.yml) for additional alerts, metrics, and logging diagnostic data. 
 
-[Enable diagnostic logging](search-monitor-logs.md) for a search service if you want control over data collection and storage. 
-Logged events captured by Azure Monitor are stored in the **AzureDiagnostics** table and consists of operational data related to queries and indexing.
+[Enable diagnostic logging](search-monitor-logs.md) for a search service if you want control over data collection and storage. Logged events captured by Azure Monitor are stored in the **AzureDiagnostics** table and consists of operational data related to queries and indexing.
 
 Azure Monitor provides several storage options, and your choice determines how you can consume the data:
 
-* Choose Azure Blob storage if you want to [visualize log data](search-monitor-logs-powerbi.md) in a Power BI report.
+* Choose Azure Blob Storage if you want to [visualize log data](search-monitor-logs-powerbi.md) in a Power BI report.
 * Choose Log Analytics if you want to explore data through Kusto queries.
 
 Azure Monitor has its own billing structure and the diagnostic logs referenced in this section have an associated cost. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor//usage-estimated-costs.md).
 
 ## Monitor user access
 
-Because search indexes are a component of a larger client application, there is no built-in methodology for controlling or monitoring per-user access to an index. Requests are assumed to come from a client application, for either admin or query requests. Admin read-write operations include creating, updating, deleting objects across the entire service. Read-only operations are queries against the documents collection, scoped to a single index. 
+Because search indexes are a component of a larger client application, there is no built-in methodology for controlling or monitoring per-user access to an index. Requests are assumed to come from a client application that present either an admin or query request. Admin read-write operations include creating, updating, deleting objects across the entire service. Read-only operations are queries against the documents collection, scoped to a single index. 
 
 As such, what you'll see in the activity logs are references to calls using admin keys or query keys. The appropriate key is included in requests originating from client code. The service is not equipped to handle identity tokens or impersonation.
 

@@ -4,8 +4,8 @@ description: In this tutorial, you create an Azure Data Factory pipeline that in
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-dt-2019
 ms.date: 02/18/2021
 ---
 
@@ -29,7 +29,7 @@ You perform the following steps in this tutorial:
 ## Overview
 Here is the high-level solution diagram:
 
-![Incrementally load data](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
+:::image type="content" source="media/tutorial-Incrementally-copy-powershell/incrementally-load.png" alt-text="Incrementally load data":::
 
 Here are the important steps to create this solution:
 

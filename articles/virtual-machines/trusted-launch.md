@@ -13,6 +13,8 @@ ms.custom: template-concept; references_regions
 
 # Trusted launch for Azure virtual machines (preview)
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
 Azure offers trusted launch as a seamless way to improve the security of [generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several, coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
 > [!IMPORTANT]
@@ -34,13 +36,16 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 ## Public preview limitations
 
 **Size support**:
-All [Generation 2](generation-2.md) VM sizes, except:
-
-- Lsv2-series 
-- M-series 
-- Mv2-series 
-- NDv4 series 
-- NVv4-series
+- B-series
+- Dav4-series, Dasv4-series
+- DCsv2-series
+- Dv4-series, Dsv4-series, Dsv3-series, Dsv2-series
+- Ddv4-series, Ddsv4-series
+- Fsv2-series
+- Eav4-series, Easv4-series
+- Ev4-series, Esv4-series, Esv3-series
+- Edv4-series, Edsv4-series
+- Lsv2-series
 
 **OS support**:
 - Redhat Enterprise Linux 8.3
@@ -51,10 +56,20 @@ All [Generation 2](generation-2.md) VM sizes, except:
 - Windows Server 2016
 - Windows 10 Pro
 - Windows 10 Enterprise
+- Windows 10 Enterprise multi-session
 
 **Regions**: 
+- Central US
+- East US
+- East US 2
+- North Central US
 - South Central US
+- West US
+- West US 2
 - North Europe
+- West Europe
+- Japan East
+- South East Asia
 
 **Pricing**:
 No additional cost to existing VM pricing.
@@ -70,7 +85,7 @@ No additional cost to existing VM pricing.
 
 ## Secure boot
 
-At the root of trusted launch is Secure Boot for your VM. This mode, which is implemented in platform firmware, protects against the installation of malware-based rootkits and boot kits. Secure Boot works to ensure that only signed operating systems and drivers can boot. It establishes a "root of trust" for the software stack on your VM. With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. Both Windows and select Linux distributions support Secure Boot. If Secure Boot fails to authenticate that the image was signed by a trusted publisher, the VM will not be allowed to boot. For more information, see [Secure Boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
+At the root of trusted launch is Secure Boot for your VM. This mode, which is implemented in platform firmware, protects against the installation of malware-based rootkits and boot kits. Secure Boot works to ensure that only signed operating systems and drivers can boot. It establishes a "root of trust" for the software stack on your VM. With Secure Boot enabled, all OS boot components (boot loader, kernel, kernel drivers) must be signed by trusted publishers. Both Windows and select Linux distributions support Secure Boot. If Secure Boot fails to authenticate that the image was signed by a trusted publisher, the VM will not be allowed to boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot).
 
 ## vTPM
 
@@ -84,7 +99,7 @@ Trusted launch uses the vTPM to perform remote attestation by the cloud. This is
 
 HVCI is a powerful system mitigation that protects Windows kernel-mode processes against injection and execution of malicious or unverified code. It checks kernel mode drivers and binaries before they run, preventing unsigned files from loading into memory. This ensures such executable code can't be modified once it is allowed to load. For more information about VBS and HVCI, see [Virtualization Based Security (VBS) and Hypervisor Enforced Code Integrity (HVCI)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-With trusted launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
+With trusted launch and VBS you can enable Windows Defender Credential Guard. This feature isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash (PtH) attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
 ## Security Center integration
@@ -131,7 +146,7 @@ In secure boot chain, each step in the boot process checks a cryptographic signa
 
 ###	What happens when an integrity fault is detected?
 
-Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available in the [Standard Tier](/azure/security-center/security-center-pricing) of Azure Security Center.
+Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available in the [Standard Tier](../security-center/security-center-pricing.md) of Azure Security Center.
 Azure Security Center periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons: 
 - The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This can indicate that untrusted modules have been loaded and the OS may be compromised.
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the TPM. 

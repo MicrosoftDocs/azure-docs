@@ -36,7 +36,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 1. Review Private Endpoint configuration by browsing the resource.
 
-    a. Go to **Private Link Center**.
+    a. Go to [Private Link Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
       ![Private Link Center](./media/private-endpoint-tsg/private-link-center.png)
 
@@ -56,7 +56,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 1. Use [Azure Monitor](../azure-monitor/overview.md) to see if data is flowing.
 
     a. On the private endpoint resource, select **Monitor**.
-     - Select **Data In** or **Data Out**. 
+     - Select **Bytes In** or **Bytes Out**. 
      - See if data is flowing when you attempt to connect to the private endpoint. Expect a delay of approximately 10 minutes.
     
        ![Verify private endpoint telemetry](./media/private-endpoint-tsg/private-endpoint-monitor.png)

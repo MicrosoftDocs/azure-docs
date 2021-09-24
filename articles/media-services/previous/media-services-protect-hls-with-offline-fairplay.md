@@ -22,11 +22,10 @@ ms.custom: devx-track-csharp
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Version 3](../latest/offline-fairplay-for-ios.md)
+> * [Version 3](../latest/drm-offline-fairplay-for-ios-concept.md)
 > * [Version 2](media-services-protect-hls-with-offline-fairplay.md)
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Azure Media Services provides a set of well-designed [content protection services](https://azure.microsoft.com/services/media-services/content-protection/) that cover:
 

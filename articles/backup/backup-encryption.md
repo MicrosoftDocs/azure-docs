@@ -2,7 +2,7 @@
 title: Encryption in Azure Backup
 description: Learn how encryption features in Azure Backup help you protect your backup data and meet the security needs of your business.
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 05/25/2021
 ms.custom: references_regions 
 ---
 
@@ -21,10 +21,7 @@ Azure Backup includes encryption on two levels:
 - **Encryption specific to the workload being backed up**  
   - **Azure virtual machine backup**: Azure Backup supports backup of VMs with disks encrypted using [platform-managed keys](../virtual-machines/disk-encryption.md#platform-managed-keys), as well as [customer-managed keys](../virtual-machines/disk-encryption.md#customer-managed-keys) owned and managed by you. In addition, you can also back up your Azure Virtual machines that have their OS or data disks encrypted using [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE uses BitLocker for Windows VMs, and DM-Crypt for Linux VMs, to perform in-guest encryption.
 
->[!NOTE]
->Infrastructure encryption is currently in limited preview and is available in US East, US West2, US South Central, US Gov Arizona, and US GOV Virginia regions only. If you wish to use the feature in any of these regions, fill out [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) and email us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
-
 ## Next steps
 
 - [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
-- [Azure Backup FAQ](backup-azure-backup-faq.md#encryption) for any questions you may have about encryption
+- [Azure Backup FAQ](/azure/backup/backup-azure-backup-faq#encryption) for any questions you may have about encryption

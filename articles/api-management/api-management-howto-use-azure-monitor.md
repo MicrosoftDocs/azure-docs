@@ -2,13 +2,13 @@
 title: Tutorial - Monitor published APIs in Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to use metrics, alerts, activity logs, and resource logs to monitor your APIs in Azure API Management.
 services: api-management
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
 
@@ -146,7 +146,7 @@ If you enable collection of GatewayLogs or metrics in a Log Analytics workspace,
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu":::
 
-Run queries to view the data. Several [sample queries](../azure-monitor/logs/example-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
+Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
 
 ```kusto
 ApiManagementGatewayLogs

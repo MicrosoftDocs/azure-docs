@@ -3,7 +3,7 @@ title: "Quickstart: Add sign-in with Microsoft to a Java web app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you'll learn how to add sign-in with Microsoft to a Java web application by using OpenID Connect.
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/09/2019
-ms.author: sagonzal
+ms.author: marsma 
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 ---
 
@@ -45,7 +45,7 @@ To run this sample, you need:
 > To register your application and manually add the app's registration information to it, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations**.
 > 1. Select **New registration**.
@@ -159,10 +159,7 @@ To run the web application from an IDE, select run, and then go to the home page
 
 If you want to deploy the web sample to Tomcat, make a couple changes to the source code.
 
-1. Open *ms-identity-java-webapp/pom.xml*.
-    - Under `<name>msal-web-sample</name>`, add `<packaging>war</packaging>`.
-
-2. Open *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication*.
+1. Open *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication*.
 
     - Delete all source code and replace it with this code:
 
@@ -188,7 +185,7 @@ If you want to deploy the web sample to Tomcat, make a couple changes to the sou
        }
       ```
 
-3.   Tomcat's default HTTP port is 8080, but you need an HTTPS connection over port 8443. To configure this setting:
+2.   Tomcat's default HTTP port is 8080, but you need an HTTPS connection over port 8443. To configure this setting:
         - Go to *tomcat/conf/server.xml*.
         - Search for the `<connector>` tag, and replace the existing connector with this connector:
 
@@ -201,13 +198,13 @@ If you want to deploy the web sample to Tomcat, make a couple changes to the sou
                    clientAuth="false" sslProtocol="TLS"/>
           ```
 
-4. Open a Command Prompt window. Go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project.
+3. Open a Command Prompt window. Go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project.
     - This command will generate a *msal-web-sample-0.1.0.war* file in your */targets* directory.
     - Rename this file to *msal4jsample.war*.
     - Deploy the WAR file by using Tomcat or any other J2EE container solution.
         - To deploy the msal4jsample.war file, copy it to the */webapps/* directory in your Tomcat installation, and then start the Tomcat server.
 
-5. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
+4. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
 
 
 > [!IMPORTANT]

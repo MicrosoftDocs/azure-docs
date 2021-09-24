@@ -20,17 +20,15 @@ To simplify the creation of diagnostics settings at scale (with LA as the destin
 
 * Management Group scope is currently unsupported.
 
-* The built-in policy is currently not available in national clouds.
-
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## Assigning the built-in policy to a scope
 
 To assign the policy for vaults in the required scope, follow the steps below:
 
-1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
-2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
-3. Filter the list for **Category=Backup**. Locate the policy named **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource-specific categories**.
+1. Sign in to the Azure portal and navigate to the **Backup center** dashboard.
+2. Select **Azure policies for backup** in the left menu to get a list of all built-in policies across Azure Resources.
+3. Locate the policy named **Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource-specific categories**.
 
     ![Policy Definition pane](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

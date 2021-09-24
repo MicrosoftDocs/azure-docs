@@ -12,6 +12,12 @@
     href: iot-support-help.md  
   - name: IoT Glossary
     href: iot-glossary.md
+- name: How-to guides
+  items:
+    - name: Use smartphone device app
+      href: iot-phone-app-how-to.md
+    - name: Use IoT Explorer
+      href: howto-use-iot-explorer.md
 - name: Security
   items:
   - name: Recommendations
@@ -39,7 +45,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

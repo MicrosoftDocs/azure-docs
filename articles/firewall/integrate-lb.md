@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 04/14/2021
 ms.author: victorh
 ---
 
@@ -60,8 +60,7 @@ There's no asymmetric routing issue with this scenario. The incoming packets arr
 
 So, you can deploy this scenario similar to the public load balancer scenario, but without the need for the firewall public IP address host route.
 
->[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity see: </br> **[Outbound connections in Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](../load-balancer/egress-only.md)** </br> [**What is Virtual Network NAT?**](../virtual-network/nat-overview.md)
+The virtual machines in the backend pool can have outbound Internet connectivity through the Azure Firewall. Configure a user defined route on the virtual machine's subnet with the firewall as the next hop.
 
 
 ## Additional security

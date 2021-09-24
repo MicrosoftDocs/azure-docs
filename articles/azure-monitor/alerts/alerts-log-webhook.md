@@ -13,10 +13,10 @@ ms.date: 09/22/2020
 [Log alert](alerts-log.md) supports [configuring webhook action groups](./action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON webhook.
 
 > [!NOTE]
-> Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`
+> Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`.
 
 > [!NOTE]
-> It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common schema reverts payload schema to the one described [here](../alerts/alerts-common-schema-definitions.md#log-alerts). Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
+> It is recommended you use [common alert schema](../alerts/alerts-common-schema.md) for your webhook integrations. The common alert schema provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor. For log alerts rules that have a custom JSON payload defined, enabling the common alert schema reverts the payload schema to the one described [here](../alerts/alerts-common-schema-definitions.md#log-alerts). This means that if you want to have a custom JSON payload defined, the webhook can't use the common alert schema. Alerts with the common schema enabled have an upper size limit of 256 KB per alert, bigger alert will not include search results. When the search results aren't included, you should use the `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to access query results via the Log Analytics API.
 
 ## Webhook payload properties
 

@@ -15,6 +15,13 @@ Before you begin this article, make sure you completed the previous article, [As
 
 After you assign share-level permissions with Azure RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the Azure RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Azure RBAC permissions
 
 The following table contains the Azure RBAC permissions related to this configuration:
@@ -29,7 +36,7 @@ The following table contains the Azure RBAC permissions related to this configur
 |     |  Read & execute |  Read & execute |
 |     |  Read           |  Read    |
 |     |  Write          |  Write   |
-|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit, Execute |
+|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit (Change permissions), Execute |
 |     |  Modify          |  Modify |
 |     |  Read & execute  |  Read & execute |
 |     |  Read            |  Read   |
@@ -56,10 +63,10 @@ The following permissions are included on the root directory of a file share:
 |Users|Definition|
 |---|---|
 |BUILTIN\Administrators|All users who are domain administrators of the on-prem AD DS environment.
-|BUILTIN\Users|Built-in security group in AD. It includes NT AUTHORITY\Authenticated Users by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn’t a hosting server, hence BUILTIN\Users includes the same set of users as NT AUTHORITY\Authenticated Users.|
-|NT AUTHORITY\SYSTEM|The service account of the operating system of the file server. Such service account doesn’t apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
+|BUILTIN\Users|Built-in security group in AD. It includes NT AUTHORITY\Authenticated Users by default. For a traditional file server, you can configure the membership definition per server. For Azure Files, there isn't a hosting server, hence BUILTIN\Users includes the same set of users as NT AUTHORITY\Authenticated Users.|
+|NT AUTHORITY\SYSTEM|The service account of the operating system of the file server. Such service account doesn't apply in Azure Files context. It is included in the root directory to be consistent with Windows Files Server experience for hybrid scenarios.|
 |NT AUTHORITY\Authenticated Users|All users in AD that can get a valid Kerberos token.|
-|CREATOR OWNER|Each object either directory or file has an owner for that object. If there are ACLs assigned to “CREATOR OWNER” on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
+|CREATOR OWNER|Each object either directory or file has an owner for that object. If there are ACLs assigned to "CREATOR OWNER" on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
 
 
 
@@ -88,9 +95,19 @@ Once your file share has been mounted with the storage account key, you must con
 
 If you have directories or files in on-premises file servers with Windows DACLs configured against the AD DS identities, you can copy it over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
+### Configure Windows ACLs with icacls
+
+Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
+
 ### Configure Windows ACLs with Windows File Explorer
 
-Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
+Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. If you are not able to load the AD domain information correctly in Windows File Explorer, this is likely due to trust configuration in your on-prem AD environment. The client machine was not able to reach the AD domain controller registered for Azure Files authentication. In this case, use icacls for configurating Windows ACLs.
 
 1. Open Windows File Explorer and right click on the file/directory and select **Properties**.
 1. Select the **Security** tab.
@@ -101,15 +118,6 @@ Use Windows File Explorer to grant full permission to all directories and files 
 1.    In the **Security** tab, select all permissions you want to grant your new user.
 1.    Select **Apply**.
 
-### Configure Windows ACLs with icacls
-
-Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
 
 ## Next steps
 

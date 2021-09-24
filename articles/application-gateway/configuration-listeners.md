@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.author: surmb
+ms.author: surmb 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Application Gateway listener configuration

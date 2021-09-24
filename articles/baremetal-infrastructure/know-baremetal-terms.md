@@ -2,20 +2,24 @@
 title: Know the terms of Azure BareMetal Infrastructure
 description: Know the terms of Azure BareMetal Infrastructure.
 ms.topic: conceptual
-ms.date: 1/4/2021
+ms.date: 07/13/2021
 ---
 
 # Know the terms for BareMetal Infrastructure
 
-In this article, we'll cover some important BareMetal terms.
+In this article, we'll cover some important terms related to the BareMetal Infrastructure.
 
-- **Revision**: There's an original stamp revision known as Revision 3 (Rev 3), and two different stamp revisions for BareMetal Instance stamps. Each stamp differs in architecture and proximity to Azure virtual machine hosts:
-    - **Revision 4** (Rev 4): a newer design that provides closer proximity to the Azure virtual machine (VM) hosts and lowers the latency between Azure VMs and BareMetal Instance units. 
-    - **Revision 4.2** (Rev 4.2): the latest rebranded BareMetal Infrastructure using the existing Rev 4 architecture. Rev 4 provides closer proximity to the Azure virtual machine (VM) hosts. It has significant improvements in network latency between Azure VMs and BareMetal instance units deployed in Rev 4 stamps or rows. You can access and manage your BareMetal instances through the Azure portal.    
+- **Revision**: There are two different stamp revisions for BareMetal Infrastructure (HANA Large Instance) stamps. These revisions differ in architecture and proximity to Azure virtual machine hosts:
+    - "Revision 3" (Rev 3): The original design deployed mid-2016.
+    - "Revision 4.2" (Rev 4.2): A new design that provides closer proximity to Azure virtual machine hosts, with ultra-low network latency between Azure VMs and HANA Large Instances. Resources in the Azure portal are referred to as "BareMetal Infrastructure," and customers can access their resources as BareMetal instances from the Azure portal.
 
-- **Stamp**: Defines the Microsoft internal deployment size of BareMetal Instances. Before instance units can get deployed, a BareMetal Instance stamp consisting of compute, network, and storage racks must be deployed in a datacenter location. Such a deployment is called a BareMetal Instance stamp or from Revision 4.2.
+- **Stamp**: Defines the Microsoft internal deployment size of BareMetal instances. Before instances can be deployed, a BareMetal instance stamp consisting of compute, network, and storage racks must be deployed in a datacenter location. Such a deployment is called a BareMetal instance stamp.
 
-- **Tenant**: A customer deployed in BareMetal Instance stamp gets isolated into a *tenant.* A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to the different tenants can't see each other or communicate with each other on the BareMetal Instance stamp level. A customer can choose to have deployments into different tenants. Even then, there's no communication between tenants on the BareMetal Instance stamp level.
+- **Tenant**: A customer deploying a BareMetal instance stamp gets isolated as a *tenant.* A tenant is isolated in the networking, storage, and compute layer from other tenants. Storage and compute units assigned to the different tenants can't see each other or communicate with each other on the BareMetal instance stamp level. A customer can choose to have deployments into different tenants. Even then, there's no communication between tenants on the BareMetal instance stamp level.
 
 ## Next steps
-Learn more about the [BareMetal Infrastructure](workloads/sap/baremetal-overview-architecture.md) or how to [identify and interact with BareMetal Instance units](workloads/sap/baremetal-infrastructure-portal.md). 
+
+Learn more about BareMetal Infrastructure.
+
+> [!div class="nextstepaction"]
+> [BareMetal Infrastructure](concepts-baremetal-infrastructure-overview.md)

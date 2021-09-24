@@ -22,7 +22,7 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 1. Select one of the following options:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Specific users and groups** | Choose this option if you want only the users and groups in your directory that you specify to be able to request this access package. |
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
@@ -57,7 +57,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 1. Select one of the following options:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
@@ -84,7 +84,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
+1. In the **Users who can request access** section, click **None (administrator direct assignments only)**.
 
     ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -205,7 +205,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. Click **Next**.
 
-## Add Requestor information (preview) to an access package
+## Add Requestor information to an access package
 
 1. Go to the **Requestor information** tab and click the **Questions** sub tab.
  
@@ -224,13 +224,19 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
  
     ![Access package - Policy- Select view and edit multiple choice answer format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
-1. If selecting multiple choice, click on the **view and edit** button to configure the answer options.
-    1. After selecting view and edit the **View/edit question** pane will open.
+1. If selecting multiple choice, click on the **edit and localize** button to configure the answer options.
+    1. After selecting edit and localize the **View/edit question** pane will open.
     1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
+    1. Select the language the for the response option. You can localize response options if you choose additional languages.
     1. Type in as many responses as you need then click **Save**.
     
     ![Access package - Policy- Enter multiple choice options](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
 1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
 
-1. Click Next
+1. Click on the **Attributes (Preview)** sub tab to view attributes associated with resources added to the access package.
+
+    > [!NOTE]
+    > To add or update attributes for an access package's resources, go to **Catalogs** and find the catalog associated with the access package. Read [Add resource-attributes (preview) in the catalog](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog) to learn more about how to edit the attributes list for a specific catalog resource and the prerequisite roles. 
+
+1. Click **Next**

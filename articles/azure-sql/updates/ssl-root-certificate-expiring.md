@@ -4,7 +4,7 @@ description: Learn about the upcoming changes of root certificate changes that w
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 09/13/2020
 ---

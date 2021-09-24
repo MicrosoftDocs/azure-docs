@@ -92,10 +92,8 @@ If you are currently creating your test drive in Partner Center, select **Save d
 
 For step by step instructions on listing and configuring your Hosted Test Drive, please visit the [Detailed configuration for hosted test drive](./test-drive-hosted-detailed-config.md) page.
 
-## Additional Resources
-
 ## Next steps
 
 - [Test Drive Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; make sure your pop-up blocker is off)
-- [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md)
+- [Update an existing offer in the commercial marketplace](update-existing-offer.md)

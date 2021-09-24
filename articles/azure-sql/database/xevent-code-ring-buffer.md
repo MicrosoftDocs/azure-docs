@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 12/19/2018
 ---
 # Ring Buffer target code for extended events in Azure SQL Database
@@ -39,11 +39,11 @@ This topic presents a Transact-SQL code sample that:
 
 * An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Any database you can create a table in.
-  
+
   * Optionally you can [create an **AdventureWorksLT** demonstration database](single-database-create-quickstart.md) in minutes.
 * SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.
   You can download the latest ssms.exe from:
-  
+
   * Topic titled [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   * [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
@@ -220,7 +220,7 @@ The output is shown in the following block. It looks long, but it is just two **
 
 &nbsp;
 
-```
+```xml
 <RingBufferTarget truncated="0" processingTime="0" totalEventsProcessed="2" eventCount="2" droppedCount="0" memoryUsed="1728">
   <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T15:29:31.317Z">
     <data name="state">

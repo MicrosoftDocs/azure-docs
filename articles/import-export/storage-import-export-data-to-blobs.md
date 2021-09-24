@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -54,7 +54,7 @@ Perform the following steps to prepare the drives.
 
    * If you have added data to a drive that was encrypted by WAImportExport tool, use the following command to unlock the drive:
 
-        `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
+        `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
 5. Open a PowerShell or command-line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
@@ -67,7 +67,7 @@ Perform the following steps to prepare the drives.
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
-
+    
     A journal file is created in the same folder where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
 
     The parameters used are described in the following table:
@@ -83,11 +83,16 @@ Perform the following steps to prepare the drives.
     |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, the blob type is `BlockBlob` and for page blobs, it is `PageBlob`.         |
     |/skipwrite:     | Specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
     |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
-8. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
 
-    > [!IMPORTANT]
-    > * Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
-   > * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
+8. Repeat the previous step for each disk that needs to be shipped. 
+
+   A journal file with the provided name is created for every run of the command line. 
+
+   Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
+
+> [!IMPORTANT]
+> * Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
+> * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
 
 ## Step 2: Create an import job
 
@@ -160,7 +165,7 @@ Use the following steps to create an import job in the Azure CLI.
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension:
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/import-export) extension:
 
     ```azurecli
     az extension add --name import-export
@@ -178,19 +183,19 @@ Use the following steps to create an import job in the Azure CLI.
     az storage account create --resource-group myierg --name myssdocsstorage --https-only
     ```
 
-1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command:
+1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) command:
 
     ```azurecli
     az import-export location list
     ```
 
-1. Use the [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) command to get locations for your region:
+1. Use the [az import-export location show](/cli/azure/import-export/location#az_import_export_location_show) command to get locations for your region:
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an import job:
+1. Run the following [az import-export create](/cli/azure/import-export#az_import_export_create) command to create an import job:
 
     ```azurecli
     az import-export create \
@@ -217,13 +222,13 @@ Use the following steps to create an import job in the Azure CLI.
    > [!TIP]
    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group:
+1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the myierg resource group:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. To update your job or cancel your job, run the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command:
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az_import_export_update) command:
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true

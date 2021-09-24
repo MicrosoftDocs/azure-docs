@@ -23,6 +23,8 @@ ms.date: 08/25/2020
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
+
 ### Install the client library
 
 After installing Python, you can install the client library with:
@@ -54,7 +56,7 @@ The Personalizer client is a [PersonalizerClient](/python/api/azure-cognitiveser
 
 To ask for the single best item of the content, create a [RankRequest](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest), then pass it to client.Rank method. The Rank method returns a RankResponse.
 
-To send a reward score to Personalizer, set the event ID and the reward score (value) to send to the [Reward](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations#reward-event-id--value--custom-headers-none--raw-false----operation-config-) method on the EventOperations class.
+To send a reward score to Personalizer, set the event ID and the reward score (value) to send to the [Reward](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.operations.events_operations.eventsoperations) method on the EventOperations class.
 
 Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture.
 

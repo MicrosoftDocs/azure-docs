@@ -40,15 +40,15 @@ There are a few solutions that let you avoid SNAT port limitations. They include
 * connection pools: By pooling your connections, you avoid opening new network connections for calls to the same address and port.
 * service endpoints: You don't have a SNAT port restriction to the services secured with service endpoints.
 * private endpoints: You don't have a SNAT port restriction to services secured with private endpoints.
-* NAT Gateway: With a NAT Gateway, you have 64k outbound SNAT ports that are usable by the resources sending traffic through it.
+* NAT gateway: With a NAT gateway, you have 64k outbound SNAT ports that are usable by the resources sending traffic through it.
 
 Avoiding the SNAT port problem means avoiding the creation of new connections repetitively to the same host and port. Connection pools are one of the more obvious ways to solve that problem.
 
 If your destination is an Azure service that supports service endpoints, you can avoid SNAT port exhaustion issues by using [regional VNet Integration](./web-sites-integrate-with-vnet.md) and service endpoints or private endpoints. When you use regional VNet Integration and place service endpoints on the integration subnet, your app outbound traffic to those services will not have outbound SNAT port restrictions. Likewise, if you use regional VNet Integration and private endpoints, you will not have any outbound SNAT port issues to that destination. 
 
-If your destination is an external endpoint outside of Azure, using a NAT Gateway gives you 64k outbound SNAT ports. It also gives you a dedicated outbound address that you don't share with anybody. 
+If your destination is an external endpoint outside of Azure, [using a NAT gateway](./networking/nat-gateway-integration.md) gives you 64k outbound SNAT ports. It also gives you a dedicated outbound address that you don't share with anybody. 
 
-If possible, improve your code to use connection pools and avoid the entire situation. It isn't always possible to change code fast enough to mitigate this situation. For the cases where you can't change your code in time, take advantage of the other solutions. The best solution to the problem is to combine all of the solutions as best you can. Try to use service endpoints and private endpoints to Azure services and the NAT Gateway for the rest. 
+If possible, improve your code to use connection pools and avoid the entire situation. It isn't always possible to change code fast enough to mitigate this situation. For the cases where you can't change your code in time, take advantage of the other solutions. The best solution to the problem is to combine all of the solutions as best you can. Try to use service endpoints and private endpoints to Azure services and the NAT gateway for the rest. 
 
 General strategies for mitigating SNAT port exhaustion are discussed in the [Problem-solving section](../load-balancer/load-balancer-outbound-connections.md) of the **Outbound connections of Azure** documentation. Of these strategies, the following are applicable to apps and functions hosted on Azure App service.
 
@@ -86,8 +86,8 @@ JDBC Connection Pooling.
 
 HTTP Connection Pooling
 
-* [Apache Connection Management](https://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html)
-* [Class PoolingHttpClientConnectionManager](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/conn/PoolingHttpClientConnectionManager.html)
+* [Apache Connection Management](https://hc.apache.org/httpcomponents-client-5.0.x/)
+* [Class PoolingHttpClientConnectionManager](https://hc.apache.org/httpcomponents-client-5.0.x/)
 
 #### PHP
 

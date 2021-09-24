@@ -8,7 +8,7 @@ ms.date: 11/09/2020
 ---
 # Manage QnA Maker resources
 
-Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
+Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service. If you are trying the Custom question answering feature, you would need to create the Text Analytics resource and add the Custom question answering feature.
 
 A solid understanding of the following concepts is helpful before creating your resource:
 
@@ -57,35 +57,41 @@ This procedure creates the Azure resources needed to manage the knowledge base c
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the *subscription* keys on the **Keys** page for the resource in the Azure portal.
 
-1. Sign in to the Azure portal and [create a QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resource.
+1.  Sign in to the Azure portal and [create a Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource.
 
-1. Select **Create** after you read the terms and conditions:
+2.  Select Custom question answering feature to add to the Text Analytics resource. Click on **Continue to create your resource**.
 
-    ![Create a new QnA Maker service](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
+> [!div class="mx-imgBorder"]
+> ![Add QnA to TA](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
 
-1. In **QnA Maker**, check the Managed (preview) checkbox and select the appropriate tiers and regions:
+3.  Select the appropriate tiers and regions for the Text Analytics resource. For the custom question answering feature, select search location and pricing tier.
 
-    ![Create a new QnA Maker managed service - pricing tier and regions](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png)
+> [!div class="mx-imgBorder"]
+> ![Create a new TA service - pricing tier and regions](../media/qnamaker-how-to-setup-service/custom-qna-create-button.png)
 
-    * Choose the **Subscription** under which the QnA Maker resource will be deployed.
-    * Create a new **Resource group** (recommended) or use an existing one in which to deploy this QnA Maker managed (Preview) resource. QnA Maker managed (Preview) creates few Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
-    * In the **Name** field, enter a unique name to identify this QnA Maker managed (Preview) service. 
-    * Choose the **Location** where you want the QnA Maker managed (Preview) service to be deployed. The management APIs and service endpoint will be hosted in this location. 
-    * Select the **Pricing tier** for the QnA Maker managed (Preview) service (free for preview). See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
-    * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
-    * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
+   * Choose the **Subscription** under which the Text Analytics resource will be deployed.
+   * Create a new **Resource group** (recommended) or use an existing one in which to deploy this Text Analytics resource. Enabling custom question answering with a Text Analytics resource creates fewer Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
+   * In the **Name** field, enter a unique name to identify this Text Analytics resource. 
+   * Choose the **Location** where you want the Text Analytics resource to be deployed. The management APIs and service endpoint will be hosted in this location. 
+   * Select the **Pricing tier** for the Text Analytics service. See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
+   * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
+   * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
 
-1. After all the fields are validated, select **Review + Create**. The process can take a few minutes to complete.
+4.  After all the fields are validated, select **Review + Create**. The process can take a few minutes to complete.
 
-1. After deployment is completed, you'll see the following resources created in your subscription:
+> [!div class="mx-imgBorder"]
+> ![Review TA resource](../media/qnamaker-how-to-setup-service/custom-qna-review-resource.png)
 
-    ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+5.  After deployment is completed, you'll see the following resources created in your subscription:
 
-    The resource with the _Cognitive Services_ type has your _subscription_ keys.
+> [!div class="mx-imgBorder"]
+> ![Resource created a new QnA Maker managed (Preview) service](../media/qnamaker-how-to-setup-service/resources-created-question-answering.png)
+
+   The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
 ---
 
@@ -151,13 +157,13 @@ If you are not using a QnA maker resource, you should remove all the resources. 
 
 Free Search resources are deleted after 90 days without receiving an API call.
     
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 ### Upgrade the Azure Cognitive Search service
 
 If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
 
-Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
+Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the Custom question answering stack. To do this, follow these steps:
 
 1. Create a new Azure search resource in the Azure portal, and select the desired SKU.
 
@@ -165,11 +171,11 @@ Currently, you can't perform an in-place upgrade of the Azure search SKU. Howeve
 
 1. Restore the indexes from your original Azure search resource to the new one. See the [backup restore sample code](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-1. To link the new Azure search resource to the QnA Maker managed (Preview) service, see the below topic.
+1. Link the new Azure search resource to the Custom question answering feature in the [features tab of the Text Analytics resource](./configure-qna-maker-resources.md?tabs=v2#configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource) .
 
 ### Inactivity policy for free Search resources
 
-If you are not using a QnA maker resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
+If you are not using a QnA maker or Text Analytics resource, you should remove all the resources. If you don't remove unused resources, your Knowledge base will stop working if you created a free Search resource.
 
 Free Search resources are deleted after 90 days without receiving an API call.
 
@@ -177,7 +183,7 @@ Free Search resources are deleted after 90 days without receiving an API call.
 
 ## Delete Azure resources
 
-If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
+If you delete any of the Azure resources used for your knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
 
 ## Next steps
 

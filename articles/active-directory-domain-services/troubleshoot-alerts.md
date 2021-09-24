@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/09/2020
+ms.date: 06/07/2021
 ms.author: justinha
 
 ---
@@ -134,7 +134,8 @@ This alert is generated when one of these required resources is deleted. If the 
 1. In the health page, select the alert with the ID *AADDS109*.
 1. The alert has a timestamp for when it was first found. If that timestamp is less than 4 hours ago, the Azure platform may be able to automatically recreate the resource and resolve the alert by itself.
 
-    If the alert is more than 4 hours old, the managed domain is in an unrecoverable state. [Delete the managed domain](delete-aadds.md) and then [create a replacement managed domain](tutorial-create-instance.md).
+    For different reasons, the alert may be older than 4 hours. In that case, you can [delete the managed domain](delete-aadds.md) and then [create a replacement managed domain](tutorial-create-instance.md) for an immediate fix, or you can open a support request to fix the instance. Depending on the nature of the problem, support may require a restore from backup.
+
 
 ## AADDS110: The subnet associated with your managed domain is full
 

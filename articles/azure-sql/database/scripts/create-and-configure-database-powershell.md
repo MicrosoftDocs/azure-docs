@@ -3,12 +3,12 @@ title: "PowerShell: Create a single database"
 description: Use an Azure PowerShell example script to create a single database in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 03/12/2019
 ---

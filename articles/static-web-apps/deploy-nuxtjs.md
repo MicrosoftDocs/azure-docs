@@ -2,15 +2,15 @@
 title: "Tutorial: Deploy server-rendered Nuxt.js websites on Azure Static Web Apps"
 description: "Generate and deploy Nuxt.js dynamic sites with Azure Static Web Apps."
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
 ms.date: 05/08/2020
-ms.author: chnwamba
+ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Deploy server-rendered Nuxt.js websites on Azure Static Web Apps Preview
+# Deploy server-rendered Nuxt.js websites on Azure Static Web Apps
 
 In this tutorial, you learn to deploy a [Nuxt.js](https://nuxtjs.org) generated static website to [Azure Static Web Apps](overview.md). To begin, you learn to set up, configure, and deploy a Nuxt.js app. During this process, you also learn to deal with common challenges often faced when generating static pages with Nuxt.js
 
@@ -26,7 +26,7 @@ You can set up a new Nuxt.js project using `create-nuxt-app`. Instead of a new p
 
 1. Create a new repository under your GitHub account from a template repository.
 1. Navigate to [http://github.com/staticwebdev/nuxtjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nuxtjs-starter/generate)
-1. Name the repository **nuxtjs-starter**
+1. Name the repository **nuxtjs-starter**.
 1. Next, clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
 
     ```bash
@@ -68,7 +68,7 @@ When you build a Nuxt.js site using `npm run build`, the app is built as a tradi
     ```json
     "scripts": {
       "dev": "nuxt dev",
-      "build": "nuxt generate",
+      "build": "nuxt generate"
     },
     ```
 
@@ -111,49 +111,49 @@ Azure Static Web Apps deploys your app from a GitHub repository and keeps doing 
 
 The following steps show how to link the app you just pushed to GitHub to Azure Static Web Apps. Once in Azure, you can deploy the application to a production environment.
 
-### Create an Azure Static Web Apps Preview resource
+### Create an Azure Static Web Apps resource
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Click **Create a Resource**
-1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
-1. Click **Create**
+1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Select **Create a Resource**.
+1. Search for **Static Web Apps**.
+1. Select **Static Web Apps**.
+1. Select **Create**.
+1. On the _Basics_ tab, enter the following values.
 
-1. Select a subscription from the *Subscription* drop-down list or use the default value.
-1. Click the **New** link below the *Resource group* drop-down. In *New resource group name*, type **mystaticsite** and click **OK**
-1. Provide a globally unique name for your app in the **Name** text box. Valid characters include `a-z`, `A-Z`, `0-9`, and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>.azurestaticapps.net`.
-1. In the *Region* drop-down, choose a region closest to you.
-1. Select **Free** from the SKU drop-down.
+    | Property | Value |
+    | --- | --- |
+    | _Subscription_ | Your Azure subscription name. |
+    | _Resource group_ | **my-nuxtjs-group**  |
+    | _Name_ | **my-nuxtjs-app** |
+    | _Plan type_ | **Free** |
+    | _Region for Azure Functions API and staging environments_ | Select a region closest to you. |
+    | _Source_ | **GitHub** |
 
-   :::image type="content" source="media/deploy-nuxtjs/create-static-web-app.png" alt-text="Create Static Web App":::
+1. Select **Sign in with GitHub** and authenticate with GitHub.
 
-### Add a GitHub repository
+1. Enter the following GitHub values.
 
-The new Static Web Apps account needs access to the repository with your Nuxt.js app so it can automatically deploy commits.
+    | Property | Value |
+    | --- | --- |
+    | _Organization_ | Select your desired GitHub organization. |
+    | _Repository_ | Select the repository you created earlier. |
+    | _Branch_ | Select **main**. |
 
-1. Click the **Sign in with GitHub button**
-1. Select the **Organization** under which you created the repo for your Nuxt.js project, which may be your GitHub username.
-1. Find and select the name of the repository you created earlier.
-1. Choose **main** as the branch from the *Branch* drop-down.
+1. In the _Build Details_ section, select **Custom** from the _Build Presets_ drop-down and keep the default values.
 
-   :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="Connect GitHub":::
-
-### Configure the build process
-
-Azure Static Web Apps is built to automatically carry out common tasks like installing npm modules and running `npm run build` during each deployment. There are, however, a few settings like the application source folder and the build destination folder that you need to configure manually.
-
-1. Click on the **Build** tab to configure the static output folder.
-
-      :::image type="content" source="media/deploy-nuxtjs/build-tab.png" alt-text="Build tab":::
-
-1. Type **dist** in the *App artifact location* text box.
+1. In the _App location_, enter **./** in the box.
+1. Leave the _Api location_ box empty.
+1. In the _Output location_ box, enter **out**.
 
 ### Review and create
 
-1. Click the **Review + Create** button to verify the details are all correct.
-1. Click **Create** to start the creation of the resource and also provision a GitHub Action for deployment.
-1. Once the deployment is completed, click **Go to resource**
-1. On the _Overview_ window, click the *URL* link to open your deployed application. 
+1. Select the **Review + Create** button to verify the details are all correct.
+
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
+
+1. Once the deployment completes click, **Go to resource**.
+
+1. On the _Overview_ window, click the *URL* link to open your deployed application.
 
 If the website does note immediately load, then the background GitHub Actions workflow is still running. Once the workflow is complete you can then click refresh the browser to view your web app.
 

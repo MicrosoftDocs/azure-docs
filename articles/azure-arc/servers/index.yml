@@ -1,43 +1,52 @@
 ### YamlMime:Landing
-title: Azure Arc enabled servers
-summary: Azure Arc enabled servers
+title: Azure Arc-enabled servers
+summary: Azure Arc-enabled servers
 
 metadata:
-  title: Azure Arc enabled servers
+  title: Azure Arc-enabled servers
   description: Learn about how to manage on-premises machines in Azure
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 02/26/2020
+  ms.date: 09/21/2021
   ms.author: magoedte
 
 landingContent:
  # Card
-  - title: Connect machines to Azure using Azure Arc enabled servers
+  - title: Connect machines to Azure using Azure Arc-enabled servers
     linkLists: 
       - linkListType: overview
         links:
-          - text: What is Azure Arc enabled servers?
+          - text: What is Azure Arc-enabled servers?
             url: overview.md
-      - linkListType: architecture
+      - linkListType: deploy
         links:
-          - text: Plan an at-scale deployment
+          - text: Plan for deployment
             url: plan-at-scale-deployment.md
       - linkListType: get-started
         links:
-          - text: Connect machines to Azure Arc from the Azure portal
+          - text: Connect machines to Azure Arc using a deployment script
             url: onboard-portal.md
           - text: Connect machines at scale using a service principal
             url: onboard-service-principal.md
-          - text: Connect machines to Azure with PowerShell DSC
-            url: onboard-dsc.md
+          - text: Connect machines to Azure with Windows Admin Center
+            url: onboard-windows-admin-center.md
  # Card
   - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy Arc enabled servers agent
+          - text: Deploy Arc-enabled servers agent
             url: ./learn/quick-enable-hybrid-vm.md
+ 
+ # Card
+  - title: Training
+    linkLists: 
+      - linkListType: learn
+        links:
+          - text: Microsoft Learn learning path
+            url: /learn/paths/manage-hybrid-infrastructure-with-azure-arc
+ 
  # Card
   - title: Proof of concept
     linkLists:
@@ -45,7 +54,10 @@ landingContent:
        links:
           - text: Jumpstart
             url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
-
+     - linkListType: get-started
+       links:
+          - text: Test Arc-enabled servers using an Azure VM
+            url: plan-evaluate-on-azure-virtual-machine.md
  # Card
   - title: Reference architecture
     linkLists:

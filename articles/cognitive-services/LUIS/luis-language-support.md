@@ -19,7 +19,7 @@ LUIS has a variety of features within the service. Not all features are at the s
 
 ## Multi-language LUIS apps
 
-If you need a multi-language LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use the [Translator service](../Translator/translator-info-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
+If you need a multi-language LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use the [Translator service](../translator/translator-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
 
 ## Languages supported
 
@@ -41,7 +41,7 @@ LUIS understands utterances in the following languages:
 | Korean |`ko-KR` |✔|-|-|Key phrase only|
 | Marathi | `mr-IN`|-|-|-|-|
 | Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
-| Spanish (Mexico)|`es-MX` |-|-|✔|✔|
+| Spanish (Mexico)|`es-MX` |-|✔|✔|✔|
 | Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
 | Tamil | `ta-IN`|-|-|-|-|
 | Telugu | `te-IN`|-|-|-|-|

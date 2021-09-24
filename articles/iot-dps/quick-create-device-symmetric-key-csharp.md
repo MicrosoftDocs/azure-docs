@@ -3,7 +3,7 @@ title: Quickstart - Use symmetric key to provision a device to Azure IoT Hub usi
 description: In this quickstart, you will use the C# device SDK for the Device Provisioning Service (DPS) to provision a symmetric key device to an IoT hub
 author: wesmc7777
 ms.author: wesmc
-ms.date: 10/21/2020
+ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -18,7 +18,7 @@ In this quickstart, you will learn how to provision a Windows development machin
 
 Although this article demonstrates provisioning with an individual enrollment, you can also use enrollment groups. There are some differences when using enrollment groups. For example, you must use a derived device key with a unique registration ID for the device. [Provision devices with symmetric keys](how-to-legacy-device-symm-key.md) provides an enrollment group example. For more information on enrollment groups, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
 
-If you're unfamiliar with the process of auto-provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
 
 Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. This quickstart requires you to have already created your Device Provisioning Service instance.
 
@@ -30,7 +30,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 ## Prerequisites
 
-* Make sure you have [.NET Core 2.1 SDK](https://www.microsoft.com/net/download/windows) or later installed on your Windows-based machine.
+* Make sure you have [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later installed on your Windows-based machine.
 
 * Latest version of [Git](https://git-scm.com/download/) installed.
 
@@ -57,7 +57,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 4. Once you have saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Your symmetric key device enrollment appears as **symm-key-csharp-device-01** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
-5. Open the enrollment and copy the value of your generated **Primary Key** and **Secondary Key**. You will use this key value and the **Registration ID** later when you add environment variables for use with the device provisioning sample code.
+5. Open the enrollment and copy the value of your generated **Primary Key**. You will use this key value and the **Registration ID** later when you run the device provisioning sample code.
 
 
 
@@ -73,92 +73,62 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 <a id="firstbootsequence"></a>
 
-## Prepare the device provisioning code
+## Run the device provisioning code
 
-In this section, you will add the following four environment variables that will be used as parameters for the device provisioning sample code to provision your symmetric key device. 
+In this section, you will run the device provisioning sample using three parameters that will authenticate the device provisioning sample code as the symmetric key device for the enrollment in your DPS resource. These three parameters are:
 
-* `DPS_IDSCOPE`
-* `PROVISIONING_REGISTRATION_ID`
-* `PRIMARY_SYMMETRIC_KEY`
-* `SECONDARY_SYMMETRIC_KEY`
+* ID Scope
+* Registration ID for an individual enrollment.
+* Primary symmetric key for an individual enrollment.
 
-The provisioning code will contact the DPS instance based on these variables in order to authenticate your device. The device will then be assigned to an IoT hub already linked to the DPS instance based on the individual enrollment configuration. Once provisioned, the sample code will send some test telemetry to the IoT hub.
+The provisioning code will contact the DPS resource using these parameters in order to authenticate your device. The device will then be assigned to an IoT hub already linked to the DPS instance based on the individual enrollment configuration. Once provisioned, the sample code will send a test telemetry message to the IoT hub.
 
-1. In the [Azure portal](https://portal.azure.com), on your Device Provisioning Service menu, select **Overview** and copy your _Service Endpoint_ and _ID Scope_. You will use these values for the `PROVISIONING_HOST` and `DPS_IDSCOPE` environment variables.
-
-    ![Service information](./media/quick-create-device-symmetric-key-csharp/extract-dps-endpoints.png)
+1. In the [Azure portal](https://portal.azure.com), on your Device Provisioning Service menu, select **Overview** and copy your **ID Scope** value. You will use this value for the `IdScope` parameter when running the sample code.
 
 2. Open a command prompt and navigate to the *SymmetricKeySample* in the cloned samples repository:
 
     ```cmd
-    cd provisioning\Samples\device\SymmetricKeySample
+    cd azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample
     ```
 
-3. In the *SymmetricKeySample* folder, open *Program.cs* in a text editor and find the lines of code that set the `individualEnrollmentPrimaryKey` and `individualEnrollmentSecondaryKey` strings. Update those lines of code as follows so that the environment variables are used instead of hard coding the keys.
+3. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
  
-    ```csharp
-        //These are the two keys that belong to your individual enrollment. 
-        // Leave them blank if you want to try this sample for an individual enrollment instead
-        //private const string individualEnrollmentPrimaryKey = "";
-        //private const string individualEnrollmentSecondaryKey = "";
-
-        private static string individualEnrollmentPrimaryKey = Environment.GetEnvironmentVariable("PRIMARY_SYMMETRIC_KEY");;
-        private static string individualEnrollmentSecondaryKey = Environment.GetEnvironmentVariable("SECONDARY_SYMMETRIC_KEY");;
-    ```
-
-    Also, find the line of code that sets the `registrationId` string and update it as follows to also use an environment variable as follows:
-
-    ```csharp
-        //This field is mandatory to provide for this sample
-        //private static string registrationId = "";
-
-        private static string registrationId = Environment.GetEnvironmentVariable("PROVISIONING_REGISTRATION_ID");;
-    ```
-
-    Save the changes to *Program.cs*.
-
-3. In your command prompt, add the environment variables for the ID Scope, registration ID, primary, and secondary symmetric keys you copied from the individual enrollment in the previous section.  
-
-    The following commands are examples to show command syntax. Make sure to use your correct values.
-
+    | Parameter                         | Required | Description     |
+    | :-------------------------------- | :------- | :-------------- |
+    | `--s` or `--IdScope`              | True     | The ID Scope of the DPS instance |
+    | `--i` or `--Id`                   | True     | The registration ID when using individual enrollment, or the desired device ID when using group enrollment. |
+    | `--p` or `--PrimaryKey`           | True     | The primary key of the individual or group enrollment. |
+    | `--e` or `--EnrollmentType`       | False    | The type of enrollment: `Individual` or `Group`. Defaults to `Individual` |
+    | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
+    | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
+     
+4. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your symmetric key device. Review the code in this file.  No changes are needed.
+ 
+5. Build and run the sample code using the following command after replacing the three example parameters. Use your correct values for ID Scope, enrollment registration ID, and enrollment primary key.
+    
     ```console
-    set DPS_IDSCOPE=0ne00000A0A
-    ```
-
-    ```console
-    set PROVISIONING_REGISTRATION_ID=symm-key-csharp-device-01
-    ```
-
-    ```console
-    set PRIMARY_SYMMETRIC_KEY=sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
-    ```
-
-    ```console
-    set SECONDARY_SYMMETRIC_KEY=Zx8/eE7PUBmnouB1qlNQxI7fcQ2HbJX+y96F1uCVQvDj88jFL+q6L9YWLLi4jqTmkRPOulHlSbSv2uFgj4vKtw==
-    ```
+    dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+    ```    
 
 
-4. Build and run the sample code using the following command.
-
-    ```console
-    dotnet run
-    ```
-
-5. The expected output should look similar to the following which shows the linked IoT hub that the device was assigned to based on the individual enrollment settings. An example "TestMessage" string is sent to the hub as a test:
+6. The expected output should look similar to the following output that shows the linked IoT hub that the device was assigned to based on the individual enrollment settings. An example "TestMessage" string is sent to the hub as a test:
 
     ```output
-    D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run
-    RegistrationID = symm-key-csharp-device-01
-    ProvisioningClient RegisterAsync . . . Assigned
-    ProvisioningClient AssignedHub: docs-test-iot-hub.azure-devices.net; DeviceID: csharp-device-01
-    Creating Symmetric Key DeviceClient authentication
-    DeviceClient OpenAsync.
-    DeviceClient SendEventAsync.
-    DeviceClient CloseAsync.
-    Enter any key to exit
+    D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+
+    Initializing the device provisioning client...
+    Initialized for registration Id symm-key-csharp-device-01.
+    Registering with the device provisioning service...
+    Registration status: Assigned.
+    Device csharp-device-01 registered to ExampleIoTHub.azure-devices.net.
+    Creating symmetric key authentication for IoT Hub...
+    Testing the provisioned device with IoT Hub...
+    Sending a telemetry message...
+    Finished.
+    Enter any key to exit.
     ```
     
-6. In the Azure portal, navigate to the IoT hub linked to your provisioning service and open the **IoT devices** blade. After successfully provisioning the symmetric key device to the hub, the device ID is shown with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top if you already opened the blade prior to running the device sample code. 
+7. In the Azure portal, navigate to the IoT hub linked to your provisioning service and open the **IoT devices** blade. After successfully provisioning the symmetric key device to the hub, the device ID is shown with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top if you already opened the blade prior to running the device sample code. 
 
     ![Device is registered with the IoT hub](./media/quick-create-device-symmetric-key-csharp/hub-registration-csharp.png) 
 

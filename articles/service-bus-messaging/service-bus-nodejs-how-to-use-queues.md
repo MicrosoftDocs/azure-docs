@@ -2,11 +2,13 @@
 title: How to use azure/service-bus queues in JavaScript
 description: Learn how to write a JavaScript program that uses the latest version of @azure/service-bus package to send messages to and receive messages from a Service Bus queue.
 author: spelluru
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 11/09/2020
 ms.author: spelluru
-ms.custom: devx-track-js
+ms.date: 11/09/2020
+ms.topic: quickstart
+ms.devlang: nodejs
+ms.custom:
+  - devx-track-js
+  - mode-api
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (JavaScript)
@@ -30,7 +32,7 @@ npm install @azure/service-bus
 The following sample code shows you how to send a message to a queue.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-2. Create a file called `send.js` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
+2. Create a file called `send.js` and paste the below code into it. This code sends the names of scientists as messages to your queue.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus");
@@ -157,7 +159,7 @@ The following sample code shows you how to send a message to a queue.
     	});
     
     	// Waiting long enough before closing the sender to send messages
-    	await delay(5000);
+    	await delay(20000);
     
     	await receiver.close();	
     	await sbClient.close();
@@ -201,6 +203,6 @@ Select the queue on this **Overview** page to navigate to the **Service Bus Queu
 See the following documentation and samples: 
 
 - [Azure Service Bus client library for JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [JavaScript samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [TypeScript samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/v7/javascript)
+- [TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/v7/typescript)
 - [API reference documentation](/javascript/api/overview/azure/service-bus)

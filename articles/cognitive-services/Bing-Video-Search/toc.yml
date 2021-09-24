@@ -82,16 +82,12 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/911452-bing-video-search-api
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+video+search
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
     href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!

@@ -9,18 +9,27 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Custom email verification with Mailjet
 
-Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and the third-party email provider Mailjet, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using the third-party email provider Mailjet, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Custom email verification requires the use of a third-party email provider like [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Create a Mailjet account
 
@@ -30,12 +39,17 @@ If you don't already have one, start by setting up a Mailjet account (Azure cust
 1. To be able to send email, [register and validate](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) your Sender email address or domain.
 2. Navigate to the [API Key Management page](https://app.mailjet.com/account/api_keys). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.  
 
+> [!IMPORTANT]
+> Mailjet offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [How do I warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
+
+
 ## Create Azure AD B2C policy key
 
 Next, store the Mailjet API key in an Azure AD B2C policy key for your policies to reference.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose your Azure AD B2C directory.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the **Overview** page, select **Identity Experience Framework**.
 1. Select **Policy Keys**, and then select **Add**.
@@ -236,17 +250,17 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 
 ## Add DataUri content definition
 
-Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.0 data URI:
+Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.2 data URI:
 
 ```XML
 <!--
 <BuildingBlocks> -->
   <ContentDefinitions>
    <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountpasswordreset">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
     </ContentDefinition>
   </ContentDefinitions>
 <!--
@@ -302,6 +316,9 @@ Under content definitions, still within `<BuildingBlocks>`, add the following [D
 ## Add OTP technical profiles
 
 The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information about OTP technical profiles, see [Define a one-time password technical profile](one-time-password-technical-profile.md).
+
+> [!NOTE]
+> OTP codes that are generated by the Web.TPEngine.Providers.OneTimePasswordProtocolProvider protocol are tied to the browser session. This means a user can generate unique OTP codes in different browser sessions that are each valid for their corresponding sessions. By contrast, an OTP code generated by the built-in email provider is independent of the browser session, so if a user generates a new OTP code in a new browser session, it replaces the previous OTP code.
 
 Add the following technical profiles to the `<ClaimsProviders>` element.
 
@@ -483,7 +500,6 @@ To localize the email, you must send localized strings to Mailjet, or your email
             <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
             <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
           </LocalizedStrings>
-          </LocalizedStrings>
         </LocalizedResources>
         <LocalizedResources Id="api.custom-email.es">
           <LocalizedStrings>
@@ -505,14 +521,14 @@ To localize the email, you must send localized strings to Mailjet, or your email
     <BuildingBlocks> -->
       <ContentDefinitions>
         <ContentDefinition Id="api.localaccountsignup">
-          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
           <LocalizedResourcesReferences MergeBehavior="Prepend">
             <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
             <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
           </LocalizedResourcesReferences>
         </ContentDefinition>
         <ContentDefinition Id="api.localaccountpasswordreset">
-          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
           <LocalizedResourcesReferences MergeBehavior="Prepend">
             <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
             <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
@@ -572,3 +588,5 @@ You can find an example of a custom email verification policy on GitHub:
 
 - [Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 - For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
+
+::: zone-end
