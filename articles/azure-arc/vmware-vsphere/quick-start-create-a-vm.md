@@ -30,7 +30,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 2. You will see the new unified virtual machine browse experience that also includes Arc VMs.
 
-    ![unified browse experience for azure and arc vms](../docs/media/vm-browse.png)
+    ![unified browse experience for azure and arc vms](media/vm-browse.png)
 
 3. Click on **+Add**
 
@@ -64,4 +64,4 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 ## Next Steps
 
-- [Perform operations on VMware VMs in Azure](../docs/manage-vmware-vms-in-azure.md)
+- [Perform operations on VMware VMs in Azure](manage-vmware-vms-in-azure.md)

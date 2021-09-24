@@ -194,4 +194,4 @@ Repeat this process for each custom role and each subscription.
 
 ## Next steps
 
-- [Create a VM using Azure Arc](../docs/quick-start-create-a-vm.md)
+- [Create a VM using Azure Arc](quick-start-create-a-vm.md)

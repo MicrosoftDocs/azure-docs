@@ -64,4 +64,4 @@ This will start a deployment and on completion, you will have the VM represented
 
 ## Next Steps
 
-- [Manage access to VMware resources through Azure Role Based Access Control](../docs/manage-access-to-arc-vmware-resources.md)
+- [Manage access to VMware resources through Azure Role Based Access Control](manage-access-to-arc-vmware-resources.md)
