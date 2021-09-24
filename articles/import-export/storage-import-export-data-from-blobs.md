@@ -31,7 +31,7 @@ You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
-- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). You can use the Azure Import/Export tool to determine how many disks to provide. For steps, see [Determine the number of drives to  use](storage-import-export-tool-determine-number-of-drives-for-export.md).
+- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). You can use the Azure Import/Export tool to determine how many disks to provide. For steps, see [Determine the number of drives to use](storage-import-export-determine-number-of-drives-for-export.md#determine-how-many-drives-you-need).
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
   - The account must be valid, should have balance, and must have return shipping capabilities.
   - Generate a tracking number for the export job.
@@ -357,7 +357,7 @@ Install-Module -Name Az.ImportExport
 
 ## Step 2: Ship the drives
 
-If you do not know the number of drives you need, see [Determine the number of drives](storage-import-export-determine-number-of-drives-for-export.md). If you know the number of drives, proceed to ship the drives.
+If you do not know the number of drives you need, see [Determine how many drives you need](storage-import-export-determine-number-of-drives-for-export.md#determine-how-many-drives-you-need). If you know the number of drives, proceed to ship the drives.
 
 [!INCLUDE [storage-import-export-ship-drives](../../includes/storage-import-export-ship-drives.md)]
 
