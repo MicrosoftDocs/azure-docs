@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 09/25/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
@@ -106,7 +106,7 @@ The example contains all the files needed to deploy a model on an online endpoin
 
 The following snippet shows the *endpoints/online/managed/sample/blue-deployment.yml* file, with all the required inputs: 
 
-:::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
 The table describes the attributes of a `deployment`:
 
@@ -171,6 +171,9 @@ az ml endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/simp
 
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
 
+> [!TIP]
+> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+
 ### Verify the local deployment succeeded
 
 Check the logs to see whether the model was deployed without error:
@@ -204,11 +207,11 @@ Next, deploy your managed online endpoint to Azure.
 
 To deploy the YAML configuration to the cloud, run the following code:
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
 
 To create the deployment named blue under the endpoint, run the following code:
 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
 
 This deployment might take up to 15 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
 
@@ -349,5 +352,5 @@ To learn more, review these articles:
 - How to autoscale managed online endpoints
 - [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
-- [Tutorial: Access Azure resources by using a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
+- [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)

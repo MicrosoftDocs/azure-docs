@@ -46,8 +46,6 @@
       items: 
         - name: Train models with CLI (v2)
           href: how-to-train-cli.md
-        - name: Access resources with managed endpoints
-          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Jupyter Notebooks
       items:
         - name: Image classification (MNIST data)
@@ -116,7 +114,7 @@
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
     - name: Designer examples & datasets
-      displayName: example, examples, studio, pipelines, data sets, modules
+      displayName: example, examples, studio, pipelines, data sets, modules, components
       href: samples-designer.md
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
@@ -171,6 +169,8 @@
             href: concept-open-source.md 
           - name: ML pipelines
             href: concept-ml-pipelines.md
+          - name: Components
+            href: concept-component.md
           - name: MLflow  
             href: concept-mlflow.md        
           - name: Responsible ML
@@ -217,6 +217,8 @@
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Secured workspace traffic flow
+          href: concept-secure-network-traffic-flow.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Security controls by Azure Policy
@@ -247,7 +249,7 @@
               displayName: vnet, workspace, container instance, container registry
               href: how-to-secure-workspace-vnet.md
             - name: Secure training environment
-              displayName: vnet
+              displayName: vnet, No public IP
               href: how-to-secure-training-vnet.md
             - name: Secure inferencing environment
               displayName: vnet
@@ -263,8 +265,9 @@
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
-            - name: Configure Firewall
+            - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
+              displayName: firewall, user-defined route, udr
         - name: Data protection
           items:
             - name: Failover & disaster recovery
@@ -298,7 +301,7 @@
           - name: Create & manage compute resources
             items: 
               - name: Compute instance
-                displayName: compute target
+                displayName: compute target, No public IP
                 href: how-to-create-manage-compute-instance.md
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
@@ -358,7 +361,7 @@
           displayName: github gitlab
           href: concept-train-model-git-integration.md
         - name: How to troubleshoot environments
-          displayName: troubleshoot, envrionment, debug, image
+          displayName: troubleshoot, environment, debug, image
           href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items: 
@@ -485,10 +488,10 @@
           displayName: interpretability
           items: 
             - name: Interpret ML models
-              displayName: SDK, interpret, explain, explanability, interpretability
+              displayName: SDK, interpret, explain, explainability, interpretability
               href: how-to-machine-learning-interpretability-aml.md
             - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml
+              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
               href: how-to-machine-learning-interpretability-automl.md
         - name: Assess and mitigate model fairness
           href: how-to-machine-learning-fairness-aml.md              
@@ -535,16 +538,24 @@
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Use managed online endpoints in studio
               href: how-to-use-managed-online-endpoint-studio.md
+            - name: Access storage with managed online endpoint and managed identity
+              href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Use REST to deploy a model as a managed online endpoint
               href: how-to-deploy-with-rest.md
+            - name: Deploy an AutoML model with a managed online endpoint
+              href: how-to-deploy-automl-endpoint.md
+            - name: Viewing managed online endpoint costs
+              href: how-to-view-online-endpoints-costs.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
+            - name: Debug managed online endpoints locally VS Code
+              href: how-to-debug-managed-online-endpoints-visual-studio-code.md
             - name: Troubleshoot managed online endpoints
-              href: how-to-troubleshoot-managed-online-endpoints.md
+              href: how-to-troubleshoot-online-endpoints.md
           - name: Batch
             items:
             - name: Batch scoring with batch endpoints
@@ -611,7 +622,7 @@
       - name: High-performance serving with Triton
         href: how-to-deploy-with-triton.md
       - name: Deploy encrypted inferencing service
-        displayName: homomorhic,encryption,deployment
+        displayName: homomorphic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement
@@ -711,19 +722,33 @@
       items:
         - name: Overview
           href: reference-yaml-overview.md
-        - name: Assets
+        - name: Workspace
+          href: reference-yaml-workspace.md
+        - name: Environment
+          href: reference-yaml-environment.md
+        - name: Dataset
+          href: reference-yaml-dataset.md
+        - name: Model
+          href: reference-yaml-model.md
+        - name: Compute
           items:
-            - name: Workspace
-              href: reference-yaml-workspace.md
-            - name: Compute
-              href: reference-yaml-compute.md
-            - name: Environment
-              href: reference-yaml-environment.md
-            - name: Dataset
-              href: reference-yaml-dataset.md
-            - name: Model
-              href: reference-yaml-model.md
-        - name: Datastores
+            - name: Compute cluster (AmlCompute)
+              href: reference-yaml-compute-aml.md
+            - name: Compute instance
+              href: reference-yaml-compute-instance.md
+            - name: Attached Virtual Machine
+              href: reference-yaml-compute-vm.md
+        - name: Job
+          items:
+            - name: Command
+              href: reference-yaml-job-command.md
+            - name: Sweep
+              href: reference-yaml-job-sweep.md
+            - name: Pipeline
+              href: reference-yaml-job-pipeline.md
+            - name: Component
+              href: reference-yaml-job-component.md
+        - name: Datastore
           items:
             - name: Azure Blob
               href: reference-yaml-datastore-blob.md
@@ -733,34 +758,28 @@
               href: reference-yaml-datastore-data-lake-gen1.md
             - name: Azure Data Lake Gen2
               href: reference-yaml-datastore-data-lake-gen2.md
-        - name: Jobs
-          items:
-            - name: Command
-              href: reference-yaml-job-command.md
-            - name: Sweep 
-              href: reference-yaml-job-sweep.md
-        - name: Endpoints
+        - name: Endpoint
           items:
             - name: Managed online (real-time)
               href: reference-yaml-endpoint-managed-online.md
-            - name: Managed batch
-              href: reference-yaml-endpoint-managed-batch.md
-            - name: Kubernetes (k8s) online
-              href: reference-yaml-endpoint-k8s-online.md
-        - name: Deployments
+            - name: Batch
+              href: reference-yaml-endpoint-batch.md
+        - name: Deployment
           items:
             - name: Managed online (real-time)
               href: reference-yaml-deployment-managed-online.md
-            - name: Managed batch
-              href: reference-yaml-deployment-managed-batch.md
-            - name: Kubernetes (k8s) online
-              href: reference-yaml-deployment-k8s-online.md
+            - name: Batch
+              href: reference-yaml-deployment-batch.md
+        - name: Component
+          items:
+            - name: Command
+              href: reference-yaml-component-command.md
     - name: CLI (v1)
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
-    - name: Designer module reference
-      displayName: module, reference, algorithm, studio
-      href: algorithm-module-reference/module-reference.md
+    - name: Designer component reference
+      displayName: component, module, reference, algorithm, studio
+      href: component-reference/component-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
     - name: Machine learning CLI (v1) pipeline YAML reference

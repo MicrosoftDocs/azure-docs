@@ -216,7 +216,7 @@ Go to **Actions** of your GitHub repository.
 
 1. Rename your workflow and search the Synapse workspace deployment action in the marketplace, then add the action. 
 
-     ![Search action](media/search-action.png)
+     ![Search for the action](media/search-the-action.png)
 
 1. Specify the required values and the workspace template.
 

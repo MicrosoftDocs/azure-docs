@@ -157,6 +157,9 @@ Follow these steps if you want to bypass access requests and allow administrator
 
 1. Skip to the [Enable requests](#enable-requests) section.
 
+> [!NOTE]
+> When assigning users to an access package, administrators will need to verify that the users are eligible for that access package based on the existing policy requirements. Otherwise, the users won't successfully be assigned to the access package. If the access package contains a policy that requires user requests to be approved, users can't be directly assigned to the package without necessary approval(s) from the designated approver(s).
+
 
 ## Open and edit an existing policy of request settings
 

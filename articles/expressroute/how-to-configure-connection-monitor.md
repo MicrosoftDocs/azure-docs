@@ -102,7 +102,7 @@ $solution = @{
     ResourceGroupName = $resourceGroup
 }
 
-New-AzureRmResource @solution -Force
+New-AzResource @solution -Force
 ```
 
 Once you've configured the monitoring solution. Continue to the next step of installing and configuring the monitoring agents on your servers.

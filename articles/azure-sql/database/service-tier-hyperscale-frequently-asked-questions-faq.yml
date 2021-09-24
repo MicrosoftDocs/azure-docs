@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: mathoma
-  ms.date: 07/27/2021
+  ms.date: 09/10/2021
     
 title: Azure SQL Database Hyperscale FAQ
 summary: |
@@ -52,10 +52,14 @@ sections:
           | **Storage size** | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
           | **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
           | **IOPS** | SQL Managed Instance | Depends on file size | N/A | 1375 IOPS/vCore |
-          |**Availability**|All|1 replica, no Read Scale-out, no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
-          |**Backups**|All|RA-GRS, 7-35 day retention (7 days by default)| RA-GRS, 7 day retention, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 day retention (7 days by default) |
+          |**Availability**|All|1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
+          |**Backups**|All| A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant\*\*\*, or locally-redundant\*\*\* backup storage, 7 day retention. | A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 1-35 day retention (default 7 days) |
           
           \* Elastic pools are not supported in the Hyperscale service tier
+
+          \*\* In preview
+
+          \*\*\* In preview, for new Hyperscale databases only
           
       - question: |
           Who should use the Hyperscale service tier?
@@ -302,7 +306,7 @@ sections:
       - question: |
           How often are the database backups taken?
         answer: |
-          There are no traditional full, differential, and log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Log that is generated is retained as-is for the configured retention period, allowing restore to any point in time within the retention period.
+          There are no traditional full, differential, and transaction log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Generated transaction log is retained as-is for the configured retention period. At restore time, relevant transaction log records are applied to the restored storage snapshot, resulting in a transactionally consistent database without any data loss as of the specified point in time within the retention period.
 
       - question: |
           Does Hyperscale support point-in-time restore?

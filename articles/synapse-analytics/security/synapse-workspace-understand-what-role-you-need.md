@@ -21,7 +21,7 @@ This article will help you understand which Synapse RBAC (role-based access cont
 
 ### Resource management
 
-- You can create SQL pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace.
+- You can create SQL pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace. When using ARM templates for automated deployment, you need to be an Azure Contributor on the resource group.
 - You can pause or scale a dedicated SQL pool, configure a Spark pool or an integration runtime if you're an Azure Owner or Contributor on the workspace or that resource.
 
 ### Viewing and editing code artifacts
@@ -70,7 +70,7 @@ Manage (pause, scale, or delete) a dedicated SQL pool|Azure Owner or Contributor
 Create a SQL script</br>|Synapse User, or </br>Azure Owner or Contributor on the workspace, </br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
 List and open any published SQL script| Synapse Artifact User, Artifact Publisher, Synapse Contributor|artifacts/read
 Run a SQL script on a serverless SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
-Run a SQL script on a dedicated SQL pool|SQL permissions on the pool|none
+Run a SQL script on a dedicated SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
 Publish a new, updated, or deleted SQL script|Synapse Artifact Publisher, Synapse Contributor|sqlScripts/write, delete
 Commit changes to a SQL script to the Git repo|Requires Git permissions on the repo|
 Assign Active Directory Admin on the workspace (via workspace properties in the Azure Portal)|Azure Owner or Contributor on the workspace |

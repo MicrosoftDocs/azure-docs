@@ -23,18 +23,18 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
 
     ```csharp
         public class CustomLoginCredentials : ServiceClientCredentials
-    {
-        private string AuthenticationToken { get; set; }
-        public override void InitializeServiceClient<T>(ServiceClient<T> client)
-           {
-               var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantID}");
-               var credential = new ClientCredential(clientId: "{clientID}", clientSecret: "{clientSecret}");
-               var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
-               if (result == null) throw new InvalidOperationException("Failed to obtain the JWT token");
-               AuthenticationToken = result.Result.AccessToken;
-           }
-        public override async Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-           {
+        {
+            private string AuthenticationToken { get; set; }
+            public override void InitializeServiceClient<T>(ServiceClient<T> client)
+            {
+                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantID}");
+                var credential = new ClientCredential(clientId: "{clientID}", clientSecret: "{clientSecret}");
+                var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
+                if (result == null) throw new InvalidOperationException("Failed to obtain the JWT token");
+                AuthenticationToken = result.Result.AccessToken;
+            }
+            public override async Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+            {
                 if (request == null) throw new ArgumentNullException("request");
                 if (AuthenticationToken == null) throw new InvalidOperationException("Token Provider Cannot Be Null");
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", AuthenticationToken);
@@ -42,6 +42,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
                 //request.Version = new Version(apiVersion);
                 await base.ProcessHttpRequestAsync(request, cancellationToken);
             }
+        }
     
         var creds = new CustomLoginCredentials();
         m_subId = Environment.GetEnvironmentVariable("AZURE_SUBSCRIPTION_ID");

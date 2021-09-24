@@ -41,7 +41,7 @@
     href: marketplace-commercial-transaction-capabilities-and-considerations.md
   - name: License management
     href: isv-app-license.md
-  - name: Private offers
+  - name: Private plans
     href: private-plans.md
   - name: Plans and pricing
     href: plans-pricing.md
@@ -341,6 +341,26 @@
         href: power-bi-app-technical-configuration.md
       - name: Supplemental content
         href: power-bi-app-supplemental-content.md
+  - name: Power BI visual offers
+    items:
+    - name: Plan the offer
+      href: marketplace-power-bi-visual.md
+    - name: Create the offer
+      items:
+      - name: Offer setup
+        href: power-bi-visual-offer-setup.md
+      - name: Properties
+        href: power-bi-visual-properties.md
+      - name: Offer listing
+        href: power-bi-visual-offer-listing.md
+      - name: Availability
+        href: power-bi-visual-availability.md
+      - name: Technical configuration
+        href: power-bi-visual-technical-configuration.md
+      - name: Manage offer names
+        href: power-bi-visual-manage-names.md
+    - name: FAQs on migrating to the commercial marketplace
+      href: power-bi-visual-faq.yml
   - name: SaaS offers
     items:
     - name: Plan the offer
@@ -419,6 +439,8 @@
     href: insights-dashboard.md
   - name: License dashboard
     href: license-dashboard.md
+  - name: Quality of service dashboard
+    href: quality-of-service-dashboard.md
   - name: Downloads dashboard
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
@@ -478,7 +500,7 @@
   - name: Commercial marketplace review policies
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
   - name: Azure Marketplace terms
-    href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+    href: https://azure.microsoft.com/support/legal/marketplace-terms/
   - name: Microsoft Publisher Agreement
     href: /legal/marketplace/msft-publisher-agreement
   - name: Change history for Microsoft Publisher Agreement

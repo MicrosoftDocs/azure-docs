@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/23/2021
+ms.date: 08/24/2021
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -110,6 +110,26 @@ An important aspect of the classification is the ability to monitor access to se
 
 [ ![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
 
+These are the activites that are actually auditable with sensitivity information:
+- ALTER TABLE ... DROP COLUMN
+- BULK INSERT
+- DELETE
+- INSERT
+- MERGE
+- UPDATE
+- UPDATETEXT
+- WRITETEXT
+- DROP TABLE
+- BACKUP
+- DBCC CloneDatabase
+- SELECT INTO
+- INSERT INTO EXEC
+- TRUNCATE TABLE
+- DBCC SHOW_STATISTICS
+- sys.dm_db_stats_histogram
+
+Use [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) to returns information from an audit file stored in an Azure Storage account.
+
 ## <a id="permissions"></a>Permissions
 
 These built-in roles can read the data classification of a database:
@@ -192,10 +212,10 @@ You can use the REST API to programmatically manage classifications and recommen
 
 You can use the following SQL drivers to retrieve classification metadata:
 
-- [ODBC Driver](https://docs.microsoft.com/sql/connect/odbc/data-classification)
-- [OLE DB Driver](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
-- [JDBC Driver](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
-- [Microsoft Drivers for PHP for SQL Server](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
+- [ODBC Driver](/sql/connect/odbc/data-classification)
+- [OLE DB Driver](/sql/connect/oledb/features/using-data-classification)
+- [JDBC Driver](/sql/connect/jdbc/data-discovery-classification-sample)
+- [Microsoft Drivers for PHP for SQL Server](/sql/connect/php/release-notes-php-sql-driver)
 
 ## FAQ - Advanced classification capabilities
 

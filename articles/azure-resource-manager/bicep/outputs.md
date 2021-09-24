@@ -2,7 +2,7 @@
 title: Outputs in Bicep
 description: Describes how to define output values in Bicep
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ---
 
 # Outputs in Bicep
@@ -13,9 +13,7 @@ The format of each output value must resolve to one of the [data types](data-typ
 
 ## Define output values
 
-The following example shows how to use the `output` keyword to return a property from a deployed resource.
-
-In the following example, `publicIP` is the identifier (symbolic name) of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
+The following example shows how to use the `output` keyword to return a property from a deployed resource. In the example, `publicIP` is the identifier (symbolic name) of a public IP address deployed in the Bicep file. The output value gets the fully qualified domain name for the public IP address.
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
@@ -30,6 +28,11 @@ var user = {
 
 output stringOutput string = user['user-name']
 ```
+
+The next example shows how to return outputs of different types.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
+
 
 ## Conditional output
 
@@ -100,14 +103,6 @@ publicIPAddress: {
   id: publicIP.outputs.resourceID
 }
 ```
-
-## Example template
-
-The following template doesn't deploy any resources. It shows some ways of returning outputs of different types.
-
-Bicep doesn't currently support loops.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/output.bicep":::
 
 ## Get output values
 
