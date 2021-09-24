@@ -1,6 +1,6 @@
 ---
-title: Manage access to VMware resources through Azure Role-Based Access Control
-description: This article will help you understand how to manage access to your on-prem VMware resources through Azure Role-Based Access Control. 
+title: Manage access to VMware resources through Azure RBAC
+description: Learn how to manage access to your on-premises VMware resources through Azure Role-Based Access Control (RBAC). 
 ms.topic: how-to
 ms.date: 04/13/2021
 
