@@ -1,5 +1,5 @@
 ---
-title: Monitoring Key Vault data reference 
+title: Monitoring Azure Key Vault data reference 
 description: Important reference material needed when you monitor Key Vault 
 author: msmbaldwin  
 ms.topic: reference
