@@ -18,7 +18,7 @@ When you create a function app in Azure, you must choose a hosting plan for your
 
 + [Consumption plan](consumption-plan.md)
 + [Premium plan](functions-premium-plan.md)
-+ [Dedicated (App Service) plan](dedicated-plan.md).
++ [Dedicated (App Service) plan](dedicated-plan.md)
 
 All hosting plans are generally available (GA) when running either Linux or Windows.
 
