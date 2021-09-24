@@ -95,7 +95,7 @@ In this section, you'll learn how to deploy an Azure Synapse workspace in Azure 
 
 1. Select the resource ARM template branch. For the **Default version**, select **Latest from default branch**.
 
-    :::image type="content" source="media/release-creation-arm-branch.png" lightbox="media/release-creation-arm-branch.png" alt-text="Screenshot that shows setting the resource ARM template branch.":::
+    :::image type="content" source="media/release-creation-arm-template-branch.png" lightbox="media/release-creation-arm-template-branch.png" alt-text="Screenshot that shows setting the resource ARM template branch.":::
 
 1. For the artifacts **Default branch**, select the repository [publish branch](source-control.md#configure-publishing-settings). By default, the publish branch is `workspace_publish`. For the **Default version**, select **Latest from default branch**.
 
@@ -215,7 +215,7 @@ In your GitHub repository, go to **Actions**.
 
 1. Rename your workflow. On the **Marketplace** tab, search for the Synapse workspace deployment action, and then add the action. 
 
-    :::image type="content" source="media/search-the-action.png" lightbox="media/search-the-action.png" alt-text="Screenshot that shows searching for the Synapse workspace deployment task on the Marketplace tab.":::
+    :::image type="content" source="media/search-action.png" lightbox="media/search-action.png" alt-text="Screenshot that shows searching for the Synapse workspace deployment task on the Marketplace tab.":::
 
 1. Set the required values and the workspace template:
 
@@ -250,7 +250,7 @@ In your GitHub repository, go to **Actions**.
 
 1. You're ready to commit your changes. Select **Start commit**, enter the title, and then add a description (optional). Then, select **Commit new file**.
 
-    :::image type="content" source="media/commit-the-workflow.png" lightbox="media/commit-the-workflow.png" alt-text="Screenshot that shows committing the workflow in GitHub.":::
+    :::image type="content" source="media/commit-workflow.png" lightbox="media/commit-workflow.png" alt-text="Screenshot that shows committing the workflow in GitHub.":::
 
    The file appears in the *.github/workflows* folder in your repository.
 
@@ -403,7 +403,7 @@ Here's an explanation of how the preceding template is constructed, by resource 
 
 If you're using Git integration with your Azure Synapse workspace and you have a CI/CD pipeline that moves your changes from development to test, and then to production, we recommend these best practices:
 
--   **Integrate only development workspace with Git**. If you use Git integration, integrate only your *development* Azure Synapse workspace with Git. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
+-   **Integrate only the development workspace with Git**. If you use Git integration, integrate only your *development* Azure Synapse workspace with Git. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
 -   **Prepare pools before you migrate artifacts**. If you have a SQL script or notebook attached to pools in the development workspace, use the same name for pools in different environments. 
 -   **Sync versioning in infrastructure as code scenarios**. To manage infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, use the same versioning that the DevOps team uses for source code. 
 -   **Review Azure Data Factory best practices**. If you use Data Factory, see the [best practices for Data Factory artifacts](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd).
