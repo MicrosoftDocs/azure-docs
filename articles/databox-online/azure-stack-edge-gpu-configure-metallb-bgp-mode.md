@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/24/2021
 ms.author: alkohli
 ---
-# Configure load balancing on your Azure Stack Edge
+# Configure load balancing with MetalLB on your Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -44,19 +44,19 @@ Before you begin, make sure that:
 
 ### Configuration
 
-For a basic configuration featuring one BGP router and one IP address range, you need four pieces of information:
+For a basic configuration for MetalLB using BGP session, you need four pieces of information:
 
 - The peer IP address that MetalLB should connect to.
 - The peer's Autonomous System Number (ASN). BGP requires that routes are announced with an ASN for peer sessions.
 - The ASN MetalLB should use. ASNs are 16-bit numbers between 1 and 65534 and 32-bit numbers between 131072 and 4294967294.
-- An IP address range expressed as a CIDR prefix. The IP address range that you provide is the range of available IPs in the same subnet as the port that you enabled for compute.
+- An IP address range. The IP address range that you provide is the range of available IPs in the same subnet as the port that you enabled for compute.
 
 
 Follow these steps to configure MetalLB in BGP mode:
 
 1. [Connect to the PowerShell interface](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) of the device.
  
-1. Run the `Get-HcsExternalVirtualSwitch` cmdlet to get the name of the external virtual switch that you'll use for BGP mode.
+1. Run the `Get-HcsExternalVirtualSwitch` cmdlet to get the name of the external virtual switch that you'll use for BGP mode. This virtual switch is created when you enabled the port for compute.
 
     ```powershell
     Get-HcsExternalVirtualSwitch
