@@ -64,4 +64,3 @@ The correlation ID is an identifier that correlates sign-ins from the same sign-
 
 * [Azure AD reports overview](overview-reports.md)
 * [Programmatic access to Azure AD reports](concept-reporting-api.md)
-* [Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md)
