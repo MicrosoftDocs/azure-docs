@@ -11,6 +11,8 @@ ms.service: azure-fluid
 
 # Azure Fluid Relay overview
 
+The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. The Fluid Framework itself does not require Azure; users can create and host custom servers on any cloud service. Azure Fluid Relay is an turnkey implementation of a Fluid Framework server that runs on Azure, and is suitable for use in production environments.
+
 The Azure Fluid Relay service is a managed offering for the Fluid Framework that helps developers build real-time collaborative experiences and replicate state across connected JavaScript clients in real-time.
 
 ## What is the Fluid Framework?

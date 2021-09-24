@@ -10,6 +10,9 @@ ms.author: hickeys
 
 # Quickstart: Dice roller
 
+> [!NOTE]
+> The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. The Fluid Framework itself does not require Azure; users can create and host custom servers on any cloud service. [Azure Fluid Relay](../overview/overview.md) is an turnkey implementation of a Fluid Framework server that runs on Azure, and is suitable for use in production environments.
+
 In this quickstart, we'll walk through through the process of creating a dice roller app that uses the Azure Fluid Relay service. The quickstart is broken into two parts. In part one, we'll create the app itself and run it against a local Fluid server. In part two, we'll reconfigure the app to run against the Azure Fluid Relay service instead of the local dev server.
 
 The sample code used in this quickstart is available [here](https://github.com/microsoft/FluidHelloWorld).
