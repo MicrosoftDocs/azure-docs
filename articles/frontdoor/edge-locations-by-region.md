@@ -26,5 +26,5 @@ This article lists current metros containing edge locations, sorted by region, f
 ## Next steps
 
 * View [Azure Front Door edge locations by abbreviation](edge-locations-abbreviation.md).
-* To get the latest list of edge nodes for Azure Front Door, see [Edge Nodes List - REST API](/rest/api/cdn/cdn/edgenodes/list).
+* To get the latest list of edge nodes for Azure Front Door, see [Edge Nodes List - REST API](/rest/api/cdn/edge-nodes/list).
 * Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).

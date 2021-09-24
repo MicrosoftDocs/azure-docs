@@ -120,7 +120,7 @@ Screening standards include the validation of US citizenship of all Microsoft su
 
 ## Restrictions on insider access
 
-**The same controls for restricting insider access to customer data are in place for both Azure and Azure Government. As described in the previous section, Azure Government imposes extra personnel background screening requirements, including verification of US citizenship.**
+**Controls for restricting insider access to customer data are the same for both Azure and Azure Government. As described in the previous section, Azure Government imposes extra personnel background screening requirements, including verification of US citizenship.**
 
 > [!NOTE]
 > Insider threat is characterized as potential for providing back-door connections and cloud service provider (CSP) privileged administrator access to customer’s systems and data. Microsoft provides strong **[customer commitments](https://www.microsoft.com/trust-center/privacy/data-access)** regarding who can access customer data and on what terms. Access to customer data by Microsoft operations and support personnel is **denied by default**. Access to customer data is not needed to operate Azure. Moreover, for most support scenarios involving customer troubleshooting tickets, access to customer data is not needed.

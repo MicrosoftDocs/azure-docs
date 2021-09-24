@@ -5,7 +5,7 @@ services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/16/2020
+ms.date: 09/21/2021
 ms.author: chez
 ms.custom: include file
 ---
@@ -41,6 +41,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Monitoring queries per minute | 1,000 | 1,000 |
 | Maximum time of data flow debug session | 8 hrs | 8 hrs |
 | Concurrent number of data flows per integration runtime | 50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Concurrent number of data flows per integration runtime in managed vNet| 20 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent number of data flow debug sessions per user per factory | 3 | 3 |
 | Data Flow Azure IR TTL limit | 4 hrs |  4 hrs |
 | Meta Data Entity Size limit in a factory | 2 GB | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

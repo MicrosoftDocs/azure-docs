@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 09/01/2021
+ms.date: 09/23/2021
 ms.author: duau
 ---
 
@@ -54,6 +54,9 @@ If the route has the same AS path length, Azure Route Server will program multip
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
 Yes, Azure Route Server propagates the route with the BGP communities as is.
+
+### What is the BGP timer setting of Azure Route Server?
+The Keep-alive timer is set to 60 seconds and the Hold-down timer 180 seconds.
 
 ### What Autonomous System Numbers (ASNs) can I use?
 
