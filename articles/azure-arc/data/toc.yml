@@ -189,8 +189,6 @@ items:
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: High availability
               href: managed-instance-high-availability.md
-            - name: Point in time restore
-              href: point-in-time-restore.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Migrate
@@ -201,8 +199,8 @@ items:
               href: restore-adventureworks-sample-db.md
         - name: Configure business continuity
           items:
-            - name: Restore to a point in time 
-              href: point-in-time-restore-arcmi.md
+            - name: Point in time restore
+              href: point-in-time-restore.md
 - name: Reference
   items:
   - name: Release version log
