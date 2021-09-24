@@ -1,25 +1,28 @@
 ---
-title: Send and receive AS2 messages for B2B
-description: Exchange AS2 messages for B2B enterprise integration scenarios by using Azure Logic Apps with Enterprise Integration Pack
+title: Exchange AS2 messages in B2B workflows
+description: Exchange AS2 messages between trading by creating workflows using Azure Logic Apps and Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 10/08/2020
+ms.date: 09/27/2021
 ---
 
-# Exchange AS2 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
+# Exchange AS2 messages using workflows in Azure Logic Apps
 
-> [!IMPORTANT]
-> The original AS2 connector is being deprecated, so unless you need tracking capabilities, use the **AS2 (v2)** connector instead. 
-> Except for tracking, the v2 connector provides better performance, the same capabilities as the original version, is native to the 
-> Azure Logic Apps runtime, and has significant performance improvements in message size, throughput, and latency. Also, the v2 connector 
-> doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you 
-> link your integration account to the logic app where you plan to use the connector.
+To send and receive AS2 messages in workflows that you create using Azure Logic Apps, use the **AS2** connector, which provides triggers and actions that support and manage AS2 (version 1.2) communication.
 
-To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, which provides triggers and actions that support and manage AS2 (version 1.2) communication. For example, to establish security and reliability when transmitting messages, you can use these actions:
+* If you're working with the **Logic App (Consumption)** resource type and don't need tracking capabilities, use the **AS2 (v2)** connector, rather than the original **AS2** connector, which is being deprecated.
+
+  Except for tracking, the v2 connector provides better performance, the same capabilities as the original version, is native to the Azure Logic Apps runtime, and has significant performance improvements in message size, throughput, and latency. Also, the v2 connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
+
+* If you're working with the **Logic App (Standard)** resource type, only the original **AS2** connector is currently available.
+
+For example, to establish security and reliability when transmitting messages, you can use the following actions:
+
+### [Consumption](#tab/consumption)
 
 * [**AS2 Encode** action](#encode) for providing encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs these tasks when configured:
 
@@ -46,19 +49,36 @@ To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, wh
   * Decompresses the message.
   * Check and disallow message ID duplicates.
 
-This article shows how to add the AS2 encoding and decoding actions to an existing logic app.
+### [Standard](#tab/standard)
+
+
+This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app from where you want to use the AS2 connector and a trigger that starts your logic app's workflow. The AS2 connector provides only actions, not triggers. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and linked to the logic app where you plan to use the AS2 connector. Both your logic app and integration account must exist in the same location or Azure region.
+  * Is associated with the same Azure subscription as your logic app resource.
 
-* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account by using the AS2 identity qualifier.
+  * Exists in the same location or Azure region as your logic app resource.
 
-* Before you can use the AS2 connector, you must create an AS2 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account.
+  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use artifacts in your workflow.
+
+  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), or [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+
+  > [!NOTE]
+  > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
+  > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
+
+* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is AS2 for this scenario.
+
+* An [AS2 agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner.
+
+* The logic app resource and workflow where you want to use the AS2 operations and the trigger that you want to use for starting your workflow. The AS2 connector provides only actions, not triggers. This example uses the [Request](../connectors/connectors-native-reqres.md) trigger.
+
+  If you're new to logic apps, review [What is Azure Logic Apps](logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
 
 * If you use [Azure Key Vault](../key-vault/general/overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
