@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Upload data and train a model"
+title: 'Tutorial: What is this?"
 titleSuffix: Azure Machine Learning
-description: How to upload and use your own data in a remote training run. This is part 3 of a three-part getting-started series.
+description: Set up or that thing.
 ms.topic: tutorial
 ms.prod: visual-studio-windows
 ms.author: jmartens
@@ -11,11 +11,11 @@ ms.custom: devtestoffer
 adobe-target: true
 ---
 
-# Tutorial: Upload data and train a model (part 3 of 3)
+# Tutorial: Enable credits in your subscription
 
 This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.  
 
-In [Part 2: Train a model](../machine-learning/tutorial-1st-experiment-sdk-train.md), you trained a model in the cloud, using sample data from `PyTorch`.  You also downloaded that data through the `torchvision.datasets.CIFAR10` method in the PyTorch API. In this tutorial, you'll use the downloaded data to learn the workflow for working with your own data in Azure Machine Learning.
+In [Part 2: Train a model](../../machine-learning/tutorial-1st-experiment-sdk-train.md), you trained a model in the cloud, using sample data from `PyTorch`.  You also downloaded that data through the `torchvision.datasets.CIFAR10` method in the PyTorch API. In this tutorial, you'll use the downloaded data to learn the workflow for working with your own data in Azure Machine Learning.
 
 In this tutorial, you:
 
@@ -30,8 +30,8 @@ In this tutorial, you:
 
 You'll need the data that was downloaded in the previous tutorial.  Make sure you have completed these steps:
 
-1. [Create the training script](../machine-learning/tutorial-1st-experiment-sdk-train.md#create-training-scripts).  
-1. [Test locally](../machine-learning/tutorial-1st-experiment-sdk-train.md#test-local).
+1. [Create the training script](../../machine-learning/tutorial-1st-experiment-sdk-train.md#create-training-scripts).  
+1. [Test locally](../../machine-learning/tutorial-1st-experiment-sdk-train.md#test-local).
 
 ## Adjust the training script
 
@@ -44,8 +44,6 @@ Our training script is currently set to download the CIFAR10 dataset on each run
 Select **Save and run script in terminal**  to run the *run-pytorch-data.py* script.  This run will train the model on the compute cluster using the data you uploaded.
 
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
-
-[!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 
 ### <a name="inspect-log"></a> Inspect the log file
@@ -106,7 +104,7 @@ If you're not going to use it now, stop the compute instance:
 
 ### Delete all resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
@@ -119,4 +117,4 @@ You saw how to modify your training script to accept a data path via the command
 Now that you have a model, learn:
 
 > [!div class="nextstepaction"]
-> [How to deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
+> [How to deploy models with Azure Machine Learning](../../machine-learning/how-to-deploy-and-where.md).

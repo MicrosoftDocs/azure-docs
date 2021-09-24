@@ -1,7 +1,7 @@
 ---
-title: What is automated ML? AutoML
+title: What is this?
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning can automatically generate a model by using the parameters and criteria you provide with automated machine learning.
+description: Learn how to do this or that thing.
 ms.topic: conceptual
 ms.prod: visual-studio-windows
 ms.author: jmartens
@@ -11,7 +11,7 @@ ms.custom: devtestoffer
 adobe-target: true
 ---
 
-# What is automated machine learning (AutoML)?
+# What is THIS article about?
 
 Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML in Azure Machine Learning is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
 
@@ -21,10 +21,10 @@ Traditional machine learning model development is resource-intensive, requiring 
 
 Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand [feature availability in each experience](#parity).
 
-* For code-experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Use automated machine learning to predict taxi fares](../machine-learning/tutorial-auto-train-models.md).
+* For code-experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Use automated machine learning to predict taxi fares](../../machine-learning/tutorial-auto-train-models.md).
 
 * For limited/no-code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
-    * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](../machine-learning/tutorial-first-experiment-automated-ml.md).
+    * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](../../machine-learning/tutorial-first-experiment-automated-ml.md).
     *  [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
 
 
