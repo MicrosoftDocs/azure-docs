@@ -1,6 +1,6 @@
 ---
-title: Amazon S3 Multi-Cloud Scanning Connector for Azure Purview
-description: This how-to guide describes details of how to scan Amazon S3 buckets.
+title: Amazon S3 multi-cloud scanning connector for Azure Purview
+description: This how-to guide describes details of how to scan Amazon S3 buckets in Azure Purview.
 author: batamig
 ms.author: bagol
 ms.service: purview

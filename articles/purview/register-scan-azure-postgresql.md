@@ -1,6 +1,6 @@
 ---
 title: 'Register and scan an Azure database for PostgreSQL'
-description: This tutorial describes how to scan an Azure database for PostgreSQL database
+description: This tutorial describes how to scan an Azure database for PostgreSQL database in Azure Purview.
 author: evwhite
 ms.author: evwhite
 ms.service: purview

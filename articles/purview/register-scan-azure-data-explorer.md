@@ -1,6 +1,6 @@
 ---
-title: 'How to scan Azure Data Explorer'
-description: This how to guide describes details of how to scan Azure Data Explorer. 
+title: 'How to register and scan Azure Data Explorer'
+description: This how to guide describes details of how to scan Azure Data Explorer in Azure Purview. 
 author: nayenama
 ms.author: nayenama
 ms.service: purview

@@ -1,6 +1,6 @@
 ---
 title: 'Register and scan an Azure MySQL database'
-description: This tutorial describes how to scan an Azure MySQL database
+description: This tutorial describes how to register and scan an Azure MySQL database in Azure Purview.
 author: evwhite
 ms.author: evwhite
 ms.service: purview

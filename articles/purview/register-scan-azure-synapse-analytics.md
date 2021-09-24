@@ -1,6 +1,6 @@
 ---
-title: 'How to scan Dedicated SQL pools'
-description: This how to guide describes details of how to scan Dedicated SQL pools. 
+title: 'How to scan dedicated SQL pools'
+description: This how to guide describes details of how to scan Dedicated SQL pools in Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview

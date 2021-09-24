@@ -1,5 +1,5 @@
 ---
-title: 'How to scan Azure storage blob'
+title: How to register and scan Azure storage blob
 description: Learn how to scan Azure blob storage in your Azure Purview data catalog. 
 author: shsandeep123
 ms.author: sandeepshah

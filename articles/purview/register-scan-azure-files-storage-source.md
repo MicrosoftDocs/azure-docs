@@ -1,6 +1,6 @@
 ---
-title: 'How to scan Azure files'
-description: This how to guide describes details of how to scan Azure files. 
+title: 'How to register and scan Azure files'
+description: This how to guide describes details of how to scan Azure files in Azure Purview. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview

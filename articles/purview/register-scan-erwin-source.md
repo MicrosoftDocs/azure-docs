@@ -1,5 +1,5 @@
 ---
-title: Register Erwin Mart and setup scans in Azure Purview
+title: Register Erwin Mart and setup scans
 description: This article outlines how to register Erwin Mart in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra

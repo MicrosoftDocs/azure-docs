@@ -1,5 +1,5 @@
 ---
-title: 'How to scan Azure Synapse Analytics workspaces'
+title: 'How to register and scan Azure Synapse Analytics workspaces'
 description: Learn how to scan an Azure Synapse workspace in your Azure Purview data catalog. 
 author: viseshag
 ms.author: viseshag
