@@ -23,27 +23,27 @@ highlightedContent:
     # Card
     - title: What is Azure Machine Learning?
       itemType: overview
-      url: overview-what-is-azure-machine-learning.md
+      url: ../machine-learning/overview-what-is-azure-machine-learning.md
     # Card
     - title: Set up resources
       itemType: get-started
-      url: quickstart-create-resources.md
+      url: ../machine-learning/quickstart-create-resources.md
     # Card
     - title: 'Preview: Train models with v2 CLI'
       itemType: tutorial
-      url: how-to-train-cli.md      
+      url: ../machine-learning/how-to-train-cli.md      
     # Card
     - title: Architecture & terms
       itemType: overview
-      url: concept-azure-machine-learning-architecture.md 
+      url: ../machine-learning/concept-azure-machine-learning-architecture.md 
     # Card
     - title: 'Day 1: Get started with Python'
       itemType: get-started
-      url: tutorial-1st-experiment-hello-world.md 
+      url: ../machine-learning/tutorial-1st-experiment-hello-world.md 
     # Card
     - title: "Migrate from ML Studio (classic)"
       itemType: how-to-guide
-      url: migrate-overview.md      
+      url: ../machine-learning/migrate-overview.md      
 
 conceptualContent:
 # Supports up to 3 sections
@@ -52,53 +52,53 @@ conceptualContent:
     # Card
     - title: Train models
       links:
-        - url: how-to-train-cli.md
+        - url: ../machine-learning/how-to-train-cli.md
           itemType: how-to-guide
           text: Run training code in the cloud (v2 CLI preview)
-        - url: how-to-tune-hyperparameters.md
+        - url: ../machine-learning/how-to-tune-hyperparameters.md
           itemType: how-to-guide
           text: Tune hyperparameters for model training
-        - url: how-to-create-machine-learning-pipelines.md
+        - url: ../machine-learning/how-to-create-machine-learning-pipelines.md
           itemType: how-to-guide
           text: Build pipelines from reuseable components
-        - url: tutorial-first-experiment-automated-ml.md
+        - url: ../machine-learning/tutorial-first-experiment-automated-ml.md
           itemType: tutorial
           text: 'AutoML: Train a classification model'
 
     # Card
     - title: Deploy models
       links:
-        - url: how-to-deploy-and-where.md
+        - url: ../machine-learning/how-to-deploy-and-where.md
           itemType: how-to-guide
           text: How to deploy a model
-        - url: how-to-deploy-managed-online-endpoints.md
+        - url: ../machine-learning/how-to-deploy-managed-online-endpoints.md
           itemType: how-to-guide
           text: Real-time scoring with a managed endpoint (preview)
-        - url: how-to-use-batch-endpoint.md
+        - url: ../machine-learning/how-to-use-batch-endpoint.md
           itemType: how-to-guide
           text: Batch scoring with managed endpoints (preview)
     # Card
     - title: Manage the ML lifecycle (MLOps)
       links:
-        - url: how-to-track-monitor-analyze-runs.md
+        - url: ../machine-learning/how-to-track-monitor-analyze-runs.md
           itemType: how-to-guide
           text: Track, monitor, analyze training runs
-        - url: concept-model-management-and-deployment.md
+        - url: ../machine-learning/concept-model-management-and-deployment.md
           itemType: concept
           text: Model management, deployment, lineage & monitoring
-        - url: how-to-cicd-data-ingestion.md
+        - url: ../machine-learning/how-to-cicd-data-ingestion.md
           itemType: how-to-guide
           text: DevOps for a data ingestion pipeline
     # Card
     - title: Security for ML projects
       links:
-        - url: tutorial-create-secure-workspace.md
+        - url: ../machine-learning/tutorial-create-secure-workspace.md
           itemType: tutorial
           text: Create a secure workspace
-        - url: how-to-access-data.md
+        - url: ../machine-learning/how-to-access-data.md
           itemType: how-to-guide
           text: Connect to data sources 
-        - url: concept-enterprise-security.md
+        - url: ../machine-learning/concept-enterprise-security.md
           itemType: concept
           text: Enterprise security & governance
     # Card
@@ -107,24 +107,10 @@ conceptualContent:
         - url: /python/api/overview/azure/ml/
           itemType: reference
           text: Python SDK
-        - url: /rest/api/azureml/
-          itemType: reference
-          text: REST API 
-        - url: /cli/azure/ml/
-          itemType: reference
-          text: V2 CLI (preview)
-        - url: ./algorithm-module-reference/module-reference.md
-          itemType: reference
-          text: Algorithm & module reference 
+
     # Card
     - title: Resources
       links:
         - url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
           itemType: sample
           text: Python SDK code examples
-        - url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
-          itemType: sample
-          text: v2 CLI code examples (preview)
-        - url: ./classic/index.yml
-          itemType: overview
-          text: ML Studio (classic) documentation
