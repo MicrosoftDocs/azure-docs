@@ -1,13 +1,13 @@
 ---
-title: Visual Studio Code extension for Azure Video Analyzer
+title: Use the Visual Studio Code extension for Azure Video Analyzer
 description: This article walks you through the steps to get started with the Visual Studio Code extension for Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 09/14/2021
+ms.date: 09/24/2021
 
 ---
 
-# Visual Studio Code extension for Azure Video Analyzer
+# Use the Visual Studio Code extension for Azure Video Analyzer
 
 [!INCLUDE [header](includes/edge-env.md)]
 
@@ -76,4 +76,4 @@ Now that a live pipeline has been activated, operational events can be viewed by
 
 ## Next steps
 
-Create your own custom pipeline topology by dragging and dropping topology components in the Visual Studio Code extension. Learn how to parameterize variables and how modules are connected by following the [Visual Studio Code extension reference](../visual-studio-code-extension.md).
+Create your own custom pipeline topology by dragging and dropping topology components in the Visual Studio Code extension. Learn how to parameterize variables and how modules are connected by following the [Visual Studio Code extension for Azure Video Analyzer](../visual-studio-code-extension.md) reference.
