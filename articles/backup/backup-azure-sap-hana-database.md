@@ -95,7 +95,7 @@ When you back up an SAP HANA database running on an Azure VM, the backup extensi
 
 ## Enable Cross Region Restore
 
-At the Recovery Services vault, you can enable Cross Region Restore. You must Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+At the Recovery Services vault, you can enable Cross Region Restore. You must turn on Cross Region Restore before you configure and protect backups on your HANA databases. Learn about [how to turn on Cross Region Restore](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
 
 [Learn more](/azure/backup/backup-azure-recovery-services-vault-overview) about Cross Region Restore.
 
