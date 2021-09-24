@@ -92,22 +92,22 @@ An alternative way to create an activity log alert is to start with an activity 
     
 ### View and manage in the Azure portal
 
-1. In the Azure portal, select **Monitor** > **Alerts**. Select **Manage alert rules** in the upper-left corner of the window.
+1. In the Azure portal, select **Monitor** > **Alerts**. Then select **Manage alert rules**.
 
-    :::image type="content" source="media/alerts-activity-log/manage-alert-rules-button-new.png" alt-text="Screenshot of manage alert rules button.":::
+    :::image type="content" source="media/alerts-activity-log/manage-alert-rules-button-new.png" alt-text="Screenshot of the manage alert rules button.":::
     
     The list of available rules appears.
 
 2. Filter or search for the activity log rule to modify.
 
-    :::image type="content" source="media/alerts-activity-log/manage-alert-rules-new.png" alt-text="Screenshot of alert rules management blade." lightbox="media/alerts-activity-log/manage-alert-rules-new.png":::
+    :::image type="content" source="media/alerts-activity-log/manage-alert-rules-new.png" alt-text="Screenshot of the alert rules management pane." lightbox="media/alerts-activity-log/manage-alert-rules-new.png":::
 
     You can use the available filters, _Subscription_, _Resource group_,  _Resource_, _Signal type_, or _Status_, to find the activity rule that you want to edit.
  
 3. Select the rule, and double-click to edit the rule options. Make the required changes, and then select **Save**. 
 
 ## Azure Resource Manager template
-To create an activity log alert rule by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert  rule:
+To create an activity log alert rule by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert rule:
 
 ```json
 {
@@ -174,25 +174,23 @@ To create an activity log alert rule by using an Azure Resource Manager template
   ]
 }
 ```
-The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
+The previous sample JSON can be saved as, for example, *sampleActivityLogAlert.json*. You can deploy the sample by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 > [!NOTE]
-> 
-> Notice that the highest-level activity log alerts can be defined is subscription.
-> Meaning there is no option to define alert on couple of subscriptions, therefore the definition should be alert  per subscription.
+> Notice that the highest level that activity log alerts can be defined is the subscription level. There is no option to define an alert on two subscriptions. The definition should be to alert per subscription.
 
-The following fields are the options that you can use in the Azure Resource Manager template for the conditions fields:
-Notice that “Resource Health”, “Advisor” and “Service Health” have extra properties fields for their special fields. 
-1. resourceId:	The resource ID of the impacted resource in the activity log event that the alert should be generated on.
-2. category: The category of in the activity log event. For example: Administrative, ServiceHealth, ResourceHealth, Autoscale, Security, Recommendation, Policy.
-3. caller: The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.
-4. level: Level of the activity in the activity log event that the alert should be generated on. For example: Critical, Error, Warning, Informational, Verbose.
-5. operationName: The name of the operation in the activity log event. For example: Microsoft.Resources/deployments/write
-6. resourceGroup: Name of the resource group for the impacted resource in the activity log event.
-7. resourceProvider: [Azure resource providers and types explanation](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0).
-8. status: String describing the status of the operation in the activity event. For example: Started, In Progress, Succeeded, Failed, Active, Resolved
-9. subStatus: Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus.	For example: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504).
-10. resourceType: The type of the resource that was affected by the event. For example: Microsoft.Resources/deployments
+The following fields are the options that you can use in the Azure Resource Manager template for the conditions fields. (Notice that **Resource Health**, **Advisor** and **Service Health** have extra properties fields for their special fields.) 
+
+1. `resourceId`: The resource ID of the impacted resource in the activity log event that the alert should be generated on.
+1. `category`: The category of the activity log event. For example: `Administrative`, `ServiceHealth`, `ResourceHealth`, `Autoscale`, `Security`, `Recommendation`, or `Policy`.
+1. `caller`: The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.
+1. `level`: Level of the activity in the activity log event that the alert should be generated on. For example: `Critical`, `Error`, `Warning`, `Informational`, or `Verbose`.
+1. `operationName`: The name of the operation in the activity log event. For example: `Microsoft.Resources/deployments/write`.
+1. `resourceGroup`: Name of the resource group for the impacted resource in the activity log event.
+1. `resourceProvider`: For more information, see [Azure resource providers and types](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fresource-providers-and-types&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373543634&sdata=4RjpTkO5jsdOgPdt%2F%2FDOlYjIFE2%2B%2BuoHq5%2F7lHpCwQw%3D&reserved=0). For a list that maps resource providers to Azure services, see [Resource providers for Azure services](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-resource-manager%2Fmanagement%2Fazure-services-resource-providers&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373553639&sdata=0ZgJPK7BYuJsRifBKFytqphMOxMrkfkEwDqgVH1g8lw%3D&reserved=0).
+1. `status`: String describing the status of the operation in the activity event. For example: `Started`, `In Progress`, `Succeeded`, `Failed`, `Active`, or `Resolved`.
+1. `subStatus`: Usually, this field is the HTTP status code of the corresponding REST call. But it can also include other strings describing a substatus. Examples of HTTP status codes include `OK` (HTTP Status Code: 200), `No Content` (HTTP Status Code: 204), and `Service Unavailable` (HTTP Status Code: 503), among many others.
+1. `resourceType`: The type of the resource that was affected by the event. For example: `Microsoft.Resources/deployments`.
 
 For example:
 
@@ -211,9 +209,8 @@ For example:
         }
 
 ```
-More details on the activity log fields you can find [here](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
 
-
+For more information about the activity log fields, see [Azure Activity Log event schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
 
 > [!NOTE]
 > It might take up to 5 minutes for the new activity log alert rule to become active.
