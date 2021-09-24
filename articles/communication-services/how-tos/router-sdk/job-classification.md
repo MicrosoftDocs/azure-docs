@@ -26,7 +26,7 @@ Learn to use a classification policy in Job Router to dynamically define the que
 
 ## Static classification
 
-When creating a Job with the SDK, specify the queue, priority, and worker requirements only; this method is known as **static classification**. The following example would place a Job in the `XBOX_DEFAULT_QUEUE` with a priority of `1` and require workers to have a skill of `XBOX_Hardware` greater than or equal to `7`.
+When creating a Job with the SDK, specify the queue, priority, and worker requirements only; this method is known as **static classification**. The following example would place a Job in the `XBOX_DEFAULT_QUEUE` with a priority of `1` and require workers to have a skill of `XBOX_Hardware` greater than or equal to `5`.
 
 > [!NOTE]
 > A Job can be [reclassified after submission](#reclassify-a-job-after-submission) even if it was initially created without a classification policy. In this case, Job Router will evaluate the policy's behavior against the **labels** and make the necessary adjustments to the queue, priority, and worker requirements.
@@ -42,7 +42,7 @@ var job = await client.CreateJobAsync(
         new (
             key: "XBOX_Hardware",
             @operator: RequirementOperator.GreaterThanEqual,
-            value: 7)
+            value: 5)
     }
 );
 
@@ -51,7 +51,7 @@ var job = await client.CreateJobAsync(
 
 ## Dynamic classification
 
-As described above, an easy way of submitting a Job is to specify the priority, queue, and worker requirements during submission. When doing so, the sender is required to have knowledge about these characteristics. To avoid the sender having explicit knowledge about the inner workings of the Job Router's behavior, the sender can specify a **classification policy** along with a generic **labels** collection to invoke the dynamic behavior.
+As described above, an easy way of submitting a Job is to specify the priority, queue, and worker requirements during submission. When doing so, the sender needs to have knowledge about these characteristics. To avoid the sender having explicit knowledge about the inner workings of the Job Router's behavior, the sender can specify a **classification policy** along with a generic **labels** collection to invoke the dynamic behavior.
 
 ### Create a classification policy
 
@@ -101,10 +101,10 @@ var dynamicJob = await client.CreateJobAsync(
 
 ## Reclassify a job after submission
 
-Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job to `10`, simply by specifying the Job **ID**, calling the `ReclassifyJobAsync` method, and including the `Hardware_VIP` label.
+Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `ReclassifyJobAsync` method, and including the `Hardware_VIP` label.
 
 ```csharp
-var job = await client.ReclassifyJobAsync(
+var reclassifiedJob = await client.ReclassifyJobAsync(
     jobId: "4ad7f4b9-a0ff-458d-b3ec-9f84be26012b",
     classificationPolicyId: null,
     labelsToUpdate: new LabelCollection()

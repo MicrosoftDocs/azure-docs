@@ -14,6 +14,8 @@ ms.custom: template-how-to
 
 # Manage a queue
 
+This guide outlines the steps to create and manage a Job Router queue.
+
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 ## Prerequisites
@@ -21,4 +23,38 @@ ms.custom: template-how-to
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
+
+## Create a queue
+
+To create a simple queue in Job Router, use the SDK to specify the **id**, **name**, and a **distribution policy ID**. The distribution policy must be created in advance as the Job Router will validate its existence upon creation of the queue. In the following example, a distribution policy is created to control how Job offers are generated for Workers.
+
+```csharp
+var distributionPolicy = await client.SetDistributionPolicyAsync(
+    id: "Longest_Idle_45s_Min1Max10",
+    name: "Longest Idle matching with a 45s offer expiration; min 1, max 10 offers",
+    offerTTL: TimeSpan.FromSeconds(45),
+    mode: new LongestIdleModePolicy(
+        minConcurrentOffers: 1,
+        maxConcurrentOffers: 10)
+);
+
+var queue = client.SetQueueAsync(
+    id: "XBOX_DEFAULT_QUEUE",
+    name: "XBOX Default Queue",
+    distributionPolicy: "Longest_Idle_45s_Min1Max10"
+);
+```
+## Update a queue
+
+The Job Router SDK will perform a create or update to the queue 
+
+```csharp
+var queue = client.SetQueueAsync(
+    id: "XBOX_DEFAULT_QUEUE",
+    name: "XBOX Default Queue",
+    distributionPolicy: "Longest_Idle_45s_Min1Max10"
+);
+```
+
+## Get jobs in a queue
 
