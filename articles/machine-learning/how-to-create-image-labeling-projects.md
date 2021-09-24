@@ -221,5 +221,4 @@ Use these tips if you see any of these issues.
 ## Next steps
 
 * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
-* Label images for [image classification or object detection](how-to-label-data.md)
-* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+* [How to tag images](how-to-label-data.md)

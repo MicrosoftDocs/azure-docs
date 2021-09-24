@@ -57,7 +57,7 @@ Machine learning algorithms may be triggered during your labeling. If these algo
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
 
-## Image tasks
+## <a name="image-tasks"></a> Image tasks
 
 For image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout.
 
@@ -157,14 +157,14 @@ To delete *all* polygons in the current image, select the **Delete all regions**
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
-## Label text (preview)
+## <a name="label-text"></a>Label text (preview)
 
 > [!IMPORTANT]
 > Text labeling is in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When annotating text, use the toolbar to:
+When tagging text, use the toolbar to:
 
 * Increase or decrease the text size
 * Change the font
