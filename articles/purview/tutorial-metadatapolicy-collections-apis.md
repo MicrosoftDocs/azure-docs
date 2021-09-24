@@ -12,7 +12,7 @@ ms.date: 09/24/2021
 
 # Tutorial: Use REST APIs to manage Role Based Access Control (RBAC) on Azure Purview Collections 
 
-In August 2021, access control in Azure Purview moved from Access Control (IAM) (control plane) to [Azure Purview Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This change allows enterprise data curators and admins to have more precise access control on their data sources scanned by Purview, and allows organizations to audit right-access and right-use of their data.
+In August 2021, access control in Purview moved from Azure IAM (control plane) to [Azure Purview Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This change allows enterprise data curators and admins to have more precise granular access control on their data sources scanned by Purview, and enables organizations to audit right-access and right-use of their data.
 
 This tutorial guides you through using the Azure Purview APIs to add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure Portal or Purview Studio to achieve the same fine grained access control.
 
@@ -88,7 +88,7 @@ Details on some of the important identifiers in the JSON output received from th
 
 **Id**: Unique identifier for the policy
 
-**Version**: latest version number of the policy. \*\*(Version number gets incremented each time Update-Metadata-Policy API is called. So, it is necessary to fetch the latest copy of the policy all the time. To achieve this, you must call Get-Policy-by-Policy-ID API every time before updating it, so that you always have the latest version of the JSON)
+**Version**: latest version number of the policy. \*\*(Version number gets incremented each time Update-Metadata-Policy API is called. Ensure to fetch the latest copy of the policy all the time. To achieve this, you must call Get-Policy-by-Policy-ID API every time before calling the Update Policy (PUT) API, so that you always have the latest version of the JSON)
 
 **DecisionRules**:  List the rules and effect of this policy. For metadata policies, the effect is always “Permit”.
 
@@ -235,7 +235,7 @@ The output JSON will describe the roles and their associated permissions in this
 ```ruby
 GET https://{your_purview_account_name}.purview.azure.com/policystore/metadataPolicies?api-version=2021-07-01
 ```
-Lists all the Metadata Policies available across the entire collections hierarchy including and beginning with the Root Collection, as well as all its child policies in tree format. The hierarchy begins with the Root Collection at the top followed by its child collection. Each child collection encapsulates each of its next level children.
+Lists all the Metadata Policies available across the entire collections hierarchy beginning with the Root Collection, and all its child policies in tree format. The hierarchy begins with the Root Collection at the top followed by its child collection. Each child collection encapsulates each of its next level children.
 Example:
 
 ```json
@@ -603,7 +603,7 @@ Example:
 ## Get Selected Metadata Policy 
 This API fetches the Policy either by CollectionName or by PolicyID.
 At this point you would want to choose the particular policy to modify (add/remove users). Pick the particular PolicyID from the previous step’s JSON output. 
-Now you can choose to use either API 3A or 3B below. Both serve the same purpose, it is your choice whether to use {collectionName} or {PolicyID}.
+Now you can choose to use either API 3A or 3B below. Both serve the same purpose, you may choose whether to use {collectionName} or {PolicyID}.
 
 ### Get MetadataPolicy of the collection by collectionName
 ```ruby
@@ -893,7 +893,7 @@ Whether you want to **add** or **remove** User/Group/SP(ServicePrincipal), you'l
 }
 ```
 ## Add root collection admin
-By default, the user who created the Purview account is the root collection admin (administrator of the topmost level of the collection hierarchy). However, in some cases, an organization needs to change the root collection admin using the API. It is possible that the current root collection admin doesn’t exist in the organization anymore. In these cases the Azure portal may not be accessible to anyone in the organization. Hence, usage of API to manage collection permissions becomes unavoidable and the only way to regain access to the Purview account.
+By default, the user who created the Purview account is the root collection admin (administrator of the topmost level of the collection hierarchy). However, in some cases, an organization needs to change the root collection admin using the API. For instance, it's possible that the current root collection admin doesn’t exist in the organization anymore. In these cases the Azure portal may not be accessible to anyone in the organization because of which, usage of API to assign a new collection administrator and manage collection permissions becomes unavoidable and the only way to regain access to the Purview account.
 
 ```ruby
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01
