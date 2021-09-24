@@ -1,56 +1,67 @@
-Set-up diagnostic for Autoscale
-===============================
+---
+title: Set up diagnostics for Azure Virtual Desktop autoscaling feature
+description: How to assign scaling plans to new or existing host pools in your deployment.
+author: Heidilohr
+ms.topic: how-to
+ms.date: 09/21/2021
+ms.author: helohr
+manager: femila
+---
+# Set up diagnostics for the autoscaling feature
 
-Limitations
------------
+> [!IMPORTANT]
+> The autoscaling feature is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In preview you can choose to select to send the logs to either an Azure Storage Account or use Event hubs to consume logs. Later in preview we are planning to enable Log Analytics for monitoring and troubleshooting scaling plans. Learn more about diagnostic settings
-[here](../azure-monitor/essentials/diagnostic-settings.md). For resource log data ingestion time see this [Azure Monitor document](../azure-monitor/logs/data-ingestion-time.md).
+Diagnostics lets you monitor potential issues and fix them before they interfere with your autoscaling (preview) scaling plan.
 
-When setting up an Azure Storage Account ensure it matches the region for the
-scaling plan. To enable diagnostics:
+Currently, you can either send diagnostic logs for the autoscaling feature to an Azure Storage account or consume logs with the Events hub. If you're using an Azure Storage account, make sure it's in the same region as your scaling plan. Learn more about diagnostic settings at [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md). For more information about resource log data ingestion time, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
+## Enable diagnostics for scaling plans
 
-- Select **Scaling Plans** and select a scaling plan in your list
+To enable diagnostics for your scaling plan:
 
-- Navigate to **Diagnostic Settings** and select “add diagnostic setting”.
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 
-- Provide a name for the diagnostic setting.
+2. Select **Scaling plans**, then select the scaling plan you'd like the report to track.
 
-- Next select **Autoscaling** and choose either storage account or event hub.
+3. Go to **Diagnostic Settings** and select **Add diagnostic setting**.
 
-- Save when done.
+4. Enter a name for the diagnostic setting.
 
-Logs location using Azure Storage
----------------------------------
+5. Next, select **Autoscaling** and choose either **storage account** or **event hub** depending on where you want to send the report.
 
-After you complete configuring diagnostics settings in scaling plan you will be able to find those logs using the following steps.
+6. Select **Save**.
 
-- Navigate to the Storage Group you configured diagnostics to send logs to.
+## Set log location in Azure Storage
 
-- Select containers and will see folder called insight-logs-autoscaling
+After you've configured your diagnostic settings, you can find the logs by following these instructions:
+
+1. In the Azure portal, go to the storage group you sent the diagnostic logs to.
+
+2. Select **Containers**. A folder called **insight-logs-autoscaling** should open.
 
 ![Graphical user interface, application Description automatically generated](media/a1b43719aa6d9117b7e60a2a21c7d4ca.png)
 
-- Select the insight-logs-autoscaling folder and navigate to the log you want to see. You will have to select several times till you reach the final folder and see the JSON file as in the example below. Right select the row to download the log file.
+3. Select the **insight-logs-autoscaling folder** and open the log you want to review. Open folders within that folder until you see the JSON file, then select all items in that folder, right-click, and download them to your local computer.
 
 ![Graphical user interface, text, application, email Description automatically generated](media/e472cf84eba5dd1c56b1d9565fbfe045.png)
 
-- Open .json file in desired text editor
+4. Finally, open the JSON file in the text editor of your choice.
 
-Viewing Diagnostics logs
-------------------------
+## View diagnostic logs
 
-Logs are stored in a json format. In this documentation we would like to give an overview on the pieces of the log.
+Now that you've opened the JSON file, let's do a quick overview of what each piece of the report means:
 
-1. **CorrelationID**: Provide this ID to support for further troubleshooting when opening a support case.
+- The **CorrelationID** is the ID that you need to show when you create a support case.
 
-2. **OperationName**: provides information on type of operation that has been executed.
+2. **OperationName** is the type of operation running while the issue happened.
 
-3. **ResultType**: result of the operation. In case of a failed operation, you want to review the message.
+3. **ResultType** is the result of the operation. This item can show you where issues are if you notice any incomplete results.
 
-4. **Message**: Contains the error message that provides information on the failed operation. Please review carefully for links to documentation that help to troubleshoot or mitigate the situation. If you are starting to build alerting based on the logs note those those are still under development and might change. We will keep you updated.
+4. **Message** is the error message that provides information on the incomplete operation. This message can include links to important troubleshooting documentation, so review it carefully.
+
+The following JSON file is an example of what you'll see when you open a report:
 
 ```json
 {
@@ -72,3 +83,8 @@ Logs are stored in a json format. In this documentation we would like to give an
     }
 }. L
 ```
+
+## Next steps
+
+- Review how to create a scaling plan at [Autoscaling for Azure Virtual Desktop session hosts](autoscaling-new-existing.md).
+- [Assign your scaling plan to new and existing host pools](autoscaling-new-existing.md)

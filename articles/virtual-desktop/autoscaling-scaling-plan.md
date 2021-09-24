@@ -10,7 +10,7 @@ manager: femila
 # Autoscaling for Azure Virtual Desktop session hosts
 
 > [!IMPORTANT]
-> The autoscale feature is currently in preview.
+> The autoscaling feature is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The autoscaling feature (preview) lets you scale your Azure Virtual Desktop deployment's virtual machines (VMs) up or down to optimize deployment costs. Based on your needs, you can make a scaling plan based on:
@@ -243,4 +243,3 @@ Now that you've created your scaling plan, here are some things you can do:
 
 - [Assign your scaling plan to new and existing host pools](autoscaling-new-existing.md)
 - [Enable diagnostics for your scaling plan](autoscaling-diagnostics.md)
-- 
