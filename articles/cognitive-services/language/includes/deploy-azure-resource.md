@@ -14,7 +14,7 @@ To use Language Studio, you will need an Azure resource for language for authent
 > [!IMPORTANT] 
 > The setup process and requirements for the custom features are different. If you're using one of the custom features, we recommend following one of the quickstart articles linked below to get started more easily.  
 > * [Conversational Language Understanding](../custom-language-understanding/quickstart.md)
-> * [Custom Text Classification](../custom-classification/quickstart/using-language-studio.md)
+> * [Custom Text Classification](../custom-classification/quickstart.md)
 > * [Custom Named Entity Recognition (NER)](../custom-named-entity-recognition/quickstart.md) 
 
 1. Create an Azure Subscription. You can [create one for free](https://azure.microsoft.com/free/ai/). 
