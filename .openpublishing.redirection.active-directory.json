@@ -1,9 +1,14 @@
 {
     "redirections": [
-        {
-            "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
-            "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
-            "redirect_document_id": false
-          }
+      {
+        "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
+        "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-remediate-users-flagged-for-risk.md",
+        "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock",
+        "redirect_document_id": false
+      }
     ]
 }
