@@ -888,7 +888,9 @@ You only need to pass in the objectId for the user or group
 {"objectId": "{guid}"}
 ```
 On success, you will get response 200.
-Note: The user who calls this API must have owner or UAA permission on Purview account to execute a write action on the account.
+
+> [!NOTE]
+> The user who calls this API must have owner or UAA permission on Purview account to execute a write action on the account.
 
 
 ## 6. Purview REST API Specs Combined Archive
