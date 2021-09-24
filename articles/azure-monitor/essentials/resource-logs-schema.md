@@ -17,7 +17,7 @@ ms.date: 05/10/2021
 A combination of the resource type (available in the `resourceId` property) and the category uniquely identify a schema. This article describes the top-level schemas for resource logs and links to the schemata for each service.
 
 
-## Top-level common schemas
+## Top-level common schema
 
 | Name | Required or optional | Description |
 |---|---|---|

@@ -68,8 +68,8 @@ Data that Azure Monitor Metrics collects is stored in a time-series database tha
 * The value itself
 * [Multiple dimensions](#multi-dimensional-metrics) (up to 10) for some custom metrics
 
-## Multidimensional metrics
-One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multidimensional metrics. 
+## Multi-dimensional metrics
+One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multi-dimensional metrics. 
 
 Dimensions of a metric are name/value pairs that carry additional data to describe the metric value. For example, a metric called _Available disk space_ might have a dimension called _Drive_ with values _C:_ and _D:_. That dimension would allow viewing available disk space across all drives or for each drive individually.
 
@@ -98,12 +98,12 @@ This nondimensional metric can only answer a basic question like "What was my ne
 | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Send"    | 155.0 Kbps |
 | 8/9/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100.1 Kbps |
 
-This metric can answer questions such as "What was the network throughput for each IP address?" and "How much data was sent versus received?" Multidimensional metrics carry additional analytical and diagnostic value compared to nondimensional metrics.
+This metric can answer questions such as "What was the network throughput for each IP address?" and "How much data was sent versus received?" Multi-dimensional metrics carry additional analytical and diagnostic value compared to nondimensional metrics.
 
-### Viewing multidimensional performance counter metrics in Metrics Explorer 
-It's not possible to send performance counter metrics that contain an asterisk (\*) to Azure Monitor via the Classic Guest Metrics API. This API can't display metrics that contain an asterisk because it's a multidimensional metric, which classic metrics don't support.
+### Viewing multi-dimensional performance counter metrics in Metrics Explorer 
+It's not possible to send performance counter metrics that contain an asterisk (\*) to Azure Monitor via the Classic Guest Metrics API. This API can't display metrics that contain an asterisk because it's a multi-dimensional metric, which classic metrics don't support.
 
-To configure and view multidimensional performance counter metrics:
+To configure and view multi-dimensional performance counter metrics:
 
 1. Go to the **Diagnostic settings** page for your virtual machine.
 2. Select the **Performance counters** tab. 

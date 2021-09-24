@@ -33,13 +33,13 @@ Using diagnostic settings is the easiest way to route the metrics, but there are
 
 - **Exportability**. All metrics are exportable through the REST API, but some can't be exported through diagnostic settings because of intricacies in the Azure Monitor back end. The column "Exportable via Diagnostic Settings" in the following tables lists which metrics can be exported in this way.  
 
-- **Multidimensional metrics**. Sending multidimensional metrics to other locations via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single-dimensional metrics, aggregated across dimension values. 
+- **Multi-dimensional metrics**. Sending multi-dimensional metrics to other locations via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single-dimensional metrics, aggregated across dimension values. 
 
   For example, the *Incoming Messages* metric on an event hub can be explored and charted on a per-queue level. But when the metric is exported via diagnostic settings, it will be represented as all incoming messages across all queues in the event hub.
 
 ## Guest OS and host OS metrics
 
-Metrics for the guest operating system (guest OS) that runs in Azure Virtual Machines, Service Fabric, and Cloud Services are *not* listed here. Guest OS metrics must be collected through the one or more agents that run on or as part of the guest operating system. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting. 
+Metrics for the guest operating system (guest OS) that runs in Azure Virtual Machines, Service Fabric, and Cloud Services are *not* listed here. Guest OS metrics must be collected through one or more agents that run on or as part of the guest operating system. Guest OS metrics include performance counters that track guest CPU percentage or memory usage, both of which are frequently used for autoscaling or alerting. 
 
 Host OS metrics *are* available and listed in the tables. Host OS metrics relate to the Hyper-V session that's hosting your guest OS session. 
 
