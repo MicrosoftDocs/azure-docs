@@ -1,12 +1,9 @@
 ---
 title: Manage access to VMware resources through Azure Role-Based Access Control
 description: This article will help you understand how to manage access to your on-prem VMware resources through Azure Role-Based Access Control. 
-author: snehithm
-ms.author: snmuvva
-ms.service: 
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.custom: template-how-to
+
 #Customer intent: As a VI admin, I want to manage access to my vCenter resources in Azure so that I can keep environments secure
 ---
 

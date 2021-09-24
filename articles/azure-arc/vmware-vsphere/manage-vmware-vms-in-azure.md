@@ -1,12 +1,9 @@
 ---
 title: Manage VMware VMs in Azure through Arc enabled VMware vSphere.
 description: In this Section, we will view the operations that you can perform on VMware VMs and install Log Analytics agent.
-author: ShubhamJain1992
-ms.author: shuj
-ms.service: arc
 ms.topic: how-to 
 ms.date: 08/20/2021
-ms.custom: template-how-to
+
 ---
 
 # Manage VMware VMs in Azure through Arc enabled VMware vSphere

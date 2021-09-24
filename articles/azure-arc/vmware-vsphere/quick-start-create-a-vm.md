@@ -1,12 +1,9 @@
 ---
 title: Create a virtual machine on VMware vCenter using Azure Arc
 description: In this quickstart, you will learn how to Create a virtual machine on VMware vCenter using Azure Arc
-author: snehithm
-ms.author: snmuvva
-ms.service: arc
 ms.topic: quickstart 
 ms.date: 04/05/2021
-ms.custom: template-quickstart
+
 # Customer intent: As a self-service user, I want to provision a VM using vCenter resources through Azure so that I can deploy my code
 ---
 

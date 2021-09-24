@@ -1,12 +1,9 @@
 ---
 title: Browse and enable your VMware vCenter resources in Azure
 description: This article will help you understand how to browse your vCenter inventory and represent your VMware vCenter resources in Azure
-author: ShubhamJain1992
-ms.author: shuj
-ms.service: arc
 ms.topic: how-to
 ms.date: 08/20/2021
-ms.custom: template-how-to
+
 #Customer intent: As a VI admin, I want to represent a subset of  my vCenter resources in Azure so that I can enable self-service
 ---
 
