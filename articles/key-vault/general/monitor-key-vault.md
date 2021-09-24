@@ -67,7 +67,7 @@ For a list of the platform metrics collected for Key Vault, see [Monitoring Key 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema) The schema for Key Vault resource logs is found in the [Key Vault Data Reference](monitor-key-vault-reference.md#schemas) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema) 
 
 The [Activity log](../../azure-monitor/platform/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
@@ -80,7 +80,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 > [!IMPORTANT]
 > When you select **Logs** from the Key Vault menu, Log Analytics is opened with the query scope set to the current key vault. This means that log queries will only include data from that resource. If you want to run a query that includes data from other key vaults, or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
-Here are some queries that you can enter into the **Log search** search bar to help you monitor your Key Vault resources. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+Here are some queries that you can enter into the **Log search** search bar to help you monitor your Key Vault resources. These queries work with the [new language](/azure-monitor/logs/log-query-overview).
 
 * Are there any slow requests?
 
@@ -177,7 +177,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/platform/alerts-metric-overview.md), [logs](../../azure-monitor/platform/alerts-unified-log.md), and the [activity log](../../azure-monitor/platform/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
 
-If you are creating or running an application which run on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/overview.md#application-insights.md) may offer additional types of alerts.
+If you are creating or running an application which run on Azure Key Vault, [Azure Monitor Application Insights](/azure-monitor/overview#application-insights.md) may offer additional types of alerts.
 
 Here are some common and recommended alert rules for Azure Key Vault.
 
