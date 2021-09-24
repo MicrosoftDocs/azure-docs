@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 UI Mobile Library is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Mobile UI Library is [video and voice calling](../voice-video-calling/calling-sdk-features), and it builds on Azure's calling primitives to deliver a complete user experience based on calling and meetings primitives.
 
-The UI Mobile Library objective is provide these capabilities available to you in a turnkey, composite format. You drop the UI SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is very lightly, you can take advantage of reduce the development time and engineering complexity.
+The UI Mobile Library objective is to provide these capabilities available to you in a turnkey, composite format. You drop the UI SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is lightly, you can take advantage of reduce the development time and engineering complexity.
 
 ## Composites
 
@@ -25,12 +25,7 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video and see other participants, including those with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
 
-## Platform support
 
-|Platform | Versions|
-|---------|---------|
-| iOS     | iOS 13+ |
-| Android | v23+    |
 
 ## Installing Mobile UI Library
 
@@ -42,24 +37,28 @@ TBD Maven Android repo
 TBD Cocoapods iOS repo
 ```
 
-
 ## Scenarios
 
-### Joining a meeting
+### Joining a video/audio call
 
-The users can join easily over the meeting using the Teams meeting URL to a simpler and great experience, just like the Teams application. Adding the capability to the user to be part of extensive live meetings without losing the experience of the simplicity of the Teams application.
+The users can join easily over the call using the *Teams meeting URL* or setup an Azure Communication Services Call to a simpler and great experience, just like the Teams application. Adding the capability to the user to be part of extensive live video calling or audio calling without losing the experience of the simplicity and focusing in what really matters.
 
-### Pre-meeting experience
+<img src="../media/mobile-ui/join_meet.png" alt="eeting experience" width="75%"/>
 
-As a participant of any of the meetings, you can set up a default configuration for audio and video devices. Add your name and bring your own image avatar.
+
+### Pre-call experience
+
+As a participant of any of the call, you can set up a default configuration for audio and video devices. Add your name and bring your own image avatar.
 
 <img src="../media/mobile-ui/teams_meet.png" alt="Pre-meeting experience" width="75%"/>
 
-### Meeting experience
+### Call experience
 
-Customize the user experience, adjust the capabilities accordingly to your needs. You will control the overall experience during the meetings.
+Customize the user experience, adjust the capabilities accordingly to your needs. You will control the overall experience during the call. 
 
 <img src="../media/mobile-ui/Calling_composite.png" alt="Meeting experience" width="40%"/>
+
+**The calling experience provides all those capabilities in one single composite: *calling composite*, providing a clear path without complex code, and quickly implementing and faster development.**
 
 ### Quality and security
 
@@ -92,10 +91,7 @@ Details about feature availability in the [UI Library is available here](mobile-
 | Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop) |
 | --------------------- | ------------------------- | --------------------- |  ---- | ----------------------------------------------------------------------------------------------- |
 | Composite Components  | Low                       | Low                   |         ✔    | ✔                                                                                               |
-| Base Components       | Medium                    | Medium                |         ✔    | ✔                                                                                               |
 | Core client libraries | High                      | High                  |         ✔    | ✔                                                                                               |
-
-
 
 ## Learn and go
 

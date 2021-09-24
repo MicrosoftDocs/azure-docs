@@ -36,6 +36,15 @@ Composites enable developers to easily integrate a whole calling experience into
 |                                                                                                 | Video on/off on call                                   |
 |                                                                                                 | End call                                               |
 
+## Installing Mobile UI Library
+
+``` java
+TBD Maven Android repo
+```
+
+``` swift
+TBD Cocoapods iOS repo
+```
 
 ## Supported Identities
 
@@ -47,7 +56,7 @@ For more information on authentication, see [Authentication](../authentication) 
 ![Teams Interop pattern for calling and chat](../media/mobile-ui/TeamsInteropDiagram.png)
 
 For [Teams Interop](../teams-interop) scenarios, developers can use UI Mobile Library Components to join Teams meetings through Azure Communication Services.
-To enable Teams Interop, developers can use the calling composite which will take care of the lifecycle of joining a Teams Interop call.
+To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
 <img src="../media/mobile-ui/teams_meet.png" width="600"/> 
 
@@ -89,6 +98,13 @@ These client libraries also require the context for the call they will join. Sim
 | Retrieve/Pass join information for call or chat          | Pass through call and chat information to initialize components |
 | Retrieve/Pass user information for any custom data model | Pass through custom data model to components to render          |
 
+## Platform support
+
+|Platform | Versions|
+|---------|---------|
+| iOS     | iOS 13+ |
+| Android | v23+    |
+
 ## Accessibility
 
 Accessibility by design is a principle across Microsoft products.
@@ -98,7 +114,7 @@ We expect to add more details on accessibility ahead of the UI Library being in 
 
 ## Localization
 
-Localization is a key to making products that can be used across the world and by people who who speak different languages.
+Localization is a key to making products that can be used across the world and by people who speak different languages.
 UI Library will provide out of the box support for some languages and capabilities such as RTL.
 Developers can provide their own localization files to be used for the UI Library.
 These localization capabilities will be added ahead of General Availability.
