@@ -252,7 +252,7 @@ displayHTML(h)
 
 You can view html output of pandas dataframe as the default output, notebook will automatically show the styled html content. 
 
-   ![Panda graph example.](./media/apache-spark-data-viz/panda.png#lightbox)
+   ![Panda graph example.](./media/apache-spark-data-viz/support-panda.png#lightbox)
 
 ```python
 import pandas as pd 
