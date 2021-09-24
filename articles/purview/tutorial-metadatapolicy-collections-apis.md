@@ -701,7 +701,7 @@ Now you can choose to use either API 3A or 3B below. Both serve the same purpose
 - The Purview account name is {your-purview-account-name}
 - In the JSON output of the previous API "Get All Metadata Policies" look for the section resembling : {.... "name": "policy_qu45fs", "id": "{policy-guid}", "version": N ....}
 - Replace "{policyId}" in the API URL with the value of "id". So if your "{policy-guid}" is "c6639bb2-9c41-4be0-912b-775750e725de" the API URL will look like  https://{your-purview-account-name}.purview.azure.com/policystore/metadataPolicies/c6639bb2-9c41-4be0-912b-775750e725de?api-version=2021-07-01
-- Now execute this API. Notice that output of APIs 3A and 3B are exactly the same. You can choose either one as previously mentioned in the tutorial.
+1. Now execute this API. Notice that output of this API call and the previous API call are the same. You can choose either one as previously mentioned in the tutorial.
 
 ```json
 {
