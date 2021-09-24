@@ -48,7 +48,7 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. In t
 
 1. Adjust parameters.
     
-    Select each module and adjust the parameters in the module settings panel to the right. Use the parameters to recreate the functionality of your Studio (classic) experiment. For more information on each module, see the [module reference](/algorithm-module-reference/module-reference.md).
+    Select each module and adjust the parameters in the module settings panel to the right. Use the parameters to recreate the functionality of your Studio (classic) experiment. For more information on each module, see the [module reference](./algorithm-module-reference/module-reference.md).
 
 ## Submit a run and check results
 

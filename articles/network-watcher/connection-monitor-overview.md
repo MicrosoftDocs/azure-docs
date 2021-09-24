@@ -70,7 +70,7 @@ Rules for a network security group (NSG) or firewall can block communication bet
 
 ### Agents for on-premises machines
 
-To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines.  Then enable the [Network Performance Monitor solution](/azure-monitor/insights/network-performance-monitor.md#configure-the-solution). These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
+To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines.  Then enable the [Network Performance Monitor solution](/azure/azure-monitor/insights/network-performance-monitor#configure-the-solution). These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
 To install the Log Analytics agent for Windows machines, see [Install Log Analytics agent on Windows](../azure-monitor/agents/agent-windows.md).
 
@@ -88,6 +88,23 @@ For Linux machines, portNumbers to be used needs to be changed manually.
 The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. [Read more](../azure-monitor/agents/log-analytics-agent.md#network-requirements) about the network requirements for Log Analytics agents
 
 The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
+
+The LA Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination, either a workspace or management group.
+
+#### Enable Network Performance Monitor Solution for on-premise machines 
+
+Follow the following steps to enable Network Performance Monitor Solution for on-premise machines 
+
+1. On the Azure portal home page, go to Network Watcher
+2. On the left, in the Monitoring section, select Network Performance Monitor 
+3. On the Portal you will see  a list of Workspaces with NPM Solution enabled, filtered by Subscriptions 
+4. To add NPM solution in a New Workspace , click on "+ Add NPM " on the top left of the Portal 
+5. Select the Subscription and Workspace in which you wish to enable the solution and click on Create
+6. The Workspace will take a couple of minutes to show up on the Portal after enabling the solution.
+
+:::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to Add NPM Solution in Connection Monitor" lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
+
+Unlike LA agents, NPM Solution can only be configured to send data to a single LA workspace
 
 ## Enable Network Watcher on your subscription
 
@@ -373,7 +390,7 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 * BGP isn't enabled on the gateway connection.
 * The DIP probe is down at the load balancer.
 
-## Comparision between Azure's Connectivity Monitoring Support 
+## Comparison between Azure's Connectivity Monitoring Support 
 
 You can migrate tests from Network Performance Monitor and Connection Monitor (Classic) to New, Improved Connection Monitor with a single click and with zero downtime.
  

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 08/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -88,7 +88,6 @@ Content-type: application/json
  "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
- "objectId": "ab3ec3b2-a435-45e4-b93a-56a005e88bb7",
  "client_id": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
  "step": "PreTokenIssuance",
  "ui_locales":"en-US"

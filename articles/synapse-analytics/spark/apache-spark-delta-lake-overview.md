@@ -291,7 +291,7 @@ Results in:
 |Provider                    |delta                                                                                                        |       |
 |Table Properties            |[transient_lastDdlTime=1587774934]                                                                           |       |
 |Statistics                  |2407 bytes                                                                                                   |       |
-|Location                    |abfss://data@<data lake>.dfs.core.windows.net/synapse/workspaces/<workspace name>/warehouse/manageddeltatable|       |
+|Location                    |abfss://data@\<data lake\>.dfs.core.windows.net/synapse/workspaces/\<workspace name\>/warehouse/manageddeltatable|       |
 |Serde Library               |org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe                                                           |       |
 |InputFormat                 |org.apache.hadoop.mapred.SequenceFileInputFormat                                                             |       |
 |OutputFormat                |org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat                                                    |       |
@@ -337,7 +337,7 @@ Results in:
 |Type                        |EXTERNAL                                                              |       |
 |Provider                    |DELTA                                                                 |       |
 |Table Properties            |[transient_lastDdlTime=1587774938]                                    |       |
-|Location                    |abfss://data@<data lake>.dfs.core.windows.net/delta/delta-table-587152|       |
+|Location                    |abfss://data@\<data lake\>.dfs.core.windows.net/delta/delta-table-587152|       |
 |Serde Library               |org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe                    |       |
 |InputFormat                 |org.apache.hadoop.mapred.SequenceFileInputFormat                      |       |
 |OutputFormat                |org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat             |       |

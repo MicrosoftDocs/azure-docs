@@ -216,6 +216,6 @@ After updating has completed, the certificate can no longer be used to connect. 
 
 * After your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml).
 
-* To understand more about networking and Linux virtual machines, see [Azure and Linux VM network overview](../virtual-machines/network-overview.md).
+* To understand more about networking and Linux virtual machines, see [Azure and Linux VM network overview](../virtual-network/network-overview.md).
 
 * For P2S troubleshooting information, [Troubleshoot Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
