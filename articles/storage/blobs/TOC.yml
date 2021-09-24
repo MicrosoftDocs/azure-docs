@@ -376,6 +376,8 @@ items:
           href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Define a stored access policy
           href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Create a SAS expiration policy
+          href: ../common/sas-expiration-policy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage anonymous read access to blob data
         items:
         - name: Configure anonymous read access for containers and blobs
@@ -875,17 +877,7 @@ items:
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Optimize performance
-      items:
-      - name: Performance optimization overview
-        href: data-lake-storage-performance-tuning-guidance.md
-      - name: Optimize Spark on HDInsight
-        href: data-lake-storage-performance-tuning-spark.md
-      - name: Optimize Hive on HDInsight
-        href: data-lake-storage-performance-tuning-hive.md
-      - name: Optimize MapReduce on HDInsight
-        href: data-lake-storage-performance-tuning-mapreduce.md
-      - name: Optimize Storm on HDInsight
-        href: data-lake-storage-performance-tuning-storm.md
+      href: data-lake-storage-performance-tuning-guidance.md
   - name: Reference
     items:
     - name: .NET
