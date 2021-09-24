@@ -60,12 +60,12 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 
-OpenAPI version 2 only supports JSON format.
+OpenAPI version 2 support is limited to JSON format only.
 
 ### <a name="open-api-v3"> </a>OpenAPI version 3
 
--   If multiple `servers` are specified, API Management will try to select the first HTTPs URL. 
-- If there aren't any HTTPs URLs, the server URL will be empty.
+-   If multiple `servers` are specified, API Management will use the first HTTPS URL it finds. 
+- If there aren't any HTTPS URLs, the server URL will be empty.
 - `Examples` isn't supported, but `example` is.
 - The following fields are included in OpenAPI version 3.x, but are not supported:
     - `explode`
