@@ -61,7 +61,6 @@ To create a diagnostic setting for you key vault, see [Enable Key Vault logging]
 
 You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
-<!-- Point to the list of metrics available in your monitor-key-vault-reference article. -->
 For a list of the platform metrics collected for Key Vault, see [Monitoring Key Vault data reference metrics](monitor-key-vault-reference.md#metrics)  
 
 ## Analyzing logs
@@ -89,6 +88,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
     // List of KeyVault requests that took longer than 1sec. 
     // To create an alert for this query, click '+ New alert rule'
     let threshold=1000; // let operator defines a constant that can be further used in the query
+
     AzureDiagnostics
     | where ResourceProvider =="MICROSOFT.KEYVAULT" 
     | where DurationMs > threshold
@@ -100,6 +100,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
     ```Kusto
     // Count of failed KeyVault requests by status code. 
     // To create an alert for this query, click '+ New alert rule'
+
     AzureDiagnostics
     | where ResourceProvider =="MICROSOFT.KEYVAULT" 
     | where httpStatusCode_d >= 300 and not(OperationName == "Authentication" and httpStatusCode_d == 401)
@@ -113,8 +114,10 @@ Here are some queries that you can enter into the **Log search** search bar to h
     ```Kusto
     // Shows errors caused due to malformed events that could not be deserialized by the job. 
     // To create an alert for this query, click '+ New alert rule'
+
     AzureDiagnostics
-    | where ResourceProvider == "MICROSOFT.KEYVAULT" and parse_json(properties_s).DataErrorType in ("InputDeserializerError.InvalidData", "InputDeserializerError.TypeConversionError", "InputDeserializerError.MissingColumns", "InputDeserializerError.InvalidHeader", "InputDeserializerError.In
+    | where ResourceProvider == "MICROSOFT.KEYVAULT" and parse_json(properties_s).DataErrorType in ("InputDeserializerError.InvalidData", "InputDeserializerError.TypeConversionError", "InputDeserializerError.MissingColumns", "InputDeserializerError.InvalidHeader", "InputDeserializerError.InvalidCompressionType")
+    | project TimeGenerated, Resource, Region_s, OperationName, properties_s, Level, _ResourceId
     ```
 
 * How active has this KeyVault been?
@@ -124,6 +127,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
     // Line chart showing trend of KeyVault requests volume, per operation over time. 
     // KeyVault diagnostic currently stores logs in AzureDiagnostics table which stores logs for multiple services. 
     // Filter on ResourceProvider for logs specific to a service.
+
     AzureDiagnostics
     | where ResourceProvider =="MICROSOFT.KEYVAULT" 
     | summarize count() by bin(TimeGenerated, 1h), OperationName // Aggregate by hour
@@ -137,6 +141,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
     // List of callers identified by their IP address with their request count.  
     // KeyVault diagnostic currently stores logs in AzureDiagnostics table which stores logs for multiple services. 
     // Filter on ResourceProvider for logs specific to a service.
+
     AzureDiagnostics
     | where ResourceProvider =="MICROSOFT.KEYVAULT"
     | summarize count() by CallerIPAddress
@@ -145,7 +150,8 @@ Here are some queries that you can enter into the **Log search** search bar to h
 * How fast is this KeyVault serving requests? 
 
     ```Kusto
-    // Line chart showing trend of request duration over time using different aggregations.  
+    // Line chart showing trend of request duration over time using different aggregations. 
+ 
     AzureDiagnostics
     | where ResourceProvider =="MICROSOFT.KEYVAULT" 
     | summarize avg(DurationMs) by requestUri_s, bin(TimeGenerated, 1h) // requestUri_s contains the URI of the request
@@ -158,28 +164,30 @@ Here are some queries that you can enter into the **Log search** search bar to h
     // Lists all update and patch requests from the last 30 days. 
     // KeyVault diagnostic currently stores logs in AzureDiagnostics table which stores logs for multiple services. 
     // Filter on ResourceProvider for logs specific to a service.
+
     AzureDiagnostics
     | where TimeGenerated > ago(30d) // Time range specified in the query. Overrides time picker in portal.
     | where ResourceProvider =="MICROSOFT.KEYVAULT" 
-    | where OperationName == "VaultPut" or OperationName =
+    | where OperationName == "VaultPut" or OperationName = "VaultPatch"
+    | sort by TimeGenerated desc
     ```
 
 
 ## Alerts
 
-
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/platform/alerts-metric-overview.md), [logs](../../azure-monitor/platform/alerts-unified-log.md), and the [activity log](../../azure-monitor/platform/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
 
 If you are creating or running an application which run on Azure Key Vault, [Azure Monitor Application Insights](../../azure-monitor/overview#application-insights.md) may offer additional types of alerts.
 
-The following table lists common and recommended alert rules for Azure Key Vault.
+Here are some common and recommended alert rules for Azure Key Vault.
 
-<!-- Fill in the table with metric and log alerts that would be valuable for your service. Change the format as necessary to make it more readable -->
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| | | |
-| | | |
+- Key Vault Availability drops below 100% (Static Threshold)
+- Key Vault Latency is greater than 500ms (Static Threshold)
+- Overall Vault Saturation is greater than 75% (Static Threshold)
+- Overall Vault Saturation exceeds average (Dynamic Threshold)
+- Total Error Codes higher than average (Dynamic Threshold)
 
+See [Alerting for Azure Key Vault](alert.md) for more details.
 
 ## Next steps
 
