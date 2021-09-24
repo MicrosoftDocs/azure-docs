@@ -97,7 +97,7 @@ You can also create test users in your test tenant.  If you used one of the Micr
 3. Click **New user** and create some new test users in your directory.
 
 ### Get an Azure AD subscription (Optional)
-If you want to fully test Azure AD premium features on your application, you'll need to sign up your tenant for a [Premium P1 or Premium P2 license](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+If you want to fully test Azure AD premium features on your application, you'll need to sign up your tenant for a [Premium P1 or Premium P2 license](https://azure.microsoft.com/pricing/details/active-directory/).
 
 If you signed up using the Microsoft 365 Developer program, your test tenant will come with Azure AD P2 licenses.  If not, you can still enable a one month [free trial of Azure AD premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 
