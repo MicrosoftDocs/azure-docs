@@ -91,7 +91,7 @@ Details on some of the important identifiers in the JSON output received from th
 
 **DecisionRules**:  List the rules and effect of this policy. For metadata policies, the effect is always “Permit”.
 
-## Tutorial: Using Purview REST APIs to Add or Remove a [User/Group/ServicePrincipal] to a Collection
+## Use Purview REST APIs to add or remove User/Group/ServicePrincipal to a Collection or Role
 
 ## Get all metadata roles
 ```ruby
