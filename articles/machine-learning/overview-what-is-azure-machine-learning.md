@@ -47,7 +47,7 @@ Developers find familiar interfaces in Azure Machine Learning, such as:
 
 ### Studio UI 
 
-The Azure Machine Learning studio is a graphical user interface for a project workspace. In the studio, you can:
+The [Azure Machine Learning studio](https://ml.azure.com) is a graphical user interface for a project workspace. In the studio, you can:
 
 - View runs, metrics, logs, outputs, and so on.
 - Author and edit notebooks and files.
@@ -61,9 +61,11 @@ The Azure Machine Learning studio is a graphical user interface for a project wo
 
 Plus, the designer has a drag-and-drop interface where you can train and deploy models. 
 
+If you're a ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Machine Learning studio](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
+
 ## Enterprise-readiness and security
 
-Azure Machine Learning integrates with te Azure cloud platform to add security to ML projects. 
+Azure Machine Learning integrates with the Azure cloud platform to add security to ML projects. 
 
 Security integrations include:
 

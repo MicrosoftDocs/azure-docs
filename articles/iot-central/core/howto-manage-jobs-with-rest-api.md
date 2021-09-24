@@ -27,6 +27,11 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+> [!TIP]
+> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/jobs) includes support for the new [organizations feature](howto-create-organizations.md).
+
+To learn how to create and manage jobs in the UI, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
+
 ## Job payloads
 
 Many of the APIs described in this article include a definition that looks like the following JSON snippet:

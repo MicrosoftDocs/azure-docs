@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2021
+ms.date: 09/01/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Jostle
@@ -32,6 +32,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Jostle supports **SP** initiated SSO.
+
+* Jostle supports [Automated user provisioning](jostle-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -121,6 +123,8 @@ To configure single sign-on on **Jostle** side, you need to send the downloaded 
 
 In this section, you create a user called Britta Simon in Jostle. Work with [Jostle support team](mailto:support@jostle.me) to add the users in the Jostle platform. Users must be created and activated before you use single sign-on.
 
+Jostle also supports automatic user provisioning, you can find more details [here](./jostle-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 > [!NOTE]
 > The Azure Active Directory account holder receives an email and follows a link to confirm their account before it becomes active.
 
@@ -132,7 +136,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Jostle Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Jostle tile in the My Apps, this will redirect to Jostle Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Jostle tile in the My Apps, this will redirect to Jostle Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

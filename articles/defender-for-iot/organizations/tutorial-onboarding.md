@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to onboard to Azure Defender f
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/06/2021
+ms.date: 09/23/2021
 ms.custom: template-tutorial
 ---
 
@@ -243,6 +243,8 @@ For post-installation validation, you must test to ensure the system is running,
 
 A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port. You can implement the workaround with either ESXi, or Hyper-V.
 
+:::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
+
 ### Configure a SPAN port with ESXi
 
 **To configure a SPAN port with ESXi**:
@@ -269,7 +271,7 @@ A vSwitch does not have mirroring capabilities, but you can use a workaround to 
 
 1. Select **OK**.
 
-1. Connect to the sensor and verify that mirroring works.
+1. Connect to the sensor, and verify that mirroring works.
 
 ### Configure a SPAN port with Hyper-V
 

@@ -81,7 +81,7 @@ If you are new to Azure or unfamiliar with any of the services previously mentio
    >[!TIP]
    >You can [use an Azure Resource Manager (ARM) template to create an Automation account](../automation/quickstart-create-automation-account-template.md). Using an ARM template takes fewer steps compared to other deployment methods.
 
-1. [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md). If you prefer, you can also create a workspace via [CLI](../azure-monitor/logs/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md), or [Azure Resource Manager template](../azure-monitor/logs/resource-manager-workspace.md).
+1. [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md). If you prefer, you can also create a workspace via [CLI](../azure-monitor/logs/resource-manager-workspace.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md), or [Azure Resource Manager template](../azure-monitor/logs/resource-manager-workspace.md).
 
 1. [Enable Update Management from an Automation account](../automation/update-management/enable-from-automation-account.md). In the process, you'll link your Log Analytics workspace with your automation account. 
  

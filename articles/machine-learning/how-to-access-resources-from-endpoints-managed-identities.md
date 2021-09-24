@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 09/10/2021
+ms.date: 09/25/2021
 ms.topic: how-to
 ms.custom: devplatv2
 
@@ -175,6 +175,8 @@ Then, upload file in container.
 ## Create a managed online endpoint
 
 The following code creates a managed online endpoint without specifying a deployment. 
+
+# [System-assigned managed identity](#tab/system-identity)
 When you create a managed endpoint, a system-assigned managed identity is created for the endpoint by default.
 
 >[!IMPORTANT]
@@ -187,6 +189,18 @@ Check the status of the endpoint with the following.
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
 If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+
+# [User-assigned managed identity](#tab/user-identity)
+
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="create_endpoint" :::
+
+Check the status of the endpoint with the following.
+
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_endpoint_Status" :::
+
+If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+
+---
 
 ## Give access permission to the managed identity
 
