@@ -144,6 +144,8 @@ items:
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
           href: ./sql/sql-authentication.md
+        - name: Conditional Access
+          href: ./security/workspace-conditional-access.md
       - name: Access control
         items:
         - name: Overview
@@ -815,6 +817,8 @@ items:
         href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon Marketplace Web Service
         href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Amazon RDS for Oracle
+        href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
       - name: Amazon Redshift
         href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon S3

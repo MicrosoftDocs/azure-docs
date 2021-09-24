@@ -16,6 +16,17 @@ The Azure Arc-enabled servers Connected Machine agent receives improvements on a
 - Known issues
 - Bug fixes
 
+## April 2021
+
+Version 1.5
+
+### New features
+
+- Added support for Red Hat Enterprise Linux 8 and CentOS Linux 8.
+- New `-useStderr` parameter to direct error and verbose output to stderr.
+- New `-json` parameter to direct output results in JSON format (when used with -useStderr).
+- Collect other instance metadata - Manufacturer, model, and cluster resource ID (for Azure Stack HCI nodes).
+ 
 ## March 2021
 
 Version 1.4
