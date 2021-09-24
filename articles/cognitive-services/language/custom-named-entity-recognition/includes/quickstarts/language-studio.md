@@ -34,7 +34,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
     
-    :::image type="content" source="media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="media/create-project.png":::
+    :::image type="content" source="../../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../../media/create-project.png":::
 
 
 4.  After you click, **Create new project**, a screen will appear to let you connect your storage account. If you cannot find your storage account, make sure you created a resource using the steps above. 
@@ -45,7 +45,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
     > * You can only connect your resource to one storage account.
     > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
     
-    :::image type="content" source="media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="media/connect-storage.png":::
+    :::image type="content" source="../../media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../media/connect-storage.png":::
 
 <!--If you're using a preexisting resource, see [creating Azure resources](../concepts/use-azure-resources.md). When you are done, select **Next**.--> 
 
@@ -55,7 +55,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 ## Import the example tagged data
 
-Typically, you would import your data and begin [tagging the entities](how-to/tag-data.md) within it to train the NER model. For this quickstart you will use an example file that already contains tagged data. 
+Typically, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the NER model. For this quickstart you will use an example file that already contains tagged data. 
 
 1. [Download the data file](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
 
@@ -69,7 +69,7 @@ To start training your model:
 
 2. Select the model you want to train from the **Model name** dropdown. If you don’t have models already, type in the name of your model and click on **create new model**.
 
-    :::image type="content" source="media/train-model.png" alt-text="Select the model you want to train" lightbox="media/train-model.png":::
+    :::image type="content" source="../../media/train-model.png" alt-text="Select the model you want to train" lightbox="../../media/train-model.png":::
 
 3. Click on the **Train** button at the bottom of the page.
 
@@ -80,7 +80,7 @@ To start training your model:
 
 ## Deploy model
 
-Generally after training a model you would review its [evaluation details](../custom-classification/how-to/view-model-evaluation.md) and make adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review its [evaluation details](../../how-to/view-model-evaluation.md) and make adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
 
 >[!NOTE]
 >You can only have one deployed model per project. Deploying a new model replaces any existing deployed model.
@@ -101,7 +101,7 @@ Generally after training a model you would review its [evaluation details](../cu
 
 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. 
 
-    :::image type="content" source="media/test-model-results.png" alt-text="View the test results" lightbox="media/test-model-results.png":::
+    :::image type="content" source="../../media/test-model-results.png" alt-text="View the test results" lightbox="../../media/test-model-results.png":::
 
 
 ## Clean up resources
