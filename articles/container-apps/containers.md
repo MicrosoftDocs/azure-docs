@@ -79,7 +79,9 @@ Reasons to separate containers include:
 - If you want to run an app as a separate microservice.
 - If your apps have different scaling needs.
 
-## Using a container registry
+## Container registries
+
+You can deploy images hosted on private registries where credentials are provided through the Container Apps configuration.
 
 To use a container registry, you first define the required fields to the configuration's `registries` section.
 
@@ -95,10 +97,6 @@ To use a container registry, you first define the required fields to the configu
 ```
 
 With this set up, the saved credentials are used when you reference a container image in an `image` in the `containers` array.
-
-## Private Registries
-
-You can deploy images hosted on private registries where credentials are provided through the Container Apps configuration.
 
 The following example shows how to deploy an app from the Azure Container Registry.
 
