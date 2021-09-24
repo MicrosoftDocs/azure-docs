@@ -906,7 +906,7 @@ On success, all REST APIs return HTTP Response 200 OK.
 > The user who calls this API must have owner or UAA permission on Purview account to execute a write action on the account.
 
 
-##  Purview REST API Combined Archive
+##  Purview REST API combined archive
 To help you get quick-started with Purview APIs - [Download](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) an archive of all the Purview REST API Specs collected together at one place: [azure-purview-rest-api-specs.zip](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/azure-purview-rest-api-specs.zip) You can use these API templates to understand and build out your own code, script, automation, [autorest](https://github.com/Azure/autorest), or Postman collection of Purview APIs.
 
 ## PowerShell utility to run Purview APIs
