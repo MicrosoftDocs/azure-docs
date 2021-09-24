@@ -63,16 +63,17 @@ Any changes to the `containers` section triggers a new [container app revision](
 
 ## Multiple containers
 
-You can define multiple containers in a single container app. Containers in the same container app share hard disk, network resources, and run in a semi-isolated network.
+You can define multiple containers in a single container app. Groups of containers are known as [pods](https://kubernetes.io/docs/concepts/workloads/pods). The containers in a pod share hard disk and network resources and experience the same [application lifecycle](application-lifecycle-managment.md).
 
 You run multiple containers together by defining more than one container in the configuration's `containers` array.
 
 Reasons to run containers together include:
 
-- Share scale rules among containers.
-- Enable direct communication via server addresses and ports on the same network.
-- Use of a shared disk space and virtual network.
 - Use a container as a sidecar to your primary app.
+- Use of a shared disk space and virtual network.
+- Share scale rules among containers.
+- Group together multiple containers that need to always run together.
+- Enable direct communication on the same host.
 
 Reasons to separate containers include:
 
