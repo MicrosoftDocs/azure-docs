@@ -43,7 +43,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 4. Click **New access package**.
 
-5. On the **Basics** tab, enter the name and description for your access package.
+5. On the **Basics** tab, enter the name **Office Licenses** and description **Access to licenses for Office applications**.
 
 6. You can leave the **Catalog** drop-down list set to **General**.
 
@@ -53,6 +53,8 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. On this tab, you select the resources and the resource role to include in the access package. In this example scenario, you would click **Groups and Teams** and search for your group that has assigned [Office licenses](/active-directory/enterprise-users/licensing-groups-assign.md).
 
+3. In the **Role** drop-down list, select **Member**.
+
 ## Step 3: Configure Requests for your Access Package
 
 1. Click **Next** to open the **Requests** tab.
@@ -61,35 +63,35 @@ For more information, see [License requirements](entitlement-management-overview
 
 3. In the **Users who can request access** section, click **For users in your directory** and select **All members (excluding guests)**. This makes it so that only members if your directory will be able to request Office licenses.
 
-4.	Ensure that **Require approval** is set to **Yes**.
+4. Ensure that **Require approval** is set to **Yes**.
 
-5.	The following settings allow you to configure how your approvals work for the users you selected in the step above:
+5. For **Require requestor justification**, leave this as **Yes**.
 
-    * **Require requestor justification** - sets the Justification field on the requestor form to be required. Leave this as **Yes**.
-    * **How many stages** - Allows you to configure multiple stages of approval for the selected users and groups. Leave this as **1**.
-    * **Approver** - this field has two options. For this scenario, select **Manager as approver**. This option allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system can't find the manager. For this scenario, this should be the option you select.
-    * **Decision must be made in how many days?** - Time limit for approvers. Leave this as **14**.
-    * **Require approver justification** - Approvers must fill in the justification field for their approvals in case you want to review later. Leave this as **Yes**.
+6. For **How many stages** leave this as **1**.
 
-6.	Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it's created.
+7. For **Approver**, select **Manager as approver**. This option allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system can't find the manager. For this scenario, this should be the option you select.
+
+8. **Decision must be made in how many days?** leave this as **14**.
+
+9. **Require approver justification** leave this as **Yes**.
+
+10. Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it's created.
 
 ## Step 4: Configure Requestor information for your access package
 
-1.	Click **Next** to open the **Requestor information** tab.
+1. Click **Next** to open the **Requestor information** tab.
 
-2.	On this screen, you can ask more questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional.
-
-3.	Fill in any questions that are necessary and configure the type of answer you would expect.
+2. On this screen, you can ask more questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional. For now you can leave these as empty.
 
 ## Step 5: Configure the Lifecycle for your access package
 
 1. Click **Next** to open the **Lifecycle** tab.
 
-2.	In the **Expiration** section, set **Access package assignments expire** to **Number of days**.
+2. In the **Expiration** section, set **Access package assignments expire** to **Number of days**.
 	
-3.	Set **Assignments expire after** to **365** days. This field determines when members who have access to this access package will need to renew their access. 
+3. Set **Assignments expire after** to **365** days. This field determines when members who have access to this access package will need to renew their access. 
 
-4.	You can also configure **Access Reviews** which allows periodic checks of whether the user still needs access to the access package. A review can be a self-review or you can set their manager, specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md). For this scenario, you will want each user to review whether they still need a license for Office each year.
+4. You can also configure **Access Reviews** which allows periodic checks of whether the user still needs access to the access package. A review can be a self-review or you can set their manager, specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md). For this scenario, you will want each user to review whether they still need a license for Office each year.
 
     1.	Set **Require access reviews** to **Yes**.
     2.	You can leave the **Starting on** to the current date - This date is when the access review campaign will start. Once an access review has been created, you can't update its start date.
@@ -99,11 +101,36 @@ For more information, see [License requirements](entitlement-management-overview
 
 ## Step 6: Review and create your access package
 
-1.	Click **Next** to open the **Review + Create** tab.
+1. Click **Next** to open the **Review + Create** tab.
 
-2.	On this screen, you can review the configuration for your access package before creating it. If there are any issues, you can use the tabs to navigate to a specific point in the create experience to make edits.
+2. On this screen, you can review the configuration for your access package before creating it. If there are any issues, you can use the tabs to navigate to a specific point in the create experience to make edits.
 
-3.	Once you're happy with your selection, click **Create**. After a few moments, you should see a notification that the access package was successfully created.
+3. Once you're happy with your selection, click **Create**. After a few moments, you should see a notification that the access package was successfully created.
 
-4.	When the access package has been created, you'll be taken to the **Overview** page for your access package. You can find the **My Access portal link** here. Copy the link and share it with your team so that they can request the access package to access its resources.
+4. When the access package has been created, you'll be taken to the **Overview** page for your access package. You can find the **My Access portal link** here. Copy the link and share it with your team so that they can request the access package to be assigned licenses for Office.
 
+## Step 7: Clean up resources
+
+In this step, you can delete the **Office Licenses** access package. 
+
+**Prerequisite role:** Global administrator, Identity Governance administrator or Access package manager
+
+1. In the **Azure portal**, in the left navigation, click **Azure Active Directory**.
+
+2. In the left menu, click **Identity Governance**.
+
+3. In the left menu, click **Access Packages**. 
+
+4. Open the **Office Licenses** access package. 
+
+5. Click **Resource Roles**.
+
+6. Select the group you added to this access package and in the details pane click **Remove resource role**. In the message that appears, click **Yes**.
+
+7. Open the list of access pacakges.
+
+8. For **Office Licenses**, click the ellipsis (...) and hten click **Delete**. In the message that appears, click **Yes**.
+
+## Next steps
+
+Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Azure AD entitlement management](/active-directory/governance/entitlement-management-access-package-first.md)
