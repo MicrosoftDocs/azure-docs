@@ -12,13 +12,19 @@ ms.reviewer: sachins
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-This article provides best practice guidelines that help you optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.  
+This article provides best practice guidelines that help you optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account. 
+
+## Some title
+
+Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The way that you unlock these capabilities is to enable the hierarchical namespace setting of your Azure Storage account. The Azure Data Lake Storage Gen2 documentation provides best practices and guidance for using Data Lake Storage Gen2 capabilities such as Access control lists (ACLs) permission for files and directories and SDK's that are optimized for directory and file operations. Refer to the [Blob storage documentation](storage-blobs-introduction.md) content, for all other aspects of account management such as setting up network security, designing for high availability, and disaster recovery. To provision your storage accounts successfully, you'll need to use these content sets together. 
+
+As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the Blob storage content, will use terms such blob and container instead of file and file system. In Blob storage, your file system appears in the Azure portal UI, and is described in content as a container. The term blob predates the introduction of Data Lake Storage Gen2 and is a term that is firmly entrenched in world of back up and archival scenarios to which Blob storage has it's roots. Your files are stored as blobs in your account and the Blob storage content will refer to them as blobs. The Data Lake Storage Gen2 content will sometimes refer to your blobs as files however, these terms reference the same things. 
+
+Having a clear mental model of what Data Lake Storage Gen2 is, where to locate content, and how these content sets will refer to your objects and file systems will help you efficiently navigate content collections and confidently provision the storage accounts of your data lake.
 
 ## Configure storage accounts
 
-Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The way that you unlock these capabilities is to enable the hierarchical namespace setting of your Azure Storage account.  
-
-Access control lists (ACLs) are one of the few storage account features that pertain only to Data Lake Storage Gen2. Most features are available to your account whether or not you enable Data Lake Storage Gen2. Best practices around things such as security, high availability, and disaster recovery are well documented in the [Blob storage documentation](storage-blobs-introduction.md) content. Any guidance specific to Data Lake Storage Gen2, is called out in the body of each feature article. Use the following pattern as you evaluate these features.
+Access control lists (ACLs) are one of the few storage account features that pertain only to Data Lake Storage Gen2. Best practices around all other storage account features are well documented in the [Blob storage documentation](storage-blobs-introduction.md) content. Any guidance specific to Data Lake Storage Gen2, is called out in the body of each feature article. Use the following pattern as you evaluate and implement these features.
 
 1. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether a feature is fully supported in your account. Some features aren't yet supported or have partial support in Data Lake Storage Gen2 enabled accounts. Feature support is always expanding so make sure to periodically review this article for updates.
 
