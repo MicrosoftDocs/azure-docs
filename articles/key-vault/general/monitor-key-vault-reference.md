@@ -15,12 +15,6 @@ See [Monitoring Key Vault](monitor-key-vault.md) for details on collecting and a
 
 ## Metrics
 
-------------**OPTION 1 EXAMPLE** ---------------------
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from underlying systems.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
 
 This section lists all the automatically collected platform metrics collected for Key Vault.  
 
