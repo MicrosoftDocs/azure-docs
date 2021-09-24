@@ -57,7 +57,6 @@ To explore the Azure CLI samples, first [Install the Azure CLI](/cli/azure/insta
 
 - [Get started with the Azure CLI](/cli/azure/get-started-with-azure-cli)
 - [Azure Storage samples using the Azure CLI](../blobs/storage-samples-blobs-cli.md)
-- [Popular articles on using the Azure CLI with Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## API reference and source code
 

@@ -301,6 +301,8 @@ To use your function app with virtual networks, you need to join it to a subnet.
 
 1. Select the **functions** subnet you created earlier. Select **OK**.  Your function app is now integrated with your virtual network!
 
+    If the virtual network and function app are in different subscriptions, you need to first provide **Contributor** access to the service principal **Microsoft Azure App Service** on the virtual network.
+
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot of how to connect a function app to a subnet.":::
 
 ## Configure your function app settings
