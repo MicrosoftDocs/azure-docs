@@ -84,7 +84,7 @@ data:
         monitor_kubernetes_pods = true
 ```
 
-## View Metrics on Azure Portal
+## View metrics in the Azure portal
 
 In Azure portal, select the Kubernetes cluster and then the "Logs" tab under "Monitoring." You should be now able to query the `InsightsMetrics` table to view metrics in the enabled namespaces. For instance, if you wanted to see the envoy metrics for `bookbuyer`, you would use the following query:
 
@@ -95,6 +95,6 @@ InsightsMetrics
 | where t.app == "bookbuyer"
 ```
 
-## Additional Information
+## Additional information
 
 For more information on how to enable and configure Azure Monitor and Azure Application Insights for the OSM AKS add-on, visit the [Azure Monitor for OSM](https://aka.ms/azmon/osmpreview) page.

@@ -445,6 +445,6 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/ch
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/charts/osm/crds/split.yaml
 ```
 
-### Certificate Management
+### Certificate management
 
 Information on how to issue and manage certificates to Envoy proxy via the OSM control plane can be found on the [OpenServiceMesh docs site](https://docs.openservicemesh.io/docs/guides/certificates/).
