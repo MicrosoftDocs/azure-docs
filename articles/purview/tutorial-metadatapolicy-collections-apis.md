@@ -1,6 +1,6 @@
 ---
-title: Azure Purview Collections Metadata Policy & Roles APIs Quickstart Tutorial – Manage Fine Grained Access Control over Purview Collections
-description:  This tutorial talks about managing fine grained access control over these collections to users, groups, or service principals within your enterprise via Azure Purview APIs.
+title: Azure Purview Collections Metadata Policy & Roles APIs Quickstart – Manage Role-based Access Control over Purview Collections
+description:  This tutorial talks about managing role based access control over these collections to users, groups, or service principals within your enterprise via Azure Purview APIs.
 author: abandyop
 ms.author: arindamba
 ms.service: purview
@@ -14,9 +14,9 @@ ms.date: 09/24/2021
 
 In August 2021, access control in Purview moved from Azure IAM (control plane) to [Azure Purview Collections](https://docs.microsoft.com/azure/purview/how-to-create-and-manage-collections) (data plane). This change allows enterprise data curators and admins to have more precise granular access control on their data sources scanned by Purview, and enables organizations to audit right-access and right-use of their data.
 
-This tutorial guides you through using the Azure Purview APIs to add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure Portal or Purview Studio to achieve the same fine grained access control.
+This tutorial guides you through using the Azure Purview APIs to add users, groups, or service principals to a collection, and manage or remove their roles within that collection. REST APIs are an alternative method to using the Azure Portal or Purview Studio to achieve the same granular role-based access control.
 
-For more information about the access roles in Azure Purview, the [Purview permissions guide](catalog-permissions.md#roles) covers the kinds of roles available, and the roles a user would need to be able to meet common permissions scenarios.
+[Purview permissions guide](catalog-permissions.md#roles) covers more information about each of the built-in access roles in Azure Purview, and provides a mapping between the roles and the level of access permissions granted by the role.
 
 
 ## Metadata Policy API Reference Summary
