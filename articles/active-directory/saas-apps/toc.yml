@@ -537,6 +537,8 @@
         href: cylanceprotect-tutorial.md
     - name: D - E
       items:
+      - name: Dagster Cloud
+        href: dagster-cloud-tutorial.md
       - name: DATABASICS
         href: databasics-tutorial.md
       - name: DataCamp
