@@ -55,7 +55,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -   **Git integration**. Configure only your development data factory with Git integration. Changes to test and production are deployed via CI/CD and don't need Git integration.
 
--   **Pre- and post-deployment script**. Before the Resource Manager deployment step in CI/CD, you need to complete certain tasks, like stopping and restarting triggers and performing cleanup. We recommend that you use PowerShell scripts before and after the deployment task. For more information, see [Update active triggers](#updating-active-triggers). The data factory team has [provided a script](continuous-integration-delivery-sample-script.md) to use located at the bottom of this page.
+-   **Pre- and post-deployment script**. Before the Resource Manager deployment step in CI/CD, you need to complete certain tasks, like stopping and restarting triggers and performing cleanup. We recommend that you use PowerShell scripts before and after the deployment task. For more information, see [Update active triggers](continuous-integration-delivery-automate-azure-pipelines.md#updating-active-triggers). The data factory team has [provided a script](continuous-integration-delivery-sample-script.md) to use located at the bottom of this page.
 
 -   **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
@@ -76,7 +76,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 - By design, Data Factory doesn't allow cherry-picking of commits or selective publishing of resources. Publishes will include all changes made in the data factory.
 
     - Data factory entities depend on each other. For example, triggers depend on pipelines, and pipelines depend on datasets and other pipelines. Selective publishing of a subset of resources could lead to unexpected behaviors and errors.
-    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production environment](#hotfix-production-environment).
+    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production environment](continuous-integration-delivery-hotfix-environment.md).
 
 - The Azure Data Factory team doesn’t recommend assigning Azure RBAC controls to individual entities (pipelines, datasets, etc.) in a data factory. For example, if a developer has access to a pipeline or a dataset, they should be able to access all pipelines or datasets in the data factory. If you feel that you need to implement many Azure roles within a data factory, look at deploying a second data factory.
 

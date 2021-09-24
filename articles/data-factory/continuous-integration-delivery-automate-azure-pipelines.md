@@ -142,7 +142,7 @@ Deployment can fail if you try to update active triggers. To update active trigg
 
 You can complete similar steps (with the `Start-AzDataFactoryV2Trigger` function) to restart the triggers after deployment.
 
-The data factory team has provided a [sample pre- and post-deployment script](#continuous-integration-delivery-sample-script.md). 
+The data factory team has provided a [sample pre- and post-deployment script](continuous-integration-delivery-sample-script.md). 
 
 ## Next Steps
 

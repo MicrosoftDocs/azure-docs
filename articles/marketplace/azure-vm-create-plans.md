@@ -190,7 +190,7 @@ Here is a list of properties that can be selected for your VM.
 
 - **Remote desktop or SSH disabled**: Enable this property if virtual Machines deployed with these images do not allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-create-certification-faq.yml#locked-down-or-ssh-disabled-offer).
 
-- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](./azure-vm-create-certification-faq.yml#custom-parameters).
+- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](./azure-vm-create-certification-faq.yml#custom-templates).
 
 ### Generations
 

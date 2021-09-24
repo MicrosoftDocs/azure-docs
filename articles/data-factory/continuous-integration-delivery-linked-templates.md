@@ -34,6 +34,6 @@ When deploying your resources, you specify that the deployment is either an incr
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)
-- [Use custom parameters with a Resource Manager template](continuous-integration-delivery-resource-manager-custom-templates.md)
+- [Use custom parameters with a Resource Manager template](continuous-integration-delivery-resource-manager-custom-parameters.md)
 - [Using a hotfix production environment](continuous-integration-delivery-hotfix-environment.md)
 - [Sample pre- and post-deployment script](continuous-integration-delivery-sample-script.md)
