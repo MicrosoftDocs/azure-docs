@@ -186,7 +186,7 @@ You can use the format buttons in the text cells toolbar to do common markdown a
 
 You can use the format buttons in the text cells toolbar to do common markdown actions. It includes bolding text, italicizing text,  paragraph/headers through a dropdown, inserting code, inserting unordered list, inserting ordered list, inserting hyperlink and inserting image from URL.
 
-  ![Screenshot of Synapse text cell toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview-notebook.png)
+  ![Screenshot of Synapse text cell toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
 
 ---
 
