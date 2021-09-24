@@ -153,7 +153,7 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 The **Dashboard** tab shows the progress of the labeling task.
 
-:::image type="content" source="../articles/machine-learning/media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
+:::image type="content" source="./media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
 
 The progress chart shows how many items have been labeled and how many are not yet done.  Items pending may be:
 
