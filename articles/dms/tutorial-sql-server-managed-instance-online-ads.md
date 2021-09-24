@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 09/16/2021
+ms.date: 09/24/2021
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS (Preview)
@@ -158,9 +158,13 @@ To complete this tutorial, you need to:
     | Cancelled | Migration process was cancelled |
     | Ignored | Backup file was ignored as it does not belong to a valid database backup chain |
 
+    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/online-to-mi-migration-details-all-backups-restored.png" alt-text="backup restore details":::
+
 ## Complete migration cutover
 
 The final step of this tutorial is to complete the migration cutover to ensure the migrated database in Azure SQL Managed Instance is ready for use. This is the only part in the process that requires downtime for applications that connect to the database and hence the timing of the cutover needs to be carefully planned with business or application stakeholders.
+
+:::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/online-to-mi-complete-cutover-confirmation.png" alt-text="cutover online mi":::
 
 To complete the cutover,
 - stop all incoming transactions to the source database and prepare to make any application configuration changes to point to the target database in Azure SQL Managed Instance

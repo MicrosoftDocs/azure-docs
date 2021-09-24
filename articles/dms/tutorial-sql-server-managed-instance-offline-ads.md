@@ -9,9 +9,9 @@ manager:
 ms.reviewer: 
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019,fasttrack-edit"
+ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 09/24/2021
 ---
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with DMS (Preview)
 
@@ -152,6 +152,8 @@ To complete this tutorial, you need to:
     | Restored | Backup file is successfully restored on Azure SQL Managed Instance |
     | Cancelled | Migration process was cancelled |
     | Ignored | Backup file was ignored as it does not belong to a valid database backup chain |
+
+    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/offline-to-mi-migration-details-inprogress-backups-restored.png" alt-text="offline backup restore details":::
 
 After all database backups are restored on Azure SQL Managed Instance, an automatic migration cutover will be initiated by the Azure DMS to ensure the migrated database in Azure SQL Managed Instance is ready for use and the migration status changes from *in progress* to *Succeeded*.
 
