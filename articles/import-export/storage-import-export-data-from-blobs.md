@@ -1,18 +1,28 @@
 ---
-title: Using Azure Import/Export to export data from Azure Blobs | Microsoft Docs
+title: Tutorial: Export data from Azure Blob storage with Azure Import/Export | Microsoft Docs
 description: Learn how to create export jobs in Azure portal to transfer data from Azure Blobs.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 03/03/2021
+ms.topic: tutorial
+ms.date: 09/23/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
-# Use the Azure Import/Export service to export data from Azure Blob storage
+# Tutorial: Export data from Azure Blob storage with Azure Import/Export
 
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Prerequisites to export data from Azure Blob storage with Azure Import/Export
+> * Step 1: Create an export job
+> * Step 2: Ship the drives
+> * Step 3: Update the job with tracking information
+> * Step 4: Receive the disks
+> * Step 5: Unlock the disk
 
 ## Prerequisites
 
@@ -21,7 +31,7 @@ You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
-- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
+- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). You can use the Azure Import/Export tool to determine how many disks to provide. For steps, see [Determine the number of drives to  use](storage-import-export-tool-determine-number-of-drives-for-export.md).
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
   - The account must be valid, should have balance, and must have return shipping capabilities.
   - Generate a tracking number for the export job.
@@ -380,7 +390,10 @@ Here is an example of the sample input.
 
 At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
 
-## Check the number of drives
+<!--## Check the number of drives
+
+This *optional* step helps you determine the number of drives required for the export job. Perform this step on a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
+
 
 This *optional* step helps you determine the number of drives required for the export job. Perform this step on a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 
@@ -456,6 +469,7 @@ The following table shows examples of valid blob paths:
    | Starts With |/music/love |Exports all blobs in container **music** that begin with prefix **love** |
    | Equal To |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
    | Equal To |videos/story.mp4 |Exports blob **story.mp4** in container **videos** |
+-->
 
 ## Next steps
 

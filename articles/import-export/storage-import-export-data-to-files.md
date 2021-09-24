@@ -1,20 +1,32 @@
 ---
-title: Using Azure Import/Export to transfer data to Azure Files | Microsoft Docs
+title: Tututorial: Transfer data to Azure Files with Azure Import/Export | Microsoft Docs
 description: Learn how to create import jobs in the Azure portal to transfer data to Azure Files.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 09/03/2021
+ms.topic: tutorial
+ms.date: 09/23/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
-# Use Azure Import/Export service to import data to Azure Files
+# Tutorial: Transfer data to Azure Files with Azure Import/Export
 
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data into Azure Files. To import data, the service requires you to ship supported disk drives containing your data to an Azure datacenter.
 
 The Import/Export service supports only import of Azure Files into Azure Storage. Exporting Azure Files is not supported.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Prerequisites to import data to Azure Files
+> * Step 1: Prepare the drives
+> * Step 2: Create an import job
+> * Step 3: Ship the drives to Azure datacenter
+> * Step 4: Update the job with tracking information
+> * Step 5: Step 6: Verify data upload to Azure
+
+<!--"Samples for journal files" section doesn't fit the tutorial schema. OK to just let it appear in right nav pane?-->
 
 ## Prerequisites
 
@@ -394,4 +406,4 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 ## Next steps
 
 * [View the job and drive status](storage-import-export-view-drive-status.md)
-* [Review Import/Export requirements](storage-import-export-requirements.md)
+* [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md)
