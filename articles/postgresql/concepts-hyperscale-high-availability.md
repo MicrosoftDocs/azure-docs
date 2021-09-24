@@ -17,6 +17,11 @@ incoming connections from the failed node to its standby. Failover happens
 within a few minutes, and promoted nodes always have fresh data through
 PostgreSQL synchronous streaming replication.
 
+Without HA enabled each Hyperscale (Citus) node has its own LRS storage with three (3) synchronous replicas maintained by Azure Storage service. 
+In case of a single replica failure, it’s detected by Azure Storage service and is transparently re-created. Please see LRS storage durability metrics [on this page](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json#summary-of-redundancy-options).
+
+When HA is enabled, Hyperscale (Citus) runs a standby node for each primary node in server group with synchronous replication established between two Postgres servers on these nodes. That allows customers to have predictable downtime in case of a primary node failure. In a nutshell, our service detects a failure on primary node and initiates failover to standby node with zero data loss.
+
 To take advantage of HA on the coordinator node, database applications need to
 detect and retry dropped connections and failed transactions. The newly
 promoted coordinator will be accessible with the same connection string.
