@@ -1,5 +1,5 @@
 ---
-title: What are the basic info identifiers in the Azure AD sign-in log? | Microsoft Docs
+title: Basic info identifiers in the Azure AD sign-in log | Microsoft Docs
 description: Learn what the basic info identifiers are used for.
 services: active-directory
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
 
-# What are the basic info identifiers in the Azure AD sign-in log?
+# Basic info identifiers in the Azure AD sign-in log
 
 Azure AD logs all sign-ins into an Azure tenant for compliance. As an IT administrator, you need to know what the values in a sign-in log mean, so that you can interpret the log values correctly.
 This article explains the identifiers on the Basic info tab of the sign-ins log.
