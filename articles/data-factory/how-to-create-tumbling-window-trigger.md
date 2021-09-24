@@ -289,7 +289,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 
 ### Sample Code
 
-1. In your working directory create a JSON file named **MyTrigger.json** with the following content:
+1. In your working directory create a JSON file named **MyTrigger.json** with the trigger's properties. For this sample, use the following content:
 
     > [!IMPORTANT]
     > Before you save the JSON file, set the value of **referenceName** to your pipeline name. Set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
