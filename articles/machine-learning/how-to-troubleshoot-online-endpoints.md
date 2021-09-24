@@ -180,6 +180,10 @@ az ml endpoint get-logs
 
 The requested CPU or memory can't be satisfied. Please adjust your request or the cluster.
 
+### ERR_2102: Resources requests invalid
+
+The requests of resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to Azure Machine Learning workspace. You can check it from portal or with `az ml compute show` command.
+
 ### ERR_2200: User container has crashed\terminated
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.  The error in this scenario is that this container is crashing when running, which means scoring couldn't happen. This error happens when:
