@@ -31,7 +31,7 @@ In this walkthrough, you will learn how to modify the node count for a node type
 ![Sample showing a node count increase][adjust-node-count]
 
 6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
-![Sample showing a node count updating][node-count-updating]
+![Sample showing a node type updating][node-type-updating]
 
 
 ## Scale a Service Fabric managed cluster node type manually with a template
@@ -126,10 +126,7 @@ You can now use that [placement property to ensure that certain workloads run on
 
 ## Configure placement properties for a node type with a template
 
-To adjust the placement properties for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.  
-
-> [!NOTE]
-> The managed cluster provider will re-image each instance by upgrade domain.
+To adjust the placement properties for a node type using an ARM Template, adjust the `placementProperties` property with the new value(s) and do a cluster deployment for the setting to take affect. The below sample shows three values being set for a node type.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -140,20 +137,15 @@ To adjust the placement properties for a node type using an ARM Template, adjust
             "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
             "location": "[resourcegroup().location]",
             "properties": {
-                "multiplePlacementGroups": true,
-                "isPrimary": false,
-                "vmImagePublisher": "[parameters('vmImagePublisher')]",
-                "vmImageOffer": "[parameters('vmImageOffer')]",
-                "vmImageSku": "[parameters('vmImageSku')]",
-                "vmImageVersion": "[parameters('vmImageVersion')]",
-                "vmSize": "[parameters('nodeTypeSize')]",
-                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
-                "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
+                "placementProperties": {
+                    "PremiumSSD": "true",
+                    "NodeColor": "green",
+                    "SomeProperty": "5"
             }
         }
 }
 ```
-
+You can now use that [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
 
 ## Modify the VM SKU for a node type
 
@@ -167,7 +159,9 @@ Service Fabric managed cluster does not support in-place modification of the VM 
 
 > [!div class="nextstepaction"]
 > [Auto scale a Service Fabric managed cluster node type](how-to-managed-cluster-autoscale.md)
+
 > [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
+
 > [Deploy an app to a Service Fabric managed cluster](./tutorial-managed-cluster-deploy-app.md)
 
 
