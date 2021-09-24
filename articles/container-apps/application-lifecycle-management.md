@@ -92,9 +92,17 @@ You have multiple revisions for:
  [Blue Green deployment scenarios](https://martinfowler.com/bliki/BlueGreenDeployment.html)
 
 
-diagram with on revision
+diagram with one revision
 diagram with ingress
  balancing
+
+
+https://github.com/microsoft/azure-worker-apps-preview/blob/main/docs/revisions.md
+
+The Azure Container Apps application lifecycle revolves around container revisions. A revision is an immutable, and whenever the Container Apps template is changed, a new revision is created.
+
+While revisions are immutable, they are affected by changes global configuration values which apply to all revisions of a container app.
+
 
 ## Next steps
 
