@@ -168,7 +168,7 @@
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
-      name: Monitor connections using Azure diagnostic settings
+    - name: Monitor connections using Azure diagnostic settings
       href: cache-monitor-resource-logs.md
     - name: Monitoring FAQs
       href: cache-monitor-troubleshoot-faq.yml
