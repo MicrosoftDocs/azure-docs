@@ -886,7 +886,7 @@ Whether you wish to **add** or **remove** User/Group/SP(ServicePrincipal), the p
   }
 }
 ```
-## 5. How to add root collection admin using management API
+## Add root collection admin
 In some cases, an organization needs to add a different root collection admin using the API instead of the Purview Studio. It is possible that the current root collection admin doesn’t exist in the organization anymore. 
 
 **POST https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/addRootCollectionAdmin?api-version=2021-07-01**
