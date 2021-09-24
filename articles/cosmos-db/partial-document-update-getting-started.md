@@ -134,9 +134,9 @@ CosmosItemResponse<Family> response = this.container.patchItem(id, new Partition
 
 ```java
 CosmosPatchOperations cosmosPatchOperations = CosmosPatchOperations.create();
-                                                                   .add("/vaccinated", false);
+                                                                   .add("/vaccinated", true);
 CosmosPatchItemRequestOptions options = new CosmosPatchItemRequestOptions();
-options.setFilterPredicate("from f where f.registered = false");
+options.setFilterPredicate("from f where f.registered = true");
 
 CosmosItemResponse<Family> response = this.container.patchItem(id, new PartitionKey(partitionKey),
                                       cosmosPatchOperations, options, Family.class);

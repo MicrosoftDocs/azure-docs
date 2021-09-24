@@ -18,7 +18,7 @@ sections:
   - name: General
     questions:
       - question: |
-          Is this an implementation of JSON Patch RFC 6902
+          Is this an implementation of JSON Patch RFC 6902?
         answer: |
           Azure Cosmos DB partial document update is *inspired* by [JSON Patch RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902). There are additional features such as [Conditional Patch](partial-document-update.md#supported-modes) while some of the features of JSON Patch RFC 6902 such as (`Copy`, `Move`, `Test`) have not been implemented.
 
@@ -28,7 +28,7 @@ sections:
           Yes, partial document update is available across serverless, provisioned throughput and autoscale modes.
 
       - question: |
-          How is RU pricing calculated ?
+          How is RU pricing calculated?
         answer: |
           Partial Document Update is normalized into request unit billing in the same way as [other database operations](how-pricing-works.md). Users should not expect a significant reduction in RU.
 
