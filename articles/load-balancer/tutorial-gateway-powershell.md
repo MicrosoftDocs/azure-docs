@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Register preview feature.
 > * Create supporting network resources.
 > * Create a gateway load balancer.
-> * Add NVAs to backend bool of load balancer.
+> * Create network interfaces for NVAs and add to backend pool of load balancer.
 
 > [!IMPORTANT]
 > Gateway Azure Load Balancer is currently in public preview.
@@ -42,11 +42,7 @@ As part of the public preview of gateway load balancer, the provider must be reg
 Use [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) to register the **AllowGatewayLoadBalancer** provider feature:
 
 ```azurepowershell-interactive
-$reg = @{
-    FeatureName = 'AllowGatewayLoadBalancer`
-    ProviderNamespace = 'Microsoft.Network'
-}
-Register-AzProviderFeature @reg
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGatewayLoadBalancer
 
 ```
 
@@ -116,6 +112,58 @@ $bastion = @{
 }
 New-AzBastion @bastion -AsJob
 
+## Create rule for network security group and place in variable. ##
+$nsgrule1 = @{
+    Name = 'myNSGRule-AllowAll-TCP'
+    Description = 'Allow all TCP'
+    Protocol = 'TCP'
+    SourcePortRange = '*'
+    DestinationPortRange = '*'
+    SourceAddressPrefix = '0.0.0.0/0'
+    DestinationAddressPrefix = '0.0.0.0/0'
+    Access = 'Allow'
+    Priority = '100'
+    Direction = 'Inbound'
+}
+$rule1 = New-AzNetworkSecurityRuleConfig @nsgrule1
+
+$nsgrule2 = @{
+    Name = 'myNSGRule-AllowAll-TCP-Out'
+    Description = 'Allow all TCP Out'
+    Protocol = 'TCP'
+    SourcePortRange = '*'
+    DestinationPortRange = '*'
+    SourceAddressPrefix = '0.0.0.0/0'
+    DestinationAddressPrefix = '0.0.0.0/0'
+    Access = 'Allow'
+    Priority = '101'
+    Direction = 'Outbound'
+}
+$rule2 = New-AzNetworkSecurityRuleConfig @nsgrule2
+
+$nsgrule3 = @{
+    Name = 'myNSGRule-AllowAll-UDP'
+    Description = 'Allow all UDP'
+    Protocol = 'UDP'
+    SourcePortRange = '*'
+    DestinationPortRange = '*'
+    SourceAddressPrefix = '0.0.0.0/0'
+    DestinationAddressPrefix = '0.0.0.0/0'
+    Access = 'Allow'
+    Priority = '102'
+    Direction = 'Inbound'
+}
+$rule3 = New-AzNetworkSecurityRuleConfig @nsgrule3
+
+## Create network security group ##
+$nsg = @{
+    Name = 'myNSG'
+    ResourceGroupName = 'TutorGwLB-rg'
+    Location = 'eastus'
+    SecurityRules = $rule1,$rule2,$rule3
+}
+New-AzNetworkSecurityGroup @nsg
+
 ```
 
 ## Create gateway load balancer
@@ -143,41 +191,123 @@ $vnet = Get-AzVirtualNetwork @net
 ## Create load balancer frontend configuration and place in variable. ## 
 $fe = @{
     Name = 'myFrontend'
-    SubnetId = $vnet.subnets.[0].id
+    SubnetId = $vnet.subnets[0].id
 }
-$feip = New-AzLoadBalancerFrontendIpConfig
+$feip = New-AzLoadBalancerFrontendIpConfig @fe
 
 ## Create backend address pool configuration and place in variable. ## 
+$int1 = @{
+    Type = 'Internal'
+    Protocol = 'Vxlan'
+    Identifier = '800'
+    Port = '2000'
+}
+$tunnelInterface1 = New-AzLoadBalancerBackendAddressPoolTunnelInterfaceConfig @int1
 
+$int2 = @{
+    Type = 'External'
+    Protocol = 'Vxlan'
+    Identifier = '801'
+    Port = '2001'
+}
+$tunnelInterface2 = New-AzLoadBalancerBackendAddressPoolTunnelInterfaceConfig @int2
 
+$pool = @{
+    Name = 'myBackendPool'
+    TunnelInterface = $tunnelInterface1,$tunnelInterface2
+}
+$bepool = New-AzLoadBalancerBackendAddressPoolConfig @pool
 
+## Create the health probe and place in variable. ## 
+$probe = @{
+    Name = 'myHealthProbe'
+    Protocol = 'http'
+    Port = '80'
+    IntervalInSeconds = '360'
+    ProbeCount = '5'
+    RequestPath = '/'
+}
+$healthprobe = New-AzLoadBalancerProbeConfig @probe
 
+## Create the load balancer rule and place in variable. ## 
+$para = @{
+    Name = 'myLBRule'
+    Protocol = '*'
+    FrontendPort = '0'
+    BackendPort = '0'
+    IdleTimeoutInMinutes = '15'
+    FrontendIpConfiguration = $feip
+    BackendAddressPool = $bepool
+    Probe = $healthprobe
+}
+$rule = New-AzLoadBalancerRuleConfig @para
 
+## Create the load balancer resource. ## 
+$lb = @{
+    ResourceGroupName = 'TutorGwLB-rg'
+    Name = 'myLoadBalancer-gw'
+    Location = 'eastus'
+    Sku = 'Gateway'
+    FrontendIpConfiguration = $feip
+    BackendAddressPool = $bepool
+    Probe = $healthprobe
+}
+New-AzLoadBalancer @lb
 
 
 ```
 
+## Create network interfaces
+
+In this section, you'll create two network interfaces for NVAs. During the creation process, the network interfaces are added to the backend pool of the load balancer created previously.
+
+Use [New-AzNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to create two network interfaces for the NVAs.
+
+```azurepowershell-interactive
+## Place the virtual network into a variable. ##
+$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'TutorGwLB-rg'
+
+## Place the load balancer into a variable. ##
+$lb = @{
+    Name = 'myLoadBalancer-gw'
+    ResourceGroupName = 'TutorGwLB-rg'
+}
+$bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
+
+## Place the network security group into a variable. ##
+$nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'TutorGwLB-rg'
+
+## For loop with variable to create network interfaces. ##
+for ($i=1; $i -le 2; $i++)
+{
+## Command to create network interface for VMs ##
+$nic = @{
+    Name = "myNicNVA0$i"
+    ResourceGroupName = 'TutorGwLB-rg'
+    Location = 'eastus'
+    Subnet = $vnet.Subnets[0]
+    NetworkSecurityGroup = $nsg
+    LoadBalancerBackendAddressPool = $bepool
+    }
+New-AzNetworkInterface @nic
+}
+
+```
+
+The network interfaces are ready to be added to the NVAs of your choice from the marketplace.
+
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
-
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name 'TutorGwLB-rg'
+```
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
+Create NVAs from the Azure marketplace. When creating the NVAs, choose the network interfaces created in this tutorial.
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+Advance to the next article to learn how to create a cross-region Azure Load Balancer.
+> [!div class="nextstepaction"]
+> [Cross-region load balancer](tutorial-cross-region-powershell.md)
