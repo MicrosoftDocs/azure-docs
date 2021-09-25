@@ -112,7 +112,7 @@ To understand the detailed steps to achieve this, refer to the sections below.
 
 When an Azure Virtual Machine (VM) that’s been protected by a Recovery Services vault is moved from one region to another, it can no longer be backed up to the older vault. The backups in the old vault will start failing with the errors **BCMV2VMNotFound** or [**ResourceNotFound**](./backup-azure-vms-troubleshoot.md#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found). For information on how to protect your VMs in the new region, see the following sections.
 
-#### Prepare to move VMs
+#### Prepare to move Azure VMs
 
 Before you move a VM, ensure the following prerequisites are met:
 
@@ -128,11 +128,11 @@ Before you move a VM, ensure the following prerequisites are met:
    - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
    - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
 
-#### Move VMs
+#### Move Azure VMs
 
 Move your VM to the new region using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md).
 
-#### Protect VMs using Azure Backup
+#### Protect Azure VMs using Azure Backup
 
 Start protecting your VM in a new or existing Recovery Services vault in the new region. When you need to restore from your older backups, you can still do it from your old Recovery Services vault if you had chosen to retain the backup data. 
 
@@ -168,7 +168,7 @@ This ensures that you will always have your snapshots ready for restore from the
 
 When you move a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, see the follow sections.
 
-#### Prepare to move SQL Server/SAP HANA in a VM
+#### Prepare to move SQL Server/SAP HANA in Azure VM
 
 Before you move SQL Server/SAP HANA running in a VM to a new region, ensure the following prerequisites are met:
 
@@ -184,11 +184,11 @@ Before you move SQL Server/SAP HANA running in a VM to a new region, ensure the 
    - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
    - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
 
-#### Move SQL Server/SAP HANA in a VM
+#### Move SQL Server/SAP HANA in Azure VM
 
 Move your VM to the new region using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md).
 
-#### Protect SQL Server/SAP HANA in a VM using Azure Backup
+#### Protect SQL Server/SAP HANA in Azure VM using Azure Backup
 
 Start protecting the VM in a new/existing Recovery Services vault in the new region. When you need to restore from your older backups, you can still do it from your old Recovery Services vault.
  
