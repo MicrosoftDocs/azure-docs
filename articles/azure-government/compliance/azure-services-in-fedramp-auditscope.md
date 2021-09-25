@@ -4,7 +4,7 @@ description: This article tracks FedRAMP and DoD compliance scope for Azure, Dyn
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.date: 09/07/2021
+ms.date: 09/23/2021
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -212,7 +212,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Power Apps](/powerapps/powerapps-overview) | &#x2705; | &#x2705; | |
 | [Power Apps Portal](https://powerapps.microsoft.com/portals/) | &#x2705; | &#x2705; | |
 | [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow) | &#x2705; | &#x2705; | |
-| [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | &#x2705; | &#x2705; | |
+| [Power BI](https://powerbi.microsoft.com/) | &#x2705; | &#x2705; | |
 | [Power Data Integrator](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; | |
 | [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) | &#x2705; | &#x2705; | |
 | [Private Link](https://azure.microsoft.com/services/private-link/) | &#x2705; | &#x2705; | |

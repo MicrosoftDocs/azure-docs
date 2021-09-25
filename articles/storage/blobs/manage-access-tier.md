@@ -8,7 +8,7 @@ ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.reviewer: klaasl 
+ms.reviewer: klaasl
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -56,7 +56,7 @@ $ctx = $storageAccount.Context
 #Select the blob from a container
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
 
-#Change the blob’s access tier to archive
+#Change the blob's access tier to archive
 $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ```
 
@@ -65,5 +65,5 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ## Next steps
 
 - [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
-- [Learn about rehydrating blob data from the archive tier](archive-rehydrate-overview.md)
+- Learn about [rehydrating blob data from the archive tier](archive-rehydrate-overview.md)
 - [Check hot, cool, and archive pricing in Blob Storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)

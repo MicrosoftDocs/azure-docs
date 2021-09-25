@@ -2564,6 +2564,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-troubleshoot-managed-online-endpoints.md",
+      "redirect_url": "/azure/machine-learning/how-to-troubleshoot-online-endpoints",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/classic/migrate-overview.md",
       "redirect_url": "/azure/machine-learning/migrate-overview",
       "redirect_document_id": true
@@ -41144,11 +41149,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/active-directory/develop/azure-ad-endpoint-comparison.md",
       "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
       "redirect_document_id": false
@@ -45256,6 +45256,21 @@
     {
       "source_path_from_root": "/articles/active-directory/application-access-panel-web-sign-in-problem.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-provisioning/on-premises-ecma-prerequisites.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/on-premises-sql-connector-configure.md#prerequisites-for-the-azure-ad-ecma-connector-host",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-provisioning/on-premises-ecma-install.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/on-premises-sql-connector-configure.md?#download-and-install-the-azure-ad-connect-provisioning-agent-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-provisioning/on-premises-ecma-configure.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/on-premises-sql-connector-configure.md#configure-the-azure-ad-ecma-connector-host",
       "redirect_document_id": false
     },
     {
