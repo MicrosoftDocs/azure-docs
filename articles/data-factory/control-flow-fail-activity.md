@@ -50,7 +50,7 @@ Situation Description | Error Message | Error Code
 (Dynamic) content in `message` and `errorCode` interpreted correctly | Error message set by the user | Error code set by the user
 Dynamic content in both `message` and `errorCode` cannot be interpreted | 'Failed to interpret _<activity_name>_ fail message or error code | `ErrorCodeNotString`
 Dynamic content in `message` cannot be interpreted as a string | '_<activity_name>_ fail message parameter could not be interpreted as a string' | Error code set by the user
-Dynamic content in `message` resolves to null, empty string or white spaces | 'Failed to interpret _<activity name>_ fail message or error code' | Error code set by the user
+Dynamic content in `message` resolves to null, empty string or white spaces | 'Failed to interpret _<activity_name>_ fail message or error code' | Error code set by the user
 Dynamic content in `errorCode` cannot be interpreted as a string | Error message set by the user | `ErrorCodeNotString`
 Dynamic content in `errorCode` resolves to null, empty string or white spaces | Error message set by the user | `ErrorCodeNotString`
 Value for `message` or `errorCode` provided by user isn't string-able * | Pipeline __fails__ with: 'Invalid value for property <`errorCode`/`message`>'
