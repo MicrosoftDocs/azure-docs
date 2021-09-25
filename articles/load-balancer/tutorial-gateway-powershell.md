@@ -18,7 +18,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Register preview feature.
-> * Create supporting network resources.
+> * Create virtual network.
+> * Create network security group.
 > * Create a gateway load balancer.
 
 > [!IMPORTANT]
@@ -62,7 +63,7 @@ New-AzResourceGroup -Name 'TutorGwLB-rg' -Location 'eastus'
 
 ```
 
-## Create virtual network and supporting resources
+## Create virtual network
 
 A virtual network is needed for the resources that are in the backend pool of the gateway load balancer. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to deploy a bastion host for secure management of resources in virtual network.
 
@@ -110,6 +111,15 @@ $bastion = @{
 }
 New-AzBastion @bastion -AsJob
 
+```
+
+## Create NSG
+
+Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
+
+Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create three rules for the NSG. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the NSG.
+
+```azurepowershell-interactive
 ## Create rule for network security group and place in variable. ##
 $nsgrule1 = @{
     Name = 'myNSGRule-AllowAll-TCP'
@@ -161,7 +171,6 @@ $nsg = @{
     SecurityRules = $rule1,$rule2,$rule3
 }
 New-AzNetworkSecurityGroup @nsg
-
 ```
 
 ## Create gateway load balancer
