@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot OMS solution-based Hybrid Runbook Worker issues in Azure Automation
+title: Troubleshoot agent-based Hybrid Runbook Worker issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation agent-based Hybrid Runbook Workers.
 services: automation
 ms.subservice:
@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
 ---
 
-# Troubleshoot OMS solution-based Hybrid Runbook Worker issues in Automation
+# Troubleshoot agent-based Hybrid Runbook Worker issues in Automation
 
 This article provides information on troubleshooting and resolving issues with Azure Automation agent-based Hybrid Runbook Workers. For troubleshooting extension-based workers, see [Troubleshoot extension-based Hybrid Runbook Worker issues in Automation](./extension-based-hrw.md). For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
 

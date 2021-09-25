@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation (Preview)
 
-The extension-based onboarding is only for **User** Hybrid Runbook Workers. For **System** Hybrid Runbook Worker onboarding, see [Deploy an OMS solution-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an OMS solution-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
+The extension-based onboarding is only for **User** Hybrid Runbook Workers. For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 
