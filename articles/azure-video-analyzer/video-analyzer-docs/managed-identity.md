@@ -42,7 +42,7 @@ In previous section, you created a UAMI that allowed Video Analyzer to access th
     * Managed Identity - Select user-assigned managed identity (created earlier in previous section) to be used to access the IoT Hub
 * Click on ‘Attach’ to link IoT Hub to your Video Analyzer account
 
-See [this](create-video-analyzer-account.md) article for an example of using the Azure portal to accomplish the above. <ToDo: update referenced doc>
+See [this](create-video-analyzer-account.md) article for an example of using the Azure portal to accomplish the above.
 
 ## Next steps
 
