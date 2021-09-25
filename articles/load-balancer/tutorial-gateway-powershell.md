@@ -20,7 +20,6 @@ In this tutorial, you learn how to:
 > * Register preview feature.
 > * Create supporting network resources.
 > * Create a gateway load balancer.
-> * Create network interfaces for NVAs and add to backend pool of load balancer.
 
 > [!IMPORTANT]
 > Gateway Azure Load Balancer is currently in public preview.
