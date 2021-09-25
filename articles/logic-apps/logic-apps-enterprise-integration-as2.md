@@ -56,6 +56,11 @@ For more information about the original **AS2** connector's triggers, actions, a
 ---
 
 This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. Although you can use an trigger to start your workflow, the examples use the [Request](../connectors/connectors-native-reqres.md) trigger.
+
+## Limits
+
+For information about the AS2 connector limits for workflows running in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences), review the [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits).
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -66,15 +71,11 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 
   * Exists in the same location or Azure region as your logic app resource.
 
-  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use artifacts in your workflow.
+  * When you use the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences) and the **AS2 (v2)** operations, your logic app resource doesn't need a link to your integration account. However, you still need this account to store artifacts, such as partners, agreements, and certificates, along with using the AS2, [X12](logic-apps-enterprise-integration-x12.md), or [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 
-  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), or [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+  * When you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences) and the original **AS2** operations, your workflow requires a connection to your integration account that you create directly from your workflow when you add the AS2 operation.
 
-  > [!NOTE]
-  > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
-  > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
-
-* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is AS2 for this scenario.
+* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is **AS2Identity** for this scenario.
 
 * An [AS2 agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner.
 
@@ -121,15 +122,54 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
    | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement |
    ||||
 
-   For example:
+   For example, the message payload is the **Body** content output from the Request trigger:
 
-   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
+   ![Screenshot showing the "AS2 Encode" action with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/as2-message-encode-details.png)
 
    > [!TIP]
    > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
    > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
 ### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter `as2 encode`. Select the action named **Encode to AS2 message**.
+
+   ![Screenshot showing the Azure portal, workflow designer, and "Encode to AS2 message" operation selected.](./media/logic-apps-enterprise-integration-as2/select-encode-as2-message.png)
+
+1. When prompted to create a connection to your integration account, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+   ||||
+
+   For example:
+
+   ![Screenshot showing the "Encode to AS2 message" connection pane.](./media/logic-apps-enterprise-integration-as2/create-as2-encode-connection-standard.png)
+
+1. When you're done, select **Create**.
+
+1. After the AS2 details pane appear on the designer, provide information for the following properties:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Message to encode** | Yes | The message payload |
+   | **AS2 from** | Yes | The business identifier for the message sender as specified by your AS2 agreement |
+   | **AS2 to** | Yes | The business identifier for the message receiver as specified by your AS2 agreement |
+   ||||
+
+   For example, the message payload is the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the "AS2 Encode" operation with the message encoding properties.](./media/logic-apps-enterprise-integration-as2/encode-as2-message-details.png)
+
+   > [!TIP]
+   > If you experience problems when sending signed or encrypted messages, consider trying different SHA256 algorithm formats. 
+   > The AS2 specification doesn't provide any information about SHA256 formats, so each provider uses their own implementation or format.
 
 ---
 
@@ -143,27 +183,51 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 
 1. On the designer, under the trigger or action where you want to add the AS2 action, select **New step**. This example uses the [Request](../connectors/connectors-native-reqres.md) trigger.
 
-1. Under the **Choose an operation** search box, select **All**. In the search box, enter `as2 encode`. Select the action named **AS2 Decode**.
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter `as2 decode`. Select the action named **AS2 Decode**.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" action selected.](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
+   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation selected.](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
 1. For the **Message to encode** and the **Message headers** properties, select these values from previous trigger or action outputs.
 
-   For example, suppose workflow starts with the Request trigger, which receives inbound requests that contain messages. You can select the outputs from that trigger.
+   In this example, you can select the outputs from the Request trigger.
 
-   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" action with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-message-decode-details.png)
+   ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/as2-message-decode-details.png)
 
 ### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the designer, under the trigger or action where you want to add the AS2 action, select **Insert a new step** (plus sign), and then select **Add an action**.
+
+1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter `as2 decode`. Select the action named **Decode AS2 message**.
+
+   ![Screenshot showing the Azure portal, workflow designer, and "Decode AS2 message" operation selected.](./media/logic-apps-enterprise-integration-as2/select-decode-as2-message.png)
+
+1. When prompted to create a connection to your integration account, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+   ||||
+
+   For example:
+
+   ![Screenshot showing the "Decode AS2 message" connection pane.](./media/logic-apps-enterprise-integration-as2/create-as2-decode-connection-standard.png)
+
+1. When you're done, select **Create**.
+
+1. For the **Message to encode** and the **Message headers** properties, select these values from previous trigger or action outputs.
+
+   In this example, you can select the outputs from the Request trigger.
+
+   ![Screenshot showing the Azure portal, workflow designer, and "Decode AS2 message" operation with the "Body" and "Headers" output selected from the Request trigger.](media/logic-apps-enterprise-integration-as2/decode-as2-message-details.png)
 
 ---
 
 ## Sample
 
-To try deploying a fully operational logic app and sample AS2 scenario, see the [AS2 (v2) logic app template and scenario](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/).
-
-> [!NOTE]
-> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [B2B message limits for ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
+To try deploying a fully operational logic app and sample AS2 (v2) scenario, review the [AS2 (v2) logic app template and scenario](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/).
 
 ## Next steps
 
