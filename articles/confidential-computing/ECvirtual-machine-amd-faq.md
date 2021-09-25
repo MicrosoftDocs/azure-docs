@@ -1,0 +1,1 @@
+FAQ for azure confidential VMs

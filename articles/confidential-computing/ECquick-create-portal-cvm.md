@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Confidential DCv5 virtual machine in the Azure portal
+title: Quickstart - Create an Azure Confidential DCv5 virtual machine in the Azure portal (Preview)
 description: Get started with your deployments by learning how to quickly create a confidential computing virtual machine in the Azure portal.
 author: JBCook
 ms.service: virtual-machines
@@ -11,7 +11,7 @@ ms.author: JenCook
 ---
 
 
-# Quickstart: Deploy an Azure Confidential DCv5 VM in the Azure portal
+# Quickstart: Deploy an Azure Confidential DCv5 VM in the Azure portal (Preview)
 
 Get started with Azure confidential computing by using the Azure portal to create a virtual machine (VM) backed by Intel SGX. You'll then be able to run enclave applications.
 
