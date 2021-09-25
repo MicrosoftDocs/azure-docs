@@ -55,7 +55,7 @@ For more information about the original **AS2** connector's triggers, actions, a
 
 ---
 
-This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. Although you can use an trigger to start your workflow, the examples use the [Request](../connectors/connectors-native-reqres.md) trigger.
+This article shows how to add the AS2 encoding and decoding actions to an existing logic app workflow. Although you can use any trigger to start your workflow, the examples use the [Request](../connectors/connectors-native-reqres.md) trigger.
 
 ## Limits
 
@@ -113,7 +113,7 @@ For information about the AS2 connector limits for workflows running in [multi-t
 
    ![Screenshot showing the Azure portal, workflow designer, and "AS2 Encode" action selected.](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
-1. After the AS2 action appears on the designer, provide information for the following properties:
+1. After the AS2 operation appears on the designer, provide information for the following properties:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -154,7 +154,7 @@ For information about the AS2 connector limits for workflows running in [multi-t
 
 1. When you're done, select **Create**.
 
-1. After the AS2 details pane appear on the designer, provide information for the following properties:
+1. After the AS2 details pane appears on the designer, provide information for the following properties:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -187,7 +187,7 @@ For information about the AS2 connector limits for workflows running in [multi-t
 
    ![Screenshot showing the Azure portal, workflow designer, and "AS2 Decode" operation selected.](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
-1. For the **Message to encode** and the **Message headers** properties, select these values from previous trigger or action outputs.
+1. In the AS2 operation shape, select the values for the **Message to encode** and the **Message headers** properties from the previous trigger or action outputs.
 
    In this example, you can select the outputs from the Request trigger.
 
@@ -217,7 +217,7 @@ For information about the AS2 connector limits for workflows running in [multi-t
 
 1. When you're done, select **Create**.
 
-1. For the **Message to encode** and the **Message headers** properties, select these values from previous trigger or action outputs.
+1. In the AS2 details pane, select the values for the **Message to encode** and the **Message headers** properties from the previous trigger or action outputs.
 
    In this example, you can select the outputs from the Request trigger.
 
