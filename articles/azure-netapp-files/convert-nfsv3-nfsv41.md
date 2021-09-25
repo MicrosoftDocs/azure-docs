@@ -67,7 +67,7 @@ In this example, you have an NFSv3 volume, but you want to use NFSv4.1 features.
 
 This section shows you how to convert the NFSv3 volume to NFSv4.1. 
 
-1. Before converting the volume, unmount it in preparation. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
+1. Before converting the volume, unmount it from the clients in preparation. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
 
     Example:   
     `sudo umount /path/to/vol1`
@@ -86,7 +86,7 @@ This section shows you how to convert the NFSv3 volume to NFSv4.1.
 
 5. On all clients, change the NFS protocol version in your mount command (that is, `/etc/fstab`) from `vers=3` to `vers=4.1`.
 
-6. Remount the volume. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
+6. Remount the volume on the clients. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
 
 7. On the clients, run `mount –v` and locate your volume in the list. Verify in the output that the version shows **`nfsvers=4.1`**. 
 
@@ -103,9 +103,9 @@ In this example, you have an existing NFSv4.1 volume that you want to convert to
 This section shows you how to convert the NFSv4.1 volume to NFSv3.
 
 > [!IMPORTANT]
-> In this case, the conversion will result in all NFSv4.1 features such as ACLs and file locking to become unavailable. 
+> Converting a volume from NFSv4.1 to NFSv3 will result in all NFSv4.1 features such as ACLs and file locking to become unavailable. 
 
-1. Before converting the volume, unmount it in preparation. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
+1. Before converting the volume, unmount it from the clients in preparation. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
 
     Example:   
     `sudo umount /path/to/vol1`
@@ -122,7 +122,7 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
 
 4. On all clients, change the NFS protocol version in your mount command (that is, `/etc/fstab`) from `vers=4.1` to `vers=3`.
 
-5. Remount the volume. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
+5. Remount the volume on the clients. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
 
 6. On the clients, run `mount –v` and locate your volume in the list. Verify in the output that the version shows **`nfsvers=3`**. 
 
