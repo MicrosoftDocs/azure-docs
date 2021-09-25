@@ -22,7 +22,7 @@ Azure NetApp Files provides an option that enables you to convert an NFS volume 
 
 If an existing NFS volume that is exported through NFSv3 requires a protocol change to take advantage of NFSv4.1 features and performance, you can convert the protocol version from NFSv3 to NFSv4.1. Likewise, you can also convert an NFSv4.1 volume to NFSv3. 
 
-Converting between NFSv3 and NFSv4.1 does not require that you create a new volume and copy the data. The operation preserves the data and converts the volume export policies as part of the operation. As such, after the clients are prepared for the protocol change, they can remount the volume and access the data. 
+Converting a volume between NFSv3 and NFSv4.1 does not require that you create a new volume and copy the data. The operation preserves the data and converts the volume export policies as part of the operation. As such, after the clients are prepared for the protocol change, they can remount the volume and access the data. 
 
 > [!IMPORTANT]
 > If you are changing the protocol of your production environment, you need to properly prepare for the conversion and test it.  
