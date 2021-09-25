@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Create a gateway load balancer using the Azure portal
 
-Gateway load balancer is a SKU of Azure load balancer used for Network Virtual Appliances (NVA). The gateway SKU is used specifically for scenarios that require high performance and high scalability of NVAs.
+Azure Load Balancer consists of a standard, basic, and gateway SKU. The gateway SKU is used for Network Virtual Appliances (NVA). Use the gateway SKU for scenarios that require high performance and high scalability of NVAs.
 
 In this tutorial, you learn how to:
 
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name 'TutorGwLB-rg' -Location 'eastus'
 
 ### Create virtual network 
 
-A virtual network is needed for the resources that will reside in the backend pool of the gateway load balancer. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to deploy a bastion host for secure management of resources in virtual network.
+A virtual network is needed for the resources that are in the backend pool of the gateway load balancer. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to deploy a bastion host for secure management of resources in virtual network.
 
 ```azurepowershell-interactive
 ## Create backend subnet config ##
@@ -306,7 +306,7 @@ Remove-AzResourceGroup -Name 'TutorGwLB-rg'
 
 ## Next steps
 
-Create NVAs from the Azure marketplace. When creating the NVAs, choose the network interfaces created in this tutorial.
+Create NVAs in Azure. When creating the NVAs, choose the network interfaces created in this tutorial.
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]
