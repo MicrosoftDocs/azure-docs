@@ -63,7 +63,7 @@ New-AzResourceGroup -Name 'TutorGwLB-rg' -Location 'eastus'
 
 ```
 
-### Create virtual network 
+## Create virtual network and supporting resources
 
 A virtual network is needed for the resources that are in the backend pool of the gateway load balancer. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to deploy a bastion host for secure management of resources in virtual network.
 
@@ -253,47 +253,10 @@ $lb = @{
 }
 New-AzLoadBalancer @lb
 
-
 ```
 
-## Create network interfaces
+The load balancer is ready for NVAs in the backend pool.
 
-In this section, you'll create two network interfaces for NVAs. During the creation process, the network interfaces are added to the backend pool of the load balancer created previously.
-
-Use [New-AzNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) to create two network interfaces for the NVAs.
-
-```azurepowershell-interactive
-## Place the virtual network into a variable. ##
-$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'TutorGwLB-rg'
-
-## Place the load balancer into a variable. ##
-$lb = @{
-    Name = 'myLoadBalancer-gw'
-    ResourceGroupName = 'TutorGwLB-rg'
-}
-$bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
-
-## Place the network security group into a variable. ##
-$nsg = Get-AzNetworkSecurityGroup -Name 'myNSG' -ResourceGroupName 'TutorGwLB-rg'
-
-## For loop with variable to create network interfaces. ##
-for ($i=1; $i -le 2; $i++)
-{
-## Command to create network interface for VMs ##
-$nic = @{
-    Name = "myNicNVA0$i"
-    ResourceGroupName = 'TutorGwLB-rg'
-    Location = 'eastus'
-    Subnet = $vnet.Subnets[0]
-    NetworkSecurityGroup = $nsg
-    LoadBalancerBackendAddressPool = $bepool
-    }
-New-AzNetworkInterface @nic
-}
-
-```
-
-The network interfaces are ready to be added to the NVAs of your choice from the marketplace.
 
 ## Clean up resources
 
@@ -305,7 +268,7 @@ Remove-AzResourceGroup -Name 'TutorGwLB-rg'
 
 ## Next steps
 
-Create NVAs in Azure. When creating the NVAs, choose the network interfaces created in this tutorial.
+Create NVAs in Azure. When creating the NVAs, choose the network, subnet, network security group, and load balancer created in this tutorial.
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]
