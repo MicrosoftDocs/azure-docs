@@ -33,15 +33,6 @@ disabled.
 
 ## Network security
 
-Connections to a Hyperscale (Citus) node are first routed through a regional
-gateway. The gateway has a publicly accessible IP, while the server IP
-addresses are protected. For more information about the gateway, visit the
-connectivity architecture article.
-
-A newly created Azure Database for PostgreSQL server has a firewall that blocks
-all external connections. Though they reach the gateway, they are not allowed
-to connect to the server.
-
 [!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
 
 ## Limits and limitations
