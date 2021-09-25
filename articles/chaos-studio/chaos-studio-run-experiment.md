@@ -75,8 +75,6 @@ Now that you have created your first experiment, you are ready to run your exper
 
 ## Use the Chaos Studio REST API
 
-A full list of management commands [is available here](chaos-studio-samples-rest-api.md).
-
 ### Start experiment
 To run your experiment, execute the following command, replacing `$EXPERIMENT_ID` with the resource ID of your experiment and `{apiVersion}` with the [latest API version documented here](https://aka.ms/chaosrestapi).
 
