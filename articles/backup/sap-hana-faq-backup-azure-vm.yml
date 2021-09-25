@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: article
   ms.service: backup
-  ms.date: 09/20/2021
+  ms.date: 09/27/2021
     
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
@@ -131,7 +131,7 @@ sections:
           To perform this **switch protection**, follow these steps:
           
           - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (with retain data) on primary
-          - Run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the secondary node
+          - Run the [pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610) on the secondary node
           - [Discover the databases](tutorial-backup-sap-hana-db.md#discover-the-databases) on the secondary node and [configure backups](tutorial-backup-sap-hana-db.md#configure-backup) on them
           
           These steps must be performed manually after every fail-over. You can perform these steps through command line / HTTP REST in addition to the Azure portal. To automate these steps, you can use an Azure runbook.
