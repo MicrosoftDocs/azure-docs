@@ -21,7 +21,7 @@ The IoT Hub recommendations list displays all of the aggregated security recomme
 
 1. From the **Security** menu, select **Recommendations**. All of the security recommendations for the IoT Hub will display, and the recommendations with a **New** flag, mark your recommendations from the past 24 hours. 
 
-    :::image type="content" source="media/quickstart/investigate-security-recommendations-expanded.png#lightbox" alt-text="Investigate security recommendations with ASC for IoT](media/quickstart/investigate-security-recommendations-inline.png)":::
+    :::image type="content" source="media/quickstart/investigate-security-recommendations-expanded.png#" alt-text="Investigate security recommendations with ASC for IoT." lightbox="media/quickstart/investigate-security-recommendations-inline.png":::
 
 1. Select and open any recommendation from the list to open the recommendation details and drill down to the specifics.
 
