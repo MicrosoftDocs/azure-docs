@@ -177,4 +177,5 @@ The response includes classifying whether each text line is of handwriting style
 
 ## Next steps
 
-To try out the REST API, go to the [Read API Reference](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- Get started with the [OCR (Read) REST API or client library quickstarts](./quickstarts-sdk/client-library.md).
+- Learn about the [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
