@@ -302,10 +302,10 @@ The following table displays the current Azure Defender for IoT feature availabi
 | [Threat detection with IoT, and OT behavioral analytics](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
 | [Manual and automatic threat intelligence updates](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **Unify IT, and OT security with SIEM, SOAR and XDR** |  |  |
-| Active Directory | GA | GA |
-|--|--|--|
+| [Active Directory](../../defender-for-iot/organizations/how-to-create-and-manage-users.md#integrate-with-active-directory-servers) | GA | GA |
+| [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
 | [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/how-to-install-software.md#attach-a-clearpass-span-virtual-interface-to-the-virtual-switch) | GA | GA |
-| CyberArk PSM | GA | GA |
+| [CyberArk PSM](../../defender-for-iot/organizations/concept-key-concepts.md#integrations) | GA | GA |
 | Email | GA | GA |
 | [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
 | [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
@@ -327,9 +327,9 @@ The following table displays the current Azure Defender for IoT feature availabi
 | Feature | Azure | Azure Government |
 |--|--|--|
 | [Micro agent for Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| - [Configure Sentinel with Azure Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Private Preview | Private Preview |
+| [Configure Sentinel with Azure Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Private Preview | Private Preview |
 | **Standalone micro agent for Linux** |  |  |
-| - [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
+| [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
 
 ## Next steps
 
