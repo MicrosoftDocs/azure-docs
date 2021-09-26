@@ -4,7 +4,6 @@ description: Learn how to assign multiple IP addresses to a virtual machine usin
 services: virtual-network
 documentationcenter: na
 author: asudbring
-manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na

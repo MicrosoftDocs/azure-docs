@@ -3,8 +3,7 @@ title: Routing preference in Azure
 description: Learn about how you can choose how your traffic routes between Azure and the Internet with routing preference.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: mtillman
+author: asudbring
 ms.service: virtual-network
 # Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
 ms.devlang: na
@@ -12,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
-ms.author: mnayak
+ms.author: allensu
 ---
 
 # What is routing preference?

@@ -4,11 +4,6 @@ description: Learn how to add, change, and remove private and public IP addresse
 services: virtual-network
 documentationcenter: na
 author: asudbring
-manager: KumudD
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: NA
