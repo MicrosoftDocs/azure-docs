@@ -218,11 +218,14 @@ If you have a command-line client for your endpoint, you can test connectivity f
 
 ### Change an existing Hybrid Connection endpoint ###
 
-If you need to change the endpoint for a Hybrid Connection, you should disconnect the existing Hybrid Connection and create a new one with the new endpoint.
+If you need to change the endpoint host or port number for a Hybrid Connection, follow the steps below:
 
-> [!NOTE]
-> To re-use the same name for the new Hybrid Connection with the updated endpoint, after disconnecting the Hybrid Connection from your app, you will need to delete the underlying Relay. You can find the Relay by navigating to the Resource Group you created for your App Service.
->
+1. Remove the Hybrid Connection from the Hybrid Connection Manager by selecting the connection and selecting "Remove" at the top left of the Hybrid Connection Details window.
+1. Disconnect the Hybrid Connection from your App Service by navigating to "Hybrid Connections" in the "Networking" blade.
+1. Navigate to the Relay for the endpoint you need to update and select "Hybrid Connections" under "Entities" in the left-hand navigation menu.
+1. Select the Hybrid Connection you want to update and select "Properties" under "Settings" in the left-hand navigation menu.
+1. Make your changes and hit "Save changes" at the top.
+1. Return to the "Hybrid Connections" blade for your App Service and add the Hybrid Connection again. Ensure the endpoint is updated as intended.
 
 ### Outbound access through proxy ###
 
