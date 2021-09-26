@@ -51,7 +51,7 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 |Bosnian (Latin)   |`bs`|✅ (preview) | |
 |Breton    |`br`|✅ | |
 |Bulgarian |`bg`|✅ (preview) | |
-|Buryat |`bua`|✅ (preview) | |
+|Buryat (Cyrillic)|`bua`|✅ (preview) | |
 |Catalan    |`ca`|✅ | |
 |Cebuano    |`ceb`|✅ | |
 |Chamorro  |`ch`|✅| |
@@ -65,8 +65,8 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 |Danish | `da` |✅ | ✅ |
 |Dutch | `nl` |✅ |✅ |
 |English | `en` |✅ |✅|
-|Estonian  |`et`|✅ | |
 |Erzya (Cyrillic) |`myv`|✅ (preview) | |
+|Estonian  |`et`|✅ | |
 |Faroese |`fo`|✅ (preview) | |
 |Fijian |`fj`|✅ | |
 |Filipino  |`fil`|✅ | |
