@@ -26,9 +26,9 @@ By default, the service will use the latest GA model to extract text. Starting w
 When using the Read operation, use the following values for the optional `model-version` parameter.
 |Value| Model used |
 |:-----|:----|
-| Not provided | latest GA version |
-| latest | latest GA version |
-| 2021-09-30-preview | Preview version
+| Not provided | latest GA model and languages |
+| latest | latest GA model and languages|
+| 2021-09-30-preview | Preview model with the additional preview languages and features. Includes any enhancements to the previous GA model.
 | 2021-04-12 | date-specific GA, presently same as latest |
 
 ## Determine how to process the data (optional)
