@@ -111,7 +111,7 @@ The **OutputClaim** element contains the following attributes:
 | ClaimTypeReferenceId | Yes | A reference to a ClaimType already defined in the ClaimsSchema section in the policy.
 | TransformationClaimType | Yes | An identifier to reference a transformation claim type. Each claim transformation has its own values. See the [claims transformation reference](#claims-transformations-reference) for a complete list of the available values. |
 
-If input claim and the output claim are the same type (string, or boolean), you can use the same input claim as the output claim. In this case, the claims transformation changes the input claim with the output value.
+Input and output claims used in claims transformation need to be distinct. The same input claim cannot be used as the output claim.
 
 ## Example
 
