@@ -27,7 +27,7 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 
 ### Handwritten text
 |Language| Language code (optional) | Read |
-|:-----|:----:|:-----:|
+|:-----|:----:|:-----|
 |English|`en`|✅ |
 |Chinese Simplified |`zh-Hans`|✅ (preview) |
 |French|`fr`|✅ (preview)|
@@ -38,7 +38,7 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 
 ### Print text
 |Language| Language code (optional) | Read | OCR |
-|:-----|:----:|:-----:|:---:|
+|:-----|:----:|:-----|:---:|
 |Afrikaans|`af`|✅ | |
 |Albanian |`sq`|✅ | |
 |Arabic | `ar`|  | ✅ |
