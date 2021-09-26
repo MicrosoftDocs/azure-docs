@@ -73,8 +73,8 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 |Finnish | `fi` |✅ |✅ |
 |French | `fr` |✅ |✅ |
 |Friulian  | `fur` |✅ | |
-|Galician   | `gl` |✅ | |
 |Gagauz (Latin) |`gag`|✅ (preview) | |
+|Galician   | `gl` |✅ | |
 |German | `de` |✅ |✅ |
 |Gilbertese    | `gil` |✅ | |
 |Greek | `el` | |✅ |
@@ -112,9 +112,9 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 |Lakota |`lkt`|✅ (preview) | |
 |Latin|`la`|✅ (preview) | |
 |Lithuanian|`lt`|✅ (preview) | |
-|Luxembourgish  | `lb` | ✅ | |
 |Lower Sorbian|`dsb`|✅ (preview) | |
 |Lule Sami|`smj`|✅ (preview) | |
+|Luxembourgish  | `lb` | ✅ | |
 |Malay (Latin) | `ms` | ✅ | |
 |Maltese|`mt`|✅ (preview) | |
 |Manx  | `gv` | ✅ | |
@@ -126,7 +126,6 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 |Niuean|`niu`|✅ (preview) | |
 |Nogay|`nog`|✅ (preview) | |
 |Northern Sami (Latin)|`sme`|✅ (preview) | |
-|Norwegian | `nb` | | ✅ |
 |Norwegian | `no` | ✅ | |
 |Occitan | `oc` | ✅ | |
 |Ossetic|`os`|✅ (preview) | |
@@ -139,7 +138,7 @@ Computer Vision's OCR APIs support several languages. Read can extract text from
 |Samoan (Latin)|`sm`|✅ (preview) | |
 |Scots  | `sco` | ✅ | |
 |Scottish Gaelic  | `gd` |✅ | |
-|Serbian (Cyrillic) | `sr-cyrl` | ✅ (preview)|✅ |
+|Serbian (Cyrillic) | `sr-cyrl` | |✅ |
 |Serbian (Latin) | `sr-latn` | ✅ (preview) |✅ |
 |Skolt Sami|`sms`|✅ (preview) | |
 |Slovak | `sk` | ✅ (preview) |✅ |
