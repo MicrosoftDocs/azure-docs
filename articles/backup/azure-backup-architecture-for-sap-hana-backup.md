@@ -1,7 +1,7 @@
 ---
 title: Azure Backup Architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
-ms.topic: concept
+ms.topic: conceptuall
 ms.date: 09/27/2021
 
 ---
@@ -13,7 +13,7 @@ ms.date: 09/27/2021
 
 Azure Backup provides a streaming backup solution to back up SAP HANA databases running on an Azure VM. This backup offering requires zero-infrastructure setup, thereby eliminating the need to deploy and manage backup-infrastructure.
 
-Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP, provides native backup support by leveraging SAP HANA’s native APIs. With this solution, you can seamlessly back up and restore SAP HANA databases running on Azure VMs and use the enterprise management capabilities that Azure Backup provides.
+Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP, provides native backup support by using SAP HANA’s native APIs. With this solution, you can seamlessly back up and restore SAP HANA databases running on Azure VMs and use the enterprise management capabilities that Azure Backup provides.
 
 [Learn more](/azure/backup/sap-hana-db-about#added-value) about  the added values that Azure Backup provides for SAP HANA.
 
@@ -43,10 +43,10 @@ See the [high-level architecture of Azure Backup for SAP HANA databases](/azure/
    >[!Note]
    >Ensure that the HANA instance is up and running during the discover of the databases in this instance.
 
-3. You must also ensure that the [other pre-requisites](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) are fulfilled.
+3. Also, ensure that the [other pre-requisites](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) are fulfilled.
 
    >[!Important]
-   >Ensure that the prerequisite to set up the right network connectivity in met. See the recommendation on [how to set up Azure VMs running in SAP HANA with additional network components to use the backup offering](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity).
+   >Ensure that the prerequisite to set up the right network connectivity is met. See the recommendation on [how to set up Azure VMs running in SAP HANA with additional network components to use the backup offering](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity).
 
 4. See the details about [what the pre-registration script does](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does). If you attempt to configure backup for SAP HANA databases without running this script, you might receive the error _UserErrorHanaScriptNotRun_.
 
@@ -62,9 +62,7 @@ See the [high-level architecture of Azure Backup for SAP HANA databases](/azure/
 
 2. Once SAP HANA Backup Engine/Backint receives the backup request, it prepares the SAP HANA database for a backup by creating a save point, and moving data to underlying storage volumes.
 
-3. Backint then executes the read operation from the underlying data volumes – the index server and xsengine for the Tenant database and name server for the SYSTEMDB. Premium SSD disks can provide optimal I/O throughput for the backup streaming operation. 
-
-   However, using un-cached disks with M64Is can provide higher speeds.
+3. Backint then executes the read operation from the underlying data volumes – the index server and xsengine for the Tenant database and name server for the SYSTEMDB. Premium SSD disks can provide optimal I/O throughput for the backup streaming operation. However, using uncached disks with M64Is can provide higher speeds.
 
 4. To stream the backup data, Backint creates up to three pipes, which directly write to Azure Backup’s Recovery Services vault.
 
@@ -74,26 +72,24 @@ See the [high-level architecture of Azure Backup for SAP HANA databases](/azure/
 
 6. Detailed logs are written to the _backup.log_ and _backint.log_ files on the SAP HANA instance.
 
-7. Once the backup streaming is complete, the catalog is streamed to the Recovery Services vault.
-
-   If both the backup (full/differential/incremental/log) and the catalog for this backup are successfully streamed and saved into the Recovery Services vault, Azure Backup considers the backup operation is successful.
+7. Once the backup streaming is complete, the catalog is streamed to the Recovery Services vault. If both the backup (full/differential/incremental/log) and the catalog for this backup are successfully streamed and saved into the Recovery Services vault, Azure Backup considers the backup operation is successful.
 
 Refer to the following SAP HANA setups and see the execution of backup operation mentioned above:
 
-**Azure network - without any NVA/Azure Firewall**
+**SAP HANA setup scenario: Azure network - without any NVA/Azure Firewall**
 
-:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-without-nva-or-azure-firewall.png" alt-text="Diagram showing the SAP HANA setup in case of Azure network without any NVA/Azure Firewall.":::
+:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-without-nva-or-azure-firewall.png" alt-text="Diagram showing the SAP HANA setup if Azure network without any NVA/Azure Firewall.":::
 
-**Azure network - with UDR + NVA / Azure Firewall**
+**SAP HANA setup scenario: Azure network - with UDR + NVA / Azure Firewall**
 
-:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-with-udr-and-nva-or-azure-firewall.png" alt-text="Diagram showing the SAP HANA setup in case of Azure network with UDR + NVA / Azure Firewall.":::
+:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-with-udr-and-nva-or-azure-firewall.png" alt-text="Diagram showing the SAP HANA setup if Azure network with UDR + NVA / Azure Firewall.":::
 
 >[!Note]
 >NVA/Azure Firewall may add an overhead when SAP HANA stream backup to Azure Storage/Recovery Services vault (data plane) (#6).
 
-**Azure network - with UDR + NVA / Azure Firewall + Private Endpoint or Service Endpoint**
+**SAP HANA setup scenario: Azure network - with UDR + NVA / Azure Firewall + Private Endpoint or Service Endpoint**
 
-:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-with-udr-and-nva-or-azure-firewall-and-private-endpoint-or-service-endpoint.png" alt-text="Diagram showing the SAP HANA setup in case of Azure network with UDR + NVA / Azure Firewall + Private Endpoint or Service Endpoint.":::
+:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/azure-network-with-udr-and-nva-or-azure-firewall-and-private-endpoint-or-service-endpoint.png" alt-text="Diagram showing the SAP HANA setup if Azure network with UDR + NVA / Azure Firewall + Private Endpoint or Service Endpoint.":::
 
 ## Next steps
 
