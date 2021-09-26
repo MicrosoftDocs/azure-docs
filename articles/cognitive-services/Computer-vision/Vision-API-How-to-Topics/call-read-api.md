@@ -24,6 +24,7 @@ This guide assumes you have already <a href="https://portal.azure.com/#create/Mi
 By default, the service will use the latest GA model to extract text. Starting with Read 3.2, a `model-version` parameter allows choosing between the GA and preview models for a given API version. The model you specify will be used to extract text with the Read operation.
 
 When using the Read operation, use the following values for the optional `model-version` parameter.
+
 |Value| Model used |
 |:-----|:----|
 | Not provided | latest GA model and languages |
@@ -177,5 +178,5 @@ The response includes classifying whether each text line is of handwriting style
 
 ## Next steps
 
-- Get started with the [OCR (Read) REST API or client library quickstarts](./quickstarts-sdk/client-library.md).
+- Get started with the [OCR (Read) REST API or client library quickstarts](../quickstarts-sdk/client-library.md).
 - Learn about the [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
