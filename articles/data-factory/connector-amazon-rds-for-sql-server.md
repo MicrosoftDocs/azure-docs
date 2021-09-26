@@ -27,7 +27,7 @@ You can copy data from an Amazon RDS for SQL Server database to any supported si
 
 Specifically, this Amazon RDS for SQL Server connector supports:
 
-- Amazon RDS for SQL Server version 2005 and above.
+- SQL Server version 2005 and above.
 - Copying data by using SQL or Windows authentication.
 - As a source, retrieving data by using a SQL query or a stored procedure. You can also choose to parallel copy from Amazon RDS for SQL Server source, see the [Parallel copy from SQL database](#parallel-copy-from-sql-database) section for details.
 
@@ -187,7 +187,7 @@ To copy data from an Amazon RDS for SQL Server database, the following propertie
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **SqlServerTable**. | Yes |
+| type | The type property of the dataset must be set to **AmazonRdsForSqlServerTable**. | Yes |
 | schema | Name of the schema. |No |
 | table | Name of the table/view. |No |
 | tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No |
@@ -196,10 +196,10 @@ To copy data from an Amazon RDS for SQL Server database, the following propertie
 
 ```json
 {
-    "name": "SQLServerDataset",
+    "name": "AmazonRdsForSQLServerDataset",
     "properties":
     {
-        "type": "SqlServerTable",
+        "type": "AmazonRdsForSqlServerTable",
         "linkedServiceName": {
             "referenceName": "<Amazon RDS for SQL Server linked service name>",
             "type": "LinkedServiceReference"
@@ -222,11 +222,11 @@ For a full list of sections and properties available for use to define activitie
 >[!TIP]
 >To load data from Amazon RDS for SQL Server efficiently by using data partitioning, learn more from [Parallel copy from SQL database](#parallel-copy-from-sql-database).
 
-To copy data from Amazon RDS for SQL Server, set the source type in the copy activity to **SqlSource**. The following properties are supported in the copy activity source section:
+To copy data from Amazon RDS for SQL Server, set the source type in the copy activity to **AmazonRdsForSqlServerSource**. The following properties are supported in the copy activity source section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to **SqlSource**. | Yes |
+| type | The type property of the copy activity source must be set to **AmazonRdsForSqlServerSource**. | Yes |
 | sqlReaderQuery |Use the custom SQL query to read data. An example is `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |This property is the name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. |No |
 | storedProcedureParameters |These parameters are for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
@@ -240,7 +240,7 @@ To copy data from Amazon RDS for SQL Server, set the source type in the copy act
 
 **Note the following points:**
 
-- If **sqlReaderQuery** is specified for **SqlSource**, the copy activity runs this query against the Amazon RDS for SQL Server source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
+- If **sqlReaderQuery** is specified for **AmazonRdsForSqlServerSource**, the copy activity runs this query against the Amazon RDS for SQL Server source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - When using stored procedure in source to retrieve data, note if your stored procedure is designed as returning different schema when different parameter value is passed in, you may encounter failure or see unexpected result when importing schema from UI or when copying data to SQL database with auto table creation.
 
 **Example: Use SQL query**
@@ -248,7 +248,7 @@ To copy data from Amazon RDS for SQL Server, set the source type in the copy act
 ```json
 "activities":[
     {
-        "name": "CopyFromSQLServer",
+        "name": "CopyFromAmazonRdsForSQLServer",
         "type": "Copy",
         "inputs": [
             {
@@ -264,7 +264,7 @@ To copy data from Amazon RDS for SQL Server, set the source type in the copy act
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AmazonRdsForSqlServerSource",
                 "sqlReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -280,7 +280,7 @@ To copy data from Amazon RDS for SQL Server, set the source type in the copy act
 ```json
 "activities":[
     {
-        "name": "CopyFromSQLServer",
+        "name": "CopyFromAmazonRdsForSQLServer",
         "type": "Copy",
         "inputs": [
             {
@@ -296,7 +296,7 @@ To copy data from Amazon RDS for SQL Server, set the source type in the copy act
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "AmazonRdsForSqlServerSource",
                 "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
                 "storedProcedureParameters": {
                     "stringData": { "value": "str3" },
@@ -358,7 +358,7 @@ Best practices to load data with partition option:
 
 ```json
 "source": {
-    "type": "SqlSource",
+    "type": "AmazonRdsForSqlServerSource",
     "partitionOption": "PhysicalPartitionsOfTable"
 }
 ```
@@ -367,7 +367,7 @@ Best practices to load data with partition option:
 
 ```json
 "source": {
-    "type": "SqlSource",
+    "type": "AmazonRdsForSqlServerSource",
     "query": "SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>",
     "partitionOption": "DynamicRange",
     "partitionSettings": {
@@ -414,13 +414,6 @@ When you copy data from/to Amazon RDS for SQL Server with [Always Encrypted](/sq
 2. Make sure to grant access to the key vault where the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) is stored. Refer to this [article](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true#key-vaults) for required permissions.
 
 3. Create linked service to connect to your SQL database and enable 'Always Encrypted' function by using either managed identity or service principal. 
-
-
->[!NOTE]
->Amazon RDS for SQL Server [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
->1. Either source or sink data stores is using managed identity or service principal as key provider authentication type.
->2. Both source and sink data stores are using managed identity as key provider authentication type.
->3. Both source and sink data stores are using the same service principal as key provider authentication type.
 
 ## Troubleshoot connection issues
 
