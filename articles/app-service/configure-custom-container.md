@@ -333,7 +333,8 @@ SSH enables secure communication between a container and a client. In order for 
     EXPOSE 80 2222
     ```
 
-    This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network, and is not accessible to an attacker on the internet.
+    > [!NOTE] 
+    > The root password must be exactly `Docker!` as it is used by App Service to let you access the SSH session with the container. This configuration doesn't allow external connections to the container. Port 2222 of the container is accessible only within the bridge network of a private virtual network and is not accessible to an attacker on the internet.
 
 - In the start-up script for your container, start the SSH server.
 
