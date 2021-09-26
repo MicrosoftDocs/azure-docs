@@ -45,6 +45,8 @@
       href: application-management-fundamentals.md
     - name: App management common scenarios
       href: common-scenarios.md
+    - name: Home realm discovery policy
+      href: home-realm-discovery-policy.md
     - name: Planning a cloud app integration
       items:
       - name: Get started with app integration
