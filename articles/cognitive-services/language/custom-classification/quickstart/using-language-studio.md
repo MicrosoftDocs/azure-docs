@@ -42,14 +42,8 @@ After you have created an Azure storage account and linked it to your Language S
 
     :::image type="content" source="../media/create-project.png" alt-text="A screenshot of the project creation page." lightbox="../media/create-project.png":::
     
-4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If you're using a preexisting resource, see [Creating Azure resources](../how-to/use-azure-resources.md). When you are done, select **Next**. 
+4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. You only need to do this step once for each resource you use and it is irreversible, if you connect a storage account to your resource you cannot disconnect it later. If you're using a preexisting resource, see [Creating Azure resources](../how-to/use-azure-resources.md#optional-using-a-preexisting-azure-resource). When you are done, select **Next**. 
  
-    >[!NOTE]
-    > * You only need to do this step once for each new resource you use. 
-    > * This process is irreversible, if you connect a storage account to your resource you cannot disconnect it later.
-    > * You can only connect your resource to one storage account.
-    > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
-
     :::image type="content" source="../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../custom-named-entity-recognition/media/connect-storage.png":::
 
 5. Select your project type. For this quickstart we will create a multi label classification project. Then click **Next**.
@@ -65,11 +59,7 @@ After you have created an Azure storage account and linked it to your Language S
 
 ## Tagging your data
 
-Typically, you would import your data and begin [tagging the entities](../how-to/tag-data.md) within it to train the classification model. For this quickstart you will use an example file that already contains tagged data. 
-
-1. [Download the data file](https://github.com/Azure-Samples/cognitive-services-sample-data-files) for this quickstart from GitHub.
-
-2. Select the **Import** button on your project in Language Studio.
+Typically, you would import your data and begin [tagging the entities](../how-to/tag-data.md) within it to train the classification model. For this quickstart you will use the existing tags file avilable in your container.
 
 ## Train your model
 
@@ -81,19 +71,15 @@ To start training your model:
 
     :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the model selection page for training" lightbox="../media/train-model.png":::
 
-3. Click on the **Train** button at the bottom of the page.
+3. Click on the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up will appear to confirm overwriting the last model state.
 
     > [!NOTE]
-    > * While training, your data will be spilt into 3 sets; 80% for training, 10% for validation and 10% for testing.
-    > * If the model you selected is already trained, a pop-up will appear to confirm overwriting the last model state.
+    > * While training, your data will be spilt into 2 sets; 80% for training and 20% for testing.
     > * Training can take up to a few hours.
 
 ## Deploy your model
 
-Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and make adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
-
->[!NOTE]
->You can only have one deployed model per project. Deploying a new model replaces any existing deployed model.
+Generally after training a model you would review it's [evaluation details](../how-to/view-model-evaluation.md) and make [improve](](../how-to/improve-model.md)it if necessary. In this quickstart, you will just deploy your model, and make it available for you to try. 
 
 1. Select **Deploy model** from the left side menu.
 
@@ -115,7 +101,7 @@ Generally after training a model you would review it's [evaluation details](../h
 
 After you've tested your model, you can start sending [text classification requests](../how-to/run-inference.md).
 
-## Clean up resources
+## Clean up projects
 
 When you don't need your project anymore, you can delete it from your [projects page in Language Studio](https://language.azure.com/customText/projects/classification). Select the project you want to delete and click on **Delete**.
 
