@@ -16,6 +16,21 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## September 2021
+
+### OCR (Read) API Public Preview supports 122 languages
+Computer Vision's Read API adds the following updates with its latest preview:
+* [OCR support for print text in 49 new languages](./language-support.md#optical-character-recognition-ocr) including Russian, Bulgarian, and other Cyrillic and more Latin languages.
+* [OCR support for handwritten text in 6 new languages](./language-support.md#optical-character-recognition-ocr) that include English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+* Enhancements for processing digital PDFs and Machine Readable Zone (MRZ) text in identity documents.
+* General performance and AI quality improvements
+
+See the [Read API overview](overview-ocr.md) to learn more.
+
+> [!div class="nextstepaction"]
+> [Get Started with the Read API](quickstarts-sdk/client-library?tabs=visual-studio&pivots=programming-language-python)
+
+
 ## August 2021
 
 ### Image tagging language expansion
