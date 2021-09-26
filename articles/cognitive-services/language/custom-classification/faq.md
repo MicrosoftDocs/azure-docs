@@ -39,7 +39,7 @@ View the your [confusion matrix](how-to/view-model-evaluation.md) to identify sc
 
 You need to [deploy your model](quickstart/using-language-studio.md#deploy-your-model) before you can test it. 
 
-# How to use analyze API
+### How to use analyze API
 
 After deploying your model, [submit text classification tasks](how-to/run-inference.md). You can learn more about using the Analyze API [here](https://aka.ms/ct-runtime-swagger)
 
