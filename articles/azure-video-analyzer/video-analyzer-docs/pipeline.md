@@ -134,6 +134,8 @@ The encoder processor node allows user to specify encoding properties when conve
 
 A video sink node enables you to save video and associated metadata to your Video Analyzer cloud resource. Video can be recorded continuously or dis-continuously (based on events). Video sink node can cache video on the edge device if connectivity to cloud is lost and resume uploading when connectivity is restored. You can see the [continuous video recording](continuous-video-recording.md) article for details on how the properties of this node can be configured.
 
+Due to security reasons, a given Video Analyzer **edge module** instance can only record content to new video entries, or previously recorded video entries by the same module. Any attempt to record content to an existing video which has not been created by the same edge module instance will result in failure to record.
+
 #### File sink
 
 The file sink node enables you to write video to a location on the local file system of the edge device. There can only be one file sink node in a pipeline, and it must be downstream from a signal gate processor node. This limits the duration of the output files to values specified in the signal gate processor node properties. To ensure that your edge device does not run out of disk space, you can also set the maximum size that the Video Analyzer edge module can use to cache data.
