@@ -62,7 +62,7 @@ See the [high-level architecture of Azure Backup for SAP HANA databases](/azure/
 
 2. Once SAP HANA Backup Engine/Backint receives the backup request, it prepares the SAP HANA database for a backup by creating a save point, and moving data to underlying storage volumes.
 
-3. Backint then executes the read operation from the underlying data volumes – the index server and xsengine for the Tenant database and name server for the SYSTEMDB. Premium SSD disks can provide optimal I/O throughput for the backup streaming operation. However, using uncached disks with M64Is can provide higher speeds.
+3. Backint then executes the read operation from the underlying data volumes – the index server and XS engine for the Tenant database and name server for the SYSTEMDB. Premium SSD disks can provide optimal I/O throughput for the backup streaming operation. However, using uncached disks with M64Is can provide higher speeds.
 
 4. To stream the backup data, Backint creates up to three pipes, which directly write to Azure Backup’s Recovery Services vault.
 
