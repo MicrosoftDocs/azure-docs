@@ -28,7 +28,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages
 See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn how to use the new preview features.
 
 > [!div class="nextstepaction"]
-> [Get Started with the Read API](quickstarts-sdk/client-library?tabs=visual-studio&pivots=programming-language-python)
+> [Get Started with the Read API](./quickstarts-sdk/client-library.md?tabs=visual-studio&pivots=programming-language-python)
 
 
 ## August 2021
