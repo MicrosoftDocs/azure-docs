@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/22/2021
+ms.date: 09/26/2021
 ---
 
 # Copy and transform data from Amazon RDS for SQL Server by using Azure Data Factory or Azure Synapse Analytics
