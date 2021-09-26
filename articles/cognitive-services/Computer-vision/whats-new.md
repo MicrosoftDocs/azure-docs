@@ -19,9 +19,9 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 ## September 2021
 
 ### OCR (Read) API Public Preview supports 122 languages
-Computer Vision's [OCR (Read) API](overview-ocr.md) adds the following updates with its latest preview:
-* [OCR support for print text in 49 new languages](./language-support.md#optical-character-recognition-ocr#print-text) including Russian, Bulgarian, and other Cyrillic and more Latin languages.
-* [OCR support for handwritten text in 6 new languages](./language-support.md#optical-character-recognition-ocr#handwritten-text) that include English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+Computer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages](language-support.md) to 122 with its latest preview:
+* OCR support for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages.
+* OCR support for handwritten text in 6 new languages that include English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
 * Enhancements for processing digital PDFs and Machine Readable Zone (MRZ) text in identity documents.
 * General performance and AI quality improvements
 
