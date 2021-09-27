@@ -99,7 +99,7 @@ The device login flow will prompt users signing in with a Gmail account in an em
 
    ![image](https://user-images.githubusercontent.com/15203472/134458107-0ab2496f-9956-4b97-9a99-77d5b3389721.png)
    
-5. The user will sign in through Google by entering email and password.
+5. The user signs in to Google with their email and password.
 
    ![image](https://user-images.githubusercontent.com/15203472/134458704-7399bb72-8dfb-411d-9690-3e1932f35bc2.png)
    
