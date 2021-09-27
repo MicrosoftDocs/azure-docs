@@ -33,7 +33,7 @@ For more information about best practices for key vault, see:
 
 ## Configuration and storing 
 
-It's recommended to store dynamic parts of credentials like client application secrets, passwords, access keys in secret as value. Any related static attributes and identifiers like usernames, AppIds, service urls should be stored as secret tags.
+It's recommended to store dynamic parts of credentials, which are generated during rotation, like client application secrets, passwords, access keys in secret as value. Any related static attributes and identifiers like usernames, AppIds, service urls should be stored as secret tags and copied to new version of a secret during rotation.
 
 For more information about secrets, see:
 - [About Azure Key Vault secrets](about-secrets.md)
