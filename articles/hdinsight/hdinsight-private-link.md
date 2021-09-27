@@ -8,54 +8,76 @@ ms.date: 10/15/2020
 
 # Enable Private Link on a Private Inbound Cluster (preview)
 
-In this article, you will learn about leveraging Azure Private Link to connect outside your HDInsight cluster securely. For information on how to restrict traffic to and from your cluster without complete network isolation, see [Control network traffic in Azure HDInsight](./control-network-traffic.md). This article is an extension of our main article "[Create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md)" where we focus on the basics of creating a private inbound cluster.
+In this article, you will learn about leveraging Azure Private Link to connect to your HDInsight cluster privately across networks over Microsoft backbone network. This article is an extension of our main article [Create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md) where we focus on the basics of creating a private inbound cluster. In certain scenarios, you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources,  consider restricting public connectivity of you cluster by following guidelines from [Control network traffic in Azure HDInsight](./control-network-traffic.md)
 
->[!NOTE]
->Removing outbound public IP addresses is a prerequisite for enabling Private Link and should not be considered as the same capability
+Private link can be leveraged in cross VNet scenarios where VNet peering is not available or enabled. For example, if you want to integrate Azure Data Factory with Azure HDInsight, where it is required to have Azure Data Factory connect to HDInsight clusters over private network (i.e. private link) for compliance and security reasons.
 
-Private Link, which is disabled by default, requires extensive networking knowledge to setup User Defined Routes (UDR) and firewall rules properly before you create a cluster. Using this setting is optional but it is only available when the `resourceProviderConnection` network property is set to *outbound* as described in the previous article [Create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md).
+> [!NOTE]
+> Removing outbound public IP addresses is a prerequisite for enabling Private Link and should not be considered as the same capability
+
+Private Link, which is an optional feature and is disabled by default  The feature is only available when the `resourceProviderConnection` network property is set to outbound as described in the article [Create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md).
 
 When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLB) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link Service is what allows you to access the HDInsight cluster from private endpoints.
 
-## Ways to Enable Private link
+## Prerequisites
 
-Standard load balancers do not automatically provide the [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md) as basic load balancers do. You must provide your own NAT solution, such as [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or a [firewall](./hdinsight-restrict-outbound-traffic.md), for outbound dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, the cluster creation may fail.
+Standard load balancers do not automatically provide [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md)as basic load balancers do. You must provide your own NAT solution, such as  a NAT gateway, or NAT provided by your [firewall](./hdinsight-restrict-outbound-traffic.md),  to connect to outbound, public HDInsight dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, cluster creation may fail. A Network Security Group must also be configured on the subnet to enable outbound connectivity.
 
-### Using NAT Gateway
-To get started with this option, you can simply add a NAT gateway (with a new public IP address in your virtual network) to the configured subnet of your virtual network. This gateway is responsible for translating your private internal IP address to public addresses when traffic needs to go outside of your virtual network via a private link.
+### 1.	Configure a default NSG on the Subnet
 
-### Using Firewall or Network Virtual Appliance (NVAs) for NAT
-Here you will begin by adding a new subnet "AzureFirewallSubnet" to your virtual network. Once created, use this subnet to configure a new firewall and add your firewall policies. After your firewall is set up, use this firewall's private IP as the next hop address for a route in a new route table. Add this route table to the configured subnet of your virtual network.
+Create and add an Network Security Group on the subnet where you intend to deploy the HDInsight cluster.
 
-The following diagram shows an example of the networking configuration required before you create a cluster. In this example, all outbound traffic is [forced](../firewall/forced-tunneling.md) to Azure Firewall using UDR and the required outbound dependencies should be "allowed" on the firewall before creating a cluster. For Enterprise Security Package clusters, the network connectivity to Azure Active Directory Domain Services can be provided by VNet peering.
+### 2.	Disable network policies for private link service
+
+For the successful creation of private link services, you must explicitly [disable network policies for private link services](../private-link/disable-private-link-service-network-policy.md).
+
+### 3.	Configure a NAT Gateway on the subnet
+
+You can opt to use NAT gateway if you don’t want to configure Firewall or Network Virtual Appliance (NVAs) for NAT), otherwise skip to the next prerequisite. To get started, simply add a NAT gateway (with a new public IP address in your virtual network) to the configured subnet of your virtual network. This gateway is responsible for translating your private internal IP address to public addresses when traffic needs to go outside of your virtual network.
+
+### 4.	Using Firewall or Network Virtual Appliance (NVAs) for NAT (Optional)
+For a basic setup to get started, begin by adding a new subnet "AzureFirewallSubnet" to your virtual network. Once created, use this subnet to configure a new firewall and add your firewall policies. After your firewall is set up, use this firewall's private IP as the next hop address for a route in a new route table. Add this route table to the configured subnet of your virtual network.
+For additional details on setting up firewall, see [Control network traffic in Azure HDInsight](./control-network-traffic.md)
+
+The following diagram shows an example of the networking configuration required before you create a cluster. In this example, all outbound traffic is forced to Azure Firewall using UDR and the required outbound dependencies should be "allowed" on the firewall before creating a cluster. For Enterprise Security Package clusters, the network connectivity to Azure Active Directory Domain Services can be provided by VNet peering.
 
 :::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram of private link environment before cluster creation":::
 
-## Subnet Configuration
-Once you have either added NAT Gateway or a route table (with firewall) to your configured subnet, you need to create and add a standard Network Security Group to this subnet to finish the setup.
+## Manage private endpoints for Azure HDInsight
 
-## Disable network policies for private link service
-For the successful creation of private link services, you must explicitly [disable network policies for private link services](../private-link/disable-private-link-service-network-policy.md).
+You can use [private endpoints](../private-link/private-endpoint-overview) for your Azure HDInsight clusters to allow clients on a virtual network (VNet) to securely access you cluster over a [Private Link](../private-link/private-link-overview). Network traffic between the clients on the VNet and the HDInsight cluster traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-## Access a private cluster
+:::image type="content" source="media/hdinsight-private-link/private-endpoint-experience.png" alt-text="Diagram of private endpoint management experience":::
 
-Once you've set up the networking, you can create a cluster with outbound resource provider connection and private link enabled, as shown in the following figure. In this configuration, there are no public IPs and Private Link Service is provisioned for each standard load balancer.
+There are two connection approval methods that a Private Link service consumer (e.g., Azure Data Factory) can choose from:
+* Automatic: If the service consumer has Azure RBAC permissions on the HDInsight resource the consumer can choose the automatic approval method. In this case, when the request reaches the HDInsight resource, no action is required from HDInsight resource and the connection is automatically approved.
+* Manual: On the contrary, if the service consumer doesn’t have Azure RBAC permissions on the HDInsight resource, the consumer can choose the manual approval method. In this case, the connection request appears on the HDInsight resources as Pending. Request needs to be manually approved by HDInsight resource before connections can be established. 
 
-:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagram of private link environment after cluster creation":::
+To manage private endpoints, in your cluster view in Azure Portal, navigate to Networking (preview) section under Security + Networking. Here you will be able to see all existing connections, connection states and private endpoint details. You can also approve, reject or remove existing connections. When creating a private connection, you can specify which HDInsight sub-resource (Gateway, Headnode etc) you want to connect to as well.
+The below table shows the various HDInsight resource actions and the resulting connection states for Private Endpoints. HDInsight resource can also change the connection state of private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side.
 
-To access private clusters, you can use the internal load balancer private IPs directly, or you can use Private Link DNS extensions and Private Endpoints. When the `privateLink` setting is set to enabled, you can create private endpoints and configure DNS resolution through private DNS zones.
+|Service Provider Action   |Service Consumer Private Endpoint State   |Description   |
+|---------|---------|---------|
+|None    |    Pending     |   Connection is created manually and is pending for approval by the Private Link resource owner.       |
+|Approve    |  Approved       | Connection was automatically or manually approved and is ready to be used.     |
+|Reject     | Rejected        | Connection was rejected by the private link resource owner.        |
+|Remove    |  Disconnected       | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for clean up.        |
 
-The Private Link entries created in the Azure-managed Public DNS Zone `azurehdinsight.net` are as follows:
+## Configure DNS to connect over private endpoints
+
+Once you've set up the networking, you can create a cluster with outbound resource provider connection and private link enabled, as shown in the following figure.
+To access private clusters, you can use Private Link DNS extensions and Private Endpoints. When the `privateLink` setting is set to enabled, you can create private endpoints and configure DNS resolution through private DNS zones.
+The Private Link entries created in the Azure-managed Public DNS Zone azurehdinsight.net are as follows:
 
 ```dns
 <clustername>        CNAME    <clustername>.privatelink
 <clustername>-int    CNAME    <clustername>-int.privatelink
 <clustername>-ssh    CNAME    <clustername>-ssh.privatelink
 ```
+The following image shows an example of the private DNS entries configured to enable access to a cluster from a virtual network that is not peered or doesn't have a direct line of sight to the cluster. You can use Azure Private Zone to override *.privatelink.azurehdinsight.net FQDNs and resolve private endpoints IP addresses in the client’s network.
+This is shown only for <clustername>.azurehdinsight.net but it extends to other cluster endpoints as well.
 
-The following image shows an example of the private DNS entries required to access the cluster from a virtual network that is not peered or doesn't have a direct line of sight to the cluster load balancers. You can use Azure Private Zone to override `*.privatelink.azurehdinsight.net` FQDNs and resolve private endpoints IP addresses.
-
-:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagram of private link architecture":::
+:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagram of private link architecture":::    
 
 ## How to Create Clusters?
 ### Use ARM template properties
