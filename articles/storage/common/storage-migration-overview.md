@@ -48,8 +48,7 @@ The assessment phase is critical in understanding available options for the migr
 |--------------------------------------------|----------------------------------------------------------------------------------|
 | **Choose a target storage service**            | - Azure Blob Storage and Data Lake Storage<br>- Azure Files<br>- Azure NetApp Files<br>- ISV solutions |
 | **Select a migration method**                  | - Online<br>- Offline<br> - Combination of both                                  |
-| **Choose the best migration tool for the job** | - Commercial tools (Azure and ISV)<br> - Open source                             
-
+| **Choose the best migration tool for the job** | - Commercial tools (Azure and ISV)<br> - Open source
 
 There are several commercial (ISV) tools that can help with the assessment phase. See the [comparison matrix](../solution-integration/validated-partners/data-management/migration-tools-comparison.md).
 
