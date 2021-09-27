@@ -1,56 +1,49 @@
 ---
-title: Camera discovery
-description: This how-to walks you through the steps to enable camera discovery via ONVIF for Azure Video Analyzer by using the Azure portal.
+title: Discovering ONVIF-capable cameras in the local subnet
+description: This how-to shows you how you can use Video Analyzer edge module to discover ONVIF-capable cameras in your local subnet.
 
 ms.topic: how-to
 ms.date: 09/15/2021
 ---
 
-# Tutorial:  Camera discovery
+# Discovering ONVIF-capable cameras in the local subnet
 
-This tutorial walks you through the ONVIF enablement within Azure Video Analyzer.  Open Network Video Interface Forum or ONVIF is a open standard where descrete IP-based physical devices, such as surveillance cameras, can communicate with additional networked deviecs and software.  For more information about ONVIF please visit the [ONVIF](https://www.onvif.org/about/mission/) website.
+This how to guide walks you through how to use the Azure Video Analyzer edge module to discover ONVIF compliant cameras on the same subnet as the IoT Edge device.  Open Network Video Interface Forum or ONVIF is a open standard where discrete IP-based physical devices, such as surveillance cameras, can communicate with additional networked devices and software.  For more information about ONVIF please visit the [ONVIF](https://www.onvif.org/about/mission/) website.
 
-ONVIF sub-devides the standard into profiles.  These profiles provide complance and ensure the compatibility of different ONVIF complient devices reguardless of manufacture.  It is important to point out that not all of the ONVIF profiles are used with IP-based video surveillance devices.  For more information about ONVIF profiles see this [article](https://www.onvif.org/profiles-add-ons-specifications/).
 ## Prerequisites
 
 - An active Azure subscription.
+- Have installed the [Azure CLI extension for IoT](https://github.com/Azure/azure-iot-cli-extension#installation)
 - Have completed either:
   - [Quickstart: Get started with Azure Video Analyzer](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events)
   - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events-portal)
-- Have the avaedge module version 1.1 deployed to your IoT Edge device.
+- Have the Video Analyzer edge module version 1.1 (or newer) deployed to your IoT Edge device.
 
+   * The ONVIF feature of the Video Analyzer edge module requires specific [container create options][#containercreateoptions]
+  
 >[!NOTE]
->If you have a new deployment of Video Analyzer account and / or a new deployment of avaedge module then you can skip to the section for **Use direct method calls**.  If not please follow the below sections to upgrade your existing avaedge module to enable the ONVIF discovery feature.  If you are upgrading your avaedge module please ensure that you save your topologies and pipelines before upgrading the module.
+>If you have a new deployment of Video Analyzer account and/or a new deployment of the Video Analyzer edge module then you can skip to the section for [**Use direct method calls**][#Use direct method calls].  If not please follow the below sections to upgrade your existing Video Analyzer edge module to enable the ONVIF discovery feature.  
 
-## Check the avaedge modules version
-1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analzyer account deployment.
-1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the avaedge module.
-1.  Click on the avaedge module and look at the version under **Reported Value**
+## Check the Video Analyzer edge modules version
+1.  From a command prompt run the following command:
+    ```CLI
+        az iot hub module-twin show -m <VIDEO_ANALYZER_IOT_EDGE_MODULE_NAME> -n <IOT_HUB_NAME> -d <IOT_EDGE_DEVICE_NAME> --query 'properties.reported.ProductInfo' -o tsv
+    ```
+    If the result of the above command is **Azure Video Analyzer:1.0.1** then run the following steps to update the Video Analyzer module to 1.1.
 
-    :::image type="content" source="./media/camera-discovery/avaedge-version1.png" alt-text="Screenshot that shows the avaedge version.":::
-1.  If the module version is listed at 1.0 for both the `Desired Options` and the `Reported Options` then follow the below steps to update the avaedge module.
+    1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
+    1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
+    1.  Click on Set modules and click on review + create.
+    1.  Click on create.
+1.  After a few moments the Video Analyzer edge module will update and you can run the above command again to verify.  
 
-    1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analzyer account deployment.
-    2.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the avaedge module.
-    3.  Click on Set modules and select the avaedge module under the **'IoT Edge Modules'** section.
-    4.  Under `Image URI` udpate this to refelect **mcr.microsoft.com/media/video-analyzer:1.1** and click `Update`.
-    5.  Click on `Review + create` and then `Create`.
+### Enable ONVIF discovery feature
+If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is necessary to add additional elements into the IoT Edge container create options.  These elements allow the Video Analyzer edge module to communicate through the host network to discover ONVIF enabled cameras on the same subnet.
 
-### Varify the avaedge module has updated the settings
-With in a few minutes the avaedge module should update to the new version (1.1) and you can check this by performing the following:
-1.  Select the IoT Edge device that is running the avaedge module and click on the avaedge module.
-1.  select `Container Create Options`
-1.  Verify that the version under `Desired Options` matches the version under the `Reported Options`
-
-    :::image type="content" source="./media/camera-discovery/avaedge-version1dot1dot1.png" alt-text="Screenshot that shows the avaedge version.":::
-
-### Prepare the avaedge module to allow for ONVIF discovery
-To prepare the avaedge module for ONVIF discovery events it is necessary to add additional elements into the IoT Edge container create options.
-
-1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analzyer account deployment.
-1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the avaedge module.
-1.  Click on Set modules and select the avaedge module.
-1.  Select `Container Create Options` and add the following:
+1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
+1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
+1.  Click on Set modules and select the Video Analyzer edge module.
+1.  Select <a name= "containercreateoptions"></a>`Container Create Options` and add the following:
 
     ```JSON
     { 
@@ -70,18 +63,18 @@ To prepare the avaedge module for ONVIF discovery events it is necessary to add 
 
 
 ## Use direct method calls
-Azure Video Analyzer allows for direct method calls for ONVIF discovery of network attached cameras.  
-The following steps apply to both the onvifDeviceDiscover and the onvifDeviceGet setions below:
+Video Analyzer edge module provides direct method calls for ONVIF discovery of network attached cameras.  
+The following steps apply to both the `onvifDeviceDiscover` and the `onvifDeviceGet` sections below:
 
-1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analzyer account deployment.
-1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the avaedge module.
-1.  Click on the avaedge module and select  `Direct method`.
+1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
+1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
+1.  Click on the Video Analyzer edge module and select  `Direct method`.
 
 
 ### onvifDeviceDiscover
-Lists all the discoverable ONVIF devices on the same network as the avaedge module. 
+Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module. 
 >[!NOTE]
->the discover process only returns the discoverable devices in the same subnet as the IoT Edge device that is running the avaedge module.
+>The discover process only returns the discoverable devices in the same subnet as the IoT Edge device that is running the Video Analyzer edge module.
 
 1.  In the method name enter:
     ```
@@ -96,7 +89,7 @@ Lists all the discoverable ONVIF devices on the same network as the avaedge modu
     }
     ```
 >[!NOTE]
->The discovery duration is the amount of time to wait for the call to complete.  It might be necessary in a large enviroment to adjust this value. 
+>The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value. 
 
   Within a few seconds you see the following `Result`:
 
@@ -106,17 +99,17 @@ Lists all the discoverable ONVIF devices on the same network as the avaedge modu
             "payload": {
                 "value": [
                     {
-                        "serviceIdentifier": "urn:uuid:00075faf-931e-19e3-af5f-0700075faf5f",
-                        "remoteIPAddress": "10.0.1.79",
+                        "serviceIdentifier": "{urn:uuid}",
+                        "remoteIPAddress": "{IP_ADDRESS}",
                         "transportAddresses": [
                             "http://10.0.1.79/onvif/device_service",
                             "https://10.0.1.79/onvif/device_service"
                         ],
                         "scopes": [
                             "onvif://www.onvif.org/type/Network_Video_Transmitter",
-                            "onvif://www.onvif.org/name/Bosch",
+                            "onvif://www.onvif.org/name/{CAMERA_MANUFACTURE}",
                             "onvif://www.onvif.org/location/",
-                            "onvif://www.onvif.org/hardware/MIC_inteox_7100i",
+                            "onvif://www.onvif.org/hardware/{CAMERA_MODEL}",
                             "onvif://www.onvif.org/Profile/Streaming",
                             "onvif://www.onvif.org/Profile/G",
                             "onvif://www.onvif.org/Profile/T"
@@ -128,14 +121,11 @@ Lists all the discoverable ONVIF devices on the same network as the avaedge modu
         ```
 
   >[!NOTE]
-  >The return status of 200 is successful.
+  >The return status of 200 indicates that the direct method call was handled successfully.
 
 ### onvifDeviceGet
-Gets information regarding the OnVif Device 
+This direct method helps you retrieve detailed information about a specific ONVIF device.
 
-1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analzyer account deployment.
-1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the avaedge module.
-1.  Click on the avaedge module and select  `Direct method`.
 1.  In the method name enter:
     ```
     onvifDeviceGet
@@ -145,9 +135,9 @@ Gets information regarding the OnVif Device
     ```JSON
     { 
        "@apiVersion": "1.1",  
-       "remoteIPAddress": "10.159.30.99", 
-       "username": "admin", 
-       "password": "password" 
+       "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
+       "username": "{USER_NAME}", 
+       "password": "{PASSWORD}" 
     } 
     ```
 In the above payload:
@@ -164,7 +154,7 @@ Within a few seconds you see the following `Result`:
         "payload": {
             "hostname": {
                 "fromDHCP": true,
-                "hostname": "Keith-BoschCam1"
+                "hostname": "{NAME_OF_THE_ONVIF_DEVICE}"
             },
             "systemDateTime": {
                 "type": "ntp",
@@ -174,7 +164,7 @@ Within a few seconds you see the following `Result`:
             "dns": {
                 "fromDHCP": true,
                 "ipv4Address": [
-                    "10.0.1.1"
+                    "{IP_ADDRESS}"
                 ],
                 "ipv6Address": []
             },
@@ -182,7 +172,7 @@ Within a few seconds you see the following `Result`:
                 {
                     "name": "Profile_L1S1",
                     "mediaUri": {
-                        "uri": "rtsp://10.0.1.79/rtsp_tunnel?p=0&line=1&inst=1&vcd=2"
+                        "uri": "{RTSP_URI}"
                     },
                     "videoEncoderConfiguration": {
                         "encoding": "h264",
@@ -206,7 +196,7 @@ Within a few seconds you see the following `Result`:
                 {
                     "name": "Profile_L1S2",
                     "mediaUri": {
-                        "uri": "rtsp://10.0.1.79/rtsp_tunnel?p=1&line=1&inst=2&vcd=2"
+                        "uri": "{RTSP_URI}"
                     },
                     "videoEncoderConfiguration": {
                         "encoding": "h264",
@@ -233,33 +223,37 @@ Within a few seconds you see the following `Result`:
 
 ```
 
->[!NOTE]
->The return status of 200 is successful, while a return of 403 is forbidden.  If you are getting a 403 return code check your user name and password used in the body.  Also if a timeout occurs we return a 504, if an error is known we return a status of 502, and if the error is unknown a return status of 500 is issued.
+### Return status of onvifDeviceGet
+    | Status | Code     | Meaning / solution                                           |
+    | ------ | -------- | ------------------------------------------------------------ |
+    | 200    | Success  | The direct method call completed successfully.               |
+    | 403    | Forbidden | The direct method call could not successfully retrieve the requested information from the ONVIF device due to a authentication failure.  Check to ensure that the username and / or password in the message body was correct. |
+    | 504    | Timeout  | The direct method call expired before the response of the ONVIF device was received. |
+    | 502    | Error    | If an error occurred that was known.                          |
+    | 500    | Error    | If an error occurred that is unknown.                         |
+
 
 ## Troubleshooting 
 If the following error occurs:
 
-    :::image type="content" source="./media/camera-discovery/504-error.png" alt-text="Screenshot that shows the avaedge version.":::
+    :::image type="content" source="./media/camera-discovery/504-error.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
 
 Check to ensure that the setting for `"discoveryDuration":"PT10S"` in the above direct method calls is shorter than the `Connection Timeout` or `Method Timeout` values
 
-    :::image type="content" source="./media/camera-discovery/504-error-fix.png" alt-text="Screenshot that shows the avaedge version.":::
+    :::image type="content" source="./media/camera-discovery/504-error-fix.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
 
-If the folloiwng message return is displayed in the direct method `Results` field:
+If the following message return is displayed in the direct method `Results` field:
 
-    :::image type="content" source="./media/camera-discovery/result-status-200-null.png" alt-text="Screenshot that shows the avaedge version.":::
+    :::image type="content" source="./media/camera-discovery/result-status-200-null.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
 
 adjust the time value (x) in `"discoveryDuration":"PTxS"` to a larger number.  Also adjust the `Connection Timeout` and / or `Method Timeout` values accordingly.
 
 The `onvifDeviceGet` direct method call will not display any media profiles for H.265 encoded media streams.
 
-## Clean up resources
-
-[!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]
-
 ## Next steps
 
-- Try the [quickstart for recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md).
 - Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md).
-- Learn more about [diagnostic messages](monitor-log-edge.md).
+- Try the [tutorial for analyzing video with Spatial Analytics](computer-vision-for-spatial-analysis.md).
+- Try the [How-to guide for analyzing live video with multiple AI models](analyze-ai-composition.md).
+
 
