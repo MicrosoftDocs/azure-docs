@@ -7,6 +7,7 @@ ms.date: 09/27/2021
 ---
 
 
+
 1. When the updates are available for your device, you see a notification. Select the notification or from the top command bar, **Update device**. This will allow you to apply device software updates.
 
     ![Select update device](media/azure-stack-edge-install-2110-updates/install-updates-portal-1.png)
@@ -57,6 +58,4 @@ ms.date: 09/27/2021
 
     ![View updated software version in local UI](media/azure-stack-edge-install-2110-updates/install-updates-portal-11.png)
 
-
- Your device has now the latest version of device software and Kubernetes.
 

@@ -58,6 +58,17 @@ We recommend that you install updates through the Azure portal. The device autom
 > [!NOTE]
 > Make sure that the device is healthy and status shows as **Your device is running fine!** before you proceed to install the updates.
 
+Depending on the software version that you are running, install process may differ slightly. 
+
+- If you are updating from 2106 to 2110, you will have a one-click install. See the **2106 and later** tab for instructions.
+- If you are updating to versions prior to 2110, you will have a two-click install. See **2105 and earlier** tab for instructions.
+
+### [version 2106 and later](#tab/version-2106-and-later)
+
+[!INCLUDE [azure-stack-edge-install-2110-updates](../../includes/azure-stack-edge-install-2110-updates.md)]
+
+### [version 2105 and earlier](#tab/version-2105-and-earlier)
+
 1. When the updates are available for your device, you see a notification. Select the notification or from the top command bar, **Update device**. This will allow you to apply device software updates.
 
     ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-1.png)
@@ -126,7 +137,11 @@ We recommend that you install updates through the Azure portal. The device autom
     ![Software version after update 17](./media/azure-stack-edge-gpu-install-update/portal-update-16.png)
 
 
-Once the device software and Kubernetes updates are successfully installed, the banner notification disappears. Your device has now the latest version of device software and Kubernetes.
+Once the device software and Kubernetes updates are successfully installed, the banner notification disappears. 
+
+---
+
+Your device now has the latest version of device software and Kubernetes.
 
 
 ## Use the local web UI
