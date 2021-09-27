@@ -6,7 +6,7 @@ author: MikeRys
 ms.service: synapse-analytics  
 ms.topic: overview
 ms.subservice: metadata
-ms.date: 05/01/2020
+ms.date: 09/27/2021
 ms.author: mrys 
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp

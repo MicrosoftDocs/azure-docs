@@ -6,7 +6,7 @@ author: julieMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 09/27/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
@@ -48,10 +48,8 @@ SELECT * FROM [db].dbo.[spark_table]
 | `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: If there's a length provided from Spark, n in *Varbinary(n)* will be set to that length. If it is partitioned column, n can be max 2048. Otherwise, it will be *Varbinary(max)*. |
 | `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 
-\* Database Level Collation  is  Latin1_General_100_CI_AS_SC_UTF8
-\* String Column Level Collation  is  Latin1_General_100_BIN2_UTF8
-
-\** ArrayType, MapType, and StructType are represented as JSONs.
+>[!NOTE]
+>Database level collation is `Latin1_General_100_CI_AS_SC_UTF8`.
 
 ## Next steps
 

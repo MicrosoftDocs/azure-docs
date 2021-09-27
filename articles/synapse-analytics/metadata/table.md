@@ -6,7 +6,7 @@ author: MikeRys
 ms.service:  synapse-analytics 
 ms.topic: overview 
 ms.subservice: metadata
-ms.date: 05/01/2020 
+ms.date: 09/27/2021
 ms.author: mrys 
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
@@ -74,10 +74,8 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: If there's a length provided from Spark, `n` in *Varbinary(n)* will be set to that length. If it is partitioned column, n can be max 2048. Otherwise, it will be *Varbinary(max)*. |
 | `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 
-\* Database Level Collation  is  Latin1_General_100_CI_AS_SC_UTF8
-\* String Column Level Collation  is  Latin1_General_100_BIN2_UTF8
-
-\** ArrayType, MapType, and StructType are represented as JSONs.
+>[!NOTE]
+>Database level collation is `Latin1_General_100_CI_AS_SC_UTF8`.
 
 ## Security model
 
