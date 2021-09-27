@@ -92,7 +92,7 @@ az network public-ip create \
     --resource-group TutorGwLB-rg \
     --name myBastionIP \
     --sku Standard \
-    --zone 1,2,3
+    --zone 1 2 3
 ```
 
 ### Create bastion subnet
@@ -205,7 +205,7 @@ A health probe is required to monitor the health of the backend instances in the
 ```azurecli-interactive
   az network lb probe create \
     --resource-group TutorGwLB-rg \
-    --lb-name myLoadBalancer \
+    --lb-name myLoadBalancer-gw \
     --name myHealthProbe \
     --protocol http \
     --port 80 \
@@ -222,7 +222,7 @@ You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/
   az network lb address-pool tunnel-interface add \
     --address-pool myBackEndPool \
     --identifier '800' \
-    --lb-name myLoadBalancer \
+    --lb-name myLoadBalancer-gw \
     --protocol Vxlan \
     --resource-group TutorGwLB-rg \
     --type Internal \
@@ -231,7 +231,7 @@ You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/
   az network lb address-pool tunnel-interface add \
     --address-pool myBackEndPool \
     --identifier '801' \
-    --lb-name myLoadBalancer \
+    --lb-name myLoadBalancer-gw \
     --protocol Vxlan \
     --resource-group TutorGwLB-rg \
     --type External \
@@ -245,7 +245,7 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
 ```azurecli-interactive
   az network lb rule create \
     --resource-group TutorGwLB-rg \
-    --lb-name myLoadBalancer \
+    --lb-name myLoadBalancer-gw \
     --name myLBRule \
     --protocol '*' \
     --frontend-port 0 \
