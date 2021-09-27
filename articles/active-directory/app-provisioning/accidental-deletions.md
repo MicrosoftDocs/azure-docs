@@ -35,12 +35,42 @@ threshold. Also, be sure the notification email address is completed. If the del
 
 When the deletion threshold is met, the job will go into quarantine and a notification email will be sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
-:::image type="content" source="media/accidental-deletions/accidental-deletions-setting.png" alt-text="A checkbox to enable accidental deletions and a textbox to set the deletion threshold." lightbox="media/accidental-deletions/accidental-deletions-setting.png":::
+## Recovering from an accidental deletion
+If you encounter an accidental deletion you will see it on the provisioning status page.  It will say **Delete threshold exceeded**.
 
-## Test deletion prevention
-You can test the feature by triggering disable / deletion events by setting the threshold to a low number, for example 3, and then changing scoping filters, unassigning users, and deleting users from the directory (see common scenarios in next section). 
+By clicking on **Delete threshold exceeded**, you will see the sync status info.  This will provide additional details.
+
+By right-clicking on the ellipses, you will get the following options:
+ - View provisioning log
+ - View agent
+ - Allow deletes
+
+Using **View provisioning log**, you can see the **StagedDelete** entries and review the information provided on the users that have been deleted.
+
+### Test deletion prevention
+You can test the feature by triggering disable / deletion events by setting the threshold to a low number, for example 3, and then changing scoping filters, un-assigning users, and deleting users from the directory (see common scenarios in next section). 
 
 Let the provisioning job run (20 – 40 mins) and navigate back to the provisioning page. You will see the provisioning job in quarantine and can choose to allow the deletions or review the provisioning logs to understand why the deletions occurred.
+
+### Allowing deletes
+
+The **Allow deletes** action will delete the objects that triggered the accidental delete threshold.  Use the following procedure to accept the deletes.  
+
+1. Right-click on the ellipses and select **Allow deletes**.
+2. Click **Yes** on the confirmation to allow the deletions.
+ 
+ ![Yes on confirmation](media/how-to-accidental-deletes/delete-4.png)
+
+3. You will see confirmation that the deletions were accepted and the status will return to healthy with the next cycle. 
+ 
+ ![Accept deletes](media/how-to-accidental-deletes/delete-8.png)
+
+### Rejecting deletions
+
+If you do not want to allow the deletions, you need to do the following:
+- investigate the source of the deletions
+- fix the issue (example, OU was moved out of scope accidentally and you have now re-added it back to the scope)
+- Run **Restart sync** on the agent configuration
 
 ## Common de-provisioning scenarios to test
 - Delete a user / put them into the recycle bin.
