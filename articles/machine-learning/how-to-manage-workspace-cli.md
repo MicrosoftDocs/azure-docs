@@ -16,6 +16,9 @@ ms.custom: devx-track-azurecli
 
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
+> [!NOTE]
+> Examples in this article refer to both 1.0 CLI and CLI (v2) versions. The machine learning CLI (v2) is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
+
 ## Prerequisites
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
@@ -118,7 +121,7 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# [Bring existing resources (2.0 CLI)](#tab/bringexistingresources2)
+# [Bring existing resources (2.0 CLI - preview)](#tab/bringexistingresources2)
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
@@ -199,7 +202,7 @@ az ml workspace create -w <workspace-name>
 
 For more details on how to use these commands, see the [CLI reference pages](/cli/azure/ml(v1)/workspace).
 
-# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
+# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
 
 When using private link, your workspace cannot use Azure Container Registry tasks compute for image building. Hence, you must set the image_build_compute property to a CPU compute cluster name to use for Docker image environment building. You can also specify whether the private link workspace should be accessible over the internet using the public_network_access property.
 
@@ -236,7 +239,7 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# [2.0 CLI](#tab/vnetpleconfigurationsv2cli)
+# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
 
 Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault.
 
