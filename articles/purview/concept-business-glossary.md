@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 09/27/2021
 ---
 
 # Understand business glossary features in Azure Purview

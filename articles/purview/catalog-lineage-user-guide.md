@@ -4,9 +4,8 @@ description: This article provides an overview of the catalog lineage feature of
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ---
 # Azure Purview Data Catalog lineage user guide
 

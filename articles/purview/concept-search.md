@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 09/27/2021
 ---
 
 # Understand search features in Azure Purview

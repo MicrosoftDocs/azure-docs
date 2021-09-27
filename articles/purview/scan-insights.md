@@ -4,14 +4,17 @@ description: This how-to guide describes how to view and use Purview Insights sc
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 09/27/2021
 ---
 
 # Scan insights on your data in Azure Purview
 
 This how-to guide describes how to access, view, and filter Azure Purview scan insight reports for your data.
+
+> [!IMPORTANT]
+> Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this how-to guide, you'll learn how to:
 

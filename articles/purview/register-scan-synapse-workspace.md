@@ -4,9 +4,9 @@ description: Learn how to scan an Azure Synapse workspace in your Azure Purview 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 09/27/2021
 ---
 
 # Register and scan Azure Synapse Analytics workspaces

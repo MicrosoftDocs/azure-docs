@@ -4,9 +4,9 @@ description: This tutorial describes how to scan on-prem SQL server using a self
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/27/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -43,16 +43,6 @@ There is only one way to set up authentication for SQL server on-premises:
 ### SQL authentication
 
 The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
-
-#### Using an existing server administrator
-
-If you plan to use an existing server admin (sa) user to scan your on-premises SQL server, ensure the following:
-
-1. `sa` is not a Windows authentication account.
-
-2. The server level login that you are planning to use must have server roles of public and sysadmin. You can verify this by connecting to the server, navigating to SQL Server Management Studio (SSMS), navigating to security, selecting the login you are planning to use, selecting and holding (or right-clicking) **Properties** and then selecting **Server roles**.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Server level login.":::
 
 #### Creating a new login and user
 

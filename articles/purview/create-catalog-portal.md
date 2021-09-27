@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Purview account in the Azure portal'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 09/10/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
 ms.custom:

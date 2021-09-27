@@ -4,9 +4,9 @@ description: This article outlines how to register a Looker source in Azure Purv
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/16/2021
+ms.date: 09/27/2021
 ---
 # Register and Scan Looker(Preview)
 

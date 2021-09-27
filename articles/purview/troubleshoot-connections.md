@@ -4,9 +4,9 @@ description: This article explains the steps to troubleshoot your connections in
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 09/27/2021
 ---
 # Troubleshoot your connections in Azure Purview
 

@@ -4,9 +4,9 @@ description: In this tutorial, you'll configure Azure MSI settings on your Azure
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 09/27/2021
 # Customer intent: As a data steward or catalog administrator, I need to onboard Azure data sources at scale before I register and scan them.
 ---
 # Tutorial: Configure access to data sources for Azure Purview MSI at scale

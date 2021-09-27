@@ -5,7 +5,7 @@ metadata:
   services: purview
   author: ajaykar
   ms.service: purview
-  ms.subservice: purview-data-catalog
+  ms.subservice: purview-insights
   ms.topic: 
   ms.date: 09/17/2021
   ms.author: ajaykar

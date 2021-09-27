@@ -7,7 +7,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: dotnet
-ms.date: 04/15/2021
+ms.date: 09/27/2021
 ---
 
 # Publish messages to and process messages from Azure Purview's Atlas Kafka topics via Event Hubs using .NET 

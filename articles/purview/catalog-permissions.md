@@ -4,9 +4,8 @@ description: This article gives an overview permissions, access control, and col
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ---
 
 # Access control in Azure Purview

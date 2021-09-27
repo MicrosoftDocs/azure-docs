@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 09/27/2021
 ---
 
 # Search the Azure Purview Data Catalog

@@ -4,9 +4,9 @@ description: This article outlines how to register SAP S/4HANA source in Azure P
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
+ms.date: 09/27/2021
 ---
 # Register and Scan a SAP S/4HANA source
 

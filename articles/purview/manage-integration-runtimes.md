@@ -4,9 +4,9 @@ description: This article explains the steps to create and manage Integration Ru
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 09/27/2021
 ---
 
 # Create and manage a self-hosted integration runtime

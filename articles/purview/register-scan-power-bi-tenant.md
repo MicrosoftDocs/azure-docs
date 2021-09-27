@@ -4,9 +4,9 @@ description: Learn how to use the Azure Purview portal to register and scan a Po
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 09/27/2021
 ---
 
 # Register and scan a Power BI tenant (preview)

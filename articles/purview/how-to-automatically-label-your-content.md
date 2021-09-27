@@ -6,7 +6,7 @@ ms.author: ajaykar
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 09/27/2021
 ---
 # How to automatically apply sensitivity labels to your data in Azure Purview
 
