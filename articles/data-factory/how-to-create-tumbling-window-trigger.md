@@ -200,9 +200,9 @@ You can also rerun a canceled window. The rerun will take the _latest_ published
 
 This section shows you how to use Azure PowerShell to create, start, and monitor a trigger.
 
-### Prerequisites
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+### Prerequisites
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
