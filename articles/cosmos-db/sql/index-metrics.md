@@ -9,16 +9,16 @@ ms.date: 09/24/2021
 ms.author: tisande
 ---
 # Indexing metrics in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB provides indexing metrics to show both utilized indexed paths, as well as recommended indexed paths. You can use the indexing metrics to optimize query performance, especially in cases where you aren't sure how to modify the [indexing policy](index-policy.md).
+Azure Cosmos DB provides indexing metrics to show both utilized indexed paths and recommended indexed paths. You can use the indexing metrics to optimize query performance, especially in cases where you aren't sure how to modify the [indexing policy](../sql/index-policy.md).
 
 > [!NOTE]
 > The indexing metrics are only supported in the .NET (version 3.21.0 or later) or Java (version 4.19.0 or later)
 
 ## Enabling indexing metrics
 
-You can enable indexing metrics for a query by setting the `PopulateIndexMetrics` property to `true`. When not specified, `PopulateIndexMetrics` defaults to false. We only recommend enabling the index metrics for troubleshooting query performance. As long as your queries and indexing policy stay the same, the index metrics are unlikely to change. Instead we recommend identifying expensive queries by monitoring query RU charge and latency using [diagnostic logs](cosmosdb-monitor-resource-logs.md#full-text-query).
+You can enable indexing metrics for a query by setting the `PopulateIndexMetrics` property to `true`. When not specified, `PopulateIndexMetrics` defaults to false. We only recommend enabling the index metrics for troubleshooting query performance. As long as your queries and indexing policy stay the same, the index metrics are unlikely to change. Instead we recommend identifying expensive queries by monitoring query RU charge and latency using diagnostic logs.
 
 ### .NET SDK example
 
@@ -57,7 +57,7 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
 
 ### Example output
 
-In this example query, we observe the utilized paths `/Item/?` and `/Price/?`, as well as the potential composite indexes `(/Item ASC, /Price ASC)`.
+In this example query, we observe the utilized paths `/Item/?` and `/Price/?` and the potential composite indexes `(/Item ASC, /Price ASC)`.
 
 ```
 Index Utilization Information
@@ -80,13 +80,13 @@ Index Utilization Information
 
 The utilized single indexes and utilized composite indexes respectively show the included paths and composite indexes that the query used. Queries can use multiple indexed paths, as well as a mix of included paths and composite indexes. If an indexed path isn't listed as utilized, removing the indexed path won't have any impact on the query's performance.
 
-You should consider the list of utilized indexed paths as evidence that a query used those paths. If you aren't sure if a new indexed paths will improve query performance, you should try adding the new indexed paths and check if the query uses them.
+Consider the list of utilized indexed paths as evidence that a query used those paths. If you aren't sure if a new indexed path will improve query performance, you should try adding the new indexed paths and check if the query uses them.
 
 ## Potential indexed paths
 
 The potential single indexes and utilized composite indexes respectively show the included paths and composite indexes that, if added, the query might utilize. If you see potential indexed paths, you should consider adding them to your indexing policy and observe if they improve query performance.
 
-You should consider the list of potential indexed paths as recommendations rather than conclusive evidence that a query will use a specific indexed path. The potential indexed paths are not an exhaustive list of indexed paths that a query could use. Additionally, it's possible that some potential indexed paths won't have any impact on query performance. You [should add the recommended indexed paths](how-to-manage-indexing-policy.md) and confirm that they improve query performance.
+Consider the list of potential indexed paths as recommendations rather than conclusive evidence that a query will use a specific indexed path. The potential indexed paths are not an exhaustive list of indexed paths that a query could use. Additionally, it's possible that some potential indexed paths won't have any impact on query performance. [Add the recommended indexed paths](how-to-manage-indexing-policy.md) and confirm that they improve query performance.
 
 ## Index impact score
 
@@ -102,7 +102,7 @@ FROM c
 WHERE c.name = "Samer"
 ```
 
-The actual impact depending on the nature of the data. If only a small number of items match the `/name` filter, the indexed path will substantially improve the query RU charge. However, if most items end up matching the `/name` filter anyway, the indexed path may not end up improving query performance. In each of these cases, the indexed path `/name/?` would be assigned a **high** index impact score because, based on the query shape, the indexed path has a high likleihood of improving query performance.
+The actual impact depending on the nature of the data. If only a few items match the `/name` filter, the indexed path will substantially improve the query RU charge. However, if most items end up matching the `/name` filter anyway, the indexed path may not end up improving query performance. In each of these cases, the indexed path `/name/?` would be assigned a **high** index impact score because, based on the query shape, the indexed path has a high likelihood of improving query performance.
 
 ## Additional examples
 
@@ -147,5 +147,5 @@ These index metrics show that the query used the indexed paths `/name/?`, `/age/
 
 Read more about indexing in the following articles:
 
-- [Indexing overview](index-overview.md)
+- [Indexing overview](../index-overview.md)
 - [How to manage indexing policy](how-to-manage-indexing-policy.md)
