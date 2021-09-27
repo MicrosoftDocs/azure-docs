@@ -69,7 +69,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 6. For **How many stages** leave this as **1**.
 
-7. For **Approver**, select **Manager as approver**. This option allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system can't find the manager. For this scenario, this should be the option you select.
+7. For **Approver**, select **Manager as approver**. This option allows the requestor's manager to approve the request. You can select a different person to be the Fallback approver if the system can't find the manager.
 
 8. **Decision must be made in how many days?** leave this as **14**.
 
