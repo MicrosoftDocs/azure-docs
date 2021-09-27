@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Step 2: Ship the drives
 > * Step 3: Update the job with tracking information
 > * Step 4: Receive the disks
-> * Step 5: Unlock the disk
+> * Step 5: Unlock the disks
 
 ## Prerequisites
 
@@ -473,5 +473,5 @@ The following table shows examples of valid blob paths:
 
 ## Next steps
 
-- [View the job and drive status](storage-import-export-view-drive-status.md)
-- [Review Import/Export requirements](storage-import-export-requirements.md)
+* [View the job and drive status](storage-import-export-view-drive-status.md)
+* [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md)

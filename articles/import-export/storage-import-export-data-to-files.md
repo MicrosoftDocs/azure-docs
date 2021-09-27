@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Step 2: Create an import job
 > * Step 3: Ship the drives to Azure datacenter
 > * Step 4: Update the job with tracking information
-> * Step 5: Step 6: Verify data upload to Azure
+> * Step 5: Verify data upload to Azure
 
 <!--"Samples for journal files" section doesn't fit the tutorial schema. OK to just let it appear in right nav pane?-->
 
