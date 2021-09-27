@@ -39,13 +39,13 @@ Create a resource groups called **mi-test** for all resources used in this tutor
 
 ## Create an Azure VM with a managed identity
 
-For this tutorial you need an Azure virtual machine(VM). Create a virtual machine with a system-assigned managed identity enabled. You may also [create a user-assigned managed identity](how-manage-user-assigned-managed-identities.md) called **mi-vm-01** in the resource group we created earlier (**mi-test**). Once that you have a user-assigned managed identity you can assign it to a VM during creation.   
+For this tutorial, you need an Azure virtual machine(VM). Create a virtual machine with a system-assigned managed identity enabled. You may also [create a user-assigned managed identity](how-manage-user-assigned-managed-identities.md) called **mi-vm-01** in the resource group we created earlier (**mi-test**). Once that you have a user-assigned managed identity you can assign it to a VM during creation.   
 
 ### Create a VM with a system-assigned managed identity
 
 To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD role assignments are required.
 
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 - From the **Azure portal** search for **virtual machines**.
 - Choose **Create**
@@ -61,7 +61,7 @@ For more information, review the Azure virtual machines documentation:
 - [Linux](../../virtual-machines/linux/quick-create-portal.md)
 - [Windows](../../virtual-machines/windows/quick-create-portal.md)
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 [New-AZVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) creates resources you reference if they don't exist. To create a VM with a system assigned managed identity enabled pass the parameter **-SystemAssignedIdentity** as shown below. 
 
@@ -83,7 +83,7 @@ New-AzVm `
 - [Quickstart: Create a Linux virtual machine in Azure with PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM named *myVM* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
 
@@ -94,7 +94,7 @@ Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following exa
 - [Create a Linux virtual machine with a system assigned managed identity](../../virtual-machines/linux/quick-create-cli.md)
 - [Create a Windows virtual machine with a system assigned managed identity](../../virtual-machines/windows/quick-create-cli.md)
 
-# [Resource Manager Template](#tab/azure-resource-manager)
+#### [Resource Manager Template](#tab/azure-resource-manager)
 
 To enable system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section and add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
 
@@ -128,15 +128,13 @@ When you're done, the following sections should be added to the `resource` secti
 
 User-assigned managed identities may be used with multiple resources. Create a user assigned managed identity called **mi-ua-01** following the steps in [Manage user-assigned managed identities](how-manage-user-assigned-managed-identities.md)
 
-#### Create a virtual machine with a user-assigned managed identity assigned
-
-# [Portal](#tab/azure-portal)
+#### [Portal](#tab/azure-portal)
 
 Today, the Azure portal does not support assigning a user-assigned managed identity during the creation of a VM. You should create a virtual machine and then assign a user assigned managed identity to it.
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
 
-# [PowerShell](#tab/azure-powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 Create a Windows virtual machine with a user assigned managed identity specified.
 
@@ -174,7 +172,7 @@ New-AzVm `
 The user assigned managed identity should be specified using its [resourceID](how-manage-user-assigned-managed-identities.md
 ). 
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
@@ -182,9 +180,9 @@ az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS 
 
 [Configure managed identities for Azure resources on a VM using the Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
-# [Resource Manager Template](#tab/azure-resource-manager)
+#### [Resource Manager Template](#tab/azure-resource-manager)
 
-Depending on your API version, you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the ```<identityName>``` value is the name of a variable that you define in the variables section of your template. In the variable you point to the user assigned managed identity that you want to assign.
+Depending on your API version, you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the ```<identityName>``` value is the name of a variable that you define in the variables section of your template. In the variable, you point to the user assigned managed identity that you want to assign.
 
 ```json
     "variables": {
@@ -236,7 +234,7 @@ If you need to create a Cosmos DB account for this tutorial the [Cosmos DB quick
 
 ## Grant access 
 
-At this point we should have both a virtual machine configured with a managed identity and a Cosmos DB Account. Before we continue, we need to grant the managed identity a couple of different roles.
+At this point, we should have both a virtual machine configured with a managed identity and a Cosmos DB Account. Before we continue, we need to grant the managed identity a couple of different roles.
 
 - First grant access to the Cosmos management plane using [Azure RBAC](../../cosmos-db/role-based-access-control.md). The managed identity needs to have the DocumentDB Account Contributor role assigned to create Databases and containers.
 
@@ -308,14 +306,14 @@ Getting access to Cosmos using managed identities may be achieved using the Azur
 
 The ManagedIdentityCredential class attempts to authentication using a managed identity assigned to the deployment environment. The [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme) class goes through different authentication options in order. The second authentication option that DefaultAzureCredential attempts is Managed identities. 
 
-In the example shown below you create a database, a container, an item in the container, and read back the newly created item using the virtual machine's system assigned managed identity. If you want to use a user-assigned managed identity you need to specify the user-assigned managed identity by specifying the managed identity's client Id. 
+In the example shown below you create a database, a container, an item in the container, and read back the newly created item using the virtual machine's system assigned managed identity. If you want to use a user-assigned managed identity, you need to specify the user-assigned managed identity by specifying the managed identity's client ID. 
 
 ```csharp
 string userAssignedClientId = "<your managed identity client Id>";
 var tokenCredential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
 ```
 
-To use the sample below you need to have the following NuGet packages:
+To use the sample below, you need to have the following NuGet packages:
 
 - Azure.Identity
 - Microsoft.Azure.Cosmos
@@ -384,7 +382,7 @@ namespace MITest
 
 ```
 
-Language specific examples using ManagedIdentityCredential:
+Language-specific examples using ManagedIdentityCredential:
 
 ### .NET
 
