@@ -95,7 +95,7 @@ For more information, see [License requirements](entitlement-management-overview
 
     1.	Set **Require access reviews** to **Yes**.
     2.	You can leave the **Starting on** to the current date. The starting on date is when the access review campaign will start. Once an access review has been created, you can't update its start date.
-    3.	Set **Review frequency** to be **Annually** - This field determines how often the access review campaign runs.
+    3.	Set **Review frequency** to be **Annually**, since the review will occur once per year. The review frequency field is where you determine how often the access review campaign runs.
     4.	Specify a **Duration (in days)** - This field is how many days each occurrence of the access review series will run.
     5.	For the **Reviewers**, select **Manager**.
 
