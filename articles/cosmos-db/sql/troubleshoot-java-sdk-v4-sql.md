@@ -144,6 +144,16 @@ This failure is a server-side failure. It indicates that you consumed your provi
 
     During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
 
+### Error handling from Java SDK Reactive Chain
+
+Error handling from Cosmos DB Java SDK is important when it comes to client's application logic. There are different error handling mechanism provided by [reactor-core framework](https://projectreactor.io/docs/core/release/reference/#error.handling)
+
+We recommend using `onErrorResume()` operator to handle errors coming from Cosmos DB Java SDK reactive chain.
+
+> [!IMPORTANT]
+> We don't recommend using `onErrorContinue()`.
+> Note that `onErrorContinue()` is a specialist operator that can make the behaviour of your reactive chain unclear. It operates on upstream, not downstream operators, it requires specific operator support to work, and the scope can easily propagate upstream into library code that didn't anticipate it (resulting in unintended behaviour.). Please refer to [documentation](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) of `onErrorContinue()` for more details on this special operator.
+
 ### Failure connecting to Azure Cosmos DB Emulator
 
 The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](../local-emulator-export-ssl-certificates.md).
