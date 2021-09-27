@@ -29,7 +29,7 @@ This article describes how to add IPv6 support to connect via ExpressRoute to yo
     az network express-route show --resource-group "<ExpressRouteResourceGroup>" --name "<MyCircuit>"
     ```
 
-2. [View the private peering configuration for the circuit by running the following:
+2. View the private peering configuration for the circuit by running the following:
 
     ```azurecli-interactive
     az network express-route peering show -g "<ExpressRouteResourceGroup>" --circuit-name "<MyCircuit>" --name AzurePrivatePeering
