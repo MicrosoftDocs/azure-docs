@@ -33,7 +33,7 @@ The coordinates of the points are returned in units of pixels.
 
 See the below images for a comparison of the Detection_03 model's face landmark technology with competing AI services. 
 
-:::image type="content" source="../Images/landmark-compare-1.png" alt-text="face landmarks comparison":::
+:::image type="content" source="../Images/landmark-compare-1.png" alt-text="face landmarks comparison with multiple faces":::
 
 :::image type="content" source="../Images/landmark-compare-2.png" alt-text="face landmarks comparison":::
 
