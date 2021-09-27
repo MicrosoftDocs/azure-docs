@@ -41,7 +41,7 @@ In this section, you'll enable resource pools, networks, and VM templates in Azu
 
 1. From your browser, go to the [vCenters blade on Azure Arc Center](https://portal.azure.com/?microsoft_azure_hybridcompute_assettypeoptions=%7B%22VMwarevCenter%22%3A%7B%22options%22%3A%22%22%7D%7D&feature.customportal=false&feature.canmodifystamps=true&feature.azurestackhci=true&feature.scvmmdisktoc=true&feature.scvmmnettoc=true&feature.scvmmsizetoc=true&feature.scvmmvmnetworkingtab=true&feature.scvmmvmdiskstab=true&feature.vmwarearcvm=true&feature.vmwarevmnetworktab=true&feature.vmwarevmdiskstab=true&feature.appliances=true&feature.customlocations=true&feature.arcvmguestmanagement=true&feature.vmwareExtensionToc=true&feature.arcvmextensions=true&feature.vcenters=true&feature.vcenterguestmanagement=true&feature.hideassettypes=Microsoft_Azure_Compute_VirtualMachine&feature.showassettypes=Microsoft_Azure_Compute_AllVirtualMachine#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/vCenter) and navigate to your vCenter.
 
-   :::image type="content" source="media/media/enable-guest-management.png" alt-text="Screenshot of how to enable an existing virtual machine in the Azure portal." lightbox="media/media/enable-guest-management.png":::
+   :::image type="content" source="media/enable-guest-management.png" alt-text="Screenshot of how to enable an existing virtual machine in the Azure portal." lightbox="media/media/enable-guest-management.png":::
 
 1. Navigate to the VM inventory resource blade, select the VMs you want to enable, and then select **Enable in Azure**.
 
@@ -49,7 +49,7 @@ In this section, you'll enable resource pools, networks, and VM templates in Azu
 
 1. (Optional) Select **Install guest agent** and then provide the Administrator username and password of the guest operating system.
 
-   The [guest agent](./servers/agent-overview) is the connected machine agent. You can install this agent later by selecting the VM in the virtual machine inventory resource blade on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc enabled VMware vSphere](manage-vmware-vms-in-azure.md).
+   The [guest agent](../servers/agent-overview) is the connected machine agent. You can install this agent later by selecting the VM in the virtual machine inventory resource blade on your vCenter and selecting **Enable guest management**. For information on the prerequisites of enabling guest management, see [Manage VMware VMs through Arc enabled VMware vSphere](manage-vmware-vms-in-azure.md).
  
 1. Select **Enable** to start the deployment of the VM represented in Azure. 
 
