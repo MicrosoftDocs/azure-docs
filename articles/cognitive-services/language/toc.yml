@@ -10,6 +10,8 @@ items:
     href: whats-new.md
   - name: Pricing
     href: https://aka.ms/unifiedLanguagePricing
+  - name: Language Studio quickstart
+    href: language-studio.md
 - name: Custom text classification
   items:
   - name: Overview
@@ -268,8 +270,6 @@ items:
     href: concepts/specify-model-version.md
   - name: Send batch requests asynchronously
     href: concepts/asynchronous-use.md
-  - name: Language Studio
-    href: concepts/language-studio.md
 - name: Enterprise readiness
   items:
     - name: Region support
