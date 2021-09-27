@@ -40,6 +40,7 @@ The following settings allow you to configure your automated ML experiment.
 ----|:----:|:----:
 |**Split data into train/validation sets**| ✓|✓
 |**Supports ML tasks: classification, regression, and forecasting**| ✓| ✓
+|**Supports AutoML for Images: image classification, object detection and instance segmentation **| ✓| 
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
@@ -77,7 +78,7 @@ These settings allow you to review and control your experiment runs and its chil
 |**Get guardrails**| ✓|✓|
 |**Pause & resume runs**| ✓| |
 
-## When to use AutoML: classification, regression, & forecasting
+## When to use AutoML: classification, regression, forecasting & AutoML for Images
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
@@ -120,13 +121,42 @@ Advanced forecasting configuration includes:
 
 See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
+### AutoML for Images
+AutoML for Images adds support for computer vision tasks, allowing data scientists to easily generate models trained on image data for scenarios like Image Classification, Object Detection and Instance Segmentation. 
+
+Customers across various industries are looking to leverage machine learning to build models that can process image data. Applications range from image classification of fashion photos to PPE detection in industrial environments. Typical manual methods for building computer vision models can involve a tedious process of iteratively finding the right set of model algorithms and hyperparameters, requiring significant data scientist time and effort. 
+With AutoML for Images, Azure ML customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging AzureML [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities.
+
+AutoML for Images supports the following computer vision tasks -
+
+![Computer Vision Tasks](./media/ComputerVisionTasks.jpg)
+
+[Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf]
+
+
+#### Multi-class Image Classification
+Tasks where an image is classified with only a single label from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'
+
+#### Multi-label Image Classification
+Tasks where an image could have one or more labels from a set of labels - e.g. an image could be labeled with both 'cat' and 'dog'
+
+#### Object Detection
+Tasks to identify objects in an image and locate each object with a bounding box e.g. locate all dogs and cats in an image and draw a bounding box around each.
+
+#### Instance Segmentation
+Tasks to identify objects in an image at the pixel level, drawing a polygon around each object in the image.
+
+Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation runs, models and outputs can be accessed from the Azure ML Studio UI.
+
+Learn more about AutoML for Images capabilities in this how-to guide: ['How to auto-train image models'](how-to-auto-train-image-models)
+
 ## How automated ML works
 
 During training, Azure Machine Learning creates a number of pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. 
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
-1. **Identify the ML problem** to be solved: classification, forecasting, or regression
+1. **Identify the ML problem** to be solved: classification, forecasting, regression or AutoML for Images
 
 1. **Choose whether you want to use the Python SDK or the studio web experience**:
    Learn about the parity between the [Python SDK and studio web experience](#parity).
@@ -242,6 +272,7 @@ Consider these pros and cons when choosing to use local vs. remote.
 | Azure ML Pipeline workflow support                         | ✓      |       |
 | Continue a run                                             | ✓      |       |
 | Forecasting                                                | ✓      | ✓     |
+| AutoML for Images                                               | ✓      |       |
 | Create and run experiments in notebooks                    | ✓      | ✓     |
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
 | Data guardrails                                            | ✓      | ✓     |
