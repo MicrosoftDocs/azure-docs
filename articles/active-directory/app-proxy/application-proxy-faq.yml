@@ -165,12 +165,12 @@ sections:
               If Azure Ad pre-authentication is configured and the application URL and contains a “#” character when you try to access the application for the first time,  you get redirected to Azure AD (login.microsoftonline.com) for the authentication and then once you complete the authentication you get redirected to the URL part prior to the ”#” character and everything that comes after the “#“ seems to be ignored/ removed. For example if the URL  is https://www.contoso.com/#/home/index.html, once the Azure AD authentication is done the user will be redirected to https://www.contoso.com/ .
 
               This behaviour is by design due to how the “#” character is handled by the browser.
-
+              
               Possible solutions/  alternatives:
 
-              Setup a redirection from https://www.contoso.com to https://contoso.com/#/home/index.html . The user must first access https://www.contoso.com.
-              The URL used for the first access attempt must include the “#” character in encoded form (%23). The published server might not accept this.
-              Configure passthrough pre-authentication type (not recommended)
+              - Setup a redirection from https://www.contoso.com to https://contoso.com/#/home/index.html . The user must first access https://www.contoso.com.
+              - The URL used for the first access attempt must include the “#” character in encoded form (%23). The published server might not accept this.
+              - Configure passthrough pre-authentication type (not recommended)
               
       - question: |
          Can only IIS-based applications be published? What about web applications running on non-Windows web servers? Does the connector have to be installed on a server with IIS installed?
