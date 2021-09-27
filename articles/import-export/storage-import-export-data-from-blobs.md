@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 09/24/2021
+ms.date: 09/27/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -31,7 +31,7 @@ You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
-- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). You can use the Azure Import/Export tool to determine how many disks to provide. For steps, see [Determine the number of drives to use](storage-import-export-determine-number-of-drives-for-export.md#determine-how-many-drives-you-need).
+- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). You can use the Azure Import/Export tool to determine how many disks to provide. For steps, see [Determine drives to use](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need).
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
   - The account must be valid, should have balance, and must have return shipping capabilities.
   - Generate a tracking number for the export job.
@@ -87,7 +87,7 @@ Perform the following steps to create an export job in the Azure portal.
         |Option|Description|
         |------|-----------|      
         |**Add containers**|Export all blobs in a container.<br>Select **Add containers**, and enter each container name.|
-        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-number-of-drives-for-export.md#examples-of-valid-blob-paths).|
+        |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
         ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
@@ -244,7 +244,7 @@ Use the following steps to create an export job in the Azure portal.
     blob-path-prefix=/myiecontainer
     ```
 
-   For more information, see [Examples of valid blob paths](storage-import-export-determine-number-of-drives-for-export.md#examples-of-valid-blob-paths).
+   For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).
 
    > [!NOTE]
    > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
@@ -334,7 +334,7 @@ Install-Module -Name Az.ImportExport
    -ExportBlobListblobPath '/myiecontainer'
    ```
 
-   For more information, see [Examples of valid blob paths](storage-import-export-determine-number-of-drives-for-export.md#examples-of-valid-blob-paths).
+   For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).
 
    > [!NOTE]
    > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
@@ -357,7 +357,7 @@ Install-Module -Name Az.ImportExport
 
 ## Step 2: Ship the drives
 
-If you do not know the number of drives you need, see [Determine how many drives you need](storage-import-export-determine-number-of-drives-for-export.md#determine-how-many-drives-you-need). If you know the number of drives, proceed to ship the drives.
+If you do not know the number of drives you need, see [Determine how many drives you need](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need). If you know the number of drives, proceed to ship the drives.
 
 [!INCLUDE [storage-import-export-ship-drives](../../includes/storage-import-export-ship-drives.md)]
 

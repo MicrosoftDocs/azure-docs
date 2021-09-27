@@ -25,7 +25,7 @@
   - name: Use customer-managed keys
     href: storage-import-export-encryption-key-portal.md
   - name: Identify disks to use
-    href: storage-import-export-determine-number-of-drives-for-export.md
+    href: storage-import-export-determine-drives-for-export.md
   - name: Monitor
     items:
     - name: View job, drive status

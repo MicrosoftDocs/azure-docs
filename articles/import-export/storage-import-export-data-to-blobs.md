@@ -5,10 +5,10 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 09/24/2021
+ms.date: 09/27/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: tutorial, "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
 # Tutorial: Import data to Blob Storage with Azure Import/Export service
 
