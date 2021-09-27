@@ -54,7 +54,7 @@ ms.date: 09/27/2021
 
     ![Update complete and device is online](media/azure-stack-edge-install-2110-updates/install-updates-portal-10.png)
 
-    Go to the local web UI and then go to **Software update** page. Verify that the Kubernetes update has successfully installed and the software version reflects that.
+    Go to the local web UI and then go to **Software update** page. Verify that the device software and Kubernetes are successfully updated and the software version reflects that.
 
     ![View updated software version in local UI](media/azure-stack-edge-install-2110-updates/install-updates-portal-11.png)
 
