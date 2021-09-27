@@ -20,7 +20,7 @@ This article describes how to configure load balancing on your Azure Stack Edge 
 
 MetalLB is a load-balancer implementation for bare metal Kubernetes clusters. MetalLB serves two functions: it assigns IP addresses to the Kubernetes load balancer services from a configured pool of IP addresses and then announces the IP to the external network. MetalLB achieves these functions through standard routing protocols such as Address Resolution Protocol (ARP), Neighbor Discovery Protocol (NDP), or Border Gateway Protocol (BGP). 
 
-For more information, see [BGP mode for MetalL](https://metallb.universe.tf/configuration/#bgp-configuratioN).
+For more information, see [BGP mode for MetalLB](https://metallb.universe.tf/configuration/#bgp-configuratioN).
 
 ## MetalLB on Azure Stack Edge
 
@@ -44,12 +44,14 @@ Before you begin, make sure that:
 
 ### Configuration
 
-For a basic configuration for MetalLB using BGP session, you need four pieces of information:
+For a basic configuration for MetalLB using BGP session, you need the following information:
 
 - The peer IP address that MetalLB should connect to.
 - The peer's Autonomous System Number (ASN). BGP requires that routes are announced with an ASN for peer sessions.
 - The ASN MetalLB should use. ASNs are 16-bit numbers between 1 and 65534 and 32-bit numbers between 131072 and 4294967294.
-- An IP address range. The IP address range that you provide is the range of available IPs in the same subnet as the port that you enabled for compute.
+
+> [!IMPORTANT]
+> For MetalLB to work in BGP mode, peers must be specified. If no BGP peers are specified, MetalLB will work in default layer 2 mode. For more information, see [Layer 2 mode in MetalLB](https://metallb.universe.tf/concepts/layer2/). 
 
 
 Follow these steps to configure MetalLB in BGP mode:
