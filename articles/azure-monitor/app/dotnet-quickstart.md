@@ -97,7 +97,7 @@ It takes several minutes for telemetry to be ingested into Application Insights 
 
 1. Run the web app using `dotnet run` or your IDE.
 1. In the Azure portal, when viewing your Application Insights resource, select **Live metrics** under **Investigate**.
-1. In your app, select the **Home** and **Privacy** links repeatedly.
+1. In your app (`http://localhost:5000`), select the **Home** and **Privacy** links repeatedly.
 1. Observe activity on the **Live metrics** display as requests are made in the app.
 
 ## Next steps
