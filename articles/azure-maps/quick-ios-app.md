@@ -65,7 +65,7 @@ First, create a new iOS App project. Complete these steps to create an Xcode pro
 
 See the [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
 
-![create the first iOS application.](./media/create-an-ios-app/create_app.png)
+![create the first iOS application.](./media/create-an-ios-app/create-app.png)
 
 ## Install the Azure Maps iOS SDK
 
@@ -76,14 +76,14 @@ The next step in building your application is to install the Azure Maps iOS SDK.
 3. Switch to **Swift Package** tab
 4. Add Azure Maps iOS SDK: `{link goes here}`
 
-![add a iOS project](./media/create-an-ios-app/add_project.png)
+![add a iOS project](./media/create-an-ios-app/add-project.png)
 
 ## Add MapControl view
 
 1. Add custom `UIView` to view controller
 2. Select `MapControl` class from `AzureMapsControl` module
 
-![add auzre maps contro.l](./media/create-an-ios-app/add_map_control.png)
+![add auzre maps contro.l](./media/create-an-ios-app/add-map-control.png)
 
 3. In the **AppDelegate.swift** file you'll need to:
 	* add import for the Azure Maps SDK
