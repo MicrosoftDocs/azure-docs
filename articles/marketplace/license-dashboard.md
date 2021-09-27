@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 06/10/2021
+ms.date: 09/27/2021
 ---
 
 # License dashboard in commercial marketplace analytics
@@ -22,11 +22,31 @@ This article provides information about the License dashboard in the commercial 
 
 ## Check license usage
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
 To check license usage of ISV apps in Partner Center, do the following:
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **License**.
+
+    [ ![Screenshot of the License dashboard in Partner Center.](./media/license-dashboard/license-dashboard-workspaces.png) ](./media/license-dashboard/license-dashboard-workspaces.png#lightbox)
+
+#### [Current view](#tab/current-view)
+
+To check license usage of ISV apps in Partner Center, do the following:
+
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze** > **License**.
 
 :::image type="content" source="./media/license-dashboard/license-dashboard.png" alt-text="Screenshot of the License dashboard in Partner Center.":::
+
+---
 
 ## Elements of the License dashboard
 
@@ -36,7 +56,15 @@ The following sections describe how to use the License dashboard and how to read
 
 You can find a month range selection at the top-right corner of the page. Customize the output of the widgets on the page by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
+#### [Workspaces view](#tab/workspaces-view) 
+
+[ ![Screenshot of the month range selections on the License dashboard in Partner Center.](./media/license-dashboard/license-workspace-filters.png) ](./media/license-dashboard/license-workspace-filters.png#lightbox)
+
+#### [Current view](#tab/current-view) 
+
 :::image type="content" source="./media/license-dashboard/month-range.png" alt-text="Screenshot of the month range selections on the License dashboard in Partner Center.":::
+
+---
 
 ## Customers widget
 
