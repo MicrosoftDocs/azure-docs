@@ -102,7 +102,7 @@ The following diagram shows the overall app lifecycle and common events that may
 
 ## Next steps
 
-For more information on how to run a frontline worker app on a shared mode Android device, see:
+For more information on how to run a frontline worker app on a shared mode on Android device, see:
 
 > [!div class="nextstepaction"]
 >[Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md)
