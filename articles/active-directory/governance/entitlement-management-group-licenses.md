@@ -61,7 +61,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package.
 
-3. In the **Users who can request access** section, click **For users in your directory** and select **All members (excluding guests)**. This makes it so that only members if your directory will be able to request Office licenses.
+3. In the **Users who can request access** section, click **For users in your directory** and select **All members (excluding guests)**. This makes it so that only members of your directory will be able to request Office licenses.
 
 4. Ensure that **Require approval** is set to **Yes**.
 
