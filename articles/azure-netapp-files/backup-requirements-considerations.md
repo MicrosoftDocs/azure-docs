@@ -27,7 +27,7 @@ You need to be aware of several requirements and considerations before using Azu
 * Azure NetApp Files backup is available in the regions associated with your Azure NetApp Files subscription. 
 Azure NetApp Files backup in a region can only protect an Azure NetApp Files volume that is located in that same region. For example, backups created by the service in West US 2 for a volume located in West US 2 are sent to Azure storage that is located also in West US 2. Azure NetApp Files does not support backups or backup replication to a different region.  
 
-* There can be a delay up to 5 minutes in displaying a backup after the backup is actually completed.
+* There can be a delay of up to 5 minutes in displaying a backup after the backup is actually completed.
 
 * Currently, the Azure NetApp Files backup feature supports backing up the daily, weekly, and monthly local snapshots created by the associated snapshot policy to the Azure storage. Hourly backups are not currently supported.
 
