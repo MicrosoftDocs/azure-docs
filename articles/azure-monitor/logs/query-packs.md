@@ -79,7 +79,7 @@ Each query in the query pack has the following properties.
 
 
 ## Create a query pack
-The only way to currently install a query pack is with the REST API. 
+Query packs can be created in the Azure Portal using the Log Analytics query packs blade or using the REST API. 
 
 ### Create token
 You require a token for authentication of the API request. There are multiple methods to get a token including using **armclient**.
