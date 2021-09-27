@@ -37,7 +37,7 @@ Using dynamic concurrency provides the following benefits:
 - **Instance health protection** - dynamic concurrency will limit concurrency to values a host instance can comfortably handle. This protects the host from overloading itself by taking on more work than it should. 
 - **Improved throughput** - overall throughput is improved because individual instances aren't pulling more work than they can quickly process. This allows work to be load balanced more effectively across instances. In addition, for functions that can handle higher load, concurrency can be increased to high values (beyond default config values), resulting in higher throughput.
 
-### Configuration
+### Dynamic concurrency configuration
 
 This page describes the new Azure Functions **dynamic concurrency** feature for Service Bus, which simplifies configuring concurrency for your function apps. Using Dynamic concurrency, you don't have to configure per trigger concurrency settings. When enabled at the host level, any extensions you use in your Function App that support dynamic concurrency will ignore their static configuration options and instead adjust concurrency dynamically as needed. You can enable dynamic concurrency in host.json as follows: 
 
@@ -72,7 +72,7 @@ ServiceBusTrigger currently supports 3 different execution models. dynamic concu
 - **Session based single dispatch topic/queue processing** - Each invocation of your function processes a single message. Depending on the number of active sessions for your topic/queue, each instance will lease one or more sessions, and messages in each session are processed serially, to ensure session ordering guarantees. When using static config, concurrency is governed by the MaxConcurrentSessions config option. When using dynamic concurrency, that config value is ignored, and the number of sessions each instance is processing will be dynamically adjusted. 
 - **Batch processing** - Each invocation of your function processes a batch of messages, governed by the MaxMessageCount config option. Batch invocations are serial - concurrency for your batch triggered function will always be one. So dynamic concurrency doesn't apply here. 
 
-To use dynamic concurrency for ServiceBus, you must use version 5.x of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension. You also need to [enable dynamic concurrency](./dynamic-concurrency.md#dynamic-concurrency-configuration) in your host.json.
+To use dynamic concurrency for ServiceBus, you must use version 5.x of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension. You also need to [enable dynamic concurrency](./functions-concurrency.md#dynamic-concurrency-configuration) in your host.json.
 
 ## Next steps
 
