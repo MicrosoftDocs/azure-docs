@@ -78,7 +78,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 4. [Link your virtual network to your ExpressRoute circuit](howto-linkvnet-cli.md).
 
 ## Limitations
-While IPv6 support is available for connections to deployments in Public Azure regions, it does not support the following use cases:
+While IPv6 support is available for connections to deployments in global Azure regions, it does not support the following use cases:
 
 * Connections to *existing* ExpressRoute gateways that are not zone-redundant. Note that *newly* created ExpressRoute gateways of any SKU (both zone-redundant and not) using  a Standard, Static IP address can be used for dual-stack ExpressRoute connections
 * Global Reach connections between ExpressRoute circuits
