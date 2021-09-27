@@ -11,6 +11,8 @@ ms.author: guybo
 ---
 # Information for Non-endorsed Distributions
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](endorsed-distros.md) is used. For these endorsed distributions, pre-configured Linux images are provided in the Azure Marketplace.
 
 * [Linux on Azure - Endorsed Distributions](endorsed-distros.md)

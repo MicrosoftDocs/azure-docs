@@ -5,17 +5,18 @@ services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: article
-ms.date: 06/11/2021
+ms.date: 09/21/2021
 ---
+
 # Azure Government authorized reseller list
 
-Since the launch of the [Azure Government in the Cloud Solution Provider Program (CSP)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), work has been done with the Partner Community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
+Since the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), we have worked with the partner community to bring them the benefits of this channel, enable them to resell Azure Government, and help them grow their business while providing the cloud services their customers need.
 
-Below you can find a list of all the authorized Cloud Solution Providers, AOS-G (Agreement for Online Services for Government), and Licensing Solution Providers (LSP) which can transact Azure Government. This list includes all approved Partners as of **June 2021**. Updates to this list will be made as new partners are onboarded. 
+Below you can find a list of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. Updates to this list will be made as new partners are onboarded. 
 
 ## Approved direct CSPs
 
-|Partner Name|
+|Partner name|
 |----------------------------|
 |[10th Magnitude](https://www.10thmagnitude.com)|
 |[12:34 MicroTechnolgies Inc.](https://www.1234micro.com/)|
@@ -39,7 +40,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Airnet Group](https://www.airnetgroup.com/)|
 |[AIS Network](https://www.aisn.net/)|
 |[Alcala Consulting Inc.](https://www.alcalaconsulting.com/)|
-|Alexan Consulting Enterprise Services, LLC (ACES)|
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
 |[Amalgama Technologies Inc](http://amalgamatetech.com/)|
@@ -57,7 +57,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Army of Quants](https://www.armyofquants.com/)|
 |[Ascent Innovations LLC](https://www.ascent365.com/)|
 |[ASM Research LLC](https://www.asmr.com)|
-|ATLGaming|
+|[ATLGaming](https://www.atlgaming.net/)|
 |[Arraya Solutions](https://www.arrayasolutions.com)|
 |[Atmosera, Inc.](https://www.atmosera.com)|
 |[Atos IT Solutions and Services](https://atos.net)|
@@ -83,7 +83,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[CBTS](https://www.cbts.com/)|
 |[CDO Technologies Inc.](https://www.cdotech.com/contact/)|
 |[CDW-G, LLC](https://www.cdwg.com)|
-|CENTRALE LLC|
 |[Centurylink](https://www.centurylink.com/public-sector/federal-government.html)|
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
@@ -119,7 +118,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Cybercore Solutions LLC](https://cybercoresolutions.com/)|
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
 |[Dasher Technologies, Inc.](https://www.dasher.com)|
-|Data:Architect|
 |[Data Center Services Inc](https://www.d8acenter.com)|
 |[Datapipe (RackSpace Company)](https://www.rackspace.com)|
 |[Dataprise, Inc.](https://www.dataprise.com/)|
@@ -133,14 +131,13 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
-|Domino Systems Inc.|
 |[DOT Personable Inc](http://solutions.personable.com/)|
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
 |[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[DynTek](https://www.dyntek.com)|
-|eFibernet Inc.|
+|[ECS Federal, LLC](https://ecstech.com/)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
 |[Enlighten IT Consulting](https://www.eitccorp.com)|
@@ -150,7 +147,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Envistacom](https://www.envistacom.com)|
 |[Epic Systems Inc](http://epicinfotech.com/)|
 |[EpochConcepts](https://epochconcepts.com)|
-|[Equilibrium IT Solutions, Inc.](https://eqinc.com/)|
+|[Equilibrium IT Solutions, Inc. (Ntiva)](https://www.ntiva.com/)|
 |[Evertec](http://www.evertecinc.com)|
 |[eWay Corp](https://www.ewaycorp.com)|
 |[Exbabylon IT Solutions](https://www.exbabylon.com)|
@@ -190,7 +187,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
 |[I10 Inc](http://i10agile.com/)|
-|I2, Inc|
+|[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
 |[i3 LLC](http://i3llc.net/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
@@ -201,7 +198,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Indicium Technologies Inc](https://www.istech-corp.com/)|
 |[Info Gain Consulting LLC](http://infogainconsulting.com/)|
 |[Infocone Inc.](https://www.infocone.com/)|
-|[Inforeliance LLC](https://www.inforeliance.com/)|
 |[Infosys Public Services, Inc.](https://www.infosyspublicservices.com/)|
 |[InnovaSystems International](https://www.innovasi.com/)|
 |[Innovia Consulting](https://www.innovia.com/)|
@@ -234,7 +230,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Lear360.com](https://www.lear360.com)|
 |[Leidos](https://www.leidos.com)|
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
-|[Liftoff, LLC](http://liftoffonline.com/)|
+|[LiftOff, LLC](https://www.liftoffonline.com)|
 |[Lightstream Managed Services, LLC](https://www.lightstream.tech)|
 |[Liquid Mercury Solutions](https://www.liquid-hg.com/)|
 |[Logicalis, Inc.](https://www.us.logicalis.com/)|
@@ -251,14 +247,13 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Medsphere](https://www.medsphere.com)|
 |[Menlo Technologies](https://www.menlo-technologies.com)|
 |[MetroStar Systems Inc.](https://www.metrostarsystems.com)|
-|Mibura Inc.|
+|[Mibura Inc.](https://www.mibura.com/)|
 |[Microtechnologies, LLC](https://www.microtech.net/)|
 |[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
 |[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
-|MSCloud Express, LLC|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
 |[NCI](https://www.nciinc.com/)|
@@ -270,7 +265,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Nihilent Inc](https://nihilent.com)|
 |[Nimbus Logic LLC](https://www.nimbus-logic.com)|
 |[Norseman, Inc](https://www.norseman.com)|
-|[Northern Sky Technologies, Inc]|
 |[Northrop Grumman](https://www.northropgrumman.com)|
 |[NTS Cloud](http://ntscloud.com/ )|
 |[NTT America, Inc.](https://www.us.ntt.net)|
@@ -282,7 +276,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Om Group, Inc.](http://www.omgroupinc.us/)|
 |[OneNeck IT Solutions](https://www.oneneck.com)|
 |[Onyx Point, Inc.](https://www.onyxpoint.com)|
-|Open Analyze Technologies, Inc.|
 |[Opsgility](https://www.opsgility.com)|
 |[OpsPro](https://opspro.com/)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
@@ -298,7 +291,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[People Services Inc. DBA CATCH Intelligence](https://catchintelligence.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
 |[Perspecta](https://perspecta.com/)|
-|[Phacil](https://www.phacil.com/)|
+|[Phacil (By Light)](https://www.bylight.com/phacil/)|
 |[Pharicode LLC](https://pharicode.com)|
 |[Picis Envision](https://www.picis.com/en/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
@@ -329,12 +322,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
 |[Regan Technologies Corporation](http://www.regantech.com/)|
 |Remote Support Solutions Corp DBA RemoteWorks|
-|Reperi LLC|
 |[Resource Metrix](https://www.rmtrx.com)|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
-|[RoboTech Science, Inc.](https://robotechscience.com)|
+|[RoboTech Science, Inc. (Cyberscend)](https://cyberscend.com)|
 |[Rollout Systems LLC](http://www.rolloutsys.com/)|
 |[RV Global Solutions](https://rvglobalsolutions.com/)|
 |[Saiph Technologies Corporation](http://www.saiphtech.com/)|
@@ -360,7 +352,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Smoothlogics](https://www.smoothlogics.com)|
 |[Socius 1 LLC](http://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
-|[Software Services Group (dba Secant Technologies)](https://www.secantcorp.com/)|
+|[Software Services Group, dba Secant Technologies (Aunalytics)](https://www.aunalytics.com)|
 |[SoftwareONE Inc.](https://www.softwareone.com/en-us)|
 |[Solution Systems Inc.](https://www.solsyst.com/)|
 |[South River Technologies](https://southrivertech.com)|
@@ -374,8 +366,8 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://www.summit7.us/)|
 |[Sumo Logic](https://www.sumologic.com/)|
-|[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](https://www.sybatech.com)|
+|[SWC Technology Partners (BDO USA)](https://www.bdo.com/)|
+|[Sybatech, Inc. (Codepal Toolkit)](https://www.codepaltoolkit.com)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
@@ -407,7 +399,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[UDRI - SSG](https://udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
-|[Universal EVoIP Transitions]|
 |[VALCOM COMPUTER CENTER](https://www.vlcmtech.com/)|
 |[Vana Solutions LLC](https://vanasolutions.com)|
 |[Vazata - Horizon Data Center Solutions LLC](https://www.vazata.com/)|
@@ -418,12 +409,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Vidizmo LLC](https://www.vidizmo.com)|
 |[Virsage Solutions](https://www.virsage.com/)|
 |[ViON Corp.](https://www.vion.com/)|
-|[Viscon Networking Innovations Inc.](https://www.visconni.com/)|
 |[VisioLogix Corporation](https://www.visiologix.com)|
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
-|Vistronix, LLC|
+|[Vistronix, LLC (ASRC Federal)](https://www.asrcfederal.com/asrc-federal-vistronix-cio-sp3/)|
 |[Vology Inc.](https://www.vology.com/)|
-|vSolvIT|
+|[vSolvIT](https://www.vsolvit.com/)|
 |[Warren Averett Technology Group](https://warrenaverett.com/warren-averett-technology-group/)|
 |[Wintellect, LLC](https://www.wintellect.com)|
 |[Wintellisys, Inc.](https://wintellisys.com)|
@@ -441,10 +431,10 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Zones Inc](https://www.zones.com/site/home/index.html)|
 |[ZR Systems Group LLC](https://zrsystems.com)|
 
-## Approved indirect CSP Providers
 
+## Approved indirect CSPs
 
-|Partner Name|
+|Partner name|
 |----------------------------|
 |[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
 |[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
@@ -459,7 +449,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 
 ## Approved LSPs
 
-|LSP Name|Email|Phone|
+|LSP name|Email|Phone|
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
@@ -468,9 +458,9 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
 
-## Approved AOS-G Partners
+## Approved AOS-G partners
 
-|Partner Name|
+|Partner name|
 |----------------------------|
 |[Accenture Federal Service](https://www.accenture.com/us-en/industries/afs-index)|
 |[Agile IT, Inc](https://www.agileit.com)|
@@ -493,11 +483,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[General Dynamics Information Technology](https://www.gdit.com)|
 |[Hypori, Inc.](https://hypori.com/)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
-|Jasper Solutions|
+|[Jasper Solutions](https://www.jaspersolutions.com/)|
 |[Johnson Technology Systems Inc](https://www.jtsusa.com/)|
 |[KAMIND IT, Inc.](https://www.kamind.com/)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
-|[LiftOff LLC](https://www.liftoffllc.com)|
+|[LiftOff, LLC](https://www.liftoffonline.com)|
 |[ManTech](https://www.mantech.com/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
@@ -505,7 +495,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Permuta Technologies, Inc.](http://www.permuta.com/)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Perspecta](https://perspecta.com)|
-|[Quiet Professionals, LLC](https://quietprofessionalsllc.com)||
+|[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
 |[Red River](https://www.redriver.com)|
 |[SAIC](https://www.saic.com)|
@@ -514,6 +504,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[TechTrend, Inc](https://techtrend.us)|
 |[VLCM](https://www.vlcmtech.com)|
 |[VC3](https://www.vc3.com)|
-|Vexcel|
+|[Vexcel](https://www.vexcel.com/)|
 
-If you would like to learn more about the Cloud Solution Provider Program, you can do so [here](/partner-center/faq-for-us-govt-cloud). If you would like to apply to the program, you can visit [this link](./documentation-government-csp-application.md). If you are interested to deploy to our [DoD regions via CSP](https://blogs.msdn.microsoft.com/azuregov/2017/12/18/announcing-the-availability-of-dod-regions-via-government-csp-program-for-azure-government/) talk to your CSP Provider and they can enable that for you. For any additional questions, reach out to [Azure Government CSP](mailto:azgovcsp@microsoft.com).
+To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md). For any other questions, contact [Azure Government CSP](mailto:azgovcsp@microsoft.com).

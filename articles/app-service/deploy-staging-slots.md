@@ -60,6 +60,8 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
 
 The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.
 
+The slot's URL will be of the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name will be truncated at 40 characters, the slot name will be truncated at 19 characters, and an additional 4 random characters will be appended to ensure the resulting domain name is unique. 
+
 <a name="AboutConfiguration"></a>
 
 ## What happens during a swap

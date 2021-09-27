@@ -10,7 +10,21 @@ ms.date: 08/06/2021
 
 # Quickstart: Connect to the Azure Web PubSub instance from CLI
 
-Previously we talked about how to create the Web PubSub instance [using Azure CLI](./quickstart-cli-create.md) or [from the portal](./howto-develop-create-instance.md). After the instance is successfully created, Azure CLI also provides a set of commands to connect to the instance and publish messages to the connected clients.
+This quickstart shows you how to connect to the Azure Web PubSub instance and publish messages to the connected clients using the [Azure command-line interface (Azure CLI)](/cli/azure).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- This quickstart requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+## Create a resource group
+
+[!INCLUDE [Create a resource group](includes/cli-rg-creation.md)]
+
+## Create a Web PubSub instance
+
+[!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
 ## Play with the instance
 
@@ -19,5 +33,7 @@ Previously we talked about how to create the Web PubSub instance [using Azure CL
 ## Next steps
 
 This quickstart provides you a basic idea of how to connect to the Web PubSub service and how to publish messages to the connected clients.
+
+In real-world applications, you can use SDKs in various languages build your own application. We also provide Function extensions for you to build serverless applications easily.
 
 [!INCLUDE [next step](includes/include-next-step.md)]

@@ -7,7 +7,7 @@ ms.date: 11/26/2018
 ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
-manager: philmea
+
 ---
 
 # What is industrial IoT (IIoT)

@@ -6,7 +6,7 @@ author: mlee3gsd
 ms.service:  synapse-analytics 
 ms.topic: conceptual
 ms.subservice: spark
-ms.date: 12/2/2020 
+ms.date: 08/19/2021 
 ms.author: martinle
 ms.reviewer: euang
 ---
@@ -16,6 +16,18 @@ ms.reviewer: euang
 A Spark pool is a set of metadata that defines the compute resource requirements and associated behavior characteristics when a Spark instance is instantiated. These characteristics include but aren't limited to name, number of nodes, node size, scaling behavior, and time to live. A Spark pool in itself does not consume any resources. There are no costs incurred with creating Spark pools. Charges are only incurred once a Spark job is executed on the target Spark pool and the Spark instance is instantiated on demand.
 
 You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
+
+## Isolated Compute
+
+The Isolated Compute option provides additional security to Spark compute resources from untrusted services by dedicating the physical compute resource to a single customer.
+Isolated compute option is best suited for workloads that require a high degree of isolation from other customer's workloads for reasons that include meeting compliance and regulatory requirements.  
+The Isolate Compute option is only available with the XXXLarge (80 vCPU / 504 GB) node size and only available in the following regions.  The isolated compute option can be enabled or disabled after pool creation although the instance may need to be restarted.  If you expect to enable this feature in the future, ensure that your Synapse workspace is created in an isolated compute supported region.
+
+* East US
+* West US 2
+* South Central US
+* US Gov Arizona
+* US Gov Virginia
 
 ## Nodes
 
@@ -32,6 +44,7 @@ A Spark pool can be defined with node sizes that range from a Small compute node
 |Large|16|128 GB|
 |XLarge|32|256 GB|
 |XXLarge|64|432 GB|
+|XXX Large (Isolated Compute)|80|504 GB|
 
 ## Autoscale
 

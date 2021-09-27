@@ -5,7 +5,7 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 07/21/2021
 ms.reviewer: mahender
-ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.custom: seodec18, fasttrack-edit
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 

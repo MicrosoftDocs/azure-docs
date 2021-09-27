@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 09/09/2021
 ---
 
 # Bicep functions
@@ -48,6 +48,13 @@ The following functions are available for getting values related to the deployme
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)
 
+## File functions
+
+The following functions are available for loading the content from external files into your Bicep file.
+
+* [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
+* [loadTextContent](bicep-functions-files.md#loadtextcontent)
+
 ## Logical functions
 
 The following function is available for working with logical conditions:
@@ -84,6 +91,7 @@ The following functions are available for getting resource values:
 * [listSecrets](./bicep-functions-resource.md#list)
 * [list*](./bicep-functions-resource.md#list)
 * [pickZones](./bicep-functions-resource.md#pickzones)
+* [providers (deprecated)](./bicep-functions-resource.md#providers)
 * [reference](./bicep-functions-resource.md#reference)
 * [resourceId](./bicep-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)

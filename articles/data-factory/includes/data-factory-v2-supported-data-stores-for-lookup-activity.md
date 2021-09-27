@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/18/2020
+ms.date: 09/22/2021
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -24,10 +24,11 @@ ms.custom: include file
 | &nbsp; |[Azure Files](../connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |
 | &nbsp; |[Azure SQL Database Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
-| &nbsp; |[Azure Search](../connector-azure-search.md) | 
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |
-| **Database** |[Amazon Redshift](../connector-amazon-redshift.md) |
+| **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |
+| &nbsp; |[Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |
+| &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |
 | &nbsp; |[Apache Impala](../connector-impala.md) |
 | &nbsp; |[Azure SQL Database Managed Instance](../connector-azure-sql-managed-instance.md) |
 | &nbsp; |[DB2](../connector-db2.md) |

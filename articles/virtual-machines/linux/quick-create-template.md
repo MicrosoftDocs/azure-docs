@@ -14,6 +14,8 @@ ms.custom: subject-armqs
 
 # Quickstart: Create an Ubuntu Linux virtual machine using an ARM template
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This quickstart shows you how to use an Azure Resource Manager template (ARM template) to deploy an Ubuntu Linux virtual machine (VM) in Azure.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]

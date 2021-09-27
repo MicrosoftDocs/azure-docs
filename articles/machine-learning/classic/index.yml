@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   ms.author: peterlu
   author: peterclu
-  ms.date: 03/05/2020
+  ms.date: 08/23/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -21,17 +21,27 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
 
-  # GET STARTED CARD
-  - title: Get started with Studio (classic)
+  # Migrate card
+  - title: Migrate from ML Studio (classic)
     linkLists:
       - linkListType: get-started
         links:
-          - text: What is Studio (classic)?
-            url: studio-classic-overview.md
+          - text: What is Azure Machine Learning?
+            url: ../overview-what-is-azure-machine-learning.md   
+          - text: Azure Machine Learning vs ML Studio (classic)
+            url: ../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio
+          - text: Migrate to Azure Machine Learning
+            url: ../migrate-overview.md              
+
+  # Tutorials, how-to
+  - title: Tutorials 
+    linkLists:
+      - linkListType: tutorial
+        links:
           - text: Create your first ML experiment
             url: create-experiment.md
           - text: Create a predictive solution
-            url: tutorial-part1-credit-risk.md                     
+            url: tutorial-part1-credit-risk.md  
 
   # REFERENCE
   - title: Explore reference content

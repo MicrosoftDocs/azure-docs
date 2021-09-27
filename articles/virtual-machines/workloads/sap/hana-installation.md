@@ -146,7 +146,7 @@ For more information about Ethernet details for your architecture, see [HLI supp
 
 ## Storage
 
-The storage layout for SAP HANA (Large Instances) is configured by SAP HANA on Azure Service Management using SAP recommended guidelines. These guidelines are documented in [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
+The storage layout for SAP HANA (Large Instances) is configured by SAP HANA on Azure Service Management using SAP recommended guidelines. These guidelines are documented in [SAP HANA storage requirements](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf). 
 
 The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md).
 

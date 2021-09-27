@@ -139,7 +139,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 :::row-end:::
 
 > [!NOTE]
-> Enabling this checkbox will set the **Initial sync** mode to *Authoritatively overwrite files and folders in the Azure file share with content in this server’s path.* This option is only available for the first server endpoint in a sync group.
+> Enabling this checkbox will set the **Initial sync** mode to *Authoritatively overwrite files and folders in the Azure file share with content in this server's path.* This option is only available for the first server endpoint in a sync group.
 
 Once you configured authoritative upload for this new server endpoint, you can optionally enable cloud tiering.
 

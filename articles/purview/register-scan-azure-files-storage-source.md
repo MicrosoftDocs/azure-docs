@@ -27,7 +27,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 ## Setting up authentication for a scan
 
-Currently there's only one way to set up authentication for Azure file storage:
+Currently there's only one way to set up authentication for Azure file shares:
 
 - Account Key
 
