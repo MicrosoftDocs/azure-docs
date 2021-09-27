@@ -9,8 +9,7 @@ author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell
 ---
-
-## Deploy SSIS packages
+# Deploy SSIS packages
 
 If you use SSISDB, you can deploy your packages into it and run them on your Azure-SSIS IR by using the Azure-enabled SSDT or SSMS tools. These tools connect to your database server via its server endpoint: 
 
