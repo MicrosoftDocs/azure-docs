@@ -15,3 +15,27 @@ ms.author: lajanuar
 
 >[!NOTE]
 > Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
+
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [C# SDK quickstart](../includes/quickstarts/v3-csharp-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java SDK quickstart](../includes/quickstarts/v3-java-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [NodeJS SDK quickstart](../includes/quickstarts/v3-javascript-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [Python SDK quickstart](../includes/quickstarts/v3-python-sdk.md)]
+
+::: zone-end

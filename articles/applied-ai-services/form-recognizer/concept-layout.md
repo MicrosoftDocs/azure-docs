@@ -21,6 +21,12 @@ Azure Form Recognizer's Layout API extracts text, tables, selection marks, and s
 
 The Layout API extracts text, tables with table headers included, selection marks, and structure information from documents with exceptional accuracy and returns an organized, structured, JSON response. Documents can be of a variety of formats and quality, including  phone-captured images, scanned documents, and digital PDFs. The Layout API will accurately extract the structured output from all of these documents.
 
+**Data extraction features**
+
+| **Prebuilt model**   | **Text Extraction**   | **Selection Marks**   | **Tables**  |
+| --- | --- | --- | --- |
+| Layout  | ✓  | ✓  | ✓  |  
+
 ![Layout example](./media/layout-demo.gif)
 
 ## Try it

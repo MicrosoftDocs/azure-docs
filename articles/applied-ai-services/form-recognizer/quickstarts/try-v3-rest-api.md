@@ -15,3 +15,5 @@ ms.author: lajanuar
 
 >[!NOTE]
 > Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
+
+[!INCLUDE [REST API quickstart](../includes/quickstarts/v3-rest-api.md)]
