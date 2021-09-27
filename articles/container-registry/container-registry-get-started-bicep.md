@@ -29,7 +29,7 @@ Use Visual studio code or your favorite editor to create a file with the followi
 @description('Provide a globally unique name of your Azure Container Registry')
 param acrName string = 'acr${uniqueString(resourceGroup().id)}'
 
-@description('Provide a location for registry home replica.')
+@description('Provide a location for the registry.')
 param location string = resourceGroup().location
 
 @description('Provide a tier of your Azure Container Registry.')
@@ -98,7 +98,7 @@ When you no longer need the resource, delete the resource group, and the registr
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with a Bicep file, and configured a registry replica in another location. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
+In this quickstart, you created an Azure Container Registry with a Bicep file. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry tutorials](container-registry-tutorial-prepare-registry.md)
