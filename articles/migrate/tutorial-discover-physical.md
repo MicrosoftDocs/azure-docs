@@ -296,7 +296,7 @@ After discovery finishes, you can verify that the servers appear in the portal.
 ## Delete servers
 After the discovery has been initiated, you can delete any of the added servers from the appliance configuration manager by searching for the server name in the **Add discovery source** table and by clicking **Delete**.
 
-[!NOTE]
+>[!NOTE]
 If you choose to delete a server where discovery has been initiated, it will stop the ongoing discovery and assessment which may impact the confidence rating of the assessment that includes this server. [Learn more](https://go.microsoft.com/fwlink/?linkid=2171565)
 
 ## Next steps
