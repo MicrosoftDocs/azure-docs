@@ -142,7 +142,7 @@ This direct method helps you retrieve detailed information about a specific ONVI
     ```
 In the above payload:
  - remoteIPAddress is the IP address of the camera you wish to get additional details from.
- - username is the user name that is used to authenticate with the RTSP stream from the camera.
+ - username is the user name that is used to authenticate with the ONVIF device.
  - password is the user accounts password.
 
 Within a few seconds you see the following `Result`:
