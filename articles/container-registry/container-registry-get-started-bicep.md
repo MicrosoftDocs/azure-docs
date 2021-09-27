@@ -4,7 +4,7 @@ description: Learn how to create an Azure container registry by using a Bicep fi
 services: azure-resource-manager
 author: mumian
 ms.author: jgao
-ms.date: 09/23/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: azure-resource-manager
 ---
@@ -13,7 +13,7 @@ ms.service: azure-resource-manager
 
 This quickstart shows how to create an Azure Container Registry instance by using a Bicep file.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -84,17 +84,17 @@ When the deployment finishes, you should see a message indicating the deployment
 
 Use the Azure portal or a tool such as the Azure CLI to review the properties of the container registry.
 
-1. In the portal, search for Container Registries, and select the container registry you created.
+1. In the portal, search for **Container Registries**, and select the container registry you created.
 
 1. On the **Overview** page, note the **Login server** of the registry. Use this URI when you use Docker to tag and push images to your registry. For information, see [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Registry overview":::
+    :::image type="content" source="media/container-registry-get-started-bicep/registry-overview.png" alt-text="Registry overview":::
 
 ## Clean up resources
 
-When you no longer need them, delete the resource group, the registry, and the registry replica. To do so, go to the Azure portal, select the resource group that contains the registry, and then select **Delete resource group**.
+When you no longer need the resource, delete the resource group, and the registry. To do so, go to the Azure portal, select the resource group that contains the registry, and then select **Delete resource group**.
 
-:::image type="content" source="media/container-registry-get-started-geo-replication-template/delete-resource-group.png" alt-text="Delete resource group":::
+:::image type="content" source="media/container-registry-get-started-bicep/delete-resource-group.png" alt-text="Delete resource group":::
 
 ## Next steps
 
