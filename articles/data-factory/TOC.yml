@@ -757,7 +757,22 @@ items:
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
-      href: create-azure-ssis-integration-runtime.md
+      items:
+        - name: Overview and prerequisites
+          href: create-azure-ssis-integration-runtime.md
+          displayName: Azure SSIS
+        - name: Create with the Azure Portal
+          href: create-azure-ssis-integration-runtime-portal.md
+          displayName: Azure SSIS
+        - name: Create with PowerShell
+          href: create-azure-ssis-integration-runtime-powershell.md
+          displayName: Azure SSIS
+        - name: Create with a Resource Manager template
+          href: create-azure-ssis-integration-runtime-resource-manager-template.md
+          displayName: Azure SSIS
+        - name: Deploy and run SSIS packages
+          href: create-azure-ssis-integration-runtime-portal.md
+          displayName: Azure SSIS
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
