@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/27/2021
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -28,7 +28,7 @@ The current update is Update 2110. This update installs two updates, the device 
 - GPU driver version: **460.32.03**
 - CUDA version: **11.2**
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2110-release-notes.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-placeholder.md).
 
 To apply 2110 update, your device must be running 2106. 
 
