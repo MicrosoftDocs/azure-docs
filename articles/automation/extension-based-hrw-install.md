@@ -3,7 +3,7 @@ title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in 
 description: This article tells how to deploy an extension-based Windows or Linux Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/24/2021
+ms.date: 09/27/2021
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 --- 
@@ -53,7 +53,21 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
 
 ### Network requirements
-See [Configuring your network ](./automation-hybrid-runbook-worker.md#network-planning)
+
+### Proxy server use
+
+If you use a proxy server for communication between Azure Automation and machines running the extension-base Hybrid Runbook Worker, ensure that the appropriate resources are accessible. The timeout for requests from the Hybrid Runbook Worker and Automation services is 30 seconds. After three attempts, a request fails.
+
+### Firewall use
+
+If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. The following port and URLs are required for the Hybrid Runbook Worker, and for [Automation State Configuration](./automation-dsc-overview.md) to communicate with Azure Automation.
+
+| Property | Description |
+|---|---|
+|Port | 443 for outbound internet access|
+|Global URL |*.azure-automation.net|
+|Global URL of US Gov Virginia |*.azure-automation.us|
+|Agent service |https://<workspaceId>.agentsvc.azure-automation.net|
 
 ## Create hybrid worker group 
 

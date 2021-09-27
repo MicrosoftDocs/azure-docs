@@ -17,7 +17,7 @@ Azure Automation provides native integration of the Hybrid Runbook Worker role t
 | Platform | Description |
 |---|---|
 |HybridV1 (agent-based) |Installed after the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) is completed.|
-|HybridV2 (extension-based)  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hrw-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace.|
+|HybridV2 (extension-based)  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hrw-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. This is the recommended method.|
 
 :::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform.png" alt-text="Hybrid worker group showing platform field":::
 
