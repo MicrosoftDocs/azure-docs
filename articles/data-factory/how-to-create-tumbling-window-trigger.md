@@ -283,7 +283,9 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
 This section shows you how to use Azure CLI to create, start, and monitor a trigger.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+### Prerequisites
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 - Follow the instructions in [Create an Azure Data Factory using Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli) to create a data factory and a pipeline.
 
