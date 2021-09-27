@@ -1,18 +1,29 @@
 ---
-title: Using Azure Import/Export to transfer data to Azure Blobs | Microsoft Docs
+title: Tutorial to import data to Azure Blob Storage with Azure Import/Export service | Microsoft Docs
 description: Learn how to create import and export jobs in Azure portal to transfer data to and from Azure Blobs.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 09/02/2021
+ms.topic: tutorial
+ms.date: 09/27/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
-# Use the Azure Import/Export service to import data to Azure Blob Storage
+# Tutorial: Import data to Blob Storage with Azure Import/Export service
 
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encrypted disk drives containing your data to an Azure datacenter.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Prerequisites to import data to Azure Blob storage
+> * Step 1: Prepare the drives
+> * Step 2: Create an import job
+> * Step 3: Configure customer managed key (Optional)
+> * Step 4: Ship the drives
+> * Step 5: Update job with tracking information
+> * Step 6: Verify data upload to Azure
 
 ## Prerequisites
 
@@ -354,4 +365,4 @@ Track the job to completion. Once the job is complete, verify that your data has
 ## Next steps
 
 * [View the job and drive status](storage-import-export-view-drive-status.md)
-* [Review Import/Export requirements](storage-import-export-requirements.md)
+* [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md)
