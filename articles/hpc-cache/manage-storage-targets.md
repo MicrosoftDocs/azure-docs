@@ -4,7 +4,7 @@ description: How to suspend, remove, force delete, and flush Azure HPC Cache sto
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 09/27/2021
 ms.author: v-erkel
 ---
 
@@ -23,7 +23,7 @@ You can perform management actions on individual storage targets. These actions 
 
 These controls can help you recover from an unexpected situation (like an unresponsive storage target), and also give you the ability to override some automatic cache actions (like writing changed files back to the long-term storage system).
 
-Open the **Storage targets** page in the Azure portal. Click the **...** text on the far right of the storage target list to open the list of tasks.
+Open the **Storage targets** page in the Azure portal. Click the **...** image on the far right of the storage target list to open the list of tasks.
 
 ![Screenshot of the storage targets page in the Azure portal, with the cursor over the menu exposed by clicking on the three dots (...) symbol to the far right of the storage target's row in the list.](media/storage-target-manage-options.png)
 
