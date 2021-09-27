@@ -81,7 +81,7 @@ Modify your apps to use the system browser for sign-in. For details, see [Embedd
 Globally rolling out starting September 30, 2021, Microsoft will deploy device login flow that serves as a workaround for apps still using embedded web-views to ensure that authentication isn't blocked. 
 
 ### How to sign in with device login flow
-The device login flow will prompt users signing in with a Gmail account in an embedded web-view to enter a code in a separate browser to finish signing in. The following is what users can expect to see if they are signing in with their Gmail account for the first time with no active sessions in the browser. If there is an existing Gmail already signed in, some steps may be eliminated.
+The device sign-in flow prompts users who sign in with a Gmail account in an embedded web-view to enter a code in a separate browser before they can finish signing in. If users are signing in with their Gmail account for the first time with no active sessions in the browser, they'll see the following sequence of screens. If an existing Gmail account is already signed in, some of these steps might be eliminated.
 
 1. On the **Sign in** screen, users can enter their Gmail address and then select **Next**, or they can select **Sign-in options** and choose **Sign in from another device**.
 
