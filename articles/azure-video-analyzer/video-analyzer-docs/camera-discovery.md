@@ -232,27 +232,27 @@ This direct method helps you retrieve detailed information about a specific ONVI
   ```
 
 ### Return status of onvifDeviceGet
-    | Status | Code     | Meaning / solution                                           |
-    | ------ | -------- | ------------------------------------------------------------ |
-    | 200    | Success  | The direct method call completed successfully.               |
-    | 403    | Forbidden | The direct method call could not successfully retrieve the requested information from the ONVIF device due to a authentication failure.  Check to ensure that the username and / or password in the message body was correct. |
-    | 504    | Timeout  | The direct method call expired before the response of the ONVIF device was received. |
-    | 500    | Error    | If an error occurred that is unknown.                         |
 
+| Status | Code     | Meaning / solution                                           |
+| ------ | -------- | ------------------------------------------------------------ |
+| 200    | Success  | The direct method call completed successfully.               |
+| 403    | Forbidden | The direct method call could not successfully retrieve the requested information from the ONVIF device due to a authentication failure.  Check to ensure that the username and / or password in the message body was correct. |
+| 504    | Timeout  | The direct method call expired before the response of the ONVIF device was received. |
+| 500    | Error    | If an error occurred that is unknown.                         |
 
 ## Troubleshooting 
 
 If the following error occurs:
 
-:::image type="content" source="./media/camera-discovery/504-error.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
+:::image type="content" source="./media/camera-discovery/504-error.png" alt-text="Screenshot that shows the 504 error.":::
 
 Check to ensure that the setting for `"discoveryDuration":"PT10S"` in the above direct method calls is shorter than the `Connection Timeout` or `Method Timeout` values
 
-:::image type="content" source="./media/camera-discovery/504-error-fix.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
+:::image type="content" source="./media/camera-discovery/504-error-fix.png" alt-text="Screenshot that shows the 504 error fix.":::
 
 If the following message return is displayed in the direct method `Results` field:
 
-:::image type="content" source="./media/camera-discovery/result-status-200-null.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
+:::image type="content" source="./media/camera-discovery/result-status-200-null.png" alt-text="The message return is displayed in the direct method `Results` field":::
 
 adjust the time value (x) in `"discoveryDuration":"PTxS"` to a larger number.  Also adjust the `Connection Timeout` and / or `Method Timeout` values accordingly.
 
