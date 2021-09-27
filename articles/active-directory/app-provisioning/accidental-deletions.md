@@ -21,7 +21,7 @@ The feature lets you specify a deletion threshold, above which an admin
 needs to explicitly choose to allow the deletions to be processed.
 
 > [!NOTE]
-> Until the accidental deletions prevention feature is fully released, you will need to access the Azure portal using this URL: https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningDeleteThreshold=true . The capability is not yet supported when provisioning from Workday or SuccessFactors.
+> Until the accidental deletions prevention feature is fully released, you will need to access the Azure portal using this URL: https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningDeleteThreshold=true
 
 
 ## Configure accidental deletion prevention
