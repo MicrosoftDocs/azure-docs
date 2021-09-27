@@ -46,7 +46,7 @@ This reference describes the properties that you can set in an EDIFACT agreement
 | **UNH2.5 (Associated Assigned Code)** | The assigned code that is alphanumeric nd up to 6 characters. |
 | **UNG2.1 (App Sender ID)** |Enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. |
 | **UNG2.2 (App Sender Code Qualifier)** |Enter an alphanumeric value, with a maximum of four characters. |
-| **Schema** | The previously uploaded schema that you want to use in either the following logic app resource type: <p>- Consumption: Your linked integration account. <br>- Standard: Your logic app resource |
+| **Schema** | The previously uploaded schema that you want to use in from either resource type: <p>- Consumption: An integration account linked to your logic app. <br>- Standard: Your logic app resource |
 |||
 
 ### Control Numbers
@@ -85,4 +85,95 @@ After you finish setting up a validation row, the next row automatically appears
 | **Preserve Interchange - suspend interchange on error** | Keep the interchange intact, create an XML document for the entire batched interchange. Suspend the entire interchange when one or more transaction sets in the interchange fail validation. |
 |||
 
-## EDIFACT Send settings
+<a name="EDIFACT-outbound-messages"></a>
+
+## EDIFACT Send Settings
+
+![Screenshot showing Azure portal, EDIFACT agreement settings for outbound messages.](./media/logic-apps-enterprise-integration-edifact-message-settings/edifact-send-settings.png)
+
+### Identifiers
+
+| Property | Description |
+|----------|-------------|
+| **UNB1.2 (Syntax Version)** | A value that is 1-4. |
+| **UNB2.3 (Sender Reverse Routing Address)** | An alphanumeric value that is 1-14 characters. |
+| **UNB3.3 (Recipient Reverse Routing Address)** | An alphanumeric value that is 1-14 characters. |
+| **UNB6.1 (Recipient Reference Password)** | An alphanumeric value that is 1-14 characters. |
+| **UNB6.2 (Recipient Reference Qualifier)** | An alphanumeric value that is 1-2 characters. |
+| **UNB7 (Application Reference ID)** | An alphanumeric value that is 1-14 characters. |
+|||
+
+### Acknowledgment
+
+| Property | Description |
+|----------|-------------|
+| **Receipt of Message (CONTRL)** | The host partner that sends the message requests a technical (CONTRL) acknowledgment from the guest partner. |
+| **Acknowledgement (CONTRL)** | The host partner that sends the message expects requests a functional (CONTRL) acknowledgment from the guest partner. |
+| **Generate SG1/SG4 loop for accepted transaction sets** | If you chose to request a functional acknowledgement, this setting forces the generation of SG1/SG4 loops in the functional acknowledgments for accepted transaction sets. |
+|||
+
+### Schemas
+
+| Property | Description |
+|----------|-------------|
+| **UNH2.1 (Type)** | The transaction set type. |
+| **UNH2.2 (Version)** | The message version number. |
+| **UNH2.3 (Release)** | The message release number. |
+| **Schema** | The previously uploaded schema that you want to use in from either resource type: <p>- Consumption: An integration account linked to your logic app. <br>- Standard: Your logic app resource |
+|||
+
+### Envelopes
+
+After you finish setting up an envelope row, the next row automatically appears. If you don't specify any rules, validation uses the row that's labeled **Default**.
+
+| Property | Description |
+|----------|-------------|
+| **UNB8 (Processing Priority Code)** | An alphabetical value that is not more than one character long. |
+| **UNB10 (Communication Agreement)** | An alphanumeric value that is 1-40 characters. |
+| **UNB11 (Test Indicator)** | Indicate that the generated interchange is test data. |
+| **Apply UNA Segment (Service String Advice)** | Generate a UNA segment for the interchange to send. |
+| **Apply UNG Segments (Function Group Header)** | Create grouping segments in the functional group header for messages sent to the guest partner. The following values are used to create the UNG segments: <p>- **Schema**: The previously uploaded schema that you want to use in from either resource type: <p>- Consumption: An integration account linked to your logic app. <p>- Standard: Your logic app resource <p>- **UNG1**: An alphanumeric value that is 1-6 characters. <p>- **UNG2.1**: An alphanumeric value that is 1-35 characters. <p>- **UNG2.2**: An alphanumeric value that is 1-4 characters. <p>- **UNG3.1**: An alphanumeric value that is 1-35 characters. <p>- **UNG3.2**: An alphanumeric value that is 1-4 characters. <p>- **UNG6**: An alphanumeric value that is 1-3 characters. <p>- **UNG7.1**: An alphanumeric value that is 1-3 characters. <p>- **UNG7.2**: An alphanumeric value that is 1-3 characters. <p>- **UNG7.3**: An alphanumeric value that is 1-6 characters. <p>- **UNG8**: An alphanumeric value that is 1-14 characters. |
+|||
+
+### Character Sets and Separators
+
+Other than the character set, you can specify a different set of delimiters to use for each message type. If you don't specify a character set for a given message schema, the **Default** character set is used.
+
+| Property | Description |
+|----------|-------------|
+| **UNB1.1 (System Identifier)** | The EDIFACT character set to apply to the outbound interchange. |
+| **Schema** | The previously uploaded schema that you want to use in from either resource type: <p>- Consumption: An integration account linked to your logic app. <p>- Standard: Your logic app resource <p>For the selected schema, select the separators set that you want to use, based on the following separator descriptions. After you finish setting up a schema row, the next row automatically appears. |
+| **Input Type** | The input type for the message. |
+| **Component Separator** | A single character to use for separating composite data elements. |
+| **Data Element Separator** | A single character to use for separating simple data elements within composite data elements. |
+| **UNA3 (Decimal Notation)** | The notation to use in the outbound interchange. |
+| **UNA4 (Release Indicator)** | A value to use for the release indicator that indicates that the following character is not a syntax separator, terminator, or release character, but is part of the original data. |
+| **UNA5 (Repetition Separator)** | A value to use for the repetition separator that separates segments that repeat within a transaction set. |
+| **Segment Terminator** | A single character that indicates the end in an EDI segment. |
+| **Suffix** | The character to use with the segment identifier. If you designate a suffix, the segment terminator data element can be empty. If the segment terminator is left empty, you have to designate a suffix. |
+|||
+
+### Control numbers
+
+| Property | Description |
+|----------|-------------|
+| **UNB5 (Interchange Control Number)** |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate an outbound interchange. The prefix and suffix are optional, while the control number is required. The control number is incremented for each new message; the prefix and suffix remain the same. |
+| **UNG5 (Group Control Number)** |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the group control number. The prefix and suffix are optional, while the control number is required. The control number is incremented for each new message until the maximum value is reached; the prefix and suffix remain the same. |
+| **UNH1 (Message Header Reference Number)** |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the message header reference number. The prefix and suffix are optional, while the reference number is required. The reference number is incremented for each new message; the prefix and suffix remain the same. |
+|||
+
+### Validation
+
+After you finish setting up a validation row, the next row automatically appears. If you don't specify any rules, validation uses the row that's labeled **Default**.
+
+| Property | Description |
+|----------|-------------|
+| **Message Type** |Select the EDI message type. |
+| **EDI Validation** |Perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators. |
+| **Extended Validation** |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
+| **Allow Leading/Trailing Zeroes** |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
+| **Trim Leading/Trailing Zeroes** |Remove leading or trailing zero characters. |
+| **Trailing Separator Policy** |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to send interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
+|||
+
+## Next steps
