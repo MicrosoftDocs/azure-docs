@@ -1,9 +1,9 @@
 ---
-title: Publish your app with Microsoft's app stores
-description: Publish your app using Microsoft's app store inside of Outlook, Excel, PowerPoint, and Sharepoint, or distribute it through AppSource.
+title: Publish your app to the Microsoft app stores
+description: Publish your app using the Microsoft app store inside of Outlook, Excel, PowerPoint, and Sharepoint, or distribute it through AppSource.
+ms.localizationpriority: medium
 ms.author: mingshen
 ms.date: 11/24/2020
-ms.localizationpriority: medium
 ---
 
 # Why publish your app with Microsoft’s app stores
@@ -18,7 +18,7 @@ In addition to the Microsoft 365 app store, Microsoft AppSource is another distr
 
 ## How do I get into both stores?
 
-When you submit your app for validation and it is approved, your app is  automatically added to both the Office and Microsoft App Source stores.
+When you submit your app for validation and it is approved, your app is  automatically added to both the Office and Microsoft AppSource stores.
 
 ## Next steps
 
