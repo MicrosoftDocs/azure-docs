@@ -22,9 +22,9 @@ You can perform various operations on the VMware virtual machines that are enabl
 
 - Install extensions (guest management is a prerequisite).
 
-![VMware virtual machine operations](../docs/media/manage-vms.png)
+![VMware virtual machine operations](media/manage-vms.png)
 
-Enabling guest management brings you the capability of installing various VM extensions. Using extensions you can leverage various Azure management services like Azure Policy, Security Center, Azure Monitor. You can refer to [this](https://docs.microsoft.com/en-us/azure/azure-arc/servers/manage-vm-extensions) document for benefits and capabilities of VM extensions.
+Enabling guest management brings you the capability of installing various VM extensions. Using extensions you can leverage various Azure management services like Azure Policy, Security Center, Azure Monitor. You can refer to [this](../servers/manage-vm-extensions.md) document for benefits and capabilities of VM extensions.
 
 ## Supported extensions and managememnt services
 
@@ -52,7 +52,7 @@ The following extensions are currently supported in Arc enabled VMware VMs:
 
 ### Prerequisite
 
-The guest management needs to be enabled on the VMware virtual machine before you can install an extension on it. You can enable guest managemement by following these steps:
+The guest management needs to be enabled on the VMware virtual machine before you can install an extension on it. You can enable guest management by following these steps:
 
 1. Go to [Azure portal](https://aka.ms/AzureArcVM).
 2. Find the VMware VM that you want to check for guest management and install extensions on. Click on the name of the VM.
@@ -62,9 +62,9 @@ If not, enable guest management by ticking the check box and providing the admin
 
 > **Note** : Following are the conditions for enabling guest management on a VM:
 >
->    1. Your target machine must be running a [supported operating system](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview#supported-operating-systems).
+>    1. Your target machine must be running a [supported operating system](../servers/agent-overview.md#supported-operating-systems).
 >
->    2. Machine must be able to connects through the firewall to communicate over the Internet, make sure the URLs [listed](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview#networking-configuration) are not blocked.
+>    2. Machine must be able to connects through the firewall to communicate over the Internet, make sure the URLs [listed](../servers/agent-overview.md#networking-configuration) are not blocked.
 >
 >    3. Machine must not be behind a proxy. It is not supported yet.
 >
