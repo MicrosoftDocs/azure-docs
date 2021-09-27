@@ -29,6 +29,22 @@ The service is the unification of the following Cognitive Services offerings:
 
 Azure Cognitive Service for language provides the following features:
 
+|Feature  |Description  | Deployment options| 
+|---------|---------|---------|
+| [Named Entity Recognition(NER) and sensitive information(PII)](named-entity-recognition/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories, including sensitive information.        | <ul><li>[**REST API and client-library SDK**](named-entity-recognition/quickstart.md)</li></ul> |
+| [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. | <ul><li>[**REST API and client-library SDK**](key-phrase-extraction/quickstart.md)</li><li>[**Docker container**](key-phrase-extraction/how-to/use-containers.md)</li></ul>  |
+|[Entity linking](entity-linking/overview.md)    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        |
+|[Named Entity Recognition (NER)](named-entity-recognition/overview.md)      | This prebuilt feature identifies entities in text and categorizes them into pre-defined classes such as: names, locations, and organizations.        |
+| [Extract information from healthcare-related text](health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  |
+| [Custom NER](custom-named-entity-recognition/overview.md)    | Build an AI model to extract custom entity categories, using unstructured text that you provide. |
+| [Analyze sentiment and opinions](sentiment-opinion-mining/overview.md)     | This pre-configured feature provides sentiment labels (such as "*negative*", "*neutral*" and "*positive*") for sentences and documents. This feature can additionally provide granular information about the opinions related to words that appear in the text, such as the attributes of products or services. |
+|[Language detection](language-detection/overview.md)    | This pre-configured feature evaluates text, and determines the language it was written in. It returns a language identifier and a score that indicates the strength of the analysis.        |
+|[Custom text classification](custom-classification/overview.md)    | Build an AI model to classify unstructured text into custom classes that you define.         |
+| [Text Summarization](text-summarization/overview.md)     | This pre-configured feature extracts key sentences that collectively convey the essence of a document. |
+| [Custom conversational language understanding](custom-language-understanding/overview.md)   | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. |
+| [Question answering](custom-question-answering/overview.md)     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. |
+
+<!--
 :::row:::
     :::column:::
         **Feature**
@@ -166,6 +182,7 @@ Azure Cognitive Service for language provides the following features:
         * [REST API and client-library SDK](custom-question-answering/quickstart/sdk.md)
     :::column-end:::
 :::row-end:::
+-->
 
 ## Tutorials
 
