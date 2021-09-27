@@ -37,7 +37,7 @@ When the deletion threshold is met, the job will go into quarantine and a notifi
 
 ## Known limitations
 There are two key limitations to be aware of and are actively working to address:
-- HR-driven provisoning from Workday and SuccessFactors do not support the accidental deletions feature. 
+- HR-driven provisioning from Workday and SuccessFactors do not support the accidental deletions feature. 
 - Changes to your provisioning configuration (e.g. changing scoping) is not supported by the accidental deletions feature. 
 
 ## Recovering from an accidental deletion
