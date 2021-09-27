@@ -46,7 +46,7 @@ See the video below an in-depth video tutorial on how to hot-fix your environmen
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
 
-## Next Steps
+## Next steps
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

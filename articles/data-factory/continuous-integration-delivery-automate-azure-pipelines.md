@@ -146,7 +146,7 @@ You can complete similar steps (with the `Start-AzDataFactoryV2Trigger` function
 
 The data factory team has provided a [sample pre- and post-deployment script](continuous-integration-delivery-sample-script.md). 
 
-## Next Steps
+## Next steps
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)

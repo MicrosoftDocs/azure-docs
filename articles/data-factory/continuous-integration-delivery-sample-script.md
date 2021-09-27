@@ -341,7 +341,7 @@ else {
     }
 }
 ```
-## Next Steps
+## Next steps
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

@@ -84,7 +84,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 -   You can't currently export and import alerts and matrices as parameters. 
 
-## Next Steps
+## Next steps
 
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)
