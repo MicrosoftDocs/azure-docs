@@ -83,7 +83,7 @@ Globally rolling out starting September 30, 2021, Microsoft will deploy device l
 ### How to sign in with device login flow
 The device login flow will prompt users signing in with a Gmail account in an embedded web-view to enter a code in a separate browser to finish signing in. The following is what users can expect to see if they are signing in with their Gmail account for the first time with no active sessions in the browser. If there is an existing Gmail already signed in, some steps may be eliminated.
 
-1. On the Sign in screen, users have the option to enter their Gmail then click "Next," or go to "Sign-in options" then select "Sign in from another device."
+1. On the **Sign in** screen, users can enter their Gmail address and then select **Next**, or they can select **Sign-in options** and choose **Sign in from another device**.
 
    ![image](https://user-images.githubusercontent.com/15203472/134457320-7d1e5636-f163-4a51-ab0f-5fae168a0a5c.png)
    
