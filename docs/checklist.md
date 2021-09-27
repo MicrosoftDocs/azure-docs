@@ -1,8 +1,8 @@
 ---
 title: Publishing checklist 
 description:  Use this checklist to determine if your Microsoft 365 app is ready to be published.
-localization_priority: Normal
 ms.author: mingshen
+ms.localizationpriority: medium
 ---
 
 # Am I ready to publish?
