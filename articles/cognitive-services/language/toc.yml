@@ -278,5 +278,7 @@ items:
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
 - name: Resources
   items:
+    - name: REST API reference
+      href: https://go.microsoft.com/fwlink/?linkid=2173145
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language/context/context
