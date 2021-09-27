@@ -19,7 +19,9 @@ In this guide, you'll learn how to call the Read API to extract text from images
 
 This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a subscription key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
 
-## Specify the OCR model (optional)
+## Determine how to process the data (optional)
+
+### Specify the OCR model
 
 By default, the service will use the latest GA model to extract text. Starting with Read 3.2, a `model-version` parameter allows choosing between the GA and preview models for a given API version. The model you specify will be used to extract text with the Read operation.
 
@@ -31,8 +33,6 @@ When using the Read operation, use the following values for the optional `model-
 | latest | latest GA model and languages|
 | 2021-09-30-preview | Preview model with the additional preview languages and features. Includes any enhancements to the previous GA model.
 | 2021-04-12 | date-specific GA, presently same as latest |
-
-## Determine how to process the data (optional)
 
 ### Input language
 
