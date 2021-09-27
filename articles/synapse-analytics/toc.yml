@@ -232,7 +232,7 @@ items:
       href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context
     - name: Cost management for serverless SQL pool
       href: sql/data-processed.md
-  - name: Quickstarts
+  - name: Quickstarts2
     items:
     - name: Use serverless SQL pool
       href: quickstart-sql-on-demand.md
