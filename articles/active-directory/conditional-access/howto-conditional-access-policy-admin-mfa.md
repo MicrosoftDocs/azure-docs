@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 09/27/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,17 +21,20 @@ Accounts that are assigned administrative rights are targeted by attackers. Requ
 
 Microsoft recommends you require MFA on the following roles at a minimum:
 
-* Authentication Administrator
-* Billing administrator
-* Conditional Access administrator
-* Exchange administrator
-* Global administrator
-* Helpdesk administrator
-* Password administrator
-* Privileged Role Administrator
-* Security administrator
-* SharePoint administrator
-* User administrator
+- Global administrator
+- Application administrator
+- Authentication Administrator
+- Billing administrator
+- Cloud application administrator
+- Conditional Access administrator
+- Exchange administrator
+- Helpdesk administrator
+- Password administrator
+- Privileged authentication administrator
+- Privileged Role Administrator
+- Security administrator
+- SharePoint administrator
+- User administrator
 
 Organizations can choose to include or exclude roles as they see fit.
 
@@ -39,10 +42,10 @@ Organizations can choose to include or exclude roles as they see fit.
 
 Conditional Access policies are powerful tools, we recommend excluding the following accounts from your policy:
 
-* **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
-   * More information can be found in the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
-* **Service accounts** and **service principals**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services allowing programmatic access to applications, but are also used to sign in to systems for administrative purposes. Service accounts like these should be excluded since MFA can't be completed programmatically. Calls made by service principals are not blocked by Conditional Access.
-   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
+- **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
+   - More information can be found in the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
+- **Service accounts** and **service principals**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services allowing programmatic access to applications, but are also used to sign in to systems for administrative purposes. Service accounts like these should be excluded since MFA can't be completed programmatically. Calls made by service principals are not blocked by Conditional Access.
+   - If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
 
 ## Create a Conditional Access policy
 
@@ -54,16 +57,20 @@ The following steps will help create a Conditional Access policy to require thos
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **Directory roles** and choose built-in roles like:
-      * Authentication Administrator
-      * Billing administrator
-      * Conditional Access administrator
-      * Exchange administrator
-      * Global administrator
-      * Helpdesk administrator
-      * Password administrator
-      * Security administrator
-      * SharePoint administrator
-      * User administrator
+      - Global administrator
+      - Application administrator
+      - Authentication Administrator
+      - Billing administrator
+      - Cloud application administrator
+      - Conditional Access administrator
+      - Exchange administrator
+      - Helpdesk administrator
+      - Password administrator
+      - Privileged authentication administrator
+      - Privileged Role Administrator
+      - Security administrator
+      - SharePoint administrator
+      - User administrator
    
       > [!WARNING]
       > Conditional Access policies support built-in roles. Conditional Access policies are not enforced for other role types including [administrative unit-scoped](../roles/admin-units-assign-roles.md) or [custom roles](../roles/custom-create.md).

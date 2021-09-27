@@ -53,6 +53,8 @@ metadata:
     examplelabel1: examplelabelvalue1
     examplelabel2: examplelabelvalue2
 spec:
+  security:
+    adminLoginSecret: sql1-login-secret
   scheduling:
     default:
       resources:

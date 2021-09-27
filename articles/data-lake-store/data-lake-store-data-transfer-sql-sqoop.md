@@ -1,13 +1,12 @@
 ---
 title: Copy data between Data Lake Storage Gen1 and Azure SQL - Sqoop | Microsoft Docs
 description: Use Sqoop to copy data between Azure SQL Database and Azure Data Lake Storage Gen1
-services: data-lake-store
-author: twooley
 
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Copy data between Data Lake Storage Gen1 and Azure SQL Database using Sqoop

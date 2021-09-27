@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/27/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -23,7 +23,7 @@ In the following tables, the term alphanumeric refers to:
 * **0** through **9** (numbers)
 
 > [!NOTE]
-> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](resource-name-rules.md).
+> All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
 
 ## Microsoft.AnalysisServices
 
@@ -758,4 +758,4 @@ In the following tables, the term alphanumeric refers to:
 
 * For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](resource-name-rules.md).
+* All resources with a public endpoint can't include reserved words or trademarks in the name. For a list of the blocked words, see [Resolve reserved resource name errors](../templates/error-reserved-resource-name.md).
