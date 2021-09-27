@@ -222,9 +222,9 @@ The resulting JSON response body would be similar to the following example: (Not
 
 ## Retrieve Dimension Values
 
-Once the available metric definitions are known, there may be some metrics that have dimensions. Before querying for the metric you may want to discover what the range of values a dimension has. Based on these dimension values you can then choose to filter or segment the metrics based on dimension values while querying for metrics.  Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to achieve this.
+Once the available metric definitions are known, there may be some metrics that have dimensions. Before querying for the metric you may want to discover what the range of values a dimension has. Based on these dimension values you can then choose to filter or segment the metrics based on dimension values while querying for metrics.  Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to find all the possible values for a given metric dimension.
 
-Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests . If no filters are specified, the default metric is returned. The usage of this API only allows one dimension to have a wildcard filter. The key difference between a dimension values request and a metric data request is specifying the "resultType=metadata" query parameter.
+Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests. If no filters are specified, the default metric is returned. The usage of this API only allows one dimension to have a wildcard filter. The key difference between a dimension values request and a metric data request is specifying the "resultType=metadata" query parameter.
 
 > [!NOTE]
 > To retrieve dimension values using the Azure Monitor REST API, use "2019-07-01" the API version or later.
@@ -297,7 +297,7 @@ The resulting JSON response body would be similar to the following example:
 
 Once the available metric definitions and possible dimension values are known, it is then possible to retrieve the related metric values.  Use the [Azure Monitor Metrics REST API](/rest/api/monitor/metrics) to achieve this.
 
-Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests. If no dimension filters are specified, the rolled up aggregated metric is returned. If you're interested in multiple timeseries with specific dimension values, you can specify a filter query parameter that specifies both dimension values such as "&$filter=ApiName eq 'ListContainers' or ApiName eq 'GetBlobServiceProperties'". If you want a query to return a time series for every value of a given dimension then you can use a '*' filter such as "&$filter=ApiName eq '*'". If a metric query returns multiple timeseries, then you can use the 'Top' and 'OrderBy' query parameters to return an limited ordered list of timeseries.
+Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests. If no dimension filters are specified, the rolled up aggregated metric is returned. To fetch multiple time series with specific dimension values, specify a filter query parameter that specifies both dimension values such as "&$filter=ApiName eq 'ListContainers' or ApiName eq 'GetBlobServiceProperties'". To return a time series for every value of a given dimension, use a '*' filter such as "&$filter=ApiName eq '*'". The 'Top' and 'OrderBy' query parameters can be used to limit and order the number of time series returned.
 
 > [!NOTE]
 > To retrieve multi-dimensional metric values using the Azure Monitor REST API, use "2019-07-01" the API version or later.
@@ -381,7 +381,7 @@ The resulting JSON response body would be similar to the following example:
 
 ### Use ARMClient
 
-An additional approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline the use of ARMClient for retrieving metric data:
+Another approach is to use [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline the use of ARMClient for retrieving metric data:
 
 1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/armclient).
 2. In a terminal window, type *armclient.exe login*. Doing so prompts you to log in to Azure.
@@ -507,7 +507,7 @@ The result should be similar to the following example:
 
 ## Retrieve activity log data
 
-In addition to metric definitions and related values, it is also possible to use the Azure Monitor REST API to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](/rest/api/monitor/activitylogs) data. The following sample requests use the Azure Monitor REST API to query the activity log.
+In addition to metric definitions and related values, it is also possible to use the Azure Monitor REST API to retrieve other interesting insights related to Azure resources. As an example, it is possible to query [activity log](/rest/api/monitor/activitylogs) data. The following sample requests use the Azure Monitor REST API to query the activity log.
 
 Get Activity Logs with filter:
 
