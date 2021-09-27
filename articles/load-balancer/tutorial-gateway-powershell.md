@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Create a gateway load balancer - Azure portal'
+title: 'Tutorial: Create a gateway load balancer - Azure PowerShell'
 titlesuffix: Azure Load Balancer
-description: Use this tutorial to learn how to create a gateway load balancer using the Azure portal.
+description: Use this tutorial to learn how to create a gateway load balancer using Azure PowerShell.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
@@ -10,7 +10,7 @@ ms.date: 10/6/2021
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
-# Tutorial: Create a gateway load balancer using the Azure portal
+# Tutorial: Create a gateway load balancer using Azure PowerShell
 
 Azure Load Balancer consists of a standard, basic, and gateway SKU. The gateway SKU is used for Network Virtual Appliances (NVA). Use the gateway SKU for scenarios that require high performance and high scalability of NVAs.
 
