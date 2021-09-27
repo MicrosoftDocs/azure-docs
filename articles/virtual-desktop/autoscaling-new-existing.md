@@ -7,7 +7,7 @@ ms.date: 09/21/2021
 ms.author: helohr
 manager: femila
 ---
-## Enable scaling plans for existing and new host pools
+# Enable scaling plans for existing and new host pools
 
 > [!IMPORTANT]
 > The autoscaling feature is currently in preview.
@@ -17,7 +17,7 @@ You can enable scaling plans for any existing host pools in your deployment. Whe
 
 If you disable a scaling plan, all assigned resources will remain in the scaling state they were in at the time you disabled it.
 
-# Assign a scaling plan to an existing host pool
+## Assign a scaling plan to an existing host pool
 
 To assign a scaling plan to an existing host pool:
 

@@ -1,6 +1,6 @@
 ---
 title: Set up diagnostics for Azure Virtual Desktop autoscaling feature
-description: How to assign scaling plans to new or existing host pools in your deployment.
+description: How to set up diagnostic reports for the scaling service in your Azure Virtual Desktop deployment.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 09/21/2021

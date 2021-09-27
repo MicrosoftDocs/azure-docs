@@ -105,7 +105,7 @@
       - name: Set up a scaling script
         href: set-up-scaling-script.md
   - name: Autoscaling (preview)
-  - items:
+    items:
       - name: Use the autoscaling feature (preview)
         href: autoscaling-scaling-plan.md
       - name: Autoscale session hosts (preview)

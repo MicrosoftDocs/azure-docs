@@ -29,7 +29,7 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 Before you create your first scaling plan, make sure you follow these guidelines:
 
 - You can currently only configure autoscale with pooled existing host pools.
-- All host pools you autoscale must have a configured MaxSessionLimit parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AZWvdHostPool](powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0) cmdlets in PowerShell.
+- All host pools you autoscale must have a configured MaxSessionLimit parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AZWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0&preserve-view=true) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0&preserve-view=true) cmdlets in PowerShell.
 - You must grant Azure Virtual Desktop access to manage power on your VM Compute resources.
 
 ## Create a Custom RBAC role
@@ -206,7 +206,7 @@ To create or change a schedule:
 
 5. In the **Peak hours** tab, fill out the following fields:
 
-    - For **Load balancing**, you can select either breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available sessions in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. For more information about load balancing types, see [](dskfjdk).
+    - For **Load balancing**, you can select either breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available sessions in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. For more information about load balancing types, see [onfigure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md).
 
     >[!NOTE]
     >You can't change the capacity threshold here. Instead, the setting you entered in **Ramp-up** will carry over to this setting.
