@@ -2,8 +2,8 @@
 title: Export data from Azure IoT Central (legacy) | Microsoft Docs
 description: How to export data from your Azure IoT Central application to Azure Event Hubs, Azure Service Bus, and Azure Blob storage
 services: iot-central
-author: viv-liu
-ms.author: viviali
+author: lizross
+ms.author: lizross
 ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
