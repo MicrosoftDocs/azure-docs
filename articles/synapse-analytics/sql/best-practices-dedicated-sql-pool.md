@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Best practices for dedicated SQL pools in Azure Synapse Analytics
 
-This article provides a collection of best practices to help you achieve optimal performance for dedicated SQL pools in Azure Synapse Analytics. Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
+This article provides a collection of best practices to help you achieve optimal performance for dedicated SQL pools in Azure Synapse Analytics.  If you're working with serverless SQL pool, see [Best practices for serverless SQL pools](best-practices-serverless-sql-pool.md) for specific guidance.Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
 
 ## Dedicated SQL pools loading
 
@@ -34,12 +34,11 @@ To shorten statistics maintenance time, be selective about which columns have st
 
 Additional information on statistics can be found in the [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles.
 
-## Tune query performance with new product enhancements
+## Tune query performance
 
 - [Performance tuning with materialized views](../sql-data-warehouse/performance-tuning-materialized-views.md)
 - [Performance tuning with ordered clustered columnstore index](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 - [Performance tuning with result set caching](../sql-data-warehouse/performance-tuning-result-set-caching.md)
-
 
 ## Group INSERT statements into batches
 
@@ -74,9 +73,9 @@ If you have several queries for querying this data, it's better to load this dat
 
 ## Hash distribute large tables
 
-By default, tables are Round Robin distributed.   This default makes it easy for users to start creating tables without having to decide how their tables should be distributed. Round Robin tables may perform sufficiently for some workloads. But, in most cases, a distribution column provides better performance.  
+By default, tables are Round Robin distributed. This default makes it easy for users to start creating tables without having to decide how their tables should be distributed. Round Robin tables may perform sufficiently for some workloads. But, in most cases, a distribution column provides better performance.  
 
-The most common example of a table distributed by a column outperforming a Round Robin table is when two large fact tables are joined.  
+The most common example of a table distributed by a column outperforming a round robin table is when two large fact tables are joined.  
 
 For example, if you have an orders table distributed by order_id, and a transactions table also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query. Data movement operations are then eliminated. Fewer steps mean a faster query. Less data movement also makes for faster queries.
 
@@ -110,7 +109,7 @@ INSERT, UPDATE, and DELETE statements run in a transaction. When they fail, they
 
 Another way to eliminate rollbacks is to use Metadata Only operations like partition switching for data management.  For example, rather than execute a DELETE statement to delete all rows in a table where the order_date was in October of 2001, you could partition your data monthly. Then you can switch out the partition with data for an empty partition from another table (see ALTER TABLE examples).  
 
-For unpartitioned tables, consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it's much safer to run since it has minimal transaction logging and can be canceled quickly if needed.
+For tables that are not partitioned, consider using a CTAS to write the data you want to keep in a table rather than using DELETE.  If a CTAS takes the same amount of time, it's much safer to run since it has minimal transaction logging and can be canceled quickly if needed.
 
 Further information on content related to this section is included in the articles below:
 
@@ -200,4 +199,3 @@ If you need information not provided in this article, search the [Microsoft Q&A 
 
 We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-synapse).
 
-For feature requests, use the [Azure Synapse Analytics Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page.  Adding your requests or up-voting other requests helps us to focus on the most in-demand features.
