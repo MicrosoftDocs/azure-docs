@@ -65,12 +65,13 @@ The free certificate comes with the following limitations:
 - Does not support wildcard certificates.
 - Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).
 - Is not exportable.
+- Is not supported on App Service not publicly accessible.
 - Is not supported on App Service Environment (ASE).
 - Is not supported with root domains that are integrated with Traffic Manager.
 - If a certificate is for a CNAME-mapped domain, the CNAME must be mapped directly to `<app-name>.azurewebsites.net`.
 
 > [!NOTE]
-> The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
+> The free certificate is issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
 > 
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
@@ -126,7 +127,7 @@ Use the following table to help you configure the certificate. When finished, cl
 | Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
 
 > [!NOTE]
-> App Service Certificates purchased from Azure are issued by GoDaddy. For some top-level domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
+> App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
 > 
 
 ### Store in Azure Key Vault
@@ -326,6 +327,9 @@ To replace an expiring certificate, how you update the certificate binding with 
 3. Delete the existing certificate.
 
 ### Renew an App Service certificate
+
+> [!NOTE]
+> Starting Sept 23 2021, App Service certificates will require domain validation every 395 days. Unlike App Service Managed Certificate, domain re-validation for App Service Certificate will NOT be automated.
 
 > [!NOTE]
 > The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.

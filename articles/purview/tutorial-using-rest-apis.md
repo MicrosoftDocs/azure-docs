@@ -21,12 +21,6 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * To get started, you must have an existing Azure Purview account. If you don't have a catalog, see the [quickstart for creating a Azure Purview account](create-catalog-portal.md).
 
-* If you need to add data to your catalog, see the [tutorial to run the starter kit and scan data](tutorial-scan-data.md).
-
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
 ## Create a service principal (application)
 
 For a REST API client to access the catalog, the client must have a service principal (application), and an identity that the catalog recognizes and is configured to trust. When you make REST API calls to the catalog, they use the service principal's identity.
@@ -35,7 +29,8 @@ Customers who have used existing service principals (application IDs) have had a
 
 To create a new service principal:
 
-1. From the [Azure portal](https://portal.azure.com), search for and select **Azure Active Directory**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. From the portal, search for and select **Azure Active Directory**.
 1. From the **Azure Active Directory** page, select **App registrations** from the left pane.
 1. Select **New registration**.
 1. On the **Register an application** page:
@@ -73,6 +68,10 @@ Once service principal is created, you need to assign Data plane roles of your p
     1. 'Data Curator' role to access Catalog Data plane.
     1. 'Data Source Administrator' role to access Scanning Data plane. 
     1. 'Collection Admin' role to access Account Data Plane.
+    1. 'Collection Admin' role to access Metadata policy Data Plane.
+
+> [!Note]
+> Only 'Collection Admin' can assign data plane roles in Purview [Access Control in Azure Purview](./catalog-permissions.md).
 
 ## Get token
 You can send a POST request to the following URL to get access token.
@@ -102,14 +101,10 @@ Sample response token:
 
 Use the access token above to call the Data plane APIs.
 
-## Data Plane API documentation
-Please refer here to see all the Data Plane APIs supported by Purview [Data Plane APIs](https://docs.microsoft.com/rest/api/purview/)
-
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage data sources](manage-data-sources.md)
+> [Purview Data Plane REST APIs](https://docs.microsoft.com/rest/api/purview/)
 
 
 
