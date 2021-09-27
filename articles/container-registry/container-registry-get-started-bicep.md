@@ -47,7 +47,7 @@ resource acrResource 'Microsoft.ContainerRegistry/registries@2021-06-01-preview'
 }
 ```
 
-The following resource is defined in the Bidep file:
+The following resource is defined in the Bicep file:
 
 * **[Microsoft.ContainerRegistry/registries](/azure/templates/microsoft.containerregistry/registries)**: create an Azure container registry
 
