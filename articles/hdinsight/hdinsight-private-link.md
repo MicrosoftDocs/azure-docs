@@ -15,13 +15,13 @@ Private link can be leveraged in cross VNet scenarios where VNet peering is not 
 > [!NOTE]
 > Removing outbound public IP addresses is a prerequisite for enabling Private Link and should not be considered as the same capability
 
-Private Link, which is an optional feature and is disabled by default  The feature is only available when the `resourceProviderConnection` network property is set to outbound as described in the article [Create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md).
+Private Link, which is an optional feature and is disabled by default. The feature is only available when the `resourceProviderConnection` network property is set to outbound as described in the article [Create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md).
 
 When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLB) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link Service is what allows you to access the HDInsight cluster from private endpoints.
 
 ## Prerequisites
 
-Standard load balancers do not automatically provide [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md)as basic load balancers do. You must provide your own NAT solution, such as  a NAT gateway, or NAT provided by your [firewall](./hdinsight-restrict-outbound-traffic.md),  to connect to outbound, public HDInsight dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, cluster creation may fail. A Network Security Group must also be configured on the subnet to enable outbound connectivity.
+Standard load balancers do not automatically provide [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md) as basic load balancers do. You must provide your own NAT solution, such as  a NAT gateway, or NAT provided by your [firewall](./hdinsight-restrict-outbound-traffic.md), to connect to outbound, public HDInsight dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, cluster creation may fail. A Network Security Group must also be configured on the subnet to enable outbound connectivity.
 
 ### 1.	Configure a default NSG on the Subnet
 
