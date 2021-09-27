@@ -51,8 +51,8 @@ The following list summarizes the main features of **Home page**. Each number in
    * For *data source admin* + *data curator*, the buttons are **Browse assets**, **Manage glossary**, and **Knowledge center**.
    * For *data source admin* + *data reader*, the buttons are **Browse assets**, **View glossary**, and **Knowledge center**.
   
-  > [!NOTE]
-  > For more information about Azure Purview roles, see [Access control in Azure Purview](catalog-permissions.md).
+   > [!NOTE]
+   > For more information about Azure Purview roles, see [Access control in Azure Purview](catalog-permissions.md).
 
 5. The left navigation bar helps you locate the main pages of the application.   
 6. The **Recently accessed** tab shows a list of recently accessed data assets. For information about accessing assets, see [Search the Data Catalog](how-to-search-catalog.md) and [Browse by asset type](how-to-browse-catalog.md#browse-experience).  **My items** tab is a list of data assets owned by the logged-on user.
