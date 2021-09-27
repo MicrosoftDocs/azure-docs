@@ -21,6 +21,8 @@ While revisions remain immutable, they are affected by changes to global configu
 
 When you deploy your container app, the first revision is automatically created. If you enable [ingress](overview.md) on your container app, then an IP, port, and fully qualified domain name is assigned to your container app.
 
+:::image type="content" source="media/application-lifecycle-management/azure-container-apps-application-lifecycle-management.png" alt-text="Azure Container Apps application lifecycle management":::
+
 If your container crashes, then it is automatically restarted.
 
 ## Usage
