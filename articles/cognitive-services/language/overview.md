@@ -163,7 +163,7 @@ Azure Cognitive Service for language provides the following features:
         This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents.
     :::column-end:::
     :::column:::
-        * [REST API and client-library SDK](custom-question-answering/quickstart.md)
+        * [REST API and client-library SDK](custom-question-answering/quickstart/sdk.md)
     :::column-end:::
 :::row-end:::
 

@@ -35,7 +35,7 @@ To use Language Studio, you will need an Azure resource for language for authent
 
 4. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language Service. For example, select **Find linked entities**.
 
-    :::image type="content" source="../media/language-studio-main-screen.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/language-studio-main-screen.png":::
+    :::image type="content" source="../media/language-studio-main-screen.png" alt-text="A screenshot showing the main screen in Language Studio." lightbox="../media/language-studio-main-screen.png":::
 
 
 5. This feature has a section for entering text, uploading a file, or choosing a text sample to demonstrate how the feature works. To try the demo, you will need to choose a resource and acknowledge it will incur usage according to your pricing tier. 
@@ -44,4 +44,4 @@ To use Language Studio, you will need an Azure resource for language for authent
 
 6. After sending text, you'll be able to see a visualization, along with the JSON response. At the bottom of the page, you'll see next steps and the cURL command for the API request you just sent.
 
-    :::image type="content" source="../media/language-studio-feature-result.png" alt-text="A screenshot showing the result of a feature in Language Studio" lightbox="../../media/language-studio-feature-result.png":::
+    :::image type="content" source="../media/language-studio-feature-result.png" alt-text="A screenshot showing the result of a feature in Language Studio" lightbox="../media/language-studio-feature-result.png":::
