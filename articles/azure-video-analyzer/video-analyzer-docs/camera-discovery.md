@@ -2,7 +2,7 @@
 title: Discovering ONVIF-capable cameras in the local subnet
 description: This how-to shows you how you can use Video Analyzer edge module to discover ONVIF-capable cameras in your local subnet.
 
-ms.topic: How-To
+ms.topic: how-to
 ms.date: 09/15/2021
 ---
 
@@ -15,8 +15,8 @@ This how to guide walks you through how to use the Azure Video Analyzer edge mod
 - An active Azure subscription.
 - Have installed the [Azure CLI extension for IoT](https://github.com/Azure/azure-iot-cli-extension#installation)
 - Have completed either:
-  - [Quickstart: Get started with Azure Video Analyzer](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events)
-  - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events-portal)
+  - [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md)
+  - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](get-started-detect-motion-emit-events-portal.md)
 - Have the Video Analyzer edge module version 1.1 (or newer) deployed to your IoT Edge device.
 
    * The ONVIF feature of the Video Analyzer edge module requires specific [container create options][#containercreateoptions]
@@ -25,203 +25,211 @@ This how to guide walks you through how to use the Azure Video Analyzer edge mod
 >If you have a new deployment of Video Analyzer account and/or a new deployment of the Video Analyzer edge module then you can skip to the section for [**Use direct method calls**][#Use direct method calls].  If not please follow the below sections to upgrade your existing Video Analyzer edge module to enable the ONVIF discovery feature.  
 
 ## Check the Video Analyzer edge modules version
-1.  From a command prompt run the following command:
-    ```CLI
-        az iot hub module-twin show -m <VIDEO_ANALYZER_IOT_EDGE_MODULE_NAME> -n <IOT_HUB_NAME> -d <IOT_EDGE_DEVICE_NAME> --query 'properties.reported.ProductInfo' -o tsv
-    ```
-    If the result of the above command is **Azure Video Analyzer:1.0.1** then run the following steps to update the Video Analyzer module to 1.1.
 
-    1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
-    1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
-    1.  Click on Set modules and click on review + create.
-    1.  Click on create.
-1.  After a few moments the Video Analyzer edge module will update and you can run the above command again to verify.  
+1. From a command prompt run the following command:
+
+  ```CLI
+  az iot hub module-twin show -m <VIDEO_ANALYZER_IOT_EDGE_MODULE_NAME> -n <IOT_HUB_NAME> -d <IOT_EDGE_DEVICE_NAME> --query 'properties.reported.ProductInfo' -o tsv
+  ```
+  
+  If the result of the above command is **Azure Video Analyzer:1.0.1** then run the following steps to update the Video Analyzer module to 1.1.
+
+  1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
+  1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
+  1. Click on Set modules and click on review + create.
+  1. Click on create.
+1. After a few moments the Video Analyzer edge module will update and you can run the above command again to verify.  
 
 ### Enable ONVIF discovery feature
+
 If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is necessary to add additional elements into the IoT Edge container create options.  These elements allow the Video Analyzer edge module to communicate through the host network to discover ONVIF enabled cameras on the same subnet.
 
-1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
-1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
-1.  Click on Set modules and select the Video Analyzer edge module.
-1.  Select <a name= "containercreateoptions"></a>`Container Create Options` and add the following:
+1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
+1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
+1. Click on Set modules and select the Video Analyzer edge module.
+1. Select <a name= "containercreateoptions"></a>`Container Create Options` and add the following:
 
-    ```JSON
-    { 
-      "NetworkingConfig": {  
-          "EndpointsConfig": {  
-             "host": {}  
-             }  
-        }, 
-       "HostConfig": { 
-           "NetworkMode": "host" 
-              } 
-     } 
-    ```
-1.  Click on `Update` at the bottom and then click on `Review + create`.
-1.  Click on `Create`.
-
-
+  ```JSON
+  { 
+    "NetworkingConfig": {  
+        "EndpointsConfig": {  
+           "host": {}  
+           }  
+      }, 
+     "HostConfig": { 
+         "NetworkMode": "host" 
+            } 
+   } 
+  ```
+1. Click on `Update` at the bottom and then click on `Review + create`.
+1. Click on `Create`.
 
 ## Use direct method calls
+
 Video Analyzer edge module provides direct method calls for ONVIF discovery of network attached cameras.  
 The following steps apply to both the `onvifDeviceDiscover` and the `onvifDeviceGet` sections below:
 
-1.  In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
-1.  Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
-1.  Click on the Video Analyzer edge module and select  `Direct method`.
-
+1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
+1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
+1. Click on the Video Analyzer edge module and select  `Direct method`.
 
 ### onvifDeviceDiscover
-Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module. 
->[!NOTE]
->The discover process only returns the discoverable devices in the same subnet as the IoT Edge device that is running the Video Analyzer edge module.
 
-1.  In the method name enter:
-    ```
-    onvifDeviceDiscover
-    ```
-2.  In the payload enter:
+Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module. 
+
+> [!NOTE]
+> The discover process only returns the discoverable devices in the same subnet as the IoT Edge device that is running the Video Analyzer edge module.
+
+1. In the method name enter:
+
+  ```
+  onvifDeviceDiscover
+  ```
+1. In the payload enter:
    
-    ```JSON
-    {
-      "@apiVersion":"1.1",
-      "discoveryDuration":"PT10S"
-    }
-    ```
->[!NOTE]
->The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value. 
+  ```JSON
+  {
+    "@apiVersion":"1.1",
+    "discoveryDuration":"PT10S"
+  }
+  ```
+  
+  > [!NOTE]
+  > The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value. 
 
   Within a few seconds you see the following `Result`:
 
-        ```JSON
-         {
-            "status": 200,
-            "payload": {
-                "value": [
-                    {
-                        "serviceIdentifier": "{urn:uuid}",
-                        "remoteIPAddress": "{IP_ADDRESS}",
-                        "transportAddresses": [
-                            "http://10.0.1.79/onvif/device_service",
-                            "https://10.0.1.79/onvif/device_service"
-                        ],
-                        "scopes": [
-                            "onvif://www.onvif.org/type/Network_Video_Transmitter",
-                            "onvif://www.onvif.org/name/{CAMERA_MANUFACTURE}",
-                            "onvif://www.onvif.org/location/",
-                            "onvif://www.onvif.org/hardware/{CAMERA_MODEL}",
-                            "onvif://www.onvif.org/Profile/Streaming",
-                            "onvif://www.onvif.org/Profile/G",
-                            "onvif://www.onvif.org/Profile/T"
-                        ]
-                    }
-                ]
-            }
-        }
-        ```
+  ```JSON
+   {
+      "status": 200,
+      "payload": {
+          "value": [
+              {
+                  "serviceIdentifier": "{urn:uuid}",
+                  "remoteIPAddress": "{IP_ADDRESS}",
+                  "transportAddresses": [
+                      "http://10.0.1.79/onvif/device_service",
+                      "https://10.0.1.79/onvif/device_service"
+                  ],
+                  "scopes": [
+                      "onvif://www.onvif.org/type/Network_Video_Transmitter",
+                      "onvif://www.onvif.org/name/{CAMERA_MANUFACTURE}",
+                      "onvif://www.onvif.org/location/",
+                      "onvif://www.onvif.org/hardware/{CAMERA_MODEL}",
+                      "onvif://www.onvif.org/Profile/Streaming",
+                      "onvif://www.onvif.org/Profile/G",
+                      "onvif://www.onvif.org/Profile/T"
+                  ]
+              }
+          ]
+      }
+  }
+  ```
 
-  >[!NOTE]
-  >The return status of 200 indicates that the direct method call was handled successfully.
+  > [!NOTE]
+  > The return status of 200 indicates that the direct method call was handled successfully.
 
 ### onvifDeviceGet
+
 This direct method helps you retrieve detailed information about a specific ONVIF device.
 
-1.  In the method name enter:
-    ```
-    onvifDeviceGet
-    ```
-1.  In the payload enter:
-   
-    ```JSON
-    { 
-       "@apiVersion": "1.1",  
-       "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
-       "username": "{USER_NAME}", 
-       "password": "{PASSWORD}" 
-    } 
-    ```
-In the above payload:
- - remoteIPAddress is the IP address of the camera you wish to get additional details from.
- - username is the user name that is used to authenticate with the ONVIF device.
- - password is the user accounts password.
+1. In the method name enter:
 
-Within a few seconds you see the following `Result`:
+  ```
+  onvifDeviceGet
+  ```
+1. In the payload enter:
 
+  ```JSON
+  { 
+     "@apiVersion": "1.1",  
+     "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
+     "username": "{USER_NAME}", 
+     "password": "{PASSWORD}" 
+  } 
+  ```
 
-```JSON
-    {
-        "status": 200,
-        "payload": {
-            "hostname": {
-                "fromDHCP": true,
-                "hostname": "{NAME_OF_THE_ONVIF_DEVICE}"
-            },
-            "systemDateTime": {
-                "type": "ntp",
-                "time": "2021-09-18T03:05:05.000Z",
-                "timeZone": "GMT"
-            },
-            "dns": {
-                "fromDHCP": true,
-                "ipv4Address": [
-                    "{IP_ADDRESS}"
-                ],
-                "ipv6Address": []
-            },
-            "mediaProfiles": [
-                {
-                    "name": "Profile_L1S1",
-                    "mediaUri": {
-                        "uri": "{RTSP_URI}"
-                    },
-                    "videoEncoderConfiguration": {
-                        "encoding": "h264",
-                        "resolution": {
-                            "width": 3840,
-                            "height": 2160
-                        },
-                        "rateControl": {
-                            "bitRateLimit": 15600,
-                            "encodingInterval": 1,
-                            "frameRateLimit": 30,
-                            "guarantedFrameRate": false
-                        },
-                        "quality": 50,
-                        "h264": {
-                            "govLength": 255,
-                            "profile": "main"
-                        }
-                    }
-                },
-                {
-                    "name": "Profile_L1S2",
-                    "mediaUri": {
-                        "uri": "{RTSP_URI}"
-                    },
-                    "videoEncoderConfiguration": {
-                        "encoding": "h264",
-                        "resolution": {
-                            "width": 1280,
-                            "height": 720
-                        },
-                        "rateControl": {
-                            "bitRateLimit": 1900,
-                            "encodingInterval": 1,
-                            "frameRateLimit": 30,
-                            "guarantedFrameRate": false
-                        },
-                        "quality": 50,
-                        "h264": {
-                            "govLength": 255,
-                            "profile": "main"
-                        }
-                    }
-                }
-            ]
-        }
-    }
+  In the above payload:
 
-```
+   - remoteIPAddress is the IP address of the camera you wish to get additional details from.
+   - username is the user name that is used to authenticate with the ONVIF device.
+   - password is the user accounts password.
+
+  Within a few seconds you see the following `Result`:
+
+  ```JSON
+  {
+      "status": 200,
+      "payload": {
+          "hostname": {
+              "fromDHCP": true,
+              "hostname": "{NAME_OF_THE_ONVIF_DEVICE}"
+          },
+          "systemDateTime": {
+              "type": "ntp",
+              "time": "2021-09-18T03:05:05.000Z",
+              "timeZone": "GMT"
+          },
+          "dns": {
+              "fromDHCP": true,
+              "ipv4Address": [
+                  "{IP_ADDRESS}"
+              ],
+              "ipv6Address": []
+          },
+          "mediaProfiles": [
+              {
+                  "name": "Profile_L1S1",
+                  "mediaUri": {
+                      "uri": "{RTSP_URI}"
+                  },
+                  "videoEncoderConfiguration": {
+                      "encoding": "h264",
+                      "resolution": {
+                          "width": 3840,
+                          "height": 2160
+                      },
+                      "rateControl": {
+                          "bitRateLimit": 15600,
+                          "encodingInterval": 1,
+                          "frameRateLimit": 30,
+                          "guarantedFrameRate": false
+                      },
+                      "quality": 50,
+                      "h264": {
+                          "govLength": 255,
+                          "profile": "main"
+                      }
+                  }
+              },
+              {
+                  "name": "Profile_L1S2",
+                  "mediaUri": {
+                      "uri": "{RTSP_URI}"
+                  },
+                  "videoEncoderConfiguration": {
+                      "encoding": "h264",
+                      "resolution": {
+                          "width": 1280,
+                          "height": 720
+                      },
+                      "rateControl": {
+                          "bitRateLimit": 1900,
+                          "encodingInterval": 1,
+                          "frameRateLimit": 30,
+                          "guarantedFrameRate": false
+                      },
+                      "quality": 50,
+                      "h264": {
+                          "govLength": 255,
+                          "profile": "main"
+                      }
+                  }
+              }
+          ]
+      }
+  }
+  ```
 
 ### Return status of onvifDeviceGet
     | Status | Code     | Meaning / solution                                           |
@@ -234,17 +242,18 @@ Within a few seconds you see the following `Result`:
 
 
 ## Troubleshooting 
+
 If the following error occurs:
 
-    :::image type="content" source="./media/camera-discovery/504-error.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
+:::image type="content" source="./media/camera-discovery/504-error.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
 
 Check to ensure that the setting for `"discoveryDuration":"PT10S"` in the above direct method calls is shorter than the `Connection Timeout` or `Method Timeout` values
 
-    :::image type="content" source="./media/camera-discovery/504-error-fix.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
+:::image type="content" source="./media/camera-discovery/504-error-fix.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
 
 If the following message return is displayed in the direct method `Results` field:
 
-    :::image type="content" source="./media/camera-discovery/result-status-200-null.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
+:::image type="content" source="./media/camera-discovery/result-status-200-null.png" alt-text="Screenshot that shows the Video Analyzer edge version.":::
 
 adjust the time value (x) in `"discoveryDuration":"PTxS"` to a larger number.  Also adjust the `Connection Timeout` and / or `Method Timeout` values accordingly.
 
