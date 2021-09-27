@@ -24,7 +24,7 @@
   items:
   - name: Use customer-managed keys
     href: storage-import-export-encryption-key-portal.md
-  - name: Find out how many disks to use
+  - name: Identify disks to use
     href: storage-import-export-determine-number-of-drives-for-export.md
   - name: Monitor
     items:
