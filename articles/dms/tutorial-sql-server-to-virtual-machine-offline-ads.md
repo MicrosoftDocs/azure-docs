@@ -85,7 +85,7 @@ To complete this tutorial, you need to:
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/select-database-for-assessment.png" alt-text="Select database for assessment":::
 1. Select SQL Server on Azure Virtual Machine as the target.
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
-1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate and select **OK**.
+1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**.
 1. Specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
 
     :::image type="content" source="./media/tutorial-sql-server-to-virtual-machine-offline-ads/target-virtual-machine.png" alt-text="Target SQL Server on Azure Virtual Machine":::
@@ -136,7 +136,7 @@ To complete this tutorial, you need to:
 1. Review the summary and select **Done** to start the database migration.
 
 ## Monitor your migration
-1. On the **Database Migration Status**, you can track the migrations in progress, migrations completed and migrations failed (if any).
+1. On the **Database Migration Status**, you can track the migrations in progress, migrations completed, and migrations failed (if any).
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/monitor-migration-dashboard.png" alt-text="monitor migration dashboard":::
 1. Select **Database migrations in progress** to view ongoing migrations and get further details by selecting the database name.
 1. The migration details page displays the backup files and their corresponding status:
@@ -148,7 +148,7 @@ To complete this tutorial, you need to:
     | Uploaded | Backup file is uploaded to Azure storage |
     | Restoring | Azure Database Migration Service is currently restoring the backup file to Azure SQL Managed Instance|
     | Restored | Backup file is successfully restored on Azure SQL Managed Instance |
-    | Cancelled | Migration process was cancelled |
+    | Canceled | Migration process was canceled |
     | Ignored | Backup file was ignored as it does not belong to a valid database backup chain |
 
 After all database backups are restored on SQL Server on Azure Virtual Machine, an automatic migration cutover will be initiated by the Azure DMS to ensure the migrated database is ready for use and the migration status changes from *in progress* to *Succeeded*.

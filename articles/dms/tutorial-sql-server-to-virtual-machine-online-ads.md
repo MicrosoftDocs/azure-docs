@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Migrate SQL Server online to SQL Server on Azure Virtual Machine using Azure Data Studio with Azure Database Migration Service"
 titleSuffix: Azure Database Migration Service
-description: In this tutorial, you'll do an online migration from SQL Server to SQL Server on Azure Virtual Machine using Azure Data Studio with Azure Database Migration Service.
+description: Complete an online migration from SQL Server to SQL Server on Azure Virtual Machine using Azure Data Studio with Azure Database Migration Service.
 services: dms
 author: kbarlett001
 ms.author: kebarlet
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > * Start and monitor the progress for your migration.
 > * Perform the migration cutover when you are ready.
 
-This article describes an online migration from SQL Server to a SQL Server on Azure Virtual Machine. For an offline migration, see [Migrate SQL Server to a SQL Server on Azure Virtual Machine offline using Azure Data Studio with DMS](tutorial-sql-server-to-virtual-machine-offline-ads.md).
+This article describes an online migration from SQL Server to a SQL Server on Azure Virtual Machine. Offline migration, see [Migrate SQL Server to a SQL Server on Azure Virtual Machine offline using Azure Data Studio with DMS](tutorial-sql-server-to-virtual-machine-offline-ads.md).
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ To complete this tutorial, you need to:
     > [!TIP]
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
-* When using self-hosted integration runtime, make sure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share. Also see [recommendations for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
+* Runtime is installed on the machine using self-hosted integration runtime. The machine will connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share. Also see [recommendations for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
 ## Launch the Migrate to Azure SQL wizard in Azure Data Studio
@@ -84,7 +84,7 @@ To complete this tutorial, you need to:
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/select-database-for-assessment.png" alt-text="Select database for assessment":::
 1. In Step 3, check the confirmation message to migrate your database and select SQL Server on Azure Virtual Machine as the target.
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
-1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate and select **OK**.
+1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate and, select **OK**.
 1. Specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
      :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/target-virtual-machine.png" alt-text="Target SQL Server on Azure Virtual Machine":::
 1. In step 4, select **Online migration** as the migration mode.
@@ -131,7 +131,7 @@ To complete this tutorial, you need to:
 1. Review the summary and select **Done** to start the database migration.
 
 ## Monitor your migration
-1. On the **Database Migration Status**, you can track the migrations in progress, migrations completed and migrations failed (if any).
+1. On the **Database Migration Status**, you can track the migrations in progress, migrations completed, and migrations failed (if any).
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/monitor-migration-dashboard.png" alt-text="monitor migration dashboard":::
 1. Select **Database migrations in progress** to view ongoing migrations and get further details by selecting the database name.
 1. The migration details page displays the backup files and the corresponding status:
@@ -143,28 +143,29 @@ To complete this tutorial, you need to:
     | Uploaded | Backup file is uploaded to Azure storage |
     | Restoring | Azure Database Migration Service is currently restoring the backup file to Azure SQL Managed Instance|
     | Restored | Backup file is successfully restored on Azure SQL Managed Instance |
-    | Cancelled | Migration process was cancelled |
-    | Ignored | Backup file was ignored as it does not belong to a valid database backup chain |
+    | Canceled | Migration process was canceled |
+    | Ignored | Backup file was ignored as it doesn't belong to a valid database backup chain |
 
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/online-to-vm-migration-status-detailed.png" alt-text="online vm backup restore details":::
 
 ## Complete migration cutover
 
-The final step of this tutorial is to complete the migration cutover to ensure the migrated database in SQL Server on Azure Virtual Machine is ready for use. This is the only part in the process that requires downtime for applications that connect to the database and hence the timing of the cutover needs to be carefully planned with business or application stakeholders.
+The final step of the tutorial is to complete the migration cutover. The completion ensures the migrated database in SQL Server on Azure Virtual Machine is ready for use. Downtime is required for applications that connect to the database and the timing of the cutover needs to be carefully planned with business or application stakeholders.
 
 :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/online-to-vm-complete-cutover.png" alt-text="online vm complete cutover":::
 
-To complete the cutover,
-- stop all incoming transactions to the source database and prepare to make any application configuration changes to point to the target database in SQL Server on Azure Virtual Machine
-- take any tail log backups for the source database in the backup location specified
-- ensure all database backups have the status *Restored* in the monitoring details page
-- select *Complete cutover* in the monitoring details page
+To complete the cutover:
+- Stop all incoming transactions to the source database.
+- Make application configuration changes to point to the target database in SQL Server on Azure Virtual Machine.
+- Take any tail log backups for the source database in the backup location specified.
+- Ensure all database backups have the status *Restored* in the monitoring details page.
+- Select *Complete cutover* in the monitoring details page.
 
-During the cutover process, the migration status changes from *in progress* to *completing*. When the cutover process is completed, the migration status changes to *succeeded* to indicate that the database migration is successful and that the migrated database is ready for use.
+During the cutover process, the migration status changes from *in progress* to *completing*. The migration status changes to *succeeded* when the cutover process is completed. The database migration is successful and that the migrated database is ready for use.
 
 
 ## Next steps
 
-* For a tutorial showing you how to migrate a database to SQL Server on Azure Virtual Machines using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
+* How to migrate a database to SQL Server on Azure Virtual Machines using the T-SQL RESTORE command, see [Migrate a SQL Server database to SQL Server on a virtual machine](../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 * For information about SQL Server on Azure Virtual Machines, see [Overview of SQL Server on Azure Windows Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 * For information about connecting apps to SQL Server on Azure Virtual Machines, see [Connect applications](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md).
