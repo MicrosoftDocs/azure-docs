@@ -30,7 +30,7 @@ In this article, you learn how to create and run [machine learning pipelines](co
 
     ```azurecli-interactive
     git clone https://github.com/Azure/azureml-examples --depth 1
-    cd azureml-examples/cli/pipelines/samples
+    cd azureml-examples/cli/jobs/pipelines-with-components/
     ```
 
 ## Introducing machine learning pipelines
@@ -166,11 +166,11 @@ Each of these phases may have multiple components. For instance, the data prepar
 
 The `pipeline.yml` begins with the `name` of the job and the mandatory `type: pipeline_job` key-value pair {>> TODO Nope <<}. Then, it defines inputs and outputs as follows:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" id="inputs_and_outputs":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" id="inputs_and_outputs":::
 
 As described previously, these entries specify the input data to the pipeline, in this case the dataset in `./data`, and the intermediate and final outputs of the pipeline, which are stored in separate paths. The names within these input and output entries become values in the `inputs` and `outputs` entries of the individual jobs: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/pipeline.yml" id="jobs":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" id="jobs":::
 
 Notice how `jobs.train_job.outputs.model_output` is used as an input to both the prediction job and the scoring job, as shown in the following diagram: 
 
