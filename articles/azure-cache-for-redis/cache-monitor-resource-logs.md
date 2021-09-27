@@ -12,32 +12,14 @@ ms.custom: template-how-to
 
 # Monitor Azure Cache for Redis data by using diagnostic settings in Azure
 
-<!-- Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
-Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs".
+Azure Cache for Redis uses Azure diagnostic settings to provide logging of connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches, and the time of those connections. This data could be used to identify the scope of a security breach, for example.
 
-Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor.
+You can see a log of all connections to your cache. The log tracks the IP addresses and count of connections. The log snapshots are taken at 10 second intervals.
 
-Log data that is collected: Customers can see logs of all clients (IP address and counts) connected to their cache (snapshots taken at 10 sec intervals).
-
-You can turn on diagnostic setting for Azure Cache for Redis accounts and send resource logs to the following sources:
+You turn on diagnostic setting for Azure Cache for Redis accounts and send resource logs to destinations. Any destinations for the diagnostic setting must be created before creating the diagnostic settings. Here are the current destinations supported:
 
 - Event hub
 - Storage Account
-
-<!--  Prerequisites 
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
-
-## Prerequisites
-
-<!-- 
-Jeffrey are there any pre-reqs 
--->
 
 ## Create diagnostics settings via the Azure portal
 
@@ -49,13 +31,13 @@ Jeffrey are there any pre-reqs
 
 1. In the **Diagnostic settings** pane, select **ConnectedClientList** from **Category details**.
 
-   |Category  |API   | Definition  | Key Properties   |
+   |Category  | Definition  | Key Properties   |
    |---------|---------|---------|---------|
-   |ConnectedClientList | All APIs | IP addresses and counts of clients connected to the cache at regular intervals. |   `connectedClients` and nested within `ip`, `count`, `privateLinkIpv6`    |
+   |ConnectedClientList |  IP addresses and counts of clients connected to the cache, logged at a regular interval. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
   
-1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table.
+1. Once you select your **Categories details**, then send your Logs to your preferred destination.
 
-    <!-- :::image type="content" source="./media/monitor-cosmos-db/diagnostics-resource-specific.png" alt-text="Select enable resource-specific"::: -->
+    :::image type="content" source="media/cache-monitor-resource-logs/diagnostics-resource-specific-2.png" alt-text="Select enable resource-specific":::
 
 ## Create diagnostic setting via REST API
 
@@ -71,10 +53,10 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
    | Parameters/Headers | Value/Description |
    |---------|---------|
-   |name |The name of your Diagnostic setting. |
-   |resourceUri     | subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME} |
-   |api-version     | 2017-05-01-preview |
-   |Content-Type     | application/json |
+   | name |The name of your diagnostic setting. |
+   | resourceUri | subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME} |
+   | api-version | 2017-05-01-preview |
+   | Content-Type | application/json |
 
 <!-- {resourceUri} is something like: subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME} -->
 
@@ -102,10 +84,19 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 ## Create diagnostic setting via Azure CLI
 
-Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
+Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on this command and descriptions of the parameters, see [create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ```azurecli
-az monitor diagnostic-settings create --resource /subscriptions/13c7d7df-f56e-4645-91b5-c08688d518e5/resourceGroups/Jeffrey/providers/Microsoft.Cache/Redis/jc-cs --name clitest --logs '[{"category": "ConnectedClientList","enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]' --event-hub MyEventHubName --event-hub-rule /subscriptions/13c7d7df-f56e-4645-91b5-c08688d518e5/resourceGroups/jeffrey/providers/Microsoft.EventHub/namespaces/jc-eventhub/authorizationrules/RootManageSharedAccessKey --storage-account /subscriptions/13c7d7df-f56e-4645-91b5-c08688d518e5/resourceGroups/jeffrey/providers/Microsoft.Storage/storageAccounts/jceaup
+
+az monitor diagnostic-settings create 
+    --resource /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/Microsoft.Cache/Redis/myname
+    --name clitest 
+    --logs '[{"category": "ConnectedClientList","enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]'    
+    --event-hub MyEventHubName 
+    --event-hub-rule /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/RootManageSharedAccessKey 
+    --storage-account /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/Microsoft.Storage/storageAccounts/myuserspace
+
+
 ```
 <!-- Clean-up the command to remove user data. -->
 
@@ -113,19 +104,14 @@ az monitor diagnostic-settings create --resource /subscriptions/13c7d7df-f56e-46
 
 For clients that connect over private link, their actual IPv4 address is reported in addition to the special encoded private link IPv6 address. Because this is private, the IPv4 address is decoded in proprietary way from the IPv6 address. The IPv4 address is reported in the logs.
 
-This address is exposed because when customers run the `MONITOR` command or `CLIENT LIST` command, they will not see the `ip` value but instead see the `privateLinkIpv6` value. Exposing both helps customer map these addresses in case they need to identify clients.
+This address is exposed because when you run the `MONITOR` command or `CLIENT LIST` command on your Azure Cache for Redis. You do not see the `ip` value but instead see the `privateLinkIpv6` value. Showing both helps you map these addresses in case you need to identify client connections.
 
 ## Runner IP addresses
 
-Customers might notice *runner* IP addresses show up in the logs. Runner IP addresses are used internally by Azure Cache for Redis for adminstrative tasks and are not actual client connections. The *runner* IP addresses should be ignored in your analysis.
+You might notice *runner* IP addresses in the logs. *Runner* IP addresses are used internally by Azure Cache for Redis for administrative tasks.These IP addresses are not actual client connections. The *runner* IP addresses should be ignored in your client analysis.
 
 <!-- See Lavanya/Alfan for these IP -->
 
 ## Next steps
-
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
 
 - For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) article.
