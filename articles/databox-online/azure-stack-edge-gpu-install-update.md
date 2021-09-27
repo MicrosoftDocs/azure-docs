@@ -37,7 +37,10 @@ To apply 2110 update, your device must be running 2106.
 
 Keep in mind that installing an update or hotfix restarts your device. Given that the Azure Stack Edge Pro GPU is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
 
-To install updates on your device, you first need to configure the location of the update server. After the update server is configured, you can apply the updates via the Azure portal UI or the local web UI.
+To install updates on your device, you need to follow these steps:
+
+1. Configure the location of the update server. 
+1. Apply the updates via the Azure portal UI or the local web UI.
 
 Each of these steps is described in the following sections.
 
