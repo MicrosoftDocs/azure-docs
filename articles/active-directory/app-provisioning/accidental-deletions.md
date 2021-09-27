@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Enable accidental deletions prevention in the Azure AD provisioning service
+# Enable accidental deletions prevention in the Azure AD provisioning service (Preview)
 
 The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users are not disabled or deleted in an application unexpectedly. 
 
@@ -21,7 +21,7 @@ The feature lets you specify a deletion threshold, above which an admin
 needs to explicitly choose to allow the deletions to be processed.
 
 > [!NOTE]
-> Until the accidental deletions prevention feature is fully released, you will need to access the Azure portal using this URL: https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningDeleteThreshold=true
+> Accidental deletions are not supported for our Workday / SuccessFactors integrations. It is also not supported for changes in scoping (e.g. changing a scoping filter or changing from "sync all users and groups" to "sync assigned users and groups". Until the accidental deletions prevention feature is fully released, you will need to access the Azure portal using this URL: https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningDeleteThreshold=true 
 
 
 ## Configure accidental deletion prevention
@@ -35,10 +35,15 @@ threshold. Also, be sure the notification email address is completed. If the del
 
 When the deletion threshold is met, the job will go into quarantine and a notification email will be sent. The quarantined job can then be allowed or rejected. To learn more about quarantine behavior, see [Application provisioning in quarantine status](application-provisioning-quarantine-status.md).
 
+## Known limitations
+There are two key limitations to be aware of and are actively working to address:
+- HR-driven provisoning from Workday and SuccessFactors do not support the accidental deletions feature. 
+- Changes to your provisioning configuration (e.g. changing scoping) is not supported by the accidental deletions feature. 
+
 ## Recovering from an accidental deletion
 If you encounter an accidental deletion you will see it on the provisioning status page.  It will say **Provisioning has been quarantined. See quarantine details for more information.**.
 
-You can click either **View provisioning logs** or **Allow deletes**.
+You can click either **Allow deletes** or **View provisioning logs**.
 
 ### Allowing deletions
 
@@ -52,8 +57,8 @@ The **Allow deletes** action will delete the objects that triggered the accident
 
 If you do not want to allow the deletions, you need to do the following:
 - Investigate the source of the deletions. You can use the provisioning logs for details.
-- Fix the issue (example, OU was moved out of scope accidentally and you have now re-added it back to the scope)
-- Run **Restart sync** on the agent configuration
+- Prevent the deletion by assigning the user / group to the app again, restoring the user / group, or updating your provisioning configuration.
+- Once you've made the necessary changes to prevent the user / group from being deleted, restart provisioning. Please do not restart provisioning until you've made the necessary changes to prevent the users / groups from being deleted. 
 
 
 ### Test deletion prevention
@@ -66,9 +71,6 @@ Let the provisioning job run (20 – 40 mins) and navigate back to the provision
 - Block sign in for a user.
 - Unassign a user or group from the application.
 - Remove a user from a group that’s providing them access to the app.
-- Change scope from sync all users and groups to sync assigned users and groups (be 
-careful with sync all, as it means all users in the tenant will be exported into the target 
-application, unless you add more scoping filters).
 
 To learn more about de-provisioning scenarios, see [How Application Provisioning Works](how-provisioning-works.md#de-provisioning).
 
