@@ -10,11 +10,9 @@ ms.topic: reference
 ms.date: 07/20/2021
 ---
 
-# Reference for AS2 message settings in Azure Logic Apps with Enterprise Integration Pack
+# Reference for AS2 message settings in agreements for Azure Logic Apps
 
-This reference describes the properties that you can set for specifying how an AS2 
-agreement handles messages sent and received between trading partners. Set up these 
-properties based on your agreement with the partner that exchanges messages with you.
+This reference describes the properties that you can set in an AS2 agreement for specifying how to handle messages between [trading partners](logic-apps-enterprise-integration-partners.md). Set up these properties based on your agreement with the partner that exchanges messages with you.
 
 <a name="AS2-incoming-messages"></a>
 
