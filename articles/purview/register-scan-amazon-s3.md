@@ -4,7 +4,7 @@ description: This how-to guide describes details of how to scan Amazon S3 bucket
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.custom: references_regions

@@ -4,7 +4,7 @@ description: This how to guide describes details of how to scan Azure Data Explo
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
 ---

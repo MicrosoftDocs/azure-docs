@@ -4,7 +4,7 @@ description: This article explains what Insights are in Azure Purview.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: conceptual
 ms.date: 12/02/2020
 ---

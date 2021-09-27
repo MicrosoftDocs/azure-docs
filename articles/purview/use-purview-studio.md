@@ -4,7 +4,6 @@ description: This article describes how to use Azure Purview Studio.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 09/27/2021
 ---

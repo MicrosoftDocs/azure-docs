@@ -4,7 +4,7 @@ description: Learn about the steps to create and manage credentials in Azure Pur
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
 ---

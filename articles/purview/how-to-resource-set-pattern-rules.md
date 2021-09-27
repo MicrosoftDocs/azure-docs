@@ -4,7 +4,7 @@ description: Learn how to create a resource set pattern rule to overwrite how as
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
 ---

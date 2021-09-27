@@ -4,7 +4,6 @@ description: This article provides best practices for deploying Azure Purview. A
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
 ---

@@ -4,7 +4,7 @@ description: This how-to guide describes how to view and use Purview Insights gl
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
 

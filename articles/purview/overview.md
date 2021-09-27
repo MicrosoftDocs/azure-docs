@@ -4,7 +4,6 @@ description: This article provides an overview of Azure Purview, including its f
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
 ---

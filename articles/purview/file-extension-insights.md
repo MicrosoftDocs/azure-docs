@@ -4,7 +4,7 @@ description: This how-to guide describes how to view and use the Purview file ex
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about the file extensions found in my data.
@@ -25,7 +25,7 @@ In this how-to guide, you'll learn how to:
 > - View file extension insights on your data
 > - Drill down for more file extension details on your data
 
-## Prerequisites 
+## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
 

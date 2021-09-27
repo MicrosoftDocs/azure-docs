@@ -4,7 +4,7 @@ description: This document describes how to apply classifications on assets.
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
 ---

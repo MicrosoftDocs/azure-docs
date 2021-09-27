@@ -4,7 +4,7 @@ description: This article outlines how to register Google BigQuery project in Az
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
 ms.date: 09/27/2021
 ---

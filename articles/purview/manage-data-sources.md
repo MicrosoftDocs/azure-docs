@@ -4,7 +4,7 @@ description: Learn how to register new data sources, manage collections of data 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
 ---

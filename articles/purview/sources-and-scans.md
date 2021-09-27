@@ -4,7 +4,7 @@ description: This article provides conceptual details about supported data sourc
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 09/27/2021
 ms.custom: references_regions 
