@@ -13,7 +13,7 @@ In the context of a video management system for CCTV cameras, video recording re
 
 ## Continuous video recording
 
-Continuous video recording (CVR) refers to the process of continuously recording all the video being captured from a video source. CVR ensures that the desired duration of video is available (dictated by the **[recording policy](#recording-policy))** to analyze and/or audit at a later point in time.
+Continuous video recording (CVR) refers to the process of continuously recording all the video being captured from a video source. CVR ensures that the desired duration of video is available (dictated by the **[retention policy](#retention-policy))** to analyze and/or audit at a later point in time.
 
 
 ## Event-based video recording
@@ -24,9 +24,9 @@ Event-based video recording (EVR) refers to the process of recording video trigg
 
 The choice of whether to use CVR or EVR depends on the business goals. Azure Video Analyzer (AVA) provides platform capabilities for both CVR and EVR. You can learn more about it in the **[CVR](continuous-video-recording.md)** and **[EVR](event-based-video-recording-concept.md)** scenario articles.
 
-## Recording policy
+## Retention policy
 
-Recording policy refers to the policies that dictate the length or duration of the video recording that is retained. Recording policies enable you to balance storage cost with business requirements. For CVR, recording policy defines how many days of video should be stored (for example, the last 7 days). You can learn more about it in the **[CVR](continuous-video-recording.md)** scenario article.
+Retention policy refers to the policies that dictate the length or duration of the video recording that is retained. Retention policies enable you to balance storage cost with business requirements. For CVR scenario, retention policy defines how many days of video should be stored (for example, the last 7 days). You can learn more about it in the **[Manage retention policy](manage-retention-policy.md)** article.
 
 ## Next steps
 
