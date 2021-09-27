@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 09/27/2021
 ---
 
 # Deploy the metadata extraction ABAP function module for the SAP R3 family of bridges

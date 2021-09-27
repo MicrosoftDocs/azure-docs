@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ---
 # How to get lineage from Azure Synapse Analytics into Azure Purview
 

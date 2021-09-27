@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
-ms.date: 2/25/2021
+ms.date: 09/27/2021
 ---
 # Register and scan Teradata source
 

@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/24/2021
+ms.date: 09/27/2021
 ---
 
 # Create resource set pattern rules

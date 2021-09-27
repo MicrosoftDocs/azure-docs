@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/25/2020
+ms.date: 09/27/2021
 ---
 
 # Manage data sources in Azure Purview

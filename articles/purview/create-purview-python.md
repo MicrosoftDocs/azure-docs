@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/10/2021
+ms.date: 09/27/2021
 ---
 
 # Quickstart: Create a Purview account using Python

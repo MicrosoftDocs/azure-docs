@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 09/27/2021
 ---
 # Labeling in Azure Purview
 

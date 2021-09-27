@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -63,7 +63,7 @@ Follow the steps below to connect an existing data factory to your Purview accou
 
 ### How authentication works
 
-Data factory's managed identity is used to authenticate lineage push operations from data factory to Purview. When connecting data factory to Purview on UI, it adds the role assignment automatically. 
+Data factory's managed identity is used to authenticate lineage push operations from data factory to Purview. When connecting data factory to Purview on UI, it adds the role assignment automatically.
 
 - For Purview account created **on or after August 18, 2021**, grant the data factory's managed identity **Data Curator** role on Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 

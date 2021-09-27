@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/20/2020
+ms.date: 09/27/2021
 ---
 
 # Scan insights on your data in Azure Purview

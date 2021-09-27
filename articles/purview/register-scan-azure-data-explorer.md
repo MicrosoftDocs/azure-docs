@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/08/2021
+ms.date: 09/27/2021
 ---
 # Register and scan Azure Data Explorer
 

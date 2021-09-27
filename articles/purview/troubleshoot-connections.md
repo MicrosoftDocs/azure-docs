@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 09/27/2021
 ---
 # Troubleshoot your connections in Azure Purview
 
