@@ -47,7 +47,7 @@ OCR for print text includes support for English, French, German, Italian, Portug
 
 OCR for handwritten text includes support for English, and preview of French, German, Italian, Portuguese, Spanish, and Chinese langauges.
 
-See [How to speciy the model version](./Vision-API-How-to-Topics/call-read-api.md#specify-the-ocr-model-optional) to use the preview languages and refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). The preview model includes any enhancements to the currently GA languages.
+See [How to speciy the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). The preview model includes any enhancements to the currently GA languages.
 
 ## Key features
 
