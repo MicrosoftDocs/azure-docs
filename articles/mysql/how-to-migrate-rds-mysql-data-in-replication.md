@@ -15,11 +15,11 @@ ms.date: 09/24/2021
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-You can use methods such as MySQL dump and restore, MySQL Workbench Export/Import, or Azure Database Migration Service to migrate your MySQL databases to Azure Database for MySQL. By using a combination of open-source tools such as MySQL dump and restore or mydumper/myloader with Data-in Replication, you can migrate your workloads with minimum downtime.
+You can use methods such as MySQL dump and restore, MySQL Workbench Export and Import, or Azure Database Migration Service to migrate your MySQL databases to Azure Database for MySQL. By using a combination of open-source tools such as MySQL dump and restore or mydumper and myloader with Data-in Replication, you can migrate your workloads with minimum downtime.
 
-Data-in Replication is a technique that replicates data changes from the source server to the destination server based on the binary log file position method. In this scenario, the MySQL instance operating as the source (on which the database changes originate) writes updates and changes as "events" to the binary log. The information in the binary log is stored in different logging formats according to the database changes being recorded. Replicas are configured to read the binary log from the source and to execute the events in the binary log on the replica's local database.
+Data-in Replication is a technique that replicates data changes from the source server to the destination server based on the binary log file position method. In this scenario, the MySQL instance operating as the source (on which the database changes originate) writes updates and changes as *events* to the binary log. The information in the binary log is stored in different logging formats according to the database changes being recorded. Replicas are configured to read the binary log from the source and execute the events in the binary log on the replica's local database.
 
-If you set up [Data-in Replication](/azure/mysql/flexible-server/concepts-data-in-replication) to synchronize data from a source MySQL server to a target MySQL server, you can do a selective cutover of your applications from the primary (or source database) to the replica (or target database).
+If you set up [Data-in Replication](../mysql/flexible-server/concepts-data-in-replication.md) to synchronize data from a source MySQL server to a target MySQL server, you can do a selective cutover of your applications from the primary (or source database) to the replica (or target database).
 
 In this tutorial, you'll learn how to set up Data-in Replication between a source server running Amazon Relational Database Service (RDS) for MySQL and a target server running Azure Database for MySQL.
 
@@ -40,15 +40,15 @@ In the preceding case, you can move dump files between client machines by using 
 No matter where the client computer is located, it requires adequate compute, I/O, and network capacity to perform the requested operations. The general recommendations are:
 
 - If the dump or restore involves real-time processing of data, for example, compression or decompression, choose an instance class with at least one CPU core per dump or restore thread.
-- Ensure there's enough network bandwidth available to the client instance. Use instance types that support the accelerated networking feature. For more information, see the "Accelerated Networking" section in the [Azure Virtual Machine Networking Guide](/azure/virtual-network/create-vm-accelerated-networking-cli).
+- Ensure there's enough network bandwidth available to the client instance. Use instance types that support the accelerated networking feature. For more information, see the "Accelerated Networking" section in the [Azure Virtual Machine Networking Guide](../virtual-network/create-vm-accelerated-networking-cli.md).
 - Ensure that the client machine's storage layer provides the expected read/write capacity. We recommend that you use an Azure virtual machine with Premium SSD storage.
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-- Install the [mysqlclient](https://dev.mysql.com/downloads/) on your client computer to create a dump and perform a restore operation on your target Azure Database for MySQL server.
-- For larger databases, install [mydumper/myloader](https://centminmod.com/mydumper.html) for parallel dumping and restoring of databases.
+- Install the [mysqlclient](https://dev.mysql.com/downloads/) on your client computer to create a dump, and perform a restore operation on your target Azure Database for MySQL server.
+- For larger databases, install [mydumper and myloader](https://centminmod.com/mydumper.html) for parallel dumping and restoring of databases.
 
     > [!NOTE]
     > Mydumper can only run on Linux distributions. For more information, see [How to install mydumper](https://github.com/maxbube/mydumper#how-to-install-mydumpermyloader).
@@ -77,7 +77,7 @@ Finally, to prepare for Data-in Replication:
 
 - Verify that the target Azure Database for MySQL server can connect to the source Amazon RDS for MySQL server over port 3306.
 - Ensure that the source Amazon RDS for MySQL server allows both inbound and outbound traffic on port 3306.
-- Make sure you provide [site-to-site connectivity](/azure/vpn-gateway/tutorial-site-to-site-portal) to your source server by using either [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a virtual network, see the [Azure Virtual Network documentation](/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+- Make sure you provide [site-to-site connectivity](../vpn-gateway/tutorial-site-to-site-portal.md) to your source server by using either [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Azure Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/). Also see the quickstart articles with step-by-step details.
 - Configure your source database server's network security groups to allow the target Azure Database for MySQL's server IP address.
 
 > [!IMPORTANT]
@@ -96,11 +96,11 @@ To configure the target instance of Azure Database for MySQL, which is the targe
 1. Scale up the storage size to get more IOPS during the migration or increase the maximum IOPS for the migration.
 
    > [!NOTE]
-   > Available maximum IOPS are determined by compute size. For more information, see the IOPS section in [Compute and storage options in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-compute-storage#iops).
+   > Available maximum IOPS are determined by compute size. For more information, see the IOPS section in [Compute and storage options in Azure Database for MySQL - Flexible Server](../mysql/flexible-server/concepts-compute-storage#iops).
 
 ## Configure the source Amazon RDS for MySQL server
 
-To prepare and configure the MySQL server hosted in Amazon RDS, which is the "source" for Data-in Replication:
+To prepare and configure the MySQL server hosted in Amazon RDS, which is the *source* for Data-in Replication:
 
 1. Confirm that binary logging is enabled on the source Amazon RDS for MySQL server. Check that automated backups are enabled, or ensure that a read replica exists for the source Amazon RDS for MySQL server.
 
@@ -167,7 +167,7 @@ There are two ways to capture a dump of data from the source Amazon RDS for MySQ
         ```
 
     > [!NOTE]
-    > You can also use mydumper for taking a parallelized dump of your data from your source Amazon RDS for MySQL database. For more information, see [Migrating a large database to Azure Database for MySQL using mydumper/myloader](/azure/mysql/concepts-migrate-mydumper-myloader).
+    > You can also use mydumper for capturing a parallelized dump of your data from your source Amazon RDS for MySQL database. For more information, see [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../mysql/concepts-migrate-mydumper-myloader.md).
 
 ## Link source and replica servers to start Data-in Replication
 
@@ -178,7 +178,7 @@ There are two ways to capture a dump of data from the source Amazon RDS for MySQ
     ```
 
    > [!NOTE]
-   > If you're instead using myloader, see [Migrating a large database to Azure Database for MySQL using mydumper/myloader](/azure/mysql/concepts-migrate-mydumper-myloader).
+   > If you're instead using myloader, see [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../mysql/concepts-migrate-mydumper-myloader.md).
 
 1. Sign in to the source Amazon RDS for MySQL server, and set up a replication user. Then grant the necessary privileges to this user.
 
@@ -198,7 +198,7 @@ There are two ways to capture a dump of data from the source Amazon RDS for MySQ
         Mysql> SHOW GRANTS FOR syncuser@'%';
         ```
 
-    All Data-in Replication functions are done by stored procedures. For information about all procedures, see [Data-in Replication stored procedures](/azure/mysql/reference-stored-procedures#data-in-replication-stored-procedures). You can run these stored procedures in the MySQL shell or MySQL Workbench.
+    All Data-in Replication functions are done by stored procedures. For information about all procedures, see [Data-in Replication stored procedures](../mysql/reference-stored-procedures#data-in-replication-stored-procedures). You can run these stored procedures in the MySQL shell or MySQL Workbench.
 
 1. To link the Amazon RDS for MySQL source server and the Azure Database for MySQL target server, sign in to the target Azure Database for MySQL server. Set the Amazon RDS for MySQL server as the source server by running the following command:
 
