@@ -94,7 +94,7 @@ For more information, see [License requirements](entitlement-management-overview
 4. You can also configure **Access Reviews** which allows periodic checks of whether the user still needs access to the access package. A review can be a self-review performed by the user or you can set their manager, or another specific reviewer for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md). For this scenario, you will want each user to review whether they still need a license for Office each year.
 
     1.	Set **Require access reviews** to **Yes**.
-    2.	You can leave the **Starting on** to the current date - This date is when the access review campaign will start. Once an access review has been created, you can't update its start date.
+    2.	You can leave the **Starting on** to the current date. The starting on date is when the access review campaign will start. Once an access review has been created, you can't update its start date.
     3.	Set **Review frequency** to be **Annually** - This field determines how often the access review campaign runs.
     4.	Specify a **Duration (in days)** - This field is how many days each occurrence of the access review series will run.
     5.	For the **Reviewers**, select **Manager**.
