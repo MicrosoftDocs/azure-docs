@@ -28,7 +28,7 @@ items:
       href: tutorial-data-sources-readiness.md
     - name: Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Onboard an on-prem SQL server
+  - name: Onboard an on-prem SQL Server
     href: tutorial-register-scan-on-premises-sql-server.md
   - name: Use REST APIs for Purview data planes
     href: tutorial-using-rest-apis.md
@@ -127,7 +127,7 @@ items:
       href: register-scan-hive-metastore-source.md
     - name: Looker
       href: register-scan-looker-source.md
-    - name: On-premises SQL server
+    - name: On-premises SQL Server
       href: register-scan-on-premises-sql-server.md
     - name: Oracle
       href: register-scan-oracle-source.md

@@ -1,12 +1,12 @@
 ---
-title: Register and scan an on-premises SQL server.
+title: 'Tutorial: Register and scan an on-premises SQL Server'
 description: This tutorial describes how to register an on-prem SQL Server to Purview, and scan the server using a self-hosted IR. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 09/16/2021
+ms.date: 09/27/2021
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -123,16 +123,6 @@ There is only one way to set up authentication for SQL server on-premises:
 
 The SQL account must have access to the **master** database. This is because the `sys.databases` is in the database. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
-#### Use an existing server administrator
-
-If you plan to use an existing server admin (sa) user to scan your on-premises SQL server, ensure the following:
-
-1. `sa` isn't a Windows authentication account.
-
-1. The server level login that you're planning to use must have server roles of public and sysadmin. You can verify this by connecting to the server, navigating to SQL Server Management Studio (SSMS), navigating to security, selecting the login you're planning to use, select and hold (or right-click) **Properties** and then selecting **Server roles**.
-
-   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/server-level-login.png" alt-text="Server level login.":::
-
 #### Create a new login and user
 
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
@@ -147,8 +137,6 @@ If you would like to create a new login and user to be able to scan your SQL ser
 1. Select Server roles on the left navigation and ensure that public role is assigned.
 
 1. Select User mapping on the left navigation, select all the databases in the map and select the Database role: **db_datareader**.
-
-   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/user-mapping.png" alt-text="user mapping.":::
 
 1. Select **OK** to save.
 
@@ -230,8 +218,6 @@ To create and run a new scan, do the following:
 1. Select **New scan**
 
 1. Select the credential to connect to your data source.
-
-   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="Set up scan":::
 
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 
