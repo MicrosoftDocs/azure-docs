@@ -37,7 +37,7 @@ The Chaos Agent uses a [user-assigned managed identity](../active-directory/mana
 
 5. Copy the **Client ID** of the identity and save it for a later step.
 
-    ![Managed identity client ID](images/create-exp-agent-msi-portal-clientid.png)
+    ![Managed identity client ID](images/create-exp-agent-msi-portal-client-id.png)
 
 6. Navigate to the VM or virtual machine scale set you want to onboard and click **Identity** in the table of contents. Switch to the **User assigned** tab and press the **Add** button. Search for the identity you created in Step 1 and add it to the VM/virtual machine scale set.
 
@@ -199,18 +199,18 @@ The Azure portal is the easiest way to create and manage experiments. Follow the
 
 5. You are now in the Experiment Designer. By default, you see one step with one branch and no actions. Steps execute sequentially, branches execute in parallel within a step, and actions execute sequentially within a branch. The next step only begins once all actions in all branches in the previous step complete and actions within a branch only starts once the previous action has completed. Optionally, give your step and branch friendly names, then click **Add fault** to add a fault to your first branch.
 
-    ![Experiment designer](images/create-exp-service-addfault.png)
+    ![Experiment designer](images/create-exp-service-add-fault.png)
 
 6. In the page that appears, select the **CPU Pressure** fault from the fault dropdown and fill in the **Duration** and **Pressure Level** properties as appropriate for your environment. Descriptions and parameters for each fault are available in the [Fault Library](chaos-studio-fault-library.md). Click **Next : Target resources**.
 
-    ![Define fault parameters](images/create-exp-agent-addfault-details.png)
+    ![Define fault parameters](images/create-exp-agent-add-fault-details.png)
 
 > [!WARNING]
 > The Experiment Designer may not have all faults available in the [Fault Library](chaos-studio-fault-library.md). If your experiment uses faults not available in Experiment Designer, use the [REST API](https://aka.ms/chaosrestapi) to edit your experiment.
 
 7. Pick the resources that the fault will target. Only resources that have been onboarded to Chaos Studio (those that have a provider configuration for their resource type and an agent installed) and only resource types for which the fault is applicable appear in the list. Select the VM(s) you would like to target and click **Add**.
 
-    ![Select targets](images/create-exp-agent-addfault-targets.png)
+    ![Select targets](images/create-exp-agent-add-fault-targets.png)
 
 8. Continue to add steps, branches, and faults. When done click **Review + Create**.
 
@@ -230,7 +230,7 @@ The Azure portal is the easiest way to create and manage experiments. Follow the
 
 12. Under **Role** select the [appropriate role for the resource type](chaos-studio-fault-providers.md) and under **Select** search for the name of your experiment. When you create an experiment Chaos Studio creates a system-assigned managed identity for the experiment with the same name. This identity is used to inject faults against your resources. If an identity already exists with the experiment name, Chaos Studio truncates the experiment name and adds random characters to it. Select the identity for your experiment and click **Save**. Repeat this process for any resources targeted by your experiment.
 
-    ![Add role assignment final view](images/create-exp-agent-addrole.png)
+    ![Add role assignment final view](images/create-exp-agent-add-role.png)
 
 Congratulations! You've created your first chaos experiment and set up resources for fault injection!
 

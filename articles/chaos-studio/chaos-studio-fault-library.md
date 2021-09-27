@@ -75,8 +75,8 @@ The following faults are available for use today. Visit the [Fault Providers](./
 
 > [!NOTE]
 > There are two known issues on Linux:
-> 1. Stress effect may not be terminated correctly if AzureChaosAgent is unexpectedly killed.
-> 2. Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
+> * Stress effect may not be terminated correctly if AzureChaosAgent is unexpectedly killed.
+> * Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
 
 ## Physical memory pressure
 
