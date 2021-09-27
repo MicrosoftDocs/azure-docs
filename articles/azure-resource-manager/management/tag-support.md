@@ -244,12 +244,12 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | advisorScore | No | No |
-> | configurations | No | No |
-> | generateRecommendations | No | No |
-> | metadata | No | No |
-> | recommendations | No | No |
-> | suppressions | No | No |
+> | advisorScore | No | N/A |
+> | configurations | No | N/A |
+> | generateRecommendations | No | N/A |
+> | metadata | No | N/A |
+> | recommendations | No | N/A |
+> | suppressions | No | N/A |
 
 ## Microsoft.AgFoodPlatform
 
