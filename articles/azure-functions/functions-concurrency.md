@@ -9,7 +9,7 @@ ms.author: cachai
 
 # Concurrency in Azure Functions
 
-This article provides an overview of the existing [static concurrency](/functions-concurrency#static-concurrency) model in Azure Functions as well as the new [dynamic concurrency](./functions-concurrency#dynamic-concurrency) model in preview. 
+This article provides an overview of the existing [static concurrency](./functions-concurrency.md#static-concurrency) model in Azure Functions as well as the new [dynamic concurrency](./functions-concurrency.md#dynamic-concurrency-preview) model in preview. 
 
 The hosting model for Azure Functions allows multiple function invocations to run concurrently on a single compute instance. For example, if you have 3 different functions in your function app, each function will be processing invocations on each instance your app is scaled to. The function invocations on a single instance will therefore be sharing the same VM compute resources like memory, CPU, etc. If you're in one of our Dynamic SKUs, the platform will scale the number of these instances up or down based on load (see [Event Driven Scaling](./Event-Driven-Scaling.md)). If you're in an App Service plan, you choose the number of instances your app will run on. 
 
