@@ -60,7 +60,7 @@ To deploy the file you've created, open PowerShell or Azure CLI. If you want to 
 # [CLI](#tab/CLI)
 
 ```azurecli
-az group create --name exampleRG --location eastus
+az group create --name exampleRG --location centralus
 
 az deployment group create --resource-group exampleRG --template-file main.bicep --parameters acrName={your-unique-name}
 ```
@@ -68,7 +68,7 @@ az deployment group create --resource-group exampleRG --template-file main.bicep
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
-New-AzResourceGroup -Name exampleRG -Location eastus
+New-AzResourceGroup -Name exampleRG -Location centralus
 
 New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -acrName "{your-unique-name}"
 ```
