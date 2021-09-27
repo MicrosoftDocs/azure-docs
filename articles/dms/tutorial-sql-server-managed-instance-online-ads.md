@@ -16,7 +16,7 @@ ms.date: 09/24/2021
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS (Preview)
 
-Use the Azure SQL Migration extension in Azure Data Studio to migrate database(s) from a SQL Server instance to an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) with minimal downtime. For different methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
+Use the Azure SQL Migration extension in Azure Data Studio to migrate database(s) from a SQL Server instance to an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) with minimal downtime. For methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 In this tutorial, you migrate the **Adventureworks** database from an on-premises instance of SQL Server to Azure SQL Managed Instance with minimal downtime by using Azure Data Studio with Azure Database Migration Service (DMS).
 
