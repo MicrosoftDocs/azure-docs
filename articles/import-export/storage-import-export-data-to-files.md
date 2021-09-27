@@ -40,7 +40,7 @@ This step generates a journal file. The journal file stores basic information su
 
 Do the following steps to prepare the drives.
 
-1. Connect our disk drives to the Windows system via SATA connectors.
+1. Connect your disk drives to the Windows system via SATA connectors.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 3. Modify the *dataset.csv* file in the root folder where the tool is. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.
 

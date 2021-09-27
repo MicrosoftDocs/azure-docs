@@ -145,6 +145,9 @@ Debian 10 | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-fo
 Debian 10 | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.19.0-5-amd64 to 4.19.0-14-amd64 </br> 4.19.0-6-cloud-amd64 to 4.19.0-14-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
 Debian 10 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.19.0-5-amd64 to 4.19.0-13-amd64 </br> 4.19.0-6-cloud-amd64 to 4.19.0-13-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
 
+>[!NOTE]
+> The kernel 4.19.0-5-amd64 of Debian 10 operating system is not supported for Preview architecture.
+
 ### SUSE Linux Enterprise Server 12 supported kernel versions
 
 **Release** | **Mobility service version** | **Kernel version** |
