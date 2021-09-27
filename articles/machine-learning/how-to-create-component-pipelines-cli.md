@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Create and run machine learning pipelines using components with the Azure Machine Learning CLI (Preview)
 
-In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and Components {>>TODO<<}. You can create pipelines without using components (for more, see TODO), but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
+In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure CLI and Components (for more, see [What is an Azure Machine Learning component?](concept-component.md)). You can create pipelines without using components, but components offer the greatest amount of flexibility and reuse. AzureML Pipelines may be defined in YAML and run from the CLI, authored in Python, or composed in AzureML Studio Designer with a drag-and-drop UI. This document focuses on the CLI.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -83,18 +83,18 @@ Open `ComponentA.yaml` to see how the first component is defined:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
 
-In the current preview, only components of type `command_component` are supported {>> TODO Is this now `command`? <<}. The `name` and `display_name` values are the unique identifier and the name used in Studio to describe the component. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
+In the current preview, only components of type `command` are supported. The `name` and `display_name` values are the unique identifier and the name used in Studio to describe the component. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
 
 All files in the `code.local_path` value will be uploaded to Azure for processing. 
 
-The `environment` section allows you to specify the software environment in which the component runs. In this case, the component uses a base Docker image, as specified in `environment.docker.image`. For more, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md). 
+The `environment` section allows you to specify the software environment in which the component runs. In this case, the component uses a base Docker image, as specified in `environment.image`. For more, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md). 
 
 Finally, the `command` key is used to specify the command to be run.
 
 > [!NOTE]
 > The value of `command` begin with `>-` which is YAML "folding style with block-chomping." This allows you to write your command over multiple lines of text for clarity.
 
-For more information on components and their specification, see "What is an Azure Machine Learning component (preview)?".
+For more information on components and their specification, see [What is an Azure Machine Learning component?](concept-component.md).
 
 ### Review the pipeline specification
 
@@ -121,8 +121,9 @@ You define input data directories for your pipeline in the pipeline YAML file us
 :::image type="content" source="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png" alt-text="Image showing how the inputs and outputs paths map to the jobs inputs and outputs paths" lightbox="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png":::
 
 1. The `inputs.pipeline_sample_input_data` path creates a key identifier and uploads the input data from the `local_path` directory. This key `inputs.pipeline_sample_input_data` is then used as the value of the `jobs.componentA_job.inputs.componentA_input` key. 
-1. The `outputs.pipeline_sample_output_data_A` path creates a key identifier and specifies that this output data should be stored in the default workspace blobstore, at the `simple_pipeline_A` path. This key `outputs.pipeline_sample_output_data_A` is then used as the value of the `jobs.componentA_job.outputs.componentA_output` key. 
-1. The `jobs.componentA_job.outputs.componentA_output` path is a key identifier that is used as the value for the subsequent step's `jobs.componentB_job.inputs.componentB_input` key. Similarly, the output of Component B is used as the input to Component C.
+1. The `jobs.componentA_job.outputs.componentA_output` path is a key identifier that is used as the value for the subsequent step's `jobs.componentB_job.inputs.componentB_input` key. 
+1. As with Component A, the output of Component B is used as the input to Component C.
+1. The pipeline's `outputs.final_pipeline_output` is the value for the `jobs.componentC_job.outputs.componentC_output` key. In other words, Component C's output is the pipeline's final output.
 
 Studio's visualization of this pipeline looks like this: 
 
@@ -164,7 +165,7 @@ One of the common scenarios for machine learning pipelines has three major phase
 
 Each of these phases may have multiple components. For instance, the data preparation step may have separate steps for loading and transforming the training data. The examples repository contains an end-to-end example pipeline in the `cli/jobs/pipelines-with-components/nyc_taxi_data_regression` directory. 
 
-The `pipeline.yml` begins with the `name` of the job and the mandatory `type: pipeline_job` key-value pair {>> TODO Nope <<}. Then, it defines inputs and outputs as follows:
+The `job.yml` begins with the mandatory `type: pipeline_job` key-value pair. Then, it defines inputs and outputs as follows:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" ID="inputs_and_outputs":::
 
@@ -185,5 +186,5 @@ By default, only those components whose inputs have changed are rerun. You can c
 - To share your pipeline with colleagues or customers, see [Publish machine learning pipelines](how-to-deploy-pipelines.md)
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further
 - See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package
-- See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines=
+- See [Troubleshooting machine learning pipelines](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines
 - Learn how to run notebooks by following the article [Use Jupyter notebooks to explore this service](samples-notebooks.md).
