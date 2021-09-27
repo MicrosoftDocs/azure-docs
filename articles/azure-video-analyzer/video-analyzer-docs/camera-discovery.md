@@ -237,7 +237,6 @@ This direct method helps you retrieve detailed information about a specific ONVI
     | 200    | Success  | The direct method call completed successfully.               |
     | 403    | Forbidden | The direct method call could not successfully retrieve the requested information from the ONVIF device due to a authentication failure.  Check to ensure that the username and / or password in the message body was correct. |
     | 504    | Timeout  | The direct method call expired before the response of the ONVIF device was received. |
-    | 502    | Error    | If an error occurred that was known.                          |
     | 500    | Error    | If an error occurred that is unknown.                         |
 
 
