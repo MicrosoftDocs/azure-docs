@@ -99,7 +99,7 @@ For more information on configuring a private endpoint for your workspace, see [
 
 Azure Machine Learning supports storage accounts configured to use either a private endpoint or service endpoint. 
 
-# [Private endpoint](#pe)
+# [Private endpoint](#tab/pe)
 
 > [!TIP]
 > You must configure two private endpoints for your default storage account:
@@ -117,7 +117,7 @@ For more information, see [Use private endpoints for Azure Storage](../storage/c
 > [!TIP]
 > When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
-# [Service endpoint](#se)
+# [Service endpoint](#tab/se)
 
 1. In the Azure portal, select the Azure Storage Account.
 
@@ -156,12 +156,12 @@ Azure key vault can be configured to use either a private endpoint or service en
 > [!TIP]
 > Regardless of whether you use a private endpoint or service endpoint, the key vault must be in the same network as the private endpoint of the workspace.
 
-# [Private endpoint](#pe)
+# [Private endpoint](#tab/pe)
 
 For information on using a private endpoint with Azure Key Vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
 
 
-# [Service endpoint](#se)
+# [Service endpoint](#tab/se)
 
 1. Go to the Key Vault that's associated with the workspace.
 
