@@ -220,23 +220,22 @@ Model-agnostic hyperparameters</b>
 | checkpoint_frequency | Frequency to store model checkpoints.<br>By default, we save checkpoint at the<br>epoch which has the best primary metric<br>on validation <br> `Optional, Positive Integer` | no default value <br> (checkpoint at epoch <br>with best primary metric)  |
 | layers_to_freeze | How many layers to freeze for your model. <br> For instance, passing 2 <br>as value for seresnext means freezing layer0 <br>and layer1. <br> `Optional, Positive Integer` | no default value |
 
-<br>
-<b>Task-specific hyperparameters</b>
-<br>
-<br>
-<b> For Image Classification (Multi-class and Multi-label):</b>
+Task-specific hyperparameters
+
+For Image Classification (Multi-class and Multi-label)
 
 | Parameter Name       | Description           | Default  |
-| ------------- |-------------| -----|
+| ------------- |-------------|-----|
 | weighted_loss | 0 for no weighted loss<br>1 for weighted loss with sqrt(class_weights),<br>and 2 for weighted loss with class_weights <br> `Optional, 0 or 1 or 2` | 0 |
 | resize_size | Image size to which to resize before cropping for validation dataset <br> *Note: unlike others, seresnext doesn't take an arbitrary size <br> Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 256  |
 | crop_size | Image crop size which is input to your neural network <br> *Note: unlike others, seresnext doesn't take an arbitrary size <br> Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 224 |
 
 
-<b>For Object Detection (except yolov5) and Instance Segmentation: </b>
+For Object Detection (except yolov5) and Instance Segmentation:
+
 
 | Parameter Name       | Description           | Default  |
-| ------------- |-------------| -----|
+| ------------- |-------------|-----|
 | validation_metric_type | Metric computation method to use for validation metrics  <br> `Optional, one of {none, coco, voc, coco_voc}` | voc |
 | min_size | Minimum size of the image to be rescaled before feeding it to the backbone <br> *Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 600 |
 | max_size | Maximum size of the image to be rescaled before feeding it to the backbone <br> *Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 1333 |
@@ -250,14 +249,14 @@ Model-specific hyperparameters
 For yolov5:
 
 | Parameter Name       | Description           | Default  |
-| ------------- |-------------| -----|
+| ------------- |-------------|----|
 | validation_metric_type | Metric computation method to use for validation metrics  <br> `Optional, one of {none, coco, voc, coco_voc}` | voc |
 | img_size | Image size for train and validation <br> *Note: training run may get into CUDA OOM if the size is too big* <br> `Optional, Positive Integer` | 640 |
 | model_size | Model size <br> *Note: training run may get into CUDA OOM if the model size is too big* <br> `Optional, one of {small, medium, large, xlarge}` | medium |
 | multi_scale | Enable multi-scale image by varying image size by +/- 50% <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory* <br> `Optional, 0 or 1` | 0 |
 | box_score_thresh | During inference, only return proposals with a score<br> greater than box_score_thresh. The score is the multiplication of<br> the objectness score and classification probability <br> `Optional, float in [0, 1]` | 0.1 |
 | box_iou_thresh | IoU threshold used during inference in nms post processing <br> `Optional, float in [0, 1]` | 0.5 |
-<br>
+
 
 ## Configure your experiment settings
 
