@@ -26,7 +26,7 @@ This guide outlines the steps to create and manage a Job Router queue.
 
 ## Create a queue
 
-To create a simple queue in Job Router, use the SDK to specify the **id**, **name**, and a **distribution policy ID**. The distribution policy must be created in advance as the Job Router will validate its existence upon creation of the queue. In the following example, a distribution policy is created to control how Job offers are generated for Workers.
+To create a simple queue in Job Router, use the SDK to specify the **queue ID**, **name**, and a **distribution policy ID**. The distribution policy must be created in advance as the Job Router will validate its existence upon creation of the queue. In the following example, a distribution policy is created to control how Job offers are generated for Workers.
 
 ```csharp
 var distributionPolicy = await client.SetDistributionPolicyAsync(
@@ -46,7 +46,7 @@ var queue = client.SetQueueAsync(
 ```
 ## Update a queue
 
-The Job Router SDK will perform a create or update to the queue 
+The Job Router SDK will create a new queue or update an existing queue when the `SetQueue` or `SetQueueAsync` method is called.
 
 ```csharp
 var queue = client.SetQueueAsync(
@@ -56,5 +56,13 @@ var queue = client.SetQueueAsync(
 );
 ```
 
-## Get jobs in a queue
+## Delete a queue
 
+To delete a queue using the Job Router SDK call the `DeleteQueue` or `DeleteQueueAsync` method passing the queue **ID**.
+
+```csharp
+var result = client.DeleteQueueAsync("XBOX_DEFAULT_QUEUE");
+```
+
+> [!NOTE]
+> To delete a queue you must make sure there are no active jobs assigned to it. Additionally, make sure there are no references to the queue in any classification policies or rules that use an expression to select the queue by ID using a string value.
