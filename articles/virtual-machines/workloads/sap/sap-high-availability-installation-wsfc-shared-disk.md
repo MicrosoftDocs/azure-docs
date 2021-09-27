@@ -390,7 +390,8 @@ To add a probe port run this PowerShell Module on one of the cluster VMs:
 ### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Open the Windows firewall probe port
 
 Open a Windows firewall probe port on both cluster nodes. Use the following script to open a Windows firewall probe port. Update the PowerShell variables for your environment.  
-If using ERS2, you will also need to open the firewall port for the ERS2 probe port.  
+If using 
+2, you will also need to open the firewall port for the ERS2 probe port.  
 
   ```powershell
     $ProbePort = 62000   # ProbePort of the Azure internal load balancer
