@@ -133,6 +133,8 @@ To access the Agreements page:
 
 ## Set up a payout profile
 
+To have a transactable offer in Azure Marketplace, a Tax profile and Payment profile must be submitted and validated in Partner Center.  A Tax profile needs to be submitted first before a Payout profile can be created. A Tax profile submission can take up to 48 hours to validate.
+
 A payout profile is the bank account to which proceeds are sent from your sales. This bank account must be in the same country or region where you registered your Partner Center account. For more information about a payout profile, see [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account).
 
 ### To set up your payout profile
