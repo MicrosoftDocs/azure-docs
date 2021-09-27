@@ -18,18 +18,24 @@ This article describes the steps required to install update on your Azure Stack 
 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
-> [!IMPORTANT]
-> - Update **2109** is the current update and corresponds to:
->   - Device software version - **2.2.1726.3923**
->   - Kubernetes server version - **v1.20.9**
->   - IoT Edge version: **0.1.0-beta15**
->   - GPU driver version: **460.32.03**
->   - CUDA version: **11.2**
->    
->    For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2110-release-notes.md).
-> - To apply 2110 update, your device must be running 2106. If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. You can update to 2106 from an older version and then install 2110.
-> - This update installs two updates, the device update followed by Kubernetes updates.
-> - Keep in mind that installing an update or hotfix restarts your device. This update contains the device software updates and the Kubernetes updates. Given that the Azure Stack Edge Pro GPU is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
+## About latest update
+
+The current update is Update 2109. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
+
+- Device software version - **2.2.1726.3923**
+- Kubernetes server version - **v1.20.9**
+- IoT Edge version: **0.1.0-beta15**
+- GPU driver version: **460.32.03**
+- CUDA version: **11.2**
+
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2110-release-notes.md).
+
+To apply 2110 update, your device must be running 2106. 
+
+- If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. 
+- You can update to 2106 from an older version and then install 2110.
+
+Keep in mind that installing an update or hotfix restarts your device. Given that the Azure Stack Edge Pro GPU is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
 
 To install updates on your device, you first need to configure the location of the update server. After the update server is configured, you can apply the updates via the Azure portal UI or the local web UI.
 
