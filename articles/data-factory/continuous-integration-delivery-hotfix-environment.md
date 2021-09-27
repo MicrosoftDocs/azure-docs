@@ -17,26 +17,31 @@ ms.custom: devx-track-azurepowershell
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
+## Steps to deploy a hotfix
+
+Use the following steps to deploy a hotfix in your production and test environments.
+
 1.    In Azure DevOps, go to the release that was deployed to production. Find the last commit that was deployed.
 
-2.    From the commit message, get the commit ID of the collaboration branch.
+1.    From the commit message, get the commit ID of the collaboration branch.
 
-3.    Create a new hotfix branch from that commit.
+1.    Create a new hotfix branch from that commit.
 
-4.    Go to the Azure Data Factory UX and switch to the hotfix branch.
+1.    Go to the Azure Data Factory Studio and switch to the hotfix branch.
 
-5.    By using the Azure Data Factory UX, fix the bug. Test your changes.
+1.    By using the Azure Data Factory Studio, fix the bug. Test your changes.
 
-6.    After the fix is verified, select **Export ARM Template** to get the hotfix Resource Manager template.
+1.    After the fix is verified, select **Export ARM Template** to get the hotfix Resource Manager template.
 
-7.    Manually check this build into the adf_publish branch.
+1.    Manually check this build into the adf_publish branch.
 
-8.    If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will start automatically. Otherwise, manually queue a release.
+1.    If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will start automatically. Otherwise, manually queue a release.
 
-9.    Deploy the hotfix release to the test and production factories. This release contains the previous production payload plus the fix that you made in step 5.
+1.    Deploy the hotfix release to the test and production factories. This release contains the previous production payload plus the fix that you made in step 5.
 
-10.   Add the changes from the hotfix to the development branch so that later releases won't include the same bug.
+1.   Add the changes from the hotfix to the development branch so that later releases won't include the same bug.
 
+## Video tutorial
 See the video below an in-depth video tutorial on how to hot-fix your environments. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]

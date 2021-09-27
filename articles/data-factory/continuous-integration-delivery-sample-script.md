@@ -17,11 +17,15 @@ ms.custom: devx-track-azurepowershell
 
 The following sample demonstrates how to use a pre- and post-deployment script with continuous integration and delivery in Azure Data Factory.
 
+## Install Azure PowerShell
+
 Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 >[!WARNING]
 >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
 >
+
+## Script execution and parameters
 
 The following sample script can be used to stop triggers before deployment and restart them afterward. The script also includes code to delete resources that have been removed. Save the script in an Azure DevOps  git repository and reference it via an Azure PowerShell task the latest Azure PowerShell version.
 
@@ -39,6 +43,8 @@ When running a post-deployment script, you will need to specify a variation of t
 > The `-deleteDeployment` flag is used to specify the deletion of the ADF deployment entry from the deployment history in ARM.
 
 :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image11.png" alt-text="Azure PowerShell task":::
+
+## Pre- and post-deployment script
 
 Here is the script that can be used for pre- and post-deployment. It accounts for deleted resources and resource references.
 
