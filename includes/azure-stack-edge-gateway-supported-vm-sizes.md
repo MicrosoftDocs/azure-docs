@@ -42,9 +42,6 @@ The following VMs are supported for creation on your Azure Stack Edge device.
 For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 
-
-
-
 ### NCasT4_v3-series (Preview)
 
 These sizes are supported for GPU VMs on your device and are optimized for compute-intensive GPU-accelerated applications. This series is focused on inference workloads featuring Nvidia's Tesla T4 GPU.
