@@ -11,7 +11,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-#  Perform a Point in Time Restore
+#  Perform a point in time Restore
 
 Use the point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in Azure Arc enabled SQL managed instance.
 
@@ -20,11 +20,11 @@ Point-in-time restore can restore a database from:
 - An existing database
 - To a new database on the same Azure Arc enabled SQL managed instance
 
-You can restore a database to a point-in-time within a pre-configured retention settings.
+You can restore a database to a point-in-time within a pre-configured retention setting.
 
-Point-In-Time-Restore is an instance level setting with two properties - Recovery Point Objective (RPO) and Retention Time (RT). Recovery Point Objective setting determines how often the transaction log backups are taken. This is also the amount of time data loss is to be expected. Retention Time is how long the backups (full, differential and transaction log) are kept.  
+Point-in-time restore is an instance level setting with two properties - recovery point objective (RPO) and retention time (RT). RPO determines how often the transaction log backups are taken. RPO is the amount of time data loss is to be expected. RT is how long Azure Arc-enabled data services keeps the backups. Retention time applies to full, differential and transaction log backup files.  
 
-Currently, Point-in-time restore can restore a database:
+Currently, point-in-time restore can restore a database:
 
 - from an existing database on a SQL instance
 - to a new database on the same SQL instance
@@ -62,7 +62,7 @@ There are two parameters that affect the point-in-time restore capability:
 
 The following are steps to restore a database to the same Azure Arc enabled SQL Managed Instance using the Azure CLI:
 
-1. Create a task for the restore operation. To do this, create a .yaml file with the restore parameters.
+1. Create a task for the restore operation. Create a .yaml file with the restore parameters.
 
    For example:
 
@@ -131,9 +131,9 @@ Point-in-time-restore (PITR) service is enabled by default with the following se
 
 - Recovery Point Objective (RPO) = 300 seconds. Accepted values are 0, or between 300 to 600 (in seconds)
 
-This sets the service to take log backups for all databases on the Azure Arc-enabled SQL managed instance every 300 seconds or 5 minutes by default. This value can be changed to 0, to disable backups being taken or to a higher value in seconds depending on the RPO requirement needed for the databases on the SQL instance. 
+The RPO sets the service to take log backups for all databases on the Azure Arc-enabled SQL managed instance every 300 seconds or 5 minutes by default. This value can be changed to 0, to disable backups being taken or to a higher value in seconds depending on the RPO requirement needed for the databases on the SQL instance. 
 
-The PITR service itself cannot be disabled, but but you can disable the automated backups for a specific instance of Azure Arc-enabled SQL managed instance, or change the default settings.
+You can disable the automated backups for a specific instance of Azure Arc-enabled SQL managed instance, or change the default settings. The PITR service itself cannot be disabled.
 
 You can edit the RPO by changing the value for the `recoveryPointObjectiveInSeconds` property  as follows:
 
@@ -141,7 +141,7 @@ You can edit the RPO by changing the value for the `recoveryPointObjectiveInSeco
 kubectl edit sqlmi <sqlinstancename>  -n <namespace> -o yaml
 ```
 
-This should open up the Custom Resource spec for Azure Arc-enabled SQL managed instance in your default editor. Look for the `backup` setting under `spec`:
+This command opens the custom resource spec for Azure Arc-enabled SQL managed instance in your default editor. Look for the `backup` setting under `spec`:
 
 ```json
 backup:
@@ -159,7 +159,7 @@ The backups are stored under `/var/opt/mssql/backups/archived/<dbname>/<datetime
 
 ### Clean up 
 
-If you need to delete older backups either to create space or no longer need them, any of the folders under `/var/opt/mssql/backups/archived/` folder can be removed. Removing folders in the middle of a timeline could impact the ability to restore to a point in time during that window. It is recommended to delete the oldest folders first, to allow for a continuous timeline of restorability. 
+If you need to delete older backups either to create space or no longer need them, any of the folders under `/var/opt/mssql/backups/archived/` folder can be removed. Removing folders in the middle of a timeline could impact the ability to restore to a point in time during that window. Delete the oldest folders first, to allow for a continuous timeline of restorability. 
 
 ## Next steps
 
