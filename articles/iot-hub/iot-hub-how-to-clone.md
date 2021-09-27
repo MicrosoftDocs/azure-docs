@@ -109,11 +109,11 @@ This section provides specific instructions for migrating the hub.
 
 1. Select **Export template** from the list of properties and settings for the hub. 
 
-   ![Screenshot showing the command for exporting the template for the IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-export-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-export-template.png" alt-text="Screenshot showing the command for exporting the template for the IoT Hub." border="true":::
 
 1. Select **Download** to download the template. Save the file somewhere you can find it again. 
 
-   ![Screenshot showing the command for downloading the template for the IoT Hub.](./media/iot-hub-how-to-clone/iot-hub-download-template.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-download-template.png" alt-text="Screenshot showing the command for downloading the template for the IoT Hub." border="true":::
 
 ### View the template 
 
