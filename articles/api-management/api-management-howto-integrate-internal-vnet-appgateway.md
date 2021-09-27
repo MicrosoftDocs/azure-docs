@@ -133,7 +133,7 @@ Create network security groups and NSG rules for the Application Gateway and API
 ```powershell
 $appGwRule1 = New-AzNetworkSecurityRuleConfig -Name appgw-in -Description "AppGw inbound" `
     -Access Allow -Protocol * -Direction Inbound -Priority 100 -SourceAddressPrefix `
-    GatewayManager -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 65200-65535
+    GatewayManager -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443,65200-65535
 $appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
     "NSG-APPGW" -SecurityRules $appGwRule1
 
