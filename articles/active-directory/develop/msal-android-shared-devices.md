@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/23/2021
+ms.date: 09/27/2021
 ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identitypla | Azuretformtop40
@@ -104,5 +104,5 @@ The following diagram shows the overall app lifecycle and common events that may
 
 For more information on how to run a frontline worker app on a shared mode on Android device, see:
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"] 
 >[Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md)
