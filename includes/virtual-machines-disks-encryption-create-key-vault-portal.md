@@ -70,7 +70,7 @@ Now that you've created the Azure key vault and a key, you must add an Azure RBA
 
 1. Navigate to the disk encryption set once it is deployed, and select the displayed alert.
 
-    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png" alt-text="Screenshot of user selecting the 'To associate a disk, image, or snapshot with this disk encryption set, you must grant permissions to the key vault" alert." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png":::
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png" alt-text="Screenshot of user selecting the 'To associate a disk, image, or snapshot with this disk encryption set, you must grant permissions to the key vault' alert." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png":::
 
 1. This will grant your key vault permissions to the disk encryption set.
 
