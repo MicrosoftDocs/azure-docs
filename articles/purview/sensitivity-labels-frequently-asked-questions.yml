@@ -21,7 +21,7 @@ summary: |
 sections:
   - name: Licensing and setup
     questions:
-      - question: What are the licensing requirements to use sensitivity labels on files and schematized data in Azure Purview? 
+      - question: What are the licensing requirements to use sensitivity labels on files and database columns in Azure Purview? 
         answer: |
           To use sensitivity labels in Azure Purview, you'll need at least one Microsoft 365 license/account within the same Azure Active Directory (AAD) tenant as your Azure Purview account.  
 
@@ -44,7 +44,7 @@ sections:
           
           * When you extend sensitivity labels to Purview, your Microsoft 365 setup will continue to work in the same way as usual. 
           * Extending the sensitivity labels allows Purview to apply those labels to your Azure and multi-cloud assets in the Purview catalog. The catalog is a metadata store and can be deleted by you at any time. 
-          * Sensitivity labels are applied only to the asset metadata in the Purview catalog and are not applied to the actual files and schematized data. Applying sensitivity labels doesn't modify your files and databases in any way.</br></br>
+          * Sensitivity labels are applied only to the asset metadata in the Purview catalog and are not applied to the actual files and database columns. Applying sensitivity labels doesn't modify your files and databases in any way.</br></br>
 
   - name: Classifications vs sensitivity labels
     questions:
@@ -68,7 +68,7 @@ sections:
       - question: Are classifications in Purview and Sensitive Information Types (SITs) in Microsoft 365 the same thing? 
         answer: While classifications and SITs are fundamentally the same things, classifications are an Azure Purview concept and SITs are a Microsoft 365 concept. Both classifications and SITs are used by their respective services to identify the type of data found in an asset. 
 
-      - question: I have created a custom Sensitive Information Type (SIT) in Microsoft 365 and used it in my auto-labeling rules for schematized data. Can I use this custom SIT in Azure Purview? 
+      - question: I have created a custom Sensitive Information Type (SIT) in Microsoft 365 and used it in my auto-labeling rules for database columns. Can I use this custom SIT in Azure Purview? 
         answer: |
           No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) from Microsoft 365 are not supported in Azure Purview at this time. Azure Purview currently only supports Microsoft 365 [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).</br></br>
     
@@ -129,7 +129,7 @@ sections:
       - question: Do Azure Purview and Microsoft 365 use the same classification engine? 
         answer: Yes, both Azure Purview and Microsoft 365 use the same classification engine. 
 
-      - question: Does Purview scan an entire asset when applying automatic labels to the schematized data? 
+      - question: Does Purview scan an entire asset when applying automatic labels to the database columns? 
         answer: |
           The Purview scanner samples files as follows: 
           

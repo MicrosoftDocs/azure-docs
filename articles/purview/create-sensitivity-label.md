@@ -27,7 +27,7 @@ Azure Purview allows you to apply sensitivity labels to assets, enabling you to 
 * **Label travels with the data:** The sensitivity labels used in Purview are currently recognized in Microsoft 365, SharePoint, Teams, Power BI, and SQL. If a label is applied on an asset in Purview and your data travels to any of the other platforms like Power BI or Office, the label also travels with the data. Similarly, if a label is applied on a Word document and then scanned by Purview, the label will flow to Purview.
 * **Overview of your data estate:** Purview provides insights into your data through pre-canned reports. When you scan data in Purview, we hydrate the reports with information on what assets you have, scan history, classifications found in your data, labels applied, glossary terms, etc.
 * **Automatic labeling:** Labels can be applied automatically based on sensitivity of the data. When an asset is scanned for sensitive data, autolabeling rules are used to decide which sensitivity label to apply. You can create autolabeling rules for each sensitivity label, defining which classification/sensitive information type constitutes a label.
-* **Apply labels to files and schematized data:** Labels can be applied to files in storage like Azure Data Lake, Azure Files, etc. and to schematized data like columns in Azure SQL DB, Cosmos DB, etc.
+* **Apply labels to files and database columns:** Labels can be applied to files in storage like Azure Data Lake, Azure Files, etc. and to schematized data like columns in Azure SQL DB, Cosmos DB, etc.
 
 Sensitivity labels are tags that you can apply on assets to classify and protect your data. Learn more about [sensitivity labels here](/microsoft-365/compliance/create-sensitivity-labels.md).
 
@@ -43,7 +43,7 @@ Being able to apply labels to your asset in Azure Purview requires you to perfor
 1. Azure Purview applies labels: Once classifications are found on an asset, Azure Purview will apply labels to the assets depending on autolabeling rules. Application of labels is done automatically by Azure Purview, there is no action for you as long as you have created labels with autolabeling rules in step 1.
 
 > [!NOTE]
-> Autolabeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data. When you create your labels, make sure to define autolabeling rules for both files and schematized data to apply your labels automatically with each scan.
+> Autolabeling rules are conditions that you specify, stating when a particular label should be applied. When these conditions are met, the label is automatically assigned to the data. When you create your labels, make sure to define autolabeling rules for both files and database columns to apply your labels automatically with each scan.
 >
 
 ## Supported data sources
@@ -58,7 +58,7 @@ Sensitivity labels are supported in Azure Purview for the following data sources
 
 ## Labeling for SQL databases
 
-In addition to Purview labeling for schematized data, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the global [MIP sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
+In addition to Purview labeling for database columns, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the global [MIP sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
 
 Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with each other. Therefore, **labels applied in SSMS are not shown in Purview, and vice versa**. We recommend Azure Purview for labeling SQL databases, as it uses global MIP labels that can be applied across multiple platforms.
 

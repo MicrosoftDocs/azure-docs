@@ -26,7 +26,7 @@ For the full list of licenses, see the [Sensitivity labels in Azure Purview FAQ]
 
 ### Step 2: Consent to use sensitivity labels in Azure Purview
 
-The following steps extend your sensitivity labels and enable them to be available for use in Azure Purview, where you can apply sensitivity labels to files and schematized data assets.
+The following steps extend your sensitivity labels and enable them to be available for use in Azure Purview, where you can apply sensitivity labels to files and database columns.
 
 1. In Microsoft 365, navigate to the **Information Protection** page.</br>
    If you've recently provisioned your subscription for Information Protection, it may take a few hours for the **Information Protection** page to display.
@@ -50,17 +50,17 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
 
 1. Name the label. Then, under **Define the scope for this label**:
 
-    - To label files, select **Files & emails**.
-    - To label schematized data like database columns, select **Schematized data assets**
+    - In all cases, select **Azure Purview assets**.
+    - To label files, also select **Files & emails**. This option is not required to label database assets only
 
     :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Automatically label in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
 
 1. Follow the rest of the prompts to configure the label settings.
 
-    Specifically, define autolabeling rules for files and schematized data assets:
+    Specifically, define autolabeling rules for files and database columns:
 
     - [Define autolabeling rules for files](#autolabeling-for-files)
-    - [Define autolabeling rules for schematized data assets](#autolabeling-for-schematized-data)
+    - [Define autolabeling rules for database columns](#autolabeling-for-schematized-data)
 
     For more information about configuration options, see [What sensitivity labels can do](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) in the Microsoft 365 documentation.
 
@@ -92,13 +92,13 @@ For example:
 
 For more information, see [Apply a sensitivity label to data automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) in the Microsoft 365 documentation.
 
-#### Autolabeling for schematized data
+#### Autolabeling for database columns
 
-Define autolabeling rules for schematized data assets when you create or edit your label.
+Define autolabeling rules for database columns when you create or edit your label.
 
-Under the **schematized data assets** option:
+Under the **database columns** option:
 
-1. Select the **Auto-labeling for schematized data assets** slider.
+1. Select the **Auto-labeling for database columns** slider.
 
 1. Select **Check sensitive info types** to choose the sensitive info types you want to apply to your label.
 
@@ -119,7 +119,7 @@ For more information on how to set up scans on various assets in Azure Purview, 
 |Source  |Reference  |
 |---------|---------|
 |**Files within Storage** | [Register and Scan Azure Blob Storage](register-scan-azure-blob-storage-source.md) </br> [Register and scan Azure Files](register-scan-azure-files-storage-source.md) [Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)</br>[Register and scan Amazon S3](register-scan-amazon-s3.md) |
-|**Schematized data assets** | [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md) </br> [Register and scan Dedicated SQL pools](register-scan-azure-synapse-analytics.md)</br> [Register and scan Azure Synapse Analytics workspaces](register-scan-azure-synapse-analytics.md) </br> [Register and scan Azure Cosmos Database (SQL API)](register-scan-azure-cosmos-database.md) </br> [Register and scan an Azure MySQL database](register-scan-azure-mysql-database.md) </br> [Register and scan an Azure database for PostgreSQL](register-scan-azure-postgresql.md) |
+|**database columns** | [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md) </br> [Register and scan Dedicated SQL pools](register-scan-azure-synapse-analytics.md)</br> [Register and scan Azure Synapse Analytics workspaces](register-scan-azure-synapse-analytics.md) </br> [Register and scan Azure Cosmos Database (SQL API)](register-scan-azure-cosmos-database.md) </br> [Register and scan an Azure MySQL database](register-scan-azure-mysql-database.md) </br> [Register and scan an Azure database for PostgreSQL](register-scan-azure-postgresql.md) |
 | | |
 
 ## View labels on assets in the catalog
