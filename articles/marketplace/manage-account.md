@@ -28,7 +28,7 @@ If you have not already done so, you (or your organization's administrator) shou
 
 1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 
-1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
+1. In the top-right, select **Settings** (gear icon), then **Account settings**.
 
     [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
