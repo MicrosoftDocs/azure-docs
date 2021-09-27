@@ -127,9 +127,9 @@ In this step, you can delete the **Office Licenses** access package.
 
 6. Select the group you added to this access package and in the details pane click **Remove resource role**. In the message that appears, click **Yes**.
 
-7. Open the list of access pacakges.
+7. Open the list of access packages.
 
-8. For **Office Licenses**, click the ellipsis (...) and hten click **Delete**. In the message that appears, click **Yes**.
+8. For **Office Licenses**, click the ellipsis (...) and then click **Delete**. In the message that appears, click **Yes**.
 
 ## Next steps
 
