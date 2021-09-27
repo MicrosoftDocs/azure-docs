@@ -1,99 +1,54 @@
 ---
-title: EDIFACT messages for B2B integration
-description: Exchange EDIFACT messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
+title: Exchange EDIFACT messages in B2B workflows
+description: Exchange EDIFACT messages between partners by creating workflows with Azure Logic Apps and Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 04/22/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 09/29/2021
 ---
 
-# Exchange EDIFACT messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
+# Exchange EDIFACT messages using workflows in Azure Logic Apps
 
-Before you can exchange EDIFACT messages for Azure Logic Apps, 
-you must create an EDIFACT agreement and 
-store that agreement in your integration account. 
-Here are the steps for how to create an EDIFACT agreement.
+To send and receive EDIFACT messages in workflows that you create using Azure Logic Apps, use the **EDIFACT** connector, which provides triggers and actions that support and manage EDIFACT communication.
 
-> [!NOTE]
-> This page covers the EDIFACT features for Azure Logic Apps. 
-> For more information, see [X12](logic-apps-enterprise-integration-x12.md).
+This article shows how to add the EDIFACT encoding and decoding actions to an existing logic app workflow. Although you can use any trigger to start your workflow, the examples use the [Request](../connectors/connectors-native-reqres.md) trigger. For more information about the **EDIFACT** connector's triggers, actions, and limits version, review the [connector's reference page](/connectors/edifact/) as documented by the connector's Swagger file.
 
-## Before you start
+## Limits
 
-Here's the items you need:
+For information about the EDIFACT connector limits for workflows running in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences), review the [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits).
 
-* An [integration account](logic-apps-enterprise-integration-create-integration-account.md) 
-that's already defined and associated with your Azure subscription  
-* At least two [partners](logic-apps-enterprise-integration-partners.md) 
-that are already defined in your integration account
+## Prerequisites
 
-> [!NOTE]
-> When you create an agreement, the content in the messages that you 
-> receive or send to and from the partner must match the agreement type.
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-and [add partners](logic-apps-enterprise-integration-partners.md), 
-you can create an EDIFACT agreement by following these steps.
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
-## Create an EDIFACT agreement 
+  * Is associated with the same Azure subscription as your logic app resource.
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
+  * Exists in the same location or Azure region as your logic app resource.
 
-2. On the main Azure menu, select **All services**. 
-In the search box, enter "integration", 
-and then select **Integration accounts**.
+  * When you use the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences) and the **EDIFACT** operations, your logic app resource doesn't need a link to your integration account. However, you still need this account to store artifacts, such as partners, agreements, and certificates, along with using the EDIFACT, [X12](logic-apps-enterprise-integration-x12.md), or [AS2](logic-apps-enterprise-integration-as2.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 
-   ![Find your integration account](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+  * When you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences) and the **EDIFACT** operations, your workflow requires a connection to your integration account that you create directly from your workflow when you add the AS2 operation.
 
-   > [!TIP]
-   > If **All services** doesn't appear, you might have to expand the menu first. 
-   > At the top of the collapsed menu, select **Show text labels**.
+* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is **ZZZ - Mutually Defined** for this scenario.
 
-3. Under **Integration Accounts**, select the integration 
-account where you want to create the agreement.
+* An [EDIFACT agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type.
 
-   ![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-edifact/edifact-1-4.png)
+  > [!IMPORTANT]
+  > The EDIFACT connector supports only UTF-8 characters. If your output contains 
+  > unexpected characters, check that your EDIFACT messages use the UTF-8 character set.
 
-4. Choose **Agreements**. If you don't have an Agreements tile, 
-add the tile first.   
+* The logic app resource and workflow where you want to use the EDIFACT operations.
 
-   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-1-5.png)
-
-5. On the Agreements page, choose **Add**.
-
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-edifact/edifact-agreement-2.png)
-
-6. Under **Add**, enter a **Name** for your agreement. 
-For **Agreement type**, select **EDIFACT**. 
-Select the **Host Partner**, **Host Identity**, 
-**Guest Partner**, and **Guest Identity** for your agreement.
-
-   ![Provide agreement details](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
-
-   | Property | Description |
-   | --- | --- |
-   | Name |Name of the agreement |
-   | Agreement Type | Should be EDIFACT |
-   | Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
-   | Host Identity |An identifier for the host partner |
-   | Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-   | Guest Identity |An identifier for the guest partner |
-   | Receive Settings |These properties apply to all messages received by an agreement. |
-   | Send Settings |These properties apply to all messages sent by an agreement. |
-   ||| 
+  If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
 
 ## Configure how your agreement handles received messages
 
-Now that you've set the agreement properties, 
-you can configure how this agreement identifies and 
-handles incoming messages received from your partner through this agreement.
-
-> [!IMPORTANT]
-> The EDIFACT connector supports only UTF-8 characters.
-> If your output contains unexpected characters, check that your EDIFACT messages use the UTF-8 character set.
+Now that you've set the agreement properties, you can configure how this agreement identifies and handles incoming messages received from your partner through this agreement.
 
 1. Under **Add**, select **Receive Settings**.
 Configure these properties based on your agreement 

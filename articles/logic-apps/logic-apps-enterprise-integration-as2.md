@@ -1,12 +1,12 @@
 ---
 title: Exchange AS2 messages in B2B workflows
-description: Exchange AS2 messages between trading by creating workflows using Azure Logic Apps and Enterprise Integration Pack.
+description: Exchange AS2 messages between partners by creating workflows with Azure Logic Apps and Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2021
 ---
 
@@ -77,7 +77,8 @@ For information about the AS2 connector limits for workflows running in [multi-t
 
 * At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is **AS2Identity** for this scenario.
 
-* An [AS2 agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner.
+* An [AS2 agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type.
+
 
 * The logic app resource and workflow where you want to use the AS2 operations.
 
