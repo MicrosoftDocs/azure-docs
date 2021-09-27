@@ -91,7 +91,7 @@ The device login flow will prompt users signing in with a Gmail account in an em
 
    ![image](https://user-images.githubusercontent.com/15203472/134458974-8ea88a64-f45e-4801-b82a-86ac9fcc6bd8.png)
 
-3. The device login page will prompt the user to enter code. 
+3. The device sign-in page opens, where the user can enter the code. 
 
    ![image](https://user-images.githubusercontent.com/15203472/134457819-b2f0706c-8493-4a3d-9437-577a5420dfd2.png)
    
