@@ -257,7 +257,9 @@ items:
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
-      href: connector-amazon-rds-for-oracle.md     
+      href: connector-amazon-rds-for-oracle.md
+    - name: Amazon RDS for SQL Server 
+      href: connector-amazon-rds-for-sql-server.md          
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
