@@ -58,12 +58,7 @@ The **Allow deletes** action will delete the objects that triggered the accident
 
 1. Right-click on the ellipses and select **Allow deletes**.
 2. Click **Yes** on the confirmation to allow the deletions.
- 
- ![Yes on confirmation](media/how-to-accidental-deletes/delete-4.png)
-
-3. You will see confirmation that the deletions were accepted and the status will return to healthy with the next cycle. 
- 
- ![Accept deletes](media/how-to-accidental-deletes/delete-8.png)
+3. You will see confirmation that the deletions were accepted and the status will return to healthy with the next cycle.
 
 ### Rejecting deletions
 
