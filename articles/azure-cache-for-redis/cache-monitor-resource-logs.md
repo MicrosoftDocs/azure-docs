@@ -12,9 +12,11 @@ ms.custom: template-how-to
 
 # Monitor Azure Cache for Redis data by using diagnostic settings in Azure
 
-Azure Cache for Redis uses Azure diagnostic settings log client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the time of those connections. This data could be used to identify the scope of a security breach, for example.
+Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs". The content of these logs varies by resource type.
 
-You can see a log of all connections to your cache including IP addresses and count of connections. The log snapshots are taken at 10-second intervals.
+Azure Cache for Redis uses Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the time of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes.
+
+Once configured, the setting helps with logging of all connections to your cache including IP addresses and count of connections. The log snapshots are taken at 10-second intervals.
 
 You turn on diagnostic setting for Azure Cache for Redis accounts and send resource logs to destinations. Any destinations for the diagnostic setting must be created before creating the diagnostic settings. Here are the current destinations supported:
 
@@ -25,7 +27,7 @@ You turn on diagnostic setting for Azure Cache for Redis accounts and send resou
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic settings** pane under the **Monitoring section** on the left.Then, select **Add diagnostic setting**.
+1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic settings** pane under the **Monitoring section** on the left. Then, select **Add diagnostic setting**.
 
    :::image type="content" source="media/cache-monitor-resource-logs/cache-monitor-diagnostic-setting.png" alt-text="Select diagnostics":::
 
@@ -41,7 +43,7 @@ You turn on diagnostic setting for Azure Cache for Redis accounts and send resou
 
 ## Create diagnostic setting via REST API
 
-Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console.
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [diagnostic settings](/rest/api/monitor/diagnostic-settings/create-or-update).
 
 ### Request
 
