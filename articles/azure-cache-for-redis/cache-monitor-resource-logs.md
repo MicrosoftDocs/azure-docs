@@ -100,7 +100,6 @@ az monitor diagnostic-settings create
 
 
 ```
-<!-- Clean-up the command to remove user data. -->
 
 ## Private Link Clients
 
