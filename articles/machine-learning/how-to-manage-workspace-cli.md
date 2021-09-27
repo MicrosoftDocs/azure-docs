@@ -223,7 +223,7 @@ By default, metadata for the workspace is stored in an Azure Cosmos DB instance 
 
 To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](./concept-data-encryption.md#azure-cosmos-db).
 
-Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and CLI (v2) versions.
+Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and 2.0 CLI versions.
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
