@@ -20,7 +20,7 @@ The procedure described in this article was performed using a different version 
 
 ## About latest update
 
-The current update is Update 2109. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
+The current update is Update 2110. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
 
 - Device software version - **2.2.1726.3923**
 - Kubernetes server version - **v1.20.9**
@@ -78,7 +78,7 @@ Depending on the software version that you are running, install process may diff
 
 ### [version 2105 and earlier](#tab/version-2105-and-earlier)
 
-1. When the updates are available for your device, you see a notification. Select the notification or from the top command bar, **Update device**. This will allow you to apply device software updates.
+1. When the updates are available for your device, you see a notification in the **Overview** page of your Azure Stack Edge resource. Select the notification or from the top command bar, **Update device**. This will allow you to apply device software updates.
 
     ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-1.png)
 
