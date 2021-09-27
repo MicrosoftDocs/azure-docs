@@ -1023,9 +1023,10 @@ When you observe that the activity is running much longer than your normal runs 
 
 **Symptoms**: You try to unzip a file that is stored in a blob container. A single copy activity in a pipeline has a source with the compression type set to "deflate64" (or any unsupported type). This activity runs successfully and produces the text file contained in the zip file. However, there is a problem with the text in the file, and this file appears corrupted. When this file is unzipped locally, it is fine.
 
-**Cause**: Your zip file was compressed by the algorithm of "deflate64", while the internal zip library of Azure Data Factory only supports "deflate". If the zip file is compressed by the Windows system and the overall file size exceeds a certain number, Windows will use "deflate64" by default, which is not supported in Azure Data Factory. On the other hand, if the file size is smaller or using some third party zip tools that supports specifying the compress algorithm, Windows will use "deflate" by default.
-    
-Actually, both [Binary format in Azure Data Factory and Synapse Analytics](format-binary.md) and [Delimited text format in Azure Data Factory and Azure Synapse Analytics](format-delimited-text.md) clearly states that the "deflate64" format is not supported in Azure Data Factory.
+**Cause**: Your zip file is compressed by the algorithm of "deflate64", while the internal zip library of Azure Data Factory only supports "deflate". If the zip file is compressed by the Windows system and the overall file size exceeds a certain number, Windows will use "deflate64" by default, which is not supported in Azure Data Factory. On the other hand, if the file size is smaller or using some third party zip tools that supports specifying the compress algorithm, Windows will use "deflate" by default.
+
+> [!TIP]
+> Actually, both [Binary format in Azure Data Factory and Synapse Analytics](format-binary.md) and [Delimited text format in Azure Data Factory and Azure Synapse Analytics](format-delimited-text.md) clearly state that the "deflate64" format is not supported in Azure Data Factory.
 
 ## Next steps
 
