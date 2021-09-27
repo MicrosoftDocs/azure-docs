@@ -276,7 +276,17 @@ Remove-AzResourceGroup -Name 'TutorGwLB-rg'
 
 ## Next steps
 
-Create NVAs in Azure. When creating the NVAs, choose the network, subnet, network security group, and load balancer created in this tutorial.
+Create Network Virtual Appliances in Azure. 
+
+When creating the NVAs, choose the resources created in this tutorial:
+
+* Virtual network
+
+* Subnet
+
+* Network security group
+
+* Gateway load balancer
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]
