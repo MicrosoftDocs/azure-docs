@@ -20,9 +20,9 @@ This article provides steps to create, start, and monitor a tumbling window trig
 
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. A tumbling window trigger has a one-to-one relationship with a pipeline and can only reference a singular pipeline. Tumbling window trigger is a more heavy weight alternative for schedule trigger offering a suite of features for complex scenarios([dependency on other tumbling window triggers](#tumbling-window-trigger-dependency), [rerunning a failed job](tumbling-window-trigger-dependency.md#monitor-dependencies) and [set user retry for pipelines](#user-assigned-retries-of-pipelines)). To further understand the difference between schedule trigger and tumbling window trigger, please visit [here](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
-## UI Experience
+## Azure portal
 
-1. To create a tumbling window trigger in the UI, select the **Triggers** tab, and then select **New**. 
+1. To create a tumbling window trigger in the Azure portal, select the **Triggers** tab, and then select **New**. 
 1. After the trigger configuration pane opens, select **Tumbling Window**, and then define your tumbling window trigger properties. 
 1. When you're done, select **Save**.
 
