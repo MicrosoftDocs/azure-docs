@@ -15,7 +15,7 @@ Now that you have created your first experiment, you are ready to run your exper
 
 ## Start an experiment
 
-1. Open the Azure Portal with the Chaos Studio feature flag:
+1. Open the Azure portal with the Chaos Studio feature flag:
     * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 
@@ -27,7 +27,7 @@ Now that you have created your first experiment, you are ready to run your exper
 
     ![Experiment overview](images/run-overview.png)
 
-4. The Experiment Overview page allows you to start, stop, and edit your experiment, view essentail details about the resource, and view history. Click the **Start** button then click **OK** to start your experiment.
+4. The Experiment Overview page allows you to start, stop, and edit your experiment, view essential details about the resource, and view history. Click the **Start** button then click **OK** to start your experiment.
 
     ![Start experiment](images/run-start.png)
 
@@ -43,7 +43,7 @@ Now that you have created your first experiment, you are ready to run your exper
 
     ![Experiment details](images/run-details.png)
 
-3. Fault details shows additional information about the fault execution including which targets have failed or succeded and why. If there is an error running your experiment, debugging information appears here.
+3. Fault details shows additional information about the fault execution including which targets have failed or succeeded and why. If there is an error running your experiment, debugging information appears here.
 
     ![Fault details](images/run-details-errors.png)
 

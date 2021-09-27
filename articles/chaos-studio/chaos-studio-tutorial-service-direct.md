@@ -11,11 +11,11 @@ ms.service: chaos-studio
 
 # Create an experiment that uses a service-direct fault
 
-Chaos Studio supports two types of faults – service-direct faults, where the fault is injected service to service, and agent-based faults, where the fault is injected by an agent running in the guest operating system of a VM, VMSS, or other compute service. Service-direct faults don’t require the agent to be installed since they operate directly against an Azure resource. For example, a service-direct fault might cause latency in a CosmosDB instance or drop messages from an Event Hub. You can visit the [Fault Providers](chaos-studio-fault-providers.md) page to understand which resource types are supported for service-direct faults. In this walkthrough, we create a single-step, single-branch, single-action experiment that does a Cosmos DB failover.
+Chaos Studio supports two types of faults – service-direct faults, where the fault is injected service to service, and agent-based faults, where the fault is injected by an agent running in the guest operating system of a VM, virtual machine scale set, or other compute service. Service-direct faults don’t require the agent to be installed since they operate directly against an Azure resource. For example, a service-direct fault might cause latency in a CosmosDB instance or drop messages from an Event Hub. You can visit the [Fault Providers](chaos-studio-fault-providers.md) page to understand which resource types are supported for service-direct faults. In this walkthrough, we create a single-step, single-branch, single-action experiment that does a Cosmos DB failover.
 
-## Setup fault targets
+## Set up fault targets
 
-To setup a service-direct fault, you need to create a provider configuration for that resource type. You can only have one provider configuration per type (in this case, AzureCosmosDbChaos is the type) and you only need one provider configuration for all resources of that type. If you plan to use agent-based faults, you need to setup a separate provider configuration for the agents – this process is described in [create an experiment using agent-based faults](chaos-studio-tutorial-agent-based.md). Certain resource types, such as Virtual Machines, have both agent-based faults and service-direct faults. This requires a provider configuration for each fault type. A provider configuration must be created via REST API. In this example we use the `az rest` command to execute the REST API calls.
+To set up a service-direct fault, you need to create a provider configuration for that resource type. You can only have one provider configuration per type (in this case, AzureCosmosDbChaos is the type) and you only need one provider configuration for all resources of that type. If you plan to use agent-based faults, you need to set up a separate provider configuration for the agents – this process is described in [create an experiment using agent-based faults](chaos-studio-tutorial-agent-based.md). Certain resource types, such as Virtual Machines, have both agent-based faults and service-direct faults. This requires a provider configuration for each fault type. A provider configuration must be created via REST API. In this example we use the `az rest` command to execute the REST API calls.
 
 1. Save the following JSON as a file in the same location where you are running the Azure CLI (in Cloud Shell, you can drag-and-drop the JSON file to upload it). If setting up a provider configuration for a resource other than Cosmos DB, [reference this list of configuration types](chaos-studio-fault-providers.md).
 
@@ -43,7 +43,7 @@ To setup a service-direct fault, you need to create a provider configuration for
     ```
 
 
-Note that the command for listing targets on a VMSS is slightly different. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$VMSS_NAME` with the subscription ID, resource group, and name of your VMSS:
+Note that the command for listing targets on a virtual machine scale set is slightly different. Replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$VMSS_NAME` with the subscription ID, resource group, and name of your virtual machine scale set:
 
 ```bash
 az rest --method get --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Compute/virtualMachineScaleSets/$VMSS_NAME/providers/Microsoft.Chaos/chaosTargets?api-version=2021-06-21-preview&chaosProviderType=AzureVmssVmChaos
@@ -53,10 +53,10 @@ You are now ready to perform service-direct faults on your Cosmos DB instances.
 
 ## Create a chaos experiment
 
-### Use the Azure Portal
-The Azure Portal is the easiest way to create and manage experiments. Follow the instructions below to create an experiment using the Portal.
+### Use the Azure portal
+The Azure portal is the easiest way to create and manage experiments. Follow the instructions below to create an experiment using the portal.
 
-1. Open the Azure Portal with the Chaos Studio feature flag:
+1. Open the Azure portal with the Chaos Studio feature flag:
     * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 
@@ -107,12 +107,12 @@ The Azure Portal is the easiest way to create and manage experiments. Follow the
 
     ![Add role assignment final view](images/create-exp-service-addrole.png)
 
-Congratulations! You've created your first chaos experiment and setup resources for fault injection!
+Congratulations! You've created your first chaos experiment and set up resources for fault injection!
 
 Next, **[run your experiment](chaos-studio-run-experiment.md) >>**
 
 ### Use the Chaos Studio REST API
-If you are using features that aren't available in the Portal yet or if you prefer to use REST APIs, follow the instructions below to create an experiment that uses service-direct faults.
+If you are using features that aren't available in the portal yet or if you prefer to use REST APIs, follow the instructions below to create an experiment that uses service-direct faults.
 
 1. Formulate your experiment JSON starting with the sample below, using the [Create Experiment API](https://aka.ms/chaosrestapi) and the [Fault Library](chaos-studio-fault-library.md) for property definitions.
 
@@ -177,6 +177,6 @@ If you are using features that aren't available in the Portal yet or if you pref
     az role assignment create --role "Cosmos DB Operator" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
     ```
 
-Congratulations! You've created your first chaos experiment and setup resources for fault injection!
+Congratulations! You've created your first chaos experiment and set up resources for fault injection!
 
 Next, **[run your experiment](chaos-studio-run-experiment.md) >>**

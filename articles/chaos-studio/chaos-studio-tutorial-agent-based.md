@@ -11,19 +11,19 @@ ms.service: chaos-studio
 
 # Create an experiment that uses an agent-based fault
 
-Chaos Studio supports two types of faults – service-direct faults, where the fault is injected service to service, and agent-based faults, where the fault is injected by an agent running in the guest operating system of a VM, VMSS, or other compute service. An agent-based fault uses the Chaos Studio agent. This requires a few additional setup steps. In this walkthough, we create a single-step, single-branch, single-action experiment that causes high CPU using the chaos agent.
+Chaos Studio supports two types of faults – service-direct faults, where the fault is injected service to service, and agent-based faults, where the fault is injected by an agent running in the guest operating system of a VM, virtual machine scale set, or other compute service. An agent-based fault uses the Chaos Studio agent. This requires a few additional setup steps. In this walkthrough, we create a single-step, single-branch, single-action experiment that causes high CPU using the chaos agent.
 
 ## Set up fault targets
 
 Before running an agent-based fault you must first create the chaos agent provider configuration and install the agent on each target.
 
-### Create a user-assigned managed identity and assign it to each VM or VMSS
+### Create a user-assigned managed identity and assign it to each VM or virtual machine scale set
 
-The Chaos Agent uses a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate to Chaos Studio. All agents installed on all VMs within a subscription can use the same user-assigned managed identity, which must be assigned to those VMs that you plan to target in an experiment. You can use either the Azure Portal or the Azure CLI to create the identity and assign it to your VMs.
+The Chaos Agent uses a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate to Chaos Studio. All agents installed on all VMs within a subscription can use the same user-assigned managed identity, which must be assigned to those VMs that you plan to target in an experiment. You can use either the Azure portal or the Azure CLI to create the identity and assign it to your VMs.
 
-#### Use the Azure Portal
+#### Use the Azure portal
 
-1. First create a user-assigned managed identity. You can use one managed identity for all VMs/VMSSs that you plan to target. Go to the **Managed Identities** blade and click **Create**.
+1. First create a user-assigned managed identity. You can use one managed identity for all VMs/virtual machine scale sets that you plan to target. Go to the **Managed Identities** blade and click **Create**.
 
 2. Fill in the **Subscription**, **Resource group**, **Region**, and **Name** fields. The identity can be in any resource group and region and have any name.
 
@@ -39,7 +39,7 @@ The Chaos Agent uses a [user-assigned managed identity](../active-directory/mana
 
     ![Managed identity client ID](images/create-exp-agent-msi-portal-clientid.png)
 
-6. Navigate to the VM or VMSS you want to onboard and click **Identity** in the table of contents. Switch to the **User assigned** tab and press the **Add** button. Search for the identity you created in Step 1 and add it to the VM/VMSS.
+6. Navigate to the VM or virtual machine scale set you want to onboard and click **Identity** in the table of contents. Switch to the **User assigned** tab and press the **Add** button. Search for the identity you created in Step 1 and add it to the VM/virtual machine scale set.
 
     ![Assign role in portal](images/create-exp-agent-assign-mis-portal.png)
 
@@ -51,14 +51,14 @@ The Chaos Agent uses a [user-assigned managed identity](../active-directory/mana
     az account set --subscription "My Subscription"
     ```
 
-2. First create a user-assigned managed identity by running the `az identity create` command. You can use one managed identity for all VMs/VMSSs that you plan to target. Replace `$SUBSCRIPTION_ID` and `$RESOURCE_GROUP` with the subscription ID and resource group where you want the identity to be created. The identity can be in any resource group and region and have any name; we recommend using the same resource group and region where the target VM is located.
+2. First create a user-assigned managed identity by running the `az identity create` command. You can use one managed identity for all VMs/virtual machine scale sets that you plan to target. Replace `$SUBSCRIPTION_ID` and `$RESOURCE_GROUP` with the subscription ID and resource group where you want the identity to be created. The identity can be in any resource group and region and have any name; we recommend using the same resource group and region where the target VM is located.
     ```bash
     az identity create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --name chaosAgentIdentity
     ```
 
 3. Copy the **id** (the resource ID of the managed identity), **clientId**, and **tenantId** properties and save them for a later step.
 
-4. Assign the new managed identity to each VM and/or VMSSs where you plan to install the agent by using the `az vm identity assign` or `az vmss identity assign` command. Replace `$VM_RESOURCE_ID`/`$VMSS_RESOURCE_ID` with the resource ID of the Virtual Machine you are adding as a chaos target and `$MANAGED_IDENTITY_RESOURCE_ID` with the resource ID of the managed identity recorded in the previous step.
+4. Assign the new managed identity to each VM and/or virtual machine scale sets where you plan to install the agent by using the `az vm identity assign` or `az vmss identity assign` command. Replace `$VM_RESOURCE_ID`/`$VMSS_RESOURCE_ID` with the resource ID of the Virtual Machine you are adding as a chaos target and `$MANAGED_IDENTITY_RESOURCE_ID` with the resource ID of the managed identity recorded in the previous step.
 
     **Virtual Machine**
 
@@ -76,7 +76,7 @@ The Chaos Agent uses a [user-assigned managed identity](../active-directory/mana
 
 Next set up a chaosAgent provider configuration that specifies the user-assigned managed identity that agents use to connect to Chaos Studio. You can only have one provider configuration per type (in this case, chaosAgent is the type). In this example, we use one managed identity for all VMs so we only add one identity to the provider configuration. Provider configurations cannot be updated - they can only be deleted and recreated - so we recommend sharing an identity among VMs to avoid having to recreate your chaosAgent provider configuration each time you want to onboard more VMs. A provider configuration must be created via REST API. In this example we use the `az rest` command to execute the REST API calls.
 
-1. Modify the following JSON, replacing `$USER_IDENTITY_CLIENT_ID` with the clientID of your managed identity and `$USER_IDENTITY_TENANT_ID` with your Azure tenant ID (if not recorded in a previous step, you can find this in the Azure Portal under **Azure Active Directory** under  **Tenant information**). Save the JSON as a file in the same location where you are running the Azure CLI (in Cloud Shell you can drag-and-drop the JSON file to upload it).
+1. Modify the following JSON, replacing `$USER_IDENTITY_CLIENT_ID` with the clientID of your managed identity and `$USER_IDENTITY_TENANT_ID` with your Azure tenant ID (if not recorded in a previous step, you can find this in the Azure portal under **Azure Active Directory** under  **Tenant information**). Save the JSON as a file in the same location where you are running the Azure CLI (in Cloud Shell you can drag-and-drop the JSON file to upload it).
 
     ```json
     {
@@ -106,12 +106,12 @@ Next set up a chaosAgent provider configuration that specifies the user-assigned
 
 ### Install the Chaos Agent
 
-The Chaos Agent is an application that runs in your VMs/VMSS instances to execute agent-based faults. During installation you configure the agent with the managed identity the agent should use, the profile ID of the chaosAgent provider configuration, and optionally an Application Insights instrumentation key that enables the agent to send diagnostic events to Application Insights.
+The Chaos Agent is an application that runs in your VMs/virtual machine scale set instances to execute agent-based faults. During installation you configure the agent with the managed identity the agent should use, the profile ID of the chaosAgent provider configuration, and optionally an Application Insights instrumentation key that enables the agent to send diagnostic events to Application Insights.
 
 1. Before beginning, make sure you have the following details:
     * **agentProfileId** - the property returned when creating the chaosAgent provider configuration. If you don't have this, you can run `az rest --method get --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.Chaos/chaosProviderConfigurations/ChaosAgent?api-version=2021-06-21-preview` and copy the `profileId` property.
     * **ClientId** - the client ID of the user-assigned managed identity used in the chaosAgent provider configuration. If you don't have this, you can run `az rest --method get --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.Chaos/chaosProviderConfigurations/ChaosAgent?api-version=2021-06-21-preview` and copy the `clientId` property
-    * (optionally) **AppInsightsKey** - the instrumentation key for your Application Insights component. You can find this in the Application Insights blade in the Azure Portal under **Essentials**.
+    * (optionally) **AppInsightsKey** - the instrumentation key for your Application Insights component. You can find this in the Application Insights blade in the Azure portal under **Essentials**.
 
 2. Modify the following Windows or Linux JSON, replacing `$AGENT_PROFILE_ID` with the agentProfileId, `$USER_IDENTITY_CLIENT_ID` with the clientID of your managed identity, and `$APP_INSIGHTS_KEY` with your Application Insights instrumentation key. If you are not using Application Insights, remove that flag and variable. Save this file as `agentSettings.json` in the folder where you are running the Azure CLI.
 
@@ -138,7 +138,7 @@ The Chaos Agent is an application that runs in your VMs/VMSS instances to execut
     ```
 
 
-3. Install the agent using the Custom Script extension and the settings JSON created above. Replace `$VM_RESOURCE_ID` with the resource ID of your VM or replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$VMSS_NAME` with those properties for your VMSS.
+3. Install the agent using the Custom Script extension and the settings JSON created above. Replace `$VM_RESOURCE_ID` with the resource ID of your VM or replace `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$VMSS_NAME` with those properties for your virtual machine scale set.
 
     #### Install the agent on a VM
 
@@ -154,7 +154,7 @@ The Chaos Agent is an application that runs in your VMs/VMSS instances to execut
     az vm extension set --name CustomScript --publisher "Microsoft.Azure.Extensions" --version 2.1 --settings agentSettings.json --ids $VM_RESOURCE_ID
     ```
 
-    #### Install the agent on a VMSS
+    #### Install the agent on a virtual machine scale set
 
     **Windows**
 
@@ -178,10 +178,10 @@ You are now ready to create and run your first experiment.
 
 ## Create a chaos experiment
 
-### Use the Azure Portal
-The Azure Portal is the easiest way to create and manage experiments. Follow the instructions below to create an experiment using the Portal.
+### Use the Azure portal
+The Azure portal is the easiest way to create and manage experiments. Follow the instructions below to create an experiment using the portal.
 
-1. Open the Azure Portal with the Chaos Studio feature flag:
+1. Open the Azure portal with the Chaos Studio feature flag:
     * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 
@@ -237,7 +237,7 @@ Congratulations! You've created your first chaos experiment and set up resources
 Next, **[run your experiment](chaos-studio-run-experiment.md) >>**
 
 ### Use the Chaos Studio REST API
-If you are using features that aren't available in the Portal yet or if you prefer to use REST APIs, follow the instructions below to create an experiment that uses agent-based faults.
+If you are using features that aren't available in the portal yet or if you prefer to use REST APIs, follow the instructions below to create an experiment that uses agent-based faults.
 
 1. Formulate your experiment JSON starting with the JSON sample below. Modify the JSON to correspond to the experiment you want to run using the [Create Experiment API](https://aka.ms/chaosrestapi) and the [Fault Library](chaos-studio-fault-library.md)
 
@@ -288,7 +288,7 @@ If you are using features that aren't available in the Portal yet or if you pref
     }
     ```
 
-    The resource ID used for agent-based faults is different than the resource ID used for service-direct faults. For agent-based faults, append `/Microsoft.Chaos/chaosAgents/chaosAgent` to the VM or VMSS instance resource ID:  
+    The resource ID used for agent-based faults is different than the resource ID used for service-direct faults. For agent-based faults, append `/Microsoft.Chaos/chaosAgents/chaosAgent` to the VM or virtual machine scale set instance resource ID:  
     `{vm-resource-id}/Microsoft.Chaos/chaosAgents/chaosAgent`
 
     `/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/VirtualMachines/{vmInstanceId}/Microsoft.Chaos/chaosAgents/chaosAgent`
@@ -301,7 +301,7 @@ If you are using features that aren't available in the Portal yet or if you pref
 
     Each experiment creates a corresponding system-assigned managed identity. Note of the `principalId` for this identity in the response for the next step.
 
-3. Give the experiment access to your VM/VMSSs using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target VM/VMSS (the actual resource ID, not the chaos agent resource ID used in the experiment definition). Run this command for each VM/VMSS targeted in your experiment.
+3. Give the experiment access to your VM/virtual machine scale sets using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target VM/virtual machine scale sets (the actual resource ID, not the chaos agent resource ID used in the experiment definition). Run this command for each VM/virtual machine scale sets targeted in your experiment.
 
     ```bash
     az role assignment create --role "Virtual Machine Contributor" --assignee-principal-type "ServicePrincipal" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID 

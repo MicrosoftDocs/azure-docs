@@ -1,5 +1,5 @@
 ---
-title: Chaos Studio Fault and Action Library
+title: Chaos Studio fault and action library
 description: Understand the available actions you can use with Chaos Studio including any prerequisites and parameters.
 services: chaos-studio
 author: johnkemnetz
@@ -9,17 +9,17 @@ ms.author: johnkem
 ms.service: chaos-studio
 ---
 
-# Chaos Studio Fault and Action Library
+# Chaos Studio fault and action library
 
 The following faults are available for use today. Visit the [Fault Providers](./chaos-studio-fault-providers.md) page to understand which resource types are supported.
 
-## Time Delay
+## Time delay
 
 | Property | Value  |
 |-|-|
 | Fault Provider | N/A |
 | Supported OS Types | N/A |
-| Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (e.g. waiting for auto-healing to occur before injecting another fault). |
+| Description | Adds a time delay before, between, or after other actions. Useful for waiting for the impact of a fault to appear in a service or for waiting for an activity outside of the experiment to complete (for example waiting for autohealing to occur before injecting another fault). |
 | Prerequisites | N/A |
 | Name | urn:provider:Azure-chaosStudio:Microsoft.Azure.Chaos.Delay.Timed |
 | duration | The duration of the delay in ISO 8601 format (Example: PT10M) |
@@ -39,7 +39,7 @@ The following faults are available for use today. Visit the [Fault Providers](./
 }
 ```
 
-## CPU Pressure
+## CPU pressure
 
 | Property | Value  |
 |-|-|
@@ -73,12 +73,12 @@ The following faults are available for use today. Visit the [Fault Providers](./
 }
 ```
 
-### Notes
-Known issues on Linux:
-1. Stress effect may not be terminated correctly if AzureChaosAgent is unexpectedly killed.
-2. Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
+> [!NOTE]
+> There are two known issues on Linux:
+> 1. Stress effect may not be terminated correctly if AzureChaosAgent is unexpectedly killed.
+> 2. Linux CPU fault is only tested on Ubuntu 16.04-LTS and Ubuntu 18.04-LTS.
 
-## Physical Memory Pressure
+## Physical memory pressure
 
 | Property | Value  |
 |-|-|
@@ -113,7 +113,7 @@ Known issues on Linux:
 }
 ```
 
-## Virtual Memory Pressure
+## Virtual memory pressure
 
 | Property | Value  |
 |-|-|
@@ -147,19 +147,19 @@ Known issues on Linux:
 }
 ```
 
-## Disk I/O Pressure (Windows)
+## Disk I/O pressure (Windows)
 
 | Property | Value  |
 |-|-|
 | Fault Provider (agent-based) | ChaosAgent |
 | Supported OS Types | Windows |
-| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it is injected for the duration of the fault action. This fault has 5 different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
+| Description | Uses the [diskspd utility](https://github.com/Microsoft/diskspd/wiki) to add disk pressure to the primary storage of the VM where it is injected for the duration of the fault action. This fault has five different modes of execution. The artificial disk pressure is removed at the end of the duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Name | urn:provider:agent-v2:Microsoft.Azure.Chaos.Fault.DiskSpdFault |
 | Parameters (key, value) |  |
 | PressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the PressureModes in the table below. |
 
-### Pressure Modes
+### Pressure modes
 
 | PressureMode | Description |
 | -- | -- |
@@ -191,19 +191,19 @@ Known issues on Linux:
 }
 ```
 
-## Disk I/O Pressure (Linux)
+## Disk I/O pressure (Linux)
 
 | Property | Value  |
 |-|-|
 | Fault Provider (agent-based) | ChaosAgent |
 | Supported OS Types | Linux |
-| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For details on how pressure is applied please see https://wiki.ubuntu.com/Kernel/Reference/stress-ng . |
+| Description | Uses stress-ng to apply pressure to the disk. One or more worker processes are spawned that perform I/O processes with temporary files. For details on how pressure is applied see https://wiki.ubuntu.com/Kernel/Reference/stress-ng. |
 | Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng* |
 | Name | urn:provider:agent-v2:Microsoft.Azure.Chaos.Fault.DiskPressure |
 | Parameters (key, value) |  |
-| WorkerCount | Number of worker processes to run. Setting this to 0 will generate as many worker processes as there are number of processors. |
-| FileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in (b)ytes, (k)ilobytes, (m)egabytes, or (g)igabytes (e.g. 4m for 4 megabytes, 256g for 256 gigabytes) |
-| BlockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in (b)ytes, (k)ilobytes, or (m)egabytes (e.g. 512k for 512 kilobytes) |
+| WorkerCount | Number of worker processes to run. Setting to 0 will generate as many worker processes as there are number of processors. |
+| FileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes(g) (for example 4m for 4 megabytes, 256g for 256 gigabytes) |
+| BlockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes (b), kilobytes (k), or megabytes (m) (for example 512k for 512 kilobytes). |
 
 ### Sample JSON
 
@@ -235,7 +235,7 @@ Known issues on Linux:
 }
 ```
 
-## Arbitrary stress-ng stressor
+## Arbitrary stress-ng stress
 
 | Property | Value  |
 |-|-|
@@ -245,7 +245,7 @@ Known issues on Linux:
 | Prerequisites | Running the fault on a Linux VM requires the **stress-ng** utility to be installed. You can install it using the package manager for your Linux distro, </br> APT Command to install stress-ng: *sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install stress-ng* </br> YUM Command to install stress-ng: *sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng* |
 | Name | urn:provider:agent-v2:Microsoft.Azure.Chaos.Fault.StressNg |
 | Parameters (key, value) |  |
-| StressNgArguments | One or more arguments to pass to the stress-ng process. For details on possible stress-ng arguments see https://wiki.ubuntu.com/Kernel/Reference/stress-ng |
+| StressNgArguments | One or more arguments to pass to the stress-ng process. For details on possible stress-ng arguments see https://wiki.ubuntu.com/Kernel/Reference/stress-ng. |
 
 ### Sample JSON
 
@@ -269,7 +269,7 @@ Known issues on Linux:
 }
 ```
 
-## Stop Windows Service
+## Stop Windows service
 
 | Property | Value  |
 |-|-|
@@ -303,7 +303,7 @@ Known issues on Linux:
 }
 ```
 
-## Time Change
+## Time change
 
 | Property | Value  |
 |-|-|
@@ -313,7 +313,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Name | urn:provider:agent-v2:Microsoft.Azure.Chaos.Fault.TimeChange |
 | Parameters (key, value) |  |
-| DateTime | A DateTime String in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If YYYY-MM-DD values are missing, these are defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY) it is converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it is defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
+| DateTime | A DateTime String in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). The datetime is defaulted to the current day when the experiment runs if YYYY-MM-DD values are missing. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY), it is converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it is defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
 
 ### Sample JSON
 
@@ -337,7 +337,7 @@ Known issues on Linux:
 }
 ```
 
-## Kill Process
+## Kill process
 
 | Property | Value  |
 |-|-|
@@ -376,7 +376,7 @@ Known issues on Linux:
 }
 ```
 
-## DNS Failure
+## DNS failure
 
 | Property | Value  |
 |-|-|
@@ -387,9 +387,9 @@ Known issues on Linux:
 | Name | urn:provider:agent-v2:Microsoft.Azure.Chaos.Fault.DNS.Failure |
 | Parameters (key, value) |  |
 | NamesJson | Delimited JSON array of host names to fail DNS lookup request for. |
-| ReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For additional details on DNS return codes please visit [here](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
+| ReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more details on DNS return codes, visit [here](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
 
-### Sample DNS Failure JSON
+### Sample DNS failure JSON
 
 ```json
 {
@@ -415,21 +415,21 @@ Known issues on Linux:
 }
 ```
 
-### DNS Failure Limitations
+### DNS failure limitations
 
 * The Windows Chaos Studio Agent must be 1.0.01685.227 (released on 08/12/21) or *newer*.
-  * To update the Chaos Studio Agent simply re-run the [Install the Chaos Agent](https://pppdocs.azurewebsites.net/ChaosEngineering/Onboarding/create_experiment_agent_fault.html#install-the-chaos-agent) adding **--force-update** at the end of the **az vm extension set** command.
+  * To update the Chaos Studio Agent, rerun the [Install the Chaos Agent](https://pppdocs.azurewebsites.net/ChaosEngineering/Onboarding/create_experiment_agent_fault.html#install-the-chaos-agent) adding **--force-update** at the end of the **az vm extension set** command.
 * The DNS Failure fault requires Windows 2019 RS5 or newer.
-* DNS Cache will be ignored during the duration of the fault for the host names defined in the fault. *NOTE: Ignoring the DNS cache will be a optional feature in a future release*
+* DNS Cache will be ignored during the duration of the fault for the host names defined in the fault.
 
-## Network Latency
+## Network latency
 
 | Property | Value  |
 |-|-|
 | Fault Provider (agent-based) | ChaosAgent |
 | Supported OS Types | Windows |
 | Description | Increases network latency for a specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension it is run as administrator by default. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
 | Name | urn:provider:agent-v2:Microsoft.Azure.Chaos.Fault.Network.Latency |
 | Parameters (key, value) |  |
 | LatencyMilliseconds | Amount of latency to be applied in milliseconds. |
@@ -465,14 +465,14 @@ Known issues on Linux:
 }
 ```
 
-## Network Disconnect
+## Network disconnect
 
 | Property | Value  |
 |-|-|
 | Fault Provider (agent-based) | ChaosAgent |
 | Supported OS Types | Windows |
 | Description | Blocks outbound network traffic for specified port range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension it is run as administrator by default. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
 | Name | urn:provider:agent-v2:Microsoft.Azure.Chaos.Fault.Disconnect |
 | Parameters (key, value) |  |
 | DestinationFiltersJson | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 3. |
@@ -506,14 +506,14 @@ Known issues on Linux:
 > [!WARNING]
 > The network disconnect fault only affects new connections. Existing **active** connections continue to persist. You can restart the service or process to force connections to break.
 
-## Network Disconnect with Firewall Rule
+## Network disconnect with firewall rule
 
 | Property | Value  |
 |-|-|
 | Fault Provider (agent-based) | ChaosAgent |
 | Supported OS Types | Windows |
-| Description | Applies a Windows firewall rule to block outbound traffic for specified port range range and network block. |
-| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension it is run as administrator by default. |
+| Description | Applies a Windows firewall rule to block outbound traffic for specified port range and network block. |
+| Prerequisites | Agent must be run as administrator. If the agent is installed as a VM extension, it is run as administrator by default. |
 | Name | urn:provider:agent-v2:Microsoft.Azure.Chaos.Fault.Network.DisconnectViaFirewall |
 | Parameters (key, value) |  |
 | DestinationFiltersJson | Delimited JSON array of packet filters defining which outbound packets to target for fault injection. Maximum of 3. |
@@ -544,7 +544,7 @@ Known issues on Linux:
 }
 ```
 
-## ARM VM Shutdown
+## VM shutdown (Azure Resource Manager)
 | Property | Value  |
 |-|-|
 | Fault Provider (service-direct) | AzureVmChaos |
@@ -553,7 +553,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Name | urn:provider:Azure-virtualMachine:Microsoft.Azure.Chaos.Fault.AzureVmShutdown |
 | Parameters (key, value) |  |
-| skipShutdown | Boolean indicating if the VM should be shutdown gracefully or abruptly (destructive). |
+| skipShutdown | Boolean indicating if the VM should be shut down gracefully or abruptly (destructive). |
 
 ### Sample JSON
 
@@ -577,17 +577,17 @@ Known issues on Linux:
 }
 ```
 
-## VMSS VM Shutdown
+## Virtual machine scale set instance shutdown (Azure Resource Manager)
 
 | Property | Value  |
 |-|-|
 | Fault Provider (service-direct) | AzureVmssVmChaos |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kill a VMSS VM for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. VMSS VMs are supported as are Service Fabric VMs. |
+| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. Virtual machine scale set instances are supported as are Service Fabric VMs. |
 | Prerequisites | None. |
 | Name | urn:provider:Azure-virtualMachineScaleSetVM:Microsoft.Azure.Chaos.Fault.AzureVmssVmShutdown |
 | Parameters (key, value) |  |
-| skipShutdown | Boolean indicating if the VMSS instance should be shutdown gracefully or abruptly (destructive). |
+| skipShutdown | Boolean indicating if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
 
 ### Sample JSON
 
@@ -611,7 +611,7 @@ Known issues on Linux:
 }
 ```
 
-## Cosmos DB Failover
+## Cosmos DB failover
 
 | Property | Value  |
 |-|-|
@@ -620,7 +620,7 @@ Known issues on Linux:
 | Prerequisites | None. |
 | Name | urn:provider:Azure-cosmosDb:Microsoft.Azure.Chaos.Fault.AzureCosmosDbFailover |
 | Parameters (key, value) |  |
-| ReadRegion | The read region that should be promoted to write region during the failover, e.g. "East US 2" |
+| ReadRegion | The read region that should be promoted to write region during the failover, for example "East US 2" |
 
 ### Sample JSON
 
@@ -644,28 +644,26 @@ Known issues on Linux:
 }
 ```
 
-## Network Security Group (Set Rules)
-
-### Fault Parameter Definition
+## Network Security Group (set rules)
 
 | Property | Value  |
 |-|-|
 | Fault Provider (service-direct) | AzureNetworkSecurityGroupChaos |
-| Description | Enables manipulation or creation of a rule in an existing Azure Network Security Group or set of Azure Network Security Groups (assuming the rule definition is applicable cross security groups). Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that is expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking, or allowing, network traffic where Chaos Agent can not be deployed. |
+| Description | Enables manipulation or creation of a rule in an existing Azure Network Security Group or set of Azure Network Security Groups (assuming the rule definition is applicable cross security groups). Useful for simulating an outage of a downstream or cross-region dependency/non-dependency, simulating an event that is expected to trigger a logic to force a service failover, simulating an event that is expected to trigger an action from a monitoring or state management service, or as an alternative for blocking, or allowing, network traffic where Chaos Agent cannot be deployed. |
 | Prerequisites | None. |
 | Name | urn:provider:Azure-networkSecurityGroup:Microsoft.Azure.Chaos.Fault.AzureNetworkSecurityGroupSetRule |
 | Parameters (key, value) |  |
 | Name | A unique name for the security rule that will be created. The fault will fail if another rule already exists on the NSG with the same name. Must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens. |
 | Protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| SourceAddressPrefix *or* SourceAddressPrefixes | A single CIDR formatted IP address or a comma-delimited CIDR formatted list of IP addresses. Can also be a service tag name for an inbound rule, e.g. "AppService". |
-| DestinationAddressPrefix *or* DestinationAddressPrefixes | A single CIDR formatted IP address or a comma-delimited list of CIDR formatted IP addresses. Can also be a service tag name for an outbound rule, e.g. "AppService". |
+| SourceAddressPrefix *or* SourceAddressPrefixes | A single CIDR formatted IP address or a comma-delimited CIDR formatted list of IP addresses. Can also be a service tag name for an inbound rule, for example "AppService". |
+| DestinationAddressPrefix *or* DestinationAddressPrefixes | A single CIDR formatted IP address or a comma-delimited list of CIDR formatted IP addresses. Can also be a service tag name for an outbound rule, for example "AppService". |
 | Access | Security group access type. Must be either Allow or Deny |
 | DestinationPortRange | The destination port(s) or range of ports impacted by the security rule. Can be a single port, such as 80, a range of ports, such as 1024-65535, a comma-separated list of single ports and/or port ranges, such as 80, 1024-65535, or an asterisk (*) to allow traffic on any port. |
 | SourcePortRange | The source port(s) or range of ports impacted by the security rule. Can be a single port, such as 80, a range of ports, such as 1024-65535, a comma-separated list of single ports and/or port ranges, such as 80, 1024-65535, or an asterisk (*) to allow traffic on any port. |
 | Priority | A value between 100 and 4096 that's unique for all security rules within the network security group. The fault will fail if another rule already exists on the NSG with the same priority. |
 | Direction | Direction of the traffic impacted by the security rule. Must be either Inbound or Outbound. |
 
-### JSON Template
+### Sample JSON
 
 ```json
 { 
@@ -723,7 +721,7 @@ Known issues on Linux:
 ### Limitations
 
 * The fault can only be applied to an existing Network Security Group.
-* When an NSG rule that is intended to deny traffic is applied existing connections will not be broken until they have been **idle** for 4 minutes. One way to work around this is by adding another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
+* When an NSG rule that is intended to deny traffic is applied existing connections will not be broken until they have been **idle** for 4 minutes. You can resolve this by adding another branch in the same step that uses a fault that would cause existing connections to break when the NSG fault is applied. For example, killing the process, temporarily stopping the service, or restarting the VM would cause connections to reset.
 * Rules are applied at the start of the action. Any external changes to the rule during the duration of the action will cause the experiment to fail.
 * Creating or modifying Application Security Group rules is not supported.
 * Priority values must be unique on each NSG targeted. Attempting to create a new rule that has the same priority value as another will cause the experiment to fail.
