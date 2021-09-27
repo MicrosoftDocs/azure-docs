@@ -103,7 +103,7 @@ The device login flow will prompt users signing in with a Gmail account in an em
 
    ![image](https://user-images.githubusercontent.com/15203472/134458704-7399bb72-8dfb-411d-9690-3e1932f35bc2.png)
    
-7. Once again, they will be asked to confirm the application they're signing into.
+7. Once again, they're asked to confirm the application they're signing into.
 
    ![image](https://user-images.githubusercontent.com/15203472/134458470-b51c5892-4eeb-4e21-a512-07d2d291b80b.png)
 
