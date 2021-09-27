@@ -91,7 +91,7 @@ For more information, see [License requirements](entitlement-management-overview
 	
 3. Set **Assignments expire after** to **365** days. This field determines when members who have access to this access package will need to renew their access. 
 
-4. You can also configure **Access Reviews** which allows periodic checks of whether the user still needs access to the access package. A review can be a self-review or you can set their manager, specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md). For this scenario, you will want each user to review whether they still need a license for Office each year.
+4. You can also configure **Access Reviews** which allows periodic checks of whether the user still needs access to the access package. A review can be a self-review performed by the user or you can set their manager, or another specific reviewer for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md). For this scenario, you will want each user to review whether they still need a license for Office each year.
 
     1.	Set **Require access reviews** to **Yes**.
     2.	You can leave the **Starting on** to the current date - This date is when the access review campaign will start. Once an access review has been created, you can't update its start date.
