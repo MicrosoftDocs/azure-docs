@@ -27,256 +27,259 @@ In this tutorial, you learn how to:
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 - An Azure account with an active subscription.[Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure PowerShell installed locally or Azure Cloud Shell
-
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Register preview feature
 
 As part of the public preview of gateway load balancer, the provider must be registered in your Azure subscription.
 
-Use [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) to register the **AllowGatewayLoadBalancer** provider feature:
+Use [az feature register](/cli/azure/feature#az_feature_register) to register the **AllowGatewayLoadBalancer** provider feature:
 
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGatewayLoadBalancer
-
+```azurecli-interactive
+  az feature register \
+    --name AllowGatewayLoadBalancer \
+    --namespace Microsoft.Network
 ```
 
-Use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) to register the **Microsoft.Network** resource provider:
+Use [az provider register](/cli/azure/provider#az_provider_register) to register the **Microsoft.Network** resource provider:
 
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-
+```azurecli-interactive
+  az provider register \
+    --namespace Microsoft.Network
 ```
 
 ## Create a resource group
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+Create a resource group with [az group create](/cli/azure/group#az_group_create):
 
-```azurepowershell-interactive
-New-AzResourceGroup -Name 'TutorGwLB-rg' -Location 'eastus'
-
-```
-
-## Create virtual network
-
-A virtual network is needed for the resources that are in the backend pool of the gateway load balancer. Use [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) to create the virtual network. Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to deploy a bastion host for secure management of resources in virtual network.
-
-```azurepowershell-interactive
-## Create backend subnet config ##
-$subnet = @{
-    Name = 'myBackendSubnet'
-    AddressPrefix = '10.1.0.0/24'
-}
-$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
-
-## Create Azure Bastion subnet. ##
-$bastsubnet = @{
-    Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.1.1.0/24'
-}
-$bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
-
-## Create the virtual network ##
-$net = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'TutorGwLB-rg'
-    Location = 'eastus'
-    AddressPrefix = '10.1.0.0/16'
-    Subnet = $subnetConfig,$bastsubnetConfig
-}
-$vnet = New-AzVirtualNetwork @net
-
-## Create public IP address for bastion host. ##
-$ip = @{
-    Name = 'myBastionIP'
-    ResourceGroupName = 'TutorGwLB-rg'
-    Location = 'eastus'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-}
-$publicip = New-AzPublicIpAddress @ip
-
-## Create bastion host ##
-$bastion = @{
-    ResourceGroupName = 'TutorGwLB-rg'
-    Name = 'myBastion'
-    PublicIpAddress = $publicip
-    VirtualNetwork = $vnet
-}
-New-AzBastion @bastion -AsJob
+```azurecli-interactive
+  az group create \
+    --name TutorGwLB-rg \
+    --location eastus
 
 ```
 
-## Create NSG
+## Configure virtual network
+
+A virtual network is needed for the resources that are in the backend pool of the gateway load balancer.  
+
+### Create virtual network
+
+Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)to create the virtual network.
+
+```azurecli-interactive
+  az network vnet create \
+    --resource-group TutorGwLB-rg \
+    --location eastus \
+    --name myVNet \
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
+```
+
+### Create bastion public IP address
+
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a public IP address for the Azure Bastion host
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group TutorGwLB-rg \
+    --name myBastionIP \
+    --sku Standard \
+    --zone 1,2,3
+```
+
+### Create bastion subnet
+
+Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) to create the bastion subnet.
+
+```azurecli-interactive
+az network vnet subnet create \
+    --resource-group TutorGwLB-rg \
+    --name AzureBastionSubnet \
+    --vnet-name myVNet \
+    --address-prefixes 10.1.1.0/27
+```
+
+### Create bastion host
+
+Use [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to deploy a bastion host for secure management of resources in virtual network.
+
+```azurecli-interactive
+az network bastion create \
+    --resource-group TutorGwLB-rg \
+    --name myBastionHost \
+    --public-ip-address myBastionIP \
+    --vnet-name myVNet \
+    --location eastus
+```
+
+It can take a few minutes for the Azure Bastion host to deploy.
+
+## Configure NST
 
 Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
 
-Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create three rules for the NSG. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the NSG.
+### Create NSG
 
-```azurepowershell-interactive
-## Create rule for network security group and place in variable. ##
-$nsgrule1 = @{
-    Name = 'myNSGRule-AllowAll-TCP'
-    Description = 'Allow all TCP'
-    Protocol = 'TCP'
-    SourcePortRange = '*'
-    DestinationPortRange = '*'
-    SourceAddressPrefix = '0.0.0.0/0'
-    DestinationAddressPrefix = '0.0.0.0/0'
-    Access = 'Allow'
-    Priority = '100'
-    Direction = 'Inbound'
-}
-$rule1 = New-AzNetworkSecurityRuleConfig @nsgrule1
+Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to create the NSG.
 
-$nsgrule2 = @{
-    Name = 'myNSGRule-AllowAll-TCP-Out'
-    Description = 'Allow all TCP Out'
-    Protocol = 'TCP'
-    SourcePortRange = '*'
-    DestinationPortRange = '*'
-    SourceAddressPrefix = '0.0.0.0/0'
-    DestinationAddressPrefix = '0.0.0.0/0'
-    Access = 'Allow'
-    Priority = '101'
-    Direction = 'Outbound'
-}
-$rule2 = New-AzNetworkSecurityRuleConfig @nsgrule2
-
-$nsgrule3 = @{
-    Name = 'myNSGRule-AllowAll-UDP'
-    Description = 'Allow all UDP'
-    Protocol = 'UDP'
-    SourcePortRange = '*'
-    DestinationPortRange = '*'
-    SourceAddressPrefix = '0.0.0.0/0'
-    DestinationAddressPrefix = '0.0.0.0/0'
-    Access = 'Allow'
-    Priority = '102'
-    Direction = 'Inbound'
-}
-$rule3 = New-AzNetworkSecurityRuleConfig @nsgrule3
-
-## Create network security group ##
-$nsg = @{
-    Name = 'myNSG'
-    ResourceGroupName = 'TutorGwLB-rg'
-    Location = 'eastus'
-    SecurityRules = $rule1,$rule2,$rule3
-}
-New-AzNetworkSecurityGroup @nsg
+```azurecli-interactive
+  az network nsg create \
+    --resource-group TutorGwLB-rg \
+    --name myNSG
 ```
 
-## Create gateway load balancer
+### Create NSG Rules
 
-In this section, you'll create the configuration and deploy the gateway load balancer. Use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create the frontend IP configuration of the load balancer. 
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create three rules for the NSG.
 
-You'll use [New-AzLoadBalancerTunnelInterface](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create two tunnel interfaces for the load balancer. 
+```azurecli-interactive
+  az network nsg rule create \
+    --resource-group TutorGwLB-rg \
+    --nsg-name myNSG \
+    --name myNSGRule-AllowAll-TCP \
+    --protocol 'TCP' \
+    --direction inbound \
+    --source-address-prefix '0.0.0.0/0' \
+    --source-port-range '*' \
+    --destination-address-prefix '0.0.0.0/0' \
+    --destination-port-range '*' \
+    --access allow \
+    --priority 100
 
-Create a backend pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for the NVAs. 
+  az network nsg rule create \
+    --resource-group TutorGwLB-rg \
+    --nsg-name myNSG \
+    --name myNSGRule-AllowAll-TCP-Out \
+    --protocol 'TCP' \
+    --direction outbound \
+    --source-address-prefix '0.0.0.0/0' \
+    --source-port-range '*' \
+    --destination-address-prefix '0.0.0.0/0' \
+    --destination-port-range '*' \
+    --access allow \
+    --priority 101
 
-A health probe is required to monitor the health of the backend instances in the load balancer. Use [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) to create the health probe.
+  az network nsg rule create \
+    --resource-group TutorGwLB-rg \
+    --nsg-name myNSG \
+    --name myNSGRule-AllowAll-UDP \
+    --protocol 'UDP' \
+    --direction inbound \
+    --source-address-prefix '0.0.0.0/0' \
+    --source-port-range '*' \
+    --destination-address-prefix '0.0.0.0/0' \
+    --destination-port-range '*' \
+    --access allow \
+    --priority 102
+```
+## Configure gateway load balancer
+
+In this section, you'll create the configuration and deploy the gateway load balancer.  
+
+### Create load balancer
+
+To create the deploy the load balancer, use [az network lb create](/cli/azure/network/lb#az_network_lb_create).
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group TutorGwLB-rg \
+    --name myLoadBalancer-gw \
+    --sku Gateway \
+    --vnet-name myVnet \
+    --subnet myBackendSubnet \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool
+```
+
+### Create health probe
+A health probe is required to monitor the health of the backend instances in the load balancer. Use [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create) to create the health probe.
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group TutorGwLB-rg \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol http \
+    --port 80 \
+    --path '/' \
+    --interval '360' \
+    --threshold '5'
+    
+```
+
+### Create tunnel interfaces
+You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az_network_lb_address_pool_tunnel_interface_add) to create two tunnel interfaces for the load balancer. 
+
+```azurecli-interactive
+  az network lb address-pool tunnel-interface add \
+    --address-pool myBackEndPool \
+    --identifier '800' \
+    --lb-name myLoadBalancer \
+    --protocol Vxlan \
+    --resource-group TutorGwLB-rg \
+    --type Internal \
+    --port '2000'
+
+  az network lb address-pool tunnel-interface add \
+    --address-pool myBackEndPool \
+    --identifier '801' \
+    --lb-name myLoadBalancer \
+    --protocol Vxlan \
+    --resource-group TutorGwLB-rg \
+    --type External \
+    --port '2001'
+```
+
+### Create load-balancing rule
 
 Traffic destined for the backend instances is routed with a load-balancing rule. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig)  to create the load-balancing rule.
 
-To create the deploy the load balancer, use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
-
-```azurepowershell-interactive
-## Place virtual network configuration in a variable for later use. ##
-$net = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'TutorGwLB-rg'
-}
-$vnet = Get-AzVirtualNetwork @net
-
-## Create load balancer frontend configuration and place in variable. ## 
-$fe = @{
-    Name = 'myFrontend'
-    SubnetId = $vnet.subnets[0].id
-}
-$feip = New-AzLoadBalancerFrontendIpConfig @fe
-
-## Create backend address pool configuration and place in variable. ## 
-$int1 = @{
-    Type = 'Internal'
-    Protocol = 'Vxlan'
-    Identifier = '800'
-    Port = '2000'
-}
-$tunnelInterface1 = New-AzLoadBalancerBackendAddressPoolTunnelInterfaceConfig @int1
-
-$int2 = @{
-    Type = 'External'
-    Protocol = 'Vxlan'
-    Identifier = '801'
-    Port = '2001'
-}
-$tunnelInterface2 = New-AzLoadBalancerBackendAddressPoolTunnelInterfaceConfig @int2
-
-$pool = @{
-    Name = 'myBackendPool'
-    TunnelInterface = $tunnelInterface1,$tunnelInterface2
-}
-$bepool = New-AzLoadBalancerBackendAddressPoolConfig @pool
-
-## Create the health probe and place in variable. ## 
-$probe = @{
-    Name = 'myHealthProbe'
-    Protocol = 'http'
-    Port = '80'
-    IntervalInSeconds = '360'
-    ProbeCount = '5'
-    RequestPath = '/'
-}
-$healthprobe = New-AzLoadBalancerProbeConfig @probe
-
-## Create the load balancer rule and place in variable. ## 
-$para = @{
-    Name = 'myLBRule'
-    Protocol = '*'
-    FrontendPort = '0'
-    BackendPort = '0'
-    IdleTimeoutInMinutes = '15'
-    FrontendIpConfiguration = $feip
-    BackendAddressPool = $bepool
-    Probe = $healthprobe
-}
-$rule = New-AzLoadBalancerRuleConfig @para
-
-## Create the load balancer resource. ## 
-$lb = @{
-    ResourceGroupName = 'TutorGwLB-rg'
-    Name = 'myLoadBalancer-gw'
-    Location = 'eastus'
-    Sku = 'Gateway'
-    FrontendIpConfiguration = $feip
-    BackendAddressPool = $bepool
-    Probe = $healthprobe
-}
-New-AzLoadBalancer @lb
-
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group TutorGwLB-rg \
+    --lb-name myLoadBalancer \
+    --name myLBRule \
+    --protocol '*' \
+    --frontend-port 0 \
+    --backend-port 0 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe \
+    --idle-timeout 15 \
 ```
 
 The load balancer is ready for NVAs in the backend pool.
 
-
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and the remaining resources.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name 'TutorGwLB-rg'
+```azurecli-interactive
+  az group delete \
+    --name TutorGwLB-rg
 ```
 
 ## Next steps
 
-Create NVAs in Azure. When creating the NVAs, choose the network, subnet, network security group, and load balancer created in this tutorial.
+Create Network Virtual Appliances in Azure. 
+
+When creating the NVAs, choose the resources created in this tutorial:
+
+* Virtual network
+
+* Subnet
+
+* Network security group
+
+* Gateway load balancer
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]
