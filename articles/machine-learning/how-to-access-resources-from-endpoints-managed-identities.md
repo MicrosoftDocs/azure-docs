@@ -57,28 +57,38 @@ To deploy a managed endpoint with the CLI, you need to define the configuration 
 
 # [System-assigned managed identity](#tab/system-identity)
 
-The following YAML example is located at `endpoints/online/managed/managed-identities/2-sai-create-endpoint-with-deployment.yml`. The file, 
+The following YAML example is located at `endpoints/online/managed/managed-identities/1-sai-create-endpoint`. The file, 
 
 * Defines the name by which you want to refer to the endpoint, `my-sai-endpoint`.
 * Specifies the type of authorization to use to access the endpoint, `auth-mode: key`.
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml":::
+
+This YAML example, `2-sai-deployment.yml`,
+
 * Specifies that the type of endpoint you want to create is an `online` endpoint.
 * Indicates that the endpoint has an associated deployment called `blue`.
 * Configures the details of the deployment such as, which model to deploy and which environment and scoring script to use.
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml":::
 
-
 # [User-assigned managed identity](#tab/user-identity)
 
-The following YAML example is located at `endpoints/online/managed/managed-identities/1-uai-create-endpoint-with-deployment.yml`. The file, 
+The following YAML example is located at `endpoints/online/managed/managed-identities/1-uai-create-endpoint`. The file, 
 
 * Defines the name by which you want to refer to the endpoint, `my-uai-endpoint`.
 * Specifies the type of authorization to use to access the endpoint, `auth-mode: key`.
+* Indicates the identity type to use, `type: user_assigned`
+
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml":::
+
+This YAML example, `2-sai-deployment.yml`,
+
 * Specifies that the type of endpoint you want to create is an `online` endpoint.
 * Indicates that the endpoint has an associated deployment called `blue`.
 * Configures the details of the deployment such as, which model to deploy and which environment and scoring script to use.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint-with-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml":::
 
 ---
 
