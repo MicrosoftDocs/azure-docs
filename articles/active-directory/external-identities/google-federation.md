@@ -95,7 +95,7 @@ The device login flow will prompt users signing in with a Gmail account in an em
 
    ![image](https://user-images.githubusercontent.com/15203472/134457819-b2f0706c-8493-4a3d-9437-577a5420dfd2.png)
    
-4. If the codes match, for security purposes, the user will be asked to enter their email again to confirm they are signing in to the app and location displayed.
+4. If the codes match, for security purposes the user is asked to reenter their email to confirm their app and sign-in location.
 
    ![image](https://user-images.githubusercontent.com/15203472/134458107-0ab2496f-9956-4b97-9a99-77d5b3389721.png)
    
