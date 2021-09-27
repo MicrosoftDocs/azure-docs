@@ -71,7 +71,7 @@ A virtual network is needed for the resources that are in the backend pool of th
 
 ### Create virtual network
 
-Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)to create the virtual network.
+Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create the virtual network.
 
 ```azurecli-interactive
   az network vnet create \
@@ -122,7 +122,7 @@ az network bastion create \
 
 It can take a few minutes for the Azure Bastion host to deploy.
 
-## Configure NST
+## Configure NSG
 
 Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
 
@@ -186,7 +186,7 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 ### Create load balancer
 
-To create the deploy the load balancer, use [az network lb create](/cli/azure/network/lb#az_network_lb_create).
+To create the the load balancer, use [az network lb create](/cli/azure/network/lb#az_network_lb_create).
 
 ```azurecli-interactive
   az network lb create \
