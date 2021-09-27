@@ -59,7 +59,7 @@ The following table illustrates how specific attributes for user objects in Azur
 |:--- |:--- |
 | accountEnabled |userAccountControl (sets or clears the ACCOUNT_DISABLED bit) |
 | city |l |
-| company |companyName |
+| companyName |companyName |
 | country |co |
 | department |department |
 | displayName |displayName |

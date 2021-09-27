@@ -2,7 +2,8 @@
 title: Enable auto forwarding for Azure Service Bus queues and subscriptions
 description: This article explains how to enable auto forwarding for queues and subscriptions by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/19/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable auto forwarding for Azure Service Bus queues and subscriptions

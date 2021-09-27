@@ -2,7 +2,7 @@
 title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 07/25/2021
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
 ---
@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Before you start this tutorial:
 
-- [Review supported regions](azure-to-azure-support-matrix.md#region-support). You can set up disaster recovery for Azure VMs between any two regions in the same geography.
+- [Review supported regions](azure-to-azure-support-matrix.md#region-support). 
 - You need one or more Azure VMs. Verify that [Windows](azure-to-azure-support-matrix.md#windows) or [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage) VMs are supported.
 - Review VM [compute](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), [storage](azure-to-azure-support-matrix.md#replicated-machines---storage), and [networking](azure-to-azure-support-matrix.md#replicated-machines---networking) requirements.
 - This tutorial presumes that VMs aren't encrypted. If you want to set up disaster recovery for encrypted VMs, [follow this article](azure-to-azure-how-to-enable-replication-ade-vms.md).
@@ -42,7 +42,7 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
 
 - If you just created a free Azure subscription, you're the account admin, and no further action is needed.
 - If you aren't the admin, work with the admin to get the permissions you need.
-    - **Create a vault**: Admin or owner permissions on the subscription. 
+    - **Create a vault**: Admin or owner permissions on the subscription.
     - **Manage Site Recovery operations in the vault**: The *Site Recovery Contributor* built-in Azure role.
     - **Create Azure VMs in the target region**: Either the built-in *Virtual Machine Contributor* role, or specific permissions to:
         - Create a VM in the selected virtual network.
@@ -51,14 +51,14 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
 
 ### Verify target settings
 
-During disaster recovery, when you fail over from the source region, VMs are created in the target region. 
+During disaster recovery, when you fail over from the source region, VMs are created in the target region.
 
 Check that your subscription has enough resources in the target region. You need to be able to create VMs with sizes that match VMs in the source region. When you set up disaster recovery, Site Recovery picks the same size (or the closest possible size) for the target VM.
 
 
 ## Prepare VMs
 
-Make sure VMs have outbound connectivity, and the latest root certificates. 
+Make sure VMs have outbound connectivity, and the latest root certificates.
 
 
 ### Set up VM connectivity
@@ -83,12 +83,12 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 If you're using network security groups (NSGs) to control connectivity, create service-tag based NSG rules that allow HTTPS outbound to port 443 for these [service tags](../virtual-network/service-tags-overview.md#available-service-tags)(groups of IP addresses):
 
-**Tag** | **Allow**	
+**Tag** | **Allow**
 --- | ---
-Storage tag	 |Allows data to be written from the VM to the cache storage account.	
-Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.	
-EventsHub tag | Allows access to Site Recovery monitoring.	
-AzureSiteRecovery tag | Allows access to the Site Recovery service in any region.	
+Storage tag	 |Allows data to be written from the VM to the cache storage account.
+Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.
+EventsHub tag | Allows access to Site Recovery monitoring.
+AzureSiteRecovery tag | Allows access to the Site Recovery service in any region.
 GuestAndHybridManagement tag | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
 
 [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) about required tags and tagging examples.
@@ -121,8 +121,8 @@ Create a Recovery Services vault in any region, except in the source region from
 9. In **Review + create**, select **Create**.
 
 10. Vault deployment begins. Follow progress in the notifications.
-11. After the vault is deployed, select **Pin to dashboard** to save it for quick reference. Select **Go to resource** to open the new vault. 
-    
+11. After the vault is deployed, select **Pin to dashboard** to save it for quick reference. Select **Go to resource** to open the new vault.
+
     ![Buttons for opening the vault after deployment, and pinning to dashboard](./media/azure-to-azure-tutorial-enable-replication/vault-deploy.png)
 
 ### Enable Site Recovery
@@ -133,7 +133,7 @@ In the vault settings, select **Enable Site Recovery**.
 
 ## Enable replication
 
-Select the source settings, and enable VM replication. 
+Select the source settings, and enable VM replication.
 
 ### Select source settings
 

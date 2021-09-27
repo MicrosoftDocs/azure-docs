@@ -18,7 +18,7 @@ ms.author: justinha
 
 With Azure AD Domain Services (Azure AD DS), you can lift-and-shift legacy applications running on-premises into Azure. Azure Active Directory (AD) Application Proxy then helps you support remote workers by securely publishing those internal applications part of an Azure AD DS managed domain so they can be accessed over the internet.
 
-If you're new to the Azure AD Application Proxy and want to learn more, see [How to provide secure remote access to internal applications](../active-directory/manage-apps/application-proxy.md).
+If you're new to the Azure AD Application Proxy and want to learn more, see [How to provide secure remote access to internal applications](../active-directory/app-proxy/application-proxy.md).
 
 This article shows you how to create and configure an Azure AD Application Proxy connector to provide secure access to applications in a managed domain.
 
@@ -71,7 +71,7 @@ With a VM ready to be used as the Azure AD Application Proxy connector, now copy
         > For example, if the Azure AD domain is *contoso.com*, the global administrator should be `admin@contoso.com` or another valid alias on that domain.
 
    * If Internet Explorer Enhanced Security Configuration is turned on for the VM where you install the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message, or turn off Internet Explorer Enhanced Security during the install process.
-   * If connector registration fails, see [Troubleshoot Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md).
+   * If connector registration fails, see [Troubleshoot Application Proxy](../active-directory/app-proxy/application-proxy-troubleshoot.md).
 1. At the end of the setup, a note is shown for environments with an outbound proxy. To configure the Azure AD Application Proxy connector to work through the outbound proxy, run the provided script, such as `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
 1. On the Application proxy page in the Azure portal, the new connector is listed with a status of *Active*, as shown in the following example:
 
@@ -109,7 +109,7 @@ If you deploy multiple Azure AD Application Proxy connectors, you must configure
 
 ## Next steps
 
-With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-add-on-premises-application.md).
+With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/app-proxy/application-proxy-add-on-premises-application.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
@@ -117,5 +117,5 @@ With the Azure AD Application Proxy integrated with Azure AD DS, publish applica
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
-[Get-ADComputer]: /powershell/module/addsadministration/get-adcomputer
-[Set-ADComputer]: /powershell/module/addsadministration/set-adcomputer
+[Get-ADComputer]: /powershell/module/activedirectory/get-adcomputer
+[Set-ADComputer]: /powershell/module/activedirectory/set-adcomputer

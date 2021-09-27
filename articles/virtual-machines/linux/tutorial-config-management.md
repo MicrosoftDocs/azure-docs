@@ -1,17 +1,11 @@
 ---
 title: Tutorial -  Manage Linux virtual machine configuration in Azure 
 description: In this tutorial, you learn how to identify changes and manage package updates on a Linux virtual machine
-services: virtual-machines
-documentationcenter: virtual-machines
 author: mgoedtel
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid:
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
@@ -20,6 +14,8 @@ ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Linux virtual machines.
 ---
 # Tutorial: Monitor changes and update a Linux virtual machine in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure [Change Tracking](../../automation/change-tracking/overview.md) allows you to easily identify changes and [Update Management](../../automation/update-management/overview.md) allows you to manage operating system updates for your Azure Linux VMs.
 
@@ -166,7 +162,7 @@ After the solution has been enabled, it may take some time while inventory is be
 
 On your VM, select **Change Tracking** under **OPERATIONS**. Select **Edit Settings**, the **Change Tracking** page is displayed. Select the type of setting you want to track and then select **+ Add** to configure the settings. The available option Linux is **Linux Files**
 
-For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/automation-tutorial-troubleshoot-changes.md)
+For detailed information on Change Tracking see, [Troubleshoot changes on a VM](../../automation/troubleshoot/change-tracking.md)
 
 ### View inventory
 

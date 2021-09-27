@@ -1,7 +1,7 @@
 ---
 title: Publish a Managed Service offer to Azure Marketplace
 description: Learn how to publish a Managed Service offer that onboards customers to Azure Lighthouse.
-ms.date: 03/31/2021
+ms.date: 08/10/2021
 ms.topic: how-to
 ---
 
@@ -48,7 +48,7 @@ Once a customer adds your offer, they will be able to delegate one or more subsc
 
 Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. More info about this process can be found [here](../../marketplace/review-publish-offer.md).
 
-You can [publish an updated version of your offer](../..//marketplace/partner-center-portal/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
+You can [publish an updated version of your offer](../../marketplace/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
 
 ## The customer onboarding process
 
@@ -58,6 +58,9 @@ After a customer adds your offer, they'll be able to [delegate one or more speci
 > Delegation must be done by a non-guest account in the customer's tenant who has a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), for the subscription being onboarded (or which contains the resource groups that are being onboarded). To find users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Once the customer delegates a subscription (or one or more resource groups within a subscription), the **Microsoft.ManagedServices** resource provider will be registered for that subscription, and users in your tenant will be able to access the delegated resources according to the authorizations in your offer.
+
+> [!NOTE]
+> To delegate additional subscriptions or resource groups to the same offer at a later time, the customer will need to [manually register the **Microsoft.ManagedServices** resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on each subscription before delegating.
 
 If you publish an updated version of your offer, the customer can [review the changes in the Azure portal and accept the new version](view-manage-service-providers.md#update-service-provider-offers).
 

@@ -5,9 +5,9 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: sstein
+author: arvindshmicrosoft 
+ms.author: arvindsh
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
 ---

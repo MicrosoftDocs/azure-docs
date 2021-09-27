@@ -9,6 +9,9 @@
      - name: Migrate workloads
        tocHref: /azure/migrate/
        topicHref: /azure/azure-vmware/
-     - name: Site recovery
+     - name: Azure Site Recovery
        tocHref: /azure/site-recovery/
+       topicHref: /azure/azure-vmware/
+     - name: Azure Backup Server
+       tocHref: /azure/backup/
        topicHref: /azure/azure-vmware/

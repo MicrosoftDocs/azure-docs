@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn about point-in-time restore, which enables you to roll back a database in Azure SQL Database or an instance in Azure SQL Managed Instance up to 35 days.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: backup-restore
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein, danil
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma, danil
 ms.date: 11/13/2020
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
@@ -185,7 +185,7 @@ For a PowerShell script that shows how to perform geo-restore for a managed inst
 
 ### Geo-restore considerations
 
-You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](../../key-vault/general/disaster-recovery-guidance.md).
+You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](disaster-recovery-guidance.md#recover-using-geo-restore).
 
 > [!IMPORTANT]
 > Geo-restore is the most basic disaster-recovery solution available in SQL Database and SQL Managed Instance. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) up to 1 hour and an estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster-recovery solution. 

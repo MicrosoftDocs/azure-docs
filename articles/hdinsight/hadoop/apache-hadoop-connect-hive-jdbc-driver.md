@@ -9,7 +9,7 @@ ms.date: 04/20/2020
 
 # Query Apache Hive through the JDBC driver in HDInsight
 
-[!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
+[!INCLUDE [ODBC-JDBC-selector](../includes/hdinsight-selector-odbc-jdbc.md)]
 
 Learn how to use the JDBC driver from a Java application. To submit Apache Hive queries to Apache Hadoop in Azure HDInsight. The information in this document demonstrates how to connect programmatically, and from the SQuirreL SQL client.
 

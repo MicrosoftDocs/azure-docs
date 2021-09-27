@@ -118,5 +118,5 @@ Depending on the conditions, we know which one of the four fields will be popula
 
 ## Next steps
 
-- To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.md).
+- To get answers to frequently asked questions, see [Traffic Analytics FAQ](traffic-analytics-faq.yml).
 - To see details about functionality, see [Traffic Analytics documentation](traffic-analytics.md).

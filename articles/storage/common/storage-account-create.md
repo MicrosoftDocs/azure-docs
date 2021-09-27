@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -109,7 +109,7 @@ Every Resource Manager resource, including an Azure storage account, must belong
 To create an Azure storage account with the Azure portal, follow these steps:
 
 1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts.
-1. On the **Storage accounts** page, select **New**.
+1. On the **Storage accounts** page, select **Create**.
 
 Options for your new storage account are organized into tabs in the **Create a storage account** page. The following sections describe each of the tabs and their options.
 
@@ -143,12 +143,12 @@ The following table describes the fields on the **Advanced** tab.
 | Security | Enable secure transfer | Optional | Enable secure transfer to require that incoming requests to this storage account are made only via HTTPS (default). Recommended for optimal security. For more information, see [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md). |
 | Security | Enable infrastructure encryption | Optional | By default, infrastructure encryption is not enabled. Enable infrastructure encryption to encrypt your data at both the service level and the infrastructure level. For more information, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md). |
 | Security | Enable blob public access | Optional | When enabled, this setting allows a user with the appropriate permissions to enable anonymous public access to a container in the storage account (default). Disabling this setting prevents all anonymous public access to the storage account. For more information, see [Prevent anonymous public read access to containers and blobs](../blobs/anonymous-read-access-prevent.md).<br> <br> Enabling blob public access does not make blob data available for public access unless the user takes the additional step to explicitly configure the container's public access setting. |
-| Security | Enable storage account key access (preview) | Optional | When enabled, this setting allows clients to authorize requests to the storage account using either the account access keys or an Azure Active Directory (Azure AD) account (default). Disabling this setting prevents authorization with the account access keys. For more information, see [Prevent Shared Key authorization for an Azure Storage account (preview)](shared-key-authorization-prevent.md). |
+| Security | Enable storage account key access (preview) | Optional | When enabled, this setting allows clients to authorize requests to the storage account using either the account access keys or an Azure Active Directory (Azure AD) account (default). Disabling this setting prevents authorization with the account access keys. For more information, see [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md). |
 | Security | Minimum TLS version | Required | Select the minimum version of Transport Layer Security (TLS) for incoming requests to the storage account. The default value is TLS version 1.2. When set to the default value, incoming requests made using TLS 1.0 or TLS 1.1 are rejected. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](transport-layer-security-configure-minimum-version.md). |
 | Data Lake Storage Gen2 | Enable hierarchical namespace | Optional | To use this storage account for Azure Data Lake Storage Gen2 workloads, configure a hierarchical namespace. For more information, see [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
-| Blob storage | Enable network file share (NFS) v3 (preview) | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](../blobs/network-file-system-protocol-support.md). |
+| Blob storage | Enable network file share (NFS) v3 | Optional | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage](../blobs/network-file-system-protocol-support.md). |
 | Blob storage | Access tier | Required | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Access tiers for Azure Blob Storage - hot, cool, and archive](../blobs/storage-blob-storage-tiers.md). |
-| Azure Files | Enable large file shares | Optional | Available only for premium storage accounts for file shares. For more information, see [Enable standard file shares to span up to 100 TiB](../files/storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib). |
+| Azure Files | Enable large file shares | Optional | Available only for standard file shares with the LRS or ZRS redundancies. |
 | Tables and queues | Enable support for customer-managed keys | Optional | To enable support for customer-managed keys for tables and queues, you must select this setting at the time that you create the storage account. For more information, see [Create an account that supports customer-managed keys for tables and queues](account-encryption-key-create.md). |
 
 ### Networking tab
@@ -213,11 +213,11 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `-EnableHierarchicalNamespace $True` parameter on the call to the **New-AzStorageAccount** command.
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `EnableHierarchicalNamespace' parameter to `$True` on the call to the **New-AzStorageAccount** command.
 
-The following table shows which values to use for the `-SkuName` and `-Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
+The following table shows which values to use for the `SkuName` and `Kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| Type of storage account | Supported redundancy configurations | Value for the -Kind parameter | Possible values for the -SkuName parameter | Supports hierarchical namespace |
+| Type of storage account | Supported redundancy configurations | Supported values for the Kind parameter | Supported values for the SkuName parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
 | Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
@@ -255,11 +255,11 @@ az storage account create \
   --kind StorageV2
 ```
 
-To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include the `--enable-hierarchical-namespace true` parameter on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
+To enable a hierarchical namespace for the storage account to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), set the `enable-hierarchical-namespace` parameter to `true` on the call to the **az storage account create** command. Creating a hierarchical namespace requires Azure CLI version 2.0.79 or later.
 
-The following table shows which values to use for the `-sku` and `-kind` parameters to create a particular type of storage account with the desired redundancy configuration.
+The following table shows which values to use for the `sku` and `kind` parameters to create a particular type of storage account with the desired redundancy configuration.
 
-| Type of storage account | Supported redundancy configurations | Value for the -kind parameter | Possible values for the -sku parameter | Supports hierarchical namespace |
+| Type of storage account | Supported redundancy configurations | Supported values for the kind parameter | Supported values for the sku parameter | Supports hierarchical namespace |
 |--|--|--|--|--|
 | Standard general-purpose v2 | LRS / GRS / RA-GRS / ZRS / GZRS / RA-GZRS | StorageV2 | Standard_LRS / Standard_GRS / Standard_RAGRS/ Standard_ZRS / Standard_GZRS / Standard_RAGZRS | Yes |
 | Premium block blobs | LRS / ZRS | BlockBlobStorage | Premium_LRS / Premium_ZRS | Yes |
@@ -270,14 +270,14 @@ The following table shows which values to use for the `-sku` and `-kind` paramet
 
 # [Template](#tab/template)
 
-You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
+You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 ```
 
 ```azurecli-interactive
@@ -286,7 +286,7 @@ read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
 az group create --name $resourceGroupName --location "$location" &&
-az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 ```
 
 > [!NOTE]
@@ -302,10 +302,9 @@ To learn how to modify this template or create new ones, see:
 
 ## Delete a storage account
 
-Deleting a storage account deletes the entire account, including all data in the account. Usually, this operation can't be undone. The recovery of a storage account is only possible under certain circumstances and is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
+Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
 
-> [!WARNING]
-> Be sure to back up anything you want to save before you delete the account. It's usually not possible to restore a deleted storage account or retrieve any of the resources that it contained before deletion.
+Under certain circumstances, a deleted storage account may be recovered, but recovery is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
 
 If you try to delete a storage account associated with an Azure virtual machine, you may get an error about the storage account still being in use. For help troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 

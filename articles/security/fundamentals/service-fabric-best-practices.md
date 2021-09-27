@@ -140,7 +140,7 @@ The HTTP protocol is unsecure and subject to eavesdropping attacks. Data that is
 To learn more about using SSL/TLS certificates, see [Configuring TLS for an application in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## Use network isolation and security with Azure Service Fabric
-Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
+Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
 
 The template has an NSG for each of the virtual machine scale sets and is used to control the traffic in and out of the set. The rules are configured by default to allow all traffic necessary for the system services and the application ports specified in the template. Review these rules and make any changes to fit your needs, including adding new rules for your applications.
 

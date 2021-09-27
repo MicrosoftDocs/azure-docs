@@ -2,12 +2,12 @@
 title: Secure a linked service 
 description: Learn how to provision and secure a linked service with Managed VNet 
 services: synapse-analytics 
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
-ms.author: ronytho
+ms.author: seshin
 ms.reviewer: jrasnick
 ---
 
@@ -26,7 +26,7 @@ In this article, you'll learn how to secure a linked service in Synapse with a p
 
 In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add Azure Synapse Analytics and Azure Data Lake Gen 2 as linked services.
 
-1. Open the Azure Synapse Studio and go to the **Manage** tab.
+1. Open the Synapse Studio and go to the **Manage** tab.
 1. Under **External connections**, select **Linked services**.
 1. To add a linked service, select **New**.
 1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.

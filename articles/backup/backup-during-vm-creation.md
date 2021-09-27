@@ -2,7 +2,7 @@
 title: Enable backup when you create an Azure VM
 description: Describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/03/2021
 ---
 
 # Enable backup when you create an Azure VM
@@ -52,17 +52,21 @@ The Backup service creates a separate resource group (RG), different than the re
 
 Points to note:
 
-1. You can either use the default name of the RG, or edit it according to your company requirements.
-2. You provide the RG name pattern as input during VM backup policy creation. The RG name should be of the following format:
+1. You can either use the default name of the RG, or edit it according to your company requirements.<br>If you haven't created an RG, to specify an RG for restorepointcollection, follow these steps:
+   1. Create an RG for restorepointcollection. For example, "rpcrg".
+   1. Mention the name of RG in the VM backup policy.
+   >[!NOTE]
+   >This will create an RG with the numeric appended and will use it for restorepointcollection.
+1. You provide the RG name pattern as input during VM backup policy creation. The RG name should be of the following format:
               `<alpha-numeric string>* n <alpha-numeric string>`. 'n' is replaced with an integer (starting from 1) and is used for scaling out if the first RG is full. One RG can have a maximum of 600 RPCs today.
               ![Choose name when creating policy](./media/backup-during-vm-creation/create-policy.png)
-3. The pattern should follow the RG naming rules below and the total length shouldn't exceed the maximum allowed RG name length.
+1. The pattern should follow the RG naming rules below and the total length shouldn't exceed the maximum allowed RG name length.
     1. Resource group names only allow alphanumeric characters, periods, underscores, hyphens, and parenthesis. They can't end in a period.
     2. Resource group names can contain up to 74 characters, including the name of the RG and the suffix.
-4. The first `<alpha-numeric-string>` is mandatory while the second one after 'n' is optional. This applies only if you give a customized name. If you don't enter anything in either of the textboxes, the default name is used.
-5. You can edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new RPs will be created in the new RG. However, the old RPs will still reside in the old RG and won't be moved, as RP Collection doesn't support resource move. Eventually the RPs will get garbage collected as the points expire.
+1. The first `<alpha-numeric-string>` is mandatory while the second one after 'n' is optional. This applies only if you give a customized name. If you don't enter anything in either of the textboxes, the default name is used.
+1. You can edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new RPs will be created in the new RG. However, the old RPs will still reside in the old RG and won't be moved, as RP Collection doesn't support resource move. Eventually the RPs will get garbage collected as the points expire.
 ![Change name when modifying policy](./media/backup-during-vm-creation/modify-policy.png)
-6. It's advised not to lock the resource group created for use by the Backup service.
+1. It's advised not to lock the resource group created for use by the Backup service.
 
 To configure the Azure Backup resource group for Virtual Machines using PowerShell, refer to [Creating Azure Backup resource group during snapshot retention](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 
@@ -79,7 +83,7 @@ After the VM is created, do the following:
 
 ## Use a Resource Manager template to deploy a protected VM
 
-The previous steps explain how to use the Azure portal to create a virtual machine and protect it in a Recovery Services vault. To quickly deploy one or more VMs and protect them in a Recovery Services vault, see the template [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+The previous steps explain how to use the Azure portal to create a virtual machine and protect it in a Recovery Services vault. To quickly deploy one or more VMs and protect them in a Recovery Services vault, see the template [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/).
 
 ## Next steps
 

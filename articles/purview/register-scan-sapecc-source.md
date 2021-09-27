@@ -1,5 +1,5 @@
 ---
-title: Register SAP ECC source and setup scans (preview) in Azure Purview
+title: Register SAP ECC source and setup scans in Azure Purview
 description: This article outlines how to register SAP ECC source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and scan SAP ECC source (preview)
+# Register and scan SAP ECC source
 
 This article outlines how to register an SAP ECC source in Purview and
 set up a scan.
@@ -68,7 +68,7 @@ The only supported authentication for SAP ECC source is **Basic authentication**
 To register a new SAP ECC source in your data catalog, do the following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **SAP ECC**. Select **Continue.**
 
@@ -129,6 +129,8 @@ To create and run a new scan, do the following:
     f.  **Maximum memory available:** Maximum memory(in GB) available on
         customer's VM to be used by scanning processes. This is
         dependent on the size of SAP ECC source to be scanned.
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
 

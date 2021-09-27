@@ -6,7 +6,8 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.author: jlian
+ms.author: jlian 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use IP filters

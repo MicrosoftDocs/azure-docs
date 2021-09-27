@@ -2,7 +2,8 @@
 title: Enable dead lettering for Azure Service Bus queues and subscriptions
 description: This article explains how to enable dead lettering for queues and subscriptions by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 04/20/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable dead lettering on message expiration for Azure Service Bus queues and subscriptions

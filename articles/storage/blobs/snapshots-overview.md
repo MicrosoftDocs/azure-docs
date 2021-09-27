@@ -21,7 +21,12 @@ A snapshot is a read-only version of a blob that's taken at a point in time.
 
 ## About blob snapshots
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+> [!IMPORTANT]
+> Snapshots in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+>
+> To enroll in the preview, see [this form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
 
 A snapshot of a blob is identical to its base blob, except that the blob URI has a **DateTime** value appended to the blob URI to indicate the time at which the snapshot was taken. For example, if a page blob URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, the snapshot URI is similar to `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
@@ -117,7 +122,7 @@ If you have explicitly set the blob tier for a blob or snapshot (or version), th
 
 The following table describes the billing behavior for a blob or snapshot when it is moved to a new tier.
 
-| When blob tier is set explicitly on… | Then you are billed for... |
+| When blob tier is set explicitly on... | Then you are billed for... |
 |-|-|
 | A base blob with a snapshot | The base blob in the new tier and the oldest snapshot in the original tier, plus any unique blocks in other snapshots.<sup>1</sup> |
 | A base blob with a previous version and a snapshot | The base blob in the new tier, the oldest version in the original tier, and the oldest snapshot in the original tier, plus any unique blocks in other versions or snapshots<sup>1</sup>. |
@@ -144,10 +149,23 @@ When blob soft delete is enabled, if you delete or overwrite a base blob that ha
 
 The following table describes the billing behavior for a blob that is soft-deleted, depending on whether versioning is enabled or disabled. When versioning is enabled, a new version is created when a blob is soft-deleted. When versioning is disabled, soft-deleting a blob creates a soft-delete snapshot.
 
-| When you overwrite a base blob with its tier explicitly set… | Then you are billed for... |
+| When you overwrite a base blob with its tier explicitly set... | Then you are billed for... |
 |-|-|
 | If blob soft delete and versioning are both enabled | All existing versions at full content length regardless of tier. |
 | If blob soft delete is enabled but versioning is disabled | All existing soft-delete snapshots at full content length regardless of tier. |
+
+## Feature support
+
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
+<sup>2</sup>    Feature is supported at the preview level.
 
 ## Next steps
 

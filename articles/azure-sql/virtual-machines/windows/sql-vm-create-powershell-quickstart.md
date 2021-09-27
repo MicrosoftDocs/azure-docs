@@ -25,7 +25,7 @@ This quickstart steps through creating a SQL Server virtual machine (VM) with Az
 
 > [!TIP]
 > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](create-sql-vm-powershell.md).
-> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
 
 ## <a id="subscription"></a> Get an Azure subscription
 
@@ -149,29 +149,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To get portal integration and SQL VM features, you must register with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md).
 
-To get full functionality, you will need to register with the extension in full mode. However, doing so restarts the SQL Server service, so the recommended approach is to register in lightweight mode and then upgrade to full during a maintenance window. 
-
-First, register your SQL Server VM in lightweight mode: 
-
-```powershell-interactive
-# Get the existing compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-        
-# Register SQL VM with 'Lightweight' SQL IaaS agent
-New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-  -LicenseType PAYG -SqlManagementType LightWeight
-```
-
-Then during a maintenance window, upgrade to full mode: 
-
-```powershell-interactive
-# Get the existing Compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-      
-# Register with SQL IaaS Agent extension in full mode
-Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
-```
-
+To get full functionality, you need to register with the extension in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode). Otherwise, register in lightweight mode. 
 
 
 ## Remote desktop into the VM

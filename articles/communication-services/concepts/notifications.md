@@ -2,13 +2,13 @@
 title: Notifications in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Send notifications to users of apps built on Azure Communication Services.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
-ms.date: 03/10/2021
-ms.topic: overview
+ms.author: rifox
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Communication Services notifications
@@ -23,7 +23,7 @@ Azure Communication Services integrates with [Azure Event Grid](https://azure.mi
 
 :::image type="content" source="./media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::
 
-Learn more about [event handling in Azure Communication Services](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services).
+Learn more about [event handling in Azure Communication Services](../../event-grid/event-schema-communication-services.md).
 
 ## Deliver push notifications via Azure Notification Hubs
 

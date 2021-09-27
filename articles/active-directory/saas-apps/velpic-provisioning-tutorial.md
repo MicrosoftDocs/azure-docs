@@ -10,7 +10,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configuring Velpic for Automatic User Provisioning

@@ -1,6 +1,7 @@
 ---
-title: 'Azure VPN Gateway: About P2S VPN client profiles'
-description: Use this article to find the information you need for a VPN client profile.
+title: 'About Point-to-Site VPN client profiles'
+titleSuffix: Azure VPN Gateway
+description: Learn about P2S VPN client profile files.
 services: vpn-gateway
 author: cherylmc
 
@@ -12,7 +13,7 @@ ms.author: cherylmc
 ---
 # Working with P2S VPN client profile files
 
-The profile files contain information that is necessary to configure a VPN connection. This article will help you obtain and understand the information necessary for a VPN client profile.
+Profile files contain information that is necessary to configure a VPN connection. This article will help you obtain and understand the information necessary for a VPN client profile.
 
 ## Generate and download profile
 

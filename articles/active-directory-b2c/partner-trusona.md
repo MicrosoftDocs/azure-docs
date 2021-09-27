@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -51,24 +51,24 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 1. Fill out the [form](https://www.trusona.com/) to create a Trusona account and get started.
 
-2. Download the Trusona mobile app from the app store. Install the app and register your email.
+1. Download the Trusona mobile app from the app store. Install the app and register your email.
 
-3. Verify your email through the secure "magic link" sent by the software.  
+1. Verify your email through the secure "magic link" sent by the software.  
 
-4. Go to the [Trusona Developer’s dashboard](https://dashboard.trusona.com) for self-service.
+1. Go to the [Trusona Developer’s dashboard](https://dashboard.trusona.com) for self-service.
 
-5. Select **I’m Ready** and authenticate yourself with your Trusona app.
+1. Select **I’m Ready** and authenticate yourself with your Trusona app.
 
-6. From the left navigation panel, choose **OIDC Integrations**.
+1. From the left navigation panel, choose **OIDC Integrations**.
 
-7. Select **Create OpenID Connect Integration**.
+1. Select **Create OpenID Connect Integration**.
 
-8. Provide a **Name** of your choice and use the domain information previously provided (for example, Contoso) in the **Client Redirect Host field**.  
+1. Provide a **Name** of your choice and use the domain information previously provided (for example, Contoso) in the **Client Redirect Host field**.  
 
    > [!NOTE]
    > Azure Active Directory’s initial domain name is used as the Client Redirect host.
 
-9. Follow the instructions in the [Trusona integration guide](https://docs.trusona.com/integrations/aad-b2c-integration/). When prompted, use the initial domain name (for example, Contoso) referred in the previous step.  
+1. Follow the instructions in the [Trusona integration guide](https://docs.trusona.com/integrations/aad-b2c-integration/). When prompted, use the initial domain name (for example, Contoso) referred in the previous step.  
 
 ## Integrate with Azure AD B2C
 
@@ -78,22 +78,18 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 > If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-
-4. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
-
-3. Select **Identity providers**.
-
-4. Select **Add**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+1. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
+1. Select **Identity providers**.
+1. Select **Add**.
 
 ### Configure an identity provider  
 
 1. Select **Identity provider type** > **OpenID Connect (Preview)**.
 
-2. Fill out the form to set up the identity provider:  
+1. Fill out the form to set up the identity provider:  
 
    | Property | Value  |
    | :--- | :--- |
@@ -103,11 +99,11 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
    | Response type | Id_token |
    | Response mode  | Form_post |
 
-3. Select **OK**.  
+1. Select **OK**.  
 
-4. Select **Map this identity provider’s claims**.  
+1. Select **Map this identity provider’s claims**.  
 
-5. Fill out the form to map the identity provider:
+1. Fill out the form to map the identity provider:
 
    | Property | Value  |
    | :--- | :--- |
@@ -117,7 +113,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
    | Surname | Family_name |
    | Response mode | email |
 
-6. Select **OK** to complete the setup for your new OIDC identity Provider.
+1. Select **OK** to complete the setup for your new OIDC identity Provider.
 
 ### Create a user flow policy
 
@@ -142,17 +138,19 @@ You should now see Trusona as a **new OpenID Connect Identity Provider** listed 
 
 1. Select **OK**.  
 
-### Test the Policy
+### Test the policy
 
-1. Select your newly created policy.
+1. Select the policy you created.
 
-2. Select **Run user flow**.
+1. Select **Run user flow**, and then select the settings:
 
-3. In the form, enter the Replying URL.
+   1. **Application**: Select the registered app.
+ 
+   1. **Reply URL**: Select the redirect URL.
+   
+1. Select **Run user flow**. You should be redirected to the Trusona OIDC gateway. On the Trusona gateway, scan the displayed Secure QR code with the Trusona app or with a custom app using the Trusona mobile SDK.
 
-4. Select **Run user flow**. You should be redirected to the Trusona OIDC gateway. On the Trusona gateway, scan the displayed Secure QR code with the Trusona app or with a custom app using the Trusona mobile SDK.
-
-5. After scanning the Secure QR code, you should be redirected to the Reply URL you defined in step 3.
+1. After you scan the Secure QR code, you should be redirected to the Reply URL you defined.
 
 ## Next steps  
 

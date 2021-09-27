@@ -23,13 +23,13 @@ With pronunciation assessment, language learners can practice, get instant feedb
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
 
 > [!NOTE]
-> The pronunciation assessment feature currently supports `en-US` language, which is available on all [speech-to-text regions](regions.md#speech-to-text-text-to-speech-and-translation). The support for `en-GB` and `zh-CN` languages is under preview, which is available on `westus`, `eastasia` and `centralindia` regions.
+> The pronunciation assessment feature currently supports `en-US` language, which is available on all [speech-to-text regions](regions.md#speech-to-text-text-to-speech-and-translation). The support for `en-GB` and `zh-CN` languages is under preview.
 
 ## Pronunciation assessment with the Speech SDK
 
 In the samples below, you'll create a `PronunciationAssessmentConfig`, then apply it to a `SpeechRecognizer`.
 
-The following snippets illustrate how to use automatic language detection in your apps:
+The following snippets illustrate how to use language identification in your apps:
 
 ::: zone pivot="programming-language-csharp"
 

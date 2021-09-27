@@ -2,24 +2,24 @@
 title: Custom orchestration status in Durable Functions - Azure
 description: Learn how to configure and use custom orchestration status for Durable Functions.
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 05/10/2021
 ms.author: azfuncdf
 ---
 
 # Custom orchestration status in Durable Functions (Azure Functions)
 
-Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) or the [`GetStatusAsync` API](durable-functions-instance-management.md#query-instances) on the orchestration client.
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) or the equivalent [SDK API](durable-functions-instance-management.md#query-instances) on the orchestration client object.
 
 ## Sample use cases
-
-> [!NOTE]
-> The following samples show how to use custom status feature in C#, JavaScript, and Python. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### Visualize progress
 
 Clients can poll the status end point and display a progress UI that visualizes the current execution stage. The following sample demonstrates progress sharing:
 
 # [C#](#tab/csharp)
+
+> [!NOTE]
+> These C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -103,7 +103,33 @@ def main(name: str) -> str:
     return f"Hello {name}!"
 
 ```
+# [PowerShell](#tab/powershell)
 
+### `E1_HelloSequence` Orchestrator function
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'Tokyo'
+Set-DurableCustomStatus -CustomStatus 'Tokyo'
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'Seattle'
+Set-DurableCustomStatus -CustomStatus 'Seattle'
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'London'
+Set-DurableCustomStatus -CustomStatus 'London'
+
+
+return $output
+```
+
+### `E1_SayHello` Activity function
+```powershell
+param($name)
+
+"Hello $name"
+```
 ---
 
 And then the client will receive the output of the orchestration only when `CustomStatus` field is set to "London":
@@ -197,6 +223,10 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 > [!NOTE]
 > In Python, the `custom_status` field will be set when the next `yield` or `return` action is scheduled.
+
+# [PowerShell](#tab/powershell)
+
+The feature is not currently implemented in PowerShell
 
 ---
 
@@ -310,6 +340,36 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# [PowerShell](#tab/powershell)
+
+#### `CityRecommender` orchestrator
+
+```powershell
+param($Context)
+
+$userChoice = $Context.Input -as [int]
+
+if ($userChoice -eq 1) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Tokyo', 'Seattle'); 
+                                             recommendedSeasons = @('Spring', 'Summer') 
+                                            }  
+}
+
+if ($userChoice -eq 2) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Seattle', 'London'); 
+                                             recommendedSeasons = @('Summer') 
+                                            }  
+}
+
+if ($userChoice -eq 3) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Tokyo', 'London'); 
+                                             recommendedSeasons = @('Spring', 'Summer') 
+                                            }  
+}
+
+# Wait for user selection and refine the recommendation
+```
 ---
 
 ### Instruction specification
@@ -394,7 +454,33 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+# [PowerShell](#tab/powershell)
 
+```powershell
+param($Context)
+
+$userId = $Context.Input -as [int]
+
+$discount = Invoke-DurableActivity -FunctionName 'CalculateDiscount' -Input $userId
+
+$status = @{
+            discount = $discount;
+            discountTimeout = 60;
+            bookingUrl = "https://www.myawesomebookingweb.com"
+            }
+
+Set-DurableCustomStatus -CustomStatus $status
+
+$isBookingConfirmed = Invoke-DurableActivity -FunctionName 'BookingConfirmed'
+
+if ($isBookingConfirmed) {
+    Set-DurableCustomStatus -CustomStatus @{message = 'Thank you for confirming your booking.'}
+} else {
+    Set-DurableCustomStatus -CustomStatus @{message = 'The booking was not confirmed on time. Please try again.'}
+}
+
+return $isBookingConfirmed
+```
 ---
 
 ## Sample
@@ -448,6 +534,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+# ...do work...
+
+Set-DurableCustomStatus -CustomStatus @{ nextActions = @('A', 'B', 'C'); 
+                                         foo = 2 
+                                        }  
+
+# ...do more work...
+```
 ---
 
 While the orchestration is running, external clients can fetch this custom status:
@@ -470,7 +570,7 @@ Clients will get the following response:
 ```
 
 > [!WARNING]
-> The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. We recommend you use external storage if you need a larger payload.
+> The custom status payload is limited to 16 KB of UTF-16 JSON text. We recommend you use external storage if you need a larger payload.
 
 ## Next steps
 

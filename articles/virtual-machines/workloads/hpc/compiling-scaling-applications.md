@@ -12,6 +12,8 @@ ms.reviewer: cynthn
 
 # Scaling HPC applications
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Optimal scale-up and scale-out performance of HPC applications on Azure requires performance tuning and optimization experiments for the specific workload. This section and the VM series-specific pages offer general guidance for scaling your applications.
 
 ## Application setup
@@ -108,7 +110,7 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 
 ## Next steps
 
-- Test your knowledge with a [learning module on optimizing HPC applications on Azure](https://docs.microsoft.com/learn/modules/optimize-tightly-coupled-hpc-apps/).
+- Test your knowledge with a [learning module on optimizing HPC applications on Azure](/learn/modules/optimize-tightly-coupled-hpc-apps/).
 - Review the [HBv3-series overview](hbv3-series-overview.md) and [HC-series overview](hc-series-overview.md).
 - Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.

@@ -25,15 +25,15 @@ Use the following steps to register a new source.
 
    :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Select a data source type in the Register sources page":::
 
-1. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list. Alternatively, you can enter your source information manually.
+2. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list. 
 
    :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Form for data source information":::
 
-1. Select **Finish**.
+3. Select **Register**.
 
 ## View sources
 
-You can view all registered sources on the **Sources** tab of Azure Purview Studio. There are two view types: map view and list view.
+You can view all registered sources on the **Data Map** tab of Azure Purview Studio. There are two view types: map view and list view.
 
 ### Map view
 

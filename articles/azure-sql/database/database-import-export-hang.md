@@ -8,7 +8,7 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 author: v-miegge
 ms.author: ramakoni
-ms.reviewer: ""
+ms.reviewer: cawrites
 ms.date: 09/27/2019
 ---
 
@@ -28,8 +28,6 @@ The import and export operations don't represent a traditional physical database
 
 The Azure SQL Database Import/Export service provides a limited number of compute virtual machines (VMs) per region to process import and export operations. The compute VMs are hosted per region to make sure that the import or export avoids cross-region bandwidth delays and charges. If too many requests are made at the same time in the same region, significant delays can occur in processing the operations. The time that's required to complete requests can vary from a few seconds to many hours.
 
-> [!NOTE]
-> If a request is not processed within four days, the service automatically cancels the request.
 
 ## Recommended solutions
 

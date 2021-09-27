@@ -1,12 +1,12 @@
 ---
-title: Pre-certification checklist for IoT Edge module offers in Azure Marketplace
-description: Learn about the specific certification requirements for publishing IoT Edge module offers in Azure Marketplace.
+title: Pre-certification checklist for IoT Edge module offers on Azure Marketplace
+description: Learn about the specific certification requirements for publishing IoT Edge module offers on Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 03/01/2021
+ms.topic: how-to
+author: aarathin
+ms.author: aarathin
+ms.date: 05/21/2021
 ---
 
 # Pre-certification checklist for IoT Edge modules
@@ -74,5 +74,5 @@ Verify the following:
 ## Next steps
 
 - [Deploy modules from the commercial marketplace](../iot-edge/how-to-deploy-modules-portal.md#deploy-from-azure-marketplace)
-- [Publish the Edge Module in Partner Center](./partner-center-portal/azure-iot-edge-module-creation.md)
+- [Publish the Edge Module in Partner Center](./iot-edge-offer-setup.md)
 - [Deploy IoT Edge Module](../iot-edge/quickstart-linux.md)

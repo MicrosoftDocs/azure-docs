@@ -90,7 +90,7 @@ Azure Red Hat OpenShift 4 supports the following PersistentVolume plug-ins:
 - NFS
 - Red Hat OpenShift Container Storage
 
-For information on configuring these storage types, see [Configuring persistent storage](https://access.redhat.com/documentation/azure_red_hat_openshift/4/html/storage/configuring-persistent-storage).
+For information on configuring these storage types, see [Configuring persistent storage](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/html/storage/configuring-persistent-storage).
 
 ### Registry
 

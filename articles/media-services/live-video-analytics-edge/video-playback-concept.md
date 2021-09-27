@@ -1,11 +1,13 @@
 ---
-title: Video playback - Azure
-description: Placeholder
+title: Video playback with Live Video Analytics - Azure
+description: In this article, you learn about the steps you need to take in order to play an asset using existing streaming capabilities of Azure Media Services.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Video playback 
+# Video playback with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Suggested pre-reading 
 
@@ -15,7 +17,7 @@ ms.date: 04/27/2020
 
 ## Overview  
 
-You can use [media graphs](media-graph-concept.md) to record video into an Azure Media Services [asset](terminology.md#asset). In this document, you can learn about the steps you need to take in order to play an asset using existing streaming capabilities of Azure Media Services.
+You can use [media graphs](media-graph-concept.md) to record video into an Azure Media Services [asset](terminology.md#asset). In this article, you learn about the steps you need to take in order to play an asset using existing streaming capabilities of Azure Media Services.
 
 ## Streaming endpoint 
 

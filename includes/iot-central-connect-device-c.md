@@ -1,14 +1,18 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
 ---
 
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
+
 ## Prerequisites
 
-To complete the steps in this article, you need an Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](../articles/iot-central/core/quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
+To complete the steps in this tutorial, you need:
+
+[!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
 
 You can run this tutorial on Linux or Windows. The shell commands in this tutorial follow the Linux convention for path separators '`/`', if you're following along on Windows be sure to swap these separators for '`\`'.
 
@@ -93,7 +97,7 @@ int main(void)
 
     int numberOfIterations = 0;
 
-    // During startup, send the non-"writeable" properties.
+    // During startup, send the non-"writable" properties.
     PnP_TempControlComponent_ReportSerialNumber_Property(deviceClient);
     PnP_DeviceInfoComponent_Report_All_Properties(g_deviceInfoComponentName, deviceClient);
     PnP_TempControlComponent_Report_MaxTempSinceLastReboot_Property(g_thermostatHandle1, deviceClient);

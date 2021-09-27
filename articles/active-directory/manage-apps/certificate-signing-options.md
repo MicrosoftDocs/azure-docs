@@ -1,21 +1,22 @@
 ---
-title: Advanced SAML token certificate signing options for Azure AD apps
+title: Advanced certificate signing options in a SAML token
+titleSuffix: Azure AD
 description: Learn how to use advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: iangithinji
-ms.reviewer: jeedes
+ms.date: 07/30/2021
+ms.author: davidmu
+ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Advanced certificate signing options in the SAML token for gallery apps in Azure Active Directory
+# Advanced certificate signing options in a SAML token
 
 Today Azure Active Directory (Azure AD) supports thousands of pre-integrated applications in the Azure Active Directory App Gallery. Over 500 of the applications support single sign-on by using the [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0 protocol, such as the [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) application. When a customer authenticates to an application through Azure AD by using SAML, Azure AD sends a token to the application (via an HTTP POST). The application then validates and uses the token to sign in the customer instead of prompting for a username and password. These SAML tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms.
 
@@ -47,7 +48,7 @@ To change an application's SAML certificate signing options and the certificate 
 
 1. In the [Azure Active Directory portal](https://aad.portal.azure.com/), sign in to your account. The **Azure Active Directory admin center** page appears.
 1. In the left pane, select **Enterprise applications**. A list of the enterprise applications in your account appears.
-1. Select an application. An overview page for the application appears.
+1. Select an application. An overview page for the application appears. In this example, the Salesforce application is used.
 
    ![Example: Application overview page](./media/certificate-signing-options/application-overview-page.png)
 

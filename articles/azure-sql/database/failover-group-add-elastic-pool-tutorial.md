@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 08/27/2019
 ---
 # Tutorial: Add an Azure SQL Database elastic pool to a failover group
@@ -203,11 +203,11 @@ Create your failover group using PowerShell.
    # Create a failover group between the servers
    Write-host "Creating failover group..."
    New-AzSqlDatabaseFailoverGroup `
-     â€“ResourceGroupName $resourceGroupName `
+     ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -PartnerServerName $drServerName  `
-      â€“FailoverGroupName $failoverGroupName `
-      â€“FailoverPolicy Automatic `
+      FailoverGroupName $failoverGroupName `
+      FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
    Write-host "Failover group created successfully."
 

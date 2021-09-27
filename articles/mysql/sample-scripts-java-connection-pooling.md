@@ -10,6 +10,8 @@ ms.date: 02/28/2018
 ---
 # Java sample to illustrate connection pooling
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 The below sample code illustrates connection pooling in java.
 
 ```java

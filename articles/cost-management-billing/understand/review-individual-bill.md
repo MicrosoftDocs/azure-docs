@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/26/2020
+ms.date: 05/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -99,6 +99,8 @@ The **Usage Charges** section of your invoice shows the total value (cost) for e
 
 In your CSV usage file, filter by *MeterName* for the corresponding Resource shown on you invoice. Then, sum the *Cost* value for items in the column. Here's an example that focuses on the meter name (P10 disks) that corresponds to the same line item on the invoice.
 
+To reconcile your reservation purchase charges, in your CSV usage file, filter by *ChargeType* as Purchase, it will show all the reservation purchases charges for the month. You can compare these charges by looking at *MeterName* and *MeterSubCategory* in the usage file to Resource and Type in your invoice respectively.
+
 ![Usage file summed value for MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 
 The summed *Cost* value should match precisely to the *usage charges* cost for the individual resource charged on your invoice.
@@ -117,13 +119,13 @@ Costs shown in cost analysis should match precisely to the *usage charges* cost 
 
 ![Invoice usage charges](./media/review-individual-bill/invoice-usage-charges.png)
 
-## External Marketplace services are billed separately
+## External Marketplace services
 
 <a name="external"></a>
 
 External services or marketplace charges are for resources that have been created by third-party software vendors. Those resources are available for use from the Azure Marketplace. For example, a Barracuda Firewall is an Azure Marketplace resource offered by a third-party. All charges for the firewall and its corresponding meters appear as external service charges.
 
-External service charges are billed separately. The charges don't show up on your Azure invoice.
+External service charges appear on a separate invoice.
 
 ### Resources are billed by usage meters
 

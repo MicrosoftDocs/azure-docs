@@ -218,7 +218,11 @@ docker stop updatedapp
 
 ## Next steps
 
-In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated. Now, move on to the next tutorial to learn how to trigger tasks on a defined schedule.
+In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated.
+
+For a complete workflow to manage base images originating from a public source, see [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md). 
+
+Now, move on to the next tutorial to learn how to trigger tasks on a defined schedule.
 
 > [!div class="nextstepaction"]
 > [Run a task on a schedule](container-registry-tasks-scheduled.md)

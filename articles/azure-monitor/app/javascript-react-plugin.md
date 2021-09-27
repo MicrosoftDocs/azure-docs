@@ -22,7 +22,7 @@ Install npm package:
 
 ```bash
 
-npm install @microsoft/applicationinsights-react-js
+npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web --save
 
 ```
 

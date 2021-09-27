@@ -1,11 +1,11 @@
 ---
 title: 'Connect a virtual network gateway to an Azure Virtual WAN'
-description: This article helps you connect an Azure virtual network gateway to an Azure Virtual WAN VPN gateway
+description: Learn how to connect an Azure VPN gateway (virtual network gateway) to an Azure Virtual WAN VPN gateway.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/01/2021
 ms.author: cherylmc
 
 ---
@@ -41,7 +41,7 @@ On the Virtual network gateway **Configuration** page, enable active-active mode
 
 ### <a name="BGP"></a>BGP setting
 
-On the Virtual network gateway **Configuration** page, you can configure the **BGP ASN**. Change the BGP ASN. The BGP ASN cannot be 65515. 65515 will be used by Azure Virtual WAN.
+On the virtual network gateway **Configuration** page, you can (optionally) select **Configure BGP ASN**. If you configure BGP, change the ASN from the default value shown in the portal. For this configuration, the BGP ASN cannot be 65515. 65515 will be used by Azure Virtual WAN.
 
 ![Screenshot shows a virtual network gateway Configuration page with Configure BGP ASN selected.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
@@ -91,6 +91,7 @@ In this section, you create two Azure VPN Gateway local network gateways. The co
 
    * **IP address** - Use the Instance0 IP Address shown for *gatewayconfiguration* from the configuration file.
    * **BGP** - If the connection is over BGP, select **Configure BGP settings** and enter the ASN '65515'. Enter the BGP peer IP address. Use 'Instance0 BgpPeeringAddresses' for *gatewayconfiguration* from the configuration file.
+   * **Address Space** If the connection isn't over BGP, make sure **Configure BGP settings** remains unchecked.  Enter the address spaces that you're going to advertise from the virtual network gateway side. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to. 
    * **Subscription, Resource Group, and Location** are same as for the Virtual WAN hub.
 2. Review and create the local network gateway. Your local network gateway should look similar to this example.
 

@@ -1,8 +1,9 @@
 ---
 title: Deploy Azure Policy to delegated subscriptions at scale
-description: Learn how Azure Lighthouse lets you deploy a policy definition and policy assignment across multiple tenants.
-ms.date: 03/02/2021
-ms.topic: how-to
+description: Azure Lighthouse lets you deploy a policy definition and policy assignment across multiple tenants.
+ms.date: 06/13/2021
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy Azure Policy to delegated subscriptions at scale
@@ -16,7 +17,7 @@ This topic shows you how to use [Azure Policy](../../governance/policy/index.yml
 
 ## Use Azure Resource Graph to query across customer tenants
 
-You can use [Azure Resource Graph](../../governance/resource-graph/index.yml) to query across all subscriptions in the customer tenants that you manage. In this example, we'll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
+You can use [Azure Resource Graph](../../governance/resource-graph/overview.md) to query across all subscriptions in customer tenants that you manage. In this example, we'll identify any storage accounts in these subscriptions that do not currently require HTTPS traffic.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"

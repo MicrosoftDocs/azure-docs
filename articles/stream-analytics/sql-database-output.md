@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 05/30/2021
 ---
 
 # Azure SQL Database output from Azure Stream Analytics
@@ -42,6 +42,10 @@ Partitioning needs to enabled and is based on the PARTITION BY clause in the que
 ## Output batch size
 
 You can configure the max message size by using **Max batch count**. The default maximum is 10,000 and the default minimum is 100 rows per single bulk insert. For more information, see [Azure SQL limits](../azure-sql/database/resource-limits-logical-server.md). Every batch is initially bulk inserted with maximum batch count. Batch is split in half (until minimum batch count) based on retryable errors from SQL.
+
+## Limitation
+
+Self-signed ssl cert is not supported when trying to connect ASA jobs to SQL on VM
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Zoom levels and tile grid

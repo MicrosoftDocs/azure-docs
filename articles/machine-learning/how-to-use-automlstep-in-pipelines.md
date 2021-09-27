@@ -21,7 +21,7 @@ Azure Machine Learning's automated ML capability helps you discover high-perform
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
 
@@ -244,7 +244,7 @@ Comparing the two techniques:
 |`OutputTabularDatasetConfig`| Higher performance | 
 || Natural route from `OutputFileDatasetConfig` | 
 || Data isn't persisted after pipeline run |
-|| [Notebook showing `OutputTabularDatasetConfig` technique](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
+||  |
 | Registered `Dataset` | Lower performance |
 | | Can be generated in many ways | 
 | | Data persists and is visible throughout workspace |

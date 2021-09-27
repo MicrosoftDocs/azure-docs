@@ -2,6 +2,7 @@
 title: Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 description: "This article describes the features of Enterprise Edition for the Azure-SSIS Integration Runtime and how to provision it"
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko

@@ -198,4 +198,4 @@ For information about YAML configuration for this task, check our [Post Analysis
 
 For information about YAML based configuration, refer to our [YAML Configuration guide](yaml-configuration.md).
 
-If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.md).
+If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.yml).

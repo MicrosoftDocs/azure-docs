@@ -120,19 +120,19 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), there are thre
     To install Azure CLI, refer to the [Official Azure CLI documentation](/cli/azure/install-azure-cli).
 
 1. Install the Application Insights CLI extension.
-    ```powershell
+    ```azurecli
     az extension add -n application-insights
     ```
 
 1. Connect your Storage Account with your Application Insights resource.
 
     Pattern:
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "{resource_group_name}" --app "{application_insights_name}" --storage-account "{storage_account_name}"
     ```
     
     Example:
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "byos-test" --app "byos-test-westus2-ai" --storage-account "byosteststoragewestus2"
     ```
     

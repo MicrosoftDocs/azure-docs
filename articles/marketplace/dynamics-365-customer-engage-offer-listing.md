@@ -1,6 +1,6 @@
 ---
-title: Configure Dynamics 365 for Customer Engagement & PowerApps offer listing details on Microsoft AppSource (Azure Marketplace)
-description: Configure Dynamics 365 for Customer Engagement & PowerApps offer listing details on Microsoft AppSource (Azure Marketplace).
+title: Configure Dynamics 365 for Customer Engagement & Power Apps offer listing details on Microsoft AppSource (Azure Marketplace)
+description: Configure Dynamics 365 for Customer Engagement & Power Apps offer listing details on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -70,8 +70,6 @@ Provide at least one (and up to three) related PDF marketing documents here, suc
 ## Marketplace media
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
-
-[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
