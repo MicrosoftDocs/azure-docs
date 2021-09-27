@@ -15,7 +15,7 @@ ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-am
 
 # Set up AutoML training with Python
 
-In this guide, learn how to set up an AutoML training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure these types of experiments.
+In this guide, learn how to set up an automated machine learning, AutoML, training run with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) using Azure Machine Learning automated ML. Automated ML picks an algorithm and hyperparameters for you and generates a model ready for deployment. This guide provides details of the various options that you can use to configure automated ML experiments.
 
 For an end to end example, see [Tutorial: AutoML- train regression model](tutorial-auto-train-models.md).
 
@@ -532,9 +532,9 @@ For details on how to create a deployment configuration and deploy a registered 
 
 Model interpretability allows you to understand why your models made predictions, and the underlying feature importance values. The SDK includes various packages for enabling model interpretability features, both at training and inference time, for local and deployed models.
 
-See the [how-to](how-to-machine-learning-interpretability-automl.md) for code samples on how to enable interpretability features specifically within automated ML experiments.
+See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.
 
-For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](how-to-machine-learning-interpretability.md) article on interpretability.
+For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept article on interpretability](how-to-machine-learning-interpretability.md) .
 
 > [!NOTE]
 > The ForecastTCN model is not currently supported by the Explanation Client. This model will not return an explanation dashboard if it is returned as the best model, and does not support on-demand explanation runs.
