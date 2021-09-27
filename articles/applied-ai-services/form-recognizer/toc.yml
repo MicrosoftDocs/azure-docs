@@ -41,6 +41,8 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name: Generate SAS tokens for Azure Blob containers
+    href:  generate-sas-tokens.md
   - name: Train a custom model with the sample labeling tool
     href: label-tool.md
   - name: Build a training data set

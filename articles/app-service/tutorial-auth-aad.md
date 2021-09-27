@@ -4,7 +4,7 @@ description: Learn how to use App Service authentication and authorization to se
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 09/23/2021
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -317,6 +317,18 @@ The front-end app now has the required permissions to access the back-end app as
 
 1. Save your settings by clicking **PUT**.
 
+    ::: zone pivot="platform-linux"
+    
+    > [!NOTE]
+    > For Linux apps, There's a temporary requirement to configure a versioning setting for the back-end app registration. In the Cloud Shell, configure it with the following commands. Be sure to replace *\<back-end-client-id>* with your back end's client ID.
+    >
+    > ```azurecli-interactive
+    > id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+    > az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
+    > ```    
+
+    ::: zone-end
+    
     Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).

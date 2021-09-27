@@ -79,6 +79,15 @@ For Azure VM Linux backups, Azure Backup supports the list of Linux [distributio
 - Azure Backup doesn't support a proxy-configured Linux VM if it doesn't have Python version 2.7 installed.
 - Azure Backup doesn't support backing up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
 
+## Support matrix for managed pre-post scripts for Linux databases
+
+Azure Backup provides support for customers to author their own pre-post scripts
+
+|Supported database  |OS version  |Database version  |
+|---------|---------|---------|
+|Oracle in Azure VMs     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 12.x or greater     |
+
+
 ## Backup frequency and retention
 
 **Setting** | **Limits**
