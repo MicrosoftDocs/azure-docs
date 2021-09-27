@@ -125,6 +125,7 @@ Consider the following when using the Dependency agent:
 
 - The Dependency agent requires the Log Analytics agent to be installed on the same machine.
 - On Linux computers, the Log Analytics agent must be installed before the Azure Diagnostic Extension.
+- On both the Windows and Linux versions of the Dependency Agent, data collection is done using a user-space service and a kernel driver. 
 
 ## Virtual machine extensions
 
