@@ -36,16 +36,6 @@ Composites enable developers to easily integrate a whole calling experience into
 |                                                                                                 | Video on/off on call                                   |
 |                                                                                                 | End call                                               |
 
-## Installing Mobile UI Library
-
-``` java
-TBD Maven Android repo
-```
-
-``` swift
-TBD Cocoapods iOS repo
-```
-
 ## Supported Identities
 
 An Azure Communication Services identity is required to initialize the composites and authenticate to the service.
@@ -77,10 +67,6 @@ The calling composite offers to adapt to any screen size that would bring suppor
 |Split mode | Tablet mode|
 |---------|---------|
 | <img alt="split screen" src="../media/mobile-ui/meet_splitscreen.png" width="80%"/>      | <img alt="tablet mode" src="../media/mobile-ui/tablet_landscape.png" width="80%"/>  |
-
-## Observability
-
-The UI Library Calling Composite for iOS and Android provides interfaces for developers to track the state of the call and perform programmatic actions on behalf of the user. These hooks enable developers to extend the composite into their own application.
 
 ## Recommended Architecture
 

@@ -21,11 +21,9 @@ The UI Mobile Library objective is to provide these capabilities available to yo
 Composites are higher-level components composed of UI components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
 Developers can easily instantiate the Composite using an Azure Communication Services access token and the required configuration attributed for call or chat.
 
-| Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                    |
+| Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video and see other participants, including those with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
-
-
 
 ## Installing Mobile UI Library
 
@@ -43,18 +41,16 @@ TBD Cocoapods iOS repo
 
 The users can join easily over the call using the *Teams meeting URL* or setup an Azure Communication Services Call to a simpler and great experience, just like the Teams application. Adding the capability to the user to be part of extensive live video calling or audio calling without losing the experience of the simplicity and focusing in what really matters.
 
-<img src="../media/mobile-ui/join_meet.png" alt="eeting experience" width="75%"/>
-
 
 ### Pre-call experience
 
-As a participant of any of the call, you can set up a default configuration for audio and video devices. Add your name and bring your own image avatar.
+As a participant of the calls, you can provide a name and set up a default configuration for audio and video devices, and you're ready to jump into the call.
 
 <img src="../media/mobile-ui/teams_meet.png" alt="Pre-meeting experience" width="75%"/>
 
 ### Call experience
 
-Customize the user experience, adjust the capabilities accordingly to your needs. You will control the overall experience during the call. 
+The calling composite provide an end two end experience, optimizing development time, and focusing into a clean layout.  
 
 <img src="../media/mobile-ui/Calling_composite.png" alt="Meeting experience" width="40%"/>
 
@@ -62,19 +58,11 @@ Customize the user experience, adjust the capabilities accordingly to your needs
 
 ### Quality and security
 
-You can secure using an Azure Communication Service access token, more information [how generate and manage access tokens.](../../quickstarts/access-tokens)
-
-More scenarios please visit [use cases site](mobile-ui-usesscenarios.md) to discover more about UI Mobile Library.
+Mobile Composites are initialized using Azure Communication Services access tokens. For more information on [how to generate and manage access tokens.](../../quickstarts/access-tokens)
 
 ### More details
 
-- **Device selector**: The user can select their audio and video devices.
-
-- **Theming**: Bring the capabilities customize the primary color of the meeting experience.
-
-- **Turn Video On/Off**: Bring the possibility to the users to manage their video during the meeting.
-
-- **Multilingual support**: Support 56 languages during the whole teams experience.
+If you need more details about mobile composites please visit [use cases site](mobile-ui-usesscenarios.md) to discover more.
 
 ***We expect to add more scenarios ahead of the UI Library being in General Availability.***
 
@@ -83,6 +71,7 @@ More scenarios please visit [use cases site](mobile-ui-usesscenarios.md) to disc
 Understanding these requirements will help you choose the right client library:
 
 - **How much customization do you desire?** Azure Communication core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
+
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
 
