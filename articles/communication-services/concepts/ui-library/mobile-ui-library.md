@@ -23,7 +23,7 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 
 | Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video and see other participants, including those with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
+| [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turn on. For Teams Interop is included lobby functionality for user to wait to be admitted. |
 
 ## Installing Mobile UI Library
 
@@ -39,7 +39,7 @@ TBD Cocoapods iOS repo
 
 ### Joining a video/audio call
 
-The users can join easily over the call using the *Teams meeting URL* or setup an Azure Communication Services Call to a simpler and great experience, just like the Teams application. Adding the capability to the user to be part of extensive live video calling or audio calling without losing the experience of the simplicity and focusing in what really matters.
+The users can join easily over the call using the *Teams meeting URL* or set up an Azure Communication Services Call to a simpler and great experience, just like the Teams application. Adding the capability to the user to be part of extensive live video calling or audio calling without losing the experience of the simplicity and focusing in what really matters.
 
 
 ### Pre-call experience
@@ -62,7 +62,7 @@ Mobile Composites are initialized using Azure Communication Services access toke
 
 ### More details
 
-If you need more details about mobile composites please visit [use cases site](mobile-ui-usesscenarios.md) to discover more.
+If you need more details about mobile composites, please visit [use cases site](mobile-ui-usesscenarios.md) to discover more.
 
 ***We expect to add more scenarios ahead of the UI Library being in General Availability.***
 
@@ -84,4 +84,4 @@ Details about feature availability in the [UI Library is available here](mobile-
 
 ## Learn and go
 
-For more information about how to start with the UI Mobile library, please follow [our Quickstarts guides TBD](../../quickstarts/voice-video-calling/getting-started-with-calling).
+For more information about how to start with the UI Mobile library composites, please follow [our Quickstarts guides TBD](../../quickstarts/voice-video-calling/getting-started-with-calling).
