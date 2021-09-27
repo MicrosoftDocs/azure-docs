@@ -250,6 +250,8 @@ adjust the time value (x) in `"discoveryDuration":"PTxS"` to a larger number.  A
 
 The `onvifDeviceGet` direct method call will not display any media profiles for H.265 encoded media streams.
 
+Return status of 403 can be returned in the event that the user account used to connect to the ONVIF device does not have permissions to the ONVIF camera features. Some ONVIF compliant cameras require that a user is added to the ONVIF security settings to retrieve the ONVIF device information.
+
 ## Next steps
 
 - Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md).
