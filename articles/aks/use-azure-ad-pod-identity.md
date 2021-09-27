@@ -354,10 +354,6 @@ successfully acquired a token, userAssignedID MSI, msiEndpoint(http://169.254.16
 successfully made GET on instance metadata
 ...
 ```
-export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
-export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
-```
-
 ## Clean up
 
 To remove AAD pod-managed identity from your cluster, remove the sample application and the pod identity from the cluster. Then remove the identity.
