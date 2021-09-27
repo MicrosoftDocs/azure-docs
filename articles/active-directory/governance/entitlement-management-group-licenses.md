@@ -81,7 +81,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 1. Click **Next** to open the **Requestor information** tab.
 
-2. On this screen, you can ask more questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional. For now you can leave these as empty.
+2. On this screen, you can ask more questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional. In this scenario, you haven't been asked to include requestor information for this access package, so you can leave those fields empty.
 
 ## Step 5: Configure the Lifecycle for your access package
 
