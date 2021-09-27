@@ -41,11 +41,11 @@ Note that `--depth 1` clones only the latest commit to the repository which redu
 
 There are two types of environments in Azure ML, curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
 
-Curated environments are provided by Azure ML and are available in your workspace by default. Azure ML routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They are backed by cached Docker images, which reduces the job preparation cost and model deployment time.
+Curated environments are provided by Azure ML and are available in your workspace by default. Azure ML routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They are backed by cached Docker images, which reduces job preparation cost and model deployment time.
 
 You can use these curated environments out of the box for training or deployment by referencing a specific environment using the `azureml:<curated-environment-name>:<version>` syntax. You can also use them as reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
 
-For a list of curated environments, see [Azure Machine Learning curated environments](resource-curated-environments.md). You can also view the set of available curated environments in the Azure ML studio UI, or using the CLI (v2) via `az ml environments list`.
+For a list of curated environments, see [Azure Machine Learning curated environments](resource-curated-environments.md). You can also view the set of available curated environments in the Azure ML studio UI, or by using the CLI (v2) via `az ml environments list`.
 
 ## Create an environment
 
@@ -78,6 +78,22 @@ az ml environment create --file assets/environment/docker-image.yml
 
 ### Create an environment from a Docker build context
 
+Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed for building the image.
+
+The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.local_path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure ML will look for a Dockerfile at the path `./Dockerfile` within the context.
+
+In this example, the build context contains a Dockerfile `Dockerfile` and a `requirements.txt` file that is referenced within the Dockerfile for installing Python packages.
+
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
+
+To create the environment:
+
+```cli
+az ml environment create --file assets/environment/docker-context.yml
+```
+
+Azure ML will start building the image from the build context when the environment is created. You can monitor the status of the build and view the build logs in the studio UI.
+
 ### Create an environment from a conda specification
 
 You can define an environment using the standard conda YAML configuration file of the dependencies for a conda environment. See https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually for information on this standard format.
@@ -98,20 +114,64 @@ Azure ML will build the final Docker image from this environment specification w
 
 ## Manage environments
 
+The CLI (v2) provides a set of commands under `az ml environment` for managing the lifecycle of your Azure ML environment assets.
+
 ### List
+
+List all the environments in your workspace:
+
+```cli
+az ml environment list
+```
+
+List all the environment versions under a given name:
+
+```cli
+az ml environment list --name docker-image-example
+```
 
 ### Show
 
+Get the details of a specific environment:
+
+```cli
+az ml environment list --name docker-image-example --version 1
+```
+
 ### Update
+
+Update mutable properties of a specific environment:
+
+```cli
+az ml environment update --name docker-image-example --version 1 --set description="This is an updated description."
+```
+
+For environments, only `description` and `tags` can be updated. All other properties are immutable; if you need to change any of those properties you should create a new version of the environment.
 
 ### Delete
 
+Delete a specific environment:
+
+```cli
+az ml environment delete --name docker-image-example --version 1
+```
+
 ## Use environments for training
+
+To use an environment for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure ML environment via `environment: azureml:<environment-name>:<environment-version>`, or define an environment specification inline. If defining an environment inline, do not specify the `name` and `version` fields, as these environments are treated as "anonymous" environments and are not tracked in your environment asset registry.
+
+When you submit a training job, the building of a new environment can take several minutes. The duration depends on the size of the required dependencies. The environments are cached by the service. So as long as the environment definition remains unchanged, you incur the full setup time only once.
+
+For more information on how to use environments in jobs, see [Train models with the CLI (v2)](how-to-train-cli.md).
 
 ## Use environments for model deployments
 
+You can also use environments for your model deployments for both online and batch scoring. To do so, specify the `environment` field in the deployment YAML configuration.
+
+For more information on how to use environments in deployments, see [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md).
+
 ## Next steps
 
-- [Train]()
-- [Deploy]()
-- [YAML reference]()
+- [Train models (create jobs) with the CLI (v2)](how-to-train-cli.md)
+- [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+- [Environment YAML schema reference](reference-yaml-environment.md)
