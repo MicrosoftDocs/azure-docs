@@ -87,7 +87,7 @@ The device login flow will prompt users signing in with a Gmail account in an em
 
    ![image](https://user-images.githubusercontent.com/15203472/134457320-7d1e5636-f163-4a51-ab0f-5fae168a0a5c.png)
    
-2. They will see the following screen that prompts them to open a new window to navigate to https://microsoft.com/devicelogin and enter the 9-digit alphanumeric code displayed on the screen.
+2. The following screen appears, prompting the user to open a new window, navigate to https://microsoft.com/devicelogin, and enter the 9-digit alphanumeric code displayed.
 
    ![image](https://user-images.githubusercontent.com/15203472/134458974-8ea88a64-f45e-4801-b82a-86ac9fcc6bd8.png)
 
