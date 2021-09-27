@@ -132,6 +132,13 @@ To better understand Azure RBAC and Azure ABAC, you can refer back to the follow
 | attribute | In this context, a key-value pair such as Project=Blue, where Project is the attribute key and Blue is the attribute value. Attributes and tags are synonymous for access control purposes. |
 | expression | A statement in a condition that evaluates to true or false. An expression has the format of &lt;attribute&gt; &lt;operator&gt; &lt;value&gt;. |
 
+
+## Known issues
+
+Here are the known issues with conditions:
+
+- If you are using Azure AD Privileged Identity Management (PIM) and [custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md), **Principal** does not appear in **Attribute source** when adding a condition.
+
 ## Next steps
 
 - [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)

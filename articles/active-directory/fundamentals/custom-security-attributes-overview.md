@@ -41,6 +41,7 @@ Custom security attributes is a feature of Azure Active Directory (Azure AD) tha
 - Support different data types: Boolean, integer, string​
 - Support single value or multiple values
 - Support user-defined free-form values​ or predefined values
+- Directory synced users from an on-premises Active Directory can be assigned custom security attributes
 
 The following example shows how you can specify custom security attribute values that are single, multiple, free-form, or predefined.
 
@@ -66,7 +67,7 @@ Here are some ways that custom security attributes compare with [directory schem
 
 1. **Check permissions**
 
-    Check that you are assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) or [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) roles. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+    Check that you are assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) or [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) roles. If not, check with your administrator to assign you the appropriate role at tenant or attribute set scope. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
     ![Diagram showing checking permissions to add custom security attributes in Azure AD.](./media/custom-security-attributes-overview/attributes-permissions.png)
 
@@ -166,10 +167,8 @@ Here are some of the known issues with custom security attributes:
 - You can only add the predefined values after you add the custom security attribute by using the **Edit attribute** page.
 - Users with attribute set-level role assignments can see other attribute sets and custom security attribute definitions.
 - Global Administrators can read audit logs for custom security attribute definitions and assignments.
-- Directory synced users from an on-premises Active Directory can't be assigned custom security attributes.
-- If you are using Azure AD Privileged Identity Management (PIM), **Principal** does not appear in **Attribute source** when adding a condition.
-- If you are using PIM, you can't add eligible role assignments at attribute set scope.
-- If you are using PIM, the **Assigned roles** page for a user does not list permanent role assignments at attribute set scope. The role assignments exist, but aren't listed.
+- If you have an Azure AD Premium P2 license, you can't add eligible role assignments at attribute set scope.
+- If you have an Azure AD Premium P2 license, the **Assigned roles** page for a user does not list permanent role assignments at attribute set scope. The role assignments exist, but aren't listed.
 
 Depending on whether you have an Azure AD Premium P1 or P2 license, here are the role assignment tasks that are currently supported for custom security attribute roles:
 
