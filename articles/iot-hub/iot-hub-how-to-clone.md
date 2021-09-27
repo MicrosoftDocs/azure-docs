@@ -319,21 +319,21 @@ Create the new hub in the new location using the template. If you have routing r
 
 1. Select **template deployment (deploy using custom templates)**. This takes you to a screen for the Template deployment. Select **Create**. You see this screen:
 
-   ![Screenshot showing the command for building your own template](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png" alt-text="Screenshot showing the command for building your own template":::
 
 1. Select **Build your own template in the editor**, which enables you to upload your template from a file. 
 
 1. Select **Load file**.
 
-   ![Screenshot showing the command for uploading a template file](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-upload-file.png" alt-text="Screenshot showing the command for uploading a template file":::
 
 1. Browse for the new template you edited and select it, then select **Open**. It loads your template in the edit window. Select **Save**. 
 
-   ![Screenshot showing loading the template](./media/iot-hub-how-to-clone/iot-hub-uploaded-file.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-uploaded-file.png" alt-text="Screenshot showing loading the template":::
 
 1. Fill in the following fields on the custom deployment page.
 
-   ![Screenshot showing the custom deployment page](./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png" alt-text="Screenshot showing the custom deployment page":::
 
    **Subscription**: Select the subscription to use.
 
@@ -349,7 +349,7 @@ Create the new hub in the new location using the template. If you have routing r
 
 1. Select the **Create** button. The portal now validates your template and deploys your cloned hub. If you have routing configuration data, it will be included in the new hub, but will point at the resources in the prior location.
 
-   ![Screenshot showing the final custom deployment page](./media/iot-hub-how-to-clone/iot-hub-custom-deployment-final.png)
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-final.png" alt-text="Screenshot showing the final custom deployment page":::
 
 ## Managing the devices registered to the IoT hub
 
