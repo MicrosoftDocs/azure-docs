@@ -16,15 +16,15 @@ ms.date: 10/06/2021
 ---
 
 
-# Set up AutoML to train an image model with Python
+# Set up AutoML to train computer vision models with Python
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 In this article, you learn how to train computer vision models on image data with automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
-Automated ML supports model training for computer vision tasks, image classification, object detection, and instance segmentation. Authoring AutoML models for vision tasks is currently supported via the Azure ML Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md)
+Automated ML supports model training for computer vision tasks like image classification, object detection, and instance segmentation. Authoring AutoML models for computer vision tasks is currently supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md).
 
-With AutoML support for vision tasks, customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
+With support for vision tasks, customers can easily build models trained on image data, without writing any training code. They can seamlessly integrate with Azure ML's Data Labeling capability and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
 
 > [!NOTE]
 > Automated ML for computer vision tasks is only available via the Azure Machine Learning Python SDK. 
@@ -57,7 +57,7 @@ from azureml.train.automl import AutoMLImageConfig
 automl_image_config = AutoMLImageConfig(task='image-object-detection')
 ```
 
-## Training and Validation data <!--TODO - update this section to use Tabular datasets once this piece is verified--> 
+## Training and validation data
 
 In order to generate computer vision models, you need to bring in labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have exported from a data labeling project (using the Export as Azure ML Dataset option), or create a new `TabularDataset` with your labeled training data. Creation of tabular datasets is supported from data in JSONL format.
 
