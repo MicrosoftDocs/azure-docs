@@ -161,6 +161,8 @@ The SQL IaaS Agent extension only supports:
 - SQL Server VMs deployed through the Azure Resource Manager. SQL Server VMs deployed through the classic model are not supported. 
 - SQL Server VMs deployed to the public or Azure Government cloud. Deployments to other private or government clouds are not supported. 
 
+Also, SQL Server IaaS Agent extension should be in Light weight mode when working with Failover cluster instances or to register a named instance in a multi instance SQL Server setup in a single VM. 
+
 
 ## In-region data residency
 
