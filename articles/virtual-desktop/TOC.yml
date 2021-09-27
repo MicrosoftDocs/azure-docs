@@ -104,9 +104,15 @@
     items:
       - name: Set up a scaling script
         href: set-up-scaling-script.md
-      - name: Use the autoscaling feature 
-        href: autoscaling.md
-      - name: Autoscaling feature FAQ
+  - name: Autoscaling (preview)
+  - items:
+      - name: Use the autoscaling feature (preview)
+        href: autoscaling-scaling-plan.md
+      - name: Autoscale session hosts (preview)
+        href: autoscaling-new-existing.md
+      - name: Autoscaling diagnostics (preview)
+        href: autoscaling-diagnostics.md
+      - name: Autoscaling feature FAQ (preview)
         href: autoscaling-faq.yml
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
