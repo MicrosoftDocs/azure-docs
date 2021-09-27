@@ -26,7 +26,7 @@ In this article, we set up a virtual machine to use managed identities to connec
 
 - A basic understanding of Managed identities. If you would like to learn more about managed identities for Azure resources before you continue, review the managed identities [overview](overview.md).
 - You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -63,7 +63,7 @@ For more information, review the Azure virtual machines documentation:
 
 # [PowerShell](#tab/azure-powershell)
 
-[New-AZVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-6.3.0) creates resources you reference if they don't exist. To create a VM with a system assigned managed identity enabled pass the parameter **-SystemAssignedIdentity** as shown below. 
+[New-AZVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) creates resources you reference if they don't exist. To create a VM with a system assigned managed identity enabled pass the parameter **-SystemAssignedIdentity** as shown below. 
 
 
 ```powershell
@@ -224,9 +224,9 @@ Now that we have a VM with either a user-assigned managed identity or a system-a
    |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
    |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
    |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-44 characters in length.|
-   |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](../introduction.md).|
+   |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](../../cosmos-db/introduction.md).|
    |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
-   |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode.|
+   |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../../cosmos-db/serverless.md) mode.|
    |Apply Azure Cosmos DB free tier discount|**Apply** or **Do not apply**|With Azure Cosmos DB free tier, you will get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
 
    > [!NOTE]
@@ -404,8 +404,7 @@ Initialize your Cosmos DB client:
 CosmosAsyncClient Client = new CosmosClientBuilder().endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
 ```
 
-Then read and write data as described in [these samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples
-)
+Then read and write data as described in [these samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples)
 
 ### JavaScript
 
@@ -460,5 +459,5 @@ Learn more about managed identities for Azure resources:
 
 Learn more about Azure Cosmos
 
-* [Azure Cosmos DB resource model](https://docs.microsoft.com/en-us/azure/cosmos-db/account-databases-containers-items)
-* [Cosmos samples](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-dotnet-v3sdk-samples)
+* [Azure Cosmos DB resource model](https://docs.microsoft.com/azure/cosmos-db/account-databases-containers-items)
+* [Cosmos samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples)
