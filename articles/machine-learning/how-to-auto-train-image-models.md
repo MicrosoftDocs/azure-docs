@@ -162,7 +162,7 @@ automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 
 ## Compute to run experiment
 
-You need to provide a [Compute Target](concept-azure-machine-learning-architecture.md#compute-target)  your AutoML model training. AutoML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend using the NCsv3-series (with v100 GPUs) for faster training. Using a compute target with a multi-GPU VM SKU leverages multiple GPUs to speed up training. Additionally, setting up a compute target with multiple nodes will allow for faster model training by leveraging parallelism, when tuning hyperparameters for your model.
+You need to provide a [Compute Target](concept-azure-machine-learning-architecture.md#compute-targets)  your AutoML model training. AutoML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend using the NCsv3-series (with v100 GPUs) for faster training. Using a compute target with a multi-GPU VM SKU leverages multiple GPUs to speed up training. Additionally, setting up a compute target with multiple nodes will allow for faster model training by leveraging parallelism, when tuning hyperparameters for your model.
 
 The compute target is a required parameter and is passed in using the `compute_target` parameter of the `AutoMLImageConfig`. For example:
 
@@ -218,7 +218,7 @@ Model-agnostic hyperparameters</b>
 | evaluation_frequency | Frequency to evaluate validation dataset<br>to get metric scores <br> `Optional, Positive Integer` | 1 |
 | split_ratio | Validation split ratio when splitting train<br>data into random train and validation<br>subsets if validation data is not defined <br> `Optional, float in [0, 1]` | 0.2 |
 | checkpoint_frequency | Frequency to store model checkpoints.<br>By default, we save checkpoint at the<br>epoch which has the best primary metric<br>on validation <br> `Optional, Positive Integer` | no default value <br> (checkpoint at epoch <br>with best primary metric)  |
-| layers_to_freeze | How many layers to freeze for your model.<br>Available freezable layers for each model <br>are [here](constants.py). For instance, passing 2 <br>as value for seresnext means freezing layer0 <br>and layer1. <br> `Optional, Positive Integer` | no default value |
+| layers_to_freeze | How many layers to freeze for your model. <br> For instance, passing 2 <br>as value for seresnext means freezing layer0 <br>and layer1. <br> `Optional, Positive Integer` | no default value |
 
 <br>
 <b>Task-specific hyperparameters</b>
@@ -245,10 +245,10 @@ Model-agnostic hyperparameters</b>
 | box_detections_per_img | Maximum number of detections per image, for all classes <br> `Optional, Positive Integer` | 100 |
 
 
-<b>Model-specific hyperparameters</b>
+Model-specific hyperparameters
 
+For yolov5:
 
-<b>For yolov5: </b>
 | Parameter Name       | Description           | Default  |
 | ------------- |-------------| -----|
 | validation_metric_type | Metric computation method to use for validation metrics  <br> `Optional, one of {none, coco, voc, coco_voc}` | voc |
@@ -347,7 +347,7 @@ AutoML for Images allows you to sweep hyperparameters to find the optimal settin
 
 ### Define the parameter search space
 
-You can define the model algorithms and hyperparameters to sweep in the parameter space. See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms and hyperparameters for each task type. Details on supported distributions for discrete and continuous hyperparameters can be found [here](how-to-tune-hyperparameters,md#define-the-search-space).
+You can define the model algorithms and hyperparameters to sweep in the parameter space. See [Configure model algorithms and hyperparameters](#configure-model-algorithms-and-hyperparameters) for the list of supported model algorithms and hyperparameters for each task type. Details on supported distributions for discrete and continuous hyperparameters can be found [here](how-to-tune-hyperparameters.md#define-the-search-space).
 
 ### Sampling methods for the sweep
 When sweeping hyperparameters, you need to specify the sampling method to use for sweeping over the defined parameter space. AutoML for Images supports the following sampling methods using the `hyperparameter_sampling` parameter:
@@ -356,7 +356,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 * Grid Sampling (not supported yet for conditional spaces)
 * Bayesian Sampling (not supported yet for conditional spaces)
 
-You can learn more about each of these sampling methods [here](how-to-tune-hyperparameters#sampling-the-hyperparameter-space).
+You can learn more about each of these sampling methods [here](how-to-tune-hyperparameters.md#sampling-the-hyperparameter-space).
 
 ### Early termination policies
 When using AutoML to sweep hyperparameters for your vision models, you can automatically end poorly performing runs with an early termination policy. Early termination improves computational efficiency, saving compute resources that would have been otherwise spent on less promising configurations. AutoML for Images supports the following early termination policies using the `policy` parameter -
@@ -366,7 +366,7 @@ When using AutoML to sweep hyperparameters for your vision models, you can autom
 * truncation Selection Policy
 
 If no termination policy is specified, all configurations are run to completion.
-You can learn more about configuring the early termination policy for your hyperparameter sweep [here](how-to-tune-hyperparameters#early-termination).
+You can learn more about configuring the early termination policy for your hyperparameter sweep [here](how-to-tune-hyperparameters.md#early-termination).
 
 ### Resources for the sweep
 You can control the resources spent on your hyperparameter sweep by specifying the `iterations` and the `max_concurrent_iterations` for the sweep.
