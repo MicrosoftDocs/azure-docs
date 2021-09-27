@@ -36,6 +36,10 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.3373.2600: This update was released September 2021 and has the following changes:
+    - General agent improvements.
+    - Fixes issues with restarting the agent on Windows 7 VMs.
+    - Fixes an issue with fields in the WVDAgentHealthStatus table not showing up correctly.
 - Version 1.0.3130.2900: This update was released July 2021 and has the following changes:
     - General improvements and bug fixes.
     - Fixes an issue with getting the host pool path for Intune registration.
@@ -72,10 +76,6 @@ Windows 11 (Preview) images are now available in the Azure Marketplace for custo
 ### Multimedia redirection is now in public preview
 
 Multimedia redirection gives you smooth video playback while watching videos in your Azure Virtual Desktop web browser and works with Microsoft Edge and Google Chrome. Learn more at [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-announcing-public-preview-of-multimedia/m-p/2663244#M7692).
-
-### IP virtualization support for Windows Server 2019
-
-IP virtualization is supported on Windows Server 2008 R2 and up. Additional steps are needed to use IP virtualization for Windows Server 2019. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/ip-virtualization-support-for-windows-server-2019/m-p/2658650).
 
 ### Windows Defender Application Control and Azure Disk Encryption support
 

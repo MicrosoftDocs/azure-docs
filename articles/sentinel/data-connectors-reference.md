@@ -159,7 +159,6 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | --- | --- |
 | **Data ingestion method** | [**Log Analytics agent - custom logs**](connect-custom-logs.md) <br><br>[Extra configuration for Alsid](#extra-configuration-for-alsid)|
 | **Log Analytics table(s)** | AlsidForADLog_CL |
-| **Custom log sample file:** | https://github.com/Azure/azure-quickstart-templates/blob/master/alsid-syslog-proxy/logs/AlsidForAD.log |
 | **Kusto function alias:** | afad_parser |
 | **Kusto function URL:** | https://aka.ms/sentinel-alsidforad-parser |
 | **Supported by** | [Alsid](https://www.alsid.com/contact-us/) |

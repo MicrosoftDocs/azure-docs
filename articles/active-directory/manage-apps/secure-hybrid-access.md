@@ -32,13 +32,13 @@ In addition to [Azure AD Application Proxy](../app-proxy/what-is-application-pro
 
 ![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-The following partners offer pre-built solutions to support conditional access policies per application and provide detailed guidance for integrating with Azure AD. 
+The following partners offer pre-built solutions to support **conditional access policies per application** and provide detailed guidance for integrating with Azure AD. 
 
 - [Akamai Enterprise Application Access](../saas-apps/akamai-tutorial.md)
 
 - [Citrix Application Delivery Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md)  
 
-- [Datawiza Access Broker](datawiza-with-azure-ad.md)
+- [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
 
 - [F5 Big-IP APM ADC](../manage-apps/f5-aad-integration.md)
 
@@ -48,9 +48,18 @@ The following partners offer pre-built solutions to support conditional access p
 
 - [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 
-- [Silverfort Authentication Platform](../manage-apps/add-application-portal-setup-oidc-sso.md)
+- [Silverfort Authentication Platform](../manage-apps/silverfort-azure-ad-integration.md)
+
+- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+
+The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
+
+- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+
+- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
 
 - [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
+
 - [Pulse Secure Pulse Connect Secure (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
 
 - [Pulse Secure Virtual Traffic Manager (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/25/2021
+ms.date: 08/25/2021
 ms.author: jeedes
 ---
 
@@ -35,6 +35,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Envoy supports **SP** initiated SSO.
 
 * Envoy supports **Just In Time** user provisioning.
+
+* Envoy supports [Automated user provisioning](envoy-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -149,6 +151,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 ### Create Envoy test user
 
 In this section, a user called Britta Simon is created in Envoy. Envoy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Envoy, a new one is created after authentication.
+
+Envoy also supports automatic user provisioning, you can find more details [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
