@@ -2,7 +2,7 @@
 title: Publishing checklist 
 description:  Use this checklist to determine if your Microsoft 365 app is ready to be published.
 ms.author: mingshen
-localization_priority: Normal
+ms.localizationpriority: medium
 ---
 
 # Am I ready to publish?
@@ -59,7 +59,7 @@ Your test plans and any testing accounts and instructions need to be included he
 
 The addresses for a support URL, a privacy policy URL, and an end user license agreement (EULA) URL  are required. One of the top reasons an app submission fails our validation process is when these links are not included in submission. The following image shows the box that asks for the support information.
 
-![Support information fillable form fields](./images/new/step-5-b-validation.jpg)
+![Support information fillable form fields](./images/add-in-submission-guide/step-5-b-validation.jpg)
 
 #### Make sure you provide a link to your support page so that your users can reach you if they have a problem
 
