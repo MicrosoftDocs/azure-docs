@@ -2,7 +2,7 @@
 title: Discovering ONVIF-capable cameras in the local subnet
 description: This how-to shows you how you can use Video Analyzer edge module to discover ONVIF-capable cameras in your local subnet.
 
-ms.topic: how-to
+ms.topic: How-To
 ms.date: 09/15/2021
 ---
 
