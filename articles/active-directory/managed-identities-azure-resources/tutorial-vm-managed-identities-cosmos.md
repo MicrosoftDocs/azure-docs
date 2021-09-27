@@ -13,7 +13,8 @@ ms.workload: integration
 ms.topic: tutorial
 ms.date: 09/27/2021
 ms.author: barclayn
-ms.custom: ep-msia
+ms.custom: ep-miar
+
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
 
 ---
