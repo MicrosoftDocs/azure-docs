@@ -107,7 +107,7 @@ The device login flow will prompt users signing in with a Gmail account in an em
 
    ![image](https://user-images.githubusercontent.com/15203472/134458470-b51c5892-4eeb-4e21-a512-07d2d291b80b.png)
 
-7. If confirmed, the user will be successfully signed in and asked to close the tab or window to go back to the first screen where the user is now signed into the app.
+7. The user selects **Continue**. A prompt confirms that they’re signed in. The user closes the tab or window and is returned to the first screen, where they're now signed in to the app.
 
    ![image](https://user-images.githubusercontent.com/15203472/134458364-659c8835-2895-41a3-86af-2ed63f5fcfa7.png)
 
