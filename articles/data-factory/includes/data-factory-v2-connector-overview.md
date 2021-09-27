@@ -2,7 +2,7 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/07/2021
+ms.date: 09/22/2021
 ms.author: jianleishen
 ---
 
@@ -25,6 +25,7 @@ ms.author: jianleishen
 | &nbsp;                | [Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure Table Storage](../connector-azure-table-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | **Database**          | [Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md)       | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
+| &nbsp;                | [Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md)       | ✓/−                                                          |                                                              | ✓                                                            | ✓                                                              |                                                              |
 | &nbsp;                | [Amazon Redshift](../connector-amazon-redshift.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [DB2](../connector-db2.md)             | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Drill](../connector-drill.md)         | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
