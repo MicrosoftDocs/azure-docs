@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/iot-accelerators/index.yml",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-faq-cf.yml",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq-cf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-faq.yml",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-accelerators/about-iot-accelerators.md",
       "redirect_url": "/previous-versions/azure/iot-accelerators/about-iot-accelerators",
       "redirect_document_id": false
