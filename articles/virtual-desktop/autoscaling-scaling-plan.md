@@ -79,9 +79,10 @@ To assign the custom role:
 
 1. Open the Azure portal and go to **Subscriptions**.
 
-2. Go to **Access control (IAM)** and select **Add a custom role**.
+2. Select the **+** button in the top left hand corner of the screen, then select **Add custom role** from the drop-down menu, as shown in the following screenshot.
 
-    ![](media/0ef363a33292ebbc8864945e31ca6fb2.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot showing the drop-down menu that appears when you select the plus sign button in the Azure portal control panel. The option add custom role is selected and highlighted wtih a red border.](media/add-custom-role.png)
 
 3. Next, name the custom role and add a description. We recommend you name the role “Autoscale.”
 
@@ -112,13 +113,16 @@ To assign the custom role to grant access:
 
 2. Select the role you just created.
 
-3. In the search bar, enter and select **Windows Virtual Desktop**.
+3. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot.
 
-![Graphical user interface, text, application Description automatically generated](media/faf200da1a48e409516c08f76db2f414.png)
+    > [!div class="mx-imgBorder"]
+    > ![Graphical user interface, text, application Description automatically generated](media/search-for-role.png)
+
+<!--Why are we using the old product name? Has this not been updated? We need to change this ASAP--->
 
 When adding the custom role in the Azure portal, make sure you've selected the correct permissions.
 
-![Graphical user interface, application Description automatically generated](media/89705981d48f02c2efefaae38e21fe96.png)
+<!--We can't have this item as image-only like it was in the rough draft for accessibility reasons-->
 
 ## How creating a scaling plan works
 

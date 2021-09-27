@@ -41,11 +41,7 @@ After you've configured your diagnostic settings, you can find the logs by follo
 
 2. Select **Containers**. A folder called **insight-logs-autoscaling** should open.
 
-![Graphical user interface, application Description automatically generated](media/a1b43719aa6d9117b7e60a2a21c7d4ca.png)
-
 3. Select the **insight-logs-autoscaling folder** and open the log you want to review. Open folders within that folder until you see the JSON file, then select all items in that folder, right-click, and download them to your local computer.
-
-![Graphical user interface, text, application, email Description automatically generated](media/e472cf84eba5dd1c56b1d9565fbfe045.png)
 
 4. Finally, open the JSON file in the text editor of your choice.
 

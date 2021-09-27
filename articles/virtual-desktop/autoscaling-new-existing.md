@@ -27,17 +27,15 @@ To assign a scaling plan to an existing host pool:
 
 3. Select **Host pools**, then go to **Scaling plan** and select **New**.
 
-![](media/f68ee5b51396fdf60e4c7d7910848b9c.png)
+4. Select **Scaling plan**, then select **+ Assign** to assign a scaling plan to an unassigned host pool, as shown in the following screenshot.
 
-![Graphical user interface, application Description automatically generated](media/f68ee5b51396fdf60e4c7d7910848b9c.png)
-
-1. Select **Scaling plan** to assign a scaling plan to an unassigned host pool.
-
-    ![](media/352ef2258c6a7cb862a7fec57dd881d6.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screesnshot of the scaling plan window. The + Add button in the upper left-hand corner is highlighted with a red border.](media/assign-scaling-plan.png)
 
     - When you have enabled the scaling plan during deployment you have the option to disable the plan for the selected host pool here.
 
-        ![Graphical user interface, text, application, email Description automatically generated](media/8e65d9913651538ee18b4d3b679b1305.png)
+        > [!div class="mx-imgBorder"]
+        > ![A screenshot of the scaling plan window. The "enable autoscale" check box is selected and highlighted with a red border.](media/enable-autoscale.png)
 
 ## Edit an existing scaling plan
 
