@@ -1,46 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/iot-accelerators/about-iot-accelerators.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/about-iot-accelerators",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-configure.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-configure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-customize.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-customize",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-dashboard.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-dashboard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-features.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-connected-factory-features",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/iot-accelerators-permissions.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/iot-accelerators-permissions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/overview-iot-industrial.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-iot-industrial",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-accelerators/quickstart-connected-factory-deploy.md",
-      "redirect_url": "/previous-versions/azure/iot-accelerators/quickstart-connected-factory-deploy",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
       "redirect_document_id": false
