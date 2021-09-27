@@ -60,7 +60,7 @@ After you've extended labeling to assets in Azure Purview, all published sensiti
     Specifically, define autolabeling rules for files and database columns:
 
     - [Define autolabeling rules for files](#autolabeling-for-files)
-    - [Define autolabeling rules for database columns](#autolabeling-for-schematized-data)
+    - [Define autolabeling rules for database columns](#autolabeling-for-database-columns)
 
     For more information about configuration options, see [What sensitivity labels can do](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) in the Microsoft 365 documentation.
 
