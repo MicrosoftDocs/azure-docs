@@ -12,97 +12,54 @@ ms.author: cshoe
 # Application lifecycle management in Azure Container Apps
 
 <!-- PRELIMINARY OUTLINE
-
-What happens when I deploy an app?
-    your first revision is automatically created, and app is running
-    if you enable ingress, then you get an IP and port, with a FQDN assignment
-
-What happens as it scales?
-    use conceptual diagram
-    if you have scale rules set up, then scale rules
-    abstracted away from you, based on scale rules
-    KEDA handles the scaling for you 
-        automatically setup and managed for you by Container Apps
-        how long does it take to scale in/out <- link to scale-app.md
-    If ingress, them proxy handles load balancing across replicas
-
-Graceful shutdowns
-    send a "sigterm" to your container
-        Timeout for responding to sigterm
-            TODO: how long is the duration?
-            send a "sigkill" if you don't respond to sigterm
-    your code needs to handle it
-    .NET core IHost model as an example
-    happens any time you container shuts down
-        scale in operations
-        app is stopped: deleting, deactivating a revision
-
-If your container crashes, then it is automatically restarted
-    
-    
-    
-
-How do I make changes?
-- application scope changes: changing app, but not a new revision
-    - managing secrets
-    - managing traffic (% splitting)
-    - ingress settings: toggling ingress on/off
-    - registries section: credentials for private containers repositories for Docker Hub or ACR
-- revision scope
-    - container changes / code changes
-    - scale rules
-    - dapr settings
-
-intro to revisions
-    the way container apps help you manage your application lifecycle, is by automatically generating new revisions to your app when ever a change is made
-
-    which allows you to control which revisions are active and how traffic is split between them if you have ingress enabled
-
-why more than 1 revision?
-    advanced upgrade strategies
-    for http apps
-        A/B testing
-        blue/green deployments
-            split traffic between them
-    less useful for non-http, but can be used for building block for upgrading strategies
-        
-
-What happens when something goes wrong?
-- deployment
-    - container failed to start - bug somewhere
-- scale
-    - scale settings are misconfigured - too aggressively or not aggressive enough
-        - do your due diligence - load testing, etc.
-- upgrades
-    - new revision is broken, what do you do?
-        - tools - shift traffic, activate/deactivate through revisions
-
-activationMode: multiple | single
-
-Deleting an application
-    ARM template
-    CLI
-        az containerapp delete -n myapp -g myRG
-    send a sigterm - then shut down
-
+https://github.com/microsoft/azure-worker-apps-preview/blob/main/docs/revisions.md
 -->
 
-You have multiple revisions for:
- [A/B testing](https://wikipedia.org/wiki/A/B_testing)
- [Blue Green deployment scenarios](https://martinfowler.com/bliki/BlueGreenDeployment.html)
-
-
-diagram with one revision
-diagram with ingress
- balancing
-
-
-https://github.com/microsoft/azure-worker-apps-preview/blob/main/docs/revisions.md
-
-The Azure Container Apps application lifecycle revolves around container revisions. A revision is an immutable snapshot of a container app, and new revisions are created when a container app's template changes.
+The Azure Container Apps application lifecycle revolves around container revisions. A revision is an immutable snapshot of a container app. New revisions are automatically created when a container app's `template` configuration changes.
 
 While revisions remain immutable, they are affected by changes to global configuration values which apply to all revisions.
 
+When you deploy your container app, the first revision is automatically created. If you enable [ingress](overview.md) on your container app, then an IP, port, and fully qualified domain name is assigned to your container app.
+
+If your container crashes, then it is automatically restarted.
+
+## Usage
+
+Revisions are most useful when you enable ingress to make your container app accessible via HTTP.  Revisions are often used when you want to direct traffic from one snapshot of your container app to the next. Typical traffic direction strategies include [A/B testing](https://wikipedia.org/wiki/A/B_testing) and [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
+
+Revisions may also act as a building block for upgrade strategies for non-HTTP container apps (where ingress is disabled).
+
+## Change types
+
+Changes made to a container app fall under one of two categories: revision-scope and application-scope changes. Revision-scope changes are any change that trigger a new revision, while application-scope changes do not.
+
+The following table shows how changes are categorized.
+
+| Revision-scope | Application-scope |
+|---|---|
+| Container(s) | Secret values |
+| Scale rules | Traffic splitting rules |
+| Dapr settings | Turning ingress on or off |
+
+In the end, any change that affects the `template` section of the container app's configuration creates a new revision. Alternatively, any change outside the `template` section, does not create a new revision.
+
+## Shutdown
+
+The containers are shut down in the following situations:
+
+- When the container app scales in.
+- When a container app is being deleted.
+- When a revision is being deactivated.
+
+When a shutdown is initiated, the container host sends a [SIGTERM message](https://wikipedia.org/wiki/Signal_(IPC)) to your container. The code implemented in the container can respond to this operating system-level message to close connections and shut down services.
+
+If your application does not respond to `SIGTERM` in *** seconds, then a [SIGKILL](https://wikipedia.org/wiki/Signal_(IPC)) message is sent to the application running in the container.
+
+## Delete a container app
+
+```sh
+az containerapp delete -n myapp -g myRG
+```
 
 ## Next steps
 
