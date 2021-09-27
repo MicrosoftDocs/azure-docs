@@ -28,7 +28,7 @@ When you create alert rules, make sure that:
 
 You can use the Azure portal to create and modify activity log alert rules. The experience is integrated with an Azure activity log to ensure seamless alert creation for specific events of interest. On the Azure portal, you can create a new activity log alert rule, either from the Azure Monitor alerts pane, or from the Azure Monitor activity log pane. 
 
-### Create an alert rule from the Azure Monitor alerts blade
+### Create an alert rule from the Azure Monitor alerts pane
 
 Here's how to create a metric alert rule in the Azure portal:
 
@@ -86,9 +86,9 @@ An alternative way to create an activity log alert is to start with an activity 
 
     :::image type="content" source="media/alerts-activity-log/create-alert-rule-from-activity-log-event-new.png" alt-text="Screenshot of alert rule creation from an activity log event." lightbox="media/alerts-activity-log/create-alert-rule-from-activity-log-event-new.png":::
 
-2. The **Alert rule creation** pane opens, with the alert rule scope and condition already provided according to the previously selected activity log event. If necessary, you can edit and modify the scope and condition at this stage. Note that by default, the exact scope and condition for the new rule are copied from the original event attributes. For example, the exact resource on which the event occurred, and the specific user or service name who initiated the event, are both included by default in the new alert rule. If you want to make the alert rule more general, modify the scope and condition accordingly (see steps 3-9 in the section "Create an alert rule from the Azure Monitor alerts blade"). 
+2. The **Alert rule creation** pane opens, with the alert rule scope and condition already provided according to the previously selected activity log event. If necessary, you can edit and modify the scope and condition at this stage. Note that by default, the exact scope and condition for the new rule are copied from the original event attributes. For example, the exact resource on which the event occurred, and the specific user or service name who initiated the event, are both included by default in the new alert rule. If you want to make the alert rule more general, modify the scope and condition accordingly (see steps 3-9 in the section "Create an alert rule from the Azure Monitor alerts pane"). 
 
-3. Then follow steps 10-12 from the section, "Create an alert rule from the Azure Monitor alerts blade."
+3. Then follow steps 10-12 from the section, "Create an alert rule from the Azure Monitor alerts pane."
     
 ### View and manage in the Azure portal
 
@@ -210,7 +210,7 @@ For example:
 
 ```
 
-For more information about the activity log fields, see [Azure Activity Log event schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
+For more information about the activity log fields, see [Azure activity log event schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-monitor%2Fplatform%2Factivity-log-schema&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C90b7c2308c0647c0347908d7c9a2918d%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637199572373563632&sdata=6QXLswwZgUHFXCuF%2FgOSowLzA8iOALVgvL3GMVhkYJY%3D&reserved=0).
 
 > [!NOTE]
 > It might take up to 5 minutes for the new activity log alert rule to become active.
