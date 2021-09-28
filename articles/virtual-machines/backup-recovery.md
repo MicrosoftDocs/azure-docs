@@ -12,6 +12,8 @@ ms.author: cynthn
 
 # Backup and restore options for virtual machines in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
 You can protect your data by taking backups at regular intervals. There are several backup options available for VMs, depending on your use-case.
 
 ## Azure Backup
@@ -37,10 +39,7 @@ In development and test environments, snapshots provide a quick and simple optio
 
 For more information on creating snapshots, see:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](./windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](./linux/snapshot-copy-managed-disk.md)
-
-
+* [Create copy of VHD stored as a Managed Disk](./windows/snapshot-copy-managed-disk.md)
 
 ## Next steps
 You can try out Azure Backup by following the [Azure Backup quickstart](../backup/quick-backup-vm-portal.md).

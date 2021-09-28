@@ -31,8 +31,16 @@ Now that you have a token, you can call a protected web API.
 ```Java
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
+PublicClientApplication pca = PublicClientApplication.builder(clientId)
+        .authority(authority)
+        .build();
+
+// Acquire a token, acquireTokenHelper would call publicClientApplication's acquireTokenSilently then acquireToken
+// see https://github.com/Azure-Samples/ms-identity-java-desktop for a full example
+IAuthenticationResult authenticationResult = acquireTokenHelper(pca);
+
 // Set the appropriate header fields in the request header.
-conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+conn.setRequestProperty("Authorization", "Bearer " + authenticationResult.accessToken);
 conn.setRequestProperty("Accept", "application/json");
 
 String response = HttpClientHelper.getResponseStringFromConn(conn);

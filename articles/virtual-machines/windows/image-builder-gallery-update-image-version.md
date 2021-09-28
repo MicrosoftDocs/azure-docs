@@ -12,6 +12,8 @@ ms.collection: windows
 ---
 # Create a new Windows VM image version from an existing image version using Azure Image Builder
 
+**Applies to:** :heavy_check_mark: Windows VMs
+
 This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
@@ -65,10 +67,10 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+Create a variable for your subscription ID.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Get the image version that you want to update.
@@ -78,7 +80,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
+   --subscription $subscriptionID --query [].'id' -o tsv)
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group

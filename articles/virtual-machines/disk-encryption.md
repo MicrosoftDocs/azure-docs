@@ -2,7 +2,7 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: storage
@@ -11,6 +11,8 @@ ms.custom: references_regions
 ---
 
 # Server-side encryption of Azure Disk Storage
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Most Azure managed disks are encrypted with Azure Storage encryption, which uses server-side encryption (SSE) to protect your data and to help you meet your organizational security and compliance commitments. Azure Storage encryption automatically encrypts your data stored on Azure managed disks (OS and data disks) at rest by default when persisting it to the cloud. Disks with encryption at host enabled, however, are not encrypted through Azure Storage. For disks with encryption at host enabled, the server hosting your VM provides the encryption for your data, and that encrypted data flows into Azure Storage.
 
@@ -50,7 +52,7 @@ Customer-managed keys are available in all regions that managed disks are availa
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
-To enable customer-managed keys for managed disks, see our articles covering how to enable it with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md). To learn how to enable customer-managed keys with automatic key rotation, see [Set up an Azure Key Vault and DiskEncryptionSet with automatic key rotation (preview)](windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-with-automatic-key-rotation-preview).
+To enable customer-managed keys for managed disks, see our articles covering how to enable it with either the [Azure PowerShell module](windows/disks-enable-customer-managed-keys-powershell.md), the [Azure CLI](linux/disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md). 
 
 ## Encryption at host - End-to-end encryption for your VM data
 
@@ -85,6 +87,48 @@ To enable double encryption at rest for managed disks, see our articles covering
 [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) leverages either the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux or the [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows to encrypt managed disks with customer-managed keys within the guest VM.  Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+## Frequently asked questions
+
+**Q: Is Server-side Encryption enabled by default when I create a managed disk?**
+
+**A:** Yes. Managed disks are encrypted by using server-side encryption and platform-managed keys.
+
+**Q: Is the boot volume encrypted by default on a managed disk?**
+
+**A:** Yes. By default, all managed disks are encrypted, including the OS disk.
+
+**Q: Who manages the encryption keys?**
+
+**A:** Platform-managed keys are managed by Microsoft. You can also use and manage your own keys that are stored in Azure Key Vault.
+
+**Q: Can I disable Server-side Encryption for my managed disks?**
+
+**A:** No.
+
+**Q: Is Server-side Encryption available only in specific regions?**
+
+**A:** No. Server-side Encryption that uses both platform-managed and customer-managed keys are available in all regions where Azure Managed Disks is available.
+
+**Q: Does Azure Site Recovery support Server-side Encryption that uses customer-managed key for on-premises-to-Azure and Azure-to-Azure disaster recovery scenarios?**
+
+**A:** Yes.
+
+**Q: Can I use the Azure Backup service to back up managed disks that are encrypted by server-side encryption that uses customer-managed keys?**
+
+**A:** Yes.
+
+**Q: Are managed snapshots and images encrypted?**
+
+**A:** Yes. All managed snapshots and images are automatically encrypted.
+
+**Q: Can I convert VM unmanaged disks to managed disks if those disks are located on storage accounts that are, or were previously, encrypted?**
+
+**A:** Yes.
+
+**Q: Will an exported VHD from a managed disk or a snapshot also be encrypted?**
+
+**A:** No. But if you export a VHD to an encrypted storage account from an encrypted managed disk or snapshot, then it's encrypted.
 
 ## Next steps
 

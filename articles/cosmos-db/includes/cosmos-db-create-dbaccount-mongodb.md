@@ -9,17 +9,17 @@
 
 2. In the left menu, select **Create a resource**.
    
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-0.png" alt-text="Create a resource in the Azure portal":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-0.png" alt-text="Screenshot of creating a resource in the Azure portal.":::
    
 3. On the **New** page, select **Databases** > **Azure Cosmos DB**.
    
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png" alt-text="The Azure portal Databases pane":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png" alt-text="Screenshot of the Azure portal Databases pane.":::
    
 4. On the **Select API option** page, select **Azure Cosmos DB API for MongoDB** > **Create**.
 
    The API determines the type of account to create. Select **Azure Cosmos DB API for MongoDB**  because you will create a collection that works with MongoDB in this quickstart. To learn more, see [Overview of Azure Cosmos DB API for MongoDB](../mongodb-introduction.md).
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-select-api.png" alt-text="The Select API option pane":::
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-select-api.png" alt-text="Screenshot of the Select API option pane.":::
 
 5. On the **Create Azure Cosmos DB Account** page, enter the settings for the new Azure Cosmos DB account.
 
@@ -36,7 +36,7 @@
    > [!NOTE]
    > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png" alt-text="The new account page for Azure Cosmos DB"::: 
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png" alt-text="Screenshot of the new account page for Azure Cosmos DB."::: 
 
 1. In the **Global Distribution** tab, configure the following details. You can leave the default values for the purpose of this quickstart:
 
@@ -62,4 +62,4 @@
 
 4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB API for MongoDB account is ready** page.
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png" alt-text="The Azure portal Notifications pane"::: 
+   :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png" alt-text="Screenshot of the Azure portal Notifications pane."::: 

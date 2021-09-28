@@ -132,4 +132,4 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 
 ## Next steps
 
-For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).
+After you've created the ExpressRoute Circuit, you can [link virtual networks to your ExpressRoute Circuit](expressroute-howto-add-gateway-portal-resource-manager.md).

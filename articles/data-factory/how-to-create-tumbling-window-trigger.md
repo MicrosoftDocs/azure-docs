@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/26/2021
+ms.date: 09/09/2021
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
