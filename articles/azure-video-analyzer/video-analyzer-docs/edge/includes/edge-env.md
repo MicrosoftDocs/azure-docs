@@ -8,3 +8,5 @@ ms.author: juliako
 
 **Current environment**: <br/>![edge icon](../media/env-icon/edge.png). <br/>Check out topics under [Create video applications in the cloud](../../index.yml).
 
+<hr/>
+
