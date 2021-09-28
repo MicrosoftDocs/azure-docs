@@ -60,7 +60,7 @@ A further level of cost analysis detail can be obtained by specifying a **Resour
 1. Under **Cost Management**, select **Cost analysis**.
 1. Select **Add Filter**. In the first drop-down, select **Resource**.
 1. In the second drop-down, select the Batch pool. When the pool is selected, you will see the cost analysis for the pool, similar to the example shown here.
-    ![Screenshot showing cost analysis of a pool in the Azure portal.](./media/batch-budget/pool-cost-analysis.png)
+   :::image type="content" source="media/batch-budget/pool-cost-analysis.png" alt-text="Screenshot showing cost analysis of a Batch pool in the Azure portal.":::
 
 The resulting cost analysis shows the cost of the pool as well as the resources that contribute to this cost. In this example, the VMs used in the pool are the most costly resource.
 
@@ -125,5 +125,5 @@ It is important to note that reservation discount is "use-it-or-lose-it."  If th
 
 ## Next steps
 
-- Learn more about [Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md)
+- Learn more about [Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md).
 - Learn about [using low-priority VMs with Batch](batch-low-pri-vms.md).
