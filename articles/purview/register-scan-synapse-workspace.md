@@ -1,12 +1,12 @@
 ---
-title: 'How to scan Azure Synapse Analytics workspaces'
+title: 'How to register and scan Azure Synapse Analytics workspaces'
 description: Learn how to scan an Azure Synapse workspace in your Azure Purview data catalog. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 09/27/2021
 ---
 
 # Register and scan Azure Synapse Analytics workspaces
@@ -133,6 +133,7 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+
 #### Use a managed identity for serverless SQL databases
 
 1. Go to your Azure Synapse workspace.
@@ -143,6 +144,14 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+
+#### Grant permission to use credentials for external tables
+
+If the Azure Synapse workspace has any external tables, the Azure Purview managed identity must be given References permission on the external table scoped credentials. With the References permission, Azure Purview can read data from external tables.
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
+```
 
 #### Use a service principal for dedicated SQL databases
 
@@ -194,7 +203,7 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in Purview Studio.
+1. Select the **Data Map** tab on the left pane in [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the data source that you registered.
 
@@ -227,11 +236,11 @@ To create and run a new scan, do the following:
 
     * The **status bar** displays a brief summary of the running status of the child resources. The status is displayed on the workspace level scan.  
     * Green indicates a successful scan run, red indicates a failed scan run, and gray indicates that the scan run is still in progress.  
-    * You can view more granular information about the scan runs by clicking into them.
+    * You can view more granular information about the scan runs by selecting them.
 
       :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Screenshot of the Azure Synapse Analytics scan details page." lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
 
-    * You can view a summary of recent failed scan runs at the bottom of the **source details** page. Again, you can view more granular information about the scan runs by clicking into them.
+    * You can view a summary of recent failed scan runs at the bottom of the **source details** page. Again, you can view more granular information about the scan runs by selecting them.
 
 #### Manage your scans
 
