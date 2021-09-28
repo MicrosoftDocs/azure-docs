@@ -45,7 +45,7 @@ Before you begin, you must have the following:
 
 # [Isolated process](#tab/isolated-process)
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). Required by the build process.
 

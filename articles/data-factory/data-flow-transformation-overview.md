@@ -15,6 +15,8 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Below is a list of the transformations currently supported in mapping data flow. Click on each transformations to learn its configuration details.
 
 | Name | Category | Description |

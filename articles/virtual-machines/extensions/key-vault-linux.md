@@ -284,7 +284,7 @@ The Key Vault VM extension logs only exist locally on the VM and are most inform
 |--|--|
 | /var/log/waagent.log	| Shows when an update to the extension occurred. |
 | /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*	| Examine the Key Vault VM Extension service logs to determine the status of the akvvm_service service and certificate download. The download location of PEM files are also found in these files with an entry called certificate file name. If certificateStoreLocation is not specified it will default to /var/lib/waagent/Microsoft.Azure.KeyVault.Store/ |
-| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*	| The configuration and binaries for Key Vault VM Extension service. |
+| /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-\<most recent version\>/config/*	| The configuration and binaries for Key Vault VM Extension service. |
 |||
   
 ### Using Symlink
