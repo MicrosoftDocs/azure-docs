@@ -153,13 +153,13 @@ Other than the character set, you can specify a different set of delimiters to u
 | **Suffix** | The character to use with the segment identifier. If you designate a suffix, the segment terminator data element can be empty. If the segment terminator is left empty, you have to designate a suffix. |
 |||
 
-### Control numbers
+### Control Numbers
 
 | Property | Description |
 |----------|-------------|
-| **UNB5 (Interchange Control Number)** |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate an outbound interchange. The prefix and suffix are optional, while the control number is required. The control number is incremented for each new message; the prefix and suffix remain the same. |
-| **UNG5 (Group Control Number)** |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the group control number. The prefix and suffix are optional, while the control number is required. The control number is incremented for each new message until the maximum value is reached; the prefix and suffix remain the same. |
-| **UNH1 (Message Header Reference Number)** |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the message header reference number. The prefix and suffix are optional, while the reference number is required. The reference number is incremented for each new message; the prefix and suffix remain the same. |
+| **UNB5 (Interchange Control Number)** | A prefix, a range of values to use as the interchange control number, and a suffix. These values are used to generate an outbound interchange. The control number is required, but the prefix and suffix are optional. The control number is incremented for each new message, while the prefix and suffix stay the same. |
+| **UNG5 (Group Control Number)** | A prefix, a range of values to use as the interchange control number, and a suffix. These values are used to generate the group control number. The control number is required, but the prefix and suffix are optional. The control number is incremented for each new message until the maximum value is reached, while the prefix and suffix stay the same. |
+| **UNH1 (Message Header Reference Number)** | A prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the message header reference number. The reference number is required, but the prefix and suffix are optional. The prefix and suffix are optional, while the reference number is required. The reference number is incremented for each new message, while the prefix and suffix stay the same. |
 |||
 
 ### Validation
@@ -168,12 +168,14 @@ After you finish setting up a validation row, the next row automatically appears
 
 | Property | Description |
 |----------|-------------|
-| **Message Type** |Select the EDI message type. |
-| **EDI Validation** |Perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators. |
-| **Extended Validation** |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
-| **Allow Leading/Trailing Zeroes** |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
-| **Trim Leading/Trailing Zeroes** |Remove leading or trailing zero characters. |
-| **Trailing Separator Policy** |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to send interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
+| **Message Type** | The EDI message type. |
+| **EDI Validation** | Run EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
+| **Extended Validation** | If the data type isn't EDI, run validation on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
+| **Allow Leading/Trailing Zeroes** | Keep any extra leading or trailing zero and space characters. Don't remove these characters. |
+| **Trim Leading/Trailing Zeroes** | Remove leading or trailing zero characters. |
+| **Trailing Separator Policy** | Generate trailing separators. <p>- **Not Allowed**: Prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>- **Optional**: Send interchanges with or without trailing delimiters and separators. <p>-  **Mandatory**: The sent interchange must have trailing delimiters and separators. |
 |||
 
 ## Next steps
+
+[Exchange EDIFACT messages](../logic-apps/logic-apps-enterprise-integration-edifact.md)

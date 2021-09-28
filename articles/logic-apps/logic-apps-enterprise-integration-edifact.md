@@ -46,49 +46,6 @@ For information about the EDIFACT connector limits for workflows running in [mul
 
   If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
 
-## Configure how your agreement handles received messages
-
-Now that you've set the agreement properties, you can configure how this agreement identifies and handles incoming messages received from your partner through this agreement.
-
-1. Under **Add**, select **Receive Settings**.
-Configure these properties based on your agreement 
-with the partner that exchanges messages with you. 
-For property descriptions, see the tables in this section.
-
-   **Receive Settings** is organized into these sections: 
-   Identifiers, Acknowledgment, Schemas, Control Numbers, 
-   Validation, and Internal Settings.
-
-   ![Configure "Receive Settings"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
-
-2. After you're done, make sure to save your settings by choosing **OK**.
-
-Now your agreement is ready to handle incoming 
-messages that conform to your selected settings.
-
-
-## Configure how your agreement sends messages
-
-You can configure how this agreement identifies and handles outgoing 
-messages that you send to your partners through this agreement.
-
-1.	Under **Add**, select **Send Settings**.
-Configure these properties based on your agreement 
-with your partner who exchanges messages with you. 
-For property descriptions, see the tables in this section.
-
-	**Send Settings** is organized into these sections: 
-	Identifiers, Acknowledgment, Schemas, Envelopes, 
-	Character Sets and Separators, Control Numbers, and Validations.
-
-	![Configure "Send Settings"](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
-
-2. After you're done, 
-make sure to save your settings by choosing **OK**.
-
-Now your agreement is ready to handle outgoing 
-messages that conform to your selected settings.
-
 
 ## Connector reference
 
