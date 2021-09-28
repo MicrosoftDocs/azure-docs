@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to:
 
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
 - A Text Analytics resource. If you don't have one, you can [create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
-- The [key and endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
+- The [key and endpoint](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - A spreadsheet containing tenant issues. Example data is provided on GitHub
 - Microsoft 365, with OneDrive for business.
 
