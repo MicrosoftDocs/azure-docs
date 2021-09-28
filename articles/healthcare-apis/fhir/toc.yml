@@ -87,8 +87,6 @@ items:
   items:
   - name: FHIR Rest API capabilities
     href: fhir-rest-api-capabilities.md
-  - name: Security controls by Azure Policy
-    href: ./security-controls-policy.md
 
 - name: Resources
   items:
