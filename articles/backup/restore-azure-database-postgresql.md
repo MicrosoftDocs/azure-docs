@@ -68,7 +68,7 @@ Assign the Backup vault MSI the permission to access the storage account contain
 
    :::image type="content" source="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-inline.png" alt-text="Screenshot showing the process to assign Backup vault MSI the permission to access the storage account containers using the Azure portal." lightbox="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-expanded.png":::
 
-Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment](/cli/azure/role/assignment&preserve-view=true) create command.
+Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment](/cli/azure/role/assignment) create command.
 
 ```azurecli
 az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id
