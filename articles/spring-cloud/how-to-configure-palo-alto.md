@@ -416,4 +416,6 @@ az network route-table route create `
 
 ## Next steps
 
-[Azure Spring Cloud documentation](/azure/spring-cloud)
+* [Stream Azure Spring Cloud app logs in real-time](/azure/spring-cloud/how-to-log-streaming)
+* [Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights)
+* [Automate application deployments to Azure Spring Cloud](/azure/spring-cloud/how-to-cicd)
