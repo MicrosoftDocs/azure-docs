@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.custom: generated
 ---
 
@@ -116,6 +116,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [SQL Managed Instance Contributor](#sql-managed-instance-contributor) | Lets you manage SQL Managed Instances and required network configuration, but can't give access to others. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | [SQL Security Manager](#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
 > | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security-related policies. | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
+> | [Azure Connected SQL Server Onboarding](#azure-connected-sql-server-onboarding) | Allows for read and write access to Azure resources for SQL Server on Arc-enabled servers. | e8113dce-c529-4d33-91fa-e9b972617508 |
 > | **Analytics** |  |  |
 > | [Azure Event Hubs Data Owner](#azure-event-hubs-data-owner) | Allows for full access to Azure Event Hubs resources. | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | [Azure Event Hubs Data Receiver](#azure-event-hubs-data-receiver) | Allows receive access to Azure Event Hubs resources. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
@@ -5317,6 +5318,46 @@ Lets you manage SQL servers and databases, but not access to them, and not their
   "roleName": "SQL Server Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure connected SQL Server onboarding
+
+ Allows for read and write access to Azure resources for SQL Server on Arc-enabled servers.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> |Microsoft.AzureArcData/sqlServerInstances/read| Read Azure resource information. |
+> |Microsoft.AzureArcData/sqlServerInstances/write| Write Azure resource information.  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  | 
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/e8113dce-c529-4d33-91fa-e9b972617508",
+    "properties": {
+        "roleName": "Azure Connected SQL Server Onboarding",
+        "description": "Microsoft.AzureArcData service role to access the resources of Microsoft.AzureArcData stored with RPSAAS.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.AzureArcData/sqlServerInstances/read",
+                    "Microsoft.AzureArcData/sqlServerInstances/write"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 

@@ -167,4 +167,4 @@ Many of our partners have loading solutions. To find out more, see a list of our
 
 ## Next steps
 
-For loading guidance, see [Guidance for loading data](guidance-for-loading-data.md).
+For loading guidance, see [Data loading best practices](../sql/data-loading-best-practices.md).

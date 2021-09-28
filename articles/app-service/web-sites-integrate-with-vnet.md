@@ -1,11 +1,11 @@
 ---
 title: Integrate app with Azure Virtual Network
 description: Integrate app in Azure App Service with Azure virtual networks.
-author: ccompy
+author: madsd
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 08/04/2021
-ms.author: ccompy
+ms.date: 09/20/2021
+ms.author: madsd
 ms.custom: seodec18, devx-track-azurepowershell
 
 ---
@@ -29,7 +29,7 @@ Azure App Service has two variations:
 
     :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-add-vnet.png" alt-text="Select the VNet":::
 
-    * If the VNet is in the same region, either create a new subnet or select an empty preexisting subnet.
+    * If the VNet is in the same region, either create a new subnet or select an empty pre-existing subnet.
     * To select a VNet in another region, you must have a VNet gateway provisioned with point to site enabled.
     * To integrate with a classic VNet, instead of selecting the **Virtual Network** drop-down list, select **Click here to connect to a Classic VNet**. Select the classic virtual network you want. The target VNet must already have a Virtual Network gateway provisioned with point-to-site enabled.
 
@@ -41,15 +41,13 @@ During the integration, your app is restarted. When integration is finished, you
 
 Regional VNet Integration supports connecting to a VNet in the same region and doesn't require a gateway. Using regional VNet Integration enables your app to access:
 
-* Resources in a VNet in the same region as your app.
-* Resources in VNets peered to the VNet your app is integrated with.
-* Service endpoint secured services.
-* Resources across Azure ExpressRoute connections.
 * Resources in the VNet you're integrated with.
-* Resources across peered connections, which include Azure ExpressRoute connections.
+* Resources in VNets peered to the VNet your app is integrated with including global peering connections.
+* Resources across Azure ExpressRoute connections.
+* Service endpoint secured services.
 * Private endpoint enabled services.
 
-When you use VNet Integration with VNets in the same region, you can use the following Azure networking features:
+When you use regional VNet Integration, you can use the following Azure networking features:
 
 * **Network security groups (NSGs)**: You can block outbound traffic with an NSG that's placed on your integration subnet. The inbound rules don't apply because you can't use VNet Integration to provide inbound access to your app.
 * **Route tables (UDRs)**: You can place a route table on the integration subnet to send outbound traffic where you want.
@@ -58,11 +56,13 @@ The feature is fully supported for both Windows and Linux apps, including [custo
 
 ### How regional VNet Integration works
 
-Apps in App Service are hosted on worker roles. The Basic and higher pricing plans are dedicated hosting plans where there are no other customers' workloads running on the same workers. Regional VNet Integration works by mounting virtual interfaces with addresses in the delegated subnet. Because the from address is in your VNet, it can access most things in or through your VNet like a VM in your VNet would. The networking implementation is different than running a VM in your VNet. That's why some networking features aren't yet available for this feature.
+Apps in App Service are hosted on worker roles. Regional VNet Integration works by mounting virtual interfaces to the worker roles with addresses in the delegated subnet. Because the from address is in your VNet, it can access most things in or through your VNet like a VM in your VNet would. The networking implementation is different than running a VM in your VNet. That's why some networking features aren't yet available for this feature.
 
 :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-how-regional-works.png" alt-text="How regional VNet Integration works":::
 
-When regional VNet Integration is enabled, your app makes outbound through your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. If all traffic routing is enabled, all outbound traffic is sent into your VNet. If all traffic routing is not enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the VNet and outbound traffic to the internet will go through the same channels as normal.
+When regional VNet Integration is enabled, your app makes outbound calls through your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. However, if your outbound call is to a virtual machine or private endpoint in the integration VNet or peered VNet, the outbound address will be an address from the integration subnet. The private IP assigned to an instance is exposed via the environment variable, ```WEBSITE_PRIVATE_IP```.
+
+If all traffic routing is enabled, all outbound traffic is sent into your VNet. If all traffic routing is not enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the VNet and outbound traffic to the internet will go through the same channels as normal.
 
 The feature supports only one virtual interface per worker. One virtual interface per worker means one regional VNet Integration per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration. If you need an app to connect to an additional VNet, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
 
@@ -92,7 +92,7 @@ There are two types of routing to consider when configuring regional VNet Integr
 
 #### Application routing
 
-When configuring application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet. You configure this through the Route All setting. If Route All is disabled, your app only routes private traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that Route All is enabled.
+When configuring application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet. You configure this behavior through the Route All setting. If Route All is disabled, your app only routes private traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that Route All is enabled.
 
 > [!NOTE]
 > * When Route All is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
@@ -118,9 +118,7 @@ You can also configure Route All using CLI (*Note*: minimum `az version` require
 az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
 ```
 
-The Route All configuration setting replaces and takes precedence over the legacy `WEBSITE_VNET_ROUTE_ALL` app setting.
-
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-appsetting.png" alt-text="Route All App Setting":::
+The Route All configuration setting is the recommended way of enabling routing of all traffic. Using the configuration setting will allow you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing `WEBSITE_VNET_ROUTE_ALL` App Setting can still be used and you can enable all traffic routing with either setting.
 
 #### Network routing
 
@@ -140,7 +138,7 @@ The inbound rules in an NSG do not apply to your app because VNet Integration af
 
 ### Service endpoints
 
-Regional VNet Integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, you must do the following:
+Regional VNet Integration enables you to reach Azure services that are secured with service endpoints. To access a service endpoint-secured service, you must do the following steps:
 
 * Configure regional VNet Integration with your web app to connect to a specific subnet for integration.
 * Go to the destination service and configure service endpoints against the integration subnet.
@@ -149,8 +147,8 @@ Regional VNet Integration enables you to reach Azure services that are secured w
 
 If you want to make calls to [private endpoints][privateendpoints], then you must make sure that your DNS lookups resolve to the private endpoint. You can enforce this behavior in one of the following ways: 
 
-* Integrate with Azure DNS private zones. When your VNet doesn't have a custom DNS server, this is done automatically when the zones are linked to the VNet.
-* Manage the private endpoint in the DNS server used by your app. To do this you must know the private endpoint address and then point the endpoint you are trying to reach to that address using an A record.
+* Integrate with Azure DNS private zones. When your VNet doesn't have a custom DNS server, this integration is done automatically when the zones are linked to the VNet.
+* Manage the private endpoint in the DNS server used by your app. To do this you must know the private endpoint IP address and then point the endpoint you are trying to reach to that address using an A record.
 * Configure your own DNS server to forward to Azure DNS private zones.
 
 ### Azure DNS private zones 
@@ -162,19 +160,19 @@ After your app integrates with your VNet, it uses the same DNS server that your 
 
 ### Limitations
 
-There are some limitations with using VNet Integration with VNets in the same region:
+There are some limitations with using regional VNet Integration:
 
-* You can't reach resources across global peering connections.
-* You can't reach resources across peering connections with Classic Virtual Networks.
-* The feature is available from all App Service scale units in Premium V2 and Premium V3. It's also available in Standard but only from newer App Service scale units. If you are on an older scale unit, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you desire after that.  
-* The integration subnet can be used by only one App Service plan.
+* The feature is available from all App Service scale units in Premium V2 and Premium V3. It's also available in Standard but only from newer App Service scale units. If you are on an older scale unit, you can only use the feature from a Premium V2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium V3 App Service plan. Those plans are only supported on our newest scale units. You can scale down if you desire after the plan is created.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
+* You can't reach resources across peering connections with Classic Virtual Networks.
 * The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager VNet.
 * The app and the VNet must be in the same region.
+* The integration VNet cannot have IPv6 address spaces defined.
+* The integration subnet can be used by only one App Service plan.
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
-* Your app can't resolve addresses in Azure DNS Private Zones on Linux plans without configuration changes.
+* Your app can't resolve addresses in Azure DNS Private Zones on Linux plans without Route All enabled.
 
 ## Gateway-required VNet Integration
 
@@ -217,7 +215,7 @@ Gateway-required VNet Integration is built on top of point-to-site VPN technolog
 
 Apps can access on-premises resources by integrating with VNets that have site-to-site connections. If you use gateway-required VNet Integration, update your on-premises VPN gateway routes with your point-to-site address blocks. When the site-to-site VPN is first set up, the scripts used to configure it should set up routes properly. If you add the point-to-site addresses after you create your site-to-site VPN, you need to update the routes manually. Details on how to do that vary per gateway and aren't described here. You can't have BGP configured with a site-to-site VPN connection.
 
-No additional configuration is required for the regional VNet Integration feature to reach through your VNet to on-premises resources. You simply need to connect your VNet to on-premises resources by using ExpressRoute or a site-to-site VPN.
+No extra configuration is required for the regional VNet Integration feature to reach through your VNet to on-premises resources. You simply need to connect your VNet to on-premises resources by using ExpressRoute or a site-to-site VPN.
 
 > [!NOTE]
 > The gateway-required VNet Integration feature doesn't integrate an app with a VNet that has an ExpressRoute gateway. Even if the ExpressRoute gateway is configured in [coexistence mode][VPNERCoex], the VNet Integration doesn't work. If you need to access resources through an ExpressRoute connection, use the regional VNet Integration feature or an [App Service Environment][ASE], which runs in your VNet.
@@ -228,7 +226,7 @@ No additional configuration is required for the regional VNet Integration featur
 
 If you use peering with the regional VNet Integration, you don't need to do any additional configuration.
 
-If you use gateway-required VNet Integration with peering, you need to configure a few additional items. To configure peering to work with your app:
+If you use gateway-required VNet Integration with peering, you need to configure a few more items. To configure peering to work with your app:
 
 1. Add a peering connection on the VNet your app connects to. When you add the peering connection, enable **Allow virtual network access** and select **Allow forwarded traffic** and **Allow gateway transit**.
 1. Add a peering connection on the VNet that's being peered to the VNet you're connected to. When you add the peering connection on the destination VNet, enable **Allow virtual network access** and select **Allow forwarded traffic** and **Allow remote gateways**.
@@ -260,7 +258,7 @@ When gateway-required VNet Integration is enabled, there's a required exchange o
 If certificates or network information is changed, select **Sync Network**. When you select **Sync Network**, you cause a brief outage in connectivity between your app and your VNet. While your app isn't restarted, the loss of connectivity could cause your site to not function properly.
 
 ## Pricing details
-The regional VNet Integration feature has no additional charge for use beyond the App Service plan pricing tier charges.
+The regional VNet Integration feature has no extra charge for use beyond the App Service plan pricing tier charges.
 
 Three charges are related to the use of the gateway-required VNet Integration feature:
 

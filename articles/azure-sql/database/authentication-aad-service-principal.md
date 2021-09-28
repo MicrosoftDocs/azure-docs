@@ -75,7 +75,7 @@ To enable an Azure AD object creation in SQL Database on behalf of an Azure AD a
 > [!IMPORTANT]
 > Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application.
 >
-> In **public preview**, you can assign the **Directory Readers** role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a **Global Administrator** or **Privileged Roles Administrator** to grant the **Directory Readers** role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
+> You can assign the **Directory Readers** role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a **Global Administrator** or **Privileged Roles Administrator** to grant the **Directory Readers** role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## Troubleshooting and limitations
 

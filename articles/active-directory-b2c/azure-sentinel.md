@@ -38,7 +38,7 @@ In this tutorial, you'll learn to:
 
 Enable **Diagnostic settings** in Azure AD within your Azure AD B2C tenant to define where logs and metrics for a resource should be sent.
 
-Then after, [configure Azure AD B2C to send logs to Azure Monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor).
+Then after, [configure Azure AD B2C to send logs to Azure Monitor](./azure-monitor.md).
 
 ## Deploy an Azure Sentinel instance
 
@@ -71,7 +71,7 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 
 Now that you've enabled Azure Sentinel, get notified when something suspicious occurs in your Azure AD B2C tenant.
 
-You can create [custom analytics rules](../sentinel/tutorial-detect-threats-custom.md) to discover threats and
+You can create [custom analytics rules](../sentinel/detect-threats-custom.md) to discover threats and
 anomalous behaviors that are present in your environment. These rules search for specific events or sets of events, alert you when certain event thresholds or conditions are reached. Then after, generate incidents for further investigation.
 
 In the following example, we explain the scenario where you receive a notification if someone is trying to force access to your environment but they aren't successful. It could mean a brute-force attack. You want to get notified for two or more non-successful logins within 60 seconds.
@@ -79,7 +79,7 @@ In the following example, we explain the scenario where you receive a notificati
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
 2. In the action bar at the top, select **+ Create** and select
-   **Scheduled query rule**. It will open the **Analytics rule wizard**.
+   **Scheduled query rule**. This will open the **Analytics rule wizard**.
 
 ![image shows select create scheduled query rule](./media/azure-sentinel/create-scheduled-rule.png)
 
@@ -118,7 +118,7 @@ In the Query scheduling section, set the following parameters:
 8. View the results of your new Azure AD B2C non-successful logins rule. Go to the **Incidents** page, where you can triage, investigate, and remediate the threats. An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
 
 >[!Note]
->A key feature of Azure Sentinel is [incident investigation](../sentinel/tutorial-investigate-cases.md).
+>A key feature of Azure Sentinel is [incident investigation](../sentinel/investigate-cases.md).
 
 9. To begin the investigation, select a specific incident. On the
 right, you can see detailed information for the incident including its severity, entities involved, the raw events that triggered the incident, and the incident's unique ID.

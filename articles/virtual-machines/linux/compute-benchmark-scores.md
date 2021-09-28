@@ -11,7 +11,6 @@ ms.reviewer: davberg
 ---
 
 # Compute benchmark scores for Linux VMs
-<<<<<<< HEAD
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
@@ -705,7 +704,7 @@ CoreMark is an open source tool that can be downloaded from [GitHub](https://git
 
 To build and run the benchmark, type:
 
-```> make```
+`> make`
 
 Full results are available in the files ```run1.log``` and ```run2.log```. 
 ```run1.log``` contains CoreMark results. These are the benchmark results with performance parameters.
@@ -715,7 +714,7 @@ Full results are available in the files ```run1.log``` and ```run2.log```.
 
 By default, the benchmark will run between 10-100 seconds. To override, use ```ITERATIONS=N```
 
-```% make ITERATIONS=10```
+`% make ITERATIONS=10`
 
 above flag will run the benchmark for 10 iterations. 
 **Results are only valid for reporting if the benchmark ran for at least 10 seconds!**
@@ -724,7 +723,7 @@ above flag will run the benchmark for 10 iterations.
 
 Use ```XCFLAGS=-DMULTITHREAD=N``` where N is number of threads to run in parallel. Several implementations are available to execute in multiple contexts.
 
-```% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"```
+`% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"`
 
 The above will compile the benchmark for execution on 4 cores.
 

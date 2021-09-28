@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to ingest device telemetry messages from IoT Hub.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/15/2020
+ms.date: 9/9/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -66,11 +66,7 @@ When the twin is created successfully, the CLI output from the command should lo
   "$metadata": {
     "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
     "Temperature": {
-      "ackCode": 200,
-      "ackDescription": "Auto-Sync",
-      "ackVersion": 1,
-      "desiredValue": 0.0,
-      "desiredVersion": 1
+      "lastUpdateTime": "2021-09-09T20:32:46.6692326Z"
     }
   },
   "Temperature": 0.0

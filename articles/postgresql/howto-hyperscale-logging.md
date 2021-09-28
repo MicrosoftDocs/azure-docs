@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/20/2021
+ms.date: 9/13/2021
 ---
 
 # Logs in Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -63,6 +63,16 @@ AzureDiagnostics
 Replace the server name in the above example with the name of your server. The
 coordinator node name has the suffix `-c` and worker nodes are named
 with a suffix of `-w0`, `-w1`, and so on.
+
+The Azure logs can be filtered in different ways. Here's how to find logs
+within the past day whose messages match a regular expression.
+
+```kusto
+AzureDiagnostics
+| where TimeGenerated > ago(24h)
+| order by TimeGenerated desc
+| where Message matches regex ".*error.*"
+```
 
 ## Next steps
 

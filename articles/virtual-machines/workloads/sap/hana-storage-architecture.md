@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 In this article, we'll look at the storage architecture for deploying SAP HANA on Azure Large Instances (also known as BareMetal Infrastructure). 
 
-The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model per SAP recommended guidelines. For more information on the guidelines, see [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
+The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model per SAP recommended guidelines. For more information on the guidelines, see [SAP HANA storage requirements](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf).
 
 Type I class of HANA Large Instances come with four times the memory volume as storage volume. Whereas Type II class of HANA Large Instances come with a volume intended for storing HANA transaction log backups. For more information, see [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md).
 

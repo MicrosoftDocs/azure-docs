@@ -19,32 +19,31 @@ Azure Image Builder uses a .json file to pass information into the Image Builder
 This is the basic template format:
 
 ```json
- { 
+  { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
     "apiVersion": "2020-02-14", 
     "location": "<region>", 
     "tags": {
-        "<name": "<value>",
-        "<name>": "<value>"
-     },
-    "identity":{},			 
+      "<name>": "<value>",
+      "<name>": "<value>"
+    },
+    "identity": {},			 
     "dependsOn": [], 
     "properties": { 
-        "buildTimeoutInMinutes": <minutes>, 
-        "vmProfile": 
-            {
-            "vmSize": "<vmSize>",
-	    "proxyVmSize": "<vmSize>",
-            "osDiskSizeGB": <sizeInGB>,
-            "vnetConfig": {
-                "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
-                }
-            },
-        "source": {}, 
-        "customize": {}, 
-        "distribute": {} 
-      } 
- } 
+      "buildTimeoutInMinutes": <minutes>, 
+      "vmProfile": {
+        "vmSize": "<vmSize>",
+        "proxyVmSize": "<vmSize>",
+        "osDiskSizeGB": <sizeInGB>,
+        "vnetConfig": {
+          "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        }
+      },
+      "source": {}, 
+      "customize": {}, 
+      "distribute": {} 
+    } 
+  } 
 ```
 
 
@@ -84,7 +83,7 @@ The location is the region where the custom image will be created. The following
 The Azure VM Image Builder service doesn't store/process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. In the event of a service outage for regions that have data residency requirements, you will need to create templates in a different region and geography.
 
 ### Zone Redundancy
-Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) if specified.
+Distribution supports zone redundancy, VHDs are distributed to a Zone Redundant Storage account by default and the Shared Image Gallery version will support a [ZRS storage type](../disks-redundancy.md#zone-redundant-storage-for-managed-disks) if specified.
  
 ## vmProfile
 ## buildVM
@@ -137,11 +136,11 @@ Required - For Image Builder to have permissions to read/write images, read in s
 
 ```json
     "identity": {
-    "type": "UserAssigned",
-          "userAssignedIdentities": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
             "<imgBuilderId>": {}
         }
-        },
+    },
 ```
 
 
@@ -171,10 +170,10 @@ Azure Image Builder supports Windows Server and client, and Linux  Azure Marketp
 ```json
         "source": {
             "type": "PlatformImage",
-                "publisher": "Canonical",
-                "offer": "UbuntuServer",
-                "sku": "18.04-LTS",
-                "version": "latest"
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS",
+            "version": "latest"
         },
 ```
 
@@ -212,7 +211,7 @@ Sets the source image as an existing managed image of a generalized VHD or VM.
 ```json
         "source": { 
             "type": "ManagedImage", 
-                "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
+            "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
         }
 ```
 
@@ -230,7 +229,7 @@ Sets the source image an existing image version in a Shared Image Gallery.
         "source": { 
             "type": "SharedImageVersion", 
             "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/p  roviders/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>" 
-   } 
+        } 
 ```
 
 The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) to list image versions.
@@ -300,15 +299,15 @@ The shell customizer supports running shell scripts. The shell scripts must be p
             "name": "<name>", 
             "scriptUri": "<link to script>",
             "sha256Checksum": "<sha256 checksum>"       
-		}, 
+        }, 
     ], 
-        "customize": [ 
+    "customize": [ 
         { 
             "type": "Shell", 
             "name": "<name>", 
             "inline": "<commands to run>"
-		}, 
-	], 
+	}, 
+    ],
 ```
 
 OS Support: Linux 
@@ -391,7 +390,7 @@ The shell customizer supports running PowerShell scripts and inline command, the
              "validExitCodes": "<exit code>",
              "runElevated": "<true or false>" 
          } 
- 	], 
+     ], 
 ```
 
 OS support: Windows and Linux
@@ -449,16 +448,16 @@ This customizer is built on the [community Windows Update Provisioner](https://p
 
 ```json
      "customize": [
-            {
-                "type": "WindowsUpdate",
-                "searchCriteria": "IsInstalled=0",
-                "filters": [
+          {
+               "type": "WindowsUpdate",
+               "searchCriteria": "IsInstalled=0",
+               "filters": [
                     "exclude:$_.Title -like '*Preview*'",
                     "include:$true"
-                            ],
-                "updateLimit": 20
-            }
-               ], 
+               ],
+               "updateLimit": 20
+          }
+     ], 
 ```
 
 OS support: Windows
@@ -574,7 +573,7 @@ The image output will be a managed image resource.
        "location": "<region>",
        "runOutputName": "<name>",
        "artifactTags": {
-            "<name": "<value>",
+            "<name>": "<value>",
             "<name>": "<value>"
         }
 }
@@ -590,7 +589,7 @@ Distribute properties:
  
 > [!NOTE]
 > The destination resource group must exist.
-> If you want the image distributed to a different region, it will increase the deployment time . 
+> If you want the image distributed to a different region, it will increase the deployment time. 
 
 ### Distribute: sharedImage 
 The Azure Shared Image Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Shared Image Galleries. 
@@ -601,7 +600,7 @@ A Shared Image Gallery is made up of:
 - Image definitions - a conceptual grouping for images. 
 - Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
-Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](../shared-images-cli.md). 
+Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](../create-gallery.md). 
 
 ```json
 {
@@ -637,7 +636,7 @@ Distribute properties for shared image galleries:
 
 
 > [!NOTE]
-> If the image template and referenced `image definition` are not in the same location, you will see additional time to create images. Image Builder currently does not have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in westus and you want the image version replicated to eastus, a  blob is copied to to westus, from this, an image version resource in westus is created, and then replicate to eastus. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
+> If the image template and referenced `image definition` are not in the same location, you will see additional time to create images. Image Builder currently does not have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in westus and you want the image version replicated to eastus, a blob is copied to westus, from this, an image version resource in westus is created, and then replicate to eastus. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
 
 
 ### Distribute: VHD  
@@ -648,7 +647,7 @@ You can output to a VHD. You can then copy the VHD, and use it to publish to Azu
     "type": "VHD",
     "runOutputName": "<VHD name>",
     "tags": {
-        "<name": "<value>",
+        "<name>": "<value>",
         "<name>": "<value>"
     }
 }
@@ -693,7 +692,7 @@ az resource invoke-action \
 ### Cancelling an Image Build
 If you are running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be canceled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be cancelled any time. If the distribution phase has started you can still cancel, but you will need to clean up any images that may not be completed. The cancel command does not wait for cancel to complete, please monitor `lastrunstatus.runstate` for cancelling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 
 Examples of `cancel` commands:

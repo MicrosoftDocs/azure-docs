@@ -50,30 +50,35 @@ Follow through one of the quickstarts below to set up a Build for your specific 
 
 ## Generate a service principal 
 
-1. Download or copy and paste the [service principal creation](https://github.com/yujhongmicrosoft/spncreationn/blob/master/spncreation.ps1) powershell script into an IDE or editor. 
+1. Download or copy and paste the [service principal creation](https://github.com/yujhongmicrosoft/spncreationn/blob/master/spncreation.ps1) powershell script into an IDE or editor.
+
 2. Open up the file and navigate to the `param` parameter. Replace the `$environmentName` variable with 
 AzureUSGovernment." This sets the service principal to be created in Azure Government.
-3. Open your Powershell window and run the following command. This command sets a policy that enables running local files. 
 
-    ```Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass```
+3. Open your Powershell window and run the following command. This command sets a policy that enables running local files.
 
-    When you are asked whether you want to change the execution policy, enter "A" (for "Yes to All").
+   `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
-4. Navigate to the directory that has the edited script above. 
+   When you are asked whether you want to change the execution policy, enter "A" (for "Yes to All").
+
+4. Navigate to the directory that has the edited script above.
+
 5. Edit the following command with the name of your script and run:
-    `./<name of script file you saved>`
-6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Connect-AzAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
+
+   `./<name of script file you saved>`
+
+6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription via `Connect-AzAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
+
 7. When prompted for the "password" parameter, enter your desired password. 
+
 8. After providing your Azure Government subscription credentials, you should see the following: 
 
     > [!NOTE]
-    > The Environment variable should be "AzureUSGovernment"
-    > 
-    > 
+    > The Environment variable should be `AzureUSGovernment`.
 
-9. After the script has run, you should see your service connection values. Copy these values as we will need them when setting up our endpoint. 
+9. After the script has run, you should see your service connection values. Copy these values as we will need them when setting up our endpoint.
 
-    ![ps4](./media/documentation-government-vsts-img11.png)
+   ![ps4](./media/documentation-government-vsts-img11.png)
 
 ## Configure the Azure Pipelines service connection
 
