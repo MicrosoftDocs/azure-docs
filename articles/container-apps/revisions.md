@@ -52,8 +52,8 @@ The following types of changes create a new revision:
 The following types of changes create a new revision:
 
 - Changes to [traffic splitting rules](revisions.md#traffic-splitting)
-- Turning ingress on or off
-- Changes to secret values
+- Turning [ingress](overview.md) on or off
+- Changes to [secret values](secure-app.md)
 - Any change outside the `template` section of the configuration
 
 While changes to secrets are an application scope change, revisions must be [restarted](#restart) before a container recognizes new secret values.

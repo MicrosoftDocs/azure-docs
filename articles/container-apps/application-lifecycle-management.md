@@ -15,7 +15,9 @@ ms.author: cshoe
 https://github.com/microsoft/azure-worker-apps-preview/blob/main/docs/revisions.md
 -->
 
-The Azure Container Apps application lifecycle revolves around container [revisions](revisions.md).
+The Azure Container Apps application lifecycle revolves around [revisions](revisions.md).
+
+When you deploy a container app, the first revision is automatically created. [Additional revisions are created](revisions.md) as [containers](containers.md) change, or any adjustments are made to the `template` section of the configuration.
 
 If your container crashes, then it is automatically restarted.
 
