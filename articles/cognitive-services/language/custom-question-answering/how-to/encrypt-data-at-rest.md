@@ -29,7 +29,7 @@ Custom question answering uses [CMK support from Azure search](../../../../searc
 
 Follow these steps to enable CMKs:
 
-1.	Go to the **Encryption** tab of your Tlanguage resource with custom question answering enabled.
+1.	Go to the **Encryption** tab of your language resource with custom question answering enabled.
 2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](../../../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) and select **Save**.
 
 > [!div class="mx-imgBorder"]
