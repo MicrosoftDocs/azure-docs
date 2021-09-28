@@ -91,7 +91,7 @@ You can also create a separate knowledge base for each domain and maintain the k
 When the user question is received by the service, you would need to pass on the KB ID in the Generate Answer endpoint shown above to fetch a response from the relevant knowledgebase. You can locate the knowledge base ID in the **Publish** page section as shown below.
 
 >[!div class="mx-imgBorder"]
->![Fetch KB ID](../media/multiple-domains/fetch-kb-id.png)
+>![Fetch KB ID](../media/multiple-domains/fetch-knowledge-base-identifier.png)
 
 ## Create a separate QnA Maker resource for each domain.
 
