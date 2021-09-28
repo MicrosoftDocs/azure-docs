@@ -60,7 +60,7 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 |  LastName | string | Extracted surname | "BROOKS" |
 |  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) | "USA" |
 |  Sex | string | Possible extracted values include "M", "F" and "X" | "F" |
-|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each (Passport only) | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  Address | string | Extracted address (Driver's License only) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
 |  Region | string | Extracted region, state, province, etc. (Driver's License only) | "Washington" |
 
@@ -244,7 +244,7 @@ The `readResults` node contains all of the recognized text. Text is organized by
               "#/readResults/0/lines/33/words/4",
               "#/readResults/0/lines/34/words/0"
             ]
-          },
+          }
         }
       }
     ]
