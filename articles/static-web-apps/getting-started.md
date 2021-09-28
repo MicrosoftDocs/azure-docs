@@ -57,6 +57,11 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
+1. Select a region close to you.
+
+    > [!NOTE]
+    > Azure Static Web Apps globally distributes your static assets. The region you select determines where your optional staging environments and API function app will be located.
+
 1. Select the presets that match your application type.
 
     # [No Framework](#tab/vanilla-javascript)
@@ -92,6 +97,10 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
     :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Application presets: Vue":::
 
     ---
+
+1. In the *Enter the location of your application code* prompt, enter **/**.
+
+1. In the *Enter the location of your application build output* prompt, a value is pre-populated based on the framework presets you selected earlier. Press Enter to accept.
 
 1. Once the app is created, a confirmation notification is shown in Visual Studio Code.
 
