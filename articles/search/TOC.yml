@@ -442,8 +442,6 @@
     items:
     - name: Filter overview
       href: search-filters.md
-    - name: NEW Add faceted navigation
-      href: search-filters-facets.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
     - name: Troubleshoot collection filters
