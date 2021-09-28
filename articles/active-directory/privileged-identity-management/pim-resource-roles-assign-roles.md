@@ -90,7 +90,7 @@ Follow these steps to make a user eligible for an Azure resource role.
 
 ## Assign a role using Graph API
 
-Privileged Identity Management supports Graph API commands to manage Azure resource roles, as documented in the [PIM Graph API reference](https://docs.microsoft.com/rest/api/authorization/roleeligibilityschedulerequests). For the permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md).
+Privileged Identity Management supports Graph API commands to manage Azure resource roles, as documented in the [PIM Graph API reference](/rest/api/authorization/roleeligibilityschedulerequests). For the permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md).
 
 The following is a sample HTTP request to create an eligible assignment for an Azure role. For details on the API commands including samples such as C# and JavaScript, see [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests?view=graph-rest-beta&tabs=http&preserve-view=true).
 
