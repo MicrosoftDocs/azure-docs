@@ -105,7 +105,7 @@ To complete this tutorial, you need to:
     |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
     |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
 
-1. Specify the **Azure storage account** by selecting the **Subscription**, **Location**, and **Resource Group** from the corresponding drop-down lists. This Azure storage account will be used by DMS to upload the database backups from network share. You don'tt need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.
+1. Specify the **Azure storage account** by selecting the **Subscription**, **Location**, and **Resource Group** from the corresponding drop-down lists. This Azure storage account will be used by DMS to upload the database backups from network share. You don't need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.
 1. Select **Next** to continue.
     > [!IMPORTANT]
     > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)
