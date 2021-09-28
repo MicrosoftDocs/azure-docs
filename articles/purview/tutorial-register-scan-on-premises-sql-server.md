@@ -1,12 +1,12 @@
 ---
-title: Register and scan an on-premises SQL server.
+title: 'Tutorial: Register and scan an on-premises SQL Server'
 description: This tutorial describes how to register an on-prem SQL Server to Purview, and scan the server using a self-hosted IR. 
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial #Required; leave this attribute/value as-is.
-ms.date: 09/16/2021
+ms.date: 09/27/2021
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -34,7 +34,7 @@ In this tutorial, you'll learn how to:
 
 ## Sign in to Purview Studio
 
-To interact with Purview, you'll connect to the Purview Studio through the Azure portal. You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Purview Studio** tile on the overview page.
+To interact with Purview, you'll connect to the [Purview Studio](https://web.purview.azure.com/resource/) through the Azure portal. You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Purview Studio** tile on the overview page.
 
 :::image type="content" source="./media/tutorial-register-scan-on-premises-sql-server/open-purview-studio.png" alt-text="Screenshot of Purview window in Azure portal, with Purview Studio button highlighted." border="true":::
 
@@ -123,16 +123,6 @@ There is only one way to set up authentication for SQL server on-premises:
 
 The SQL account must have access to the **master** database. This is because the `sys.databases` is in the database. The Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
-#### Use an existing server administrator
-
-If you plan to use an existing server admin (sa) user to scan your on-premises SQL server, ensure the following:
-
-1. `sa` isn't a Windows authentication account.
-
-1. The server level login that you're planning to use must have server roles of public and sysadmin. You can verify this by connecting to the server, navigating to SQL Server Management Studio (SSMS), navigating to security, selecting the login you're planning to use, right-clicking **Properties** and then selecting **Server roles**.
-
-   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/server-level-login.png" alt-text="Server level login.":::
-
 #### Create a new login and user
 
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
@@ -140,7 +130,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 > [!Note]
 > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
 
-1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, right-click on login and create New login. Make sure to select SQL authentication.
+1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, select and hold (or right-click) login and create New login. Make sure to select SQL authentication.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Create new login and user.":::
 
@@ -148,11 +138,9 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 1. Select User mapping on the left navigation, select all the databases in the map and select the Database role: **db_datareader**.
 
-   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/user-mapping.png" alt-text="user mapping.":::
-
 1. Select **OK** to save.
 
-1. Navigate again to the user you created, by right clicking and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It's required to change your password as soon as you create a new login.**
+1. Navigate again to the user you created, by selecting and holding (or right-clicking) on the user and selecting **Properties**. Enter a new password and confirm it. Select the 'Specify old password' and enter the old password. **It's required to change your password as soon as you create a new login.**
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/change-password.png" alt-text="change password.":::
 
@@ -231,8 +219,6 @@ To create and run a new scan, do the following:
 
 1. Select the credential to connect to your data source.
 
-   :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/on-premises-sql-set-up-scan.png" alt-text="Set up scan":::
-
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/on-premises-sql-scope-your-scan.png" alt-text="Scope your scan":::
@@ -255,7 +241,7 @@ If you're not going to continue to use this Purview or SQL source moving forward
 
 ### Remove SHIR from Purview
 
-1. On the home page of Purview Studio, select **Data Map** from the left navigation pane.
+1. On the home page of [Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
 1. Under **Source management** on the left pane, select **Integration runtimes**.
 

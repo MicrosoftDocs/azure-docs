@@ -363,7 +363,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 ### To access Microsoft Azure Consumption Insights:
 
-1. Go to [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+1. Go to Microsoft Azure Consumption Insights.
 1. Select **Get It Now**.
 1. Provide an enrollment number and the number of months, and then select **Next**.
 1. Provide your API access key to connect. You can find the key for your enrollment in the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
