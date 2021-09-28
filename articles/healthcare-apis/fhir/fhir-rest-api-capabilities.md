@@ -9,7 +9,7 @@ ms.date: 09/28/2021
 ms.author: cavoeg
 ---
 
-# FHIR Rest API capabilities
+# FHIR Rest API capabilities for Azure Healthcare APIs FHIR service
 
 In this article, we'll cover some of the nuances of the RESTful interactions of Azure Healthcare APIs FHIR service (hereby called the FHIR service).
 
