@@ -44,9 +44,9 @@ This table gives an overview of the **Purview Collections APIs**. Click each of 
 | [List Collections](/rest/api/purview/accountdataplane/collections/list-collections) |List the collections in the account.|
 
 
-1. If using API, the Service Principal (SP), User or Group executing the API should have [Collection Admin](how-to-create-and-manage-collections.md#check-permissions) role assigned in Purview to execute this API successfully.
-2. For all Purview APIs requiring {collectionName}, you will need "name" (and not "friendlyName"). Replace {collectionName} with the actual six-character alphanumeric collection name string. Note that this is different from the friendly display name you supplied while creating the collection. If you do not have this {collectionName} handy, use the [List Collections](/rest/api/purview/accountdataplane/collections/list-collections) API to select the six-character collection name from the JSON output.
-3. Example JSON: 
+- If using API, the Service Principal (SP), User or Group executing the API should have [Collection Admin](how-to-create-and-manage-collections.md#check-permissions) role assigned in Purview to execute this API successfully.
+- For all Purview APIs requiring {collectionName}, you will need "name" (and not "friendlyName"). Replace {collectionName} with the actual six-character alphanumeric collection name string. Note that this is different from the friendly display name you supplied while creating the collection. If you do not have this {collectionName} handy, use the [List Collections](/rest/api/purview/accountdataplane/collections/list-collections) API to select the six-character collection name from the JSON output.
+- Example JSON: 
 
 ```json
 {
