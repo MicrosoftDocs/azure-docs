@@ -30,7 +30,7 @@ To avoid putting secrets in source control, the configuration looks into [applic
 
 Azure Active Directory providers are available in two different versions. Version 1 explicitly defines the `userDetailsClaim`, which allows the payload to return user information. By contrast, version 2 returns user information by default, and is designated by `v2.0` in the `openIdIssuer` URL.
 
-To create the registration, begin by creating the following application settings:
+To create the registration, begin by creating the following [application settings](application-settings.md):
 
 | Setting Name | Value |
 | --- | --- |
@@ -86,7 +86,7 @@ For more information on how to configure Azure Active Directory, see the [App Se
 
 # [Apple](#tab/apple)
 
-To create the registration, begin by creating the following application settings:
+To create the registration, begin by creating the following [application settings](application-settings.md):
 
 | Setting Name | Value |
 | --- | --- |
@@ -114,7 +114,7 @@ For more information on how to configure Apple as an authentication provider, se
 
 # [Facebook](#tab/facebook)
 
-To create the registration, begin by creating the following application settings:
+To create the registration, begin by creating the following [application settings](application-settings.md):
 
 | Setting Name | Value |
 | --- | --- |
@@ -143,7 +143,7 @@ For more information on how to configure Facebook as an authentication provider,
 # [GitHub](#tab/github)
 
 
-To create the registration, begin by creating the following application settings:
+To create the registration, begin by creating the following [application settings](application-settings.md):
 
 | Setting Name | Value |
 | --- | --- |
@@ -170,7 +170,7 @@ Next, use the following sample to configure the provider in the [configuration f
 # [Google](#tab/google)
 
 
-To create the registration, begin by creating the following application settings:
+To create the registration, begin by creating the following [application settings](application-settings.md):
 
 | Setting Name | Value |
 | --- | --- |
@@ -198,7 +198,7 @@ For more information on how to configure Google as an authentication provider, s
 
 # [Twitter](#tab/twitter)
 
-To create the registration, begin by creating the following application settings:
+To create the registration, begin by creating the following [application settings](application-settings.md):
 
 | Setting Name | Value |
 | --- | --- |
