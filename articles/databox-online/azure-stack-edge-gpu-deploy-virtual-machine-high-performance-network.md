@@ -93,7 +93,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         [dbe-1csphq2.microsoftdatabox.com]: PS>
         ```
     
-    1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). 
+    1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
     
         ```powershell
         Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
@@ -111,7 +111,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```
     
         > [!NOTE]
-        > - You can choose to reserve all the logical indexes from both Numa nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the Numa node with Mellanox network interface is #0.  
+        > - You can choose to reserve all the logical indexes from both NUMA nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the NUMA node with Mellanox network interface is #0.  
         > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as `5,6,7` or pairs such as `4,6` will not work.
         > - Using two `Set-HcsNuma` commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM.
   
