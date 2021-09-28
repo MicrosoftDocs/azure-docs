@@ -193,10 +193,50 @@ To create the the load balancer, use [az network lb create](/cli/azure/network/l
     --resource-group TutorGwLB-rg \
     --name myLoadBalancer-gw \
     --sku Gateway \
-    --vnet-name myVnet \
+    --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool
+    --frontend-ip-name myFrontEnd
+```
+
+### Create backend address pool
+
+To create the backend address pool for the NVAs, use [az network lb address-pool create](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_create).
+
+```azurecli-interactive
+  az network lb address-pool create \
+    --lb-name myLoadBalancer-gw \
+    --name myBackendPool \
+    --resource-group TutorGwLB-rg \
+    --vnet myVNet
+```
+
+### Create tunnel interfaces
+
+To update the default tunnel interface, use [az network lb address-pool tunnel-interface update](/cli/azure/network/lb/address-pool/tunnel-interface#az_network_lb_address_pool_tunnel_interface_update).
+
+```azurecli-interactive
+  az network lb address-pool tunnel-interface update \ 
+    --address-pool myBackendPool \
+    --index 0 \
+    --lb-name myLoadBalancer-gw \
+    --resource-group TutorGwLB-rg \
+    --identifier 800 \
+    --port 2000 \
+    --protocol VXLAN \ 
+    --type Internal
+```
+
+You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az_network_lb_address_pool_tunnel_interface_add) to create external tunnel interface for the load balancer. 
+
+```azurecli-interactive
+  az network lb address-pool tunnel-interface add \
+    --address-pool myBackEndPool \
+    --identifier '801' \
+    --lb-name myLoadBalancer-gw \
+    --protocol VXLAN \
+    --resource-group TutorGwLB-rg \
+    --type External \
+    --port '2001'
 ```
 
 ### Create health probe
@@ -247,13 +287,12 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
     --resource-group TutorGwLB-rg \
     --lb-name myLoadBalancer-gw \
     --name myLBRule \
-    --protocol '*' \
+    --protocol All \
     --frontend-port 0 \
     --backend-port 0 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe \
-    --idle-timeout 15 \
+    --probe-name myHealthProbe
 ```
 
 The load balancer is ready for NVAs in the backend pool.
