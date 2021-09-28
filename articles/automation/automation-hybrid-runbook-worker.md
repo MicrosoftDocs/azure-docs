@@ -17,7 +17,7 @@ Azure Automation provides native integration of the Hybrid Runbook Worker role t
 | Platform | Description |
 |---|---|
 |Agent based (V1)  |Installed after the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md) is completed.|
-|Extension based (V2)  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hrw-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. This is the recommended method.|
+|Extension based (V2)  |Installed using the [Hybrid Runbook Worker VM extension](./extension-based-hrw-install.md), without any dependency on the Log Analytics agent reporting to an Azure Monitor Log Analytics workspace. This is the recommended platform.|
 
 :::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform.png" alt-text="Hybrid worker group showing platform field":::
 
@@ -42,7 +42,7 @@ There are two types of Runbook Workers - system and user. The following table de
 |**System** |Supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines.<br> This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group. |
 |**User** |Supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups. |
 
-A Hybrid Runbook Worker can run on either the Windows or the Linux operating system, and this role relies on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md). The workspace isn't only to monitor the machine for the supported operating system, but also to download the components required to install the Hybrid Runbook Worker.
+Agent based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/design-logs-deployment.md). The workspace isn't only to monitor the machine for the supported operating system, but also to download the components required to install the Hybrid Runbook Worker.
 
 When Azure Automation [Update Management](./update-management/overview.md) is enabled, any machine connected to your Log Analytics workspace is automatically configured as a system Hybrid Runbook Worker. To configure it as a user Windows Hybrid Runbook Worker, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](automation-windows-hrw-install.md) and for Linux, see [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md).
 
@@ -75,9 +75,7 @@ The process to install a user Hybrid Runbook Worker depends on the operating sys
 |---------|---------|
 |Windows | [Automated](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment) |
 |Linux   | [Manual](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) |
-|Either  | For User Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hrw-install.md)|
-
-The recommended installation method for a Windows machine is to use an Azure Automation runbook to completely automate the process of configuring it. If that isn't feasible, you can follow a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine.
+|Either  | For User Hybrid Runbook Workers, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hrw-install.md). This is the recommended method. |
 
 ## <a name="network-planning"></a>Network planning
 
