@@ -1,6 +1,6 @@
 ---
-title: Premium tier for Azure Data Lake Storage | Microsoft Docs
-description: Use the premium performance tier with Azure Data Lake Storage Gen2 
+title: Premium tier for Azure Data Lake Storage
+description: Use the premium performance tier with Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -33,7 +33,7 @@ AI/ML deals with the consumption and processing of different data types like vis
 
 The premium performance tier has a higher storage cost but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions, the premium performance tier can be cost-effective.
 
-The following table demonstrates the cost-effectiveness of the premium tier for Azure Data Lake Storage. Each column represents the number of transactions in a month.  Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
+The following table demonstrates the cost-effectiveness of the premium tier for Azure Data Lake Storage. Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
 
 For example, assuming that your account is in the East US 2 region, the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, the premium performance tier is more cost-effective.
 
@@ -69,7 +69,6 @@ The following image shows this setting in the **Create storage account** page.
 
 Use the premium tier for Azure Data Lake Storage with your favorite analytics service such as Azure Databricks, Azure HDInsight and Azure Synapse Analytics.
 
-- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md)
-- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
-  HDInsight currently supports an account that uses the premium performance tier along with an HBase cluster that has accelerated writes enabled.
+- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks, and Spark](data-lake-storage-use-databricks-spark.md)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). HDInsight currently supports an account that uses the premium performance tier along with an HBase cluster that has accelerated writes enabled.
 - [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md)

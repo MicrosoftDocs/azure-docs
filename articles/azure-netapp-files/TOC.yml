@@ -47,6 +47,12 @@
     items:
     - name: How Azure NetApp Files snapshots work
       href: snapshots-introduction.md
+    - name: Azure NetApp Files backup
+      items: 
+      - name: Understand Azure NetApp Files backup
+        href: backup-introduction.md  
+      - name: Requirements and considerations for Azure NetApp Files backup
+        href: backup-requirements-considerations.md
     - name: Cross-region replication
       items: 
       - name: Understand cross-region replication
@@ -181,6 +187,24 @@
         href: snapshots-revert-volume.md
       - name: Delete snapshots
         href: snapshots-delete.md
+    - name: Manage volume backups
+      items:
+      - name: Configure backups
+        items:
+        - name: Configure policy-based backups 
+          href: backup-configure-policy-based.md
+        - name: Configure manual backups 
+          href: backup-configure-manual.md
+      - name: Manage backup policies
+        href: backup-manage-policies.md 
+      - name: Search backups
+        href: backup-search.md 
+      - name: Restore a backup
+        href: backup-restore-new-volume.md 
+      - name: Disable backup functionality
+        href: backup-disable.md
+      - name: Delete backups 
+        href: backup-delete.md 	
     - name: Manage cross-region replication
       items:
       - name: Create volume replication

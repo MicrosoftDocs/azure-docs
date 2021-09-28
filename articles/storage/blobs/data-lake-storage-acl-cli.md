@@ -8,7 +8,7 @@ ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
-ms.reviewer: prishet 
+ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ---
 
@@ -22,7 +22,7 @@ ACL inheritance is already available for new child items that are created under 
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. For more information, see [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
@@ -46,7 +46,7 @@ ACL inheritance is already available for new child items that are created under 
     az --version
    ```
 
-   If your version of Azure CLI is lower than `2.14.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+   If your version of Azure CLI is lower than `2.14.0`, then install a later version. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to the account
 
@@ -156,7 +156,7 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 
 ## Update ACLs
 
-When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set ACLs](#set-acls) section of this article.
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL. To replace the ACL instead of update it, see the [Set ACLs](#set-acls) section of this article.
 
 To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
 
@@ -203,7 +203,7 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ### Update ACLs recursively
 
-Update ACLs recursively by using the  [az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) command.
+Update ACLs recursively by using the [az storage fs access update-recursive](/cli/azure/storage/fs/access#az_storage_fs_access_update_recursive) command.
 
 This example updates an ACL entry with write permission.
 
