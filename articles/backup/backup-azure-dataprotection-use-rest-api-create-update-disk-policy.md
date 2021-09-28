@@ -2,7 +2,7 @@
 title: Create backup policies for disks using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for disks using REST API.
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/29/2021
 ms.assetid: ecc107c0-311c-42d0-a094-654d7ee30443
 ---
 
