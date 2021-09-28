@@ -1,10 +1,10 @@
 ---
-title: Application lifecycle management in Azure Container Apps
-description: Learn about the full application lifecycle in Azure Container Apps
+title: Revisions in Azure Container Apps
+description: Learn to manage revisions in Azure Container Apps
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  how-to
+ms.topic:  conceptual
 ms.date: 09/16/2021
 ms.author: cshoe
 ---
@@ -15,50 +15,58 @@ ms.author: cshoe
 https://github.com/microsoft/azure-worker-apps-preview/blob/main/docs/revisions.md
  -->
 
-## View revisions
+A revision is an immutable snapshot of a container app.
 
-First grab the list of revisions associated with your app
+- The first revision is automatically created when you deploy your container app.
+- New revisions are automatically created when a container app's `template` configuration changes.
+- While revisions are immutable, they're affected by changes to global configuration values, which apply to all revisions.
 
-```sh
-az containerapp revision list \
-  --name <APPLICATION_NAME> \
-  --resource-group <RESOURCE_GROUP_NAME> \
-  -o table
-```
+Revisions are most useful when you enable [ingress](overview.md) to make your container app accessible via HTTP.  Revisions are often used when you want to direct traffic from one snapshot of your container app to the next. Typical traffic direction strategies include [A/B testing](https://wikipedia.org/wiki/A/B_testing) and [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
-Then examine the revision
+The following diagram shows a container app with two revisions.
 
-```sh
-az containerapp revision show \
-  --name <REVISION_NAME> \
-  --app <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP_NAME>
-```
+:::image type="content" source="media/revisions/azure-container-apps-revisions-traffic-split.png" alt-text="Azure Container Apps: Traffic splitting among revisions":::
 
-## Activate and deactivate
+The scenario shown above presumes the container app is in following state:
 
-Whenever you are done with a revision you can deactivate it
+- [Ingress](overview.md) is enabled, which makes the container app available via HTTP.
+- The first revision is deployed as _Revision 1_.
+- After the container was updated, a new revision was activated as _Revision 2_.
+- [Traffic splitting](#traffic-splitting) rules are configured so that _Revision 1_ receives 80% of the requests, while _Revision 2_ receives the remaining 20%.
 
-```sh
-az workerapp revision deactivate \
-  --name <REVISION_NAME> \
-  --app <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP_NAME>
-```
+## Change types
 
-This will stop all running replicas of that revision and it will no longer be accessible internally or externally Likewise you can reactivate a revision
+Changes made to a container app fall under one of two categories: *revision-scope* and *application-scope* changes. Revision-scope changes are any change that triggers a new revision, while application-scope changes don't create revisions.
 
-```sh
-az workerapp revision activate \
-  --name <REVISION_NAME> \
-  --app <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP_NAME>
-```
+### Revision scope changes
+
+The following types of changes create a new revision:
+
+- Changes to containers
+- Add or update scaling rules
+- Changes to Dapr settings
+- Any change that affects the `template` section of the configuration
+
+### Application scope changes
+
+The following types of changes create a new revision:
+
+- Changes to [traffic splitting rules](revisions.md#traffic-splitting)
+- Turning ingress on or off
+- Changes to secret values
+- Any change outside the `template` section of the configuration
+
+While changes to secrets are an application scope change, revisions must be [restarted](#restart) before a container recognizes new secret values.
 
 ## Traffic splitting
 
-The routing of external traffic to your Worker Apps revisions can be changed using traffic weights. Once applied, traffic to the Worker Apps FDQN will be split according to the weights specified in the configuration.
-Additionally you can assign a constant weight to the latest revision so a percentage of traffic will always go to the latest revision.
+Applied by assigning percentage values, you can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
+
+The following example shows how to split traffic where:
+
+- 50% of the requests go to the first revision
+- 30% of the requests go to the section revision
+- 20% of the requests go to the latest revision
 
 # [ARM Template](#tab/arm-template)
 
@@ -69,11 +77,11 @@ Additionally you can assign a constant weight to the latest revision so a percen
     "ingress": {
       "traffic": [
         {
-          "revisionName": <REVISION_NAME>,
+          "revisionName": <REVISION1_NAME>,
           "weight": 50
         },
         {
-          "revisionName": <REVISION_NAME>,
+          "revisionName": <REVISION2_NAME>,
           "weight": 30
         },
         {
@@ -89,14 +97,37 @@ Additionally you can assign a constant weight to the latest revision so a percen
 # [Azure CLI](#tab/azure-cli)
 
 ```sh
-az workerapp update --name myapp --resource-group $RESOURCE_GROUP_NAME --traffic-weight <REVISION 1>=50,<REVISION 2>=30,latest=20
+az containerapp update \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME> \
+  --traffic-weight <REVISION1_NAME>=50,<REVISION2_NAME>=30,latest=20
 ```
 
 ---
 
-## Secrets and revisions
+## List
 
-Changes to a container app's secrets will not be applied immediately nor will it create another revision. Instead they are applied to a revision upon restart.
+List all revisions associated with your container app with `az containerapp revision list`.
+
+```sh
+az containerapp revision list \
+  --name <APPLICATION_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME> \
+  -o table
+```
+
+## Show
+
+Show details about a specific revision by using `az containerapp revision show`.
+
+```sh
+az containerapp revision show \
+  --name <REVISION_NAME> \
+  --app <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME>
+```
+
+## Update
 
 Lets say you want to add a secret to your Worker App by running the following command
 
@@ -107,6 +138,30 @@ az containerapp update \
  --secrets "storageconnectionstring=$CONNECTIONSTRING"
 ```
 
+## Activate
+
+Activate a revision by using `az containerapp revision activate`.
+
+```sh
+az containerapp revision activate \
+  --name <REVISION_NAME> \
+  --app <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME>
+```
+
+## Deactivate
+
+Deactivate revisions that are no longer in use with `az container app revision deactivate`. Deactivation stops all running replicas of a revision.
+
+```sh
+az containerapp revision deactivate \
+  --name <REVISION_NAME> \
+  --app <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP_NAME>
+```
+
+## Restart
+
 All existing container apps revisions will not have access to this secret until they are restarted
 
 ```sh
@@ -116,8 +171,12 @@ az containerapp revision restart \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
+## Secrets
+
+Changes to secrets are an application scope change and do not create new revisions, but revisions must be [restarted](#restart) before they recognize changes to secret values.
+
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started](get-started.md)
+> [](get-started.md)
