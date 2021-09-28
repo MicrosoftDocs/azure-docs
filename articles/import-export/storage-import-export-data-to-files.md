@@ -63,10 +63,10 @@ Do the following steps to prepare the drives.
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to fileshare. Folder structure is maintained. Within a folder, any existing file with the same name as a file that is imported will be overwritten.
+   - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to the fileshare. Folder structure is maintained. If you import a file with the same name as an existing file in the destination folder, the imported file will overwrite that file.
    
    > [!NOTE]
-   > This behavior is different than in tool versions before 1.5.0.300. Earlier tool versions had a /Disposition parameter that let you choose what to do when you import a file that already exists.
+   > This behavior is different than in earlier tool versions. Tool versions before 1.5.0.300 had a /Disposition parameter that let you choose what to do when you import a file that already exists.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
