@@ -80,9 +80,9 @@ that was set in the setup steps. (This tutorial uses **contososbqueue**).
 
 6. Select **+New Step**. The **Choose an operation** pane is displayed. Select **Office 365 Outlook** and then in the list, find and select **Send an Email (V2)**. Sign in to your Office 365 account.   
 
-7. ![Select to send-an-email from one of the Oulook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) 
+7. Fill in the fields. 
 
-Fill in the fields:
+   ![Select to send-an-email from one of the Oulook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) 
 
    **To:** Put in the e-mail address where the warning should be sent.
 
