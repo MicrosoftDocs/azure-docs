@@ -14,14 +14,16 @@ ms.custom: template-how-to
 
 Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs". The content of these logs varies by resource type.
 
-Azure Cache for Redis uses Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the time of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes.
+Azure Cache for Redis uses Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes.
 
-Once configured, the setting helps with logging of all connections to your cache including IP addresses and count of connections. The log snapshots are taken at 10-second intervals.
+Once configured, the setting logs all of the client connections to your cache by their IP addresses. It also provides a count of how many times connections originated from those specific IP addresses. These log snapshots are taken at 10-second intervals. The count represents point-in-time snapshots, not a cumulative count of connections
 
-You turn on diagnostic setting for Azure Cache for Redis accounts and send resource logs to destinations. Any destinations for the diagnostic setting must be created before creating the diagnostic settings. Here are the current destinations supported:
+You turn on diagnostic setting for Azure Cache for Redis instances and send resource logs to the following destinations:
 
-- Event hub
-- Storage Account
+- Event hub - diagnostic settings can't access **Event Hubs** resources when virtual networks are enabled. Enable the Allow trusted Microsoft services to bypass this firewall setting in Event Hub to grant access to your Event Hubs resources.
+- Storage Account - must be in the same region, but can be part of different subscription/resource group.
+
+For more information on these diagnostic requirements, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
 
 ## Create diagnostics settings via the Azure portal
 
@@ -101,18 +103,12 @@ az monitor diagnostic-settings create
 
 ```
 
-## Private Link Clients
+## Health and Administrative tasks
 
-For clients that connect over private link, their actual IPv4 address is reported in addition to the special encoded private link IPv6 address. The IPv4 address is decoded in proprietary way from the IPv6 address. The IPv4 address is reported in the logs.
+You might notice IP addresses in the logs that are used by Azure Cache For Redis for internal health monitoring and other administrative tasks. These IP addresses are not counted towards client connections and should be ignored in your analysis.
 
-This address is exposed because when you run the `MONITOR` command or `CLIENT LIST` command on your Azure Cache for Redis. You don't see the `ip` value but instead see the `privateLinkIpv6` value. Showing both helps you map these addresses in case you need to identify client connections.
-
-## Runner IP addresses
-
-You might notice *runner* IP addresses in the logs. *Runner* IP addresses are used internally by Azure Cache for Redis for administrative tasks. These IP addresses aren't actual client connections. The *runner* IP addresses should be ignored in your client analysis.
-
-<!-- See Lavanya/Alfan for these IP -->
+<!-- List of so-called runner IP addresses -->
 
 ## Next steps
 
-- For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) article.
+For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) article.
