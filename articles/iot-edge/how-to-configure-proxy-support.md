@@ -132,7 +132,7 @@ Enter the following text, replacing **\<proxy URL>** with your proxy server addr
 
 ```ini
 [Service]
-Environment="https_proxy=<proxy URL>"
+Environment=https_proxy=<proxy URL>
 ```
 
 Refresh the service manager to pick up the new configuration for IoT Edge.
@@ -168,7 +168,7 @@ Enter the following text, replacing **\<proxy URL>** with your proxy server addr
 
 ```ini
 [Service]
-Environment="https_proxy=<proxy URL>"
+Environment=https_proxy=<proxy URL>
 ```
 
 Starting in version 1.2, IoT Edge uses the IoT identity service to handle device provisioning with IoT Hub or IoT Hub Device Provisioning Service. Open an editor in the terminal to configure the IoT identity service daemon.
@@ -181,7 +181,7 @@ Enter the following text, replacing **\<proxy URL>** with your proxy server addr
 
 ```ini
 [Service]
-Environment="https_proxy=<proxy URL>"
+Environment=https_proxy=<proxy URL>
 ```
 
 Refresh the service manager to pick up the new configurations.

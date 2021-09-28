@@ -2,13 +2,13 @@
 title: Find your Personalizer resource endpoint and key
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: erhopf
+author: jeffmend
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include 
 ms.date: 08/25/2019
-ms.author: erhopf
+ms.author: jeffme
 ---
 
 > [!IMPORTANT]

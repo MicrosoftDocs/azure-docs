@@ -1,19 +1,19 @@
 ### YamlMime:Hub
 
 title: Azure Media Services documentation # < 60 chars
-summary: Azure Media Services enable you to build media applications using low-latency live streaming, batch encoding, content-protection/DRM, and deliver streaming content millions of viewers on any device.
+summary: Azure Media Services enable you to build media applications using low-latency live streaming, batch encoding, content-protection/DRM, and deliver streaming content to millions of viewers on any device.
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
 metadata:
   title: Azure Media Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Media Services enable you to build media applications using low-latency live streaming, batch encoding, content-protection/DRM, and deliver streaming content millions of viewers on any device.
+  description: Azure Media Services enable you to build media applications using low-latency live streaming, batch encoding, content-protection/DRM, and deliver streaming content to millions of viewers on any device.
   services: media-services
   ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: 
   ms.topic: hub-page # Required
   ms.collection: collection
-  author: Juliako #Required; your GitHub user alias, with coacrrect capitalization.
+  author: Juliako #Required; your GitHub user alias, with correct capitalization.
   ms.author: juliako #Required; microsoft alias of author; optional team alias.
   ms.date: 08/18/2021 #Required; mm/dd/yyyy format.
 
@@ -26,6 +26,9 @@ highlightedContent:
     - title: About Azure Media Services (v3)
       itemType: overview
       url: ./latest/media-services-overview.md
+    - title: About Azure Media Services (v2)
+      itemType: overview
+      url: ./previous/media-services-overview.md
     # Card
     - title: Azure Media Services (v3) concepts 
       itemType: concept
@@ -127,13 +130,13 @@ conceptualContent:
 
     - title: Protocols and specifications
       links:
-          - url: media-services-specifications-live-timed-metadata.md
+          - url: ./previous/media-services-specifications-live-timed-metadata.md
             itemType: concept
             text: Timed Metadata in Live Streaming (RTMP & Smooth Streaming)
-          - url: media-services-specifications-ms-sstr-amendment-hevc.md
+          - url: ./previous/media-services-specifications-ms-sstr-amendment-hevc.md
             itemType: concept
             text: Smooth Streaming protocol (MS-SSTR) amendment for HEVC
-          - url: media-services-fmp4-live-ingest-overview.md
+          - url: ./previous/media-services-fmp4-live-ingest-overview.md
             itemType: concept
             text:  Smooth Streaming ingest protocol   
             

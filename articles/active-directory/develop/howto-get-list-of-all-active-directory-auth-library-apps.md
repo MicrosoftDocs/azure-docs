@@ -17,7 +17,7 @@ ms.reviewer: aiwang, marsma
 # Customer intent: As an application developer / IT admin, I need to know / identify which of my apps are using ADAL.
 ---
 
-# How to: Get a complete list of apps using ADAL in your tenant
+# Get a complete list of apps using ADAL in your tenant
 
 Support for Active Directory Authentication Library (ADAL) will end on June 30, 2022. Apps using ADAL on existing OS versions will continue to work, but technical support and security updates will end. Without continued security updates, apps using ADAL will become increasingly vulnerable to the latest security attack patterns. This article provides guidance on how to use Azure Monitor workbooks to obtain a list of all apps that use ADAL in your tenant.
 

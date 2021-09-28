@@ -102,7 +102,7 @@ sections:
       - question: |
           Does the Avere vFXT environment scale?
         answer: |
-          The Avere vFXT cluster can be as small as three virtual machine nodes or as large as 24 nodes. Contact Azure technical support for help with planning if you believe you need a cluster of more than nine nodes. The larger number of nodes requires a larger deployment architecture.
+          The Avere vFXT cluster can be as small as three virtual machine nodes or as large as 20 nodes. Contact Azure technical support if you need help planning the right cluster size for your workflow.
 
       - question: |
           Does the Avere vFXT environment "autoscale"?

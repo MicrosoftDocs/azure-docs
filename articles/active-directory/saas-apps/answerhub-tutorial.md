@@ -238,7 +238,7 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
-When you select the AnswerHub tile in the access panel, you should be automatically signed in to the AnswerHub for which you set up SSO. For more information about the access panel, see [Introduction to the access panel](../user-help/my-apps-portal-end-user-access.md).
+When you select the AnswerHub tile in the access panel, you should be automatically signed in to the AnswerHub for which you set up SSO. For more information about the access panel, see [Introduction to the access panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
