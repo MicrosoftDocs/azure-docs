@@ -107,5 +107,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [Configure offer properties](dynamics-365-operations-properties.md)
+- Configure offer [Properties](dynamics-365-operations-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
