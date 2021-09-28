@@ -37,10 +37,10 @@ Azure Machine Learning offers the following two experiences for working with aut
 The following settings allow you to configure your automated ML experiment. 
 
 | |The Python SDK|The studio web experience|
-----|:----:|:----:
+|----|:----:|:----:|
 |**Split data into train/validation sets**| ✓|✓
 |**Supports ML tasks: classification, regression, and forecasting**| ✓| ✓
-|**Supports AutoML for Images: image classification, object detection and instance segmentation **| ✓| 
+|**Supports computer vision tasks: image classification, object detection and instance segmentation **| ✓| 
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
@@ -78,7 +78,7 @@ These settings allow you to review and control your experiment runs and its chil
 |**Get guardrails**| ✓|✓|
 |**Pause & resume runs**| ✓| |
 
-## When to use AutoML: classification, regression, forecasting, and computer vision
+## When to use AutoML: classification, regression, forecasting & computer vision
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
@@ -121,7 +121,9 @@ Advanced forecasting configuration includes:
 
 See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
-### Computer vision
+### Computer vision (preview)
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 Customers across various industries are looking to leverage machine learning to build models that can process image data. Typical manual methods for building computer vision models can involve a tedious process of iteratively finding the right set of model algorithms and hyperparameters, requiring significant data scientist time and effort. 
 
@@ -131,7 +133,7 @@ Authoring AutoML models for vision tasks is supported via the Azure ML Python SD
 
 Learn how to [set up AutoML training for computer vision models'](how-to-auto-train-image-models.md).
 
-AutoML for Images supports the following computer vision tasks -
+Automated ML for images supports the following computer vision tasks -
 
 ![Computer vision tasks examples. Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf ](./media/concept-automated-ml/automl-computer-vision-tasks.png)
 
@@ -149,7 +151,7 @@ During training, Azure Machine Learning creates a number of pipelines in paralle
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
-1. **Identify the ML problem** to be solved: classification, forecasting, regression or AutoML for Images
+1. **Identify the ML problem** to be solved: classification, forecasting, regression or computer vision.
 
 1. **Choose whether you want to use the Python SDK or the studio web experience**:
    Learn about the parity between the [Python SDK and studio web experience](#parity).
@@ -265,7 +267,7 @@ Consider these pros and cons when choosing to use local vs. remote.
 | Azure ML Pipeline workflow support                         | ✓      |       |
 | Continue a run                                             | ✓      |       |
 | Forecasting                                                | ✓      | ✓     |
-| AutoML for Images                                               | ✓      |       |
+| Computer vision                                               | ✓      |       |
 | Create and run experiments in notebooks                    | ✓      | ✓     |
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
 | Data guardrails                                            | ✓      | ✓     |
