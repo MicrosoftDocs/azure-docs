@@ -1,7 +1,7 @@
 ---
-title: Acquire a token to call a web API using username password (desktop app) | Azure
+title: Acquire a token to call a web API using username and password (desktop app) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using username password
+description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using username and password.
 services: active-directory
 author: maliksahil
 manager: CelesteDG
