@@ -84,7 +84,7 @@ items:
   - name: Configure settings
     expanded: false
     items:
-    - name: Configure another Azure API for FHIR settings
+    - name: Configure other Azure API for FHIR settings
       href: azure-api-for-fhir-additional-settings.md
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
