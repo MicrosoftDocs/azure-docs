@@ -3,7 +3,7 @@ title: Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in 
 description: This article tells how to deploy an extension-based Windows or Linux Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/27/2021
+ms.date: 09/28/2021
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 --- 
@@ -114,7 +114,7 @@ You can also create an empty hybrid worker group and then add machines.
 
 1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine.
 
-1. Select **Add** to add the machine to the group. Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. The **Platform** field shows the worker as **OMS Solution (V1)** or **VM Extension (V2)**.
+1. Select **Add** to add the machine to the group. Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. The **Platform** field shows the worker as **Agent based (V1)** or **Extension based (V2)**.
 
 ## Delete a Hybrid Runbook Worker
 
@@ -126,10 +126,10 @@ You can delete the Hybrid Runbook Worker from the portal.
 
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
 
-1. Select **Delete**.  You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the VM Extension (V2) worker or remove the OMS Solution (V1) entry from the portal. However, it leaves the stale hybrid worker on the VM. To manually uninstall the agent, see [Uninstall agent](../azure-monitor/agents/agent-manage.md#uninstall-agent).
+1. Select **Delete**.  You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the **Extension based (V2)** worker or remove the **Agent based (V1)** entry from the portal. However, it leaves the stale hybrid worker on the VM. To manually uninstall the agent, see [Uninstall agent](../azure-monitor/agents/agent-manage.md#uninstall-agent).
 
 > [!NOTE]
-> A hybrid worker can co-exist with both platforms: OMS Solution (V1) & VM Extension (V2). If you install VM Extension (V2) on a hybrid worker already running OMS Solution (V1), then you would see 2 entries of the hybrid worker in the group. One with Platform as VM Extension (V2) and the other as OMS Solution (V1).
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform as **Extension based (V2)** and the other as **Agent based (V1)**.
 
 ## Delete a Hybrid Runbook Worker group
 
