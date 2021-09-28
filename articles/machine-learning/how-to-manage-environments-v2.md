@@ -13,7 +13,7 @@ ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
-# Manage Azure Machine Learning environments with the CLI (v2)
+# Manage Azure Machine Learning environments with the CLI (v2) (preview)
 
 Azure Machine Learning environments define the execution environments for your jobs or deployments and encapsulate the dependencies for your code. Azure ML uses the environment specification to create the Docker container that your training or scoring code runs in on the specified compute target. You can define an environment from a conda specification, Docker image, or Docker build context.
 
@@ -39,13 +39,13 @@ Note that `--depth 1` clones only the latest commit to the repository which redu
 
 ## Curated environments
 
-There are two types of environments in Azure ML, curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
+There are two types of environments in Azure ML: curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
 
 Curated environments are provided by Azure ML and are available in your workspace by default. Azure ML routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They are backed by cached Docker images, which reduces job preparation cost and model deployment time.
 
 You can use these curated environments out of the box for training or deployment by referencing a specific environment using the `azureml:<curated-environment-name>:<version>` syntax. You can also use them as reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
 
-For a list of curated environments, see [Azure Machine Learning curated environments](resource-curated-environments.md). You can also view the set of available curated environments in the Azure ML studio UI, or by using the CLI (v2) via `az ml environments list`.
+You can see the set of available curated environments in the Azure ML studio UI, or by using the CLI (v2) via `az ml environments list`.
 
 ## Create an environment
 
@@ -61,7 +61,7 @@ For the YAML reference documentation for Azure ML environments, see [CLI (v2) en
 
 To define an environment from a Docker image, provide the image URI of the image hosted in a registry such as Docker Hub or Azure Container Registry. 
 
-The following example is a YAML specification file for an environment defined from a Docker image. An image from the official PyTorch repository on Docker Hub is specified to the `image` property in the YAML file.
+The following example is a YAML specification file for an environment defined from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property in the YAML file.
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
 
@@ -78,11 +78,11 @@ az ml environment create --file assets/environment/docker-image.yml
 
 ### Create an environment from a Docker build context
 
-Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed for building the image.
+Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed to build the image.
 
-The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.local_path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure ML will look for a Dockerfile at the path `./Dockerfile` within the context.
+The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.local_path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure ML will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
-In this example, the build context contains a Dockerfile `Dockerfile` and a `requirements.txt` file that is referenced within the Dockerfile for installing Python packages.
+In this example, the build context contains a Dockerfile named `Dockerfile` and a `requirements.txt` file that is referenced within the Dockerfile for installing Python packages.
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
 
@@ -96,11 +96,11 @@ Azure ML will start building the image from the build context when the environme
 
 ### Create an environment from a conda specification
 
-You can define an environment using the standard conda YAML configuration file of the dependencies for a conda environment. See https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually for information on this standard format.
+You can define an environment using a standard conda YAML configuration file that includes the dependencies for the conda environment. See [Creating an environment manually](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually) for information on this standard format.
 
 You must also specify a base Docker image for this environment. Azure ML will build the conda environment on top of the Docker image provided.
 
-The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure ML environment YAML file is specified to the `conda_file` property. You can alternatively define the conda specification inline for the `conda_file` property, rather than define it in a separate file.
+The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure ML environment YAML file is specified via the `conda_file` property. You can alternatively define the conda specification inline using the `conda_file` property, rather than defining it in a separate file.
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
 
@@ -146,7 +146,8 @@ Update mutable properties of a specific environment:
 az ml environment update --name docker-image-example --version 1 --set description="This is an updated description."
 ```
 
-For environments, only `description` and `tags` can be updated. All other properties are immutable; if you need to change any of those properties you should create a new version of the environment.
+> [!IMPORTANT]
+> For environments, only `description` and `tags` can be updated. All other properties are immutable; if you need to change any of those properties you should create a new version of the environment.
 
 ### Delete
 
