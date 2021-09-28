@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: mathoma, wiassaf
-ms.date: 7/29/2021
+ms.date: 9/28/2021
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -184,7 +184,7 @@ Auto-resuming is also triggered during the deployment of some service updates wh
 
 ### Connectivity
 
-If a serverless database is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
+If a serverless database is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.  For connection retry logic options that are built-in to the SqlClient driver, see [configurable retry logic in SqlClient](configurable-retry-logic.md).
 
 ### Latency
 
