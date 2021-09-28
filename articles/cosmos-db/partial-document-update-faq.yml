@@ -12,7 +12,7 @@ title: Frequently asked questions about partial document update in Azure Cosmos 
 summary: |
   [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-  Partial Document Update allows you to efficiently modify an item in an Azure Cosmos DB container. This article answers commonly asked questions about Azure Cosmos DB Partial Document Update.
+  Partial Document Update allows you to modify specific properties or fields on an item without the need to perform a full document replace operation. This article answers commonly asked questions about Azure Cosmos DB Partial Document Update.
 
 sections:
   - name: General
@@ -28,7 +28,7 @@ sections:
           Yes, partial document update is available across serverless, provisioned throughput and autoscale modes.
 
       - question: |
-          How is RU pricing calculated?
+          How is RU/s pricing calculated?
         answer: |
           Partial Document Update is normalized into request unit billing in the same way as [other database operations](how-pricing-works.md). Users should not expect a significant reduction in RU.
 

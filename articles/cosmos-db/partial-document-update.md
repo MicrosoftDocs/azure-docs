@@ -12,7 +12,7 @@ ms.author: abhishgu
 # Partial document update in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB Partial Document Update feature (also known as Patch API) provides a convenient way to modify a document (item) in a container. Currently, to update a document the client needs to read it, execute Optimistic Concurrency Control checks (if necessary), update the document locally and then send it over the wire as a whole document Replace API call. 
+Azure Cosmos DB Partial Document Update feature (also known as Patch API) provides a convenient way to modify a document in a container. Currently, to update a document the client needs to read it, execute Optimistic Concurrency Control checks (if necessary), update the document locally and then send it over the wire as a whole document Replace API call. 
 
 Partial document update feature improves this experience significantly. The client can only send the modified properties/fields in a document without doing a full document replace operation. Key benefits of this feature include:
 
@@ -24,6 +24,8 @@ Partial document update feature improves this experience significantly. The clie
 
 The table below summarizes the operations supported by this feature.
 
+> [!NOTE]
+> *target path* refers to a location within the JSON document
 
 | **Operation type** | **Description** |
 | ------------ | -------- |
@@ -116,7 +118,7 @@ The below Patch operations are issued concurrently by different clients in diffe
 - `Set` attribute `/level` to platinum  
 - `Remove` 67890 from `/phone`
 
-:::image type="content" source="./media/partial-document-update/patch-multi-region-conflict-resolution.png" alt-text="An image that shows conflict resolution in concurrent multi-master patch write operations" border="false":::
+:::image type="content" source="./media/partial-document-update/patch-multi-region-conflict-resolution.png" alt-text="An image that shows conflict resolution in concurrent multi-region partial update operations" lightbox="./media/partial-document-update/patch-multi-region-conflict-resolution.png":::
 
 Since Patch requests were made to non-conflicting paths within the document, these will be conflict resolved automatically and transparently (as opposed to Last Writer Wins at a document level).    
 
