@@ -118,7 +118,6 @@ When you create a new workspace, it automatically creates several Azure resource
     * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
     * [AutoML](concept-automated-ml.md) when deploying
     * [Data profiling](how-to-connect-data-ui.md#data-profile-and-preview)
-    * [Azure Machine Learning designer](concept-designer.md)
 
     To minimize costs, ACR is **lazy-loaded** until images are needed.
 
