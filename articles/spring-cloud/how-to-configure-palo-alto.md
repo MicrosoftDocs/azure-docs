@@ -367,7 +367,7 @@ Invoke-RestMethod -Method Get -Uri $url  -SkipCertificateCheck -Headers $paloAlt
 
 Next, add network security rules to enable traffic from Palo Alto to access Azure Spring Cloud. The following examples reference the spoke Network Security Groups (NSGs) created by the Reference Architecture: `nsg-spokeapp` and `nsg-spokeruntime`.
 
-Run the following command to create the necessary network security rule for each of these NSGs, where `$PaloAltoAddressPrefix` is the Classless Inter-Domain Routing (CIDR) address of Palo Alto's private IPs.
+Run the following Azure CLI commands in a PowerShell window to create the necessary network security rule for each of these NSGs, where `$PaloAltoAddressPrefix` is the Classless Inter-Domain Routing (CIDR) address of Palo Alto's private IPs.
 
 ```azurecli
 az network nsg rule create `
