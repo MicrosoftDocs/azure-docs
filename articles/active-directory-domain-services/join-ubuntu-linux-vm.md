@@ -80,12 +80,24 @@ During the Kerberos installation, the *krb5-user* package prompts for the realm 
 
 ```console
 sudo apt-get update
-sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
+sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss realmd adcli
 ```
 
 ## Configure Network Time Protocol (NTP)
 
-For domain communication to work correctly, the date and time of your Ubuntu VM must synchronize with the managed domain. Add your managed domain's NTP hostname to the */etc/ntp.conf* file.
+Starting in early calendar 2021, the most current Azure images with Linux are being changed to use chronyd as the time sync service, and chronyd is configured to synchronize against the Azure host rather than an external NTP time source. The Azure host time is usually the best time source to synchronize against, as it is maintained very accurately and reliably, and is accessible without the variable network delays inherent in accessing an external NTP time source over the public internet.
+
+Trusting the reliability of the Azure platform, it's possible to consider all the servers into the domain synched even if not directly synched with the domain controllers. For this reason, no additional configuration is required for the Network Time Protocol.
+
+Follow the procedure below only for older VM not supporting chronyd.
+For domain communication to work correctly, the date and time of your Ubuntu VM must synchronize with the managed domain. 
+Add the required pacakges to mange ntp:
+
+```console
+sudo apt-get install ntp ntpdate
+```
+
+Add your managed domain's NTP hostname to the */etc/ntp.conf* file.
 
 1. Open the *ntp.conf* file with an editor:
 
