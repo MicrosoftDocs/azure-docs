@@ -145,7 +145,7 @@ Register the `AutoUpgradePreview` feature flag by using the [az feature register
 az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It can take several minutes for the status to show *Registered*. Please wait for the registration to finish. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
