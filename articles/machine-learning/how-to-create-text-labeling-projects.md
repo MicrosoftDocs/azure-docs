@@ -74,7 +74,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Choose the **Dataset type**:
     * Select **Tabular** if you are using a .csv file, where each row contains a response.
     * Select **File** if you are using separate .txt files for each response.
-1. Provide a description for your dataset.
+1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
 1. Select the datastore.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
@@ -92,9 +92,10 @@ To directly upload your data:
 1. Choose the **Dataset type**.
     * Select **Tabular** if you are using a .csv file, where each row is a response.
     * Select **File** if you are using separate .txt files for each response.
-1. Provide a description of your dataset.
+1. (Optional) Provide a description of your dataset.
 1. Select **Next**
-1. Select **Upload** to select the local file(s) to upload.
+1. (Optional) Select or create a datastore. Or keep the default upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. Select **Upload** to select the local file(s) or folder(s) to upload.
 1. Select **Next**.
 1. If uploading .csv files:
     * Confirm the settings and preview, select **Next**.
@@ -102,7 +103,6 @@ To directly upload your data:
     * Select **Next**.
 1.  Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
-The data gets uploaded to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 
 ## <a name="incremental-refresh"> </a> Configure incremental refresh
 
@@ -114,7 +114,7 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 ## Describe the text labeling task
 
-[!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
+[!INCLUDE [describe](../../includes/machine-learning-data-labeling-describe.md)]
 
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
@@ -186,4 +186,3 @@ Access exported Azure Machine Learning datasets in the **Datasets** section of M
 ## Next steps
 
 * [How to tag text](how-to-label-data.md#label-text)
-*

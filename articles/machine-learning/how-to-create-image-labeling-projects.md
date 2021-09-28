@@ -65,12 +65,12 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
-1. Leave the selected **Dataset type**.  Only file dataset types are supported for images.
+1. **Dataset type** is set to file, only file dataset types are supported for images.
 1. Select the datastore.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
     * Append "**/*.*" to include all the data in the current container and its subfolders.
-1. Provide a description for your dataset.
+1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
@@ -80,14 +80,13 @@ To directly upload your data:
 
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
-1. 1. Leave the selected **Dataset type**.  Only file dataset types are supported for images.
-1. *Optional:* Select **Advanced settings** to customize the datastore, container, and path to your data.
-1. Select **Browse** to select the local files to upload.
-1. Provide a description of your dataset.
+1. **Dataset type** is set to file, only file dataset types are supported for images.
+1. (Optional) Provide a description for your dataset.
+1. Select **Next**.
+1. (Optional) Select or create a datastore. Or keep the default upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. Select **Browse** to select the local files or folder(s) to upload.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
-
-The data gets uploaded to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 
 ## <a name="incremental-refresh"> </a> Configure incremental refresh
 
@@ -99,7 +98,7 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 ## Describe the image labeling task
 
-[!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
+[!INCLUDE [describe](../../includes/machine-learning-data-labeling-describe.md)]
 
 For bounding boxes, important questions include:
 
@@ -119,8 +118,8 @@ At the beginning of your labeling project, the items are shuffled into a random 
 
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
 
-* Clustering (for image labeling)
-* Prelabeling 
+* Clustering
+* Prelabeling
 
 The exact number of labeled data necessary to start assisted labeling is not a fixed number.  This can vary significantly from one labeling project to another. For some projects, is sometimes possible to see prelabel or cluster tasks after 300 items have been manually labeled. ML Assisted Labeling uses a technique called *Transfer Learning*, which uses a pre-trained model to jump-start the training process. If your dataset's classes are similar to those in the pre-trained model, pre-labels may be available after only a few hundred manually labeled items. If your dataset is significantly different from the data used to pre-train the model, it may take much longer.
 
@@ -149,7 +148,7 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 ## Run and monitor the project
 
-[!INCLUDE [run](../../includes/machine-learning-data-labeling-initialize.md)]
+[!INCLUDE [run](../../includes/machine-learning-data-labeling-run.md)]
 
 ### Dashboard
 
