@@ -105,7 +105,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 > [!NOTE]
-> Older versions of the metric definitions API did not support dimensions. We recommend using API verison "2018-01-01" or later.
+> Older versions of the metric definitions API did not support dimensions. We recommend using API version "2018-01-01" or later.
 >
 >
 
