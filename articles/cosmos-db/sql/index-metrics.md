@@ -16,7 +16,7 @@ Azure Cosmos DB provides indexing metrics to show both utilized indexed paths an
 > [!NOTE]
 > The indexing metrics are only supported in the .NET SDK (version 3.21.0 or later) and Java SDK (version 4.19.0 or later)
 
-## Enabling indexing metrics
+## Enable indexing metrics
 
 You can enable indexing metrics for a query by setting the `PopulateIndexMetrics` property to `true`. When not specified, `PopulateIndexMetrics` defaults to `false`. We only recommend enabling the index metrics for troubleshooting query performance. As long as your queries and indexing policy stay the same, the index metrics are unlikely to change. Instead, we recommend identifying expensive queries by monitoring query RU charge and latency using diagnostic logs.
 
