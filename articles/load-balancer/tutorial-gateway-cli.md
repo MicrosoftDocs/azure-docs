@@ -195,19 +195,8 @@ To create the load balancer, use [az network lb create](/cli/azure/network/lb#az
     --sku Gateway \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
+    --address-pool myBackendPool \
     --frontend-ip-name myFrontEnd
-```
-
-### Create backend address pool
-
-To create the backend address pool for the NVAs, use [az network lb address-pool create](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_create).
-
-```azurecli-interactive
-  az network lb address-pool create \
-    --lb-name myLoadBalancer-gw \
-    --name myBackendPool \
-    --resource-group TutorGwLB-rg \
-    --vnet myVNet
 ```
 
 ### Create tunnel interfaces
