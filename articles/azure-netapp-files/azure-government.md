@@ -24,7 +24,7 @@ ms.author: b-juche
 
 This article describes Azure NetApp Files feature availability in Azure Government. It also shows you how to access the Azure NetApp Files service within Azure Government.
 
-## Feature Availability
+## Feature availability
 
 For Azure Government regions supported by Azure NetApp Files, see the *[Products Available by Region page](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia)*.  
 
@@ -35,7 +35,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files cross-region replication |Public Preview | [Limited](cross-region-replication-introduction.md#supported-region-pairs) |
 | Azure NetApp Files backup | Public Preview | NO |
 
-## Portal Access
+## Portal access
 
 Azure Government users can access Azure NetApp Files by pointing their browsers to **portal.azure.us**.  The portal site name is **Microsoft Azure Government**. See [Connect to Azure Government using portal](../azure-government/documentation-government-get-started-connect-with-portal.md) for details.   
 
@@ -45,7 +45,7 @@ From the Microsoft Azure Government portal, you can access Azure NetApp Files th
 
 You can follow [Azure NetApp Files](/azure/azure-netapp-files/) documentation for details about using the service.
 
-## Azure CLI Access
+## Azure CLI access
 
 You can connect to Azure Government by setting the cloud name to `AzureUSGovernment` and then proceeding to log in as you normally would with the `az login` command. After running the log-in command, a browser will launch where you enter the appropriate Azure Government credentials.  
 
@@ -67,11 +67,11 @@ This command will produce a table with Azure cloud locations. The `isActive` col
 
 See [Connect to Azure Government with Azure CLI](../azure-government/documentation-government-get-started-connect-with-cli.md) for details.
 
-## REST API Access
+## REST API access
 
 Endpoints for Azure Government are different from commercial Azure endpoints. For a list of different endpoints, see Azure Government’s [Guidance for Developers](../azure-government/compare-azure-government-global-azure.md#guidance-for-developers).
 
-## PowerShell Access
+## PowerShell access
 
 When connecting to Azure Government through PowerShell, you must specify an environmental parameter to ensure you connect to the correct endpoints. From there, you can proceed to use Azure NetApp Files as you normally would with PowerShell. 
 
