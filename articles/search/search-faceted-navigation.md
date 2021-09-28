@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Add faceted navigation to a search app
 
-Faceted navigation is used for self-directed drilldown filtering on query results in a search app, where your application offers form controls for scoping search to groups of documents (for example, categories or brands), and Azure Cognitive Search provides the faceted search data structures and filters to back the experience. 
+Faceted navigation is used for self-directed drilldown filtering on query results in a search app, where your application offers form controls for scoping search to groups of documents (for example, categories or brands), and Azure Cognitive Search provides the data structures and filters to back the experience. 
 
 In this article, learn the basic steps for creating a faceted navigation structure in Azure Cognitive Search.
 
@@ -29,13 +29,11 @@ Code in the presentation layer does the heavy lifting in a faceted navigation ex
 
 Facets are dynamic and returned on a query. A search response brings with it all of the facet categories used to navigate the documents in the result. The query executes first, and then facets are pulled from the current results and assembled into a faceted navigation structure.
 
-Facets are one layer deep and cannot be hierarchical. You'll use query parameters in the request to determine the facets and filters. Your application code will handle rendering, including labels and user interaction.
-
-If you aren't familiar with faceted navigation structured, the following example shows one on the left.
+In Cognitive Search, facets are one layer deep and cannot be hierarchical. If you aren't familiar with faceted navigation structured, the following example shows one on the left.
 
 :::image source="media/tutorial-csharp-create-first-app/azure-search-facet-nav.png" alt-text="faceted search results":::
 
-Facets can help you find what you're looking for, while ensuring that you don't get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search index. In online retail applications, faceted navigation is often built over brands, departments (kid's shoes), size, price, popularity, and ratings. 
+Facets can help you find what you're looking for, while ensuring that you don't get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search index.
 
 ## Enable facets in the index
 
@@ -52,7 +50,7 @@ The following example of the "hotels" sample index shows "facetable" and "filter
     { "name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false },
     { "name": "Description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
     { "name": "HotelName", "type": "Edm.String", "facetable": false },
-    { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true },
+    { "name": "Category", "type": "Edm.String", "filterable": true, "facetable": true },
     { "name": "Tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
     { "name": "Rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
     { "name": "Location", "type": "Edm.GeographyPoint" }
@@ -62,11 +60,11 @@ The following example of the "hotels" sample index shows "facetable" and "filter
 
 ### Choosing fields
 
-Facets can be calculated over single value fields as well as collections. Fields that work best in faceted navigation have these characteristics:
+Facets can be calculated over single-value fields as well as collections. Fields that work best in faceted navigation have these characteristics:
 
 * Low cardinality (a small number of distinct values that repeat throughout documents in your search corpus)
 
-* Short descriptive values (one or two words)
+* Short descriptive values (one or two words) that will render nicely in a navigation tree
 
 The contents of a field, and not the field itself, produces the facets in a faceted navigation structure. If the facet is a string field *Color*, facets will be blue, green, and any other value for that field.
 
@@ -89,9 +87,9 @@ You cannot use `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)` fields i
 
 ## Facet request and response
 
-Facets are specified on the query and the faceted navigation structure is returned at the top of the response. The structure of a request and response is fairly simple. In fact, the real work behind faceted navigation lies in the presentation layer, covered in a later section. 
+Facets are specified on the query, and the faceted navigation structure is returned at the top of the response. The structure of a request and response is fairly simple. In fact, the real work behind faceted navigation lies in the presentation layer, covered in a later section. 
 
-The following REST example is an unqualified query (`"search": "*"`) that is scoped to the entire index (using the [built-in hotels sample](search-get-started-portal.md)). Facets are usually a list of fields, but his query shows just one for a more readable example.
+The following REST example is an unqualified query (`"search": "*"`) that is scoped to the entire index (see the [built-in hotels sample](search-get-started-portal.md)). Facets are usually a list of fields, but this query shows just one for a more readable response below.
 
 ```http
 POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-version={{api_version}}
@@ -107,7 +105,7 @@ POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-
 }
 ```
 
-It's useful to initialize a search page with an open query to completely fill in the faceted navigation structure. As soon as you pass query terms in the request, the faceted navigation structure will be scoped to just the matching documents. 
+It's useful to initialize a search page with an open query to completely fill in the faceted navigation structure. As soon as you pass query terms in the request, the faceted navigation structure will be scoped to just the matching documents.
 
 The response for the example above includes the faceted navigation structure at the top. The structure consists of "Category" values and a count of the hotels for each one. It's followed by the rest of the search results, trimmed here for brevity. This example works well for several reasons. The number of facets for this field fall under the limit (default is 10) so all of them appear, and every hotel in the index of 50 hotels is represented in exactly one of these categories.
 
@@ -161,7 +159,7 @@ The response for the example above includes the faceted navigation structure at 
 
 ## Facets syntax
 
-A facet query parameter is set to a comma-delimited list of "facetable" fields and depending on the data type, can be further parameterized to set sort, orders, increase or lower the maximum account on each facet, or specify ranges:  `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. For more detail about facet parameters, see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
+A facet query parameter is set to a comma-delimited list of "facetable" fields and depending on the data type, can be further parameterized to set counts, sort orders, and ranges:  `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. For more detail about facet parameters, see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
 
 ```http
 POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-version={{api_version}}
@@ -172,10 +170,9 @@ POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-
 }
 ```
 
-For each faceted navigation tree, there is a default limit of 10 facets. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to `count`. For example, `"Tags,count:5"` reduces the number of tags under the Tags section to the top give.
+For each faceted navigation tree, there is a default limit of 10 facets. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to "count". For example, `"Tags,count:5"` reduces the number of tags under the Tags section to the top five.
 
-For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, 
-`facet=Rating,values:1|2|3|4|5`) to separate results into contiguous ranges (either ranges based on numeric values or time periods). Alternatively, you can add `interval`, as in `facet=Rating,interval:1`. 
+For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, `facet=Rating,values:1|2|3|4|5`) to separate results into contiguous ranges (either ranges based on numeric values or time periods). Alternatively, you can add "interval:, as in `facet=Rating,interval:1`. 
 
 Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals.
 
@@ -189,7 +186,25 @@ Although this behavior could change at any time, if you encounter this behavior 
 
 ## Presentation layer
 
-In application code, the pattern is to use facet query parameters to return the faceted navigation structure along with facet results, plus a $filter expression.  The filter expression handles the click event on the facet value. Think of the `$filter` expression as the code behind the actual trimming of search results returned to the presentation layer. Given a Colors facet, clicking the color Red is implemented through a `$filter` expression that selects only those items that have a color of red. 
+In application code, the pattern is to use facet query parameters to return the faceted navigation structure along with facet results, plus a $filter expression.  The filter expression handles the click event and further narrows the search result based on the facet selection.
+
+### Facet and filter combination
+
+The following code snippet from the `JobsSearch.cs` file in the NYCJobs demo adds the selected Business Title to the filter if you select a value from the Business Title facet.
+
+```cs
+if (businessTitleFacet != "")
+  filter = "business_title eq '" + businessTitleFacet + "'";
+```
+
+Here is another example from the hotels sample. The following code snippet adds categorFacet to the filter if a user selects a value from the category facet.
+
+```csharp
+if (!String.IsNullOrEmpty(categoryFacet))
+    filter = $"category eq '{categoryFacet}'";
+```
+
+### HTML for faceted navigation
 
 The following example, taken from the `index.cshtml` file of the NYCJobs sample application, shows the static HTML structure for displaying faceted navigation on the search results page. The list of facets is built or rebuilt dynamically when you submit a search term, or select or clear a facet.
 
@@ -218,25 +233,9 @@ The following example, taken from the `index.cshtml` file of the NYCJobs sample 
 </div>
 ```
 
-### Facet and filter combination
-
-The following code snippet from the `JobsSearch.cs` page adds the selected Business Title to the filter if you select a value from the Business Title facet.
-
-```cs
-if (businessTitleFacet != "")
-  filter = "business_title eq '" + businessTitleFacet + "'";
-```
-
-Here is another example from the hotels sample. The following code snippet adds categorFacet to the filter if a user selects a value from the category facet.
-
-```csharp
-if (!String.IsNullOrEmpty(categoryFacet))
-    filter = $"category eq '{categoryFacet}'";
-```
-
 ### Build HTML dynamically
 
-The following code snippet from the `index.cshtml` page dynamically builds the HTML to display the first facet, Business Title. Similar functions dynamically build the HTML for the other facets. Each facet has a label and a count, which displays the number of items found for that facet result.
+The following code snippet from the `index.cshtml` (also from NYCJobs demo) dynamically builds the HTML to display the first facet, Business Title. Similar functions dynamically build the HTML for the other facets. Each facet has a label and a count, which displays the number of items found for that facet result.
 
 ```js
 function UpdateBusinessTitleFacets(data) {
@@ -251,7 +250,7 @@ function UpdateBusinessTitleFacets(data) {
 
 ## Tips for working with facets
 
-This section is a collection of tips for workarounds or behaviors you might want to implement.
+This section is a collection of tips and workarounds that might be helpful.
 
 ### Preserve a facet navigation structure asynchronously of filtered results
 
@@ -286,7 +285,7 @@ If you build the list of facets dynamically based on untrusted user input, valid
 
 ## Demos and samples
 
-Several samples include faceted navigation. This section has links to the samples and notes which client library and language is used.
+Several samples include faceted navigation. This section has links to the samples and also notes which client library and language is used for each one.
 
 ### Create your first app in C# (Razor)
 
