@@ -134,7 +134,7 @@ To run pipelines and perform system tasks, Azure Synapse requires that the works
     
     | Setting | Value |
     | --- | --- |
-    | Role | Storage Blob Contributor |
+    | Role | Storage Blob Data Contributor |
     | Assign access to | MANAGEDIDENTITY |
     | Members | managed identity name  |
 
@@ -176,16 +176,16 @@ The workspace creator is automatically set up as the SQL Active Directory Admin 
 
 ## STEP 7: Grant access to SQL pools
 
-By default, all users assigned the Synapse Administrator role are also assigned the SQL `db_owner` role on the serverless SQL pool, 'Built-in', and all its databases.
+By default, all users assigned the Synapse Administrator role are also assigned the SQL `db_owner` role on the dedicated and serverless SQL pools in the workspace.
 
 Access to SQL pools for other users and for the workspace MSI is controlled using SQL permissions.  Assigning SQL permissions requires that SQL scripts are run on each SQL database after creation.  There are three cases that require you run these scripts:
 1. Granting other users access to the serverless SQL pool, 'Built-in', and its databases
-2. Granting any user access to dedicated pool databases
+2. Granting any user access to dedicated SQL pool databases
 3. Granting the workspace MSI access to a SQL pool database to enable pipelines that require SQL pool access to run successfully.
 
 Example SQL scripts are included below.
 
-To grant access to a dedicated SQL pool database, the scripts can be run by the workspace creator or any member of the `workspace1_SQLAdmins` group.  
+To grant access to a dedicated SQL pool database, the scripts can be run by the workspace creator or any member of the `workspace1_SQLAdmins` group or the `workspace1_SynapseAdministrators` group.  
 
 To grant access to the serverless SQL pool, 'Built-in', the scripts can be run by any member of the `workspace1_SQLAdmins` group or the  `workspace1_SynapseAdministrators` group. 
 

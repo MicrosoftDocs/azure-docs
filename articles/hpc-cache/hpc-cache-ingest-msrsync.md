@@ -47,4 +47,4 @@ Follow these instructions to use ``msrsync`` to populate Azure Blob storage with
 
    For example, this command is designed to move 11,000 files in 64 processes from /test/source-repository to /mnt/hpccache/repository:
 
-   ``mrsync -P --stats -p64 -f170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/hpccache/repository``
+   `mrsync -P --stats -p64 -f170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/hpccache/repository`

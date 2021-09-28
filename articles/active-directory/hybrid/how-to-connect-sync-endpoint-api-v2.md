@@ -24,7 +24,7 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
 > Currently, the new endpoint does not have a configured group size limit for Microsoft 365 groups that are written back. This may have an effect on your Active Directory and sync cycle latencies. It is recommended to increase your group sizes incrementally.  
 
 >[!NOTE]
-> The Azure AD Connect sync V2 endpoint API is currently only available in these Azure environments:
+> The Azure AD Connect sync V2 endpoint API is Generally Available but currently can only be used in these Azure environments:
 > - Azure Commercial
 > - Azure China cloud
 > - Azure US Government cloud

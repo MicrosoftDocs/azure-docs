@@ -36,6 +36,7 @@ Once the pipeline is published, you may want to run it immediately without waiti
 
 1. Open the pipeline.
 1. Click **Add trigger** > **Trigger now**.
+1. Select **OK**. 
 
 ## Monitor pipeline execution
 

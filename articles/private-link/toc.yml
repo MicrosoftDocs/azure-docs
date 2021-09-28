@@ -61,7 +61,7 @@
   items:
   - name: Export private endpoint DNS records
     href: private-endpoint-export-dns.md
-  - name: Disable network policies for private endpoints
+  - name: Manage network policies for private endpoints
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service
     href: disable-private-link-service-network-policy.md

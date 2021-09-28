@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/02/2021
+ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
@@ -241,9 +241,6 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 ```
 
 ---
-
-> [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
 
 ### Customer-managed key and high business impact workspace
 

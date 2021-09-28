@@ -6,11 +6,14 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 08/06/2021
 ms.author: ginle
 ---
 
 # What is the IoT Connector?
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 IoT Connector is an optional feature of Azure Healthcare APIs that provides the capability to ingest data from Internet of Medical Things (IoMT) devices.
 

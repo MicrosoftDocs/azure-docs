@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -67,7 +67,7 @@ Perform the following steps to prepare the drives.
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
-
+    
     A journal file is created in the same folder where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
 
     The parameters used are described in the following table:
@@ -83,11 +83,16 @@ Perform the following steps to prepare the drives.
     |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, the blob type is `BlockBlob` and for page blobs, it is `PageBlob`.         |
     |/skipwrite:     | Specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
     |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
-8. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
 
-    > [!IMPORTANT]
-    > * Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
-   > * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
+8. Repeat the previous step for each disk that needs to be shipped. 
+
+   A journal file with the provided name is created for every run of the command line. 
+
+   Together with the journal file, a `<Journal file name>_DriveInfo_<Drive serial ID>.xml` file is also created in the same folder where the tool resides. The .xml file is used in place of the journal file when creating a job if the journal file is too big.
+
+> [!IMPORTANT]
+> * Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
+> * The maximum size of the journal file that the portal allows is 2 MB. If the journal file exceeds that limit, an error is returned.
 
 ## Step 2: Create an import job
 
