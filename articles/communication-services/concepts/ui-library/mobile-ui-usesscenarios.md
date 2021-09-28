@@ -23,7 +23,7 @@ Composites enable developers to easily integrate a whole calling experience into
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | Call Types                                                                                      | Join Teams Meeting                                     |
 |                                                                                                 | Join Azure Communication Services call with Group Id   |
-| [Teams Interop](../../concepts/teams-interop) | Call Lobby                                             |
+| [Teams Interop](../../concepts/teams-interop.md) | Call Lobby                                             |
 |                                                                                                 | Transcription and recording alert banner               |
 | Participant Gallery                                                                             | Remote participants are displayed on grid              |
 |                                                                                                 | Video preview available throughout call for local user |
@@ -41,13 +41,13 @@ Composites enable developers to easily integrate a whole calling experience into
 ## Supported Identities
 
 An Azure Communication Services identity is required to initialize the composites and authenticate to the service.
-For more information on authentication, see [Authentication](../authentication) and [Access Tokens](../../quickstarts/access-tokens)
+For more information on authentication, see [Authentication](../authentication.md) and [Access Tokens](../../quickstarts/access-tokens.md)
 
 ## Teams Interop
 
 ![Teams Interop pattern for calling and chat](../media/mobile-ui/TeamsInteropDiagram.png)
 
-For [Teams Interop](../teams-interop) scenarios, developers can use UI Mobile Library Components to join Teams meetings through Azure Communication Services.
+For [Teams Interop](../teams-interop.md) scenarios, developers can use UI Mobile Library Components to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
 <img src="../media/mobile-ui/teams_meet.png" alt="Pre-meeting experience" width="600"/> 
@@ -73,7 +73,7 @@ The calling composite offers to adapt to any screen size that would bring suppor
 ## Recommended Architecture
 
 Composite are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
-trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial) for more information.
+trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md) for more information.
 
 <img alt="recommended architecture diagram" src="../media/mobile-ui/ui-library-architecture.png" width="80%" />
 

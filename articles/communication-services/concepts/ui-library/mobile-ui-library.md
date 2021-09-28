@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
 
-UI Mobile Library is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Mobile UI Library is [video and voice calling](../voice-video-calling/calling-sdk-features), and it builds on Azure's calling primitives to deliver a complete user experience based on calling and meetings primitives.
+UI Mobile Library is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Mobile UI Library is [video and voice calling](../voice-video-calling/calling-sdk-features.md), and it builds on Azure's calling primitives to deliver a complete user experience based on calling and meetings primitives.
 
 The UI Mobile Library objective is to provide these capabilities available to you in a turnkey, composite format. You drop the UI SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is lightly, you can take advantage of reduce the development time and engineering complexity.
 
@@ -26,7 +26,7 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 
 | Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turn on. For Teams Interop is included lobby functionality for user to wait to be admitted. |
+| [CallComposite](../../quickstarts/voice-video-calling/getting-started-with-calling.md)  TBD final link| Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turn on. For Teams Interop is included lobby functionality for user to wait to be admitted. |
 
 ## Installing Mobile UI Library
 
@@ -61,7 +61,7 @@ The calling composite provide an end two end experience, optimizing development 
 
 ### Quality and security
 
-Mobile Composites are initialized using Azure Communication Services access tokens. For more information on [how to generate and manage access tokens.](../../quickstarts/access-tokens)
+Mobile Composites are initialized using Azure Communication Services access tokens. For more information on [how to generate and manage access tokens.](../../quickstarts/access-tokens.md)
 
 ### More details
 
@@ -80,11 +80,11 @@ Understanding these requirements will help you choose the right client library:
 
 Details about feature availability in the [UI Library is available here](mobile-ui-usesscenarios.md), but key trade-offs are summarized below.
 
-| Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop) |
+| Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- |  ---- | ----------------------------------------------------------------------------------------------- |
 | Composite Components  | Low                       | Low                   |         ✔    | ✔                                                                                               |
 | Core client libraries | High                      | High                  |         ✔    | ✔                                                                                               |
 
 ## Learn and go
 
-For more information about how to start with the UI Mobile library composites, please follow [our Quickstarts guides TBD](../../quickstarts/voice-video-calling/getting-started-with-calling).
+For more information about how to start with the UI Mobile library composites, please follow [our Quickstarts guides TBD](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
