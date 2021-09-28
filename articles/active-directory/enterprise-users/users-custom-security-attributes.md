@@ -180,7 +180,7 @@ PATCH https://graph.microsoft.com/beta/users/<id>
 }
 ```
 
-A successful response is Success 200.
+A successful response is Success 204.
 
 #### Assign a custom security attribute with a multi-string value to a user
 
@@ -199,7 +199,7 @@ PATCH https://graph.microsoft.com/beta/users/<id>
 }
 ```
 
-A successful response is Success 200.
+A successful response is Success 204.
 
 #### Assign a custom security attribute with an integer value to a user
 
@@ -211,13 +211,14 @@ PATCH https://graph.microsoft.com/beta/users/<id>
         "Storage":
         {
             "@odata.type":"#Microsoft.DirectoryServices.CustomSecurityAttributeValue",
+            "Project@odata.type":"#Int32",
             "Project":12
         }
     }
 }
 ```
 
-A successful response is Success 200.
+A successful response is Success 204.
 
 #### Assign a custom security attribute with a multi-integer value to a user
 
@@ -236,7 +237,7 @@ PATCH https://graph.microsoft.com/beta/users/<id>
 }
 ```
 
-A successful response is Success 200.
+A successful response is Success 204.
 
 #### Assign a custom security attribute with a Boolean value to a user
 
@@ -254,7 +255,7 @@ PATCH https://graph.microsoft.com/beta/users/<id>
 }
 ```
 
-A successful response is Success 200.
+A successful response is Success 204.
 
 #### Update a custom security attribute with an integer value for a user
 
