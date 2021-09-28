@@ -2,6 +2,7 @@
 title: Connect your VMware vCenter to Azure Arc using the helper script
 description: In this quickstart, you will learn how to use the helper script to connect your VMware vCenter to Azure Arc.
 ms.topic: quickstart 
+ms.custom: 
 ms.date: 09/15/2021
 
 # Customer intent: As a VI admin, I want to connect my vCenter to Azure so that I can enable self-service through Arc.
@@ -15,18 +16,49 @@ This quickstart shows you how to connect your VMware vCenter to Azure Arc using 
 
 ## Prerequisites
 
-**Requirement** | **Details**
---- | ---
-**Azure** | An Azure subscription that is enabled for this private preview <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role.
-**vCenter Server** | You need a vCenter Server running version 6.5 or later.<br/><br/> On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server.  **As of today, only the default port of 443 is supported (if you use a different port, Appliance VM creation will fail)**.  <br/><br/> A resourcepool with minimum free capacity of 16 GB of RAM, 4 vCPUs. <br/><br/> A datastore with minimum 100 GB of free disk space that is available through the resource pool.<br/><br/> An external virtual network/switch and internet access,directly or through proxy to which the appliance VM can be deployed.
-**vSphere accounts** | A vSphere account that can read all inventory, deploy and update VMs to all the resource pools (or clusters), networks and virtual machine templates that you want to use with Azure Arc. <br/><br/> This will be used for the ongoing operation of Azure Arc enabled VMware vSphere as well as the deployment of the Arc Resource bridge VM.<br/><br/> If you are using Azure VMware solution, this account would be the `cloudadmin` account.
-**Workstation** | A Windows/Linux machine that can access both your vCenter server and internet, directly or through proxy.
+### Azure
+
+- An Azure subscription. 
+
+- A resource group in the above subscription where you have the *Owner/Contributor* role.
+
+
+### vCenter Server
+
+- vCenter Server running version 6.5 or later.
+
+- Inbound connections allowed on TCP port 443, so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server.  
+
+   >[!NOTE]
+   >As of today, only the default port of 443 is supported. If you use a different port, Appliance VM creation fails.  
+
+- A resource pool with minimum free capacity of 16 GB of RAM, 4 vCPUs. 
+
+- A datastore with minimum 100 GB of free disk space that is available through the resource pool.
+
+- An external virtual network/switch and internet access,directly or through proxy to which the appliance VM can be deployed.
+
+
+### vSphere accounts
+
+A vSphere account that can read all inventory, deploy and update VMs to all the resource pools (or clusters), networks and virtual machine templates that you want to use with Azure Arc.  This account is used for the ongoing operation of Azure Arc enabled VMware vSphere as well as the deployment of the Arc Resource bridge VM.
+
+>[!NOTE]
+>If you are using Azure VMware solution, this account would be the `cloudadmin` account.
+
+### Workstation 
+
+A Windows or Linux machine that can access both your vCenter server and internet, directly or through proxy.
+
+
 
 ## Prepare vCenter server
 
 1. Create a resource pool if you don't have one. The resource pool should have a reservation of at least 8 GB of RAM and 4 vCPUs. It should also have at least 100 GB of disk space.
 
-3. Ensure the vSphere accounts have the appropriate permissions.
+1. Ensure the vSphere accounts have the appropriate permissions.
+
+
 
 ## Run the script 
 
@@ -60,7 +92,7 @@ Follow the below instructions to run the script on a windows machine:
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
     ```
 
-3. Execute the script by providing the parameters (refer to the table [above](##run-the-script) to know about the parameters).
+3. Execute the script by providing the parameters (refer to the table [above](#run-the-script) to know about the parameters).
 
      ``` powershell-interactive
      ./arcvmware-setup.ps1 -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
@@ -78,7 +110,7 @@ Follow the below instructions to run the script on a Linux machine:
    wget https://arcvmwaredl.blob.core.windows.net/arc-appliance/arcvmware-setup.sh
    ```
 
-3. Update the downloaded script with the following parameters (parameter details [here](##run-the-script)) - ResourceGroup, AzLocation, ApplianceName, CustomerLocationName, VcenterName
+3. Update the downloaded script with the following parameters (parameter details [here](#run-the-script)) - ResourceGroup, AzLocation, ApplianceName, CustomerLocationName, VcenterName
 
 4. Execute the script using the following comamnd:
 
@@ -89,31 +121,31 @@ Follow the below instructions to run the script on a Linux machine:
 ## Script Runtime
 The script execution will take up to half hour and you will be prompted for the various details. Refer to the table below for information on them:
 
-| **Requirements** | **Details** |
+| Requirements | Details |
 | --- | --- |
-| **Azure login** | You would be asked to login to Azure by visiting [this](https://www.microsoft.com/devicelogin) site and pasting the prompted code. |
+| **Azure login** | You would be asked to login to Azure by visiting the [device login](https://www.microsoft.com/devicelogin) site and pasting the prompted code. |
 | **vCenter FQDN/Address** | FQDN for the vCenter (or an ip address). </br> Eg: 10.160.0.1 or nyc-vcenter.contoso.com |
 | **vCenter Username** | Username for the vSphere account. The required permissions for the account are listed in the prerequisites above. |
 | **vCenter password** | Password for the vSphere account |
 | **Data center selection** | Select the name of the datacenter (as shown in vSphere client) where the Arc resource bridge VM should be deployed |
 | **Network selection** | Select the name of the virtual network or segment to which VM must be connected. This network should allow the appliance to talk to the vCenter server and the Azure endpoints (or internet). |
-| **Static IP / DHCP** | If you have DHCP server in your network and want to use it, type ‘y’ else ‘n’. On choosing static IP configuration, you will be asked the following </br> ```1. Static IP address prefix : Network address in CIDR notation E.g. 192.168.0.0/24``` </br> ```2. Static gateway: Eg. 192.168.0.0``` </br> ```3. DNS servers: Comma separated list of DNS servers ``` </br> ```4. Start range IP: Minimum size of 2 available addresses is required for upgrade scenarios. Provide the start IP of that range``` </br> ```5. End range IP: the last IP of the IP range requested in previous field.``` </br> ```6. VLAN ID (Optional)``` |
+| **Static IP / DHCP** | If you have DHCP server in your network and want to use it, type ‘y’ else ‘n’. On choosing static IP configuration, you will be asked the following: <ul><li>Static IP address prefix : Network address in CIDR notation E.g. 192.168.0.0/24</li><li>Static gateway: Eg. 192.168.0.0</li><li>DNS servers: Comma separated list of DNS servers</li><li>Start range IP: Minimum size of 2 available addresses is required for upgrade scenarios. Provide the start IP of that range</li><li>End range IP: the last IP of the IP range requested in previous field.</li><li>VLAN ID (Optional)</li></ul> |
 | **Resource pool** | Select the name of the resource pool to which the Arc resource bridge VM would be deployed |
 | **Data store** | Select the name of the datastore to be used for Arc resource bridge VM |
 | **Folder** | Select the name of the vSphere folder where Arc resource bridge VM should be deployed. |
 | **Vm template Name** | Provide a name for the VM template that will be created in your vCenter based on the downloaded OVA. Eg: arc-appliance-template |
 | **Control Pane IP** | Provide a reserved IP address (a reserved IP address in your DHCP range or a static IP outside of DHCP range but still available on the network). The key thing is this IP address shouldn't be assigned to any other machine on the network. |
-| **Appliance proxy settings** | Type ‘y’ if there is proxy in your appliance network, else type ‘n’. </br> You need to populate the following when you have proxy setup: </br> ```1. Http: Address of http proxy server ``` </br> ```2. Http: Address of http proxy server``` </br> ```3. NoProxy: addresses to be excluded from proxy ``` </br> ```4. CertificateFilePath: for ssl based proxies, path to certificate to be used ```
- |
-Once the command execution completed, your setup is complete and you can try out the capabilities of Azure Arc enabled VMware vSphere. You can proceed to the [next steps.](browse-and-enable-vcenter-resources-in-azure.md)
+| **Appliance proxy settings** | Type ‘y’ if there is proxy in your appliance network, else type ‘n’. </br> You need to populate the following when you have proxy setup: <ul><li>Http: Address of http proxy server</li><li>Http: Address of http proxy server</li><li>NoProxy: addresses to be excluded from proxy</li><li>CertificateFilePath: for ssl based proxies, path to certificate to be used</li></ul> |
+
+Once the command execution completed, your setup is complete and you can try out the capabilities of Azure Arc enabled VMware vSphere. You can proceed to the [next steps](browse-and-enable-vcenter-resources-in-azure.md)
 
 ### Retry command - Windows
 
-1. If for whatever reason, the appliance creation fails and you need to retry it. Running the command with ```-Force``` would cleanup and onboard again. 
+1. If for whatever reason, the appliance creation fails and you need to retry it. Running the command with `-Force` would cleanup and onboard again. 
 
-    ``` powershell-interactive
-     ./arcvmware-setup.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
-     ```
+   ``` powershell-interactive
+   ./arcvmware-setup.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
+   ```
 
 ### Retry command - Linux
 

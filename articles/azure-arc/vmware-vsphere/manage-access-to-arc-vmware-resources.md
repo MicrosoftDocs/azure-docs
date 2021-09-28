@@ -14,7 +14,7 @@ Once your VMware vCenter resources have been enabled for access through Azure, t
 
 This article describes how to use custom roles to manage granular access to VMware resources through Azure.
 
-## Arc enabled VMware vSphere Custom Roles
+## Arc enabled VMware vSphere custom roles
 
 You can select from three custom roles to meet your RBAC needs. You can apply these roles to a whole subscription, resource group, or a single resource.
 
@@ -167,11 +167,7 @@ In this step, you'll add the custom roles to users or groups in the subscription
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com) and select the subscription, resource group, or a single resource.
 
-1. Locate the Arc enabled VMware vSphere resources:
-
-   1. Navigate to the resource group and select the **Show hidden types** checkbox.
-
-   1. Search for **VMware**.
+1. Locate the Arc enabled VMware vSphere resources.  Navigate to the resource group and select the **Show hidden types** checkbox. Then search for **VMware**.
 
 1. Select **Access control (IAM)** > **Add role assignments** > **Grant access to this resource**.
 
