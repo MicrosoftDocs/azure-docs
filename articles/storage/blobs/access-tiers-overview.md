@@ -52,6 +52,21 @@ A blob in the cool tier in a general-purpose v2 accounts is subject to an early 
 
 Calculate the early deletion time by using the **Last-Modified** blob property, if there have been no access tier changes. Otherwise, use when the access tier was last modified to cool or archive by viewing the blob property: **access-tier-change-time**. For more information on blob properties, see [Get Blob Properties](/rest/api/storageservices/get-blob-properties).
 
+## Archive tier
+
+The archive tier is an offline tier for storing data that is rarely accessed. 
+
+The following considerations apply to the different access tiers:
+
+- The access tier can be set on a blob during or after upload.
+- Only the hot and cool access tiers can be set at the account level. The archive access tier can only be set at the blob level.
+- Data in the archive access tier is stored offline. The archive tier offers the lowest storage costs but also the highest access costs and latency.
+
+- Data storage limits are set at the account level and not per access tier. You can choose to use all of your limit in one tier or across all three tiers.
+
+
+## Setting a blob's tier
+
 ### Default access tier setting
 
 Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot or cool. Users can override the default setting when uploading a blob. For example, when the default access tier is set to hot, new blobs are uploaded to the hot tier, unless a different tier is specified at upload. Similarly, when the default access tier is set to cool, new blobs are uploaded to the cool tier by default.
@@ -60,32 +75,26 @@ By default, the default access tier for a new storage account is set to hot. You
 
 When a blob's access tier 
 
-It's not possible to set the default access tier for a storage account to the archive tier.
-
-## Archive tier
-
-The following considerations apply to the different access tiers:
-
-- The access tier can be set on a blob during or after upload.
-- Only the hot and cool access tiers can be set at the account level. The archive access tier can only be set at the blob level.
-- Data in the archive access tier is stored offline. The archive tier offers the lowest storage costs but also the highest access costs and latency.
-- The archive tier supports only LRS, GRS, and RA-GRS.
-- Data storage limits are set at the account level and not per access tier. You can choose to use all of your limit in one tier or across all three tiers.
-
-
-## Setting tier
-
-You can upload a blob to the cool tier by setting the tier at create time. You can also set the default tier for the storage account, and new blobs will then be uploaded to the cool tier by default. A user can override the default tier setting for the storage account when uploading a blob, for example by setting it to hot instead.
-
-You can change a blob's tier???
-
-## Account-level tiering
-
 Blobs in all three access tiers can coexist within the same account. Any blob that doesn't have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier comes from the account, you see the **Access Tier Inferred** blob property set to "true", and the **Access Tier** blob property matches the account tier. In the Azure portal, the *access tier inferred* property is displayed with the blob access tier as **Hot (inferred)** or **Cool (inferred)**.
 
 Changing the account access tier applies to all *access tier inferred* objects stored in the account that don't have an explicit tier set. If you toggle the account tier from hot to cool, you'll be charged for write operations (per 10,000) for all blobs without a set tier in general-purpose v2 accounts only. There's no charge for this change in Blob Storage accounts. You'll be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in Blob Storage or general-purpose v2 accounts.
 
 Only hot and cool access tiers can be set as the default account access tier. Archive can only be set at the object level. On blob upload, you can specify the access tier of your choice to be hot, cool, or archive regardless of the default account tier. This functionality allows you to write data directly into the archive tier to realize cost-savings from the moment you create data in blob storage.
+
+
+> [!NOTE]
+> It's not possible to set the default access tier for a storage account to the archive tier.
+
+### Setting a blob's tier on upload
+
+You can upload a blob to the cool tier by setting the tier at create time. You can also set the default tier for the storage account, and new blobs will then be uploaded to the cool tier by default. A user can override the default tier setting for the storage account when uploading a blob, for example by setting it to hot instead.
+
+### Changing a blob's tier
+
+You can change a blob's tier???
+
+## Account-level tiering
+
 
 ## Blob-level tiering
 
@@ -112,40 +121,37 @@ The following table summarizes how tier changes are billed.
 | ---- | ----- | ----- |
 | **Set Blob Tier** | hot -> cool<br> hot -> archive<br> cool -> archive | archive -> cool<br> archive -> hot<br> cool -> hot
 
-### Cool and archive early deletion
-
-
 ## Blob lifecycle management
 
 Blob storage lifecycle management offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md) to learn more.
 
 > [!NOTE]
-> Data stored in a block blob storage account (Premium performance) cannot currently be tiered to hot, cool, or archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management.
-> To move data, you must synchronously copy blobs from the block blob storage account to the hot tier in a different account using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API.
-> The **Put Block From URL** API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
+> Data stored in a premium block blob storage account cannot be tiered to hot, cool, or archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from the block blob storage account to the hot tier in a different account using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The **Put Block From URL** API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
 
-## Comparing block blob storage options
+## Summary of access tier options
 
-The following table shows a comparison of premium performance block blob storage, and the hot, cool, and archive access tiers.
+The following table summarizes the features of the hot, cool, and archive access tiers.
 
 |  | **Hot tier** | **Cool tier** | **Archive tier** |
 |--|--|--|--|
 | **Availability** | 99.9% | 99% | Offline |
 | **Availability** <br> **(RA-GRS reads)** | 99.99% | 99.9% | Offline |
-| **Usage charges** | Higher storage costs, lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
+| **Usage charges** | Higher storage costs, but lower access and transaction costs | Lower storage costs, but higher access and transaction costs | Lowest storage costs, but highest access, and transaction costs |
 | **Minimum recommended data retention period** | N/A | 30 days<sup>1</sup> | 180 days |
 | **Latency** <br> **(Time to first byte)** | Milliseconds | Milliseconds | Hours<sup>2</sup> |
+| **Supported redundancy configurations** | All | All | LRS, GRS, and RA-GRS<sup>3</sup> only |
 
 <sup>1</sup> Objects in the cool tier on general-purpose v2 accounts have a minimum retention duration of 30 days. Blob Storage accounts don't have a minimum retention duration for the cool tier.
 
 <sup>2</sup> Archive Storage currently supports two rehydration priorities, high and standard, offering different retrieval latencies and costs. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
-> [!NOTE]
-> Blob Storage accounts support the same performance and scalability targets as general-purpose v2 storage accounts. For more information, see [Scalability and performance targets for Blob Storage](scalability-targets.md).
+<sup>3</sup> For more information about redundancy configurations in Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
+
+For information about performance and scalability targets for standard general-purpose v2 storage accounts, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md).
 
 ## Pricing and billing
 
-All storage accounts use a pricing model for block blob storage based on the tier of each blob. Keep in mind the following billing considerations:
+All storage accounts use a pricing model for block blob storage that is based on the tier of each blob. Keep in mind the following billing considerations:
 
 - **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the access tier. The per-gigabyte cost decreases as the tier gets cooler.
 - **Data access costs**: Data access charges increase as the tier gets cooler. For data in the cool and archive access tier, you're charged a per-gigabyte data access charge for reads.
@@ -157,7 +163,7 @@ All storage accounts use a pricing model for block blob storage based on the tie
     Changing the access tier for a blob when versioning is enabled, or if the blob has snapshots, may result in additional charges. For information about blobs with versioning enabled, see [Pricing and billing](versioning-overview.md#pricing-and-billing) in the blob versioning documentation. For information about blobs with snapshots, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) in the blob snapshots documentation.
 
 > [!NOTE]
-> For more information about pricing for Block blobs, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). For more information on outbound data transfer charges, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/) page.
+> For more information about pricing for block blobs, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). For more information on outbound data transfer charges, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/) page.
 
 ## Feature support
 
@@ -173,8 +179,6 @@ This table shows how this feature is supported in your account and the impact on
 For information about feature support by region, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
 ## Next steps
-
-Learn how to manage blobs and accounts across access tiers.
 
 - [How to manage the tier of a blob in an Azure Storage account](manage-access-tier.md)
 - [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
