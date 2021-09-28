@@ -16,10 +16,18 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a high-performance network (HPN) VM on your Azure Stack Edge Pro GPU device.
+You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a high-performance network (HPN) VM on your Azure Stack Edge Pro GPU device. 
+
+## About HPN VMs
+
+A non-uniform memory access (NUMA) architecture is used to increase processor speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has its own processors and memory. Processors are typically allocated memory that they are close to so the access is quicker. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).  
+
+On your Azure Stack Edge device, logical processors are distributed on NUMA nodes and high speed network interfaces can be attached to these nodes. A HPN VM has a dedicated set of logical processors. These processors are first picked from the NUMA node that has high speed network interface attached to it, and then picked from other nodes. A HPN VM can only use the memory of the NUMA node that is assigned to its processors.  
+
+To run low latency and high throughput network applications on the HPN VMs deployed on your device, make sure to reserve vCPUs that reside in NUMA node 0. This node has Mellanox high speed network interfaces, Port 5 and Port 6 attached to it.   
 
         
-## VM deployment workflow
+## HPN VM deployment workflow
 
 The high-level summary of the HPN deployment workflow is as follows:
 
@@ -27,14 +35,14 @@ The high-level summary of the HPN deployment workflow is as follows:
 1. Enable cloud management of VMs from the Azure portal.
 1. Upload a VHD to an Azure Storage account by using Azure Storage Explorer. 
 1. Use the uploaded VHD to download the VHD onto the device, and create a VM image from the VHD. 
-1. Reserve vCPUs on the device for HPN VMs
+1. Reserve vCPUs on the device for HPN VMs.
 1. Use the resources created in the previous steps:
     1. VM image that you created.
     1. Virtual switch associated with the network interface on which you enabled compute.
     1. Subnet associated with the virtual switch.
 
     And create or specify the following resources inline:
-    1. VM name, choose a supported VM size, sign-in credentials for the VM. 
+    1. VM name, choose a supported HPN VM size, sign-in credentials for the VM. 
     1. Create new data disks or attach existing data disks.
     1. Configure static or dynamic IP for the VM. If you're providing a static IP, choose from a free IP in the subnet range of the network interface enabled for compute.
 
