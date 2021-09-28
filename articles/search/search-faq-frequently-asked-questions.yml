@@ -16,11 +16,7 @@ summary:  Find answers to commonly asked questions about concepts, code, and sce
 
 
 sections:
-<<<<<<< HEAD
-  - name: Service
-=======
   - name: Search service
->>>>>>> cd588da18054977ea629568d7d10485a4bd4bf51
     questions:
       - question: |
           How is Azure Cognitive Search different from full text search in my DBMS?
