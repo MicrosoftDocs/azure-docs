@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/03/2021
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -51,7 +51,10 @@ Do the following steps to prepare the drives.
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to fileshare. Folder structure is maintained.
+   - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to fileshare. Folder structure is maintained. If you import a file that already exists in a folder, the imported file overwrites the file in the destination folder.
+   
+   > [!NOTE]
+   > That behavior is different from earlier tool versions. In tool versions before 1.5.0.300, a \Disposition parameter let you choose what to do when you import an existing file.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
