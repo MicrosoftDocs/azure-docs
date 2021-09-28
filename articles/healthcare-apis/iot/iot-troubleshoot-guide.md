@@ -20,7 +20,7 @@ This article provides steps for troubleshooting common Azure IoT Connector for F
 > In the remainder of this article, Azure IoT Connector for FHIR will be referred to as IoT connector.
 
 > [!TIP]
-> When opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include copies of your Device and FHIR destination mappings to assist in the troubleshooting process.
+> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include copies of your Device and FHIR destination mappings to assist in the troubleshooting process.
 
 ## Device and FHIR destination mapping validations
 
@@ -163,8 +163,8 @@ The mapping copies should be provided to Azure Technical Support when opening a 
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
-> [!NOTE]
-> This process may also be used for copying and saving the contents of the **"Destination"** mapping.
+   > [!NOTE]
+   > This process may also be used for copying and saving the contents of the **"Destination"** mapping.
 
 3. Select the contents of the JSON and do a copy operation (for example: Press **Ctrl + C**). 
 
