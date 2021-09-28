@@ -1,7 +1,12 @@
 ---
 title: "How to: Write a TokenProvider with an Azure Function"
-menuPosition: 3
-editor: sdeshpande3
+services: azure-fluid
+author: sdeshpande3
+ms.author: sdeshpande
+ms.date: 09/28/2021
+ms.topic: article
+ms.service: azure-fluid
+fluid.url: https://fluidframework.com/docs/build/tokenproviders/
 ---
 
 The token provider is responsible for creating and signing tokens that the `@fluidframework/azure-client` uses to make
@@ -140,4 +145,5 @@ The `generateToken` function will generate a token for the given user that is si
 
 ## Adding custom data to tokens
 
-You can add custom data such as email id, gender, address, etc for your token generation. See `Token Provider` under [Connect to an Azure Fluid Relay service]({{< relref "azure-frs.md" >}}) for more information.
+You can add custom data such as email address, address, etc. for your token generation. See [the token providers
+section here](connect-fluid-azure-service.md#token-providers) for more information.

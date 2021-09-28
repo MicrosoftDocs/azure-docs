@@ -7,6 +7,7 @@ ms.author: tylerbu
 ms.date: 09/28/2021
 ms.topic: article
 ms.service: azure-fluid
+fluid.url: https://fluidframework.com/docs/build/auth/
 ---
 
 Security is critical to modern web applications. Fluid Framework, as a part of your web application architecture, is an
@@ -90,7 +91,7 @@ However, Fluid provides an `InsecureTokenProvider` that accepts your tenant secr
 
 One option for building a secure token provider is to create a serverless Azure Function and expose it as a token
 provider. This enables you to store the *tenant secret key* on a secure server. Your application calls the Azure Function to
-generate tokens rather than signing them locally like the `InsecureTokenProvider` does. You can find more information regarding secure token generation on [How to: Write a TokenProvider with an Azure Function](../how-tos/tokenproviders.md).
+generate tokens rather than signing them locally like the `InsecureTokenProvider` does. You can find more information regarding secure token generation on [How to: Write a TokenProvider with an Azure Function](../how-tos/azure-function-token-provider.md).
 
 ## Connecting user auth to Fluid service auth
 

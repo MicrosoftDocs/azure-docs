@@ -7,6 +7,7 @@ ms.author: hickeys
 ms.date: 08/19/2021
 ms.topic: article
 ms.service: azure-fluid
+fluid.url: 
 ---
 
 # Overview of Azure Fluid Relay architecture
@@ -14,50 +15,48 @@ ms.service: azure-fluid
 > [!NOTE]
 > The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. The Fluid Framework itself does not require Azure; users can create and host custom servers on any cloud service. [Azure Fluid Relay](../overview/overview.md) is an turnkey implementation of a Fluid Framework server that runs on Azure, and is suitable for use in production environments.
 
-Architecturally, Azure Fluid Relay can be broken into three components: The [Fluid Loader](), [Fluid containers](), and the [Fluid service](). This article provides a brief overview of each component, including what they do and how they fit into the Azure Fluid Relay service.
+There are three primary concepts to understand when building an application with Fluid.
 
-## Fluid Relay Service components
+- Service
+- Container
+- Shared objects
 
-At the highest level, the Fluid loader connects to the Fluid service and loads a Fluid container.
+## Service
 
-### Fluid containers
+Fluid clients require a centralized service that all connected clients use to send and receive operations. When using
+Fluid in an application you must use the correct package that corresponds to the underlying service you are connecting
+to.
 
-A **Fluid container** is a serverless app model with data persistence. The container itself contains app logic, app state, and logic to merge local and remote changes into the app state. Within a container, app logic is encapsulated in **Fluid Objects**. **Distributed data structures** (DDSes) contain app data and merge logic.
+For the Azure Fluid Relay service this package is `@fluidframework/azure-client`. This package helps create and load
+Fluid containers
 
-### Fluid service
+## Container
 
-The **Fluid service** has two primary functions. First, it serves as a repository of Fluid Containers, allowing new client apps to download and consume existing containers. Second, the service receives change operations ("ops") from client apps in real-time as changes are made, assigns each op a sequential order number, and broadcasts the ordered apps to all connected clients. Distributed data structures use these ops to reconstruct state on each client. The Fluid service doesn't parse any of these ops; in fact, the service knows nothing about the contents of any Fluid container.
+The container is the primary unit of encapsulation in Fluid. It consists of a collection of shared objects and supporting APIs to manage the lifecycle of the container and the objects within it.
 
-For convenience, the service stores and distributes both a history of old operations, accessible to clients through a **DeltaStorageService** object, and a current summary of the Fluid container. Summaries allow connected apps to "fast forward" their state without having to merge potentially thousands of change ops.
+Creating new containers is a client-driven action and container lifetimes are bound to the data stored on the supporting server. When getting existing containers it's important to consider the previous state of the container.
 
-### Fluid loader
+For more about containers see [Containers](./containers.md).
 
-The **Fluid loader** is the part of an app or website that enables Fluid functionality. The loader connects to the Fluid service to download and load Fluid containers, and maintains the service connection to send and receive change ops in real-time. In this way, the Fluid loader 'mimics the web.'
+## Shared objects
 
-The Fluid loader resolves a URL using **container resolver**, connects to the Fluid service using the **Fluid service driver**, and loads the correct app code using the **code loader.**
+A shared object is an object type that powers collaborative data by exposing a specific API. Many shared objects can exist within the context of a container and they can be created either statically or dynamically. Distributed Data Structures(DDSes) and DataObjects are both types of shared objects.
 
-The **container lookup & resolver** uses a URL to identify which service a container is bound to and where in that service it is located. The Fluid service driver consumes this information.
+For more information see [Data modeling](./data-modeling.md).
 
-The **Fluid service driver** connects to the Fluid service, requests space for new Fluid containers, and creates the three objects: **DeltaConnection**, **DeltaStorageService**, and **DocumentStorageService**. These objects are used to communicate with the server and maintain a consistent state.
+## Package structure
 
-The **container code loader** fetches container code. Because all clients run the same code, clients use the code loader to fetch container code. The Loader executes this code to create Fluid containers.
+There are two primary packages you'll use when building with Fluid. The `fluid-framework` package
+and a service-specific client package like `azure-client`.
 
-**DDSes** are used to distribute state to clients. Instead of centralizing merge logic in the server, the server passes changes (also known as operations or ops) to clients and the clients perform the merge.
+For more information see [Packages](https://fluidframework.com/docs/build/packages/) on fluidframework.com.
 
-## Fluid Relay design principles
+### The `fluid-framework` package
 
-### Keep the server simple
+The `fluid-framework` package is a collection of core Fluid APIs that make it easy to build and use applications. This package contains all the common type definitions as well as all the primitive shared objects.
 
-In existing production-quality collaborative algorithms, like Operational Transformations (OT), significant latency is introduced during server-side processing of merge logic.
+### The `@fluidframework/azure-client` package
 
-Fluid dramatically reduces latency by moving merge logic to the client, meaning requests spend fewer milliseconds in the datacenter.
-
-### Move logic to the client
-
-Because merge logic is performed on the client, other app logic that's connected to the distributed data should also be performed on the client.
-
-All clients must load the same merge logic and app logic so that clients can compute an eventually consistent state.
-
-### Mimic (and embrace) the web
-
-The Fluid Framework creates a distributed app model by distributing state and logic to the client. Because the web is already a system for accessing app logic and app state, Fluid mimics existing web protocols when possible.
+The `@fluidframework/azure-client` package provides an API for connecting to Azure Fluid Relay service instances to
+create and load Fluid containers. See [How to: Connect to an Azure Fluid Relay
+service](../how-tos/connect-fluid-azure-service.md) for more information about how to use this API.

@@ -7,6 +7,7 @@ ms.author: tylerbu
 ms.date: 09/28/2021
 ms.topic: article
 ms.service: azure-fluid
+fluid.url: https://fluidframework.com/docs/deployment/azure-frs/
 ---
 
 # How to: Connect to an Azure Fluid Relay service

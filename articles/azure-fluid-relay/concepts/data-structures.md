@@ -7,6 +7,7 @@ ms.author: tylerbu
 ms.date: 09/28/2021
 ms.topic: article
 ms.service: azure-fluid
+fluid.url: https://fluidframework.com/docs/data-structures/overview/
 ---
 
 The Fluid Framework provides developers with distributed data structures (DDSes) that automatically ensure that each
@@ -15,5 +16,5 @@ who've used common data structures before.
 
 To learn more about DDSes and how to use them, see the following sections of fluidframework.com:
 
-- [Introducing distributed data structures](https://fluidframework.com/docs/build/dds/)
-- [Types of distributed data structures](https://fluidframework.com/docs/data-structures/overview/)
+- [Introducing distributed data structures](https://fluidframework.com/docs/build/dds/).
+- [Types of distributed data structures](https://fluidframework.com/docs/data-structures/overview/).
