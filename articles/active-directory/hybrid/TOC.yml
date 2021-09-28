@@ -30,6 +30,8 @@
      items:
      - name: What is Azure AD Connect and Connect Health?
        href: whatis-azure-ad-connect.md
+     - name: What is Azure AD Connect V2.0?
+       href: whatis-azure-ad-connect-v2.md
      - name: Choose the right authentication
        href: ./choose-ad-authn.md
      - name: Identity synchronization and duplicate attribute resiliency
@@ -40,6 +42,8 @@
        href: whatis-phs.md
      - name: How password hash synchronization works
        href: how-to-connect-password-hash-synchronization.md
+     - name: Selective password hash synchronization
+       href: how-to-connect-selective-password-hash-synchronization.md
    - name: Pass-through authentication
      items:
      - name: What is pass-through authentication?
@@ -151,10 +155,8 @@
       href: reference-connect-instances.md
     - name: Migration
       items:
-          - name: Migrate from federation to PHS
-            href: plan-migrate-adfs-password-hash-sync.md
-          - name: Migrate from federation to PTA
-            href: plan-migrate-adfs-pass-through-authentication.md
+          - name: Migrate from federation to cloud authentication
+            href: migrate-from-federation-to-cloud-authentication.md
           - name: Move groups from one forest to another
             href: how-to-connect-migrate-groups.md
           - name: Migrate to cloud authentication using staged rollout
@@ -217,7 +219,7 @@
     - name: Get started with pass-through authentication
       href: how-to-connect-pta-quick-start.md
     - name: Pass-through authentication FAQ
-      href: how-to-connect-pta-faq.md
+      href: how-to-connect-pta-faq.yml
     - name: Disable PTA with Azure AD Connect "Do not configure"
       href: how-to-connect-pta-disable-do-not-configure.md
   - name: Manage Federation Services
@@ -242,6 +244,10 @@
       href: how-to-connect-fed-saml-idp.md
     - name: Post configuration tasks for Hybrid Azure AD join
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+    - name: Emergency rotation of AD FS certificates
+      href: how-to-connect-emergency-ad-fs-certificate-rotation.md
+    - name: Monitor changes to federation configuration
+      href: how-to-connect-monitor-federation-changes.md
   - name: Manage single sign-on 
     items:
 
@@ -249,7 +255,7 @@
       href: how-to-connect-sso-quick-start.md
 
     - name: Single Sign-On FAQ
-      href: how-to-connect-sso-faq.md
+      href: how-to-connect-sso-faq.yml
   - name: Manage Azure AD Connect Health
     items:
     - name: Azure AD Connect Health Operations
@@ -258,6 +264,8 @@
       href: how-to-connect-health-adfs.md
     - name: Risky IP report for Azure AD Connect Health with AD FS
       href: how-to-connect-health-adfs-risky-ip.md
+    - name: AD FS sign-ins in Azure AD with Connect Health
+      href: how-to-connect-health-ad-fs-sign-in.md
     - name: Use Azure AD Connect Health for sync
       href: how-to-connect-health-sync.md
     - name: Use Azure AD Connect Health with AD DS
@@ -308,6 +316,8 @@
       href: whatis-aadc-admin-agent.md
     - name: What is the ADConnectivityTools PowerShell module?
       href: how-to-connect-adconnectivitytools.md
+    - name: Azure AD Connect Single Object Sync 
+      href: how-to-connect-single-object-sync.md
     - name: Connectivity
       href: tshoot-connect-connectivity.md
     - name: Errors during synchronization
@@ -336,6 +346,8 @@
       href: tshoot-connect-install-issues.md
     - name: UPN changes
       href: howto-troubleshoot-upn-changes.md
+    - name: End-to-end troubleshooting of objects and attributes
+      href: /troubleshoot/azure/active-directory/troubleshoot-aad-connect-objects-attributes
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols
@@ -351,9 +363,9 @@
   - name: Accounts and permissions
     href: reference-connect-accounts-permissions.md
   - name: Azure AD Connect FAQ
-    href: reference-connect-faq.md
+    href: reference-connect-faq.yml
   - name: Azure AD Connect Health FAQ
-    href: reference-connect-health-faq.md
+    href: reference-connect-health-faq.yml
   - name: Hybrid identity considerations for Azure Government 
     href: reference-connect-government-cloud.md
   - name: Azure AD Connect user privacy
@@ -372,6 +384,8 @@
     href: how-to-connect-fed-compatibility.md
   - name: TLS 1.2 enforcement
     href: reference-connect-tls-enforcement.md
+  - name: ADSync Reference
+    href: reference-connect-adsync.md
   - name: ADSyncConfig Reference
     href: reference-connect-adsyncconfig.md
   - name: ADSyncTools Reference
@@ -380,7 +394,5 @@
     href: reference-connect-adconnectivitytools.md
   - name: msExchUserHoldPolicies and cloudMSExchUserHoldPolicies
     href: reference-connect-msexchuserholdpolicies.md
-  - name: Understanding Azure AD Connect 1.4.xx.x device disappearance
-    href: reference-connect-device-disappearance.md
   - name: Azure AD Connect version history archive
     href:  reference-connect-version-history-archive.md

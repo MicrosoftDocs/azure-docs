@@ -1,7 +1,7 @@
 ---
 title: Set up IoT Edge modules in Azure SQL Edge
 description: In part two of this three-part Azure SQL Edge tutorial for predicting iron ore impurities, you'll set up IoT Edge modules and connections.
-keywords: 
+keywords:
 services: sql-edge
 ms.service: sql-edge
 ms.topic: tutorial
@@ -37,18 +37,18 @@ Now, specify the container credentials in the IoT Edge module.
 
 4. Under **Container Registry Credentials**, enter the following values:
 
-   _Field_|_Value_
-   -------|-------
-   Name|Registry name
-   Address|Login server
-   User Name|Username
-   Password|Password
-  
+   | _Field_   | _Value_       |
+   | -------   | -------       |
+   | Name      | Registry name |
+   | Address   | Login server  |
+   | User Name | Username      |
+   | Password  | Password      |
+
 ## Build, push, and deploy the Data Generator Module
 
 1. Clone the [project files](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) to your machine.
 2. Open the file **IronOre_Silica_Predict.sln** using Visual Studio 2019
-3. Update the container registry details in the **deployment.template.json** 
+3. Update the container registry details in the **deployment.template.json**
    ```json
    "registryCredentials":{
         "RegistryName":{
@@ -65,15 +65,15 @@ Now, specify the container credentials in the IoT Edge module.
         "tag":
     }
    ```
-5. Execute the project in either debug or release mode to ensure the project runs without any issues 
+5. Execute the project in either debug or release mode to ensure the project runs without any issues
 6. Push the project to your container registry by right-clicking the project name and then selecting **Build and Push IoT Edge Modules**.
-7. Deploy the Data Generator module as an IoT Edge module to your Edge device. 
+7. Deploy the Data Generator module as an IoT Edge module to your Edge device.
 
 ## Deploy the Azure SQL Edge module
 
-1. Deploy the Azure SQL Edge module by clicking on **+ Add** and then **Marketplace Module**. 
+1. Deploy the Azure SQL Edge module by clicking on **+ Add** and then **Marketplace Module**.
 
-2. On the **IoT Edge Module Marketplace** blade, search for *Azure SQL Edge* and pick *Azure SQL Edge Developer*. 
+2. On the **IoT Edge Module Marketplace** blade, search for *Azure SQL Edge* and pick *Azure SQL Edge Developer*.
 
 3. Click on the newly added *Azure SQL Edge* module under **IoT Edge Modules** to configure the Azure SQL Edge module. For more information on the configuration options, see [Deploy Azure SQL Edge](./deploy-portal.md).
 
@@ -85,14 +85,14 @@ Now, specify the container credentials in the IoT Edge module.
 
 7. On the routes pane of the **Set modules on device** page, specify the routes for module to IoT Edge hub communication as described below. Make sure to update the module names in the route definitions below.
 
-   ```
+   ```syntax
    FROM /messages/modules/<your_data_generator_module>/outputs/IronOreMeasures INTO
    BrokeredEndpoint("/modules/<your_azure_sql_edge_module>/inputs/IronOreMeasures")
    ```
 
    For example:
 
-   ```
+   ```syntax
    FROM /messages/modules/ASEDataGenerator/outputs/IronOreMeasures INTO BrokeredEndpoint("/modules/AzureSQLEdge/inputs/IronOreMeasures")
    ```
 
@@ -121,15 +121,15 @@ Now, specify the container credentials in the IoT Edge module.
 
 4. In the **File** menu tab, open a new notebook or use the keyboard shortcut Ctrl + N.
 
-5. In the new Query window, execute the script below to create the T-SQL Streaming job. Before executing the script, make sure to change the following variables. 
-   - *SQL_SA_Password:* The MSSQL_SA_PASSWORD value specified while deploy the Azure SQL Edge Module. 
-   
+5. In the new Query window, execute the script below to create the T-SQL Streaming job. Before executing the script, make sure to change the following variables.
+   - *SQL_SA_Password:* The MSSQL_SA_PASSWORD value specified while deploy the Azure SQL Edge Module.
+
    ```sql
    Use IronOreSilicaPrediction
    Go
 
    Declare @SQL_SA_Password varchar(200) = '<SQL_SA_Password>'
-   declare @query varchar(max) 
+   declare @query varchar(max)
 
    /*
    Create Objects Required for Streaming
@@ -139,22 +139,22 @@ Now, specify the container credentials in the IoT Edge module.
 
    If NOT Exists (select name from sys.external_file_formats where name = 'JSONFormat')
    Begin
-      CREATE EXTERNAL FILE FORMAT [JSONFormat]  
+      CREATE EXTERNAL FILE FORMAT [JSONFormat]
       WITH ( FORMAT_TYPE = JSON)
-   End 
+   End
 
 
    If NOT Exists (select name from sys.external_data_sources where name = 'EdgeHub')
    Begin
-      Create EXTERNAL DATA SOURCE [EdgeHub] 
+      Create EXTERNAL DATA SOURCE [EdgeHub]
       With(
          LOCATION = N'edgehub://'
       )
-   End 
+   End
 
    If NOT Exists (select name from sys.external_streams where name = 'IronOreInput')
    Begin
-      CREATE EXTERNAL STREAM IronOreInput WITH 
+      CREATE EXTERNAL STREAM IronOreInput WITH
       (
          DATA_SOURCE = EdgeHub,
          FILE_FORMAT = JSONFormat,
@@ -168,7 +168,7 @@ Now, specify the container credentials in the IoT Edge module.
        set @query = 'CREATE DATABASE SCOPED CREDENTIAL SQLCredential
                  WITH IDENTITY = ''sa'', SECRET = ''' + @SQL_SA_Password + ''''
        Execute(@query)
-   End 
+   End
 
    If NOT Exists (select name from sys.external_data_sources where name = 'LocalSQLOutput')
    Begin
@@ -178,7 +178,7 @@ Now, specify the container credentials in the IoT Edge module.
 
    If NOT Exists (select name from sys.external_streams where name = 'IronOreOutput')
    Begin
-      CREATE EXTERNAL STREAM IronOreOutput WITH 
+      CREATE EXTERNAL STREAM IronOreOutput WITH
       (
          DATA_SOURCE = LocalSQLOutput,
          LOCATION = N'IronOreSilicaPrediction.dbo.IronOreMeasurements'
@@ -191,7 +191,7 @@ Now, specify the container credentials in the IoT Edge module.
    exec sys.sp_start_streaming_job @name=N'IronOreData'
    ```
 
-6. Use the following query to verify that the data from the data generation module is being streamed into the database. 
+6. Use the following query to verify that the data from the data generation module is being streamed into the database.
 
    ```sql
    Select Top 10 * from dbo.IronOreMeasurements
@@ -199,7 +199,7 @@ Now, specify the container credentials in the IoT Edge module.
    ```
 
 
-In this tutorial, we deployed the data generator module and the SQL Edge module. Then we created a streaming job to stream the data generated by the data generation module to SQL. 
+In this tutorial, we deployed the data generator module and the SQL Edge module. Then we created a streaming job to stream the data generated by the data generation module to SQL.
 
 ## Next Steps
 

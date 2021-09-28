@@ -1,7 +1,6 @@
 ---
 title: Optimize log queries in Azure Monitor
 description: Best practices for optimizing log queries in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -20,6 +19,10 @@ Optimized queries will:
 - Have smaller chance of being throttled or rejected.
 
 You should give particular attention to queries that are used for recurrent and bursty usage such as dashboards, alerts, Logic Apps and Power BI. The impact of an ineffective query in these cases is substantial.
+
+Here is a detailed video walkthrough on optimizing queries.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4NUH0]
 
 ## Query performance pane
 After you run a query in Log Analytics, click the down arrow above the query results to view the query performance pane that shows the results of several performance indicators for the query. These performance indicators are each described in the following section.

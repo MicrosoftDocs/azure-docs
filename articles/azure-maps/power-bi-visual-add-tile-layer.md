@@ -1,8 +1,8 @@
 ---
 title: Add a tile layer to the Azure Maps Power BI visual | Microsoft Azure Maps
 description: In this article, you will learn how to use the tile layer in the Microsoft Azure Maps visual for Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -53,7 +53,7 @@ parameters:
 -   `{quadkey}` - Tile `quadkey` identifier based on the Bing Maps tile system naming convention.
 -   `{bbox-epsg-3857}` - A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 spatial reference system.
 
-As an example, the following is a formatted tile URL for the [weather radar tile service](/rest/api/maps/renderv2/getmaptilepreview) in Azure Maps. Note that `[subscription-key]` is a placeholder for your Azure Maps subscription key.
+As an example, the following is a formatted tile URL for the [weather radar tile service](/rest/api/maps/render-v2/get-map-tile) in Azure Maps. Note that `[subscription-key]` is a placeholder for your Azure Maps subscription key.
 
 > `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key=[subscription-key]`
 

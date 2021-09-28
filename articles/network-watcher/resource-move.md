@@ -27,4 +27,4 @@ Moving resources across regions is currently not supported for any child resourc
 
 ## Next Steps
 * Read the [Network Watcher overview](./network-watcher-monitoring-overview.md)
-* See the [Network Watcher FAQ](./frequently-asked-questions.md)
+* See the [Network Watcher FAQ](./frequently-asked-questions.yml)

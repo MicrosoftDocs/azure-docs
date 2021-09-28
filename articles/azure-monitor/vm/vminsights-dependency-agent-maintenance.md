@@ -1,7 +1,6 @@
 ---
 title: How to upgrade the VM insights Dependency agent
 description: This article describes how to upgrade the VM insights Dependency agent using command-line, setup wizard, and other methods.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -44,7 +43,7 @@ You can download the latest version of the Windows agent from [here](https://aka
 
 2. Run the following command.
 
-    ```dos
+    ```cmd
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
     ```
 
@@ -60,7 +59,11 @@ You can download the latest version of the Linux agent from [here](https://aka.m
 
 1. Sign on to the computer with an account that has administrative rights.
 
-2. Run the following command as root`sh InstallDependencyAgent-Linux64.bin -s`. 
+2. Run the following command as root.
+
+    ```bash
+    InstallDependencyAgent-Linux64.bin -s
+    ```
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
 

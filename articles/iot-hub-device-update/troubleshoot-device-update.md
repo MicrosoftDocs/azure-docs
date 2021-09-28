@@ -41,7 +41,7 @@ _The device compliance status can take up to 5 minutes to refresh. Please wait, 
 ### Q: My device's deployment status shows incompatible, what should I do?
 _The manufacturer and model properties of a targeted device may have been changed after connecting the device to IoT Hub, causing the device to now be considered incompatible with the update content of the current deployment._
 
-_Check the [ADU Core Interface](./device-update-plug-and-play) to see what manufacturer and model your device is reporting to the Device Update service, and make sure it matches the manufacturer and model you specified in the [import manifest](./import-concepts.md) of the update content being deployed. You can change these properties for a given device using the [Device Update configuration file](./device-update-cofiguration-file.md)._
+_Check the [ADU Core Interface](./device-update-plug-and-play.md) to see what manufacturer and model your device is reporting to the Device Update service, and make sure it matches the manufacturer and model you specified in the [import manifest](./import-concepts.md) of the update content being deployed. You can change these properties for a given device using the [Device Update configuration file](./device-update-configuration-file.md)._
 
 ### Q: I see my deployment is in "Active" stage but none of my devices are "In progress" with the update. What should I do?
 _Ensure that your deployment start date is not set in the future. When you create a new deployment, the deployment start date is defaulted to the next day as a safeguard unless you explicitly change it. You can either wait for the deployment start date to arrive, or cancel the ongoing deployment and create a new deployment with the desired start date._
@@ -61,6 +61,9 @@ _This may have been caused by a service/UX bug, or by an API permissions issue. 
 
 ### Q: I started a deployment but it isn’t reaching an end state.
 _This may have been caused by a service performance issue, a service bug, or a client bug. Please retry your deployment after 10 minutes. If you encounter the same issue, please pull your device logs and refer to the Device Failures section of this troubleshooting guide. If the same issue persists, please follow the instructions in the [Contacting Microsoft Support](#contact) section to file a support request with Microsoft._
+
+### Q: I migrated from a device level agent to adding the agent as a Module identity on the device, and my update shows as 'in-progress' even though it has been applied to the device.
+_This may have been caused if you did not remove the older agent that was communicating over the Device Twin. When you provision the Device Update agent as a Module (see [how to](device-update-agent-provisioning.md)) all communications between the device and the Device Update service happen over the Module Twin so do remember to tag the Module Twin of the device when creating [groups](device-update-groups.md) and all [communications](device-update-plug-and-play.md) must happen over the module twin.
 
 ## <a name="download"></a> Downloading updates onto devices
 

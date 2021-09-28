@@ -1,7 +1,6 @@
 ---
 title: Collect custom logs with Log Analytics agent in Azure Monitor
 description: Azure Monitor can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -49,8 +48,8 @@ Use the following procedure to define a custom log file.  Scroll to the end of t
 ### Step 1. Open the Custom Log Wizard
 The Custom Log Wizard runs in the Azure portal and allows you to define a new custom log to collect.
 
-1. In the Azure portal, select **Log Analytics workspaces** > your workspace > **Advanced Settings**.
-2. Click on **Data** > **Custom logs**.
+1. In the Azure portal, select **Log Analytics workspaces** > your workspace > **Settings**.
+2. Click on **Custom logs**.
 3. By default, all configuration changes are automatically pushed to all agents. For Linux agents, a configuration file is sent to the Fluentd data collector.
 4. Click **Add+** to open the Custom Log Wizard.
 

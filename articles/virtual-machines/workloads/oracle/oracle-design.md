@@ -14,6 +14,8 @@ ms.reviewer: tigorman
 
 # Design and implement an Oracle database in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 ## Assumptions
 
 - You're planning to migrate an Oracle database from on-premises to Azure.
@@ -150,7 +152,7 @@ Based on your network bandwidth requirements, there are various gateway types fo
 - Use Virtual Machines with [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md) for better network performance.
 - For certain Linux distributions, consider enabling [TRIM/UNMAP support](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Install [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) on a separate Virtual Machine.
-- Huge pages are not enabled on linux by default. Consider enabling huge pages and set `use_large_pages = ONLY` on the Oracle DB. This may help increase performance. More information can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Huge pages are not enabled on linux by default. Consider enabling huge pages and set `use_large_pages = ONLY` on the Oracle DB. This may help increase performance. For more information, see [USE_LARGE_PAGES](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### Disk types and configurations
 

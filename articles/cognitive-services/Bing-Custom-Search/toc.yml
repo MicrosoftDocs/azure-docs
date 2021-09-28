@@ -75,15 +75,15 @@
     - name: SDKs
       items:
       - name: .NET
-        href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme
       - name: Java - Custom Search
-        href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
       - name: Java - Custom Image Search
-        href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-customsearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-customsearch/
       - name: Node.js
-        href: /javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-customsearch/
       - name: Go - Custom Search
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
       - name: Go - Custom Image Search
@@ -92,16 +92,12 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+custom+search
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
     href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!

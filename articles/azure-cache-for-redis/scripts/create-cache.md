@@ -21,7 +21,8 @@ In this scenario, you learn how to create an Azure Cache for Redis.
 
 [!code-azurecli[main](../../../cli_scripts/redis-cache/create-cache/create-cache.sh "Azure Cache for Redis")]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../includes/redis-cli-script-clean-up.md)]
+
 
 ## Script explanation
 

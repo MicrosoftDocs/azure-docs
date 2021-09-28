@@ -1,21 +1,21 @@
 ---
-title: Implement Quality of Service (QoS) for Windows Virtual Desktop (preview)
+title: Implement Quality of Service (QoS) for Azure Virtual Desktop (preview)
 titleSuffix: Azure
-description: How to set up QoS (preview) for Windows Virtual Desktop.
+description: How to set up QoS (preview) for Azure Virtual Desktop.
 author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ---
-# Implement Quality of Service (QoS) for Windows Virtual Desktop (preview)
+# Implement Quality of Service (QoS) for Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
-> Quality of Service (QoS) Policy support for Windows Virtual Desktop is currently in public preview.
+> Quality of Service (QoS) Policy support for Azure Virtual Desktop is currently in public preview.
 > This preview is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [RDP Shortpath](./shortpath.md) provides a direct UDP-based transport between Remote Desktop Client and Session host. RDP Shortpath enables configuration of Quality of Service (QoS) policies for the RDP data.
-QoS in Windows Virtual Desktop allows real-time RDP traffic that's sensitive to network delays to "cut in line" in front of traffic that's less sensitive. Example of such less sensitive traffic would be a downloading a new app, where an extra second to download isn't a large deal. QoS uses Windows Group Policy Objects to identify and mark all packets in real-time streams and help your network to give RDP traffic a dedicated portion of bandwidth.
+QoS in Azure Virtual Desktop allows real-time RDP traffic that's sensitive to network delays to "cut in line" in front of traffic that's less sensitive. Example of such less sensitive traffic would be a downloading a new app, where an extra second to download isn't a large deal. QoS uses Windows Group Policy Objects to identify and mark all packets in real-time streams and help your network to give RDP traffic a dedicated portion of bandwidth.
 
 If you support a large group of users experiencing any of the problems described in this article, you probably need to implement QoS. A small business with few users might not need QoS, but it should be helpful even there.
 
@@ -56,7 +56,7 @@ As you prepare to implement QoS, keep the following guidelines in mind:
 
 If you're considering a QoS implementation, you should already have determined your bandwidth requirements and other [network requirements](/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context).
   
-Traffic congestion across a network will significantly impact media quality. A lack of bandwidth leads to performance degradation and a poor user experience. As Windows Virtual Desktop adoption and usage grows, use [Log Analytics](./diagnostics-log-analytics.md) to identify problems and then make adjustments using QoS and selective bandwidth additions.
+Traffic congestion across a network will significantly impact media quality. A lack of bandwidth leads to performance degradation and a poor user experience. As Azure Virtual Desktop adoption and usage grows, use [Log Analytics](./diagnostics-log-analytics.md) to identify problems and then make adjustments using QoS and selective bandwidth additions.
 
 ### VPN considerations
 
@@ -125,5 +125,5 @@ New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" 
 
 ## Next steps
 
-* To learn about bandwidth requirements for Windows Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Windows Virtual Desktop](rdp-bandwidth.md).
-* To learn about Windows Virtual Desktop network connectivity, see [Understanding Windows Virtual Desktop network connectivity](network-connectivity.md).
+* To learn about bandwidth requirements for Azure Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Azure Virtual Desktop](rdp-bandwidth.md).
+* To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).

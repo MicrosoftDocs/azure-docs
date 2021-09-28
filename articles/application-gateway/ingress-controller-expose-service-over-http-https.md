@@ -161,20 +161,20 @@ The following ingress will allow you to add additional paths into this ingress a
 
 ```yaml
 apiVersion: extensions/v1beta1
-  kind: Ingress
-  metadata:
-    name: guestbook
-    annotations:
-      kubernetes.io/ingress.class: azure/application-gateway
-  spec:
-    rules:
-    - http:
-        paths:
-        - path: </other/*>
-          backend:
-            serviceName: <other-service>
-            servicePort: 80
-        - backend:
-            serviceName: frontend
-            servicePort: 80
+kind: Ingress
+metadata:
+  name: guestbook
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+spec:
+  rules:
+  - http:
+      paths:
+      - path: </other/*>
+        backend:
+          serviceName: <other-service>
+          servicePort: 80
+       - backend:
+          serviceName: frontend
+          servicePort: 80
 ```

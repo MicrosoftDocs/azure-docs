@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Services in Azure SQL Managed Instance (preview)
+title: Machine Learning Services in Azure SQL Managed Instance
 description: This article provides an overview or Machine Learning Services in Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
@@ -9,23 +9,14 @@ ms.devlang:
 ms.topic: conceptual
 author: garyericson
 ms.author: garye
-ms.reviewer: sstein, davidph
+ms.reviewer: mathoma, davidph
 manager: cgronlun
-ms.date: 06/03/2020
+ms.date: 03/17/2021
 ---
 
-# Machine Learning Services in Azure SQL Managed Instance (preview)
+# Machine Learning Services in Azure SQL Managed Instance
 
-Machine Learning Services is a feature of Azure SQL Managed Instance (preview) that provides in-database machine learning, supporting both Python and R scripts. The feature includes Microsoft Python and R packages for high-performance predictive analytics and machine learning. The relational data can be used in scripts through stored procedures, T-SQL script containing Python or R statements, or Python or R code containing T-SQL.
-
-> [!IMPORTANT]
-> Machine Learning Services is a feature of Azure SQL Managed Instance that's currently in public preview.
-> This preview functionality is initially available in a limited number of regions in the US, Asia Europe, and Australia with additional regions being added later.
->
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> [Sign up for the preview](#signup) below.
+Machine Learning Services is a feature of Azure SQL Managed Instance that provides in-database machine learning, supporting both Python and R scripts. The feature includes Microsoft Python and R packages for high-performance predictive analytics and machine learning. The relational data can be used in scripts through stored procedures, T-SQL script containing Python or R statements, or Python or R code containing T-SQL.
 
 ## What is Machine Learning Services?
 
@@ -39,47 +30,38 @@ Use Machine Learning Services with R/Python support in Azure SQL Managed Instanc
 
 - **Deploy your models and scripts into production in stored procedures** - The scripts and trained models can be operationalized simply by embedding them in T-SQL stored procedures. Apps connecting to Azure SQL Managed Instance can benefit from predictions and intelligence in these models by just calling a stored procedure. You can also use the native T-SQL PREDICT function to operationalize models for fast scoring in highly concurrent real-time scoring scenarios.
 
-Base distributions of Python and R are included in Machine Learning Services. You can install and use open-source packages and frameworks, such as PyTorch, TensorFlow, and scikit-learn, in addition to the Microsoft packages [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) and [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml) for Python, and [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](/sql/advanced-analytics/r/ref-r-olapr), and [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils) for R.
+Base distributions of Python and R are included in Machine Learning Services. You can install and use open-source packages and frameworks, such as PyTorch, TensorFlow, and scikit-learn, in addition to the Microsoft packages 
+[revoscalepy](/sql/machine-learning/python/ref-py-revoscalepy) and 
+[microsoftml](/sql/machine-learning/python/ref-py-microsoftml) for Python, and 
+ [RevoScaleR](/sql/machine-learning/r/ref-r-revoscaler), 
+[MicrosoftML](/sql/machine-learning/r/ref-r-microsoftml), 
+      [olapR](/sql/machine-learning/r/ref-r-olapr), and 
+  [sqlrutils](/sql/machine-learning/r/ref-r-sqlrutils) for R.
 
-<a name="signup"></a>
+## How to enable Machine Learning Services
 
-## Sign up for the preview
+You can enable Machine Learning Services in Azure SQL Managed Instance by enabling extensibility with the following SQL commands (SQL Managed Instance will restart and be unavailable for a few seconds):
 
-This limited public preview is subject to the [Azure preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+```sql
+sp_configure 'external scripts enabled', 1;
+RECONFIGURE WITH OVERRIDE;
+```
 
-If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/). 
+For details on how this command affects SQL Managed Instance resources, see [Resource Governance](machine-learning-services-differences.md#resource-governance).
 
-1. On the **Create a support ticket** page, click **Create an Incident**.
+### Enable Machine Learning Services in a failover group
 
-1. On the **Help + support** page, click **New support request** to create a new ticket.
+In a [failover group](failover-group-add-instance-tutorial.md), system databases are not replicated to the secondary instance (see [Limitations of failover groups](../database/auto-failover-group-overview.md#limitations-of-failover-groups) for more information).
 
-1. Select the following options:
-   - Issue type - **Technical**
-   - Subscription - *select your subscription*
-   - Service - **SQL Managed Instance**
-   - Resource - *select your managed instance*
-   - Summary - *enter a brief description of your request*
-   - Problem type - **Machine Learning Services for SQL Managed Instance (Preview)**
-   - Problem subtype - **Other issue or "How To" questions**
+If the Managed Instance you're using is part of a failover group, do the following:
 
-1. Click **Next: Solutions**.
+- Run the `sp_configure` and `RECONFIGURE` commands on each instance of the failover group to enable Machine Learning Services.
 
-1. Read the information about the preview, and then click **Next: Details**.
-
-1. On this page:
-   - For the question **Are you trying to sign up for the Preview?**, select **Yes**. 
-   - For **Description**, enter the specifics of your request, including the logical server name, region, and subscription ID that you want to enroll in the preview. Enter other details as appropriate.
-   - Select your preferred contact method. 
-
-1. When you're finished, click **Next: Review + create**, and then click **Create**.
-
-Once you're enrolled in the program, Microsoft will onboard you to the public preview and enable Machine Learning Services for your existing or new database.
-
-Machine Learning Services in SQL Managed Instance is not recommended for production workloads during the public preview.
+- Install the R/Python libraries on a user database rather than the master database.
 
 ## Next steps
 
 - See the [key differences from SQL Server Machine Learning Services](machine-learning-services-differences.md).
-- To learn how to use Python in Machine Learning Services, see [Run Python scripts](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
-- To learn how to use R in Machine Learning Services, see [Run R scripts](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15).
-- For more information about machine learning on other SQL platforms, see the [SQL machine learning documentation](/sql/machine-learning/).
+- To learn how to use Python in Machine Learning Services, see [Run Python scripts](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- To learn how to use R in Machine Learning Services, see [Run R scripts](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true).
+- For more information about machine learning on other SQL platforms, see the [SQL machine learning documentation](/sql/machine-learning/index).

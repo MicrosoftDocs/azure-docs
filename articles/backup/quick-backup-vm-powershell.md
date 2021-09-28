@@ -145,6 +145,10 @@ Run an on-demand backup job as follows:
 
 2. When the job status is **Completed**, the VM is protected and has a full recovery point stored.
 
+## Manage VM backups
+
+If you want to perform more actions such as change policy, edit policy etc.. refer to the [manage VM backups section](backup-azure-vms-automation.md#manage-azure-vm-backups).
+
 ## Clean up the deployment
 
 If you no longer need to back up the VM, you can clean it up.

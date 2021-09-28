@@ -1,19 +1,21 @@
 ---
-title: Replace your Azure Stack Edge Pro device | Microsoft Docs 
-description: Describes how to get a replacement Azure Stack Edge Pro device.
+title: Azure Stack Edge device replacement 
+description: Describes how to get a replacement Azure Stack Edge device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
-# Replace your Azure Stack Edge Pro device
+# Replace your Azure Stack Edge device
 
-This article describes how to replace your Azure Stack Edge Pro device. A replacement device is needed when the existing device has a hardware failure or needs an upgrade. 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
+This article describes how to replace your Azure Stack Edge device. A replacement device is needed when the existing device has a hardware failure or needs an upgrade. 
 
 
 In this article, you learn how to:
@@ -29,7 +31,7 @@ In this article, you learn how to:
 
 If your existing device has a hardware failure, open a Support ticket by following these steps:
 
-1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the **Azure Stack Edge Pro Hardware** problem type, and choose the **Hardware issues** subtype.  
+1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the **Azure Stack Edge Hardware** problem type, and choose the **Hardware issues** subtype.  
 
     ![Open Support ticket](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -61,4 +63,4 @@ Follow all the steps to return the original device:
 
 ## Next steps
 
-- Learn how to [Return an Azure Stack Edge Pro device](azure-stack-edge-return-device.md).
+- Learn how to [Return an Azure Stack Edge device](azure-stack-edge-return-device.md).

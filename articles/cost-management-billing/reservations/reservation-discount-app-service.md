@@ -1,18 +1,18 @@
 ---
 title: Reservation discounts for Azure App Service
-description: Learn how reservation discounts apply to Azure App Service Premium v3 instances and Isolated Stamps.
+description: Learn how reservation discounts apply to Azure App Service Premium v3 and Premium v2 instances and Isolated Stamps.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/13/2021
 ms.author: banders
 ---
 
-# How reservation discounts apply to Azure App Service Premium v3 instances and Isolated Stamps
+# How reservation discounts apply to Azure App Service
 
-This article helps you understand how discounts apply to Azure App Service Premium v3 instances and Isolated Stamps.
+This article helps you understand how discounts apply to Azure App Service Premium v3 and Premium v2 instances and Isolated Stamps.
 
 ## How reservation discounts apply to Premium v3 instances
 
@@ -33,6 +33,20 @@ The Azure reservation discount is applied to running Premium v3 instances on an 
 2.	In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You're charged the pay-as-you-go rates for the remaining 0.25 hours.
 3.	For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reservation and the other is charged at pay-as-you-go rates.
 4.	For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reservation and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
+
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand reservation usage](understand-reserved-instance-usage-ea.md).
+
+## How reservation discounts apply to Isolated v2 instances
+
+After you buy an Azure App Service Isolated v2 Reserved Instance, the reservation discount is automatically applied to App Service instances that match the attributes and quantity of the reservation. A reservation covers the cost of your Isolated v2 instances.
+
+### How the discount is applied to Azure App Service
+
+A reservation discount is _use-it-or-lose-it_. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours. When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
+
+### Reservation discount for Isolated v2 Instances
+
+The Azure reservation discount is applied to running Isolated v2 instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running Isolated v2 instances to apply the reservation discount. For Isolated v2 Instances that may not run the full hour, the reservation will be filled from other instances not using a reservation, including concurrently running instances. At the end of the hour, the reservation application for instances in the hour is locked. In the event an instance does not run for an hour or concurrent instances within the hour do not fill the hour of the reservation, the reservation is underutilized for that hour.
 
 To understand and view the application of your Azure Reservations in billing usage reports, see [Understand reservation usage](understand-reserved-instance-usage-ea.md).
 

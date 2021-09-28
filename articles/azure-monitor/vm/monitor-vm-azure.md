@@ -2,7 +2,6 @@
 title: Monitor Azure virtual machines with Azure Monitor
 description: Describes how to collect and analyze monitoring data from virtual machines in Azure using Azure Monitor.
 ms.service:  azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -14,7 +13,7 @@ ms.date: 05/05/2020
 This article describes how to use Azure Monitor to collect and analyze monitoring data from Azure virtual machines to maintain their health. Virtual machines can be monitored for availability and performance with Azure Monitor like any [other Azure resource](../essentials/monitor-azure-resource.md), but they're unique from other resources since you also need to monitor the guest operating and system and the workloads that run in it. 
 
 > [!NOTE]
-> This article provides a complete overview of the concepts and options for monitoring virtual machines in Azure Monitor. To start monitoring your virtual machines quickly without focusing on the underlying concepts, see [Quickstart: Monitor an Azure virtual machine with Azure Monitor](./quick-monitor-azure-vm.md).
+> This article provides a complete overview of the concepts and options for monitoring virtual machines in Azure Monitor. To start monitoring your virtual machines quickly without focusing on the underlying concepts, see [Quickstart: Monitor an Azure virtual machine with Azure Monitor](./monitor-virtual-machine.md).
 
 
 ## Differences from other Azure resources
@@ -52,7 +51,7 @@ To enable all features of Azure Monitor for monitoring a virtual machine, you ne
 | Configuration step | Actions completed | Features enabled |
 |:---|:---|:---|
 | No configuration | - Host platform metrics collected to Metrics.<br>- Activity log collected. | - Metrics explorer for host.<br>- Metrics alerts for host.<br>- Activity log alerts. |
-| [Enable VM insights](#enable-azure-monitor-for-vms) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>- Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
+| [Enable VM insights](#enable-vm-insights) | - Log Analytics agent installed.<br>- Dependency agent installed.<br>- Guest performance data collected to Logs.<br>- Process and dependency details collected to Logs. | - Performance charts and workbooks for guest performance data.<br>- Log queries for guest performance data.<br>- Log alerts for guest performance data.<br>- Dependency map. |
 | [Install the diagnostics extension and telegraf agent](#enable-diagnostics-extension-and-telegraf-agent) | - Guest performance data collected to Metrics. | - Metrics explorer for guest.<br>- Metrics alerts for guest.  |
 | [Configure Log Analytics workspace](#configure-log-analytics-workspace) | - Events collected from guest. | - Log queries for guest events.<br>- Log alerts for guest events. |
 | [Create diagnostic setting for virtual machine](#collect-platform-metrics-and-activity-log) | - Platform metrics collected to Logs.<br>- Activity log collected to Logs. | - Log queries for host metrics.<br>- Log alerts for host metrics.<br>- Log queries for Activity log.
@@ -82,7 +81,7 @@ You can access the configuration for the workspace directly from VM insights by 
 
 ![Workspace configuration](media/monitor-vm-azure/workspace-configuration.png)
 
-Select **Advanced Settings** from the workspace menu and then **Data** to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
+Select **Agents configuration** from the workspace menu to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
 
 ![Configure events](media/monitor-vm-azure/configure-events.png)
 

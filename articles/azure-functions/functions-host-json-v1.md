@@ -18,7 +18,7 @@ The *host.json* metadata file contains global configuration options that affect 
 
 Other function app configuration options are managed in your [app settings](functions-app-settings.md).
 
-Some host.json settings are only used when running locally in the [local.settings.json](functions-run-local.md#local-settings-file) file.
+Some host.json settings are only used when running locally in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
 ## Sample host.json file
 
@@ -144,7 +144,7 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 
 ## eventHub
 
-Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs-trigger.md#functions-1x).
+Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md#functions-1x).
 
 ## functions
 

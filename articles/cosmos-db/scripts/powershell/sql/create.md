@@ -6,7 +6,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a database and container for Azure Cosmos DB - SQL API

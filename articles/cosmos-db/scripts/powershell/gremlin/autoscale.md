@@ -6,7 +6,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 07/30/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a database and graph with autoscale for Azure Cosmos DB - Gremlin API

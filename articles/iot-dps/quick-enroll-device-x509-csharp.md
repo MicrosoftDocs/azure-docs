@@ -26,7 +26,7 @@ Although the steps in this article work on both Windows and Linux computers, thi
 ## Prerequisites
 
 * Install [Visual Studio 2019](https://www.visualstudio.com/vs/).
-* Install [.NET Core SDK](https://www.microsoft.com/net/download/windows).
+* Install [.NET Core SDK](https://dotnet.microsoft.com/download).
 * Install [Git](https://git-scm.com/download/).
 
 ## Prepare test certificates

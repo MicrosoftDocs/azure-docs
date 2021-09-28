@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you develop and host web applicat
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 07/06/2020
+ms.date: 07/21/2021
 ms.custom: "devx-track-dotnet, mvc, seodec18"
 ---
 
@@ -40,7 +40,7 @@ App Service can also host web apps natively on Linux for supported application s
 
 ### Built-in languages and frameworks
 
-App Service on Linux supports a number of language specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core, and Ruby. Run [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, you can deploy it with a custom container.
+App Service on Linux supports a number of language specific built-in images. Just deploy your code. Supported languages include: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core, and Ruby. Run [`az webapp list-runtimes --linux`](/cli/azure/webapp#az_webapp_list_runtimes) to view the latest languages and supported versions. If the runtime your application requires is not supported in the built-in images, you can deploy it with a custom container.
 
 Outdated runtimes are periodically removed from the Web Apps Create and Configuration blades in the Portal. These runtimes are hidden from the Portal when they are deprecated by the maintaining organization or found to have significant vulnerabilities. These options are hidden to guide customers to the latest runtimes where they will be the most successful. 
 
@@ -50,9 +50,11 @@ If you need to create another web app with an outdated runtime version that is n
 
 ### Limitations
 
+> [!NOTE]
+> Linux and Windows App Service plans can now share resource groups. This limitation has been lifted from the platform and existing resource groups have been updated to support this.
+>
+
 - App Service on Linux is not supported on [Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) pricing tier. 
-- You can't mix Windows and Linux apps in the same App Service plan.  
-- Historically, you can't mix Windows and Linux apps in the same resource group. However, all resource groups created on or after January 21, 2021 do support this scenario. For resource groups created before January 21, 2021, the ability to add mixed platform deployments will be rolled out across Azure regions (including National cloud regions) soon.
 - The Azure portal shows only features that currently work for Linux apps. As features are enabled, they're activated on the portal.
 - When deployed to built-in images, your code and content are allocated a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files may benefit from the custom container option, which places files in the container filesystem instead of on the content volume.
 
@@ -64,7 +66,7 @@ Create your first web app.
 > [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET (on Windows)](quickstart-dotnet-framework.md)
+> [ASP.NET (on Windows)](./quickstart-dotnetcore.md?tabs=netframework48)
 
 > [!div class="nextstepaction"]
 > [PHP (on Windows or Linux)](quickstart-php.md)

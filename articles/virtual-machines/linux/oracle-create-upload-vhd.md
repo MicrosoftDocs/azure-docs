@@ -2,7 +2,9 @@
 title: Create and upload an Oracle Linux VHD 
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Oracle Linux operating system.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
+ms.subservice: oracle
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
@@ -10,6 +12,8 @@ ms.author: danis
 
 ---
 # Prepare an Oracle Linux virtual machine for Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article assumes that you have already installed an Oracle Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
@@ -230,8 +234,8 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
     cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
     datasource_list: [ Azure ]
     datasource:
-    Azure:
-        apply_network_config: False
+        Azure:
+            apply_network_config: False
     EOF
 
     if [[ -f /mnt/resource/swapfile ]]; then

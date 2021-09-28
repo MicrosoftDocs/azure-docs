@@ -1,14 +1,14 @@
 ---
-title: Create a demo app in Azure portal
+title: "Quickstart: Create a demo app in Azure portal"
 titleSuffix: Azure Cognitive Search
-description: Run the Create demo app (preview) wizard to generate HTML pages and script for an operational web app. The page includes a search bar, results area, sidebar, and typeahead support.
+description: Run the Create demo app \wizard to generate HTML pages and script for an operational web app. The page includes a search bar, results area, sidebar, and typeahead support.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
+ms.date: 08/24/2021
 ---
 
 # Quickstart: Create a demo app in the portal (Azure Cognitive Search)
@@ -129,7 +129,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-The demo app is useful for prototyping because you can simulate an end-user experience without having to write JavaScript or front-end code. For more information about front-end features, start with faceted navigation:
+The demo app is useful for prototyping because you can simulate an end-user experience without having to write JavaScript or front-end code, but as you get closer to proof-of-concept in your own project, review one of the end-to-end code samples that is closer facsimile of a real-word app:
 
 > [!div class="nextstepaction"]
-> [How to build a facet filter](search-filters-facets.md)
+> [Add search to web apps](tutorial-csharp-overview.md)

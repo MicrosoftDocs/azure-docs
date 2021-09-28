@@ -107,6 +107,8 @@
     href: concepts/logging-diagnostics.md
   - name: Coarse relocalization
     href: concepts/coarse-reloc.md
+  - name: Anchor locate strategy
+    href: concepts/anchor-locate-strategy.md    
 - name: References
   items:
   - name: SDK for Unity
@@ -120,7 +122,7 @@
   - name: SDK for HoloLens C++/WinRT
     href: /cpp/api/spatial-anchors/winrt/
   - name: Azure CLI
-    href: /cli/azure/ext/mixed-reality/spatial-anchors-account
+    href: /cli/azure/spatial-anchors-account
   - name: Azure PowerShell
     href: /powershell/module/az.mixedreality
 - name: Resources
@@ -130,7 +132,7 @@
   - name: Azure Mixed Reality Resource Management REST API
     href: /rest/api/mixedreality/
   - name: FAQ
-    href: spatial-anchor-faq.md
+    href: spatial-anchor-faq.yml
   - name: Provide Product Feedback
     href: https://feedback.azure.com/forums/919252-azure-spatial-anchors
   - name: Stack Overflow

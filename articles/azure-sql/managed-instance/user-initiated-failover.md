@@ -3,12 +3,13 @@ title: Manually initiate a failover on SQL Managed Instance
 description: Learn how to manually failover primary and secondary replicas on Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.subservice: high-availability
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, sstein
+ms.reviewer: mathoma
 ms.date: 02/27/2021
 ---
 

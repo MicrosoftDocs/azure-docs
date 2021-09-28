@@ -13,11 +13,6 @@ ms.custom:
 # Deploy a Azure Cloud Services (extended support) using the Azure portal
 This article explains how to use the Azure portal to create a Cloud Service (extended support) deployment. 
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Before you begin
 
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the associated resources. 
@@ -63,6 +58,6 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
 7. Once all fields have been completed, move to the **Review and Create** tab to validate your deployment configuration and create your Cloud Service (extended support).
 
 ## Next steps 
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
 - Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)

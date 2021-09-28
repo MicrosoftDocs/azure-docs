@@ -4,14 +4,14 @@ description: Links to Azure SQL Database quickstarts showing how to connect to a
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: connect
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: guide
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
-ms.date: 05/29/2020
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
+ms.date: 03/17/2021
 ---
 # Azure SQL Database and Azure SQL Managed Instance connect and query articles
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,6 @@ The following document includes links to Azure examples showing how to connect a
 |[PHP](connect-query-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to a database and use Transact-SQL statements to query data.|
 |[Python](connect-query-python.md)|This quickstart demonstrates how to use Python to connect to a database and use Transact-SQL statements to query data. |
 |[Ruby](connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to a database and use Transact-SQL statements to query data.|
-|[R](connect-query-r.md)|This quickstart demonstrates how to use R with Azure SQL Database Machine Learning Services to create a program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
 |||
 
 ## Get server connection information
@@ -76,6 +75,20 @@ Standard (PCI-DSS).
 
 Non-Microsoft drivers might not use TLS by default. This can be a factor when connecting to Azure SQL Database or Azure SQL Managed Instance. Applications with embedded drivers might not allow you to control these connection settings. We recommend that you examine the security of such drivers and applications before using them on systems that interact with sensitive data.
 
+## Drivers
+
+The following minimal versions of the tools and drivers are recommended if you want to connect to Azure SQL database:
+
+| Driver/tool | Version |
+| --- | --- |
+|.NET Framework | 4.6.1 (or .NET Core) |
+|ODBC driver| v17 |
+|PHP driver| 5.2.0 |
+|JDBC driver| 6.4.0 |
+|Node.js driver| 2.1.1 |
+|OLEDB driver| 18.0.2.0 |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) or higher |
+
 ## Libraries
 
 You can use various libraries and frameworks to connect to Azure SQL Database or Azure SQL Managed Instance. Check out our [Get started tutorials](https://aka.ms/sqldev) to quickly get started with programming languages such as C#, Java, Node.js, PHP, and Python. Then build an app by using SQL Server on Linux or Windows or Docker on macOS.
@@ -84,13 +97,15 @@ The following table lists connectivity libraries or *drivers* that client applic
 
 | Language | Platform | Additional resources | Download | Get started |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET for SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Download](https://www.microsoft.com/net/download/) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC driver for SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Download](https://go.microsoft.com/fwlink/?linkid=852460) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET for SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Download](https://dotnet.microsoft.com/download) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC driver for SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [PHP SQL driver for SQL Server](/sql/connect/php/microsoft-php-driver-for-sql-server) | [Download](/sql/connect/php/download-drivers-php-sql-server) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Node.js driver for SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Install](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Python SQL driver](/sql/connect/python/python-driver-for-sql-server/) | Install choices: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Ruby driver for SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Install](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC driver for SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [Download](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
+
+### Data-access frameworks
 
 The following table lists examples of object-relational mapping (ORM) frameworks and web frameworks that client applications can use with SQL Server, Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics. You can use the frameworks on Linux, Windows, or Docker.
 
@@ -115,6 +130,7 @@ The following table lists examples of object-relational mapping (ORM) frameworks
   - [Connect and query using Java](connect-query-java.md)
   - [Connect and query using Python](connect-query-python.md)
   - [Connect and query using Ruby](connect-query-ruby.md)
+  - [Install sqlcmd and bcp the SQL Server command-line tools on Linux](/sql/linux/sql-server-linux-setup-tools) - For Linux users, try connecting to Azure SQL Database or Azure SQL Managed Instance using [sqlcmd](/sql/ssms/scripting/sqlcmd-use-the-utility).
 - Retry logic code examples:
   - [Connect resiliently with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [Connect resiliently with PHP][step-4-connect-resiliently-to-sql-with-php-p42h]

@@ -1,6 +1,6 @@
 ---
 title: Use the portal to deploy Azure Spot Virtual Machines
-description: How to use Azure PowerShell to deploy Spot Virtual Machines  to save on costs.
+description: How to use the Portal to deploy Spot Virtual Machines 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: spot
@@ -12,6 +12,8 @@ ms.reviewer: jagaveer
 ---
 
 # Deploy Azure Spot Virtual Machines using the Azure portal
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 Using [Azure Spot Virtual Machines](spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. Therefore, Azure Spot Virtual Machines are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
@@ -54,9 +56,11 @@ Replace the following with your information:
 - `vmName`
 
 
-```http
+```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
 ```
+
+`Response Code: 204` means the simulated eviction was successful. 
 
 ## Next steps
 

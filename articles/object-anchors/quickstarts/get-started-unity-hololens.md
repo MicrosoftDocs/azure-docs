@@ -5,7 +5,7 @@ author: craigktreasure
 manager: virivera
 
 ms.author: crtreasu
-ms.date: 02/02/2021
+ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
@@ -25,7 +25,11 @@ You'll learn how to:
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+[!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
+
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]
+
+[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
 
 ## Open the sample project
 
@@ -37,39 +41,19 @@ In Unity, open the `quickstarts/apps/unity/basic` project.
 
 [!INCLUDE [Import Unity Package](../../../includes/object-anchors-quickstart-unity-import-package.md)]
 
-[!INCLUDE [Unity build and run](../../../includes/object-anchors-quickstart-unity-build-run.md)]
+[!INCLUDE [Configure Account](../../../includes/object-anchors-get-started-configure-account.md)]
 
-[!INCLUDE [Unity build sample scene](../../../includes/object-anchors-quickstart-unity-build-sample-scene.md)]
+[!INCLUDE [Unity build sample scene 1](../../../includes/object-anchors-quickstart-unity-build-sample-scene-1.md)]
+
+[!INCLUDE [Unity build sample scene 2](../../../includes/object-anchors-quickstart-unity-build-sample-scene-2.md)]
 
 [!INCLUDE [Unity build and deploy](../../../includes/object-anchors-quickstart-unity-build-deploy.md)]
 
-### Run the sample app
-
-Turn on the device, select **All Apps**, then locate and start the app. After the Unity splash screen, you'll see a message indicating that the Object Observer has been initialized. However, you'll need to add your model to the app.
-
-[!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-anchors-quickstart-unity-setup-device-portal.md)]
-
-[!INCLUDE [Unity upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
+After the Unity splash screen, you'll see a message indicating that the Object Observer has been initialized.
 
 The app looks for objects in the current field of view and then tracks them once detected. An instance will be removed when it's 6 meters away from the user's location. The debug text shows details about an instance, like ID, updated timestamp and surface coverage ratio.
 
 [!INCLUDE [Unity troubleshooting](../../../includes/object-anchors-quickstart-unity-troubleshooting.md)]
-
-### Capturing diagnostics
-
-If you're still not able to find the issue, you can capture diagnostics and send it to us.
-
-Similar to uploading a model, upload an empty file named `debug` to the `LocalState` folder.
-
-:::image type="content" source="./media/portal-upload-debug.png" alt-text="Portal Upload Debug":::
-
-Restart the app to begin recording diagnostics. Try to detect your object again. Then, close the app to stop the recording.
-
-The diagnostics `.zip` file will be located in the `TempState` folder named using a timestamp.
-
-In Windows Device Portal, navigate to your application's `TempState` folder and download the `.zip` file. Send the `.zip` file to us.
-
-:::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="capture diagnostics":::
 
 ## Next steps
 
@@ -81,3 +65,9 @@ In Windows Device Portal, navigate to your application's `TempState` folder and 
 
 > [!div class="nextstepaction"]
 > [FAQ](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting object detection](../troubleshoot/object-detection.md)

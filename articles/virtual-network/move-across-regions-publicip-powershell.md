@@ -6,7 +6,8 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/29/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move Azure Public IP configuration to another region using Azure PowerShell

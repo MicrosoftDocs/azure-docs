@@ -2,7 +2,8 @@
 title: Convert managed disks storage between different disk types using Azure CLI
 description: How to convert Azure managed disks between the different disks types by using the Azure CLI.
 author: roygara
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 02/13/2021
 ms.author: albecker
@@ -10,6 +11,8 @@ ms.subservice: disks
 ---
 
 # Convert Azure managed disks storage from Standard to Premium or Premium to Standard
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 There are four disk types of Azure managed disks: Azure ultra disks, premium SSD, standard SSD, and standard HDD. You can switch between premium SSD, standard SSD, and standard HDD based on your performance needs. You are not yet able to switch from or to an ultra disk, you must deploy a new one.
 

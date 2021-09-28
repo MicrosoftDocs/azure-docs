@@ -2,7 +2,7 @@
 title: Backup and restore - snapshots, geo-redundant 
 description: Learn how backup and restore works in Azure Synapse Analytics dedicated SQL pool. Use backups to restore your data warehouse to a restore point in the primary region. Use geo-redundant backups to restore to a different geographical region.
 services: synapse-analytics
-author: kevinvngo
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -21,7 +21,7 @@ Learn how to use backup and restore in Azure Synapse Dedicated SQL pool. Use ded
 
 A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since dedicated SQL pool is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
-A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse is also a powerful mechanism to create copies of your data warehouse for test or development purposes. Dedicated SQL pool restore rates can vary depending on the database size and location of the source and target data warehouse.
+A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse snapshot is also a powerful mechanism to create copies of your data warehouse for test or development purposes. Dedicated SQL pool restore rates can vary depending on the database size and location of the source and target data warehouse.
 
 ## Automatic Restore Points
 
@@ -40,10 +40,10 @@ order by run_id desc
 
 ## User-Defined Restore Points
 
-This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint?viewFallbackFrom=azurermps-6.2.0) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) or the Azure portal.
+This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) or the Azure portal.
 
 > [!NOTE]
-> If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse. Once you have restored, you have the dedicated SQL pool online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
+> If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse. Once you have restored, you have the dedicated SQL pool online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Synapse storage rate. If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
 
 ### Restore point retention
 
@@ -52,7 +52,7 @@ The following lists details for restore point retention periods:
 1. Dedicated SQL pool deletes a restore point when it hits the 7-day retention period **and** when there are at least 42 total restore points (including both user-defined and automatic).
 2. Snapshots are not taken when a dedicated SQL pool is paused.
 3. The age of a restore point is measured by the absolute calendar days from the time the restore point is taken including when the SQL pool is paused.
-4. At any point in time, a dedicated SQL pool is guaranteed to be able to store up to 42 user-defined restore points and 42 automatic restore points as long as these restore points have not reached the 7-day retention period
+4. At any point in time, a dedicated SQL pool is guaranteed to be able to store up to 42 user-defined restore points or 42 automatic restore points as long as these restore points have not reached the 7-day retention period
 5. If a snapshot is taken, the dedicated SQL pool is then paused for greater than 7 days, and then resumed, the restore point will persist until there are 42 total restore points (including both user-defined and automatic)
 
 ### Snapshot retention when a SQL pool is dropped
@@ -73,7 +73,7 @@ If you do not require geo-backups for your dedicated SQL pool, you can disable t
 
 ## Data residency 
 
-If your paired data center is located outside of your geographical boundary, you can ensure that your data stays within your geographical boundary by opting out of geo-redundant storage. This can be done when provisioning your dedicated SQL pool (formerly SQL DW) through the  geo-redundant storage option when creating or restoring a dedicated SQL pool (formerly SQL DW). 
+If your paired data center is located outside of your country, you can ensure that your data stays within your region by provisioning your database on locally redundant storage (LRS). If your database has already been provisioned on RA-GRS (Read Only Geographically Redundant Storage, the current default) then you can opt out of geo-backups, however your database will continue to reside on storage that is replicated to a regional pair. To ensure that customer data stays within your region, you can provision or restore your dedicated SQL pool to locally redundant storage. For more information on how to provision or restore to local redundant storage, see [How-to guide for configuring single region residency for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics](single-region-residency.md)
 
 To confirm that your paired data center is in a different country, refer to [Azure Paired Regions](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 

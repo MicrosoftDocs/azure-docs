@@ -1,12 +1,12 @@
 ---
 title: 'How to: browse the Data Catalog'
-description: This article gives an overview of how to browse the Azure Purview Data Catalog based on the asset type.
-author: chanuengg
-ms.author: csugunan
+description: This article gives an overview of how to browse the Azure Purview data catalog by asset type
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 05/21/2021
 ---
 
 # Browse the Azure Purview Data catalog
@@ -21,6 +21,9 @@ For example, you can easily find a dataset called *DateDimension* under a folder
 
 A native browsing experience with hierarchical namespace is provided for each of the corresponding data source.
 
+> [!NOTE]
+> After a successful scan, there may be delay before newly scanned assets appear in the browse experience. This delay may take up to a few hours.
+
 ## Browse the Data Catalog by asset type
 
 1. You can browse data assets, by selecting the **Browse by asset type** on the homepage.
@@ -30,6 +33,9 @@ A native browsing experience with hierarchical namespace is provided for each of
 1. On the **Browse asset types** page, tiles are categorized by data sources. To further explore assets in each data source, select the corresponding tile.
 
     :::image type="content" source="media/how-to-browse-catalog/browse-asset-types.jpg" alt-text="Browse asset types page" border="true":::
+
+> [!TIP]
+> Certain tiles are groupings of a collection of data sources. For example, the Azure Storage Account tile contains all Azure Blob Storage and Azure Data Lake Storage Gen2 accounts. The Azure SQL Server tile will display the Azure SQL Server assets that contain Azure SQL Database and Azure Dedicated SQL Pool instances ingested into the catalog. 
 
 1. On the next page, top-level assets under your chosen data type are listed. Pick one of the assets to further explore its contents.
 

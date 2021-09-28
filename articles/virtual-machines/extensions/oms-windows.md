@@ -1,20 +1,14 @@
 ---
 title: Log Analytics virtual machine extension for Windows 
 description: Deploy the Log Analytics agent on Windows virtual machine using a virtual machine extension.
-services: virtual-machines-windows
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 06/26/2020
-ms.author: akjosh
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Log Analytics virtual machine extension for Windows
@@ -100,7 +94,7 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Log Analytics agent extension during an Azure Resource Manager template deployment. A sample template that includes the Log Analytics agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Log Analytics agent extension during an Azure Resource Manager template deployment. A sample template that includes the Log Analytics agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-windows-vm). 
 
 >[!NOTE]
 >The template does not support specifying more than one workspace ID and workspace key when you want to configure the agent to report to multiple workspaces. To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/agents/agent-manage.md#adding-or-removing-a-workspace).  

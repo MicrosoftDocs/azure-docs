@@ -25,10 +25,8 @@ landingContent:
         links:
           - text: Overview
             url: azure-media-player-overview.md
-          - text: Release notes
-            url: azure-media-player-release-notes.md
           - text: Changelog
-            url: azure-media-player-changelog.md    
+            url: https://amp.azure.net/libs/amp/latest/docs/changelog.html
 
   # Card
   - title: Get started
@@ -72,7 +70,7 @@ landingContent:
           - text: Samples
             url: https://github.com/Azure-Samples/azure-media-player-samples
           - text: API
-            url: /javascript/api/azuremediaplayer/?view=azure-node-latest
+            url: /javascript/api/azuremediaplayer/
           - text: API methods
             url: azure-media-player-api-methods.md
           - text: Options

@@ -17,7 +17,7 @@ Azure Container Instances also supports [readiness probes](container-instances-r
 
 ## YAML deployment
 
-Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGNIX container that eventually becomes unhealthy.
+Create a `liveness-probe.yaml` file with the following snippet. This file defines a container group that consists of an NGINX container that eventually becomes unhealthy.
 
 ```yaml
 apiVersion: 2019-12-01
@@ -27,7 +27,7 @@ properties:
   containers:
   - name: mycontainer
     properties:
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       command:
         - "/bin/sh"
         - "-c"

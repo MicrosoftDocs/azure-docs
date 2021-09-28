@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 08/11/2021
 ms.author: b-juche
 ---
 # Create volume replication for Azure NetApp Files
 
 > [!IMPORTANT]
-> The cross-region replication feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
+> The cross-region replication feature is currently in preview. You need to submit a waitlist request for accessing the feature through the [Azure NetApp Files cross-region replication waitlist submission page](https://aka.ms/anfcrrpreviewsignup). Wait for an official confirmation email from the Azure NetApp Files team before using the cross-region replication feature.
 
 This article shows you how to set up cross-region replication by creating replication peering. 
 
@@ -62,7 +62,7 @@ You can also select an existing NetApp account in a different region.
     * Capacity pool
     * Volume quota
         > [!NOTE] 
-        > It is recommended that the volume quota size mirror that of the source volume.
+        > The volume quota (size) for the destination volume should mirror that of the source volume. If you specify a size that is smaller than the source volume, the destination volume is automatically resized to the source volume size. 
     * Virtual network 
     * Subnet
 
@@ -100,6 +100,9 @@ To authorize the replication, you need to obtain the resource ID of the replicat
     ![Authorize replication](../media/azure-netapp-files/cross-region-replication-authorize.png) 
 
 6. In the Authorize field, paste the destination replication volume resource ID that you obtained in Step 3, then click **OK**.
+
+    > [!NOTE]
+    > Due to various factors, like the state of the destination storage at a given time, there’s likely a difference between the used space of the source volume and the used space of the destination volume. <!-- ANF-14038 --> 
 
 ## Next steps  
 

@@ -74,7 +74,7 @@ Configure one or more *data sinks* to send data to other additional destinations
 | Azure Storage blobs | Write to data to blobs in Azure Storage in addition to tables. |
 | Application Insights | Collect data from applications running in your VM to Application Insights to integrate with other application monitoring. See [Send diagnostic data to Application Insights](diagnostics-extension-to-application-insights.md). |
 
-You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.  See [Collect Azure diagnostic logs from Azure Storage](../essentials/diagnostics-extension-logs.md). 
+You can also collect WAD data from storage into a Log Analytics workspace to analyze it with Azure Monitor Logs although the Log Analytics agent is typically used for this functionality. It can send data directly to a Log Analytics workspace and supports solutions and insights that provide additional functionality.  See [Collect Azure diagnostic logs from Azure Storage](../agents/diagnostics-extension-logs.md). 
 
 
 ### Linux diagnostics extension (LAD)

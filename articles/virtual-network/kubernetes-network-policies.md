@@ -131,7 +131,8 @@ The first step is to enable Azure Monitor for containers for your Kubernetes clu
 
 After editing the ConfigMap, save it locally and apply the ConfigMap to your cluster as follows.
 
-```kubectl apply -f container-azm-ms-agentconfig.yaml```
+`kubectl apply -f container-azm-ms-agentconfig.yaml`
+
 Below is a snippet from the [Azure monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig), which shows the NPM integration enabled with advanced metrics collection.
 ```
 integrations: |-
@@ -153,7 +154,7 @@ Besides viewing the workbook (pictures below), you can also directly query the P
 | where TimeGenerated > ago(5h)
 | where Name contains "npm_"
 
-You can also query Log Analytics directly for the metrics. Learn more about it with [Getting Started with Log Analytics Queries](../azure-monitor/containers/container-insights-log-search.md) 
+You can also query Log Analytics directly for the metrics. Learn more about it with [Getting Started with Log Analytics Queries](../azure-monitor/containers/container-insights-log-query.md) 
 
 #### Viewing in Grafana Dashboard
 Set up your Grafana Server and configure a Log Analytics Data Source as described [here](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Then, import [Grafana Dashboard with a Log Analytics backend](https://grafana.com/grafana/dashboards/10956) into your Grafana Labs.
@@ -264,4 +265,3 @@ Following are some sample dashboard for NPM metrics in Container Insights (CI) a
 - Learn about [Azure Kubernetes Service](../aks/intro-kubernetes.md).
 -  Learn about [container networking](container-networking-overview.md).
 - [Deploy the plug-in](deploy-container-networking.md) for Kubernetes clusters or Docker containers.
-

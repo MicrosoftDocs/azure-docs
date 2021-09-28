@@ -6,14 +6,14 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
-
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/09/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -38,17 +38,9 @@ This tutorial shows you how to access the Azure Resource Manager API using a Win
 
 ## Grant your VM access to a resource group in Resource Manager
 
-Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication.  The Azure Resource Manager supports Azure AD authentication.  First, we need to grant this VM’s system-assigned managed identity access to a resource in Resource Manager, in this case the Resource Group in which the VM is contained.  
-
-1.	Navigate to the tab for **Resource Groups**. 
-2.	Select the specific **Resource Group** you created for your **Windows VM**. 
-3.	Go to **Access control (IAM)** in the left panel. 
-4.	Then **Add role assignment** a new role assignment for your **Windows VM**.  Choose **Role** as **Reader**. 
-5.	In the next drop-down, **Assign access to** the resource **Virtual Machine**. 
-6.	Next, ensure the proper subscription is listed in the **Subscription** dropdown. And for **Resource Group**, select **All resource groups**. 
-7.	Finally, in **Select** choose your Windows VM in the dropdown and click **Save**.
-
-    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+Using managed identities for Azure resources, your code can get access tokens to authenticate to resources that support Azure AD authentication and Azure Resource Manager supports Azure AD authentication.  We need to grant this VM’s system-assigned managed identity access to a resource in Resource Manager, in this case the Resource Group where you created the VM. Assign the [Reader](../../role-based-access-control/built-in-roles.md#reader) role to the managed-identity at the scope of the resource group we created for your **Windows VM**.
+ 
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Get an access token using the VM's system-assigned managed identity and use it to call Azure Resource Manager 
 

@@ -7,9 +7,9 @@ ms.subservice: data-movement
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
+author: rothja
+ms.author: jroth
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Use CLI to copy a database in Azure SQL Database to a new server
@@ -49,7 +49,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Description |
 |---|---|
-| [az sql db copy](/cli/azure/sql/db#az-sql-db-copy) | Creates a copy of a database that uses the snapshot at the current time. |
+| [az sql db copy](/cli/azure/sql/db#az_sql_db_copy) | Creates a copy of a database that uses the snapshot at the current time. |
 
 ## Next steps
 

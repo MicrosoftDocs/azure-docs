@@ -74,7 +74,7 @@ Details on decision questions:
 5. Azure AD Identity Protection requires Password Hash Sync regardless of which sign-in method you choose, to provide the *Users with leaked credentials* report. Organizations can fail over to Password Hash Sync if their primary sign-in method fails and it was configured before the failure event.
 
 > [!NOTE]
-> Azure AD Identity Protection require [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
+> Azure AD Identity Protection require [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) licenses.
 
 ## Detailed considerations
 
@@ -89,7 +89,7 @@ Details on decision questions:
 	Organizations that require multi-factor authentication with password hash synchronization must use Azure AD Multi-Factor Authentication or [Conditional Access custom controls](../../active-directory/conditional-access/controls.md#custom-controls-preview). Those organizations can't use third-party or on-premises multifactor authentication methods that rely on federation.
 
 > [!NOTE]
-> Azure AD Conditional Access require [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
+> Azure AD Conditional Access require [Azure AD Premium P1](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) licenses.
 
 * **Business continuity**. Using password hash synchronization with cloud authentication is highly available as a cloud service that scales to all Microsoft datacenters. To make sure password hash synchronization does not go down for extended periods, deploy a second Azure AD Connect server in staging mode in a standby configuration.
 
@@ -108,7 +108,7 @@ Refer to [implementing password hash synchronization](../../active-directory/hyb
 
 * **User experience**. To improve users' sign-in experience, deploy seamless SSO with Pass-through Authentication. Seamless SSO eliminates unnecessary prompts after users sign in.
 
-* **Advanced scenarios**. Pass-through Authentication enforces the on-premises account policy at the time of sign-in. For example, access is denied when an on-premises user’s account state is disabled, locked out, or their [password expires](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) or the logon attempt falls outside the hours when the user is allowed to sign in.
+* **Advanced scenarios**. Pass-through Authentication enforces the on-premises account policy at the time of sign-in. For example, access is denied when an on-premises user’s account state is disabled, locked out, or their [password expires](../../active-directory/hybrid/how-to-connect-pta-faq.yml#what-happens-if-my-user-s-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication-) or the logon attempt falls outside the hours when the user is allowed to sign in.
 
 	Organizations that require multi-factor authentication with pass-through authentication must use Azure AD Multi-Factor Authentication (MFA) or [Conditional Access custom controls](../../active-directory/conditional-access/controls.md#custom-controls-preview). Those organizations can't use a third-party or on-premises multifactor authentication method that relies on federation. Advanced features require that password hash synchronization is deployed whether or not you choose pass-through authentication. An example is the leaked credentials report of Identity Protection.
 
@@ -118,7 +118,7 @@ Refer to [implementing password hash synchronization](../../active-directory/hyb
 
 * **Considerations**. You can use password hash synchronization as a backup authentication method for pass-through authentication, when the agents can't validate a user's credentials due to a significant on-premises failure. Fail over to password hash synchronization doesn't happen automatically and you must use Azure AD Connect to switch the sign-on method manually.
 
-	For other considerations on Pass-through Authentication, including Alternate ID support, see [frequently asked questions](../../active-directory/hybrid/how-to-connect-pta-faq.md).
+	For other considerations on Pass-through Authentication, including Alternate ID support, see [frequently asked questions](../../active-directory/hybrid/how-to-connect-pta-faq.yml).
 
 Refer to [implementing pass-through authentication](../../active-directory/hybrid/how-to-connect-pta.md) for deployment steps.
 
@@ -174,7 +174,7 @@ The following diagrams outline the high-level architecture components required f
 |Is there a TLS/SSL certificate requirement?|No|No|Yes|
 |Is there a health monitoring solution?|Not required|Agent status provided by [Azure Active Directory admin center](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Do users get single sign-on to cloud resources from domain-joined devices within the company network?|Yes with [Seamless SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Yes with [Seamless SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Yes|
-|What sign-in types are supported?|UserPrincipalName + password<br><br>Windows-Integrated Authentication by using [Seamless SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternate login ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + password<br><br>Windows-Integrated Authentication by using [Seamless SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternate login ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + password<br><br>sAMAccountName + password<br><br>Windows-Integrated Authentication<br><br>[Certificate and smart card authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternate login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|What sign-in types are supported?|UserPrincipalName + password<br><br>Windows-Integrated Authentication by using [Seamless SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternate login ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + password<br><br>Windows-Integrated Authentication by using [Seamless SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternate login ID](../../active-directory/hybrid/how-to-connect-pta-faq.yml)|UserPrincipalName + password<br><br>sAMAccountName + password<br><br>Windows-Integrated Authentication<br><br>[Certificate and smart card authentication](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternate login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Is Windows Hello for Business supported?|[Key trust model](/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Key trust model](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Requires Windows Server 2016 Domain functional level*|[Key trust model](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Certificate trust model](/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |What are the multifactor authentication options?|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Custom Controls with Conditional Access*](../../active-directory/conditional-access/controls.md)|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Custom Controls with Conditional Access*](../../active-directory/conditional-access/controls.md)|[Azure AD MFA](/azure/multi-factor-authentication/)<br><br>[Azure MFA server](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[Third-party MFA](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Custom Controls with Conditional Access*](../../active-directory/conditional-access/controls.md)|
 |What user account states are supported?|Disabled accounts<br>(up to 30-minute delay)|Disabled accounts<br><br>Account locked out<br><br>Account expired<br><br>Password expired<br><br>Sign-in hours|Disabled accounts<br><br>Account locked out<br><br>Account expired<br><br>Password expired<br><br>Sign-in hours|

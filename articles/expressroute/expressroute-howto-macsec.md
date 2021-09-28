@@ -7,7 +7,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -69,6 +70,16 @@ To start the configuration, sign in to your Azure account and select the subscri
     $MACsecCAKSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CAK_name" -SecretValue $CAK
     $MACsecCKNSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CKN_name" -SecretValue $CKN
     ```
+   > [!NOTE]
+   > CKN must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
+   >
+   > CAK length depends on cipher suite specified:
+   >
+   > * For GcmAes128, the CAK must be an even-length string up to 32 hexadecimal digits (0-9, A-F).
+   >
+   > * For GcmAes256, the CAK must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
+   >
+
 4. Assign the GET permission to the user identity.
 
     ```azurepowershell-interactive

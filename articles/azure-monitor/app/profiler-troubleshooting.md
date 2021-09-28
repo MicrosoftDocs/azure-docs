@@ -13,6 +13,15 @@ ms.reviewer: mbullwin
 
 ## <a id="troubleshooting"></a>General troubleshooting
 
+### Make sure you're using the appropriate Profiler Endpoint
+
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+
+|App Setting    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
+
 ### Profiles are uploaded only if there are requests to your application while Profiler is running
 
 Azure Application Insights Profiler collects data for two minutes each hour. It can also collect data when you select the **Profile Now** button in the **Configure Application Insights Profiler** pane.
@@ -115,7 +124,7 @@ It will display a Status Page similar like the below:
     
 ### Manual installation
 
-When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for PowerApps. To apply updates manually:
+When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for Power Apps. To apply updates manually:
 
 1. In the **Web App Control** pane, open **Settings**.
 

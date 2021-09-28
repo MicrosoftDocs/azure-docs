@@ -4,10 +4,9 @@ description: This article describes how to use Azure Stream Analytics CI/CD tool
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 06/29/2021
 ---
 
 # Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools
@@ -118,6 +117,9 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 |---|---|
 | `-project` | The path of the **asaproj.json** file for your Visual Studio Code project or **[Your project name].asaproj** for Visual Studio project. |
 | `-testConfigPath` | The path of the test configuration file. If it is not specified, the file will be searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file will be created if not existed. |
+
+> [!NOTE]
+> The `Script` value in the generated **testConfig.json** file is only for providing the context; It's not used in the testing logic. 
 
 #### [Visual Studio Code](#tab/visual-studio-code)
 

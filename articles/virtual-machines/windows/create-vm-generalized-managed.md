@@ -2,7 +2,8 @@
 title: Create VM from a managed image in Azure 
 description: Create a Windows virtual machine from a generalized managed image using Azure PowerShell or the portal.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/17/2018
@@ -10,6 +11,8 @@ ms.author: cynthn
 
 ---
 # Create a VM from a managed image
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 You can create multiple virtual machines (VMs) from an Azure managed VM image using the Azure portal or PowerShell. A managed VM image contains the information necessary to create a VM, including the OS and data disks. The virtual hard disks (VHDs) that make up the image, including both the OS disks and any data disks, are stored as managed disks. 
 

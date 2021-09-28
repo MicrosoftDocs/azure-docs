@@ -11,7 +11,7 @@ manager: eliotgra
 ms.custom:  [amqp, mqtt]
 ---
 
-# Provisioning devices with Azure IoT Hub Device Provisioning Service
+# What is Azure IoT Hub Device Provisioning Service?
 Microsoft Azure provides a rich set of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. DPS enables the provisioning of millions of devices in a secure and scalable manner.
 
 ## When to use Device Provisioning Service
@@ -103,13 +103,13 @@ DPS is available in many regions. The updated list of existing and newly announc
 ## Availability
 There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
-## Quotas
+## Quotas and Limits
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
+
+For more details on quota limits, see [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
-For more details on quota limits:
-* [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## Related Azure components
 DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).

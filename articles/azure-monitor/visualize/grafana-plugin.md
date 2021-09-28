@@ -1,7 +1,6 @@
 ---
 title: Monitor Azure services and applications using Grafana
 description: Route Azure Monitor and Application Insights data so you can view them in Grafana.
-ms.subservice: ""
 ms.topic: conceptual
 ms.date: 11/06/2017
 
@@ -37,6 +36,9 @@ To set up a local Grafana server, [download and install Grafana in your local en
 7. Get the public IP address of your Grafana server - go back to the list of resources and select **Public IP address**.
 
 ## Sign in to Grafana
+
+> [!IMPORTANT]
+> The Internet Explorer browser and older Microsoft Edge browsers are not compatible with Grafana, you must use a chromium-based browser including Microsoft Edge. See [supported browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
 1. Using the IP address of your server, open the Login page at *http://\<IP address\>:3000* or the *\<DNSName>\:3000* in your browser. While 3000 is the default port, note you might have selected a different port during setup. You should see a login page for the Grafana server you built.
 

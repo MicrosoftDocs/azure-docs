@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/22/2021
+ms.date: 08/09/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
 ---
 
 # Tutorial: Prepare to deploy Azure Stack Edge Mini R
@@ -80,26 +80,55 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-### [Portal](#tab/azure-portal)
+---
+
+### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
+
+Azure Edge Hardware Center (Preview) is a new service that lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
+
+When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
+
+Ordering through Azure Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You will have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
+
+[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
+
+#### Create a management resource for each device
+
+To manage devices that are ordered through the Azure Edge Hardware Center, you'll create a management resource for each device in Azure Stack Edge. When the device is activated, the management resource is associated with an order item. You'll be able to open the order item from the management resource and open the management resource from the order item. 
+
+After a device is delivered, a **Configure hardware** link is added to the order item detail, giving you a direct way to open a wizard for creating a management resource. You can also use the **Create management resource** option in Azure Stack Edge.
+
+[!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
+
+### [Portal (classic)](#tab/azure-portal)
 
 To create an Azure Stack Edge resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
+2. In **Azure services**, search for and select **Azure Stack Edge**. Then select **+ Create**. 
 
-2. In the left pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. 
+3. In **Manage Azure Stack Edge devices**, select the **Try Azure Hardware Center** link.
 
-3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
+    ![Screenshot of the "Manage Azure Stack Edge devices" screen, opened by the Plus Create button. The "Try Azure Edge Hardware Center" link is highlighted.](media/azure-stack-edge-mini-r-deploy-prep/classic-order-experience-1.png)
 
-    ![Create a resource 1](media/azure-stack-edge-mini-r-deploy-prep/create-resource-1.png)
+    This opens the **Get started** screen for creating an order in the Azure Edge Hardware Center. 
+
+4. If you don't want to order through the Hardware Center, on the **Get started** screen, select **Order using classic ordering experience**.
+
+   ![Screenshot of Get Started screen in Azure Stack Edge. The "Order using classic ordering experience" link is highlighted.](media/azure-stack-edge-mini-r-deploy-prep/classic-order-experience-2.png)
+
+5. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
+
+    ![Screenshot of "Select device type" screen to select a subscription and ship to region for an Azure Stack Edge resource. The Show Devices button is highlighted.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-1.png)
 
 
-4. Select device type. Under **Azure Stack Edge**, choose **Azure Stack Edge Mini R** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
+6. Select device type. Under **Azure Stack Edge**, choose **Azure Stack Edge Mini R** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-    [![Create a resource 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png#lightbox)
+    [![Screenshot of "Select device type" screen to select a device type for an Azure Stack Edge resource. The Select button for a device type is highlighted.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)
 
 
-5. On the **Basics** tab, enter or select the following **Project details**.
+7. On the **Basics** tab, enter or select the following **Project details**.
     
     |Setting  |Value  |
     |---------|---------|
@@ -107,41 +136,41 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
 
 
-6. Enter or select the following **Instance details**.
+8. Enter or select the following **Instance details**.
 
     |Setting  |Value  |
     |---------|---------|
     |Name   | A friendly name to identify the resource.<br>The name has from 2 to 50 characters including letters, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
     |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
-    ![Create a resource 4](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
+    ![Screenshot of the Basics tab of the Create a resource and order a device wizard for Azure Stack Edge. The Basics tab and the Next: Shipping Address button are highlighted.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-4.png)
 
 
-7. Select **Next: Shipping address**.
+9. Select **Next: Shipping address**.
 
    - If you already have a device, select the combo box for **I already have a device**.
 
-     ![Create a resource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
+     ![Screenshot of "Shipping address" tab with the "I already have a shipping address for the device" option selected in the Create a resource wizard for Azure Stack Edge.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
    - If this is the new device that you are ordering, enter the contact name, company, address to ship the device to, and contact information.
 
-     ![Create a resource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
+     ![Screenshot of "Shipping address" tab in the Create a resource wizard when creating a new Azure Stack Edge resource.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
-8. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
+10. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
-9. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
+11. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Create a resource 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
+    ![Screenshot of the Review Plus Create tab for an Azure Stack Edge order.](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png)
 
     You're also notified that during resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
-10. Select **Create**.
+12. Select **Create**.
 
     The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
     
     After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
     
-    ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Screenshot of the Overview pane for an Azure Stack Edge order that has been successfully created.](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
 After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
@@ -201,7 +230,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
 1. Select the resource you created, and select **Overview**.
 
-   ![Select Device setup](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
+   ![Screenshot of the Overview pane for an Azure Stack Edge resource.](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
 2. On the **Activate** tile, provide a name for the Azure Key Vault, or accept the default name. The key vault name can be between 3 and 24 characters. 
 
@@ -209,7 +238,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
     Once you've specified a key vault name, select **Generate activation key** to create an activation key.
 
-    [![Get activation key](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
+    [![Screenshot of Overview pane for newly created Azure Stack Edge resource, with a key vault name entry. The entry and the Generate Activation Key button are highlighted.](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
     Wait a few minutes while the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
 

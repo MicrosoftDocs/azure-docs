@@ -2,13 +2,16 @@
 title: Create and upload a CentOS-based Linux VHD
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
 
 ---
 # Prepare a CentOS-based virtual machine for Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
 
@@ -378,8 +381,8 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
     cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
     datasource_list: [ Azure ]
     datasource:
-    Azure:
-        apply_network_config: False
+        Azure:
+            apply_network_config: False
     EOF
 
     if [[ -f /mnt/resource/swapfile ]]; then

@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a Synapse workspace using Azure CLI'  
 description: Create an Azure Synapse workspace using Azure CLI by following the steps in this guide. 
 services: synapse-analytics
-author: alehall
+author: rothja
 ms.service: synapse-analytics 
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 08/25/2020
-ms.author: alehall
+ms.author: jroth
 ms.reviewer: jrasnick 
 ---
 
@@ -25,7 +25,7 @@ In this quickstart, you learn to create a Synapse workspace by using the Azure C
 - [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md)
 
     > [!IMPORTANT]
-    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account, as described on the [Create a Storage Accout](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) page. 
+    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account, as described on the [Create a Storage Account](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) page. 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

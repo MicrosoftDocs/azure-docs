@@ -27,22 +27,22 @@ It can be useful to restrict administrative scope by using administrative units 
 
 A central administrator could:
 
-- Create a role with administrative permissions over only Azure AD users in the business school administrative unit.
 - Create an administrative unit for the School of Business.
-- Populate the administrative unit with only the business school students and staff.
+- Populate the administrative unit with only students and staff within the School of Business.
+- Create a role with administrative permissions over only Azure AD users in the School of Business administrative unit.
 - Add the business school IT team to the role, along with its scope.
 
 ## License requirements
 
-To use administrative units, you need an Azure Active Directory Premium license for each administrative unit admin, and Azure Active Directory Free licenses for administrative unit members. For more information, see [Getting started with Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 
 You can manage administrative units by using the Azure portal, PowerShell cmdlets and scripts, or Microsoft Graph. For more information, see:
 
 - [Create, remove, populate, and add roles to administrative units](admin-units-manage.md): Includes complete how-to procedures.
-- [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): Covers how to work with administrative units by using PowerShell.
-- [Administrative unit Graph support](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): Provides detailed documentation on Microsoft Graph for administrative units.
+- [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units): Covers how to work with administrative units by using PowerShell.
+- [Administrative unit Graph support](/graph/api/resources/administrativeunit): Provides detailed documentation on Microsoft Graph for administrative units.
 
 ### Plan your administrative units
 
@@ -58,7 +58,7 @@ You can expect the creation of administrative units in the organization to go th
 
 ## Currently supported scenarios
 
-As a Global Administrator or a Privileged Role Administrator, you can use the Azure AD portal to:
+As a Global Administrator or a Privileged Role Administrator, you can use the Azure portal to:
 
 - Create administrative units
 - Add users and groups members of administrative units
@@ -73,7 +73,7 @@ The following sections describe current support for administrative unit scenario
 
 ### Administrative unit management
 
-| Permissions |   Graph/PowerShell   | Azure AD portal | Microsoft 365 admin center |
+| Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
 | Creating and deleting administrative units   |    Supported    |   Supported   |    Not supported |
 | Adding and removing administrative unit members individually    |   Supported    |   Supported   |    Not supported |
@@ -83,7 +83,7 @@ The following sections describe current support for administrative unit scenario
 
 ### User management
 
-| Permissions |   Graph/PowerShell   | Azure AD portal | Microsoft 365 admin center |
+| Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
 | Administrative unit-scoped management of user properties, passwords, and licenses   |    Supported     |  Supported   |   Supported |
 | Administrative unit-scoped blocking and unblocking of user sign-ins    |   Supported   |    Supported   |    Supported |
@@ -91,12 +91,12 @@ The following sections describe current support for administrative unit scenario
 
 ### Group management
 
-| Permissions |   Graph/PowerShell   | Azure AD portal | Microsoft 365 admin center |
+| Permissions |   Graph/PowerShell   | Azure portal | Microsoft 365 admin center |
 | --- | --- | --- | --- |
 | Administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Not supported |
 | Administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported |
 
-Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
+Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside the administrative unit. In the Microsoft 365 admin center, users outside a scoped admin's administrative units are filtered out. But you can browse other users in the Azure portal, PowerShell, and other Microsoft services.
 
 ## Next steps
 

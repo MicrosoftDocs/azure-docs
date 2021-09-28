@@ -2,7 +2,7 @@
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 07/05/2021
 ---
 
 # Resource types and health checks in Azure resource health
@@ -259,7 +259,13 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the host server up and running?</li><li>Is Internet Information server running?</li><li>Is the Load balancer running?</li><li>Can the Web App be reached from within the datacenter?</li><li>Is the storage account hosting the site content available?</li></ul>|
 
+## Microsoft.RecoveryServices/vaults
+
+| Executed Checks |
+| --- |
+|<ul><li>Are any Backup operations on Backup Items configured in this vault failing due to causes beyond user control?</li><li>Are any Restore operations on Backup Items configured in this vault failing due to causes beyond user control?</li></ul> |
+
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)
 - Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md).

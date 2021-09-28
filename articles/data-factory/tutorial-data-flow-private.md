@@ -1,13 +1,14 @@
 ---
 title: Transform data with an Azure Data Factory managed virtual network mapping data flow
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flows.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
+ms.date: 06/04/2021
 ---
 
 # Transform data securely by using mapping data flow
@@ -65,15 +66,15 @@ In this step, you create an Azure IR and enable Data Factory Managed Virtual Net
 
 1. In the Data Factory portal, go to **Manage**, and select **New** to create a new Azure IR.
 
-   ![Screenshot that shows creating a new Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/create-new-azure-ir.png" alt-text="Screenshot that shows creating a new Azure IR.":::
 1. On the **Integration runtime setup** page, choose what integration runtime to create based on required capabilities. In this tutorial, select **Azure, Self-Hosted** and then click **Continue**. 
 1. Select **Azure** and then click **Continue** to create an Azure Integration runtime.
 
-   ![Screenshot that shows a new Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/azure-ir.png" alt-text="Screenshot that shows a new Azure IR.":::
 
 1. Under **Virtual network configuration (Preview)**, select **Enable**.
 
-   ![Screenshot that shows enabling a new Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/enable-managed-vnet.png" alt-text="Screenshot that shows enabling a new Azure IR.":::
 
 1. Select **Create**.
 
@@ -81,21 +82,21 @@ In this step, you create an Azure IR and enable Data Factory Managed Virtual Net
 
 In this step, you'll create a pipeline that contains a data flow activity.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   ![Screenshot that shows creating a pipeline.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows creating a pipeline.":::
 
 1. In the properties pane for the pipeline, enter **TransformMovies** for the pipeline name.
-1. In the factory top bar, slide the **Data flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data flow clusters take five to seven minutes to warm up. Turn on **Data flow debug** first if you plan to do data flow development. For more information, see [Debug mode](./concepts-data-flow-debug-mode.md).
-
-    ![Screenshot that shows the Data flow debug slider.](media/tutorial-data-flow-private/dataflow-debug.png)
 1. In the **Activities** pane, expand **Move and Transform**. Drag the **Data Flow** activity from the pane to the pipeline canvas.
 
 1. In the **Adding data flow** pop-up, select **Create new data flow** and then select **Mapping Data Flow**. Select **OK** when you're finished.
 
-    ![Screenshot that shows Mapping Data Flow.](media/tutorial-data-flow-private/mapping-dataflow.png)
+    :::image type="content" source="media/tutorial-data-flow-private/mapping-dataflow.png" alt-text="Screenshot that shows Mapping Data Flow.":::
 
 1. Name your data flow **TransformMovies** in the properties pane.
+1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
+
+    :::image type="content" source="media/tutorial-data-flow-private/dataflow-debug.png" alt-text="Screenshot that shows the Data flow debug slider.":::
 
 ## Build transformation logic in the data flow canvas
 
@@ -119,7 +120,7 @@ In this step, you set up Data Lake Storage Gen2 as a source.
 
 1. Make sure you enable **Interactive authoring**. It might take a minute to be enabled.
 
-    ![Screenshot that shows Interactive authoring.](./media/tutorial-data-flow-private/interactive-authoring.png)
+    :::image type="content" source="./media/tutorial-data-flow-private/interactive-authoring.png" alt-text="Screenshot that shows Interactive authoring.":::
 
 1. Select **Test connection**. It should fail because the storage account doesn't enable access into it without the creation and approval of a private endpoint. In the error message, you should see a link to create a private endpoint that you can follow to create a managed private endpoint. An alternative is to go directly to the **Manage** tab and follow instructions in [this section](#create-a-managed-private-endpoint) to create a managed private endpoint.
 
@@ -131,11 +132,11 @@ In this step, you set up Data Lake Storage Gen2 as a source.
 
 1. On the dataset creation screen, enter where your file is located under the **File path** field. In this tutorial, the file moviesDB.csv is located in the container **sample-data**. Because the file has headers, select the **First row as header** check box. Select **From connection/store** to import the header schema directly from the file in storage. Select **OK** when you're finished.
 
-    ![Screenshot that shows the source path.](media/tutorial-data-flow-private/source-file-path.png)
+    :::image type="content" source="media/tutorial-data-flow-private/source-file-path.png" alt-text="Screenshot that shows the source path.":::
 
 1. If your debug cluster has started, go to the **Data Preview** tab of the source transformation and select **Refresh** to get a snapshot of the data. You can use the data preview to verify your transformation is configured correctly.
 
-    ![Screenshot that shows the Data Preview tab.](media/tutorial-data-flow-private/data-preview.png)
+    :::image type="content" source="media/tutorial-data-flow-private/data-preview.png" alt-text="Screenshot that shows the Data Preview tab.":::
 
 #### Create a managed private endpoint
 
@@ -149,7 +150,7 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
 1. Go to the **Managed private endpoints** section.
 1. Select **+ New** under **Managed private endpoints**.
 
-    ![Screenshot that shows the Managed private endpoints New button.](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-data-flow-private/new-managed-private-endpoint.png" alt-text="Screenshot that shows the Managed private endpoints New button."::: 
 
 1. Select the **Azure Data Lake Storage Gen2** tile from the list, and select **Continue**.
 1. Enter the name of the storage account you created.
@@ -157,7 +158,7 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
 1. After a few seconds, you should see that the private link created needs an approval.
 1. Select the private endpoint that you created. You can see a hyperlink that will lead you to approve the private endpoint at the storage account level.
 
-    ![Screenshot that shows the Manage private endpoint pane.](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-data-flow-private/manage-private-endpoint.png" alt-text="Screenshot that shows the Manage private endpoint pane."::: 
 
 #### Approval of a private link in a storage account
 
@@ -165,7 +166,7 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
 
 1. Select the check box by the private endpoint you created, and select **Approve**.
 
-    ![Screenshot that shows the private endpoint Approve button.](./media/tutorial-data-flow-private/approve-private-endpoint.png)
+    :::image type="content" source="./media/tutorial-data-flow-private/approve-private-endpoint.png" alt-text="Screenshot that shows the private endpoint Approve button.":::
 
 1. Add a description, and select **yes**.
 1. Go back to the **Managed private endpoints** section of the **Manage** tab in Data Factory.
@@ -175,65 +176,65 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
 
 1. Next to your source node on the data flow canvas, select the plus icon to add a new transformation. The first transformation you'll add is a **Filter**.
 
-    ![Screenshot that shows adding a filter.](media/tutorial-data-flow-private/add-filter.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-filter.png" alt-text="Screenshot that shows adding a filter.":::
 1. Name your filter transformation **FilterYears**. Select the expression box next to **Filter on** to open the expression builder. Here you'll specify your filtering condition.
 
-    ![Screenshot that shows FilterYears.](media/tutorial-data-flow-private/filter-years.png)
+    :::image type="content" source="media/tutorial-data-flow-private/filter-years.png" alt-text="Screenshot that shows FilterYears.":::
 1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data flow expression builder](./concepts-data-flow-expression-builder.md).
 
-    * In this tutorial, you want to filter movies in the comedy genre that came out between the years 1910 and 2000. Because the year is currently a string, you need to convert it to an integer by using the ```toInteger()``` function. Use the greater than or equal to (>=) and less than or equal to (<=) operators to compare against the literal year values 1910 and 2000. Union these expressions together with the and (&&) operator. The expression comes out as:
+    * In this tutorial, you want to filter movies in the comedy genre that came out between the years 1910 and 2000. Because the year is currently a string, you need to convert it to an integer by using the `toInteger()` function. Use the greater than or equal to (>=) and less than or equal to (<=) operators to compare against the literal year values 1910 and 2000. Union these expressions together with the and (&&) operator. The expression comes out as:
 
-        ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
+        `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    * To find which movies are comedies, you can use the ```rlike()``` function to find the pattern 'Comedy' in the column genres. Union the rlike expression with the year comparison to get:
+    * To find which movies are comedies, you can use the `rlike()` function to find the pattern 'Comedy' in the column genres. Union the `rlike` expression with the year comparison to get:
 
-        ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
+        `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
     * If you have a debug cluster active, you can verify your logic by selecting **Refresh** to see the expression output compared to the inputs used. There's more than one right answer on how you can accomplish this logic by using the data flow expression language.
 
-        ![Screenshot that shows the filter expression.](media/tutorial-data-flow-private/filter-expression.png)
+        :::image type="content" source="media/tutorial-data-flow-private/filter-expression.png" alt-text="Screenshot that shows the filter expression.":::
 
     * Select **Save and finish** after you're finished with your expression.
 
 1. Fetch a **Data Preview** to verify the filter is working correctly.
 
-    ![Screenshot that shows the filtered Data Preview.](media/tutorial-data-flow-private/filter-data.png)
+    :::image type="content" source="media/tutorial-data-flow-private/filter-data.png" alt-text="Screenshot that shows the filtered Data Preview.":::
 
 ### Add the aggregate transformation
 
 1. The next transformation you'll add is an **Aggregate** transformation under **Schema modifier**.
 
-    ![Screenshot that shows adding the aggregate.](media/tutorial-data-flow-private/add-aggregate.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-aggregate.png" alt-text="Screenshot that shows adding the aggregate.":::
 1. Name your aggregate transformation **AggregateComedyRating**. On the **Group by** tab, select **year** from the drop-down box to group the aggregations by the year the movie came out.
 
-    ![Screenshot that shows the aggregate group.](media/tutorial-data-flow-private/group-by-year.png)
+    :::image type="content" source="media/tutorial-data-flow-private/group-by-year.png" alt-text="Screenshot that shows the aggregate group.":::
 1. Go to the **Aggregates** tab. In the left text box, name the aggregate column **AverageComedyRating**. Select the right expression box to enter the aggregate expression via the expression builder.
 
-    ![Screenshot that shows the aggregate column name.](media/tutorial-data-flow-private/name-column.png)
+    :::image type="content" source="media/tutorial-data-flow-private/name-column.png" alt-text="Screenshot that shows the aggregate column name.":::
 1. To get the average of column **Rating**, use the ```avg()``` aggregate function. Because **Rating** is a string and ```avg()``` takes in a numerical input, we must convert the value to a number via the ```toInteger()``` function. This expression looks like:
 
-    ```avg(toInteger(Rating))```
+    `avg(toInteger(Rating))`
 
 1. Select **Save and finish** after you're finished.
 
-    ![Screenshot that shows saving the aggregate.](media/tutorial-data-flow-private/save-aggregate.png)
+    :::image type="content" source="media/tutorial-data-flow-private/save-aggregate.png" alt-text="Screenshot that shows saving the aggregate.":::
 1. Go to the **Data Preview** tab to view the transformation output. Notice only two columns are there, **year** and **AverageComedyRating**.
 
 ### Add the sink transformation
 
 1. Next, you want to add a **Sink** transformation under **Destination**.
 
-    ![Screenshot that shows adding a sink.](media/tutorial-data-flow-private/add-sink.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-sink.png" alt-text="Screenshot that shows adding a sink.":::
 1. Name your sink **Sink**. Select **New** to create your sink dataset.
 
-    ![Screenshot that shows creating a sink.](media/tutorial-data-flow-private/create-sink.png)
+    :::image type="content" source="media/tutorial-data-flow-private/create-sink.png" alt-text="Screenshot that shows creating a sink.":::
 1. On the **New dataset** page, select **Azure Data Lake Storage Gen2** and then select **Continue**.
 
 1. On the **Select format** page, select **DelimitedText** and then select **Continue**.
 
 1. Name your sink dataset **MoviesSink**. For linked service, choose the same **ADLSGen2** linked service you created for source transformation. Enter an output folder to write your data to. In this tutorial, we're writing to the folder **output** in the container **sample-data**. The folder doesn't need to exist beforehand and can be dynamically created. Select the **First row as header** check box, and select **None** for **Import schema**. Select **OK**.
 
-    ![Screenshot that shows the sink path.](media/tutorial-data-flow-private/sink-file-path.png)
+    :::image type="content" source="media/tutorial-data-flow-private/sink-file-path.png" alt-text="Screenshot that shows the sink path.":::
 
 Now you've finished building your data flow. You're ready to run it in your pipeline.
 
@@ -247,7 +248,7 @@ You can debug a pipeline before you publish it. In this step, you trigger a debu
 
 1. On the details page, you can see the number of rows and the time spent on each transformation step.
 
-    ![Screenshot that shows a monitoring run.](media/tutorial-data-flow-private/run-details.png)
+    :::image type="content" source="media/tutorial-data-flow-private/run-details.png" alt-text="Screenshot that shows a monitoring run.":::
 1. Select a transformation to get detailed information about the columns and partitioning of the data.
 
 If you followed this tutorial correctly, you should have written 83 rows and 2 columns into your sink folder. You can verify the data is correct by checking your blob storage.

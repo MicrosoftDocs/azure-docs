@@ -3,15 +3,19 @@ title: Azure Diagnostics Extension for Windows
 description: Monitor Azure Windows VMs using the Azure Diagnostics Extension
 author: johnkemnetz
 manager: ashwink
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom:  devx-track-azurepowershell
 
 ---
 # Azure Diagnostics Extension for Windows VMs
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 ## Overview
 

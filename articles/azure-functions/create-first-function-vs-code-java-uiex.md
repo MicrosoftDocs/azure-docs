@@ -22,7 +22,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active <abbr title="The basic organizational structure in which you manage resources in Azure, typically associated with an individual or department within an organization.">subscription</abbr>. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11.
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -135,7 +135,7 @@ Your first deployment of your code includes creating a Function resource in your
 
     + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
-    + **Select Function App in Azure**: Choose `- Create new Function App`.
+    + **Select Function App in Azure**: Choose `Create new Function App`.
 
     + **Enter a globally unique name for the function app**: Type a name that is unique across Azure in a URL path. The name you type is validated to ensure global uniqueness.
 

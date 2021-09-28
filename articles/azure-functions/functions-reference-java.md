@@ -101,7 +101,7 @@ You can put more than one function in a project. Avoid putting your functions in
 Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. For more information, see the [Java reference docs](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
-> You must configure an Azure Storage account in your [local.settings.json](./functions-run-local.md#local-settings-file) to run Azure Blob storage, Azure Queue storage, or Azure Table storage triggers locally.
+> You must configure an Azure Storage account in your [local.settings.json](./functions-develop-local.md#local-settings-file) to run Azure Blob storage, Azure Queue storage, or Azure Table storage triggers locally.
 
 Example:
 
@@ -127,7 +127,7 @@ Here is the generated corresponding `function.json` by the [azure-functions-mave
       "name": "req",
       "direction": "in",
       "authLevel": "anonymous",
-      "methods": [ "post" ]
+      "methods": [ "GET","POST" ]
     },
     {
       "type": "http",
@@ -190,7 +190,7 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-For local development of Java function apps, download and use the appropriate [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions uses an Azul Java JDK runtime when you deploy your function app to the cloud.
+For local development of Java function apps, download and use the appropriate Azul Zulu Enterprise for Azure Java JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions uses an Azul Java JDK runtime when you deploy your function app to the cloud.
 
 [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 

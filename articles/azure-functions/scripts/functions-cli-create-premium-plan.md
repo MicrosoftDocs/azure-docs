@@ -31,10 +31,10 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates an Azure Storage account. |
-| [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) | Creates a Premium plan in a [specific SKU](../functions-premium-plan.md#available-instance-skus). |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the App Service plan. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account. |
+| [az functionapp plan create](/cli/azure/functionapp/plan#az_functionapp_plan_create) | Creates a Premium plan in a [specific SKU](../functions-premium-plan.md#available-instance-skus). |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Creates a function app in the App Service plan. |
 
 ## Next steps
 

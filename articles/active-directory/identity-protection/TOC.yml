@@ -36,12 +36,14 @@
       href: howto-identity-protection-investigate-risk.md
     - name: Remediate risk detections and unblock
       href: howto-identity-protection-remediate-unblock.md
+    - name: Export risk data
+      href: howto-export-risk-data.md
     - name: Use the Microsoft Graph API
       href: howto-identity-protection-graph-api.md
   - name: Provide feedback on risk detections
     href: howto-identity-protection-risk-feedback.md
   - name: FAQs
-    href: troubleshooting-identity-protection-faq.md
+    href: troubleshooting-identity-protection-faq.yml
 - name: Reference
   items:
   - name: Graph APIs
@@ -61,7 +63,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

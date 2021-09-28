@@ -148,9 +148,9 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), which allows us to use the same code across different environments with different options to provide identity. For more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using the ['DefaultAzureCredential()'](/javascript/api/@azure/identity/defaultazurecredential) class from [Azure Identity Library](/javascript/api/overview/azure/identity-readme), which allows us to use the same code across different environments with different options to provide identity. For more information about authenticating to Key Vault, see [Developer's Guide](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 Add the following code to 'main()' function
 
@@ -164,7 +164,7 @@ const client = new SecretClient(KVUri, credential);
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the [setSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setSecret_string__string__SetSecretOptions_) This requires a name for the secret - we're using "mySecret" in this sample.  
+Now that your application is authenticated, you can put a secret into your keyvault using the [setSecret method](/javascript/api/@azure/keyvault-secrets/secretclient#setSecret_string__string__SetSecretOptions_) This requires a name for the secret - we're using "mySecret" in this sample.  
 
 ```javascript
 await client.setSecret(secretName, secretValue);
@@ -172,7 +172,7 @@ await client.setSecret(secretName, secretValue);
 
 ### Retrieve a secret
 
-You can now retrieve the previously set value with the [getSecret method](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#getSecret_string__GetSecretOptions_).
+You can now retrieve the previously set value with the [getSecret method](/javascript/api/@azure/keyvault-secrets/secretclient#getSecret_string__GetSecretOptions_).
 
 ```javascript
 const retrievedSecret = await client.getSecret(secretName);
@@ -182,7 +182,7 @@ Your secret is now saved as `retrievedSecret.value`.
 
 ### Delete a secret
 
-Finally, let's delete and purge the secret from your key vault with the [beginDeleteSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) and [purgeDeletedSecret](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_) methods.
+Finally, let's delete and purge the secret from your key vault with the [beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) and [purgeDeletedSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_) methods.
 
 ```javascript
 const deletePoller = await client.beginDeleteSecret(secretName);
@@ -281,6 +281,6 @@ In this quickstart, you created a key vault, stored a secret, and retrieved that
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of Azure Key Vault Secrets](about-secrets.md)
-- How to [Secure access to a key vault](../general/secure-your-key-vault.md)
+- How to [Secure access to a key vault](../general/security-features.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

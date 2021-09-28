@@ -19,7 +19,7 @@ This article contains migration basics and a table of migration guides. These gu
 
 Azure has multiple available types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data.
 
-[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
+[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](../file-sync/file-sync-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
 
 For an app that currently runs on an on-premises server, storing files in an Azure file share might be a good choice. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/managed-disks-overview.md) for this scenario.
 
@@ -40,7 +40,7 @@ File fidelity in a migration can be defined as the ability to:
 
 - Store all applicable file information on the source.
 - Transfer files with the migration tool.
-- Store files in the target storage of the migration.
+- Store files in the target storage of the migration. </br> Ultimately, the target for migration guides on this page is one or more Azure file shares. Consider this [list of features / file fidelity that Azure file shares don't support](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 To ensure your migration proceeds smoothly, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
@@ -52,7 +52,7 @@ A user of Active Directory, which is their on-premises domain controller, can na
 
 The alternative data stream is the primary aspect of file fidelity that currently can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
 
-Learn more about [Azure AD authentication](storage-files-identity-auth-active-directory-enable.md) and [Azure AD DS authentication](storage-files-identity-auth-active-directory-domain-service-enable.md) for Azure file shares.
+Learn more about [on-premises Active Directory authentication](storage-files-identity-auth-active-directory-enable.md) and [Azure AD DS authentication](storage-files-identity-auth-active-directory-domain-service-enable.md) for Azure file shares.
 
 ## Migration guides
 
@@ -76,13 +76,12 @@ A scenario without a link doesn't yet have a published migration guide. Check th
 | Source | Target: </br>Hybrid deployment | Target: </br>Cloud-only deployment |
 |:---|:--|:--|
 | | Tool combination:| Tool combination: |
-| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](storage-sync-files-deployment-guide.md)</li><li>[Azure File Sync and Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Azure File Sync and pre-seeded files in the cloud](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Azure File Sync and Storage Migration Service</li></ul> | <ul><li>Azure File Sync</li><li>Azure File Sync and Data Box</li><li>Azure File Sync and Storage Migration Service</li><li>RoboCopy</li></ul> |
-| Windows Server 2012 and earlier | <ul><li>Azure File Sync and Data Box</li><li>Azure File Sync and Storage Migration Service</li></ul> | <ul><li>Azure File Sync and Storage Migration Service</li><li>RoboCopy</li></ul> |
-| Network-attached storage (NAS) | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Linux or Samba | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
-| Microsoft Azure StorSimple Cloud Appliance 8100 or StorSimple Cloud Appliance 8600 | <ul><li>[Azure File Sync and StorSimple Cloud Appliance 8020](storage-files-migration-storsimple-8000.md)</li></ul> | |
-| StorSimple Cloud Appliance 1200 | <ul><li>[Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
-| | | |
+| Windows Server 2012 R2 and later | <ul><li>[Azure File Sync](../file-sync/file-sync-deployment-guide.md)</li><li>[Azure File Sync and Azure DataBox](storage-files-migration-server-hybrid-databox.md)</li></ul> | <ul><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li><li>Via Azure File Sync</li></ul> |
+| Windows Server 2012 and earlier | <ul><li>Via DataBox and Azure File Sync to recent server OS</li><li>Via Storage Migration Service to recent server with Azure File Sync, then upload</li></ul> | <ul><li>Via Storage Migration Service to recent server with Azure File Sync</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
+| Network-attached storage (NAS) | <ul><li>[Via Azure File Sync upload](storage-files-migration-nas-hybrid.md)</li><li>[Via DataBox + Azure File Sync](storage-files-migration-nas-hybrid-databox.md)</li></ul> | <ul><li>[Via DataBox](storage-files-migration-nas-cloud-databox.md)</li><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
+| Linux / Samba | <ul><li>[Azure File Sync and RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>[Via RoboCopy to a mounted Azure file share](storage-files-migration-robocopy.md)</li></ul> |
+| Microsoft Azure StorSimple 8100 or 8600 series appliances | <ul><li>[Via dedicated data migration cloud service](storage-files-migration-storsimple-8000.md)</li></ul> | <ul><li>[Via dedicated data migration cloud service](storage-files-migration-storsimple-8000.md)</li></ul> |
+| StorSimple 1200 virtual appliance | <ul><li>[Via Azure File Sync](storage-files-migration-storsimple-1200.md)</li></ul> | |
 
 ## Migration toolbox
 
@@ -115,9 +114,9 @@ The following table classifies Microsoft tools and their current suitability for
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Supported. Azure file shares can be mounted as network drives. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Azure File Sync | Natively integrated into Azure file shares. | Full fidelity.* |
 |![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Storage Migration Service | Indirectly supported. Azure file shares can be mounted as network drives on SMS target servers. | Full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| AzCopy, version 10.4 or later| Supported. | Full fidelity.* |
-|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supported. | DataBox now fully supports metadata. [Data Box can also be used in combination with Azure File Sync](storage-sync-offline-data-transfer.md). |
-|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer, version 1.14 | Supported. | Doesn't copy ACLs. Supports timestamps.  |
+|![Yes, recommended](media/storage-files-migration-overview/circle-green-checkmark.png)| Data Box | Supported. | DataBox fully supports metadata. |
+|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| AzCopy </br>latest version | Supported but not fully recommended. | Doesn't support differential copies at scale, and some file fidelity might be lost. </br>[Learn how to use AzCopy with Azure file shares](../common/storage-use-azcopy-files.md) |
+|![Not fully recommended](media/storage-files-migration-overview/triangle-yellow-exclamation.png)| Azure Storage Explorer </br>latest version | Supported but not recommended. | Loses most file fidelity, like ACLs. Supports timestamps. |
 |![Not recommended](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Supported. | Doesn't copy metadata. |
 |||||
 
@@ -135,7 +134,7 @@ RoboCopy is one of the tools most applicable to file migrations. It comes as par
 
 Azure File Sync scales primarily with the number of items (files and folders) and not with the total storage amount. The TreeSize tool lets you determine the number of items on your Windows Server volumes.
 
-You can use the tool to create a perspective before an [Azure File Sync deployment](storage-sync-files-deployment-guide.md). You can also use it when cloud tiering is engaged after deployment. In that scenario, you see the number of items and which directories use your server cache the most.
+You can use the tool to create a perspective before an [Azure File Sync deployment](../file-sync/file-sync-deployment-guide.md). You can also use it when cloud tiering is engaged after deployment. In that scenario, you see the number of items and which directories use your server cache the most.
 
 The tested version of the tool is version 4.4.1. It's compatible with cloud-tiered files. The tool won't cause recall of tiered files during its normal operation.
 
@@ -144,8 +143,8 @@ The tested version of the tool is version 4.4.1. It's compatible with cloud-tier
 1. Create a plan for which deployment of Azure file shares (cloud-only or hybrid) you want.
 1. Review the list of available migration guides to find the detailed guide that matches your source and deployment of Azure file shares.
 
-Here is more information about the Azure Files technologies mentioned in this article:
+More information about the Azure Files technologies mentioned in this article:
 
 * [Azure file share overview](storage-files-introduction.md)
-* [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-* [Azure File Sync: Cloud tiering](storage-sync-cloud-tiering.md)
+* [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
+* [Azure File Sync: Cloud tiering](../file-sync/file-sync-cloud-tiering-overview.md)

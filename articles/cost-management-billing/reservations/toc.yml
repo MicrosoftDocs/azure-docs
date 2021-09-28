@@ -11,14 +11,18 @@
     href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Reservation recommendations
     href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: How an Azure reservation discount is applied
-    href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: How discount is applied
     items:
+    - name: How an Azure reservation discount is applied
+      href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: App Service
       href: reservation-discount-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis
       href: understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Data Factory
+      href: ../../data-factory/data-flow-understand-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure VMware Solution
+      href: ../../azure-vmware/reserved-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Cosmos DB
       href: understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Database for MariaDB
@@ -68,6 +72,8 @@
       href: prepay-app-service.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis reservation
       href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Data Factory
+      href: ../../data-factory/data-flow-reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for MariaDB
       href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for MySQL
@@ -76,8 +82,10 @@
       href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Synapse Analytics
       href: prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Storage
+    - name: Azure Blob storage
       href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Files
+      href: ../../storage/files/files-reserve-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Databricks
@@ -96,9 +104,9 @@
       href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
     - name: Virtual machines
       href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
-  - name: View, Manage and Optimize after purchase
+  - name: Permissions, View and Manage
     items:
-    - name: View reservations and utilization
+    - name: Permissions to view and manage
       href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: View reservations as a CSP
       href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -106,20 +114,28 @@
       href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Change optimize setting
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
-    - name: Exchange and refund reservations
-      href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Report costs
+  - name: Utilization and cost reports
     items:
+    - name: View reservation utilization
+      href: reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: View reservation transactions
       href: view-purchase-refunds.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Charge back reservation costs
       href: charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: Exchange and refund
+    items:
+    - name: Exchange and refund reservations
+      href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Renew reservations
     items:
     - name: Renew a reservation
       href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Troubleshoot
     items:
+    - name: Find a reservation purchaser from Azure logs
+      href: find-reservation-purchaser-from-logs.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Change reservation directory
+      href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: No eligible subscriptions
       href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Troubleshoot reservation utilization

@@ -1,17 +1,17 @@
 ---
-title: Create an Azure virtual machine offer (VM) from an approved base, Azure Marketplace
-description: Learn how to create a virtual machine (VM) offer from an approved base.
+title: Create an Azure virtual machine offer (VM) from an approved base
+description: Learn how to create a virtual machine (VM) offer from an approved base (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 01/06/2021
+ms.date: 04/16/2021
 ---
 
-# How to create a virtual machine using an approved base
+# Create a virtual machine using an approved base
 
-This article describes how to use Azure to create a virtual machine (VM) containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to [create and configure an on-premises VM](azure-vm-create-using-own-image.md) using an approved operating system, then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+This article describes how to use Azure to create a virtual machine (VM) containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to [create and configure an on-premises VM](azure-vm-create-using-own-image.md) using an approved operating system.
 
 > [!NOTE]
 > Before you start this procedure, review the [technical requirements](marketplace-virtual-machines.md#technical-requirements) for Azure VM offers, including virtual hard disk (VHD) requirements.
@@ -73,5 +73,5 @@ Refer to the following documentation to connect to your [Windows](../virtual-mac
 ## Next steps
 
 - Recommended next step: [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements. This is optional.
-- If you don't test your VM image, continue with [Generate the SAS URI](azure-vm-get-sas-uri.md).
-- If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).
+- If you don't want to test your VM image, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935) to publish your image.
+- If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.yml).

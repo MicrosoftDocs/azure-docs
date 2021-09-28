@@ -2,15 +2,10 @@
 title: Integrate security solutions in Azure Security Center | Microsoft Docs
 description: Learn about how Azure Security Center integrates with partners to enhance the overall security of your Azure resources.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/10/2020
 ms.author: memildin
 
@@ -34,13 +29,13 @@ To learn more about the integration of vulnerability scanning tools from Qualys,
 
 Security Center also offers vulnerability analysis for your:
 
-* SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
+* SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
 * Azure Container Registry images - see [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md)
 
 ## How security solutions are integrated
 Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.
 
-[![Partner solutions integration](./media/security-center-partner-integration/security-solutions-page.png)](./media/security-center-partner-integration/security-solutions-page.png#lightbox)
+:::image type="content" source="./media/security-center-partner-integration/security-solutions-page.png" alt-text="Partner solutions integration." lightbox="./media/security-center-partner-integration/security-solutions-page.png":::
 
 ## Manage integrated Azure security solutions and other data sources
 
@@ -54,7 +49,7 @@ From the **Security solutions** page, you can see the health of integrated Azure
 
 The **Connected solutions** section includes security solutions that are currently connected to Security Center. It also shows the health status of each solution.  
 
-![Connected solutions](./media/security-center-partner-integration/connected-solutions.png)
+![Connected solutions.](./media/security-center-partner-integration/connected-solutions.png)
 
 The status of a partner solution can be:
 
@@ -75,7 +70,7 @@ Select **VIEW** for additional information and options such as:
    - **Delete solution**
    - **Configure**
 
-   ![Partner solution detail](./media/security-center-partner-integration/partner-solutions-detail.png)
+   ![Partner solution detail.](./media/security-center-partner-integration/partner-solutions-detail.png)
 
 
 ### Discovered solutions
@@ -83,8 +78,7 @@ Select **VIEW** for additional information and options such as:
 Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), and partner solutions.
 
 > [!NOTE]
-> Enable **Azure Defender** at the subscription level for the discovered solutions feature. See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
->
+> Enable **Azure Defender** at the subscription level for the discovered solutions feature. Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
 Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 
@@ -92,13 +86,10 @@ Select **CONNECT** under a solution to integrate with Security Center and be not
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, click **ADD**.
 
-![Data sources](./media/security-center-partner-integration/add-data-sources.png)
+![Data sources.](./media/security-center-partner-integration/add-data-sources.png)
 
 
 
 ## Next steps
 
-In this article, you learned how to integrate partner solutions in Security Center. For related information, see the following articles:
-
-* [Continuously export Security Center data](continuous-export.md). Learn how to setup an integration with Azure Sentinel, or any other SIEM.
-* [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
+In this article, you learned how to integrate partner solutions in Security Center. To learn how to setup an integration with Azure Sentinel, or any other SIEM, see [Continuously export Security Center data](continuous-export.md).

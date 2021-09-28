@@ -4,12 +4,12 @@ titleSuffix: Azure API Management
 description: Follow the steps of this tutorial to learn how to make non-breaking changes using revisions in API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 

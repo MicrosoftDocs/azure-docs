@@ -3,7 +3,7 @@ title: Write createOptions for modules  - Azure IoT Edge | Microsoft Docs
 description: How to use createOptions in the deployment manifest to configure modules at runtime
 keywords: 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 04/01/2020
 ms.topic: conceptual
@@ -12,6 +12,8 @@ services: iot-edge
 ---
 
 # How to configure container create options for IoT Edge modules
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 The **createOptions** parameter in the deployment manifest enables you to configure the module containers at runtime. This parameter expands your control over the modules and allows for tasks like allowing or restricting the module's access to the host device's resources, or configuring networking.
 

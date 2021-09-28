@@ -59,7 +59,7 @@
   - name: Security
     items:
      - name: Security baseline
-       href: security-baseline.md
+       href: /security/benchmark/azure/baselines/container-instances-security-baseline?toc=/azure/container-instances/TOC.json
      - name: Security considerations
        href: container-instances-image-security.md
   - name: Virtual networking
@@ -130,6 +130,8 @@
       href: container-instances-get-logs.md
     - name: Logging with Azure Monitor logs
       href: container-instances-log-analytics.md
+    - name: View an instance's state
+      href: container-state.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot common issues
@@ -156,6 +158,9 @@
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -173,4 +178,6 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
   - name: FAQ
-    href: container-instances-faq.md
+    href: container-instances-faq.yml
+- name: Support and troubleshooting
+  href: container-instances-support-help.md

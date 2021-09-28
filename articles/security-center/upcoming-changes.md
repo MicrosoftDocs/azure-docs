@@ -1,16 +1,11 @@
 ---
 title: Important changes coming to Azure Security Center
 description: Upcoming changes to Azure Security Center that you might need to be aware of and for which you might need to plan 
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/17/2021
+ms.date: 09/12/2021
 ms.author: memildin
 
 ---
@@ -27,79 +22,86 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-- [Two legacy recommendations will no longer write data directly to Azure activity log](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
-- [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
-- [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
-- [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)
+| Planned change       | Estimated date for change |
+|----------------------|---------------------------|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| September 2021|
+| [Changing prefix of some alert types from "ARM_" to "VM_"](#changing-prefix-of-some-alert-types-from-arm_-to-vm_)                                          | October 2021|
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Q4 2021    |
+| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | Q1 2022    |
 
 
-### Two legacy recommendations will no longer write data directly to Azure activity log 
+### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** March 2021
+**Estimated date for change:** September 2021
 
-Security Center passes the data for almost all security recommendations to Azure Advisor which, in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
+The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
-For two recommendations, the data is simultaneously written directly to Azure activity log. With this change, Security Center will stop writing data for these legacy security recommendations directly to activity Log. Instead, we'll export the data to Azure Advisor as we do for all the other recommendations. 
+:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-The two legacy recommendations are:
-- Endpoint protection health issues should be resolved on your machines
-- Vulnerabilities in security configuration on your machines should be remediated
+### Changing prefix of some alert types from "ARM_" to "VM_" 
 
-If you've been accessing information for these two recommendations in activity log's "Recommendation of type TaskDiscovery" category, this will no longer be available.
+**Estimated date for change:** October 2021
 
-### Two recommendations from "Apply system updates" security control being deprecated 
+In July 2021 we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
 
-**Estimated date for change:** February 2021
+As part of a logical reorganization of some of the Azure Defender plans, we moved twenty one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
 
-The following two recommendations are scheduled to be deprecated in February 2021:
+We're now planning to update the prefixes of these alerts to match this reassignment. We'll be replacing "ARM_" with "VM_" as shown in the following table.
 
-- **Your machines should be restarted to apply system updates**. This might result in a slight impact on your secure score.
-- **Monitoring agent should be installed on your machines**. This recommendation relates to on-premises machines only and some of its logic will be transferred to another recommendation, **Log Analytics agent health issues should be resolved on your machines**. This might result in a slight impact on your secure score.
+| Current name                                   | After this change                             |
+|------------------------------------------------|-----------------------------------------------|
+| ARM_AmBroadFilesExclusion                      | VM_AmBroadFilesExclusion                      |
+| ARM_AmDisablementAndCodeExecution              | VM_AmDisablementAndCodeExecution              |
+| ARM_AmDisablement                              | VM_AmDisablement                              |
+| ARM_AmFileExclusionAndCodeExecution            | VM_AmFileExclusionAndCodeExecution            |
+| ARM_AmTempFileExclusionAndCodeExecution        | VM_AmTempFileExclusionAndCodeExecution        |
+| ARM_AmTempFileExclusion                        | VM_AmTempFileExclusion                        |
+| ARM_AmRealtimeProtectionDisabled               | VM_AmRealtimeProtectionDisabled               |
+| ARM_AmTempRealtimeProtectionDisablement        | VM_AmTempRealtimeProtectionDisablement        |
+| ARM_AmRealtimeProtectionDisablementAndCodeExec | VM_AmRealtimeProtectionDisablementAndCodeExec |
+| ARM_AmMalwareCampaignRelatedExclusion          | VM_AmMalwareCampaignRelatedExclusion          |
+| ARM_AmTemporarilyDisablement                   | VM_AmTemporarilyDisablement                   |
+| ARM_UnusualAmFileExclusion                     | VM_UnusualAmFileExclusion                     |
+| ARM_CustomScriptExtensionSuspiciousCmd         | VM_CustomScriptExtensionSuspiciousCmd         |
+| ARM_CustomScriptExtensionSuspiciousEntryPoint  | VM_CustomScriptExtensionSuspiciousEntryPoint  |
+| ARM_CustomScriptExtensionSuspiciousPayload     | VM_CustomScriptExtensionSuspiciousPayload     |
+| ARM_CustomScriptExtensionSuspiciousFailure     | VM_CustomScriptExtensionSuspiciousFailure     |
+| ARM_CustomScriptExtensionUnusualDeletion       | VM_CustomScriptExtensionUnusualDeletion       |
+| ARM_CustomScriptExtensionUnusualExecution      | VM_CustomScriptExtensionUnusualExecution      |
+| ARM_VMAccessUnusualConfigReset                 | VM_VMAccessUnusualConfigReset                 |
+| ARM_VMAccessUnusualPasswordReset               | VM_VMAccessUnusualPasswordReset               |
+| ARM_VMAccessUnusualSSHReset                    | VM_VMAccessUnusualSSHReset                    |
 
-We recommend checking your continuous export and workflow automation configurations to see whether these recommendations are included in them. Also, any dashboards or other monitoring tools that might be using them should be updated accordingly.
-
-Learn more about these recommendations in the [security recommendations reference page](recommendations-reference.md).
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
 
 
-### Enhancements to SQL data classification recommendation
+### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** Q2 2021
+**Estimated date for change:** Q4 2021
 
-The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently b0df6f56-862d-4730-8597-38c0fd4ebd59).
+In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, see [the release note](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
+When the recommendations are released to general availability, they will replace the following existing recommendations:
 
-### Deprecation of 11 Azure Defender alerts
+- **Endpoint protection should be installed on your machines** will replace:
+    - [Install endpoint protection solution on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
+    - [Install endpoint protection solution on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee) 
 
-**Estimated date for change:** March 2021
+- **Endpoint protection health issues should be resolved on your machines** will replace the existing recommendation that has the same name. The two recommendations have different assessment keys:
+    - Assessment key for the **preview** recommendation: 37a3689a-818e-4a0e-82ac-b1392b9bb000
+    - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
 
-Next month, the eleven Azure Defender alerts listed below will be deprecated.
+Learn more:
+- [Security Center's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
+- [How these recommendations assess the status of your deployed solutions](security-center-endpoint-protection.md)
 
-- New alerts will replace these two alerts and provide better coverage:
+### Enhancements to recommendation to classify sensitive data in SQL databases
 
-    | AlertType                | AlertDisplayName                                                         |
-    |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | PREVIEW - MicroBurst toolkit "Get-AzureDomainInfo" function run detected |
-    | ARM_MicroBurstRunbook    | PREVIEW - MicroBurst toolkit "Get-AzurePasswords" function run detected  |
-    |                          |                                                                          |
+**Estimated date for change:** Q1 2022
 
-- These nine alerts relate to an Azure Active Directory Identity Protection connector that has already been deprecated:
-
-    | AlertType           | AlertDisplayName              |
-    |---------------------|-------------------------------|
-    | UnfamiliarLocation  | Unfamiliar sign-in properties |
-    | AnonymousLogin      | Anonymous IP address          |
-    | InfectedDeviceLogin | Malware linked IP address     |
-    | ImpossibleTravel    | Atypical travel               |
-    | MaliciousIP         | Malicious IP address          |
-    | LeakedCredentials   | Leaked credentials            |
-    | PasswordSpray       | Password Spray                |
-    | LeakedCredentials   | Azure AD threat intelligence  |
-    | AADAI               | Azure AD AI                   |
-    |                     |                               |
- 
-
+The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 
 ## Next steps
 
-For all recent changes to the product, see [What's new in Azure Security Center?](release-notes.md).
+For all recent changes to Security Center, see [What's new in Azure Security Center?](release-notes.md)

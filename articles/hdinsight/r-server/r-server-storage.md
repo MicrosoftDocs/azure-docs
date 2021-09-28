@@ -2,20 +2,22 @@
 title: Azure storage solutions for ML Services on HDInsight - Azure 
 description: Learn about the different storage options available with ML Services on HDInsight
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
+ROBOTS: NOINDEX
 ---
 
 # Azure storage solutions for ML Services on Azure HDInsight
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 ML Services on HDInsight can use different storage solutions to persist data, code, or objects that contain results from analysis. These solutions include the following options:
 
 - [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/)
 - [Azure Data Lake Storage Gen1](https://azure.microsoft.com/services/storage/data-lake-storage/)
-- [Azure File storage](https://azure.microsoft.com/services/storage/files/)
+- [Azure Files](https://azure.microsoft.com/services/storage/files/)
 
-You also have the option of accessing multiple Azure storage accounts or containers with your HDInsight cluster. Azure File storage is a convenient data storage option for use on the edge node that enables you to mount an Azure storage file share to, for example, the Linux file system. But Azure File shares can be mounted and used by any system that has a supported operating system such as Windows or Linux.
+You also have the option of accessing multiple Azure storage accounts or containers with your HDInsight cluster. Azure Files is a convenient data storage option for use on the edge node that enables you to mount an Azure file share to, for example, the Linux file system. But Azure file shares can be mounted and used by any system that has a supported operating system such as Windows or Linux.
 
 When you create an Apache Hadoop cluster in HDInsight, you specify either an **Azure Blob storage** account or **Data Lake Storage Gen1**. A specific storage container from that account holds the file system for the cluster that you create (for example, the Hadoop Distributed File System). For more information and guidance, see:
 
@@ -90,7 +92,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 ```
 
-All of the directory and file references now point to the storage account `wasbs://container2@storage2.blob.core.windows.net`. This is the **Name Node** that you’ve specified.
+All of the directory and file references now point to the storage account `wasbs://container2@storage2.blob.core.windows.net`. This is the **Name Node** that you've specified.
 
 Configure the `/user/RevoShare/<SSH username>` directory on **storage2** as follows:
 
@@ -157,14 +159,14 @@ hadoop fs -copyFromLocal /usr/lib64/R Server-7.4.1/library/RevoScaleR/SampleData
 hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 ```
 
-## Use Azure File storage with ML Services on HDInsight
+## Use Azure Files with ML Services on HDInsight
 
 There's also a convenient data storage option for use on the edge node called [Azure Files](https://azure.microsoft.com/services/storage/files/). It enables you to mount an Azure Storage file share to the Linux file system. This option can be handy for storing data files, R scripts, and result objects that might be needed later, especially when it makes sense to use the native file system on the edge node rather than HDFS.
 
 A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system. For more information, see:
 
-- [How to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md)
-- [How to use Azure File storage on Windows](../../storage/files/storage-dotnet-how-to-use-files.md)
+- [How to use Azure Files with Linux](../../storage/files/storage-how-to-use-files-linux.md)
+- [How to use Azure Files on Windows](../../storage/files/storage-dotnet-how-to-use-files.md)
 
 ## Next steps
 

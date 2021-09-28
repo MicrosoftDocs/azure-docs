@@ -3,6 +3,7 @@ title: Overview of Windows VMs in Azure
 description: Overview of Windows virtual machines in Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 11/14/2019
@@ -11,6 +12,8 @@ ms.custom: mvc
 ---
 
 # Windows virtual machines in Azure
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
@@ -44,7 +47,7 @@ This table shows some of the ways you can get a list of available locations.
 | --- | --- |
 | Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command. |
-| REST API |Use the [List locations](/rest/api/resources/subscriptions) operation. |
+| REST API |Use the [List locations](/rest/api/resources/subscriptions/listlocations) operation. |
 | Azure CLI |Use the [az account list-locations](/cli/azure/account) operation. |
 
 ## Availability
@@ -57,7 +60,7 @@ The [size](../sizes.md) of the VM that you use is determined by the workload tha
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
 ## VM Limits
-Your subscription has default [quota limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by [filing a support ticket requesting an increase](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
+Your subscription has default [quota limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by [filing a support ticket requesting an increase](../../azure-portal/supportability/regional-quota-requests.md)
 
 ### Operating system disks and images
 Virtual machines use [virtual hard disks (VHDs)](../managed-disks-overview.md) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 

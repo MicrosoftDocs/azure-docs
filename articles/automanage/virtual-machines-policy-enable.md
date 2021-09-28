@@ -26,6 +26,8 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 > [!IMPORTANT]
 > The following Azure RBAC permission is needed to enable Automanage: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
+## Direct link to Policy
+The Automanage policy definition can be found in the Azure portal by the name of [Configure virtual machines to be onboarded to Azure Automanage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3). If you click on this link, skip directly to step 8 in [Locate and assign the policy](#locate-and-assign-the-policy) below.
 
 ## Sign in to Azure
 
@@ -49,9 +51,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 1. Under the **Basics** tab, fill out **Scope** by setting the *Subscription* and *Resource Group*
 
     > [!NOTE]
-    > The Scope lets you define which VMs this policy applies to. You can set application at the subscription level or resource group level. If you set a resource group, all VMs that are currently in that resource group or any future VMs we add to it will have Automanage automatically enabled. 
+    > The Scope lets you define which VMs this policy applies to. You can set application at the subscription level or resource group level. If you set a resource group, all VMs that are currently in that resource group or any future VMs we add to it will have Automanage automatically enabled.
 
-1. Click on the **Parameters** tab and set the **Automanage Account** and the desired **Configuration Profile** 
+1. Click on the **Parameters** tab and set the **Automanage Account** and the desired **Configuration Profile**
 1. Under the **Review + create** tab, review the settings
 1. Apply the Assignment by clicking **Create**
 1. View your assignments in the **Assignments** tab next to **Definition**
@@ -60,9 +62,9 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 > It will take some time for that policy to begin taking effect on the VMs currently in the resource group or subscription.
 
 
-## Next steps 
+## Next steps
 
-Learn another way to enable Azure Automanage for virtual machines through the Azure portal. 
+Learn another way to enable Azure Automanage for virtual machines through the Azure portal.
 
 > [!div class="nextstepaction"]
 > [Enable Automanage for virtual machines in the Azure portal](quick-create-virtual-machines-portal.md)

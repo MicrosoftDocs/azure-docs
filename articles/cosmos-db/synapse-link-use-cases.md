@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
+ms.custom: synapse-cosmos-db
 ---
 
 # Azure Synapse Link for Azure Cosmos DB: Near real-time analytics use cases
@@ -135,7 +136,7 @@ To learn more, see the following docs:
 
 * [Working with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
 
-* [Frequently asked questions about Azure Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Frequently asked questions about Azure Synapse Link for Azure Cosmos DB](synapse-link-frequently-asked-questions.yml)
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 
