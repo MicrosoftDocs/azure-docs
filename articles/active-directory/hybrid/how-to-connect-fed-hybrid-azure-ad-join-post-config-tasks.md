@@ -59,7 +59,7 @@ If your organization uses a federation service to sign in to Azure AD, the claim
 
 ## 6. Enable Azure AD Seamless SSO for Windows down-level devices
 
-If your organization uses Password Hash Synchronization or Pass-through Authentication to sign in to Azure AD, enable Azure AD Seamless SSO with that sign-in method to authenticate Windows down-level devices:  https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
+If your organization uses Password Hash Synchronization or Pass-through Authentication to sign in to Azure AD, enable [Azure AD Seamless SSO](/azure/active-directory/connect/active-directory-aadconnect-sso) with that sign-in method to authenticate Windows down-level devices.
 
 ## 7. Set Azure AD policy for Windows down-level devices
 
