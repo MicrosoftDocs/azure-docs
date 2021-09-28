@@ -33,7 +33,7 @@ items:
   - name: How to use REST APIs for Purview Data Planes
     href: tutorial-using-rest-apis.md
   - name: Using REST APIs for Collection Management
-    href: tutorial-metadatapolicy-collections-apis.md
+    href: tutorial-metadata-policy-collections-apis.md
 - name: Concepts
   items:
   - name: Use Purview Studio
