@@ -24,8 +24,8 @@ This article will show you how to configure alerts at specified thresholds so yo
 
 You can choose between these alert types:
 
-- A static alert based on a fixed value.
-- A dynamic alert that will alert you if a monitored metric exceeds the average limit of your key vault a certain number of times within a defined time range. 
+- A static alert based on a fixed value
+- A dynamic alert that will alert you if a monitored metric exceeds the average limit of your key vault a certain number of times within a defined time range
 
 > [!IMPORTANT]
 > It can take up to 10 minutes for newly configured alerts to start sending notifications. 
@@ -38,25 +38,25 @@ An action group is a configurable list of notifications and properties. The firs
 
 1. Sign in to the Azure portal.
 2. Search for **Alerts** in the search box.
-3. Select **Manage Actions**.
+3. Select **Manage actions**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that highlights the Manage Actions button.](../media/alert-6.png)
 
-4. Select **+ Add Action Group**.
+4. Select **+ Add action group**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that highlights the button for adding an action group.](../media/alert-7.png)
 
-5. Choose the **Action Type** value for your action group. In this example, we'll create an email alert.
+5. Choose the **Action Type** value for your action group. In this example, we'll create an email and SMS alert. Select **Email/SMS/Push/Voice**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that highlights the fields necessary to add an action group.](../media/alert-8.png)
+   > ![Screenshot that highlights the selections for adding an action group.](../media/alert-8.png)
+
+6. In the dialog, enter email and SMS details, and then select **OK**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows what's needed to add an email or S M S message alert.](../media/alert-9.png)
-
-6. Select **OK** at the bottom of the page. 
+   > ![Screenshot that shows selections for adding an email and S M S message alert.](../media/alert-9.png)
 
 ## Configure alert thresholds 
 
@@ -67,7 +67,7 @@ Next, create a rule and configure the thresholds that will trigger an alert:
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the Alerts menu option in the Monitoring section.](../media/alert-10.png)
 
-2. Select **New Alert Rule**.
+2. Select **New alert rule**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the button for adding a new alert rule.](../media/alert-11.png)
@@ -80,23 +80,23 @@ Next, create a rule and configure the thresholds that will trigger an alert:
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows how you can select a vault.](../media/alert-12.png)
 
-4. Select the thresholds that define the logic for your alerts. The Key Vault team recommends configuring the following thresholds: 
+4. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds: 
 
     + Key Vault availability drops below 100 percent (static threshold)
     + Key Vault latency is greater than 500 ms (static threshold) 
     + Overall vault saturation is greater than 75 percent (static threshold) 
     + Overall vault saturation exceeds average (dynamic threshold)
-    + Total error codes higher than average (dynamic threshold) 
+    + Total error codes are higher than average (dynamic threshold) 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows where you select conditions for alerts.](../media/alert-13.png)
 
 ### Example: Configure a static alert threshold for latency
 
-1. Select **Overall Service API Latency** as the signal name.
+1. Select **Overall Service Api Latency** as the signal name.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows the Overall Service API Latency signal name.](../media/alert-14.png)
+   > ![Screenshot that shows selecting a signal name.](../media/alert-14.png)
 
 1. Use the following configuration parameters:
 
@@ -116,10 +116,10 @@ Next, create a rule and configure the thresholds that will trigger an alert:
 
 When you use a dynamic alert, you'll be able to see historical data of the key vault that you selected. The blue area represents the average usage of your key vault. The red area shows spikes that would have triggered an alert if other criteria in the alert configuration were met. The red dots show instances of violations where the criteria for the alert were met during the aggregated time window. 
 
-You can set an alert to fire after a certain number of violations within a set time. If you don't want to include past data, there's an option to exclude old data in advanced settings. 
-
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows a graph of the overall vault saturation.](../media/alert-16.png)
+
+You can set an alert to fire after a certain number of violations within a set time. If you don't want to include past data, there's an option to exclude it in advanced settings. 
 
 1. Use the following configuration parameters:
 
@@ -136,12 +136,12 @@ You can set an alert to fire after a certain number of violations within a set t
 
 1. Select **Done**.
 
-1. Add the action group that you configured.
+1. Select **Add** to add the action group that you configured.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows how to add an action group.](../media/alert-18.png)
+   > ![Screenshot that shows the button for adding an action group.](../media/alert-18.png)
 
-1. Enable the alert and assign a severity.
+1. In the alert details, enable the alert and assign a severity.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows where to enable the alert and assign a severity.](../media/alert-19.png)
