@@ -8,7 +8,7 @@ ms.date: 09/20/2021
 ---
 # Manage retention policy with Video Analyzer
 
-You can use Azure Video Analyzer for [recording](video-recording.md) live video into the cloud over a period of weeks, months, or years. This recording can either be [continuous](continuous-video-recording.md), or it can be sparse or [event-based](event-based-video-recording-concept.md). In either case, the recordings can span years without any cleanup of videos from storage account. However, users have the flexibility to control the retention time period after which the video assets will be deleted automatically.
+You can use Azure Video Analyzer for [recording](video-recording.md) live video into the cloud over a period of weeks, months, or years. This recording can either be [continuous](continuous-video-recording.md), or it can be sparse or [event-based](event-based-video-recording-concept.md). In either case, the recordings can span years without any automatic deletion of videos from storage account. However, users have the flexibility to control the retention time period after which the video assets will be deleted automatically.
 
 ## Retention policy
 

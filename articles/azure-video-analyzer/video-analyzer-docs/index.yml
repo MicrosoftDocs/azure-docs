@@ -59,7 +59,7 @@ landingContent:
           - text: Detect object using Open VINO DL Streamer
             url: edge/use-intel-openvino-tutorial.md
 
-  - title: Create intelligent video applications on edge
+  - title: Create intelligent video applications on the edge
     linkLists:
       - linkListType: concept
         links:            
@@ -76,7 +76,7 @@ landingContent:
           - text: Event-based video recording and playback
             url: edge/record-event-based-live-video.md
 
-  - title: Create video applications in cloud
+  - title: Create video applications in the cloud
     linkLists:
       - linkListType: concept
         links:

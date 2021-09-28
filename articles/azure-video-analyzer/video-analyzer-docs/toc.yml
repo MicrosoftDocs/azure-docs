@@ -155,7 +155,7 @@
     items:
     - name: Embed player widget in a web app
       href: player-widget.md
-    - name: Use Player widget sample app 
+    - name: Use player widget sample app 
       href: sample-player-widget.md
     - name: Embed player widget in Power BI
       href: embed-player-in-power-bi.md
