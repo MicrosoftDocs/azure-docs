@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ms.date: 08/11/2020
 ms.author: sebansal
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
@@ -58,7 +58,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-keyvault-certificate-download) for more information.
+View [examples and parameter definitions](/cli/azure/keyvault/certificate#az_keyvault_certificate_download) for more information.
 
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
@@ -72,7 +72,7 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-For more information, see [parameter definitions](/cli/azure/keyvault/secret#az-keyvault-secret-download).
+For more information, see [parameter definitions](/cli/azure/keyvault/secret#az_keyvault_secret_download).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -99,7 +99,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 This command exports the entire chain of certificates with private key (i.e. the same as it was imported). The certificate is password protected.
-For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate).
 
 # [Portal](#tab/azure-portal)
 

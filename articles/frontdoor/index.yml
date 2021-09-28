@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 09/09/2020
+  ms.date: 06/30/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,6 +25,10 @@ landingContent:
         links:
           - text: What is Azure Front Door?
             url: front-door-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Front Door
+            url: /learn/modules/intro-to-azure-front-door/       
 
   # Card
   - title: Learn about Azure Front Door Standard/Premium (Preview)
@@ -81,8 +85,6 @@ landingContent:
         links:
           - text: Common routing issues
             url: front-door-troubleshoot-routing.md
-          - text: Allowed certificate authorities
-            url: front-door-troubleshoot-allowed-ca.md
 
 # Card
   - title: Learn about Azure load balancing

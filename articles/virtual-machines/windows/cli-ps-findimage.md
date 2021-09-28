@@ -8,9 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
 # Find and use Azure Marketplace VM images with Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 
 This article describes how to use Azure PowerShell to find VM images in the Azure Marketplace. You can then specify a Marketplace image and plan information when you create a VM.
 
@@ -60,7 +63,7 @@ You can use PowerShell to narrow down a list of images. Replace the values of th
     You can also use `latest` if you want to use the latest image and not a specific older version.
 
 
-Now you can combine the selected publisher, offer, SKU, and version into a URN (values separated by :). Pass this URN with the `--image` parameter when you create a VM with the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. You can also replace the version number in the URN with `latest` to get the latest version of the image.
+Now you can combine the selected publisher, offer, SKU, and version into a URN (values separated by :). Pass this URN with the `-Image` parameter when you create a VM with the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. You can also replace the version number in the URN with `latest` to get the latest version of the image.
 
 If you deploy a VM with a Resource Manager template, then you'll set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 

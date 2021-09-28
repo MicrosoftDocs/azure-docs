@@ -9,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/16/2020
 ---

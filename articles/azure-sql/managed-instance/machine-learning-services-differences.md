@@ -9,14 +9,14 @@ ms.devlang:
 ms.topic: conceptual
 author: garyericson
 ms.author: garye
-ms.reviewer: sstein, davidph
+ms.reviewer: mathoma, davidph
 manager: cgronlun
 ms.date: 03/17/2021
 ---
 
 # Key differences between Machine Learning Services in Azure SQL Managed Instance and SQL Server
 
-This article describes the few, key differences in functionality between [Machine Learning Services in Azure SQL Managed Instance](machine-learning-services-overview.md) and [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning).
+This article describes the few, key differences in functionality between [Machine Learning Services in Azure SQL Managed Instance](machine-learning-services-overview.md) and [SQL Server Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning).
 
 ## Language support
 
@@ -39,8 +39,8 @@ There is no support in SQL Managed Instance for packages that depend on external
 
 For more information about managing Python and R packages, see:
 
-- [Get Python package information](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
-- [Get R package information](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Get Python package information](/sql/machine-learning/package-management/python-package-information?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current)
+- [Get R package information](/sql/machine-learning/package-management/r-package-information?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current)
 
 ## Resource governance
 
@@ -62,7 +62,7 @@ sp_configure 'external scripts enabled', 0;
 RECONFIGURE WITH OVERRIDE;
 ```
 
-The total resources available to SQL Managed Instance depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](/azure/sql-database/sql-database-service-tiers).
+The total resources available to SQL Managed Instance depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](../database/purchasing-models.md).
 
 ### Insufficient memory error
 

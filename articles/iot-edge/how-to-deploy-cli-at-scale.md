@@ -3,7 +3,7 @@ title: Deploy modules at scale using Azure CLI - Azure IoT Edge
 description: Use the IoT extension for Azure CLI to create automatic deployments for groups of IoT Edge devices
 keywords: 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
@@ -129,7 +129,7 @@ Here's a basic layered deployment manifest with one module as an example:
         "properties.desired.modules.SimulatedTemperatureSensor": {
           "settings": {
             "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-              "createOptions": ""
+              "createOptions": "{}"
           },
           "type": "docker",
           "status": "running",
@@ -150,6 +150,11 @@ Here's a basic layered deployment manifest with one module as an example:
   }
 }
 ```
+>[!NOTE]
+> Take note that this layered deployment manifest has a slightly different format than a standard deployment manifest. The desired properties of the runtime modules are collapsed using dot notation. This formatting is required for the Azure portal to recognize a layered deployment. For example:
+>
+>  - `properties.desired.modules.<module_name>`
+>  - `properties.desired.routes.<route_name>`
 
 The previous example showed a layered deployment setting the `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. In order to update, instead of overwrite, desired properties, you can define a new subsection. For example:
 
@@ -161,6 +166,24 @@ The previous example showed a layered deployment setting the `properties.desired
   }
 }
 ```
+
+The same can also be expressed with:
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties.SendData" : true,
+  "properties.desired.layeredProperties.SendInterval": 5
+}
+```
+
+>[!NOTE]
+>Currently, all layered deployments must include an edgeAgent object to be considered valid. Even if a layered deployment only updates module properties, include an empty object. For example, `"$edgeAgent":{}`. A layered deployment with an empty edgeAgent object will be shown as **targeted** in the edgeAgent module twin, not **applied**.
+
+In summary, to create a layered deployment:
+
+- Must add the `--layered` flag to the Azure CLI create command
+- It may not contain system modules
+- Must use full 'dot notation' under `$edgeAgent` and `$edgeHub`
 
 For more information about configuring module twins in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment)
 
@@ -185,7 +208,7 @@ For more information about device twins and tags, see [Understand and use device
 
 You deploy modules to your target devices by creating a deployment that consists of the deployment manifest as well as other parameters.
 
-Use the [az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) command to create a deployment:
+Use the [az iot edge deployment create](/cli/azure/iot/edge/deployment) command to create a deployment:
 
 ```azurecli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -218,7 +241,7 @@ If you update the target condition, the following updates occur:
 
 You cannot update the content of a deployment, which includes the modules and routes defined in the deployment manifest. If you want to update the content of a deployment, you do so by creating a new deployment that targets the same devices with a higher priority. You can modify certain properties of an existing module, including the target condition, labels, metrics, and priority.
 
-Use the [az iot edge deployment update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) command to update a deployment:
+Use the [az iot edge deployment update](/cli/azure/iot/edge/deployment) command to update a deployment:
 
 ```azurecli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -239,7 +262,7 @@ The deployment update command takes the following parameters:
 
 When you delete a deployment, any devices take on their next highest priority deployment. If your devices don't meet the target condition of any other deployment, then the modules are not removed when the deployment is deleted.
 
-Use the [az iot edge deployment delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) command to delete a deployment:
+Use the [az iot edge deployment delete](/cli/azure/iot/edge/deployment) command to delete a deployment:
 
 ```azurecli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

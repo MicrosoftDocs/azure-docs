@@ -40,7 +40,7 @@ By using both publishing slots, this allows you to have two different versions o
 
 ### Publishing regions
 
-The app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal from the **Manage** -> **[Azure Resources](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** page.
+The app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal from the **Manage** -> **[Azure Resources](luis-how-to-azure-subscription.md#assign-luis-resources)** page.
 
 For example, for an app created on [www.luis.ai](https://www.luis.ai), if you create a LUIS resource in two regions, **westus** and **eastus**, and add these to the app as resources, the app is published in both regions. For more information about LUIS regions, see [Regions](luis-reference-regions.md).
 

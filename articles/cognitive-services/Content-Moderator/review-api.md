@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Content moderation reviews, workflows, and jobs
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 Content Moderator combines machine-assisted moderation with human-in-the-loop capabilities to create an optimal moderation process for real-world scenarios. It does this through the cloud-based [Review tool](https://contentmoderator.cognitive.microsoft.com). In this guide, you'll learn about the core concepts of the Review tool: reviews, workflows, and jobs.
 
 ## Reviews

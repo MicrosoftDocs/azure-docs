@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/15/2021
+ms.date: 05/06/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Overdrive
@@ -77,9 +77,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Overdrive Client support team](https://help.overdrive.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **App Federation Metadata URL** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
 6. On the **Set up Overdrive** section, copy the appropriate URL(s) as per your requirement.
 
@@ -118,7 +118,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ## Configure Overdrive SSO
 
-To configure single sign-on on **Overdrive** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Overdrive support team](https://help.overdrive.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Overdrive** side,  you need to send the **App Federation Metadata URL** to [Overdrive support team](https://help.overdrive.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Overdrive test user
 
@@ -136,7 +136,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Overdrive Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Overdrive tile in the My Apps, this will redirect to Overdrive Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Overdrive tile in the My Apps, this will redirect to Overdrive Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

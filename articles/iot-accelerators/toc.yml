@@ -7,42 +7,27 @@
   - name: AzureIoTSolutions.com
     href: iot-accelerators-permissions.md
   - name: Industrial IoT
-  - name: Device simulation
-    href: iot-accelerators-device-simulation-overview.md
+    href: overview-iot-industrial.md
+    items:
+    - name: What is Connected Factory
+      href: iot-accelerators-connected-factory-features.md
 - name: Quickstarts
   items:
-  - name: Deploy the device simulation solution accelerator
-    href: https://github.com/Azure/device-simulation-dotnet/blob/master/README.md
+  - name: Try a connected factory solution
+    href: quickstart-connected-factory-deploy.md
   expanded: true
-- name: Tutorials
-  items:
-  - name: Device simulation
-    items:
-    - name: Create and run a simulation
-      href: iot-accelerators-device-simulation-create-simulation.md
-    - name: Create a custom simulated device
-      href: iot-accelerators-device-simulation-create-custom-device.md
-- name: Concepts
-  items:
-  - name: Industrial IoT
 - name: How-to guides
   items:
   - name: Industrial IoT
     items:
     - name: Connected Factory
-    - name: OPC Twin
-    - name: OPC Vault
-    - name: OPC Publisher
-  - name: Device simulation
-    items:
-    - name: Use an existing IoT Hub
-      href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Create an advanced simulated device
-      href: iot-accelerators-device-simulation-advanced-device.md
-    - name: Visualize telemetry with Time Series Insights
-      href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Serialize telemetry using Protobuf
-      href: iot-accelerators-device-simulation-protobuf.md
+      items:
+      - name: Use the dashboard
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Configure the solution accelerator
+        href: iot-accelerators-connected-factory-configure.md
+      - name: Customize the solution accelerator
+        href: iot-accelerators-connected-factory-customize.md
 - name: Resources
   items:
   - name: Support and help options
@@ -62,7 +47,7 @@
     - name: IoT solution accelerators
       href: ./index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
@@ -77,18 +62,16 @@
     items:
     - name: GitHub repository
       href: https://github.com/Azure/azure-iot-connected-factory
-  - name: Device simulation
-    items:
-    - name: Developer reference guide
-      href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
-    - name: GitHub repository
-      href: https://github.com/Azure/device-simulation-dotnet
   - name: Reference Architecture
     href: /azure/architecture/reference-architectures/iot
     items:
     - name: Download
       href: /azure/architecture/reference-architectures/iot
   - name: FAQ
-    href: iot-accelerators-faq.md
+    items:
+    - name: Solution Accelerators FAQ
+      href: iot-accelerators-faq.yml
+    - name: Connected Factory FAQ
+      href: iot-accelerators-faq-cf.yml
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite

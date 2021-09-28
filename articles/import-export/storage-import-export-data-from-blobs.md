@@ -184,19 +184,19 @@ Use the following steps to create an export job in the Azure portal.
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension:
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/import-export) extension:
 
     ```azurecli
     az extension add --name import-export
     ```
 
-1. To get a list of the locations from which you can receive disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command:
+1. To get a list of the locations from which you can receive disks, use the [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) command:
 
     ```azurecli
     az import-export location list
     ```
 
-1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an export job that uses your existing storage account:
+1. Run the following [az import-export create](/cli/azure/import-export#az_import_export_create) command to create an export job that uses your existing storage account:
 
     ```azurecli
     az import-export create \
@@ -239,13 +239,13 @@ Use the following steps to create an export job in the Azure portal.
    > [!NOTE]
    > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
 
-1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the resource group myierg:
+1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the resource group myierg:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. To update your job or cancel your job, run the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command:
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az_import_export_update) command:
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
@@ -392,16 +392,13 @@ This *optional* step helps you determine the number of drives required for the e
 
 4. To check the number of disks required for the selected blobs, run the following command:
 
-   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     The parameters are described in the following table:
 
     |Command-line parameter|Description|
     |--------------------------|-----------------|
     |**/logdir:**|Optional. The log directory. Verbose log files are written to this directory. If not specified, the current directory is used as the log directory.|
-    |**/sn:**|Required. The name of the storage account for the export job.|
-    |**/sk:**|Required only if a container SAS is not specified. The account key for the storage account for the export job.|
-    |**/csas:**|Required only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|
     |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs) operation of the Import/Export service REST API.|
     |**/DriveSize:**|Required. The size of drives to use for an export job, *for example*, 500 GB, 1.5 TB.|
 
@@ -414,7 +411,7 @@ This *optional* step helps you determine the number of drives required for the e
 The following example demonstrates the `PreviewExport` command:
 
 ```powershell
-    WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
+    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
 ```
 
 The export blob list file may contain blob names and blob prefixes, as shown here:

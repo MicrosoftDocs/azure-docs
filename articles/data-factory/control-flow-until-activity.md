@@ -1,18 +1,21 @@
 ---
-title: Until activity in Azure Data Factory 
-description: The Until activity executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
-author: dcstwh
-ms.author: weetok
+title: Until activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: The Until activity in Azure Data Factory and Synapse Analytics pipelines executes a set of activities in a loop until the condition associated with the activity evaluates to true or it times out. 
+author: chez-charlie
+ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 09/09/2021
+ms.custom: devx-track-azurepowershell, synapse
 ---
 
-# Until activity in Azure Data Factory
+# Until activity in Azure Data Factory and Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity in Data Factory. 
+The Until activity provides the same functionality that a do-until looping structure provides in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity. 
 
 ## Syntax
 
@@ -55,10 +58,10 @@ Activities | Set of activities that are executed until expression evaluates to `
 ## Example 1
 
 > [!NOTE]
-> This section provides JSON definitions and sample PowerShell commands to run the pipeline. For a walkthrough with step-by-step instructions to create a Data Factory pipeline by using Azure PowerShell and JSON definitions, see [tutorial: create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> This section provides JSON definitions and sample PowerShell commands to run the pipeline. For a walkthrough with step-by-step instructions to create a pipeline by using Azure PowerShell and JSON definitions, see [tutorial: create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### Pipeline with Until activity
-In this example, the pipeline has two activities: **Until** and **Wait**. The Wait activity waits for the specified period of time before running the Web activity in the loop. To learn about expressions and functions in Data Factory, see [Expression language and functions](control-flow-expression-language-functions.md). 
+In this example, the pipeline has two activities: **Until** and **Wait**. The Wait activity waits for the specified period of time before running the Web activity in the loop. To learn about expressions and functions, see [Expression language and functions](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -279,7 +282,7 @@ while ($True) {
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

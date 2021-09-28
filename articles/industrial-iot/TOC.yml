@@ -1,14 +1,14 @@
 
 - name: Azure Industrial IoT documentation
   href: index.yml
+- name: Azure Industrial IoT platform versions
+  href: industrial-iot-platform-versions.md
 - name: Overview
   items:
   - name: What is Industrial IoT?
     href: overview-what-is-industrial-iot.md
-  - name: What is the OPC Publisher?
+  - name: What is OPC Publisher?
     href: overview-what-is-opc-publisher.md
-  - name: What is the Industrial IoT Platform?
-    href: overview-what-is-industrial-iot-platform.md
 - name: Tutorials
   items:
   - name: OPC Publisher standalone tutorials
@@ -25,8 +25,8 @@
       href: tutorial-deploy-industrial-iot-platform.md
     - name: Configure IIoT components
       href: tutorial-configure-industrial-iot-components.md
-    - name: Pull IIoT data into ADX
-      href: tutorial-industrial-iot-azure-data-explorer.md
+    - name: Using Industrial IoT to pull data into Azure Data Explorer
+      href: tutorial-data-explorer-import.md
     - name: Visualize and analyze the data using Time Series Insights
       href: tutorial-visualize-data-time-series-insights.md
 - name: Reference
@@ -58,7 +58,7 @@
     - name: IoT solution accelerators
       href: ./index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

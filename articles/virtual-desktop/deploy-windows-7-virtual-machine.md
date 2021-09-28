@@ -1,18 +1,18 @@
 ---
-title: Deploy Windows 7 virtual machine Windows Virtual Desktop - Azure
-description: How to configure and deploy a Windows 7 virtual machine on Windows Virtual Desktop.
+title: Deploy Windows 7 virtual machine Azure Virtual Desktop - Azure
+description: How to configure and deploy a Windows 7 virtual machine on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Deploy a Windows 7 virtual machine on Windows Virtual Desktop
+# Deploy a Windows 7 virtual machine on Azure Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
-The process to deploy a Windows 7 virtual machine (VM) on Windows Virtual Desktop is slightly different than for VMs running later versions of Windows. This guide will tell you how to deploy Windows 7.
+The process to deploy a Windows 7 virtual machine (VM) on Azure Virtual Desktop is slightly different than for VMs running later versions of Windows. This guide will tell you how to deploy Windows 7.
 
 ## Prerequisites
 
@@ -20,9 +20,9 @@ Before you start, follow the instructions in [Create a host pool with PowerShell
 
 ## Configure a Windows 7 virtual machine
 
-Once you've done the prerequisites, you're ready to configure your Windows 7 VM for deployment on Windows Virtual Desktop.
+Once you've done the prerequisites, you're ready to configure your Windows 7 VM for deployment on Azure Virtual Desktop.
 
-To set up a Windows 7 VM on Windows Virtual Desktop:
+To set up a Windows 7 VM on Azure Virtual Desktop:
 
 1. Sign in to the Azure portal and either search for the Windows 7 Enterprise image or upload your own customized Windows 7 Enterprise (x64) image.
 2. Deploy one or multiple virtual machines with Windows 7 Enterprise as its host operating system. Make sure the virtual machines allow Remote Desktop Protocol (RDP) (the TCP/3389 port).
@@ -44,15 +44,15 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
 
       - If you'd rather use the Azure portal, you can also go to the Overview page of the host pool you want to add the VM to and create a token there.
 
-13. [Download the Windows Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
-14. [Download the Windows Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
-15. Open the Windows Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 12.
-16. Open the Windows Virtual Desktop Agent Manager and follow the instructions.
+13. [Download the Azure Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+14. [Download the Azure Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
+15. Open the Azure Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 12.
+16. Open the Azure Virtual Desktop Agent Manager and follow the instructions.
 17. Optionally, block the TCP/3389 port to remove direct Remote Desktop Protocol access to the VM.
 18. Optionally, confirm that your .NET framework is at least version 4.7.2. Updating your framework is especially important if you're creating a custom image.
 
 ## Next steps
 
-Your Windows Virtual Desktop deployment is now ready to use. [Download the latest version of the Windows Virtual Desktop client](https://aka.ms/wvd/clients/windows) to get started.
+Your Azure Virtual Desktop deployment is now ready to use. [Download the latest version of the Azure Virtual Desktop client](https://aka.ms/wvd/clients/windows) to get started.
 
-For a list of known issues and troubleshooting instructions for Windows 7 on Windows Virtual Desktop, see our troubleshooting article at [Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop](./virtual-desktop-fall-2019/troubleshoot-windows-7-vm.md).
+For a list of known issues and troubleshooting instructions for Windows 7 on Azure Virtual Desktop, see our troubleshooting article at [Troubleshoot Windows 7 virtual machines in Azure Virtual Desktop](./virtual-desktop-fall-2019/troubleshoot-windows-7-vm.md).

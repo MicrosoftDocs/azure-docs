@@ -3,7 +3,6 @@ title: About Azure Key Vault secrets - Azure Key Vault
 description: Overview of Azure Key Vault secrets.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -21,7 +20,7 @@ From a developer's perspective, Key Vault APIs accept and return secret values a
 
 For highly sensitive data, clients should consider additional layers of protection for data. Encrypting data using a separate protection key prior to storage in Key Vault is one example.  
 
-Key Vault also supports a contentType field for secrets. Clients may specify the content type of a secret to assist in interpreting the secret data when it's retrieved. The maximum length of this field is 255 characters. There are no pre-defined values. The suggested usage is as a hint for interpreting the secret data. For instance, an implementation may store both passwords and certificates as secrets, then use this field to differentiate. There are no predefined values.  
+Key Vault also supports a contentType field for secrets. Clients may specify the content type of a secret to assist in interpreting the secret data when it's retrieved. The maximum length of this field is 255 characters. The suggested usage is as a hint for interpreting the secret data. For instance, an implementation may store both passwords and certificates as secrets, then use this field to differentiate. There are no predefined values.  
 
 ## Encryption
 
@@ -89,7 +88,7 @@ Key Vault can manage [Azure storage account](../../storage/common/storage-accoun
 
 For more information, see:
 - [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
-- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md))
+- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md)
 
 
 ## Storage account access control
@@ -129,5 +128,5 @@ How-to guides to control access in Key Vault:
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
 - [About keys](../keys/about-keys.md)
 - [About certificates](../certificates/about-certificates.md)
-- [Secure access to a key vault](../general/secure-your-key-vault.md)
+- [Secure access to a key vault](../general/security-features.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)

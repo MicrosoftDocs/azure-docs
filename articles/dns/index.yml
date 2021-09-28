@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: rohinkoul
   ms.author: rohink
-  ms.date: 09/20/2019
+  ms.date: 07/07/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,7 +25,10 @@ landingContent:
         links:
           - text: What is Azure DNS?
             url: dns-overview.md
-       
+      - linkListType: learn
+        links:
+          - text: Host your domain on Azure DNS?
+            url: /learn/modules/host-domain-azure-dns/    
   # Card
   - title: Create an Azure DNS zone and record
     linkLists:
@@ -52,7 +55,7 @@ landingContent:
           - text: Azure DNS Private Zones scenarios
             url: private-dns-scenarios.md
           - text: Azure Private DNS FAQ
-            url: dns-faq-private.md
+            url: dns-faq-private.yml
       - linkListType: quickstart
         links:
           - text: Create an Azure DNS private zone using the Azure portal

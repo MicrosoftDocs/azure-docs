@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 09/27/2021
 ---
 
 # Search the Azure Purview Data Catalog
@@ -21,11 +21,11 @@ In Azure Purview, the search bar is located at the top of the Purview studio UX.
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
-When you click on the search bar, you can see your recent search history and recently accessed assets. Select "View all" to see all of the recently viewed assets.
+When you select the search bar, you can see your recent search history and recently accessed assets. Select **View all** to see all of the recently viewed assets.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
-Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, click on "View search results" or press "Enter".
+Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, select **View search results** or press "Enter".
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
@@ -33,7 +33,7 @@ The search results page shows a list of assets that match the keywords provided 
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
- Click on your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
+ Select your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
 
@@ -50,8 +50,8 @@ Below are the operators that can be used to compose a search query. Operators ca
 | NOT | Specifies that an asset can't contain the keyword to the right of the NOT clause | The query `hive NOT database` returns assets that contain 'hive', but not 'database'. |
 | () | Groups a set of keywords and operators together. When combining multiple operators, parenthesis specify the order of operations. | The query `hive AND (database OR warehouse)` returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
 | "" | Specifies exact content in a phrase that the query must match to. | The query `"hive database"` returns assets that contain the phrase "hive database" in their properties |
-| * | A wildcard that matches on one to many characters. Can't be the first character in a keyword. | The query `hiv\`* returns assets that have properties that starts with 'hiv' such as 'hive' or 'hive-table'. |
-| ? | A wildcard that matches on a single character. Can't be the first character in a keyword | The query `hiv?` returns assets that have properties that start with 'hiv' and are four letters such as 'hive' or 'hiva'. |
+| * | A wildcard that matches on one to many characters. Can't be the first character in a keyword. | The query `dat*` returns assets that have properties that starts with 'dat' such as 'data' or 'database'. |
+| ? | A wildcard that matches on a single character. Can't be the first character in a keyword | The query `dat?` returns assets that have properties that start with 'dat' and are four letters such as 'date' or 'data'. |
 
 > [!Note]
 > Always specify Boolean operators (**AND**, **OR**, **NOT**) in all caps. Otherwise, case doesn't matter, nor do extra spaces.

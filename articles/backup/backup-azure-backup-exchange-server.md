@@ -116,4 +116,4 @@ For online recovery points, there are five recovery types:
 
 ## Next steps
 
-* [Azure Backup FAQ](backup-azure-backup-faq.md)
+* [Azure Backup FAQ](backup-azure-backup-faq.yml)

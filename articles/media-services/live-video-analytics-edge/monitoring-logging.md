@@ -1,11 +1,13 @@
 ---
-title: Monitoring and logging - Azure
-description: This article provides an overview of monitoring and logging in Live Video Analytics on IoT Edge.
+title: Monitoring and logging in Live Video Analytics - Azure
+description: This article provides an overview of monitoring and logging in Azure Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
 
 ---
-# Monitoring and logging
+# Monitoring and logging in Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 In this article, you'll learn how to receive events for remote monitoring from the Live Video Analytics on IoT Edge module. 
 
@@ -410,7 +412,7 @@ The module will now write debug logs in a binary format to the device storage pa
 
 ## FAQ
 
-If you have questions, see the [monitoring and metrics FAQ](faq.md#monitoring-and-metrics).
+If you have questions, see the [monitoring and metrics FAQ](/azure/media-services/live-video-analytics-edge/faq#monitoring-and-metrics).
 
 ## Next steps
 

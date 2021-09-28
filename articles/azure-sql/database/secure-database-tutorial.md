@@ -103,7 +103,7 @@ To set up a database-level firewall rule:
 1. On the toolbar, select **Execute** to create the firewall rule.
 
 > [!NOTE]
-> You can also create a server-level firewall rule in SSMS by using the [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current) command, though you must be connected to the *master* database.
+> You can also create a server-level firewall rule in SSMS by using the [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current&preserve-view=true) command, though you must be connected to the *master* database.
 
 ## Create an Azure AD admin
 
@@ -200,7 +200,7 @@ To add a user with Azure AD authentication:
 1. In the query window, enter the following command and modify `<Azure_AD_principal_name>` to the principal name of the Azure AD user or the display name of the Azure AD group:
 
    ```sql
-   CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
+   CREATE USER [<Azure_AD_principal_name>] FROM EXTERNAL PROVIDER;
    ```
 
 > [!NOTE]

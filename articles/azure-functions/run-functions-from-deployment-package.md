@@ -31,7 +31,7 @@ To enable your function app to run from a package, you just add a `WEBSITE_RUN_F
 | Value  | Description  |
 |---------|---------|
 | **`1`**  | Recommended for function apps running on Windows. Run from a package file in the `d:\home\data\SitePackages` folder of your function app. If not [deploying with zip deploy](#integration-with-zip-deployment), this option requires the folder to also have a file named `packagename.txt`. This file contains only the name of the package file in folder, without any whitespace. |
-|**`<URL>`**  | Location of a specific package file you want to run. When using Blob storage, you should use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to enable the Functions runtime to access to the package. You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to your Blob storage account. When you specify a URL, you must also [sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package. |
+|**`<URL>`**  | Location of a specific package file you want to run. When you specify a URL, you must also [sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package. <br/>When using Blob storage, you typically should not use a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package. You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to your Blob storage account. |
 
 > [!CAUTION]
 > When running a function app on Windows, the external URL option yields worse cold-start performance. When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
@@ -42,6 +42,10 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 > [!NOTE]
 > Currently, only .zip package files are supported.
+
+### Fetch a package from Azure Blob Storage using a managed identity
+
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## Integration with zip deployment
 

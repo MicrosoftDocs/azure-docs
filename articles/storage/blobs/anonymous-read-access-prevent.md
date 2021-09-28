@@ -11,6 +11,7 @@ ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
+ms.custom: devx-track-azurepowershell
 ---
 
 # Prevent anonymous public read access to containers and blobs
@@ -50,7 +51,7 @@ Follow these steps to create a metric that tracks anonymous requests:
 1. In the **Filter** dialog, specify the following values:
     1. Set the **Property** value to *Authentication*.
     1. Set the **Operator** field to the equal sign (=).
-    1. Set the **Values** field to *Anonymous*.
+    1. Set the **Values** field to *Anonymous* by selecting it from the dropdown or typing it in.
 1. In the upper-right corner, select the time interval over which you want to view the metric. You can also indicate how granular the aggregation of requests should be, by specifying intervals anywhere from 1 minute to 1 month.
 
 After you have configured the metric, anonymous requests will begin to appear on the graph. The following image shows anonymous requests aggregated over the past thirty minutes.

@@ -11,6 +11,8 @@ ms.author: cynthn
 
 # Use infrastructure automation tools with virtual machines in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
@@ -111,7 +113,7 @@ Azure Automation also provides a Desired State Configuration (DSC) service that 
 
 Learn how to:
 
-- [Create a PowerShell runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
+- [Create a PowerShell runbook](../automation/learn/powershell-runbook-managed-identity.md).
 - [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
 - [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 

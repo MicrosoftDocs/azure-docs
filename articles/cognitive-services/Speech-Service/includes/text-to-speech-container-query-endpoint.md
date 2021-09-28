@@ -21,36 +21,3 @@ With the Standard or Neural Text-to-speech containers, you should rely on the lo
     </voice>
 </speak>
 ```
-
-However, for *Custom Text-to-speech* you'll need to obtain the **Voice / model** from the [custom voice portal](https://aka.ms/custom-voice-portal). The custom model name is synonymous with the voice name. Navigate to the **Training** page, and copy the **Voice / model** to use as the `{VOICE_NAME}` argument.
-<br><br>
-:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Custom voice model - voice name":::
-
-See the example SSML below:
-
-```xml
-<speak version="1.0" xml:lang="en-US">
-    <voice name="custom-voice-model">
-        This text will get converted into synthesized speech.
-    </voice>
-</speak>
-```
-
-Let's construct an HTTP POST request, providing a few headers and a data payload. Replace the `{VOICE_NAME}` placeholder with your own value.
-
-```curl
-curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 \
- -H 'Accept: audio/*' \
- -H 'Content-Type: application/ssml+xml' \
- -H 'X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm' \
- -d '<speak version="1.0" xml:lang="en-US"><voice name="{VOICE_NAME}">This is a test, only a test.</voice></speak>' > output.wav
-```
-
-
-This command:
-
-* Constructs an HTTP POST request for the `speech/synthesize/cognitiveservices/v1` endpoint.
-* Specifies an `Accept` header of `audio/*`
-* Specifies a `Content-Type` header of `application/ssml+xml`, for more information, see [request body](../rest-text-to-speech.md#request-body).
-* Specifies a `X-Microsoft-OutputFormat` header of `riff-16khz-16bit-mono-pcm`, for more options see [audio output](../rest-text-to-speech.md#audio-outputs).
-* Sends the [Speech Synthesis Markup Language (SSML)](../speech-synthesis-markup.md) request given the `{VOICE_NAME}` to the endpoint.

@@ -50,7 +50,6 @@ In this case, start with the list of attributes in this topic and identify those
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
-| assistant |X |X | | |
 | altRecipient |X | | |Requires Azure AD Connect build 1.1.552.0 or after. |
 | authOrig |X |X |X | |
 | c |X |X | | |

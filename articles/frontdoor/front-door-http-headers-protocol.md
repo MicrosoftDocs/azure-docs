@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2020
+ms.date: 08/10/2021
 ms.author: duau
 ---
 
@@ -32,14 +32,14 @@ Front Door includes headers for an incoming request unless they're removed becau
 | ------------- | ------------- |
 | Via |  *Via: 1.1 Azure* </br> Front Door adds the client's HTTP version followed by *Azure* as the value for the Via header. This header indicates the client's HTTP version and that Front Door was an intermediate recipient for the request between the client and the backend.  |
 | X-Azure-ClientIP | *X-Azure-ClientIP: 127.0.0.1* </br> Represents the client IP address associated with the request being processed. For example, a request coming from a proxy might add the X-Forwarded-For header to indicate the IP address of the original caller. |
-| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Represents the socket IP address associated with the TCP connection that the current request originated from. A request's client IP address might not be equal to its socket IP address because it can be arbitrarily overwritten by a user.|
+| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Represents the socket IP address associated with the TCP connection that the current request originated from. A request's client IP address might not be equal to its socket IP address because the client IP can be arbitrarily overwritten by a user.|
 | X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> A unique reference string that identifies a request served by Front Door. It's used to search access logs and critical for troubleshooting.|
 | X-Azure-RequestChain | *X-Azure-RequestChain: hops=1* </br> A header that Front Door uses to detect request loops, and users shouldn't take a dependency on it. |
-| X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> A reference string that identifies the request came from a specific Front Door resource. The value can be seen in the Azure portal or retrieved using the management API. You can use this header in combination with IP ACLs to lock down your endpoint to only accept requests from a specific Front Door resource. See the FAQ for [more detail](front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door) |
+| X-Azure-FDID | *X-Azure-FDID: 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> A reference string that identifies the request came from a specific Front Door resource. The value can be seen in the Azure portal or retrieved using the management API. You can use this header in combination with IP ACLs to lock down your endpoint to only accept requests from a specific Front Door resource. See the FAQ for [more detail](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-) |
 | X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> The X-Forwarded-For (XFF) HTTP header field often identifies the originating IP address of a client connecting to a web server through an HTTP proxy or load balancer. If there's an existing XFF header, then Front Door appends the client socket IP to it or adds the XFF header with the client socket IP. |
-| X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> The X-Forwarded-Host HTTP header field is a common method used to identify the original host requested by the client in the Host HTTP request header. This is because the host name from Front Door may differ for the backend server handling the request. |
-| X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> The X-Forwarded-Proto HTTP header field is often used to identify the originating protocol of an HTTP request. Front Door based on configuration might communicate with the backend by using HTTPS. This is true even if the request to the reverse proxy is HTTP. |
-| X-FD-HealthProbe | X-FD-HealthProbe HTTP header field is used to identify the health probe from Front Door. If this header set to 1, the request is health probe. You can use when want to strict access from particular Front Door with X-Forwarded-Host header field. |
+| X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> The X-Forwarded-Host HTTP header field is a common method used to identify the original host requested by the client in the Host HTTP request header. This is because the host name from Front Door may differ for the backend server handling the request. Any previous value will be overridden by Front Door. |
+| X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> The X-Forwarded-Proto HTTP header field is often used to identify the originating protocol of an HTTP request. Front Door based on configuration might communicate with the backend by using HTTPS. This is true even if the request to the reverse proxy is HTTP. Any previous value will be overridden by Front Door. |
+| X-FD-HealthProbe | X-FD-HealthProbe HTTP header field is used to identify the health probe from Front Door. If this header is set to 1, the request is from the health probe. It can be used to restrict access from Front Door with a particular value for the X-Forwarded-Host header field. |
 | X-Azure-FDID | *X-Azure-FDID header: 437c82cd-360a-4a54-94c3-5ff707647783* </br> This field contains frontdoorID that can be used to identify which Front Door the incoming request is from. This field is populated by Front Door service. | 
 
 ## Front Door to client
@@ -49,7 +49,7 @@ Any headers sent to Front Door from the backend are also passed through to the c
 | Header  | Example and description |
 | ------------- | ------------- |
 | X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door, which is critical for troubleshooting as it's used to search access logs.|
-| X-Cache | *X-Cache: TCP_HIT* </br> This header describes the cache status of the request, which enables you to identify if the response content is being served from the cache of the Front Door. |
+| X-Cache | *X-Cache:* This header describes the caching status of the request <br/> - *X-Cache: TCP_HIT* : The first byte of the request is a cache hit in the Front Door edge. <br/> - *X-Cache: TCP_REMOTE_HIT*: The first byte of the request is a cache hit in the regional cache (origin shield layer) but a miss in the edge cache. <br/> - *X-Cache: TCP_MISS*: The first byte of the request is a cache miss, and the content is served from the origin. <br/> - *X-Cache: PRIVATE_NOSTORE* : Request cannot be cached as Cache-Control response header is set to either private or no-store. <br/> - *X-Cache: CONFIG_NOCACHE*: Request is configured to not cache in the Front Door profile. |
 
 You need to send "X-Azure-DebugInfo: 1" request header to enable the following optional response headers.
 

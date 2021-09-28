@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
@@ -150,7 +150,7 @@ Before you can use the digital certificate created in the previous step with you
 
     On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. The encryption algorithm must be *TripleDES-SHA1*. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
 
-    If you export using the [PowerShell export-pfxcertificate cmdlet](/powershell/module/pkiclient/export-pfxcertificate), you need to pass the *-CryptoAlgorithmOption* flag using TripleDES_SHA1.
+    If you export using the [PowerShell export-pfxcertificate cmdlet](/powershell/module/pki/export-pfxcertificate), you need to pass the *-CryptoAlgorithmOption* flag using TripleDES_SHA1.
 
     ![Screenshot of how to encrypt the password](./media/tutorial-configure-ldaps/encrypt.png)
 
@@ -297,6 +297,21 @@ If you added a DNS entry to the local hosts file of your computer to test connec
 1. Browse to and open the file *C:\Windows\System32\drivers\etc\hosts*
 1. Delete the line for the record you added, such as `168.62.205.103    ldaps.aaddscontoso.com`
 
+## Troubleshooting
+
+If you see an error stating that LDAP.exe cannot connect, try working through the different aspects of getting the connection: 
+
+1. Configuring the domain controller
+1. Configuring the client
+1. Networking
+1. Establishing the TLS session
+
+For the certificate subject name match, the DC will use the Azure ADDS domain name (not the Azure AD domain name) to search its certificate store for the certificate. Spelling mistakes, for example, prevent the DC from selecting the right certificate. 
+
+The client attempts to establish the TLS connection using the name you provided. The traffic needs to get all the way through. The DC sends the public key of the server auth cert. The cert needs to have the right usage in the certificate, the name signed in the subject name must be compatible for the client to trust that the server is the DNS name which you’re connecting to (that is, a wildcard will work, with no spelling mistakes), and the client must trust the issuer. You can check for any problems in that chain in the System log in Event Viewer, and filter the events where source equals Schannel. Once those pieces are in place, they form a session key.  
+
+For more information, see [TLS Handshake](/windows/win32/secauthn/tls-handshake-protocol).
+
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -319,4 +334,4 @@ In this tutorial, you learned how to:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
-[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate
+[New-SelfSignedCertificate]: /powershell/module/pki/new-selfsignedcertificate

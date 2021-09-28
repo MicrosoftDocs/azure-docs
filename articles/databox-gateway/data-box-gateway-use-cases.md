@@ -46,12 +46,12 @@ Before you begin, make sure that you have a running Data Box Gateway device. Fol
 - After the data is uploaded, you will need to move it to Archive tier. You can set the blob tier in two ways: by using an Azure PowerShell script or an Azure Storage Lifecycle Management policy.  
     - If using Azure PowerShell, follow these [steps](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) to move the data to the Archive tier.
     - If using Azure Lifecycle Management, follow these steps to move the data to the Archive tier.
-        - [Register](../storage/blobs/storage-lifecycle-management-concepts.md) for the preview of the Blob Lifecycle Management service to use the Archive tier.
-        - Use the following policy to [Archive data on ingest](../storage/blobs/storage-lifecycle-management-concepts.md#archive-data-after-ingest).
+        - [Register](../storage/blobs/lifecycle-management-overview.md) for the preview of the Blob Lifecycle Management service to use the Archive tier.
+        - Use the following policy to [Archive data on ingest](../storage/blobs/lifecycle-management-overview.md#archive-data-after-ingest).
 - Once the blobs are marked as Archive, they can no longer be modified by the gateway unless they are moved to the hot or cold tier. If the file is in the local storage, any changes made to the local copy (including deletes) are not uploaded to the Archive tier.
 - To read data in Archive storage, you must rehydrate the data by changing the blob tier to hot or cool. [Refreshing the share](data-box-gateway-manage-shares.md#refresh-shares) on the gateway does not rehydrate the blob.
 
-For more information, learn more about how to [Manage Azure Blob Storage Lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md).
+For more information, learn more about how to [Manage Azure Blob Storage Lifecycle](../storage/blobs/lifecycle-management-overview.md).
 
 ## Initial bulk transfer followed by incremental transfer
 

@@ -1,10 +1,8 @@
 ---
 title: Quickstart - Set and retrieve a secret from Azure Key Vault
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -22,7 +20,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -42,9 +40,11 @@ Use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvaul
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-You can now reference this password that you added to Azure Key Vault by using its URI. Use **'https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword'** to get the current version.
+## Retrieve a secret from Key Vault
 
-To view the value contained in the secret as plain text:
+You can now reference this password that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword`** to get the current version.
+
+To view the value contained in the secret as plain text, use the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az_keyvault_secret_show) command:
 
 ```azurecli
 az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>" --query "value"
@@ -63,4 +63,4 @@ In this quickstart you created a Key Vault and stored a secret in it. To learn m
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn how to [store multiline secrets in Key Vault](multiline-secrets.md)
 - See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

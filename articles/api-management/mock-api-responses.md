@@ -2,12 +2,12 @@
 title: Tutorial - Mock API responses in API Management - Azure portal  | Microsoft Docs
 description: In this tutorial, you use API Management to set a policy on an API so it returns a mocked response if the backend is not available to send real responses.
 
-author: vladvino
+author: dlepow
 ms.service: api-management
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/09/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Tutorial: Mock API responses

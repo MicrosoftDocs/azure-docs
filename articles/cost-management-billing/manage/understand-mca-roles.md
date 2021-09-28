@@ -5,7 +5,7 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 06/27/2021
 ms.author: banders
 ---
 

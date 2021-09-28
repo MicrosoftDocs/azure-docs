@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,9 +18,13 @@ ms.collection: M365-identity-device-management
 
 You can automate how you assign roles to user accounts using the Microsoft Graph API. This article covers POST, GET, and DELETE operations on roleAssignments.
 
-## Required permissions
+## Prerequisites
 
-Connect to your Azure AD organization using a Global administrator or Privileged role administrator account to assign or remove roles.
+- Azure AD Premium P1 or P2 license
+- Privileged Role Administrator or Global Administrator
+- Admin consent when using Graph Explorer for Microsoft Graph API
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## POST Operations on RoleAssignment
 
@@ -299,5 +303,6 @@ We prevent users from deleting their own Global Administrator role to avoid a sc
 ## Next steps
 
 * Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-* For more about roles and Administrator role assignment, see [Assign administrator roles](permissions-reference.md)
+* For more about role permissions, see [Azure AD built-in roles](permissions-reference.md)
 * For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md)
+

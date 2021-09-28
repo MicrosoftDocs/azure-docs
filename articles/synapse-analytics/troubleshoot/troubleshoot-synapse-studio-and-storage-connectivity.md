@@ -3,6 +3,7 @@ title: Troubleshoot connectivity between Synapse Studio and storage
 description: Troubleshoot connectivity between Synapse Studio and storage  
 author: saveenr 
 ms.service: synapse-analytics 
+ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1 
@@ -25,7 +26,7 @@ In the linked storage node:
 In the storage container node:  
 ![Storage connectivity issue 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
-**SOLUTION**: To assign your account to the proper role, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md)
+**SOLUTION**: To assign your account to the proper role, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/blobs/assign-azure-role-data-access.md)
 
 
 ## Case #2: Failed to send the request to storage server

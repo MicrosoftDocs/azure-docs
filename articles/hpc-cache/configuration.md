@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
 ---
 
@@ -19,7 +19,7 @@ To see the settings, open the cache's **Networking** page in the Azure portal.
 ![screenshot of networking page in Azure portal](media/networking-page.png)
 
 > [!NOTE]
-> A previous version of this page included a cache-level root squash setting, but this setting has been moved to [client access policies](access-policies.md).
+> A previous version of this page included a cache-level root squash setting, but this setting has moved to [client access policies](access-policies.md).
 
 <!-- >> [!TIP]
 > The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
@@ -42,24 +42,26 @@ Learn more about MTU settings in Azure virtual networks by reading [TCP/IP perfo
 
 ## Customize NTP
 
-Your cache uses the Azure-based time server time.microsoft.com by default. If you want your cache to use a different NTP server, specify it in the **NTP configuration** section. Use a fully qualified domain name or an IP address.
+Your cache uses the Azure-based time server time.windows.com by default. If you want your cache to use a different NTP server, specify it in the **NTP configuration** section. Use a fully qualified domain name or an IP address.
 
 ## Set a custom DNS configuration
 
 > [!CAUTION]
-> Do not change your cache DNS configuration if you don't need to. Configuration mistakes can have dire consequences. If your configuration can't resolve Azure service names, the HPC cache instance will become permanently unreachable.
+> Do not change your cache DNS configuration if you don't need to. Configuration mistakes can have dire consequences. If your configuration can't resolve Azure service names, the HPC Cache instance will become permanently unreachable.
+>
+> Check with your Azure representatives before attempting to set up a custom DNS configuration.
 
 Azure HPC Cache is automatically configured to use the secure and convenient Azure DNS system. However, a few unusual configurations require the cache to use a separate, on-premises DNS system instead of the Azure system. The **DNS configuration** section of the **Networking** page is used to specify this kind of system.
 
 Check with your Azure representatives or consult Microsoft Service and Support to determine whether or not you need to use a custom cache DNS configuration.
 
-If you configure your own on-premises DNS system for the Azure HPC Cache to use, you must make sure that the configuration can resolve Azure endpoint names for Azure services. You must configure your custom DNS environment to forward certain name resolution requests to Azure DNS or to another server as needed.
+If you configure your own on-premises DNS system for the Azure HPC Cache to use, you must make sure that your local DNS server is able to directly resolve Azure service endpoint names. HPC Cache will not function if your DNS server is restricted from public name resolution.
 
 Check that your DNS configuration can successfully resolve these items before using it for an Azure HPC Cache:
 
 * ``*.core.windows.net``
 * Certificate revocation list (CRL) download and online certificate status protocol (OCSP) verification services. A partial list is provided in the [firewall rules item](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) at the end of this [Azure TLS article](../security/fundamentals/tls-certificate-changes.md), but you should consult a Microsoft technical representative to understand all of the requirements.
-* The fully qualified domain name of your NTP server (time.microsoft.com or a custom server)
+* The fully qualified domain name of your NTP server (time.windows.com or a custom server)
 
 If you need to set a custom DNS server for your cache, use the provided fields:
 
@@ -74,7 +76,7 @@ Consider using a test cache to check and refine your DNS setup before you use it
 
 ### Refresh storage target DNS
 
-If your DNS server updates IP addresses, the associated NFS storage targets will become temporarily unavailable. Read how to update your custom DNS system IP addresses in [Edit storage targets](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
+If your DNS server updates IP addresses, the associated NFS storage targets will become temporarily unavailable. Read how to update your custom DNS system IP addresses in [Manage storage targets](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
 
 ## View snapshots for blob storage targets
 

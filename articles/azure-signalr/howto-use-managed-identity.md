@@ -79,7 +79,7 @@ We provide libraries and code samples that show how to handle token validation. 
 
 Setting access token validation in Function App is easy and efficient without code works.
 
-1. In the **Authentication / Authorization** page, switch **App Service Authentication** to **On**.
+1. In the **Authentication (classic)** page, switch **App Service Authentication** to **On**.
 
 2. Select **Log in with Azure Active Directory** in **Action to take when request is not authenticated**.
 
@@ -93,6 +93,10 @@ Setting access token validation in Function App is easy and efficient without co
 6. Get into **Upstream settings** in SignalR Service and choose **Use Managed Identity** and **Select from existing Applications**. Select the application you created previously.
 
 After these settings, the Function App will reject requests without an access token in the header.
+
+> [!Important] 
+> To pass the authentication, the *Issuer Url* must match the *iss* claim in token. Currently, we only support v1 endpoint (see [v1.0 and v2.0](../active-directory/develop/access-tokens.md#v10-and-v20)), so the *Issuer Url* should look like `https://sts.windows.net/<tenant-id>/`. Check the *Issuer Url* configured in Azure Function. For **Authentication**, go to *Identity provider* -> *Edit* -> *Issuer Url* and for **Authentication (classic)**, go to *Azure Active Directory* -> *Advanced* -> *Issuer Url*
+
 
 ## Use a managed identity for Key Vault reference
 

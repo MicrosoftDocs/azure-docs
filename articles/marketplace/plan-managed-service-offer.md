@@ -14,7 +14,7 @@ ms.date: 12/23/2020
 
 This article introduces the requirements for publishing a Managed Service offer to the Microsoft commercial marketplace through Partner Center.
 
-Managed Services are Azure Marketplace offers that enable cross-tenant and multi-tenant management with Azure Lighthouse. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md) When a customer purchases a Managed Service offer, they’re able to delegate one or more subscription or resource group. You can then work on those resources by using the [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md) capabilities of Azure Lighthouse.
+Managed Services are Azure Marketplace offers that enable cross-tenant and multi-tenant management with Azure Lighthouse. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md) When a customer purchases a Managed Service offer, they’re able to delegate one or more subscription or resource group. You can then work on those resources by using the [Azure delegated resource management](../lighthouse/concepts/architecture.md) capabilities of Azure Lighthouse.
 
 ## Eligibility requirements
 

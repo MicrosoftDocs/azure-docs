@@ -12,7 +12,7 @@ Container insights collects stdout, stderr, and environmental variables from con
 This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
 
 >[!NOTE]
->For Azure Red Hat OpenShift, a template ConfigMap file is created in the *openshift-azure-logging* namespace. 
+>For Azure Red Hat OpenShift V3, a template ConfigMap file is created in the *openshift-azure-logging* namespace. 
 >
 
 ## ConfigMap file settings overview
@@ -55,27 +55,27 @@ Perform the following steps to configure and deploy your ConfigMap configuration
 1. Download the [template ConfigMap YAML file](https://aka.ms/container-azm-ms-agentconfig) and save it as container-azm-ms-agentconfig.yaml. 
 
    > [!NOTE]
-   > This step is not required when working with Azure Red Hat OpenShift because the ConfigMap template already exists on the cluster.
+   > This step is not required when working with Azure Red Hat OpenShift V3 because the ConfigMap template already exists on the cluster.
 
-2. Edit the ConfigMap yaml file with your customizations to collect stdout, stderr, and/or environmental variables. If you are editing the ConfigMap yaml file for Azure Red Hat OpenShift, first run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
+2. Edit the ConfigMap yaml file with your customizations to collect stdout, stderr, and/or environmental variables. If you are editing the ConfigMap yaml file for Azure Red Hat OpenShift V3, first run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
     - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally, and then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
+    
+    Save your changes in the editor.
 
-3. For clusters other than Azure Red Hat OpenShift, create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>` on clusters other than Azure Red Hat OpenShift. 
+3. For clusters other than Azure Red Hat OpenShift V3, create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`. 
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-
-    For Azure Red Hat OpenShift, save your changes in the editor.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Verify configuration
 
-To verify the configuration was successfully applied to a cluster other than Azure Red Hat OpenShift, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
+To verify the configuration was successfully applied to a cluster other than Azure Red Hat OpenShift V3, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
 
 ``` 
 ***************Start Config Processing******************** 
@@ -87,7 +87,7 @@ Errors related to applying configuration changes are also available for review. 
 - From an agent pod logs using the same `kubectl logs` command. 
 
     >[!NOTE]
-    >This command is not applicable to Azure Red Hat OpenShift cluster.
+    >This command is not applicable to Azure Red Hat OpenShift V3 cluster.
     > 
 
 - From Live logs. Live logs show errors similar to the following:
@@ -98,9 +98,9 @@ Errors related to applying configuration changes are also available for review. 
 
 - From the **KubeMonAgentEvents** table in your Log Analytics workspace. Data is sent every hour with *Error* severity for configuration errors. If there are no errors, the entry in the table will have data with severity *Info*, which reports no errors. The **Tags** property contains more information about the pod and container ID on which the error occurred and also the first occurrence, last occurrence and count in the last hour.
 
-- With Azure Red Hat OpenShift, check the omsagent logs by searching the **ContainerLog** table to verify if log collection of openshift-azure-logging is enabled.
+- With Azure Red Hat OpenShift V3, check the omsagent logs by searching the **ContainerLog** table to verify if log collection of openshift-azure-logging is enabled.
 
-After you correct the error(s) in ConfigMap on clusters other than Azure Red Hat OpenShift, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. For Azure Red Hat OpenShift, edit and save the updated ConfigMaps by running the command:
+After you correct the error(s) in ConfigMap on clusters other than Azure Red Hat OpenShift V3, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. For Azure Red Hat OpenShift V3, edit and save the updated ConfigMaps by running the command:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -108,7 +108,7 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 ## Applying updated ConfigMap
 
-If you have already deployed a ConfigMap on clusters other than Azure Red Hat OpenShift and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`. For Azure Red Hat OpenShift, edit and save the updated ConfigMaps by running the command:
+If you have already deployed a ConfigMap on clusters other than Azure Red Hat OpenShift V3 and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`. For Azure Red Hat OpenShift V3, edit and save the updated ConfigMaps by running the command:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -141,4 +141,4 @@ The output will show similar to the following with the annotation schema-version
 
 - With monitoring enabled to collect health and resource utilization of your AKS or hybrid cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
 
-- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
+- View [log query examples](container-insights-log-query.md) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

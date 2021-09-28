@@ -51,7 +51,7 @@ Learn more about antimalware software to help protect your virtual machines:
 * [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). With Windows Defender ATP, you get:
+For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection). With Windows Defender ATP, you get:
 
 * [Attack surface reduction](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -65,7 +65,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 Learn more:
 
 * [Get Started with WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [Overview of WDATP capabilities](/windows/security/threat-protection/windows-defender-atp/overview)  
+* [Overview of WDATP capabilities](/microsoft-365/security/defender-endpoint/whats-new-in-microsoft-defender-atp)  
 
 ## Hardware security module
 
@@ -96,7 +96,7 @@ Azure Backup is a scalable solution that helps protect your application data wit
 Learn more:
 
 * [What is Azure Backup?](../../backup/backup-overview.md)
-* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.md)
+* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.yml)
 
 ## Azure Site Recovery
 
@@ -140,7 +140,7 @@ Security Center helps you optimize and monitor the security of your virtual mach
 Learn more:
 
 * [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
-* [Azure Security Center frequently asked questions](../../security-center/faq-general.md)
+* [Azure Security Center frequently asked questions](../../security-center/faq-general.yml)
 * [Azure Security Center planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## Compliance

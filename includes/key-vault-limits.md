@@ -2,7 +2,7 @@
 author: amitbapat
 ms.service: key-vault
 ms.topic: include
-ms.date: 03/09/2021
+ms.date: 05/28/2021
 ms.author: ambapat
 ---
 
@@ -57,17 +57,23 @@ When you back up a key vault object, such as a secret, key, or certificate, the 
 > [!NOTE]
 > Attempting to backup a key, secret, or certificate object with more versions than above limit will result in an error. It is not possible to delete previous versions of a key, secret, or certificate. 
 
+### Limits on count of keys, secrets and certificates:
+
+Key Vault does not restrict the number of keys, secrets or certificates that can be stored in a vault. The transaction limits on the vault should be taken into account to ensure that operations are not throttled.
+
+Key Vault does not restrict the number of versions on a secret, key or certificate, but storing a large number of versions (500+) can impact the performance of backup operations. See [Azure Key Vault Backup](../articles/key-vault/general/backup.md).
+
 #### Azure Private Link integration
 
 > [!NOTE]
-> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please create a support request and it will be assessed on a case by case basis.
 
 | Resource | Limit |
 | -------- | -----:|
 | Private endpoints per key vault | 64 |
 | Key vaults with private endpoints per subscription | 400 |
 
-### Resource type: Managed HSM (preview)
+### Resource type: Managed HSM
 
 This section describes service limits for resource type `managed HSM`.
 
@@ -75,7 +81,7 @@ This section describes service limits for resource type `managed HSM`.
 
 |Item|Limits|
 |----|------:|
-Number of HSM instances per subscription per region|1 (during preview)
+Number of HSM instances per subscription per region|1 
 Number of keys per HSM Pool|5000
 Number of versions per key|100
 Number of custom role definitions per HSM|50

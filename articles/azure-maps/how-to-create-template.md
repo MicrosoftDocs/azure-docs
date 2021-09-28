@@ -1,9 +1,9 @@
 ---
-title: Create your Azure Maps account using an ARM template | Microsoft Azure Maps 
-description: Learn how to create an Azure Maps account using an Azure Resource Manager (ARM) template.
+title: Create your Azure Maps account using an Azure Resource Manager template in Azure Maps
+description: Learn how to create an Azure Maps account using an Azure Resource Manager template.
 author: philmea
 ms.author: philmea
-ms.date: 10/20/2020
+ms.date: 04/27/2021
 ms.topic: how-to
 ms.service: azure-maps
 ---
@@ -15,7 +15,7 @@ You can create your Azure Maps account using an Azure Resource Manager (ARM) tem
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.maps%2Fmaps-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ To complete this article:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-maps-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/maps-create/).
 
-:::code language="json" source="~/quickstart-templates/101-maps-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.maps/maps-create/azuredeploy.json":::
 
 The Azure Maps account resource is defined in this template:
 
@@ -37,7 +37,7 @@ The Azure Maps account resource is defined in this template:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Maps account.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.maps%2Fmaps-create%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 
@@ -51,7 +51,7 @@ The Azure Maps account resource is defined in this template:
     * **Account Name**: enter a name for your Azure Maps account, which must be globally unique.
     * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is S0.
 
-3. Select **Review + create**. 
+3. Select **Review + create**.
 4. Confirm your settings on the review page and click **Create**. After your Azure Maps has been deployed successfully, you get a notification:
 
     ![ARM template deploy portal notification](./media/how-to-create-template/resource-manager-template-portal-deployment-notification.png)

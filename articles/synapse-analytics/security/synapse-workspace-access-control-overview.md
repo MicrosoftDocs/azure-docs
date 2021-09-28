@@ -1,28 +1,28 @@
 ---
-title: Synapse workspace access control overview
+title: Azure Synapse workspace access control overview
 description: This article describes the mechanisms used to control access to a Synapse workspace and the resources and code artifacts it contains.
 services: synapse-analytics 
-author: RonyMSFT 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: security 
 ms.date: 12/03/2020 
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
 ---
-# Synapse access control 
+# Azure Synapse access control 
 
-This article provides an overview of the mechanisms available to control access to Synapse compute resources and data.  
+This article provides an overview of the mechanisms available to control access to Azure Synapse compute resources and data.  
 
 ## Overview
 
-Synapse provides a comprehensive and fine-grained access control system, that integrates: 
+Azure Synapse provides a comprehensive and fine-grained access control system, that integrates: 
 - **Azure roles** for resource management and access to data in storage, 
 - **Synapse roles** for managing live access to code and execution, 
 - **SQL roles** for data plane access to data in SQL pools, and 
 - **Git permissions** for source code control, including continuous integration and deployment support.  
 
-Synapse roles provide sets of permissions that can be applied at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
+Azure Synapse roles provide sets of permissions that can be applied at different scopes. This granularity makes it easy to grant appropriate access to administrators, developers, security personnel, and operators to compute resources and data.
 
 Access control can be simplified by using security groups that are aligned with people's job roles. You only need to add and remove users from appropriate security groups to manage access.
 
@@ -42,7 +42,7 @@ To *create* these resources, you need to be an Azure Owner or Contributor on the
 Synapse supports two development models.
 
 - **Synapse live development**. You develop and debug code in Synapse Studio and then **publish** it to save and execute.  The Synapse service is the source of truth for code editing and execution.  Any unpublished work is lost when you close Synapse Studio.  
-- **Git-enabled development**. You develop and debug code in Synapse Studio and **commit** changes to a working branch of a Git repo. Work from one or more branches is integrated into a collaboration branch, from where you **publish** it to the service. The Git repo is the source of truth for code editing, while the service is the source of truth for execution. Changes must be committed to the Git repo or published to the service before closing Synapse Studio. [Learn more](../cicd/continuous-integration-deployment.md) about using Synapse Analytics with Git.
+- **Git-enabled development**. You develop and debug code in Synapse Studio and **commit** changes to a working branch of a Git repo. Work from one or more branches is integrated into a collaboration branch, from where you **publish** it to the service. The Git repo is the source of truth for code editing, while the service is the source of truth for execution. Changes must be committed to the Git repo or published to the service before closing Synapse Studio. [Learn more](../cicd/continuous-integration-delivery.md) about using Synapse Analytics with Git.
 
 In both development models, any user with access to Synapse Studio can create code artifacts. However, you need additional permissions to publish artifacts to the service, read published artifacts, to commit changes to Git, to execute code, and to access linked data protected by credentials.
 
@@ -70,7 +70,7 @@ The creator of a workspace is assigned as the Active Directory Admin on the work
 
 **Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to serverless SQL pools, Synapse administrators need to run SQL scripts on each serverless pool.  
 
-**Dedicated SQL pools**: Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin must run SQL scripts against each dedicated SQL pool.
+**Dedicated SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the dedicated SQL pools. Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin must run SQL scripts against each dedicated SQL pool.
 
 See [How to set up Synapse Access Control](./how-to-set-up-access-control.md) for examples of SQL scripts for granting SQL permissions in SQL pools.  
 

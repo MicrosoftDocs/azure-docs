@@ -5,7 +5,7 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 09/10/2021
 ---
 # Supported data stores in Azure Data Share
 
@@ -44,7 +44,7 @@ The following table explains the combinations and options that data consumers ca
 | Data Explorer ||||||| ✓ |
 
 ## Share from a storage account
-Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. Only block blobs are currently supported. 
+Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. You can share block, append, or page blobs, and they are received as block blobs.
 
 When file systems, containers, or folders are shared in snapshot-based sharing, data consumers can choose to make a full copy of the shared data. Or they can use the incremental snapshot capability to copy only new files or updated files. 
 
@@ -62,7 +62,7 @@ When consumers accept data into Azure Data Lake Storage Gen2 or Azure Blob Stora
 For more information, see [Share and receive data from Azure SQL Database and Azure Synapse Analytics](how-to-share-from-sql.md).
 
 ## Share from Data Explorer
-Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. A data provider can share at the level of the database or the cluster. 
+Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. A data provider can share at the level of the database or the cluster. If you are using Data Share API to share data, you can also share specific tables.  
 
 When data is shared at the database level, data consumers can access only the databases that the data provider shared. When a provider shares data at the cluster level, data consumers can access all of the databases from the provider's cluster, including any future databases that the data provider creates.
 

@@ -7,9 +7,9 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: anumjs
-ms.author: anjangsh
-ms.reviewer: sstein
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Get started with Elastic Database Tools

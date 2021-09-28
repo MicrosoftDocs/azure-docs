@@ -46,6 +46,6 @@ The next time you sign in, you can use your university email address to access y
     :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Manage how you sign in to Microsoft." border="false":::
 
 ## Next steps
-- [FAQ](program-faq.md)
+- [FAQ](program-faq.yml)
 
 - [Support options](program-support.md)

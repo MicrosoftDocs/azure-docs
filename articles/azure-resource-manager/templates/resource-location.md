@@ -3,7 +3,7 @@ title: Template resource location
 description: Describes how to set resource location in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.custom:
+ms.custom: devx-track-azurepowershell
 ---
 
 # Set resource location in ARM template
@@ -92,4 +92,4 @@ The following example shows a storage account that is deployed to a location spe
 ## Next steps
 
 * For the full list of template functions, see [ARM template functions](template-functions.md).
-* For more information about template files, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For more information about template files, see [Understand the structure and syntax of ARM templates](./syntax.md).

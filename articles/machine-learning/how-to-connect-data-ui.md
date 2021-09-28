@@ -1,16 +1,16 @@
 ---
-title: Connect to data in storage services on Azure
+title: Connect to data storage with the studio UI
 titleSuffix: Azure Machine Learning
 description: Create datastores and datasets to securely connect to data in storage services in Azure with the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: nibaccam
-author: nibaccam
+ms.topic: how-to
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 09/22/2020
-ms.custom: how-to, data4ml
+ms.date: 07/06/2021
+ms.custom: data4ml
 
 # Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my ML models.
 ---
@@ -34,7 +34,7 @@ For a code first experience, see the following articles to use the [Azure Machin
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - Access to [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -67,7 +67,7 @@ After you create a datastore, create a dataset to interact with your data. Datas
 
 There are two types of datasets, FileDataset and TabularDataset. 
 [FileDatasets](how-to-create-register-datasets.md#filedataset) create references to single or multiple files or public URLs. Whereas,
-[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. 
+[TabularDatasets](how-to-create-register-datasets.md#tabulardataset) represent your data in a tabular format. You can create TabularDatasets from .csv, .tsv, .parquet, .jsonl files, and from SQL query results.
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -83,8 +83,11 @@ To create a dataset in the studio:
 1. Select **Tabular** or **File** for Dataset type.
 1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset.
     1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-studio-virtual-network.md).
-    1. For Tabular datasets, you can specify a 'timeseries' trait to enable time related operations on your dataset. Learn how to [add the timeseries trait to your dataset](how-to-monitor-datasets.md#studio-dataset).
+
 1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
+    1.  On the Settings and preview form, you can indicate if your data contains multi-line data. 
+    1. On the Schema form, you can specify that your TabularDataset has a time component by selecting type: **Timestamp** for your date or time column. 
+        1. If your data is formatted into subsets, for example time windows, and you want to use those subsets for training, select type **Partition timestamp**. Doing so enables timeseries operations on your dataset. Learn more about how to [leverage partitions in your dataset for training](how-to-monitor-datasets.md?tabs=azure-studio#create-target-dataset).
 1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](#profile).
 1. Select **Create** to complete your dataset creation.
 
@@ -154,7 +157,7 @@ You can find account key, SAS token, and service principal information on your [
 
 > [!IMPORTANT]
 > * If you need to change your access keys for an Azure Storage account (account key or SAS token), be sure to sync the new credentials with your workspace and the datastores connected to it. Learn how to [sync your updated credentials](how-to-change-storage-access-key.md). <br> <br>
-> * If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).”
+> * If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### Permissions
 

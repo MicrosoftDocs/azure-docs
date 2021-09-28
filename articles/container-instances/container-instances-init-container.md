@@ -31,7 +31,7 @@ This article shows how to use an Azure Resource Manager template to configure a 
 
 Start by copying the following JSON into a new file named `azuredeploy.json`. The  template sets up a container group with one init container and two application containers:
 
-* The *init1* container runs the [busybox](https://hub.docker.com/_/busybox) image from Docker Hub. It sleeps for 60 seconds and then writes a command-line string to a file in an [emptyDir volume](container-instances-volume-emptydir.md).
+* The *init1* container runs the [busybox](https://hub.docker.com/_/busybox) image. It sleeps for 60 seconds and then writes a command-line string to a file in an [emptyDir volume](container-instances-volume-emptydir.md).
 * Both application containers run the Microsoft `aci-wordcount` container image:
     * The *hamlet* container runs the wordcount app in its default configuration, counting word frequencies in Shakespeare's play *Hamlet*.
     * The *juliet* app container reads the command-line string from the emptDir volume to run the wordcount app instead on Shakespeare's *Romeo and Juliet*.
@@ -63,7 +63,7 @@ For more information and examples using the `aci-wordcount` image, see [Set envi
                 {
                     "name": "init1",
                     "properties": {
-                        "image": "busybox",
+                        "image": "mcr.microsoft.com/aks/e2e/library-busybox:master.210714.1",
                         "environmentVariables": [],
                         "volumeMounts": [
                             {
@@ -214,6 +214,6 @@ Azure Container Instances provides other options to modify the behavior of appli
 * [Set the command line in a container instance to override the default command line operation](container-instances-start-command.md)
 
 
-[az-group-create]: /cli/azure/group#az-group-create
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-container-logs]: /cli/azure/container#az-container-logs
+[az-group-create]: /cli/azure/group#az_group_create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-container-logs]: /cli/azure/container#az_container_logs

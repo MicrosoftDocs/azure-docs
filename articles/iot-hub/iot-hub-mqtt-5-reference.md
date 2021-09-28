@@ -268,6 +268,9 @@ Post message to telemetry channel - EventHubs by default or other endpoint via r
 | correlation-id | string | no | translates into `correlation-id` system property on posted message |
 | creation-time | time | no | translates into `iothub-creation-time-utc` property on posted message |
 
+> [!TIP]
+> The format of `creation-time` must be UTC with no timezone information. For example, `2021-04-21T11:30:16Z` is valid, `2021-04-21T11:30:16-07:00` is invalid.
+
 **Payload**: any byte sequence
 
 #### Success Acknowledgment

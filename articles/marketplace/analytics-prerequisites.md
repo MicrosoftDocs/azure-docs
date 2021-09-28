@@ -4,8 +4,9 @@ description: Learn the requirements you need to meet before you can programmatic
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
 ms.date: 3/08/2021
 ---
 
@@ -15,7 +16,7 @@ Before you can programmatically access commercial marketplace analytics data, yo
 
 ## Commercial marketplace enrollment
 
-To access commercial marketplace analytics data programmatically, you need to be enrolled in the commercial marketplace program and have a Partner Center account. To learn how, see [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md).
+To access commercial marketplace analytics data programmatically, you need to be enrolled in the commercial marketplace program and have a Partner Center account. To learn how, see [Create a commercial marketplace account in Partner Center](create-account.md).
 
 ## Create Azure Active Directory application
 
@@ -25,7 +26,7 @@ Regular user credentials cannot be used for programmatic access of commercial ma
 
 The Azure AD application you created in Azure portal needs to be linked to your Partner Center account. The steps are as follows:
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. In the upper right, select the gear icon and then select **Account settings**.
 1. In the **Account settings** menu, select **User management**.
 1. Select **Azure AD applications** and then select **+ Create Azure AD application**.

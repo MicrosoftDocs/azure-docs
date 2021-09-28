@@ -5,12 +5,13 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/06/2020
-ms.author: mjbrown
+ms.date: 05/13/2021
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Prevent Azure Cosmos DB resources from being deleted or changed
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 As an administrator, you may need to lock an Azure Cosmos account, database or container to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly.
 
@@ -32,7 +33,7 @@ Resource Manager locks apply only to operations that happen in the management pl
 
 ### PowerShell
 
-```powershell
+```powershell-interactive
 $resourceGroupName = "myResourceGroup"
 $accountName = "my-cosmos-account"
 $lockName = "$accountName-Lock"
@@ -52,7 +53,7 @@ New-AzResourceLock `
 
 ### Azure CLI
 
-```bash
+```azurecli-interactive
 resourceGroupName='myResourceGroup'
 accountName='my-cosmos-account'
 $lockName="$accountName-Lock"

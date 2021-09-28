@@ -2,7 +2,6 @@
 title: Run or reset indexers
 titleSuffix: Azure Cognitive Search
 description: Reset an indexer, skills, or individual documents to refresh all or part of and index or knowledge store.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -41,7 +40,7 @@ Indexer execution is subject to the following limits:
 
 + Maximum number of indexer jobs is 1 per replica  No concurrent jobs.
 
-  If indexer execution is already at capacity,  you will get this notification: "Failed to run indexer '<indexer-name>', error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."
+  If indexer execution is already at capacity,  you will get this notification: "Failed to run indexer '\<indexer-name\>', error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."
 
 + Maximum running time is 2 hours if using a skillset, and 24 hours without. 
 
@@ -69,7 +68,7 @@ A reset flag is cleared after the run is finished. Any regular change detection 
 ## Reset skills (preview)
 
 > [!IMPORTANT] 
-> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
 For indexers that have skillsets, you can reset specific skills to force processing of that skill and any downstream skills that depend on its output. [Cached enrichments](search-howto-incremental-index.md) are also refreshed. Resetting skills invalidates the cached skill results, which is useful when a new version of a skill is deployed and you want the indexer to rerun that skill for all documents. 
 

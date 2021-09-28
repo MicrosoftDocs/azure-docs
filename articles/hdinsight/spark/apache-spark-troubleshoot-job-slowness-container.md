@@ -24,6 +24,8 @@ In Spark 2.1, while we do not need to update the cache after every write, Spark 
 
 In Spark 2.2, when writing data with append mode, this performance problem should be fixed.
 
+In Spark 2.3, the same behavior as Spark 2.2 is expected.
+
 ## Resolution
 
 When you create a partitioned data set, it is important to use a partitioning scheme that will limit the number of files that Spark has to list to update the `FileStatusCache`.
@@ -32,4 +34,4 @@ For every Nth micro batch where N % 100 == 0 (100 is just an example), move exis
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

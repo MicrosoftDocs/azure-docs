@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2021
 ms.author: terrylan
-Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
+# Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ---
 # Azure identity management security overview
 
@@ -67,10 +67,10 @@ Azure AD Application Proxy lets you publish on-premises applications, such as [S
 
 Learn more:
 
-* [Enabling Azure AD Application Proxy](../../active-directory/manage-apps/application-proxy-add-on-premises-application.md)
-* [Publish applications using Azure AD Application Proxy](../../active-directory/manage-apps/application-proxy-add-on-premises-application.md)
-* [Single sign-on with Application Proxy](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Working with Conditional Access](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+* [Enabling Azure AD Application Proxy](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
+* [Publish applications using Azure AD Application Proxy](../../active-directory/app-proxy/application-proxy-add-on-premises-application.md)
+* [Single sign-on with Application Proxy](../../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Working with Conditional Access](../../active-directory/app-proxy/application-proxy-integrate-with-sharepoint-server.md)
 
 ## Multi-Factor Authentication
 

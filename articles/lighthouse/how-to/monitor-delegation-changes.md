@@ -1,8 +1,9 @@
 ---
 title: Monitor delegation changes in your managing tenant
-description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 02/18/2021
-ms.topic: how-to
+description: Learn how to monitor all Azure Lighthouse delegation activity to your managing tenant. 
+ms.date: 09/08/2021
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor delegation changes in your managing tenant
@@ -35,7 +36,9 @@ After you elevate your access, your account will have the User Access Administra
 Once you have elevated your access, you can assign the appropriate permissions to an account so that it can query tenant-level activity log data. This account will need to have the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) Azure built-in role assigned at the root scope of your managing tenant.
 
 > [!IMPORTANT]
-> Granting a role assignment at root scope means that the same permissions will apply to every resource in the tenant. Because this is a broad level of access, you may wish to [assign this role to a service principal account and using that account to query data](#use-a-service-principal-account-to-query-the-activity-log). You can also assign the Monitoring Reader role at root scope to individual users or to user groups so that they can [view delegation information directly in the Azure portal](#view-delegation-changes-in-the-azure-portal). If you do so, be aware that this is a broad level of access which should be limited to the fewest number of users possible.
+> Granting a role assignment at root scope means that the same permissions will apply to every resource in the tenant. Because this is a broad level of access, we recommend [assigning this role to a service principal account and using that account to query data](#use-a-service-principal-account-to-query-the-activity-log).
+> 
+> You can also assign the Monitoring Reader role at root scope to individual users or to user groups so that they can [view delegation information directly in the Azure portal](#view-delegation-changes-in-the-azure-portal). If you do so, be aware that this is a broad level of access which should be limited to the fewest number of users possible.
 
 Use one of the following methods to make the root scope assignment.
 
@@ -81,7 +84,7 @@ When using a service principal account to query the activity log, we recommend t
 
 - [Create a new service principal account](../../active-directory/develop/howto-create-service-principal-portal.md) to be used only for this function, rather than assigning this role to an existing service principal used for other automation.
 - Be sure that this service principal does not have access to any delegated customer resources.
-- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) and [store it securely in Azure Key Vault](../../key-vault/general/security-overview.md).
+- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) and [store it securely in Azure Key Vault](../../key-vault/general/security-features.md).
 - Limit the users who have access to act on behalf of the service principal.
 
 Once you've created a new service principal account with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant.
@@ -175,6 +178,6 @@ else {
 
 ## Next steps
 
-- Learn how to onboard customers to [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
+- Learn how to [onboard customers to Azure Lighthouse](onboard-customer.md).
 - Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/essentials/platform-logs-overview.md).
 - Review the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook to learn how to display Azure Activity logs across subscriptions with an option to filter them by domain name.

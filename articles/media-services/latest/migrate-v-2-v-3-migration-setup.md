@@ -39,9 +39,9 @@ Customers previously using the 2015-10-01 version of the ARM management API to m
 
 ## Create a new media services account for testing
 
-Follow the quickstart steps for [setting up your environment](how-to-set-azure-subscription.md?tabs=portal) using the Azure portal. Select API access and service principal authentication to generate a new Azure AD application ID and secrets for use with this test account.
+Follow the quickstart steps for [setting up your environment](setup-azure-subscription-how-to.md?tabs=portal) using the Azure portal. Select API access and service principal authentication to generate a new Azure AD application ID and secrets for use with this test account.
 
-[Create a media services account](create-account-howto.md?tabs=portal).
+[Create a media services account](account-create-how-to.md?tabs=portal).
 [Get credentials to access Media Services API](access-api-howto.md?tabs=portal).
 
 ## Download client SDK of your choice and set up your environment
@@ -62,7 +62,7 @@ Follow the quickstart steps for [setting up your environment](how-to-set-azure-s
 
 ## [REST](#tab/rest)
 
-Use [Postman](./media-rest-apis-with-postman.md) for Media Services v3 REST API calls.
+Use [Postman](./setup-postman-rest-how-to.md) for Media Services v3 REST API calls.
 Read the [REST API reference pages](/rest/api/media/).
 
 You should use the 2020-05-01 version string in the Postman collection.
@@ -73,11 +73,11 @@ Read the article, [Connect to Media Services v3 API with .NET](configure-connect
 
 If you simply want to install the latest SDK using PackageManager, use the following command:
 
-```Install-Package Microsoft.Azure.Management.Media```
+`Install-Package Microsoft.Azure.Management.Media`
 
 Or to install the latest SDK using the .NET CLI use the following command:
 
-```dotnet add package Microsoft.Azure.Management.Media```
+`dotnet add package Microsoft.Azure.Management.Media`
 
 Additionally, full .NET samples are available in [Azure-Samples/media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet) for various scenarios. The projects in this repository show how to implement different Azure Media Services scenarios using the v3 version.
 

@@ -6,7 +6,6 @@ ms.service: hpc-cache
 ms.topic: overview
 ms.date: 03/11/2021
 ms.author: v-erkel
-ms.custom: references_regions
 ---
 
 # What is Azure HPC Cache?

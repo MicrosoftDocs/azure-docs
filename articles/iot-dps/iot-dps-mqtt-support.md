@@ -1,4 +1,4 @@
-﻿---
+---
 title: Understand Azure IoT Device Provisioning Service MQTT support | Microsoft Docs
 description: Developer guide - support for devices connecting to the Azure IoT Device Provisioning Service (DPS) device-facing endpoint using the MQTT protocol.
 author: rajeevmv
@@ -63,8 +63,8 @@ To use the MQTT protocol directly, your client *must* connect over TLS 1.2. Atte
 
 To register a device through DPS, a device should subscribe using `$dps/registrations/res/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. DPS does not allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since DPS is not a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/rest/api/iot-dps/runtimeregistration/registerdevice#deviceregistration) object in JSON format.
-In a successful scenario, the device will receive a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds. The payload of the response will contain the [RegistrationOperationStatus](/rest/api/iot-dps/runtimeregistration/registerdevice#registrationoperationstatus) object in JSON format.
+The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/rest/api/iot-dps/device/runtime-registration/register-device) object in JSON format.
+In a successful scenario, the device will receive a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds. The payload of the response will contain the [RegistrationOperationStatus](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus) object in JSON format.
 
 ## Polling for registration operation status
 

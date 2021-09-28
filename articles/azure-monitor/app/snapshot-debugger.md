@@ -57,7 +57,7 @@ Subscription owners should assign the `Application Insights Snapshot Debugger` r
 
 
 > [!IMPORTANT]
-> Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+> Please note that snapshots may contain personal data or other sensitive information in variable and parameter values. Snapshot data is stored in the same region as your App Insights resource.
 
 ## View Snapshots in the Portal
 
@@ -120,8 +120,8 @@ Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release buil
 For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 > [!NOTE]
-> For more information on the different symbol options that are available consult the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
-). For best results, we recommend using “Full”, “Portable” or “Embedded”.
+> For more information on the different symbol options that are available consult the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
+). For best results, we recommend using "Full", "Portable" or "Embedded".
 
 ### Optimized builds
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.

@@ -6,9 +6,9 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: "seo-lt-2019, sqldbrb=1, devx-track-csharp"
 ms.topic: tutorial
-author: MightyPen
-ms.author: genemi
-ms.reviewer: sstein
+author: rothja
+ms.author: jroth
+ms.reviewer: mathoma
 ms.date: 07/29/2019
 ---
 # Tutorial: Design a relational database in Azure SQL Database C&#x23; and ADO.NET

@@ -44,7 +44,7 @@ In this section, you'll create a virtual network and an internal Azure Load Bala
 
 In this section, you create a virtual network and subnet to host the load balancer that accesses your Private Link service.
 
-Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
+Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
 
 * Named **myVNet**.
 * Address prefix of **10.1.0.0/16**.
@@ -65,7 +65,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 
 ```
 
-To update the subnet to disable private link service network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+To update the subnet to disable private link service network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -86,7 +86,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create):
+Create a public load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create):
 
 * Named **myLoadBalancer**.
 * A frontend pool named **myFrontEnd**.
@@ -111,7 +111,7 @@ A health probe checks all virtual machine instances to ensure they can send netw
 
 A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
-Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
+Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create):
 
 * Monitors the health of the virtual machines.
 * Named **myHealthProbe**.
@@ -135,7 +135,7 @@ A load balancer rule defines:
 * The backend IP pool to receive the traffic.
 * The required source and destination port. 
 
-Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
+Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
 
 * Named **myHTTPRule**
 * Listening on **Port 80** in the frontend pool **myFrontEnd**.
@@ -164,7 +164,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 In this section, create a private link service that uses the Azure Load Balancer created in the previous step.
 
-Create a private link service using a standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
+Create a private link service using a standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az_network_private_link_service_create):
 
 * Named **myPrivateLinkService**.
 * In virtual network **myVNet**.
@@ -191,7 +191,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
 ### Create private endpoint virtual network
 
-Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
+Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
 
 * Named **myVNetPE**.
 * Address prefix of **11.1.0.0/16**.
@@ -210,7 +210,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --subnet-prefixes 11.1.0.0/24
 ```
 
-To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -252,7 +252,7 @@ az network vnet subnet update \
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, private link service, load balancer, and all related resources.
+When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, private link service, load balancer, and all related resources.
 
 ```azurecli-interactive
   az group delete \

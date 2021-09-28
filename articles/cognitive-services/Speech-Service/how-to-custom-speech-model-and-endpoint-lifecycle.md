@@ -8,15 +8,15 @@ manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/2/2021
 ms.author: heikora
 ---
 
-# Model and Endpoint lifecycle
+# Model and endpoint lifecycle
 
-Custom Speech uses both *base models* and *custom models*. Each language has one or more base models. Generally, when a new speech model is released to the regular speech service, it's also imported to the Custom Speech service as a new base model. They're updated every 6 to 12 months. Older models typically become less useful over time because the newest model usually has higher accuracy.
-
-In contrast, custom models are created by adapting a chosen base model with data from your particular customer scenario. You can keep using a particular custom model for a long time after you have one that meets your needs. But we recommend that you periodically update to the latest base model and retrain it over time with additional data. 
+Our standard (not customized) speech is built upon AI models that we call base models. In most cases, we train a different base model for each spoken language we support.  We update the speech service with new base models every few months to improve accuracy and quality.  
+With Custom Speech, custom models are created by adapting a chosen base model with data from your particular customer scenario. Once you create a custom model, that model will not be updated or changed, even if the corresponding base model from which it was adapted gets updated in the standard speech service.  
+This policy allows you to keep using a particular custom model for a long time after you have a custom model that meets your needs.  But we recommend that you periodically recreate your custom model so you can adapt from the latest base model to take advantage of the improved accuracy and quality.
 
 Other key terms related to the model lifecycle include:
 
@@ -55,7 +55,7 @@ And also from the model training detail page:
 
 You can also check the expiration dates via the [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) and [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) custom speech APIs under the `deprecationDates` property in the JSON response.
 
-Here is an example of the expiration data from the GetModel API call. The "DEPRECATIONDATES" show the : 
+Here is an example of the expiration data from the GetModel API call. The **DEPRECATIONDATES** show when the model expires: 
 ```json
 {
     "SELF": "HTTPS://WESTUS2.API.COGNITIVE.MICROSOFT.COM/SPEECHTOTEXT/V3.0/MODELS/{id}",
@@ -76,7 +76,7 @@ Here is an example of the expiration data from the GetModel API call. The "DEPRE
     },
     "PROPERTIES": {
     "DEPRECATIONDATES": {
-        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date this model can be used for adaptation
+        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date the base model can be used for adaptation
         "TRANSCRIPTIONDATETIME": "2023-03-01T21:27:29Z"   // last date this model can be used for decoding
     }
     },
@@ -92,6 +92,13 @@ Here is an example of the expiration data from the GetModel API call. The "DEPRE
 }
 ```
 Note that you can upgrade the model on a custom speech endpoint without downtime by changing the model used by the endpoint in the deployment section of the Speech Studio, or via the custom speech API.
+
+## What happens when models expire and how to update them
+What happens when a model expires and how to update the model depends on how it is being used.
+### Batch transcription
+If a model expires that is used with [batch transcription](batch-transcription.md) transcription requests will fail with a 4xx error. To prevent this update the `model` parameter in the JSON sent in the **Create Transcription** request body to either point to a more recent base model or more recent custom model. You can also remove the `model` entry from the JSON to always use the latest base model.
+### Custom speech endpoint
+If a model expires that is used by a [custom speech endpoint](how-to-custom-speech-train-model.md), then the service will automatically fall back to using the latest base model for the language you are using. To update a model you are using, you can select **Deployment** in the **Custom Speech** menu at the top of the page and then click on the endpoint name to see its details. At the top of the details page, you will see an **Update Model** button that lets you seamlessly update the model used by this endpoint without downtime. You can also make this change programmatically by using the [**Update Model**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) Rest API.
 
 ## Next steps
 

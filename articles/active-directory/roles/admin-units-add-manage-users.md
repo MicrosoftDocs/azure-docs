@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -20,19 +20,27 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), you can add users to an administrative unit for a more granular administrative scope of control.
 
-To prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](admin-units-manage.md#get-started).
+## Prerequisites
+
+- Azure AD Premium P1 or P2 license for each administrative unit administrator
+- Azure AD Free licenses for administrative unit members
+- Privileged Role Administrator or Global Administrator
+- AzureAD module when using PowerShell
+- Admin consent when using Graph explorer for Microsoft Graph API
+
+For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Add users to an administrative unit
 
-### Use the Azure portal
+### Azure portal
 
 You can assign users to administrative units individually or as a bulk operation.
 
 - Assign individual users from a user profile:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-   1. Select **Users** and then, to open the user's profile, select the user to be assigned to an administrative unit.
+   1. Select **Azure Active Directory** > **Users** and then, to open the user's profile, select the user to be assigned to an administrative unit.
    
    1. Select **Administrative units**. 
    
@@ -42,17 +50,19 @@ You can assign users to administrative units individually or as a bulk operation
 
 - Assign individual users from an administrative unit:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
-   1. Select **Administrative units**, and then select the administrative unit where the user is to be assigned.
+   1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+   1. Select **Azure Active Directory** > **Administrative units**, and then select the administrative unit where the user is to be assigned.
+
    1. Select **All users**, select **Add member** and then, on the **Add member** pane, select one or more users that you want to assign to the administrative unit.
 
         ![Screenshot of the administrative unit "Users" pane for assigning a user to an administrative unit.](./media/admin-units-add-manage-users/assign-to-admin-unit.png)
 
 - Assign users as a bulk operation:
 
-   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-   1. Select **Administrative units**.
+   1. Select **Azure Active Directory** > **Administrative units**.
 
    1. Select the administrative unit to which you want to add users.
 
@@ -60,18 +70,18 @@ You can assign users to administrative units individually or as a bulk operation
 
       ![Screenshot of the "Users" pane for assigning users to an administrative unit as a bulk operation.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
-### Use PowerShell
+### PowerShell
 
 In PowerShell, use the `Add-AzureADAdministrativeUnitMember` cmdlet in the following example to add the user to the administrative unit. The object ID of the administrative unit to which you want to add the user and the object ID of the user you want to add are taken as arguments. Change the highlighted section as required for your specific environment.
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $userObj = Get-AzureADUser -Filter "UserPrincipalName eq 'bill@example.onmicrosoft.com'"
-Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.ObjectId -RefObjectId $userObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $userObj.ObjectId
 ```
 
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Replace the placeholder with test information and run the following command:
 
@@ -99,7 +109,7 @@ Example
 
 ## View a list of administrative units for a user
 
-### Use the Azure portal
+### Azure portal
 
 In the Azure portal, you can open a user's profile by doing the following:
 
@@ -111,7 +121,7 @@ In the Azure portal, you can open a user's profile by doing the following:
 
    ![Screenshot of administrative units to which a user has been assigned.](./media/admin-units-add-manage-users/list-user-admin-units.png)
 
-### Use PowerShell
+### PowerShell
 
 Run the following command:
 
@@ -122,7 +132,7 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 > [!NOTE]
 > By default, `Get-AzureADAdministrativeUnitMember` returns only 100 members of an administrative unit. To retrieve more members, you can add `"-All $true"`.
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Replace the placeholder with test information and run the following command:
 
@@ -132,7 +142,7 @@ https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.Admi
 
 ## Remove a single user from an administrative unit
 
-### Use the Azure portal
+### Azure portal
 
 You can remove a user from an administrative unit in either of two ways: 
 
@@ -148,7 +158,7 @@ You can remove a user from an administrative unit in either of two ways:
   
      ![Screenshot showing how to remove a user at the administrative unit level.](./media/admin-units-add-manage-users/admin-units-remove-user.png)
 
-### Use PowerShell
+### PowerShell
 
 Run the following command:
 
@@ -156,7 +166,7 @@ Run the following command:
 Remove-AzureADMSAdministrativeUnitMember -Id $adminUnitId -MemberId $memberUserObjId
 ```
 
-### Use Microsoft Graph
+### Microsoft Graph API
 
 Replace the placeholders with test information and run the following command:
 

@@ -39,7 +39,7 @@ The first step in protecting your VMs is to ensure that only authorized users ca
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](../../governance/management-groups/overview.md) provide a level of scope above subscriptions. You organize subscriptions into management groups (containers) and apply your governance conditions to those groups. All subscriptions within a management group automatically inherit the conditions applied to the group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
 **Best practice**: Reduce variability in your setup and deployment of VMs.   
-**Detail**: Use [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) templates to strengthen your deployment choices and make it easier to understand and inventory the VMs in your environment.
+**Detail**: Use [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) templates to strengthen your deployment choices and make it easier to understand and inventory the VMs in your environment.
 
 **Best practice**: Secure privileged access.   
 **Detail**: Use a [least privilege approach](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and built-in Azure roles to enable users to access and set up VMs:
@@ -95,7 +95,7 @@ If you use Windows Update, leave the automatic Windows Update setting enabled.
 **Detail**: Check for and install all Windows updates as a first step of every deployment. This measure is especially important to apply when you deploy images that come from either you or your own library. Although images from the Azure Marketplace are updated automatically by default, there can be a lag time (up to a few weeks) after a public release.
 
 **Best practice**: Periodically redeploy your VMs to force a fresh version of the OS.   
-**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
+**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
 
 **Best practice**: Rapidly apply security updates to VMs.   
 **Detail**: Enable Azure Security Center (Free tier or Standard tier) to [identify missing security updates and apply them](../../security-center/asset-inventory.md).
