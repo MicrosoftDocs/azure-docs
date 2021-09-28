@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: common 
+ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -61,7 +61,7 @@ To assign a role scoped to a container, specify a string containing the scope of
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
 
-The following example assigns the **Storage Blob Data Contributor** role to a user, scoped to a container named *sample-container*. Make sure to replace the sample values and the placeholder values in brackets with your own values: 
+The following example assigns the **Storage Blob Data Contributor** role to a user, scoped to a container named *sample-container*. Make sure to replace the sample values and the placeholder values in brackets with your own values:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `

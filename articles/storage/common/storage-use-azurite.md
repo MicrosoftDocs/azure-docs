@@ -49,7 +49,7 @@ Output information similar to the following appears in the console.
 
 Change to the [release build configuration](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration), and then run the project.
 
->[!NOTE]
+> [!NOTE]
 > If you start the project by using the debug build configuration, you might receive an error. That's because Visual Studio might try to start the legacy storage emulator that is built into Visual Studio. Any attempt to start the legacy emulator will be blocked because Azurite is using the listening ports that are required by the legacy storage emulator.
 
 The following image shows the command line output that appears when you run an Azure Function project.
@@ -64,7 +64,7 @@ Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurit
 
 You can also navigate to [Visual Studio Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
 
-The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code. 
+The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code.
 
    - **Azurite: Clean** - Reset all Azurite services persistency data
    - **Azurite: Clean Blob Service** - Clean blob service
@@ -169,7 +169,7 @@ After installing and building Azurite, see [Run Azurite from a command line](#ru
 ## Run Azurite from a command line
 
 > [!NOTE]
-> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette. 
+> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette.
 
 To get started immediately with the command line, create a directory called *c:\azurite*, then launch Azurite by issuing the following command:
 
@@ -329,6 +329,8 @@ azurite --location c:\azurite
 azurite -s
 azurite --silent
 ```
+
+
 ### Debug log
 
 **Optional** - The debug log includes detailed information on every request and exception stack trace. Enable the debug log by providing a valid local file path to the `-d` or `--debug` switch.
@@ -346,6 +348,8 @@ azurite --debug path/debug.log
 azurite -L
 azurite --loose
 ```
+
+
 ### Version
 
 **Optional** - Display the installed Azurite version number by using the `-v` or `--version` switch.
@@ -393,7 +397,6 @@ Azurite supports basic authentication by specifying the `basic` parameter to the
 ```console
 azurite --skipApiVersionCheck
 ```
-
 
 ## Authorization for tools and SDKs
 
