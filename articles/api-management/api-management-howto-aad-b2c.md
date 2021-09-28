@@ -7,31 +7,31 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 09/28/2021
 ms.author: danlep
 ---
 
 # How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management
 
 
-Azure Active Directory (Azure AD) B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your API Management developer portal. 
+Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your API Management developer portal. 
 
-In this tutorial, you'll learn the configuration required in your API Management service to integrate with Azure AD B2C. As noted later in this article, if you are using the deprecated legacy developer portal, some steps will differ.
+In this tutorial, you'll learn the configuration required in your API Management service to integrate with Azure Azure Directory B2C. As noted later in this article, if you are using the deprecated legacy developer portal, some steps will differ.
 
-For information about enabling access to the developer portal by using classic Azure AD, see [How to authorize developer accounts using Azure AD](api-management-howto-aad.md).
+For information about enabling access to the developer portal by using classic Azure Azure Directory, see [How to authorize developer accounts using Azure Azure Directory](api-management-howto-aad.md).
 
 ## Prerequisites
 
-* An Azure AD B2C tenant in which to create an application. For more information, see [Azure AD B2C overview](../active-directory-b2c/overview.md).
+* An Azure Azure Directory B2C tenant in which to create an application. For more information, see [Azure Azure Directory B2C overview](../active-directory-b2c/overview.md).
 * An API Management instance. If you don't already have one, [create an Azure API Management instance](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## Configure sign up and sign in user flow
 
-In this section, you'll create a user flow in your Azure AD B2C tenant containing both sign up and sign in policies. For detailed steps, see [Create user flows and custom policies in Azure AD B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
+In this section, you'll create a user flow in your Azure Azure Directory B2C tenant containing both sign up and sign in policies. For detailed steps, see [Create user flows and custom policies in Azure Azure Directory B2C](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us).
 
-1. In the [Azure portal](https://portal.azure.com), access your Azure AD B2C tenant.
+1. In the [Azure portal](https://portal.azure.com), access your Azure Azure Directory B2C tenant.
 1. Under **Policies**, select **User flows** > **+ New user flow**.
 1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 1. Provide the following information:
@@ -47,12 +47,12 @@ In this section, you'll create a user flow in your Azure AD B2C tenant containin
 
 1. In a separate [Azure portal](https://portal.azure.com) tab, navigate to your API Management instance.
 1. Under **Developer portal**, select **Identities** > **+ Add**.
-1. In the **Add identity provider** page, select **Azure AD B2C**.
+1. In the **Add identity provider** page, select **Azure Azure Directory B2C**.
 1. In the **Add identity provider** window, copy the **Redirect URL**.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-identity-provider-redirect-url.png" alt-text="Copy redirect URL":::    
 
-1. Return to the browser tab for your Azure AD B2C tenant in the Azure portal. Select **App registrations** >  **+ New registration**.
+1. Return to the browser tab for your Azure Azure Directory B2C tenant in the Azure portal. Select **App registrations** >  **+ New registration**.
 1. In the **Register an application** page, enter your application's registration information.
     * In the **Name** section, enter an application name of your choosing.
     * In the **Supported account types** section, choose the type of accounts that are appropriate for your scenario. To target a wide set of customers, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. For more information, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
@@ -75,57 +75,57 @@ In this section, you'll create a user flow in your Azure AD B2C tenant containin
     * Under **Implicit grant and hybrid flows**, select both the **Access tokens** and **ID tokens** check boxes.
     * Select **Save**.
 1. Switch back in the API Management **Add identity provider** page.
-    * In **Signin tenant**, specify the domain name of the Azure AD B2C tenant.
-    * The **Authority** field lets you control the Azure AD B2C login URL to use. Set the value to **<your_b2c_tenant_name>.b2clogin.com**.
+    * In **Signin tenant**, specify the domain name of the Azure Azure Directory B2C tenant.
+    * The **Authority** field lets you control the Azure Azure Directory B2C login URL to use. Set the value to **<your_b2c_tenant_name>.b2clogin.com**.
     * Specify the **Signup Policy** and **Signin Policy** from the B2C tenant policies.
     * Optionally provide the **Profile Editing Policy** and **Password Reset Policy**.
 
-         :::image type="content" source="media/api-management-howto-aad-b2c/add-identity-provider.png" alt-text="AD B2c identity provider configuration":::
+         :::image type="content" source="media/api-management-howto-aad-b2c/add-identity-provider.png" alt-text="Azure Directory B2c identity provider configuration":::
 1. After you've specified the desired configuration, select **Add**.
 
-After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure AD B2C.
+After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Azure Directory B2C.
 
-## Developer portal - add Azure AD B2C account authentication
+## Developer portal - add Azure Azure Directory B2C account authentication
 
 > [!IMPORTANT]
-> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) when you create or update Azure AD B2C configuration settings for the changes to take effect.
+> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) when you create or update Azure Azure Directory B2C configuration settings for the changes to take effect.
 
-In the developer portal, sign-in with Azure AD B2C is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
+In the developer portal, sign-in with Azure Azure Directory B2C is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 
-1. To sign in by using Azure AD B2C, open a new browser window and go to the developer portal. Select **Sign in**.
+1. To sign in by using Azure Azure Directory B2C, open a new browser window and go to the developer portal. Select **Sign in**.
 
-1. On the **Sign in** page, select **Azure AD B2C**.
+1. On the **Sign in** page, select **Azure Azure Directory B2C**.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-sign-in.png" alt-text="Sign in to developer portal":::
-1. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address in the AD B2C tenant
+1. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address in the Azure Directory B2C tenant
 
 When the signup is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
 
 :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-home.png" alt-text="Sign in to developer portal complete":::
 
-Although a new account is automatically created whenever a new user signs in with Azure AD B2C, you may consider adding the same widget to the signup page.
+Although a new account is automatically created whenever a new user signs in with Azure Azure Directory B2C, you may consider adding the same widget to the signup page.
 
 The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
-## Legacy developer portal - how to sign up with Azure AD B2C
+## Legacy developer portal - how to sign up with Azure Azure Directory B2C
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 > [!NOTE]
-> To properly integrate B2C with the legacy developer portal, use **standard v1** user flows, in combination with enabling [password reset](/active-directory-b2c/user-flow-self-service-password-reset.md) before signing up/signing into a developer account using Azure AD B2C. 
+> To properly integrate B2C with the legacy developer portal, use **standard v1** user flows, in combination with enabling [password reset](/active-directory-b2c/user-flow-self-service-password-reset.md) before signing up/signing into a developer account using Azure Azure Directory B2C. 
 
 1. Open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal.png" alt-text="Sign up in legacy developer portal":::
 
-1. Choose to sign up with **Azure AD B2C**.
+1. Choose to sign up with **Azure Azure Directory B2C**.
 
-    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="Sign up  with Azure AD B2C":::
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="Sign up  with Azure Azure Directory B2C":::
 
 1. You're redirected to the signup policy you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
 
    > [!NOTE]
-   > If Azure AD B2C is the only option enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
+   > If Azure Azure Directory B2C is the only option enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
 
    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="Sign up options in legacy developer portal":::
 
