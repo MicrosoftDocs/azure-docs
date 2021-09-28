@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 09/27/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -49,9 +49,9 @@ No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment
 
 No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
 
-### Is the number of the IP addresses using Azure VMWare Solutions for Guest OS mounts [limited to 1000](azure-netapp-files-resource-limits.md#resource-limits)?
+### Is the number of the IP addresses using Azure VMware Solutions for Guest OS mounts [limited to 1000](azure-netapp-files-resource-limits.md#resource-limits)?
 
-No. Azure VMWare Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
+No. Azure VMware Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
  
 ## Security FAQs
 
@@ -272,7 +272,7 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the provisioned space in the volume. In case the volume runs full, consider taking the following actions:
 
 * [Resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).
-* [Remove older snapshots](azure-netapp-files-manage-snapshots.md#delete-snapshots) to free up space in the hosting volume. 
+* [Remove older snapshots](snapshots-delete.md) to free up space in the hosting volume. 
 
 ### Does Azure NetApp Files support auto-grow for volumes or capacity pools?
 
@@ -312,7 +312,7 @@ By default, your data stays within the region where you deploy your Azure NetApp
 	
 Azure NetApp Files provides NFS and SMB volumes.  Any file based-copy tool can be used to replicate data between Azure regions. 
 
-The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume).
+The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](snapshots-restore-new-volume.md).
 
 NetApp offers a SaaS based solution, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
 
@@ -331,6 +331,34 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 ### Is migration with Azure Import/Export service supported?
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
+
+## Azure NetApp Files backup FAQs
+
+This section answers questions about the [Azure NetApp Files backup](backup-introduction.md) feature. 
+
+### When do my backups occur?   
+
+Azure NetApp Files backups start within a randomized time frame after the frequency of a backup policy is entered. For example, weekly backups are initiated Sunday within a randomly assigned interval after 12:00 a.m. midnight. This timing cannot be modified by the users at this time. The baseline backup is initiated as soon as you assign the backup policy to the volume.
+
+### What happens if a backup operation encounters a problem?
+
+If a problem occurs during a backup operation, Azure NetApp Files backup automatically retries the operation, without requiring user interaction. If the retries continue to fail, Azure NetApp Files backup will report the failure of the operation.
+
+### Can I change the location or storage tier of my backup vault?
+
+No, Azure NetApp Files automatically manages the backup data location within Azure storage, and this location or Azure storage tier cannot be modified by the user.
+
+### What types of security are provided for the backup data?
+
+Azure NetApp Files uses AES-256 bit encryption during the encoding of the received backup data. In addition, the encrypted data is securely transmitted to Azure storage using HTTPS TLSv1.2 connections. Azure NetApp Files backup depends on the Azure Storage account’s built-in encryption at rest functionality for storing the backup data.
+
+### What happens to the backups when I delete a volume or my NetApp account? 
+
+ When you delete an Azure NetApp Files volume, the backups are retained. If you don’t want the backups to be retained, disable the backups before deleting the volume. When you delete a NetApp account, the backups are still retained and displayed under other NetApp accounts of the same subscription, so that it’s still available for restore. If you delete all the NetApp accounts under a subscription, you need to make sure to disable backups before deleting all volumes under all the NetApp accounts.
+
+### What’s the system’s maximum backup retries for a volume?  
+
+The system makes ten retries when processing a scheduled backup job. If the job fails, then the system fails the backup operation. In case of scheduled backups (based on the configured policy), the system tries to back up the data once every hour. If new snapshots are available that were not transferred (or failed during the last try), those snapshots will be considered for transfer. 
 
 ## Product FAQs
 
