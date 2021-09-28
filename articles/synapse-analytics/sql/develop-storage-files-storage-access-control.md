@@ -39,10 +39,10 @@ A user that has logged into a serverless SQL pool must be authorized to access a
 ### [User Identity](#tab/user-identity)
 
 **User Identity**, also known as "Azure AD pass-through", is an authorization type where the identity of the Azure AD user that logged into
-serverless SQL pool is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table below, it's Not Supported for the SQL user type.
+serverless SQL pool is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table below, it's not supported for the SQL user type.
 
 > [!IMPORTANT]
-> AAD authentication token might be cached by the client applications. For example PowerBI caches AAD token and reuses the same token for an hour. The long running queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the AAD access token that expires in the middle of the query, consider switching to [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> AAD authentication token might be cached by the client applications. For example PowerBI caches AAD token and reuses the same token for an hour. The long running queries might fail if the token expires in the middle of the query execution. If you are experiencing query failures caused by the AAD access token that expires in the middle of the query, consider switching to [Service Principal](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types), [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) or [Shared access signature](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
 
 You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data. As an alternative, you can specify fine-grained ACL rules to access files and folders. Even if you are an Owner of a Storage Account, you still need to add yourself into one of the Storage Blob Data roles.
 To learn more about access control in Azure Data Lake Store Gen2, review the [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) article.
@@ -88,7 +88,7 @@ You can access publicly available files placed on Azure storage accounts that [a
 ---
 
 #### Cross-tenant scenarios
-In cases when Azure Storage is in a different tenant from the Synapse serverless SQL pool, authorization via **Service Principal** is the recommended method. **SAS** authorization is also possible, while **Managed Identity** is Not Supported. 
+In cases when Azure Storage is in a different tenant from the Synapse serverless SQL pool, authorization via **Service Principal** is the recommended method. **SAS** authorization is also possible, while **Managed Identity** is not supported. 
 
 ### Supported authorization types for databases users
 
@@ -96,7 +96,7 @@ In the table below you can find the available authorization types for different 
 
 | Authorization type                    | *SQL user*    | *Azure AD user*     | *Service Principal* |
 | ------------------------------------- | ------------- | -----------    | -------- |
-| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not Supported | Supported      | Not Supported|
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not Supported | Supported      | Supported|
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Supported     | Supported      | Supported|
 | [Service Principal](?tabs=service-principal#supported-storage-authorization-types) | Supported | Supported      | Supported|
 | [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      | Supported|
@@ -125,7 +125,7 @@ In the table below you can find the available authorization types for different 
 
 | Authorization type                    | *SQL user*    | *Azure AD user*     | *Service Principal* |
 | ------------------------------------- | ------------- | -----------    | -------- |
-| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not Supported | Supported      | Not Supported|
+| [User Identity](?tabs=user-identity#supported-storage-authorization-types)       |  Not Supported | Supported      | Supported|
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Not Supported     | Not Supported      | Not Supported|
 | [Service Principal](?tabs=service-principal#supported-storage-authorization-types) | Not Supported | Not Supported      | Not Supported|
 | [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported | Supported      | Supported|
@@ -255,7 +255,7 @@ GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the base URL of Azure storage (optionally followed by a container name). A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument.
 
 > [!NOTE]
-> The `FOR CRYPTOGRAPHIC PROVIDER` argument is Not Supported.
+> The `FOR CRYPTOGRAPHIC PROVIDER` argument is not supported.
 
 Server-level CREDENTIAL name must match the full path to the storage account (and optionally container) in the following format: `<prefix>://<storage_account_path>[/<container_name>]`. Storage account paths are described in the following table:
 
