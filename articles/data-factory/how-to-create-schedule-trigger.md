@@ -22,7 +22,7 @@ When creating a schedule trigger, you specify a schedule (start date, recurrence
 
 The following sections provide steps to create a schedule trigger in different ways. 
 
-## UI Experience
+## Azure Data Factory and Synapse portal experience
 
 You can create a **schedule trigger** to schedule a pipeline to run periodically (hourly, daily, etc.). 
 
