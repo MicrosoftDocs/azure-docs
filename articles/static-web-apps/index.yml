@@ -73,7 +73,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Application configuration
+          - text: Configuration
             url: configuration-overview.md
           - text: Public APIs
             url: apis.md
