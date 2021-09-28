@@ -105,7 +105,7 @@ To complete this tutorial, you need to:
     |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
     |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
 
-1. Specify the **Azure storage account** by selecting the **Subscription**, **Location**, and **Resource Group** from the corresponding drop-down lists. This Azure storage account will be used by DMS to upload the database backups from network share. You don'tt need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.
+1. Specify the **Azure storage account** by selecting the **Subscription**, **Location**, and **Resource Group** from the corresponding drop-down lists. This Azure storage account will be used by DMS to upload the database backups from network share. You don't need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.
 1. Select **Next** to continue.
     > [!IMPORTANT]
     > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)
@@ -132,6 +132,7 @@ To complete this tutorial, you need to:
 
 ## Monitor your migration
 1. On the **Database Migration Status**, you can track the migrations in progress, migrations completed, and migrations failed (if any).
+
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/monitor-migration-dashboard.png" alt-text="monitor migration dashboard":::
 1. Select **Database migrations in progress** to view ongoing migrations and get further details by selecting the database name.
 1. The migration details page displays the backup files and the corresponding status:
@@ -155,11 +156,11 @@ The final step of the tutorial is to complete the migration cutover. The complet
 :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/online-to-vm-complete-cutover.png" alt-text="online vm complete cutover":::
 
 To complete the cutover:
-- Stop all incoming transactions to the source database.
-- Make application configuration changes to point to the target database in SQL Server on Azure Virtual Machine.
-- Take any tail log backups for the source database in the backup location specified.
-- Ensure all database backups have the status *Restored* in the monitoring details page.
-- Select *Complete cutover* in the monitoring details page.
+1. Stop all incoming transactions to the source database.
+1. Make application configuration changes to point to the target database in SQL Server on Azure Virtual Machine.
+1. Take any tail log backups for the source database in the backup location specified.
+1. Ensure all database backups have the status *Restored* in the monitoring details page.
+1. Select *Complete cutover* in the monitoring details page.
 
 During the cutover process, the migration status changes from *in progress* to *completing*. The migration status changes to *succeeded* when the cutover process is completed. The database migration is successful and that the migrated database is ready for use.
 
