@@ -11,14 +11,14 @@ ms.author: tisande
 # Indexing metrics in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB provides indexing metrics to show both utilized indexed paths and recommended indexed paths. You can use the indexing metrics to optimize query performance, especially in cases where you aren't sure how to modify the [indexing policy](../sql/index-policy.md).
+Azure Cosmos DB provides indexing metrics to show both utilized indexed paths and recommended indexed paths. You can use the indexing metrics to optimize query performance, especially in cases where you aren't sure how to modify the [indexing policy](../index-policy.md)).
 
 > [!NOTE]
-> The indexing metrics are only supported in the .NET (version 3.21.0 or later) or Java (version 4.19.0 or later)
+> The indexing metrics are only supported in the .NET SDK (version 3.21.0 or later) and Java SDK (version 4.19.0 or later)
 
 ## Enabling indexing metrics
 
-You can enable indexing metrics for a query by setting the `PopulateIndexMetrics` property to `true`. When not specified, `PopulateIndexMetrics` defaults to false. We only recommend enabling the index metrics for troubleshooting query performance. As long as your queries and indexing policy stay the same, the index metrics are unlikely to change. Instead we recommend identifying expensive queries by monitoring query RU charge and latency using diagnostic logs.
+You can enable indexing metrics for a query by setting the `PopulateIndexMetrics` property to `true`. When not specified, `PopulateIndexMetrics` defaults to `false`. We only recommend enabling the index metrics for troubleshooting query performance. As long as your queries and indexing policy stay the same, the index metrics are unlikely to change. Instead, we recommend identifying expensive queries by monitoring query RU charge and latency using diagnostic logs.
 
 ### .NET SDK example
 
