@@ -2,7 +2,7 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 09/27/2021 
+ms.date: 09/28/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -116,4 +116,4 @@ The following diagram shows how the name resolution works for storage accounts u
 
 ## Next steps
 
-- [Create and use private endpoints](private-endpoints.md)
+- [Create and use private endpoints](private-endpoints.md).
