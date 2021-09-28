@@ -73,7 +73,7 @@ When you need to take on an Azure resource role, you can request activation by u
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## Assign a role using Graph API
+## Activate a role with Graph API
 
 Privileged Identity Management supports Graph API commands to manage Azure resource roles, as documented in the [PIM Graph API reference](/rest/api/authorization/roleeligibilityschedulerequests). For the permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md).
 
