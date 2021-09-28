@@ -79,8 +79,7 @@ To learn more about de-provisioning scenarios, see [How Application Provisioning
 ### What scenarios count toward the deletion threshold?
 When a user is set to be removed from the target application, it will be counted against the 
 deletion threshold. Scenarios that could lead to a user being removed from the target 
-application could include: unassigning the user from the application, changing the sync scope 
-from “sync all” to “sync assigned” to soft / hard deleting a user in the directory. Groups 
+application could include: unassigning the user from the application and soft / hard deleting a user in the directory. Groups 
 evaluated for deletion count towards the deletion threshold. In addition to deletions, the same functionality also works for disables.
 
 ### What is the interval that the deletion threshold is evaluated on?
