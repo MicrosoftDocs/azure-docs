@@ -167,7 +167,7 @@ In this step, you'll add the custom roles to users or groups in the subscription
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com) and select the subscription, resource group, or a single resource.
 
-1. Locate the Arc enabled VMware vSphere resources.  Navigate to the resource group and select the **Show hidden types** checkbox. Then search for **VMware**.
+1. Locate the Arc enabled VMware vSphere resources. Navigate to the resource group and select the **Show hidden types** checkbox. Then search for **VMware**.
 
 1. Select **Access control (IAM)** > **Add role assignments** > **Grant access to this resource**.
 
