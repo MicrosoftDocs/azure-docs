@@ -314,7 +314,7 @@ In the [Set up resources](#set-up-resources) section, you registered a device id
 >
 > Alerts can take up to 10 minutes to be fully configured and enabled by IoT Hub. Wait at least 10 minutes between the time you configure your last alert and running the simulated device app.
 
-Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This link downloads a repo with several applications in it; the one you are looking for is in iot-hub/Quickstarts/simulated-device/.
+Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). This link downloads a repo with several applications in it; the one you are looking for is in iot-hub/Quickstarts/simulated-device/.
 
 1. In a local terminal window, navigate to the root folder of the solution. Then navigate to the **iot-hub\Quickstarts\simulated-device** folder.
 

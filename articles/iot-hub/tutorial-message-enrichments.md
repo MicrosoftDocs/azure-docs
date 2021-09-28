@@ -43,7 +43,7 @@ Here are the tasks you perform to complete this tutorial:
 
 ## Retrieve the IoT C# samples repository
 
-Download the [IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) from GitHub and unzip them. This repository has several applications, scripts, and Resource Manager templates in it. The ones to be used for this tutorial are as follows:
+Download the [IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) from GitHub and unzip them. This repository has several applications, scripts, and Resource Manager templates in it. The ones to be used for this tutorial are as follows:
 
 * For the manual method, there's a CLI script that's used to create the resources. This script is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. This script creates the resources and configures the message routing. After you run this script, create the message enrichments manually by using the [Azure portal](https://portal.azure.com).
 * For the automated method, there's an Azure Resource Manager template. The template is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json. This template creates the resources, configures the message routing, and then configures the message enrichments.

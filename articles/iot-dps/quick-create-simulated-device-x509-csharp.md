@@ -54,7 +54,7 @@ In this section you, will create a self-signed X.509 test certificate using `iot
 * The default expiration date for a self-signed certificate is one year.
 * The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 
-You will use sample code from the [X509Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample) to create the certificate to be used with the individual enrollment entry for the device.
+You will use sample code from the [X509Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device/X509Sample) to create the certificate to be used with the individual enrollment entry for the device.
 
 
 1. In a PowerShell prompt, change directories to the project directory for the X.509 device provisioning sample.
