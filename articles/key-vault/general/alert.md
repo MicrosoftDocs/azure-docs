@@ -25,7 +25,7 @@ This article will show you how to configure alerts at specified thresholds so yo
 You can choose between these alert types:
 
 - A static alert based on a fixed value
-- A dynamic alert that will alert you if a monitored metric exceeds the average limit of your key vault a certain number of times within a defined time range
+- A dynamic alert that will notify you if a monitored metric exceeds the average limit of your key vault a certain number of times within a defined time range
 
 > [!IMPORTANT]
 > It can take up to 10 minutes for newly configured alerts to start sending notifications. 
