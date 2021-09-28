@@ -133,7 +133,7 @@ On the **Register sources (Azure Data Lake Storage Gen2)** screen, do the follow
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://ms.web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Data Lake Storage Gen2 source that you registered.
 
