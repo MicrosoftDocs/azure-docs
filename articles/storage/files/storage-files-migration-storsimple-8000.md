@@ -73,6 +73,29 @@ If you can't find the keys in your records, you can generate a new key from the 
 > * Connecting directly to the device serial console is secure, but connecting to the serial console over network switches is not.
 > * HTTP session connections are an option but are *not encrypted*. They're not recommended unless they're used within in a closed, trusted network.
 
+### Known limitations
+
+The StorSimple Data Manager and Azure file shares have a few limitations you should consider before you beginning your migration. The following items completely prevent a migration:
+* Only NTFS volumes from your StorSimple appliance are supported.
+* The service doesn't work with volumes that are BitLocker encrypted.
+* The service can't copy data if the StorSimple snapshot is corrupted.
+* Special networking options, such as firewalls or private endpoint-only communication can't be enabled on either the source storage account where StorSimple backups are stored, nor on the target storage account that holds you Azure file shares.
+
+
+### File fidelity
+
+There are limitations for what can be stored in Azure file shares. Reference: [Azure file share scale targets](storage-files-scale-targets.md)
+File fidelity refers to the multitude of attributes, timestamps, and data that composes a file. In a migration, file fidelity is a measure of how well the information on the source (StorSimple volume) can be translated (migrated) to the target (Azure file share).
+[Azure Files supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). ACLs, common metadata, and some timestamps will be migrated. The following items won't prevent a migration but will  cause per-item issues during a migration:
+
+* Timestamps: File change time will not be set - it is currently read-only over the REST protocol. Last access timestamp on a file will not be moved, it currently isn't a supported attribute on files stored in an Azure file share.
+* [Alternative Data Streams](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) can't be stored in Azure file shares. Files holding Alternate Data Streams will be copied, but Alternate Data Streams will be stripped from the file in the process.
+* Symbolic links, hard links, junctions, and reparse points are skipped during a migration. The migration copy logs will list each skipped item and a reason.
+* EFS encrypted files will fail to copy. Copy logs will show the item failed to copy with *Access is denied*.
+* Corrupt files are skipped. The copy logs may list different errors for each item that is corrupt on the StorSimple disk: *The request failed due to a fatal device hardware error* or *The file or directory is corrupted or unreadable* or *The access control list (ACL) structure is invalid*.
+* A single file may not be larger than 4TiB or it will be skipped in the migration.
+* File path lengths need to be equal to or fewer than 2048 characters. Files and folders with longer paths will be skipped.
+
 ### StorSimple volume backups
 
 StorSimple offers differential backups on the volume level. Azure file shares also have this ability, called share snapshots.
@@ -519,7 +542,7 @@ This phase is all about wrapping up your migration:
 
 * Plan your downtime.
 * Catch up with any changes your users and apps produced on the StorSimple side while the migration jobs in Phase 3 have been running.
-* Fail-over your users to the new Windows Server instance with Azure File Sync or to the Azure file shares via direct-share-access.
+* Fail over your users to the new Windows Server instance with Azure File Sync or to the Azure file shares via direct-share-access.
 
 ### Plan your downtime
 
