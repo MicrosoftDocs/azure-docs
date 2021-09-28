@@ -14,7 +14,7 @@ ms.subservice: data-lake-storage-gen2
 
 To use Data Lake Storage Gen2 capabilities, create a storage account that has a hierarchical namespace.
 
-For step-by-step guidance, see [Create a storage account](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json). 
+For step-by-step guidance, see [Create a storage account](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json).
 
 As you create the account, make sure to select the options described in this article.
 
@@ -27,11 +27,11 @@ Data Lake Storage capabilities are supported in the following types of storage a
 
 For information about how to choose between them, see [storage account overview](../common/storage-account-overview.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json).
 
-You can choose between these two types of accounts in the **Basics** tab of the **Create a storage account** page. 
+You can choose between these two types of accounts in the **Basics** tab of the **Create a storage account** page.
 
 To create a standard general-purpose v2 account, select **Standard**.
 
-To create a premium block blob account, select **Premium**. Then, in the **Premium account type** dropdown list, select **Block blobs**. 
+To create a premium block blob account, select **Premium**. Then, in the **Premium account type** dropdown list, select **Block blobs**.
 
 > [!div class="mx-imgBorder"]
 > ![Premium block blob option](./media/create-data-lake-storage-account/premium-block-blob-option.png)

@@ -53,7 +53,7 @@ Standard performance supports different [access tiers](storage-blob-storage-tier
 
 - **Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers, making it a perfect use case for both short-term and long-term disaster recovery datasets, secondary backups, and compliance data archiving.
 
-- **Media content**. Images and videos often are accessed frequently when first created and stored, but this content type is used less often as it gets older. Standard performance storage offers suitable tiers for media content needs. 
+- **Media content**. Images and videos often are accessed frequently when first created and stored, but this content type is used less often as it gets older. Standard performance storage offers suitable tiers for media content needs.
 
 - **Bulk data processing**. These kinds of workloads are suitable for standard storage because they require cost-effective high-throughput storage instead of consistent low latency. Large, raw datasets are staged for processing and eventually migrate to cooler tiers.
 

@@ -17,6 +17,14 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
 
+## September 2021
+
+"Fix the inaccurate name extraction in Prebuilt IDs (Driver's License) when there's suffix/dot in name."
+
+[Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) available on your Form Recognizer resource overview page in the Azure portal. 
+
+:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot: metrics charts in Azure portal.":::
+
 ## July 2021
 
 ### System-assigned managed identity support 
