@@ -141,6 +141,7 @@ Authoring AutoML models for vision tasks is supported via the Azure ML Python SD
 ![Computer vision tasks examples. Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf ](./media/concept-automated-ml/automl-computer-vision-tasks.png)
 
 Automated ML for images supports the following computer vision tasks: 
+
 Task | Description
 ----|----
 Multi-class image classification | Tasks where an image is classified with only a single label from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'
@@ -178,7 +179,6 @@ The following diagram illustrates this process.
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
-
 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
@@ -254,7 +254,7 @@ Consider these pros and cons when choosing to use local vs. remote.
 
 ### Feature availability 
 
- More features are available when you use the remote compute, as shown in the table below. 
+More features are available when you use the remote compute, as shown in the table below. 
 
 | Feature                                                    | Remote | Local | 
 |------------------------------------------------------------|--------|-------|
@@ -294,7 +294,7 @@ There are multiple resources to get you up and running with AutoML.
 Tutorials are end-to-end introductory examples of AutoML scenarios.
 + **For a code first experience**, follow the [Tutorial: Train a regression model with AutoML and Python](tutorial-auto-train-models.md).
 
- + **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
++ **For a low or no-code experience**, see the [Tutorial: Train a classification model with no-code AutoML in Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
 
 How-to articles provide additional detail into what functionality automated ML offers. For example, 
 
