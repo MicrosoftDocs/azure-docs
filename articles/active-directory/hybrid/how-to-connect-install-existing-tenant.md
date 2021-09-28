@@ -34,7 +34,7 @@ When you install Azure AD Connect and you start synchronizing, the Azure AD sync
 
 The match is only evaluated for new objects coming from Connect. If you change an existing object so it is matching any of these attributes, then you see an error instead.
 
-If Azure AD finds an object where the attribute values are the same for an object coming from Connect and that it is already present in Azure AD, then the object in Azure AD is taken over by Connect. The previously cloud-managed object is flagged as on-premises managed. All attributes in Azure AD with a value in on-premises AD are overwritten with the on-premises value. The exception is when an attribute has a **NULL** value on-premises. In this case, the value in Azure AD remains, but you can still only change it on-premises to something else.
+If Azure AD finds an object where the attribute values are the same for an object coming from Connect and that it is already present in Azure AD, then the object in Azure AD is taken over by Connect. The previously cloud-managed object is flagged as on-premises managed. All attributes in Azure AD with a value in on-premises AD are overwritten with the on-premises value.
 
 > [!WARNING]
 > Since all attributes in Azure AD are going to be overwritten by the on-premises value, make sure you have good data on-premises. For example, if you only have managed email address in Microsoft 365 and not kept it updated in on-premises AD DS, then you lose any values in Azure AD/Microsoft 365 not present in AD DS.
@@ -51,6 +51,8 @@ If you matched your objects with a soft-match, then the **sourceAnchor** is adde
 
 ### Hard-match vs Soft-match
 For a new installation of Connect, there is no practical difference between a soft- and a hard-match. The difference is in a disaster recovery situation. If you have lost your server with Azure AD Connect, you can reinstall a new instance without losing any data. An object with a sourceAnchor is sent to Connect during initial install. The match can then be evaluated by the client (Azure AD Connect), which is a lot faster than doing the same in Azure AD. A hard match is evaluated both by Connect and by Azure AD. A soft match is only evaluated by Azure AD.
+
+ We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0) shows how to disable Soft Matching.
 
 ### Other objects than users
 For mail-enabled groups and contacts, you can soft-match based on proxyAddresses. Hard-match is not applicable since you can only update the sourceAnchor/immutableID (using PowerShell) on Users only. For groups that aren't mail-enabled, there is currently no support for soft-match or hard-match.

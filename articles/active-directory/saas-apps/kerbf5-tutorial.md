@@ -193,7 +193,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 1. Click on **Conditional Access** .
 1. Click on **New Policy**.
-1. You can now see your F5 App as a resource for CA Policy and apply any conditional access including Multifactor Auth, Device based access control or Identity Protection Policy.
+1. You can now see your F5 App as a resource for Conditional Access policy and apply any conditional access including Multifactor Auth, Device based access control or Identity Protection Policy.
 
 ## Configure F5 SSO
 
@@ -478,7 +478,7 @@ In this section, you create a user called B.Simon in F5. Work with [F5 Client s
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
@@ -493,3 +493,9 @@ When you click the F5 tile in the Access Panel, you should be automatically sign
 - [Configure F5 single sign-on for Header Based application](headerf5-tutorial.md)
 
 - [Configure F5 single sign-on for Advanced Kerberos application](advance-kerbf5-tutorial.md)
+
+- [F5 BIG-IP APM and Azure AD integration for secure hybrid access](../manage-apps/f5-aad-integration.md)
+
+- [Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access](../manage-apps/f5-bigip-deployment-guide.md)
+
+- [Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN](../manage-apps/f5-aad-password-less-vpn.md)

@@ -6,7 +6,8 @@ author: sujayt
 manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
-ms.author: sutalasi
+ms.author: sutalasi 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Set up disaster recovery of Hyper-V VMs to a secondary site by using PowerShell (Resource Manager)

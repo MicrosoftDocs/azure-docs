@@ -30,9 +30,9 @@ A branch device (a customer on-premises VPN device or SDWAN CPE) typically uses 
 
 ### <a name ="additional"></a>Additional information
 
-* [REST API](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) to automate Virtual Hub creation
-* [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) to automate Azure VPN gateway for Virtual WAN
-* [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) to connect a VPNSite to an Azure VPN Hub
+* [REST API](/rest/api/virtualwan/virtualhubs) to automate Virtual Hub creation
+* [REST API](/rest/api/virtualwan/vpngateways) to automate Azure VPN gateway for Virtual WAN
+* [REST API](/rest/api/virtualwan/vpnconnections) to connect a VPNSite to an Azure VPN Hub
 * [Default IPsec policies](#default)
 
 ## <a name ="ae"></a>Customer experience
@@ -60,11 +60,11 @@ Customers must be able to set up appropriate access control for Virtual WAN in t
 
 ###  <a name="branch"></a>Upload branch device information
 
-You should design the user experience to upload branch (on-premises site) information to Azure. You can use [REST APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) for VPNSite to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices or select device customizations as appropriate.
+You should design the user experience to upload branch (on-premises site) information to Azure. You can use [REST APIs](/rest/api/virtualwan/vpnsites) for VPNSite to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices or select device customizations as appropriate.
 
 ### <a name="device"></a>Device configuration download and connectivity
 
-This step involves downloading Azure configuration and setting up connectivity from the branch device into Azure Virtual WAN. In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises SDWAN/VPN device. As a provider, you should automate this step. View the download [REST APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) for additional information. The device controller can call 'GetVpnConfiguration' REST API to download the Azure configuration.
+This step involves downloading Azure configuration and setting up connectivity from the branch device into Azure Virtual WAN. In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises SDWAN/VPN device. As a provider, you should automate this step. View the download [REST APIs](/rest/api/virtualwan/vpnsitesconfiguration/download) for additional information. The device controller can call 'GetVpnConfiguration' REST API to download the Azure configuration.
 
 **Configuration notes**
 

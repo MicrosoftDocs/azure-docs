@@ -3,6 +3,7 @@ title: Conflict resolution types and resolution policies in Azure Cosmos DB
 description: This article describes the conflict categories and conflict resolution policies in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
@@ -10,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Conflict types and resolution policies when using multiple write regions
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Conflicts and conflict resolution policies are applicable if your Azure Cosmos DB account is configured with multiple write regions.
 
@@ -39,7 +41,7 @@ Azure Cosmos DB offers a flexible policy-driven mechanism to resolve write confl
   If you configure your container with the custom resolution option, and you fail to register a merge procedure on the container or the merge procedure throws an exception at runtime, the conflicts are written to the *conflicts feed*. Your application then needs to manually resolve the conflicts in the conflicts feed. To learn more, see [examples of how to use the custom resolution policy and how to use the conflicts feed](how-to-manage-conflicts.md).
 
   > [!NOTE]
-  > Custom conflict resolution policy is available only for SQL API accounts.
+  > Custom conflict resolution policy is available only for SQL API accounts and can be set only at creation time. It is not possible to set a custom resolution policy on an existing container.
 
 ## Next steps
 

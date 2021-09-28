@@ -10,6 +10,26 @@ This article answers common questions that might come up when you deploy disaste
 
 ## General
 
+### How do I use the classic experience in the Recovery Services vault rather than the preview experience? 
+
+A new and more reliable way to protect VMware virtual machines using the Azure Site Recovery replication appliance is now in [public preview](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094). When a new Recovery Services vault is created, by default the preview experience will be selected. 
+
+To change the experience - 
+
+1. Open the vault on Azure portal. 
+2. Click on **Site Recovery** in the **Getting started** section. 
+3. Click on the banner on top of this page. 
+    
+    [![Modify VMware stack step 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
+
+4. This will open the experience selection blade. Select the classic experience if you want to use configuration server and then click on **OK**. If not, close the pane. 
+
+    [![Modify VMware stack step 2](./media/vmware-azure-common-questions/change-stack-step-2.png)](./media/vmware-azure-common-questions/change-stack-step-2.png#lightbox)
+
+> [!NOTE]
+> Note that once the experience type has been switched to classic from preview, it cannot be switched again in the same Recovery Services vault. Ensure that the desired experience is selected, before saving this change.
+
+
 ### What do I need for VMware VM disaster recovery?
 
 [Learn about the components involved](vmware-azure-architecture.md) in disaster recovery of VMware VMs.
@@ -90,7 +110,7 @@ The installers are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\reposi
 On each VM that you want to replicate, install the service by one of several methods:
 
 - [Push installation](vmware-physical-mobility-service-overview.md#push-installation)
-- [Manual installation](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) from the UI or PowerShell
+- [Manual installation](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-classic) from the UI or PowerShell
 - Deployment by using a deployment tool such as [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## Managed disks
@@ -141,6 +161,10 @@ Replication is continuous when replicating VMware VMs to Azure.
 
 Extended or chained replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
+### How can I track progress of initial replication/synchronization?
+
+This capability has been recently to Site Recovery services. Update your Site Recovery infrastructure (configuration servers, scale-out process servers) and mobility agent to versions 9.36 or higher to get accurate details. Learn more on how to track the progress [here](vmware-azure-enable-replication.md#monitor-initial-replication).
+
 ### Can I do an offline initial replication?
 
 Offline replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
@@ -170,7 +194,7 @@ For VMware replication to Azure, you can modify disk size of source VMs. If you 
 
 ### Can I migrate on-premises machines to a new vCenter Server without impacting ongoing replication?
 
-No. A change of VMware Vcenter or migration will impact ongoing replication. Set up Site Recovery with the new vCenter Server and enable replication for machines again.
+Refer to our [guidance](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) to migrate machines to a new vCenter
 
 ### Can I replicate to a cache or target storage account that has a virtual network (with Azure Firewalls) configured on it?
 

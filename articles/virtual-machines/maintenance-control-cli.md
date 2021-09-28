@@ -3,16 +3,19 @@ title: Maintenance control for Azure virtual machines using CLI
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 11/20/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
 
 # Control updates with Maintenance Control and the Azure CLI
 
-Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts. This topic covers the Azure CLI options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
+Maintenance control lets you decide when to apply platform updates to host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure CLI options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
 
 ## Create a maintenance configuration
 
@@ -24,14 +27,14 @@ az group create \
    --name myMaintenanceRG
 az maintenance configuration create \
    -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
+   --resource-name myConfig \
+   --maintenance-scope host\
    --location eastus
 ```
 
 Copy the configuration ID from the output to use later.
 
-Using `--maintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
+Using `--maintenance-scope host` ensures that the maintenance configuration is used for controlling updates to the host infrastructure.
 
 If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your resource group.
 
@@ -40,6 +43,30 @@ You can query for available maintenance configurations using `az maintenance con
 ```azurecli-interactive
 az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
+
+### Create a maintenance configuration with scheduled window
+You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
+
+```azurecli-interactive
+az maintenance configuration create \
+   -g myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope host \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time"
+```
+
+> [!IMPORTANT]
+> Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
+
+Maintenance recurrence can be expressed as daily, weekly or monthly. Some examples are:
+- **daily**- maintenance-window-recur-every: "Day" **or** "3Days"
+- **weekly**- maintenance-window-recur-every: "3Weeks" **or** "Week Saturday,Sunday"
+- **monthly**- maintenance-window-recur-every: "Month day23,day24" **or** "Month Last Sunday" **or** "Month Fourth Monday"
+
 
 ## Assign the configuration
 
@@ -64,7 +91,7 @@ az maintenance assignment create \
 
 To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
 
-The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
+The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view) to get the ID of your dedicated host.
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -162,7 +189,7 @@ az maintenance update list \
 
 ## Apply updates
 
-Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update.
+Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update. Apply update calls can take upto 2 hours to complete.
 
 ### Isolated VM
 
@@ -247,7 +274,7 @@ Use `az maintenance configuration delete` to delete a maintenance configuration.
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
-   --name myConfig
+   --resource-name myConfig
 ```
 
 ## Next steps

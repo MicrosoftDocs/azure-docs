@@ -1,15 +1,19 @@
 ---
-title: Create a Virtual Machine image and use a user-assigned managed identity to access files in Azure Storage (preview)
+title: Create a Virtual Machine image and use a user-assigned managed identity to access files in Azure Storage
 description: Create virtual machine image using Azure Image Builder, that can access files stored in Azure Storage using user-assigned managed identity.
-author: cynthn
-ms.author: cynthn
-ms.date: 05/02/2019
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+
 ---
 
 # Create an image and use a user-assigned managed identity to access files in Azure Storage 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure Image Builder supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage etc. To use these, they must have been externally accessible to Azure Image Builder, but you could protect Azure Storage blobs using SAS Tokens.
 
@@ -18,13 +22,8 @@ This article shows how to create a customized image using the Azure VM Image Bui
 In the example below, you will create two resource groups, one will be used for the custom image, and the other will host an Azure Storage Account, that contains a script file. This simulates a real life scenario, where you may have build artifacts, or image files in different storage accounts, outside of Image Builder. You will create a user-assigned identity, then grant that read permissions on the script file, but you will not set any public access to that file. You will then use the Shell customizer to download and run that script from the storage account.
 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
+To use Azure Image Builder, you need to register the feature.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
@@ -44,6 +43,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.KeyVault | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
+az provider show -n Microsoft.Network | grep registrationState
 ```
 
 If they do not say registered, run the following:
@@ -53,6 +53,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Compute
 az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Network
 ```
 
 
@@ -74,10 +75,10 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+Create a variable for your subscription ID.
 
 ```console
-subscriptionID=<Your subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Create the resource groups for both the image and the script storage.
@@ -99,13 +100,13 @@ idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $idenityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
 
 # download preconfigured role definition example
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 # update the definition
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
@@ -143,7 +144,7 @@ az storage blob copy start \
     --destination-blob customizeScript.sh \
     --destination-container $scriptStorageAccContainer \
     --account-name $scriptStorageAcc \
-    --source-uri https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
+    --source-uri https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
 ```
 
 Give Image Builder permission to create resources in the image resource group. The `--assignee` value is the user-identity ID.
@@ -163,7 +164,7 @@ az role assignment create \
 Download the example .json file and configure it with the variables you created.
 
 ```console
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
+curl https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateMsi.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateMsi.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateMsi.json

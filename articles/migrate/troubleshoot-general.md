@@ -1,12 +1,13 @@
 ---
 title: Troubleshoot Azure Migrate issues | Microsoft Docs
 description: Provides an overview of known issues in the Azure Migrate service, as well as troubleshooting tips for common errors.
-author: musa-57
+author: ms-psharma
+ms.author: panshar
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: hamusa
+
 ---
 
 # Troubleshoot Azure Migrate
@@ -19,15 +20,15 @@ Review the [Azure Migrate project troubleshooting guide](troubleshoot-project.md
 
 ## I can't get the appliance working
 
-Review [answers to common issues](troubleshoot-appliance-discovery.md) with appliance deployment.
+Review [answers to common issues](troubleshoot-appliance.md) with appliance deployment.
 
 ## Machines aren't discovered
 
-Review common discovery issues.
+Review [common discovery issues](common-questions-discovery-assessment.md).
 
 ## App-discovery isn't working
 
-Discovery of apps, roles, and features running on on-premises machines is currently only supported for VMware VMs. [Review common errors](troubleshoot-appliance-discovery.md#common-app-discovery-errors) for app-discovery.
+Discovery of apps, roles, and features running on on-premises machines is currently only supported for VMware VMs. [Review common errors](troubleshoot-discovery.md#common-software-inventory-errors) for app-discovery.
 
 ## Assessment isn't working
 

@@ -1,6 +1,7 @@
 ---
-title: 'Configure BGP on Azure VPN Gateway:CLI'
-description: This article walks you through configuring BGP with an Azure VPN gateway by using Azure Resource Manager and CLI.
+title: 'Configure BGP for VPN Gateway using CLI'
+titleSuffix: Azure VPN Gateway
+description: Learn how to configure BGP for VPN gateways using CLI.
 services: vpn-gateway
 author: yushwang
 
@@ -12,7 +13,7 @@ ms.author: yushwang
 ---
 # How to configure BGP on an Azure VPN gateway by using CLI
 
-This article helps you enable BGP on a cross-premises Site-to-Site (S2S) VPN connection and a VNet-to-VNet connection (that is, a connection between virtual networks) by using the Azure Resource Manager deployment model and Azure CLI.
+This article helps you enable BGP on a cross-premises Site-to-Site (S2S) VPN connection and a VNet-to-VNet connection (that is, a connection between virtual networks) by using the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and Azure CLI.
 
 ## About BGP
 
@@ -87,7 +88,7 @@ az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic
 
 #### 2. Create the VPN gateway with the AS number
 
-Create the virtual network gateway for TestVNet1. BGP requires a Route-Based VPN gateway. You also need the additional parameter `-Asn` to set the autonomous system number (ASN) for TestVNet1. Creating a gateway can take a while (45 minutes or more) to complete. 
+Create the virtual network gateway for TestVNet1. BGP requires a Route-Based VPN gateway. You also need the additional parameter `-Asn` to set the autonomous system number (ASN) for TestVNet1. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 If you run this command by using the `--no-wait` parameter, you don't see any feedback or output. The `--no-wait` parameter allows the gateway to be created in the background. It does not mean that the VPN gateway is created immediately.
 

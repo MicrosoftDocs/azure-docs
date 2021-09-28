@@ -4,7 +4,7 @@ description: A quickstart guide for Application Insights Agent. Monitor website 
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019 
+ms.date: 01/22/2021 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -22,6 +22,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Download and install via PowerShell Gallery
 
 ### Install prerequisites
+
+- To enable monitoring you will require a connection string. A connection string is displayed on the Overview blade of your Application Insights resource. For more information, see page [Connection Strings](./sdk-connection-string.md?tabs=net#finding-my-connection-string).
+
+> [!NOTE]
+> As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.
+>
+> For additional prerequisites that you might need, see [PowerShell Gallery TLS Support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+>
+
 Run PowerShell as Admin.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -38,10 +47,17 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ```	
 
+> [!NOTE]
+> `AllowPrerelease` switch in `Install-Module` cmdlet allows installation of beta release. 
+>
+> For additional information, see [Install-Module](/powershell/module/powershellget/install-module?view=powershell-7.1#parameters).
+>
+
 ### Enable monitoring
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 	
 		
@@ -58,9 +74,11 @@ $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.Applicati
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
 ### Enable monitoring
+
 ```powershell
-Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
+
 
 
 
@@ -68,9 +86,9 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  View your telemetry:
 
-- [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
+- [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
 - [Search events and logs](./diagnostic-search.md) to diagnose problems.
-- [Use Analytics](../log-query/log-query-overview.md) for more advanced queries.
+- [Use Analytics](../logs/log-query-overview.md) for more advanced queries.
 - [Create dashboards](./overview-dashboard.md).
 
  Add more telemetry:
@@ -83,4 +101,3 @@ Do more with Application Insights Agent:
 
 - Review the [detailed instructions](status-monitor-v2-detailed-instructions.md) for an explanation of the commands found here.
 - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
-

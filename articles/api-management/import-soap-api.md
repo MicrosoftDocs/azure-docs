@@ -3,16 +3,16 @@ title: Import SOAP API using the Azure portal | Microsoft Docs
 description: Learn how to import a standard XML representation of a SOAP API, and then test the API in the Azure and Developer portals.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Import SOAP API

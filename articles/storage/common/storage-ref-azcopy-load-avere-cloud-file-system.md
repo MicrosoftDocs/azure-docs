@@ -23,17 +23,17 @@ The proprietary CLFS format is used by the Azure HPC Cache and Avere vFXT for Az
 To leverage this command, install the necessary extension via: pip3 install clfsload~=1.0.23. Make sure CLFSLoad.py is 
 in your PATH. For more information on this step, visit [https://aka.ms/azcopy/clfs](https://aka.ms/azcopy/clfs).
 
-This command is a simple option for moving existing data to cloud storage for use with specific Microsoft high-performance computing cache products. 
+This command is a simple option for moving existing data to cloud storage for use with specific Microsoft high-performance computing cache products.
 
-Because these products use a proprietary cloud filesystem format to manage data, that data cannot be loaded through the native copy command. 
+Because these products use a proprietary cloud filesystem format to manage data, that data cannot be loaded through the native copy command.
 
 Instead, the data must be loaded through the cache product itself or via this load command, which uses the correct proprietary format.
 This command lets you transfer data without using the cache. For example, to pre-populate storage or to add files to a working set without increasing cache load.
 
 The destination is an empty Azure Storage Container. When the transfer is complete, the destination container can be used with an Azure HPC Cache instance or Avere vFXT for Azure cluster.
 
-> [!NOTE] 
-> This is a preview release of the load command. Please report any issues on the AzCopy Github repo.
+> [!NOTE]
+> This is a preview release of the load command. Please report any issues on the AzCopy GitHub repo.
 
 ```
 azcopy load clfs [local dir] [container URL] [flags]
@@ -42,9 +42,8 @@ azcopy load clfs [local dir] [container URL] [flags]
 ## Related conceptual articles
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Examples
 

@@ -3,9 +3,8 @@ title: Entity Recognition cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract different types of entities from text in an enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
@@ -14,6 +13,9 @@ ms.date: 06/17/2020
 #    Entity Recognition cognitive skill
 
 The **Entity Recognition** skill extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+
+> [!IMPORTANT]
+> The Entity Recognition skill is now discontinued replaced by [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
@@ -185,10 +187,11 @@ Parameters are case-sensitive and are all optional.
 
 Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](../cognitive-services/text-analytics/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content.  [More details can be found here.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
-## Error cases
-If the language code for the document is unsupported, an error is returned and no entities are extracted.
+## Warning cases
+If the language code for the document is unsupported, a warning is returned and no entities are extracted.
 
 ## See also
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Entity Recognition Skill (V3)](cognitive-search-skill-entity-recognition-v3.md)

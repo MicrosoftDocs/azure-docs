@@ -4,7 +4,7 @@ title: Configure autoscale of an Azure API Management instance | Microsoft Docs
 description: This topic describes how to set up autoscale behavior for an Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: anneta
 editor: ''
 
@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Automatically scale an Azure API Management instance  
@@ -122,7 +122,7 @@ Follow the steps below to configure autoscale for an Azure API Management servic
     > [!NOTE]
     > Azure API Management has a limit of units an instance can scale out to. The limit depends on a service tier.
 
-    ![Azure Monitor scale in rule](media/api-management-howto-autoscale/07.png)
+    ![Screenshot that highlights where to set the maximum number of Azure API Management units.](media/api-management-howto-autoscale/07.png)
 
 13. Click **Save**. Your autoscale has been configured.
 

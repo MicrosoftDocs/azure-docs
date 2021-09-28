@@ -16,7 +16,7 @@ This article provides troubleshooting guidance to help you diagnose the cause of
 Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](https://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.
 
-We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.md) to make sure you're not experiencing any of the common configuration issues.
+We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.yml) to make sure you're not experiencing any of the common configuration issues.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -94,4 +94,4 @@ If you're trying to back up large disks, then it's recommended to use [Azure Dat
 
 ## Next steps
 
-* [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md)
+* [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.yml)

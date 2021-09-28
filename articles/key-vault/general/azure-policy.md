@@ -1,9 +1,9 @@
 ---
 title: Integrate Azure Key Vault with Azure Policy
 description: Learn how to integrate Azure Key Vault with Azure Policy
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 10/15/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -31,7 +31,7 @@ Example Usage Scenarios:
 
 ## Available "Built-In" Policy Definitions
 
-Key Vault has created a set of policies, which can be used to manage key, certificate, and secret objects. These policies are 'Built-In', which means they don't require you to write any custom JSON to enable them and they are available in the Azure portal for you to assign. You can still customize certain parameters to fit your organization's needs.
+Key Vault has created a set of policies, which can be used to manage key vaults and its key, certificate, and secret objects. These policies are 'Built-In', which means they don't require you to write any custom JSON to enable them and they are available in the Azure portal for you to assign. You can still customize certain parameters to fit your organization's needs.
 
 # [Certificate Policies](#tab/certificates)
 
@@ -54,7 +54,7 @@ This policy allows you to manage the lifetime action specified for certificates 
 
 ### Certificates should be issued by the specified integrated certificate authority (preview)
 
-If you use a Key Vault integrated certificate authority (Digicert or GlobalSign) and you want users to use one or either of these providers, you can use this policy to audit or enforce your selection. This policy can also be used to audit or deny the creation of self-signed certificates in key vault.
+If you use a Key Vault integrated certificate authority (Digicert or GlobalSign) and you want users to use one or either of these providers, you can use this policy to audit or enforce your selection. This policy will evaluate the CA selected in the issuance policy of the cert and the CA provider defined in the key vault. This policy can also be used to audit or deny the creation of self-signed certificates in key vault.
 
 ### Certificates should be issued by the specified non-integrated certificate authority (preview)
 
@@ -155,6 +155,20 @@ If a secret is too close to expiration, an organizational delay to rotate the se
 
 Manage your organizational compliance requirements by specifying the maximum amount of time in days that a secret can be valid within your key vault. Secrets that are valid longer than the threshold you set will be marked as non-compliant. You can also use this policy to block the creation of new secrets that have an expiration date set longer than the maximum validity period you specify.
 
+# [Key Vault Policies](#tab/keyvault)
+
+### Key Vault should use a virtual network service endpoint
+
+This policy audits any Key Vault not configured to use a virtual network service endpoint.
+
+### Resource logs in Key Vault should be enabled
+
+Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes when a security incident occurs or when your network is compromised
+
+### Key vaults should have purge protection enabled
+
+Malicious deletion of a key vault can lead to permanent data loss. A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period.
+
 ---
 
 ## Example Scenario
@@ -173,49 +187,49 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 1. Log in to the Azure portal. 
 1. Search "Policy" in the Search Bar and Select **Policy**.
 
-    ![Overview of how Azure Key Vault works](../media/policy-img1.png)
+    ![Screenshot that shows the Search Bar.](../media/policy-img1.png)
 
 1. In the Policy window, select **Definitions**.
 
-    ![Overview of how Azure Key Vault works](../media/policy-img2.png)
+    ![Screenshot that highlights the Definitions option.](../media/policy-img2.png)
 
 1. In the Category Filter, Unselect **Select All** and select **Key Vault**. 
 
-    ![Overview of how Azure Key Vault works](../media/policy-img3.png)
+    ![Screenshot that shows the Category Filter and the selected Key Vault category.](../media/policy-img3.png)
 
 1. Now you should be able to see all the policies available for Public Preview, for Azure Key Vault. Make sure you have read and understood the policy guidance section above and select a policy you want to assign to a scope.  
 
-    ![Overview of how Azure Key Vault works](../media/policy-img4.png)
+    ![Screenshot that shows the policies that are available for Public Preview.](../media/policy-img4.png)
 
 ### Assign a Policy to a Scope 
 
 1. Select a policy you wish to apply, in this example, the **Manage Certificate Validity Period** policy is shown. Click the assign button in the top-left corner.
 
-    ![Overview of how Azure Key Vault works](../media/policy-img5.png)
+    ![Screenshot that shows the Manage Certificate Validity Period policy.](../media/policy-img5.png)
   
 1. Select the subscription where you want the policy to be applied. You can choose to restrict the scope to only a single resource group within a subscription. If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list. Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
 
-    ![Overview of how Azure Key Vault works](../media/policy-img6.png)
+    ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](../media/policy-img6.png)
 
 1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
 
-    ![Overview of how Azure Key Vault works](../media/policy-img7.png)
+    ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](../media/policy-img7.png)
 
 ### View Compliance Results
 
 1. Go back to the Policy blade and select the compliance tab. Click on the policy assignment you wish to view compliance results for.
 
-    ![Overview of how Azure Key Vault works](../media/policy-img8.png)
+    ![Screenshot that shows the Compliance tab where you can select the policy assignment you want to view compliance results for.](../media/policy-img8.png)
 
 1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates). 
 
 
-    ![Overview of how Azure Key Vault works](../media/policy-img9.png)
+    ![Screenshot that shows a list of non-compliant key vaults within the scope of the policy assignment.](../media/policy-img9.png)
 
 1. View the name of the components within a vault that are non-compliant
 
 
-    ![Overview of how Azure Key Vault works](../media/policy-img10.png)
+    ![Screenshot that shows where you can view the name of the components within a vault that are non-compliant.](../media/policy-img10.png)
 
 1. If you need to check whether users are being denied the ability to create resources within key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests. 
 
@@ -242,3 +256,4 @@ If the compliance results show up as "Not Started" it may be due to the followin
 
 - Learn more about the [Azure Policy service](../../governance/policy/overview.md)
 - See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
+- Learn about [Azure Security Benchmark guidance on Key vault](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)

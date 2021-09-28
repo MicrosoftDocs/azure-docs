@@ -3,10 +3,10 @@ title: 'Explore data using the Explorer - Azure Time Series Insights | Microsoft
 description: Learn how to use the Azure Time Series Insights Explorer to view your IoT data.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge, jasonh, kfile
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
@@ -40,8 +40,8 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 Before you can use Azure Time Series Insights Explorer, you must:
 
 - Create an Azure Time Series Insights environment. For more information, read [How to get started with Azure Time Series Insights](./time-series-insights-get-started.md).
-- [Provide access](time-series-insights-data-access.md) to your account in the environment.
-- Add an [IoT hub](time-series-insights-how-to-add-an-event-source-iothub.md) or [event hub](time-series-insights-how-to-add-an-event-source-eventhub.md) event source to it.
+- [Provide access](./concepts-access-policies.md) to your account in the environment.
+- Add an [IoT hub](./how-to-ingest-data-iot-hub.md) or [event hub](./how-to-ingest-data-event-hub.md) event source to it.
 
 ## Explore and query data
 

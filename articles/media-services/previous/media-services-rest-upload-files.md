@@ -3,18 +3,16 @@ title: Upload files into an Azure Media Services account using REST  | Microsoft
 description: Learn how to get media content into Media Services by creating and uploading assets using REST.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 # Upload files into a Media Services account using REST
 
@@ -68,7 +66,7 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 
     To get values for the first five variables, see [Access the Azure Media Services API with Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Screenshot that shows the "Cog" icon selected from the top-right, and the first five variables selected from the "Management Environments" tab.](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Specify the value for the **MediaFileName** environment variable.
 
     Specify the file name of the media you are planning to upload. In this example, we are going to upload the BigBuckBunny.mp4. 
@@ -90,7 +88,7 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 
     The URL portion is filled with the **AzureADSTSEndpoint** environment variable (earlier in the tutorial, you set the values of environment variables that support the collection).
 
-    ![Upload a file](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Screenshot that shows "1. Get A A D Auth token - Get Azure A D Token for Service Principal" selected from the "Postman" window, and the "Send" button selected.](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. Press **Send**.
 
@@ -112,7 +110,7 @@ Before uploading any files into blob storage, set the access policy rights for w
 1. Select **AccessPolicy** -> **Create AccessPolicy for Upload**.
 2. Press **Send**.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Screenshot that shows "AccessPolicy - Create AccessPolicy for Upload" selected from the left-side menu, and the "Send" button selected.](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     The "test" script gets the AccessPolicy Id and sets the appropriate environment variable.
 
@@ -133,7 +131,7 @@ In this example, we are creating an unencrypted asset.
 1. Select **Assets** -> **Create Asset**.
 2. Press **Send**.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Screenshot that shows "Assets - Create Asset" selected from the "Collections" menu, and the "Send" button selected.](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     The "test" script gets the Asset Id and sets the appropriate environment variable.
 
@@ -166,7 +164,7 @@ Some considerations apply:
 
     The "test" script creates the "Upload URL" based on the media file name you specified and SAS locator information and sets the appropriate environment variable.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Screenshot that shows "Locator - Create S A S Locator" selected from the "Collections" menu, and the "Send" button selected.](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## Upload a file to blob storage using the upload URL
 
@@ -193,7 +191,7 @@ Create and set up a new request:
 4. Choose the file with the name that you specified in the **MediaFileName** environment variable.
 5. Press **Send**.
 
-    ![Upload a file](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Screenshot that shows the "(UploadU R L)" tab selected.](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  Create a metadata in the asset
 

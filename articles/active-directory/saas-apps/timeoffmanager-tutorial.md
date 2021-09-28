@@ -164,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In **Single Sign on settings** page, copy the value of **Assertion Consumer Service URL** and paste it in the **Reply URL** text box under **Basic SAML Configuration** section in Azure portal. 
 
-	  ![Screenshot shows the Assertion Consumer Service U R L link.](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
+    ![Screenshot shows the Assertion Consumer Service U R L link.](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
 
 ### Create TimeOffManager test user
 
@@ -177,7 +177,7 @@ In this section, a user called Britta Simon is created in TimeOffManager. TimeOf
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the TimeOffManager tile in the Access Panel, you should be automatically signed in to the TimeOffManager for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the TimeOffManager tile in the Access Panel, you should be automatically signed in to the TimeOffManager for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

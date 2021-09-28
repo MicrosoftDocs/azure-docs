@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with Weekdone, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Weekdone Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://weekdone.com/a/<tenant>/metadata`
@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with Weekdone, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Weekdone Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://weekdone.com/a/<tenantname>`
@@ -195,7 +195,7 @@ In this section, a user called Britta Simon is created in Weekdone. Weekdone sup
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Weekdone tile in the Access Panel, you should be automatically signed in to the Weekdone for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Weekdone tile in the Access Panel, you should be automatically signed in to the Weekdone for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

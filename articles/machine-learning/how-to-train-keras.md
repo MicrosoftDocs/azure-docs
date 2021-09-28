@@ -9,8 +9,7 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: peterlu
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 
 #Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
@@ -34,12 +33,12 @@ Run this code on either of these environments:
 
 - Azure Machine Learning compute instance - no downloads or installation necessary
 
-     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+     - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > keras > train-hyperparameter-tune-deploy-with-keras** folder.
 
  - Your own Jupyter Notebook server
 
-    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.15.0).
+    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` and `utils.py`
 
@@ -57,6 +56,7 @@ First, import the necessary Python libraries.
 import os
 import azureml
 from azureml.core import Experiment
+from azureml.core import Environment
 from azureml.core import Workspace, Run
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
@@ -64,7 +64,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -74,7 +74,7 @@ ws = Workspace.from_config()
 
 ### Create a file dataset
 
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) guide on the `Dataset` package for more information.
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](./how-to-create-register-datasets.md) guide on the `Dataset` package for more information.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -144,8 +144,6 @@ Create an Azure ML environment from this conda environment specification. The en
 By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
 
 ```python
-from azureml.core import Environment
-
 keras_env = Environment.from_conda_specification(name='keras-env', file_path='conda_dependencies.yml')
 
 # Specify a GPU base image
@@ -190,14 +188,14 @@ src = ScriptRunConfig(source_directory=script_folder,
 For more information on configuring jobs with ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 > [!WARNING]
-> If you were previously using the TensorFlow estimator to configure your Keras training jobs, please note that Estimators will be deprecated in a future release of the Azure ML SDK. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using DL frameworks.
+> If you were previously using the TensorFlow estimator to configure your Keras training jobs, please note that Estimators have been deprecated as of the 1.19.0 SDK release. With Azure ML SDK >= 1.15.0, ScriptRunConfig is the recommended way to configure training jobs, including those using deep learning frameworks. For common migration questions, see the [Estimator to ScriptRunConfig migration guide](how-to-migrate-from-estimators-to-scriptrunconfig.md).
 
 ### Submit your run
 
-The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) provides the interface to the run history while the job is running and after it has completed.
+The [Run object](/python/api/azureml-core/azureml.core.run%28class%29) provides the interface to the run history while the job is running and after it has completed.
 
 ```Python
-run = Experiment(workspace=ws, name='keras-mnist').submit(src)
+run = Experiment(workspace=ws, name='Tutorial-Keras-Minst').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
@@ -242,7 +240,7 @@ for f in run.get_file_names():
 In this article, you trained and registered a Keras model on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
 
 * [How and where to deploy models](how-to-deploy-and-where.md)
-* [Track run metrics during training](how-to-track-experiments.md)
+* [Track run metrics during training](how-to-log-view-metrics.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 * [Deploy a trained model](how-to-deploy-and-where.md)
 * [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

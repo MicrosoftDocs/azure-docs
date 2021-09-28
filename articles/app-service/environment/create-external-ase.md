@@ -12,14 +12,13 @@ ms.custom: seodec18
 
 # Create an External App Service environment
 
-Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet).
-
 > [!NOTE]
-> Each App Service Environment has a Virtual IP (VIP), which can be used to contact the App Service Environment.
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
-There are two ways to deploy an App Service Environment (ASE):
+Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE):
 
-- With a VIP on an external IP address, often called an External ASE.
+- With a VIP on an external public facing IP address, often called an External ASE.
 - With the VIP on an internal IP address, often called an ILB ASE because the internal endpoint is an Internal Load Balancer (ILB).
 
 This article shows you how to create an External ASE. For an overview of the ASE, see [An introduction to the App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
@@ -85,7 +84,7 @@ To create an ASE while you create an App Service plan:
 
     b. Enter a new subnet name.
 
-    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/24`, which has 128 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
+    c. Select the size of the subnet. *Remember to select a size large enough to accommodate future growth of your ASE.* We recommend `/24`, which has 256 addresses and can handle a maximum-sized ASE. We don't recommend `/28`, for example, because only 16 addresses are available. Infrastructure uses at least seven addresses and Azure Networking uses another 5. In a `/28` subnet, you're left with a maximum scaling of 4 App Service plan instances for an External ASE and only 3 App Service plan instances for an ILB ASE.
 
     d. Select the subnet IP range.
 

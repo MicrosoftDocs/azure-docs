@@ -1,61 +1,36 @@
 ---
-title: Change the performance of Azure managed disks
-description: Learn about performance tiers for managed disks, and learn how to change performance tiers for existing managed disks.
+title: Change the performance of Azure managed disks - CLI/PowerShell
+description: Learn how to change performance tiers for existing managed disks using either the Azure PowerShell module or the Azure CLI.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Performance tiers for managed disks (preview)
+# Change your performance tier without downtime using the Azure PowerShell module or the Azure CLI
 
-Azure Disk Storage currently offers built-in bursting capabilities to provide higher performance for handling short-term unexpected traffic. Premium SSDs have the flexibility to increase disk performance without increasing the actual disk size. This capability allows you to match your workload performance needs and reduce costs. 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-> [!NOTE]
-> This feature is currently in preview. 
-
-This feature is ideal for events that temporarily require a consistently higher level of performance, like holiday shopping, performance testing, or running a training environment. To handle these events, you can use a higher performance tier for as long as you need it. You can then return to the original tier when you no longer need the additional performance.
-
-## How it works
-
-When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. You can use a higher performance tier to meet higher demand. When you no longer need that performance level, you can return to the initial baseline performance tier.
-
-Your billing changes as your tier changes. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MBps). You'll be billed at the P10 rate. You can upgrade the tier to match the performance of P50 (7,500 IOPS and 250 MBps) without increasing the disk size. During the time of the upgrade, you'll be billed at the P50 rate. When you no longer need the higher performance, you can return to the P10 tier. The disk will once again be billed at the P10 rate.
-
-| Disk size | Baseline performance tier | Can be upgraded to |
-|----------------|-----|-------------------------------------|
-| 4 GiB | P1 | P2, P3, P4, P6, P10, P15, P20, P30, P40, P50 |
-| 8 GiB | P2 | P3, P4, P6, P10, P15, P20, P30, P40, P50 |
-| 16 GiB | P3 | P4, P6, P10, P15, P20, P30, P40, P50 | 
-| 32 GiB | P4 | P6, P10, P15, P20, P30, P40, P50 |
-| 64 GiB | P6 | P10, P15, P20, P30, P40, P50 |
-| 128 GiB | P10 | P15, P20, P30, P40, P50 |
-| 256 GiB | P15 | P20, P30, P40, P50 |
-| 512 GiB | P20 | P30, P40, P50 |
-| 1 TiB | P30 | P40, P50 |
-| 2 TiB | P40 | P50 |
-| 4 TiB | P50 | None |
-| 8 TiB | P60 |  P70, P80 |
-| 16 TiB | P70 | P80 |
-| 32 TiB | P80 | None |
-
-For billing information, see [Managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+[!INCLUDE [virtual-machines-disks-performance-tiers-intro](../../includes/virtual-machines-disks-performance-tiers-intro.md)]
 
 ## Restrictions
 
-- This feature is currently supported only for premium SSDs.
-- You must either deallocate your VM or detach your disk from a running VM before you can change the disk's tier.
-- Use of the P60, P70, and P80 performance tiers is restricted to disks of 4,096 GiB or higher.
-- A disk's performance tier can be downgraded only once every 24 hours.
+[!INCLUDE [virtual-machines-disks-performance-tiers-restrictions](../../includes/virtual-machines-disks-performance-tiers-restrictions.md)]
 
-## Regional availability
+## Prerequisites
+# [Azure CLI](#tab/azure-cli)
+Install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account with [az login](/cli/azure/reference-index).
 
-The ability to adjust the performance tier of a managed disk is currently available only on premium SSDs in the East US 2, South Central US, West Central US, Australia South East regions.
+# [PowerShell](#tab/azure-powershell)
+Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account in with `Connect-AzAccount`.
+
+---
 
 ## Create an empty data disk with a tier higher than the baseline tier
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 subscriptionId=<yourSubscriptionIDHere>
@@ -64,8 +39,6 @@ diskName=<yourDiskNameHere>
 diskSize=<yourDiskSizeHere>
 performanceTier=<yourDesiredPerformanceTier>
 region=westcentralus
-
-az login
 
 az account set --subscription $subscriptionId
 
@@ -82,21 +55,98 @@ image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
 az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
 ```
-     
-## Update the tier of a disk
 
-```azurecli
-resourceGroupName=<yourResourceGroupNameHere>
-diskName=<yourDiskNameHere>
-performanceTier=<yourDesiredPerformanceTier>
+# [PowerShell](#tab/azure-powershell)
 
-az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+```azurepowershell
+$subscriptionId='yourSubscriptionID'
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$diskSizeInGiB=4
+$performanceTier='P50'
+$sku='Premium_LRS'
+$region='westcentralus'
+
+Connect-AzAccount
+
+Set-AzContext -Subscription $subscriptionId
+
+$diskConfig = New-AzDiskConfig -SkuName $sku -Location $region -CreateOption Empty -DiskSizeGB $diskSizeInGiB -Tier $performanceTier
+New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
 ```
+---
+
+## Update the tier of a disk without downtime
+
+# [Azure CLI](#tab/azure-cli)
+
+1. You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. The following steps will enable the feature on your subscription:
+
+    1.	Execute the following command to register the feature for your subscription
+
+        ```azurecli
+        az feature register --namespace Microsoft.Compute --name LiveTierChange
+        ```
+
+    1.	Confirm that the registration state is **Registered** (may take a few minutes) using the following command before trying out the feature.
+
+        ```azurecli
+        az feature show --namespace Microsoft.Compute --name LiveTierChange
+        ```
+2. Update the tier of a disk even when it is attached to a running VM
+
+    ```azurecli
+    resourceGroupName=<yourResourceGroupNameHere>
+    diskName=<yourDiskNameHere>
+    performanceTier=<yourDesiredPerformanceTier>
+
+    az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+    ```
+
+# [PowerShell](#tab/azure-powershell)
+
+1. You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. The following steps will enable the feature on your subscription:
+
+    1.	Execute the following command to register the feature for your subscription
+
+        ```azurepowershell
+         Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+        ```
+
+    1.	Confirm that the registration state is **Registered** (may take a few minutes) using the following command before trying out the feature.
+
+        ```azurepowershell
+        Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+        ```
+2. Update the tier of a disk even when it is attached to a running VM
+
+    ```azurepowershell
+    $resourceGroupName='yourResourceGroupName'
+    $diskName='yourDiskName'
+    $performanceTier='P1'
+
+    $diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
+
+    Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
+    ```
+---
+
 ## Show the tier of a disk
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 ```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName
+
+$disk.Tier
+```
+---
 
 ## Next steps
 

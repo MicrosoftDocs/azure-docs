@@ -1,8 +1,8 @@
 ---
 title: High availability - Azure Database for MariaDB
 description: This article provides information on high availability in Azure Database for MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020

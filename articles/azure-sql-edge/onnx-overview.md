@@ -23,7 +23,7 @@ To infer machine learning models in Azure SQL Edge, you will first need to get a
 
 To obtain a model in the ONNX format:
 
-- **Model Building Services**: Services such as the [automated Machine Learning feature in Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) and [Azure Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) support directly exporting the trained model in the ONNX format.
+- **Model Building Services**: Services such as the [automated Machine Learning feature in Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) and [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md) support directly exporting the trained model in the ONNX format.
 
 - [**Convert and/or export existing models**](https://github.com/onnx/tutorials#converting-to-onnx-format): Several training frameworks (e.g. [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer, and Caffe2) support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format. For frameworks that do not support native export, there are standalone ONNX Converter installable packages that enable you to convert models trained from different machine learning frameworks to the ONNX format.
 
@@ -40,10 +40,10 @@ To obtain a model in the ONNX format:
 
 Currently, not all ONNX models are supported by Azure SQL Edge. The support is limited to models with **numeric data types**:
 
-- [int and bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
-- [real and float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
+- [int and bigint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
+- [real and float](/sql/t-sql/data-types/float-and-real-transact-sql).
   
-Other numeric types can be converted to supported types by using [CAST and CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
+Other numeric types can be converted to supported types by using [CAST and CONVERT](/sql/t-sql/functions/cast-and-convert-transact-sql).
 
 The model inputs should be structured so that each input to the model corresponds to a single column in a table. For example, if you are using a pandas dataframe to train a model, then each input should be a separate column to the model.
 

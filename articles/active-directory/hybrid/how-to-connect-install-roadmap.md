@@ -138,19 +138,19 @@ To get started with Azure AD Connect Health, use the following steps:
 * Make sure that you [satisfy the requirements](how-to-connect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS
     * [Download Azure AD Connect Health Agent for AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
-    * [See the installation instructions](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+    * [See the installation instructions](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs).
 * Get started using Azure AD Connect Health for sync
     * [Download and install the latest version of Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
 * Get started using Azure AD Connect Health for AD DS
     * [Download Azure AD Connect Health Agent for AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
-    * [See the installation instructions](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
+    * [See the installation instructions](how-to-connect-health-agent-install.md#install-the-agent-for-azure-ad-ds).
 
 
 ## Azure AD Connect Health portal
 The Azure AD Connect Health portal shows views of alerts, performance monitoring, and usage analytics. The  https://aka.ms/aadconnecthealth URL takes you to the main blade of Azure AD Connect Health. You can think of a blade as a window. On The main blade, you see **Quick Start**, services within Azure AD Connect Health, and additional configuration options. See the following screenshot and brief explanations that follow the screenshot. After you deploy the agents, the health service automatically identifies the services that Azure AD Connect Health is monitoring.
 
 > [!NOTE]
-> For licensing information, see the [Azure AD Connect Health FAQ](reference-connect-health-faq.md) or the [Azure AD Pricing page](https://aka.ms/aadpricing).
+> For licensing information, see the [Azure AD Connect Health FAQ](reference-connect-health-faq.yml) or the [Azure AD Pricing page](https://aka.ms/aadpricing).
     
 ![Azure AD Connect Health Portal](./media/whatis-hybrid-identity-health/portalsidebar.png)
 

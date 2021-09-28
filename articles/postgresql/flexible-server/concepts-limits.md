@@ -1,17 +1,16 @@
 ---
 title: Limits - Azure Database for PostgreSQL - Flexible Server
 description: This article describes limits in Azure Database for PostgreSQL - Flexible Server, such as number of connection and storage engine options.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 08/17/2021
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
 
@@ -25,16 +24,16 @@ The maximum number of connections per pricing tier and vCores are shown below. T
 | B1ms                 | 1      | 2 GiB       | 50              | 47                   |
 | B2s                  | 2      | 4 GiB       | 100             | 97                   |
 | **General Purpose**  |        |             |                 |                      |
-| D2s_v3               | 2      | 8 GiB       | 214             | 211                  |
-| D4s_v3               | 4      | 16 GiB      | 429             | 426                  |
-| D8s_v3               | 8      | 32 GiB      | 859             | 856                  |
-| D16s_v3              | 16     | 64 GiB      | 1718            | 1715                 |
-| D32s_v3              | 32     | 128 GiB     | 3437            | 3434                 |
+| D2s_v3               | 2      | 8 GiB       | 859             | 856                  |
+| D4s_v3               | 4      | 16 GiB      | 1719            | 1716                 |
+| D8s_v3               | 8      | 32 GiB      | 3438            | 3435                 |
+| D16s_v3              | 16     | 64 GiB      | 5000            | 4997                 |
+| D32s_v3              | 32     | 128 GiB     | 5000            | 4997                 |
 | D48s_v3              | 48     | 192 GiB     | 5000            | 4997                 |
 | D64s_v3              | 64     | 256 GiB     | 5000            | 4997                 |
 | **Memory Optimized** |        |             |                 |                      |
-| E2s_v3               | 2      | 16 GiB      | 1718            | 1715                 |
-| E4s_v3               | 4      | 32 GiB      | 3437            | 3434                 |
+| E2s_v3               | 2      | 16 GiB      | 1719            | 1716                 |
+| E4s_v3               | 4      | 32 GiB      | 3438            | 3433                 |
 | E8s_v3               | 8      | 64 GiB      | 5000            | 4997                 |
 | E16s_v3              | 16     | 128 GiB     | 5000            | 4997                 |
 | E32s_v3              | 32     | 256 GiB     | 5000            | 4997                 |
@@ -42,7 +41,7 @@ The maximum number of connections per pricing tier and vCores are shown below. T
 | E64s_v3              | 64     | 432 GiB     | 5000            | 4997                 |
 
 When connections exceed the limit, you may receive the following error:
-> FATAL:  sorry, too many clients already
+> FATAL:  sorry, too many clients already.
 
 > [!IMPORTANT]
 > For best experience, we recommend that you use a connection pooler like PgBouncer to efficiently manage connections.
@@ -61,6 +60,13 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](../howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
 
+### Storage
+
+- Once configured, storage size cannot be reduced. You have to create a new server with desired storage size, perform manual [dump and restore](../howto-migrate-using-dump-and-restore.md) and migrate your database(s) to the new server.
+- Currently, storage auto-grow feature is not available. Please monitor the usage and increase the storage to a higher size. 
+- When the storage usage reaches 95% or if the available capacity is less than 5 GiB, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. 
+- We recommend to set alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
+  
 ### Networking
 
 - Moving in and out of VNET is currently not supported.
@@ -68,10 +74,12 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Firewall rules are not supported on VNET, Network security groups can be used instead.
 - Public access database servers can connect to public internet, for example through `postgres_fdw`, and this access cannot be restricted. VNET-based servers can have restricted outbound access using Network Security Groups.
 
-### High availability
+### High availability (HA)
 
 - Zone-Redundant HA is currently not supported for Burstable servers.
 - The database server IP address changes when your server fails over to the HA standby. Ensure you use the DNS record instead of the server IP address.
+- If logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server. 
+- For more details on zone-redundant HA including the limitations, please see the [concepts - HA documentation](concepts-high-availability.md) page.
 
 ### Availability zones
 
@@ -82,7 +90,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 - Postgres 10 and older are not supported. We recommend using the [Single Server](../overview-single-server.md) option if you require older Postgres versions.
 - Extension support is currently limited to the Postgres `contrib` extensions.
-- Built-in PgBouncer connection pooler is currently not available for database servers within a VNET, or for Burstable servers.
+- Built-in PgBouncer connection pooler is currently not available for Burstable servers.
 
 ### Stop/start operation
 
@@ -109,6 +117,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 * Azure AD authentication is not yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require Azure AD authentication.
 * Read replicas are not yet supported. We recommend using the [Single Server](../overview-single-server.md) option if you require read replicas.
+* Moving resources to another subscription is not supported. 
 
 
 ## Next steps

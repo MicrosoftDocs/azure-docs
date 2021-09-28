@@ -3,14 +3,14 @@ title: Speech Devices SDK Roobo Smart Audio Dev Kit v1 - Speech service
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with the Speech Devices SDK, Roobo Smart Audio Dev Kit v1.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: erhopf
+ms.author: pafarley
 ---
 
 # Device: Roobo Smart Audio Dev Kit
@@ -69,4 +69,4 @@ Roobo provides a tool that captures all audio to flash memory. It might help you
 
 ## Next steps
 
-* [Run the Android sample app](speech-devices-sdk-android-quickstart.md)
+* [Run the Android sample app](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android)

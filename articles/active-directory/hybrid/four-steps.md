@@ -60,7 +60,7 @@ To learn more, see the [Migrating Your Applications to Azure Active Directory](h
 
 ### Enable secure remote access to apps
 
-[Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md) provides a simple solution for organizations to publish on-premises apps to the cloud for remote users who need access to internal apps in a secure manner. After a single sign-on to Azure AD, users can access both cloud and on-premises applications through external URLs or an internal application portal.
+[Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) provides a simple solution for organizations to publish on-premises apps to the cloud for remote users who need access to internal apps in a secure manner. After a single sign-on to Azure AD, users can access both cloud and on-premises applications through external URLs or an internal application portal.
 
 Azure AD Application Proxy offers the following benefits:
 
@@ -112,7 +112,7 @@ The simplest and recommended method for enabling cloud authentication for on-pre
 
 Whether you choose PHS or PTA, don't forget to enable [Seamless Single Sign-on](./how-to-connect-sso.md) to allow users to access cloud apps without constantly entering their username and password in the app when using Windows 7 and 8 devices on your corporate network. Without single sign-on, users must remember application-specific passwords and sign into each application. Likewise, IT staff needs to create and update user accounts for each application such as Microsoft 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign into each application. Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance.
 
-For organizations already using AD FS or another on-premises authentication provider, moving to Azure AD as your identity provider can reduce complexity and improve availability. Unless you have specific use cases for using federation, we recommend migrating from federated authentication to either PHS and Seamless SSO or PTA and Seamless SSO to enjoy the benefits of a reduced on-premises footprint and the flexibility the cloud offers with improved user experiences. For more information, see [Migrate from federation to password hash synchronization for Azure Active Directory](./plan-migrate-adfs-password-hash-sync.md).
+For organizations already using AD FS or another on-premises authentication provider, moving to Azure AD as your identity provider can reduce complexity and improve availability. Unless you have specific use cases for using federation, we recommend migrating from federated authentication to either PHS and Seamless SSO or PTA and Seamless SSO to enjoy the benefits of a reduced on-premises footprint and the flexibility the cloud offers with improved user experiences. For more information, see [Migrate from federation to password hash synchronization for Azure Active Directory](./migrate-from-federation-to-cloud-authentication.md).
 
 ### Enable automatic deprovisioning of accounts
 
@@ -142,7 +142,7 @@ Likewise, the [Self-service Password Management report](../authentication/howto-
 
 ### Self-service app management
 
-Before your users can self-discover applications from their access panel, you need to enable [self-service application access](../manage-apps/access-panel-manage-self-service-access.md) to any applications that you wish to allow users to self-discover and request access to. Self-service application access is a great way to allow users to self-discover applications and optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for [Password Single-Sign On Applications](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) right from their access panels.
+Before your users can self-discover applications from their access panel, you need to enable [self-service application access](../manage-apps/access-panel-manage-self-service-access.md) to any applications that you wish to allow users to self-discover and request access to. Self-service application access is a great way to allow users to self-discover applications and optionally allow the business group to approve access to those applications. You can allow the business group to manage the credentials assigned to those users for [Password Single-Sign On Applications](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) right from their access panels.
 
 ### Self-service group management
 
@@ -262,6 +262,6 @@ We recommend that you print the following checklist for reference as you begin y
 
 ## Next steps
 
-Learn how you can increase your secure posture using the capabilities of Azure Active Directory and this five-step checklist - [Five steps to securing your identity infrastructure](https://aka.ms/securitysteps).
+Learn how you can increase your secure posture using the capabilities of Azure Active Directory and this five-step checklist - [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md).
 
-Learn how the identity features in Azure AD can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Azure AD - [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads](https://aka.ms/cloudgoverned).
+Learn how the identity features in Azure AD can help you accelerate your transition to cloud governed management by providing the solutions and capabilities that allow organizations to quickly adopt and move more of their identity management from traditional on-premises systems to Azure AD - [How Azure AD Delivers Cloud Governed Management for On-Premises Workloads](./cloud-governed-management-for-on-premises.md).

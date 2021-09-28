@@ -4,20 +4,32 @@ description: include file
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
+ms.date: 11/09/2020
 ---
 
 This cURL-based quickstart walks you through getting an answer from your knowledge base.
 
 ## Prerequisites
 
-* Latest [**cURL**](https://curl.haxx.se/).
 * You must have
-    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
-    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
+    * Latest [**cURL**](https://curl.haxx.se/).
+    * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+
+---
+
+   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
+
 
 > [!NOTE]
 > When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **cURL** tab shows the settings required to generate an answer from the command-line tool.
@@ -29,9 +41,17 @@ Use the knowledge base from the previous quick to query for an answer based on m
 1. From the knowledge base's **Settings** page, select the **CURL** tab to see an example cURL command used to generate an answer from the knowledge base.
 1. Copy the command to an editable environment (such as a text file) so you can edit the command. Edit the question value as follows so that the metadata of `service:qna_maker` is used as a filter for the QnA pairs.
 
+   # [QnA Maker GA (stable release)](#tab/v1)
+
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
+   # [Custom question answering (preview release)](#tab/v2)
+    
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H   "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
+    ```
+    ---
 
     The question is just a single word, `size`, which can return either of the two QnA pairs. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers.
 
@@ -84,9 +104,15 @@ Debug: {Enable:true}
 
 1. Edit the cURL command to include the debug property to see more information.
 
+   # [QnA Maker GA (stable release)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
+   # [Custom question answering (preview release)](#tab/v2)
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
+    ```
+    ---
 
 1. The response includes the relevant information about the answer. In the following JSON output, some debug details have been replaced with ellipsis for brevity.
 
@@ -189,11 +215,16 @@ isTest:true
 ```
 
 The cURL command looks like:
-
+# [QnA Maker GA](#tab/v1)
 ```bash
 curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
 ```
+# [Custom question answering (preview release)](#tab/v2)
+```bash
+curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
+```
 
+---
 The JSON response uses the same schema as the published knowledge base query.
 
 > [!NOTE]
@@ -202,10 +233,18 @@ The JSON response uses the same schema as the published knowledge base query.
 ## Use cURL to query for a Chit-chat answer
 
 1. In the cURL-enabled terminal, use a bot conversation-ending statement from the user, such as `Thank you` as the question. There aren't any other properties to set.
+    
+   # [QnA Maker GA (stable release)](#tab/v1)
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
     ```
+   # [Custom question answering (preview release)](#tab/v2)
+
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'thank you'}"
+    ```
+    ---
 
 1. Run the cURL command and receive the JSON response, including the score and answer.
 
@@ -297,9 +336,15 @@ You can request a minimum threshold for the answer. If the threshold is not met,
 
 1. Add the `threshold` property to ask for an answer to `size` with a threshold of 80% or better. The knowledge base should not find that answer because the question's score is 71%. The result returns the default answer you provided when you created the knowledge base.
 
+   # [QnA Maker GA (stable release)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
+   # [Custom question answering (preview release)](#tab/v2)
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
+    ```
+    ---
 
 1. Run the cURL command and receive the JSON response.
 
@@ -323,10 +368,16 @@ You can request a minimum threshold for the answer. If the threshold is not met,
     QnA Maker returned a score of `0`, which means no confidence. It also returned the default answer.
 
 1. Change the threshold value to 60% and request the query again:
-
+    
+   # [QnA Maker GA (stable release)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
+   # [Custom question answering (preview release)](#tab/v2)
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
+    ```
+    ---
 
     The returned JSON found the answer.
 
@@ -363,3 +414,51 @@ You can request a minimum threshold for the answer. If the threshold is not met,
         "activeLearningEnabled": true
     }
     ```
+## Use unstructured data sources
+    
+We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
+     
+# [QnA Maker GA (stable release)](#tab/v1)
+We don't support unstructured data sets in the GA service.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+1. Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+
+    ```bash
+    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question': 'what is Surface Headphones 2+ priced at?', 'includeUnstructuredSources':true,'top': 2}"
+    ```
+
+2. The response includes the source of answer. 
+    
+    ```json
+    {
+       "answers": [{
+               "questions": [],
+               "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
+               "score": 82.11,
+               "id": 0,
+               "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+               "isDocumentText": false,
+               "metadata": [],
+               "answerSpan": {
+                   "text": "$299.99 USD",
+                   "score": 0.0,
+                   "startIndex": 34,
+                   "endIndex": 45
+               }
+           },
+           {
+               "questions": [],
+               "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
+               "score": 81.95,
+               "id": 0,
+               "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+               "isDocumentText": false,
+               "metadata": []
+           }
+       ],
+       "activeLearningEnabled": true
+   }
+    ```
+---

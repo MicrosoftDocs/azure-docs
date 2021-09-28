@@ -4,13 +4,13 @@ description: This topic shows you how to use Ruby to create a program that conne
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: sqldbrb=2 
 ms.devlang: ruby
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 05/29/2020
 ---
 # Quickstart: Use Ruby to query a database in Azure SQL Database or Azure SQL Managed Instance
@@ -102,4 +102,4 @@ Get the connection information you need to connect to a database in Azure SQL Da
 - [Design your first database in Azure SQL Database](design-first-database-tutorial.md)
 - [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
 - [Report issues or ask questions about TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues)
-- [Ruby driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
+- [Ruby driver for SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/)

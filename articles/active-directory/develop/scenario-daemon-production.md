@@ -1,5 +1,6 @@
 ---
-title: Move a daemon app that calls web APIs to production - Microsoft identity platform | Azure
+title: Move a daemon app that calls web APIs to production | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how to move a daemon app that calls web APIs to production
 services: active-directory
 author: jmprieur
@@ -13,7 +14,7 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 
 ---
 
@@ -23,27 +24,24 @@ Now that you know how to acquire and use a token for a service-to-service call, 
 
 ## Deployment - multitenant daemon apps
 
-If you're an ISV creating a daemon application that can run in several tenants, you need to make sure that the tenant admin:
+If you're an ISV creating a daemon application that can run in several tenants, make sure that the tenant admin:
 
 - Provisions a service principal for the application.
 - Grants consent to the application.
 
 You'll need to explain to your customers how to perform these operations. For more info, see [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## Next steps
-
-Here are a few links to help you learn more:
+## Code samples
 
 # [.NET](#tab/dotnet)
 
-- Quickstart: [Acquire a token and call Microsoft Graph API from a console app by using app's identity](./quickstart-v2-netcore-daemon.md).
 - Reference documentation for:
   - Instantiating [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
-  - Calling [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
+  - Calling [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder?view=azure-dotnet&preserve-view=true).
 - Other samples/tutorials:
-  - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) features a simple .NET Core daemon console application that displays the users of a tenant querying Microsoft Graph.
+  - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) features a small .NET Core daemon console application that displays the users of a tenant querying Microsoft Graph.
 
     ![Sample daemon app topology](media/scenario-daemon-app/daemon-app-sample.svg)
 
@@ -55,12 +53,43 @@ Here are a few links to help you learn more:
 
     ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
+# [Java](#tab/java)
+
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Java console app using app's identity](quickstart-v2-java-daemon.md).
+
+# [Node.js](#tab/nodejs)
+
+- For more information, see:
+  - Understanding [Configuration](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md)
+  - Instantiating [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md)
+  - [FAQ](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/faq.md)
+- Other samples/tutorials:
+  - [MSAL Node console daemon sample](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console)
+
 # [Python](#tab/python)
 
-Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](./quickstart-v2-python-daemon.md).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](quickstart-v2-python-daemon.md).
+
+---
+
+## Next steps
+
+Here are a few links to help you learn more:
+
+# [.NET](#tab/dotnet)
+
+Try the quickstart [Acquire a token and call Microsoft Graph API from a .NET Core console app using app's identity](quickstart-v2-netcore-daemon.md).
 
 # [Java](#tab/java)
 
-MSAL Java is currently in public preview. For more info, see [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Java console app using app's identity](quickstart-v2-java-daemon.md).
+
+# [Node.js](#tab/nodejs)
+
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Node.js console app using app's identity](quickstart-v2-nodejs-console.md).
+
+# [Python](#tab/python)
+
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](quickstart-v2-python-daemon.md).
 
 ---

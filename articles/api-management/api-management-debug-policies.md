@@ -3,7 +3,7 @@ title: Debug Azure API Management policies in Visual Studio Code | Microsoft Doc
 description: Learn how to debug Azure API Management Policies using the Azure API Management Visual Studio Code extension 
 services: api-management
 documentationcenter: ''
-author: miaojiang
+author: dlepow
 manager: cfowler
 editor: ''
  
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/22/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 # Debug Azure API Management policies in Visual Studio Code
 
@@ -20,14 +20,13 @@ ms.author: apimpm
 
 This article describes how to debug API Management policies using the [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
 
-> [!NOTE]
-> This feature is in public preview.
-
 ## Prerequisites
 
-Create an API Management Developer-tier instance by following this [tutorial](get-started-create-service-instance.md) first.
+* Create an API Management Developer-tier instance by following this [quickstart](get-started-create-service-instance.md) first.
 
-Install [Visual Studio Code](https://code.visualstudio.com/) and the latest version of [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+* Install [Visual Studio Code](https://code.visualstudio.com/) and the latest version of [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement). 
+
+* Import an API to your API Management instance. For example steps, see [Tutorial: Use the API Management Extension for Visual Studio Code to import and manage APIs](visual-studio-code-tutorial.md).
 
 ## Restrictions and limitations
 

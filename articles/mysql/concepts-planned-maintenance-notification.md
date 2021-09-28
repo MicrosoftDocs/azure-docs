@@ -1,13 +1,15 @@
 ---
 title: Planned maintenance notification - Azure Database for MySQL - Single Server
 description: This article describes the Planned maintenance notification feature in Azure Database for MySQL - Single Server
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
 ---
 # Planned maintenance notification in Azure Database for MySQL - Single Server
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Learn how to prepare for planned maintenance events on your Azure Database for MySQL.
 
@@ -42,7 +44,7 @@ You can either check the planned maintenance notification on Azure portal or con
 
 1. In the [Azure portal](https://portal.azure.com), select **Service Health**.
 2. Select **Planned Maintenance** tab
-3. Select **Subscription**, **Region, and **Service** for which you want to check the planned maintenance notification. 
+3. Select **Subscription**, **Region**, and **Service** for which you want to check the planned maintenance notification. 
    
 ### To receive planned maintenance notification
 
@@ -72,7 +74,7 @@ A transient error, also known as a transient fault, is an error that will resolv
 
 ## Next steps
 
-- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at *AskAzureDBforMySQL@service.microsoft.com*.
+- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at AskAzureDBforMySQL@service.microsoft.com
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - [Troubleshoot connection issues to Azure Database for MySQL - Single Server](howto-troubleshoot-common-connection-issues.md)
 - [Handle transient errors and connect efficiently to Azure Database for MySQL - Single Server](concepts-connectivity.md)

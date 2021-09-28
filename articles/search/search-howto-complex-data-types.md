@@ -9,7 +9,7 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 04/02/2021
 ---
 
 # How to model complex data types in Azure Cognitive Search
@@ -20,7 +20,7 @@ Complex fields represent either a single object in the document, or an array of 
 
 Azure Cognitive Search natively supports complex types and collections. These types allow you to model almost any JSON structure in an Azure Cognitive Search index. In previous versions of Azure Cognitive Search APIs, only flattened row sets could be imported. In the newest version, your index can now more closely correspond to source data. In other words, if your source data has complex types, your index can have complex types also.
 
-To get started, we recommend the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), which you can load in the **Import data** wizard in the Azure portal. The wizard detects complex types in the source and suggests an index schema based on the detected structures.
+To get started, we recommend the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels), which you can load in the **Import data** wizard in the Azure portal. The wizard detects complex types in the source and suggests an index schema based on the detected structures.
 
 > [!Note]
 > Support for complex types became generally available starting in `api-version=2019-05-06`. 
@@ -37,7 +37,7 @@ The following JSON document is composed of simple fields and complex fields. Com
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
-  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"],
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -59,8 +59,6 @@ The following JSON document is composed of simple fields and complex fields. Com
 }
 ```
 
-<a name="indexing-complex-types></a>
-
 ## Indexing complex types
 
 During indexing, you can have a maximum of 3000 elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the Hotel example), each room is an element. In the example above, if the "Secret Point Motel" had 500 rooms, the hotel document would have 500 room elements. For nested complex collections, each nested element is also counted, in addition to the outer (parent) element.
@@ -69,7 +67,7 @@ This limit applies only to complex collections, and not complex types (like Addr
 
 ## Creating complex fields
 
-As with any index definition, you can use the portal, [REST API](/rest/api/searchservice/create-index), or [.NET SDK](/dotnet/api/microsoft.azure.search.models.index) to create a schema that includes complex types. 
+As with any index definition, you can use the portal, [REST API](/rest/api/searchservice/create-index), or [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindex) to create a schema that includes complex types. 
 
 The following example shows a JSON index schema with simple fields, collections, and complex types. Notice that within a complex type, each sub-field has a type and may have attributes, just as top-level fields do. The schema corresponds to the example data above. `Address` is a complex field that isn't a collection (a hotel has one address). `Rooms` is a complex collection field (a hotel has many rooms).
 
@@ -160,7 +158,7 @@ As with top-level simple fields, simple sub-fields of complex fields can only be
 
 ## Next steps
 
-Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme to access the data.
+Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme to access the data.
 
 With that information in hand, your first step in the wizard is to create a new Azure Cosmos DB data source. Further on in the wizard, when you get to the target index page, you'll see an index with complex types. Create and load this index, and then execute queries to understand the new structure.
 

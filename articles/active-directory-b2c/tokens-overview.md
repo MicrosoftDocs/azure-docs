@@ -72,11 +72,11 @@ The following properties are used to [manage lifetimes of security tokens](confi
 
 - **Refresh token lifetime (days)** - The maximum time period before which a refresh token can be used to acquire a new access or ID token. The time period also covers acquiring a new refresh token if your application has been granted the `offline_access` scope. The default is 14 days. The minimum (inclusive) is one day. The maximum (inclusive) is 90 days.
 
-- **Refresh token sliding window lifetime (days)** - After this time period elapses the user is forced to reauthenticate, irrespective of the validity period of the most recent refresh token acquired by the application. It can only be provided if the switch is set to **Bounded**. It needs to be greater than or equal to the **Refresh token lifetime (days)** value. If the switch is set to **Unbounded**, you cannot provide a specific value. The default is 90 days. The minimum (inclusive) is one day. The maximum (inclusive) is 365 days.
+- **Refresh token sliding window lifetime (days)** - After this time period elapses the user is forced to reauthenticate, irrespective of the validity period of the most recent refresh token acquired by the application. It can only be provided if the switch is set to **Bounded**. It needs to be greater than or equal to the **Refresh token lifetime (days)** value. If the switch is set to **No expiry**, you cannot provide a specific value. The default is 90 days. The minimum (inclusive) is one day. The maximum (inclusive) is 365 days.
 
 The following use cases are enabled using these properties:
 
-- Allow a user to stay signed in to a mobile application indefinitely, as long as the user is continually active on the application. You can set **Refresh token sliding window lifetime (days)** to **Unbounded** in your sign-in user flow.
+- Allow a user to stay signed in to a mobile application indefinitely, as long as the user is continually active on the application. You can set **Refresh token sliding window lifetime (days)** to **No expiry** in your sign-in user flow.
 - Meet your industry's security and compliance requirements by setting the appropriate access token lifetimes.
 
 These settings are not available for password reset user flows.
@@ -93,7 +93,7 @@ The following properties are used to [manage token compatibility](configure-toke
 
 ## Pass-through
 
-When a user journey starts, Azure AD B2C receives an access token from an identity provider. Azure AD B2C uses that token to retrieve information about the user. You [enable a claim in your user flow](idp-pass-through-user-flow.md) or [define a claim in your custom policy](idp-pass-through-custom.md) to pass the token through to the applications that you register in Azure AD B2C. Your application must be using a [recommended user flow](user-flow-versions.md) to take advantage of passing the token as a claim.
+When a user journey starts, Azure AD B2C receives an access token from an identity provider. Azure AD B2C uses that token to retrieve information about the user. You enable a claim in your user flow to [pass the token through](idp-pass-through-user-flow.md) to the applications that you register in Azure AD B2C. Your application must be using a [recommended user flow](user-flow-versions.md) to take advantage of passing the token as a claim.
 
 Azure AD B2C currently only supports passing the access token of OAuth 2.0 identity providers, which include Facebook and Google. For all other identity providers, the claim is returned blank.
 
@@ -130,7 +130,7 @@ The metadata document for the `B2C_1_signupsignin1` policy in the `contoso.onmic
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `acr` claim in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
+To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
 
 A description of how to perform signature validation is outside the scope of this document. Many open-source libraries are available to help you validate a token.
 

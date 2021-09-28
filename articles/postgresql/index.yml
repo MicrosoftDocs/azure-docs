@@ -60,6 +60,8 @@ landingContent:
             url: flexible-server/overview.md
           - text: View all Flexible server documentation
             url: flexible-server/index.yml
+          - text: Try Flexible Server for free
+            url: flexible-server/how-to-deploy-on-azure-free-account.md
       - linkListType: concept
         links:
           - text: Server concepts
@@ -155,6 +157,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI developer reference
-            url: /rest/api/postgresql/
-          - text: REST API developer reference
             url: /cli/azure/postgres
+          - text: REST API developer reference
+            url: /rest/api/postgresql/

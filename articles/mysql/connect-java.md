@@ -1,16 +1,18 @@
 ---
-title: Use Java and JDBC with Azure Database for MySQL
+title: 'Quickstart: Use Java and JDBC with Azure Database for MySQL'
 description: Learn how to use Java and JDBC with an Azure Database for MySQL database.
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
 ---
 
-# Use Java and JDBC with Azure Database for MySQL
+# Quickstart: Use Java and JDBC with Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL](./index.yml).
 
@@ -20,7 +22,7 @@ JDBC is the standard Java API to connect to traditional relational databases.
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
 - [Azure Cloud Shell](../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
-- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 (included in Azure Cloud Shell).
+- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
 - The [Apache Maven](https://maven.apache.org/) build tool.
 
 ## Prepare the working environment
@@ -488,7 +490,7 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection 
 ```
 
-## Conclusion and resources clean up
+## Clean up resources
 
 Congratulations! You've created a Java application that uses JDBC to store and retrieve data from Azure Database for MySQL.
 

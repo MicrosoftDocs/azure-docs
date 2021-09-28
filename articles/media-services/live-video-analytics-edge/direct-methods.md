@@ -1,11 +1,13 @@
 ---
-title: Use direct methods in Live Video Analytics on IoT Edge - Azure  
-description: Live Video Analytics on IoT Edge exposes several direct methods. The direct methods are based on the conventions described in this topic.
+title: Use direct methods in Azure Live Video Analytics on IoT Edge
+description: Azure Live Video Analytics on IoT Edge exposes several direct methods. The direct methods are based on the conventions described in this topic.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Direct methods
+# Direct methods with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics on IoT Edge exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../iot-hub/iot-hub-devguide-direct-methods.md).
 
@@ -135,12 +137,12 @@ This direct method retrieves a single graph topology.
 
 #### Status codes
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Entity found|	200	|N/A
-|General user errors	|400 range	||
-|Entity not found	|404		||
-|General server errors|	500 range		||
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Entity found | 200 | N/A |
+| General user errors | 400 range |  |
+| Entity not found | 404 |  |
+| General server errors | 500 range |  |
 
 ### GraphTopologySet
 
@@ -222,13 +224,13 @@ Deletes a single graph topology.
 
 #### Status codes
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Entity deleted|	200|	N/A|
-|Entity not found|	204|	N/A|
-|General user errors|	400 range	||
-|Graph topology is being referenced by one or more graph instances|	409	|GraphTopologyInUse|
-|General server errors|	500 range	||
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Entity deleted | 200 | N/A |
+| Entity not found | 204 | N/A |
+| General user errors | 400 range |  |
+| Graph topology is being referenced by one or more graph instances | 409 | GraphTopologyInUse |
+| General server errors | 500 range |  |
 
 ### GraphTopologyList
 
@@ -273,18 +275,18 @@ Retrieves a list of all the graph topologies that matches the filter criteria.
 
 #### Filter support
 
-|Operation		|Field(s)	|Operators|
+|Operation |Field(s)	|Operators|
 |---|---|---|
 |$orderby|name	|asc|
 
 
 #### Status codes
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Success|	200	|N/A|
-|General user errors|	400 range	||
-|General server errors|	500 range	||
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Success | 200 | N/A |
+| General user errors | 400 range |  |
+| General server errors | 500 range |  |
 
 ### GraphInstanceGet
 
@@ -318,12 +320,12 @@ Retrieves a single Graph Instance:
 
 #### Status codes
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Entity found	|200|	N/A|
-|General user errors|	400 range	||
-|Entity not found|	404	||
-|General server errors|	500 range	||
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Entity found | 200 | N/A |
+| General user errors | 400 range |  |
+| Entity not found | 404 |  |
+| General server errors | 500 range |  |
 
 ### GraphInstanceSet
 
@@ -368,15 +370,15 @@ Key aspects:
 
 #### Status codes
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Existing entity updated	|200	|N/A|
-|New entity created|	201	|N/A|
-|General user errors|	400 range	||
-|Graph Validation Errors	|400|	GraphValidationError|
-|Module Validation Errors|	400	|ModuleValidationError|
-|Resource validation errors	|409	|ResourceValidationError|
-|General server errors	|500 range||	
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Existing entity updated | 200 | N/A |
+| New entity created | 201 | N/A |
+| General user errors | 400 range |  |
+| Graph Validation Errors | 400 | GraphValidationError |
+| Module Validation Errors | 400 | ModuleValidationError |
+| Resource validation errors | 409 | ResourceValidationError |
+| General server errors | 500 range |  | 
 
 ### GraphInstanceDelete
 
@@ -409,13 +411,13 @@ Key aspects:
 
 #### Status codes
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Graph deleted successfully|	200|	N/A|
-|Graph not found|	204|	N/A|
-|General user errors	|400 range	||
-|Graph is not in the "Stopped" state	|409	|OperationNotAllowedInState|
-|General server errors|	500 range	||
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Graph deleted successfully | 200 | N/A |
+| Graph not found | 204 | N/A |
+| General user errors | 400 range |  |
+| Graph is not in the "Stopped" state | 409 | OperationNotAllowedInState |
+| General server errors | 500 range |  |
 
 ### GraphInstanceList
 
@@ -467,11 +469,11 @@ Retrieves a list of all the graphs instances that matches the filter criteria.
 
 #### Status codes
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Success	|200	|N/A|
-|General user errors|	400 range	||
-|General server errors|	500 range	||
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Success | 200 | N/A |
+| General user errors | 400 range |  |
+| General server errors | 500 range |  |
 
 ### GraphInstanceActivate
 
@@ -511,15 +513,15 @@ Key aspects
 
 #### Status codes
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Graph activated successfully	|200	|N/A|
-|New entity created	|201|	N/A|
-|General user errors	|400 range	||
-|Module validation errors	|400|	ModuleValidationError|
-|Resource validation errors|	409|	ResourceValidationError|
-|Graph is in deactivating state	|409	|OperationNotAllowedInState|
-|General server errors|	500 range	||
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Graph activated successfully | 200 | N/A |
+| New entity created | 201 | N/A |
+| General user errors | 400 range |  |
+| Module validation errors | 400 | ModuleValidationError |
+| Resource validation errors | 409 | ResourceValidationError |
+| Graph is in deactivating state | 409 | OperationNotAllowedInState |
+| General server errors | 500 range |  |
 
 ### GraphInstanceDeactivate
 
@@ -560,13 +562,13 @@ Key aspects:
 }
 ```
 
-|Condition	|Status code	|Detailed error code|
-|---|---|---|
-|Graph activated successfully	|200|	N/A|
-|New entity created	|201|	N/A|
-|General user errors	|400 range	||
-|Graph is in activating state	|409|	OperationNotAllowedInState|
-|General server errors	|500 range	||
+| Condition | Status code | Detailed error code |
+|--|--|--|
+| Graph activated successfully | 200 | N/A |
+| New entity created | 201 | N/A |
+| General user errors | 400 range |  |
+| Graph is in activating state | 409 | OperationNotAllowedInState |
+| General server errors | 500 range |  |
 
 ## Next steps
 

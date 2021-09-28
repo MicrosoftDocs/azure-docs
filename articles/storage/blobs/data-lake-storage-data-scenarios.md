@@ -9,19 +9,20 @@ ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
 ---
+
 # Using Azure Data Lake Storage Gen2 for big data requirements
 
 There are four key stages in big data processing:
 
 > [!div class="checklist"]
-> * Ingesting large amounts of data into a data store, at real-time or in batches
-> * Processing the data
-> * Downloading the data
-> * Visualizing the data
+> - Ingesting large amounts of data into a data store, at real-time or in batches
+> - Processing the data
+> - Downloading the data
+> - Visualizing the data
 
 This article highlights the options and tools for each processing phase.
 
-For a complete list of Azure services that you can use with Azure Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md)
+For a complete list of Azure services that you can use with Azure Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](./data-lake-storage-supported-azure-services.md)
 
 ## Ingest the data into Data Lake Storage Gen2
 
@@ -31,7 +32,7 @@ This section highlights the different sources of data and the different ways in 
 
 ### Ad hoc data
 
-This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data. 
+This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data.
 
 Here's a list of tools that you can use to ingest ad hoc data.
 
@@ -48,8 +49,8 @@ Here's a list of tools that you can use to ingest streamed data.
 
 |Tool | Guidance |
 |---|--|
-|Azure Stream Analytics|[Quickstart: Create a Stream Analytics job by using the Azure portal](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Egress to Azure Data Lake Gen2](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
-|Azure HDInsight Storm | [Write to Apache Hadoop HDFS from Apache Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
+|Azure Stream Analytics|[Quickstart: Create a Stream Analytics job by using the Azure portal](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Egress to Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
+|Azure HDInsight Storm | [Write to Apache Hadoop HDFS from Apache Storm on HDInsight](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |
 
 ### Relational data
 
@@ -59,7 +60,7 @@ Here's a list of tools that you can use to ingest relational data.
 
 |Tool | Guidance |
 |---|--|
-|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md) |
 
 ### Web server log data (upload using custom applications)
 
@@ -69,7 +70,7 @@ Here's a list of tools that you can use to ingest Web server log data.
 
 |Tool | Guidance |
 |---|--|
-|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md)  |
 |Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
@@ -83,9 +84,9 @@ Here's a list of tools that you can use to ingest data associated with HDInsight
 
 |Tool | Guidance |
 |---|--|
-|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
-|AzCopy tool | [Transfer data with the AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Copy data to or from Azure Data Lake Storage Gen2 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
+|AzCopy tool | [Transfer data with the AzCopy](../common/storage-use-azcopy-v10.md) |
+|Azure Data Factory | [Copy data to or from Azure Data Lake Storage Gen2 by using Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 
 ### Data stored in on-premises or IaaS Hadoop clusters
 
@@ -98,13 +99,13 @@ Large amounts of data may be stored in existing Hadoop clusters, locally on mach
 
 ### Really large datasets
 
-For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use Azure ExpressRoute.  
+For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use Azure ExpressRoute.
 
 Azure ExpressRoute lets you create private connections between Azure data centers and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. To learn more, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
 ## Process the data
 
-Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. 
+Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications.
 
 ![Analyze data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analyze data in Data Lake Storage Gen2")
 
@@ -112,20 +113,20 @@ Here's a list of tools that you can use to run data analysis jobs on data that i
 
 |Tool | Guidance |
 |---|--|
-|Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+|Azure Databricks | [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](./data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## Visualize the data
 
-Use the Power BI connector to create visual representations of data stored in Data Lake Storage Gen2. See [Analyze data in Azure Data Lake Storage Gen2 by using Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage).
+Use the Power BI connector to create visual representations of data stored in Data Lake Storage Gen2. See [Analyze data in Azure Data Lake Storage Gen2 by using Power BI](/power-query/connectors/datalakestorage).
 
 ## Download the data
 
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
-* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or a SQL Server instance.
+- Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or a SQL Server instance.
 
-* Download data to your local computer for processing in IDE environments while building application prototypes.
+- Download data to your local computer for processing in IDE environments while building application prototypes.
 
 ![Egress data from Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Egress data from Data Lake Storage Gen2")
 
@@ -133,7 +134,7 @@ Here's a list of tools that you can use to download data from Data Lake Storage 
 
 |Tool | Guidance |
 |---|--|
-|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md) |
+|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
 |Azure Storage Explorer|[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
-|AzCopy tool|[Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-blobs.md)|
+|AzCopy tool|[Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-v10.md#transfer-data)|

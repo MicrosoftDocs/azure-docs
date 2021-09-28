@@ -15,6 +15,11 @@ ms.custom: "seodec2018, devx-track-csharp"
 
 # Quickstart: Search for news using C# and the Bing News Search REST API
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 Use this quickstart to make your first call to the Bing News Search API. This simple C# application sends a news search query to the API, and displays the JSON response. 
 
 Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.

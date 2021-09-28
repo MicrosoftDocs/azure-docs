@@ -4,10 +4,11 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 10/05/2020
+ms.date: 09/08/2021
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Link a partner ID to your Azure accounts
@@ -26,7 +27,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 - **Service principal**: Your customer can add an app or script from your organization in their directory and assign any Azure role. The identity of the app or script is known as a service principal.
 
-- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure Lighthouse](../../lighthouse/overview.md).
 
 ## Link to a partner ID
 
@@ -60,12 +61,12 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 
     ```azurepowershell-interactive
-    C:\> new-AzManagementPartner -PartnerId 12345
+    C:\> New-AzManagementPartner -PartnerId 12345
     ```
 
 #### Get the linked partner ID
 ```azurepowershell-interactive
-C:\> get-AzManagementPartner
+C:\> Get-AzManagementPartner
 ```
 
 #### Update the linked partner ID
@@ -74,7 +75,7 @@ C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### Delete the linked partner ID
 ```azurepowershell-interactive
-C:\> remove-AzManagementPartner -PartnerId 12345
+C:\> Remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### Use the Azure CLI to link to a new partner ID
@@ -157,9 +158,7 @@ Yes, You can link your partner ID for Azure Stack.
 
 **How do I link my partner ID if my company uses [Azure Lighthouse](../../lighthouse/overview.md) to access customer resources?**
 
-If you onboard customers to Azure delegated resource management by [publishing a managed services offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), your MPN ID will automatically be associated.
-
-If you [onboard customers by deploying Azure Resource Manager templates](../../lighthouse/how-to/onboard-customer.md), you'll need to associate your MPN ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your MPN ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
+In order for Azure Lighthouse activities to be recognized, you'll need to associate your MPN ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your MPN ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
 
 **How do I explain Partner Admin Link (PAL) to my Customer?**
 

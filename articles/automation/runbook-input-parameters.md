@@ -3,10 +3,12 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/14/2019
-ms.topic: conceptual
+ms.date: 09/13/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
-# Configure runbook input parameters
+
+# Configure runbook input parameters in Automation
 
 Runbook input parameters increase the flexibility of a runbook by allowing data to be passed to it when it's started. These parameters allow runbook actions to be targeted for specific scenarios and environments. This article describes the configuration and use of input parameters in your runbooks.
 
@@ -64,12 +66,12 @@ In this case, you can pass the following value to the parameter.
 
 ### Configure input parameters in graphical runbooks
 
-To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/automation-tutorial-runbook-graphical.md).
+To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/powershell-runbook-managed-identity.md).
 
 A graphical runbook uses these these major runbook activities:
 
 * Configuration of the Azure Run As account to authenticate with Azure. 
-* Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet to get VM properties.
+* Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to get VM properties.
 * Use of the [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) activity to output the VM names. 
 
 The `Get-AzVM` activity defines two inputs, the VM name and the resource group name. Since these names can be different each time the runbook starts, you must add input parameters to your runbook to accept these inputs. Refer to [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
@@ -107,7 +109,7 @@ Follow these steps to configure the input parameters.
 Unlike PowerShell, PowerShell Workflow, and graphical runbooks, Python runbooks do not take named parameters. The runbook editor parses all input parameters as an array of argument values. You can access the array by importing the `sys` module into your Python script, and then using the `sys.argv` array. It is important to note that the first element of the array, `sys.argv[0]`, is the name of the script. Therefore the first actual input parameter is `sys.argv[1]`.
 
 For an example of how to use input parameters in a Python runbook, see
-[My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python2.md).
+[My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python-3.md).
 
 ## Assign values to input parameters in runbooks
 
@@ -135,7 +137,7 @@ In the label beneath the input box, you can see the properties that have been se
 
 #### Start a published runbook using PowerShell cmdlets and assign parameters
 
-* **Azure Resource Manager cmdlets:** You can start an Automation runbook that was created in a resource group by using [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0).
+* **Azure Resource Manager cmdlets:** You can start an Automation runbook that was created in a resource group by using [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook).
 
    ```powershell
      $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
@@ -269,7 +271,7 @@ When you execute a runbook by using a webhook, the predefined input parameter `[
 It can be useful to store data that you want to pass to a runbook in a JSON file. For example, you might create a JSON file that contains all parameters that you want to pass to a runbook. To do this, you must convert the JSON code to a string and then convert the string to a PowerShell object before passing it to the runbook.
 
 This section uses an example in which a PowerShell script calls
-[Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) to start a PowerShell runbook, passing the contents of the JSON file to the runbook. The PowerShell runbook starts an Azure VM by retrieving the parameters for the VM from the JSON object.
+[Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) to start a PowerShell runbook, passing the contents of the JSON file to the runbook. The PowerShell runbook starts an Azure VM by retrieving the parameters for the VM from the JSON object.
 
 ### Create the JSON file
 
@@ -284,7 +286,7 @@ Type the following code in a text file, and save it as **test.json** somewhere o
 
 ### Create the runbook
 
-Create a new PowerShell runbook named **Test-Json** in Azure Automation. See [My first PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md).
+Create a new PowerShell runbook named **Test-Json** in Azure Automation.
 
 To accept the JSON data, the runbook must take an object as an input parameter. The runbook can then use the properties defined in the JSON file.
 
@@ -294,10 +296,10 @@ Param(
      [object]$json
 )
 
-# Connect to Azure account
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID `
-    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+# Connect to Azure with user-assigned managed identity
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
+Connect-AzAccount -Identity -AccountId $identity.ClientId
 
 # Convert object to actual JSON
 $json = $json | ConvertFrom-Json

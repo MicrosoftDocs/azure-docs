@@ -1,19 +1,19 @@
 ---
 title: Provision a user on demand by using Azure Active Directory
-description: Force sync
+description: Learn how to provision users on demand in Azure Active Directory.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/01/2020
-ms.author: mimart
+ms.date: 05/11/2021
+ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# On-demand provisioning
+# On-demand provisioning in Azure Active Directory
 Use on-demand provisioning to provision a user into an application in seconds. Among other things, you can use this capability to:
 
 * Troubleshoot configuration issues quickly.

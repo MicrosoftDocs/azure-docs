@@ -20,7 +20,7 @@ In this article, we will provide an overview and introduction to core concepts o
 
 ## Overview
 
-Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of PostgreSQL 9.5, 9.6, 10, and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Single Server is a fully managed database service with minimal requirements for customizations of the database. The single server platform is designed to handle most of the database management functions such as patching, backups, high availability, security with minimal user configuration and control. The architecture is optimized to provide 99.99% availability on single availability zone. It supports community version of PostgreSQL 9.6, 10, and 11. The service is generally available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 Single servers are best suited for cloud native applications designed to handle automated patching without the need for granular control on the patching schedule and custom PostgreSQL configuration settings.
 
@@ -63,7 +63,7 @@ In addition to native authentication, the single server service supports Azure A
 
 [Audit logging]() (in preview) is available to track all database level activity.
 
-The single server service is complaint with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center]() for information about Azure's platform security.
+The single server service is compliant with all the industry-leading certifications like FedRAMP, HIPAA, PCI DSS. Visit the [Azure Trust Center]() for information about Azure's platform security.
 
 For more information about Azure Database for PostgreSQL security features, see the [security overview]().
 

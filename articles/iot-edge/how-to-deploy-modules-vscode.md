@@ -2,7 +2,7 @@
 title: Deploy modules from Visual Studio Code - Azure IoT Edge
 description: Use Visual Studio Code with the Azure IoT Tools to push an IoT Edge module from your IoT Hub to your IoT Edge device, as configured by a deployment manifest.
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual
@@ -12,6 +12,8 @@ services: iot-edge
 ---
 
 # Deploy Azure IoT Edge modules from Visual Studio Code
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
@@ -56,7 +58,7 @@ Here's a basic deployment manifest with one module as an example:
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                 "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                  "createOptions": "{}"
                }
              },
@@ -65,7 +67,7 @@ Here's a basic deployment manifest with one module as an example:
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                 "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                  "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                }
              }

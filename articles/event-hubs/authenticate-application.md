@@ -2,11 +2,12 @@
 title: Authenticate an application to access Azure Event Hubs resources
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Event Hubs resources
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 06/14/2021
+ms.custom: subject-rbac-steps
 ---
 
 # Authenticate an application with Azure Active Directory to access Event Hubs resources
-Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). A key advantage of using Azure AD with Azure Event Hubs is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is `https://eventhubs.azure.net/` (For Kafka clients, the resource to request a token is `https://<namespace>.servicebus.windows.net`). Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
+Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). A key advantage of using Azure AD with Azure Event Hubs is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft Identity platform. The resource name to request a token is `https://eventhubs.azure.net/`, and it's the same for all clouds/tenants (For Kafka clients, the resource to request a token is `https://<namespace>.servicebus.windows.net`). Azure AD authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Azure AD returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
 
 When a role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. An  Azure AD security can assign roles to a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -63,27 +64,9 @@ The application needs a client secret to prove its identity when requesting a to
 
 
 ## Assign Azure roles using the Azure portal  
-After you register the application, you assign the application's service principal to an Event Hubs Azure AD role described in the [Build-in roles for Azure Event Hubs](#built-in-roles-for-azure-event-hubs) section. 
+Assign one of the [Event Hubs roles](#built-in-roles-for-azure-event-hubs) to the application's service principal at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your Event Hubs namespace.
-2. On the **Overview** page, select the event hub for which you want to assign a role.
-
-    ![Select your event hub](./media/authenticate-application/select-event-hub.png)
-1. Select **Access Control (IAM)** to display access control settings for the event hub. 
-1. Select the **Role assignments** tab to see the list of role assignments. Select the **Add** button on the toolbar and then select **Add role assignment**. 
-
-    ![Add button on the toolbar](./media/authenticate-application/role-assignments-add-button.png)
-1. On the **Add role assignment** page, do the following steps:
-    1. Select the **Event Hubs role** that you want to assign. 
-    1. Search to locate the **security principal** (user, group, service principal) to which you want to assign the role. Select the **registered application** from the list. 
-    1. Select **Save** to save the role assignment. 
-
-        ![Assign role to a user](./media/authenticate-application/assign-role-to-user.png)
-    4. Switch to the **Role assignments** tab and confirm the role assignment. For example, the following image shows that **mywebapp** is in the **Azure Event Hubs Data Sender** role. 
-        
-        ![User in the list](./media/authenticate-application/user-in-list.png)
-
-You can follow similar steps to assign a role scoped to Event Hubs namespace, resource group, or subscription. Once you define the role and its scope, you can test this behavior with samples [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). To learn more on managing access to Azure resources using Azure RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
+Once you define the role and its scope, you can test this behavior with samples [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). To learn more on managing access to Azure resources using Azure RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
 
 
 ### Client libraries for token acquisition  

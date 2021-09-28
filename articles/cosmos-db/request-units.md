@@ -5,14 +5,16 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 08/26/2021
+ms.custom: "seo-nov-2020"
 
 ---
 # Request Units in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
-The cost of all database operations is normalized by Azure Cosmos DB and is expressed by *Request Units* (or RUs, for short). You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
+The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
 
 The cost to do a point read (i.e. fetching a single item by its ID and partition key value) for a 1 KB item is 1 Request Unit (or 1 RU). All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs.
 
@@ -33,7 +35,7 @@ The type of Azure Cosmos account you're using determines the way consumed RUs ge
 
 2. **Serverless mode**: In this mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the amount of Request Units that has been consumed by your database operations. To learn more, see the [Serverless throughput](serverless.md) article. 
 
-3. **Autoscale mode**: In this more, you can automatically and instantly scale the throughput (RU/s) of your database or container based on it's usage, without impacting the availability, latency, throughput, or performance of the workload. This mode is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. To learn more, see the [autoscale throughput](provision-throughput-autoscale.md) article. 
+3. **Autoscale mode**: In this mode, you can automatically and instantly scale the throughput (RU/s) of your database or container based on it's usage, without impacting the availability, latency, throughput, or performance of the workload. This mode is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. To learn more, see the [autoscale throughput](provision-throughput-autoscale.md) article. 
 
 ## Request Unit considerations
 
@@ -85,3 +87,6 @@ Your choice of [consistency model](consistency-levels.md) also affects the throu
 - Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
 - Learn how to [optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Learn how to [use metrics to monitor throughput](use-metrics.md).
+- Trying to do capacity planning for a migration to Azure Cosmos DB?
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

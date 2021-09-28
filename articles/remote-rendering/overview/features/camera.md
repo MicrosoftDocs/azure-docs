@@ -27,7 +27,7 @@ The following properties can be changed on the camera settings:
 
 **Near and far plane:**
 
-To make sure no invalid ranges can be set, **NearPlane** and **FarPlane** properties are read-only and a separate function **SetNearAndFarPlane** exists to change the range. This data will be sent to the server at the end of the frame.
+To make sure no invalid ranges can be set, **NearPlane** and **FarPlane** properties are read-only and a separate function **SetNearAndFarPlane** exists to change the range. This data will be sent to the server at the end of the frame. When setting these values, **NearPlane** needs to be smaller than **FarPlane**. Otherwise an error will occur.
 
 > [!IMPORTANT]
 > In Unity this is handled automatically when changing the main camera near and far planes.
@@ -39,25 +39,42 @@ Sometimes it is helpful to disable the depth buffer write of the remote image fo
 > [!TIP]
 > In Unity a debug component called **EnableDepthComponent** is provided that can be used to toggle this feature in the editor UI.
 
+**InverseDepth**:
+
+> [!NOTE]
+> This setting is only important if `EnableDepth` is set to `true`. Otherwise this setting has no impact.
+
+Depth buffers normally record z-values in a floating-point range of [0;1], with 0 denoting the near-plane depth and 1 denoting the far-plane depth. It is also possible to invert this range and record depth values in range [1;0], that is, the near-plane depth becomes 1 and the far-plane depth becomes 0. Generally, the latter improves the distribution of floating point precision across the non-linear z-range.
+
+> [!WARNING]
+> A common approach is inverting the near-plane and far-plane values on the camera objects. This will fail for Azure Remote Rendering with an error when trying this on the `CameraSettings`.
+
+The Azure Remote Rendering API needs to know about the depth buffer convention of your local renderer to correctly compose remote depth into the local depth buffer. If your depth buffer range is [0;1] leave this flag as `false`. If you use an inverted depth buffer with a [1;0] range, set the `InverseDepth` flag to `true`.
+
+> [!NOTE]
+> For Unity, the correct setting is already applied by the `RenderingConnection` so there is no need for manual intervention.
+
 Changing the camera settings can be done as follows:
 
 ```cs
-void ChangeCameraSetting(AzureSession session)
+void ChangeCameraSetting(RenderingSession session)
 {
-    CameraSettings settings = session.Actions.CameraSettings;
+    CameraSettings settings = session.Connection.CameraSettings;
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
+    settings.InverseDepth = false;
 }
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeCameraSetting(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<CameraSettings> settings = session->Actions()->GetCameraSettings();
+    ApiHandle<CameraSettings> settings = session->Connection()->GetCameraSettings();
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);
+    settings->SetInverseDepth(false);
 }
 ```
 

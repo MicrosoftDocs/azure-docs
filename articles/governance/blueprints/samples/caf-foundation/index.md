@@ -1,7 +1,7 @@
 ---
 title: CAF Foundation blueprint sample overview
 description: Overview and architecture of the Cloud Adoption Framework (CAF) for Azure Foundation blueprint sample.
-ms.date: 09/14/2020
+ms.date: 03/12/2021
 ms.topic: sample
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
@@ -18,7 +18,7 @@ estate. This sample will deploy and enforce resources, policies, and templates t
 organization to confidently get started with Azure.
 
 :::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="C A F Foundation, image describes what gets installed as part of C A F guidance for creating a foundation to get started with Azure." border="false":::
-   Describes an Azure architecture which is achieved by deploying the C A F Foundation blueprint.  It's applicable to a subscription with resource groups which consists of a storage account for storing logs, Log analytics configured to store in the storage account. It also depicts Azure Key Vault configured with Azure Security Center standard setup. All these core infrastructures are accessed using Azure Active Directory and enforced using Azure Policy.     
+   Describes an Azure architecture which is achieved by deploying the C A F Foundation blueprint. It's applicable to a subscription with resource groups which consists of a storage account for storing logs, Log Analytics configured to store in the storage account. It also depicts Azure Key Vault configured with Azure Security Center standard setup. All these core infrastructures are accessed using Azure Active Directory and enforced using Azure Policy.
 :::image-end:::
 
 This implementation incorporates several Azure services used to provide a secure, fully monitored,
@@ -33,14 +33,14 @@ enterprise-ready foundation. This environment is composed of:
   version) provides threat protection for your migrated workloads
 - The blueprint also defines and deploys [Azure Policy](../../../policy/overview.md) definitions:
   - Policy definitions:
-    - Tagging (CostCenter) applied to resources groups
+    - Tagging (CostCenter) applied to resource groups
     - Append resources in resource group with the CostCenter Tag
     - Allowed Azure Region for Resources and Resource Groups
     - Allowed Storage Account SKUs (choose while deploying)
     - Allowed Azure VM SKUs (choose while deploying)
-    - Require Network Watcher to be deployed 
+    - Require Network Watcher to be deployed
     - Require Azure Storage Account Secure transfer Encryption
-    - Deny resource types (choose while deploying)  
+    - Deny resource types (choose while deploying)
   - Policy initiatives:
     - Enable Monitoring in Azure Security Center (100+ policy definitions)
 

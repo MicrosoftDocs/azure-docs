@@ -3,6 +3,7 @@ title: Request unit charges for Azure Cosmos DB as a key value store
 description: Learn about the request unit charges of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
@@ -10,6 +11,7 @@ ms.custom: seodec18
 ---
 
 # Azure Cosmos DB as a key value store – cost overview
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large-scale applications easily. By default, Azure Cosmos DB automatically and efficiently indexes all the data it ingests. This enables fast and consistent [SQL](./sql-query-getting-started.md) (and [JavaScript](stored-procedures-triggers-udfs.md)) queries on the data. 
 

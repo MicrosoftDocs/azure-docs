@@ -1,7 +1,7 @@
 ---
 title: View and use a virtual machine's Azure Resource Manager template
 description: Learn how to use the Azure Resource Manager template from a virtual machine to create other VMs
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -20,7 +20,7 @@ There are two ways to create VMs in DevTest Labs using a Resource Manager templa
 
    ![Screenshot that shows the list of virtual machines as single items in the DevTest Labs virtual machines list.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   This type of Resource Manager template can be provisioned through the Azure PowerShell command **New-AzResourceGroupDeployment** or through the Azure CLI command **az group deployment create**. It requires administrator permissions, so users who are assigned with a DevTest Labs user role can’t perform the deployment. 
+   This type of Resource Manager template can be provisioned through the Azure PowerShell command **New-AzResourceGroupDeployment** or through the Azure CLI command **az deployment group create**. It requires administrator permissions, so users who are assigned with a DevTest Labs user role can’t perform the deployment. 
 
 - Resource Manager templates that use a Microsoft.Compute/virtualmachines resource type can provision multiple VMs as a single environment in the DevTest Labs virtual machines list:
 
@@ -30,7 +30,7 @@ There are two ways to create VMs in DevTest Labs using a Resource Manager templa
 
 The remainder of this article discusses Resource Manager templates that use Microsoft.DevTestLab/labs/virtualmachines. These are used by lab admins to automate lab VM creation (for example, claimable VMs) or golden image generation (for example, image factory).
 
-[Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/template-best-practices.md) offers many guidelines and suggestions to help you create Azure Resource Manager templates that are reliable and easy to use.
+[Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md) offers many guidelines and suggestions to help you create Azure Resource Manager templates that are reliable and easy to use.
 
 ## View and save a virtual machine's Resource Manager template
 1. Follow the steps at [Create your first VM in a lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) to begin creating a virtual machine.

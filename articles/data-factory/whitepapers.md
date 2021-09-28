@@ -1,19 +1,12 @@
 ---
 title: Whitepapers that describe Azure Data Factory
 description: These whitepapers describe Azure Data Factory in depth.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
-
-ms.devlang: na
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 09/04/2019
-
 ---
 
 # Azure Data Factory whitepapers 

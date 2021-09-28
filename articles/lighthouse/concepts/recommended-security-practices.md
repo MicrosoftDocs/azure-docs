@@ -1,7 +1,7 @@
 ---
 title: Recommended security practices
 description: When using Azure Lighthouse, it's important to consider security and access control.
-ms.date: 08/12/2020
+ms.date: 09/08/2021
 ms.topic: conceptual
 ---
 
@@ -12,11 +12,11 @@ When using [Azure Lighthouse](../overview.md), it's important to consider securi
 > [!TIP]
 > These recommendations also apply to [enterprises managing multiple tenants](enterprise.md) with Azure Lighthouse.
 
-## Require Azure Multi-Factor Authentication
+## Require Azure AD Multi-Factor Authentication
 
-[Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
+[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Azure AD Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
 
-We suggest that you ask your customers to implement Azure Multi-Factor Authentication in their tenants as well.
+We recommend that you ask your customers to implement Azure AD Multi-Factor Authentication in their tenants as well.
 
 ## Assign permissions to groups, using the principle of least privilege
 
@@ -40,7 +40,11 @@ Once you've created these groups, you can assign users as needed. Only add the u
 
 Keep  in mind that when you [onboard customers through a public managed service offer](../how-to/publish-managed-services-offers.md), any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you'll need to publish a separate private plan that is exclusive to each customer, or onboard customers individually by using Azure Resource Manager templates. For example, you could publish a public plan that has very limited access, then work with the customer directly to onboard their resources for additional access using a customized Azure Resource Template granting additional access as needed.
 
+> [!TIP]
+> You can also create *eligible authorizations* that let users in your managing tenant temporarily elevate their role. By using eligible authorizations, you can minimize the number of permanent assignments of users to privileged roles, helping to reduce security risks related to privileged access by users in your tenant. This feature is currently in public preview and has specific licensing requirements. For more information, see [Create eligible authorizations](../how-to/create-eligible-authorizations.md).
+
 ## Next steps
 
-- [Deploy Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- Review the [security baseline information](../security-baseline.md) to understand how guidance from the Azure Security Benchmark applies to Azure Lighthouse.
+- [Deploy Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).

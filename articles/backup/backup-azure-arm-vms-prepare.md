@@ -2,7 +2,7 @@
 title: Back up Azure VMs in a Recovery Services vault
 description: Describes how to back up Azure VMs in a Recovery Services vault using the Azure Backup
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 06/01/2021
 ---
 # Back up Azure VMs in a Recovery Services vault
 
@@ -56,22 +56,23 @@ Modify the storage replication type as follows:
 
 ## Apply a backup policy
 
-Configure a backup policy for the vault.
+To apply a backup policy to your Azure VMs, follow these steps:
 
-1. In the vault, select **+Backup** in the **Overview** section.
+1. Navigate to Backup center and click **+Backup** from the **Overview** tab.
 
    ![Backup button](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-1. In **Backup Goal** > **Where is your workload running?** select **Azure**. In **What do you want to back up?** select **Virtual machine** >  **OK**. This registers the VM extension in the vault.
+1. Select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then click **Continue**.
 
    ![Backup and Backup Goal panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
-1. In **Backup policy**, select the policy that you want to associate with the vault.
-    * The default policy backs up the VM once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for two days.
+1. Assign a Backup policy.
+
+    - The default policy backs up the VM once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for two days.
 
       ![Default backup policy](./media/backup-azure-arm-vms-prepare/default-policy.png)
 
-    * If you don't want to use the default policy, select **Create New**, and create a custom policy as described in the next procedure.
+    - If you don't want to use the default policy, select **Create New**, and create a custom policy as described in the next procedure.
 
 1. Under **Virtual Machines**, select **Add**.
 
@@ -111,6 +112,8 @@ If you selected to create a new backup policy, fill in the policy settings.
 4. In **Retention range**, specify how long you want to keep your daily or weekly backup points.
 5. In **Retention of monthly backup point** and **Retention of yearly backup point**, specify whether you want to keep a monthly or yearly backup of your daily or weekly backups.
 6. Select **OK** to save the policy.
+    > [!NOTE]
+    > To store the restore point collection (RPC), the Backup service creates a separate resource group (RG). This RG is different than RG of the VM. [Learn more](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![New backup policy](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
@@ -121,12 +124,13 @@ If you selected to create a new backup policy, fill in the policy settings.
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
-1. In the vault menu, select **Backup items**.
-2. In **Backup Items**, select **Azure Virtual Machine**.
-3. In the **Backup Items** list, select the ellipses (...).
-4. Select **Backup now**.
-5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
-6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
+1. Navigate to Backup center and select the **Backup Instances** menu item.
+1. Select **Azure Virtual machines** as the **Datasource type**. Then search for the VM that you have configured for backup.
+1. Right-click the relevant row or select the more icon (…), and then click **Backup Now**.
+1. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
+1. Monitor the portal notifications.
+   To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs.
+   Depending on the size of your VM, creating the initial backup may take a while.
 
 ## Verify Backup job status
 

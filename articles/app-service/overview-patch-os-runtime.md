@@ -3,7 +3,7 @@ title: OS and runtime patching cadence
 description: Learn how Azure App Service updates the OS and runtimes, what runtimes and patch level your apps has, and how you can get update announcements.
 ms.topic: article
 ms.date: 02/02/2018
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 
@@ -35,10 +35,6 @@ Stay current with critical security announcements in Azure by visiting [Azure Se
 
 New stable versions of supported language runtimes (major, minor, or patch) are periodically added to App Service instances. Some updates overwrite the existing installation, while others are installed side by side with existing versions. An overwrite installation means that your app automatically runs on the updated runtime. A side-by-side installation means you must manually migrate your app to take advantage of a new runtime version. For more information, see one of the subsections.
 
-Runtime updates and deprecations are announced here:
-
-- https://azure.microsoft.com/updates/?product=app-service 
-- https://github.com/Azure/app-service-announcements/issues
 
 > [!NOTE] 
 > Information here applies to language runtimes that are built into an App Service app. A custom runtime you upload to App Service, for example, remains unchanged unless you manually upgrade it.
@@ -47,7 +43,7 @@ Runtime updates and deprecations are announced here:
 
 ### New patch updates
 
-Patch updates to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automatically by overwriting the existing installation with the new version. Node.js patch updates are installed side by side with the existing versions (similar to major and minor versions in the next section). New Python patch versions can be installed manually through [site extensions](https://azure.microsoft.com/blog/azure-web-sites-extensions/), side by side with the built-in Python installations.
+Patch updates to .NET, PHP, Java SDK, or Tomcat version are applied automatically by overwriting the existing installation with the latest version. Node.js patch updates are installed side by side with the existing versions (similar to major and minor versions in the next section). New Python patch versions can be installed manually through [site extensions](https://azure.microsoft.com/blog/azure-web-sites-extensions/), side by side with the built-in Python installations.
 
 ### New major and minor versions
 
@@ -57,13 +53,9 @@ When a new major or minor version is added, it is installed side by side with th
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
 az webapp config set --php-version 7.0 --resource-group <groupname> --name <appname>
 az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 --resource-group <groupname> --name <appname>
-az webapp config set --python-version 3.4 --resource-group <groupname> --name <appname>
+az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
-
-### Deprecated versions  
-
-When an older version is deprecated, the removal date is announced so that you can plan your runtime version upgrade accordingly. 
 
 ## How can I query OS and runtime update status on my instances?  
 

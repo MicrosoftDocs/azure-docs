@@ -5,12 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/26/2021
 ms.reviewer: sngun
 
 ---
 
 # Automated recommendations for Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 All the cloud services including Azure Cosmos DB get frequent updates with new features, capabilities, and improvements. It’s important for your application to keep up with the latest performance and security updates. The Azure portal offers customized recommendations that enable you to maximize the performance of your application. The Azure Cosmos DB's advisory engine continuously analyzes the usage history of your Azure Cosmos DB resources and provides recommendations based on your workload patterns. These recommendations correspond to areas like partitioning, indexing, network, security etc. These customized recommendations help you to improve the performance of your application.
 
@@ -82,3 +83,6 @@ In this category, the advisor detects the query execution and identifies that th
 
 * [Tuning query performance in Azure Cosmos DB](sql-api-query-metrics.md)
 * [Troubleshoot query issues](troubleshoot-query-performance.md) when using Azure Cosmos DB
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

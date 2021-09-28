@@ -13,21 +13,38 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2020
+ms.date: 01/25/2021
 ms.author: yelevin
 
 ---
 # Enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel 
 
+> [!IMPORTANT]
+>
+> The UEBA and Entity Pages features are now in **General Availability** in ***all*** Azure Sentinel geographies and regions. 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
-- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD in order to enable or disable UEBA, but not to run it.
+To enable or disable this feature (these prerequisites are not required to use the feature):
+
+- Your user must be a member of your organization's Azure Active Directory, and not a guest user.
+
+- Your user must be assigned the **Global Administrator** or **Security Administrator** roles in Azure AD.
+
+- Your user must be assigned at least one of the following **Azure roles** ([Learn more about Azure RBAC](roles.md)):
+    - **Azure Sentinel Contributor** at the workspace or resource group levels.
+    - **Log Analytics Contributor** at the resource group or subscription levels.
+
+- Your workspace must not have any Azure resource locks applied to it. [Learn more about Azure resource locking](../azure-resource-manager/management/lock-resources.md).
+
+> [!NOTE]
+> No special license is required to add UEBA functionality to Azure Sentinel, but **additional charges** may apply.
 
 ## How to enable User and Entity Behavior Analytics
 
-1. From the Azure Sentinel navigation menu, select **Entity behavior (preview)**.
+1. From the Azure Sentinel navigation menu, select **Entity behavior**.
 
 1. Under the heading **Turn it on**, switch the toggle to **On**.
 
@@ -45,5 +62,5 @@ ms.author: yelevin
 
 ## Next steps
 In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

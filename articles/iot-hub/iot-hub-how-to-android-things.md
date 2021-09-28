@@ -22,7 +22,7 @@ This tutorial outlines the steps to build a device side application on Android T
 
 * Latest version of [Git](https://git-scm.com/)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an IoT hub
 
@@ -97,4 +97,3 @@ az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHu
 
 * Learn about [how to manage connectivity and reliable messaging](iot-hub-reliability-features-in-sdks.md) using the IoT Hub SDKs.
 * Learn about how to [develop for mobile platforms](iot-hub-how-to-develop-for-mobile-devices.md) such as iOS and Android.
-* [Azure IoT SDK platform support](iot-hub-device-sdk-platform-support.md)

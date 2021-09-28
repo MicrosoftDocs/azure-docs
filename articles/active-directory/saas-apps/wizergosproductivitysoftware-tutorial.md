@@ -118,15 +118,15 @@ To configure Azure AD single sign-on with Wizergos Productivity Software, perfor
 
 2. From the hamburger menu, select **Admin**.
 
-	![Configure Single Sign-On On App side](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
+	![Screenshot shows the Admin icon selected from the menu.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
 
 3. In Admin page on left hand menu select **AUTHENTICATION** and click on **Azure AD**.
 
-	![Configure Single Sign-On On App side](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
+	![Screenshot shows Azure A D selected from AUTHENTICATION.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
 
 4. Perform the following steps on **AUTHENTICATION** section.
 
-	![Configure Single Sign-On On App side](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
+	![Screenshot shows the AUTHENTICATION page where you can enter the values described.](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
 	
 	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD.
 	
@@ -196,7 +196,7 @@ In this section, you create a user called Britta Simon in Wizergos Productivity 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Wizergos Productivity Software tile in the Access Panel, you should be automatically signed in to the Wizergos Productivity Software for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Wizergos Productivity Software tile in the Access Panel, you should be automatically signed in to the Wizergos Productivity Software for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

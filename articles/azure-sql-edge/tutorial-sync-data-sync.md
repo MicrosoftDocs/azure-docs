@@ -50,7 +50,7 @@ For more info about SQL Data Sync, see these articles:
 
 * [Best practices](../azure-sql/database/sql-data-sync-best-practices.md) and [How to troubleshoot issues with Azure SQL Data Sync](../azure-sql/database/sql-data-sync-troubleshoot.md)
 
-* [Monitor SQL Data Sync with Azure Monitor logs](../azure-sql/database/sql-data-sync-monitor-sync.md)
+* [Monitor SQL Data Sync with Azure Monitor logs](../azure-sql/database/monitor-tune-overview.md)
 
 * [Update the sync schema with Transact-SQL](../azure-sql/database/sql-data-sync-update-sync-schema.md) or [PowerShell](../azure-sql/database/scripts/update-sync-schema-in-sync-group.md)
 

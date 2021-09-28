@@ -131,15 +131,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on **Tools** -> **Account**.
 
-    ![WhosOnLocation configuration](./media/WhosOnLocation-tutorial/config1.png)
+    ![Screenshot shows Account selected from the Tools menu in the WhosOnLocation site.](./media/WhosOnLocation-tutorial/config1.png)
 
 3. In the left side navigator, select **Employee Access**.
 
-    ![WhosOnLocation configuration](./media/WhosOnLocation-tutorial/config2.png)
+    ![Screenshot shows Employee Access selected from Account Profile.](./media/WhosOnLocation-tutorial/config2.png)
 
 4. Perform the following steps in the following page.
 
-    ![WhosOnLocation configuration](./media/WhosOnLocation-tutorial/config3.png)
+    ![Screenshot shows the Employess Access tab where you can enter user data.](./media/WhosOnLocation-tutorial/config3.png)
 
     a. Change **Single sign-on with SAML** to **Yes**.
 
@@ -159,7 +159,7 @@ In this section, you create a user called B.Simon in WhosOnLocation. Work with 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the WhosOnLocation tile in the Access Panel, you should be automatically signed in to the WhosOnLocation for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the WhosOnLocation tile in the Access Panel, you should be automatically signed in to the WhosOnLocation for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 

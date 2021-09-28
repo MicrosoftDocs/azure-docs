@@ -1,6 +1,9 @@
 ---
 title: Configure learning behavior
 description: Apprentice mode gives you confidence in the Personalizer service and its machine learning capabilities, and provides metrics that the service is sent information that can be learned from – without risking online traffic.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
@@ -51,10 +54,6 @@ Apprentice mode provides the following **evaluation metrics**:
 * **Baseline – average reward**:  Average rewards of the application’s default (baseline).
 * **Personalizer – average reward**: Average of total rewards Personalizer would potentially have reached.
 * **Reward achievement ratio over most recent 1000 events**: Ratio of Baseline and Personalizer reward – normalized over the most recent 1000 events.
-
-## Evaluate Apprentice mode features
-
-Evaluate the features using an [offline evaluation](how-to-offline-evaluation.md).
 
 ## Switch behavior to Online mode
 

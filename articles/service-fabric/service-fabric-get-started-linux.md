@@ -17,26 +17,22 @@ ms.custom: devx-track-js
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-To deploy and run (Azure Service Fabric applications)[service-fabric-application-model.md] on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
+To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
 
-The steps in this article assume that you install natively on Linux or use the (Service Fabric OneBox container image)[https://hub.docker.com/_/microsoft-service-fabric-onebox], i.e. `mcr.microsoft.com/service-fabric/onebox:u18`.
+The steps in this article assume that you install natively on Linux or use the [Service Fabric OneBox container image](https://hub.docker.com/_/microsoft-service-fabric-onebox), i.e. `mcr.microsoft.com/service-fabric/onebox:u18`.
 
 You can manage Service Fabric entities hosted in the cloud or on-premises with the Azure Service Fabric command-line interface (CLI). For information on how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
 
 
 ## Prerequisites
 
-These operating system versions are supported for development.
+- Ensure you are using a supported [Linux version](service-fabric-versions.md#supported-linux-versions-and-support-end-date).
 
-* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
-
-    Make sure that the `apt-transport-https` package is installed.
+- Install the `apt-transport-https` package:
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
 
 ## Installation methods
 
@@ -175,7 +171,7 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 
 # [Container-based local cluster](#tab/localclusteroneboxcontainer)
 
-Start a container-based [one box Service Fabric cluster](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microsoft-service-fabric-onebox) cluster.
 
 1. Install Moby to be able to deploy Docker containers.
     ```bash
@@ -262,7 +258,7 @@ After you install the generators, create guest executable or container services 
 
 ## Set up .NET Core 3.1 development
 
-Install the [.NET Core 3.1 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
+Install the [.NET Core 3.1 SDK for Ubuntu](/dotnet/core/install/linux-ubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
 
 ## Set up Java development
 

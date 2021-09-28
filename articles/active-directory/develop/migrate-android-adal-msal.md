@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 # Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 
@@ -68,7 +68,7 @@ In your app registration in the portal, you will see an **API permissions** tab.
 With ADAL and the Azure AD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
 
 > [!TIP]
-> We recommend the use of incremental consent in scenarios where you need to provide additional context to your user about why your app needs a permission.
+> Use incremental consent to provide additional context to your users about why your app needs a permission.
 
 ### Admin consent
 
@@ -86,7 +86,7 @@ If you're currently using ADAL and don't need to use incremental consent, the si
 > [!CAUTION]
 > It's not possible to set both scopes and a resource id. Attempting to set both will result in an `IllegalArgumentException`.
 
- This will result in the same v1 behavior that you are used. All permissions requested in your app registration are requested from the user during their first interaction.
+This will result in the same v1 behavior that you are used. All permissions requested in your app registration are requested from the user during their first interaction.
 
 ### Authenticate and request permissions only as needed
 
@@ -128,13 +128,13 @@ If you attempt to use an authority that isn't known to Microsoft, and isn't incl
 ### Logging
 You can now declaratively configure logging as part of your configuration, like this:
 
- ```
- "logging": {
-    "pii_enabled": false,
-    "log_level": "WARNING",
-    "logcat_enabled": true
-  }
-  ```
+```json
+"logging": {
+  "pii_enabled": false,
+  "log_level": "WARNING",
+  "logcat_enabled": true
+}
+```
 
 ## Migrate from UserInfo to Account
 
@@ -250,7 +250,7 @@ In MSAL, there's a hierarchy of exceptions, and each has its own set of associat
 | If you're catching these errors in ADAL...  | ...catch these MSAL exceptions:                                                         |
 |--------------------------------------------------|---------------------------------------------------------------------|
 | *No equivalent ADALError* | `MsalArgumentException`                          |
-| <ul><li>`ADALError.ANDROIDKEYSTORE_FAILED`<li>`ADALError.AUTH_FAILED_USER_MISMATCH`<li>`ADALError.DECRYPTION_FAILED`<li>`ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`<li>`ADALError.EVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`<li>`ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`<li>`ADALError.DEVICE_NO_SUCH_ALGORITHM`<li>`ADALError.ENCODING_IS_NOT_SUPPORTED`<li>`ADALError.ENCRYPTION_ERROR`<li>`ADALError.IO_EXCEPTION`<li>`ADALError.JSON_PARSE_ERROR`<li>`ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`<li>`ADALError.SOCKET_TIMEOUT_EXCEPTION`</ul> | `MsalClientException`                            |
+| <ul><li>`ADALError.ANDROIDKEYSTORE_FAILED`<li>`ADALError.AUTH_FAILED_USER_MISMATCH`<li>`ADALError.DECRYPTION_FAILED`<li>`ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`<li>`ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`<li>`ADALError.DEVICE_NO_SUCH_ALGORITHM`<li>`ADALError.ENCODING_IS_NOT_SUPPORTED`<li>`ADALError.ENCRYPTION_ERROR`<li>`ADALError.IO_EXCEPTION`<li>`ADALError.JSON_PARSE_ERROR`<li>`ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`<li>`ADALError.SOCKET_TIMEOUT_EXCEPTION`</ul> | `MsalClientException`                            |
 | *No equivalent ADALError* | `MsalDeclinedScopeException`                     |
 | <ul><li>`ADALError.APP_PACKAGE_NAME_NOT_FOUND`<li>`ADALError.BROKER_APP_VERIFICATION_FAILED`<li>`ADALError.PACKAGE_NAME_NOT_FOUND`</ul> | `MsalException`                                  |
 | *No equivalent ADALError* | `MsalIntuneAppProtectionPolicyRequiredException` |
@@ -275,30 +275,30 @@ In MSAL, there's a hierarchy of exceptions, and each has its own set of associat
 // New interface
   StringBuilder logs = new StringBuilder();
   Logger.getInstance().setExternalLogger(new ILoggerCallback() {
-            @Override
-            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
-                logs.append(message).append('\n');
-            }
-        });
+      @Override
+      public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+          logs.append(message).append('\n');
+      }
+  });
 
 // New Log Levels:
 public enum LogLevel
 {
-        /**
-         * Error level logging.
-         */
-        ERROR,
-        /**
-         * Warning level logging.
-         */
-        WARNING,
-        /**
-         * Info level logging.
-         */
-        INFO,
-        /**
-         * Verbose level logging.
-         */
-        VERBOSE
+    /**
+     * Error level logging.
+     */
+    ERROR,
+    /**
+     * Warning level logging.
+     */
+    WARNING,
+    /**
+     * Info level logging.
+     */
+    INFO,
+    /**
+     * Verbose level logging.
+     */
+    VERBOSE
 }
 ```

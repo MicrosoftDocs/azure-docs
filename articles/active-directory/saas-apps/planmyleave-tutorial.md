@@ -126,11 +126,11 @@ To configure Azure AD single sign-on with PlanMyLeave, perform the following ste
 
 2. Go to **System Setup**. Then on the **Security Management** section click **Company SAML settings** .
 
-	![Configure Single Sign-On On App Side](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
+	![Screenshot that shows the "System setup" page with the "Security Management" section highlighted and the "Company S A M L Settings" action selected.](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
 
 3. On the **SAML Settings** section, click editor icon.
 
-	![Configure Single Sign-On On App Side](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
+	![Screenshot that shows the "S A M L Settings" section with the "editor" icon selected in the top-right of the section.](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
 
 4. On the **Update SAML Settings** section, perform the following steps:
 
@@ -206,7 +206,7 @@ In this section, a user called Britta Simon is created in PlanMyLeave. PlanMyLea
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the PlanMyLeave tile in the Access Panel, you should be automatically signed in to the PlanMyLeave for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the PlanMyLeave tile in the Access Panel, you should be automatically signed in to the PlanMyLeave for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

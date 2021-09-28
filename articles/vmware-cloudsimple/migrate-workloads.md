@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Migrate workload VMs to Private Cloud 
 description: Describes how to migrate virtual machines from on-premises vCenter to CloudSimple Private Cloud vCenter
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Azure Arc enabled data services # < 60 chars
+title: Azure Arc-enabled data services # < 60 chars
 summary: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
  
 metadata:
-  title: Azure Arc enabled data services (preview) # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure Arc–enabled data services # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: azure-arc #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: azure-arc-data # Optional; Remove if no subservice is used.
   ms.topic: landing-page # Required
   author: MikeRayMSFT #Required; your GitHub user alias, with correct capitalization.
   ms.author: mikeray #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/22/2020 #Required; mm/dd/yyyy format.
+  ms.date: 12/16/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -23,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Azure Arc enabled data services?
+          - text: What are Azure Arc-enabled data services?
             url: overview.md
       - linkListType: concept
         links:
@@ -43,7 +43,7 @@ landingContent:
             url: install-client-tools.md
 
   # Card (optional)
-  - title: Azure Arc enabled PostgreSQL Hyperscale (preview)
+  - title: Azure Arc-enabled PostgreSQL Hyperscale (preview)
     linkLists:
       - linkListType: quickstart
         links:
@@ -56,9 +56,8 @@ landingContent:
           - text: Restore
             url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
 
-
   # Card (optional)
-  - title: Azure Arc enabled SQL Managed Instance (preview)
+  - title: Azure Arc-enabled SQL Managed Instance
     linkLists:
       - linkListType: quickstart
         links:
@@ -70,3 +69,11 @@ landingContent:
             url: migrate-to-managed-instance.md
           - text: Restore
             url: restore-adventureworks-sample-db.md
+
+ # Card
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/

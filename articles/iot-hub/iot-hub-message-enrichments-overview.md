@@ -2,7 +2,7 @@
 title: Overview of Azure IoT Hub message enrichments
 description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with additional information before the messages are sent to the designated endpoint. 
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -57,7 +57,7 @@ Enrichments can be configured using the the following methods:
 
 | **Method** | **Command** |
 | ----- | -----| 
-| Portal | [Azure portal](https://portal.azure.com) | See the [message enrichments tutorial](tutorial-message-enrichments.md) | 
+| Portal | [Azure portal](https://portal.azure.com) See the [message enrichments tutorial](tutorial-message-enrichments.md) | 
 | Azure CLI   | [az iot hub message-enrichment](/cli/azure/iot/hub/message-enrichment) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 

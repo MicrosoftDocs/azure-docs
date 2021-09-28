@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/28/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -36,8 +36,8 @@ Azure supports multiple programming platforms through a series of [Azure SDKs](h
 
 | SDK | Sample |
 | --- | ------ | 
-| .NET   | [Manage resource from a VM enabled with managed identities for Azure resources enabled](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Manage storage from a VM enabled with managed identities for Azure resources](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| .NET   | [Manage resource from a VM enabled with managed identities for Azure resources enabled](https://github.com/Azure-Samples/aad-dotnet-manage-resources-from-vm-with-msi) |
+| Java   | [Manage storage from a VM enabled with managed identities for Azure resources](https://github.com/Azure-Samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group)|
 | Node.js| [Create a VM with system-assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [Create a VM with system-assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
 | Ruby   | [Create Azure VM with an system-assigned identity enabled](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |

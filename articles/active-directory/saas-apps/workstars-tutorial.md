@@ -124,13 +124,13 @@ To configure Azure AD single sign-on with Workstars, perform the following steps
 
 2. In the main toolbar, click **Settings**.
 
-	![Workstars settings](./media/workstars-tutorial/tutorial_workstars_sett.png)
+	![Screenshot shows the Settings button.](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
 3. Go to **Sign On** > **Settings**.
 
 	![Workstars signon](./media/workstars-tutorial/tutorial_workstars_signon.png)
 
-    ![Workstars settings](./media/workstars-tutorial/tutorial_workstars_settings.png)
+    ![Screenshot shows the Single Sign On section where you can select Settings.](./media/workstars-tutorial/tutorial_workstars_settings.png)
 
 4. On the **Single Sign On (SAML) - Settings** page, perform the following steps:
 	
@@ -208,7 +208,7 @@ In this section, you create a user called Britta Simon in Workstars. Work with [
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Workstars tile in the Access Panel, you should be automatically signed in to the Workstars for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Workstars tile in the Access Panel, you should be automatically signed in to the Workstars for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

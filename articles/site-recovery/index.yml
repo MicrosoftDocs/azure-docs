@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Site Recovery documentation
-summary: Use Azure Site Recovery for disaster recovery of on-premises workloads, and Azure VMs. 
+summary: Use Azure Site Recovery for disaster recovery of on-premises workloads, and Azure VMs.
 
 
 metadata:
   title: Azure Site Recovery documentation
-  description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs. 
+  description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs.
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
-  author: rayne-wiselman
-  ms.author: raynew
+  author: JYOTHIRMAISURI
+  ms.author: v-jysur
   ms.date: 11/19/2019
 
 landingContent:
@@ -23,13 +23,14 @@ landingContent:
             url: ./site-recovery-overview.md
           - text: What's new in Site Recovery
             url: ./site-recovery-whats-new.md
-          
+
   - title: Disaster recovery for Azure VMs
     linkLists:
       - linkListType: quickstart
         links:
           - text: Try out disaster recovery for an Azure VM
             url: ./azure-to-azure-quickstart.md
+
       - linkListType: tutorial
         links:
           - text: Disaster recovery for Azure VMs
@@ -42,12 +43,14 @@ landingContent:
             url: ./azure-to-azure-architecture.md
           - text: Azure to Azure support matrix
             url: ./azure-to-azure-support-matrix.md
-          - text: Common questions 
+          - text: Common questions
             url: ./azure-to-azure-common-questions.md
           - text: About moving Azure VMs
             url: ./azure-to-azure-move-overview.md
       - linkListType: how-to-guide
         links:
+          - text: Zone to zone disaster recovery
+            url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
           - text: Networking for Azure VM disaster recovery
             url: ./azure-to-azure-about-networking.md
           - text: Disaster recovery after migration to Azure
@@ -59,10 +62,12 @@ landingContent:
         links:
           - text: Disaster recovery for VMware VMs
             url: ./tutorial-prepare-azure.md
+          - text: Try out disaster recovery for a VMware VM (preview)
+            url: ./vmware-azure-set-up-replication-tutorial-preview.md
           - text: Disaster recovery for Hyper-V VMs
             url: ./tutorial-prepare-azure-for-hyperv.md
           - text: Disaster recovery for physical servers
-            url: ./physical-azure-disaster-recovery.md  
+            url: ./physical-azure-disaster-recovery.md
       - linkListType: deploy
         links:
           - text: VMware support matrix
@@ -76,7 +81,7 @@ landingContent:
           - text: VMware disaster recovery overview
             url: ./vmware-azure-about-disaster-recovery.md
           - text: Common questions for VMware disaster recovery
-            url: ./vmware-azure-common-questions.md   
+            url: ./vmware-azure-common-questions.md
           - text: Hyper-V disaster recovery architecture
             url: ./hyper-v-azure-architecture.md
       - linkListType: how-to-guide
@@ -109,4 +114,3 @@ landingContent:
             url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
-

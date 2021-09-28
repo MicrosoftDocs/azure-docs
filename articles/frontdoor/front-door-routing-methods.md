@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 07/14/2021
 ms.author: duau
 ---
 
@@ -21,7 +21,7 @@ There are four traffic routing methods available in Front Door:
 
 * **[Latency](#latency):** The latency-based routing ensures that requests are sent to the lowest latency backends acceptable within a sensitivity range. Basically, your user requests are sent to the "closest" set of backends in respect to network latency.
 * **[Priority](#priority):** You can assign priorities to your backends when you want to configure a primary backend to service all traffic. The secondary backend can be a backup in case the primary backend becomes unavailable.
-* **[Weighted](#weighted):** You can assign weights to your backends when you want to distribute traffic across a set of backends. Whether you want to evenly distribute or according to the weight coefficients.
+* **[Weighted](#weighted):** You can assign weights to your backends when you want to distribute traffic across a set of backends evenly or according to the weight coefficients. Traffic is distributed as per weights if the latencies of the backends are within the acceptable latency sensitivity range in the backend pool.
 * **[Session Affinity](#affinity):** You can configure session affinity for your frontend hosts or domains to ensure requests from the same end user gets sent to the same backend.
 
 All Front Door configurations include monitoring of backend health and automated instant global failover. For more information, see [Front Door Backend Monitoring](front-door-health-probes.md). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
@@ -39,7 +39,7 @@ Below is the overall decision flow:
 | First, select all backends that are enabled and returned healthy (200 OK) for the health probe. If there are six backends A, B, C, D, E, and F, and among them C is unhealthy and E is disabled. The list of available backends is A, B, D, and F.  | Next, the top priority backends among the available ones are selected. If backend A, B, and D have priority 1 and backend F has a priority of 2. Then, the selected backends will be A, B, and D.| Select the backends with latency range (least latency & latency sensitivity in ms specified). If backend A is 15 ms, B is 30 ms and D is 60 ms away from the Front Door environment where the request landed, and latency sensitivity is 30 ms, then the lowest latency pool consist of backend A and B, because D is beyond 30 ms away from the closest backend that is A. | Lastly, Front Door will round robin the traffic among the final selected pool of backends in the ratio of weights specified. Say, if backend A has a weight of 5 and backend B has a weight of 8, then the traffic will be distributed in the ratio of 5:8 among backends A and B. |
 
 >[!NOTE]
-> By default, the latency sensitivity property is set to 0 ms, that is, always forward the request to the fastest available backend.
+> By default, the latency sensitivity property is set to 0 ms, that is, request is always forwarded to the fastest available backend and weights on the backends will not take effect unless two backends have the same network latency.
 
 ## <a name = "priority"></a>Priority-based traffic-routing
 

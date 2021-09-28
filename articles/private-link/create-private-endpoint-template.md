@@ -1,11 +1,11 @@
 ---
-title: Create a private endpoint in Azure Private Link
+title: 'Quickstart - Create a private endpoint by using an ARM template'
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private endpoint.
 services: private-link
-author: mblanco77
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/26/2020
 ms.author: allensu
 ---
@@ -20,7 +20,7 @@ You can also complete this quickstart by using the [Azure portal](create-private
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fprivate-endpoint-sql%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ You need an Azure account with an active subscription. [Create an account for fr
 
 This template creates a private endpoint for an instance of Azure SQL Database.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/private-endpoint-sql/).
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/private-endpoint-sql/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -53,7 +53,7 @@ Here's how to deploy the ARM template to Azure:
 
 1. To sign in to Azure and open the template, select **Deploy to Azure**. The template creates the private endpoint, the instance of SQL Database, the network infrastructure, and a virtual machine to validate.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fprivate-endpoint-sql%2Fazuredeploy.json)
 
 2. Select or create your resource group.
 3. Type the SQL Administrator sign-in and password.
@@ -132,4 +132,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-Learn more about [Azure Private Link](private-link-overview.md).
+For more information on the services that support a private endpoint, see:
+> [!div class="nextstepaction"]
+> [Private Link availability](private-link-overview.md#availability)

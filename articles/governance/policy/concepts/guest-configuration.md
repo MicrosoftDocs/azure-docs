@@ -1,34 +1,35 @@
 ---
-title: Learn to audit the contents of virtual machines
-description: Learn how Azure Policy uses the Guest Configuration agent to audit settings inside virtual machines.
-ms.date: 10/14/2020
+title: Understand the guest configuration feature of Azure Policy
+description: Learn how Azure Policy uses the guest configuration feature to audit or configure settings inside virtual machines.
+ms.date: 07/15/2021
 ms.topic: conceptual
 ---
-# Understand Azure Policy's Guest Configuration
+# Understand the guest configuration feature of Azure Policy
 
-Azure Policy can audit settings inside a machine, both for machines running in Azure and
-[Arc Connected Machines](../../../azure-arc/servers/overview.md). The validation is performed by the
-Guest Configuration extension and client. The extension, through the client, validates settings such
-as:
+Azure Policy can audit or configure settings inside a machine, both for machines
+running in Azure and
+[Arc-enabled machines](../../../azure-arc/servers/overview.md).
+Each task is performed by the guest configuration agent in Windows and Linux.
+The guest configuration extension, through the agent, manages settings such as:
 
 - The configuration of the operating system
 - Application configuration or presence
 - Environment settings
 
-At this time, most Azure Policy Guest Configuration policy definitions only audit settings inside
-the machine. They don't apply configurations. The exception is one built-in policy
-[referenced below](#applying-configurations-using-guest-configuration).
+[A video walk-through of this document is available](https://youtu.be/t9L8COY-BkM).
 
-## Enable Guest Configuration
+## Enable guest configuration
 
-To audit the state of machines in your environment, including machines in Azure and Arc Connected
-Machines, review the following details.
+To manage the state of machines in your environment, including machines in Azure
+and Arc-enabled servers, review the following details.
 
 ## Resource provider
 
-Before you can use Guest Configuration, you must register the resource provider. The resource
-provider is registered automatically if assignment of a Guest Configuration policy is done through
-the portal. You can manually register through the
+Before you can use the guest configuration feature of Azure Policy, you must
+register the `Microsoft.GuestConfiguration` resource provider. If assignment of
+a guest configuration policy is done through the portal, or if the subscription
+is enrolled in Azure Security Center, the resource provider is registered
+automatically. You can manually register through the
 [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal),
 [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell),
 or
@@ -36,217 +37,239 @@ or
 
 ## Deploy requirements for Azure virtual machines
 
-To audit settings inside a machine, a
-[virtual machine extension](../../../virtual-machines/extensions/overview.md) is enabled and the
-machine must have a system-managed identity. The extension downloads applicable policy assignment
-and the corresponding configuration definition. The identity is used to authenticate the machine as
-it reads and writes to the Guest Configuration service. The extension isn't required for Arc
-Connected Machines because it's included in the Arc Connected Machine agent.
+To manage settings inside a machine, a
+[virtual machine extension](../../../virtual-machines/extensions/overview.md) is
+enabled and the machine must have a system-managed identity. The extension
+downloads applicable guest configuration assignment and the corresponding
+dependencies. The identity is used to authenticate the machine as it reads and
+writes to the guest configuration service. The extension isn't required for Arc-enabled
+servers because it's included in the Arc Connected Machine agent.
 
 > [!IMPORTANT]
-> The Guest Configuration extension and a managed identity is required to audit Azure virtual
-> machines. To deploy the extension at scale, assign the following policy initiative:
-> 
-> `Deploy prerequisites to enable Guest Configuration policies on virtual machines`
+> The guest configuration extension and a managed identity are required to
+> manage Azure virtual machines.
+
+To deploy the extension at scale across many machines, assign the policy initiative
+`Deploy prerequisites to enable guest configuration policies on virtual machines`
+to a management group, subscription, or resource group containing the machines
+that you plan to manage.
+
+If you prefer to deploy the extension and managed identity to a single machine,
+follow the guidance for each:
+
+- [Overview of the Azure Policy Guest Configuration extension](../../../virtual-machines/extensions/guest-configuration.md)
+- [Configure managed identities for Azure resources on a VM using the Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+
+To use guest configuration packages that apply configurations, Azure VM guest
+configuration extension version **1.29.24** or later is required.
 
 ### Limits set on the extension
 
-To limit the extension from impacting applications running inside the machine, the Guest
-Configuration isn't allowed to exceed more than 5% of CPU. This limitation exists for both built-in
-and custom definitions. The same is true for the Guest Configuration service in Arc Connected
-Machine agent.
+To limit the extension from impacting applications running inside the machine,
+the guest configuration agent isn't allowed to exceed more than 5% of CPU. This
+limitation exists for both built-in and custom definitions. The same is true for
+the guest configuration service in Arc Connected Machine agent.
 
 ### Validation tools
 
-Inside the machine, the Guest Configuration client uses local tools to run the audit.
+Inside the machine, the guest configuration agent uses local tools to perform
+tasks.
 
-The following table shows a list of the local tools used on each supported operating system. For
-built-in content, Guest Configuration handles loading these tools automatically.
+The following table shows a list of the local tools used on each supported
+operating system. For built-in content, guest configuration handles loading
+these tools automatically.
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
-|Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
+|Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
+|Linux|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
+|Linux|[Chef InSpec](https://www.chef.io/inspec/) | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
 
-The Guest Configuration client checks for new content every 5 minutes. Once a guest assignment is
-received, the settings for that configuration are rechecked on a 15-minute interval. Results are
-sent to the Guest Configuration resource provider when the audit completes. When a policy
-[evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers) occurs, the state of the
-machine is written to the Guest Configuration resource provider. This update causes Azure Policy to
-evaluate the Azure Resource Manager properties. An on-demand Azure Policy evaluation retrieves the
-latest value from the Guest Configuration resource provider. However, it doesn't trigger a new audit
-of the configuration within the machine.
+The guest configuration agent checks for new or changed guest assignments every
+5 minutes. Once a guest assignment is received, the settings for that
+configuration are rechecked on a 15-minute interval. If multiple configurations
+are assigned, each is evaluated sequentially. Long-running configurations impact
+the interval for all configurations, because the next will not run until the
+prior configuration has finished.
+
+Results are sent to the guest configuration service when the audit completes.
+When a policy
+[evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers)
+occurs, the state of the machine is written to the guest configuration resource
+provider. This update causes Azure Policy to evaluate the Azure Resource Manager
+properties. An on-demand Azure Policy evaluation retrieves the latest value from
+the guest configuration resource provider. However, it doesn't trigger a new
+activity within the machine. The status is then written to Azure
+Resource Graph.
 
 ## Supported client types
 
-Guest Configuration policy definitions are inclusive of new versions. Older versions of operating
-systems available in Azure Marketplace are excluded if the Guest Configuration agent isn't
-compatible. The following table shows a list of supported operating systems on Azure images:
+Guest configuration policy definitions are inclusive of new versions. Older versions of operating
+systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
+compatible. The following table shows a list of supported operating systems on Azure images.
+The ".x" text is symbolic to represent new minor versions of Linux distributions.
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 and later|
-|Credativ|Debian|8 and later|
-|Microsoft|Windows Server|2012 and later|
+|Amazon|Linux|2|
+|Canonical|Ubuntu Server|16.04 - 20.x|
+|Credativ|Debian|9 - 10.x|
+|Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3 and later|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3-SP5|
+|Oracle|Oracle-Linux|7.x-8.x|
+|OpenLogic|CentOS|7.3 -8.x|
+|Red Hat|Red Hat Enterprise Linux\*|7.4 - 8.x|
+|SUSE|SLES|12 SP3-SP5, 15.x|
 
-Custom virtual machine images are supported by Guest Configuration policy definitions as long as
-they're one of the operating systems in the table above.
+\* Red Hat CoreOS isn't supported.
+
+Custom virtual machine images are supported by guest configuration policy
+definitions as long as they're one of the operating systems in the table above.
 
 ## Network requirements
 
-Virtual machines in Azure can use either their local network adapter or a private link to
-communicate with the Guest Configuration service.
+Virtual machines in Azure can use either their local network adapter or a
+private link to communicate with the guest configuration service.
 
-Azure Arc machines connect using the on-premises network infrastructure to reach Azure services and
-report compliance status.
+Azure Arc machines connect using the on-premises network infrastructure to reach
+Azure services and report compliance status.
 
 ### Communicate over virtual networks in Azure
 
-Virtual machines using virtual networks for communication will require outbound access to Azure
-datacenters on port `443`. If you're using a private virtual network in Azure that doesn't allow
-outbound traffic, configure exceptions with Network Security Group rules. The service tag
-"GuestAndHybridManagement" can be used to reference the Guest Configuration service.
+To communicate with the guest configuration resource provider in Azure, machines
+require outbound access to Azure datacenters on port **443**. If a network in
+Azure doesn't allow outbound traffic, configure exceptions with
+[Network Security Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule)
+rules. The
+[service tags](../../../virtual-network/service-tags-overview.md)
+"AzureArcInfrastructure" and "Storage" can be used to reference the guest
+configuration and Storage services rather than manually maintaining the
+[list of IP ranges](https://www.microsoft.com/download/details.aspx?id=56519)
+for Azure datacenters. Both tags are required because guest configuration
+content packages are hosted by Azure Storage.
 
-### Communicate over private link in Azure
+### Communicate over Private Link in Azure
 
-Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
-communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNeworkGC`
-and value `TRUE` to enable this feature. The tag can be applied before or after Guest Configuration
-policy definitions are applied to the machine.
+Virtual machines can use
+[private link](../../../private-link/private-link-overview.md)
+for communication to the guest configuration service. Apply tag with the name
+`EnablePrivateNetworkGC` and value `TRUE` to enable this feature. The tag can be
+applied before or after guest configuration policy definitions are applied to
+the machine.
 
 Traffic is routed using the Azure
-[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md) to
-establish a secure, authenticated channel with Azure platform resources.
+[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md)
+to establish a secure, authenticated channel with Azure platform resources.
 
-### Azure Arc connected machines
+### Azure Arc-enabled servers
 
-Nodes located outside Azure that are connected by Azure Arc require connectivity to the Guest
-Configuration service. Details about network and proxy requirements provided in the
+Nodes located outside Azure that are connected by Azure Arc require connectivity
+to the guest configuration service. Details about network and proxy requirements
+provided in the
 [Azure Arc documentation](../../../azure-arc/servers/overview.md).
 
-To communicate with the Guest Configuration resource provider in Azure, machines require outbound
-access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
-configure exceptions with [Network Security
-Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
-[service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
-used to reference the Guest Configuration service.
-
-For Arc connected servers in private datacenters, allow traffic using the following patterns:
+For Arc-enabled servers in private datacenters, allow traffic using the
+following patterns:
 
 - Port: Only TCP 443 required for outbound internet access
 - Global URL: `*.guestconfiguration.azure.com`
 
+## Assigning policies to machines outside of Azure
+
+The Audit policy definitions available for guest configuration include the
+**Microsoft.HybridCompute/machines** resource type. Any machines onboarded to
+[Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the
+scope of the policy assignment are automatically included.
+
 ## Managed identity requirements
 
-Policy definitions in the initiative
-[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
-enable a system-assigned managed identity, if one doesn't exist. There are two policy definitions in
-the initiative that manage identity creation. The IF conditions in the policy definitions ensure the
-correct behavior based on the current state of the machine resource in Azure.
+Policy definitions in the initiative _Deploy prerequisites to enable guest
+configuration policies on virtual machines_ enable a system-assigned managed
+identity, if one doesn't exist. There are two policy definitions in the
+initiative that manage identity creation. The IF conditions in the policy
+definitions ensure the correct behavior based on the current state of the
+machine resource in Azure.
 
-If the machine doesn't currently have any managed identities, the effective policy will be:
-[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on
-virtual machines with no
-identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+If the machine doesn't currently have any managed identities, the effective
+policy is:
+[Add system-assigned managed identity to enable guest configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
-If the machine currently has a user-assigned system identity, the effective policy will be:
-[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on
-virtual machines with a user-assigned
-identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+If the machine currently has a user-assigned system identity, the effective
+policy is:
+[Add system-assigned managed identity to enable guest configuration assignments on VMs with a user-assigned identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
-## Guest Configuration definition requirements
+## Availability
 
-Guest Configuration policy definitions use the **AuditIfNotExists** effect. When the definition is
-assigned, a back-end service automatically handles the lifecycle of all requirements in the
-`Microsoft.GuestConfiguration` Azure resource provider.
+Customers designing a highly available solution should consider the redundancy planning requirements for
+[virtual machines](../../../virtual-machines/availability.md) because guest assignments are extensions of
+machine resources in Azure. When guest assignment resources are provisioned in to an Azure region that is
+[paired](../../../best-practices-availability-paired-regions.md), as long as at least one region in the pair
+is available, then guest assignment reports are available. If the Azure region isn't paired and
+it becomes unavailable, then it isn't possible to access reports for a guest assignment until
+the region is restored.
 
-The **AuditIfNotExists** policy definitions won't return compliance results until all requirements
-are met on the machine. The requirements are described in section
-[Deploy requirements for Azure virtual machines](#deploy-requirements-for-azure-virtual-machines)
+When considering an architecture for highly available applications,
+especially where virtual machines are provisioned in
+[Availability Sets](../../../virtual-machines/availability.md#availability-sets)
+behind a load balancer solution to provide high availability,
+it's best practice to assign the same policy definitions with the same parameters to all machines
+in the solution. If possible, a single policy assignment spanning all
+machines would offer the least administrative overhead.
 
-> [!IMPORTANT]
-> In a prior release of Guest Configuration, an initiative was required to combine
-> **DeployIfNoteExists** and **AuditIfNotExists** definitions. **DeployIfNotExists** definitions are
-> no longer required. The definitions and intiaitives are labeled `[Deprecated]` but existing
-> assignments will continue to function. For information see the blog post:
-> [Important change released for Guest Configuration audit policies](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+For machines protected by
+[Azure Site Recovery](../../../site-recovery/site-recovery-overview.md),
+ensure that machines in a secondary site are within scope of Azure Policy assignments
+for the same definitions using the same parameter values as machines in the primary site.
 
-Azure Policy uses the Guest Configuration resource provider **complianceStatus** property to report
-compliance in the **Compliance** node. For more information, see [getting compliance
-data](../how-to/get-compliance-data.md).
+## Data residency
 
-#### Auditing operating system settings following industry baselines
+Guest configuration stores/processes customer data. By default, customer data is replicated to the
+[paired region.](../../../best-practices-availability-paired-regions.md)
+For single resident region all customer data is stored and processed in the region.
 
-One initiative in Azure Policy provides the ability to audit operating system settings following a
-"baseline". The definition, _\[Preview\]: Audit Windows VMs that do not match Azure security
-baseline settings_ includes a set of rules based on Active Directory Group Policy.
+## Troubleshooting guest configuration
 
-Most of the settings are available as parameters. Parameters allow you to customize what is audited.
-Align the policy with your requirements or map the policy to third-party information such as
-industry regulatory standards.
-
-Some parameters support an integer value range. For example, the Maximum Password Age setting could
-audit the effective Group Policy setting. A "1,70" range would confirm that users are required to
-change their passwords at least every 70 days, but no less than one day.
-
-If you assign the policy using an Azure Resource Manager template (ARM template), use a parameters
-file to manage exceptions. Check in the files to a version control system such as Git. Comments
-about file changes provide evidence why an assignment is an exception to the expected value.
-
-#### Applying configurations using Guest Configuration
-
-Only the definition _Configure the time zone on Windows machines_ makes changes to the machine by
-configuring the time zone. Custom policy definitions for configuring settings inside machines aren't
-supported.
-
-When assigning definitions that begin with _Configure_, you must also assign the definition _Deploy
-prerequisites to enable Guest Configuration Policy on Windows VMs_. You can combine these
-definitions in an initiative if you choose.
-
-> [!NOTE]
-> The built-in time zone policy is the only definition that supports configuring settings inside
-> machines and custom policy definitions that configure settings inside machines aren't supported.
-
-#### Assigning policies to machines outside of Azure
-
-The Audit policy definitions available for Guest Configuration include the
-**Microsoft.HybridCompute/machines** resource type. Any machines onboarded to
-[Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy
-assignment are automatically included.
+For more information about troubleshooting guest configuration, see
+[Azure Policy troubleshooting](../troubleshoot/general.md).
 
 ### Multiple assignments
 
-Guest Configuration policy definitions currently only support assigning the same Guest Assignment
-once per machine, even if the Policy assignment uses different parameters.
+Guest configuration policy definitions currently only support assigning the same
+guest assignment once per machine when the policy assignment uses different
+parameters.
 
-## Client log files
+### Assignments to Azure Management Groups
 
-The Guest Configuration extension writes log files to the following locations:
+Azure Policy definitions in the category 'Guest Configuration' can be assigned
+to Management Groups only when the effect is 'AuditIfNotExists'. Policy
+definitions with effect 'DeployIfNotExists' aren't supported as assignments to
+Management Groups.
+
+### Client log files
+
+The guest configuration extension writes log files to the following locations:
 
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+Linux
 
-Where `<version>` refers to the current version number.
+- Azure VM: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+- Arc-enabled server: `/var/lib/GuestConfig/arc_policy_logs/gc_agent.log`
 
 ### Collecting logs remotely
 
-The first step in troubleshooting Guest Configuration configurations or modules should be to use the
-`Test-GuestConfigurationPackage` cmdlet following the steps how to
-[create a custom Guest Configuration audit policy for Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
+The first step in troubleshooting guest configuration configurations or modules
+should be to use the cmdlets following the steps in
+[How to test guest configuration package artifacts](../how-to/guest-configuration-create-test.md).
 If that isn't successful, collecting client logs can help diagnose issues.
 
 #### Windows
 
 Capture information from log files using
-[Azure VM Run Command](../../../virtual-machines/windows/run-command.md), the following example
-PowerShell script can be helpful.
+[Azure VM Run Command](../../../virtual-machines/windows/run-command.md), the
+following example PowerShell script can be helpful.
 
 ```powershell
 $linesToIncludeBeforeMatch = 0
@@ -258,19 +281,30 @@ Select-String -Path $logPath -pattern 'DSCEngine','DSCManagedEngine' -CaseSensit
 #### Linux
 
 Capture information from log files using
-[Azure VM Run Command](../../../virtual-machines/linux/run-command.md), the following example Bash
-script can be helpful.
+[Azure VM Run Command](../../../virtual-machines/linux/run-command.md), the
+following example Bash script can be helpful.
 
-```Bash
+```bash
 linesToIncludeBeforeMatch=0
 linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
 
-## Guest Configuration samples
+### Agent files
 
-Guest Configuration built-in policy samples are available in the following locations:
+The guest configuration agent downloads content packages to a machine and
+extracts the contents. To verify what content has been downloaded and stored,
+view the folder locations given below.
+
+Windows: `c:\programdata\guestconfig\configuration`
+
+Linux: `/var/lib/GuestConfig/Configuration`
+
+## Guest configuration samples
+
+Guest configuration built-in policy samples are available in the following
+locations:
 
 - [Built-in policy definitions - Guest Configuration](../samples/built-in-policies.md#guest-configuration)
 - [Built-in initiatives - Guest Configuration](../samples/built-in-initiatives.md#guest-configuration)
@@ -278,13 +312,15 @@ Guest Configuration built-in policy samples are available in the following locat
 
 ## Next steps
 
-- Learn how to view the details each setting from the
-  [Guest Configuration compliance view](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
-- Review examples at [Azure Policy samples](../samples/index.md).
-- Review the [Azure Policy definition structure](./definition-structure.md).
-- Review [Understanding policy effects](./effects.md).
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/get-compliance-data.md).
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with
-  [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Setup a custom guest configuration package [development environment](../how-to/guest-configuration-create-setup.md).
+- [Create a package artifact](../how-to/guest-configuration-create.md)
+  for guest configuration.
+- [Test the package artifact](../how-to/guest-configuration-create-test.md)
+  from your development environment.
+- Use the `GuestConfiguration` module to
+  [create an Azure Policy definition](../how-to/guest-configuration-create-definition.md)
+  for at-scale management of your environment.
+- [Assign your custom policy definition](../assign-policy-portal.md) using
+  Azure portal.
+- Learn how to view
+  [compliance details for guest configuration](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) policy assignments.

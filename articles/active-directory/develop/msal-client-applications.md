@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 #Customer intent: As an application developer, I want to learn about the types of client apps so I can decide if this platform meets my app development requirements.
 ---
 
 # Public client and confidential client applications
-Microsoft Authentication Library (MSAL) defines two types of clients: public clients and confidential clients. The two client types are distinguished by their ability to authenticate securely with the authorization server and maintain the confidentiality of their client credentials. In contrast, Azure AD Authentication Library (ADAL) uses what's called *authentication context* (which is a connection to Azure AD).
+The Microsoft Authentication Library (MSAL) defines two types of clients: public clients and confidential clients. The two client types are distinguished by their ability to authenticate securely with the authorization server and maintain the confidentiality of their client credentials. In contrast, Azure AD Authentication Library (ADAL) uses what's called *authentication context* (which is a connection to Azure AD).
 
 - **Confidential client applications** are apps that run on servers (web apps, web API apps, or even service/daemon apps). They're considered difficult to access, and for that reason capable of keeping an application secret. Confidential clients can hold configuration-time secrets. Each instance of the client has a distinct configuration (including client ID and client secret). These values are difficult for end users to extract. A web app is the most common confidential client. The client ID is exposed through the web browser, but the secret is passed only in the back channel and never directly exposed.
 

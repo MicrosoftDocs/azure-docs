@@ -3,14 +3,17 @@ title: Overview of Maintenance control for Azure virtual machines using the Azur
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 11/19/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
 
 # Managing platform updates with Maintenance Control 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
 
@@ -19,12 +22,13 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
 With maintenance control, you can:
 - Batch updates into one update package.
 - Wait up to 35 days to apply updates. 
-- Automate platform updates for your maintenance window using [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
+- Automate platform updates by configuring a maintenance schedule.
 - Maintenance configurations work across subscriptions and resource groups. 
 
 ## Limitations
 
 - VMs must be on a [dedicated host](./dedicated-hosts.md), or be created using an [isolated VM size](isolation.md).
+- The maintenance window duration must be 2 hours or more. Maintenance window duration is the time from when the customer initiates the update to the time it completes. 
 - After 35 days, an update will automatically be applied.
 - User must have **Resource Contributor** access.
 

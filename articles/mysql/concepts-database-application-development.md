@@ -1,14 +1,17 @@
 ---
 title: Application development - Azure Database for MySQL
 description: Introduces design considerations that a developer should follow when writing application code to connect to Azure Database for MySQL 
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---
 
 # Application development overview for Azure Database for MySQL 
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This article discusses design considerations that a developer should follow when writing application code to connect to Azure Database for MySQL. 
 
 > [!TIP]
@@ -19,7 +22,7 @@ There are code samples available for various programming languages and platforms
 [Connectivity libraries used to connect to Azure Database for MySQL](concepts-connection-libraries.md)
 
 ## Tools
-Azure Database for MySQL uses the MySQL community version, compatible with MySQL common management tools such as Workbench or MySQL utilities such as mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), and others. You can also use the Azure portal, Azure CLI, and REST APIs to interact with the database service.
+Azure Database for MySQL uses the MySQL community version, compatible with MySQL common management tools such as Workbench or MySQL utilities such as mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), [dbForge Studio for MySQL](https://www.devart.com/dbforge/mysql/studio/) and others. You can also use the Azure portal, Azure CLI, and REST APIs to interact with the database service.
 
 ## Resource limitations
 Azure Database for MySQL manages the resources available to a server by using two different mechanisms: 

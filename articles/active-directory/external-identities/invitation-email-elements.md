@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 04/12/2021
 
 ms.author: mimart
 author: msmimart
@@ -35,6 +35,10 @@ The subject of the email follows this pattern:
 ### From address
 
 We use a LinkedIn-like pattern for the From address. This pattern should make it clear that although the email comes from invites@microsoft.com, the invitation is from another organization. The format is: Microsoft Invitations <invites@microsoft.com> or Microsoft invitations on behalf of &lt;tenantname&gt; <invites@microsoft.com>. 
+
+> [!NOTE]
+> For the Azure service operated by 21Vianet in China, the sender address is Invites@oe.21vianet.com.  
+> For the Azure AD Government, the sender address is invites@azuread.us.
 
 ### Reply To
 
@@ -82,8 +86,8 @@ A guest user can follow these steps to view or export the organizations they've 
 
 The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language.
 
-- The **messageLanguage** property of the [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object if the Create invitation API is used
--	The **preferredLanguage** property specified in the guest's [user object](/graph/api/resources/user?view=graph-rest-1.0)
+- The **messageLanguage** property of the [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) object if the Create invitation API is used
+-	The **preferredLanguage** property specified in the guest's [user object](/graph/api/resources/user)
 -	The **Notification language** set in the properties of the guest user’s home tenant (for Azure AD tenants only)
 -	The **Notification language** set in the properties of the resource tenant
 

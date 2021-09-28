@@ -1,23 +1,16 @@
 ---
 title: Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide | Microsoft Docs
 description: Multi-SID high-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server for SAP applications
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
-
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-
 ---
 
 # High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide
@@ -45,9 +38,9 @@ ms.author: radeltch
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 [suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
@@ -89,11 +82,11 @@ Before you begin, refer to the following SAP Notes and papers first:
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
 ## Overview
 
-The virtual machines, that participate in the cluster must be sized to be able to run all resources, in case failover occurs. Each SAP SID can fail over independent from each other in the multi-SID high availability cluster.  If using SBD fencing, the SBD devices can be shared between multiple clusters.  
+The virtual machines that participate in the cluster must be sized to be able to run all resources, in case failover occurs. Each SAP SID can fail over independent from each other in the multi-SID high availability cluster.  If using SBD fencing, the SBD devices can be shared between multiple clusters.  
 
 To achieve high availability, SAP NetWeaver requires highly available NFS shares. In this example, we assume the SAP NFS shares are either hosted on highly available [NFS file server](./high-availability-guide-suse-nfs.md), which can be used by multiple SAP systems. Or the shares are deployed on [Azure NetApp Files NFS volumes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  
 
-![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![Pacemaker cluster shows detailed information about two multi-SID clusters, msidcl1 and msidcl2.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
 > The support for multi-SID clustering of SAP ASCS/ERS with SUSE Linux as guest operating system in Azure VMs is limited to **five** SAP SIDs on the same cluster. Each new SID increases the complexity. A mix of SAP Enqueue Replication Server 1 and Enqueue Replication Server 2 on the same cluster is **not supported**. Multi-SID clustering describes the installation of multiple SAP ASCS/ERS instances with different SIDs in one Pacemaker cluster. Currently multi-SID clustering is only supported for ASCS/ERS.  
@@ -146,7 +139,7 @@ The following list shows the configuration of the (A)SCS and ERS load balancer f
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 
 > [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
 > [!Note]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -238,8 +231,8 @@ This documentation assumes that:
 
    Update file `/etc/auto.direct` with the file systems for the additional SAP systems that you are deploying to the cluster.  
 
-   * If using NFS file server, follow the instructions [here](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation)
-   * If using Azure NetApp Files, follow the instructions [here](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) 
+   * If using NFS file server, follow the instructions on the [Azure VMs high availability for SAP NetWeaver on SLES](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation) page
+   * If using Azure NetApp Files, follow the instructions on the [Azure VMs high availability for SAP NW on SLES with Azure NetApp Files](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) page
 
    You will need to restart the `autofs` service to mount the newly added shares.  
 
@@ -582,7 +575,7 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
 
 1. Test HAGetFailoverConfig and HACheckFailoverConfig
 
-   Run the following commands as <sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
+   Run the following commands as \<sapsid\>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
 
    ```
     slesmsscl1:nw1adm 57> sapcontrol -nr 00 -function HAGetFailoverConfig

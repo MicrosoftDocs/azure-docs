@@ -4,10 +4,12 @@ description: Use Azure SQL from a GitHub Actions workflow
 author: juliakm
 services: sql-database
 ms.service: sql-database
+ms.subservice: connect
 ms.topic: quickstart
 ms.author: jukullam
-ms.date: 10/12/2020
+ms.date: 05/05/2021
 ms.custom: github-actions-azure
+ms.reviewer: mathoma
 
 ---
 
@@ -22,7 +24,7 @@ You will need:
 - A GitHub repository with a dacpac package (`Database.dacpac`). If you don't have a GitHub account, [sign up for free](https://github.com/join).  
 - An Azure SQL Database.
     - [Quickstart: Create an Azure SQL Database single database](single-database-create-quickstart.md)
-    - [How to create a dacpac package from your existing SQL Server Database](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+    - [How to create a dacpac package from your existing SQL Server Database](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 
 ## Workflow file overview
 
@@ -37,13 +39,13 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 Replace the placeholders `server-name` with the name of your SQL server hosted on Azure. Replace the `subscription-id` and `resource-group` with the subscription ID and resource group connected to your SQL server.  
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {server-name} --role contributor \
-                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+   az ad sp create-for-rbac --name {server-name} --role contributor 
+                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} 
                             --sdk-auth
 ```
 
@@ -139,7 +141,7 @@ You'll use the connection string as a GitHub secret.
       with:
         server-name: SQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        sql-file: './Database.dacpac'
+        dacpac-package: './Database.dacpac'
     ``` 
 
 1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
@@ -167,7 +169,7 @@ You'll use the connection string as a GitHub secret.
       with:
         server-name: SQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
-        sql-file: './Database.dacpac'
+        dacpac-package: './Database.dacpac'
 
         # Azure logout 
     - name: logout
@@ -190,4 +192,4 @@ When your Azure SQL database and repository are no longer needed, clean up the r
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure and GitHub integration](https://docs.microsoft.com/azure/developer/github/)
+> [Learn about Azure and GitHub integration](/azure/developer/github/)

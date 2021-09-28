@@ -1,9 +1,6 @@
 ---
 title: Non-interactive authentication .NET application - Azure HDInsight
 description: Learn how to create non-interactive authentication Microsoft .NET applications in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
@@ -27,7 +24,7 @@ An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-li
 
 ## Assign a role to the Azure AD application
 
-Assign your Azure AD application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it. In this article, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
+Assign your Azure AD application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it. In this article, you set the scope at the resource group level. For more information, see [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 
 **To add the Owner role to the Azure AD application**
 

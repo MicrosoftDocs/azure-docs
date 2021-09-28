@@ -1,17 +1,17 @@
 ---
 title: Scale session hosts Azure Automation - Azure
-description: How to automatically scale Windows Virtual Desktop session hosts with Azure Automation.
+description: How to automatically scale Azure Virtual Desktop session hosts with Azure Automation.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Scale session hosts using Azure Automation
 
-You can reduce your total Windows Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
+You can reduce your total Azure Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
-In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
+In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Azure Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
 ## How the scaling tool works
 
@@ -39,13 +39,16 @@ If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job allows
 
 During any time, the job also takes host pool's *MaxSessionLimit* into account to determine if the current number of sessions is more than 90% of the maximum capacity. If it is, the job will start additional session host VMs.
 
-The job runs periodically based on a set recurrence interval. You can change this interval based on the size of your Windows Virtual Desktop environment, but remember that starting and shutting down VMs can take some time, so remember to account for the delay. We recommend setting the recurrence interval to every 15 minutes.
+The job runs periodically based on a set recurrence interval. You can change this interval based on the size of your Azure Virtual Desktop environment, but remember that starting and shutting down VMs can take some time, so remember to account for the delay. We recommend setting the recurrence interval to every 15 minutes.
 
 However, the tool also has the following limitations:
 
 - This solution applies only to pooled multi-session session host VMs.
 - This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account and Azure Logic App.
 - The maximum runtime of a job in the runbook is 3 hours. If starting or stopping the VMs in the host pool takes longer than that, the job will fail. For more details, see [Shared resources](../automation/automation-runbook-execution.md#fair-share).
+- At least one VM or session host needs to be turned on for the scaling algorithm to work properly.
+- The scaling tool doesn't support scaling based on CPU or memory.
+- Scaling only works with existing hosts in the host pool. The scaling tool doesn't support scaling new session hosts.
 
 >[!NOTE]
 >The scaling tool controls the load balancing mode of the host pool it's currently scaling. The tool uses breadth-first load balancing mode for both peak and off-peak hours.
@@ -54,8 +57,8 @@ However, the tool also has the following limitations:
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- A [Windows Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
-- Session host pool VMs configured and registered with the Windows Virtual Desktop service
+- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
+- Session host pool VMs configured and registered with the Azure Virtual Desktop service
 - A user with [Contributor access](../role-based-access-control/role-assignments-portal.md) on Azure subscription
 
 The machine you use to deploy the tool must have:

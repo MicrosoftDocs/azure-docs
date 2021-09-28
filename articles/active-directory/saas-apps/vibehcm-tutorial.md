@@ -93,11 +93,11 @@ To configure Azure AD single sign-on with Vibe HCM, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    ![Vibe HCM Domain and URLs single sign-on information](common/preintegrated.png)
+    ![Screenshot shows Basic SAML Configuration with the Upload metadata file link.](common/preintegrated.png)
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Vibe HCM Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyName>.vibehcm.com/portal.jsp`
@@ -171,7 +171,7 @@ In this section, you create a user called Britta Simon in Vibe HCM. Work with [V
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Vibe HCM tile in the Access Panel, you should be automatically signed in to the Vibe HCM for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Vibe HCM tile in the Access Panel, you should be automatically signed in to the Vibe HCM for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

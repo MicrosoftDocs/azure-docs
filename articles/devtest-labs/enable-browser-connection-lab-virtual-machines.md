@@ -1,7 +1,7 @@
 ---
 title: Enable browser connection on Azure DevTest Labs virtual machines
 description: DevTest Labs now integrates with Azure Bastion, as an owner of the lab you can enable accessing all lab virtual machines through a browser.  
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -15,7 +15,7 @@ This article shows how to enable browser connection on lab virtual machines.
 
 ## Prerequisites 
 - Either deploy a Bastion host in your existing lab's virtual network **(OR)** connect your lab with a Bastion configured virtual network.
-To learn how to deploy a Bastion host in a virtual network, see  [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md). When creating the Bastion host, select the lab's virtual network. 
+To learn how to deploy a Bastion host in a virtual network, see  [Create an Azure Bastion host](../bastion/tutorial-create-host-portal.md). When creating the Bastion host, select the lab's virtual network. 
 - Lab user needs to have a **Reader** role on the Bastion host and the virtual network that has the Bastion configured. 
 
 ## Create a second sub net in the Bastion virtual network

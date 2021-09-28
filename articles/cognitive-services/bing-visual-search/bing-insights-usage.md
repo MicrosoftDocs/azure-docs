@@ -3,17 +3,22 @@ title: Examples of Bing insights - Bing Visual Search
 titleSuffix: Azure Cognitive Services
 description: This article contains examples of how Bing Visual Search might use and display image insights on Bing.com.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: scottwhi
+
 ---
 
 # Examples of Bing insights usage
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 This article contains examples of how Bing might use and display image insights on Bing.com.
 
@@ -80,8 +85,3 @@ To get started with your first request, see the quickstarts:
 * [node.js](quickstarts/nodejs.md)
 
 * [Python](quickstarts/python.md)
-
-
-
-
-

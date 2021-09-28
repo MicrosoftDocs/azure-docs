@@ -48,7 +48,7 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-<!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
+<!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### Container requirements and recommendations
 
@@ -119,7 +119,7 @@ If you intend to run multiple containers with exposed ports, make sure to run ea
 
 Replace the `<container-registry>` and `<container-name>` with the values of the containers you use. These do not have to be the same container. You can have the Anomaly Detector container and the LUIS container running on the HOST together or you can have multiple Anomaly Detector containers running.
 
-Run the first container on port 5000.
+Run the first container on host port 5000.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -129,11 +129,11 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Run the second container on port 5001.
+Run the second container on host port 5001.
 
 
 ```bash
-docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -169,10 +169,6 @@ The Anomaly Detector containers send billing information to Azure, using an _Ano
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](anomaly-detector-container-configuration.md).
-
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

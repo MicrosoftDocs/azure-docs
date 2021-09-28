@@ -3,7 +3,7 @@ title: Get & remove accounts from the token cache (MSAL4j) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to view and remove accounts from the token cache using the Microsoft Authentication Library for Java.
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/07/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev, devx-track-java
 #Customer intent: As an application developer using the Microsoft Authentication Library for Java (MSAL4J), I want to learn how to get and remove accounts stored in the token cache.
@@ -36,7 +36,7 @@ Set<IAccount> accounts = pca.getAccounts().join();
 
 ## Remove accounts from the cache
 
-To remove an account from the cache, find the account that needs to be removed and then call `PublicClientApplicatoin.removeAccount()` as shown in the following example:
+To remove an account from the cache, find the account that needs to be removed and then call `PublicClientApplication.removeAccount()` as shown in the following example:
 
 ```java
 Set<IAccount> accounts = pca.getAccounts().join();

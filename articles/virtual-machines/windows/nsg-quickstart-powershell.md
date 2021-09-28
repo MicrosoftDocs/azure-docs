@@ -1,8 +1,9 @@
 ---
 title: Open ports to a VM using Azure PowerShell 
-description: Learn how to open a port / create an endpoint to your Windows VM using the Azure resource manager deployment mode and Azure PowerShell
+description: Learn how to open a port / create an endpoint to your VM using Azure PowerShell
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
@@ -10,7 +11,10 @@ ms.author: cynthn
 ms.custom: devx-track-azurepowershell
 
 ---
-# How to open ports and endpoints to a VM in Azure using PowerShell
+# How to open ports and endpoints to a VM using PowerShell
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands

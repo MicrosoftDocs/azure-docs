@@ -39,13 +39,13 @@ This section describes the two Azure AD-based technologies that can be used to s
 
 #### Azure role-based access control (Azure RBAC)
 
-[Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) give you fine-grained access control over your Azure resources. Azure roles and permissions can be managed from the Azure portal.
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) give you fine-grained access control over your Azure resources. Azure roles and permissions can be managed from the Azure portal.
 
 Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, and Queues. If you need access to File Shares or Tables, you'll need to assign Azure roles that grant permission to list storage account keys.
 
 #### Access control lists (ACLs)
 
-[Access control lists (ACLs)](/azure/storage/blobs/data-lake-storage-access-control) let you control file and folder level access in ADLS Gen2 blob containers. You can manage your ACLs using Storage Explorer.
+[Access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) let you control file and folder level access in ADLS Gen2 blob containers. You can manage your ACLs using Storage Explorer.
 
 ### Shared access signatures (SAS)
 
@@ -93,8 +93,8 @@ Storage Explorer allows you to modify the access level of your Azure Blob Storag
 When enabling public access for a blob container, we recommend the following guidelines:
 
 - **Don't enable public access to a blob container that may contain any potentially sensitive data.** Make sure your blob container is free of all private data.
-- **Don't upload any potentially sensitive data to a blob container with Blob or Container access.** 
+- **Don't upload any potentially sensitive data to a blob container with Blob or Container access.**
 
 ## Next steps
 
-- [Security recommendations](/azure/storage/blobs/security-recommendations)
+- [Security recommendations](../blobs/security-recommendations.md)

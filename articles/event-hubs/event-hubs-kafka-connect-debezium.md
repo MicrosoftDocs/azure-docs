@@ -1,17 +1,29 @@
 ---
-title: Integrate Apache Kafka Connect on Azure Event Hubs (Preview) with Debezium for Change Data Capture
+title: Integrate Apache Kafka Connect on Azure Event Hubs with Debezium for Change Data Capture
 description: This article provides information on how to use Debezium with Azure Event Hubs for Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
-ms.date: 08/11/2020
+ms.date: 01/06/2021
 ---
 
-# Integrate Apache Kafka Connect support on Azure Event Hubs (Preview) with Debezium for Change Data Capture
+# Integrate Apache Kafka Connect support on Azure Event Hubs with Debezium for Change Data Capture
 
 **Change Data Capture (CDC)** is a technique used to track row-level changes in database tables in response to create, update, and delete operations. [Debezium](https://debezium.io/) is a distributed platform that builds on top of Change Data Capture features available in different databases (for example, [logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). It provides a set of [Kafka Connect connectors](https://debezium.io/documentation/reference/1.2/connectors/index.html) that tap into row-level changes in database table(s) and convert them into event streams that are then sent to [Apache Kafka](https://kafka.apache.org/).
 
+> [!WARNING]
+> Use of the Apache Kafka Connect framework as well as the Debezium platform and its connectors are **not eligible for product support through Microsoft Azure**.
+>
+> Apache Kafka Connect assumes for its dynamic configuration to be held in compacted topics with otherwise unlimited retention. Azure Event Hubs [does not implement compaction as a broker feature](event-hubs-federation-overview.md#log-projections) and always imposes a time-based retention limit on retained events, rooting from the principle that Azure Event Hubs is a real-time event streaming engine and not a long-term data or configuration store.
+>
+> While the Apache Kafka project might be comfortable with mixing these roles, Azure believes that such information is best managed in a proper database or configuration store.
+>
+> Many Apache Kafka Connect scenarios will be functional, but these conceptual differences between Apache Kafka's and Azure Event Hubs' retention models may cause certain configurations not to work as expected. 
+
 This tutorial walks you through how to set up a change data capture based system on Azure using [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure DB for PostgreSQL](../postgresql/overview.md) and Debezium. It will use the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Azure Event Hubs
+
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 In this tutorial, you take the following steps:
 
@@ -162,7 +174,7 @@ psql -h my-postgres.postgres.database.azure.com -p 5432 -U testuser@my-postgres 
 **Create a table and insert records**
 
 ```sql
-CREATE TABLE todos (id SERIAL, description VARCHAR(50), todo_status VARCHAR(10), PRIMARY KEY(id));
+CREATE TABLE todos (id SERIAL, description VARCHAR(50), todo_status VARCHAR(12), PRIMARY KEY(id));
 
 INSERT INTO todos (description, todo_status) VALUES ('setup postgresql on azure', 'complete');
 INSERT INTO todos (description, todo_status) VALUES ('setup kafka connect', 'complete');
@@ -170,7 +182,7 @@ INSERT INTO todos (description, todo_status) VALUES ('configure and install conn
 INSERT INTO todos (description, todo_status) VALUES ('start connector', 'pending');
 ```
 
-The connector should now spring into action and send change data events to an Event Hubs topic with the following na,e `my-server.public.todos`, assuming you have `my-server` as the value for `database.server.name` and `public.todos` is the table whose changes you're tracking (as per `table.whitelist` configuration)
+The connector should now spring into action and send change data events to an Event Hubs topic with the following name `my-server.public.todos`, assuming you have `my-server` as the value for `database.server.name` and `public.todos` is the table whose changes you're tracking (as per `table.whitelist` configuration)
 
 **Check Event Hubs topic**
 

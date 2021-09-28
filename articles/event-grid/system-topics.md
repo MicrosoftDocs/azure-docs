@@ -2,7 +2,7 @@
 title: System topics in Azure Event Grid
 description: Describes system topics in Azure Event Grid. 
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 07/19/2021
 ---
 
 # System topics in Azure Event Grid
@@ -14,21 +14,25 @@ A system topic in Event Grid represents one or more events published by Azure se
 ## Azure services that support system topics
 Here is the current list of Azure services that support creation of system topics on them.
 
+- [Azure API Management](event-schema-api-management.md)
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
 - [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure FarmBeats](event-schema-farmbeats.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
+- [Azure Policy](./event-schema-policy.md)
 - [Azure resource groups](event-schema-resource-groups.md)
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure subscriptions](event-schema-subscriptions.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
 
 ## System topics as Azure resources
 In the past, a system topic was implicit and wasn't exposed for simplicity. System topics are now visible as Azure resources and provide the following capabilities:

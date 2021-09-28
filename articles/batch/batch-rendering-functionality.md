@@ -3,7 +3,7 @@ title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 03/12/2021
 ms.topic: how-to
 ---
 
@@ -13,15 +13,26 @@ Standard Azure Batch capabilities are used to run rendering workloads and applic
 
 For an overview of Batch concepts, including pools, jobs, and tasks, see [this article](./batch-service-workflow-features.md).
 
-## Batch Pools
+## Batch pools using custom VM images and standard application licensing
+
+As with other workloads and types of application, a custom VM image can be created with the required rendering applications and plug-ins. The custom VM image is placed in the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) and [can be used to create Batch Pools](batch-sig-images.md).
+
+The task command line strings will need to reference the applications and paths used when creating the custom VM image.
+
+Most rendering applications will require licenses obtained from a license server. If there's an existing on-premises license server, then both the pool and license server need to be on the same [virtual network](../virtual-network/virtual-networks-overview.md). It is also possible to run a license server on an Azure VM, with the Batch pool and license server VM being on the same virtual network.
+
+## Batch pools using rendering VM images
+
+> [!IMPORTANT]
+> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on February 29, 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### Rendering application installation
 
 An Azure Marketplace rendering VM image can be specified in the pool configuration if only the pre-installed applications need to be used.
 
-There is a Windows 2016 image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
+There is a Windows image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
 
-For an example pool configuration, see the [Azure CLI rendering tutorial](./tutorial-rendering-cli.md).  The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](/rest/api/batchservice/pool/add#imagereference) when creating a pool:
+The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](/rest/api/batchservice/pool/add#imagereference) when creating a pool:
 
 | Publisher | Offer | Sku | Version |
 |---------|---------|---------|--------|
@@ -57,22 +68,19 @@ To be able to create the command line for rendering tasks, the installation loca
 
 |Application|Application Executable|Environment Variable|
 |---------|---------|---------|
-|Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
-|Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Chaos Group V-Ray Standalone|vray.exe|VRAY_3.60.4_EXEC|
-Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
-|Arnold 2018 command line|kick.exe|ARNOLD_2018_EXEC|
+|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
+|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
+|Chaos Group V-Ray Standalone|vray.exe|VRAY_4.10.03_EXEC|
+|Arnold 2020 command line|kick.exe|ARNOLD_2020_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
-### Azure VM families
+## Azure VM families
 
 As with other workloads, rendering application system requirements vary, and performance requirements vary for jobs and projects.  A large variety of VM families are available in Azure depending on your requirements – lowest cost, best price/performance, best performance, and so on.
 Some rendering applications, such as Arnold, are CPU-based; others such as V-Ray and Blender Cycles can use CPUs and/or GPUs.
 For a description of available VM families and VM sizes, [see VM types and sizes](../virtual-machines/sizes.md).
 
-### Low-priority VMs
+## Low-priority VMs
 
 As with other workloads, low-priority VMs can be utilized in Batch pools for rendering.  Low-priority VMs perform the same as regular dedicated VMs but utilize surplus Azure capacity and are available for a large discount.  The tradeoff for using low-priority VMs is that those VMs may not be available to be allocated or may be preempted at any time, depending on available capacity. For this reason, low-priority VMs aren't going to be suitable for all rendering jobs. For example, if images take many hours to render then it's likely that having the rendering of those images interrupted and restarted due to VMs being preempted wouldn't be acceptable.
 
@@ -85,7 +93,5 @@ When the Azure Marketplace VM images are used, then the best practice is to use 
 
 ## Next steps
 
-For examples of Batch rendering try out the two tutorials:
-
-* [Rendering using the Azure CLI](./tutorial-rendering-cli.md)
-* [Rendering using Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* Learn about [using rendering applications with Batch](batch-rendering-applications.md).
+* Learn about [Storage and data movement options for rendering asset and output files](batch-rendering-storage-data-movement.md).

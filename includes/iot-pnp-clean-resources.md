@@ -1,12 +1,10 @@
 ---
 author: dominicbetts
 ms.author: dominicbetts
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/15/2019
 ---
-
-## Clean up resources
 
 If you plan to continue with additional IoT Plug and Play articles, you can keep and reuse the resources you used in this article. Otherwise, you can delete the resources you created in this article to avoid additional charges.
 

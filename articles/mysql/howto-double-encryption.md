@@ -1,8 +1,8 @@
 ---
 title: Infrastructure double encryption - Azure portal - Azure Database for MySQL
 description: Learn how to set up and manage Infrastructure double encryption for your Azure Database for MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
@@ -10,11 +10,14 @@ ms.date: 06/30/2020
 
 # Infrastructure double encryption for Azure Database for MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Learn how to use the how set up and manage Infrastructure double encryption for your Azure Database for MySQL.
 
 ## Prerequisites
 
 * You must have an Azure subscription and be an administrator on that subscription.
+* The Azure Database for MySQL - Single Server should be on General Purpose or Memory Optimized pricing tier and on general purpose storage v2. Before you proceed further, refer limitations for [infrastructure double encryption](concepts-infrastructure-double-encryption.md#limitations).
 
 ## Create an Azure Database for MySQL server with Infrastructure Double encryption - Portal
 

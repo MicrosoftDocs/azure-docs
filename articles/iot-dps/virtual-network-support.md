@@ -19,11 +19,11 @@ In most scenarios where DPS is configured with a VNET, your IoT Hub will also be
 
 ## Introduction
 
-By default, DPS hostnames map to a public endpoint with a publicly routable IP address over the Internet. This public endpoint is visible to all customers. Access to the public endpoint can be attempted by IoT devices over wide-area networks as well as on-premises networks.
+By default, DPS hostnames map to a public endpoint with a publicly routable IP address over the Internet. This public endpoint is visible to all customers. Access to the public endpoint can be attempted by IoT devices over wide-area networks and on-premises networks.
 
 For several reasons, customers may wish to restrict connectivity to Azure resources, like DPS. These reasons include:
 
-* Prevent connection exposure over the public Internet. Exposure can be reduced by introducing additional layers of security via network level isolation for your IoT hub and DPS resources
+* Prevent connection exposure over the public Internet. Exposure can be reduced by introducing more layers of security via network level isolation for your IoT hub and DPS resources
 
 * Enabling a private connectivity experience from your on-premises network assets ensuring that your data and traffic 
 is transmitted directly to Azure backbone network.
@@ -34,7 +34,7 @@ is transmitted directly to Azure backbone network.
 
 Common approaches to restricting connectivity include [DPS IP filter rules](./iot-dps-ip-filtering.md) and Virtual networking (VNET) with [private endpoints](../private-link/private-endpoint-overview.md). The goal of this article is to describe the VNET approach for DPS using private endpoints. 
 
-Devices that operate in on-premises networks can use [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering to connect to a VNET in Azure and access DPS resources through private endpoints. 
+Devices that operate in on-premises networks can use [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering to connect to a VNET in Azure and access DPS resources through private endpoints. 
 
 A private endpoint is a private IP address allocated inside a customer-owned VNET by which an Azure resource is accessible. By having a private endpoint for your DPS resource, you will be able to allow devices operating inside your VNET to request provisioning by your DPS resource without allowing traffic to the public endpoint.
 
@@ -47,7 +47,7 @@ Before proceeding ensure that the following prerequisites are met:
 
 * You have provisioned an Azure VNET with a subnet in which the private endpoint will be created. For more information, see, [create a virtual network using Azure CLI](../virtual-network/quick-create-cli.md).
 
-* For devices that operate inside of on-premises networks, set up [Virtual Private Network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
+* For devices that operate inside of on-premises networks, set up [Virtual Private Network (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](https://azure.microsoft.com/services/expressroute/) private peering into your Azure VNET.
 
 ## Private endpoint limitations
 
@@ -108,6 +108,38 @@ To set up a private endpoint, follow these steps:
 6. Click **Review + create** and then **Create** to create your private endpoint resource.
 
 
+## Use private endpoints with devices
+
+To use private endpoints with device provisioning code, your provisioning code must use the specific **Service endpoint** for your DPS resource as shown on the overview page of your DPS resource in the [Azure portal](https://portal.azure.com). The service endpoint has the following form.
+
+`<Your DPS Tenant Name>.azure-devices-provisioning.net`
+
+Most sample code demonstrated in our documentation and SDKs, use the **Global device endpoint** (`global.azure-devices-provisioning.net`) and **ID Scope** to resolve a particular DPS resource. Use the service endpoint in place of the global device endpoint when connecting to a DPS resource using private links to provision your devices.
+
+For example, the provisioning device client sample ([pro_dev_client_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/prov_dev_client_sample)) in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) is designed to use the **Global device endpoint** as the global provisioning URI (`global_prov_uri`) in [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)
+
+:::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="60-64" highlight="4":::
+
+:::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
+
+To use the sample with a private link, the highlighted code above would be changed to use the service endpoint for your DPS resource. For example, if you service endpoint was `mydps.azure-devices-provisioning.net`, the code would look as follows.
+
+```C
+static const char* global_prov_uri = "global.azure-devices-provisioning.net";
+static const char* service_uri = "mydps.azure-devices-provisioning.net";
+static const char* id_scope = "[ID Scope]";
+```
+
+```C
+    PROV_DEVICE_RESULT prov_device_result = PROV_DEVICE_RESULT_ERROR;
+    PROV_DEVICE_HANDLE prov_device_handle;
+    if ((prov_device_handle = Prov_Device_Create(service_uri, id_scope, prov_transport)) == NULL)
+    {
+        (void)printf("failed calling Prov_Device_Create\r\n");
+    }
+```
+
+
 ## Request a private endpoint
 
 You can request a private endpoint to a DPS resource by resource ID. In order to make this request, you need the resource owner to supply you with the resource ID. 
@@ -150,5 +182,5 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 Use the links below to learn more about DPS security features:
 
-* [Security](concepts-security.md)
+* [Security](./concepts-service.md#attestation-mechanism)
 * [TLS 1.2 Support](tls-support.md)

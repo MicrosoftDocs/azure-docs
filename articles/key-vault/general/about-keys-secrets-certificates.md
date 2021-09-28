@@ -3,10 +3,10 @@ title: Azure Key Vault Keys, Secrets, and Certificates Overview
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
@@ -39,11 +39,11 @@ Software-protected keys|/keys|Supported|Not supported
 **Other object types**||
 Secrets|/secrets|Supported|Not supported
 Certificates|/certificates|Supported|Not supported
-Storage account keys|/storageaccount|Supported|Not supported
+Storage account keys|/storage|Supported|Not supported
 |||
 - **Cryptographic keys**: Supports multiple key types and algorithms, and enables the use of software-protected and HSM-protected keys. For more information, see [About keys](../keys/about-keys.md).
 - **Secrets**: Provides secure storage of secrets, such as passwords and database connection strings. For more information, see [About secrets](../secrets/about-secrets.md).
-- **Certificates**: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. For more information, see [About certificates](../certificates/about-certificates.md).
+- **Certificates**: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. Keep in mind when a certificate is created, an addressable key and secret are also created with the same name. For more information, see [About certificates](../certificates/about-certificates.md).
 - **Azure Storage account keys**: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md).
 
 For more general information about Key Vault, see [About Azure Key Vault](overview.md). For more information about Managed HSM pools, see What is [Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
@@ -70,6 +70,7 @@ Objects stored in Key Vault are versioned whenever a new instance of an object i
 
 Objects in Key Vault can be addressed by specifying a version or by omitting version for operations on current version of the object. For example, given a Key with the name `MasterKey`, performing operations without specifying a version causes the system to use the latest available version. Performing operations with the version-specific identifier causes the system to use that specific version of the object.  
 
+### Vault-name and Object-name
 Objects are uniquely identified within Key Vault using a URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  
 
 For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md)

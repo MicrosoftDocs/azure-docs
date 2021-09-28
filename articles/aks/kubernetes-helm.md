@@ -4,7 +4,7 @@ description: Learn how to use the Helm packaging tool to deploy containers in an
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 12/07/2020
 ms.author: zarhoads
 
 #Customer intent: As a cluster operator or developer, I want to learn how to deploy Helm into an AKS cluster and then install and manage applications using Helm charts.
@@ -19,6 +19,8 @@ This article shows you how to configure and use Helm in a Kubernetes cluster on 
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+
+In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr].
 
 You also need the Helm CLI installed, which is the client that runs on your development system. It allows you to start, stop, and manage applications with Helm. If you use the Azure Cloud Shell, the Helm CLI is already installed. For installation instructions on your local platform, see [Installing Helm][helm-install].
 
@@ -45,10 +47,9 @@ version.BuildInfo{Version:"v3.0.0", GitCommit:"e29ce2a54e96cd02ccfce88bee4f58bb6
 
 ### Add Helm repositories
 
-Use the [helm repo][helm-repo-add] command to add the official Helm stable charts and *ingress-nginx* repositories.
+Use the [helm repo][helm-repo-add] command to add the *ingress-nginx* repository.
 
 ```console
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 ```
 
@@ -57,56 +58,16 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search][helm-search] command:
 
 ```console
-helm search repo stable
+helm search repo ingress-nginx
 ```
 
 The following condensed example output shows some of the Helm charts available for use:
 
 ```console
-$ helm search repo stable
+$ helm search repo ingress-nginx
 
-NAME                                 	CHART VERSION	APP VERSION                 	DESCRIPTION                                       
-stable/acs-engine-autoscaler         	2.2.2        	2.1.1                       	DEPRECATED Scales worker nodes within agent pools 
-stable/aerospike                     	0.3.1        	v4.5.0.5                    	A Helm chart for Aerospike in Kubernetes          
-stable/airflow                       	4.10.0       	1.10.4                      	Airflow is a platform to programmatically autho...
-stable/ambassador                    	4.4.7        	0.85.0                      	A Helm chart for Datawire Ambassador              
-stable/anchore-engine                	1.3.7        	0.5.2                       	Anchore container analysis and policy evaluatio...
-stable/apm-server                    	2.1.5        	7.0.0                       	The server receives data from the Elastic APM a...
-stable/ark                           	4.2.2        	0.10.2                      	DEPRECATED A Helm chart for ark                   
-stable/artifactory                   	7.3.1        	6.1.0                       	DEPRECATED Universal Repository Manager support...
-stable/artifactory-ha                	0.4.1        	6.2.0                       	DEPRECATED Universal Repository Manager support...
-stable/atlantis                      	3.8.4        	v0.8.2                      	A Helm chart for Atlantis https://www.runatlant...
-stable/auditbeat                     	1.1.0        	6.7.0                       	A lightweight shipper to audit the activities o...
-stable/aws-cluster-autoscaler        	0.3.3        	                            	Scales worker nodes within autoscaling groups.    
-stable/aws-iam-authenticator         	0.1.1        	1.0                         	A Helm chart for aws-iam-authenticator            
-stable/bitcoind                      	0.2.2        	0.17.1                      	Bitcoin is an innovative payment network and a ...
-stable/bookstack                     	1.1.2        	0.27.4-1                    	BookStack is a simple, self-hosted, easy-to-use...
-stable/buildkite                     	0.2.4        	3                           	DEPRECATED Agent for Buildkite                    
-stable/burrow                        	1.5.2        	0.29.0                      	Burrow is a permissionable smart contract machine 
-stable/centrifugo                    	3.1.0        	2.1.0                       	Centrifugo is a real-time messaging server.       
-stable/cerebro                       	1.3.1        	0.8.5                       	A Helm chart for Cerebro - a web admin tool tha...
-stable/cert-manager                  	v0.6.7       	v0.6.2                      	A Helm chart for cert-manager                     
-stable/chaoskube                     	3.1.2        	0.14.0                      	Chaoskube periodically kills random pods in you...
-stable/chartmuseum                   	2.4.0        	0.8.2                       	Host your own Helm Chart Repository               
-stable/chronograf                    	1.1.0        	1.7.12                      	Open-source web application written in Go and R...
-stable/clamav                        	1.0.4        	1.6                         	An Open-Source antivirus engine for detecting t...
-stable/cloudserver                   	1.0.3        	8.1.5                       	An open-source Node.js implementation of the Am...
-stable/cluster-autoscaler            	6.2.0        	1.14.6                      	Scales worker nodes within autoscaling groups.    
-stable/cluster-overprovisioner       	0.2.6        	1.0                         	Installs the a deployment that overprovisions t...
-stable/cockroachdb                   	2.1.16       	19.1.5                      	CockroachDB is a scalable, survivable, strongly...
-stable/collabora-code                	1.0.5        	4.0.3.1                     	A Helm chart for Collabora Office - CODE-Edition  
-stable/concourse                     	8.2.7        	5.6.0                       	Concourse is a simple and scalable CI system.     
-stable/consul                        	3.9.2        	1.5.3                       	Highly available and distributed service discov...
-stable/contour                       	0.1.0        	v0.15.0                     	Contour Ingress controller for Kubernetes         
-stable/coredns                       	1.7.4        	1.6.4                       	CoreDNS is a DNS server that chains plugins and...
-stable/cosbench                      	1.0.1        	0.0.6                       	A benchmark tool for cloud object storage services
-stable/coscale                       	1.0.0        	3.16.0                      	CoScale Agent                                     
-stable/couchbase-operator            	1.0.1        	1.2.1                       	A Helm chart to deploy the Couchbase Autonomous...
-stable/couchdb                       	2.3.0        	2.3.1                       	DEPRECATED A database featuring seamless multi-...
-stable/dask                          	3.1.0        	1.1.5                       	Distributed computation in Python with task sch...
-stable/dask-distributed              	2.0.2        	                            	DEPRECATED: Distributed computation in Python     
-stable/datadog                       	1.38.3       	6.14.0                      	DataDog Agent 
-...
+NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+ingress-nginx/ingress-nginx     2.12.0          0.34.1          Ingress controller for Kubernetes using NGINX a...
 ```
 
 To update the list of charts, use the [helm repo update][helm-repo-update] command.
@@ -122,53 +83,94 @@ $ helm repo update
 
 Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "ingress-nginx" chart repository
-...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈
 ```
+
+## Import the images used by the Helm chart into your ACR
+
+This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart], which relies on three container images. Use `az acr import` to import those images into your ACR.
+
+```azurecli
+REGISTRY_NAME=<REGISTRY_NAME>
+CONTROLLER_REGISTRY=k8s.gcr.io
+CONTROLLER_IMAGE=ingress-nginx/controller
+CONTROLLER_TAG=v0.48.1
+PATCH_REGISTRY=docker.io
+PATCH_IMAGE=jettech/kube-webhook-certgen
+PATCH_TAG=v1.5.1
+DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+DEFAULTBACKEND_IMAGE=defaultbackend-amd64
+DEFAULTBACKEND_TAG=1.5
+
+az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+```
+
+> [!NOTE]
+> In addition to importing container images into your ACR, you can also import Helm charts into your ACR. For more information, see [Push and pull Helm charts to an Azure container registry][acr-helm].
 
 ### Run Helm charts
 
 To install charts with Helm, use the [helm install][helm-install-command] command and specify a release name and the name of the chart to install. To see installing a Helm chart in action, let's install a basic nginx deployment using a Helm chart.
 
+> [!TIP]
+> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic* and is intended to work within that namespace. Specify a namespace for your own environment as needed.
+
 ```console
-helm install my-nginx-ingress ingress-nginx/ingress-nginx \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+ACR_URL=<REGISTRY_URL>
+
+# Create a namespace for your ingress resources
+kubectl create namespace ingress-basic
+
+# Use Helm to deploy an NGINX ingress controller
+helm install nginx-ingress ingress-nginx/ingress-nginx \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.image.registry=$ACR_URL \
+    --set controller.image.image=$CONTROLLER_IMAGE \
+    --set controller.image.tag=$CONTROLLER_TAG \
+     --set controller.image.digest="" \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
+    --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
+    --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
+    --set defaultBackend.image.registry=$ACR_URL \
+    --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
 ```
 
 The following condensed example output shows the deployment status of the Kubernetes resources created by the Helm chart:
 
 ```console
-$ helm install my-nginx-ingress ingress-nginx/ingress-nginx \
->     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
->     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
-
-NAME: my-nginx-ingress
-LAST DEPLOYED: Fri Nov 22 10:08:06 2019
-NAMESPACE: default
+NAME: nginx-ingress
+LAST DEPLOYED: Wed Jul 28 11:35:29 2021
+NAMESPACE: ingress-basic
 STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 NOTES:
-The nginx-ingress controller has been installed.
+The ingress-nginx controller has been installed.
 It may take a few minutes for the LoadBalancer IP to be available.
-You can watch the status by running 'kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller'
+You can watch the status by running 'kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller'
 ...
 ```
 
 Use the `kubectl get services` command to get the *EXTERNAL-IP* of your service.
 
 ```console
-kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller
+kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 ```
 
-For example, the below command shows the *EXTERNAL-IP* for the *my-nginx-ingress-ingress-nginx-controller* service:
+For example, the below command shows the *EXTERNAL-IP* for the *nginx-ingress-ingress-nginx-controller* service:
 
 ```console
-$ kubectl --namespace default get services -o wide -w my-nginx-ingress-ingress-nginx-controller
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
-NAME                                        TYPE           CLUSTER-IP   EXTERNAL-IP      PORT(S)                      AGE   SELECTOR
-my-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.2.237   <EXTERNAL-IP>    80:31380/TCP,443:32239/TCP   72s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=my-nginx-ingress,app.kubernetes.io/name=ingress-nginx
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.254.93   <EXTERNAL_IP>   80:30004/TCP,443:30348/TCP   61s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 ### List releases
@@ -176,16 +178,15 @@ my-nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.2.237   <EXTERNA
 To see a list of releases installed on your cluster, use the `helm list` command.
 
 ```console
-helm list
+helm list --namespace ingress-basic
 ```
 
 The following example shows the *my-nginx-ingress* release deployed in the previous step:
 
 ```console
-$ helm list
-
-NAME            	NAMESPACE	REVISION	UPDATED                             	STATUS  	CHART               	APP VERSION
-my-nginx-ingress	default  	1       	2019-11-22 10:08:06.048477 -0600 CST	deployed	nginx-ingress-1.25.0	0.26.1 
+$ helm list --namespace ingress-basic
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+nginx-ingress   ingress-basic   1               2021-07-28 11:35:29.9623734 -0500 CDT   deployed        ingress-nginx-3.34.0    0.47.0
 ```
 
 ### Clean up resources
@@ -193,15 +194,21 @@ my-nginx-ingress	default  	1       	2019-11-22 10:08:06.048477 -0600 CST	deploye
 When you deploy a Helm chart, a number of Kubernetes resources are created. These resources include pods, deployments, and services. To clean up these resources, use the [helm uninstall][helm-cleanup] command and specify your release name, as found in the previous `helm list` command.
 
 ```console
-helm uninstall my-nginx-ingress
+helm uninstall --namespace ingress-basic nginx-ingress
 ```
 
 The following example shows the release named *my-nginx-ingress* has been uninstalled:
 
 ```console
-$ helm uninstall my-nginx-ingress
+$ helm uninstall --namespace ingress-basic nginx-ingress
 
-release "my-nginx-ingress" uninstalled
+release "nginx-ingress" uninstalled
+```
+
+To delete the entire sample namespace, use the `kubectl delete` command and specify your namespace name. All the resources in the namespace are deleted.
+
+```console
+kubectl delete namespace ingress-basic
 ```
 
 ## Next steps
@@ -220,8 +227,11 @@ For more information about managing Kubernetes application deployments with Helm
 [helm-repo-add]: https://helm.sh/docs/intro/quickstart/#initialize-a-helm-chart-repository
 [helm-search]: https://helm.sh/docs/intro/using_helm/#helm-search-finding-charts
 [helm-repo-update]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
+[ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
             
 <!-- LINKS - internal -->
+[acr-helm]: ../container-registry/container-registry-helm-repos.md
+[aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [taints]: operator-best-practices-advanced-scheduler.md
