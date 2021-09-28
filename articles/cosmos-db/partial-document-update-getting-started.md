@@ -233,7 +233,7 @@ const { resource: patchSource3 } = await container
 console.log(`Patched ${patchSource3} to new ${patchSource3}.`); 
 ```
 
-## Server-Side programming support
+## Support for Server-Side programming
 
 Partial Document Update operations can also be [executed on the server-side](stored-procedures-triggers-udfs.md) using Stored procedures, triggers, and user-defined functions.
 
