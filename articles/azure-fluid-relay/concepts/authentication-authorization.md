@@ -23,7 +23,7 @@ that the requests are coming from an authorized user of the tenant.
 
 In summary, the secret key is how the Azure Fluid Relay service knows that requests are coming from your app or service. This is critical, because once the Azure Fluid Relay service can trust that it's *your app* making the requests, it can trust the data you send. This is also why it's important that the secret is handled securely.
 
-> [!DANGER]
+> [!CAUTION]
 > Anyone with access to the secret can impersonate your application when communicating with Azure Fluid Relay service.
 
 Now you have a mechanism to establish trust. Your app can sign some data, send it to the Azure Fluid Relay service, and the service can validate whether the
@@ -72,9 +72,10 @@ Every request to Azure Fluid Relay must be signed with a valid JWT. The Azure Fl
 additional details about [how to sign the token](../how-tos/fluid-jwtoken.md#how-can-you-generate-an-azure-fluid-relay-token). Fluid delegates the responsibility of creating and signing these
 tokens to a *token provider.*
 
-> [!NOTE]
+> [!TIP]
+> Additional information:
 > * [Introduction to JWTs](https://jwt.io/introduction)
-> * [Payload claims in Azure Fluid Relay](https://github.com/MicrosoftDocs/azure-fluid-preview-pr/blob/main/> azure-fluid-relay-preview-pr/articles/howtos/fluid-jwtoken.md#payload-claims)
+> * [Payload claims in Azure Fluid Relay](../how-tos/fluid-jwtoken.md#payload-claims)
 > * Scopes in Azure Fluid Relay
 > * [Signing requests](https://github.com/MicrosoftDocs/azure-fluid-preview-pr/blob/main/azure-fluid-relay-preview-pr/articles/howtos/fluid-jwtoken.md#how-can-you-generate-an-azure-fluid-relay-token)
 

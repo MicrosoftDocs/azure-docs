@@ -16,7 +16,7 @@ ms.service: azure-fluid
 
 This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
 
-> [!ALERT]
+> [!TIP]
 > Before you can connect your app to an Azure Fluid Relay server, you must [provision an Azure Fluid Relay server](../how-tos/provision-fluid-azure-portal.md) resource on your Azure account.
 
 ## Prerequisites
