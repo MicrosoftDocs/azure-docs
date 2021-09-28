@@ -2,7 +2,7 @@
 title: What is Azure Arc-enabled VMware vSphere?
 description: Azure Arc enabled VMware vSphere extends Azure's governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
 ms.topic: overview
-ms.date: 10/25/2021
+ms.date: 09/28/2021
 ms.custom: references_regions
 ---
 
@@ -47,6 +47,7 @@ The following scenarios are supported in Azure Arc-enabled VMware vSphere:
 Azure Arc enabled VMware vSphere is currently supported in these regions:
 
 - East US
+
 - West Europe
 
 ## Next steps

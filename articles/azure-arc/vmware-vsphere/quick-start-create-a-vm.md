@@ -9,17 +9,17 @@ ms.date: 04/05/2021
 
 # Quickstart: Create a virtual machine on VMware vCenter using Azure Arc
 
-Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure and provided you permissions on those resources in Azure, you will be able to create a virtual machine
+Once your administrator has connected a VMware vCenter to Azure, represented VMware vCenter resources in Azure, and provided you permissions on those resources, you'll be able to create a virtual machine.
 
-## Pre-requisites
+## Prerequisites
 
 - An Azure subscription and resource group where you have Arc VMware VM contributor role
 
 - A resourcepool resource on which you have Arc Private Cloud Resource User Role
 
-- A virtual machine template resource on which on which you have Arc Private Cloud Resource User Role
+- A virtual machine template resource on which you have Arc Private Cloud Resource User Role
 
-- (Optional) A virtual network resource on which on which you have Arc Private Cloud Resource User Role
+- (Optional) A virtual network resource on which you have Arc Private Cloud Resource User Role
 
 ## How to create a VM in Azure portal
 
@@ -27,7 +27,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 2. You will see the new unified virtual machine browse experience that also includes Arc VMs.
 
-    ![unified browse experience for azure and arc vms](media/vm-browse.png)
+    ![unified browse experience for Azure and arc vms](media/vm-browse.png)
 
 3. Click on **+Add**
 
