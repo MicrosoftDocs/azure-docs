@@ -36,6 +36,10 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.3373.2600: This update was released September 2021 and has the following changes:
+    - General agent improvements.
+    - Fixes issues with restarting the agent on Windows 7 VMs.
+    - Fixes an issue with fields in the WVDAgentHealthStatus table not showing up correctly.
 - Version 1.0.3130.2900: This update was released July 2021 and has the following changes:
     - General improvements and bug fixes.
     - Fixes an issue with getting the host pool path for Intune registration.

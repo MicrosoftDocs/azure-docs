@@ -114,8 +114,8 @@ The ".x" text is symbolic to represent new minor versions of Linux distributions
 |Publisher|Name|Versions|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Ubuntu Server|14.04 - 20.x|
-|Credativ|Debian|8 - 10.x|
+|Canonical|Ubuntu Server|16.04 - 20.x|
+|Credativ|Debian|9 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
 |Oracle|Oracle-Linux|7.x-8.x|
