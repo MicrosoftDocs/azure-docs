@@ -2,14 +2,14 @@
 title: Continuous video recording and playback tutorial - Azure Video Analyzer
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to continuously record video to the cloud and play back that recording.
 ms.topic: tutorial
-ms.date: 09/14/2021
+ms.date: 09/27/2021
 
 ---
 # Tutorial: Continuous video recording and playback
 
 [!INCLUDE [header](includes/edge-env.md)]
 
-In this tutorial, you'll learn how to use Azure Video Analyzer to perform [continuous video recording](../continuous-video-recording.md) (CVR) to the cloud and play back that recording. This capability is useful for scenarios such as safety and compliance where there is a need to maintain an archive of the footage from a camera for days, weeks, months or even years. 
+In this tutorial, you'll learn how to use Azure Video Analyzer to perform [continuous video recording](../continuous-video-recording.md) (CVR) to the cloud and play back that recording. This capability is useful for scenarios such as safety and compliance where there is a need to maintain an archive of the footage from a camera for days, weeks, months or even years or alternatively you could specify the retention period for the video being recorded. Retention policy defines how many days of video should be stored (for example, the last 7 days), you can learn more about it in the [Manage retention policy](../manage-retention-policy.md) article.
 
 In this tutorial you will:
 
