@@ -39,8 +39,8 @@ The following settings allow you to configure your automated ML experiment.
 | |The Python SDK|The studio web experience|
 |----|:----:|:----:|
 |**Split data into train/validation sets**| ✓|✓
-|**Supports ML tasks: classification, regression, and forecasting**| ✓| ✓
-|**Supports computer vision tasks: image classification, object detection and instance segmentation **| ✓| 
+|**Supports ML tasks: classification, regression, & forecasting**| ✓| ✓
+|**Supports computer vision tasks: image classification, object detection & instance segmentation**| ✓| 
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
@@ -131,7 +131,7 @@ Automated ML for images adds support for computer vision tasks, which allows you
 
 Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation runs, models and outputs can be accessed from the Azure Machine Learning studio UI.
 
-Learn how to [set up AutoML training for computer vision models'](how-to-auto-train-image-models.md).
+<!--Learn how to [set up AutoML training for computer vision models](how-to-auto-train-image-models.md).-->
 
 Automated ML for images supports the following computer vision tasks -
 
