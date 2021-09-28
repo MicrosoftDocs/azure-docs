@@ -24,7 +24,7 @@ A non-uniform memory access (NUMA) architecture is used to increase processor sp
 
 On your Azure Stack Edge device, logical processors are distributed on NUMA nodes and high speed network interfaces can be attached to these nodes. A HPN VM has a dedicated set of logical processors. These processors are first picked from the NUMA node that has high speed network interface attached to it, and then picked from other nodes. A HPN VM can only use the memory of the NUMA node that is assigned to its processors.  
 
-To run low latency and high throughput network applications on the HPN VMs deployed on your device, make sure to reserve vCPUs that reside in NUMA node 0. This node has Mellanox high speed network interfaces, Port 5 and Port 6 attached to it.   
+To run low latency and high throughput network applications on the HPN VMs deployed on your device, make sure to reserve vCPUs that reside in NUMA node 0. This node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.   
 
         
 ## HPN VM deployment workflow
@@ -148,6 +148,8 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```
     <!-- Start-vm doesn't seem to work alone. Get-vm alone doesn't seem to return my running VM"VmId"--> 
 
+
+
 ## Deploy a VM
 
 Follow these steps to create an HPN VM on your device.
@@ -173,6 +175,9 @@ Follow these steps to create an HPN VM on your device.
     ![Screenshot that shows the Details tab on the Overview pane for a virtual machine in Azure Stack Edge. The VM size and the IP Address in Networking are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network/add-high-performance-network-virtual-machine-4.png)
 
     You'll use the IP address for the network interface to connect to the VM.
+
+    > [!NOTE]
+    > If the vCPUs are not reserved for HPN VMs prior to the deployment, the deployment will fail with `FabricVmPlacementErrorInsufficientNumaNodeCapacity` error.
                                                                                                                                                                          
 ## Next steps
 
