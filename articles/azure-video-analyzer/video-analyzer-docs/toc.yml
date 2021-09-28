@@ -150,7 +150,7 @@
     - name: Public endpoints
       href: access-public-endpoints-networking.md
     - name: Use the Visual Studio Code extension
-      hfref: edge/use-vscode-extension.md
+      href: edge/use-visual-studio-code-extension.md
   - name: Visualize
     items:
     - name: Embed player widget in a web app
