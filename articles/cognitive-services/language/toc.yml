@@ -149,7 +149,7 @@ items:
     - name: Guided conversations
       href: custom-question-answering/tutorials/guided-conversations.md
     - name: Active learning
-      href: custom-question-answering/tutorials/active-learing.md
+      href: custom-question-answering/tutorials/active-learning.md
     - name: Adding synonyms
       href: custom-question-answering/tutorials/adding-synonyms.md
     - name: Multiple languages
