@@ -42,17 +42,17 @@ To get started, open Power BI Desktop and load the comma-separated value (CSV) f
 
 In the main Power BI Desktop window, select the **Home** ribbon. In the **External data** group of the ribbon, open the **Get Data** drop-down menu and select **Text/CSV**.
 
-![[The Get Data button]](../media/tutorials/power-bi/get-data-button.png)
+![The Get Data button](../media/tutorials/power-bi/get-data-button.png)
 
 The Open dialog appears. Navigate to your Downloads folder, or to the folder where you downloaded the `FabrikamComments.csv` file. Click `FabrikamComments.csv`, then the **Open** button. The CSV import dialog appears.
 
-![[The CSV Import dialog]](../media/tutorials/power-bi/csv-import.png)
+![The CSV Import dialog](../media/tutorials/power-bi/csv-import.png)
 
 The CSV import dialog lets you verify that Power BI Desktop has correctly detected the character set, delimiter, header rows, and column types. This information is all correct, so click **Load**.
 
 To see the loaded data, click the **Data View** button on the left edge of the Power BI workspace. A table opens that contains the data, like in Microsoft Excel.
 
-![[The initial view of the imported data]](../media/tutorials/power-bi/initial-data-view.png)
+![The initial view of the imported data](../media/tutorials/power-bi/initial-data-view.png)
 
 ## Prepare the data
 
@@ -62,17 +62,17 @@ The sample data contains a `subject` column and a `comment` column. With the Mer
 
 In Power BI Desktop, select the **Home** ribbon. In the **External data** group, click **Edit Queries**.
 
-![[The External Data group in Home ribbon]](../media/tutorials/power-bi/edit-queries.png)
+![The External Data group in Home ribbon](../media/tutorials/power-bi/edit-queries.png)
 
 Select `FabrikamComments` in the **Queries** list at the left side of the window if it isn't already selected.
 
 Now select both the `subject` and `comment` columns in the table. You may need to scroll horizontally to see these columns. First click the `subject` column header, then hold down the Control key and click the `comment` column header.
 
-![[Selecting fields to be merged]](../media/tutorials/power-bi/select-columns.png)
+![Selecting fields to be merged](../media/tutorials/power-bi/select-columns.png)
 
 Select the **Transform** ribbon. In the **Text Columns** group of the ribbon, click **Merge Columns**. The Merge Columns dialog appears.
 
-![[Merging fields using the Merge Columns dialog]](../media/tutorials/power-bi/merge-columns.png)
+![Merging fields using the Merge Columns dialog](../media/tutorials/power-bi/merge-columns.png)
 
 In the Merge Columns dialog, choose `Tab` as the separator, then click **OK.**
 
@@ -130,13 +130,13 @@ Now you can use the custom function to extract the key phrases from each of the 
 
 In Power BI Desktop, in the Query Editor window, switch back to the `FabrikamComments` query. Select the **Add Column** ribbon. In the **General** group, click **Invoke Custom Function**.
 
-![[Invoke Custom Function button]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
+![Invoke Custom Function button](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
 The Invoke Custom Function dialog appears. In **New column name**, enter `keyphrases`. In **Function query**, select the custom function you created, `KeyPhrases`.
 
 A new field appears in the dialog, **text (optional)**. This field is asking which column we want to use to provide values for the `text` parameter of the Key Phrases API. (Remember that you already hard-coded the values for the `language` and `id` parameters.) Select `Merged` (the column you created [previously](#preparing-the-data) by merging the subject and message fields) from the drop-down menu.
 
-![[Invoking a custom function]](../media/tutorials/power-bi/invoke-custom-function.png)
+![Invoking a custom function](../media/tutorials/power-bi/invoke-custom-function.png)
 
 Finally, click **OK.**
 
@@ -146,7 +146,7 @@ If everything is ready, Power BI calls your custom function once for each row in
 
 After you close the Invoke Custom Function dialog, a banner may appear asking you to specify how to connect to the Key Phrases API.
 
-![[credentials banner]](../media/tutorials/power-bi/credentials-banner.png)
+![credentials banner](../media/tutorials/power-bi/credentials-banner.png)
 
 Click **Edit Credentials,** make sure `Anonymous` is selected in the dialog, then click **Connect.** 
 
@@ -154,17 +154,17 @@ Click **Edit Credentials,** make sure `Anonymous` is selected in the dialog, the
 > You select `Anonymous` because Key Phrase Extraction authenticates requests using your access key, so Power BI does not need to provide credentials for the HTTP request itself.
 
 > [!div class="mx-imgBorder"]
-> ![[setting authentication to anonymous]](../media/tutorials/power-bi/access-web-content.png)
+> ![setting authentication to anonymous](../media/tutorials/power-bi/access-web-content.png)
 
 If you see the Edit Credentials banner even after choosing anonymous access, you may have forgotten to paste your Text Analytics resource key into the code in the `KeyPhrases` [custom function](#create-a-custom-function).
 
 Next, a banner may appear asking you to provide information about your data sources' privacy. 
 
-![[privacy banner]](../media/tutorials/power-bi/privacy-banner.png)
+![privacy banner](../media/tutorials/power-bi/privacy-banner.png)
 
 Click **Continue** and choose `Public` for each of the data sources in the dialog. Then click **Save.**
 
-![[setting data source privacy]](../media/tutorials/power-bi/privacy-dialog.png)
+![setting data source privacy](../media/tutorials/power-bi/privacy-dialog.png)
 
 ## Create the word cloud
 
@@ -179,25 +179,25 @@ Now you'll use this column to generate a word cloud. To get started, click the *
 
 If you don't already have the Word Cloud custom visual installed, install it. In the Visualizations panel to the right of the workspace, click the three dots (**...**) and choose **Import From Market**. If the word "cloud" is not among the displayed visualization tools in the list, you can search for "cloud" and click the **Add** button next the Word Cloud visual. Power BI installs the Word Cloud visual and lets you know that it installed successfully.
 
-![[adding a custom visual]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
+![adding a custom visual](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
 First, click the Word Cloud icon in the Visualizations panel.
 
-![[Word Cloud icon in visualizations panel]](../media/tutorials/power-bi/visualizations-panel.png)
+![Word Cloud icon in visualizations panel](../media/tutorials/power-bi/visualizations-panel.png)
 
 A new report appears in the workspace. Drag the `keyphrases` field from the Fields panel to the Category field in the Visualizations panel. The word cloud appears inside the report.
 
 Now switch to the Format page of the Visualizations panel. In the Stop Words category, turn on **Default Stop Words** to eliminate short, common words like "of" from the cloud. However, because we're visualizing key phrases, they might not contain stop words.
 
-![[activating default stop words]](../media/tutorials/power-bi/default-stop-words.png)
+![activating default stop words](../media/tutorials/power-bi/default-stop-words.png)
 
 Down a little further in this panel, turn off **Rotate Text** and **Title**.
 
-![[activate focus mode]](../media/tutorials/power-bi/word-cloud-focus-mode.png)
+![activate focus mode](../media/tutorials/power-bi/word-cloud-focus-mode.png)
 
 Click the Focus Mode tool in the report to get a better look at our word cloud. The tool expands the word cloud to fill the entire workspace, as shown below.
 
-![[A Word Cloud]](../media/tutorials/power-bi/word-cloud.png)
+![A Word Cloud](../media/tutorials/power-bi/word-cloud.png)
 
 ## More language services
 
