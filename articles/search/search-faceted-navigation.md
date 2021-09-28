@@ -29,7 +29,7 @@ Code in the presentation layer does the heavy lifting in a faceted navigation ex
 
 Facets are dynamic and returned on a query. A search response brings with it all of the facet categories used to navigate the documents in the result. The query executes first, and then facets are pulled from the current results and assembled into a faceted navigation structure.
 
-Facets are one layer deep and cannot be hierarchical. You can use query parameters in the request to determine the facets and filters. Your application code will handle rendering, including labels and user interaction.
+Facets are one layer deep and cannot be hierarchical. You'll use query parameters in the request to determine the facets and filters. Your application code will handle rendering, including labels and user interaction.
 
 If you aren't familiar with faceted navigation structured, the following example shows one on the left.
 
@@ -70,11 +70,11 @@ Facets can be calculated over single value fields as well as collections. Fields
 
 The contents of a field, and not the field itself, produces the facets in a faceted navigation structure. If the facet is a string field *Color*, facets will be blue, green, and any other value for that field.
 
-As a best practice, check fields for null values, misspellings or case discrepancies, and single and plural versions of the same word. Filters and facets do not undergo lexical analysis or [spell check](speller-how-to-add.md), which means that all values of a `facetable` field are potential facets, even if the words differ by one character.
+As a best practice, check fields for null values, misspellings or case discrepancies, and single and plural versions of the same word. Filters and facets do not undergo lexical analysis or [spell check](speller-how-to-add.md), which means that all values of a "facetable" field are potential facets, even if the words differ by one character.
 
 ### Defaults in REST and Azure SDKs
 
-If you are using one of the Azure SDKs, your code must specify all field attributes. In contrast, the REST API has defaults for field attributes based on the [data type](/rest/api/searchservice/supported-data-types). The following data types are `filterable` and `facetable` by default:
+If you are using one of the Azure SDKs, your code must specify all field attributes. In contrast, the REST API has defaults for field attributes based on the [data type](/rest/api/searchservice/supported-data-types). The following data types are "filterable" and "facetable" by default:
 
 * `Edm.String`
 * `Edm.DateTimeOffset`
@@ -87,7 +87,7 @@ You cannot use `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)` fields i
 > [!Tip]
 > As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for unique values, such as an ID or product name, should be set to `"facetable": false` to prevent their accidental (and ineffective) use in faceted navigation. This is especially true for the REST API that enables filters and facets by default.
 
-## Facet request
+## Facet request and response
 
 Facets are specified on the query and the faceted navigation structure is returned at the top of the response. The structure of a request and response is fairly simple. In fact, the real work behind faceted navigation lies in the presentation layer, covered in a later section. 
 
@@ -161,7 +161,7 @@ The response for the example above includes the faceted navigation structure at 
 
 ## Facets syntax
 
-A facet query parameter is set to a comma-delimited list of `facetable` fields and depending on the data type, can be further parameterized to set sort, orders, increase or lower the maximum account on each facet, or specify ranges:  `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. For more detail about facet parameters, see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
+A facet query parameter is set to a comma-delimited list of "facetable" fields and depending on the data type, can be further parameterized to set sort, orders, increase or lower the maximum account on each facet, or specify ranges:  `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. For more detail about facet parameters, see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
 
 ```http
 POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-version={{api_version}}
