@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Arc resource bridge on VMware vSphere
 description: Learn how to deploy Azure Arc resource bridge to VMware vSphere.
-ms.date: 09/22/2021
+ms.date: 09/28/2021
 ms.topic: overview
 ---
 
@@ -13,8 +13,8 @@ You perform the following to complete the deployment:
 
 - Download the VM image
 - Create three configuration YAML files:
-    - **Application.yaml** - This is the primary configuration file that provides a path to the other two configuration files, and specifies the network configuration of the resource bridge.
-    - **Infra.yaml** - A configuration file that includes a set of configuration properties about your vSphere infrastructure. 
+    - **Application.yaml** - This is the primary configuration file that provides a path to the provider configuration and resource configuration YAML files. The file also specifies the network configuration of the resource bridge, and includes generic cluster information that is not provider specific.
+    - **Infra.yaml** - A configuration file that includes a set of configuration properties specific to your private cloud provider.
     - **Resource.yaml** - A configuration file that contains all the information related to the Azure Resource Manager resource, such as the subscription name and resource group for the resource bridge in Azure.
 
 - Deploy the resource bridge and register it with Azure.
@@ -47,7 +47,7 @@ Before proceeding with installing and configuring the Arc resource bridge on you
    az provider register --name Microsoft.ResourceConnector
    ```
 
-## Create an appliance configuration 
+## Create an appliance configuration
 
 The `appliance.yaml` file is the main configuration file that specifies the path to two YAML files to deploy the resource bridge in your environment, and to register it in Azure. This file also includes the network configuration settings, specifically its IP address and optionally, a proxy server if direct network connection to the internet is not allowed in your environment.  
 
@@ -164,6 +164,14 @@ az arcappliance show -n <resourceName> -g <resourceGroupName>
 ```
 
 The output results for the property `provisioningState` has a value of `Succeeded` and for the property `status`, a value of `Running`.
+
+## Delete resource bridge
+
+To delete the resource bridge, use the same config files created and used earlier. This action deletes the resource bridge VM from your private cloud environment and the resource in Azure.
+
+```bash
+az arcappliance delete vmware --config-file appliance.yaml
+```
 
 ## Next steps
 
