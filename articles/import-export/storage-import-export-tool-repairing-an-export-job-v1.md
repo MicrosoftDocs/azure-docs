@@ -5,11 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.subservice: common
 ---
 # Repairing an export job
+
+> [!IMPORTANT]
+> [!INCLUDE [storage-import-export-repair-support](../../includes/storage-import-export-repair-support.md)]
+
 After an export job has completed, you can run the Microsoft Azure Import/Export Tool on-premises to:  
   
 1.  Download any files that the Azure Import/Export service was unable to export.  

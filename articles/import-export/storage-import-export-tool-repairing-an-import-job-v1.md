@@ -5,12 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.subservice: common
 ---
 
 # Repairing an import job
+
+> [!IMPORTANT]
+> [!INCLUDE [storage-import-export-repair-support](../../includes/storage-import-export-repair-support.md)]
+
 The Microsoft Azure Import/Export service may fail to copy some of your files or parts of a file to the Windows Azure Blob service. Some reasons for failures include:  
   
 -   Corrupted files  
@@ -19,7 +23,7 @@ The Microsoft Azure Import/Export service may fail to copy some of your files or
   
 -   The storage account key changed while the file was being transferred.  
   
-You can run the Microsoft Azure Import/Export Tool with the import job's copy log files. The tool uploads the missing files, or parts of a file, to your Windows Azure storage account to complete the import job.  
+You can run the Microsoft Azure Import/Export Tool with the import job's copy log files. The tool uploads the missing files, or parts of a file, to your Windows Azure storage account to complete the import job.
   
 ## RepairImport parameters
 
