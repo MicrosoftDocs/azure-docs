@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a high-performance network VM on your Azure Stack Edge Pro GPU device.
+You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a high-performance network (HPN) VM on your Azure Stack Edge Pro GPU device.
 
         
 ## VM deployment workflow
@@ -27,6 +27,7 @@ The high-level summary of the HPN deployment workflow is as follows:
 1. Enable cloud management of VMs from the Azure portal.
 1. Upload a VHD to an Azure Storage account by using Azure Storage Explorer. 
 1. Use the uploaded VHD to download the VHD onto the device, and create a VM image from the VHD. 
+1. Reserve vCPUs on the device for HPN VMs
 1. Use the resources created in the previous steps:
     1. VM image that you created.
     1. Virtual switch associated with the network interface on which you enabled compute.
@@ -37,7 +38,7 @@ The high-level summary of the HPN deployment workflow is as follows:
     1. Create new data disks or attach existing data disks.
     1. Configure static or dynamic IP for the VM. If you're providing a static IP, choose from a free IP in the subnet range of the network interface enabled for compute.
 
-    Use the preceding resources to create a VM.
+    Use the preceding resources to create an HPN VM.
 
 ## Prerequisites
 
@@ -153,11 +154,10 @@ Follow these steps to create an HPN VM on your device.
 
     Select the VM to see the details.
 
-    ![Screenshot that shows the Details tab on the Overview pane for a virtual machine in Azure Stack Edge. The VM size and the IP Address in Networking are highlighted.](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network/add-high-performance-network-virtual-machine-4.png)
+    ![Screenshot that shows the Details tab on the Overview pane for a virtual machine in Azure Stack Edge. The VM size and the IP Address in Networking are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network/add-high-performance-network-virtual-machine-4.png)
 
     You'll use the IP address for the network interface to connect to the VM.
-                                                                                                                                                                                                                                                                                                                                                       
-
+                                                                                                                                                                         
 ## Next steps
 
 - [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
