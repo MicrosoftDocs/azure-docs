@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account for secure access.
 ---
 
@@ -15,7 +15,7 @@ In this guide, you will learn how to deploy private endpoints for your Purview a
 
 The Azure Purview _account_ private endpoint is used to add another layer of security by enabling scenarios where only client calls that originate from within the virtual network are allowed to access the Azure Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
 
-The Azure Purview _portal_ private endpoint is required to enable connectivity to Azure Purview Studio using a private network.
+The Azure Purview _portal_ private endpoint is required to enable connectivity to [Azure Purview Studio](https://ms.web.purview.azure.com/resource/) using a private network.
 
 > [!NOTE]
 > If you only create _account_ and _portal_ private endpoints, you won't be able to run any scans. To enable scanning on a private network, you will need to [create an ingestion private endpoint also](catalog-private-link-end-to-end.md).
@@ -84,7 +84,7 @@ There are two ways you can add Azure Purview _account_ and _portal_ private endp
 
 ### Use the Azure portal (Azure Purview account)
 
-1. Go to the [Azure portal](https://portal.azure.com), and then click on to your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
+1. Go to the [Azure portal](https://portal.azure.com), and then select your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
 
     :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Screenshot that shows creating an account private endpoint.":::
 
