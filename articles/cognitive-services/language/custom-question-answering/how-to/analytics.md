@@ -15,7 +15,7 @@ ms.date: 08/25/2021
 
 Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs. Follow the below steps to run sample queries to get analytics on the usage of your QnA Maker knowledge base.
 
-1. [Enable diagnostics logging](../../../diagnostic-logging.md) for your Text Analytics service with Custom question answering (preview) feature.
+1. [Enable diagnostics logging](../../../diagnostic-logging.md) for your language resource with custom question answering enabled.
 
 2. In the previous step, select **Trace** in addition to **Audit, RequestResponse and AllMetrics** for logging
 
