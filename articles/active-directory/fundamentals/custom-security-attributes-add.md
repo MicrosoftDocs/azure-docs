@@ -28,28 +28,48 @@ To add or deactivate custom security attributes, you must have:
 
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
-  
+
+## Add a new attribute set
+
+An attribute set is a group of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
+
+1. Click **Add attribute set** to add a new attribute set.
+
+    If Add attribute set is disabled, make sure you are assigned the Attribute Definition Administrator role. For more information, see [Troubleshoot custom security attributes](custom-security-attributes-troubleshoot.md).
+
+1. Enter a name, description, and maximum number of attributes.
+
+    An attribute set name can be 32 characters with no spaces or special characters. Once you've specified a name, you can't rename it. For more information, see [Limits and constraints](custom-security-attributes-overview.md#limits-and-constraints).
+
+    ![Screenshot of New attribute set pane in Azure portal.](./media/custom-security-attributes-add/attribute-set-add.png)
+
+1. When finished, click **Add**.
+
+    The new attribute set appears in the list of attribute sets.
+
 ## Add a new custom security attribute
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Click **Azure Active Directory**.
+1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 
-1. In the left navigation menu, click **Custom security attributes (Preview)**.
+1. On the Custom security attributes page, find an existing attribute set or click **Add attribute set** to add a new attribute set.
 
-    If Custom security attributes (Preview) is disabled, make sure you are assigned a custom security attributes role. For more information, see Troubleshoot custom security attributes.
-
-1. On the Custom security attributes page, find an existing attribute set or click **Add** to add a new attribute set.
-
-    An attribute set is a group of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
+    All custom security attributes must be part of an attribute set.
 
 1. Click to open the selected attribute set.
  
-1. Click **New attribute** to add a new custom security attribute to the attribute set.
+1. Click **Add attribute** to add a new custom security attribute to the attribute set.
+
+    ![Screenshot of New attribute pane in Azure portal.](./media/custom-security-attributes-add/attribute-new.png)
 
 1. In the **Attribute name** box, enter a custom security attribute name.
 
-    A custom security attribute name can be 32 characters long and include spaces and special characters. Once you've specified a name for a custom security attribute, you can't rename it.
+    A custom security attribute name can be 32 characters with no spaces or special characters. Once you've specified a name, you can't rename it. For more information, see [Limits and constraints](custom-security-attributes-overview.md#limits-and-constraints).
 
 1. In the **Description** box, enter an optional description.
 
@@ -81,13 +101,11 @@ To add or deactivate custom security attributes, you must have:
 
 ## Edit a custom security attribute
 
-Once you have added a new custom security attribute, you can later edit some of the properties. Some properties are immutable and cannot be changed.
+Once you add a new custom security attribute, you can later edit some of the properties. Some properties are immutable and cannot be changed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Click **Azure Active Directory**.
-
-1. Click **Custom security attributes (Preview)**.
+1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 
 1. Click the attribute set that includes the custom security attribute you want to edit.
 
@@ -98,16 +116,16 @@ Once you have added a new custom security attribute, you can later edit some of 
 1. If **Only allow predefined values to be assigned** is **Yes**, click **Add value** to add predefined values. Click an existing predefined value to change the **Is active?** setting.
 
     An active value is available for assignment to objects. A value that is not active is defined, but not yet available for assignment.
-  
+
+    ![Screenshot of Add predefined value pane in Azure portal.](./media/custom-security-attributes-add/attribute-predefined-value-add.png)
+
 ## Deactivate a custom security attribute
 
 Once you add a custom security attribute, you can't delete it. However, you can deactivate a custom security attribute.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Click **Azure Active Directory**.
-
-1. Click **Custom security attributes (Preview)**.
+1. Click **Azure Active Directory** > **Custom security attributes (Preview)**.
 
 1. Click the attribute set that includes the custom security attribute you want to deactivate.
 
