@@ -34,7 +34,9 @@ Open **Azure Active Directory** > **Overview** and check the license for your te
 
 ## Symptom - Add attribute set is disabled
 
-When signed in to the Azure portal as Global Administrator and you try to click the **Custom security attributes** > **Add attribute set** button, it is disabled.
+When signed in to the Azure portal as Global Administrator and you try to click the **Custom security attributes** > **Add attribute set** option, it is disabled.
+
+![Add attribute set option disabled in Azure portal.](./media/custom-security-attributes-troubleshoot/attribute-set-add-disabled.png)
 
 **Cause**
 
