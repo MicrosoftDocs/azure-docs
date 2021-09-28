@@ -22,7 +22,7 @@ You can also use the data labeling tool to [create an image labeling project](ho
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Data labeling capabilities
+## Text labeling capabilities
 
 Azure Machine Learning data labeling is a central place to create, manage, and monitor data labeling projects:
 
@@ -43,7 +43,7 @@ Text data can be either ".txt" or ".csv" files.
 
 [!INCLUDE [prerequisites](../../includes/machine-learning-data-labeling-prerequisites.md)]
 
-## Create a data labeling project
+## Create a text labeling project
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
