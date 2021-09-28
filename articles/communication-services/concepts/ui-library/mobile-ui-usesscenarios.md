@@ -10,11 +10,9 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
-
-<br>
-
 # UI Library (iOS and Android) capabilities
+
+[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
 UI Library for iOS and Android supports calling use cases by using the **calling composite**.
 Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.
