@@ -125,6 +125,7 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 * Asia Pacific:
 	* Australia East
 	* Japan East
+	* Japan West
 	* Korea Central
 	* Southeast Asia
 * Europe:

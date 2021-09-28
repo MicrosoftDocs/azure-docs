@@ -16,7 +16,7 @@
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: 4 - Install the VMware HCX Connector
     href: install-vmware-hcx.md
-  - name: 5 - Configure on-premises VMware HCX Connector
+  - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
 - name: Tutorials
   items:
@@ -108,14 +108,22 @@
       href: configure-l2-stretched-vmware-hcx-networks.md
     - name: Configure DNS forwarder
       href: configure-dns-azure-vmware-solution.md
+    - name: Configure HCX network extension
+      href: configure-hcx-network-extension.md
+    - name: Configure NSX network components
+      href: configure-nsx-network-components-azure-portal.md
     - name: Configure port mirroring
       href: configure-port-mirroring-azure-vmware-solution.md
-    - name: Enable public internet access
-      href: enable-public-internet-access.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
+    - name: Enable public internet access
+      href: enable-public-internet-access.md
+    - name: HCX Mobility Optimized Networking (MON) guidance 
+      href: vmware-hcx-mon-guidance.md  
   - name: Configure storage policies
     href: configure-storage-policy.md 
+  - name: Configure VMware syslogs
+    href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Connect multiple private clouds in same region
@@ -146,20 +154,20 @@
       href: ecosystem-back-up-vms.md
     - name: Migration solutions for VMs
       href: ecosystem-migration-vms.md
+    - name: Security solutions for Azure VMware Solution
+      href: ecosystem-security-solutions.md
+    - name: Bitnami appliance deployment
+      href: bitnami-appliances-deployment.md
   - name: VMware solutions
     items:
+    - name: Configure HCX network extension
+      href: configure-hcx-network-extension.md    
     - name: Configure vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
     - name: Deploy VMs from the content library
       href: deploy-vm-content-library.md
-    - name: Disaster recovery
-      items:
-      - name: Deploy disaster recovery using VMware SRM
-        href: disaster-recovery-using-vmware-site-recovery-manager.md
-      - name: Deploy disaster recovery using VMware HCX
-        href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Upgrade the VMware HCX appliance
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
 - name: Resources
@@ -218,5 +226,7 @@
     href: /cli/azure/vmware
   - name: Azure PowerShell
     href: /powershell/module/az.vmware/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.avs/privateclouds
   - name: Terraform Azure provider
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud

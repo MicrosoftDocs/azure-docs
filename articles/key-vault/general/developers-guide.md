@@ -98,22 +98,17 @@ Access to keys, secrets, and certificates is controlled by data plane. Data plan
 |[Reference](/cli/azure/keyvault/secret)<br>[Quickstart](../secrets/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../secrets/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#secret-operations)|[Reference](/azure/templates/microsoft.keyvault/vaults/secrets)<br>[Quickstart](../secrets/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.secrets)<br>[Quickstart](../secrets/quick-create-net.md)|[Reference](/python/api/overview/azure/keyvault-secrets-readme)<br>[Quickstart](../secrets/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.2.0/index.html)<br>[Quickstart](../secrets/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-secrets/)<br>[Quickstart](../secrets/quick-create-node.md)|
 
 ### Secrets Usage
-The Azure Key Vault secrets component should only be used to store secrets for your applications. For any non-secrets objects, you should use [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview).
+The Azure Key Vault secrets should only be used to store secrets for your application. 
 
-- Examples of secrets that should be stored in Key Vault:
+Examples of secrets that should be stored in Key Vault:
     - Client application secrets
     - Connection strings
     - Passwords
     - Shared access keys
     - SSH keys
 
-- Examples of non-secrets that should be stored in App Configuration:
-    - Client application IDs
-    - IP addresses
-    - Service endpoints
-    - Service configuration parameters
-    - Usernames
-
+Additionally any secret related information like usernames, application ids can be stored as a tag in secret. For any other sensitive configuration settings, you should use [Azure App Configuration](../../azure-app-configuration/overview.md).
+ 
 ### References 
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
@@ -129,17 +124,17 @@ For basic scenarios, there are other solutions for simplified usage with support
 
 ##### Certificates:
 - The Key Vault VM extension, which provides automatic refresh of certificates stored in an Azure key vault. 
-    - [Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows)
-    - [Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
-    - [Key Vault virtual machine extension for Azure Arc-enabled servers](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#azure-key-vault-vm-extension)
+    - [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md)
+    - [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md)
+    - [Key Vault virtual machine extension for Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md#azure-key-vault-vm-extension)
  - Azure App Service Key Vault certificates integration, which can import and automatically refresh certificates from Key Vault
      - [Deploying Azure Web App Certificate through Key Vault](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 
 ##### Secrets:
 - Use Key Vault secrets with App Service application settings
-    - [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
+    - [Use Key Vault references for App Service and Azure Functions](../../app-service/app-service-key-vault-references.md)
 - Use Key Vault secrets with App Configuration service for applications hosted in Azure VM
-    - [Configure Applications with App Configuration and Key Vault](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/app-secrets-configuration/)
+    - [Configure Applications with App Configuration and Key Vault](/samples/azure/azure-sdk-for-net/app-secrets-configuration/)
 
 ## Code examples
 

@@ -1005,7 +1005,7 @@ The decoded document contains the following fields:
 | `timestamp.expiresOn` | The UTC timestamp for when the signed document expires | 2018-10-01
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2019-04-30
-| `sku` | Specific SKU for the VM image | 2019-11-01
+| `sku` | Specific SKU for the VM image (correlates to `compute/sku` property from the Instance Metadata endpoint \[`/metadata/instance`\]) | 2019-11-01
 
 > [!NOTE]
 > For Classic (non-Azure Resource Manager) VMs, only the vmId is guaranteed to be populated.

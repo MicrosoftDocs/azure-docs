@@ -54,7 +54,7 @@ The table summarizes support for physical servers you want to migrate using agen
 **Multipath IO** | Not supported.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
-**PVdrivers / XenServer tools** | Not supported.
+**PV drivers / XenServer tools** | Not supported.
 
 
 

@@ -32,9 +32,9 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
-**Guidance**: Virtual Network NAT doesn't support controlling outbound traffic with network security groups (NSG).  Inbound traffic is only allowed in response to an outbound originated flow.
+**Guidance**: Virtual Network NAT supports controlling outbound traffic with network security groups (NSG).  Inbound traffic is only allowed in response to an outbound originated flow.
 
-However, network security group (NSG) flow logs can be used with NAT gateway resources to monitor outbound originated traffic.
+Network security group (NSG) flow logs can also be used with NAT gateway resources to monitor outbound originated traffic.
 
 Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations. 
 

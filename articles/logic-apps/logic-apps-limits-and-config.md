@@ -1,23 +1,21 @@
 ---
 title: Limits and configuration reference guide
-description: Reference guide to limits and configuration information for Azure Logic Apps
+description: Reference guide to limits and configuration information for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 08/30/2021
+ms.date: 09/16/2021
 ---
 
 # Limits and configuration reference for Azure Logic Apps
 
-> For Power Automate, see [Limits and configuration in Power Automate](/power-automate/limits-and-config).
+> For Power Automate, review [Limits and configuration in Power Automate](/power-automate/limits-and-config).
 
 This article describes the limits and configuration information for Azure Logic Apps and related resources. To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
 
 > [!NOTE]
-> Many limits are the same across these host environments, but differences are noted where they exist. 
-> If your scenarios require different limits, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) 
-> to discuss your requirements.
+> Many limits are the same across the available environments where Azure Logic Apps runs, but differences are noted where they exist. 
 
 The following table briefly summarizes differences between the original **Logic App (Consumption)** resource type and the **Logic App (Standard)** resource type. You'll also learn how the *single-tenant* environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows.
 
@@ -357,13 +355,14 @@ The following table lists the values for a single workflow definition:
 
 ## Custom connector limits
 
-For multi-tenant and integration service environment only, you can create and use [custom managed connectors](/connectors/custom-connectors), which are wrappers around an existing REST API or SOAP API. For single-tenant only, you can create and use [custom built-in connectors](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+In multi-tenant Azure Logic Apps and the integration service environment only, you can create and use [custom managed connectors](/connectors/custom-connectors), which are wrappers around an existing REST API or SOAP API. In single-tenant Azure Logic Apps, you can create and use only [custom built-in connectors](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 The following table lists the values for custom connectors:
 
 | Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
 |------|--------------|---------------|---------------------------------|-------|
 | Custom connectors | 1,000 per Azure subscription | Unlimited | 1,000 per Azure subscription ||
+| Custom connectors - Number of APIs | SOAP-based: 50 | Not applicable | SOAP-based: 50 ||
 | Requests per minute for a custom connector | 500 requests per minute per connection | Based on your implementation | 2,000 requests per minute per *custom connector* ||
 | Connection timeout | 2 min | Idle connection: <br>4 min <p><p>Active connection: <br>10 min | 2 min ||
 ||||||
@@ -513,7 +512,7 @@ Before you set up your firewall with IP addresses, review these considerations:
 
 * If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various other options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
-  For example, logic apps can't directly access storage accounts that use firewall rules and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. To access your Table Storage or Queue Storage, you can use the HTTP trigger and actions instead. For other options, see [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+  For example, logic apps can't directly access storage accounts that use firewall rules and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](/connectors/common/outbound-ip-addresses), your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. To access your Table Storage or Queue Storage, you can use the HTTP trigger and actions instead. For other options, see [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
 <a name="inbound"></a>
 
@@ -601,7 +600,10 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 
 ### Outbound IP addresses
 
-This section lists the outbound IP addresses for the Azure Logic Apps service. If you're using Azure Government, see [Azure Government - Outbound IP addresses](#azure-government-outbound).
+This section lists the outbound IP addresses for the Azure Logic Apps service. If you're using Azure Government, see [Azure Government - Outbound IP addresses](#azure-government-outbound). If your workflow uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses) in your logic app's Azure region. If your workflow uses custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding [*managed connector* outbound IP addresses](/connectors/common/outbound-ip-addresses). For more information about setting up communication settings on the gateway, review these topics:
+
+* [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
+* [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
 
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the [service tag](../virtual-network/service-tags-overview.md), 

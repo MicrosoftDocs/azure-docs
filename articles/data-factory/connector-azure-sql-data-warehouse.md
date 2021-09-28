@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -431,7 +431,7 @@ To copy data to Azure Synapse Analytics, set the sink type in Copy Activity to *
 
 The Azure Synapse Analytics connector in copy activity provides built-in data partitioning to copy data in parallel. You can find data partitioning options on the **Source** tab of the copy activity.
 
-![Screenshot of partition options](./media/connector-sql-server/connector-sql-partition-options.png)
+:::image type="content" source="./media/connector-sql-server/connector-sql-partition-options.png" alt-text="Screenshot of partition options":::
 
 When you enable partitioned copy, copy activity runs parallel queries against your Azure Synapse Analytics source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Azure Synapse Analytics.
 
@@ -879,7 +879,7 @@ SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2
 - Serializable
 - None (ignore isolation level)
 
-![Isolation Level](media/data-flow/isolationlevel.png)
+:::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
 
 ### Sink transformation
 
@@ -902,7 +902,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+:::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts":::
 
 ### Error row handling
 
