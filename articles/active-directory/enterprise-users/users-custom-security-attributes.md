@@ -373,11 +373,11 @@ Yes, custom security attributes can be assigned to members or guests in your ten
 
 **Can I assign custom security attributes to directory synced users?**
 
-No, directory synced users from an on-premises Active Directory can't be assigned custom security attributes. Directory synced users have a source of authority in Active Directory, so custom security attributes cannot be added to their profile and are not available for sync.
+Yes, directory synced users from an on-premises Active Directory can be assigned custom security attributes.
 
 **Are custom security attributes available for dynamic membership rules?**
 
-No, custom security attributes assigned to users are not supported yet for configuring dynamic membership rules.
+No, custom security attributes assigned to users are not supported for configuring dynamic membership rules.
 
 **Are these custom security attributes the same as the custom attributes in B2C tenants?**
 
