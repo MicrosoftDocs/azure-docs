@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: 'Learn about model management with Azure Machine Learning (MLOps). Deploy, manage, track lineage and monitor your models to continuously improve them. '  
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 author: jpe316
 ms.author:  jordane
