@@ -14,6 +14,8 @@
     href: concepts/architecture.md
   - name: Container runtime
     href: concepts/containers-runtime.md
+  - name: Distributed data structures
+    href: concepts/data-structures.md
 - name: How-to guides
   items:
     - name: 'How to: Provision an Azure Fluid Relay service'
