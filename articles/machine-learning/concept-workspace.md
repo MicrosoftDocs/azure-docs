@@ -115,8 +115,8 @@ When you create a new workspace, it automatically creates several Azure resource
   To use an existing Azure Storage account, it cannot be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following operations:
-    * [Azure Machine Learning environments](concept-environments.md): Training and deployment
-    * [AutoML](concept-automated-ml.md): Deployment
+    * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
+    * [AutoML](concept-automated-ml.md) when deploying
     * [Data profiling](how-to-connect-data-ui.md#data-profile-and-preview)
     * [Azure Machine Learning designer](concept-designer.md)
 
