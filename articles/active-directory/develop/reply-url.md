@@ -52,8 +52,8 @@ You can use a maximum of 256 characters for each redirect URI you add to an app 
 
 ## Redirect URIs in application vs. service principal objects
 
-- Always add Redirect URIs to the application object only.
-- Do not add Redirect URI values to a service principal since persistent is not guaranteed and values could be removed if service principal object syncs with application object. This could happen due to any update operation which triggers a sync between the two objects.
+* Always add Redirect URIs to the application object only.
+* Do not add Redirect URI values to a service principal because these values could be removed when the service principal object syncs with the application object. This could happen due to any update operation which triggers a sync between the two objects.
 
 ## Supported schemes
 
