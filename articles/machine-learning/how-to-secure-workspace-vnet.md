@@ -172,7 +172,7 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
     1. Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
     1. Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
 
-    :::image type="content" source="The Firewalls and virtual networks section in the Key Vault pane" alt-text="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png":::
+    :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="The Firewalls and virtual networks section in the Key Vault pane":::
 
 For more information, see [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
