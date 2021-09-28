@@ -161,7 +161,7 @@ See [How to speciy the model version](./Vision-API-How-to-Topics/call-read-api.m
 |Uzbek (Latin)     | `uz` |✅ |  |
 |Volapük   | `vo` | ✅ | |
 |Walser    | `wae` | ✅ | |
-|Welsh     | `cy` |✅ |  |
+|Welsh     | `cy` |✅ (preview) |  |
 |Western Frisian | `fy` | ✅ | |
 |Yucatec Maya | `yua` | ✅ | |
 |Zhuang | `za` |✅ |  |
