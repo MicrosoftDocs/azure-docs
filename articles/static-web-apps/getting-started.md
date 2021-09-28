@@ -104,10 +104,6 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     ---
 
-1. In the *Enter the location of your application code* prompt, enter **/**.
-
-1. In the *Enter the location of your application build output* prompt, a value is pre-populated based on the framework presets you selected earlier. Press Enter to accept.
-
 1. Once the app is created, a confirmation notification is shown in Visual Studio Code.
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
