@@ -182,7 +182,7 @@ The requested CPU or memory can't be satisfied. Please adjust your request or th
 
 ### ERR_2102: Resources requests invalid
 
-The requests of resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to Azure Machine Learning workspace. You can check it from portal or with `az ml compute show` command.
+Requests from resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
 
 ### ERR_2200: User container has crashed\terminated
 
