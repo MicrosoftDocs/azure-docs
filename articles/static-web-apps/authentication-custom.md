@@ -6,7 +6,7 @@ author: aaronpowell
 ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 09/28/2021
 ---
 
 # Custom authentication in Azure Static Web Apps
@@ -17,20 +17,14 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 
 - Using any custom registrations disables all pre-configured providers.
 
-- Specifically for Azure Active Directory (AAD) registrations, you have the option of providing a tenant, which allows you to bypass the [invitation flow](./authentication-authorization.md#role-management) for group management.
-
 > [!NOTE]
 > Custom authentication is only available in the Azure Static Web Apps Standard plan.
 
-## Override pre-configured provider
+## Configure a custom identity provider
 
 The settings used to override a provider are configured in the `auth` section of the [configuration file](configuration.md).
 
 To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
-
-### Configuration
-
-Setting up custom authentication requires that you reference a few secrets stored as [application settings](./application-settings.md). 
 
 # [Azure Active Directory](#tab/aad)
 
@@ -43,7 +37,7 @@ To create the registration, begin by creating the following application settings
 | `AAD_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
 | `AAD_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
 
-#### Azure Active Directory Version 1
+### Azure Active Directory Version 1
 
 ```json
 {
@@ -64,7 +58,7 @@ To create the registration, begin by creating the following application settings
 
 Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 
-#### Azure Active Directory Version 2
+### Azure Active Directory Version 2
 
 ```json
 {
@@ -87,7 +81,7 @@ Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
 
 > [!NOTE]
-> While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorisation](authentication-authorization.md) section for more information.
+> While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorization](authentication-authorization.md) section for more information.
 
 # [Apple](#tab/apple)
 
@@ -229,11 +223,9 @@ Next, use the following sample to configure the provider.
 
 For more information on how to configure Twitter as an authentication provider, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-twitter.md).
 
----
+# [OpenID Connect](#tab/openid-connect)
 
-## Configure a custom OpenID Connect provider
-
-This section shows you how to configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). The following steps are required to use an custom OIDC provider.
+You can configure Azure Static Web Apps to use a custom authentication provider that adheres to the [OpenID Connect (OIDC) specification](https://openid.net/connect/). The following steps are required to use an custom OIDC provider.
 
 - One or more OIDC providers are allowed.
 - Each provider must have a unique name in the configuration.
@@ -292,9 +284,11 @@ Once you have the registration credentials, use the following steps to create a 
   - Make sure to replace `<PROVIDER_ISSUER_URL>` with the path to the _Issuer URL_ of the provider.
   - The `login` object allows you to provide values for: custom scopes, login parameters, or custom claims.
 
-### Login, logout, and purging user details
+---
 
-To use a custom OIDC provider, use the following URL patterns.
+## Login, logout, and purging user details
+
+To use a custom identity provider, use the following URL patterns.
 
 | Action             | Pattern                                  |
 | ------------------ | ---------------------------------------- |
@@ -304,9 +298,9 @@ To use a custom OIDC provider, use the following URL patterns.
 
 If you are using Azure Active Directory, use `aad` as the value for the `<AUTHENTICATION_PROVIDER_NAME>` placeholder.
 
-### Authentication callbacks
+## Authentication callbacks
 
-Custom OIDC providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
+Custom identity providers require a redirect URL to complete the login or logout request. Most providers require that you add the callback URLs to an allow list. The following endpoints are available as redirect destinations.
 
 | Type   | URL pattern                                                 |
 | ------ | ----------------------------------------------------------- |
