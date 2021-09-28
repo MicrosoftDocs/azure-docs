@@ -119,7 +119,7 @@ For more information, see the [Storage account operations in the Key Vault REST 
 
 | When to use | Examples |
 |--------------|-------------|
-|Securly store, manage lifecycle, and monitor service credentials for your application like passwords, access keys.  | - [Use Azure Key Vault with a Virtual Machine](../general/tutorial-net-virtual-machine)<br> - [Use Azure Key Vault with an Azure Web App](../general/tutorial-net-create-vault-azure-web-app) |
+|Securly store, manage lifecycle, and monitor credentials for service-to-service communication like passwords, access keys, service principal client secrets.  | - [Use Azure Key Vault with a Virtual Machine](../general/tutorial-net-virtual-machine)<br> - [Use Azure Key Vault with an Azure Web App](../general/tutorial-net-create-vault-azure-web-app) |
 
 ## Next steps
 
