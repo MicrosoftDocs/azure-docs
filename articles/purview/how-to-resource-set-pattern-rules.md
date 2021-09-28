@@ -4,9 +4,9 @@ description: Learn how to create a resource set pattern rule to overwrite how as
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/24/2021
+ms.date: 09/27/2021
 ---
 
 # Create resource set pattern rules
@@ -49,7 +49,7 @@ Follow the steps below to create a new resource set pattern rule:
 
       :::image type="content" source="media/how-to-resource-set-pattern-rules/scoped-resource-set-rule-example.png" alt-text="Create new configuration rule." border="true":::
 
-1. Save the rule by clicking **Add**.
+1. Save the rule by selecting **Add**.
 
 > [!NOTE]
 > After a pattern rule is created, all new scans will apply the rule during ingestion. Existing assets in the data catalog will be updated via a background process which can take up to a few hours. 
