@@ -333,21 +333,21 @@ Create the new hub in the new location using the template. If you have routing r
 
 1. Fill in the following fields on the custom deployment page.
 
-   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png" alt-text="Screenshot showing the custom deployment page":::
-
    **Subscription**: Select the subscription to use.
 
-   **Resource group**: Create a new resource group in a new location. If you already have a new one set up, you can select it instead of creating a new one.
+   **Resource group**: Create a new resource group in a new location. If you already have one set up, you can select it instead of creating a new one.
 
-   **Region**: If you selected an existing resource group, this is filled in for you to match the location of the resource group. If you created a new resource group, this will be its location.
+   **Region**: If you selected an existing resource group, the region is filled in for you to match the location of the resource group. If you created a new resource group, this will be its location.
 
    **Connection string**: Fill in the connection string for your hub.
 
    **Hub name**: Give the new hub in the new region a name.
 
+   :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-create.png" alt-text="Screenshot showing the custom deployment page":::
+
 1. Select the **Review + create** button.
 
-1. Select the **Create** button. The portal now validates your template and deploys your cloned hub. If you have routing configuration data, it will be included in the new hub, but will point at the resources in the prior location.
+1. Select the **Create** button. The portal validates your template and deploys your cloned hub. If you have routing configuration data, it will be included in the new hub, but will point at the resources in the prior location.
 
    :::image type="content" source="./media/iot-hub-how-to-clone/iot-hub-custom-deployment-final.png" alt-text="Screenshot showing the final custom deployment page":::
 
