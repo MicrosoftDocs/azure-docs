@@ -33,10 +33,10 @@ In this tutorial, you learn how to:
 Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites. You must:
 
 - Have an active Azure subscription to use with Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
-- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
-- Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
-- [Download the WAImportExport version 2](https://aka.ms/waiev2) on the Windows system. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
+- Have adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
+- Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
+- [Download the WAImportExport version 2](https://aka.ms/waiev2) on the Windows system. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.<!--Update tool version when release version is available. Link stays the same?-->
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
@@ -66,7 +66,7 @@ Do the following steps to prepare the drives.
    - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to the fileshare. Folder structure is maintained. If you import a file with the same name as an existing file in the destination folder, the imported file will overwrite that file.
    
        > [!NOTE]
-       > This behavior is different than in earlier tool versions. Tool versions before 1.5.0.300 had a /Disposition parameter that let you choose what to do when you import a file that already exists.
+       > This behavior is different than with earlier tool versions. Tool versions before 1.5.0.300 had a /Disposition parameter that let you choose what to do when you import a file that already exists.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
