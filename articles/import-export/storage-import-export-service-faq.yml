@@ -74,7 +74,7 @@ sections:
       - question: | 
           I found problems in the data copy logs for an import/export job. Can I repair the job?
         answer: |
-          No. The latest version of the the Azure ImportExport tool (version 1.5.0.300) doesn't support job repair. You'll need to create a new Import/Export job after you resolve the issues that you found.
+          No. The current versions of the the Azure ImportExport tool (version 1.5.0.300 for blob imports and version 2.2.0.300 for file imports) don't support job repair. You'll need to create a new Import/Export job after you resolve the issues that you found.
 
       - question: |
           The uploaded blob shows status as "Lease expired". What should I do?
@@ -165,8 +165,8 @@ sections:
       - question: |
           If a drive has files that already exist in my storage account, does the service overwrite existing blobs or files?
         answer: |
-          Yes. The most recent version of the Azure ImportExport tool automatically overwrites blobs or files that already exist in your storage if an import includes a file or blob with the same name. 
-          This behavior is a change from versions 1 and 2 of the Azure ImportExport tool, which let you specify whether to overwrite or ignore the destination files or blobs. The option was set using the field in dataset CSV file called Disposition:<rename|no-overwrite|overwrite>. By default, the service renamed the new files rather than overwrite existing blobs or files.
+          Yes. The most recent releases of the Azure ImportExport tool - version 1.5.0.300 for blob imports and version 2.2.0.300 for file imports - automatically overwrite blobs or files that already exist in your storage if an import includes a file or blob with the same name. 
+          This behavior is a change from earlier tool releases, which let you specify whether to overwrite or ignore the destination files or blobs via a `Disposition` field in the dataset CSV file. The field had this format: `Disposition:<rename|no-overwrite|overwrite>`. By default, the service renamed the new files rather than overwrite existing blobs or files.
           
       - question: |
           Is the WAImportExport tool compatible with 32-bit operating systems?

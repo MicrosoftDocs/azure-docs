@@ -37,8 +37,9 @@ You must:
 * Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
 * Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 * Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-* [Download the latest WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) on the Windows system. The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.<!--Update when release tool version is available.-->
-  * Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
+* Have downloaded the current release of the Azure ImportExport version 1 tool, for blob imports, on the Windows system. The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.
+  1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) (current version is 1.5.0.300). 
+  1. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 * Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
   * The account must be valid, should have balance, and must have return shipping capabilities.
   * Generate a tracking number for the export job.
@@ -95,7 +96,7 @@ Perform the following steps to prepare the drives.
     |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
 
     > [!NOTE]
-    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. This behavior is different than with earlier tool versions. Tool versions before 1.5.0.300 had a \Disposition parameter that let you choose what to do when you import an existing blob.  
+    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. This behavior is different than with earlier releases of Azure Import Export Version 2 (for exports). Tool versions before 2.2.0.300 had a \Disposition parameter that let you choose what to do when you import an existing blob.  
 
 8. Repeat the previous step for each disk that needs to be shipped. 
 
