@@ -35,7 +35,7 @@ In this tutorial, you'll learn how to:
 
 ## Load customer data
 
-To get started, open Power BI Desktop and load the comma-separated value (CSV) file `FabrikamComments.csv` that you downloaded in [Prerequisites](#Prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
+To get started, open Power BI Desktop and load the comma-separated value (CSV) file `FabrikamComments.csv` that you downloaded in [Prerequisites](#prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
 
 > [!NOTE]
 > Power BI can use data from a wide variety of web-based sources, such as SQL databases. See the [Power Query documentation](/power-query/connectors/) for more information.
@@ -85,7 +85,7 @@ You might also consider filtering out blank messages using the Remove Empty filt
 | Field | Description |
 | - | - |
 | `id`  | A unique identifier for this document within the request. The response also contains this field. That way, if you process more than one document, you can easily associate the extracted key phrases with the document they came from. In this tutorial, because you're processing only one document per request, you can hard-code the value of `id` to be the same for each request.|
-| `text`  | The text to be processed. The value of this field comes from the `Merged` column you created in the [previous section](#PreparingData), which contains the combined subject line and comment text. The Key Phrases API requires this data be no longer than about 5,120 characters.|
+| `text`  | The text to be processed. The value of this field comes from the `Merged` column you created in the [previous section](#prepare-the-data), which contains the combined subject line and comment text. The Key Phrases API requires this data be no longer than about 5,120 characters.|
 | `language` | The code for the natural language the document is written in. All the messages in the sample data are in English, so you can hard-code the value `en` for this field.|
 
 ## Create a custom function
@@ -134,7 +134,7 @@ In Power BI Desktop, in the Query Editor window, switch back to the `FabrikamCom
 
 The Invoke Custom Function dialog appears. In **New column name**, enter `keyphrases`. In **Function query**, select the custom function you created, `KeyPhrases`.
 
-A new field appears in the dialog, **text (optional)**. This field is asking which column we want to use to provide values for the `text` parameter of the Key Phrases API. (Remember that you already hard-coded the values for the `language` and `id` parameters.) Select `Merged` (the column you created [previously](#PreparingData) by merging the subject and message fields) from the drop-down menu.
+A new field appears in the dialog, **text (optional)**. This field is asking which column we want to use to provide values for the `text` parameter of the Key Phrases API. (Remember that you already hard-coded the values for the `language` and `id` parameters.) Select `Merged` (the column you created [previously](#preparing-the-data) by merging the subject and message fields) from the drop-down menu.
 
 ![[Invoking a custom function]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -156,7 +156,7 @@ Click **Edit Credentials,** make sure `Anonymous` is selected in the dialog, the
 > [!div class="mx-imgBorder"]
 > ![[setting authentication to anonymous]](../media/tutorials/power-bi/access-web-content.png)
 
-If you see the Edit Credentials banner even after choosing anonymous access, you may have forgotten to paste your Text Analytics resource key into the code in the `KeyPhrases` [custom function](#CreateCustomFunction).
+If you see the Edit Credentials banner even after choosing anonymous access, you may have forgotten to paste your Text Analytics resource key into the code in the `KeyPhrases` [custom function](#create-a-custom-function).
 
 Next, a banner may appear asking you to provide information about your data sources' privacy. 
 
