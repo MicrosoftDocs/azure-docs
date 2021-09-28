@@ -22,6 +22,20 @@
     href: client-libraries-rest-api.md
 - name: Samples
   href: https://github.com/Azure-Samples/cognitive-services-language-understanding
+- name: Responsible use of AI
+  items:
+  - name: Transparency notes
+      items:
+      - name: LUIS use cases
+        href: /legal/cognitive-services/luis/TBD?context=/azure/cognitive-services/LUIS/context/context
+      - name: Characteristics and limitations
+        href: /legal/cognitive-services/luis/TBD?context=/azure/cognitive-services/LUIS/context/context
+    - name: Integration and responsible use
+      items:
+      - name: Responsible use in AI deployment 
+        href: /legal/cognitive-services/luis/TBD?context=/azure/cognitive-services/LUIS/context/context
+    - name: Data, privacy, and security
+      href: /legal/cognitive-services/luis/TBD?context=/azure/cognitive-services/LUIS/context/context
 - name: How-to guides
   items:
   - name: Sign in to LUIS portal
