@@ -45,8 +45,8 @@ items:
 - name: Concepts
   items:
     - name: Security controls by Azure Policy
-    href: ./security-controls-policy.md
-    
+      href: security-controls-policy.md
+
 - name: Resources
   expanded: true
   items:
