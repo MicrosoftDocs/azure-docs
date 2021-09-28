@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-#Customer intent: As a developer or administrator I want to configure a windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
+#Customer intent: As a developer or administrator I want to configure a Windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Key Vault 
