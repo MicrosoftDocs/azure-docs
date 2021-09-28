@@ -14,17 +14,17 @@ ms.date: 09/27/2021
 
 In this guide, you will learn how to deploy _account_, _portal_ and _ingestion_ private endpoints for your Azure Purview account to access purview account and scan data sources using a self-hosted integration runtime securely and privately, thereby enabling end-to-end network isolation.
 
-- The Azure Purview _account_ private endpoint is used to add another layer of security by enabling scenarios where only client calls that originate from within the virtual network are allowed to access the Azure Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
+The Azure Purview _account_ private endpoint is used to add another layer of security by enabling scenarios where only client calls that originate from within the virtual network are allowed to access the Azure Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
 
-- The Azure Purview _portal_ private endpoint is required to enable connectivity to Azure Purview Studio using a private network.
+The Azure Purview _portal_ private endpoint is required to enable connectivity to Azure Purview Studio using a private network.
 
-- Azure Purview can scan data sources in Azure or an on-premises environment by using _ingestion_ private endpoints. Three private endpoint resources are required to be deployed and linked to Azure Purview managed resources when ingestion private endpoint is deployed:
+Azure Purview can scan data sources in Azure or an on-premises environment by using _ingestion_ private endpoints. Three private endpoint resources are required to be deployed and linked to Azure Purview managed resources when ingestion private endpoint is deployed:
 
-  - Blob private endpoint is linked to an Azure Purview managed storage account.
-  - Queue private endpoint is linked to an Azure Purview managed storage account.
-  - namespace private endpoint is linked to an Azure Purview managed event hub namespace.
+ - Blob private endpoint is linked to an Azure Purview managed storage account.
+ - Queue private endpoint is linked to an Azure Purview managed storage account.
+ - namespace private endpoint is linked to an Azure Purview managed event hub namespace.
 
-   :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Diagram that shows Azure Purview and Private Link architecture.":::
+  :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Diagram that shows Azure Purview and Private Link architecture.":::
 
 ## Deployment checklist
 Using one of the deployment options explained further in this guide, you can deploy a new Azure Purview account with _account_, _portal_ and _ingestion_ private endpoints or you can choose to deploy these private endpoints for an existing Azure Purview account:
