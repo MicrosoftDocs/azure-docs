@@ -45,7 +45,7 @@ Using your IoT Hub connection string, connect the Visual Studio Code extension t
 1.	Select the device where AVA is deployed. The default is named `avasample-iot-edge-device`.
 1.	Select the Video Analyzer module. The default is named `avaedge`.
 
-![Gif showing how to enter the connection string](./media/use-vscode-extension/EnterConnectionString.gif)
+![Gif showing how to enter the connection string](./media/use-visual-studio-code-extension/enter-connection-string.gif)
 
 The Video Analyzer extension pane should now show the connected device with all of its modules. Below the modules are where pipeline topologies are listed. By default, there are no pipeline topologies deployed.
 
@@ -57,7 +57,7 @@ A [pipeline topology](../pipeline.md) enables you to describe how live video or 
 1.	Along the top, under **Try sample topologies**, under **Continuous Video Recording**, select **Record to Azure Video Analyzer video**. When prompted, click **Proceed**.
 1.	Click **Save** in the top right.
 
-![Gif showing how to add a topology](./media/use-vscode-extension/AddTopology.gif)
+![Gif showing how to add a topology](./media/use-visual-studio-code-extension/add-topology.gif)
 
 Notice that there is now an entry in the **Pipeline topologies** list on the left labeled **CVRToVideoSink**. This is a pipeline topology, where some of the parameters are defined as variables.
 
@@ -70,7 +70,7 @@ A live pipeline is an instance of a pipeline topology. The variables in a pipeli
 1. In the **Parameters** section, under the **rtspUrl** parameter, put in `rtsp://rtspsim:554/media/camera-300s.mkv`.
 1.	In the top right, click **Save and activate**.
 
-![Gif showing how to create and activate a live pipeline](./media/use-vscode-extension/CreateAndActivate.gif)
+![Gif showing how to create and activate a live pipeline](./media/use-visual-studio-code-extension/create-and-activate.gif)
 
 Now that a live pipeline has been activated, operational events can be viewed by clicking on the **Start Monitoring Built-in Event Endpoint** button on the IoT Hub extension, as shown in the [Continuous video recording and playback](./use-continuous-video-recording.md#prepare-to-monitor-the-modules) tutorial.
 
