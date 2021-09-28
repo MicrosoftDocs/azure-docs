@@ -12,7 +12,7 @@
         },
         {
             "source_path_from_root": "/articles/data-factory/continuous-integration-deployment.md",
-            "redirect_url": "/azure/data-factory/continuous-integration-delivery.md",
+            "redirect_url": "/azure/data-factory/continuous-integration-delivery",
             "redirect_document_id": false
         }
     ]
