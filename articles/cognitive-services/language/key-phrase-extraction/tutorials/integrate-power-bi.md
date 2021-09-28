@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to:
 - Microsoft Power BI Desktop. [Download at no charge](https://powerbi.microsoft.com/get-started/).
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
 - A Text Analytics resource. If you don't have one, you can [create one](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
-- The [Text Analytics resource key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
+- The [Text Analytics resource key](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - Customer comments. You can use [our example data](https://aka.ms/cogsvc/ta) or your own data. This tutorial assumes you're using our example data.
 
 ## Load customer data
@@ -134,7 +134,7 @@ In Power BI Desktop, in the Query Editor window, switch back to the `FabrikamCom
 
 The Invoke Custom Function dialog appears. In **New column name**, enter `keyphrases`. In **Function query**, select the custom function you created, `KeyPhrases`.
 
-A new field appears in the dialog, **text (optional)**. This field is asking which column we want to use to provide values for the `text` parameter of the Key Phrases API. (Remember that you already hard-coded the values for the `language` and `id` parameters.) Select `Merged` (the column you created [previously](#preparing-the-data) by merging the subject and message fields) from the drop-down menu.
+A new field appears in the dialog, **text (optional)**. This field is asking which column we want to use to provide values for the `text` parameter of the Key Phrases API. (Remember that you already hard-coded the values for the `language` and `id` parameters.) Select `Merged` (the column you created [previously](#prepare-the-data) by merging the subject and message fields) from the drop-down menu.
 
 ![Invoking a custom function](../media/tutorials/power-bi/invoke-custom-function.png)
 
