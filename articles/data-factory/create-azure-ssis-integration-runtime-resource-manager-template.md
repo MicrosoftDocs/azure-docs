@@ -12,7 +12,11 @@ ms.custom: devx-track-azurepowershell
 
 # Use an Azure Resource Manager template to create an integration runtime
 
-In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime. Here's a sample walkthrough:
+In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime. 
+
+## Sample Azure Resource Manager template
+
+Following are steps to create an Azure-SSIS integration runtime with an Azure Resource Manager template:
 
 1. Create a JSON file with the following Azure Resource Manager template. Replace values in the angle brackets (placeholders) with your own values.
 

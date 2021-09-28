@@ -765,7 +765,7 @@ items:
         - name: Overview and prerequisites
           href: create-azure-ssis-integration-runtime.md
           displayName: Azure SSIS
-        - name: Create with the Azure Portal
+        - name: Create with the Azure portal
           href: create-azure-ssis-integration-runtime-portal.md
           displayName: Azure SSIS
         - name: Create with PowerShell
@@ -775,7 +775,7 @@ items:
           href: create-azure-ssis-integration-runtime-resource-manager-template.md
           displayName: Azure SSIS
         - name: Deploy and run SSIS packages
-          href: create-azure-ssis-integration-runtime-portal.md
+          href: create-azure-ssis-integration-runtime-deploy-packages.md
           displayName: Azure SSIS
   - name: Run SSIS packages in Azure
     items:

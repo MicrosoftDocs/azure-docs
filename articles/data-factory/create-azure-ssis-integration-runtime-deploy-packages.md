@@ -11,11 +11,17 @@ ms.custom: devx-track-azurepowershell
 ---
 # Deploy SSIS packages
 
+After configuration of your Azure-SSIS integration runtime, you can deploy and run packages in Azure directly.
+
+## Using SSISDB
+
 If you use SSISDB, you can deploy your packages into it and run them on your Azure-SSIS IR by using the Azure-enabled SSDT or SSMS tools. These tools connect to your database server via its server endpoint: 
 
 - For an Azure SQL Database server, the server endpoint format is `<server name>.database.windows.net`.
 - For a managed instance with private endpoint, the server endpoint format is `<server name>.<dns prefix>.database.windows.net`.
 - For a managed instance with public endpoint, the server endpoint format is `<server name>.public.<dns prefix>.database.windows.net,3342`. 
+
+# Using file system, Azure files, or MSDB
 
 If you don't use SSISDB, you can deploy your packages into file system, Azure Files, or MSDB hosted by your Azure SQL Managed Instance and run them on your Azure-SSIS IR by using [dtutil](/sql/integration-services/dtutil-utility) and [AzureDTExec](./how-to-invoke-ssis-package-azure-enabled-dtexec.md) command-line utilities. 
 
