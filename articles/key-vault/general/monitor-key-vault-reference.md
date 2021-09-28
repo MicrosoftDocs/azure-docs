@@ -20,12 +20,12 @@ This section lists all the automatically collected platform metrics collected fo
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Key Vault | [Microsoft.KeyVault/vaults](/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults) |
-| Managed HSM | [Microsoft.KeyVault/managedhsms](/azure-monitor/platform/resource-logs-categories.#microsoftkeyvaultmanagedhsms) 
+| Key Vault | [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults) |
+| Managed HSM | [Microsoft.KeyVault/managedhsms](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultmanagedhsms) 
 
 ### Key Vault metrics
 
-Resource Provider and Type: [Microsoft.KeyVault/vaults](/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults)
+Resource Provider and Type: [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/metrics-supported#microsoftkeyvaultvaults)
 
 | Name | Metric | Unit | Type | Description |
 |:-------|:-----|:------------|:------------------|
@@ -35,11 +35,11 @@ Resource Provider and Type: [Microsoft.KeyVault/vaults](/azure-monitor/essential
 | Overall Service Api Latency | ServiceApiLatency | MilliSeconds | Average | Overall latency of service API requests |
 | Total Service Api Results | ServiceApiResult | Count | Count | Number of total service API results |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 ## Metric dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics).
 
 Key Vault has the following dimensions associated with its metrics:
 
@@ -53,12 +53,12 @@ Key Vault has the following dimensions associated with its metrics:
 
 This section lists the types of resource logs you can collect for Key Vault.
 
-For reference, see a list of [Microsoft.KeyVault/vaults](/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults).  For full details, see [Azure Key Vault logging](logging.md).
+For reference, see a list of [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults).  For full details, see [Azure Key Vault logging](logging.md).
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Key Vault | [Microsoft.KeyVault/vaults](/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultmanagedhsms) |
-| Managed HSM | [Microsoft.KeyVault/managedhsms](/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults) 
+| Key Vault | [Microsoft.KeyVault/vaults](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultmanagedhsms) |
+| Managed HSM | [Microsoft.KeyVault/managedhsms](/azure/azure-monitor/essentials/resource-logs-categories#microsoftkeyvaultvaults) 
 
 ## Azure Monitor Logs tables
 
@@ -68,11 +68,11 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Ke
 |-------|-----|
 | [Key Vault](/azure/azure-monitor/reference/tables/tables-resourcetype#key-vaults) | |
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure-monitor/reference/tables/tables-resourcetype).
+For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ### Diagnostics tables
 
-Key Vault uses the [Azure Diagnostics](/azure-monitor/reference/tables/azurediagnostics), [Azure Activity](/azure-monitor/reference/tables/azureactivity) table, and [Azure Metrics](/azure-monitor/reference/tables/azuremetrics) tables to store resource log information. The following columns are relevant.
+Key Vault uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics), [Azure Activity](/azure/azure-monitor/reference/tables/azureactivity) table, and [Azure Metrics](/azure/azure-monitor/reference/tables/azuremetrics) tables to store resource log information. The following columns are relevant.
 
 **Azure Diagnostics**
 
@@ -95,4 +95,4 @@ Key Vault uses the [Azure Diagnostics](/azure-monitor/reference/tables/azurediag
 ## See also
 
 - See [Monitoring Azure Key Vault](monitor-key-vault.md) for a description of monitoring Azure Key Vault.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
