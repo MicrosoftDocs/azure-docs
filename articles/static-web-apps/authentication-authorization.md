@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 09/28/2021
 ms.author: cshoe
 ---
 
@@ -16,7 +16,8 @@ Azure Static Web Apps provides a streamlined authentication experience. By defau
 - Any user can authenticate with an enabled provider.
 - Once logged in, users belong to the `anonymous` and `authenticated` roles by default.
 - Authorized users gain access to restricted [routes](configuration.md#routes) by rules defined in the [staticwebapp.config.json file](./configuration.md).
-- Users join custom roles via provider-specific [invitations](#invitations), or through a [custom Azure Active Directory provider registration](./authentication-custom.md).
+- Users are assigned custom roles using the built-in [invitations](#invitations) system.
+- Users can be programmatically assigned custom roles at login by an API function.
 - All authentication providers are enabled by default.
   - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
 - Pre-configured providers include:
@@ -33,9 +34,11 @@ Every user who accesses a static web app belongs to one or more roles. There are
 - **anonymous**: All users automatically belong to the _anonymous_ role.
 - **authenticated**: All users who are logged in belong to the _authenticated_ role.
 
-Beyond the built-in roles, you can create new roles, assign them to users via invitations, and reference them in the _staticwebapp.config.json_ file.
+Beyond the built-in roles, you can assign custom roles to users, and reference them in the _staticwebapp.config.json_ file.
 
 ## Role management
+
+# [Invitations](#tab/invitations)
 
 ### Add a user to a role
 
@@ -99,6 +102,12 @@ As you remove a user, keep in mind the following items:
 1. Removing a user invalidates their permissions.
 1. Worldwide propagation may take a few minutes.
 1. If the user is added back to the app, the [`userId` changes](user-information.md).
+
+# [Roles assignment function](#tab/function)
+
+Something something role assignment function.
+
+---
 
 ## Remove personal identifying information
 
