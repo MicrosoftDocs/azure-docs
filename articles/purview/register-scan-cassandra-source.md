@@ -8,7 +8,7 @@ ms.subservice: purview-data-map
 ms.topic: overview
 ms.date: 09/27/2021
 ---
-# Register and Scan a Cassandra source 
+# Register and Scan a Cassandra source (Preview)
 
 This article outlines how to register a Cassandra server in Purview and set up a scan.
 
