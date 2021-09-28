@@ -147,7 +147,7 @@ If your metrics indicate risk of [outbound flow](./load-balancer-outbound-connec
 To view SNAT port usage and allocation:
 1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
 1. Select **Used SNAT Ports** and/or **Allocated SNAT Ports** as the metric type and **Average** as the aggregation
-    * By default these metrics are the average number of SNAT ports allocated to or used by each backend VM or VMSS, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
+    * By default these metrics are the average number of SNAT ports allocated to or used by each backend VM or virtual machine scale set, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
     * To view total SNAT ports used by or allocated for the load balancer use metric aggregation **Sum**
 1. Filter to a specific **Protocol Type**, a set of **Backend IPs**, and/or **Frontend IPs**.
 1. To monitor health per backend or frontend instance, apply splitting. 
