@@ -19,9 +19,9 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > - Set up your repository with files required for load testing.
-> - Set test criteria for load test to pass or fail based on thresholds.
+> - Define test criteria for load test to pass or fail based on thresholds.
 > - Set up Azure Pipelines to integrate with Azure Load test.
-> - Provide secret values from the pipeline to the load test.
+> - Provide parameters from the pipeline to the load test.
 > - Run the load test and view results in the pipeline.
 
 ## Prerequisites
@@ -46,7 +46,9 @@ You will require the following files in your repository for running the load tes
 1.	Load test YAML file: If you have previously run a load test from Azure Portal or VS Code extension, you can download this file from the input files section on the dashboard as shown below.
 Alternatively you can author this file using the syntax below. Know more about the Yaml properties [here](https://github.com/microsoft/azureloadtest/wiki/Common-Terminologies#brief-overview-of-yaml-properties). 
 
-## Set test criteria for your load test
+Note: The path of the testPlan and configurationFiles should be relative to the Load test YAML file.
+
+## Define test criteria for your load test
 
 ## Set up Azure Pipelines to integrate with Azure Load testing Service
 Before you can load test the sample app, you have to get it up and running. Create a pipeline in Azure DevOps to build and deploy a node.js app to App service. To learn how to build and deploy node.js apps in Azure Pipelines refer to this [tutorial](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript?view=azure-devops&tabs=code)
@@ -63,21 +65,16 @@ You can now integrate load testing into the above pipeline.
    - task: AzureLoadTest@1
    inputs:
       azureSubscription: '<Azure service connection>'
-      loadtestYAML: 'filePath'
       YAMLFilePath: 'SampleApp.yaml'
       loadTestResource: '<name of the load test resource>'
       resourceGroup: '<name of the resource group of your load test resource>'    
    ``` 
-   Alternatively,you can also include the contents of the YAML file inline in the task as shown below
-
-## Provide secret values from the pipeline to the load test
+## Provide parameters from the pipeline to the load test
 
 ## Azure Load Test Task
 <table><thead><tr><th>Parameters</th><th>Description</th></tr></thead>
 <tr><td><code>azureSubscription</code><br/>(Azure subscription)</td><td>(Required) Name of the Azure Resource Manager service connection</td></tr>
-<tr><td><code>loadtestYAML</code><br/>(Load test YAML)</td><td>(Required) Type of the YAML: filePath or inlineScript<br/>Default value: <code>filePath</code></td></tr>
-<tr><td><code>YAMLFilePath</code><br/>(YAML File Path)</td><td>(Required if loadTestYAML is filePath) Path of the YAML file. Should be fully qualified path or relative to the default working directory</td></tr>
-<tr><td><code>inlineYAML</code><br/>(Inline YAML)</td><td>(Required if loadTestYAML is inlineYAML) Enter the load test YAML contents</td></tr>
+<tr><td><code>loadTestYAML</code><br/>(Load Test YAML)</td><td>(Required) Path of the YAML file. Should be fully qualified path or relative to the default working directory</td></tr>
 <tr><td><code>loadtestResource</code><br/>(Load Test Resource)</td><td>(Required) Name of an existing load test resource</td></tr>
 <tr><td><code>resourceGroup</code><br/>(Resource Group)</td><td>(Required) Name of the resource group.</td></tr>
 </table>
