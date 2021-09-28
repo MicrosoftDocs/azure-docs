@@ -248,7 +248,7 @@ Invoke-RestMethod -Method Post -Uri $url  -SkipCertificateCheck -Headers $paloAl
 
 ## Create a security rule
 
-Next, create a JSON file to contain a security rule. Name the file *SecurityRule.json* and add the following content. The names of the two zones `Trust` and `UnTrust` match the zone names from the prerequisites. The `service/member` entry contains the name of the service group created in the previous steps.
+Next, create a JSON file to contain a security rule. Name the file *SecurityRule.json* and add the following content. The names of the two zones `Trust` and `UnTrust` match the zone names described earlier in the [Configure Palo Alto](#configure-palo-alto) section. The `service/member` entry contains the name of the service group created in the previous steps.
 
 ```json
 {
