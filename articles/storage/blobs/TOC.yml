@@ -220,6 +220,8 @@ items:
         href: storage-performance-checklist.md
       - name: Latency in Blob storage
         href: storage-blobs-latency.md
+      - name: Premium block blob scenarios 
+        href: storage-blobs-block-blob-premium.md
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
       - name: Plan and manage costs

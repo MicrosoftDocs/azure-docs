@@ -39,13 +39,42 @@ Premium performance block blob storage makes data available via high-performance
 
 Premium performance storage is ideal for workloads that require fast and consistent response times. It's best for workloads that perform many small transactions. Example workloads include:
 
-- **Interactive workloads**. These workloads require instant updates and user feedback, such as e-commerce and mapping applications. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand.
+- **Interactive workloads**. These workloads require instant updates and user feedback, such as e-commerce and mapping applications. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. As another example, data scientists, analysts and developers can derive time-sensitive insights even faster by running queries on data stored in an account that uses the premium performance tier.
 
-- **Analytics**. In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be taken in, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of premium block blob storage make it efficient for this type of workload.
+- **IoT/ streaming analytics**. In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be taken in, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of premium block blob storage make it efficient for this type of workload.
 
 - **Artificial intelligence/machine learning (AI/ML)**. AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis.
 
 - **Data transformation**. Processes that require constant editing, modification, and conversion of data require instant updates. For accurate data representation, consumers of this data must see these changes reflected immediately.
+
+To learn more about how other partners have benefited from using the premium performance tier for their workloads, see [Premium block blob storage scenarios](storage-blob-block-blob-premium.md).
+
+The premium performance tier has a higher storage cost but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions, the premium performance tier can be cost-effective, especially if the workload is write-heavy.
+
+In most cases, workloads executing more than 35 to 40 transactions per second per terabyte (TPS/TB) are good candidates for this performance tier. For example, if your workload executes 500 million read operations and 100 million write operations in a month, then you can calculate the TPS/TB as follows: 
+
+- Write transactions per second = 100,000,000 / (30*24*60*60) = 39 (_rounded to the nearest whole number_) 
+
+- Read transactions per second = 500,000,000 / (30*24*60*60) = 193 (_rounded to the nearest whole number_)
+
+- Total transactions per second = 193 + 39 = 232 
+
+- Assuming your account had 5 TB data on average, then TPS/TB would be 230/5 = 46. 
+
+> [NOTE]
+> Prices differ per operation and per region. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to compare pricing between standard and premium performance tiers. 
+
+The following table demonstrates the cost-effectiveness of the premium performance tier in an Azure Data Lake Storage Gen2 enabled account (an account that has a hierarchical namespace). Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
+
+For example, assuming that your account is in the East US 2 region, the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, the premium performance tier is more cost-effective.
+
+> [!div class="mx-imgBorder"]
+> ![Performance table](./media/storage-blob-performance-tiers/premium-performance-data-lake-storage-cost-analysis-table.png)
+
+> [!NOTE]
+> If you prefer to evaluate cost effectiveness based on the number of transactions per second for each TB of data, you can use the column headings that appear at the bottom of the table.
+
+For more information about pricing, see the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
 ## Standard performance
 
