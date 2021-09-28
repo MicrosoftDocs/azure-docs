@@ -31,14 +31,14 @@ You should keep configuration information, such as rules and address wildcards, 
 
 ## Configure Palo Alto
 
-First, configure the Palo Alto VM-Series Firewall. For detailed instructions, see [Deploy the VM-Series Firewall from the Azure Marketplace (Solution Template)](https://docs.paloaltonetworks.com/vm-series/9-1/vm-series-deployment/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewall-on-azure-solution-template.html). These instructions will help you provision a VM-Series Firewall and configure both the `Trust` and `Untrust` subnets and the associated network interface cards. To stay consistent, you should create this firewall in the address space of the `Hub` virtual network in the reference architecture.
+First, configure the Palo Alto VM-Series Firewall. For detailed instructions, see [Deploy the VM-Series Firewall from the Azure Marketplace (Solution Template)](https://docs.paloaltonetworks.com/vm-series/9-1/vm-series-deployment/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewall-on-azure-solution-template.html). These instructions will help you provision a VM-Series Firewall and configure both the `Trust` and `UnTrust` subnets and the associated network interface cards. To stay consistent, you should create this firewall in the address space of the `Hub` virtual network in the reference architecture.
 
 The [Reference Architecture Guide for Azure](https://www.paloaltonetworks.com/resources/guides/azure-architecture-guide) explores several technical design models for deploying the Firewall on Azure.
 
 The rest of this article assumes you have the following two pre-configured network zones:
 
 * `Trust`, containing the interface connected to a virtual network peered with the Azure Spring Cloud virtual network.
-* `Untrust`, containing the interface to the public internet created earlier in the VM-Series deployment guide.
+* `UnTrust`, containing the interface to the public internet created earlier in the VM-Series deployment guide.
 
 ## Prepare CSV files
 
@@ -90,9 +90,9 @@ rt.services.visualstudio.com,fqdn,rt.services.visualstudio.com,AzureMonitor
 
 ## Authenticate into Palo Alto
 
-To follow the REST API calls below, you should [authenticate into Palo Alto and obtain an API key](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key.html).
+Next you'll need to authenticate into Palo Alto and obtain an API key. For more information, see [Get Your API Key](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-xml-api/get-your-api-key.html) in the Palo Alto documentation.
 
-Here's a sample for how to do it in PowerShell and generate request headers that will be used in later Palo Alto calls in this example:
+The following example uses PowerShell to authenticate and generate request headers that will be used later in this article:
 
 ```powershell
 $authResponse = irm "https://${PaloAltoIpAddress}/api/?type=keygen&user=yevster&password=CwtN8s@MuqXDNE!(gb!CqWY" -SkipCertificateCheck
@@ -248,7 +248,7 @@ Invoke-RestMethod -Method Post -Uri $url  -SkipCertificateCheck -Headers $paloAl
 
 ## Create a security rule
 
-Next, create a JSON file containing a security rule, for example *SecurityRule.json*. Note that the names of the two zones `Trust` and `Untrust` match the zone names from the prerequisites. Also note the `service/member` entry contains the name of the service group created in the previous steps.
+Next, create a JSON file to contain a security rule. Name the file *SecurityRule.json* and add the following content. The names of the two zones `Trust` and `UnTrust` match the zone names from the prerequisites. The `service/member` entry contains the name of the service group created in the previous steps.
 
 ```json
 {
@@ -259,7 +259,7 @@ Next, create a JSON file containing a security rule, for example *SecurityRule.j
             "@vsys": "vsys1",
             "to": {
                 "member": [
-                    "Untrust"
+                    "UnTrust"
                 ]
             },
             "from": {
@@ -308,7 +308,7 @@ Next, create a JSON file containing a security rule, for example *SecurityRule.j
 }
 ```
 
-Now, apply this rule to Palo Alto.
+Now, apply this rule to Palo Alto, as shown in the following example.
 
 ```powershell
 $url = "https://${PaloAltoIpAddress}/restapi/v9.1/Policies/SecurityRules?location=vsys&vsys=vsys1&name=azureSpringCloudRule"
@@ -328,7 +328,7 @@ Invoke-WebRequest -Uri $url -Method Post -Headers $paloAltoHeaders -Body (Get-Co
 
 ## Create Azure Monitor addresses
 
-Addresses for Azure Monitor (defined in *AzureMonitorAddresses.csv*) now need to be defined as Address objects on Palo Alto. Here's how this task can be automated:
+Next, use the *AzureMonitorAddresses.csv* file to define Address objects in Palo Alto. The following example code shows you how to automate this task.
 
 ```powershell
 Get-Content ./AzureMonitorAddresses.csv | ConvertFrom-Csv | ForEach-Object {
@@ -356,7 +356,7 @@ Get-Content ./AzureMonitorAddresses.csv | ConvertFrom-Csv | ForEach-Object {
 
 ## Commit changes to Palo Alto
 
-Some of the changes above must be committed to become active. This can be done with a single REST API call:
+You must commit some of the changes above so they'll become active. You can do this with the following REST API call.
 
 ```powershell
 $url = "https://${PaloAltoIpAddress}/api/?type=commit&cmd=<commit></commit>"
@@ -365,9 +365,9 @@ Invoke-RestMethod -Method Get -Uri $url  -SkipCertificateCheck -Headers $paloAlt
 
 ## Configure the Security Rules for Azure Spring Cloud subnets
 
-Add Network Security Rules to enable traffic from Palo Alto to access Azure Spring Cloud. In the examples below, we reference the spoke Network Security Groups created by the Reference Architecture: `nsg-spokeapp` and `nsg-spokeruntime`.
+Next, add network security rules to enable traffic from Palo Alto to access Azure Spring Cloud. The following examples reference the spoke Network Security Groups (NSGs) created by the Reference Architecture: `nsg-spokeapp` and `nsg-spokeruntime`.
 
-We run the following command to create the necessary network security rule for each of these NSGs, where $PaloAltoAddressPrefix is the CIDR of Palo Alto's private IPs.
+Run the following command to create the necessary network security rule for each of these NSGs, where `$PaloAltoAddressPrefix` is the Classless Inter-Domain Routing (CIDR) address of Palo Alto's private IPs.
 
 ```azurecli
 az network nsg rule create `
