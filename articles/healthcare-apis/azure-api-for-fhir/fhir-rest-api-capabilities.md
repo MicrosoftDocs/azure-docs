@@ -16,7 +16,7 @@ In this article, we'll cover some of the nuances of the RESTful interactions of 
 
 ## Conditional create/update
 
-Azure API for FHIR supports create, conditional create, update, and conditional update as defined by the FHIR specification. One useful header in these scenarios is the [If-Match](https://www.hl7.org/fhir/http.html#concurrency) header. The `If-Match` header is used and will validate the version being updated before making the update. If the `ETag` doesn’t match the expected `ETag`, it will produce the error message '412 Precondition Failed'. 
+Azure API for FHIR supports create, conditional create, update, and conditional update as defined by the FHIR specification. One useful header in these scenarios is the [If-Match](https://www.hl7.org/fhir/http.html#concurrency) header. The `If-Match` header is used and will validate the version being updated before making the update. If the `ETag` doesn’t match the expected `ETag`, it will produce the error message *412 Precondition Failed*. 
 
 ## Delete
 
@@ -72,7 +72,7 @@ Content-type: `application/json-patch+json`
 
 By default, JSON Patch is not supported in Bundle resources. This is because a Bundle only supports with FHIR resources and JSON Patch is not a FHIR resource. To work around this, we'll treat Binary resources with a content-type of `"application/json-patch+json"`as base64 encoding of JSON string when a Bundle is executed. For information about this workaround, log in to [Zulip](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/Transaction.20with.20PATCH.20request). 
 
-In this example below, we want to change the gender on the patient to female. We have taken the JSON patch `[{"op":"replace","path":"/gender","value":"female"}]` and encoded it to base64.
+In the example below, we want to change the gender on the patient to female. We have taken the JSON patch `[{"op":"replace","path":"/gender","value":"female"}]` and encoded it to base64.
 
 POST `https://{FHIR-SERVICE-NAME}/`
 content-type: `application/json`
