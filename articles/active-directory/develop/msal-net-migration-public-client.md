@@ -37,10 +37,10 @@ This article describes how to migrate a public client application from Azure Act
    The public client scenarios are:
 
    - [Web Authentication Manager](scenario-desktop-acquire-token-wam.md) the preferred broker-based authentication on Windows.
-   - [Interactive Authentication](scenario-desktop-acquire-token-interactive.md) where the user is shown a web-based interface to complete the sign-in process.
-   - [Integrated Windows Authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md) where a user signs using the same identity they used to sign into a Windows domain (for domain-joined or Azure AD-joined machines).
-   - [Username/Password](scenario-desktop-acquire-token-username-password.md) where the sign-in occurs by providing a username/password credential.
-   - [Device Code Flow](scenario-desktop-acquire-token-device-code-flow.md) where a device of limited UX shows you a device code to complete the authentication flow on an alternate device.
+   - [Interactive authentication](scenario-desktop-acquire-token-interactive.md) where the user is shown a web-based interface to complete the sign-in process.
+   - [Integrated Windows authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md) where a user signs using the same identity they used to sign into a Windows domain (for domain-joined or Azure AD-joined machines).
+   - [Username/password](scenario-desktop-acquire-token-username-password.md) where the sign-in occurs by providing a username/password credential.
+   - [Device code flow](scenario-desktop-acquire-token-device-code-flow.md) where a device of limited UX shows you a device code to complete the authentication flow on an alternate device.
 
 
 ## [Interactive](#tab/interactive)
@@ -119,11 +119,11 @@ catch (MsalUiRequiredException) // no change in the pattern
 
 The MSAL code shown above uses WAM (Web authentication manager) which is the recommended approach. If you wish to use interactive authentication without WAM, see [Interactive Authentication](scenario-desktop-acquire-token-interactive.md).
 
-## [Integrated Windows Authentication](#tab/iwa)
+## [Integrated Windows authentication](#tab/iwa)
 
 Integrated Windows authentication is where your public client application signs in using the same identity they used to sign into a Windows domain (for domain-joined or Azure AD-joined machines).
 
-#### Find out if your code uses Integrated Windows Authentication
+#### Find out if your code uses integrated Windows authentication
 
 The ADAL code for your app uses integrated Windows authentication scenarios if it contains a call to `AcquireTokenAsync` available as an extension method of the `AuthenticationContextIntegratedAuthExtensions` class, with the following parameters:
 

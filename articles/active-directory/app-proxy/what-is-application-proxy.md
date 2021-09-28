@@ -85,9 +85,9 @@ There are several ways to configure an application for single sign-on and the me
 * Applications hosted behind a Remote Desktop Gateway
 * Rich client apps that are integrated with the [Microsoft Authentication Library (MSAL)](../develop/v2-overview.md)
 
-App Proxy works with apps that use the following native authentication protocol:
+App Proxy works with apps that use the following native authentication protocols:
 
-* **[Integrated Windows Authentication (IWA)](./application-proxy-configure-single-sign-on-with-kcd.md).** For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the Kerberos application.
+* [**Integrated Windows authentication (IWA)**](./application-proxy-configure-single-sign-on-with-kcd.md). For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the Kerberos application.
 
 App Proxy also supports the following authentication protocols with third-party integration or in specific configuration scenarios:
 

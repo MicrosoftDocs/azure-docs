@@ -129,7 +129,7 @@ The following are areas for which you should define your organization’s busine
 
 ### Best practices for a pilot
 
-Determine the amount of time and effort needed to fully commission a single application for remote access with Single sign-on (SSO). Do so by running a pilot that considers its initial discovery, publishing, and general testing. Using a simple IIS-based web application that is already preconfigured for Integrated Windows Authentication (IWA) would help establish a baseline, as this setup requires minimal effort to successfully pilot remote access and SSO.
+Determine the amount of time and effort needed to fully commission a single application for remote access with Single sign-on (SSO). Do so by running a pilot that considers its initial discovery, publishing, and general testing. Using a simple IIS-based web application that is already preconfigured for integrated Windows authentication (IWA) would help establish a baseline, as this setup requires minimal effort to successfully pilot remote access and SSO.
 
 The following design elements should increase the success of your pilot implementation directly in a production tenant.
 
