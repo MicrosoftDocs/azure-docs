@@ -36,31 +36,37 @@ To assign or remove custom security attributes for an application in your Azure 
 
 1. Make sure that you have existing custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md).
 
-1. Select **Enterprise applications**. Then find and select the application you want to add a custom security attribute to.
+1. Select **Azure Active Directory** > **Enterprise applications**. 
 
-1. In the Manage section, select **Custom security attributes (Preview)**.
+1. Find and select the application you want to add a custom security attribute to.
+
+1. In the Manage section, select **Custom security attributes (preview)**.
+
+1. Select **Add assignment**.
+
+1. In **Attribute set**, select an attribute set from the list.
+
+1. In **Attribute name**, select a custom security attribute from the list.
   
-1. Select **Assign attributes**.
+1. Depending on the properties of the selected custom security attribute, you can enter a single value, select a value from a predefined list, or add multiple values.
 
-1. Select an attribute set and a custom security attribute.
-  
-1. Select **Add values** to open **Attribute values** pane and add values.
+    - For freeform, single-valued custom security attributes, enter a value in the **Assigned values** box.
+    - For predefined custom security attribute values, select a value from the **Assigned values** list.
+    - For multi-valued custom security attributes, select **Add values** to open the **Attribute values** pane and add your values. When finished adding values, select **Done**.
 
-    Depending on the properties of the custom security attribute, you can add on more values.
-  
-1. When finished adding values, select **Done**.
+    ![Screenshot showing assigning a custom security attribute to an application.](./media/custom-security-attributes-apps/apps-attributes-assign.png)
 
-1. To assign the custom security attribute to the application, select **Save**.
+1. When finished, select **Save** to assign the custom security attributes to the application.
 
 ## Update custom security attribute assignment values for an application
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Enterprise applications**.
+1. Select **Azure Active Directory** > **Enterprise applications**.
 
 1. Find and select the application that has a custom security attribute assignment value you want to update.
 
-1. In the Manage section, select **Custom security attributes (Preview)**.
+1. In the Manage section, select **Custom security attributes (preview)**.
 
 1. Find the custom security attribute assignment value you want to update.
 
@@ -68,27 +74,45 @@ To assign or remove custom security attributes for an application in your Azure 
 
 1. Depending on the properties of the selected custom security attribute, you can update a single value, select a value from a predefined list, or update multiple values.
 
-    - For freeform, single-valued custom security attributes, update the value in the **Assigned values** box.
-    - For predefined custom security attribute values, select a value from the **Assigned values** list.
-    - For multi-valued custom security attributes, select &lt;number&gt; values to open the **Attribute values** pane and update your values. When finished updating values, select **Done**.
-
-1. When finished updating all your custom security attribute assignment values, select **Save**.
+1. When finished, select **Save**.
 
 ## Remove custom security attribute assignments from applications
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Enterprise applications**.
+1. Select **Azure Active Directory** > **Enterprise applications**.
 
 1. Find and select the application that has the custom security attribute assignments you want to remove.
 
-1. In the Manage section, select **Custom security attributes (Preview)**.
+1. In the Manage section, select **Custom security attributes (preview)**.
 
 1. Add check marks next to all the custom security attribute assignments you want to remove.
 
-    Once you have assigned a custom security attribute to an application, you can only change the value of the custom security attribute. You can't change other properties of the custom security attribute, such as attribute set or custom security attribute name.
-
 1. Select **Remove assignment**.
+
+## Filter applications based on custom security attributes
+
+You can filter the list of custom security attributes assigned to applications on the All applications page.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Enterprise applications**.
+
+1. Select **Add filters** to open the Pick a field pane.
+
+    If you don't see Add filters, click the banner to enable the Enterprise applications search preview.
+
+1. For **Filters**, select **Custom security attribute**.
+
+1. Select your attribute set and attribute name.
+
+1. For **Operator**, you can select equals (**==**), not equals (**!=**), or **starts with**.
+
+1. For **Value**, enter or select a value.
+
+    ![Screenshot showing a custom security attribute filter for applications.](./media/custom-security-attributes-apps/apps-attributes-filter.png)
+
+1. To apply the filter, select **Apply**.
 
 ## PowerShell
 
@@ -151,13 +175,7 @@ If there are no custom security attributes assigned to the application or if the
 
 #### Other examples
 
-For other similar examples for users, see [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api)
-
-## Frequently asked questions
-
-**Can I filter the custom security attributes assigned to application from the All applications list?**
-
-No, viewing, search, or filtering the list of assigned custom security attributes from the All applications list is not supported.
+For other similar Microsoft Graph API examples for users, see [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md#microsoft-graph-api)
 
 ## Next steps
 

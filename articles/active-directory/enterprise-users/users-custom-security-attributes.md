@@ -39,11 +39,11 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Make sure that you have defined custom security attributes. For more information, see [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md).
 
-1. Select **Azure Active Directory** and then select **Users**.
+1. Select **Azure Active Directory** > **Users**.
 
 1. Find and select the user you want to assign custom security attributes to.
 
-1. In the Manage section, select **Custom security attributes (Preview)**.
+1. In the Manage section, select **Custom security attributes (preview)**.
 
 1. Select **Add assignment**.
 
@@ -56,14 +56,16 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
     - For freeform, single-valued custom security attributes, enter a value in the **Assigned values** box.
     - For predefined custom security attribute values, select a value from the **Assigned values** list.
     - For multi-valued custom security attributes, select **Add values** to open the **Attribute values** pane and add your values. When finished adding values, select **Done**.
-      
-1. When finished adding all your custom security attributes and values, select **Save** to assign the custom security attributes to the user.
+
+    ![Screenshot showing assigning a custom security attribute to a user.](./media/users-custom-security-attributes/users-attributes-assign.png)
+
+1. When finished, select **Save** to assign the custom security attributes to the user.
 
 ## Update custom security attribute assignment values for a user
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Users**.
+1. Select **Azure Active Directory** > **Users**.
 
 1. Find and select the user that has a custom security attribute assignment value you want to update.
 
@@ -75,35 +77,43 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
 1. Depending on the properties of the selected custom security attribute, you can update a single value, select a value from a predefined list, or update multiple values.
 
-    - For freeform, single-valued custom security attributes, update the value in the **Assigned values** box.
-    - For predefined custom security attribute values, select a value from the **Assigned values** list.
-    - For multi-valued custom security attributes, select &lt;number&gt; values to open the **Attribute values** pane and update your values. When finished updating values, select **Done**.
-
-1. When finished updating all your custom security attribute assignment values, select **Save**.
+1. When finished, select **Save**.
 
 ## Remove custom security attribute assignments from a user
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Users**.
+1. Select **Azure Active Directory** > **Users**.
 
 1. Find and select the user that has the custom security attribute assignments you want to remove.
 
-1. In the Manage section, select **Custom security attributes (Preview)**.
+1. In the Manage section, select **Custom security attributes (preview)**.
 
 1. Add check marks next to all the custom security attribute assignments you want to remove.
 
 1. Select **Remove assignment**.
-  
-1. When finished removing custom security attribute assignments, select **Save**.
 
-## Search and filter custom security attribute assigned to users
+## Filter users based on custom security attributes
 
-You can search and filter the list of custom security attributes assigned to a user from their profile page.
-  
-The search box supports a "starts with" search on the custom security attribute names and values assigned to this user. You can enter any custom security attributes into the search box, and the search automatically looks across all these properties to return any matching results of all custom security attributes assigned to this user.
+You can filter the list of custom security attributes assigned to users on the All users page.
 
-Add filters supports filtering the list of all custom security attributes assigned to this user. You can currently filter the list of custom security attributes by the attribute set. Select the attribute set and enter the first few letters or the entire name of the attribute set.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+1. Select **Azure Active Directory** > **Users**.
+
+1. Select **Add filters** to open the Pick a field pane.
+
+1. For **Filters**, select **Custom security attribute**.
+
+1. Select your attribute set and attribute name.
+
+1. For **Operator**, you can select equals (**==**), not equals (**!=**), or **starts with**.
+
+1. For **Value**, enter or select a value.
+
+    ![Screenshot showing a custom security attribute filter for users.](./media/users-custom-security-attributes/users-attributes-filter.png)
+
+1. To apply the filter, select **Apply**.
 
 ## PowerShell
 
@@ -357,7 +367,7 @@ Custom security attributes for users are supported in Azure portal, PowerShell, 
 
 **Who can view the custom security attributes assigned to a user?**
 
-Currently, only Attribute Assignment Administrators can view custom security attributes assigned to any users in the tenant. Users cannot view the custom security attributes assigned to their own profile or other users. Guests cannot view the custom security attributes regardless of the guest permissions set on the tenant.
+Only users that have been assigned the Attribute Assignment Administrator or Attribute Assignment Reader roles at tenant scope can view custom security attributes assigned to any users in the tenant. Users cannot view the custom security attributes assigned to their own profile or other users. Guests cannot view the custom security attributes regardless of the guest permissions set on the tenant.
 
 **Do I need to create an app to use custom security attributes?**
 
@@ -379,13 +389,9 @@ Yes, directory synced users from an on-premises Active Directory can be assigned
 
 No, custom security attributes assigned to users are not supported for configuring dynamic membership rules.
 
-**Are these custom security attributes the same as the custom attributes in B2C tenants?**
+**Are custom security attributes the same as the custom attributes in B2C tenants?**
 
-No, these custom security attributes are not supported in B2C tenants and are not related to B2C features.
-
-**Can I filter the custom security attributes assigned to users from the All Users list?**
-
-No, viewing, search, or filtering the list of assigned custom security attributes from the All Users list is not supported.
+No, custom security attributes are not supported in B2C tenants and are not related to B2C features.
 
 ## Next steps
 

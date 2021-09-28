@@ -49,7 +49,13 @@ You don't have permissions to add an attribute set. To add an attributes set and
 
 Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** and check if the Attribute Definition Administrator role is assigned to you. If not, ask your Azure AD administrator to you assign you this role. For more information, see [Assign Azure AD roles to users](../roles/manage-roles-portal.md).
 
-## Symptom - Error when you try to save a custom security attribute assignment
+## Symptom - Error when you try to assign a custom security attribute
+
+When you try to save a custom security attribute assignment, you get the message:
+
+    Insufficient privileges to save custom security attributes
+    This account does not have the necessary admin privileges to change custom security attributes
+
 
 **Cause**
 
