@@ -75,7 +75,7 @@ results = session.run(["output1", "output2"], {
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-For the complete Python API reference, see the [ONNX Runtime reference docs](https://aka.ms/onnxruntime-python).	
+For the complete Python API reference, see the [ONNX Runtime reference docs](https://onnxruntime.ai/docs/api/python-api.html).	
 
 ## Examples
 See [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) for example Python notebooks that create and deploy ONNX models.
