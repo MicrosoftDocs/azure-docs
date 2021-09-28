@@ -21,7 +21,7 @@ The feature lets you specify a deletion threshold, above which an admin
 needs to explicitly choose to allow the deletions to be processed.
 
 > [!NOTE]
-> Accidental deletions are not supported for our Workday / SuccessFactors integrations. It is also not supported for changes in scoping (e.g. changing a scoping filter or changing from "sync all users and groups" to "sync assigned users and groups". Until the accidental deletions prevention feature is fully released, you will need to access the Azure portal using this URL: https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningDeleteThreshold=true 
+> Accidental deletions are not supported for our Workday / SuccessFactors integrations. It is also not supported for changes in scoping (e.g. changing a scoping filter or changing from "sync all users and groups" to "sync assigned users and groups". Until the accidental deletions prevention feature is fully released, you will need to access the Azure portal using this URL: https://aka.ms/AccidentalDeletionsPreview
 
 
 ## Configure accidental deletion prevention
@@ -79,8 +79,7 @@ To learn more about de-provisioning scenarios, see [How Application Provisioning
 ### What scenarios count toward the deletion threshold?
 When a user is set to be removed from the target application, it will be counted against the 
 deletion threshold. Scenarios that could lead to a user being removed from the target 
-application could include: unassigning the user from the application, changing the sync scope 
-from “sync all” to “sync assigned” to soft / hard deleting a user in the directory. Groups 
+application could include: unassigning the user from the application and soft / hard deleting a user in the directory. Groups 
 evaluated for deletion count towards the deletion threshold. In addition to deletions, the same functionality also works for disables.
 
 ### What is the interval that the deletion threshold is evaluated on?
