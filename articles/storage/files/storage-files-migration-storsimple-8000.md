@@ -75,10 +75,10 @@ If you can't find the keys in your records, you can generate a new key from the 
 
 ### Known limitations
 
-The StorSimple Data Manager and Azure file shares have a few limitations you should consider before you begin your migration. The following items completely prevent a migration:
+The StorSimple Data Manager and Azure file shares have a few limitations you should consider before you begin your migration. The following items prevent a migration:
 * Only NTFS volumes from your StorSimple appliance are supported.
 * The service doesn't work with volumes that are BitLocker encrypted.
-* The service can't copy data if the StorSimple snapshot is corrupted.
+* The service can't copy data from a corrupted StorSimple backup.
 * Special networking options, such as firewalls or private endpoint-only communication can't be enabled on either the source storage account where StorSimple backups are stored, nor on the target storage account that holds you Azure file shares.
 
 
