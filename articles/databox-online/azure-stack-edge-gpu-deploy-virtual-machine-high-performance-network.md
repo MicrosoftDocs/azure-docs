@@ -61,12 +61,16 @@ In addition to the above prerequisites that are used for VM creation, you'll als
 
     1. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-    1. Stop any VMs that are running on your device. This includes Kubernetes VMs, or any VM workloads that you may have deployed.
+    1. Identify all the VMs running on your device. This includes Kubernetes VMs, or any VM workloads that you may have deployed.
 
+        ```powershell
+        get-vm -force
+        ```
+    1. Stop all the running VMs.
+    
         ```powershell
         stop-vm -force
         ```
-    
     1. Get the `hostname` for your device. This should return a string corresponding to the device hostname.
 
         ```powershell
@@ -89,12 +93,14 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         [dbe-1csphq2.microsoftdatabox.com]: PS>
         ```
     
-    1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs assigned to the HPN VMs. After this command is run, the device restarts automatically. 
+    1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). 
     
         ```powershell
         Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
         ```
     
+        After this command is run, the device restarts automatically.
+
         Here is an example output: 
     
         ```powershell
@@ -105,8 +111,9 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```
     
         > [!NOTE]
-        > - You can choose to reserve all the logical indexes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the Numa node with Mellanox network interface is #0.  
-        > - The list of logical indexes must contain a paired sequence. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as “5,6,7” will not work.
+        > - You can choose to reserve all the logical indexes from both Numa nodes shown in the example or a subset of the indexes. If you choose to reserve a subset of indexes, pick the indexes from the device node that has a Mellanox network interface attached to it, for best performance. For Azure Stack Edge Pro GPU, the Numa node with Mellanox network interface is #0.  
+        > - The list of logical indexes must contain a paired sequence of an odd number and an even number. For example, ((4,5)(6,7)(10,11)). Attempting to set a list of numbers such as `5,6,7` or pairs such as `4,6` will not work.
+        > - Using two `Set-HcsNuma` commands consecutively to assign vCPUs will reset the configuration. Also, do not free the CPUs using the Set-HcsNuma cmdlet if you have deployed an HPN VM.
   
     1. Wait for the device to finish rebooting. Once the device is running, open a new PowerShell session. [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
     
@@ -131,6 +138,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```powershell
         start-vm 
         ```
+    <!-- Start-vm doesn't seem to work alone. Get-vm alone doesn't seem to return my running VM"VmId"--> 
 
 ## Deploy a VM
 
