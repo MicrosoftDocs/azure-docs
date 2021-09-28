@@ -1,5 +1,5 @@
 ---
-title: Azure Purview Collections Metadata Policy & Roles APIs Quickstart – Manage Role-based Access Control over Purview Collections
+title: Azure Purview collections metadata policy & roles APIs quickstart – manage role-based access control over purview collections
 description:  This tutorial talks about managing role based access control over these collections to users, groups, or service principals within your enterprise via Azure Purview APIs.
 author: abandyop
 ms.author: arindamba
