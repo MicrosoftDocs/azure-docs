@@ -94,7 +94,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
             }
         },
         {
-            "userActivity" : {
+            "activity" : {
                 "itemsInCart": 3,
                 "cartValue": 250,
                 "appliedCoupon": true
