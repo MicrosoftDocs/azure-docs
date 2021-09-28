@@ -22,7 +22,7 @@ Azure Static Web Apps provides [managed authentication](authentication-authoriza
 
 ## Configure a custom identity provider
 
-The settings used to override a provider are configured in the `auth` section of the [configuration file](configuration.md).
+Custom identity providers are configured in the `auth` section of the [configuration file](configuration.md).
 
 To avoid putting secrets in source control, the configuration looks into [application settings](application-settings.md) for a matching name in the configuration file. You may also choose to store your secrets in [Azure Key Vault](./key-vault-secrets.md).
 
@@ -37,6 +37,7 @@ To create the registration, begin by creating the following application settings
 | `AAD_CLIENT_ID` | The Application (client) ID for the Azure AD app registration. |
 | `AAD_CLIENT_SECRET` | The client secret for the Azure AD app registration. |
 
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 ### Azure Active Directory Version 1
 
 ```json
@@ -92,7 +93,7 @@ To create the registration, begin by creating the following application settings
 | `APPLE_CLIENT_ID` | The Apple client ID. |
 | `APPLE_CLIENT_SECRET` | The Apple client secret. |
 
-Next, use the following sample to configure the provider.
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
@@ -120,7 +121,7 @@ To create the registration, begin by creating the following application settings
 | `FACEBOOK_APP_ID` | The Facebook application ID. |
 | `FACEBOOK_APP_SECRET` | The Facebook application secret. |
 
-Next, use the following sample to configure the provider.
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
@@ -149,7 +150,7 @@ To create the registration, begin by creating the following application settings
 | `GITHUB_CLIENT_ID` | The GitHub client ID. |
 | `GITHUB_CLIENT_SECRET` | The GitHub client secret. |
 
-Next, use the following sample to configure the provider.
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
@@ -176,7 +177,7 @@ To create the registration, begin by creating the following application settings
 | `GOOGLE_CLIENT_ID` | The Google client ID. |
 | `GOOGLE_CLIENT_SECRET` | The Google client secret. |
 
-Next, use the following sample to configure the provider.
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
@@ -204,7 +205,7 @@ To create the registration, begin by creating the following application settings
 | `TWITTER_CONSUMER_KEY` | The Twitter consumer key. |
 | `TWITTER_CONSUMER_SECRET` | The Twitter consumer secret. |
 
-Next, use the following sample to configure the provider.
+Next, use the following sample to configure the provider in the [configuration file](configuration.md).
 
 ```json
 {
