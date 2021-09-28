@@ -12,30 +12,32 @@ ms.date: 09/30/2021
 ms.custom: devx-track-csharp
 ---
 
-# Add faceted navigation in Azure Cognitive Search 
+# Add faceted navigation in Azure Cognitive Search
 
-Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of documents (for example, categories or brands), and Azure Cognitive Search provides the faceted search data structures and filters to back the experience. 
+Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers form controls for scoping search to groups of documents (for example, categories or brands), and Azure Cognitive Search provides the faceted search data structures and filters to back the experience. 
 
 In this article, learn the basic steps for creating a faceted navigation structure backing the search experience you want to provide.
 
 > [!div class="checklist"]
 > * Set field attributes in the index
 > * Structure the request and response
-> * Add navigation and filters in the presentation layer
+> * Add navigation controls and filters in the presentation layer
 
-Code in the presentation layer does the heavy lifting in a faceted navigation experience. The demos and samples listed at the end of this article include this component.
+Code in the presentation layer does the heavy lifting in a faceted navigation experience. The demos and samples listed at the end of this article provide working code that shows you how to bring everything together.
 
-Facets are dynamic and returned on a query. A search response brings with it the facet categories used to navigate the documents in the result. If you aren't familiar with facets, the following example is an illustration of a facet navigation structure.
+## What is faceted navigation?
 
-:::image type="complex" source="media/search-filters-facets/facet-nav.png" alt-text="filtered search results":::
-"An image showing a search dialog with filtered search results grouped by business title. An arrow indicates the results are facets that are displayed in a facet navigation structure"
-:::image-end:::
+Facets are dynamic and returned on a query. A search response brings with it the facet categories used to navigate the documents in the result. The query executes first, and then facets are pulled from the current results and assembled into a faceted navigation structure. 
+
+If you aren't familiar with faceted navigation structured, the following example shows one on the left.
+
+:::image source="media/tutorial-csharp-create-first-app/azure-search-facet-nav.png" alt-text="faceted search results":::
 
 ## Enable facets in the index
 
 Faceting is enabled on a field-by-field basis in an index definition when you set the `facetable` attribute to `true`.
 
-You should also set the `filterable` attribute to `true` so that you can build the necessary filters that back the faceted navigation experience in your search application.
+Although it's not strictly required, you should also set the `filterable` attribute so that you can build the necessary filters that back the faceted navigation experience in your search application.
 
 The following example of the "hotels" sample index shows `facetable` and `filterable` on low cardinality fields that contain single values or short phrases: "Category", "Tags", "Rating".
 
@@ -48,7 +50,7 @@ The following example of the "hotels" sample index shows `facetable` and `filter
     { "name": "HotelName", "type": "Edm.String", "facetable": false },
     { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true },
     { "name": "Tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
-    { "name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "Rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
     { "name": "Location", "type": "Edm.GeographyPoint" }
   ]
 }
@@ -70,22 +72,22 @@ As a best practice, check fields for null values, misspellings or case discrepan
 
 If you are using one of the Azure SDKs, your code must specify all field attributes. In contrast, the REST API has defaults for field attributes based on the [data type](/rest/api/searchservice/supported-data-types). The following data types are `filterable` and `facetable` by default:
 
-+ `Edm.String`
-+ `Edm.DateTimeOffset`
-+ `Edm.Boolean`
-+ `Edm.Int32`, `Edm.Int64`, `Edm.Double`
-+ Collections of any of the above types, for example `Collection(Edm.String)` or `Collection(Edm.Double)`
+* `Edm.String`
+* `Edm.DateTimeOffset`
+* `Edm.Boolean`
+* `Edm.Int32`, `Edm.Int64`, `Edm.Double`
+* Collections of any of the above types, for example `Collection(Edm.String)` or `Collection(Edm.Double)`
 
 You cannot use `Edm.GeographyPoint` or `Collection(Edm.GeographyPoint)` fields in faceted navigation. Facets work best on fields with low cardinality. Due to the resolution of geo-coordinates, it is rare that any two sets of co-ordinates will be equal in a given dataset. As such, facets are not supported for geo-coordinates. You would need a city or region field to facet by location.
 
 > [!Tip]
-> As a best practice for performance and storage optimization, remember to turn faceting off for fields that should never be used as a facet. In particular, string fields for unique values, such as an ID or product name, should be set to `"facetable": false` to prevent their accidental (and ineffective) use in faceted navigation. This is especially true for the REST API that enables filters and facets.
+> As a best practice for performance and storage optimization, turn faceting off for fields that should never be used as a facet. In particular, string fields for unique values, such as an ID or product name, should be set to `"facetable": false` to prevent their accidental (and ineffective) use in faceted navigation. This is especially true for the REST API that enables filters and facets by default.
 
-## Facet request and response
+## Facet request
 
-Facets are specified on the query and the faceted navigation structure is returned at the top of the response. The structure of a request and response is fairly simple. The real work behind faceted navigation lies in the presentation layer, which you'll review in the next section. Before diving into the interaction model, take a moment to understand the basics of the request.
+Facets are specified on the query and the faceted navigation structure is returned at the top of the response. The structure of a request and response is fairly simple. In fact, the real work behind faceted navigation lies in the presentation layer, covered in a later section. 
 
-The following REST example is an unqualified query (`"search": "*"`) that is scoped to the entire index. This query shows a single facet parameter for a more readable example, but you can specify as many as you have.
+The following REST example is an unqualified query (`"search": "*"`) that is scoped to the entire index (using the [built-in hotels sample](search-get-started-portal.md)). Facets are usually a list of fields, but his query shows just one for a more readable example.
 
 ```http
 POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-version={{api_version}}
@@ -101,12 +103,9 @@ POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-
 }
 ```
 
-<!-- REQUEST SYNTAX 
+It's useful to initialize a search page with an open query to completely fill in the faceted navigation structure. As soon as you pass query terms in the request, the faceted navigation structure will be scoped to just the matching documents. 
 
-For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, 
-`facet=Rating,values:1|2|3|4|5`). A values list is allowed for these field types to simplify the separation of facet results into contiguous ranges (either ranges based on numeric values or time periods).  -->
-
-The response for the example query includes the faceted navigation structure at the top. The structure consists of "Category" values and a count of the hotels for each one. It's followed by the rest of the search results, trimmed here for brevity. This example works well for several reasons. The number of facets for this field fall under the limit (default is 10) so all of them appear, and every hotel in the index of 50 hotels is represented in exactly one of these categories.
+The response for the example above includes the faceted navigation structure at the top. The structure consists of "Category" values and a count of the hotels for each one. It's followed by the rest of the search results, trimmed here for brevity. This example works well for several reasons. The number of facets for this field fall under the limit (default is 10) so all of them appear, and every hotel in the index of 50 hotels is represented in exactly one of these categories.
 
 ```json
 {
@@ -156,13 +155,25 @@ The response for the example query includes the faceted navigation structure at 
   . . .
 ```
 
-### Limiting the number of facets
+## Facets syntax
 
-For each faceted navigation tree, there is a default limit of 10 facets. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to `count`.
+A facet query parameter is set to a comma-delimited list of `facetable` fields and depending on the data type, can be further parameterized to set sort, orders, increase or lower the maximum account on each facet, or specify ranges:  `count:<integer>`, `sort:<>`, `interval:<integer>`, and `values:<list>`. For more detail about facet parameters, see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
 
-* `&facet=city,count:5` specifies that only the first five cities found in the top ranked search results are returned as a facet result. Consider a sample query with a search term of "airport" and 32 matches. If the query specifies `&facet=city,count:5`, only the first five unique cities with the most documents in the search results are included in the facet results.
+```http
+POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-version={{api_version}}
+{
+    "search": "*",
+    "facets": [ "Category", "Tags,count:5", "Rating,values:1|2|3|4|5"],
+    "count": true
+}
+```
 
-Note the distinction between facet results and search results. Search results are all the documents that match the query. Facet results are the matches for each facet value. In the example, search results include City names that are not in the facet classification list (5 in our example). Results that are filtered out through faceted navigation become visible when you clear facets, or choose other facets besides City. 
+For each faceted navigation tree, there is a default limit of 10 facets. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to `count`. For example, "Tags,count:5" reduces the number of tags under the Tags section to the top give.
+
+For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, 
+`facet=Rating,values:1|2|3|4|5`) to separate results into contiguous ranges (either ranges based on numeric values or time periods). Alternatively, you can add `interval`, as in `facet=Rating,interval:1`. 
+
+Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals.
 
 ### Discrepancies in facet counts
 
@@ -196,13 +207,16 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-If the user clicks on a facet value for a collection field like `tags`, for example the value "pool", your application should use the following filter syntax: `$filter=tags/any(t: t eq 'pool')` -->
+If the user clicks on a facet value for a collection field like `tags`, for example the value "pool", your application should use the following filter syntax: `$filter=tags/any(t: t eq 'pool')` 
+
+
+### Add labels for fields in the facet navigation structure
+
+Labels are typically defined in presentation layer (for example, in `index.cshtml`). The query API in Azure Cognitive Search does not return facet navigation labels. Your application code will provide the labels in the rendered page.
+
+-->
 
 ## Tips for working with facets
-
-### Initialize a page with facets in place
-
-If you want to initialize a page with full representation of all facets, send an empty query (`search=*`) as part of page initialization to seed the page with an initial facet structure.
 
 ### Preserve a facet navigation structure asynchronously of filtered results
 
@@ -210,26 +224,24 @@ One of the challenges of faceted navigation in Azure Cognitive Search is that fa
 
 Although this is a common use case, it's not something the faceted navigation structure currently provides out-of-the-box. Developers who want static facets typically work around the limitation by issuing two filtered queries: one scoped to the results, the other used to create a static list of facets for navigation purposes.
 
-### Add labels for fields in the facet navigation structure
-
-Labels are typically defined in presentation layer (for example, in `index.cshtml`). The query API in Azure Cognitive Search does not return facet navigation labels. Your application code will provide the labels in the rendered page.
-
 ### A facet-only search experience
 
 If your application uses faceted navigation exclusively (that is, no search box), you can mark the field as `searchable=false`, `filterable=true`, `facetable=true` to produce a more compact index. Your index will not include inverted indexes and there will be no text analysis or tokenization. Filters are made on exact matches at the character level.
 
 ## Demos and samples
 
+### Create your first app in C# (Razor)
+
+This tutorial and sample series in C# includes a [lesson focused on faceted navigation](tutorial-csharp-facets.md). The solution is an ASP.NET MVC app and the presentation layer uses the Razor client libraries.
+
+### Add search to web apps (React)
+
+Tutorials and samples in [C#](tutorial-csharp-overview.md), [Python](tutorial-python-overview.md), and [Javascript](tutorial-javascript-overview.md) include faceted navigation as well as filters, suggestions, and autocomplete. These samples use React for the presentation layer.
+
 ### NYCJobs sample code and demo
 
-The NYCJobs sample is an ASP.NET MVC application. It's available as a [live demo app](https://aka.ms/azjobsdemo) and aas source code on [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+The NYCJobs sample is an ASP.NET MVC application that includes faceted navigation. It's available as a [live demo app](https://aka.ms/azjobsdemo) and as source code on [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
 ### Video demonstration
 
 At 45:25 in [Azure Cognitive Search Deep Dive](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410), there is a demo on how to implement facets.
-
-## See also
-
-+ [Filters in Azure Cognitive Search](search-filters.md)
-+ [Create Index REST API](/rest/api/searchservice/create-index)
-+ [Search Documents REST API](/rest/api/searchservice/search-documents)
