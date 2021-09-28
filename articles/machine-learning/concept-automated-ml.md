@@ -125,19 +125,22 @@ See examples of regression and automated machine learning for predictions in the
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Customers across various industries are looking to leverage machine learning to build models that can process image data. Typical manual methods for building computer vision models can involve a tedious process of iteratively finding the right set of model algorithms and hyperparameters, requiring significant data scientist time and effort. 
-
-Automated ML for images adds support for computer vision tasks, which allows you to easily generate models trained on image data for scenarios like image classification, object detection and instance segmentation. You can seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-labeling-projects.md) capability, and use this labeled data for generating image models. They can optimize model performance by specifying the model algorithm and tuning the hyperparameters. The resulting model can then be downloaded or deployed as a web service in Azure ML and can be operationalized at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
+Automated ML for images (preview) adds support for computer vision tasks, which allows you to easily generate models trained on image data for scenarios like image classification and object detection. 
+With this capability you can: 
+ 
+* Seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-labeling-projects.md) capability
+* Use labeled data for generating image models
+* Optimize model performance by specifying the model algorithm and tuning the hyperparameters. 
+* Download or deploy the resulting model as a web service in Azure Machine Learning. 
+* Operationalize at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
 
 Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation runs, models and outputs can be accessed from the Azure Machine Learning studio UI.
 
 <!--Learn how to [set up AutoML training for computer vision models](how-to-auto-train-image-models.md).-->
 
-Automated ML for images supports the following computer vision tasks -
-
 ![Computer vision tasks examples. Image from: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf ](./media/concept-automated-ml/automl-computer-vision-tasks.png)
 
-
+Automated ML for images supports the following computer vision tasks: 
 Task | Description
 ----|----
 Multi-class image classification | Tasks where an image is classified with only a single label from a set of classes - e.g. each image is classified as either an image of a 'cat' or a 'dog' or a 'duck'
@@ -245,7 +248,7 @@ Consider these factors when choosing your compute target:
 Consider these pros and cons when choosing to use local vs. remote.
 
 |  | Pros (Advantages)  |Cons (Handicaps)  |
-|---------|---------|---------|---------|
+|---------|---------|---------|
 |**Local compute target** |  <li> No environment start-up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
 |**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start-up time for cluster nodes <li> Start-up time for each child run    |
 
