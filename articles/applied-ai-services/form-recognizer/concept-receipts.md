@@ -457,7 +457,31 @@ See the following example of a successful JSON response (the output has been sho
 ## Preview
 In Form Recognizer v3.0 preview, in addition to sales (thermal) receipts, single page hotel receipt is supported with the following fields extracted:
 
+|Name| Type | Description | Text | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+| ArrivalDate | date | Date of arrival | 27Mar21 | 2021-03-27 |
+| Currency | currency | Currency unit of receipt amounts, or 'MIXED' if multiple values are found | | USD |
+| DepartureDate | date | Date of departure | 28Mar21 | 2021-03-28 |
+| Items | array | | | |
+| Items.*.Category | string | Item category, e.g. Room, Tax, etc. | | Room |
+| Items.*.Date | date | Item date | 27Mar21 | 2021-03-27 |
+| Items.*.Description | string | Item description | "Room Charge" | "Room Charge" |
+| Items.*.TotalPrice |  number | Item total price | "88.00" | 88 |
+| Locale | string | Locale of the receipt |  | "en-US" |
+| MerchantAddress | string | Listed address of merchant | "5600 148th Ave NE, Redmond, WA 98052" | "5600 148th Ave NE, Redmond, WA 98052" |
+| MerchantAliases | array| | | |
+| MerchantAliases.* | string | Alternative name of merchant | Contoso | Contoso |
+| MerchantName | string | Name of the merchant issuing the receipt | Name of the merchant issuing the receipt | "Contoso Inn" | "Contoso Inn" |
+| MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | "987-654-4321" | +19876544321 |
+| ReceiptType | string | Type of receipt, e.g. Hotel, Itemized | | Hotel |
+| Total | number | Full transaction total of receipt | "104.92" | 104.92 |
 
+## Analyze Receipt (v3.0)
+In v3.0 preview, you can analyze receipts by POST/GET to Azure REST APIs:
+* POST https://{endpoint}/formrecognizer/documentModels/prebuilt-receipt:analyze?api-version={date}
+* GET https://{endpoint}/formrecognizer/documentModels/prebuilt-receipt/analyzeResults/{resultId}
+
+The Analyze Document operation takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called Operation-Location. The Operation-Location value is a URL that contains the Result ID to be used in the next step. We poll this Get Analyze Result URL to check the status of the analyze operation (recommend no more than once a second). Upon success, status is set to succeeded and analyzeResult is returned in the response body (see Analysis Result). If errors are encountered, status is set to failed and error is returned. See [more details]().
 
 
 ## Next steps
