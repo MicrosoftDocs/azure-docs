@@ -16,10 +16,10 @@ This tutorial shows you how enhance your knowledge base with active learning. If
 These variations when added as alternate questions to the relevant QnA pair, help to optimize the knowledge base to answer real world user queries. You can manually add alternate questions to QnA pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
 
 ## Enable Active Learning
-Active Learning is turned on by default for the Custom Question Answering feature. However, you need to manually update the Active Learning setting for QnA Maker GA. You can find more details here: [Turn on Active Learning](../how-to/use-active-learning.md#turn-on-active-learning-for-alternate-questions).
+Active Learning is turned on by default for the Custom Question Answering feature.
 
-To try out Active Learning suggestions, you can import the following file to the knowledge base: [SampleActiveLearning.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleActiveLearning.tsv). 
-For more details on importing knowledge base, refer [Import Knowledge Base](migrate-knowledge-base.md).
+To try out Active Learning suggestions, you can import the following file to the knowledge base: [SampleActiveLearning.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/SampleActiveLearning.tsv).
+For more details on importing knowledge base, refer [Import Knowledge Base](../how-to/migrate-knowledge-base.md).
 
 ## View and add/reject Active Learning Suggestions
 Once the active learning suggestions are available, they can be viewed from **View Options** > **Show active learning suggestions**.
@@ -44,9 +44,6 @@ We can now either accept these suggestions or reject them using the checkmark or
 > [ ![Screenshot with option to accept or reject highlighted in red]( ../media/active-learning/accept-reject.png) ]( ../media/active-learning/accept-reject.png#lightbox)
 
 The knowledge base does not change unless we choose to add or edit the suggestions as suggested by Active Learning. Finally, click on Save and train to save the changes.
-
-> [!NOTE] 
-> To check your version and service settings for active learning, refer the article on [how to use active learning](../how-to/use-active-learning.md)
 
 ## Add alternate questions using editor
 
