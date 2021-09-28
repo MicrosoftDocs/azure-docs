@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure Language [resource connected to an Azure blob storage account](../custom-classification/how-to/use-azure-resources.md).
+* An Azure Language [resource connected to an Azure blob storage account](../../custom-classification/how-to/use-azure-resources.md).
     * we recommend following the instructions for creating a resource using the Azure portal, for easier setup. 
 * [An Azure Cognitive Search service](/azure/search/search-create-service-portal) in your current subscription
     * You can use any tier, and any region for this service.
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 1. Login through the [Language studio portal](https://language.azure.com/) and select **Custom entity extraction**.
 
-2. Select your Language resource. Make sure you have [enabled identity management](../custom-classification/how-to/use-azure-resources.md#identity-management-for-your-language-services-resource) and roles for your resource and storage account.
+2. Select your Language resource. Make sure you have [enabled identity management](../../custom-classification/how-to/use-azure-resources.md#identity-management-for-your-language-services-resource) and roles for your resource and storage account.
 
 3. From the top of the projects screen, select **Create new project**. If requested, choose your storage account from the menu that appears.
 
@@ -57,13 +57,13 @@ In this tutorial, you learn how to:
 1. Select **Train** from the left side menu.
 2. Enter a new model name or select an existing model from the **Model name** dropdown. You can only have up to 10 models per project.
    
-    :::image type="content" source="../media/train-model.png" alt-text="Select the model you want to train" lightbox="../media/train-model.png":::
+    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the model training screen in Language Studio." lightbox="../media/train-model.png":::
      
 3. Click on the **Train** button at the bottom of the page. Training can take up to few hours.
 
 4. If the model you selected is already trained, a window will appear to confirm overwriting the last model state.
 
-5. After training is completed, you can [view the model's evaluation details](how-to/view-model-evaluation.md) and [improve the model](how-to/improve-model.md)
+5. After training is completed, you can [view the model's evaluation details](../how-to/view-model-evaluation.md) and [improve the model](../how-to/improve-model.md)
 
 ## Deploy your model
 
@@ -92,7 +92,7 @@ Next you will need to prepare your secrets for your Azure function. Your project
 
 2. From the menu on the left side, select **Keys and Endpoint**. You will need the endpoint and one of the keys for the API requests.
 
-    :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="Select the model you want to train" lightbox="../../azure-portal-resource-credentials.png":::
+    :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::
    
 ## Edit and deploy your Azure Function
 
