@@ -16,7 +16,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
-| Offers | Setup and maintenance of Power BI Visuals is migrating from the Office Store to the commercial marketplace this month. [This FAQ](power-bi-visual-faq.md) provides a summary of improvements to the offer submission process. To start, see [Plan a Power BI visual offer](marketplace-power-bi-visual.md).| 2021-09-21 |
+| Offers | Setup and maintenance of Power BI Visuals is migrating from the Office Store to the commercial marketplace this month. [This FAQ](power-bi-visual-faq.yml) provides a summary of improvements to the offer submission process. To start, see [Plan a Power BI visual offer](marketplace-power-bi-visual.md).| 2021-09-21 |
 | Offers | While [private plans](private-plans.md) were previously only available on the Azure portal, they are now also available on Microsoft AppSource. | 2021-09-10 |
 | Analytics | Publishers of Azure application offers can view offer deployment health in the Quality of service (QoS) reports. QoS helps publishers understand the reasons for offer deployment failures and provides actionable insights for their remediation. For details, see [Quality of service (QoS) dashboard](quality-of-service-dashboard.md). | 2021-09-07 |
 | Offers | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-create-plans.md#properties) article for more information. | 2021-07-26 |
