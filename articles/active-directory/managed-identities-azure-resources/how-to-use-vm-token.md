@@ -279,7 +279,7 @@ func main() {
 }
 ```
 
-## Get a token using Azure PowerShell
+## Get a token using PowerShell
 
 The following example demonstrates how to use the managed identities for Azure resources REST endpoint from a PowerShell client to:
 
