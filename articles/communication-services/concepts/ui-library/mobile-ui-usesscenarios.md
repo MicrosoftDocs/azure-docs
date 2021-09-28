@@ -50,7 +50,7 @@ For more information on authentication, see [Authentication](../authentication) 
 For [Teams Interop](../teams-interop) scenarios, developers can use UI Mobile Library Components to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
-<img src="../media/mobile-ui/teams_meet.png" width="600"/> 
+<img src="../media/mobile-ui/teams_meet.png" alt="Pre-meeting experience" width="600"/> 
 
 
 ## Theming
