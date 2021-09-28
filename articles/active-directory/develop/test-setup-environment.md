@@ -104,7 +104,7 @@ Replicating permission grant policies ensures you don't encounter unexpected pro
 #### Token lifetime policies
 Replicating token lifetime policies ensures tokens issued to your application don't expire unexpectedly in production.  
  
-Token lifetime policies can currently only be managed through PowerShell. Go [here](active-directory-configurable-token-lifetimes.md) for help with identifying any token lifetime policies that apply to your whole production organization.  Copy those policies to your test tenant.
+Token lifetime policies can currently only be managed through PowerShell. Read about [configurable token lifetimes](active-directory-configurable-token-lifetimes.md) to learn about identifying any token lifetime policies that apply to your whole production organization.  Copy those policies to your test tenant.
  
 ## Set up a test environment in your production tenant
 If you can safely constrain your test app in your production tenant, go ahead and set up your tenant for testing purposes.
@@ -139,5 +139,5 @@ For detailed instructions on restricting an app to specific users in a tenant, g
  
 Learn about [throttling and service limits](test-throttle-and-service-limits.md) you might hit while setting up a test environment.
 
-For more detailed information about setting up test environments, read [Securing Azure environments with Azure Active Directory](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/).
+For more detailed information about test environments, read [Securing Azure environments with Azure Active Directory](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/).
   
