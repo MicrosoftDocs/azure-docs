@@ -53,9 +53,10 @@ Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** a
 
 When you try to save a custom security attribute assignment, you get the message:
 
-    Insufficient privileges to save custom security attributes
-    This account does not have the necessary admin privileges to change custom security attributes
-
+```
+Insufficient privileges to save custom security attributes
+This account does not have the necessary admin privileges to change custom security attributes
+```
 
 **Cause**
 
