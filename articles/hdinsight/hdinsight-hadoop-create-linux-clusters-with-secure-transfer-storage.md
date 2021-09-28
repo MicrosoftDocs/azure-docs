@@ -34,7 +34,8 @@ For the Azure CLI command [az storage account create](/cli/azure/storage/account
 
 To update an existing storage account with Azure CLI, see [Require secure transfer with Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 
-### Secure Transfer Error(s)
+### Secure transfer error(s)
+
 
 If you accidentally enabled the 'Require secure transfer' option after creating the HDInsight cluster, you may be seeing error messages like the following:
 
