@@ -11,4 +11,4 @@ ms.date: 09/28/2021
 
 # Azure Purview Data Policies
 
-Purview data policy capabilities enables a user to create a data access policy from Purview studio and enforce it across multiple data sources registered with Purview. 
+Purview Data Policies enable a user to create an access policy from Purview Studio, which gets enforced across multiple data sources previously registered with Purview. 
