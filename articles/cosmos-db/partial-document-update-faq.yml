@@ -53,9 +53,9 @@ sections:
           Arrays are treated as an atomic unit. If the same property in an array is concurrently updated in different regions (thereby resulting in a conflict), only one of the changes will persist.
 
       - question: |
-          Is partial document update supported on Azure CosmosDB emulator?
+          Is partial document update supported for Analytical Store/Synapse Link enabled accounts?
         answer: |
-          Yes, partial document update support is also included in [Azure CosmosDB emulator](local-emulator.md).
+          Yes, partial document update works with Analytical Store/Synapse Link enabled accounts.
 
 additionalContent: |
 

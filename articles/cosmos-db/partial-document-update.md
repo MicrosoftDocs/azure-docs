@@ -1,6 +1,6 @@
 ---
 title: Partial document update in Azure Cosmos DB
-description: This article provides a conceptual overview of Partial Document Update in Azure Cosmos DB
+description: Learn about partial document update in Azure Cosmos DB.
 author: abhirockzz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -18,7 +18,7 @@ Partial document update feature improves this experience significantly. The clie
 
 - **Improved developer productivity**: Provides a convenient API for ease of use and the ability to conditionally update the document. 
 - **Performance improvements**: Avoids extra CPU cycles on the client side, reduces end-to-end latency and network bandwidth.
-- **Support for Multi-region writes** (formerly "multi-master"): Conflict resolution to be transparent and automatic with Partial updates on discrete paths with the same document.
+- **Multi-region writes**: Supports automatic and transparent conflict resolution with partial updates on discrete paths within the same document.
  
 ## Supported operations
 
@@ -32,7 +32,7 @@ The table below summarizes the operations supported by this feature.
 | **Add**      | `Add` performs one of the following, depending on the target path: <br/><ul><li>If the target path specifies an element that does not exist, it is added.</li><li>If the target path specifies an element that already exists, its value is replaced.</li><li>If the target path is a valid array index, a new element will be inserted into the array at the specified index. It shifts existing elements to the right.</li><li>If the index specified is equal to the length of the array, it will append an element to the array.</li></ul> <br/>
 > [!NOTE]
 > Specifying an index greater than the array length will result in an error. |
-| **Set**      | `Set` is similar to `Add` except in the case of Array data type - if the target path is a valid array index, the existing element at that index will get updated.| 
+| **Set**      | `Set` operation is similar to `Add` except in the case of Array data type - if the target path is a valid array index, the existing element at that index is updated.| 
 | **Replace**      | `Replace` operation is similar to `Set` except it follows _strict_ replace only semantics. In case the target path specifies an element or an array that does not exist, it results in an error.  | 
 | **Remove**     | `Remove` performs one of the following, depending on the target path: <br/><ul><li>If the target path specifies an element that does not exist, it results in an error. </li><li> If the target path specifies an element that already exists, it is removed. </li><li> If the target path is an array index, it will be deleted and any elements above the specified index are shifted one position to the left.</li></ul> <br/>
 > [!NOTE]
