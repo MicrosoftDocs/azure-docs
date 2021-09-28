@@ -138,7 +138,7 @@ The key phrase extraction feature has not changed in v3 outside of the endpoint 
 
 #### REST API
 
-If your application uses the REST API, update its request endpoint to the v3 endpoint for key phrase extraction. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+If your application uses the REST API, update its request endpoint to the v3 endpoint for key phrase extraction. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.1/keyPhrases`
 
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
