@@ -139,7 +139,6 @@ The following JSON example creates a general-purpose v2 storage account that is 
 
 Azure Policy provides a built-in policy to require that infrastructure encryption be enabled for a storage account. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
-
 ## Create an encryption scope with infrastructure encryption enabled
 
 If infrastructure encryption is enabled for an account, then any encryption scope created on that account automatically uses infrastructure encryption. If infrastructure encryption is not enabled at the account level, then you have the option to enable it for an encryption scope at the time that you create the scope. The infrastructure encryption setting for an encryption scope cannot be changed after the scope is created. For more information, see [Create an encryption scope](../blobs/encryption-scope-manage.md#create-an-encryption-scope).

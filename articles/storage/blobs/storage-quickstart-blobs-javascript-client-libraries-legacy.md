@@ -2,10 +2,10 @@
 title: "Quickstart: Azure Blob storage for JavaScript v10 in the browser"
 description: Learn to upload, list, and delete blobs using JavaScript v10 SDK in an HTML page.
 services: storage
-author: twooley
+author: normesta
 ms.custom: mvc, devx-track-js
 ms.service: storage
-ms.author: twooley
+ms.author: normesta
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
@@ -178,7 +178,7 @@ Next, paste the following HTML into *index.html* after the `</body>` closing tag
 </script>
 ```
 
-This code adds a reference to the script file and provides a place for your own JavaScript code. For the purposes of this quickstart, we're using the *azure-storage-blob.js* script file so that you can open it in VS Code, read its contents, and set breakpoints. In production, you should use the more compact *azure-storage.blob.min.js* file that is also provided in the zip file.
+This code adds a reference to the script file and provides a place for your own JavaScript code. For the purposes of this quickstart, we're using the `azure-storage-blob.js` script file so that you can open it in VS Code, read its contents, and set breakpoints. In production, you should use the more compact *azure-storage.blob.min.js* file that is also provided in the zip file.
 
 You can find out more about each blob storage function in the [reference documentation](/javascript/api/%40azure/storage-blob/index). Note that some of the functions in the SDK are only available in Node.js or only available in the browser.
 
