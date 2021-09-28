@@ -139,90 +139,130 @@ Once you add a custom security attribute, you can't delete it. However, you can 
 
 ## PowerShell
 
-To manage custom security attributes in your Azure AD organization, you can also use the PowerShell. The following command can manage custom security attributes and attribute sets.
-
-### Get all custom security attributes
-
-```powershell
-Get-AzureADMSCustomSecurityAttributeDefinition
-```
-
-### Get a custom security attribute
-
-```powershell
-Get-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute"
-```
+To manage custom security attributes in your Azure AD organization, you can also use the PowerShell. The following command can manage attribute sets and custom security attributes.
  
-### Update a custom security attribute
-
-```powershell
-Set-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute" -Description "New Test Description"
-Set-AzureADMSCustomSecurityAttributeDefinition -Id Storage_Project2 -Status "Deprecated" -UsePreDefinedValuesOnly $false
-```
- 
-### Add a single custom security attribute
-
-```powershell
-New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "TestSet" -Name "TestAttribute" -Description "TestAttributeDescription" -Type "String" -Status "Available" -IsCollection $true -IsSearchable $true -UsePreDefinedValuesOnly $true
-```
- 
-### Get all allowed values
-
-```powershell
-Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "TestSet_TestAttribute"
-```
- 
-### Get an allowed value
-
-```powershell
-Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue 
-```
- 
-### Update allowed value
-
-```powershell
-Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue -IsActive $true
-```
- 
-### Add a new allowed value
-
-```powershell
-Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id "TestAllowedValue" -IsActive $true
-```
- 
-### Get all attribute sets
+#### Get all attribute sets
 
 ```powershell
 Get-AzureADMSAttributeSet
 ```
 
-### Get an attribute set
+#### Get a single attribute set
 
 ```powershell
 Get-AzureADMSAttributeSet -Id "testAttributeSet"
 ```
-
-### Update an attribute set
-
-```powershell
-Set-AzureADMSAttributeSet -Id "testAttributeSet" -Description "New Test Description"
-Set-AzureADMSAttributeSet -Id "testAttributeSet" -MaxAttributesPerSet 20
-```
  
-### Add an attribute set
+#### Add an attribute set
 
 ```powershell
 New-AzureADMSAttributeSet -Id "testAttributeSet" -Description "TestAttributeDescription" -MaxAttributesPerSet 10 
 ```
 
+#### Update an attribute set
+
+```powershell
+Set-AzureADMSAttributeSet -Id "testAttributeSet" -Description "New Test Description"
+Set-AzureADMSAttributeSet -Id "testAttributeSet" -MaxAttributesPerSet 20
+```
+
+#### Get all custom security attributes
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinition
+```
+
+#### Get a custom security attribute
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute"
+```
+ 
+#### Add a single custom security attribute
+
+```powershell
+New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "TestSet" -Name "TestAttribute" -Description "TestAttributeDescription" -Type "String" -Status "Available" -IsCollection $true -IsSearchable $true -UsePreDefinedValuesOnly $true
+```
+ 
+#### Update a custom security attribute
+
+```powershell
+Set-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute" -Description "New Test Description"
+Set-AzureADMSCustomSecurityAttributeDefinition -Id Storage_Project2 -Status "Deprecated" -UsePreDefinedValuesOnly $false
+```
+
+#### Get all predefined values
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "TestSet_TestAttribute"
+```
+ 
+#### Get a predefined value
+
+```powershell
+Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue 
+```
+ 
+#### Add a new predefined value
+
+```powershell
+Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id "TestAllowedValue" -IsActive $true
+```
+ 
+#### Update a predefined value
+
+```powershell
+Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue -IsActive $true
+```
+
 ## Microsoft Graph API
 
-To manage custom security attributes in your Azure AD organization, you can also use the Microsoft Graph API. The following API calls can be made to manage custom security attributes.
+To manage custom security attributes in your Azure AD organization, you can also use the Microsoft Graph API. The following API calls can be made to manage attribute sets and custom security attributes.
 
-### Add a new custom security attribute
+#### Get all attribute sets
 
 ```http
-POST  https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+GET https://graph.microsoft.com/beta/directory/attributeSets
+```
+
+Paging and sorting are supported for attribute sets.
+
+```http
+GET https://graph.microsoft.com/beta/directory/attributeSets?$top=10
+GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
+```
+
+#### Get a single attribute set
+
+```http
+GET https://graph.microsoft.com/beta/directory/attributeSets/attributeSetName1
+```
+
+#### Add an attribute set
+
+```http
+POST https://graph.microsoft.com/beta/directory/attributeSets 
+{
+    "id":"attributeSetName1",
+    "description":"Attribute set description",
+    "maxAttributesPerSet":10
+}
+```
+
+#### Update an attribute set
+
+```http
+PATCH https://graph.microsoft.com/beta/directory/attributeSets/attributeSetName1
+{
+    "description":"Attribute set description update",
+    "maxAttributesPerSet":20
+}
+```
+
+#### Add a new custom security attribute
+
+```http
+POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
 {
     "name":"Project",
     "attributeSet":"Storage",
@@ -235,7 +275,7 @@ POST  https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 }
 ```
 
-### Filter custom security attributes
+#### Filter custom security attributes
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=name+eq+'Project1'%20and%20status+eq+'Available'
@@ -245,9 +285,9 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Storage'%20and%20status+eq+'Available'%20and%20type+eq+'String'
 ```
 
-### Add predefined value
+#### Add predefined value
 
-You can set the AllowedValues for custom security attributes that have usePreDefinedValuesOnly set to true.
+You can add predefined values for custom security attributes that have `usePreDefinedValuesOnly` set to `true`.
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Storage_Project1/allowedValues
@@ -257,7 +297,7 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 }
 ```
 
-### Deactivate a custom security attribute
+#### Deactivate a predefined value
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Storage_Project1/allowedValues/Value1
