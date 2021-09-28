@@ -159,8 +159,6 @@ if (response.isSuccessStatusCode()) {
 
 ## Node
 
-TODO add sample repo information
-
 **Executing a single patch operation**
 
 ```javascript

@@ -51,7 +51,7 @@ Partial document update feature supports the following modes of operation. Refer
 
 For the aforementioned modes, it is also possible to add a SQL-like filter predicate (for example, *from c where c.taskNum = 3*) such that the operation fails if the pre-condition specified in the predicate is not satisfied. 
 
-## Add, Set, Replace operations - similarities and differences
+## Similarities and differences
 
 ### Add vs Set
 
