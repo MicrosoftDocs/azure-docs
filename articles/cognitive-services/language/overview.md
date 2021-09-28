@@ -29,8 +29,8 @@ The service is the unification of the following Cognitive Services offerings:
 
 Azure Cognitive Service for language provides the following features:
 
->mx-tdCol2BreakAll
->|Feature  |Description  | Deployment options| 
+> [!div class="mx-tdCol2BreakAll"]
+> |Feature  |Description  | Deployment options| 
 > |---------|---------|---------|
 > | [Named Entity Recognition(NER) and sensitive information(PII)](named-entity-recognition/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories, including sensitive information.        | <ul><li>[**Language Studio**](language-studio.md)</li><li>[**REST API and client-library**](named-entity-recognition/quickstart.md)</li></ul> |
 > | [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. | <ul><li>[**Language Studio**](language-studio.md)</li><li>[**REST API and client-library**](key-phrase-extraction/quickstart.md)</li><li>[**Docker container**](key-phrase-extraction/how-to/use-containers.md)</li></ul>  |
