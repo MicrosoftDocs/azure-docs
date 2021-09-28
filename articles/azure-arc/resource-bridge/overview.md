@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge overview
 description: Learn how to use Azure Arc resource bridge to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 09/22/2021
+ms.date: 09/28/2021
 ms.topic: overview
 ---
 
@@ -10,17 +10,30 @@ ms.topic: overview
 Azure Arc resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines running in a hybrid environment on [Azure Stack HCI](/azure-stack/hci/overview) and VMware. The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster that requires no user management. This virtual appliance delivers the following benefits:
 
 * Enables VM self-servicing from Azure without having to create and manage a Kubernetes cluster
-* It is fully supported by Microsoft, including update of core components. 
+* It is fully supported by Microsoft, including update of core components.
 * Designed to recover from software failures.
 * Supports deployment to any private cloud hosted on Hyper-V or VMware from the Azure portal or using the Azure Command-Line Interface (CLI).
 
 All management operations are performed from Azure, no local configuration is required on the appliance.
 
+Through the Azure Arc resource bridge, you can accomplish the following for each private cloud infrastructure from Azure:
+
+* VMware vSphere - By registering resource pools, networks, and VM templates in Azure you can represent a subset of your vCenter resources in Azure to enable self-service. Integration with Azure allows you to not only manage access to your vCenter resources in Azure to maintain a secure environment, but also to perform various operations on the VMware virtual machines that are enabled by Arc-enabled VMware vSphere:
+
+   - Start, stop and restart a virtual machine.
+   - Control access and add Azure tags.
+   - Add, remove and update network interfaces.
+   - Add, remove and update disks and update VM size (CPU cores and memory).
+   - Enable guest management.
+   - Install extensions.
+
+* Azure Stack HCI - Placeholder for summaized benefits of integrating with HCI.
+
 ## Prerequisites
 
 [Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments. 
 
-If you are deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required. 
+If you are deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
 
 If you are deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
 
@@ -40,10 +53,10 @@ The following private cloud environments and their versions are officially suppo
 
 ### vCenter requirements
 
-* For the VMware vCenter Server Appliance, allow inbound connections on TCP port 443 to enable the Arc resource bridge and VMware cluster extension to communicate with the appliance. 
+* For the VMware vCenter Server Appliance, allow inbound connections on TCP port 443 to enable the Arc resource bridge and VMware cluster extension to communicate with the appliance.
 
 * A resource pool with capacity to allocate 16 GB of RAM and 4 vCPUs.
-    
+
 * A datastore with a minimum of 100 GB free disk space available through the resource pool.
 
 * An external virtual network/switch and internet access, direct or through a proxy server to support outbound communication from Arc resource bridge.

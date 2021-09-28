@@ -32,20 +32,6 @@ When you run the Azure CLI commands the following error may be returned: *The re
 
 Sign into Azure again using the `Az login` command.
 
-## When you run the onboarding scripts on a Linux machine, it may fail to install the arcappliance extension because of this [issue](https://github.com/Azure/azure-cli/issues/16858)
-
-### Workaround
-
-Run the following commands on the Linux machine:
-
-```bash
-upgrade pip & site-package CRYPTOGRAPHY_DONT_BUILD_RUST=1
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py python3 get-pip.py
-python3 get-pip.py
-python3 -m pip install -U pip
-python3 -m pip install --upgrade pip --target /opt/az/lib/python3.6/site-packages/
-```
-
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
