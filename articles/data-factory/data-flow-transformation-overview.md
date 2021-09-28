@@ -8,12 +8,14 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 09/09/2021
 ---
 
 # Mapping data flow transformation overview
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Below is a list of the transformations currently supported in mapping data flow. Click on each transformations to learn its configuration details.
 

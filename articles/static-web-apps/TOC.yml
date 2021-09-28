@@ -30,11 +30,13 @@
           href: functions-bring-your-own.md
     - name: Configuration
       items:
+        - name: Configuration overview
+          href: configuration-overview.md
         - name: Application configuration
           href: configuration.md
           displayName: routing, routes
         - name: Build configuration
-          href: github-actions-workflow.md
+          href: build-configuration.md
         - name: App settings
           href: application-settings.md
           displayName: environment variables

@@ -26,8 +26,12 @@
     href: set-up-service-alerts.md
 - name: How-to
   items:
-  - name: Migrate manually
-    href: manual-migration.md
+  - name: Migrate your deployment
+    items:
+      - name: Migrate automatically 
+        href: automatic-migration.md
+      - name: Migrate manually
+        href: manual-migration.md
   - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client

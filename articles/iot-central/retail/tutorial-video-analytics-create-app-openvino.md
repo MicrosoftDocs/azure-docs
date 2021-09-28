@@ -7,7 +7,7 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
-ms.date: 10/06/2020
+ms.date: 09/01/2021
 ---
 # Tutorial: Create a video analytics - object and motion detection application in Azure IoT Central (OpenVINO&trade;)
 

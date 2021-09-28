@@ -89,7 +89,7 @@ Consider the following strategies:
 
 ## Create a webhook
 
-A webhook requires a published runbook. This walk through uses a modified version of the runbook created from [Create an Azure Automation runbook](automation-quickstart-create-runbook.md). To follow along, edit your PowerShell runbook with the following code:
+A webhook requires a published runbook. This walk through uses a modified version of the runbook created from [Create an Azure Automation runbook](./learn/powershell-runbook-managed-identity.md). To follow along, edit your PowerShell runbook with the following code:
 
 ```powershell
 param

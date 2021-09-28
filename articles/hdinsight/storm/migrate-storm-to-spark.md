@@ -34,7 +34,7 @@ Apache Storm can provide different levels of guaranteed message processing. For 
 
 ### Spark streaming vs Spark structured streaming
 
-Spark Structured Streaming is replacing Spark Streaming (DStreams). Structured Streaming will continue to receive enhancements and maintenance, while DStreams will be in maintenance mode only. **Note: need links to emphasize this point**. Structured Streaming does not have as many features as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option.
+Spark Structured Streaming is replacing Spark Streaming (DStreams). Structured Streaming will continue to receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming does not have as many features as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option.
 
 ## Streaming (Single event) processing vs Micro-Batch processing
 

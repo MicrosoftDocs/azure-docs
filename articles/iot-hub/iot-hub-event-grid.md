@@ -190,7 +190,7 @@ To receive device connection state events, a device must call either the *device
 
 The device-to-cloud link stays open as long as the device sends telemetry.
 
-If the device connection flickers, meaning if device connects and disconnects frequently, IoT Hub doesn't send every single connection state, but publishes the current connection state taken at a periodic snapshot of 60sec until the flickering stops. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state.
+If a device connects and disconnects frequently, IoT Hub doesn't send every single connection state, but publishes the current connection state taken at a periodic snapshot of 60sec. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state.
 
 ## Tips for consuming events
 
