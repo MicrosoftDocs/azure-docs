@@ -121,7 +121,7 @@ The MSAL code shown above uses WAM (Web authentication manager) which is the rec
 
 ## [Integrated Windows Authentication](#tab/iwa)
 
-Integrated Windows authentication is where your public client application signs in using the same identity they used to sign into a Windows domain (for domain-joined or Azure-AD-joined machines).
+Integrated Windows authentication is where your public client application signs in using the same identity they used to sign into a Windows domain (for domain-joined or Azure AD-joined machines).
 
 #### Find out if your code uses Integrated Windows Authentication
 

@@ -103,7 +103,7 @@ The following are areas for which you should define your organization’s busine
 
  **Access**
 
-* Remote users with domain joined or Azure AD joined devices users can access published applications securely with seamless single sign-on (SSO).
+* Remote users with domain-joined or Azure AD-joined devices can access published applications securely with seamless single sign-on (SSO).
 
 * Remote users with approved personal devices can securely access published applications provided they are enrolled in MFA and have registered the Microsoft Authenticator app on their mobile phone as an authentication method.
 
