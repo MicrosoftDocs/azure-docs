@@ -14,6 +14,8 @@
       href: ./resource-bridge/overview.md
     - name: Deploy on vSphere
       href: ./resource-bridge/deploy-vmware-vsphere.md
+    - name: Troubleshooting
+      href: troubleshoot-resource-bridge.md
 - name: Azure Arc-enabled servers >
   href: ./servers/overview.md
 - name: Azure Arc-enabled Kubernetes >
