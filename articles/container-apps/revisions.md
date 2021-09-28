@@ -49,7 +49,7 @@ The following types of changes create a new revision:
 
 ### Application scope changes
 
-The following types of changes create a new revision:
+The following types of changes do not create a new revision:
 
 - Changes to [traffic splitting rules](revisions.md#traffic-splitting)
 - Turning [ingress](overview.md) on or off
@@ -94,6 +94,8 @@ The following example shows how to split traffic where:
 }
 ```
 
+As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+
 # [Azure CLI](#tab/azure-cli)
 
 ```sh
@@ -102,6 +104,8 @@ az containerapp update \
   --resource-group <RESOURCE_GROUP_NAME> \
   --traffic-weight <REVISION1_NAME>=50,<REVISION2_NAME>=30,latest=20
 ```
+
+As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
 
 ---
 
@@ -116,6 +120,8 @@ az containerapp revision list \
   -o table
 ```
 
+As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+
 ## Show
 
 Show details about a specific revision by using `az containerapp revision show`.
@@ -126,6 +132,8 @@ az containerapp revision show \
   --app <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
+
+As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
 
 ## Update
 
@@ -138,6 +146,8 @@ az containerapp update \
  --secrets "storageconnectionstring=$CONNECTIONSTRING"
 ```
 
+As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+
 ## Activate
 
 Activate a revision by using `az containerapp revision activate`.
@@ -148,6 +158,8 @@ az containerapp revision activate \
   --app <CONTAINER_APP_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
+
+As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
 
 ## Deactivate
 
@@ -160,6 +172,8 @@ az containerapp revision deactivate \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
+As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+
 ## Restart
 
 All existing container apps revisions will not have access to this secret until they are restarted
@@ -171,12 +185,9 @@ az containerapp revision restart \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-## Secrets
-
-Changes to secrets are an application scope change and do not create new revisions, but revisions must be [restarted](#restart) before they recognize changes to secret values.
-
+As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [](get-started.md)
+> [Secure an app](get-started.md)

@@ -11,15 +11,15 @@ ms.author: cshoe
 
 # Application lifecycle management in Azure Container Apps
 
-<!-- PRELIMINARY OUTLINE
-https://github.com/microsoft/azure-worker-apps-preview/blob/main/docs/revisions.md
--->
-
 The Azure Container Apps application lifecycle revolves around [revisions](revisions.md).
 
-When you deploy a container app, the first revision is automatically created. [Additional revisions are created](revisions.md) as [containers](containers.md) change, or any adjustments are made to the `template` section of the configuration.
+When you deploy a container app, the first revision is automatically created. [More revisions are created](revisions.md) as [containers](containers.md) change, or any adjustments are made to the `template` section of the configuration.
 
-If your container crashes, then it is automatically restarted.
+The following diagram shows how revisions flow through the Container Apps application lifecycle.
+
+:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-diagram.png" alt-text="Azure Container Apps application lifecycle management":::
+
+In this example, as a container app is deployed, the first revision is automatically created. When the container app is updated with a change to the container, a new revision is created, and both revisions are available simultaneously. Once a revision is no longer needed, you can deactivate a revision with the option to reactivate later. To completely remove a revision, you can permanently [shut it down](#shutdown).
 
 ## Shutdown
 
