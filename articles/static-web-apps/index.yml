@@ -74,7 +74,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Application configuration
-            url: configuration.md
+            url: configuration-overview.md
           - text: Public APIs
             url: apis.md
           - text: Staging environments
