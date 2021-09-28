@@ -1,13 +1,13 @@
 ---
-title: Use Azure Video Analyzer Visual Studio Code extension
-description: This reference article explains how to use the various pieces of functionality in the Azure Video Analyzer Visual Studio Code extension.
+title: Visual Studio Code extension for Azure Video Analyzer
+description: This reference article explains how to use the various pieces of functionality in the Visual Studio Code extension for Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 06/01/2021
+ms.date: 09/28/2021
 
 ---
 
-# Use Azure Video Analyzer Visual Studio Code extension
+# Visual Studio Code extension for Azure Video Analyzer
 
 Azure Video Analyzer is a platform to make building video analysis programs easier, and the associated Visual Studio Code extension is a tool to make learning that platform easier.  This article is a reference to the various pieces of functionality offered by the extension.  It covers the basics of:
 
@@ -15,7 +15,7 @@ Azure Video Analyzer is a platform to make building video analysis programs easi
 * Live pipelines – creation, activation, deactivation, deletion, viewing the JSON
 * Editing a pipeline topology  – modules, parameters, system variables, connections, validation
 
-If you have not set up the extension to connect to your edge device, follow the [Azure Video Analyzer Visual Studio Code extension](./create-pipeline-vs-code-extension.md) quickstart.
+If you have not set up the extension to connect to your edge device, follow the steps in [Use the Visual Studio Code extension for Azure Video Analyzer](./edge/use-visual-studio-code-extension.md).
 
 ## Managing pipelines topology
 
