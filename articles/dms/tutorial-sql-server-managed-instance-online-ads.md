@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Migrate SQL Server online to SQL Managed Instance using Azure Data Studio with Azure Database Migration Service"
-titleSuffix: Azure Database Migration Service
-description: In this tutorial, you'll do an online migration from SQL Server to an Azure SQL Managed Instance using Azure Data Studio with Azure Database Migration Service.
+title: "Migrate SQL Server offline to SQL Server Azure Virtual Machine using Azure Data Studio"
+titleSuffix: Azure Database Migration Service(DMS)
+description: Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with Data Migration Service
 services: dms
 author: mokabiru
 ms.author: mokabiru
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 09/24/2021
 ---
 
-# Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS (Preview)
+# Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS (preview)
 
 Use the Azure SQL Migration extension in Azure Data Studio to migrate database(s) from a SQL Server instance to an [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) with minimal downtime. For different methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Managed Instance](../azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
@@ -29,7 +29,6 @@ In this tutorial, you learn how to:
 > * Create a new Azure Database Migration Service and install the self-hosted integration runtime to access source server and backups.
 > * Start and monitor the progress for your migration.
 > * Perform the migration cutover when you are ready.
-
 
 > [!IMPORTANT]
 > Prepare for migration and reduce the duration of the online migration process as much as possible to minimize the risk of interruption caused by instance reconfiguration or planned maintenance. In case of such an event, migration process will start from the beginning. In case of planned maintenance, there is a grace period of 36 hours where the target Azure SQL Managed Instance configuration or maintenance will be held before migration process is restarted.
@@ -89,6 +88,7 @@ To complete this tutorial, you need to:
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/step-1-add-azure-account.png" alt-text="Link Azure Account"::: 
 
 ## Run database assessment and select target
+
 1. Select the database(s) to run assessment and select **Next**.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/select-database-for-assessment.png" alt-text="Select database for assessment":::
 1. Select Azure SQL Managed Instance as the target.
@@ -99,6 +99,7 @@ To complete this tutorial, you need to:
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/specify-target-sql-managed-instance.png" alt-text="Specify target Azure SQL Managed Instance":::
 
 ## Configure migration settings
+
 1. Select **Online migration** as the migration mode.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/migration-mode-online.png" alt-text="migration mode online":::
     > [!NOTE]
@@ -124,6 +125,7 @@ To complete this tutorial, you need to:
     > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)
 
 ## Create Azure Database Migration Service
+
 1. Create a new Azure Database Migration Service or reuse an existing Service that you previously created.
     > [!NOTE]
     > If you had previously created DMS using the Azure Portal, you cannot reuse it in the migration wizard in Azure Data Studio. Only DMS created previously using Azure Data Studio can be reused.
@@ -143,7 +145,9 @@ To complete this tutorial, you need to:
 1. Review the migration summary and select **Done** to start the database migration.
 
 ## Monitor your migration
+
 1. On the **Database Migration Status**, you can track the migrations in progress, migrations completed, and migrations failed (if any).
+
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/monitor-migration-dashboard.png" alt-text="monitor migration dashboard":::
 1. Select **Database migrations in progress** to view ongoing migrations and get further details by selecting the database name.
 1. The migration details page displays the backup files and the corresponding status:
@@ -167,17 +171,15 @@ The final step of the tutorial is to complete the migration cutover to ensure th
 :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/online-to-mi-complete-cutover-confirmation.png" alt-text="cutover online mi":::
 
 To complete the cutover,
-- stop all incoming transactions to the source database and prepare to make any application configuration changes to point to the target database in Azure SQL Managed Instance
-- take any tail log backups for the source database in the backup location specified
-- ensure all database backups have the status *Restored* in the monitoring details page
-- select *Complete cutover* in the monitoring details page
+1. Stop all incoming transactions to the source database and prepare to make any application configuration changes to point to the target database in Azure SQL Managed Instance.
+2. take any tail log backups for the source database in the backup location specified
+3. ensure all database backups have the status *Restored* in the monitoring details page
+4. select *Complete cutover* in the monitoring details page
 
 During the cutover process, the migration status changes from *in progress* to *completing*. When the cutover process is completed, the migration status changes to *succeeded* to indicate that the database migration is successful and that the migrated database is ready for use.
 
-
 > [!IMPORTANT]
 > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for AlwaysOn High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](../azure-sql/managed-instance/management-operations-overview.md#duration).
-
 
 ## Next steps
 

@@ -131,7 +131,9 @@ To complete this tutorial, you need to:
 1. Review the summary and select **Done** to start the database migration.
 
 ## Monitor your migration
+
 1. On the **Database Migration Status**, you can track the migrations in progress, migrations completed, and migrations failed (if any).
+
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/monitor-migration-dashboard.png" alt-text="monitor migration dashboard":::
 1. Select **Database migrations in progress** to view ongoing migrations and get further details by selecting the database name.
 1. The migration details page displays the backup files and the corresponding status:
@@ -155,10 +157,10 @@ The final step of the tutorial is to complete the migration cutover. The complet
 :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/online-to-vm-complete-cutover.png" alt-text="online vm complete cutover":::
 
 To complete the cutover:
-- Stop all incoming transactions to the source database.
-- Make application configuration changes to point to the target database in SQL Server on Azure Virtual Machine.
-- Take any tail log backups for the source database in the backup location specified.
-- Ensure all database backups have the status *Restored* in the monitoring details page.
+1. Stop all incoming transactions to the source database.
+1. Make application configuration changes to point to the target database in SQL 1. Server on Azure Virtual Machine.
+1. Take any tail log backups for the source database in the backup location specified.
+1. Ensure all database backups have the status *Restored* in the monitoring details page.
 - Select *Complete cutover* in the monitoring details page.
 
 During the cutover process, the migration status changes from *in progress* to *completing*. The migration status changes to *succeeded* when the cutover process is completed. The database migration is successful and that the migrated database is ready for use.
