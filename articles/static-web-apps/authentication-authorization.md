@@ -105,7 +105,105 @@ As you remove a user, keep in mind the following items:
 
 # [Roles assignment function](#tab/function)
 
-Something something role assignment function.
+Instead of using the built-in invitations system, you can use a custom function to programmatically assign roles to users when they log in.
+
+The role assignment function is a normal API function in your static web app. It is automatically called after a user successfully authenticates with an identity provider. The function is passed an object containing the user's information from the provider. It must return a list of custom roles that are assigned to the user.
+
+Example uses of the role assignment function include:
+
+- Query a database to determine which roles a user should be assigned
+- Call the Microsoft Graph API to determine a user's roles based on their Active Directory group membership
+- Determine a user's roles based on claims returned by the identity provider
+
+> [!NOTE]
+> The role assignment function feature is available in the Standard hosting plan and is currently in preview.
+>
+> When a role assignment function is configured, any roles assigned via the built-in invitations system are ignored.
+
+### Create a role assignment function
+
+Define a role assignment function by creating an [API function](apis.md) to a managed function app or a bring your own function app.
+
+Each time a user successfully authenticates with an identity provider, the role assignment function is called. The function is passed a JSON object in the request body that contains the user's information from the provider. This is an example payload from Azure Active Directory:
+
+```json
+{
+  "identityProvider": "aad",
+  "userId": "72137ad3-ae00-42b5-8d54-aacb38576d76",
+  "userDetails": "ellen@contoso.com",
+  "claims": [
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname",
+          "val": "Contoso"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+          "val": "Ellen"
+      },
+      {
+          "typ": "name",
+          "val": "Ellen Contoso"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/objectidentifier",
+          "val": "7da753ff-1c8e-4b5e-affe-d89e5a57fe2f"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+          "val": "72137ad3-ae00-42b5-8d54-aacb38576d76"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/tenantid",
+          "val": "3856f5f5-4bae-464a-9044-b72dc2dcde26"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "ver",
+          "val": "1.0"
+      }
+  ],
+  "accessToken": "eyJ0eXAiOiJKV..."
+}
+```
+
+The function can use the user's information to determine which roles to assign to the user. It must return an HTTP 200 response with a JSON body containing a list of custom role names to assign to the user.
+
+To assign the user to the `Reader` and `Contributor` roles, return the following response:
+
+```json
+{
+  "roles": [
+    "Reader",
+    "Contributor"
+  ]
+}
+```
+
+If you do not want to assign additional roles, return an empty `roles` array.
+
+### Configure a role assignment function
+
+To configure Static Web Apps to use an API function as the role assignment function, add a `rolesSource` to the `auth` section of your app's [configuration file](configuration.md). The value of the `rolesSource` is the path to the API function.
+
+```json
+{
+  "auth": {
+    "rolesSource": "/api/roles",
+    "identityProviders": {
+      // ...
+    }
+  }
+}
+```
+
+Once configured, the role assignment function will no longer be accessible by external HTTP requests.
 
 ---
 
