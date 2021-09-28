@@ -2,7 +2,7 @@
 title: About Azure Database for PostgreSQL backup
 description: An overview on Azure Database for PostgreSQL backup (preview)
 ms.topic: conceptual
-ms.date: 09/22/2021
+ms.date: 09/28/2021
 ms.custom: references_regions
 ---
 
@@ -107,10 +107,10 @@ To grant all the access permissions needed by Azure Backup, refer to the followi
 
 1. Set Backup vault’s MSI **Key Vault Secrets User** (or **get**, **list** secrets) access on the Azure key vault. To assign permissions, you can use role assignments or access policies. It’s not required to add the permission using both the options as it doesn’t help.
 
-   - Using RBAC authorization (that is, Permission model is set to Azure role-based access control):
+   - Using Azure role-based access control (Azure RBAC) authorization (that is, Permission model is set to Azure role-based access control):
 
      - Under Access control, grant the backup vault’s MSI _Key Vault Secrets User_ access on the key vault. Bearers of that role will be able to read secrets.
-     - [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide?tabs=azure-cli)
+     - [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-inline.png" alt-text="Screenshot showing the option to provide secret user access." lightbox="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-expanded.png":::
 
