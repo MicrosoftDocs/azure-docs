@@ -186,7 +186,7 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 ### Create load balancer
 
-To create the the load balancer, use [az network lb create](/cli/azure/network/lb#az_network_lb_create).
+To create the load balancer, use [az network lb create](/cli/azure/network/lb#az_network_lb_create).
 
 ```azurecli-interactive
   az network lb create \
