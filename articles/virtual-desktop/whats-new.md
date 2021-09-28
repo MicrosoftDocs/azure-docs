@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/30/2021
+ms.date: 09/27/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -64,6 +64,28 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 ## FSLogix updates
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## September 2021
+
+Here's what changed in September 2021.
+
+### Azure portal updates
+
+You can now use Azure Resource Manager templates for any update you want to apply to your session hosts after deployment. You can access this feature by selecting the **Virtual machines** tab while creating a host pool.
+
+You can also now set host pool, app group, and workspace diagnostic settings while creating host pools instead of afterwards. Configuring these settings during the host pool creation process also automatically sets up reporting data for Azure Virtual Desktop Insights.
+
+### Azure Active Directory domain join
+
+Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory. Domain join also lets you autoenroll into Intune as part of Microsoft Endpoint Manager. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
+
+### Azure China
+
+Azure Virtual Desktop is now generally available in the Azure China cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
+
+### Automatic migration module tool
+
+With the automatic migration tool, you can move your organization from Azure Virtual Desktop (classic) to Azure Virtual Desktop with just a few PowerShell commands. This feature is currently in public preview, and you can find out more at [Automatic migration](automatic-migration.md).
 
 ## August 2021
 

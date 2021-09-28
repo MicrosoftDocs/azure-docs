@@ -12,4 +12,4 @@ ms.author: jasongroce
 ---
 
 > [!NOTE]
-> The Partner Center preview interface gives you a more efficient and productive user experience through logically grouped workspaces. To learn more about the preview interface and how to turn it on, see [Getting around Partner Center](/partner-center/get-around-partner-center).
+> The Partner Center workspaces view gives you a more efficient and productive user experience through logically grouped workspaces. To learn more about the workspaces view and how to turn it on, see [Getting around Partner Center](/partner-center/get-around-partner-center).
