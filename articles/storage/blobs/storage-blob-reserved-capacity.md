@@ -30,7 +30,7 @@ You can purchase Azure Storage reserved capacity in units of 100 TiB and 1 PiB p
 
 ### Reservation scope
 
-Azure Storage reserved capacity is available for a single subscription or for multiple subscriptions (shared scope). When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context.
+Azure Storage reserved capacity is available for a single subscription, multiple subscriptions (shared scope), and management groups. When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context. When scoped to management group, the reservation discount is shared across the subscriptions that are a part of both the management group and billing scope.
 
 When you purchase Azure Storage reserved capacity, you can use your reservation for both block blob and Azure Data Lake Storage Gen2 data. A reservation is applied to your usage within the purchased scope and cannot be limited to a specific storage account, container, or object within the subscription.
 
@@ -45,7 +45,7 @@ All access tiers (hot, cool, and archive) are supported for reservations. For mo
 All types of redundancy are supported for reservations. For more information about redundancy options, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
 > [!NOTE]
-> Azure Storage reserved capacity is not available for premium storage accounts, general-purpose v1 (GPv1) storage accounts, Azure Data Lake Storage Gen1, page blobs, Azure Queue storage, or Azure Table storage. For information about reserved capacity for Azure Files, see [Optimize costs for Azure Files with reserved capacity](../files/files-reserve-capacity.md).  
+> Azure Storage reserved capacity is not available for premium storage accounts, general-purpose v1 (GPv1) storage accounts, Azure Data Lake Storage Gen1, page blobs, Azure Queue storage, or Azure Table storage. For information about reserved capacity for Azure Files, see [Optimize costs for Azure Files with reserved capacity](../files/files-reserve-capacity.md).
 
 ### Security requirements for purchase
 
@@ -57,7 +57,7 @@ To purchase reserved capacity:
 
 ## Determine required capacity before purchase
 
-When you purchase an Azure Storage reservation, you must choose the region, access tier, and redundancy option for the reservation. Your reservation is valid only for data stored in that region, access tier, and redundancy level. For example, suppose you purchase a reservation for data in US West for the hot tier using zone-redundant storage (ZRS). You cannot use the same reservation for data in US East, data in the archive tier, or data in geo-redundant storage (GRS). However, you can purchase another reservation for your additional needs.  
+When you purchase an Azure Storage reservation, you must choose the region, access tier, and redundancy option for the reservation. Your reservation is valid only for data stored in that region, access tier, and redundancy level. For example, suppose you purchase a reservation for data in US West for the hot tier using zone-redundant storage (ZRS). You cannot use the same reservation for data in US East, data in the archive tier, or data in geo-redundant storage (GRS). However, you can purchase another reservation for your additional needs.
 
 Reservations are available today for 100 TiB or 1 PiB blocks, with higher discounts for 1 PiB blocks. When you purchase a reservation in the Azure portal, Microsoft may provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
 
@@ -69,8 +69,8 @@ For help with identifying the reservation terms that are right for your scenario
 
 Follow these steps to purchase reserved capacity:
 
-1. Navigate to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) pane in the Azure portal.  
-1. Select **Azure Blob Storage** to buy a new reservation.  
+1. Navigate to the [Purchase reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) pane in the Azure portal.
+1. Select **Azure Blob Storage** to buy a new reservation.
 1. Fill in the required fields as described in the following table:
 
     ![Screenshot showing how to purchase reserved capacity](media/storage-blob-reserved-capacity/select-reserved-capacity.png)
