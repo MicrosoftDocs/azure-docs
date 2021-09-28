@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot missed classification Scenarios for dedicated SQL Pool
+title: Troubleshoot missed workload classification
 description: Identify and troubleshoot scenarios where workloads are mis-classified to unintended workload groups.   
 author: SudhirRaparla
 ms.author: nvraparl
@@ -20,7 +20,7 @@ Azure Synapse Analytics provides workload management capabilities like [Classify
 
 ## Basic troubleshooting information
 
-To troubleshoot a missed classification scenario following information is needed:
+To troubleshoot a missed classification scenario the following information is needed:
 1)	List of all workload groups
 2)	List of all workload classifiers and associated workload groups
 3)	List of users and mapped workload groups (system and user defined) 
