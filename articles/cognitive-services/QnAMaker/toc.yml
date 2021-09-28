@@ -126,15 +126,15 @@
   - name: Customize your FAQ bot
     items:
     - name: Create guided conversations with multi-turn prompts
-      href: ../langauge/custom-question-answering/tutorials/guided-conversations.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language/custom-question-answering/tutorials/guided-conversations.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add multiple domains to bot
-      href: ../langauge/custom-question-answering/tutorials/multiple-domains.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language/custom-question-answering/tutorials/multiple-domains.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Enhance knowledge bases with active learning
-      href: ../langauge/custom-question-answering/tutorials/active-learning.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language/custom-question-answering/tutorials/active-learning.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add synonyms to improve relevance
-      href: ../langauge/custom-question-answering/tutorials/adding-synonyms.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language/custom-question-answering/tutorials/adding-synonyms.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add knowledge bases in multiple languages
-      href: ../langauge/custom-question-answering/tutorials/multiple-languages.md?context=/azure/cognitive-services/qnamaker/context/context
+      href: ../language/custom-question-answering/tutorials/multiple-languages.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add synonyms to improve relevance
       href: Tutorials/adding-synonyms.md
 - name: Reference
