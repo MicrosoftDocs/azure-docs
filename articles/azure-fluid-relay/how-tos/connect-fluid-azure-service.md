@@ -143,7 +143,7 @@ The `container` contains the Fluid data model and is service-agnostic. Any code 
 
 The `containerServices` object contains data that is specific to the Azure Fluid Relay service. This object contains an `audience` value that can be used to manage the roster of users that are currently connected to the container.
 
-Let's take a look at how you can use the `audience` object to maintain an updated view of all the members currently in a container.
+The following code demonstrates how you can use the `audience` object to maintain an updated view of all the members currently in a container.
 
 ```javascript
 const { audience } = containerServices;
