@@ -18,7 +18,11 @@ This article shows how to add the EDIFACT encoding and decoding actions to an ex
 
 ## Limits
 
-For information about the EDIFACT connector limits for workflows running in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences), review the [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits).
+For information about the EDIFACT connector limits for workflows running in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences), review the [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits). For example, in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), the ISE version for this connector uses the [B2B message limits for ISE](logic-apps-limits-and-config.md#b2b-protocol-limits).
+
+## Connector reference
+
+For technical information about the **EDIFACT** connector, review the [connector's reference page](/connectors/edifact/), which describes the triggers, actions, and limits as documented by the connector's Swagger file.
 
 ## Prerequisites
 
@@ -46,14 +50,51 @@ For information about the EDIFACT connector limits for workflows running in [mul
 
   If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
 
+<a name="encode"></a>
 
-## Connector reference
+## Encode EDIFACT messages
 
-For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/edifact/).
+### [Consumption](#tab/consumption)
 
-> [!NOTE]
-> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [B2B message limits for ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
+### [Standard](#tab/standard)
+
+---
+
+<a name="decode"></a>
+
+## Decode EDIFACT messages
+
+### [Consumption](#tab/consumption)
+
+### [Standard](#tab/standard)
+
+---
+
+## Handle UNH2.5 segments in EDIFACT documents
+
+In an EDIFACT document, the [UNH2.5 segment](logic-apps-enterprise-integration-edifact-message-settings.md#receive-settings-schemas) is used for used for schema lookup. For example, in this sample EDIFACT message, the UNH field is `EAN008`:
+
+`UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
+
+To handle an EDIFACT document or process an EDIFACT message that has a UN2.5 segment, follow these steps:
+
+1. Update or deploy a schema that has the UNH2.5 root node name.
+
+   For example, suppose the schema root name for the sample UNH field is `EFACT_D03B_ORDERS_EAN008`. For each `D03B_ORDERS` that has a different UNH2.5 segment, you have to deploy an individual schema.
+
+1. In the [Azure portal](https://portal.azure.com), add the schema to your integration account resource or logic app resource, which is based on whether you're working with the **Logic App (Consumption)** or **Logic App (Standard)** resource type respectively.
+
+1. Whether you're using the EDIFACT decoding or encoding action, upload your schema and set up the schema settings in your EDIFACT agreement's **Receive Settings** or **Send Settings** sections respectively.
+
+1. To edit your EDIFACT agreement, on the **Agreements** pane, select your agreement. On the **Agreements** pane's toolbar, select **Edit as JSON**.
+
+   * In the agreement's `receiveAgreement` section, find the `schemaReferences` section, and add the UNH2.5 value.
+
+     ![Screenshot showing the Azure portal with an EDIFACT agreement's "receiveAgreement" section in the JSON editor, and the "schemaReferences" section is highlighted.](./media/logic-apps-enterprise-integration-edifact/agreement-receive-schema-references.png)
+
+   * In the agreement's `sendAgreement`section, find the `schemaReferences` section, and add the UNH2.5 value.
+
+     ![Screenshot showing the Azure portal with an EDIFACT agreement's "sendAgreement" section in the JSON editor, and the "schemaReferences" section is highlighted.](./media/logic-apps-enterprise-integration-edifact/agreement-send-schema-references.png)
 
 ## Next steps
 

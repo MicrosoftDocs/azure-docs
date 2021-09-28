@@ -36,6 +36,8 @@ This reference describes the properties that you can set in an EDIFACT agreement
 | **Acknowledgement (CONTRL)** | Return a functional (CONTRL) acknowledgment to the interchange sender, based on the agreement's Send settings. |
 |||
 
+<a name="receive-settings-schemas"></a>
+
 ### Schemas
 
 | Property | Description |
@@ -43,7 +45,7 @@ This reference describes the properties that you can set in an EDIFACT agreement
 | **UNH2.1 (Type)** | The transaction set type. |
 | **UNH2.2 (Version)** | The message version number that is 1-3 characters. |
 | **UNH2.3 (Release)** | The message release number that is 1-3 characters. |
-| **UNH2.5 (Associated Assigned Code)** | The assigned code that is alphanumeric nd up to 6 characters. |
+| **UNH2.5 (Associated Assigned Code)** | The assigned code that is alphanumeric and is 1-6 characters. |
 | **UNG2.1 (App Sender ID)** |Enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. |
 | **UNG2.2 (App Sender Code Qualifier)** |Enter an alphanumeric value, with a maximum of four characters. |
 | **Schema** | The previously uploaded schema that you want to use in from either resource type: <p>- Consumption: An integration account linked to your logic app. <br>- Standard: Your logic app resource |

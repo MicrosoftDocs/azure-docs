@@ -18,7 +18,9 @@ To send and receive AS2 messages in workflows that you create using Azure Logic 
 
   Except for tracking, **AS2 (v2)** provides better performance, the same capabilities as the original version, is native to the Azure Logic Apps runtime, and has significant performance improvements in message size, throughput, and latency. Also, the v2 connector doesn't require that you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your integration account to the logic app resource where you plan to use the connector.
 
-* If you're working with the **Logic App (Standard)** resource type, only the original **AS2** connector is currently available. For more information about this version, review the [connector's reference page](/connectors/as2/), which describes the triggers, actions, and limits as documented by the connector's Swagger file.
+* If you're working with the **Logic App (Standard)** resource type, only the original **AS2** connector is currently available.
+
+  For technical information about the original **AS2** connector version, review the [connector's reference page](/connectors/as2/), which describes the triggers, actions, and limits as documented by the connector's Swagger file.
 
 ### [Consumption](#tab/consumption)
 
@@ -78,7 +80,6 @@ For information about the AS2 connector limits for workflows running in [multi-t
 * At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is **AS2Identity** for this scenario.
 
 * An [AS2 agreement](logic-apps-enterprise-integration-agreements.md) in your integration account between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner. The content in the messages between you and the other partner must match the agreement type.
-
 
 * The logic app resource and workflow where you want to use the AS2 operations.
 
