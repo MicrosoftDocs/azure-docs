@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.author: b-juche
+ms.custom: references_regions
 ---
 # Understand Azure NetApp Files backup
 
