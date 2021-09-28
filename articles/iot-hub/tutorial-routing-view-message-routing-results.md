@@ -32,7 +32,7 @@ Now you create the resources to which the messages will be routed, run an app to
 
 The Service Bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the Service Bus queue, and send an e-mail when a message is added to the queue.
 
-1. In the [Azure portal](https://portal.azure.com), select **+ Create a resource**. Put **logic app** in the search box and click Enter. From the search results displayed, select Logic App, then select **Create** to continue to the **Create logic app** pane. Fill in the fields.
+1. In the [Azure portal](https://portal.azure.com), select **+ Create a resource**. Put **logic app** in the search box and select Enter. From the search results displayed, select Logic App, then select **Create** to continue to the **Create logic app** pane. Fill in the fields.
 
    **Subscription**: Select your Azure subscription.
 
@@ -45,11 +45,11 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    **Region**: Use the location of the nearest datacenter. This tutorial uses **West US**.
 
-   **Enable Log Analytics**: This toggle should be turned off.
+   **Enable Log Analytics**: Set this to **No**. 
 
    ![The Create Logic App screen](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Select **Create**. It may take a few minutes for the app to deploy. When it's finished, it shows a screen giving the overview. 
+   Select **Review + Create**. It may take a few minutes for the app to deploy. When it's finished, it shows a screen giving the overview of the deployment. 
 
 2. Go to the Logic App. If you're still on the deployment page, you can select **Go To Resource**. Another way to get to the Logic App is to select **Resource groups**, select your resource group (this tutorial uses **ContosoResources**), then select the Logic App from the list of resources. 
 
@@ -63,17 +63,26 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![The list of triggers](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
 
-5. Fill in the screen with the trigger information.
+5. Fill in the screen with the connection information. 
 
-   **Queue Name:** Tne name of the queue from which the message will be sent. Click this dropdown list and select the queue name that was set in the setup steps. (This tutorial uses **contososbqueue**).
+   *<*Connection Name**: ContosoConnection
+   
+   Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **Save**. 
 
-   **Queue Type:** The type of queue. Select **Main** from the dropdown list.
+<!--
+//   **Queue Name:** Tne name of the queue from which the message will be sent. Click this dropdown list and select the queue name 
+//that was set in the setup steps. (This tutorial uses **contososbqueue**).
 
-   Take the defaults for the other fields. Select **Save**.
+//   **Queue Type:** The type of queue. Select **Main** from the dropdown list.
+
+//   Take the defaults for the other fields. Select **Save**.
+-->
 
 6. Select **+New Step**. The **Choose an operation** pane is displayed. Select **Office 365 Outlook** and then in the list, find and select **Send an Email (V2)**. Sign in to your Office 365 account.   
 
-7. ![Select to send-an-email from one of the Oulook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) Fill in the fields:
+7. ![Select to send-an-email from one of the Oulook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) 
+
+Fill in the fields:
 
    **To:** Put in the e-mail address where the warning should be sent.
 
