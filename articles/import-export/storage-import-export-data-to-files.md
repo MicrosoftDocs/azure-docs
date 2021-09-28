@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 09/27/2021
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -63,7 +63,10 @@ Do the following steps to prepare the drives.
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
 
        ```
-   - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to fileshare. Folder structure is maintained.
+   - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to fileshare. Folder structure is maintained. Within a folder, any existing file with the same name as a file that is imported will be overwritten.
+   
+   > [!NOTE]
+   > Tool versions before 1.5.0.300 have a /Disposition parameter that lets you choose what to do when you import a file that already exists.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
@@ -110,6 +113,9 @@ Do the following steps to prepare the drives.
     ```cmd
     .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
+
+   > [!NOTE]
+   > Earlier tool versions, before version 1.5.0.300, have a /Disposition parameter that lets you choose what to do when an existing file has the same name as a file in the import.
 
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.
 
