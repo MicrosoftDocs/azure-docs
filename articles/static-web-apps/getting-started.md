@@ -68,11 +68,11 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
 
-    Enter **./src** as the location for the application files and press <kbd>Enter</kbd>.
+    Enter **/src** as the location for the application files and press <kbd>Enter</kbd>.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Application build output location":::
 
-    Enter **./src** as the build output location and press <kbd>Enter</kbd>.
+    This app does not produce a build output. Ensure the build output location is empty and press <kbd>Enter</kbd>.
 
     # [Angular](#tab/angular)
 
@@ -80,7 +80,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: Angular":::
 
-    Enter **./** as the location for the application files.
+    Enter **/** as the location for the application files.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application files location: Angular":::
 
@@ -92,9 +92,17 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Application presets: React":::
 
+    Enter **/** as the location for the application files.
+
+    Enter **build** as the build output location.
+
     # [Vue](#tab/vue)
 
     :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Application presets: Vue":::
+
+    Enter **/** as the location for the application files.
+
+    Enter **dist** as the build output location.
 
     ---
 
