@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 * An Azure Language [resource connected to an Azure blob storage account](../custom-classification/how-to/use-azure-resources.md).
     * we recommend following the instructions for creating a resource using the Azure portal, for easier setup. 
 * [An Azure Cognitive Search service](/azure/search/search-create-service-portal) in your current subscription
-    * You can use any tier, and any region any region for this service.
+    * You can use any tier, and any region for this service.
 * An [Azure function app](/azure/azure-functions/functions-create-function-app-portal)
 * Download this sample data
 
@@ -44,31 +44,25 @@ In this tutorial, you learn how to:
 4. Enter the information for your project:
 
     | Key | Description |
-    | -- | -- |
+    |--| -- |
     | Name | The name of your project. You will not be able to rename your project after you create it. |
     | Description | A description of your project |
     | Language | The language of the files in your project.|
 
-> [!NOTE]
-> If your documents will be in multiple languages, select the **multiple languages** option in project creation, and set the **language** option to the language of the majority of your documents.
+    > [!NOTE]
+    > If your documents will be in multiple languages, select the **multiple languages** option in project creation, and set the **language** option to the language of the majority of your documents.
 
 ## Train your model
 
 1. Select **Train** from the left side menu.
-2. Enter a new model name or select an existing model from the **Model name** dropdown.
-
-        >[!NOTE]
-        > You can only have up to 10 models per project.
+2. Enter a new model name or select an existing model from the **Model name** dropdown. You can only have up to 10 models per project.
    
     :::image type="content" source="../media/train-model.png" alt-text="Select the model you want to train" lightbox="../media/train-model.png":::
      
-3. Click on the **Train** button at the bottom of the page.
+3. Click on the **Train** button at the bottom of the page. Training can take up to few hours.
 
-4. If the model you selected is already trained, a pop up will appear to confirm overwriting the last model state.
+4. If the model you selected is already trained, a window will appear to confirm overwriting the last model state.
 
-    >[!NOTE]
-    > Training can take up to few hours.
-    
 5. After training is completed, you can [view the model's evaluation details](how-to/view-model-evaluation.md) and [improve the model](how-to/improve-model.md)
 
 ## Deploy your model
@@ -81,7 +75,10 @@ In this tutorial, you learn how to:
 
 ## Prepare your secrets for the Azure function
 
-Next you will need to prepare your secrets for your Azure function. Your project secrets are your **Endpoint**, **resource key** and **model ID**.
+Next you will need to prepare your secrets for your Azure function. Your project secrets are your: 
+* Endpoint
+* Resource key
+* Model ID
 
 ### Get your custom NER project secrets
 
@@ -99,60 +96,59 @@ Next you will need to prepare your secrets for your Azure function. Your project
    
 ## Edit and deploy your Azure Function
 
-1. You can download and use the Sample function provided [here]().
+1. Download and use the [provided sample function]().
 
-* After download is complete, go to t [Program.cs]() file to enter the app secrets.
+2. After you download the sample function, open the *program.cs* file and enter your app secrets.
 
-* Refer to this [guide](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs?tabs=in-process#publish-to-azure) to deploy your azure function.
+3. [Publish the function to Azure](/azure/azure-functions/functions-develop-vs?tabs=in-process#publish-to-azure).
 
-## Use Integration tool
+## Use the integration tool
 
-You can use the [Cognitive Search Integration](https://aka.ms/ct-cognitive-search-integration-tool) tool from [Cognitive Services Language Utilities](https://aka.ms/CognitiveServicesLanguageUtilities)
+In the following sections, you will use the [Cognitive Search Integration tool](https://aka.ms/ct-cognitive-search-integration-tool) to integrate your project with Azure Cognitive Search. Download this repo now. 
 
-### Prepare configs file
+### Prepare configuration file
 
-* Download sample configs file from [here](https://aka.ms/CognitiveSearchIntegrationToolAssets)
+1. In the folder you just download, and find the [sample configuration file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/configs.json). Open it in a text editor. 
 
-* Refer to the following sections to gather the required information for this step
+2. Get your storage account connection string by:
+    1. Navigating to your storage account overview page in the [Azure portal](https://ms.portal.azure.com/#home).
+    2. In the top section of the screen, copy your container name to the `containerName` field in the configuration file, under `blobStorage`.  
+    3. In the **Access Keys** section in the menu to the left of the screen, copy your **Connection string** to the `connectionString` field in the configuration file, under `blobStorage`.
 
-#### Get storage account connection string
+1. Get your cognitive search endpoint and keys by:
+    1. Navigating to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home).
+    2. Copy the **Url** at the top-right section of the page to the `endpointUrl` field within `cognitiveSearch`.
+    3. Go to the **Keys** section in the menu to the left of the screen. Copy your **Primary admin key** to the `apiKey` field within `cognitiveSearch`.
 
-* Go to your storage account overview page in the [Azure Portal](https://ms.portal.azure.com/#home)
-
-* Go to **Access Keys** blade on the left-nav bar, copy your `Connection string`.
-
-#### Get cognitive search endpoint and keys
-
-* Go to your resource overview page in the [Azure Portal](https://ms.portal.azure.com/#home)
-
-* Copy the `Url` from the top right section of the page,
-
-* Go to **Keys** blade on the left-nav bar, copy your `Primary admin key`.
-
-#### Get Azure Function endpoint and keys
-
-* Go to your function overview page in the [Azure Portal](https://ms.portal.azure.com/#home)
-
-* Go to **Functions** blade on the left-nav bar and click on the function you created.
-
-* From the top menu click on **Get Function Url**
-
-* The url will be formted like this `{YOUR-ENDPOINT-URL}?code={YOUR-API-KEY}`, copy the relevant parts (`{YOUR-ENDPOINT-URL}` and `{YOUR-API-KEY}`)only to your configs file.
+3. Get Azure Function endpoint and keys
+    
+    1. To get your Azure Function endpoint and keys, go to your function overview page in the [Azure portal](https://ms.portal.azure.com/#home).
+    2. Go to **Functions** menu on the left of the screen, and click on the function you created.
+    3. From the top menu, click **Get Function Url**. The URL will be formatted like this: `YOUR-ENDPOINT-URL?code=YOUR-API-KEY`. 
+    4. Copy `YOUR-ENDPOINT-URL` to the `endpointUrl` field in the configuration file, under `azureFunction`. 
+    5. Copy `YOUR-API-KEY` to the `apiKey` field in the configuration file, under `azureFunction`. 
 
 ### Prepare schema file
 
-* Download sample schema file from [here](https://aka.ms/CognitiveSearchIntegrationToolAssets)
+In the folder you downloaded earlier, find the [sample schema file](https://github.com/microsoft/CognitiveServicesLanguageUtilities/blob/dev/CustomTextAnalytics.CognitiveSearch/Docs/Assets/app-schema.json). Open it in a text editor. 
 
-* The entries of `entityNames` array are the entity names you have assigned while creating your project.
+The entries in the `entityNames` array will be the entity names you have assigned while creating your project.
 
-* You can either copy paste them from your project in [Language Studio](https://language.azure.com/customText/projects/extraction) or you can get them from the tags file directly.
+You can either: 
+* Copy and paste them from your project in [Language Studio](https://language.azure.com/customText/projects/extraction), or 
+* Get them from a tags file directly.
 
-### Run `Index` command
+### Run the `Index` command
 
-After you have completed your configs and schema file. Place your configs file in the same path of the CLI tool and run the following command.
+After you have completed your configuration and schema file, you can index your project. Place your configuration file in the same path of the CLI tool, and run the following command:
 
 ```cli
     indexer index --schema <path/to/your/schema> --index-name <name-your-index-here>
 ```
 
-`name-your-index-here` is the index name that appears in your cognitive search.
+Replace `name-your-index-here` with the index name that appears in your Cognitive Search instance.
+
+## Next steps
+
+* [Recommended practices for custom NER projects](../concepts/recommended-practices.md)
+* [Search your app with with the Cognitive Search SDK](/azure/search/search-howto-dotnet-sdk#run-queries)
