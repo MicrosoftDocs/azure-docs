@@ -80,8 +80,8 @@ The Azure portal is the easiest way to create and manage experiments. Follow the
 
     ![Define fault parameters](images/create-exp-service-add-fault-details.png)
 
-> [!WARNING]
-> The Experiment Designer may not have all faults available in the [Fault Library](chaos-studio-fault-library.md). If your experiment uses faults not available in Experiment Designer, use the [REST API](https://aka.ms/chaosrestapi) to edit your experiment.
+   > [!WARNING]
+   > The Experiment Designer may not have all faults available in the [Fault Library](chaos-studio-fault-library.md). If your experiment uses faults not available in Experiment Designer, use the [REST API](https://aka.ms/chaosrestapi) to edit your experiment.
 
 7. Pick the resources that the fault will target. Only resources that have been onboarded to Chaos Studio (those that have a provider configuration for their resource type) and only resource types for which the fault is applicable appear in the list. Select the Cosmos DB instance(s) you would like to target and click **Add**.
 

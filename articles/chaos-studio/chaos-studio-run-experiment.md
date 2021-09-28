@@ -58,7 +58,7 @@ Now that you have created your first experiment, you are ready to run your exper
 
 2. This is the same Experiment Designer as was used to create the experiment. You can add or remove steps, branches, and faults, and edit fault parameters and targets. To edit a fault, click on the **...** beside the fault.
 
-    ![Edit fault](images/run-edit-elipses.png)
+    ![Edit fault](images/run-edit-ellipses.png)
 
 3. When you are finished editing, click **Save**. If you want to discard your changes without saving, click the **Close (X)** button in the top right.
   ![Save experiment](images/run-edit-save.png)

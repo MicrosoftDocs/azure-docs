@@ -9,7 +9,7 @@ ms.author: johnkem
 ms.service: chaos-studio
 ---
 
-# Supported Resource Types and Role Assignments for Chaos Studio
+# Supported resource types and role assignments for Chaos Studio
 
 The following are the supported provider types for faults, the provider configurations, and a suggested role to use when giving an experiment permission to the resource.
 

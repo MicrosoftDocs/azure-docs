@@ -72,7 +72,7 @@ The Chaos Agent uses a [user-assigned managed identity](../active-directory/mana
     az vmss identity assign --ids $VMSS_RESOURCE_ID --identities $MANAGED_IDENTITY_RESOURCE_ID
     ```
 
-### Create the Chaos Agent Provider Configuration
+### Create the chaos agent provider configuration
 
 Next set up a chaosAgent provider configuration that specifies the user-assigned managed identity that agents use to connect to Chaos Studio. You can only have one provider configuration per type (in this case, chaosAgent is the type). In this example, we use one managed identity for all VMs so we only add one identity to the provider configuration. Provider configurations cannot be updated - they can only be deleted and recreated - so we recommend sharing an identity among VMs to avoid having to recreate your chaosAgent provider configuration each time you want to onboard more VMs. A provider configuration must be created via REST API. In this example we use the `az rest` command to execute the REST API calls.
 
@@ -205,8 +205,8 @@ The Azure portal is the easiest way to create and manage experiments. Follow the
 
     ![Define fault parameters](images/create-exp-agent-add-fault-details.png)
 
-> [!WARNING]
-> The Experiment Designer may not have all faults available in the [Fault Library](chaos-studio-fault-library.md). If your experiment uses faults not available in Experiment Designer, use the [REST API](https://aka.ms/chaosrestapi) to edit your experiment.
+   > [!WARNING]
+   > The Experiment Designer may not have all faults available in the [Fault Library](chaos-studio-fault-library.md). If your experiment uses faults not available in Experiment Designer, use the [REST API](https://aka.ms/chaosrestapi) to edit your experiment.
 
 7. Pick the resources that the fault will target. Only resources that have been onboarded to Chaos Studio (those that have a provider configuration for their resource type and an agent installed) and only resource types for which the fault is applicable appear in the list. Select the VM(s) you would like to target and click **Add**.
 
