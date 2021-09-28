@@ -25,10 +25,8 @@ The following table contains common problems and solutions you may see during ba
 | Problem | Possible solution |
 |--|--|
 | Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you're using a non-MLflow model. No-code deployment is supported for the MLflow model only. For more, see [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md)|
-| Failure to update model, code, environment, and compute for an existing batch endpoint. | Create a new batch endpoint with a new name. Updating these assets for an existing batch endpoint isn't yet supported. |
-| The resource wasn't found. | Ensure you use `--type batch` in your CLI command. If this argument isn't specified, the default `online` type is used.|
 | Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
-| The provided endpoint name exists or is being deleted. | Create a new batch endpoint with a new name. The command `endpoint delete` marks the endpoint for deletion. The same name cannot be reused to create a new endpoint in the same region. |
+| The provided endpoint name exists. | Create a new batch endpoint with a new name. Batch endpoint names must be unique within an Azure region. |
 | Output already exists. | If you configure your own output location, ensure you provide a new output for each endpoint invocation. |
 
 ##  Scoring script requirements
