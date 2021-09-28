@@ -108,7 +108,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 >
 > If you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in your pipeline, you must also configure private endpoints with **queue** and **table** target subresources. ParallelRunStep uses queue and table for task scheduling and dispatching.
 
-:::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Screenshot showing private endpoint configuration page with blob and file options":::
+:::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Screenshot showing private endpoint configuration page with blob and file options":::
 
 To configure a private endpoint for a storage account that is **not** the default storage, select the **Target subresource** type that corresponds to the storage account you want to add.
 
@@ -172,7 +172,7 @@ For information on using a private endpoint with Azure Key Vault, see [Integrate
     1. Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
     1. Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
 
-    :::image type="content" source="The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png":::
+    :::image type="content" source="The Firewalls and virtual networks section in the Key Vault pane"](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png":::
 
 For more information, see [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
