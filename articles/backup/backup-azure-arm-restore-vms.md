@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 09/27/2021
 ---
 # How to restore Azure VM data in Azure portal
 
@@ -79,7 +79,10 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 1. In **Restore Virtual Machine** > **Create new** > **Restore Type**, select **Create a virtual machine**.
 1. In **Virtual machine name**, specify a VM that doesn't exist in the subscription.
 1. In **Resource group**, select an existing resource group for the new VM, or create a new one with a globally unique name. If you assign a name that already exists, Azure assigns the group the same name as the VM.
-1. In **Virtual network**, select the VNet in which the VM will be placed. All VNets associated with the subscription are displayed. Select the subnet. The first subnet is selected by default.
+1. In **Virtual network**, select the VNet in which the VM will be placed. All VNets associated with the subscription in the same location as the vault, which are active and not attached with any affinity group, are displayed. Select the subnet.
+
+   The first subnet is selected by default.
+
 1. In **Staging Location**, specify the storage account for the VM. [Learn more](#storage-accounts).
 
     ![Restore configuration wizard - choose restore options](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
