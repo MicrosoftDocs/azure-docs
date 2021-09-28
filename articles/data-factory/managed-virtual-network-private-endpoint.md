@@ -141,9 +141,9 @@ Below data sources have native Private Endpoint support and can be connected thr
 - Azure Machine Learning
 - Azure Private Link Service
 - Azure Purview
-- Azure Table Storage (not including Storage account V1)
 - Azure SQL Database (not including Azure SQL Managed Instance)
 - Azure Synapse Analytics
+- Azure Table Storage (not including Storage account V1)
 
 > [!Note]
 > You still can access all data sources that are supported by Data Factory through public network.
