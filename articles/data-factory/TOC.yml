@@ -247,9 +247,23 @@ items:
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
-      href: continuous-integration-deployment.md
+      items:
+      - name: Overview
+        href: continuous-integration-delivery.md
+      - name: Automate with Azure Pipelines releases
+        href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Manually promote a Resource Manager template for each environment
+        href: continuous-integration-delivery-manual-promotion.md
+      - name: Use custom parameters with a Resource Manager template
+        href: continuous-integration-delivery-resource-manager-custom-parameters.md
+      - name: Linked Resource Manager templates
+        href: continuous-integration-delivery-linked-templates.md
+      - name: Using a hotfix production environment
+        href: continuous-integration-delivery-hotfix-environment.md
+      - name: Sample pre- and post-deployment script
+        href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
-      href: continuous-integration-deployment-improvements.md
+      href: continuous-integration-delivery-improvements.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -257,7 +271,9 @@ items:
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
-      href: connector-amazon-rds-for-oracle.md     
+      href: connector-amazon-rds-for-oracle.md
+    - name: Amazon RDS for SQL Server 
+      href: connector-amazon-rds-for-sql-server.md          
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
@@ -564,6 +580,8 @@ items:
       href: control-flow-append-variable-activity.md
     - name: Execute Pipeline activity
       href: control-flow-execute-pipeline-activity.md
+    - name: Fail activity
+      href: control-flow-fail-activity.md
     - name: Filter activity
       href: control-flow-filter-activity.md
     - name: For Each activity
