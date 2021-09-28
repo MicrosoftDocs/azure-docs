@@ -80,15 +80,15 @@ As an example, if an Azure Purview account name is 'Contoso-Purview', when it is
 | `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
 | `Contoso-Purview.privatelink.purview.azure.com` | CNAME | \<Purview public endpoint\> |
 | \<Purview public endpoint\> | A | \<Purview public IP address\> |
-| `Web.purview.azure.com` | CNAME | \<Purview public endpoint\> |
+| `Web.purview.azure.com` | CNAME | \<Purview Studio public endpoint\> |
 
 The DNS resource records for Contoso-Purview, when resolved in the virtual network hosting the private endpoint, will be:
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
 | `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
-| `Contoso-Purview.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
-| `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
+| `Contoso-Purview.privatelink.purview.azure.com` | A | \<Purview account private endpoint IP address\> |
+| `Web.purview.azure.com` | CNAME | \<Purview portal private endpoint IP address\> |
 
 ## Option 2 - Use existing Azure Private DNS Zones
 
@@ -149,15 +149,15 @@ As an example, if an Azure Purview account name is 'Contoso-Purview', when it is
 | `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
 | `Contoso-Purview.privatelink.purview.azure.com` | CNAME | \<Purview public endpoint\> |
 | \<Purview public endpoint\> | A | \<Purview public IP address\> |
-| `Web.purview.azure.com` | CNAME | \<Purview public endpoint\> |
+| `Web.purview.azure.com` | CNAME | \<Purview Studio public endpoint\> |
 
 The DNS resource records for Contoso-Purview, when resolved in the virtual network hosting the private endpoint, will be:
 
 | Name | Type | Value |
 | ---------- | -------- | --------------- |
 | `Contoso-Purview.purview.azure.com` | CNAME | `Contoso-Purview.privatelink.purview.azure.com` |
-| `Contoso-Purview.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
-| `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
+| `Contoso-Purview.privatelink.purview.azure.com` | A | \<Purview account private endpoint IP address\> |
+| `Web.purview.azure.com` | CNAME | \<Purview portal private endpoint IP address\> |
 
 ## Option 3 - Use your own DNS Servers
 
