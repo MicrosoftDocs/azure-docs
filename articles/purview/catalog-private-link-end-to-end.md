@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account to access purview account and scan data sources from restricted network.
 ---
 
@@ -16,7 +16,7 @@ In this guide, you will learn how to deploy _account_, _portal_ and _ingestion_ 
 
 The Azure Purview _account_ private endpoint is used to add another layer of security by enabling scenarios where only client calls that originate from within the virtual network are allowed to access the Azure Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
 
-The Azure Purview _portal_ private endpoint is required to enable connectivity to Azure Purview Studio using a private network.
+The Azure Purview _portal_ private endpoint is required to enable connectivity to [Azure Purview Studio](https://web.purview.azure.com/resource/) using a private network.
 
 Azure Purview can scan data sources in Azure or an on-premises environment by using _ingestion_ private endpoints. Three private endpoint resources are required to be deployed and linked to Azure Purview managed resources when ingestion private endpoint is deployed:
 
@@ -87,7 +87,7 @@ Using one of the deployment options explained further in this guide, you can dep
 
 ## Option 2 - Enable _account_, _portal_ and _ingestion_ private endpoint on existing Azure Purview accounts
 
-1. Go to the [Azure portal](https://portal.azure.com), and then click on to your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
+1. Go to the [Azure portal](https://portal.azure.com), and then select your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
 
     :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Screenshot that shows creating an account private endpoint.":::
 
