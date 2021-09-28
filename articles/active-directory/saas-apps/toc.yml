@@ -99,6 +99,8 @@
         href: allocadia-tutorial.md
       - name: Ally.io
         href: ally-tutorial.md
+      - name: Altoura
+        href: altoura-tutorial.md  
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Managed Grafana
@@ -537,6 +539,8 @@
         href: cylanceprotect-tutorial.md
     - name: D - E
       items:
+      - name: Dagster Cloud
+        href: dagster-cloud-tutorial.md
       - name: DATABASICS
         href: databasics-tutorial.md
       - name: DataCamp
@@ -1618,6 +1622,8 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
+      - name: Qualaroo
+        href: qualaroo-tutorial.md  
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite

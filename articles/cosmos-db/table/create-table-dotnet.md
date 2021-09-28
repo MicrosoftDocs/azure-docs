@@ -328,9 +328,9 @@ public class WeatherDataModel
         set => _properties[name] = value; 
     }
     
-    public ICollection<string> PropertyNames => _properties.Keys
+    public ICollection<string> PropertyNames => _properties.Keys;
 
-    public int PropertyCount => _properties.Count
+    public int PropertyCount => _properties.Count;
 
     public bool ContainsProperty(string name) => _properties.ContainsKey(name);       
 }
