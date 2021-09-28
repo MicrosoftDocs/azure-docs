@@ -56,7 +56,7 @@ The following table shows an example of Azure Private DNS zones and DNS A Record
 Private endpoint  |Private endpoint associated to  |DNS Zone (new)  |A Record (example) |
 |---------|---------|---------|---------|
 |Account     |Azure Purview         |`privatelink.purview.azure.com`         |Contoso-Purview         |
-|Portal     |Azure Purview account          |`privatelink.purviewstudio.azure.com`        |Web         |
+|Portal     |Azure Purview          |`privatelink.purviewstudio.azure.com`        |Web         |
 |Ingestion     |Purview managed Storage Account - Blob          |`privatelink.blob.core.windows.net`          |scaneastusabcd1234         |
 |Ingestion   |Purview managed Storage Account - Queue         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
 |Ingestion     |Purview managed Storage Account - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
@@ -106,7 +106,7 @@ The following list shows the required Azure DNS zones and A records for Purview 
 Private endpoint  |Private endpoint associated to  |DNS Zone (existing)  |A Record (example) |
 |---------|---------|---------|---------|
 |Account     |Azure Purview         |`privatelink.purview.azure.com`         |Contoso-Purview         |
-|Portal     |Azure Purview account          |`privatelink.purviewstudio.azure.com`        |Web         |
+|Portal     |Azure Purview          |`privatelink.purviewstudio.azure.com`        |Web         |
 |Ingestion     |Purview managed Storage Account - Blob          |`privatelink.blob.core.windows.net`          |scaneastusabcd1234         |
 |Ingestion   |Purview managed Storage Account - Queue         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
 |Ingestion     |Purview managed Storage Account - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
