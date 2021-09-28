@@ -65,7 +65,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
 5. Fill in the screen with the connection information. 
 
-   *<*Connection Name**: ContosoConnection
+   **Connection Name**: ContosoConnection
    
    Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **Save**. 
 
