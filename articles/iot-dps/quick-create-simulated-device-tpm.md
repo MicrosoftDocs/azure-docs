@@ -20,9 +20,9 @@ If you're unfamiliar with the process of provisioning, review the [provisioning]
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 
-* [Enrollment groups](concepts-service.md#enrollment-group)that are used to enroll multiple related devices.
+* [Enrollment groups](concepts-service.md#enrollment-group) that are used to enroll multiple related devices.
 
-* [Individual Enrollments](concepts-service.md#individual-enrollment)that are used to enroll a single device.
+* [Individual Enrollments](concepts-service.md#individual-enrollment) that are used to enroll a single device.
 
 This article demonstrates individual enrollments.
 
@@ -354,6 +354,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
     ```cmd/sh
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+    ```
 
 2. Open a second command prompt.
 

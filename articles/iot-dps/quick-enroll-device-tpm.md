@@ -92,7 +92,7 @@ Although these steps work on both Windows and Linux computers, this article uses
 
 This quickstart demonstrates both symmetric key and TPM enrollments. You'll need to either create your own or use the provided test keys:
  
-# [Symmetric Key](#tab/symmetrickey)
+# [Symmetric key](#tab/symmetrickey)
 
 For simulated symmetric key device enrollments, you need a primary and secondary key for your device. If you don't have a valid symmetric key, you can use the following test keys for this example:
 
@@ -147,7 +147,7 @@ To set up environment variables:
 
 3. Make sure [git](https://git-scm.com/download/) is installed on your machine and is added to the environment variable `PATH`.
 
-### Clone Git Repository for Azure IoT Java SDK
+### Clone Git repository for Azure IoT Java SDK
 
 To clone the Azure IoT Java SDK:
 
@@ -177,7 +177,7 @@ For the sample in this quickstart, you'll need to copy the connection string for
 
 6. In the **Access Policy** panel, copy and save the primary key connection string.
 
-    ![Get provisioning service connection string from the portal](media/quick-enroll-device-tpm/get-service-connection-string.png)
+    :::image type="content" source="./media/quick-enroll-device-tpm/get-service-connection-string.png" alt-text="Get provisioning service connection string from the portal.":::
 
 ## Create the individual enrollment sample
 
@@ -336,7 +336,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
 [Copy symmetric and TPM enrollment keys](#copy-symmetric-and-tpm-enrollment-keys), and `{registrationid}` with a unique `registrationid` that consists only of lower-case alphanumerics and hyphens):
 
 
-    # [Symmetric Key](#tab/symmetrickey)
+    # [Symmetric key](#tab/symmetrickey)
 
     ```python
     from provisioningserviceclient import ProvisioningServiceClient
@@ -364,7 +364,7 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
 3. Add the following Python code to implement the creation of the individual enrollment:
 
-     # [Symmetric Key](#tab/symmetrickey)
+     # [Symmetric key](#tab/symmetrickey)
 
     ```python
     def main():

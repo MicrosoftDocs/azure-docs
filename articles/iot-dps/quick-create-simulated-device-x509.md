@@ -1,5 +1,5 @@
 ---
-title: Quickstart:Provision an X.509 certificate simulated device to Microsoft Azure IoT Hub
+title: Quickstart - Provision an X.509 certificate simulated device to Microsoft Azure IoT Hub
 description: Learn how to provision a simulated device that authenticates with an X.509 certificate in the Azure IoT Hub Device Provisioning Service
 author: anastasia-ms
 ms.author: v-stharr
@@ -207,7 +207,7 @@ In this section, you'll use sample code from the Azure IoT SDK to create a self-
 
 ::: zone pivot="programming-language-csharp"
 
-* The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
+The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 
 ::: zone-end
 
