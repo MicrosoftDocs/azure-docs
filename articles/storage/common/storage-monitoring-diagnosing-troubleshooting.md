@@ -352,9 +352,7 @@ Does your issue relate to the availability of one of the storage services?
 [Capacity metrics show an unexpected increase in storage capacity usage]
 
 ---
-[You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
----
 [Your issue arises from using the storage emulator for development or test]
 
 ---
