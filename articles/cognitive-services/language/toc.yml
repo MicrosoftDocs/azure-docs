@@ -137,17 +137,17 @@ items:
   - name: Tutorials
     items:
     - name: Create a FAQ Bot
-      href: custom-question-answering/bot-service.md
+      href: custom-question-answering/tutorials/bot-service.md
     - name: Guided conversations
-      href: custom-question-answering/guided-conversations.md
+      href: custom-question-answering/tutorials/guided-conversations.md
     - name: Active learning
-      href: custom-question-answering/active-learing.md
+      href: custom-question-answering/tutorials/active-learing.md
     - name: Adding synonyms
-      href: custom-question-answering/adding-synonyms.md
+      href: custom-question-answering/tutorials/adding-synonyms.md
     - name: Multiple languages
-      href: custom-question-answering/multiple-languages.md
+      href: custom-question-answering/tutorials/multiple-languages.md
     - name: Multiple domains
-      href: custom-question-answering/multiple-domains.md
+      href: custom-question-answering/tutorials/multiple-domains.md
 - name: Entity linking
   items:
   - name: Overview
