@@ -8,7 +8,7 @@ metadata:
   ms.topic: conceptual
   ms.date: 09/16/2021
 
-title: Frequently asked questions about partial document update for Azure Cosmos DB
+title: Frequently asked questions about partial document update in Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
@@ -35,7 +35,7 @@ sections:
       - question: |
           Is there a limit to the number of partial document update operations?
         answer: |
-          There is a limit of 10 patch operations that can be added in a single patch specification. If you need this number to be increased, please contact support team.
+          There is a limit of 10 patch operations that can be added in a single patch specification. If you need this number to be increased, please contact the [support team](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
       - question: |
           Is partial document update supported for system generated properties?

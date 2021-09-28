@@ -1,5 +1,5 @@
 ---
-title: Partial Document Update 
+title: Partial document update in Azure Cosmos DB
 description: This article provides a conceptual overview of Partial Document Update in Azure Cosmos DB
 author: abhirockzz
 ms.service: cosmos-db
@@ -9,15 +9,15 @@ ms.date: 08/23/2021
 ms.author: abhishgu
 ---
 
-# Azure Cosmos DB Partial Document Update
+# Partial document update in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB Partial Document Update feature (also known as Patch API) provides a convenient way to modify a document (item) in a container. Currently, to update a document the client needs to read it, execute Optimistic Concurrency Control checks (if necessary), update the document locally and then send it over the wire as a whole document Replace API call. 
 
-Partial Document Update improves this experience significantly, since the client only needs to send the modified properties/fields in a document without the need to perform a full document replace operation. Its key benefits include:
+Partial document update feature improves this experience significantly. The client can only send the modified properties/fields in a document without doing a full document replace operation. Key benefits of this feature include:
 
-- **Improved developer productivity**: Providing convenient API for ease of use and the ability to conditionally update the document. 
-- **Performance improvements**: Avoid extra CPU cycles on client side, reduced end-to-end latency and network bandwidth.
+- **Improved developer productivity**: Provides a convenient API for ease of use and the ability to conditionally update the document. 
+- **Performance improvements**: Avoids extra CPU cycles on the client side, reduces end-to-end latency and network bandwidth.
 - **Support for Multi-region writes** (formerly "multi-master"): Conflict resolution to be transparent and automatic with Partial updates on discrete paths with the same document.
  
 ## Supported operations
@@ -25,23 +25,27 @@ Partial Document Update improves this experience significantly, since the client
 The table below summarizes the operations supported by this feature.
 
 
-| **Operation Type** | **Description** |
+| **Operation type** | **Description** |
 | ------------ | -------- |
-| **Add**      | `Add` performs one of the following, depending on the target path: <br/><ul><li>If the target path specifies an element that does not exist, it is added</li><li>If the target path specifies an element that already exists, its value is replaced</li><li>If the target path is a valid array index, a new element will be inserted into the array at the specified index - shifting the existing elements to the right</li><li>If the index specified is equal to the length of array, it will append an element to the array.</li></ul> <br/>Note: Specifying an index greater than the array length will result in an error. |
+| **Add**      | `Add` performs one of the following, depending on the target path: <br/><ul><li>If the target path specifies an element that does not exist, it is added.</li><li>If the target path specifies an element that already exists, its value is replaced.</li><li>If the target path is a valid array index, a new element will be inserted into the array at the specified index. It shifts existing elements to the right.</li><li>If the index specified is equal to the length of the array, it will append an element to the array.</li></ul> <br/>
+> [!NOTE]
+> Specifying an index greater than the array length will result in an error. |
 | **Set**      | `Set` is similar to `Add` except in the case of Array data type - if the target path is a valid array index, the existing element at that index will get updated.| 
-| **Replace**      | `Replace` is similar to `Set` except follows _strict_ replace only semantics. In case the target path specifies an element that does not exist (including an Array), it results in an error.  | 
-| **Remove**     | `Remove` performs one of the following, depending on the target path: <br/><ul><li>If the target path specifies an element that does not exist, it results in an error. </li><li> If the target path specifies an element that already exists, it is removed. </li><li> If the target path is an array index, it will be deleted and any elements above the specified index are shifted one position to the left.</li></ul> <br/>Note: Specifying an index equal to or greater than the array length would result in an error.  |
-| **Increment**     | This operator increments a field by a specified value. It can accept both positive and negative values. If the field does not exist, increment creates the field and sets the field to the specified value. |
+| **Replace**      | `Replace` operation is similar to `Set` except it follows _strict_ replace only semantics. In case the target path specifies an element or an array that does not exist, it results in an error.  | 
+| **Remove**     | `Remove` performs one of the following, depending on the target path: <br/><ul><li>If the target path specifies an element that does not exist, it results in an error. </li><li> If the target path specifies an element that already exists, it is removed. </li><li> If the target path is an array index, it will be deleted and any elements above the specified index are shifted one position to the left.</li></ul> <br/>
+> [!NOTE]
+> Specifying an index equal to or greater than the array length would result in an error.  |
+| **Increment**     | This operator increments a field by the specified value. It can accept both positive and negative values. If the field does not exist, it creates the field and sets it to the specified value. |
 
 ## Supported modes
 
-Partial Document Update feature supports following modes of operation. Refer to the [Getting Started](partial-document-update-getting-started.md) document for code examples.
+Partial document update feature supports the following modes of operation. Refer to the [Getting Started](partial-document-update-getting-started.md) document for code examples.
 
-You can patch a single document based on ID and partition key. It is possible to execute multiple patch operations on a single document limited to a [maximum of 10 operations](partial-document-update-faq.yml#is-there-a-limit-to-the-number-of-partial-document-update-operations-).
+* **Single document patch**:  You can patch a single document based on its ID and the partition key. It is possible to execute multiple patch operations on a single document. The [maximum limit is 10 operations](partial-document-update-faq.yml#is-there-a-limit-to-the-number-of-partial-document-update-operations-).
 
-Multiple documents (within the same partition key) can be patched as [part of a transaction](transactional-batch.md), which will be committed only if all operations succeed in the order they are described. However, if any operation fails, the entire transaction is rolled back.
+* **Multi-document patch**: Multiple documents within the same partition key can be patched as a [part of a transaction](transactional-batch.md). This transaction will be committed only if all the operations succeed in the order they are described. If any operation fails, the entire transaction is rolled back.
 
-It is also possible to use the respective Bulk APIs (of the supported SDKs) to execute one or more patch operations on multiple documents.
+* You can also use the bulk API of different SDKs to execute one or more patch operations on multiple documents.
 
 For the aforementioned modes, it is also possible to add a SQL-like filter predicate (for example, *from c where c.taskNum = 3*) such that the operation fails if the pre-condition specified in the predicate is not satisfied. 
 
@@ -86,7 +90,7 @@ Content-Type:application/json-patch+json
 > [!NOTE]
 > In this case, the value at path `amount` will be set to `80000` (the operation) *only* if the value of `TotalDue` is 0 or it’s not present (the condition).
 
-## Document level vs Path level conflict resolution  
+## Document level vs path level conflict resolution  
 
 If your Azure Cosmos DB account is configured with multiple write regions, [conflicts and conflict resolution policies](conflict-resolution-policies.md) are applicable at the document level, with Last Write Wins (`LWW`) being the default conflict resolution policy. For partial document updates, patch operations across multiple regions detect and resolve conflicts at a more granular path level.
 
