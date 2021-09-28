@@ -31,11 +31,7 @@ Face landmarks are a set of easy-to-find points on a face, such as the pupils or
 
 The coordinates of the points are returned in units of pixels.
 
-See the below images for a comparison of the Detection_03 model's face landmark technology with competing AI services. 
-
-:::image type="content" source="../Images/landmark-compare-1.png" alt-text="face landmarks comparison with multiple faces":::
-
-:::image type="content" source="../Images/landmark-compare-2.png" alt-text="face landmarks comparison":::
+The Detection_03 model currently has the most accurate landmark detection. The eye and pupil landmarks it returns are precise enough to enable gaze tracking of the face.
 
 ## Attributes
 
