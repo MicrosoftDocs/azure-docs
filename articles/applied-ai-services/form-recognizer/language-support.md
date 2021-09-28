@@ -134,7 +134,6 @@ See [How to speciy the API version](./#) to use the preview languages. The previ
 |Samoan (Latin)|`sm`| (preview) |
 |Scots  | `sco` | |
 |Scottish Gaelic  | `gd` | |
-|Serbian (Cyrillic) | `sr-cyrl` | |
 |Serbian (Latin) | `sr-latn` | (preview) |
 |Skolt Sami|`sms`| (preview) |
 |Slovak | `sk` | (preview) |
