@@ -40,7 +40,7 @@ For read-heavy workloads tuning server parameters, `tmp_table_size` and `max_hea
 
 To calculate the largest possible size of `tmp_table_size` and `max_heap_table_size`, use the following formula:
 
-```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
+`(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections`
 
 > [!NOTE]
 > Total memory indicates the total amount of memory that the server has across the provisioned vCores.  For example, in a General Purpose two-vCore Azure Database for MySQL server, the total memory will be 5 GB * 2. You can find more details about memory for each tier in the [pricing tier](./concepts-pricing-tiers.md) documentation.
@@ -120,7 +120,7 @@ The `created_tmp_disk_tables` metric indicates how many tables were created on d
 
 To calculate the percentage of your workload with queries spilling to disks, use your metric values in the following formula:
 
-```(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100```
+`(created_tmp_disk_tables / (created_tmp_disk_tables + created_tmp_tables)) * 100`
 
 Ideally, this percentage should be less 25%. If you see that the percentage is 25% or greater, we suggest modifying two server parameters, tmp_table_size and max_heap_table_size.
 

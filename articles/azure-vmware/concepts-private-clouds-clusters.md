@@ -2,7 +2,7 @@
 title: Concepts - Private clouds and clusters
 description: Learn about the key capabilities of Azure VMware Solution software-defined data centers and vSphere clusters. 
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 08/25/2021
 ---
 
 #  Azure VMware Solution private cloud and cluster concepts
@@ -40,7 +40,7 @@ The diagram shows a single Azure subscription with two private clouds that repre
 
 ## Host maintenance and lifecycle management
 
-One benefit of Azure VMware Solution private clouds is the platform is maintained for you.  Microsoft is responsible for the lifecycle management of VMware software (ESXi, vCenter, and vSAN). Microsoft is also responsible for the lifecycle management of NSX-T appliances, bootstrapping the network configuration, such as creating the Tier-0 gateway and enabling North-South routing. You're responsible for NSX-T SDN configuration: network segments, distributed firewall rules, Tier 1 gateways, and load balancers. 
+
 
 [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 

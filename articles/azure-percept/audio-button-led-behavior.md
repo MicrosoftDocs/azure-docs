@@ -1,11 +1,11 @@
 ---
 title: Azure Percept Audio button and LED states
 description: Learn more about the button and LED states of Azure Percept Audio
-author: mimcco
-ms.author: mimcco
+author: MrHamlet
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 08/03/2021
 ---
 
 # Azure Percept Audio button and LED states

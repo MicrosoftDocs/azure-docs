@@ -52,7 +52,7 @@ In addition to the capability to move the recovery points:
 - You have the capability to move all their recovery points for a particular backup item at one go using sample scripts.
 - You can view Archive storage usage on the Vault dashboard.
 
-For more information, see [Archive Tier support](/azure/backup/archive-tier-support).
+For more information, see [Archive Tier support](./archive-tier-support.md).
 
 ## Backup for Azure Blobs is now generally available
 

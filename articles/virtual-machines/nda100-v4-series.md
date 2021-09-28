@@ -37,19 +37,19 @@ These instances provide excellent performance for many AI, ML, and analytics too
 InfiniBand: Supported, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Nvidia NVLink Interconnect: Supported<br>
 <br>
+The ND A100 v4 series supports the following kernel versions: <br>
+CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
+Ubuntu 18.04: 5.4.0-1043-azure <br>
+Ubuntu 20.04: 5.4.0-1046-azure <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND96asr_v4 | 96 | 900 | 6000 | 8 A100 40 GB GPUs (NVLink 3.0) | 40 | 32 | 80,000 / 800 | 24,000 Mbps | 8 |
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)] <br>
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-The ND A100 v4 series supports the following kernel versions: 
-- CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
-- Ubuntu 18.04: 5.4.0-1043-azure <br>
-- Ubuntu 20.04: 5.4.0-1046-azure <br>
-
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -57,6 +57,10 @@ The ND A100 v4 series supports the following kernel versions:
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
 ## Next steps
 

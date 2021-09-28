@@ -11,6 +11,8 @@ ms.subservice: disks
 
 # Scalability and performance targets for VM disks
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
 See [VM sizes](sizes.md) for additional details.

@@ -725,6 +725,11 @@ Get Activity Logs without filter or select:
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
+## Troubleshooting
+
+If you receive a 429, 503, or 504 error, please retry the API in one minute.
+
+
 ## Next steps
 
 * Review the [Overview of Monitoring](../overview.md).

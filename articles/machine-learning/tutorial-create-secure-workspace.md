@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 07/27/2021
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -73,22 +73,30 @@ To create a virtual network, use the following steps:
     1. To create a subnet to contain the workspace, dependency services, and resources used for training, select __+ Add subnet__ and use the following values for the subnet:
         * __Subnet name__: Training
         * __Subnet address range__: 172.17.0.0/24
-        * __Services__: Select the following services:
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Screenshot of Training subnet":::
+
+        > [!TIP]
+        > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
 
     1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and use the follow values:
         * __Subnet name__: Scoring
         * __Subnet address range__: 172.17.1.0/24
-        * __Services__: Select the following services:
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Screenshot of Scoring subnet":::
+
+        > [!TIP]
+        > If you plan on using a _service endpoint_ to add your Azure Storage Account, Azure Key Vault, and Azure Container Registry to the VNet, select the following under __Services__:
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
 
 1. Select __Security__. For __BastionHost__, select __Enable__. [Azure Bastion](../bastion/bastion-overview.md) provides a secure way to access the VM jump box you will create inside the VNet in a later step. Use the following values for the remaining fields:
 
@@ -277,19 +285,7 @@ To create a virtual network, use the following steps:
 
 Azure Machine Learning studio is a web-based application that lets you easily manage your workspace. However, it needs some extra configuration before it can be used with resources secured inside a VNet. Use the following steps to enable studio:
 
-1. From the Azure portal, select your storage account and then select __Access control (IAM)__.
-1. Select __+ Add__, and then __Add role assignment (Preview)__.
-
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
-
-1. On the __Role__ tab, select the __Storage Blob Data Contributor__.
-
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
-
-1. On the __Members__ tab, select the managed identity with the same name as your Azure Machine Learning workspace.
-1. On the **Review + assign** tab, select **Review + assign** to assign the role.
-
-1. When using an Azure Storage Account that has a private endpoint, add the workspace-managed identity as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
+1. When using an Azure Storage Account that has a private endpoint, add the service principal for the workspace as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-select.png" alt-text="Screenshot of storage private endpoints":::
 
@@ -308,7 +304,8 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
         ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-    1. On the __Members__ tab, select the managed identity with the same name as your Azure Machine Learning workspace.
+    1. On the __Members__ tab, select __User, group, or service principal__ in the __Assign access to__ area and then select __+ Select members__. In the __Select members__ dialog, enter the name as your Azure Machine Learning workspace. Select the service principal for the workspace, and then use the __Select__ button.
+
     1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## Connect to the workspace

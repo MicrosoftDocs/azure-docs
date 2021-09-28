@@ -14,7 +14,7 @@ ms.date: 04/19/2021
 > This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When this term is removed from the software, we’ll remove it from this article.
 
 > [!NOTE]
-> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 In this article, you learn how to configure the Pacemaker cluster in RHEL 7 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
 
@@ -1223,37 +1223,39 @@ Ensure you have met the following prerequisites:
 
 
 To test out the move of the SAPHana resource from one node to another, use the command below. Note that the option `--primary` should not	be used when running the following command because of how the SAPHana resource works internally.
-```pcs resource move SAPHana_HR2_00-primary```
+
+`pcs resource move SAPHana_HR2_00-primary`
 
 After each pcs resource move command invocation, the cluster creates location constraints to achieve the move of the resource. These constraints must be removed to allow automatic failover in the future.
 To remove them you can use the command following command.
+
 ```
 pcs resource clear SAPHana_HR2_00-primary
 crm_mon -A1
 Node Attributes:
-	* Node node1.localdomain:
-	+ hana_hr2_clone_state : DEMOTED
-	+ hana_hr2_remoteHost : node2
-	+ hana_hr2_roles : 2:P:primary1::worker:
-	+ hana_hr2_site : DC1
-	+ hana_hr2_srmode : syncmem
-	+ hana_hr2_sync_state : PRIM
-	+ hana_hr2_version : 2.00.033.00.1535711040
-	+ hana_hr2_vhost : node1
-	+ lpa_hr2_lpt : 1540867236
-	+ primary-SAPHana_HR2_00 : 150
-	* Node node2.localdomain:
-	+ hana_hr2_clone_state : PROMOTED
-	+ hana_hr2_op_mode : logreplay
-	+ hana_hr2_remoteHost : node1
-	+ hana_hr2_roles : 4:S:primary1:primary:worker:primary
-	+ hana_hr2_site : DC2
-	+ hana_hr2_srmode : syncmem
-	+ hana_hr2_sync_state : SOK
-	+ hana_hr2_version : 2.00.033.00.1535711040
-	+ hana_hr2_vhost : node2
-	+ lpa_hr2_lpt : 1540867311
-	+ primary-SAPHana_HR2_00 : 100
+    * Node node1.localdomain:
+    + hana_hr2_clone_state : DEMOTED
+    + hana_hr2_remoteHost : node2
+    + hana_hr2_roles : 2:P:primary1::worker:
+    + hana_hr2_site : DC1
+    + hana_hr2_srmode : syncmem
+    + hana_hr2_sync_state : PRIM
+    + hana_hr2_version : 2.00.033.00.1535711040
+    + hana_hr2_vhost : node1
+    + lpa_hr2_lpt : 1540867236
+    + primary-SAPHana_HR2_00 : 150
+    * Node node2.localdomain:
+    + hana_hr2_clone_state : PROMOTED
+    + hana_hr2_op_mode : logreplay
+    + hana_hr2_remoteHost : node1
+    + hana_hr2_roles : 4:S:primary1:primary:worker:primary
+    + hana_hr2_site : DC2
+    + hana_hr2_srmode : syncmem
+    + hana_hr2_sync_state : SOK
+    + hana_hr2_version : 2.00.033.00.1535711040
+    + hana_hr2_vhost : node2
+    + lpa_hr2_lpt : 1540867311
+    + primary-SAPHana_HR2_00 : 100
 ```
   
 

@@ -4,7 +4,7 @@ description: Quickstart article that describes how to create a Logz.io resource 
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 07/28/2021
+ms.date: 08/17/2021
 ms.author: tomfitz
 ms.custom: references_regions
 ---
