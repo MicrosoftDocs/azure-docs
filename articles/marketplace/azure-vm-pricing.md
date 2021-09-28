@@ -1,5 +1,5 @@
 ---
-title: Configuring prices for monthly billing
+title: Configuring prices for monthly billing in Azure Marketplace
 description: Learn how to Configuring prices for VM.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -14,11 +14,11 @@ ms.date: 09/28/2021
 The Usage-based monthly billing plan will charge the customer for their hourly use and is billed monthly. This is our "Pay as you go" plan, where customers are only billed for the hours that they've used.
 When you select this plan, choose one of the following pricing options:
 
-1. **Free** – Your VM offer is free.
-2. **Flat rate (recommended)** – Your VM offer is the same price regardless of the hardware it runs on.
-3. **Per core** – Your VM offer pricing is per CPU core count (you give us the price for one CPU core and we’ll increment the pricing based on the size of the hardware).
-4. **Per core size** – Assign prices based on the number of CPU cores on the hardware it's deployed on.
-5. **Per market and core size** – Assign prices based on the number of CPU cores on the hardware it's deployed on and also for all markets (currency conversion is done by you the publisher, this option is easier if you use the import pricing feature).
+- **Free** – Your VM offer is free.
+- **Flat rate (recommended)** – Your VM offer is the same price regardless of the hardware it runs on.
+- **Per core** – Your VM offer pricing is per CPU core count (you give us the price for one CPU core and we’ll increment the pricing based on the size of the hardware).
+- **Per core size** – Assign prices based on the number of CPU cores on the hardware it's deployed on.
+- **Per market and core size** – Assign prices based on the number of CPU cores on the hardware it's deployed on and also for all markets (currency conversion is done by you the publisher, this option is easier if you use the import pricing feature).
 
 Some things to consider when selecting a pricing option:
 
