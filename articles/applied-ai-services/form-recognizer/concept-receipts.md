@@ -79,7 +79,7 @@ The Receipt API also returns the following information:
 * Field confidence level (each field returns an associated confidence value)
 * OCR raw text (OCR-extracted text output for the entire receipt)
 * Bounding box for each value, line and word
-* The new receipt type and fields supported in [preview](##markdown-header-preview).
+* The new receipt type and fields supported in [preview](#preview).
 
 ## Input requirements
 
@@ -90,7 +90,7 @@ The Receipt API also returns the following information:
 |:-----|:----|:----|
 | Prebuilt Receipts v2.1 | Sales (thermal) receipt | **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us**|
 | Prebuilt Receipts v3.0 (preview) | Sales (thermal) receipt | **en-au**, **en-ca**, **en-gb** |
-| Prebuilt Receipts v3.0 (preview) | [Hotel receipt](##markdown-header-preview) | **en-us** |
+| Prebuilt Receipts v3.0 (preview) | [Hotel receipt](#preview) | **en-us** |
 
 
   > [!NOTE]
