@@ -31,7 +31,7 @@ To use Azure AD entitlement management, you must have one of the following licen
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
-## Step 1: Configure Basics for your Access Package
+## Step 1: Configure basics
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
@@ -47,19 +47,19 @@ For more information, see [License requirements](entitlement-management-overview
 
 6. You can leave the **Catalog** drop-down list set to **General**.
 
-## Step 2: Configure the Resources for your Access Package
+## Step 2: Configure resources
 
 1. Click **Next** to open the **Resource roles** tab.
  
- On this tab, you select the resources and the resource role to include in the access package.
+   On this tab, you select the resources and the resource role to include in the access package.
 
 2. Click on **Groups and Teams** and search for your group **External collaboration**.
 
-## Step 3: Configure Requests for your Access Package
+## Step 3: Configure requests
 
 1. Click **Next** to open the **Requests** tab.
 
-  On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package.
+   On this tab, you create a request policy. A *policy* defines the rules or guardrails to access an access package. You create a policy that allows a specific user in the resource directory to request this access package.
 
 2. In the **Users who can request access** section, click **For users not in your directory** and then click **All users (All connected organizations + any new external users)**.
 
@@ -77,33 +77,33 @@ For more information, see [License requirements](entitlement-management-overview
 
 9. For **Require approver justification** leave this as **Yes**.
 
-10.	Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it's created.
+10. Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it's created.
 
-## Step 4: Configure Requestor information for your access package
+## Step 4: Configure requestor information
 
-1.	Click **Next** to open the **Requestor information** tab
+1. Click **Next** to open the **Requestor information** tab
 
-2.	On this screen, you can ask additional questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional. For now you can leave these as empty.
+2. On this screen, you can ask additional questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional. For now you can leave these as empty.
 
-## Step 5: Configure the Lifecycle for your access package
+## Step 5: Configure lifecycle
 
 1. Click **Next** to open the **Lifecycle** tab
 
-2.	In the **Expiration** section, set **Access package assignment expire** to **Number of days**.
+2. In the **Expiration** section, set **Access package assignment expire** to **Number of days**.
 
-3.	Set **Assignment expire after** to **60** days. This field determines when your guest users will have to renew their access.
+3. Set **Assignment expire after** to **60** days. This field determines when your guest users will have to renew their access.
 
-4.	You can also configure **Access Reviews** which allows periodic checks of whether the guest still needs access to the access package. A review can be a self-review or you can set specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md).
+4. You can also configure **Access Reviews** which allows periodic checks of whether the guest still needs access to the access package. A review can be a self-review or you can set specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md).
 
 ## Step 6: Review and create your access package
 
-1.	Click **Next** to open the **Review + Create** tab.
+1. Click **Next** to open the **Review + Create** tab.
 
-2.	On this screen, you can review the configuration for your access package before creating. If there are any issues, you can use the tabs to navigate to a specific point in the create experience to make edits.
+2. On this screen, you can review the configuration for your access package before creating. If there are any issues, you can use the tabs to navigate to a specific point in the create experience to make edits.
 
-3.	When you're happy with your selections, click on **Create**. After a few moments, you should see a notification that the access package was successfully created.
+3. When you're happy with your selections, click on **Create**. After a few moments, you should see a notification that the access package was successfully created.
 
-4.	Once created, you’ll be brought to the **Overview** page for your access package. You can find the **My Access portal link** and copy the value here. Share this link with your external users and they can go to request this package to start collaborating.
+4. Once created, you’ll be brought to the **Overview** page for your access package. You can find the **My Access portal link** and copy the value here. Share this link with your external users and they can go to request this package to start collaborating.
 
 ## Step 7: Clean up resources
 
@@ -121,11 +121,11 @@ In this step, you can delete the **External user package** access package.
 
 5. Click **Resource Roles**.
 
-6. Select the **External collaboration** group you added to this access package and in the details pane click **Remove resource role**. In the message that appears, click **Yes**.
+6. Select the **External collaboration** group you added to this access package, and in the **Details** pane, select **Remove resource role**. In the message that appears, select **Yes**.
 
-7. Open the list of access pacakges.
+7. Open the list of access packages.
 
-8. For **External user package**, click the ellipsis (...) and hten click **Delete**. In the message that appears, click **Yes**.
+8. For **External user package**, select the ellipsis (...) and then select **Delete**. In the message that appears, select **Yes**.
 
 ## Next steps
 
