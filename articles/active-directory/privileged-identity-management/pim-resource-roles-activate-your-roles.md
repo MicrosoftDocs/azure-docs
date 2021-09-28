@@ -77,7 +77,7 @@ When you need to take on an Azure resource role, you can request activation by u
 
 Privileged Identity Management supports Graph API commands to manage Azure resource roles, as documented in the [PIM Graph API reference](/rest/api/authorization/roleeligibilityschedulerequests). For the permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md).
 
-The following is a sample HTTP request to activate an eligible assignment for an Azure role. For details on the API commands including samples such as C# and JavaScript, see [unifiedRoleAssignmentScheduleRequest resource type](/graph/api/resources/unifiedroleassignmentschedulerequest?view=graph-rest-beta&preserve-view=true).
+The following is a sample HTTP request to activate an eligible assignment for an Azure role.
 
 ### Request
 
