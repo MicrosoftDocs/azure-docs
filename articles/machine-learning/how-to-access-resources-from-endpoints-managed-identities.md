@@ -29,13 +29,13 @@ This guide assumes you don't have a managed identity, a storage account or a man
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* An Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
+* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+
+* An Azure Resource group, in which you (or the service principal you use) need to have `User Access Administrator` and  `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
 
 * An Azure Machine Learning workspace. You'll have a workspace if you configured your ML extension per the above article.
 
-* A trained machine learning model ready for scoring and deployment.
-
-* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+* A trained machine learning model ready for scoring and deployment. If you are following along with the sample, a model is provided.
 
 * If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
 
@@ -54,6 +54,8 @@ This guide assumes you don't have a managed identity, a storage account or a man
 ## Define configuration YAML file for deployment
 
 To deploy a managed endpoint with the CLI, you need to define the configuration in a YAML file. For more information on the YAML schema, see [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md) document.
+
+The YAML files in the following examples are used to create online endpoints. 
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -235,7 +237,7 @@ Retrieve user-assigned managed identity client ID.
 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="get_user_identity_client_id" :::
 
-Or, retrieve the user-assigned managed identity ID.
+Retrieve the user-assigned managed identity ID.
 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="get_user_identity_id" :::
 
