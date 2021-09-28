@@ -31,7 +31,7 @@ Backup restore is priced based on the total amount of backup capacity restored d
 As a pricing example, assume the following situations:
 
 * Your source volume is from the Azure NetApp Files Premium service level. It has a volume quota size of 1000 GiB and a volume consumed size of 500 GiB at the beginning of the first day of a month. The volume is in the US South Central region.
-* You’ve configured an hourly snapshot policy with 5 local snapshots to keep, and daily backup policy to keep 30 backup copies.
+* You’ve configured a daily *snapshot* policy with 5 local snapshots to keep, and a daily *backup* policy to keep 30 backup copies.
 * For simplicity, assume your source volume has a constant 1% data change every day, but the total volume consumed size does not grow (remains at 500 GiB).
 
 When the backup policy is assigned to the volume, the baseline backup to service-managed Azure storage is initiated. When the backup is complete, the baseline backup of 500 GiB will be added to the backup list of the volume. After the baseline transfer, daily backups only back up changed blocks. Assume 5-GiB daily incremental backups added, the total backup storage consumed would be `500GiB + 30*5GiB = 650GiB`.
