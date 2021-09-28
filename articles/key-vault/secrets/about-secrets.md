@@ -115,18 +115,18 @@ The following permissions can be used when authorizing a user or application pri
 
 For more information, see the [Storage account operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-How-to guides to control access in Key Vault:
-- [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
-- [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
-- [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
-- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
+## Usage Scenarios
 
+| When to use | Examples |
+|--------------|-------------|
+|Securly store, manage lifecycle, and monitor credentials for service-to-service communication like passwords, access keys, service principal client secrets.  | - [Use Azure Key Vault with a Virtual Machine](../general/tutorial-net-virtual-machine.md)<br> - [Use Azure Key Vault with an Azure Web App](../general/tutorial-net-create-vault-azure-web-app.md) |
 
 ## Next steps
 
+- [Best practices for secrets management in Key Vault](secrets-best-practices.md)
 - [About Key Vault](../general/overview.md)
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
-- [About keys](../keys/about-keys.md)
-- [About certificates](../certificates/about-certificates.md)
+- [Assign a Key Vault access policy](../general/assign-access-policy.md)
+- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
 - [Secure access to a key vault](../general/security-features.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
