@@ -36,13 +36,13 @@ The container is the primary unit of encapsulation in Fluid. It consists of a co
 
 Creating new containers is a client-driven action and container lifetimes are bound to the data stored on the supporting server. When getting existing containers it's important to consider the previous state of the container.
 
-For more about containers see [Containers](./containers.md).
+For more about containers see [Containers](https://fluidframework.com/docs/build/containers/) on fluidframework.com.
 
 ## Shared objects
 
 A shared object is an object type that powers collaborative data by exposing a specific API. Many shared objects can exist within the context of a container and they can be created either statically or dynamically. Distributed Data Structures(DDSes) and DataObjects are both types of shared objects.
 
-For more information see [Data modeling](./data-modeling.md).
+For more information see [Data modeling](https://fluidframework.com/docs/build/data-modeling/) on fluidframework.com.
 
 ## Package structure
 

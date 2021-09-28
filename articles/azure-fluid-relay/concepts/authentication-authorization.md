@@ -1,6 +1,6 @@
 ---
 title: Authentication and authorization in your app
-description: 
+description: Overview of how to use authentication and authorization with an Azure Fluid Relay service. 
 services: azure-fluid
 author: tylerbutler
 ms.author: tylerbu
@@ -9,6 +9,8 @@ ms.topic: article
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/build/auth/
 ---
+
+# Authentication and authorization in your app
 
 Security is critical to modern web applications. Fluid Framework, as a part of your web application architecture, is an
 important piece of infrastructure to secure. Fluid Framework is a layered architecture, and auth-related concepts are implemented based on the Fluid service it's connecting to. This means that the specifics of authentication will differ based on the Fluid service.
@@ -66,7 +68,7 @@ to use -- this enables you to establish your own user permissions model if you w
 
 > [!NOTE]
 > Note that the token also includes user information (see lines 7-9 above). You can use this to augment the user
-> information that is automatically available to Fluid code using the [audience](../how-tos/connect-fluid-azure-service.md#getting-audience-details) feature. See [Adding custom data to tokens](#adding-custom-data-to-tokens) for more information.
+> information that is automatically available to Fluid code using the [audience](../how-tos/connect-fluid-azure-service.md#getting-audience-details) feature. See [Adding custom data to tokens](../how-tos/connect-fluid-azure-service.md#adding-custom-data-to-tokens) for more information.
 
 Every request to Azure Fluid Relay must be signed with a valid JWT. The Azure Fluid Relay documentation contains
 additional details about [how to sign the token](../how-tos/fluid-jwtoken.md#how-can-you-generate-an-azure-fluid-relay-token). Fluid delegates the responsibility of creating and signing these
@@ -74,10 +76,11 @@ tokens to a *token provider.*
 
 > [!TIP]
 > Additional information:
+>
 > * [Introduction to JWTs](https://jwt.io/introduction)
 > * [Payload claims in Azure Fluid Relay](../how-tos/fluid-jwtoken.md#payload-claims)
 > * Scopes in Azure Fluid Relay
-> * [Signing requests](https://github.com/MicrosoftDocs/azure-fluid-preview-pr/blob/main/azure-fluid-relay-preview-pr/articles/howtos/fluid-jwtoken.md#how-can-you-generate-an-azure-fluid-relay-token)
+> * [Signing requests](../how-tos/fluid-jwtoken.md#how-can-you-generate-an-azure-fluid-relay-token)
 
 ## The token provider
 

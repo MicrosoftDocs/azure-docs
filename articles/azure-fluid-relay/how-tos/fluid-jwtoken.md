@@ -9,11 +9,6 @@ ms.topic: reference
 ms.service: azure-fluid
 ---
 
-> [!NOTE]
-> As it stands, this is partially a conceptual article and partially a how-to. I put it in the how-to section for now, but we should review whether this is primarily discussing how to use JWT tokens (with a few examples), or primarily how to use JWT tokens (with some preliminary information). We may decide it's both or neither, and refactor this into two or more articles.
->
-> hickeys
-
 # Azure Fluid Relay Token Contract
 
 Requests sent to Azure Fluid Relay should contain a JWT token in the authorization header. This token should be signed by the tenant key (obtained during provisioning). This JWT token should have the required claims mentioned below.

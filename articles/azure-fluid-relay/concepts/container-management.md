@@ -1,6 +1,6 @@
 ---
 title: Managing Fluid containers
-description: 
+description: Overview of how to manage containers in Azure Fluid Relay service.
 services: azure-fluid
 author: danielroney
 ms.author: daroney
@@ -8,6 +8,8 @@ ms.date: 09/28/2021
 ms.topic: article
 ms.service: azure-fluid
 ---
+
+# Managing Fluid containers
 
 The atomic unit of storage in the Azure Fluid Relay service is a container. The container represents the data stored from a Fluid session, including operations and snapshots. The Fluid runtime uses the container to rehydrate the state of a Fluid session.
 

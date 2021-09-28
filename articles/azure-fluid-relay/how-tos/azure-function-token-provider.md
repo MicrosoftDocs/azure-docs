@@ -1,6 +1,6 @@
 ---
 title: "How to: Write a TokenProvider with an Azure Function"
-description: 
+description: How to write a custom token provider as an Azure Function and deploy it.
 services: azure-fluid
 author: sdeshpande3
 ms.author: sdeshpande
@@ -142,7 +142,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 export default httpTrigger;
 ```
 
-The `generateToken` function will generate a token for the given user that is signed using the tenant's secret key. This allows the token to be returned to the client without ever exposing the secret itself to it. Instead, the token is generated using it to provide scoped access to the given document. This token can be returned by an ITokenProvider implementation to use with the AzureClient.
+The `generateToken` function will generate a token for the given user that is signed using the tenant's secret key. This allows the token to be returned to the client without ever exposing the secret itself to it. Instead, the token is generated using it to provide scoped access to the given document. This token can be returned by an `ITokenProvider` implementation to use with the `AzureClient`.
 
 ## Adding custom data to tokens
 

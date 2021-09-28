@@ -10,6 +10,8 @@ ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/data-structures/overview/
 ---
 
+# Distributed data structures
+
 The Fluid Framework provides developers with distributed data structures (DDSes) that automatically ensure that each
 connected client has access to the same state. The APIs provided by DDSes are designed to be familiar to programmers
 who've used common data structures before.

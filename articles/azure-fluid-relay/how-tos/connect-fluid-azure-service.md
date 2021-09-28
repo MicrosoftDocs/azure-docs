@@ -73,6 +73,8 @@ const clientProps = {
 const client = new AzureClient(clientProps);
 ```
 
+### Adding custom data to tokens
+
 The user object can also hold optional additional user details. For example:
 
 ```javascript
@@ -92,7 +94,7 @@ const config = {
 };
 ```
 
-Your Azure Function will generate the token for the given user that is signed using the tenant's secret key and returned to the client without exposing the secret itself.
+Your Azure Function will generate the token for the given user that is signed using the tenant's secret key and return it to the client without exposing the secret itself.
 
 ## Managing containers
 
@@ -142,7 +144,7 @@ Calls to `createContainer` and `getContainer` return two values: a `container` -
 
 The `container` contains the Fluid data model and is service-agnostic. Any code you write against this container object returned by the `AzureClient` is reusable with the client for another service. An example of this is if you prototyped your scenario using `TinyliciousClient`, then all of your code interacting with the shared objects within the Fluid container can be reused when moving to using `AzureClient`.
 
-The `containerServices` object contains data that is specific to the Azure Fluid Relay service. This object contains an `audience` value that can be used to manage the roster of users that are currently connected to the container.
+The `services` object contains data that is specific to the Azure Fluid Relay service. This object contains an `audience` value that can be used to manage the roster of users that are currently connected to the container.
 
 The following code demonstrates how you can use the `audience` object to maintain an updated view of all the members currently in a container.
 

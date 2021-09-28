@@ -13,7 +13,7 @@
   - name: Architecture
     href: concepts/architecture.md
   - name: Container management
-    href: concepts/containers-management.md
+    href: concepts/container-management.md
   - name: 'Distributed data structures'
     href: concepts/data-structures.md
   - name: 'Authentication and authorization in your app'
@@ -25,9 +25,9 @@
     - name: 'How to: Connect to an Azure Fluid Relay service'
       href: how-tos/connect-fluid-azure-service.md
     - name: 'How to: Write a TokenProvider with an Azure Function'
-      href: how-tos/token-provider.md
+      href: how-tos/azure-function-token-provider.md
     - name: 'How to: Use JWT tokens'
-      href: howtos/fluid-jwtoken.md
+      href: how-tos/fluid-jwtoken.md
 - name: Reference
   items:
     - name: API documentation
