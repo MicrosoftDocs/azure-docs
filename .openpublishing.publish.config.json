@@ -836,6 +836,7 @@
     "articles/event-hubs/.openpublishing.redirection.event-hubs.json",
     "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
     "articles/iot-central/.openpublishing.redirection.iot-central.json",
+    "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
     "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
