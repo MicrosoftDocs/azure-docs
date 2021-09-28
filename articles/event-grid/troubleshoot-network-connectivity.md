@@ -3,7 +3,7 @@ title: Troubleshoot network connectivity issues - Azure Event Grid | Microsoft D
 description: This article provides information on troubleshooting network connectivity issues with Azure Event Grid.
 author: batrived
 ms.topic: article
-ms.date: 06/21/2020
+ms.date: 09/28/2021
 ms.author: batrived
 ---
 
