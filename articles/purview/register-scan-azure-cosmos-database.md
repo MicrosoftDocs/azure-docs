@@ -4,7 +4,7 @@ description: This how to guide describes details of how to scan Azure Cosmos Dat
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
 ---
@@ -69,7 +69,7 @@ On the **Register sources (Azure Cosmos DB (SQL API))** screen, do the following
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Cosmos DB data source that you registered.
 
