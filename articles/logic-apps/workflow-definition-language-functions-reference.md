@@ -1046,9 +1046,7 @@ This example converts the "aGVsbG8=" base64-encoded string to a binary string:
 base64ToBinary('aGVsbG8=')
 ```
 
-And returns this result:
-
-`"0110000101000111010101100111001101100010010001110011100000111101"`
+This function expression can be used to send the base64 encoded string as binary data with `application/octet-stream` content type in the request.
 
 <a name="base64ToString"></a>
 
@@ -1109,6 +1107,7 @@ binary('<value>')
 *Example*
 
 For example, you're using an HTTP action that returns an image or video file. You can use `binary()` to convert the value to a base-64 encoded content envelope model. Then, you can reuse the content envelope in other actions, such as `Compose`.
+This function expression can be used to send the string bytes with `application/octet-stream` content type in the request.
 
 <a name="body"></a>
 
