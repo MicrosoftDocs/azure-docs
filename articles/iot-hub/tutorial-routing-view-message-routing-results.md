@@ -150,13 +150,13 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    Select **Select Group workspace from your subscriptions**. In **Group workspace**, specify **My workspace**.
 
-  **Authentication mode**: Select **User token**. 
+   **Authentication mode**: Select **User token**. 
 
    **Dataset name**: Name of the dataset to be used in Power BI. This tutorial uses **contosodataset**. 
 
    **Table name**: Name of the table to be used in Power BI. This tutorial uses **contosotable**.
 
-   3. Select **Authorize**, and sign in to your Power BI account. (This may take more than one try).
+3. Select **Authorize**, and sign in to your Power BI account. (This may take more than one try).
 
    ![Set up the outputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
@@ -204,7 +204,7 @@ Double-click on the solution file (IoT_SimulatedDevice.sln) to open the code in 
 
 Run the console application. Wait a few minutes. You can see the messages being sent on the console screen of the application.
 
-The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the Service Bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings can be displayed in a BI report. <!--deleted part of sentence-->
+The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the Service Bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings can be displayed in a BI report. 
 
 If everything is set up correctly, at this point you should see the following results:
 
@@ -232,7 +232,7 @@ Now, with the application still running, set up the Power BI visualization to se
 
 ## Set up the Power BI visualizations
 
-1. Sign in to your [Power BI](https:// powerbi.microsoft.com /) account.
+1. Sign in to your [Power BI](https://powerbi.microsoft.com/) account.
 
 2. Select **My Workspace**. It shows at least one dataset that was just created. If there's nothing there, run the **Simulated Device** application for another 5-10 minutes to stream more data. After the workspace appears, it will have a dataset called ContosoDataset. Right-click on the three vertical dots to the right of the dataset name. In the dropdown list, select **Create report**.
 
