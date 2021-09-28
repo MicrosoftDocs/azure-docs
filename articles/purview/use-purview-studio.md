@@ -14,7 +14,7 @@ This article gives an overview of some of the main features of Azure Purview.
 
 ## Prerequisites
 
-* An Active Purview account is already created in Azure portal and the user has permissions to access [Purview Studio](https://ms.web.purview.azure.com/resource/).
+* An Active Purview account is already created in Azure portal and the user has permissions to access [Purview Studio](https://web.purview.azure.com/resource/).
 
 ## Launch Purview account
 

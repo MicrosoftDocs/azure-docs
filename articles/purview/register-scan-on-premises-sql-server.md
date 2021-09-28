@@ -95,7 +95,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://ms.web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the SQL Server source that you registered.
 
