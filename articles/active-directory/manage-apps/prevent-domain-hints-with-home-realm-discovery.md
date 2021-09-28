@@ -1,5 +1,6 @@
 ---
-title: Prevent sign-in auto-acceleration in Azure AD using Home Realm Discovery policy
+title: Prevent sign-in auto-acceleration using Home Realm Discovery policy
+titleSuffix: Azure AD
 description: Learn how to prevent domain_hint auto-acceleration to federated IDPs.
 services: active-directory
 author: davidmu1
@@ -11,6 +12,7 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: davidmu
 ms.reviewer: hirsin
+#customer intent: As an admin I want to disable auto-acceleration to federated IDP during sign in using Home Realm Discovery policy
 ---
 
 # Disable auto-acceleration to a federated IDP during user sign-in with Home Realm Discovery policy
@@ -36,7 +38,7 @@ The DomainHintPolicy section of the HRD policy is a JSON object, that allows an 
 
 The DomainHintPolicy logic runs on each incoming request that contains a domain hint and accelerates based on two pieces of data in the request – the domain in the domain hint, and the client ID (the app). In short - "Respect" for a domain or app takes precedence over an instruction to "Ignore" a domain hint for a given domain or application.
 
-1. In the absence of any domain hint policy, or if none of the 4 sections reference the app or domain hint mentioned, [the rest of the HRD policy will be evaluated](configure-authentication-for-federated-users-portal.md#priority-and-evaluation-of-hrd-policies).
+1. In the absence of any domain hint policy, or if none of the 4 sections reference the app or domain hint mentioned, [the rest of the HRD policy will be evaluated](home-realm-discovery-policy.md#priority-and-evaluation-of-hrd-policies).
 1. If either one (or both) of `RespectDomainHintForApps` or `RespectDomainHintForDomains` section includes the app or domain hint in the request, then the user will be auto-accelerated to the federated IDP as requested.
 1. If either one (or both) of `IgnoreDomainHintsForApps` or `IgnoreDomainHintsForDomains` references the app or the domain hint in the request, and they’re not referenced by the “Respect” sections, then the request won't be auto-accelerated, and the user will remain at the Azure AD login page to provide a username.
 
