@@ -1,5 +1,5 @@
 ---
-title:
+title: Authentication and authorization in your app
 description: 
 services: azure-fluid
 author: tylerbutler
@@ -12,9 +12,6 @@ fluid.url: https://fluidframework.com/docs/build/auth/
 
 Security is critical to modern web applications. Fluid Framework, as a part of your web application architecture, is an
 important piece of infrastructure to secure. Fluid Framework is a layered architecture, and auth-related concepts are implemented based on the Fluid service it's connecting to. This means that the specifics of authentication will differ based on the Fluid service.
-
-The information below is based on Azure Fluid Relay service. Other Fluid services may differ. See [Available Fluid
-services]({{< relref "service-options.md" >}}) for more information.
 
 ## Azure Fluid Relay service
 

@@ -1,6 +1,6 @@
 ---
 title: Distributed data structures
-description: Overview of Azure Fluid Relay Architecture
+description: Distributed data structures are the building blocks of Fluid applications
 services: azure-fluid
 author: tylerbutler
 ms.author: tylerbu

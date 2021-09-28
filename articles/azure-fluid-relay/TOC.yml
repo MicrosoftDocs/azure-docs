@@ -26,6 +26,8 @@
       href: how-tos/connect-fluid-azure-service.md
     - name: 'How to: Write a TokenProvider with an Azure Function'
       href: how-tos/token-provider.md
+    - name: 'How to: Use JWT tokens'
+      href: howtos/fluid-jwtoken.md
 - name: Reference
   items:
     - name: API documentation
