@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 09/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -19,6 +19,10 @@ This article describes various on-premises and Azure Active Directory (Azure AD)
 
 > [!IMPORTANT]
 > Microsoft doesn't support modifying or operating Azure AD Connect cloud sync outside of the configurations or actions that are formally documented. Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect cloud sync. As a result, Microsoft can't provide technical support for such deployments.
+
+For more information see the following video.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 ## Things to remember about all scenarios and topologies
 The following is a list of information to keep in mind when selecting a solution.

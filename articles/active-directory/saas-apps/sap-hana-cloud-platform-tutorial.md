@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP Cloud Platform | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with SAP Cloud Platform'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud Platform.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 09/08/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with SAP Cloud Platform
+# Tutorial: Azure AD SSO integration with SAP Cloud Platform
 
 In this tutorial, you'll learn how to integrate SAP Cloud Platform with Azure Active Directory (Azure AD). When you integrate SAP Cloud Platform with Azure AD, you can:
 
@@ -22,12 +22,10 @@ In this tutorial, you'll learn how to integrate SAP Cloud Platform with Azure Ac
 
 ## Prerequisites
 
-To configure Azure AD integration with SAP Cloud Platform, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* SAP Cloud Platform single sign-on enabled subscription
-
-After completing this tutorial, the Azure AD users you have assigned to SAP Cloud Platform will be able to single sign into the application using the [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* SAP Cloud Platform single sign-on (SSO) enabled subscription.
 
 >[!IMPORTANT]
 >You need to deploy your own application or subscribe to an application on your SAP Cloud Platform account to test single sign on. In this tutorial, an application is deployed in the account.
@@ -37,9 +35,9 @@ After completing this tutorial, the Azure AD users you have assigned to SAP Clou
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* SAP Cloud Platform supports **SP** initiated SSO
+* SAP Cloud Platform supports **SP** initiated SSO.
 
-## Adding SAP Cloud Platform from the gallery
+## Add SAP Cloud Platform from the gallery
 
 To configure the integration of SAP Cloud Platform into Azure AD, you need to add SAP Cloud Platform from the gallery to your list of managed SaaS apps.
 
@@ -63,7 +61,7 @@ To configure and test Azure AD SSO with SAP Cloud Platform, perform the followin
     1. **[Create SAP Cloud Platform test user](#create-sap-cloud-platform-test-user)** - to have a counterpart of Britta Simon in SAP Cloud Platform that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -75,36 +73,40 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    ![SAP Cloud Platform Domain and URLs single sign-on information](common/sp-identifier-reply.png)
+	a. In the **Identifier** textbox you will provide your SAP Cloud Platform's type a URL using one of the following patterns: 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign into your **SAP Cloud Platform** application. This is the account-specific URL of a protected resource in your SAP Cloud Platform application. The URL is based on the following pattern: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    | **Identifier** |
+    |-----------|
+    | `https://hanatrial.ondemand.com/<instancename>` |
+    | `https://hana.ondemand.com/<instancename>` |
+    | `https://us1.hana.ondemand.com/<instancename>` |
+    | `https://ap1.hana.ondemand.com/<instancename>` |
+
+	b. In the **Reply URL** textbox, type a URL using one of the following patterns:
+
+    | **Reply URL** |
+    |----------|
+    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
+    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.us1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.ap1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
+
+    c. In the **Sign On URL** textbox, type the URL used by your users to sign into your **SAP Cloud Platform** application. This is the account-specific URL of a protected resource in your SAP Cloud Platform application. The URL is based on the following pattern: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
     >[!NOTE]
     >This is the URL in your SAP Cloud Platform application that requires the user to authenticate.
     > 
 
-    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
-    - `https://<subdomain>.hana.ondemand.com/<instancename>`
-
-	b. In the **Identifier** textbox you will provide your SAP Cloud Platform's type a URL using one of the following patterns: 
-
-    - `https://hanatrial.ondemand.com/<instancename>`
-    - `https://hana.ondemand.com/<instancename>`
-    - `https://us1.hana.ondemand.com/<instancename>`
-    - `https://ap1.hana.ondemand.com/<instancename>`
-
-	c. In the **Reply URL** textbox, type a URL using the following pattern:
-
-    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
-    - `https://<subdomain>.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.us1.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.ap1.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>`
+    | **Sign On URL** |
+    |------|
+    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
+    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [SAP Cloud Platform Client support team](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) to get Sign-On URL and Identifier. Reply URL you can get from trust management section which is explained later in the tutorial.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [SAP Cloud Platform Client support team](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) to get Sign-On URL and Identifier. Reply URL you can get from trust management section which is explained later in the tutorial.
 	> 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -140,11 +142,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click the **Trust** tab.
    
-    ![Trust](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Trust")
+    ![Trust](./media/sap-hana-cloud-platform-tutorial/account.png "Trust")
 
 3. In the Trust Management section, under **Local Service Provider**, perform the following steps:
 
-    ![Screenshot that shows the "Trust Management" section with the "Local Service Provider" tab selected and all text boxes highlighted.](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Trust Management")
+    ![Screenshot that shows the "Trust Management" section with the "Local Service Provider" tab selected and all text boxes highlighted.](./media/sap-hana-cloud-platform-tutorial/service.png "Trust Management")
    
     a. Click **Edit**.
 
@@ -162,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. After saving the **Local Service Provider** settings, perform the following to obtain the Reply URL:
    
-    ![Get Metadata](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Get Metadata")
+    ![Get Metadata](./media/sap-hana-cloud-platform-tutorial/certificate.png "Get Metadata")
 
     a. Download the SAP Cloud Platform metadata file by clicking **Get Metadata**.
 
@@ -172,7 +174,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. Click the **Trusted Identity Provider** tab, and then click **Add Trusted Identity Provider**.
    
-    ![Screenshot that shows the "Trust Management" page with the "Trusted Identity Provider" tab selected.](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Trust Management")
+    ![Screenshot that shows the "Trust Management" page with the "Trusted Identity Provider" tab selected.](./media/sap-hana-cloud-platform-tutorial/add-service.png "Trust Management")
    
     >[!NOTE]
     >To manage the list of trusted identity providers, you need to have chosen the Custom configuration type in the Local Service Provider section. For Default configuration type, you have a non-editable and implicit trust to the SAP ID Service. For None, you don't have any trust settings.
@@ -181,7 +183,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Click the **General** tab, and then click **Browse** to upload the downloaded metadata file.
     
-    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Trust Management")
+    ![Trust Management](./media/sap-hana-cloud-platform-tutorial/general.png "Trust Management")
     
     >[!NOTE]
     >After uploading the metadata file, the values for **Single Sign-on URL**, **Single Logout URL**, and **Signing Certificate** are populated automatically.
@@ -191,7 +193,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 8. On the **Attributes** tab, perform the following step:
     
-    ![Attributes](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Attributes") 
+    ![Attributes](./media/sap-hana-cloud-platform-tutorial/principal-attribute.png "Attributes") 
 
     a. Click **Add Assertion-Based Attribute**, and then add the following assertion-based attributes:
        
@@ -201,9 +203,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |lastname |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |email |
    
-     >[!NOTE]
-     >The configuration of the Attributes depends on how the application(s) on SCP are developed, that is, which attribute(s) they expect in the SAML response and under which name (Principal Attribute) they access this attribute in the code.
-     > 
+    >[!NOTE]
+    >The configuration of the Attributes depends on how the application(s) on SCP are developed, that is, which attribute(s) they expect in the SAML response and under which name (Principal Attribute) they access this attribute in the code.
+    > 
     
     b. The **Default Attribute** in the screenshot is just for illustration purposes. It is not required to make the scenario work.  
  
@@ -229,7 +231,7 @@ In order to enable Azure AD users to log in to SAP Cloud Platform, you must assi
 
 2. Perform the following:
    
-    ![Authorizations](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Authorizations")
+    ![Authorizations](./media/sap-hana-cloud-platform-tutorial/roles.png "Authorizations")
    
     a. Click **Authorization**.
 
@@ -249,7 +251,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to SAP Cloud Platform Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the SAP Cloud Platform tile in the My Apps, you should be automatically signed in to the SAP Cloud Platform for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the SAP Cloud Platform tile in the My Apps, you should be automatically signed in to the SAP Cloud Platform for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

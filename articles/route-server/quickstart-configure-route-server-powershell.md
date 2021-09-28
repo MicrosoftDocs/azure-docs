@@ -17,6 +17,9 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
 
+> [!IMPORTANT]
+> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -122,7 +125,7 @@ To complete the configuration on the NVA and enable the BGP sessions, you need t
 ```azurepowershell-interactive
 $routeserver = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
 } 
 Get-AzRouteServer @routeserver
 ```
@@ -143,7 +146,7 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
 ```azurepowershell-interactive
 $routeserver = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
     AllowBranchToBranchTraffic
 }  
 Update-AzRouteServer @routeserver 
@@ -154,7 +157,7 @@ Update-AzRouteServer @routeserver
 ```azurepowershell-interactive
 $routeserver = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
 }  
 Update-AzRouteServer @routeserver 
 ```
@@ -166,7 +169,7 @@ Use the [Get-AzRouteServerPeerAdvertisedRoute](/powershell/module/az.network/get
 ```azurepowershell-interactive
 $remotepeer = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
     PeerName = 'myNVA'
 }
 Get-AzRouteServerPeerAdvertisedRoute @routeserver
@@ -177,7 +180,7 @@ Use the [Get-AzRouteServerPeerLearnedRoute](/powershell/module/az.network/get-az
 ```azurepowershell-interactive
 $routeserver = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
     AllowBranchToBranchTraffic
 }  
 Get-AzRouteServerPeerLearnedRoute @routeserver

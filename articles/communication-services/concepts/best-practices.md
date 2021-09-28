@@ -51,10 +51,16 @@ document.addEventListener("visibilitychange", function() {
 });
  ```
 
-### Hang up the call on microphoneMuteUnexpectedly UFD
-When an iOS/Safari user receives a PSTN call, Azure Communication Services loses microphone access. 
-Azure Communication Services will raise the `microphoneMuteUnexpectedly` call diagnostic event, and at this point Communication Services will not be able to regain access to microphone.
-It's recommended to hang up the call ( `call.hangUp` ) when this situation occurs.
+### Handle OS muting call when phone call comes in.
+While on an ACS call (for both iOS and Android) if a phone call comes in the OS will automatically mute the users microphone and camera. On Android the call automatically unmutes and video restarts after the phone call ends. On iOS it requires user action to "unmute" and "start video" again. You can listen for the notification that the microphone was muted unexpectedly with the quality event of `microphoneMuteUnexpectedly`. Do note in order to be able to rejoin a call properly you will need to used SDK 1.2.2-beta.1 or higher.
+```JavaScript
+const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
+const isIosSafari = (getOS() === OSName.ios) && (getPlatformName() === BrowserName.safari);
+if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMediaDiagnostic.microphoneMuteUnexpectedly.value) {
+  // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
+}
+ ```
+Your application should invoke `call.startVideo(localVideoStream);` to started a video stream and should use `this.currentCall.unmute();` to unmute the audio.
 
 ### Device management
 You can use the Azure Communication Services SDK to manage your devices and media operations.
