@@ -41,6 +41,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/synapse-analytics/cicd/continuous-integration-deployment.md",
+            "redirect_url": "/azure/synapse-analytics/cicd/continuous-integration-delivery",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/synapse-analytics/sql/develop-best-practices.md",
             "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
             "redirect_document_id": false
