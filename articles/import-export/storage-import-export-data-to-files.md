@@ -65,20 +65,21 @@ Do the following steps to prepare the drives.
        ```
    - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to the fileshare. Folder structure is maintained. If you import a file with the same name as an existing file in the destination folder, the imported file will overwrite that file.
    
-   > [!NOTE]
-   > This behavior is different than in earlier tool versions. Tool versions before 1.5.0.300 had a /Disposition parameter that let you choose what to do when you import a file that already exists.
+       > [!NOTE]
+       > This behavior is different than in earlier tool versions. Tool versions before 1.5.0.300 had a /Disposition parameter that let you choose what to do when you import a file that already exists.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
 
        ```
+
      Multiple entries can be made in the same file corresponding to folders or files that are imported.
 
        ```
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
-
        ```
+
      Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
 
 
