@@ -1,14 +1,14 @@
 ---
 title: Full text query and indexing engine architecture (Lucene) 
 titleSuffix: Azure Cognitive Search
-description: Explains Lucene query processing and document retrieval concepts for full text search, as related to Azure Cognitive Search.
+description: Explore Lucene query processing and document retrieval concepts for full text search, as related to Azure Cognitive Search.
 
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 09/28/2021
 ---
 
 # Full text search in Azure Cognitive Search

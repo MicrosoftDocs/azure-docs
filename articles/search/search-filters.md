@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 09/28/2021
 ms.custom: devx-track-csharp
 ---
 # Filters in Azure Cognitive Search 
 
 A *filter* provides value-based criteria for selecting documents used in a query. A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter value or expression only returns a strict match.
 
-Some search experiences, such as faceted navigation, depend on filters as part of the implementation, but you can use filters anytime you want to scope a query to specific values. If instead your goal is to scope a query to specific fields, there are alternative methods, described below.
+Some search experiences, such as [faceted navigation](search-faceted-navigation.md), depend on filters as part of the implementation, but you can use filters anytime you want to scope a query to specific values. If instead your goal is to scope a query to specific fields, there are alternative methods, described below.
 
 ## When to use a filter
 
