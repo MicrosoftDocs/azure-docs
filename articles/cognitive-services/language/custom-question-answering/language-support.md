@@ -23,7 +23,7 @@ This setting gives the flexibility to users to have multiple knowledge bases wit
 > ![Multi-lingual knowledge base selection](../../qnamaker/media/language-support/language-support-custom-qna.png)
 
 If you **don't select the checkbox to enable knowledge-bases in multiple languages**, consider the following: 
-* A Text Analytics service, and all its knowledge bases, will support one language only.
+* A language resource, and all its knowledge bases, will support one language only.
 * The language is explicitly set when the first knowledge base of the service is created
 * The language is determined from the files and URLs added when the knowledge base is created
 * The language can't be changed for any other knowledge bases in the service

@@ -165,7 +165,7 @@ The previous JSON requested only answers that are at 30% or above the threshold 
 
 ## Get precise answers with GenerateAnswer API
 
-The user can enable [precise answers](../../../qnamaker/reference-precise-answering.md) when using the Text Analytics resource with Custom question answering feature. The answerSpanRequest parameter has to be updated for the same.
+The user can enable [precise answers](../../../qnamaker/reference-precise-answering.md) when using the language resource with custom question answering enabled. The answerSpanRequest parameter has to be updated for the same.
 
 ```json
 {

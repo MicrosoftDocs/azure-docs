@@ -1,5 +1,5 @@
 ---
-title: Configure QnA Maker service - custom question answering
+title: Configure Question Answering service 
 description: This document outlines advanced configurations for custom question answering enabled resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
@@ -14,14 +14,14 @@ The user can configure QnA Maker to use a different Cognitive search resource. T
 ## Change Cognitive Search resource
 
 > [!NOTE]
-> If you change the Azure Search service associated with Text Analytics, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
+> If you change the Azure Search service associated with your language resource, you will lose access to all the knowledge bases already present in it. Make sure you export the existing knowledge bases before you change the Azure Search service.
 
 
-If you create a Text Analytics resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the Text Analytics resource. After these resources are created, you can update the Search resource in the **Features** tab.
+If you create a language resource and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the language resource. After these resources are created, you can update the Search resource in the **Features** tab.
 
-1.  Go to your Text Analytics resource in the Azure portal.
+1.  Go to your language resource in the Azure portal.
 
-2.  Select **Features** and select the Azure Cognitive Search service you want to link with your Text Analytics resource.
+2.  Select **Features** and select the Azure Cognitive Search service you want to link with your language resource.
 
 > [!div class="mx-imgBorder"]
 > ![Add QnA to TA](../media/configure-resources/update-custom-qna-feature.png)
