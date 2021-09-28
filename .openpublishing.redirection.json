@@ -15734,6 +15734,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/concepts/active-learning-suggestions.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-document-type-url.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/",
       "redirect_document_id": false
