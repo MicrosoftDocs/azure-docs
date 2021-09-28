@@ -275,7 +275,7 @@ items:
       href: /rest/api/purview/
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
-    - name: Frequently asked questions
+    - name: Frequently asked questions (FAQ)
       href: ./frequently-asked-questions.yml
 - name: Resources
   items:
