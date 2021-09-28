@@ -59,7 +59,7 @@ This section describes the validation process that the IoT connector does. The v
 
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
-|The maximum number of resource type `iotconnectors` has been reached.|API and Azure portal|Azure IoT connector subscription quota is reached and the default is 25 per subscription.|Delete one of the existing instances of the IoT connector. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
+|The maximum number of resource type `iotconnectors` has been reached.|API and Azure portal|IoT connector subscription quota is reached (default is 25 per subscription).|Delete one of the existing instances of the IoT connector. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
 |Invalid `deviceMapping` mapping. Validation errors: {List of errors}|API and Azure portal|The `properties.deviceMapping` provided in the IoT connector Resource provisioning request is invalid.|Correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
 |`fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.|API and Azure portal|The IoT connector provisioning request `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` is not valid.|Update the IoT connector `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. Should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
 |Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace is still provisioning.|Wait until the parent Workspace provisioning has completed and submit the provisioning request again.
@@ -178,6 +178,6 @@ The mapping copies should be provided to Azure Technical Support when opening a 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Azure IoT connector Overview](iot-connector-overview.md)
+>[IoT connector Overview](iot-connector-overview.md)
 
 FHIR is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
