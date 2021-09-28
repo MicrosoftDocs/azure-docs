@@ -70,8 +70,6 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     Enter **/src** as the location for the application files and press <kbd>Enter</kbd>.
 
-    :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Application build output location":::
-
     This app does not produce a build output. Ensure the build output location is empty and press <kbd>Enter</kbd>.
 
     # [Angular](#tab/angular)
