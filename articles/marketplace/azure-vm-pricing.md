@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshah
 ms.author: iqshah
-ms.date: 9/27/2021
+ms.date: 09/28/2021
 ---
 
 # Configure prices for usage-based monthly billing
@@ -36,4 +36,4 @@ If the publisher chose Free, Flat or Per core size, then the publisher has alrea
 
 ## Next steps
 
-- if you have any questions, open a ticket with [support](/azure/marketplace/support).
+- If you have any questions, open a ticket with [support](/azure/marketplace/support).
