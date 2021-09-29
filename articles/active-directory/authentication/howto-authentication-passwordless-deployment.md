@@ -74,12 +74,12 @@ The prerequisites are determined by your selected passwordless authentication me
 
 | Prerequisite| Microsoft Authenticator app| FIDO2 Security Keys|
 | - | -|-|
-| [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|  |
-| [Users can perform Azure AD MFA](howto-mfa-getstarted.md)| √| √|  |
-| [Users have registered for Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)| √| √|  |
-| [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md)| √| |  |
-| Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox (version 67 or higher). Microsoft recommends version 1903 or higher for native support.| | √|  |
-| Compatible security keys. Ensure that you're using a [Microsoft-tested and verified FIDO2 security key](concept-authentication-passwordless.md), or other compatible FIDO2 security key.| | √|  |
+| [Combined registration for Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled| √| √|
+| [Users can perform Azure AD MFA](howto-mfa-getstarted.md)| √| √|
+| [Users have registered for Azure AD MFA and SSPR](howto-registration-mfa-sspr-combined.md)| √| √|
+| [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md)| √| |
+| Windows 10 version 1809 or higher using a supported browser like Microsoft Edge or Mozilla Firefox (version 67 or higher). Microsoft recommends version 1903 or higher for native support.| | √|
+| Compatible security keys. Ensure that you're using a [Microsoft-tested and verified FIDO2 security key](concept-authentication-passwordless.md), or other compatible FIDO2 security key.| | √|
 
 
 ### Windows Hello for Business
@@ -316,7 +316,7 @@ You can also manage the passwordless authentication methods using the authentica
 
 * Manage your authentication method policies for security keys and Microsoft Authenticator app.
 
-For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 ### Rollback
 

@@ -651,7 +651,7 @@ The following example validates a client certificate to match the policy's defau
 | validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. | no | True |
 | validate-not-before | Boolean. Validates value against current time. | no | True |
 | validate-not-after  | Boolean. Validates value against current time. | no | True|
-| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no | False |  
+| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no | False |
 | identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A |
 | thumbprint | Certificate thumbprint. | no | N/A |
 | serial-number | Certificate serial number. | no | N/A |
