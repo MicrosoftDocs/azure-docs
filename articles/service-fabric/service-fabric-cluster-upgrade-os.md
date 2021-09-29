@@ -1,7 +1,6 @@
 ---
 title: Upgrading Linux OS for Azure Service Fabric
 description: Learn about options for migrating your Azure Service Fabric cluster to another Linux OS
-manager: tassb
 ms.topic: conceptual
 ms.date: 09/14/2021
 ---
@@ -26,7 +25,7 @@ The general approach is to:
 
     * Ensure after the new target OS node type is created that existing workloads continue to function correctly. If issues are observed, address the changes required in the app or pre-installed machine packages before proceeding with removing the old node type.
 3. Mark the old primary node type "isPrimary": false. This will result in a long-running set of upgrades to transition all seed nodes.
-4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl) / [PowerShell](https://docs.microsoft.com/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) and disable all nodes in the old node type.
+4. (For Bronze durability node types ONLY): Connect to the cluster via [sfctl](service-fabric-sfctl.md) / [PowerShell](/powershell/module/ServiceFabric/?view=azureservicefabricps) / [FabricClient](/dotnet/api/system.fabric.fabricclient?view=azure-dotnet) and disable all nodes in the old node type.
 5. Remove the old node types.
 
 > [!NOTE]
