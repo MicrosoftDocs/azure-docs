@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 09/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -66,7 +66,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select either the resource group that contains the disks or each disk themselves.
 1. Select **Access control (IAM)**.
-1. Select **Add role assignment (Preview)**, and select **Virtual Machine Contributor** in the role list.
+1. Select **Add role assignment (Preview)**, and select **Disk Pool Operator** in the role list.
 
     If you prefer, you may create your own custom role instead. A custom role for disk pools must have the following RBAC permissions to function: **Microsoft.Compute/disks/write** and **Microsoft.Compute/disks/read**.
 
