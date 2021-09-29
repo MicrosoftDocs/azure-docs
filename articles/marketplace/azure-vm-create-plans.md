@@ -159,10 +159,10 @@ This option allows you to use the same technical configuration settings across p
 Some common reasons for reusing the technical configuration settings from another plan include:
 
 1. The same images are available both publicly and privately.
-2. You have two or more plans intended for different Private audiences with different pricing structures.
+2. You have two or more plans intended for different [Private audiences](https://docs.microsoft.com/windows/uwp/publish/choose-visibility-options#private-audience) with different pricing structures.
 3. Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
 
-For examples 2 and 3 above, in these instances you might need to differentiate between plans in order to ensure proper billing and/or unlocking of appropriate features. If so, consider leveraging the Azure Instance Metadata Service (IMDS). Additionally, you can use IMDS to view the details of the instance running in Azure.
+For examples 2 and 3 above, in these instances you might need to differentiate between plans in order to ensure proper billing and/or unlocking of appropriate features. If so, consider leveraging the [Azure Instance Metadata Service (IMDS)](/virtual-machines/windows/instance-metadata-service?tabs=windows). Additionally, you can use IMDS to view the details of the instance running in Azure.
 
 You can detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later. 
 
