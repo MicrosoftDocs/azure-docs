@@ -22,7 +22,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - [Snapshot Debugger](snapshot-debugger.md)
  - Offline disk storage
  - [Azure AD Authentication](azure-ad-authentication.md)
- - Auto-population of RoleName, RoleInstance for Azure environments
+ - Cloud Role Name and Cloud Role Instance Auto-population in Azure environments
 
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
@@ -138,7 +138,7 @@ Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/ope
 <!-- For more information, see [GitHub Repo](link). -->
 
 ## Sampling
-Sampling is not supported in preview.
+Sampling is not yet supported.
 
 ## Instrumentation libraries
 <!-- Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release. -->
