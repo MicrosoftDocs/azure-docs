@@ -305,7 +305,7 @@ The front-end app now has the required permissions to access the back-end app as
 1. In the **authsettingsV2** view, click **Edit**. Drill down to `properties.identityProviders.azureActiveDirectory.login` and add `loginParameters` with the following JSON string, using the client ID you copied. 
 
     ```json
-    "loginParameters": ["response_type=code id_token","scope=openid api://<back-end-client-id>/user_impersonation"],
+    "loginParameters": ["response_type=code id_token","scope=openid offline_access api://<back-end-client-id>/user_impersonation"],
     ```
 
     :::image type="content" source="./media/tutorial-auth-aad/add-loginparameters.png" alt-text="Screenshot of a code example in the authsettingsV2 view showing the loginParameters string with an example of a client ID.":::
