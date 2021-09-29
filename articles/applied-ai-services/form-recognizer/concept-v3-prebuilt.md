@@ -14,76 +14,139 @@ ms.author: lajanuar
 # Form Recognizer v3.0 | Preview
 
 >[!NOTE]
-> Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
+> Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities.
 
-| **Model ID**   | **Description**   |
+Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Form Recognizer v3.0 (preview) introduces several new features and capabilities:
+
+* [**Prebuilt document (v3.0)**](#prebuilt-document-model) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Prebuilt receipt (v3.0)**](#prebuilt-receipt-model) model supports single-page hotel receipt processing.
+* [**Prebuilt ID document (v3.0)**](#prebuilt-id-document-model) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**Custom model API (v3.0)**](#custom-model) supports signature detection for custom forms.
+
+| **Prebuilt model ID**   | **Description**   |
 | --- | --- |
+| 🆕prebuilt:document  | extract text, tables, structure, key-value pairs and named entities.  |
 | prebuilt:layout  | Extracts text and layout information from documents.  |
-| prebuilt:document  | extract text, tables, structure, key-value pairs and named entities.  |
 | prebuilt:invoice  | Extract key information from English invoices.  |
 | prebuilt:receipt  | Extract key information from English receipts.  |
 | prebuilt:idDocument  | Extract key information from US driver licenses and international passports.  |
 | prebuilt:businessCard  | Extract key information from English business cards.  |
 
-**Analysis Features**
+### Prebuilt model data extraction
 
-| **Model ID**   | **Text Extraction**   | **Selection Marks**   | **Tables**   | **Key-Value Pairs**   | **Entities**   | **Document Analysis**   |
-| --- | --- | --- | --- | --- | --- | --- |
-| prebuilt:layout  | ✓  | ✓  | ✓  |   |   |   |
-| prebuilt:document  | ✓  | ✓  | ✓  | ✓  | ✓  |   |
-| prebuilt:invoice  | ✓  | ✓  | ✓  |   |   | ✓  |
-| prebuilt:receipt  | ✓  |   |   |   |   | ✓  |
-| prebuilt:idDocument  | ✓  |   |   |   |   | ✓  |
-| prebuilt:businessCard  | ✓  |   |   |   |   | ✓  |
+| **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+| --- | :---: |:---:| :---: | :---: |:---: |
+|🆕prebuilt:document  | ✓  |  ✓ | ✓  | ✓  | ✓  |   |
+| prebuilt:layout  | ✓  |   | ✓  | ✓  |   |   |
+| prebuilt:invoice   | ✓ | ✓  | ✓  | ✓ |
+|prebuilt:receipt  | ✓  |   ✓ |   |  |
+| prebuilt:idDocument | ✓  |   ✓  |   |   |
+| prebuilt:businessCard    | ✓  |   ✓ |   |   |
 
+### Input requirements
 
-v3.0 consolidates the analysis operations for layout analysis, prebuilt models, and custom models into a single pair of operations by assigning modelIds to layout analysis and prebuilt models. 
+* For best results, provide one clear photo or scan per document.
+* Supported file formats: JPEG, PNG, PDF, BMP and TIFF.
+* For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB.
+* For images (JPEG, PNG, BMP, TIFF), the dimensions must be at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
+* PDF dimensions cannot exceed 17 x 17 inches (Legal or A3 paper sizes).
+* For more guidance, *see*  our [**Overview**](overview#input-requirements) documentation.
 
-* [**Prebuilt Layout**](#prebuilt-layout)
-* [**Prebuilt Document**](#prebuilt-document)
-* [**Prebuilt invoice**](#prebuilt-invoice)
-* [**Prebuilt receipt**](#prebuilt-receipt)
-* [**Prebuilt ID Document**](#prebuilt-idDocument)
-* [**Prebuilt Business Card**](#prebuilt-businessCard)
+## Prebuilt document model
 
-POST /documentModels/{modelId}:analyze 
+* The prebuilt document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](overview#train-without-labels).
 
-GET /documentModels/{modelId}/analyzeResults/{resultId} 
+* The prebuilt document model also supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization.
 
-## prebuilt-layout
+### Named entity recognition categories
 
-## prebuilt-document
+| Category | Type | Description |
+|-----------|-------|--------------------|
+| Person | string | A person's partial or full name. |
+|PersonType | string | A person's job type or role.  |
+| Location | string | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+| Organization | string | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
+| Event | string | Historical, social, and naturally occurring events. |
+| Product | string |Physical objects of various categories. |
+| Skill | string | A capability, skill, or expertise. |
+| Address | string | Full mailing addresses. |
+| Phone number | string| Phone numbers. | 
+Email | string | Email address. |
+| URL | string| Website URLs and links|
+| IPAddress | string| Network IP addresses. |
+| DateTime | string| Dates and times of day. |
+| Quantity | string | Numerical measurements and units. |
 
-The term “Entity” in Entity Extraction AI Model means predefined categories like Age, Color, Date and time etc.
+## Prebuilt receipt model
 
-### Analyze Document
+ Azure Form Recognizer v3.0 prebuilt receipt model analyzes and extracts key information from sales receipts and supports processing single-page hotel receipts. 
 
-###
+### Hotel receipt key-value pair fields
 
-## prebuilt-businessCard
+|Name| Type | Description | Standardized output |
+|:-----|:----|:----|:----| 
+| ArrivalDate | date | Date of arrival | yyyy-mm-dd |
+| Currency | currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found |
+| DepartureDate | date | Date of departure | yyyy-mm-dd |
+| Items | array | | | |
+| Items.*.Category | string | Item category, e.g. Room, Tax, etc. |  |
+| Items.*.Date | date | Item date | yyyy-mm-dd |
+| Items.*.Description | string | Item description | |
+| Items.*.TotalPrice |  number | Item total price | integer |
+| Locale | string | Locale of the receipt, for example, en-US. | ISO language-county code   |
+| MerchantAddress | string | Listed address of merchant | |
+| MerchantAliases | array| | | |
+| MerchantAliases.* | string | Alternative name of merchant |  |
+| MerchantName | string | Name of the merchant issuing the receipt | |
+| MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx|
+| ReceiptType | string | Type of receipt, e.g. Hotel, Itemized | |
+| Total | number | Full transaction total of receipt | Two-decimal float |
 
-Azure Form Recognizer can analyze and extract contact information from business cards using its prebuilt business cards model. It combines powerful Optical Character Recognition (OCR) capabilities with our business card understanding model to extract key information from business cards in English and is publicly available in the Form Recognizer v2.1.
+## Prebuilt ID document model 
 
-:::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
+Azure Form Recognizer v3.0 prebuilt ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia.) and the biographical page from international passports (excluding visa and other travel documents).
 
-## prebuilt-idDocument
+### Key value pair fields
 
-Azure Form Recognizer can analyze and extract information from government-issued identification documents (IDs) using its prebuilt IDs model. It combines our powerful Optical Character Recognition (OCR) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 as a cloud service.
+|Name| Type | Description | Standardized output <img width=500>|
+|:-----|:----|:----|:----|
+|  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
+|  DateOfBirth | date | DOB | yyyy-mm-dd |
+|  DateOfExpiration | date | Expiration date DOB | yyyy-mm-dd |
+|  DocumentNumber | string | Relevant passport number, driver's license number, etc. |  |
+|  FirstName | string | Extracted given name and middle initial if applicable |  |
+|  LastName | string | Extracted surname |  |
+|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard |  |
+|  Sex | string | Possible extracted values include "M", "F" and "X" | |
+|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |
+|  Address | string | Extracted address (Driver's License only) ||
+|  Region | string | Extracted region, state, province, etc. (Driver's License only) |  |
+| 🆕 Endorsements | string | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
+| 🆕 Restrictions | string | Restricted driving privileges applicable to suspended or revoked licenses.| |
+| 🆕VehicleClassification | string | Types of vehicles that can be driven by a driver. ||
 
-The Identity documents  (ID) model enables you to extract key information from world-wide passports and US driver licenses. It extracts data such as the document ID, expiration date of birth, date of expiration, name, country, region, machine-readable zone and more.
+## Custom model
 
-:::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
+Azure Form Recognizer v3.0 custom model enable you to analyze and extract data from forms and documents specific to your business. When training custom models, you can specify certain fields as signatures.  When a document is analyzed with your custom model it will indicate whether a signature has been detected or not.
 
-## prebuilt-invoice
+To try signature detection:
 
-Azure Form Recognizer can analyze and extract information from sales invoices using its prebuilt invoice models. The Invoice API enables customers to take invoices in various formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices written in English. The prebuilt Invoice API is publicly available in the Form Recognizer v2.1.
+1. [**Build your training data set**](build-training-data-set.md#custom-model-input-requirements).
 
-:::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
+1. Navigate to the [**Form Recognizer sample labeling tool**](https://fott-preview-private.azurewebsites.net) and select **Use Custom to train a models with labels and get key value pairs**:
 
-## prebuilt-receipt
+    :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: fott tool select custom option.":::
 
-Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as merchant name, merchant phone number, transaction date, transaction total, and more from receipts written in English.
+1. In the next window, select **New project**:
 
-The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to analyze and return all of the text on a receipt.
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool select new project."::: 
 
-:::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
+1. Follow the  [**Custom model input requirements**](build-training-data-set.md#custom-model-input-requirements).
+
+1. Create a label with the type **Signature**.
+
+1. **Label your documents**.  For signature fields, using region labeling is recommended for better accuracy.
+
+1. Once your training set has been labeled, you can **train your custom model** and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
