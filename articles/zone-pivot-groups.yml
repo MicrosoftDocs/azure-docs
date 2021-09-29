@@ -448,6 +448,15 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+#Owner: antchu
+- id: runtime-version-programming-functions
+  title: Azure Functions version
+  prompt: Choose a runtime version&#58;
+  pivots:
+  - id: programming-runtime-functions-v3
+    title: Version 3.x 
+  - id: programming-runtime-functions-v4
+    title: Version 4.x 
 - id: programming-languages-metrics-monitor
   title: Programming languages
   prompt: Choose a programming language.
@@ -857,7 +866,15 @@ groups:
   - id: development-environment-vscode
     title: Visual Studio Code
   - id: development-environment-cli
-    title: Command line interface
+    title: Command-line interface
+- id: app-service-ide-oss
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command-line interface
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform
@@ -1349,3 +1366,14 @@ groups:
     title: Single node device
   - id: two-node
     title: Two node cluster
+# Owner: timlt
+- id: iot-develop-toolset
+  title: IoT Devices
+  prompt: Choose a build environment
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM
+  - id: iot-toolset-mplab
+    title: MPLAB

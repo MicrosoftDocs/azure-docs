@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 09/21/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -20,7 +20,6 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ## September 2021
 
 * Starting with version `3.0.017010001-onprem-amd64` The Text Analytics for health container can now be called using the client library. See [How to install and run Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) for more information.
-
 
 
 ## August 2021
