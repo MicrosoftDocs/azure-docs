@@ -40,7 +40,7 @@ The following settings allow you to configure your automated ML experiment.
 |----|:----:|:----:|
 |**Split data into train/validation sets**| ✓|✓
 |**Supports ML tasks: classification, regression, & forecasting**| ✓| ✓
-|**Supports computer vision tasks: image classification, object detection & instance segmentation**| ✓| 
+|**Supports computer vision tasks (preview): image classification, object detection & instance segmentation**| ✓| 
 |**Optimizes based on primary metric**| ✓| ✓
 |**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
@@ -155,7 +155,7 @@ During training, Azure Machine Learning creates a number of pipelines in paralle
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
-1. **Identify the ML problem** to be solved: classification, forecasting, regression or computer vision.
+1. **Identify the ML problem** to be solved: classification, forecasting, regression or computer vision (preview).
 
 1. **Choose whether you want to use the Python SDK or the studio web experience**:
    Learn about the parity between the [Python SDK and studio web experience](#parity).
@@ -270,7 +270,7 @@ More features are available when you use the remote compute, as shown in the tab
 | Azure ML Pipeline workflow support                         | ✓      |       |
 | Continue a run                                             | ✓      |       |
 | Forecasting                                                | ✓      | ✓     |
-| Computer vision                                               | ✓      |       |
+| Computer vision (preview)                                  | ✓      |       |
 | Create and run experiments in notebooks                    | ✓      | ✓     |
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
 | Data guardrails                                            | ✓      | ✓     |
