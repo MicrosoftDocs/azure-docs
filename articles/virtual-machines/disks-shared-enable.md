@@ -294,7 +294,7 @@ az disk update --name mySharedDisk --max-shares 5
 
 ### Disable sharing on a disk
 
-To disable sharing on an existing disk, use PowerShell to modify the `maxShares` parameter to 0.
+To disable sharing on an existing disk, modify the `maxShares` parameter to 0.
 
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs.
