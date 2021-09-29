@@ -58,10 +58,10 @@ For more information on subnet delegation, see [Add or remove a subnet delegatio
 
 For a disk to be able to be used in a disk pool, it must meet the following requirements:
 
-    - The **StoragePool** resource provider must have been assigned an RBAC role that contains **Read** and **Write** permissions for every managed disk in the disk pool.
-    - Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool.
-        - For ultra disks, it must have a disk sector size of 512 bytes.
-    - Must be a shared disk with a maxShares value of two or greater.
+- The **StoragePool** resource provider must have been assigned an RBAC role that contains **Read** and **Write** permissions for every managed disk in the disk pool.
+- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool.
+    - For ultra disks, it must have a disk sector size of 512 bytes.
+- Must be a shared disk with a maxShares value of two or greater.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select either the resource group that contains the disks or each disk themselves.
