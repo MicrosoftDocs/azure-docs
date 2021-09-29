@@ -14,7 +14,7 @@ custom question answering allows you to manage your knowledge bases by providing
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [Language resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Languageresource name you selected when you created the resource.
+> * A [Language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Languageresource name you selected when you created the resource.
 
 ## Create a knowledge base
 
@@ -29,7 +29,7 @@ custom question answering allows you to manage your knowledge bases by providing
     > [!div class="mx-imgBorder"]
     > ![Screenshot of create a new QnA service](../media/manage-knowledge-base/create-qna-service.png)
 
-    You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to set up the language resource in your subscription. You should add the Custom question answering feature to the service on creation. 
+    You are directed to the [Azure portal](https://aka.ms/create-language-resource) to set up the language resource in your subscription. You should add the Custom question answering feature to the service on creation. 
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of selecting additional features](../../../qnamaker/media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
