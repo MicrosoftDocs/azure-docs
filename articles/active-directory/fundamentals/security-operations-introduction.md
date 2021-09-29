@@ -153,7 +153,7 @@ As part of an Azure hybrid environment, the following should be baselined and in
 
 * **Azure AD Connect Sync Engine** - The on-premises component, also called the sync engine. For information on the feature, see [Azure AD Connect sync service features](../hybrid/how-to-connect-syncservice-features.md).
 
-* **Password Protection DC agent** – Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see ../authentication/concept-password-ban-bad-on-premises.md.
+* **Password Protection DC agent** – Azure password protection DC agent is used to help with monitoring and reporting event log messages. For information, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md). 
 
 * **Password Filter DLL** – The password filter DLL of the DC Agent receives user password-validation requests from the operating system. The filter forwards them to the DC Agent service that's running locally on the DC. For information on using the DLL, see [Enforce on-premises Azure AD Password Protection for Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md). 
 

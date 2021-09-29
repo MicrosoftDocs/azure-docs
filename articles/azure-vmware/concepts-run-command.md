@@ -2,7 +2,7 @@
 title: Concepts - Run command in Azure VMware Solution (Preview) 
 description: Learn about using run commands in Azure VMware Solution. 
 ms.topic: conceptual 
-ms.date: 08/31/2021
+ms.date: 09/17/2021
 ---
 
 
@@ -16,7 +16,7 @@ Azure VMware Solution supports the following operations:
 
 - [View and set storage policies](configure-storage-policy.md) 
 
-- [Deploy disaster recovery using JetStream DR](deploy-disaster-recovery-using-jetstream.md)
+- [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md)
 
 
 >[!NOTE]

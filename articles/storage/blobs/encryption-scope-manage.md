@@ -9,7 +9,7 @@ ms.date: 05/10/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ---
 

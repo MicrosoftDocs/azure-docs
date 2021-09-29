@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 09/13/2021
 ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Assign Azure AD roles at different scopes
 
-This article describes how to assign Azure AD roles at different scopes. To understanding scoping in Azure AD, refer to this doc - [Overview of RBAC in Azure AD](custom-overview.md). In general, you must be within the scope that you want the role assignment to be limited to. For example, if you want to assign Helpdesk Administrator role scoped over an [administrative unit](administrative-units.md), then you should go to **Azure AD > Administrative Units > {administrative unit} > Roles and administrators** and then do the role assignment. This will create a role assignment scoped to the administrative unit, not the entire tenant.
+In Azure Active Directory (Azure AD), you typically assign Azure AD roles so that they apply to the entire tenant. However, you can also assign Azure AD roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also call the scope. This article describes how to assign Azure AD roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Azure AD](custom-overview.md#scope).
 
 ## Prerequisites
 
@@ -117,6 +117,8 @@ Follow these instructions to assign a role using the Microsoft Graph API in [Gra
     ```
 
 ## Assign roles scoped to an administrative unit
+
+This section describes how to assign roles at an [administrative unit](administrative-units.md) scope.
 
 ### Azure portal
 
@@ -221,6 +223,8 @@ Follow these instructions to assign a role at administrative unit scope using th
 >Here directoryScopeId is specified as */administrativeUnits/foo*, instead of */foo*. It is by design. The scope */administrativeUnits/foo* means the principal can manage the members of the administrative unit (based on the role that she is assigned), not the administrative unit itself. The scope of */foo* means the principal can manage that Azure AD object itself. In the subsequent section, you will see that the scope is */foo* because a role scoped over an app registration grants the privilege to manage the object itself.
 
 ## Assign roles scoped to an app registration
+
+This section describes how to assign roles at an application registration scope.
 
 ### Azure portal
 

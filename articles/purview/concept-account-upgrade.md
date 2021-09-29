@@ -34,15 +34,15 @@ When your account is upgraded, you won't need to make any changes to use the ela
 
 Collections exist in legacy Purview accounts, but have new functionality and are managed in a different way in upgraded Purview accounts.
 
-Legacy collections were a way to organize data sources and artifacts in your Purview account. Collections are still used to customize your Purview data map to match your business landscape, but they now also include access control. Rather than controlling access at a high level outside your data map, through collections your access management experience will match your data map.
+[Legacy collections](how-to-create-and-manage-collections.md#legacy-collection-guide) were a way to organize data sources and artifacts in your Purview account. Collections are still used to customize your Purview data map to match your business landscape, but they now also include access control. Rather than controlling access at a high level outside your data map, through collections your access management experience will match your data map.
 
-Collections give you fine-grained control over your data sources, but also over discoverability. Users will only see assets in collections that they have access to, and so will only see the information they need.
+[Collections](how-to-create-and-manage-collections.md) give you fine-grained control over your data sources, but also over discoverability. Users will only see assets in collections that they have access to, and so will only see the information they need.
 
 When your Purview account is upgraded, your collections will be updated as well. All your current assets will be migrated into these new collections. In the sections below, we'll discuss where you can find your collections and your existing assets.
 
 ### Locate and manage collections
 
-To find your new collections, we'll start in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com) and selecting the **Open Purview Studio** tile on the overview page.
+To find your new collections, we'll start in the [Purview Studio](https://web.purview.azure.com/resource/). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com) and selecting the **Open Purview Studio** tile on the overview page.
 
 Select Data Map > Collections from the left pane to open the collection management page.
 
@@ -93,7 +93,7 @@ For your scheduled scans, you only need to wait for the next run of these scans,
 
 For one-time scans, you'll need to rerun these manually to populate the assets in your collection.
 
-1. In the Purview Studio, open the Data Map, select **Sources**. Select the source you want to scan.
+1. In the [Purview Studio](https://web.purview.azure.com/resource/), open the Data Map, select **Sources**. Select the source you want to scan.
 
     :::image type="content" source="./media/concept-account-upgrade/select-sources.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the sources highlighted." border="true":::
 

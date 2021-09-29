@@ -53,7 +53,7 @@ To access the FHIR service, we'll need to create or update the following variabl
 * **bearerToken** – The variable to store the Azure Active Directory (Azure AD) access token in the script. Leave it blank.
 
 > [!NOTE]
-> Ensure that you've configured the redirect URL, [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback), in the client application registration.
+> Ensure that you've configured the redirect URL, `https://www.getpostman.com/oauth2/callback`, in the client application registration.
 
 [ ![Screenshot of environments variable.](media/postman/postman-environments-variable.png) ](media/postman/postman-environments-variable.png#lightbox)
 

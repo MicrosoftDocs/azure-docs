@@ -99,6 +99,8 @@
         href: allocadia-tutorial.md
       - name: Ally.io
         href: ally-tutorial.md
+      - name: Altoura
+        href: altoura-tutorial.md  
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Managed Grafana
@@ -537,6 +539,8 @@
         href: cylanceprotect-tutorial.md
     - name: D - E
       items:
+      - name: Dagster Cloud
+        href: dagster-cloud-tutorial.md
       - name: DATABASICS
         href: databasics-tutorial.md
       - name: DataCamp
@@ -716,6 +720,8 @@
         href: fabric-tutorial.md
       - name: F5
         href: headerf5-tutorial.md
+      - name: Facebook Work Accounts
+        href: facebook-work-accounts-tutorial.md  
       - name: FactSet
         href: factset-tutorial.md
       - name: Fastly Edge Cloud
@@ -1164,6 +1170,8 @@
         href: lanschool-air-tutorial.md
       - name: LaunchDarkly
         href: launchdarkly-tutorial.md
+      - name: LawVu
+        href: lawvu-tutorial.md  
       - name: LCVista
         href: lcvista-tutorial.md
       - name: Leadfamly
@@ -1614,6 +1622,8 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
+      - name: Qualaroo
+        href: qualaroo-tutorial.md  
       - name: Quantum Workplace
         href: quantum-workplace-tutorial.md
       - name: Questetra BPM Suite
@@ -1684,6 +1694,8 @@
         href: roadmunk-tutorial.md
       - name: Robin
         href: robin-tutorial.md
+      - name: RSA Archer Suite
+        href: rsa-archer-suite-tutorial.md  
       - name: RStudio Connect SAML Authentication
         href: rstudio-connect-tutorial.md
       - name: RStudio Server Pro SAML Authentication
@@ -1932,6 +1944,8 @@
         href: ssogen-tutorial.md
       - name: Standard for Success Accreditation
         href: standard-for-success-accreditation-tutorial.md
+      - name: Starmind
+        href: starmind-tutorial.md  
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
@@ -2128,6 +2142,8 @@
         href: velpicsaml-tutorial.md
       - name: Veracode
         href: veracode-tutorial.md
+      - name: VergeSense
+        href: vergesense-tutorial.md  
       - name: Veritas Enterprise Vault.cloud SSO
         href: veritas-tutorial.md
       - name: Verkada Command
@@ -2379,6 +2395,8 @@
         href: britive-provisioning-tutorial.md
       - name: BrowserStack Single Sign-on
         href: browserstack-single-sign-on-provisioning-tutorial.md
+      - name: Cato Networks Provisioning
+        href: cato-networks-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Chatwork
@@ -2597,6 +2615,8 @@
         href: robin-provisioning-tutorial.md
       - name: Rollbar
         href: rollbar-provisioning-tutorial.md
+      - name: Rouse Sales
+        href: rouse-sales-provisioning-tutorial.md        
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
@@ -2659,6 +2679,8 @@
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md
+      - name: Taskize Connect
+        href: taskize-connect-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
