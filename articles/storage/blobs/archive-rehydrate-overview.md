@@ -24,26 +24,7 @@ Rehydrating a blob from the archive tier can take several hours to complete. Mic
 
 You can configure [Azure Event Grid](../../event-grid/overview.md) to raise an event when you rehydrate a blob from the archive tier to an online tier and to send the event to an event handler. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
 
-For more information about access tiers in Azure Storage, see [Access tiers for Azure Blob Storage - hot, cool, and archive](access-tiers-overview.md).
-
-## Archive access tier
-
-The archive access tier has the lowest storage cost but higher data retrieval costs compared to hot and cool tiers. Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge. Data in the archive tier can take several hours to retrieve depending on the specified rehydration priority. For small objects, a high priority rehydrate may retrieve the object from archive in under an hour. See [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md) to learn more.
-
-While a blob is in archive storage, the blob data is offline and can't be read or modified. To read or download a blob in archive, you must first rehydrate it to an online tier. You can't take snapshots of a blob in archive storage. However, the blob metadata remains online and available, allowing you to list the blob, its properties, metadata, and blob index tags. Setting or modifying the blob metadata while in archive isn't allowed. However, you can set and modify the blob index tags. For blobs in archive, the only valid operations are [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), [Set Blob Tags](/rest/api/storageservices/set-blob-tags), [Get Blob Tags](/rest/api/storageservices/get-blob-tags), [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags), [List Blobs](/rest/api/storageservices/list-blobs), [Set Blob Tier](/rest/api/storageservices/set-blob-tier), [Copy Blob](/rest/api/storageservices/copy-blob), and [Delete Blob](/rest/api/storageservices/delete-blob).
-
-Example usage scenarios for the archive access tier include:
-
-- Long-term backup, secondary backup, and archival datasets
-- Original (raw) data that must be preserved, even after it has been processed into final usable form
-- Compliance and archival data that needs to be stored for a long time and is hardly ever accessed
-
-> [!NOTE]
-> The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was set to LRS. An account can be moved back to GRS if the update is done less than 30 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
-
-Any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. 
-
-For example, if a blob is moved to archive and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
+For more information about access tiers in Azure Storage, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
 
 ## Rehydration priority
 
@@ -128,7 +109,7 @@ For more information about pricing for block blobs and data rehydration, see [Az
 
 ## See also
 
-- [Azure Blob Storage: hot, cool, and archive access tiers](access-tiers-overview.md).
+- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
 - [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
 - [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)
