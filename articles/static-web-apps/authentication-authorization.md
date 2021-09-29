@@ -205,6 +205,8 @@ To configure Static Web Apps to use an API function as the role assignment funct
 
 Once configured, the role assignment function can no longer be accessed by external HTTP requests.
 
+To learn more, see [Tutorial: Assign custom roles with a function and Microsoft Graph](assign-roles-microsoft-graph.md).
+
 ---
 
 ## Remove personal identifying information
