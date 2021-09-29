@@ -20,11 +20,8 @@ This article summarizes the documentation changes associated with new features a
 
 For Azure SQL Database, see [What's new](../database/doc-changes-updates-release-notes-whats-new.md).
 
-## Feature availability
 
-The following two sections list the features of Azure SQL Managed Instance that are currently in public preview or in general availability. 
-
-### Public preview
+## Public preview
 
 The following table lists the features of Azure SQL Managed Instance that are currently in public preview. 
 
@@ -45,7 +42,7 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 | [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
 |||
 
-### General availability (GA)
+## General availability (GA)
 
 The following table lists the features of Azure SQL Managed Instance that have gone from public preview to general availability (GA) within the last 12 months. 
 
@@ -58,14 +55,19 @@ The following table lists the features of Azure SQL Managed Instance that have g
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
 ||| 
 
-## July 2021
+## Documentation changes
+
+Learn about significant changes to the documentation.
+
+
+### July 2021
 
 | Changes | Details |
 | --- | --- |
 | **Maintenance window** | The maintenance window feature allows you to configure a maintenance schedule for your Azure SQL Managed Instance, currently in Public Preview. To learn more, see [maintenance window](/database/maintenance-window.md).|
 ||| 
 
-## June 2021
+### June 2021
 
 | Changes | Details |
 | --- | --- |
@@ -77,7 +79,7 @@ The following table lists the features of Azure SQL Managed Instance that have g
 |  | |
 
 
-## April 2021
+### April 2021
 
 | Changes | Details |
 | --- | --- |
@@ -85,7 +87,7 @@ The following table lists the features of Azure SQL Managed Instance that have g
 |  |  |
 
 
-## March 2021
+### March 2021
 
 | Changes | Details |
 | --- | --- |
@@ -97,7 +99,7 @@ The following table lists the features of Azure SQL Managed Instance that have g
 | **SQL insights** | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. To learn more, see [SQL insights](../../azure-monitor/insights/sql-insights-overview.md). | 
 ||| 
 
-## 2020
+### 2020
 
 The following changes were added to SQL Managed Instance and the documentation in 2020: 
 
@@ -116,7 +118,7 @@ The following changes were added to SQL Managed Instance and the documentation i
 | **User-initiated failover** | User-initiated failover is now generally available, providing you with the capability to manually initiate an automatic failover using PowerShell, CLI commands, and API calls, improving application resiliency. To learn more, see, [testing resiliency](../database/high-availability-sla.md#testing-application-fault-resiliency). 
 |  |  |
 
-## 2019
+### 2019
 
 The following changes were added to the product and the documentation in 2019: 
 
