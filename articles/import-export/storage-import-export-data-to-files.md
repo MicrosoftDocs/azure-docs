@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 09/28/2021
+ms.date: 09/29/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -33,8 +33,10 @@ In this tutorial, you learn how to:
 Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites. You must:
 
 - Have an active Azure subscription to use with Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
-- Have adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).<!--Add LFS note.--> 
+  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, "auto splitting" the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share?tabs=azure-portal.md#enable-large-files-shares-on-an-existing-account).
+  - For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
+- Have an adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 - Have downloaded the current release of the WAImportExport version 1 tool, for file imports, on the Windows system:
   1. [Download WAImportExport version 2](https://aka.ms/waiev2) (current version is 2.2.0.300).
@@ -58,21 +60,19 @@ Do the following steps to prepare the drives.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 3. Modify the *dataset.csv* file in the root folder where the tool is. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.
 
-   - **To import a file**: In the following example, the data to copy is on the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it's created in the Azure Storage account. Folder structure is maintained.
+   - **To import a file**: In the following example, the data to copy is on the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it's created in the Azure Storage account. Folder structure is maintained.<!--Sample command must be edited to remove Disposition, MetadataFile, PropertiesFile. It's not clear how much should go.-->
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-
        ```
    - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to the fileshare. Folder structure is maintained. If you import a file with the same name as an existing file in the destination folder, the imported file will overwrite that file.
    
        > [!NOTE]
-       > This behavior is different than with earlier releases of Azure ImportExport tool Version 1 (for imports). Versions before 1.5.0.300 had a /Disposition parameter that let you choose what to do when you import a file that already exists.
+       > The /Disposition parameter, which let you choose what to do when you import a file that already exists in earlier versions of the tool, is not supported in Azure ImportExport version 1.5.0.300. In the earlier tool versions, an imported file with the same name as an existing file was renamed by default.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
-
        ```
 
      Multiple entries can be made in the same file corresponding to folders or files that are imported.
@@ -82,7 +82,7 @@ Do the following steps to prepare the drives.
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
        ```
 
-     Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
+<!-->     Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).-->
 
 
 4. Modify the *driveset.csv* file in the root folder where the tool is. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
@@ -376,7 +376,7 @@ Install-Module -Name Az.ImportExport
 
 ## Step 5: Verify data upload to Azure
 
-Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you verify that upload was successful.
+Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you verify that upload was successful.<!--1) This needs to be beefed up. At minimum, Where to find the copy logs? The log format article has been archived. 2) Link to "Review log files" after it's revised, and let that article do the heavy lifting. 3) Import "error" sections into the "Review log files" after they are reviewed.-->
 
 ## Samples for journal files
 
