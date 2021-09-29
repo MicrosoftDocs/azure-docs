@@ -1,17 +1,17 @@
 ---
-title: 'Quickstart: Create an Purview account using Python'
+title: 'Quickstart: Create a Purview account using Python'
 description: Create an Azure Purview account using Python.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/10/2021
+ms.date: 09/27/2021
 ---
 
 # Quickstart: Create a Purview account using Python
 
-In this quickstart, you will create a Purview account programatically using Python.
+In this quickstart, you will create a Purview account programatically using Python. [Python reference for Purview](/python/api/azure-mgmt-purview/) is available, but this article will take you through all the steps needed to create an account with Python.
 
 Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
