@@ -71,16 +71,16 @@ to use -- this enables you to establish your own user permissions model if you w
 > information that is automatically available to Fluid code using the [audience](../how-tos/connect-fluid-azure-service.md#getting-audience-details) feature. See [Adding custom data to tokens](../how-tos/connect-fluid-azure-service.md#adding-custom-data-to-tokens) for more information.
 
 Every request to Azure Fluid Relay must be signed with a valid JWT. The Azure Fluid Relay documentation contains
-additional details about [how to sign the token](../how-tos/fluid-jwtoken.md#how-can-you-generate-an-azure-fluid-relay-token). Fluid delegates the responsibility of creating and signing these
+additional details about [how to sign the token](../how-tos/fluid-json-web-token.md#how-can-you-generate-an-azure-fluid-relay-token). Fluid delegates the responsibility of creating and signing these
 tokens to a *token provider.*
 
 > [!TIP]
 > Additional information:
 >
 > * [Introduction to JWTs](https://jwt.io/introduction)
-> * [Payload claims in Azure Fluid Relay](../how-tos/fluid-jwtoken.md#payload-claims)
+> * [Payload claims in Azure Fluid Relay](../how-tos/fluid-json-web-token.md#payload-claims)
 > * Scopes in Azure Fluid Relay
-> * [Signing requests](../how-tos/fluid-jwtoken.md#how-can-you-generate-an-azure-fluid-relay-token)
+> * [Signing requests](../how-tos/fluid-json-web-token.md#how-can-you-generate-an-azure-fluid-relay-token)
 
 ## The token provider
 
