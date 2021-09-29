@@ -9,28 +9,41 @@ ms.date: 07/28/2021
 
 ---
 
-# Visualize data from Azure Monitor
-This article summarizes the available methods to visualize metric and log data stored in Azure Monitor.
+# Deploy Azure Monitor - analyze and visualize data
+Azure Monitor provides multiple ways to interactively work with data that it collects. The Azure portal provides multiple builtin features that you to work with this data, and you can configure additional features to meet the requirements of administrators and other users in your organization. Visualizations such as charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns. Depending on the tool that you use, you might also have the option to share visualizations with other users inside and outside your organization.
 
-Visualizations such as charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns. Depending on the tool that you use, you might also have the option to share visualizations with other users inside and outside your organization.
+This article summarizes the available methods to work with metric and log data stored in Azure Monitor and recommendations on when to create additional resources for analysis.
+
+## Overview page
+Most Azure services will have an **Overview** page in the Azure portal that includes a **Monitor** section with charts showing recent charts for critical metrics. This is intended for owners of individual services to quickly assess the performance of the resource. There's no configuration required for this feature.
+
+## Metrics explorer
+Metrics explorer allows users to interactively work with metric data and create metric alerts. Most users will be able to use metrics explorer with minimal training but must be familiar with the metrics they want to analyze. There's no configuration required for this feature.
+
+
+## Log Analytics
+Log Analytics allows users to create log queries to interactively work with log data and create log query alerts. There is some training required for users to become familiar with the query language, although they can use prebuilt queries provided by Microsoft. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. This allows users who are familiar with the query language to make queries available to others in the organization.
+
 
 ## Workbooks
-[Workbooks](./visualize/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Workbooks are especially useful for troubleshooting guides and incident postmortems.
+[Workbooks](./visualize/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Workbooks are especially useful for troubleshooting guides and incident postmortems. Insights will provide workbooks to present users with critical health and performance information for a particular service. You can access a gallery of additional workbooks in the **Workbooks** tab of the Azure Monitor menu and create custom workbooks to meet requirements of your different users.
 
 ![Diagram that shows screenshots of three pages from a workbook, including Analysis of Page Views, Usage, and Time Spent on Page.](media/visualizations/workbook.png)
 
-Advantages of a workbook include:
+Unique advantages of custom workbooks include:
 
-- Support for both metrics and logs.
-- Support for parameters that enable interactive reports, where selecting an element in a table will dynamically update associated charts and visualizations.
-- Document-like flow.
-- Options for personal or shared workbooks.
-- Easy, collaborative authoring experience.
+- Include both metric data and log data in the same workbooks.
+- Define parameters that enable interactive reports, where selecting an element in a table will dynamically update associated charts and visualizations.
+- Document-like usage flow.
+- Options for personal or shared workbooks. Allows centralized administrators to provide custom workbooks to other users in the organization.
+- Collaborative authoring experience that requires minimal training.
 - Templates that support a public GitHub-based template gallery.
 
 
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're useful in providing a single pane of glass over your Azure infrastructure and services, so you can quickly identify important issues.
+
+See [Create and share dashboards of Log Analytics data](visualize/tutorial-logs-dashboards.md) for details on creating a dashboard that includes data from Azure Monitor Logs. See [Create custom KPI dashboards using Azure Application Insights](app/tutorial-app-dashboards.md) for details on creating a dashboard that includes data from Application Insights. 
 
 ![Screenshot that shows an example of an Azure dashboard with customizable information.](media/visualizations/dashboard.png)
 
@@ -122,32 +135,6 @@ Advantages of building a custom application include:
 
 One significant disadvantage is that it requires engineering effort.
 
-## Azure Monitor views
-
-> [!IMPORTANT]
-> Views are in the process of being deprecated. For guidance on converting views to workbooks, see the [transition guide](visualize/view-designer-conversion-overview.md).
-
-[Views in Azure Monitor](visualize/view-designer.md) allow you to create custom visualizations by using log data. [Monitoring solutions](insights/solutions.md) use views to present the data that they collect.
-
-
-![Screenshot that shows a Container Monitoring Solution tile and the detailed Azure Monitor view that opens when you select it.](media/visualizations/view.png)
-
-Advantages of views include:
-
-- Rich visualizations for log data.
-- The ability to export and import views, to transfer them to other resource groups and subscriptions.
-- Integration into the Azure Monitor management model, with workspaces and monitoring solutions.
-- [Filters](visualize/view-designer-filters.md) for custom parameters.
-- Interactivity, with support for multilevel drill-in (a view that drills into another view).
-
-Limitations include:
-
-- Support for logs but not metrics.
-- No personal views. A view is available to all users with access to the workspace.
-- No automatic refresh.
-- Limited layout options.
-- No support for querying across multiple workspaces or Application Insights applications.
-- Limited query response size (8 MB) and query execution time (110 seconds).
 
 ## Next steps
 - Learn about the [data that Azure Monitor collects](data-platform.md).

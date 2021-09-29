@@ -29,37 +29,24 @@ See [Create diagnostic setting to collect resource logs and metrics in Azure](es
 ## Create diagnostic setting to collect resource logs and platform metrics
 Resources in Azure automatically generate [resource logs](essentials/platform-logs-overview.md) that provide details of operations performed within the resource. Unlike platform metrics though, you need to configure resource logs to be collected. Create a diagnostic setting to send them to a Log Analytics workspace to combine them with the other data used with Azure Monitor Logs. The same diagnostic setting can be used to also send the platform metrics for most resources to the same workspace, which allows you to analyze metric data using log queries with other collected data.
 
-There is a cost for this collection so refer to [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before implementing across a significant number of resources. Also see [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details on optimizing the cost of your log collection.
+There is a cost for collecting resource logs in your Log Analytics workspace, so only select those log categories with valuable data. Collecting all categories will incur cost for collecting data with little value. See the monitoring documentation for each Azure service for a description of categories and recommendations for which to collect. Also see [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details on optimizing the cost of your log collection.
 
 
-## Onboard at scale
-Although some Azure Monitor features are configured once or a limited number of times, such creating a Log Analytics workspace or configuring a data collection rule, others must be repeated for each resource that you want to monitor. In addition to performing this configuration quickly for existing resources, you should have the expectation that monitoring is automatically configured for any new resources as they're created.
+### Onboard at scale
+Since a diagnostic setting needs to be created for each Azure resource, use Azure Policy to automatically create a diagnostic setting as each resource is created. Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
-The tasks that will require at-scale configuration include the following:
-
-- Diagnostic settings to collect resource logs from Azure resources.
-- Agent deployment and configuration for virtual machines.
-
-Each of these tasks can be performed for existing resources using command line methods including PowerShell and CLI. Use Azure Policy to automate these tasks for any new resources. See [Deploy Azure Monitor at scale by using Azure Policy](deploy-scale.md) for details on this configuration.
-
+See [Create at scale using Azure Policy](essentials/diagnostic-settings.md#create-at-scale-using-azure-policy) for a process for creating creating policy definitions for Azure services and details for creating diagnostic settings at scale.
 
 ## Enable insights
-Insights provide specialized monitoring for a particular service. Insights use more recent features of Azure Monitor such as workbooks, so you should use an insight if it's available for your service. They are automatically available in every Azure subscription but may require some configuration for full functionality. They will typically use platform metrics and resources logs that you previously configured and could collect additional data.
+Insights provide a specialized monitoring experience for a particular service. They use the same data available in Metrics and Logs, but they provide custom workbooks the assist you in identifying and analyzing the most critical data. Most insights will be available in the Azure portal with no configuration required, other than collecting resource logs for that service. See the monitoring documentation for each Azure service to determine whether it has an insight and if it requires configuration.
 
 There is no cost for insights, but you may be charged for any data they collect.
 
 See [What is monitored by Azure Monitor?](monitor-reference.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information. 
 
 
-## Collect data from virtual machines
-
-> [!NOTE]
-> See [Monitoring Azure virtual machines with Azure Monitor](vm/monitor-vm-azure.md) for a complete guide on monitoring virtual machines with Azure Monitor. 
-
-Virtual machines generate similar data as other Azure resources, but you need an agent to collect data from the guest operating system. See [Overview of Azure Monitor agents](agents/agents-overview.md) for a comparison of the agents used by Azure Monitor. 
-
-[VM insights](vm/vminsights-overview.md) uses the Log Analytics agent and Dependency agent to collect data from the guest operating system of virtual machines, so you can deploy these agents as part of the implementation of this insight. This enables the Log Analytics agent for other services that use it such as Azure Security Center.
-
+## Collect guest data from virtual machines
+Virtual machines generate similar data as other Azure resources, but you need an agent to collect data from the guest operating system. Virtual machines also have unique monitoring requirements because of the different workloads running on them. See [Monitoring Azure virtual machines with Azure Monitor](vm/monitor-vm-azure.md) for a complete guide on monitoring virtual machines with Azure Monitor. This includes guidance on automatically deploying agents and enabling VM insights for all new virtual machines using Azure Policy.
 
 [ ![Deploy Azure VM](media/deploy/deploy-azure-vm.png) ](media/deploy/deploy-azure-vm.png#lightbox)
 
@@ -68,21 +55,6 @@ Virtual machines generate similar data as other Azure resources, but you need an
 Once a workspace has been configured, you can enable each virtual machine by installing the Log Analytics agent and Dependency agent. There are multiple methods for installing these agents including Azure Policy which allows you automatically configure each virtual machine as it's created. Performance data and process details collected by VM insights is stored in Azure Monitor Logs.
 
 See [Enable VM insights overview](vm/vminsights-enable-overview.md) for options to deploy the agents to your virtual machines and enable them for monitoring.
-
-
-### Configure workspace to collect events
-VM insights will collect performance data and the details and dependencies of processes from the guest operating system of each virtual machine. The Log Analytics agent can also collect logs from the guest including the event log from Windows and syslog from Linux. It retrieves the configuration for these logs from the Log Analytics workspace it's connected to. You only need to configure the workspace once, and each time an agent connects, it will download any configuration changes. 
-
-See [Agent data sources in Azure Monitor](agents/agent-data-sources.md) for details on configuring your Log Analytics workspace to collect additional data from your agent virtual machines.
-
-> [!NOTE]
-> You can also configure the workspace to collect performance counters, but this will most likely be redundant with performance data collected by VM insights. Performance data collected by the workspace will be stored in the *Perf* table, while performance data collected by VM insights is stored in the *InsightsMetrics* table. Configure performance collection in the workspace only if you require counters that aren't already collected by VM insights.
-
-### Diagnostic extension and Telegraf agent
-VM insights uses the Log Analytics agent which sends performance data to a Log Analytics workspace but not to Azure Monitor Metrics. Sending this data to Metrics allows it to be analyzed with Metrics Explorer and used with metric alerts. This requires the diagnostic extension on Windows and the Telegraf agent on Linux.
-
-See [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md) and [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md) for details on installing and configuring these agents.
-
 
 ## Monitor applications
 Azure Monitor monitors your custom applications using [Application Insights](app/app-insights-overview.md), which you must configure for each application you want to monitor. The configuration process will vary depending on the type of application being monitored and the type of monitoring that you want to perform. Data collected by Application Insights is stored in Azure Monitor Metrics, Azure Monitor Logs, and Azure blob storage, depending on the feature. Performance data is stored in both Azure Monitor Metrics and Azure Monitor Logs with no additional configuration required.
@@ -128,3 +100,7 @@ See [Profile production applications in Azure with Application Insights](app/pro
 Snapshot Debugger in Application Insights monitors exception telemetry from your .NET application and collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. The process for configuring Snapshot Debugger varies depending on the type of application. 
 
 See [Debug snapshots on exceptions in .NET apps](app/snapshot-debugger.md) for details on configuring Snapshot Debugger.
+
+## Next steps
+
+- With data collection configured for all of your Azure resources, see [Alerts and automated actions](deploy-alerts.md) to configure responses to take to issues identified in your monitoring data.

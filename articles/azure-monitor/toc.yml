@@ -170,10 +170,10 @@
       href: deploy-plan.md
     - name: Data collection
       href: deploy-data-collection.md
-    - name: Analysis
-      href: deploy-analysis.md
     - name: Alerts and automated actions
       href: deploy-alerts.md
+    - name: Visualize
+      href: visualizations.md
   - name: Scenarios
     items:
     - name: Monitor virtual machines
