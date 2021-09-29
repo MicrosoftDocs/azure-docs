@@ -10,23 +10,25 @@ ms.date: 02/11/2021
 
 # Overview of Azure IoT Device SDKs
 
-The Azure IoT device SDKs are a set of device client libraries, developer guides, samples, and documentation. The device SDKs help you to programmatically connect devices to Azure IoT services. Azure IoT provides many different device SDKs, designed to fit your device and programming language needs. 
+The Azure IoT device SDKs cover device client libraries, developer guides, samples, and documentation. The device SDKs provide a convenient way to connect devices to Azure IoT services. The SDKs are available in a variety of programming languages as well as different RTOS supported versions for Embedded devices.
 
 ## Why use an Azure IoT Device SDK?
 
-To connect devices to Azure IoT, you can build a custom connection layer or use Azure IoT Device SDKs. There are several advantages to using Azure IoT Device SDKs:
+The advantages of using an Azure IoT Device SDK over building a custom connection layer are outlined below:
 
 | | Custom connection layer | Azure IoT Device SDKs |
 | :-- | :------------------------------------------------ | :---------------------------------------- |
-| **Support** | Need to support and document whatever you build | Have access to Microsoft support (GitHub, Microsoft Q&A, Microsoft Docs, Customer Support teams) |
-| **New Features** | Need to add new Azure features to custom middleware | Can immediately take advantage of new features that Microsoft constantly adds to the IoT SDKs |
+| **Support** | Need to support and document your solution | Access to Microsoft support (GitHub, Microsoft Q&A, Microsoft Docs, Customer Support teams) |
+| **New Features** | Need to manually add new Azure features | Can immediately take advantage of new features added |
 | **Investment** | Invest hundreds of hours of embedded development to design, build, test, and maintain a custom version | Can take advantage of free, open-source tools. The only cost associated with the SDKs is the learning curve. |
 
 ## Which SDK should I use?
 
-Azure IoT Device SDKs are available in popular programming languages including C, C#, Java, Node.js, and Python. There are two primary considerations when you choose an SDK: device capabilities, and your team's familiarity with the programming language.
+The primary consideration to account for when choosing your SDK is the devices capabilities. Many devices, particularly MCU based, have memory and compute limitations. For more information on the different device catagories, refer to [Azure IoT Device Types](#concepts-iot-device-types) to he,p you choose the write category of SDK's for your device.
 
-### Device capabilities
+Azure IoT offers two categories of device SDKs:
+* For embedded devices, refer to [Embedded Device SDKs](#embedded-device-sdks)
+* For all other devices, refer to [Device Application SDKs](#device-application-sdks).
 
 When you're choosing an SDK, you'll need to consider the limits of the devices you're using. A constrained device is one that has a single micro-controller (MCU) and limited memory. If you're using a constrained device, we recommend that you use the [Embedded C SDK](#embedded-c-sdk). This SDK is designed to provide the bare minimum set of capabilities to connect to Azure IoT. You can also select components (MQTT client, TLS, and socket libraries) that are most optimized for your embedded device. If your constrained device also runs Azure RTOS, you can use the Azure RTOS middleware to connect to Azure IoT. The Azure RTOS middleware wraps the Embedded C SDK with extra functionality to simplify connecting your Azure RTOS device to the cloud.
 
@@ -58,13 +60,13 @@ These SDKs can run on any device that can support a higher-order language runtim
 | Java | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [IoT Hub](quickstart-send-telemetry-iot-hub?pivots=programming-language-java) / [IoT Central](quickstart-send-telemetry-central?pivots=programming-language-java) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples) | [Reference](/java/api/com.microsoft.azure.sdk.iot.device) |
 | C | [packages](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#getting-the-sdk) | [GitHub](https://github.com/Azure/azure-iot-sdk-c) | [IoT Hub](quickstart-send-telemetry-iot-hub?pivots=programming-language-ansi-c) / [IoT Central](quickstart-send-telemetry-central?pivots=programming-language-ansi-c) | [Samples](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) | [Reference](/azure/iot-hub/iot-c-sdk-ref/) |
 
-### Python Device SDK
-
-* [Reference Documentation](/python/api/azure-iot-device)
-* [Edge Module Reference Documentation](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient)
-
-## Embedded device development SDKs
+## Embedded device SDKs
 These SDKs are specialized to run on devices with limited compute or memory resources. To learn more about common device types, see [Overview of Azure IoT device types](concepts-iot-device-types.md).
+
+[!div class="tab"]
+
+:::zone pivot="embedded-c-sdk"
+:::zone-end
 
 ### Embedded C SDK
 * [GitHub Repository](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot)
@@ -78,52 +80,6 @@ These SDKs are specialized to run on devices with limited compute or memory reso
 * [GitHub Repository](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot)
 * [Getting Started Guides](https://github.com/azure-rtos/getting-started) and [more samples](https://github.com/azure-rtos/samples)
 * [Reference Documentation](/azure/rtos/threadx/)
-
-### Unconstrained Device SDKs
-These SDKs can run on any device that can support a higher-order language runtime. This includes devices such as PCs, Raspberry Pis, and smartphones. They're differentiated primarily by language so you can choose whichever library that best suits your team and scenario.
-
-#### C Device SDK
-* [GitHub Repository](https://github.com/Azure/azure-iot-sdk-c)
-* [Samples](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples)
-* [Packages](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
-* [Reference Documentation](/azure/iot-hub/iot-c-sdk-ref/)
-* [Edge Module Reference Documentation](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
-* [Compile the C Device SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
-* [Porting the C SDK to other platforms](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
-* [Developer documentation](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc) for information on cross-compiling and getting started on different platforms
-* [Azure IoT Hub C SDK resource consumption information](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
-
-#### C# Device SDK
-
-* [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp)
-* [Samples](https://github.com/Azure/azure-iot-sdk-csharp#samples)
-* [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)
-* [Reference Documentation](/dotnet/api/microsoft.azure.devices)
-* [Edge Module Reference Documentation](/dotnet/api/microsoft.azure.devices.client.moduleclient)
-
-#### Java Device SDK
-
-* [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java)
-* [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples)
-* [Package](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk)
-* [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.device)
-* [Edge Module Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
-
-#### Node.js Device SDK
-
-* [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node)
-* [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
-* [Package](https://www.npmjs.com/package/azure-iot-device)
-* [Reference Documentation](/javascript/api/azure-iot-device/)
-* [Edge Module Reference Documentation](/javascript/api/azure-iot-device/moduleclient)
-
-#### Python Device SDK
-
-* [GitHub Repository](https://github.com/Azure/azure-iot-sdk-python)
-* [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples)
-* [Package](https://pypi.org/project/azure-iot-device/)
-* [Reference Documentation](/python/api/azure-iot-device)
-* [Edge Module Reference Documentation](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient)
 
 ## Next Steps
 
