@@ -296,6 +296,9 @@ By integrating Azure Application Insights into Azure AD B2C custom policies, you
 
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
 
+## Azure AD B2C service limits and restrictions
+Learn more about [Azure AD B2C service limits and restrictions](service-limits.md)
+
 ## Next steps
 
 Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
