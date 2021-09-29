@@ -107,6 +107,7 @@ sections:
           - East US
           - East US 2
           - West US 2
+          - West US 3
           - Canada Central
           - France Central
           - Germany West Central
@@ -129,11 +130,14 @@ sections:
           You'll receive an HTTP status code 429 response under these circumstances:
           
           * Exceeding the daily request limit for a store in the Free tier.
-          * Temporary throttling due to a high request rate for a store in the Standard tier.
+          * Exceeding the hourly request limit for a store in the standard tier.
+          * Momentary throttling due to a large burst of requests†.
           * Excessive bandwidth usage.
-          * Attempting to create or modify a key when the storage quote is exceeded.
+          * Attempting to create or modify a key when the storage quota is exceeded.
           
           Check the body of the 429 response for the specific reason why the request failed.
+          
+          †A configuration store may experience momentary throttling if it receives a large burst of requests. App Configuration clients, such as the Azure SDK, configuration provider libraries, and Azure Pipeline tasks, automatically retry on throttled requests. For any applications using one of these clients, or a custom client that retries on throttled requests, this momentary throttling should go unnoticed, should it occur.
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
         answer: |

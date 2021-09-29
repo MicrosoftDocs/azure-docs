@@ -54,6 +54,8 @@ The following scenarios are defined by service as alertable scenarios.
 - Backup/Restore failures
 - Backup succeeded with warnings for Microsoft Azure Recovery Services (MARS) agent
 - Stop protection with retain data/Stop protection with delete data
+- Soft-delete functionality disabled for vault
+- Unsupported backup type for database workloads
 
 ### Alerts from the following Azure Backup solutions are shown here
 
@@ -67,7 +69,7 @@ The following scenarios are defined by service as alertable scenarios.
 
 ### Consolidated Alerts
 
-For Azure workload backup solutions such as SQL and SAP HANA, log backups can be generated very frequently (up to every 15 minutes according to the policy). So it's also possible that the log backup failures are also very frequent (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence. So an alert is sent for the first occurrence and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if the alert is inactivated by the user, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
+For Azure workload backup solutions such as SQL and SAP HANA, log backups can be generated very frequently (up to every 15 minutes according to the policy). So it's also possible that the log backup failures are also very frequent (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence. So an alert is sent for the first occurrence and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if the alert is inactivated by the user, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups. On-demand backup jobs are not consolidated.
 
 ### Exceptions when an alert is not raised
 
@@ -150,6 +152,14 @@ To opt-in to Azure Monitor alerts for backup failure and restore failure scenari
 3. Click **Register** to enable this feature for your subscription.
     > [!NOTE]
     > It may take up to 24 hours for the registration to take effect. To enable this feature for multiple subscriptions, repeat the above process by selecting the relevant subscription at the top of the screen. We also recommend to re-register the preview flag if a new resource has been created in the subscription after the initial registration to continue receiving alerts.
+
+4. As a best practice, we also recommend you to register the resource provider to ensure that the feature registration information gets synced with the Azure Backup service as expected. To register the resource provider, run the following PowerShell command in the subscription for which you have registered the feature flag.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace <ProviderNamespace>
+```
+
+To receive alerts for Recovery Services vaults, use the value _Microsoft.RecoveryServices_ for the _ProviderNamespace_ parameter. To receive alerts for Backup vaults, use the value _Microsoft.DataProtection_.
 
 ### Viewing fired alerts in the Azure portal 
 

@@ -10,8 +10,7 @@ ms.date: 07/30/2021
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
 1. **Logical replication**

@@ -13,6 +13,8 @@ ms.date: 05/10/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Use the Parse transformation to parse columns in your data that are in document form. The current supported types of embedded documents that can be parsed are JSON, XML, and delimited text.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
@@ -50,7 +52,7 @@ Here is where you will configure the target output schema from the parsing that 
 
 In this example, we have defined parsing of the incoming field "jsonString" which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
 
-```(trade as boolean, customers as string[])```
+`(trade as boolean, customers as string[])`
 
 Refer to the inspect tab and data preview to verify your output is mapped properly.
 

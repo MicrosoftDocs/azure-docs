@@ -17,6 +17,7 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
 
+<<<<<<< HEAD
 ## October 2021
 
 ### Support for 122 languages (print) and 7 languages (handwritten)
@@ -28,6 +29,15 @@ Extraction of handwritten text now supports 7 languages that include English, an
 ### Tables and text extraction enhancements
 
 Layout now supports extracting tables with key-value pairs also called the key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
+=======
+## September 2021
+
+"Fix the inaccurate name extraction in Prebuilt IDs (Driver's License) when there's suffix/dot in name."
+
+[Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) available on your Form Recognizer resource overview page in the Azure portal. 
+
+:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot: metrics charts in Azure portal.":::
+>>>>>>> 22043e9f5edc7f5c86b31fa8acae5005f05c7d3d
 
 ## July 2021
 

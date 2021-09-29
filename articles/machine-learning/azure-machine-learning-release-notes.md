@@ -47,6 +47,16 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Expose the `test_data` and `test_size` parameters in `AutoMLConfig`. These parameters can be used to automatically start a test run after the model 
     + training phase has been 	completed. The test run will compute predictions using the best model and will generate metrics given these predictions.
 
+## 2021-08-24
+
+### Azure Machine Learning Experimentation User Interface
+  + **Run Delete**
+    + Run Delete is a new functionality that allows users to delete one or multiple runs from their workspace.
+    + This functionality can help users reduce storage costs and manage storage capacity by regularly deleting runs and experiments from the UI directly.
+  + **Batch Cancel Run**
+    + Batch Cancel Run is new functionality that allows users to select one or multiple runs to cancel from their run list. 
+    + This functionality can help users cancel multiple queued runs and free up space on their cluster.
+
 ## 2021-08-18
 
 ### Azure Machine Learning Experimentation User Interface

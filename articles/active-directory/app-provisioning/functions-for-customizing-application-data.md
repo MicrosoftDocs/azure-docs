@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/30/2021
+ms.date: 09/21/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -34,7 +34,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 
 ## List of Functions
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [AppRoleAssignmentsComplex](#approleassignmentscomplex) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateDiff](#datediff) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IgnoreFlowIfNullOrEmpty](#ignoreflowifnullorempty) &nbsp;&nbsp;&nbsp;&nbsp;[IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) &nbsp;&nbsp; &nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### Append
@@ -656,24 +656,24 @@ Requires one string argument. Returns the string, but with any diacritical chara
 
 | Character with Diacritic  | Normalized character | Character with Diacritic  | Normalized character | 
 | --- | --- | --- | --- | 
-| ä, à, â, ã, å, á, ą, ă | a | Ä, À, Â, Ã, Å, Á, Ą, Ă | A | 
-| æ | ae | Æ | AE | 
-| ç, č, ć | c | Ç, Č, Ć | C | 
-| ď | d | Ď | D | 
-| ë, è, é, ê, ę, ě, ė | e | Ë, È, É, Ê, Ę, Ě, Ė | E | 
-| ğ | g | Ğ | G | 
-| Ï, Î, Ì, Í, İ | I | ï, î, ì, í, ı | i | 
-| ľ, ł | l |  Ł, Ľ | L | 
-| ñ, ń, ň | n |  Ñ, Ń, Ň | N | 
-| ö, ò, ő, õ, ô, ó | o |  Ö, Ò, Ő, Õ, Ô, Ó | O | 
-| ø | oe |  Ø | OE | 
-| ř | r |  Ř | R | 
+| ä, à, â, ã, å, á, ą, ă, ā, ā́, ā̀, ā̂, ā̃, ǟ, ā̈, ǡ, a̱, å̄ | a | Ä, À, Â, Ã, Å, Á, Ą, Ă, Ā, Ā́, Ā̀, Ā̂, Ā̃, Ǟ, Ā̈, Ǡ, A̱, Å̄ | A | 
+| æ, ǣ | ae | Æ, Ǣ | AE | 
+| ç, č, ć, c̄, c̱ | c | Ç, Č, Ć, C̄, C̱ | C | 
+| ď, d̄, ḏ | d | Ď, D̄, Ḏ | D | 
+| ë, è, é, ê, ę, ě, ė, ē, ḗ, ḕ, ē̂, ē̃, ê̄, e̱, ë̄, e̊̄ | e | Ë, È, É, Ê, Ę, Ě, Ė, Ē, Ḗ, Ḕ, Ē̂, Ē̃, Ê̄, E̱, Ë̄, E̊̄ | E | 
+| ğ, ḡ, g̱ | g | Ğ, Ḡ, G̱ | G | 
+| ï, î, ì, í, ı, ī, ī́, ī̀, ī̂, ī̃, i̱ | i | Ï, Î, Ì, Í, İ, Ī, Ī́, Ī̀, Ī̂, Ī̃, I̱ | I |  
+| ľ, ł, l̄, ḹ, ḻ | l |  Ł, Ľ, L̄, Ḹ, Ḻ | L | 
+| ñ, ń, ň, n̄, ṉ | n |  Ñ, Ń, Ň, N̄, Ṉ | N | 
+| ö, ò, ő, õ, ô, ó, ō, ṓ, ṑ, ō̂, ō̃, ȫ, ō̈, ǭ, ȭ, ȱ, o̱ | o |  Ö, Ò, Ő, Õ, Ô, Ó, Ō, Ṓ, Ṑ, Ō̂, Ō̃, Ȫ, Ō̈, Ǭ, Ȭ, Ȱ, O̱ | O | 
+| ø, ø̄, œ̄  | oe |  Ø, Ø̄, Œ̄ | OE | 
+| ř, r̄, ṟ, ṝ | r |  Ř, R̄, Ṟ, Ṝ | R | 
 | ß | ss | | | 
-| š, ś, ș, ş | s |  Š, Ś, Ș, Ş | S | 
-| ť, ț | t | Ť, Ț | T | 
-| ü, ù, û, ú, ů, ű | u |  Ü, Ù, Û, Ú, Ů, Ű | U | 
-| ÿ, ý | y | Ÿ, Ý | Y | 
-| ź, ž, ż | z | Ź, Ž, Ż | Z | 
+| š, ś, ș, ş, s̄, s̱ | s |  Š, Ś, Ș, Ş, S̄, S̱ | S | 
+| ť, ț, t̄, ṯ | t | Ť, Ț, T̄, Ṯ | T | 
+| ü, ù, û, ú, ů, ű, ū, ū́, ū̀, ū̂, ū̃, u̇̄, ǖ, ṻ, ṳ̄, u̱ | u |  Ü, Ù, Û, Ú, Ů, Ű, Ū, Ū́, Ū̀, Ū̂, Ū̃, U̇̄, Ǖ, Ṻ, Ṳ̄, U̱ | U | 
+| ÿ, ý, ȳ, ȳ́, ȳ̀, ȳ̃, y̱ | y | Ÿ, Ý, Ȳ, Ȳ́, Ȳ̀, Ȳ̃, Y̱ | Y | 
+| ź, ž, ż, z̄, ẕ | z | Ź, Ž, Ż, Z̄, Ẕ | Z | 
 
 
 #### Remove diacritics from a string
@@ -739,6 +739,51 @@ The NumFromDate function converts a DateTime value to Active Directory format th
 
 
 ---
+### PCase
+**Function:** 
+PCase(source, wordSeparators)
+
+**Description:** 
+The PCase function converts the first character of each word in a string to upper case, and all other characters are converted to lower case.
+
+**Parameters:** 
+
+| Name | Required/Optional | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |**source** value to convert to proper case. |
+| **wordSeparators** |Optional |String |Specify a set of characters that will be used as word separators (example: " ,-'") |
+
+**Remarks:**
+
+* If the *wordSeparators* parameter is not specified, then PCase internally invokes the .NET function [ToTitleCase](/dotnet/api/system.globalization.textinfo.totitlecase) to convert the *source* string to proper case. The .NET function *ToTitleCase* supports a comprehensive set of the  [Unicode character categories](https://www.unicode.org/reports/tr44/#General_Category_Values) as word separators. 
+  * Space character
+  * New line character
+  * *Control* characters like CRLF
+  * *Format* control characters
+  * *ConnectorPunctuation* characters like underscore
+  * *DashPunctuation* characters like dash and hyphen (including characters such En Dash, Em Dash, double hyphen, etc.)
+  * *OpenPunctuation* and *ClosePunctuation* characters that occur in pairs like parenthesis, curly bracket, angle bracket, etc. 
+  * *InitialQuotePunctuation* and *FinalQuotePunctuation* characters like single quotes, double quotes and angular quotes. 
+  * *OtherPunctuation* characters like exclamation mark, number sign, percent sign, ampersand, asterisk, comma, full stop, colon, semi-colon, etc. 
+  * *MathSymbol* characters like plus sign, less-than and greater-than sign, vertical line, tilde, equals sign, etc.
+  * *CurrencySymbol* characters like dollar sign, cent sign, pound sign, euro sign, etc. 
+  * *ModifierSymbol* characters like macron, accents, arrow heads, etc. 
+  * *OtherSymbol* characters like copyright sign, degree sign, registered sign, etc. 
+* If the *wordSeparators* parameter is specified, then PCase only uses the characters specified as word separators. 
+
+**Example:**
+
+Let's say you are sourcing the attributes *firstName* and *lastName* from SAP SuccessFactors and in HR both these attributes are in upper-case. Using the PCase function, you can convert the name to proper case as shown below. 
+
+| Expression | Input | Output | Notes |
+| --- | --- | --- | --- |
+| `PCase([firstName])` | *firstName* = "PABLO GONSALVES (SECOND)" | "Pablo Gonsalves (Second)" | As the *wordSeparators* parameter is not specified, the *PCase* function uses the default word separators character set. |
+| `PCase([lastName]," '-")` | *lastName* = "PINTO-DE'SILVA" | "Pinto-De'Silva" | The *PCase* function uses characters in the *wordSeparators* parameter to identify words and transform them to proper case. |
+| `PCase(Join(" ",[firstName],[lastName]))` | *firstName* = GREGORY, *lastName* = "JAMES" | "Gregory James" | You can nest the Join function within PCase. As the *wordSeparators* parameter is not specified, the *PCase* function uses the default word separators character set.  |
+
+
+---
+
 ### RemoveDuplicates
 **Function:** 
 RemoveDuplicates(attribute)
