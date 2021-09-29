@@ -99,8 +99,8 @@ Changing a blob's tier from hot to cool or archive is instantaneous, as is chang
 
 Keep in mind the following points when moving a blob between the cool and archive tiers:
 
-1. If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
-1. If a blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
+- If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
+- If a blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
 
 ## Blob lifecycle management
 
