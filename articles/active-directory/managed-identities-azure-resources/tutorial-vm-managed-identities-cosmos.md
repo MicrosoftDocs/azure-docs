@@ -41,7 +41,7 @@ Create a resource groups called **mi-test** for all resources used in this tutor
 
 ## Create an Azure VM with a managed identity
 
-For this tutorial, you need an Azure virtual machine(VM). Create a virtual machine with a system-assigned managed identity enabled. You may also [create a user-assigned managed identity](how-manage-user-assigned-managed-identities.md) called **mi-vm-01** in the resource group we created earlier (**mi-test**). Once that you have a user-assigned managed identity you can assign it to a VM during creation.   
+For this tutorial, you need an Azure virtual machine(VM). Create a virtual machine with a system-assigned managed identity enabled called **mi-vm-01**.  You may also [create a user-assigned managed identity](how-manage-user-assigned-managed-identities.md) called **mi-ua-01** in the resource group we created earlier (**mi-test**). If you use a user-assigned managed identity, you can assign it to a VM during creation.
 
 ### Create a VM with a system-assigned managed identity
 
@@ -54,7 +54,6 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 - In the Basics tab, provide the required information.
 - Choose **Next: Disks >**
 - Continue filling out information as needed and in the **Management** tab find the **Identity** section and check the box next to **System assigned managed identity**
-
 
 :::image type="content" source="media/how-to-manage-identities-vm-cosmos/create-vm-system-assigned-managed-identities.png" alt-text="Image showing how to enable system assigned managed identities while creating a VM":::
 
@@ -128,7 +127,7 @@ When you're done, the following sections should be added to the `resource` secti
 
 ### Create a VM with a user-assigned managed identity
 
-User-assigned managed identities may be used with multiple resources. Create a user assigned managed identity called **mi-ua-01** following the steps in [Manage user-assigned managed identities](how-manage-user-assigned-managed-identities.md)
+The steps below show you how to create a virtual machine with a user-assigned managed identity configured.
 
 #### [Portal](#tab/azure-portal)
 
@@ -217,6 +216,7 @@ Under the resources element, add the following entry to assign a user-assigned m
 ---
 
 ## Create a Cosmos DB Account
+
 Now that we have a VM with either a user-assigned managed identity or a system-assigned managed identity we need a Cosmos DB account available where you have administrative rights. The Cosmos DB account should have the following configuration:
 
  |Setting|Value|Description |
@@ -234,7 +234,7 @@ Now that we have a VM with either a user-assigned managed identity or a system-a
 
 If you need to create a Cosmos DB account for this tutorial the [Cosmos DB quickstart](../..//cosmos-db/sql/create-cosmosdb-resources-portal.md) provides detailed steps on how to do that.
 
-## Grant access 
+## Grant access
 
 At this point, we should have both a virtual machine configured with a managed identity and a Cosmos DB Account. Before we continue, we need to grant the managed identity a couple of different roles.
 
@@ -244,8 +244,6 @@ At this point, we should have both a virtual machine configured with a managed i
 
 > [!NOTE] 
 > Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data contributor** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
-
-
 
 ### [Portal](#tab/azure-portal)
 
@@ -267,7 +265,6 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
 ```
 
 When the role assignment step completes, you should see results similar to the ones shown below.
-
 
 :::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="This shows the results of the role assignment":::
 
@@ -298,7 +295,6 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 }
 
 ```
-
 
 ---
 
@@ -413,6 +409,7 @@ Initialize your Cosmos DB client:
 ```javascript
 const client = new CosmosClient({ "<account-endpoint>", aadCredentials: new ManagedIdentityCredential() });
 ```
+
 Then read and write data as described in [these samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples)
 
 ## Clean up steps
@@ -421,15 +418,11 @@ Then read and write data as described in [these samples](https://docs.microsoft.
 
 1. In the [portal](https://portal.azure.com), select the resource you want to delete.
 
-1. Select **Delete**. 
+1. Select **Delete**.
 
 1. When prompted, confirm the deletion.
 
-
-
-
 ### [PowerShell](#tab/azure-powershell)
-
 
 ```azurepowershell-interactive
 Remove-AzResource `
@@ -437,7 +430,6 @@ Remove-AzResource `
   -ResourceName ExampleVM `
   -ResourceType Microsoft.Compute/virtualMachines
 ```
-
 
 ### [Azure CLI](#tab/azure-cli)
 
