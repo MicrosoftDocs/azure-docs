@@ -1,5 +1,6 @@
 ---
-title: Tutorial - Manage the lifecycle of your group-based licenses in Azure AD
+title: Manage the lifecycle of your group-based licenses 
+titleSuffix: Azure AD
 description: Step-by-step tutorial for how to create an access package for managing group-based licenses in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
