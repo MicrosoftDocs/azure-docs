@@ -5,11 +5,7 @@ author: billmath
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-<<<<<<< HEAD
-ms.date: 02/18/2021
-=======
 ms.date: 06/09/2021
->>>>>>> 3716f41f772cdb0e24a3c0757d70e7f51ec2b0c2
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -28,15 +24,9 @@ By setting the attribute **preferredDataLocation**, you can define a user's geo.
 > [!IMPORTANT]
 > Multi-Geo is currently available to customers with an active Enterprise Agreement and a minimum of 250 Microsoft 365 Services subscriptions. Please talk to your Microsoft representative for details.
 >
-<<<<<<< HEAD
->
-
-A list of all supported geos for Microsoft 365 can be found in under [Microsoft 365 Multi-Geo availability](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability).  Azure AD Connect supports all of the geos listed under Microsoft 365.
-=======
 > For a list of all geos supported by Azure AD Connect see [Microsoft 365 Multi-Geo availability](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability).
 
 
->>>>>>> 3716f41f772cdb0e24a3c0757d70e7f51ec2b0c2
 
 
 ### Azure AD Connect support for synchronization
