@@ -20,6 +20,12 @@ landingContent:
   # Card (optional)
   - title: About Azure Chaos Studio
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Chaos Studio?
+            url: chaos-studio-overviews.md
+          - text: What is chaos engineering?
+            url: chaos-studio-chaos-engineering-overview.md
       - linkListType: video
         links:
           - text: Introduction to Chaos Studio
@@ -28,12 +34,18 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
+      - linkListType: quickstart
+        links:
+        - text: Cause a DNS outage using the network security group fault
+          url: chaos-studio-quickstart-dns-outage.md
       - linkListType: tutorial
         links:
         - text: Create and run an experiment that uses service-direct faults
           url: chaos-studio-tutorial-service-direct.md
         - text: Create and run an experiment that uses agent-based faults
           url: chaos-studio-tutorial-agent-based.md
+        - text: Create and run an expeirment that uses Chaos Mesh faults on AKS
+          url: chaos-studio-tutorial-aks.md
 
   # Card
   - title: Reference
