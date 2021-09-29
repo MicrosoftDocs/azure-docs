@@ -17,7 +17,7 @@ ms.custom: generated
 
 This article lists the Azure built-in roles. If you are looking for administrator roles for Azure Active Directory (Azure AD), see [Azure AD built-in roles](../active-directory/roles/permissions-reference.md).
 
-The following table provides a brief description of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the management and data planes, see [Understand Azure role definitions](role-definitions.md).
+The following table provides a brief description of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the control and data planes, see [Understand Azure role definitions](role-definitions.md).
 
 ## All
 

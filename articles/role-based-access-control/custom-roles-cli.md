@@ -141,7 +141,7 @@ To create a custom role, use [az role definition create](/cli/azure/role/definit
 az role definition create --role-definition {roleDefinition}
 ```
 
-The following example creates a custom role named *Virtual Machine Operator*. This custom role assigns access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and assigns access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
+The following example creates a custom role named *Virtual Machine Operator*. This custom role assigns access to all read actions of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers and assigns access to start, restart, and monitor virtual machines. This custom role can be used in two subscriptions. This example uses a JSON file as an input.
 
 vmoperator.json
 
@@ -184,7 +184,7 @@ To update a custom role, first use [az role definition list](/cli/azure/role/def
 az role definition update --role-definition {roleDefinition}
 ```
 
-The following example adds the *Microsoft.Insights/diagnosticSettings/* operation to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role. Adding a management group to `AssignableScopes` is currently in preview.
+The following example adds the *Microsoft.Insights/diagnosticSettings/* action to `Actions` and adds a management group to `AssignableScopes` for the *Virtual Machine Operator* custom role. Adding a management group to `AssignableScopes` is currently in preview.
 
 vmoperator.json
 

@@ -16,17 +16,6 @@ ms.custom:
 
 If you are trying to understand how an Azure role works or if you are creating your own [Azure custom role](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
 
-## Terminology
-
-To understand role definitions, it helps to know some of the terminology. Note that some of these terms are similar and overlap.
-
-| Term | Definition |
-| --- | --- |
-| permission | A definition that specifies the effective activity a security principal is authorized to perform for a particular resource. |
-| action | A string  that defines an activity on the control plane. |
-| data action | A string  that defines an activity on the data plane. |
-| operation | A string  that defines an activity. |
-
 ## Role definition
 
 A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. It can also list the actions that are excluded from allowed actions or actions related to underlying data.
@@ -316,7 +305,7 @@ Deny assignments block users from performing specific actions even if a role ass
 
 ## DataActions
 
-The `DataActions` permission specifies the data actions that the role allows to be performed to your data within that object. For example, if a user has read blob data access to a storage account, then they can read the blobs within that storage account. Here are some examples of data actions that can be used in `DataActions`.
+The `DataActions` permission specifies the data plane actions that the role allows to be performed to your data within that object. For example, if a user has read blob data access to a storage account, then they can read the blobs within that storage account. Here are some examples of data actions that can be used in `DataActions`.
 
 > [!div class="mx-tableFixed"]
 > | Data action string    | Description         |
@@ -328,7 +317,7 @@ The `DataActions` permission specifies the data actions that the role allows to 
 
 ## NotDataActions
 
-The `NotDataActions` permission specifies the data actions that are subtracted or excluded from the allowed `DataActions` that have a wildcard (`*`). Use the `NotDataActions` permission if the set of actions that you want to allow is more easily defined by subtracting from `DataActions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` actions from the `DataActions` actions. Each resource provider provides its respective set of APIs to fulfill data actions.
+The `NotDataActions` permission specifies the data plane actions that are subtracted or excluded from the allowed `DataActions` that have a wildcard (`*`). Use the `NotDataActions` permission if the set of actions that you want to allow is more easily defined by subtracting from `DataActions` that have a wildcard (`*`). The access granted by a role (effective permissions) is computed by subtracting the `NotDataActions` actions from the `DataActions` actions. Each resource provider provides its respective set of APIs to fulfill data actions.
 
 `DataActions - NotDataActions = Effective data plane permissions`
 
