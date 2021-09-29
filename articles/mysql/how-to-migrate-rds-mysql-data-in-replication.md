@@ -15,7 +15,7 @@ ms.date: 09/24/2021
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-You can use methods such as MySQL dump and restore, MySQL Workbench Export and Import, or Azure Database Migration Service to migrate your MySQL databases to Azure Database for MySQL. By using a combination of open-source tools such as MySQL dump and restore or mydumper and myloader with Data-in Replication, you can migrate your workloads with minimum downtime.
+You can use methods such as MySQL dump and restore, MySQL Workbench Export and Import, or Azure Database Migration Service to migrate your MySQL databases to Azure Database for MySQL. By using a combination of open-source tools such as mysqldump or mydumper and myloader with Data-in Replication, you can migrate your workloads with minimum downtime.
 
 Data-in Replication is a technique that replicates data changes from the source server to the destination server based on the binary log file position method. In this scenario, the MySQL instance operating as the source (on which the database changes originate) writes updates and changes as *events* to the binary log. The information in the binary log is stored in different logging formats according to the database changes being recorded. Replicas are configured to read the binary log from the source and execute the events in the binary log on the replica's local database.
 
