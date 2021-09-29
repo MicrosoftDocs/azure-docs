@@ -10,6 +10,8 @@ ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/build/tokenproviders/
 ---
 
+# How to: Write a TokenProvider with an Azure Function
+
 The token provider is responsible for creating and signing tokens that the `@fluidframework/azure-client` uses to make
 requests to the Azure Fluid Relay service. There are two ways by which you can generate the token:
 
