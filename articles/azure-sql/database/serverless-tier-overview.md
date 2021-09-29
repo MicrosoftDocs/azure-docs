@@ -180,7 +180,7 @@ Auto-resuming is triggered if any of the following conditions are true at any ti
 
 Monitoring, management, or other solutions performing any of the operations listed above will trigger auto-resuming.
 
-Auto-resuming is also triggered during the deployment of some service updates which require the database be online.
+Auto-resuming is also triggered during the deployment of some service updates that require the database be online.
 
 ### Connectivity
 
