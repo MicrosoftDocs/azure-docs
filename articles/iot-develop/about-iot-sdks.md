@@ -148,7 +148,7 @@ Azure Digital Twins is a platform as a service (PaaS) offering that enables the 
 
 The IoT Hub Device Provisioning Service (DPS) is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention. DPS enables the provisioning of millions of devices in a secure and scalable way. The DPS Service SDKs allow you to build applications that can securely manage your devices by creating enrollment groups and doing bulk operations.
 
-[**Learn more about the Device Provisioning Service**](../iot-dps/index.yml) | [**Try creating a group enrollment for X.509 Devices**](../iot-dps/quick-enroll-device-x509-csharp.md)
+[**Learn more about the Device Provisioning Service**](../iot-dps/index.yml) | [**Try creating a group enrollment for X.509 Devices**](../iot-dps/quick-enroll-device-x509.md)
 
 **C# Device Provisioning Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service) | [Package](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) | [Samples](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples) | [Reference Documentation](/dotnet/api/microsoft.azure.devices.provisioning.service)
 
