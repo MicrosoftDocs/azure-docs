@@ -16,6 +16,7 @@ Device Update for IoT Hub allows deploying an update to a group of IoT devices.
 * [Access to an IoT Hub with Device Update for IoT Hub enabled](create-device-update-account.md). It is recommended that you use a S1 (Standard) tier or above for your IoT Hub. 
 * An IoT device (or simulator) provisioned for Device Update within IoT Hub.
 * [At least one update has been successfully imported for the provisioned device.](import-update.md)
+* Install and start the Device Update agent on your IoT device either as a [module or device level identity](device-update-agent-provisioning.md)
 
 ## Add a tag to your devices  
 
@@ -39,20 +40,20 @@ You can update the Device Twin with the appropriate Tag using RegistryManager af
 
 ### Using Jobs
 
-It is possible to schedule a Job on multiple devices to add or update a Device Update tag following [these](../iot-hub/iot-hub-devguide-jobs.md) examples. [Learn more](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
+It is possible to schedule a Job on multiple devices to add or update a Device Update tag following [these](../iot-hub/iot-hub-devguide-jobs.md) examples. You can update Device Twin or Module Twin (if Device Update agent is set up as a Module Identity) using Jobs. [Learn more](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
   > [!NOTE] 
-  > This action goes against your current IOT Hub messages quota and it is recommended to change only up to 50,000 device twin Tags at a time otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. Details can be found at [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
+  > This action goes against your current IOT Hub messages quota and it is recommended to change only up to 50,000 device or module twin Tags at a time otherwise you may need to buy more IoT Hub units if you exceed your daily IoT Hub message quota. Details can be found at [Quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling).
 
 ### Direct Twin Updates
 
-Tags can also be added or updated in device twin directly.
+Tags can also be added or updated in Device twin or Module Twin directly.
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin.
+2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin, or the Device Update Module and then its Module Twin (this will be available if Device Update agent is set up as a Module Identity).
 
-3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
+3. In the Device Twin or Module Twin, delete any existing Device Update tag value by setting them to null.
 
 4. Add a new Device Update tag value as shown below. [Example device twin JSON document with tags.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
 

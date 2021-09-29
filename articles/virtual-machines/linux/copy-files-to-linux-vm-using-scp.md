@@ -8,10 +8,11 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: cynthn
-ms.subservice: 
 ---
 
 # Use SCP to move files to and from a Linux VM 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article shows how to move files from your workstation up to an Azure Linux VM, or from an Azure Linux VM down to your workstation, using Secure Copy (SCP). Moving files between your workstation and a Linux VM, quickly and securely, is critical for managing your Azure infrastructure. 
 

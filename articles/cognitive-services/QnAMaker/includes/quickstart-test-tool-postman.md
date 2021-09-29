@@ -14,10 +14,22 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 ## Prerequisites
 
-* Latest [**Postman**](https://www.getpostman.com/).
 * You must have
-    * A [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
-    * A trained and published [knowledge base with questions and answers](../Quickstarts/add-question-metadata-portal.md) built from the quickstart is configured with metadata and Chit chat.
+    * Latest [**Postman**](https://www.getpostman.com/).
+    * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+
+# [QnA Maker GA (stable release)](#tab/v1)
+
+> * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+
+---
+
+   * A trained and published knowledge base with questions and answers, from the previous [quickstart](../Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
+
 
 > [!NOTE]
 > When you are ready to generate an answer to a question from your knowledge base, you must [train](../Quickstarts/create-publish-knowledge-base.md#save-and-train) and [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base. When your knowledge base is published, the **Publish** page displays the HTTP request settings to generate an answer. The **Postman** tab shows the settings required to generate an answer.
@@ -42,7 +54,7 @@ Use this procedure to configure Postman, then read each subsequent section to co
 
 1. Open Postman and create a new basic **POST** request with your published knowledge base settings. In the following sections, alter the POST body JSON to change the query to your knowledge base.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 This quickstart uses the same settings for the Postman **POST** request then configures to POST body JSON sent to the service based on what you are trying to query for.
 
@@ -93,7 +105,7 @@ In a previous quickstart, metadata was added to two QnA pairs to distinguish bet
                     "What is the max size of a knowledge base?",
                     "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.",
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../Concepts/azure-resources.md) for more details.",
                 "score": 68.76,
                 "id": 3,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
@@ -147,7 +159,7 @@ Debug information helps you understand how the returned answer was determined. W
                 "questions": [
                     "How do I share a knowledge base with others?"
                 ],
-                "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base) how to collaborate on a knowledge base.",
+                "answer": "Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared.",
                 "score": 56.07,
                 "id": 5,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
@@ -396,7 +408,7 @@ You can request a minimum threshold for the answer. If the threshold is not met,
                     "What is the max size of a knowledge base?",
                     "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.",
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](../Concepts/azure-resources.md) for more details.",
                 "score": 71.1,
                 "id": 3,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",
@@ -420,3 +432,53 @@ You can request a minimum threshold for the answer. If the threshold is not met,
         "activeLearningEnabled": true
     }
     ```
+## Use unstructured data sources.
+    
+We now support the ability to add unstrutcured documents that can't be used to extract QnAs.The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query.
+     
+# [QnA Maker GA (stable release)](#tab/v1)
+We don't support unstructured data sets in the GA service.
+
+# [Custom question answering (preview release)](#tab/v2)
+
+1. Set the parameter *includeUnstructuredResources* to true if you want to include unstructured data sources when evaluating the response to Generate Answer API and vice-versa.
+   ```json
+    {
+       "question": "what is Surface Headphones 2+ priced at?",
+       "includeUnstructuredSources":true,
+       "top": 2
+    }
+    ```
+2. The response includes the source of answer. 
+    ```json
+       {
+     "answers": [
+       {
+         "questions": [],
+         "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
+         "score": 82.11,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": [],
+         "answerSpan": {
+           "text": "$299.99 USD",
+           "score": 0.0,
+           "startIndex": 34,
+           "endIndex": 45
+         }
+       },
+       {
+         "questions": [],
+         "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
+         "score": 81.95,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": []
+       }
+     ],
+     "activeLearningEnabled": true
+   }
+    ```
+---

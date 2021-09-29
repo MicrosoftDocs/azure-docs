@@ -6,7 +6,8 @@ author: vhorne
 ms.service: firewall
 ms.topic: article
 ms.date: 4/5/2021
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Firewall service tags

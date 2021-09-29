@@ -3,12 +3,12 @@ title: Performance diagnostics in Hyperscale
 description: This article describes how to troubleshoot Hyperscale performance problems in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: performance
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 10/18/2019
 ---
 

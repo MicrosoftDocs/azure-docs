@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 04/29/2021
 
 ms.author: justinha
 author: justinha
@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 # Securing cloud resources with Azure AD Multi-Factor Authentication and AD FS
 
 If your organization is federated with Azure Active Directory, use Azure AD Multi-Factor Authentication or Active Directory Federation Services (AD FS) to secure resources that are accessed by Azure AD. Use the following procedures to secure Azure Active Directory resources with either Azure AD Multi-Factor Authentication or Active Directory Federation Services.
+
+>[!NOTE]
+>To secure your Azure AD resource, it is recommended to require MFA through a [Conditional Access policy](../conditional-access/howto-conditional-access-policy-all-users-mfa.md), set the domain setting SupportsMfa to $True and [emit the multipleauthn claim](#secure-azure-ad-resources-using-ad-fs) when a user performs two-step verification successfully.
 
 ## Secure Azure AD resources using AD FS
 

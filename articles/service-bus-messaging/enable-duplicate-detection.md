@@ -2,7 +2,8 @@
 title: Enable duplicate message detection - Azure Service Bus
 description: This article explains how to enable duplicate message detection using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
-ms.date: 04/19/2021
+ms.date: 04/19/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable duplicate message detection for an Azure Service Bus queue or a topic
@@ -250,12 +251,12 @@ To **create a topic with duplicate detection enabled**, set `requiresDuplicateDe
 ## Next steps
 Try the samples in the language of your choice to explore Azure Service Bus features. 
 
-- [Azure Service Bus client library samples for Java](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [Azure.Messaging.ServiceBus samples for .NET](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
 Find samples for the older .NET and Java client libraries below:
-- [Microsoft.Azure.ServiceBus samples for .NET](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [azure-servicebus samples for Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)

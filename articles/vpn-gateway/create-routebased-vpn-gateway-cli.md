@@ -1,12 +1,13 @@
 ---
-title: 'Create a route-based Azure VPN Gateway: CLI'
-description: Quickly create a route-based Azure VPN gateway using the Azure CLI, for a VPN connection to an on-premises network or to connect virtual networks.
+title: 'Create a route-based virtual network gateway: CLI'
+titleSuffix: Azure VPN Gateway
+description: Learn how to create a route-based virtual network gateway for a VPN connection to an on-premises network, or to connect virtual networks.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
 ---
 
@@ -14,7 +15,7 @@ ms.author: cherylmc
 
 This article helps you quickly create a route-based Azure VPN gateway using the Azure CLI. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
 
-The steps in this article will create a VNet, a subnet, a gateway subnet, and a route-based VPN gateway (virtual network gateway). A virtual network gateway can take 45 minutes or more to create. Once the gateway creation has completed, you can then create connections. These steps require an Azure subscription.
+The steps in this article will create a VNet, a subnet, a gateway subnet, and a route-based VPN gateway (virtual network gateway). Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Once the gateway creation has completed, you can then create connections. These steps require an Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

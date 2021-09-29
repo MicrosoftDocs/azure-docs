@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Database
 description: Learn how to manage your single and pooled databases after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: joesackmsft
-ms.author: josack
-ms.reviewer: sstein
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 02/13/2019
 ---
 # New DBA in the cloud – Managing Azure SQL Database after migration
@@ -98,7 +98,7 @@ There are two authentication methods offered in SQL Database:
 - [Azure Active Directory Authentication](authentication-aad-overview.md)
 - [SQL authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-The traditional windows authentication is not supported. Azure Active Directory (Azure AD) is a centralized identity and access management service. With this you can very conveniently provide a Single Sign-on Access (SSO) to all the personnel in your organization. What this means is that the credentials are shared across all Azure services for simpler authentication. 
+Traditional Windows authentication is not supported. Azure Active Directory (Azure AD) is a centralized identity and access management service. With this you can very conveniently provide single sign-on (SSO) access to the personnel in your organization. What this means is that the credentials are shared across Azure services for simpler authentication.
 
 Azure AD supports [Azure AD Multi-Factor Authentication](authentication-mfa-ssms-overview.md) and with a [few clicks](../../active-directory/hybrid/how-to-connect-install-express.md) Azure AD can be integrated with Windows Server Active Directory. SQL Authentication works exactly like you’ve been using it in the past. You provide a username/password and you can authenticate users to any database on a given server. This also allows SQL Database and Azure Synapse Analytics to offer Multi-Factor Authentication and guest user accounts within an Azure AD domain. If you already have an Active Directory on-premises, you can federate the directory with Azure Active Directory to extend your directory to Azure.
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/02/2020
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -140,6 +140,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90284` | The application with identifier '{0}' has not been granted consent and is unable to be used for local accounts. |
 | `AADB2C90285` | The application with identifier '{0}' was not found. |
 | `AADB2C90288` | UserJourney with id '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
+| `AADB2C90287` | The request contains invalid redirect URI '{0}'.|
 | `AADB2C90289` | We encountered an error connecting to the identity provider. Please try again later. |
 | `AADB2C90296` | Application has not been configured correctly. Please contact administrator of the site you are trying to access. |
 | `AADB2C99005` | The request contains an invalid scope parameter which includes an illegal character '{0}'. |

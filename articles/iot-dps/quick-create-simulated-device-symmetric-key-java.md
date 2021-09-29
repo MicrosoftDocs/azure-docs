@@ -30,7 +30,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 ## Prerequisites
 
-* Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) or later installed on your machine.
+* Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) or later installed on your machine.
 
 * Download and install [Maven](https://maven.apache.org/install.html).
 

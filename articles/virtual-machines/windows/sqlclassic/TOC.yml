@@ -5,7 +5,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
   - name: FAQ
-    href: ../../../azure-sql/virtual-machines/windows/frequently-asked-questions-faq.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+    href: ../../../azure-sql/virtual-machines/windows/frequently-asked-questions-faq.yml?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: Get Started
   items:
   - name: Provision a VM in the Azure Portal
@@ -29,7 +29,7 @@
     - name: Use Azure Storage for Backup and Restore
       href: ../../../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
   - name: Performance best practices
-    href: ../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+    href: ../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
   - name: Application patterns
     href: ../../../azure-sql/virtual-machines/windows/application-patterns-development-strategies.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
 - name: Reference

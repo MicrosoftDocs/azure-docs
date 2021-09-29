@@ -8,8 +8,9 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2020
-ms.author: justinha
+ms.date: 08/11/2021
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -34,7 +35,7 @@ In the *preparation* stage, Azure AD DS takes a backup of the domain to get the 
 
 ![Preparation stage for migrating Azure AD DS](media/migrate-from-classic-vnet/migration-preparation.png)
 
-In the *migration* stage, the underlying virtual disks for the domain controllers from the Classic managed domain are copied to create the VMs using the Resource Manager deployment model. The managed domain is then recreated, which includes the LDAPS and DNS configuration. Synchronization to Azure AD is restarted, and LDAP certificates are restored. There's no need to rejoin any machines to a managed domain – they continue to be joined to the managed domain and run without changes.
+In the *migration* stage, the underlying virtual disks for the domain controllers from the Classic managed domain are copied to create the VMs using the Resource Manager deployment model. The managed domain is then recreated, which includes the LDAPS and DNS configuration. Synchronization to Azure AD is restarted, and LDAP certificates are restored. There's no need to rejoin any machines to a managed domain–they continue to be joined to the managed domain and run without changes.
 
 ![Migration of Azure AD DS](media/migrate-from-classic-vnet/migration-process.png)
 
@@ -225,7 +226,7 @@ To prepare the managed domain for migration, complete the following steps:
 
 With the managed domain prepared and backed up, the domain can be migrated. This step recreates the Azure AD DS domain controller VMs using the Resource Manager deployment model. This step can take 1 to 3 hours to complete.
 
-Run the `Migrate-Aadds` cmdlet using the *-Commit* parameter. Provide the *-ManagedDomainFqdn* for your own managed domain prepared in the previous section, such as *aaddscontoso.com*:
+Run the `Migrate-Aadds` cmdlet using the *-Commit* parameter. Provide the *-ManagedDomainFqdn* for your own managed domain prepared in the previous section, such as *aaddscontoso.com*.
 
 Specify the target resource group that contains the virtual network you want to migrate Azure AD DS to, such as *myResourceGroup*. Provide the target virtual network, such as *myVnet*, and the subnet, such as *DomainServices*.
 

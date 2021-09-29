@@ -75,10 +75,10 @@ Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3
 - x.x.x.0: Network address
 - x.x.x.1: Reserved by Azure for the default gateway
 - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
-- x.x.x.255: Network broadcast address
+- x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets. 
 
 ### How small and how large can VNets and subnets be?
-The smallest supported IPv4 subnet is /29, and the largest is /8 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
+The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
 
 ### Can I bring my VLANs to Azure using VNets?
 No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
@@ -253,7 +253,7 @@ The following resources can use Basic Load Balancers which means you cannot reac
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- API Management
+- API Management (stv1)
 - Active Directory Domain Service (ADDS)
 - Logic Apps
 - HDInsight
@@ -414,7 +414,7 @@ There is no limit on the total number of VNet service endpoints in a virtual net
 |Azure Storage|	100|
 |Azure SQL|	128|
 |Azure Synapse Analytics|	128|
-|Azure KeyVault|	127|
+|Azure KeyVault|	200 |
 |Azure Cosmos DB|	64|
 |Azure Event Hub|	128|
 |Azure Service Bus|	128|

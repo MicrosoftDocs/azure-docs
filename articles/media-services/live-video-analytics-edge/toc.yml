@@ -111,6 +111,8 @@
     href: troubleshoot-how-to.md
   - name: Upgrading
     href: upgrading-lva-module.md
+  - name: Migrate to Azure Video Analyzer
+    href: migrate-to-azure-video-analyzer.md
   - name: Develop and deploy a gRPC inference server
     href: develop-deploy-grpc-inference-srv-how-to.md
 - name: Reference
@@ -128,7 +130,7 @@
   - name: Quotas and limitations
     href: quotas-limitations.md
   - name: FAQs
-    href: faq.md
+    href: faq.yml
   - name: Production readiness and best practices
     href: production-readiness.md
   - name: Transparency and responsible AI principles

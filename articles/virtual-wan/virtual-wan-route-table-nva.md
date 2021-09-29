@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ---
 

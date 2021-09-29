@@ -80,7 +80,7 @@ This section shows you how to use Azure portal to add a virtual network service 
     > [!NOTE]
     > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## Use Resource Manager template
 The following sample Resource Manager template adds a virtual network rule to an existing Service Bus namespace. For the network rule, it specifies the ID of a subnet in a virtual network. 

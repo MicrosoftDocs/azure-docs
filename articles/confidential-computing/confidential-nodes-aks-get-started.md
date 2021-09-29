@@ -20,8 +20,8 @@ Features of confidential computing nodes include:
 
 - Linux worker nodes supporting Linux containers.
 - Generation 2 virtual machine (VM) with Ubuntu 18.04 VM nodes.
-- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache Memory (EPC). For more information, see [Frequently asked questions for Azure confidential computing](./faq.md).
-- Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./faq.md).
+- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache Memory (EPC). For more information, see [Frequently asked questions for Azure confidential computing](./faq.yml).
+- Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./faq.yml).
 
 > [!NOTE]
 > DCsv2 VMs use specialized hardware that's subject to higher pricing and region availability. For more information, see the [available SKUs and supported regions](virtual-machine-solutions.md).
@@ -56,7 +56,7 @@ az group create --name myResourceGroup --location westus2
 Now create an AKS cluster, with the confidential computing add-on enabled, by using the [az aks create][az-aks-create] command:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addons confcom
 ```
 
 ### Add a user node pool with confidential computing capabilities to the AKS cluster 
@@ -140,6 +140,9 @@ If the output matches the preceding code, your AKS cluster is now ready to run c
 You're now ready to deploy a test application. 
 
 Create a file named *hello-world-enclave.yaml* and paste in the following YAML manifest. You can find this sample application code in the [Open Enclave project](https://github.com/openenclave/openenclave/tree/master/samples/helloworld). This deployment assumes that you've deployed the *confcom* add-on.
+
+> [!NOTE]
+> The following example pulls a public container image from Docker Hub. We recommend that you set up a pull secret to authenticate using a Docker Hub account instead of making an anonymous pull request. To improve reliability when working with public content, import and manage the image in a private Azure container registry. [Learn more about working with public images.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: batch/v1

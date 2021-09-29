@@ -53,7 +53,7 @@ The Policy-based virtual network gateway has limit of 200 subnet Security Associ
 
 ### Step 6 Check on-premises VPN device external interface address
 
-If the Internet facing IP address of the VPN device is included in the **Local network gateway** definition in Azure, you may experience sporadic disconnections.
+If the Internet facing IP address of the VPN device is included in the **Local network gateway address space** definition in Azure, you may experience sporadic disconnections.
 
 ### Step 7 Check whether the on-premises VPN device has Perfect Forward Secrecy enabled
 

@@ -63,7 +63,7 @@ When you assign a role at a parent scope, those permissions are inherited to the
 - If you assign the [Billing Reader](built-in-roles.md#billing-reader) role to a group at the subscription scope, the members of that group can read billing data for every resource group and resource in the subscription.
 - If you assign the [Contributor](built-in-roles.md#contributor) role to an application at the resource group scope, it can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
- For more information, see [Understand scope](scope-overview.md).
+[!INCLUDE [Scope for Azure RBAC least privilege](../../includes/role-based-access-control/scope-least.md)] For more information, see [Understand scope](scope-overview.md).
 
 ## Step 4. Check your prerequisites
 

@@ -45,7 +45,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution, follow these steps:
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `UWP-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
@@ -100,9 +100,8 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Create and then select a new self-signed test certificate for the package:
 >     1. In the **Solution Explorer**, double-click the *Package.appxmanifest* file.
 >     1. Select **Packaging** > **Choose Certificate...** > **Create...**.
->     1. Enter a password and then select **OK**.
->     1. Select **Select from file...**, and then select the *Native_UWP_V2_TemporaryKey.pfx* file you just created, and select **OK**.
->     1. Close the *Package.appxmanifest* file (select **OK** if prompted to save the file).
+>     1. Enter a password and then select **OK**. A certificate called *Native_UWP_V2_TemporaryKey.pfx* is created. 
+>     1. Select **OK** to dismiss the **Choose a certificate** dialog, and then verify that you see *Native_UWP_V2_TemporaryKey.pfx* in Solution Explorer.
 >     1. In the **Solution Explorer**, right-click the **Native_UWP_V2** project and select **Properties**.
 >     1. Select **Signing**, and then select the .pfx you created in the **Choose a strong name key file** drop-down.
 
@@ -154,7 +153,7 @@ MSAL has two methods for acquiring tokens in a UWP app: `AcquireTokenInteractive
 
 #### Get a user token interactively
 
-Some situations require forcing users to interact with the Microsoft identity platform through a popup window to either validate their credentials or to give consent. Some examples include:
+Some situations require forcing users to interact with the Microsoft identity platform through a pop-up window to either validate their credentials or to give consent. Some examples include:
 
 - The first-time users sign in to the application
 - When users may need to reenter their credentials because the password has expired

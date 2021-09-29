@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/21/2021
+ms.date: 07/26/2021
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create a one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
@@ -49,7 +49,7 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Sign in to the Azure portal
 
-In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com). Global administrator permissions are required to modify an Azure AD DS instance. 
 
 ## Networking considerations
 

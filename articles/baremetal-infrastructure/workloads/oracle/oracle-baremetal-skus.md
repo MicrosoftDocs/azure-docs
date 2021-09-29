@@ -2,7 +2,7 @@
 title: BareMetal SKUs for Oracle workloads
 description: Learn about the SKUs for the Oracle BareMetal Infrastructure workloads.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/15/2021
 ---
 

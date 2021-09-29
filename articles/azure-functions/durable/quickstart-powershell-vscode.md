@@ -49,7 +49,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
-Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
+Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 A package.json file is also created in the root folder.
 
@@ -86,7 +86,7 @@ You use a template to create the durable function code in your project.
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions orchestrator (preview) | Create a Durable Functions orchestration |
+    | Select a template for your function | Durable Functions orchestrator | Create a Durable Functions orchestration |
     | Provide a function name | HelloOrchestrator | Name of your durable function |
 
 You've added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/run.ps1* to see the orchestrator function. Each call to the `Invoke-ActivityFunction` cmdlet invokes an activity function named `Hello`.
@@ -101,7 +101,7 @@ Next, you'll add the referenced `Hello` activity function.
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions activity (preview) | Create an activity function |
+    | Select a template for your function | Durable Functions activity | Create an activity function |
     | Provide a function name | Hello | Name of your activity function |
 
 You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/run.ps1* to see that it's taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
@@ -116,7 +116,7 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a template for your function | Durable Functions HTTP starter (preview) | Create an HTTP starter function |
+    | Select a template for your function | Durable Functions HTTP starter | Create an HTTP starter function |
     | Provide a function name | HttpStart | Name of your activity function |
     | Authorization level | Anonymous | For demo purposes, allow the function to be called without authentication |
 

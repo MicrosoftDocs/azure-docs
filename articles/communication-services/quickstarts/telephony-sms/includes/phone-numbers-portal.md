@@ -69,7 +69,7 @@ Finally, click **Place order** at the bottom of the page to confirm.
 
 ## Find your phone numbers on the Azure portal
 
-Navigate to your Azure Communication Resource on the [Azure portal](https://portal.azure.com):
+Navigate to your Azure Communication Services resource on the [Azure portal](https://portal.azure.com):
 
 :::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services Resource's main page.":::
 

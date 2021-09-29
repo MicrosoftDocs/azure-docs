@@ -5,7 +5,8 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/21/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Update the regions on an Azure Cosmos DB account using PowerShell

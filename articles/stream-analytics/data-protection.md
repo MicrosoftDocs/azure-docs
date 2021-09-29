@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 07/07/2021
 ---
 
 # Data protection in Azure Stream Analytics 
@@ -89,9 +89,6 @@ To help you meet your compliance obligations in any regulated industry or enviro
 
 ## Enables Data Residency 
 You may use this feature to enforce any data residency requirements you may have by providing a storage account accordingly.
-
-## Known issues
-There is a known issue where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. 
 
 ## Next steps
 

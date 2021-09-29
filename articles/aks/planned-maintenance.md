@@ -45,6 +45,8 @@ az extension update --name aks-preview
 To add a maintenance window, you can use the `az aks maintenanceconfiguration add` command.
 
 > [!IMPORTANT]
+> At this time, you must set `default` as the value for `--name`. Using any other name will cause your maintenance window to not run.
+>
 > Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
 ```azurecli-interactive
@@ -125,7 +127,7 @@ az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCl
 
 ## List all maintenance windows in an existing cluster
 
-To see all current maintenance configuration windows in your AKS Cluster, use the `az aks maintenanceconfiguration list` command.
+To see all current maintenance configuration windows in your AKS cluster, use the `az aks maintenanceconfiguration list` command.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration list -g MyResourceGroup --cluster-name myAKSCluster
@@ -206,6 +208,10 @@ To delete a certain maintenance configuration window in your AKS Cluster, use th
 ```azurecli-interactive
 az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name default
 ```
+
+## Using Planned Maintenance with Cluster Auto-Upgrade
+
+Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedule your upgrades during your maintenance window automatically. For more details on about Cluster Auto-Upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
 ## Next steps
 

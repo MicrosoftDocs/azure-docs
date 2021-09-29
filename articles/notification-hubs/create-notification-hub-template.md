@@ -9,7 +9,7 @@ ms.date: 08/04/2020
 ms.lastreviewed: 05/15/2020
 ms.topic: quickstart
 ms.service: notification-hubs
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - subject-armqs
   - mode-arm
 ---
@@ -24,7 +24,7 @@ This quickstart uses an Azure Resource Manager template (ARM template) to create
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.notificationhubs%2Fnotification-hub%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -32,9 +32,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-notification-hub/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/notification-hub/).
 
-:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.notificationhubs/notification-hub/azuredeploy.json":::
 
 * [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
 * [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
@@ -43,7 +43,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 Select the following image to sign in to Azure and open a template. The template takes a Notification Hubs namespace name as a parameter. The template then creates a namespace with that name and a notification hub named **MyHub** within that namespace.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.notificationhubs%2Fnotification-hub%2Fazuredeploy.json)
 
 ## Review deployed resources
 

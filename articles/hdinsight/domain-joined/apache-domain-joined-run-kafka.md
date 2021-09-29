@@ -129,7 +129,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
    export KAFKABROKERS=<brokerlist>:9092
    ```
 
-   Example: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
+   Example: `export KAFKABROKERS=<brokername1>.contoso.com:9092,<brokername2>.contoso.com:9092`
 
 3. Follow Step 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) to ensure that the `kafka-producer-consumer.jar` is also available to **sales_user**.
 

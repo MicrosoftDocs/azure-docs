@@ -1,7 +1,6 @@
 ---
 title: Azure AD Connect - Manage AD FS trust with Azure AD using Azure AD Connect | Microsoft Docs
 description: Operational details of Azure AD trust handling by Azure AD connect.
-keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, Azure AD, trust, AAD, claim, claim, claim rules, issuance, transform, rules, backup, restore
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
@@ -23,11 +22,12 @@ ms.collection: M365-identity-device-management
 
 ## Overview
 
-Azure AD Connect can manage federation between on-premises Active Directory Federation Service (AD FS) and Azure AD. This article provides an overview of:
+When you federate your on-premises environment with Azure AD, you establish a trust relationship between the on-premises identity provider and Azure AD.  Azure AD Connect can manage federation between on-premises Active Directory Federation Service (AD FS) and Azure AD. This article provides an overview of:
 
 * The various settings configured on the trust by Azure AD Connect
 * The issuance transform rules (claim rules) set by Azure AD Connect
 * How to back-up and restore your claim rules between upgrades and configuration updates. 
+* Best practice for securing and monitoring the AD FS trust with Azure AD
 
 ## Settings controlled by Azure AD Connect
 
@@ -42,7 +42,7 @@ Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD C
 | Issuance transform rules | There are numbers of claim rules which are needed for optimal performance of features of Azure AD in a federated setting. Azure AD Connect makes sure that the Azure AD trust is always configured with the right set of recommended claim rules. |
 | Alternate-id | If sync is configured to use alternate-id, Azure AD Connect configures AD FS to perform authentication using alternate-id. |
 | Automatic metadata update | Trust with Azure AD is configured for automatic metadata update. AD FS periodically checks the metadata of Azure AD trust and keeps it up-to-date in case it changes on the Azure AD side. |
-| Integrated Windows Authentication (IWA) | During Hybrid Azure AD join operation, IWA is enabled for device registration to facilitate Hybrid Azure AD join for downlevel devices |
+| Integrated Windows authentication (IWA) | During Hybrid Azure AD join operation, IWA is enabled for device registration to facilitate Hybrid Azure AD join for downlevel devices |
 
 ## Execution flows and federation settings configured by Azure AD Connect
 
@@ -112,6 +112,11 @@ You can restore the issuance transform rules using the suggested steps below
 
 > [!NOTE]
 > Make sure that your additional rules do not conflict with the rules configured by Azure AD Connect.
+
+## Best practice for securing and monitoring the AD FS trust with Azure AD
+When you federate your AD FS with Azure AD, it is critical that the federation configuration (trust relationship configured between AD FS and Azure AD) is monitored closely, and any unusual or suspicious activity is captured. To do so, we recommend setting up alerts and getting notified whenever any changes are made to the federation configuration. To learn how to setup alerts, see [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md). 
+
+
 
 ## Next steps
 * [Manage and customize Active Directory Federation Services using Azure AD Connect](how-to-connect-fed-management.md)

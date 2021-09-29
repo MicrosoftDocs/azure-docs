@@ -1,8 +1,8 @@
 ---
 title: Create a no-code vision solution in Azure Percept Studio
 description: Learn how to create a no-code vision solution in Azure Percept Studio and deploy it to your Azure Percept DK
-author: elqu20
-ms.author: v-elqu
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021

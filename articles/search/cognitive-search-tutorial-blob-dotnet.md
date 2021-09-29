@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Use .NET and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
 
 In this tutorial, you will learn how to:
 
@@ -46,7 +46,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 
 ## Download sample data
 
-The sample data consists of 14 files of mixed content type that you will upload to Azure Blob storage in a later step.
+The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
@@ -56,7 +56,7 @@ You can also download the source code for this tutorial. Source code is in the *
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -293,7 +293,7 @@ In this section, you define a set of enrichment steps that you want to apply to 
 
 * [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the entity recognition skill. Key phrase extraction and entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
-* [Entity Recognition](cognitive-search-skill-entity-recognition.md) for extracting the names of organizations from content in the blob container.
+* [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) for extracting the names of organizations from content in the blob container.
 
 * [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases.
 
@@ -305,7 +305,7 @@ For more information about skillset fundamentals, see [How to define a skillset]
 
 ### OCR skill
 
-The **OCR** skill extracts text from images. This skill assumes that a normalized_images field exists. To generate this field, later in the tutorial we'll set the ```"imageAction"``` configuration in the indexer definition to ```"generateNormalizedImages"```.
+The [`OcrSkill`](/dotnet/api/azure.search.documents.indexes.models.ocrskill) extracts text from images. This skill assumes that a normalized_images field exists. To generate this field, later in the tutorial we'll set the ```"imageAction"``` configuration in the indexer definition to ```"generateNormalizedImages"```.
 
 ```csharp
 private static OcrSkill CreateOcrSkill()
@@ -336,7 +336,7 @@ private static OcrSkill CreateOcrSkill()
 
 ### Merge skill
 
-In this section, you'll create a **Merge** skill that merges the document content field with the text that was produced by the OCR skill.
+In this section, you'll create a [`MergeSkill`](/dotnet/api/azure.search.documents.indexes.models.mergeskill) that merges the document content field with the text that was produced by the OCR skill.
 
 ```csharp
 private static MergeSkill CreateMergeSkill()
@@ -375,7 +375,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### Language detection skill
 
-The **Language Detection** skill detects the language of the input text and reports a single language code for every document submitted on the request. We'll use the output of the **Language Detection** skill as part of the input to the **Text Split** skill.
+The [`LanguageDetectionSkill`](/dotnet/api/azure.search.documents.indexes.models.languagedetectionskill) detects the language of the input text and reports a single language code for every document submitted on the request. We'll use the output of the **Language Detection** skill as part of the input to the **Text Split** skill.
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -404,7 +404,7 @@ private static LanguageDetectionSkill CreateLanguageDetectionSkill()
 
 ### Text split skill
 
-The below **Split** skill will split text by pages and limit the page length to 4,000 characters as measured by `String.Length`. The algorithm will try to split the text into chunks that are at most `maximumPageLength` in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than `maximumPageLength`.
+The below [`SplitSkill`](/dotnet/api/azure.search.documents.indexes.models.splitskill) will split text by pages and limit the page length to 4,000 characters as measured by `String.Length`. The algorithm will try to split the text into chunks that are at most `maximumPageLength` in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than `maximumPageLength`.
 
 ```csharp
 private static SplitSkill CreateSplitSkill()
@@ -440,7 +440,7 @@ private static SplitSkill CreateSplitSkill()
 
 ### Entity recognition skill
 
-This `EntityRecognitionSkill` instance is set to recognize category type `organization`. The **Entity Recognition** skill can also recognize category types `person` and `location`.
+This `EntityRecognitionSkill` instance is set to recognize category type `organization`. The [`EntityRecognitionSkill`](/dotnet/api/azure.search.documents.indexes.models.entityrecognitionskill) can also recognize category types `person` and `location`.
 
 Notice that the "context" field is set to ```"/document/pages/*"``` with an asterisk, meaning the enrichment step is called for each page under ```"/document/pages"```.
 
@@ -473,7 +473,7 @@ private static EntityRecognitionSkill CreateEntityRecognitionSkill()
 
 ### Key phrase extraction skill
 
-Like the `EntityRecognitionSkill` instance that was just created, the **Key Phrase Extraction** skill is called for each page of the document.
+Like the `EntityRecognitionSkill` instance that was just created, the [`KeyPhraseExtractionSkill`](/dotnet/api/azure.search.documents.indexes.models.keyphraseextractionskill) is called for each page of the document.
 
 ```csharp
 private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
@@ -507,7 +507,7 @@ private static KeyPhraseExtractionSkill CreateKeyPhraseExtractionSkill()
 
 ### Build and create the skillset
 
-Build the `Skillset` using the skills you created.
+Build the [`SearchIndexerSkillset`](/dotnet/api/azure.search.documents.indexes.models.searchindexerskillset) using the skills you created.
 
 ```csharp
 private static SearchIndexerSkillset CreateOrUpdateDemoSkillSet(SearchIndexerClient indexerClient, IList<SearchIndexerSkill> skills,string cognitiveServicesKey)

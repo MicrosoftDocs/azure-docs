@@ -1,11 +1,13 @@
 ---
 title: Encrypt credentials in Azure Data Factory 
 description: Learn how to encrypt and store credentials for your on-premises data stores on a machine with self-hosted integration runtime. 
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: abnarain
+ms.author: lle 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Encrypt credentials for on-premises data stores in Azure Data Factory

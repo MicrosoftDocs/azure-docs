@@ -2,10 +2,10 @@
 title: Delete image resources
 description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 05/07/2021
 ---
 
-# Delete container images in Azure Container Registry using the Azure CLI
+# Delete container images in Azure Container Registry
 
 To maintain the size of your Azure container registry, you should periodically delete stale image data. While some container images deployed into production may require longer-term storage, others can typically be deleted more quickly. For example, in an automated build and test scenario, your registry can quickly fill with images that might never be deployed, and can be purged shortly after completing the build and test pass.
 
@@ -15,9 +15,10 @@ Because you can delete image data in several different ways, it's important to u
 * Delete by [tag](#delete-by-tag): Deletes an image, the tag, all unique layers referenced by the image, and all other tags associated with the image.
 * Delete by [manifest digest](#delete-by-manifest-digest): Deletes an image, all unique layers referenced by the image, and all tags associated with the image.
 
-Sample scripts are provided to help automate delete operations.
-
 For an introduction to these concepts, see [About registries, repositories, and images](container-registry-concepts.md).
+
+> [!NOTE]
+> After you delete image data, Azure Container Registry stops billing you immediately for the associated storage. However, the registry recovers the associated storage space using an asynchronous process. It takes some time before the registry cleans up layers and shows the updated storage usage.   
 
 ## Delete repository
 
@@ -102,7 +103,7 @@ The `acr-helloworld:v2` image is deleted from the registry, as is any layer data
 
 To maintain the size of a repository or registry, you might need to periodically delete manifest digests older than a certain date.
 
-The following Azure CLI command lists all manifest digest in a repository older than a specified timestamp, in ascending order. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment. The timestamp could be a full date-time expression or a date, as in this example.
+The following Azure CLI command lists all manifest digests in a repository older than a specified timestamp, in ascending order. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment. The timestamp could be a full date-time expression or a date, as in this example.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName> \
@@ -196,85 +197,21 @@ As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-di
 
 As you can see in the output of the last step in the sequence, there is now an orphaned manifest whose `"tags"` property is an empty list. This manifest still exists within the registry, along with any unique layer data that it references. **To delete such orphaned images and their layer data, you must delete by manifest digest**.
 
-## Delete all untagged images
+## Automatically purge tags and manifests
 
-You can list all untagged images in your repository using the following Azure CLI command. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment.
+Azure Container Registry provides the following automated methods to remove tags and manifests, and their associated unique layer data:
 
-```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?tags[0]==null].digest"
-```
+* Create an  ACR task that runs the `acr purge` container command to delete all tags that are older than a certain duration or match a specified name filter. Optionally configure `acr purge` to delete untagged manifests. 
 
-Using this command in a script, you can delete all untagged images in a repository.
+  The `acr purge` container command is currently in preview. For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
 
-> [!WARNING]
-> Use the following sample scripts with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting untagged images will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice](container-registry-image-tag-version.md).
+* Optionally set a [retention policy](container-registry-retention-policy.md) for each registry, to manage untagged manifests. When you enable a retention policy, image manifests in the registry that don't have any associated tags, and the underlying layer data, are automatically deleted after a set period. 
 
-**Azure CLI in Bash**
-
-The following Bash script deletes all untagged images from a repository. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
-
-```bash
-#!/bin/bash
-
-# WARNING! This script deletes data!
-# Run only if you do not have systems
-# that pull images via manifest digest.
-
-# Change to 'true' to enable image delete
-ENABLE_DELETE=false
-
-# Modify for your environment
-REGISTRY=myregistry
-REPOSITORY=myrepository
-
-# Delete all untagged (orphaned) images
-if [ "$ENABLE_DELETE" = true ]
-then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags[0]==null].digest" -o tsv \
-    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
-else
-    echo "No data deleted."
-    echo "Set ENABLE_DELETE=true to enable image deletion of these images in $REPOSITORY:"
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY --query "[?tags[0]==null]" -o tsv
-fi
-```
-
-**Azure CLI in PowerShell**
-
-The following PowerShell script deletes all untagged images from a repository. It requires PowerShell and the Azure CLI. By default, the script performs no deletion. Change the `$enableDelete` value to `$TRUE` to enable image deletion.
-
-```powershell
-# WARNING! This script deletes data!
-# Run only if you do not have systems
-# that pull images via manifest digest.
-
-# Change to '$TRUE' to enable image delete
-$enableDelete = $FALSE
-
-# Modify for your environment
-$registry = "myregistry"
-$repository = "myrepository"
-
-if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null].digest" -o tsv `
-    | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
-} else {
-    Write-Host "No data deleted."
-    Write-Host "Set `$enableDelete = `$TRUE to enable image deletion."
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags[0]==null]" -o tsv
-}
-```
-
-
-## Automatically purge tags and manifests (preview)
-
-As an alternative to scripting Azure CLI commands, run an on-demand or scheduled ACR task to delete all tags that are older than a certain duration or match a specified name filter. For more information, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
-
-Optionally set a [retention policy](container-registry-retention-policy.md) for each registry, to manage untagged manifests. When you enable a retention policy, image manifests in the registry that don't have any associated tags, and the underlying layer data, are automatically deleted after a set period.
+  The retention policy is currently a preview feature of **Premium** container registries. The retention policy only applies to untagged manifests created after the policy takes effect. 
 
 ## Next steps
 
-For more information about image storage in Azure Container Registry see [Container image storage in Azure Container Registry](container-registry-storage.md).
+For more information about image storage in Azure Container Registry, see [Container image storage in Azure Container Registry](container-registry-storage.md).
 
 <!-- IMAGES -->
 [manifest-digest]: ./media/container-registry-delete/01-manifest-digest.png

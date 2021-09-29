@@ -4,7 +4,7 @@ description: This article shows you how to create your own custom verifiable cre
 services: active-directory
 author: barclayn
 manager: davba
-ms.service: identity
+ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021

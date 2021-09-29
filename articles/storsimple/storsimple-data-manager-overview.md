@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/17/2021
 ms.author: alkohli
 ---
 
@@ -23,7 +23,7 @@ ms.author: alkohli
 
 Microsoft Azure StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and the cloud. Data is stored in the cloud in a deduped and compressed format for maximum efficiency and to lower costs. As the data is stored in StorSimple format, it is not readily consumable by other cloud applications that you may want to use.
 
-The StorSimple Data Manager enables you to seamlessly access and use the StorSimple format data in the cloud. It does this by transforming StorSimple format into native blobs and files, which you can use with other services such as Azure Media Services, Azure HDInsights, and Azure Machine Learning.
+The StorSimple Data Manager enables you to seamlessly access and use the StorSimple format data in the cloud. It does this by transforming StorSimple format into native blobs and files, which you can use with other services such as Azure Media Services, Azure HDInsight, and Azure Machine Learning.
 
 This article provides an overview of the StorSimple Data Manager solution. It also explains how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
 
@@ -61,7 +61,7 @@ This set is larger because the resource deployment in any of the above regions i
 ## Choosing a region
 
 We recommend that:
- - Your source storage account (the one associated with your StorSimple device) and target storage account (where you want the data in native format) be in the same Azure region.
+ - Your source storage account (the one associated with your StorSimple device) and target storage account (where you want the data in native format) are in the same Azure region.
  - You bring up your Data Manager and job definition in the region that contains the StorSimple storage account. If this is not possible, bring up the Data Manager in the nearest Azure region and then create the Job Definition in the same region as your StorSimple storage account. 
 
     If your StorSimple storage account is not in the 26 regions that support job definition creation, we recommend that you do not run StorSimple Data Manager as you see long latencies and potential egress charges.
@@ -84,13 +84,21 @@ If your Data Manager region is different from your job definition region, it is 
 
 The StorSimple Data Manager does not collect or display any personal information. For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
-## Known Limitations
+## Known limitations
 
-The service currently has the following limitations:
-- The StorSimple Data Manager currently does not work with volumes that are bitlocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
+StorSimple Data Manager has the following limitations:
+- The service doesn't work with volumes that are BitLocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
+- The service can't copy data if the StorSimple snapshot is corrupted.
+- A firewall can't be enabled on the storage account where StorSimple backups are stored. If you enable a firewall on the storage account, jobs will fail. 
 - Some metadata of files (including ACLs) will not be retained in the transformed data.
 - This service works only with NTFS volumes.
-- File path lengths need to be less than 256 characters else the job will fail.
+- The StorSimple Data Manager doesn't support migration of Virtual Hard Disks (VHDs). To migrate VHDs, you can use either Azure Data Box or the Azure File Sync service.
+- File path lengths need to be fewer than 256 characters else the job will fail.
+- Blob transfer limitations:
+  - Maximum supported file size for a blob is 4.7 TiB.
+  - Most recent available backup set will be used.
+  - File metadata is not uploaded with the file content.
+  - Uploaded blobs are of the Block Blob type. Thus, any uploaded VHD can't be used in Azure Virtual Machines.
 
 ## Next steps
 

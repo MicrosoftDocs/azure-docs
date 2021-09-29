@@ -94,9 +94,9 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, IMyService service)
+        public MyHttpTrigger(IHttpClientFactory httpClientFactory, IMyService service)
         {
-            this._client = httpClient;
+            this._client = httpClientFactory.CreateClient();
             this._service = service;
         }
 
@@ -136,7 +136,7 @@ Application Insights is added by Azure Functions automatically.
 > - Don't add `AddApplicationInsightsTelemetry()` to the services collection, which registers services that conflict with services provided by the environment.
 > - Don't register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Log custom telemetry in C# functions](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
-### ILogger<T> and ILoggerFactory
+### ILogger\<T\> and ILoggerFactory
 
 The host injects `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters are filtered out of the function logs.  You need to modify the `host.json` file to opt-in to additional filters and categories.
 

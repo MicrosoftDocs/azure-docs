@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: trbye
+ms.author: pafarley
 ms.custom: devx-track-js
 ---
 

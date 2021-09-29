@@ -10,6 +10,9 @@ ms.reviewer: cynthn
 ---
     
 # Availability options for Azure Virtual Machines
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article provides an overview of the availability options for Azure virtual machines (VMs).
 
 ## Availability zones
@@ -52,6 +55,6 @@ Site Recovery can manage replication for:
 - On-premises VMs, Azure Stack VMs, and physical servers.
 
 ## Next steps
-- [Create a virtual machine in an availability zone](/azure/virtual-machines/linux/create-cli-availability-zone)
-- [Create a virtual machine in an availability set](/azure/virtual-machines/linux/tutorial-availability-sets)
+- [Create a virtual machine in an availability zone](./linux/create-cli-availability-zone.md)
+- [Create a virtual machine in an availability set](./linux/tutorial-availability-sets.md)
 - [Create a virtual machine scale set](../virtual-machine-scale-sets/quick-create-portal.md)

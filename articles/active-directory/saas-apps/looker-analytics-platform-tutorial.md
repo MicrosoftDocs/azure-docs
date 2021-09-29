@@ -74,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **SP Entity/IdP Audience** text box, type a URL using the following pattern:
     `<SPN>_looker`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
@@ -165,7 +165,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Looker Analytics Platform for which you set up the SSO 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Looker Analytics Platform tile in the Access Panel, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Looker Analytics Platform for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft Access Panel to test the application in any mode. When you click the Looker Analytics Platform tile in the Access Panel, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Looker Analytics Platform for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

@@ -1,16 +1,20 @@
 ---
-title: Copy data from Marketo using Azure Data Factory (Preview) 
-description: Learn how to copy data from Marketo to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+title: Copy data from Marketo (Preview) 
+description: Learn how to copy data from Marketo to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.author: jingwang
+ms.date: 09/09/2021
+ms.author: chez
+author: chez-charlie
 ---
-# Copy data from Marketo using Azure Data Factory (Preview)
+
+# Copy data from Marketo using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Marketo. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Marketo. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
@@ -31,7 +35,32 @@ Currently, Marketo instance which is integrated with external CRM is not support
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Marketo using UI
+
+Use the following steps to create a linked service to Marketo in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for Marketo and select the Marketo connector.
+
+   :::image type="content" source="media/connector-marketo/marketo-connector.png" alt-text="Screenshot of the Marketo connector.":::    
+
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+   :::image type="content" source="media/connector-marketo/configure-marketo-linked-service.png" alt-text="Screenshot of linked service configuration for Marketo.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Marketo connector.
 
@@ -44,7 +73,7 @@ The following properties are supported for Marketo linked service:
 | type | The type property must be set to: **Marketo** | Yes |
 | endpoint | The endpoint of the Marketo server. (i.e. 123-ABC-321.mktorest.com)  | Yes |
 | clientId | The client Id of your Marketo service.  | Yes |
-| clientSecret | The client secret of your Marketo service. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| clientSecret | The client secret of your Marketo service. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
@@ -147,4 +176,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

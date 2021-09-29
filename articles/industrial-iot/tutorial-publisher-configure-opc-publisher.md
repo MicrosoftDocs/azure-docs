@@ -39,7 +39,7 @@ To persist the security configuration of OPC Publisher across restarts, the cert
 
 ## Configuration via Configuration File
 
-The simplest way to configure OPC Publisher is via a configuration file. An example configuration file as well as documentation regarding its format is provided via the file [`publishednodes.json`](https://raw.githubusercontent.com/Azure/iot-edge-opc-publisher/master/opcpublisher/publishednodes.json) in this repository.
+The simplest way to configure OPC Publisher is via a configuration file. An example configuration file as well as documentation regarding its format is provided via the file [`publishednodes.json`](https://raw.githubusercontent.com/Azure/Industrial-IoT/main/components/opc-ua/src/Microsoft.Azure.IIoT.OpcUa.Edge.Publisher/tests/Engine/publishednodes.json) in this repository.
 Configuration file syntax has changed over time and OPC Publisher still can read old formats, but converts them into the latest format when persisting the configuration, done regularly in an automated fashion.
 
 A basic configuration file looks like this:
@@ -80,7 +80,7 @@ There are several command-line arguments that can be used to set global settings
 ## Configuration via the built-in OPC UA Server Interface
 
 >[!NOTE] 
-> This feature is only available in version 2.5 and below of OPC Publisher.**
+> This feature is only available in version 2.5 and below of OPC Publisher.
 
 OPC Publisher has a built-in OPC UA server, running on port 62222. It implements three OPC UA methods:
 
@@ -93,9 +93,9 @@ This interface can be accessed using an OPC UA client application, for example [
 ## Configuration via IoT Hub Direct Methods
 
 >[!NOTE] 
-> This feature is only available in version 2.5 and below of OPC Publisher.**
+> This feature is only available in version 2.5 and below of OPC Publisher.
 
-OPC Publisher implements the following [IoT Hub Direct Methods](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods), which can be called from an application (from anywhere in the world) leveraging the [IoT Hub Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks):
+OPC Publisher implements the following [IoT Hub Direct Methods](../iot-hub/iot-hub-devguide-direct-methods.md), which can be called from an application (from anywhere in the world) leveraging the [IoT Hub Device SDK](../iot-hub/iot-hub-devguide-sdks.md):
 
   - PublishNodes
   - UnpublishNodes

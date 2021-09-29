@@ -11,7 +11,7 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 02/24/2020
+ms.date: 06/23/2021
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,10 +26,10 @@ If a key is ever suspected to be compromised, such that a service or user had un
 
 Keep in mind that once the TDE protector is deleted in Key Vault, in up to 10 minutes, all encrypted databases will start denying all connections with the corresponding error message and change its state to [Inaccessible](./transparent-data-encryption-byok-overview.md#inaccessible-tde-protector).
 
-This how-to guide goes over two approaches depending on the desired result after a compromised incident response:
+This how-to guide goes over the approach to render databases **inaccessible** after a compromised incident response.
 
-- To make the databases in Azure SQL Database / Azure Synapse Analytics **inaccessible**.
-- To make the databases in Azure SQL Database / Azure Azure Synapse Analytics **inaccessible**.
+> [!NOTE]
+> This article applies to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (dedicated SQL pools (formerly SQL DW)). For documentation on Transparent Data Encryption for dedicated SQL pools inside Synapse workspaces, see [Azure Synapse Analytics encryption](../../synapse-analytics/security/workspaces-encryption.md).
 
 ## Prerequisites
 

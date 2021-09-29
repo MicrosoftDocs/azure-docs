@@ -2,7 +2,7 @@
 title: Quickstart - Run your first Azure Batch job with the .NET API 
 description: In this quickstart, you run an Azure Batch sample job and tasks from a C# application with the Batch .NET client library.
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 05/25/2021
 ms.custom: "mvc, devx-track-csharp"
 ---
 
@@ -10,7 +10,7 @@ ms.custom: "mvc, devx-track-csharp"
 
 Get started with Azure Batch by running a job from a C# application built on the Azure Batch .NET API. The app uploads several input data files to Azure storage and then creates a pool of Batch compute nodes (virtual machines). Then, it creates a sample job that runs tasks to process each input file on the pool using a basic command.
 
-After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+After completing this quickstart, you'll understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
 ![Diagram showing an overview of the Azure Batch app workflow.](./media/quick-run-dotnet/sampleapp.png)
 
@@ -20,7 +20,7 @@ After completing this quickstart, you will understand the key concepts of the Ba
 
 - A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-- [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) for Linux, macOS, or Windows. 
+- [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) for Linux, macOS, or Windows.
 
 ## Sign in to Azure
 
@@ -88,7 +88,7 @@ stderr:
 ...
 ```
 
-Typical execution time is approximately 5 minutes when you run the application in its default configuration. Initial pool setup takes the most time. To run the job again, delete the job from the previous run and do not delete the pool. On a preconfigured pool, the job completes in a few seconds.
+Typical execution time is approximately 5 minutes when you run the application in its default configuration. Initial pool setup takes the most time. To run the job again, delete the job from the previous run and don't delete the pool. On a preconfigured pool, the job completes in a few seconds.
 
 ## Review the code
 
@@ -140,7 +140,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 To create a Batch pool, the app uses the [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) method to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object specifies an [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) to a Windows Server image published in the Azure Marketplace. Batch supports a wide range of Linux and Windows Server images in the Azure Marketplace, as well as custom VM images.
 
-The number of nodes (`PoolNodeCount`) and VM size (`PoolVMSize`) are defined constants. The sample by default creates a pool of 2 size *Standard_A1_v2* nodes. The size suggested offers a good balance of performance versus cost for this quick example.
+The number of nodes (`PoolNodeCount`) and VM size (`PoolVMSize`) are defined constants. The sample by default creates a pool of two *Standard_A1_v2* nodes. The size suggested offers a good balance of performance versus cost for this quick example.
 
 The [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) method submits the pool to the Batch service.
 
@@ -198,7 +198,7 @@ try
 
 ### Create tasks
 
-The app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. In the sample, the command line runs the Windows `type` command to display the input file. This command is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides a number of ways to deploy apps and scripts to compute nodes.
+The app creates a list of [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) objects. Each task processes an input `ResourceFile` object using a [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) property. In the sample, the command line runs the Windows `type` command to display the input file. This command is a simple example for demonstration purposes. When you use Batch, the command line is where you specify your app or script. Batch provides several ways to deploy apps and scripts to compute nodes.
 
 Then, the app adds tasks to the job with the [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) method, which queues them to run on the compute nodes.
 
@@ -234,13 +234,13 @@ foreach (CloudTask task in completedtasks)
 
 ## Clean up resources
 
-The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. When you delete the pool, all task output on the nodes is deleted.
+The app automatically deletes the storage container it creates, and gives you the option to delete the Batch pool and job. You are charged for the pool while the nodes are running, even if no jobs are scheduled. When you no longer need the pool, delete it. After you delete the pool, all task output on the nodes is deleted.
 
 When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and click **Delete resource group**.
 
 ## Next steps
 
-In this quickstart, you ran a small app built using the Batch .NET API to create a Batch pool and a Batch job. The job ran sample tasks, and downloaded output created on the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, and walk through a parallel workload with a real-world application, continue to the Batch .NET tutorial.
+In this quickstart, you ran a small app built using the Batch .NET API to create a Batch pool and a Batch job. The job ran sample tasks, and downloaded output created on the nodes. Now that you understand the key concepts of the Batch service, you can try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, and walk through a parallel workload with a real-world application, continue to the Batch .NET tutorial.
 
 > [!div class="nextstepaction"]
 > [Process a parallel workload with .NET](tutorial-parallel-dotnet.md)

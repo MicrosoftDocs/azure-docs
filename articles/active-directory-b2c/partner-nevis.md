@@ -215,7 +215,7 @@ You'll receive two emails:
 
 4. Select **Run now**.
 
-5. In the popup window, select **Sign up now**.
+5. In the pop-up window, select **Sign up now**.
 
 6. Add your email address.
 
@@ -247,7 +247,7 @@ You'll receive two emails:
 
 2. Select **Run now**.
 
-3. On the popup window, select **Passwordless Authentication**.
+3. In the pop-up window, select **Passwordless Authentication**.
 
 4. Enter your email address.
 

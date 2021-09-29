@@ -156,7 +156,7 @@ Awareness of these security risks can help you make requirement and
 design decisions that minimize these risks in your application.
 
 Thinking about security controls to prevent breaches is important.
-However, you also want to [assume a breach](/azure/devops/learn/devops-at-microsoft/security-in-devops)
+However, you also want to [assume a breach](/devops/operate/security-in-devops)
 will occur. Assuming a breach helps answer some important questions
 about security in advance, so they don't have to be answered in an
 emergency:
@@ -439,7 +439,7 @@ throughout its access patterns.
 
 Implement *just-in-time* (JIT) access to further lower the exposure time
 of privileges. Use [Azure AD Privileged Identity
-Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity)
+Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity)
 to:
 
 - Give users the permissions they need only JIT.

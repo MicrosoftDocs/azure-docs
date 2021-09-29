@@ -16,7 +16,7 @@ They are fully documented in the [Conversion REST API](conversion-rest-api.md) p
 For the purpose of laying out files, the important thing to note is that the `BlobPrefix` determines complete set of files which are available to the conversion service when processing the asset.
 
 > [!Note]
-> The service will download all files under the input.BlobPrefix. Ensure file names and paths do not exceed [Windows path length limits](https://docs.microsoft.com/windows/win32/fileio/maximum-file-path-limitation) to avoid issues on the service. 
+> The service will download all files under the input.BlobPrefix. Ensure file names and paths do not exceed [Windows path length limits](/windows/win32/fileio/maximum-file-path-limitation) to avoid issues on the service. 
 
 ## Placing files so they can be found
 

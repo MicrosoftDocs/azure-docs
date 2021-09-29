@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed, get a list of the properties that changed, and evaluate the diffs.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
 ---
 # Get resource changes
@@ -53,7 +53,7 @@ The **resourceChanges** endpoint accepts the following parameters in the request
 - **resourceId** \[required\]: The Azure resource to look for changes on.
 - **interval** \[required\]: A property with _start_ and _end_ dates for when to check for a change
   event using the **Zulu Time Zone (Z)**.
-- **fetchPropertyChanges** (optional): A boolean property that sets if the response object includes
+- **fetchPropertyChanges** (optional): A Boolean property that sets if the response object includes
   property changes.
 
 Example request body:

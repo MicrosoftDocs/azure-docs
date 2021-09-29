@@ -59,6 +59,7 @@ If an event occurs:
 
 1. If your primary region is affected during a disaster incident, reroute operations to the backup Azure Time Series Insights environment.
 1. Because hub sequence numbers restart from 0 after the failover, recreate the event source in both regions/environments with different consumer groups to avoid creating what would look like duplicate events.
+1. Delete the primary event source, which is now inactive, to free up an available event source for your environment. (There's a limit of two active event sources per environment.)
 1. Use your second region to back up and recover all Azure Time Series Insights telemetry and query data.
 
 > [!IMPORTANT]

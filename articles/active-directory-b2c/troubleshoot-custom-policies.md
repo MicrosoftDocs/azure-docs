@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/08/2021
+ms.date: 05/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -27,7 +27,7 @@ Azure AD B2C correlation ID is a unique identifier value that is attached to aut
 - Find the sign-in request's Azure Application Insights logs.
 - Pass the correlation ID to your REST API and use it to identify the sign-in flow. 
 
-The correlation ID is changed every time a new session is established. When debugging your policies, make sure close existing browser tabs. Or open a new in-private mode browser.
+The correlation ID is changed every time a new session is established. When you debug your policies, make sure that you close existing browser tabs or open a new in-private mode browser.
 
 ### Get the Azure AD B2C correlation ID
 
@@ -44,7 +44,7 @@ You can include the correlation ID in your Azure AD B2C tokens. To include the c
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
-1. Add the city claim to the **ClaimsSchema** element.  
+1. Add the correlation ID claim to the **ClaimsSchema** element.  
 
     ```xml
     <!-- 
@@ -59,7 +59,7 @@ You can include the correlation ID in your Azure AD B2C tokens. To include the c
     </BuildingBlocks>-->
     ```
 
-1. Open the relying party file of your policy. For example, <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. The output claim will be added to the token after a successful user journey and sent to the application. Modify the technical profile element in the relying party section to add the city as an output claim.
+1. Open the relying party file of your policy. For example, <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> file. The output claim will be added to the token after a successful user journey and sent to the application. Modify the technical profile element in the relying party section to add the `correlationId` as an output claim.
  
     ```xml
     <RelyingParty>
@@ -358,7 +358,7 @@ For example, a technical profile with the *schoolId* output claim. But the outpu
 </OutputClaims>
 ```
 
-To fix this type of error, check whether the `ClaimTypeReferenceId` value is misspelled, or does not exist in the schema. If the claim is defined in the extensions policy, but it's also being used in the base policy. Make sure the claim is defined in the policy it's in used, or in an upper level policy.
+To fix this type of error, check whether the `ClaimTypeReferenceId` value is misspelled, or does not exist in the schema. If the claim is defined in the extensions policy, but it's also being used in the base policy. Make sure the claim is defined in the policy it's used in, or in an upper level policy.
 
 Adding the claim to the claims schema solves this type of error.
 

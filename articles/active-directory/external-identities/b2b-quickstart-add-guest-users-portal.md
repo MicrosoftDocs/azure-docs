@@ -6,7 +6,7 @@ author: msmimart
 ms.author: mimart
 manager: celestedg
 ms.reviewer: mal
-ms.date: 08/05/2020
+ms.date: 06/18/2020
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete the scenario in this tutorial, you need:
 
- - A role that allows you to create users in your tenant directory, like the Global Administrator role or any of the limited administrator directory roles.
+ - A role that allows you to create users in your tenant directory, like the Global Administrator role or any of the limited administrator directory roles such as guest inviter or user administrator.
  - A valid email account that you can add to your tenant directory, and that you can use to receive the test invitation email.
 
 ## Add a new guest user in Azure AD

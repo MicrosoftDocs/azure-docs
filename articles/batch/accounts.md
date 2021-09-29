@@ -2,7 +2,7 @@
 title: Batch accounts and Azure Storage accounts
 description: Learn about Azure Batch accounts and how they are used from a development standpoint.
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 05/25/2021
 
 ---
 # Batch accounts and Azure Storage accounts
@@ -22,7 +22,7 @@ You can create a Batch account using the [Azure portal](batch-account-create-por
 
 ## Azure Storage accounts
 
-Most Batch solutions use Azure Storage for storing resource files and output files. For example, your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) typically specify resource files that reside in a storage account. Storage accounts also stores that data that is processed and any output data that is generated.
+Most Batch solutions use Azure Storage for storing [resource files](resource-files.md) and output files. For example, your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) typically specify resource files that reside in a storage account. Storage accounts also stores that data that is processed and any output data that is generated.
 
 Batch supports the following types of Azure Storage accounts:
 
@@ -33,6 +33,8 @@ Batch supports the following types of Azure Storage accounts:
 For more information about storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 
 You can associate a storage account with your Batch account when you create the Batch account, or later. Consider your cost and performance requirements when choosing a storage account. For example, the GPv2 and blob storage account options support greater [capacity and scalability limits](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) compared with GPv1. (Contact Azure Support to request an increase in a storage limit.) These account options can improve the performance of Batch solutions that contain a large number of parallel tasks that read from or write to the storage account.
+
+When a storage account is linked to a Batch account, it is considered to be the *autostorage account*. An autostorage account is required if you plan to use the [application packages](batch-application-packages.md) capability, as it is used to store the application package .zip files. It can also be used for [task resource files](resource-files.md#storage-container-name-autostorage); since the autostorage account is already linked to the Batch account, this avoids the need for shared access signature (SAS) URLs to access the resource files.
 
 ## Next steps
 

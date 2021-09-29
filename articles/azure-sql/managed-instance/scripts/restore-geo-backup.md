@@ -3,13 +3,13 @@ title: "PowerShell: Restore geo-backup for Azure SQL Managed Instance"
 description: Azure PowerShell example script to restore an Azure SQL Managed Instance database from a geo-redundant backup.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: backup-restore
+ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: Misliplavo
+ms.author: mlazic
+ms.reviewer: mathoma
 ms.date: 07/03/2019
 ---
 # Use PowerShell to restore an Azure SQL Managed Instance database to another geo-region

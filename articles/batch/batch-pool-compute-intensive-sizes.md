@@ -35,7 +35,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
-### Windows pools - Virtual machine configuration
+### Windows pools - Virtual Machine Configuration
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
@@ -45,15 +45,17 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
-### Windows pools - Cloud services configuration
+### Windows pools - Cloud Services Configuration
 
-> [!NOTE]
-> N-series sizes are not supported in Batch pools with the Cloud Service configuration.
->
+> [!WARNING]
+> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead.
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012, or<br/>2008 R2 (Guest OS family) | Microsoft MPI 2012 R2 or later, or<br/>Intel MPI 5<br/><br/>Windows RDMA drivers | Enable inter-node communication,<br/> disable concurrent task execution |
+
+> [!NOTE]
+> N-series sizes are not supported in  Cloud Services Configuration pools.
 
 ## Pool configuration options
 

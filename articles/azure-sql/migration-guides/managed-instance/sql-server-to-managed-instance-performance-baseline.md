@@ -6,9 +6,9 @@ ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: mokabiru
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 11/06/2020
 ---
 # Migration performance: SQL Server to  Azure SQL Managed Instance performance baseline
