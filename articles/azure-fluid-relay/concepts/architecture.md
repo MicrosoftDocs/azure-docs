@@ -12,7 +12,7 @@ ms.service: azure-fluid
 # Overview of Azure Fluid Relay architecture
 
 > [!NOTE]
-> The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. The Fluid Framework itself does not require Azure; users can create and host custom servers on any cloud service. [Azure Fluid Relay](../overview/overview.md) is an turnkey implementation of a Fluid Framework server that runs on Azure, and is suitable for use in production environments.
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 Architecturally, Azure Fluid Relay can be broken into three components: The [Fluid Loader](), [Fluid containers](), and the [Fluid service](). This article provides a brief overview of each component, including what they do and how they fit into the Azure Fluid Relay service.
 

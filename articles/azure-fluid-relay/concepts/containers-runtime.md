@@ -12,7 +12,7 @@ ms.service: azure-fluid
 # Azure Fluid Relay containers and the container runtime
 
 > [!NOTE]
-> The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. The Fluid Framework itself does not require Azure; users can create and host custom servers on any cloud service. [Azure Fluid Relay](../overview/overview.md) is an turnkey implementation of a Fluid Framework server that runs on Azure, and is suitable for use in production environments.
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 **Fluid containers** are the atomic unit of storage in the Azure Fluid Relay service, and are foundational concept for creating anything with the Fluid Framework. The container contains all data associated with a Fluid session, including operations and snapshots. The Fluid runtime uses the container's data to recreate the state of a Fluid session.
 
