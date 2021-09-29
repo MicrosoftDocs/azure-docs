@@ -394,7 +394,7 @@ rtt min/avg/max/mdev = 113.899/125.530/137.162/11.636 ms
 See [Connecting using USB modem](./connect-over-cellular-usb.md).
 
 ## Next steps
+[Connect using USB modem](./connect-over-cellular-usb.md).
 
 Back to the main article on LTE and 5G:
-- [Connecting using LTE or 5G](./connect-over-cellular.md).
-  
+[Connect using LTE or 5G](./connect-over-cellular.md).  

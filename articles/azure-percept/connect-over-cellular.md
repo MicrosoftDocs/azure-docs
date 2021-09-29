@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 The benefits of connecting Edge AI devices over 5G/LTE networks are many. Scenarios where Edge AI is most effective are in places where Wi-Fi and LAN connectivity are limited, such as smart cities, autonomous vehicles, and agriculture. Additionally, 5G/LTE networks provide better security than Wi-Fi. Lastly, using IoT devices that run AI at the Edge provides a way to optimize the bandwidth on 5G/LTE networks. Only the necessary information is sent to the cloud while most of the data is processed on the device. Today, Azure Percept DK even supports direct connection to 5G/LTE networks using a simple USB modem. Below more about the different options.
 
-## Options for connecting the Azure Percept DK over 5G or LTE networks
+## Options for connecting Azure Percept DK over 5G or LTE networks
 With additional hardware, you can connect the Azure Percept DK using 5G/LTE connectivity. There are three options supported today, you can find a link to more details for each option:
 - **USB 5G/LTE Modem device** - We have now released a new SW image that supports open-source ModemManger SW that adds USB modem support to our Linux Operating System. This allows you to connect your Azure Percept over LTE or 5G networks using various often inexpensive USB modems. More info here [Connecting using USB modem](./connect-over-cellular-usb.md).   
 - **5G/LTE Ethernet gateway device** - Here Azure Percept is connected to the 5G/LTE gateway over Ethernet. More info here [Connecting using cellular gateway](./connect-over-cellular-gateway.md).
@@ -31,5 +31,5 @@ With additional hardware, you can connect the Azure Percept DK using 5G/LTE conn
 
 ## Next steps
 Depending on what cellular device you might have access to, follow these links to connect your Azure Percept dev kit:
-- [Connecting using cellular gateway](./connect-over-cellular-gateway.md).
-- [Connecting using USB modem](./connect-over-cellular-usb.md).
+- [Connect using cellular gateway](./connect-over-cellular-gateway.md).
+- [Connect using USB modem](./connect-over-cellular-usb.md).

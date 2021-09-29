@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 09/23/2021
 ms.custom: template-how-to
 ---
-# Connecting Azure Percept over 5G or LTE networks using a gateway
+# Connect Azure Percept over 5G or LTE networks using a gateway
 A gateway that connects to the internet over 5G or LTE and provides ethernet ports is a simple way of connecting Azure Percept to the internet. In this case, Azure Percept is not even aware that it is connected over 5G or LTE, all it knows that its ethernet port has connectivity and it routes all traffic through that.  
 
 
@@ -25,7 +25,7 @@ Here are some important points to consider when connecting the Azure Percept DK 
 - If your 5G/LTE plan has a quota, it's recommended that you optimize how much data your Azure Percept DK models send to the cloud.
 - Ensure you have a [properly configured firewall](./concept-security-configuration.md) that blocks externally originated inbound traffic.
 
-## Consideration when doing SSH to the devkit
+## Considerations when doing SSH to the devkit
 To SSH into the dev kit via a 5G/LTE ethernet gateway, you have these options:
 - **Using the dev kit's Wi-Fi access point**. If you have Wi-Fi disabled, you can re-enable it by rebooting your dev kit. From there, you can connect to the dev kit's Wi-Fi access point and follow [how to SSH into Azure Percept DK](./how-to-ssh-into-percept-dk.md).
 - **Using a Ethernet connection to a local network (LAN)**. With this option, you'll unplug your dev kit from the 5G/LTE gateway and plug it into LAN router. For more information, see [How to Connect over Ethernet](./how-to-connect-over-ethernet.md). 
@@ -35,7 +35,7 @@ To SSH into the dev kit via a 5G/LTE ethernet gateway, you have these options:
 ## Next steps
 Depending on what cellular device you might have access to, you might want to consider connecting over a USB mode:
 
-- [Connecting using USB modem](./connect-over-cellular-usb.md).
+[Connect using USB modem](./connect-over-cellular-usb.md).
 
 Back to the main article on LTE and 5G:
-- [Connecting using LTE or 5G](./connect-over-cellular.md).
+[Connect using LTE or 5G](./connect-over-cellular.md).

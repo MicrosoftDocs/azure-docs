@@ -100,8 +100,14 @@ systemctl restart ModemManager
 ## Next steps
 Now check out the instructions for different USB modems:
 
-[Connecting using Vodafone Connect 4G vs USB modem](./connect-over-cellular-usb-vodafone.md)
+[Connect using Vodafone Connect 4G vs USB modem](./connect-over-cellular-usb-vodafone.md)
 
-[Connecting using Multitech USB modem](./connect-over-cellular-usb-multitech.md)
+[Connect using Multitech USB modem](./connect-over-cellular-usb-multitech.md)
 
-[Connecting using Quectel 5G Developer Kit](./connect-over-cellular-usb-quectel.md)
+[Connect using Quectel 5G Developer Kit](./connect-over-cellular-usb-quectel.md)
+
+[Connect using cellular gateway](./connect-over-cellular-gateway.md).
+
+Back to the main article on LTE and 5G:
+
+[Connect using LTE or 5G](./connect-over-cellular.md).
