@@ -784,7 +784,11 @@
     - name: OpenTelemetry
       items: 
       - name: Overview
-        href: /app/opentelemetry-overview.md 
+        href: app/opentelemetry-overview.md 
+      - name: .NET
+        href: app/opentelemetry-net.md
+      - name: JavaScript
+        href: app/opentelemetry-javascript.md
       - name: Java
         items:
         - name: Overview

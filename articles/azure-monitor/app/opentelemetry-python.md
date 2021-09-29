@@ -2,36 +2,40 @@
 title: Azure Monitor OpenTelemetry for Python | Microsoft Docs
 description: Provides guidance on how to enable Azure Monitor on Python Applications using OpenTelemetry
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/28/2021
 author: mattmccleary
 ms.author: mmcc
 ---
 
-# Azure Monitor OpenTelemetry Exporter for Python Applications **(Preview)**
+# Azure Monitor OpenTelemetry Exporter for Python applications (Preview)
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you’ll be able to use Azure Monitor Application Insights to monitor your application.
 
-> [!WARNING]
-> Please consider carefully whether this preview is right for you. It enables distributed tracing only and _excludes_ the following:
-> - Metrics API (custom metrics, [Pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
-> - [Live Metrics](live-stream.md)
-> - Logging API (console logs, logging libraries, etc.)
-> - Auto-capture of unhandled exceptions
-> - Offline disk storage
-> - [AAD Authentication](azure-ad-authentication.md)
->
-> Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
+## Limitations of preview release
+
+Please consider carefully whether this preview is right for you. It **enables distributed tracing only** and _excludes_ the following:
+ - Metrics API (custom metrics, [Pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
+ - [Live Metrics](live-stream.md)
+ - Logging API (console logs, logging libraries, etc.)
+ - Auto-capture of unhandled exceptions
+ - Offline disk storage
+ - [Azure AD Authentication](azure-ad-authentication.md)
+
+ Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
 > [!WARNING]
-> Enabling sampling will result in broken traces if used alongside the existing Application Insights SDKs, and it will make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
+> Enabling sampling alongside the existing Application Insights SDKs will result in broken traces. It will also make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
 
-## Get Started
+## Get started
+
 ### Prerequisites
+
 - Python Application using version 3.6+
-- Azure Subscription (Free to [create](https://azure.microsoft.com/free/))
-- Application Insights Resource (Free to [create](create-workspace-resource.md#create-workspace-based-resource))
+- [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
+- [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
 
 ### Enable Azure Monitor Application Insights
+
 **1. Install package**
 
 Add code to xyz.file in your application
@@ -42,20 +46,20 @@ Placeholder
 
 **2. Add connection string**
 
-Replace placeholder connection string with YOUR connection string.
+Replace placeholder `<Your Connection String>` with YOUR connection string from Application Insights resource.
 
 Find the connection string on your Application Insights Resource.
 
-:::image type="content" source="media/opentelemetry-python/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
+:::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
-**3. Confirm Data is Flowing**
+**3. Confirm data is flowing**
 
 Generate requests in your application and open your Application Insights Resource.
 
 > [!NOTE]
 > It may take a couple minutes for data to show up in the Portal.
 
-:::image type="content" source="media/opentelemetry-python/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
+:::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
 
 > [!IMPORTANT]
@@ -64,7 +68,7 @@ Generate requests in your application and open your Application Insights Resourc
 > [!NOTE]
 > OpenTelemetry does not populate operation name on dependency telemetry, which adversely impacts your experience in the Failures and Performance Blades. You can mitigate this impact by [joining request and dependency data in the Logs Blade](java-standalone-upgrade-from-2x.md#operation-name-on-dependencies).
 
-## Set Cloud Role Name
+## Set role name
 You may use the Resource API to set Cloud Role Name. This updates Cloud Role Name from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node.
 
 ```python
@@ -79,7 +83,7 @@ OpenTelemetry SDKs provide built-in sampling as a way to control data volume and
 > [!WARNING]
 > We do not recommend enabling sampling in the preview release because it will result in broken traces if used alongside the existing Application Insights SDKs and it will make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
 
-## Instrumentation Libraries
+## Instrumentation libraries
 Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release.
 
 > [!WARNING]
@@ -92,16 +96,16 @@ Microsoft has tested and validated that the following instrumentation libraries 
 - XYZ (version X.X)
 
 > [!NOTE]
-> The **preview** offering only includes instrumentations that handle HTTP and Database requests. In the future, we plan to support other request types. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
+> The **preview** offering only includes instrumentations that handle HTTP and Database requests. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
 
-## Modify Telemetry
+## Modify telemetry
 
-### Add Span Attributes
+### Add span attributes
 You may use X to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
 
 For more information, see [GitHub Repo](link).
 
-#### Add Custom Dimension
+#### Add custom dimension
 Populate the _customDimensions_ field in the requests and dependencies table.
 
 ```python
@@ -121,7 +125,7 @@ Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependen
 Placeholder
 ```
 --->
-#### Set User IP
+#### Set user IP
 Populate the _client_IP_ field in the requests and dependencies table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
 > [!TIP]
@@ -131,7 +135,7 @@ Populate the _client_IP_ field in the requests and dependencies table. Applicati
 Placeholder
 ```
 
-### Override Span Name
+### Override span name
 You may use X to override trace name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
 ```python
@@ -140,7 +144,7 @@ Placeholder
 
 For more information, see [GitHub Repo](link).
 
-### Filter Telemetry
+### Filter telemetry
 You may use a Span Processor to filter out telemetry before leaving your application. Span Processors may be used to mask telemetry for privacy reasons or block unneeded telemetry to reduce ingestion costs.
 
 ```python
@@ -171,23 +175,27 @@ Placeholder
 ```
 
 > [!NOTE]
-> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
+> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you [open an issue with the OpenTelemetry community](https://github.com/open-telemetry/opentelemetry-python/issues/new/choose) for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Troubleshooting
-### Enable Diagnostic Logging
+
+### Enable diagnostic logging
 Placeholder
 
+### Known issues
+Placeholder 
+
 ## Support
-- Review Troubleshooting steps in this article
+- Review troubleshooting steps in this article.
 - For Azure support issues, file an Azure SDK GitHub issue or open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
-## OpenTelemetry Feedback
+## OpenTelemetry feedback
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
 - Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
 
-## Next Steps
+## Next steps
 - [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md)
 - [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/)
 - [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)
