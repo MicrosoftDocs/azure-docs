@@ -89,7 +89,7 @@ sections:
       - question: |
           What happens if the expected Weekly,Monthly or Yearly backup fails?
         answer: |
-          The first successful backup after the expected Weekly, Monthly or Yearly backup is retained as per the retention period for Weekly, Monthly and Yearly recovery points (Long Term Retention (LTR) points) respectively, as per the Policy. This successful Backup could be an adhoc backup or a scheduled backup in case of MARS Agent.
+          Incase of backup failure, the next successful backup after the expected Weekly, Monthly or Yearly backup is retained as per the retention period for Weekly, Monthly and Yearly recovery points (Long Term Retention (LTR) points) respectively, as per the Policy. This successful Backup could be an adhoc backup or a scheduled backup in case of MARS Agent.
           
   - name: Manage backups
     questions:
