@@ -6220,22 +6220,32 @@
     },
     {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-spark.md",
-      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-hive.md",
-      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-mapreduce.md",
-      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-storm.md",
-      "redirect_url": "/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-data-scenarios.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/data-lake-storage-performance-tuning-guidance.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-best-practices",
       "redirect_document_id": false
     },
     {
@@ -24252,6 +24262,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/search-filters-facets.md",
+      "redirect_url": "/azure/search/search-faceted-navigation",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/search/search-autocomplete-tutorial.md",
