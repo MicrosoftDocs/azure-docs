@@ -47,7 +47,7 @@ For this tutorial, you need an Azure virtual machine(VM). Create a virtual machi
 
 To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD role assignments are required.
 
-#### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 - From the **Azure portal** search for **virtual machines**.
 - Choose **Create**
@@ -62,7 +62,7 @@ For more information, review the Azure virtual machines documentation:
 - [Linux](../../virtual-machines/linux/quick-create-portal.md)
 - [Windows](../../virtual-machines/windows/quick-create-portal.md)
 
-#### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 [New-AZVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) creates resources you reference if they don't exist. To create a VM with a system assigned managed identity enabled pass the parameter **-SystemAssignedIdentity** as shown below. 
 
@@ -84,7 +84,7 @@ New-AzVm `
 - [Quickstart: Create a Linux virtual machine in Azure with PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 
-#### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM named *myVM* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
 
@@ -95,7 +95,7 @@ Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following exa
 - [Create a Linux virtual machine with a system assigned managed identity](../../virtual-machines/linux/quick-create-cli.md)
 - [Create a Windows virtual machine with a system assigned managed identity](../../virtual-machines/windows/quick-create-cli.md)
 
-#### [Resource Manager Template](#tab/azure-resource-manager)
+# [Resource Manager Template](#tab/azure-resource-manager)
 
 To enable system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section and add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
 
@@ -129,13 +129,13 @@ When you're done, the following sections should be added to the `resource` secti
 
 The steps below show you how to create a virtual machine with a user-assigned managed identity configured.
 
-#### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 Today, the Azure portal does not support assigning a user-assigned managed identity during the creation of a VM. You should create a virtual machine and then assign a user assigned managed identity to it.
 
 [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md#user-assigned-managed-identity)
 
-#### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Create a Windows virtual machine with a user assigned managed identity specified.
 
@@ -173,7 +173,7 @@ New-AzVm `
 The user assigned managed identity should be specified using its [resourceID](how-manage-user-assigned-managed-identities.md
 ). 
 
-#### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
@@ -181,7 +181,7 @@ az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS 
 
 [Configure managed identities for Azure resources on a VM using the Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
 
-#### [Resource Manager Template](#tab/azure-resource-manager)
+# [Resource Manager Template](#tab/azure-resource-manager)
 
 Depending on your API version, you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the ```<identityName>``` value is the name of a variable that you define in the variables section of your template. In the variable, you point to the user assigned managed identity that you want to assign.
 
@@ -245,12 +245,12 @@ At this point, we should have both a virtual machine configured with a managed i
 > [!NOTE] 
 > Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data contributor** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 **At this time there is no role assignment option available in the Azure portal**
 
 
-### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
@@ -268,7 +268,7 @@ When the role assignment step completes, you should see results similar to the o
 
 :::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="This shows the results of the role assignment":::
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 
@@ -280,7 +280,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ```
 
-### [Resource Manager Template](#tab/azure-resource-manager)
+# [Resource Manager Template](#tab/azure-resource-manager)
 
 ```JSON
 {
@@ -414,7 +414,7 @@ Then read and write data as described in [these samples](https://docs.microsoft.
 
 ## Clean up steps
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. In the [portal](https://portal.azure.com), select the resource you want to delete.
 
@@ -422,7 +422,7 @@ Then read and write data as described in [these samples](https://docs.microsoft.
 
 1. When prompted, confirm the deletion.
 
-### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResource `
@@ -431,7 +431,7 @@ Remove-AzResource `
   -ResourceType Microsoft.Compute/virtualMachines
 ```
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource delete \
