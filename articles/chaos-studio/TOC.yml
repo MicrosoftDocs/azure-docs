@@ -1,0 +1,36 @@
+- name: Azure Chaos Studio documentation
+  href: index.yml
+- name: Overview
+- name: Quickstarts
+- name: Tutorials
+  items:
+  - name: Create and run an experiment that uses service-direct faults
+    href: chaos-studio-tutorial-service-direct.md
+  - name: Create and run an experiment that uses agent-based faults
+    href: chaos-studio-tutorial-agent-based.md
+- name: Samples
+- name: Concepts
+- name: How-to guides
+  items:
+  - name: Run and manage an experiment
+    href: chaos-studio-run-experiment.md
+- name: Reference
+  items:
+  - name: Fault library
+    href: chaos-studio-fault-library.md
+  - name: Fault providers
+    href: chaos-studio-fault-providers.md
+  - name: REST API documentation
+    href: https://aka.ms/chaosRESTAPI
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/
