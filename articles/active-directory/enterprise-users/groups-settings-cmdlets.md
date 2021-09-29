@@ -28,7 +28,8 @@ Microsoft 365 groups settings are configured using a Settings object and a Setti
 
 The cmdlets are part of the Azure Active Directory PowerShell V2 module. For instructions how to download and install the module on your computer, see the article [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/overview). You can install the version 2 release of the module from [the PowerShell gallery](https://www.powershellgallery.com/packages/AzureAD/).
 
-Note: With the settings in place to restrict addition of guests to Microsoft 365 Groups, adminsitrators will still be add guest users to Microsoft 365 Groups. The setting will restrict non-admin users from adding guest users to Microsoft 365 groups.
+>[!Note]
+>With the settings in place to restrict the addition of guests to Microsoft 365 Groups, administrators will still add guest users to Microsoft 365 Groups. The setting will restrict non-admin users from adding guest users to Microsoft 365 groups.
 
 ## Install PowerShell cmdlets
 
