@@ -16,9 +16,10 @@ This article demonstrates how to use a function to query a user's Active Directo
 
 In this tutorial, you learn to:
 
+- Deploy a static web app
+- Create an Azure Active Directory app registration
 - Set up custom authentication with Azure Active Directory
-- Configure a role assignment function that queries the user's Active Directory group membership and returns a list of custom roles
-- Deploy the static web app to Azure and test it
+- Configure a [role assignment function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles
 
 ## Prerequisites
 
