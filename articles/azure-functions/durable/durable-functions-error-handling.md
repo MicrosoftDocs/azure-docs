@@ -213,7 +213,7 @@ Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
 
 The activity function call in the previous example takes a parameter for configuring an automatic retry policy. There are several options for customizing the automatic retry policy:
 
-* **Max number of attempts**: The maximum number of retry attempts.
+* **Max number of attempts**: The maximum number of attempts. If set to 1, there will be no retry.
 * **First retry interval**: The amount of time to wait before the first retry attempt.
 * **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
 * **Max retry interval**: The maximum amount of time to wait in between retry attempts.

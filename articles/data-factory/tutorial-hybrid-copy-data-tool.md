@@ -4,6 +4,7 @@ description: Create an Azure Data Factory and then use the Copy Data tool to cop
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/08/2021
@@ -74,7 +75,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. In the left pane, select **All services**. Filter by using the **Storage** keyword, and then select **Storage accounts**.
 
-    ![Storage account search](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Storage account search":::
 
 1. In the list of storage accounts, filter for your storage account, if needed. Then select your storage account.
 
@@ -87,7 +88,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. On the menu on the left, select **Create a resource** > **Integration** > **Data Factory**.
 
-   ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="New data factory creation":::
 
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
@@ -116,7 +117,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. On the Azure Data Factory home page, select **Ingest** to launch the Copy Data tool.
 
-   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the Azure Data Factory home page.":::
 
 1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
@@ -128,7 +129,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. In the **Integration runtime setup** dialog box, select **Self-Hosted**. Then select **Continue**.
 
-   ![Create integration runtime](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png" alt-text="Create integration runtime":::
 
 1. In the **Integration runtime setup** dialog box, under **Name**, enter **TutorialIntegrationRuntime**. Then select **Create**.
 
@@ -136,7 +137,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. Run the downloaded application. You see the status of the express setup in the window.
 
-    ![Express setup status](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/express-setup-status.png" alt-text="Express setup status":::
 
 1. In the **New Connection (SQL Server)** dialog box, confirm that **TutorialIntegrationRuntime** is selected under **Connect via integration runtime**. Then, take the following steps:
 
@@ -154,7 +155,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
     g. Test connection and select **Create**.
 
-      ![Integration runtime selected](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
+      :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png" alt-text="Integration runtime selected":::
 
 1. On the **Source data store** page, ensure that the newly created **SQL Server** connection is selected in the **Connection** block. Then in the **Source tables** section, choose **EXISTING TABLES** and select the **dbo.emp** table in the list, and select **Next**. You can select any other table based on your database.
 
@@ -164,7 +165,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. In **New connection**, search and select **Azure Blob Storage**, and then select **Continue**.
 
-   ![Blob storage selection](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png" alt-text="Blob storage selection":::
 
 1. On the **New connection (Azure Blob Storage)** dialog, take the following steps:
 

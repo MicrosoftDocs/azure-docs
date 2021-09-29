@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 09/27/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
@@ -54,7 +54,7 @@ This type of authorization is common for daemons and service accounts that need 
 
 In order to enable this ACL-based authorization pattern, Azure AD doesn't require that applications be authorized to get tokens for another application. Thus, app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
 
-If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). This will block users and applications without assigned roles from being able to get a token for this application. 
+If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/assign-user-or-group-access-portal.md). This will block users and applications without assigned roles from being able to get a token for this application. 
 
 ### Application permissions
 
@@ -65,13 +65,13 @@ Instead of using ACLs, you can use APIs to expose a set of **application permiss
 * Send mail as any user
 * Read directory data
 
-To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](quickstart-configure-app-expose-web-apis.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](quickstart-configure-app-access-web-apis.md) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
+To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](howto-add-app-roles-in-azure-ad-apps.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
 
-When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
+When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user - because there is no user for you app to act on behalf of. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
 
 For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
 
-#### Recommended: Sign the user into your app
+#### Recommended: Sign the admin into your app to have app roles assigned
 
 Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
@@ -161,7 +161,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | `client_id` | Required | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
 | `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br/>This value tells the Microsoft identity platform that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. |
+| `client_secret` | Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
 | `grant_type` | Required | Must be set to `client_credentials`. |
 
 ### Second case: Access token request with a certificate

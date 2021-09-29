@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial - Migrate a web app from Google Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -1394,7 +1394,7 @@ Both Azure and Google maps support overlaying georeferenced images on the map. G
 
 #### Before: Google Maps
 
-Specify the URL to the image you want to overlay and a bounding box to bind the image on the map. This example overlays a map image of [Newark New Jersey from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map.
+Specify the URL to the image you want to overlay and a bounding box to bind the image on the map. This example overlays a map image of Newark New Jersey from 1922 on the map.
 
 ```html
 <!DOCTYPE html>

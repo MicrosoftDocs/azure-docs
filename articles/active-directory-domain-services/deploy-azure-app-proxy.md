@@ -71,7 +71,7 @@ With a VM ready to be used as the Azure AD Application Proxy connector, now copy
         > For example, if the Azure AD domain is *contoso.com*, the global administrator should be `admin@contoso.com` or another valid alias on that domain.
 
    * If Internet Explorer Enhanced Security Configuration is turned on for the VM where you install the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message, or turn off Internet Explorer Enhanced Security during the install process.
-   * If connector registration fails, see [Troubleshoot Application Proxy](/azure/active-directory/app-proxy/application-proxy-troubleshoot).
+   * If connector registration fails, see [Troubleshoot Application Proxy](../active-directory/app-proxy/application-proxy-troubleshoot.md).
 1. At the end of the setup, a note is shown for environments with an outbound proxy. To configure the Azure AD Application Proxy connector to work through the outbound proxy, run the provided script, such as `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`.
 1. On the Application proxy page in the Azure portal, the new connector is listed with a status of *Active*, as shown in the following example:
 

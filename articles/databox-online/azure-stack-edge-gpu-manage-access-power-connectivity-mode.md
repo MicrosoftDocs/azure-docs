@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/08/2021
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 ---
@@ -157,9 +157,12 @@ For more information on how to register a resource provider, see [Resolve errors
 
 Apart from the default fully connected mode, your device can also run in partially connected, or fully disconnected mode. Each of these modes is described as below:
 
-- **Fully connected** - This is the normal default mode in which the device operates. Both the cloud upload and download of data is enabled in this mode. You can use the Azure portal or the local web UI to manage the device.
+- **Fully connected** - This is the normal default mode in which the device operates. Both the cloud upload and download of data is enabled in this mode. You can use the Azure portal or the local web UI to manage the device. 
 
-- **Partially disconnected** – In this mode, the device cannot upload or download any share data however can be managed via the Azure portal.
+    > [!NOTE]
+    > For the Network Function Manager deployments, the Azure Stack Edge device must be **Online** and operating in fully connected mode.
+
+- **Partially disconnected** – In this mode, the device cannot upload or download any share data though you can manage the device via the Azure portal.
 
     This mode is typically used when on a metered satellite network and the goal is to minimize network bandwidth consumption. Minimal network consumption may still occur for device monitoring operations.
 

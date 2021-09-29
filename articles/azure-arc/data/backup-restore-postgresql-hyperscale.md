@@ -7,11 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 # Back up and restore Azure Arc-enabled PostgreSQL Hyperscale server groups
+
+> [!IMPORTANT]
+> Backup and restore of Azure Arc-enabled PostgreSQL Hyperscale server is not supported in the current preview release.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 

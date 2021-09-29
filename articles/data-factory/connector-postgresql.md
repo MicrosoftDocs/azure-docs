@@ -1,21 +1,22 @@
 ---
-title: Copy data From PostgreSQL using Azure Data Factory 
-description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data From PostgreSQL
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
-
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
-# Copy data from PostgreSQL by using Azure Data Factory
+# Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Current version](connector-postgresql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -37,6 +38,30 @@ The Integration Runtime provides a built-in PostgreSQL driver starting from vers
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to PostgreSQL using UI
+
+Use the following steps to create a linked service to PostgreSQL in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for Postgre and select the PostgreSQL connector.
+
+    :::image type="content" source="media/connector-postgresql/postgresql-connector.png" alt-text="Select the PostgreSQL connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-postgresql/configure-postgresql-linked-service.png" alt-text="Configure a linked service to PostgreSQL.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to PostgreSQL connector.
 
@@ -216,4 +241,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

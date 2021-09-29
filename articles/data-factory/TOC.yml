@@ -1,3 +1,4 @@
+items: 
 - name: Data Factory Documentation
   href: index.yml
 - name: Switch to version 1 documentation
@@ -6,6 +7,8 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
+  - name: What's new in Azure Data Factory
+    href: whats-new.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout
@@ -160,7 +163,7 @@
   - name: Lineage
     items:
     - name: Push Data Factory lineage data to Azure Purview
-      href: turorial-push-lineage-to-purview.md
+      href: tutorial-push-lineage-to-purview.md
   - name: End-to-end labs
     items:
     - name: Data integration using data factory and data share
@@ -209,6 +212,8 @@
       - name: Data flow performance
         href: concepts-data-flow-performance.md
         displayName: merge, timeout
+      - name: Integration Runtime performance
+        href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
       - name: Expression builder
@@ -251,6 +256,10 @@
       href: connector-overview.md
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
+    - name: Amazon RDS for Oracle
+      href: connector-amazon-rds-for-oracle.md
+    - name: Amazon RDS for SQL Server 
+      href: connector-amazon-rds-for-sql-server.md          
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
@@ -557,6 +566,8 @@
       href: control-flow-append-variable-activity.md
     - name: Execute Pipeline activity
       href: control-flow-execute-pipeline-activity.md
+    - name: Fail activity
+      href: control-flow-fail-activity.md
     - name: Filter activity
       href: control-flow-filter-activity.md
     - name: For Each activity
@@ -683,15 +694,29 @@
     - name: Monitor visually
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
-      href: monitor-using-azure-monitor.md
-    - name: Monitor SSIS with Azure Monitor
-      href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+      items:
+      - name: Overview
+        href: monitor-using-azure-monitor.md
+      - name: Azure Data Factory metrics and alerts
+        href: monitor-metrics-alerts.md
+      - name: Configure diagnostics settings and workspace
+        href: monitor-configure-diagnostics.md
+      - name: Setup diagnostics logs via the Azure Monitor REST API
+        href: monitor-logs-rest.md
+      - name: Monitor SSIS operations with Azure Monitor
+        href: monitor-ssis.md
+      - name: Schema of logs and events
+        href: monitor-schema-logs-events.md
+      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
+        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+    - name: Run Data Pipelines with Service Level Agreements
+      href: tutorial-operationalize-pipelines.md
     - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
     - name: Copy or clone a data factory
@@ -714,8 +739,11 @@
         - name: Automation scripts of self-hosted integration runtime
           href: self-hosted-integration-runtime-automation-scripts.md
           displayName: self hosted
-        - name: Run Self-Hosted Integration Runtime in Windows container
+        - name: Run self-Hosted Integration Runtime in Windows container
           href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
+          displayName: self hosted
+        - name: Diagnostic tool for self-hosted integration runtime
+          href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
@@ -759,7 +787,7 @@
       href: configure-azure-ssis-integration-runtime-performance.md
     - name: Configure disaster recovery for Azure-SSIS IR
       href: configure-bcdr-azure-ssis-integration-runtime.md
-    - name: Clean up SSISDB logs with Elastic Database Jobs
+    - name: Clean up SSISDB logs automatically
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
     - name: Use Azure SQL Managed Instance with Azure-SSIS IR
       href: how-to-use-sql-managed-instance-with-ir.md
@@ -786,6 +814,8 @@
     items:
     - name: Connect a Data Factory to Azure Purview
       href: connect-data-factory-to-azure-purview.md
+    - name: Access a secured Azure Purview account
+      href: ./how-to-access-secured-purview-account.md
     - name: Discover and explore data in ADF using Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
@@ -857,7 +887,7 @@
       displayName: diu  
   - name: Troubleshooting guides
     items:
-    - name: Data Factory UX
+    - name: Azure Data Factory Studio
       href: data-factory-ux-troubleshoot-guide.md
     - name: Activities
       href: data-factory-troubleshoot-guide.md
@@ -908,6 +938,8 @@
     href: policy-reference.md
   - name: Azure CLI
     href: /cli/azure/datafactory
+  - name: Compute optimized data flows retired
+    href: compute-optimized-data-flow-retire.md
 - name: Resources
   items:
   - name: Whitepapers
@@ -924,7 +956,7 @@
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
-    href: https://feedback.azure.com/forums/270578-azure-data-factory
+    href: /answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region

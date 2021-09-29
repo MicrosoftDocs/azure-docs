@@ -2,12 +2,12 @@
 title: Azure Synapse workspace access control overview
 description: This article describes the mechanisms used to control access to a Synapse workspace and the resources and code artifacts it contains.
 services: synapse-analytics 
-author: RonyMSFT 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: security 
 ms.date: 12/03/2020 
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
 ---
 # Azure Synapse access control 
@@ -70,7 +70,7 @@ The creator of a workspace is assigned as the Active Directory Admin on the work
 
 **Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to serverless SQL pools, Synapse administrators need to run SQL scripts on each serverless pool.  
 
-**Dedicated SQL pools**: Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin must run SQL scripts against each dedicated SQL pool.
+**Dedicated SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the dedicated SQL pools. Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin must run SQL scripts against each dedicated SQL pool.
 
 See [How to set up Synapse Access Control](./how-to-set-up-access-control.md) for examples of SQL scripts for granting SQL permissions in SQL pools.  
 

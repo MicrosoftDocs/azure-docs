@@ -10,7 +10,7 @@ ms.topic: overview
 ms.workload: identity
 ms.date: 01/22/2021
 ms.author: davidmu
-ms.reviewer: 
+ms.reviewer: sureshja, napuri
 ---
 
 # What is application management?

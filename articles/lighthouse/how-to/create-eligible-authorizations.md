@@ -1,7 +1,7 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 07/13/2021
+ms.date: 09/08/2021
 ms.topic: how-to
 ---
 
@@ -57,7 +57,7 @@ You can't use eligible authorizations with service principals, since there's cur
 
 Each eligible authorization needs to include an [Azure built-in role](../../role-based-access-control/built-in-roles.md) that the user will be eligible to use on a just-in-time basis.
 
-The role can be any Azure built-in role that is supported for Azure delegated resource management except for User Access Administrator.
+The role can be any Azure built-in role that is [supported for Azure delegated resource management](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse), except for User Access Administrator.
 
 > [!IMPORTANT]
 > If you include multiple eligible authorizations that use the same role, each of the eligible authorizations must have the same access policy settings.
@@ -98,7 +98,7 @@ To include eligible authorizations when you onboard a customer, use one of the t
 
 |To onboard this (with eligible authorizations)  |Use this Azure Resource Manager template  |And modify this parameter file |
 |---------|---------|---------|
-|Subscription   |[subscription.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.json)  |[subscription.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription.parameters.json)    |
+|Subscription   |[subscription.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.json)  |[subscription.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription.parameters.json)    |
 |Subscription (with approvers)  |[subscription-managing-tenant-approvers.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.json)  |[subscription-managing-tenant-approvers.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.parameters.json)    |
 |Resource group   |[rg.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg.json)  |[rg.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg.parameters.json)    |
 |Resource group (with approvers)  |[rg-managing-tenant-approvers.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg-managing-tenant-approvers.json)  |[rg-managing-tenant-approvers.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/rg/rg-managing-tenant-approvers.parameters.json)    |
@@ -116,118 +116,82 @@ The **subscription-managing-tenant-approvers.json** template, which can be used 
             "type": "string",
             "metadata": {
                 "description": "Specify a unique name for your offer"
-            },
-            "defaultValue": "<to be filled out by MSP> Specify a title for your offer"
+            }
         },
         "mspOfferDescription": {
             "type": "string",
             "metadata": {
                 "description": "Name of the Managed Service Provider offering"
-            },
-            "defaultValue": "<to be filled out by MSP> Provide a brief description of your offer"
+            }
         },
         "managedByTenantId": {
             "type": "string",
             "metadata": {
                 "description": "Specify the tenant id of the Managed Service Provider"
-            },
-            "defaultValue": "<to be filled out by MSP> Provide your tenant id"
+            }
         },
         "authorizations": {
             "type": "array",
             "metadata": {
                 "description": "Specify an array of objects, containing tuples of Azure Active Directory principalId, a Azure roleDefinitionId, and an optional principalIdDisplayName. The roleDefinition specified is granted to the principalId in the provider's Active Directory and the principalIdDisplayName is visible to customers."
-            },
-            "defaultValue": [
-                { 
-                    "principalId": "00000000-0000-0000-0000-000000000000", 
-                    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-                    "principalIdDisplayName": "PIM_Group" 
-                }, 
-                { 
-                    "principalId": "00000000-0000-0000-0000-000000000000", 
-                    "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
-                    "principalIdDisplayName": "PIM_Group" 
-                }   
-            ]
-        }, 
-        "eligibleAuthorizations": { 
-            "type": "array", 
-            "metadata": { 
-                "description": "Provide the authorizations that will have just-in-time role assignments on customer environments" 
-            },
-           "defaultValue": [ 
-                { 
-                        "justInTimeAccessPolicy": { 
-                            "multiFactorAuthProvider": "Azure", 
-                            "maximumActivationDuration": "PT8H",
-                            "managedByTenantApprovers": [ 
-                                { 
-                                    "principalId": "00000000-0000-0000-0000-000000000000", 
-                                    "principalIdDisplayName": "PIM-Approvers" 
-                                }
-                            ]
-                        },
-                        "principalId": "00000000-0000-0000-0000-000000000000", 
-                        "principalIdDisplayName": "PIM_Group",
-                        "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c" 
-                        
-                }                    
-            ]    
-
-        }                 
-    },
-    "variables": {
-        "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
-        "mspAssignmentName": "[guid(parameters('mspOfferName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.ManagedServices/registrationDefinitions",
-            "apiVersion": "2020-02-01-preview",
-            "name": "[variables('mspRegistrationName')]",
-            "properties": {
-                "registrationDefinitionName": "[parameters('mspOfferName')]",
-                "description": "[parameters('mspOfferDescription')]",
-                "managedByTenantId": "[parameters('managedByTenantId')]",
-                "authorizations": "[parameters('authorizations')]", 
-                "eligibleAuthorizations": "[parameters('eligibleAuthorizations')]" 
             }
         },
-        {
-            "type": "Microsoft.ManagedServices/registrationAssignments",
-            "apiVersion": "2020-02-01-preview",
-            "name": "[variables('mspAssignmentName')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
-            ],
-            "properties": {
-                "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+        "eligibleAuthorizations": {
+            "type": "array",
+            "metadata": {
+                "description": "Provide the authorizations that will have just-in-time role assignments on customer environments with support for approvals from the managing tenant"
             }
         }
-    ],
-    
-    "outputs": {
-        "mspOfferName": {
-            "type": "string",
-            "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+    },
+        "variables": {
+            "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+            "mspAssignmentName": "[guid(parameters('mspOfferName'))]"
         },
-        "authorizations": {
-            "type": "array",
-            "value": "[parameters('authorizations')]"
-        }, 
-        "eligibleAuthorizations": { 
-            "type": "array", 
-            "value": "[parameters('eligibleAuthorizations')]" 
-
-        } 
+        "resources": [
+            {
+                "type": "Microsoft.ManagedServices/registrationDefinitions",
+                "apiVersion": "2020-02-01-preview",
+                "name": "[variables('mspRegistrationName')]",
+                "properties": {
+                    "registrationDefinitionName": "[parameters('mspOfferName')]",
+                    "description": "[parameters('mspOfferDescription')]",
+                    "managedByTenantId": "[parameters('managedByTenantId')]",
+                    "authorizations": "[parameters('authorizations')]",
+                    "eligibleAuthorizations": "[parameters('eligibleAuthorizations')]"
+                }
+            },
+            {
+                "type": "Microsoft.ManagedServices/registrationAssignments",
+                "apiVersion": "2020-02-01-preview",
+                "name": "[variables('mspAssignmentName')]",
+                "dependsOn": [
+                    "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+                ],
+                "properties": {
+                    "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+                }
+            }
+        ],
+        "outputs": {
+            "mspOfferName": {
+                "type": "string",
+                "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+            },
+            "authorizations": {
+                "type": "array",
+                "value": "[parameters('authorizations')]"
+            },
+            "eligibleAuthorizations": {
+                "type": "array",
+                "value": "[parameters('eligibleAuthorizations')]"
+            }
+        }
     }
-}
 ```
 
 ### Define eligible authorizations in your parameters file
 
-The [subscription-managing-tenant-approvers.Parameters.json sample template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.Parameters.json) can be used to define authorizations, including eligible authorizations, when onboarding a subscription.
+The [subscription-managing-tenant-approvers.Parameters.json sample template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management-eligible-authorizations/subscription/subscription-managing-tenant-approvers.parameters.json) can be used to define authorizations, including eligible authorizations, when onboarding a subscription.
 
 Each of your eligible authorizations must be defined in the `eligibleAuthorizations` parameter. This example includes one eligible authorization.
 
@@ -289,7 +253,7 @@ Each entry within the `eligibleAuthorizations` parameter contains [three element
 `justInTimeAccessPolicy` specifies three elements:
 
 - `multiFactorAuthProvider` can either be set to **Azure**, which will require authentication using Azure AD Multi-Factor Authentication, or to **None** if no multifactor authentication will be required.
-- `maximumActivationDuration` sets the total length of time for which the user will have the eligible role. This value must use the ISO 8601 duration format. The minimum value is PT30M (30 minutes) and the maximum value is PT8H (8 hours).
+- `maximumActivationDuration` sets the total length of time for which the user will have the eligible role. This value must use the ISO 8601 duration format. The minimum value is PT30M (30 minutes) and the maximum value is PT8H (8 hours). For simplicity, we recommend using values in half-hour increments only (for example, PT6H for 6 hours or PT6H30M for 6.5 hours).
 - `managedByTenantApprovers` is optional. If you include it, it must contain one or more combinations of a principalId and a principalIdDisplayName who will be required to approve any activation of the eligible role.
 
 For more details about these elements, see the [Eligible authorization elements](#eligible-authorization-elements) section above.
@@ -298,7 +262,7 @@ For more details about these elements, see the [Eligible authorization elements]
 
 After you onboard a customer to Azure Lighthouse, any eligible roles you included will be available to the specified user (or to users in any specified groups).
 
-Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting **Manage eligible roles**. After that, they can follow the [steps to activate the role](../../active-directory/privileged-identity-management/pim-how-to-activate-role.md) in Azure AD Privileged Identity Management.
+Each user can elevate their access at any time by visiting the **My customers** page in the Azure portal, selecting a delegation, and then selecting **Manage eligible roles**. After that, they can follow the [steps to activate the role](../../active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles.md) in Azure AD Privileged Identity Management.
 
 :::image type="content" source="../media/manage-eligible-roles.png" alt-text="Screenshot showing the Manage eligible roles button in the Azure portal.":::
 

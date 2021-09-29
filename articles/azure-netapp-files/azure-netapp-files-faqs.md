@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 09/27/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -48,6 +48,10 @@ No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment
 ### Does Azure NetApp Files support dual stack (IPv4 and IPv6) VNet?
 
 No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNet.  
+
+### Is the number of the IP addresses using Azure VMware Solutions for Guest OS mounts [limited to 1000](azure-netapp-files-resource-limits.md#resource-limits)?
+
+No. Azure VMware Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
  
 ## Security FAQs
 
@@ -96,6 +100,10 @@ For the complete list of API operations, see [Azure NetApp Files REST API](/rest
 Yes, you can create [custom Azure policies](../governance/policy/tutorials/create-custom-policy-definition.md). 
 
 However, you cannot create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
+
+### When I delete an Azure NetApp Files volume, is the data deleted safely? 
+
+Deletion of an Azure NetApp Files volume is performed programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
 
 ## Performance FAQs
 
@@ -222,6 +230,10 @@ Use the **JSON View** link on the volume overview pane, and look for the **start
 No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
 To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
 
+### Can the SMB share permissions be changed?   
+
+No, the share permissions cannot be changed. However, the NTFS permissions of the `root` volume can be changed using the [NTFS file and folder permissions](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) procedure. 
+
 ## Capacity management FAQs
 
 ### How do I monitor usage for capacity pool and volume of Azure NetApp Files? 
@@ -260,7 +272,7 @@ Size: 4096            Blocks: 8          IO Block: 65536  directory
 Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the provisioned space in the volume. In case the volume runs full, consider taking the following actions:
 
 * [Resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).
-* [Remove older snapshots](azure-netapp-files-manage-snapshots.md#delete-snapshots) to free up space in the hosting volume. 
+* [Remove older snapshots](snapshots-delete.md) to free up space in the hosting volume. 
 
 ### Does Azure NetApp Files support auto-grow for volumes or capacity pools?
 
@@ -300,7 +312,7 @@ By default, your data stays within the region where you deploy your Azure NetApp
 	
 Azure NetApp Files provides NFS and SMB volumes.  Any file based-copy tool can be used to replicate data between Azure regions. 
 
-The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](azure-netapp-files-manage-snapshots.md#restore-a-snapshot-to-a-new-volume).
+The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](snapshots-restore-new-volume.md).
 
 NetApp offers a SaaS based solution, [NetApp Cloud Sync](https://cloud.netapp.com/cloud-sync-service).  The solution enables you to replicate NFS or SMB data to Azure NetApp Files NFS exports or SMB shares. 
 
@@ -320,6 +332,34 @@ No. Azure Data Box does not support Azure NetApp Files currently.
 
 No. Azure Import/Export service does not support Azure NetApp Files currently.
 
+## Azure NetApp Files backup FAQs
+
+This section answers questions about the [Azure NetApp Files backup](backup-introduction.md) feature. 
+
+### When do my backups occur?   
+
+Azure NetApp Files backups start within a randomized time frame after the frequency of a backup policy is entered. For example, weekly backups are initiated Sunday within a randomly assigned interval after 12:00 a.m. midnight. This timing cannot be modified by the users at this time. The baseline backup is initiated as soon as you assign the backup policy to the volume.
+
+### What happens if a backup operation encounters a problem?
+
+If a problem occurs during a backup operation, Azure NetApp Files backup automatically retries the operation, without requiring user interaction. If the retries continue to fail, Azure NetApp Files backup will report the failure of the operation.
+
+### Can I change the location or storage tier of my backup vault?
+
+No, Azure NetApp Files automatically manages the backup data location within Azure storage, and this location or Azure storage tier cannot be modified by the user.
+
+### What types of security are provided for the backup data?
+
+Azure NetApp Files uses AES-256 bit encryption during the encoding of the received backup data. In addition, the encrypted data is securely transmitted to Azure storage using HTTPS TLSv1.2 connections. Azure NetApp Files backup depends on the Azure Storage account’s built-in encryption at rest functionality for storing the backup data.
+
+### What happens to the backups when I delete a volume or my NetApp account? 
+
+ When you delete an Azure NetApp Files volume, the backups are retained. If you don’t want the backups to be retained, disable the backups before deleting the volume. When you delete a NetApp account, the backups are still retained and displayed under other NetApp accounts of the same subscription, so that it’s still available for restore. If you delete all the NetApp accounts under a subscription, you need to make sure to disable backups before deleting all volumes under all the NetApp accounts.
+
+### What’s the system’s maximum backup retries for a volume?  
+
+The system makes ten retries when processing a scheduled backup job. If the job fails, then the system fails the backup operation. In case of scheduled backups (based on the configured policy), the system tries to back up the data once every hour. If new snapshots are available that were not transferred (or failed during the last try), those snapshots will be considered for transfer. 
+
 ## Product FAQs
 
 ### Can I use Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
@@ -328,12 +368,18 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 
 ### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
-Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
+Using Azure NetApp Files NFS or SMB volumes with AVS for *Guest OS mounts* is supported in [all AVS and ANF enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
 
 ### Does Azure NetApp Files work with Azure Policy?
 
 Yes. Azure NetApp Files is a first-party service. It fully adheres to Azure Resource Provider standards. As such, Azure NetApp Files can be integrated into Azure Policy via *custom policy definitions*. For information about how to implement custom policies for Azure NetApp Files, see 
 [Azure Policy now available for Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) on Microsoft Tech Community. 
+
+### Which Unicode Character Encoding is supported by Azure NetApp Files for the creation and display of file and directory names?   
+
+Azure NetApp Files only supports file and directory names that are encoded with the UTF-8 Unicode Character Encoding format for both NFS and SMB volumes.
+
+If you try to create files or directories with names that use supplementary characters or surrogate pairs such as non-regular characters and emoji that are not supported by UTF-8, the operation will fail. In this case, an error from a Windows client might read “The file name you specified is not valid or too long. Specify a different file name.” 
 
 ## Next steps  
 

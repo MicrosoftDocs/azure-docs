@@ -9,11 +9,11 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Azure Kubernetes Service (AKS) Uptime SLA
 
-Uptime SLA is an optional feature to enable a financially backed, higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [Availability Zones][availability-zones] and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
+Uptime SLA is a tier to enable a financially backed, higher SLA for an AKS cluster. Clusters with Uptime SLA, also regarded as Paid tier in AKS REST APIs, come with greater amount of control plane resources and automatically scale to meet the load of your cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [Availability Zones][availability-zones] and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
-Customers needing an SLA to meet compliance requirements or require extending an SLA to their end users should enable this feature. Customers with critical workloads that will benefit from a higher uptime SLA may also benefit. Using the Uptime SLA feature with Availability Zones enables a higher availability for the uptime of the Kubernetes API server.
+AKS recommends use of Uptime SLA in production workloads to ensure availability of control plane components. Clusters on free tier by contrast come with fewer replicas and limited resources for the control plane and are not suitable for production workloads.
 
-Customers can still create unlimited free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO or SLA Uptime as needed.
+Customers can still create unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO. 
 
 > [!IMPORTANT]
 > For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
@@ -25,7 +25,7 @@ Customers can still create unlimited free clusters with a service level objectiv
 
 ## SLA terms and conditions
 
-Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
+Uptime SLA is a paid feature and is enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
 ## Before you begin
 

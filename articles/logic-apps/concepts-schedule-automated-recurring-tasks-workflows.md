@@ -203,6 +203,27 @@ If you want to run your logic app only at one time in the future, you can use th
 
 Or, if you can start your logic app with the **When a HTTP request is received - Request** trigger, and pass the start time as a parameter for the trigger. For the first action, use the **Delay until - Schedule** action, and provide the time for when the next action starts running.
 
+<a name="run-once-last-day-of-the-month"></a>
+
+## Run once at last day of the month
+
+To run the Recurrence trigger only once on the last day of the month, you have to edit the trigger in the workflow's underlying JSON definition using code view, not the designer. However, you can use the following example:
+
+```json
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
+        },
+        "type": "Recurrence"
+    }
+}
+```
+
 <a name="example-recurrences"></a>
 
 ## Example recurrences

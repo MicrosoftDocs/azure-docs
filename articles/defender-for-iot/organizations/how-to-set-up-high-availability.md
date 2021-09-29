@@ -1,7 +1,7 @@
 ---
 title: Set up high availability
 description: Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
-ms.date: 12/07/2020
+ms.date: 07/11/2021
 ms.topic: how-to
 ---
 # About high availability
@@ -40,11 +40,11 @@ The installation and configuration procedures are performed in four main stages:
 
 1. Install an on-premises management console primary appliance. 
 
-2. Configure the on-premises management console primary appliance. For example, scheduled backup settings, VLAN settings. See the on-premises management console user guide for details. All settings are applied to the secondary appliance automatically after pairing.
+1. Configure the on-premises management console primary appliance. For example, scheduled backup settings, VLAN settings. See the on-premises management console user guide for details. All settings are applied to the secondary appliance automatically after pairing.
 
-3. Install an on-premises management console secondary appliance. For more information, see [About the Defender for IoT Installation](how-to-install-software.md).
+1. Install an on-premises management console secondary appliance. For more information, see [About the Defender for IoT Installation](how-to-install-software.md).
 
-4. Pair the primary and secondary on-premises management console appliances as described [here](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
+1. Pair the primary and secondary on-premises management console appliances as described [here](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
 
 ## High availability requirements
 
@@ -78,54 +78,60 @@ Verify that both the primary and secondary on-premises management console applia
 
 ### On the primary
 
-1. Sign in to the CLI as a Defender for IoT user.
+1. Sign in to the management console.
 
-2. Run the following command on the primary:
+1. Select **System Settings** from the side menu.
 
-```azurecli-interactive
-sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <primary token>
-```
+1. Copy the Connection String.
 
->[!NOTE]
->In this document, the principal on-premises management console is referred to as the primary, and the agent is referred to as the secondary.
+    :::image type="content" source="../media/how-to-set-up-high-availability/connection-string.png" alt-text="Copy the connection string to use in the following command.":::
 
-3. Enter the IP address of the secondary appliance in the ```<Secondary ip>``` field and select Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
+1. Run the following command on the primary:
 
-4. Run the following command on the primary to verify that the certificate is installed properly:
+    ```bash
+    sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <connection string>
+    ```
 
-```azurecli-interactive
-sudo cyberx-management-trusted-hosts-apply
-```
+    >[!NOTE]
+    > In this document, the principal on-premises management console is referred to as the primary, and the agent is referred to as the secondary.
 
-5. Run the following command on the primary. **Do not run with sudo.**
+1. Enter the IP address of the secondary appliance in the ```<Secondary ip>``` field and select Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
 
-```azurecli-interactive
-cyberx-management-deploy-ssh-key <Secondary IP>
-```
+1. Run the following command on the primary to verify that the certificate is installed properly:
 
-This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
+    ```bash
+    sudo cyberx-management-trusted-hosts-apply
+    ```
 
-6. Enter the IP address of the secondary and select Enter.
+1. Run the following command on the primary. **Do not run with sudo.**
+
+    ```bash
+    cyberx-management-deploy-ssh-key <Secondary IP>
+    ```
+
+   This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
+
+1. Enter the IP address of the secondary and select Enter.
 
 ### On the secondary
 
 1. Sign in to the CLI as a Defender for IoT user.
 
-2. Run the following command on the secondary. **Do not run with sudo**:
+1. Run the following command on the secondary. **Do not run with sudo**:
 
-```azurecli-interactive
-cyberx-management-deploy-ssh-key <Primary ip>
-```
+    ```bash
+    cyberx-management-deploy-ssh-key <Primary ip>
+    ```
 
-This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
+    This allows the connection between the Primary and Secondary appliances for backup and restore purposes between them.
 
-3. Enter the IP address of the primary and press Enter.
+1. Enter the IP address of the primary and press Enter.
 
 ### Track high availability activity
 
 The core application logs can be exported to the Defender for IoT support team to handle any high availability issues.  
 
-To access the core logs:
+**To access the core logs**:
 
 1. Select **Export** from the **System Settings** window.
 
@@ -133,13 +139,13 @@ To access the core logs:
 
 Perform the high availability update in the following order. Make sure each step is complete before you begin a new step.
 
-To update with high availability:
+**To update with high availability**:
 
 1. Update the primary on-premises management console.
 
-2. Update the secondary on-premises management console.
+1. Update the secondary on-premises management console.
 
-3. Update the sensors.
+1. Update the sensors.
 
 ## See also
 

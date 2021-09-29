@@ -171,7 +171,7 @@ Now that you have created a FileStorage account and configured the networking, y
 1. Navigate to your storage account and select **File shares**.
 1. Select **+ File share** to create a new file share.
 1. Name your file share, select a provisioned capacity.
-1. For **Protocol** select **NFS (preview)**.
+1. For **Protocol** select **NFS**.
 1. For **Root Squash** make a selection.
 
     - Root squash (default) - Access for the remote superuser (root) is mapped to UID (65534) and GID (65534).

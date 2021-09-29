@@ -106,7 +106,7 @@ Follow the steps in [Getting started with Azure AD Multi-Factor Authentication i
 
 Once an account has been enabled for MFA, you cannot sign in to resources governed by the MFA policy until you have successfully configured a trusted device to use for the second authentication factor and have authenticated using two-step verification.
 
-Follow the steps in [What does Azure AD Multi-Factor Authentication mean for me?](../user-help/multi-factor-authentication-end-user-first-time.md) to understand and properly configure your devices for MFA with your user account.
+Follow the steps in [What does Azure AD Multi-Factor Authentication mean for me?](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) to understand and properly configure your devices for MFA with your user account.
 
 > [!IMPORTANT]
 > The sign-in behavior for Remote Desktop Gateway doesn't provide the option to enter a verification code with Azure AD Multi-Factor Authentication. A user account must be configured for phone verification or the Microsoft Authenticator App with push notifications.

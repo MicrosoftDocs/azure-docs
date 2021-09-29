@@ -58,19 +58,23 @@ Indexer connections to remote data sources can be made using standard Internet c
 
 On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Cosmos DB, change detection must be enabled.
 
-For each document it receives, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer is also instrumental in driving skillset execution and outputs, assuming a skillset is defined.
+For each document it receives, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer also drives [skillset execution and outputs](cognitive-search-concept-intro.md), assuming a skillset is defined.
 
 :::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Indexer Stages" border="false":::
 
+<a name="document-cracking"></a>
+
 ### Stage 1: Document cracking
 
-Document cracking is the process of opening files and extracting content. Depending on the type of data source, the indexer will try performing different operations to extract potentially indexable content.  
+Document cracking is the process of opening files and extracting content. Text-based content can be extracted from files on a service, rows in a table, or items in container or collection. If you add a skillset and [image skills](cognitive-search-concept-image-scenarios.md) to an indexer, document cracking can also extract images and queue them for processing.
 
-Examples:  
+Depending on the data source, the indexer will try different operations to extract potentially indexable content:
 
-+ When the document is a record in an [Azure SQL data source](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), the indexer will extract each of the fields for the record.
-+ When the document is a PDF file in an [Azure Blob Storage data source](search-howto-indexing-azure-blob-storage.md), the indexer will extract text, images, and metadata.
-+ When the document is a  record in a [Cosmos DB data source](search-howto-index-cosmosdb.md), the indexer will extract the fields and subfields from the Cosmos DB document.
++ When the document is a file, such as a PDF or other supported file format in [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#supported-document-formats), the indexer will open the file and extract text, images, and metadata. Indexers can also open files from [SharePoint](search-howto-index-sharepoint-online.md#supported-document-formats) and [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md#supported-document-formats).
+
++ When the document is a record in [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), the indexer will extract non-binary content from each field in each record.
+
++ When the document is a record in [Cosmos DB](search-howto-index-cosmosdb.md), the indexer will extract non-binary content from fields and subfields from the Cosmos DB document.
 
 ### Stage 2: Field mappings 
 

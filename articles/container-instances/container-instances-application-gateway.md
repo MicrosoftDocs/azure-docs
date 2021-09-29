@@ -26,7 +26,7 @@ In a typical case, you might already have an Azure virtual network. If you don't
 
 If you need one, create an Azure resource group. For example:
 
-```azureci
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 

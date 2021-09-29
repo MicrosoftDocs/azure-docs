@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/20/2021
 ---
 
 # Tag support for Azure resources
@@ -906,10 +906,10 @@ Jump to a resource provider namespace:
 > | diskEncryptionSets | Yes | Yes |
 > | disks | Yes | Yes |
 > | galleries | Yes | Yes |
-> | galleries / applications | No | No |
-> | galleries / applications / versions | No | No |
-> | galleries / images | No | No |
-> | galleries / images / versions | No | No |
+> | galleries / applications | Yes | No |
+> | galleries / applications / versions | Yes | No |
+> | galleries / images | Yes | No |
+> | galleries / images / versions | Yes | No |
 > | hostGroups | Yes | Yes |
 > | hostGroups / hosts | Yes | Yes |
 > | images | Yes | Yes |
@@ -2562,7 +2562,7 @@ Jump to a resource provider namespace:
 > | servers / restorableDroppedDatabases | No | No |
 > | servers / serviceobjectives | No | No |
 > | servers / tdeCertificates | No | No |
-> | virtualClusters | Yes | Yes |
+> | virtualClusters | No | No |
 
 <a id="sqlnote"></a>
 

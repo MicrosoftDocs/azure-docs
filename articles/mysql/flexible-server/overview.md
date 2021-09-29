@@ -2,11 +2,11 @@
 title: Overview - Azure Database for MySQL - Flexible Server
 description: Learn about the Azure Database for MySQL Flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: savjani
-ms.service: mysql
 ms.author: pariks
+ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
-ms.date: 6/19/2021
+ms.date: 08/10/2021
 ---
 # Azure Database for MySQL - Flexible Server (Preview)
 
@@ -30,26 +30,31 @@ Flexible servers are best suited for:
 - Zone redundant high availability
 - Managed maintenance windows
 
+For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](whats-new.md).
+
 ![Flexible Server conceptual diagram](media/overview/1-flexible-server-conceptual-diagram.png) 
+
+## Free 12-month offer
+
+With an [Azure free account](https://azure.microsoft.com/free/), you can use Flexible Server for free for 12 months with monthly limits of up to:
+* **750 hours of Burstable B1MS instance**, enough hours to run a database instance continuously each month.
+* **32 GB** storage and **32 GB** backup storage. 
+
+You can take advantage of this offer to develop and deploy applications that use Azure Database for MySQL – Flexible Server. To learn how to create and use a flexible server for free using Azure free account, refer [this tutorial](how-to-deploy-on-azure-free-account.md). 
 
 ## High availability within and across availability zones
 
-The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a Linux virtual machine, while data files reside on remote Azure premium storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability at all times.
+Azure Database for MySQL Flexible Server (Preview) allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability architectural models: 
 
-Within a single availability zone, if the server goes down due to planned or unplanned events, the service maintains high availability of the servers using following automated procedure:
+- **Zone Redundant High Availability (HA):** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](overview.md#azure-regions) where the region supports multiple Availability Zones and Zone redundant Premium file shares are available. 
 
-1. A new compute VM is provisioned.
-2. The storage with data files is mapped to the new Virtual Machine
-3. MySQL database engine is brought online on the new Virtual Machine.
-4. Client applications can reconnect once the server is ready to accept connections.
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="zone redundant ha":::
 
-:::image type="content" source="media/overview/2-flexible-server-architecture.png" alt-text="Single Zone high availability conceptual diagram":::
+- **Same-Zone High Availability (HA):** This option is preferred for infrastructure redundancy with lower network latency as both primary and standby server will be in the same availability zone. It provides high availability without configuring application redundancy across zones. Same-Zone HA is preferred when you want to achieve highest level of availability within a single Availability zone with the lowest network latency. Same-Zone HA is available in [all Azure regions](overview.md#azure-regions) where we can create  Azure Database for MySQL Flexible server. 
 
-If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. The typical failover time ranges from 60-120 seconds. This allows the service to support high availability and provide improved resiliency with tolerance for single availability zone failures in a given Azure region.
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="same redundant high availability":::
 
 For more information, see [high availability concepts](concepts-high-availability.md).
-
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Zone Redundant high availability conceptual diagram":::
 
 ## Automated patching with managed maintenance window
 
@@ -81,7 +86,7 @@ See [Networking concepts](concepts-networking.md) to learn more.
 
 ## Adjust performance and scale within seconds
 
-The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
+The flexible server service is available in three SKU tiers: Burstable, General Purpose, and Memory Optimized. The Burstable tier is best suited for low-cost development and low concurrency workloads that don't need full compute capacity continuously. The General Purpose and Memory Optimized are better suited for production workloads requiring high concurrency, scale, and predictable performance. You can build your first app on a small database for a few dollars a month, and then seamlessly adjust the scale to meet the needs of your solution. The storage scaling is online and supports storage autogrowth. Flexible Server enables you to provision additional IOPS up to 20K IOPs above the complimentary IOPS limit independent of storage. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you consume. 
 
 See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
@@ -89,11 +94,21 @@ See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
 MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
 
-On the applications side, the application is typically developed in Java or php and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
+On the applications side, the application is typically developed in Java or PHP and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
 
 The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate from the source server to **up to 10 replicas**. Replicas are updated asynchronously using the MySQL engine's native [binary log (binlog) file position-based replication technology](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). You can use a load balancer proxy solution like [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to seamlessly scale out your application workload to read replicas without any application refactoring cost. 
 
 For more information, see [Read Replica concepts](concepts-read-replicas.md).
+
+## Setup Hybrid or Multi-Cloud Data synchronization with Data-in replication
+
+Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. The main scenarios to consider about using Data-in replication are:
+* Hybrid Data Synchronization
+* Multi-Cloud Synchronization
+* [Minimal downtime migration to Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
+
+For more information, see [Data-in replication concepts](concepts-data-in-replication.md).
+
 
 ## Stop/Start server to optimize cost
 
@@ -105,9 +120,9 @@ For more information, see [Server concepts](concept-servers.md).
 
 The flexible server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default).
 
-The service encrypts data in-motion with transport layer security enforced by default. Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied.
+The service encrypts data in-motion with transport layer security enforced by default. Flexible Server by default supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied. SSL enforcement can be disabled by setting the require_secure_transport server parameter and you can set the minimum tls_version for your server.
 
-For more information, see [how to use encrypted connections to flexible servers](https://docs.mongodb.com/manual/tutorial/configure-ssl).
+For more information, see [how to use encrypted connections to flexible servers](how-to-connect-tls-ssl.md).
 
 Flexible Server allows full private access to the servers using [Azure virtual network](../../virtual-network/virtual-networks-overview.md) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints.
 
@@ -115,7 +130,7 @@ For more information, see [Networking concepts](concepts-networking.md).
 
 ## Monitoring and alerting
 
-The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance.
+The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance. In addition, you can use and integrate with community monitoring tools like [Percona Monitoring and Management with your MySQL Flexible Server](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545). 
 
 For more information, see [Monitoring concepts](concepts-monitoring.md).
 
@@ -123,30 +138,52 @@ For more information, see [Monitoring concepts](concepts-monitoring.md).
 
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing applications developed on MySQL engine to Flexible Server. Migration to Flexible Server can be performed using the following option:
 
-- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See Migrate using dump and restore for details. 
-- **Azure Database Migration Service** – For seamless and simplified offline migrations to single server with high speed data migration, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md) can be leveraged. 
+### Offline Migrations
+*	Using Azure Data Migration Service when network bandwidth between source and Azure is good (for example: High speed ExpressRoute). Learn more with step by step instructions - [Migrate MySQL to Azure Database for MySQL offline using DMS - Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md)
+*	Use mydumper/myloader to take advantage of compression settings to efficiently move data over low speed networks (such as public internet). Learn more with step by step instructions [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../../mysql/concepts-migrate-mydumper-myloader.md)
+
+### Online or Minimal downtime migrations
+Use data-in replication with mydumper/myloader consistent backup/restore for initial seeding. Learn more with step by step instructions - [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
+
+To migrate from Azure Database for MySQL - Single Server to Flexible Server in 5 easy steps, refer to [this blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057).
+
+For more information, see [Migration Guide for Azure Database for MySQL](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)
 
 ## Azure regions
 
 One advantage of running your workload in Azure is its global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
-| Region | Availability | Zone redundant HA |
-| --- | --- | --- |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| Central US | :heavy_check_mark: | :x: |
-| East US | :heavy_check_mark: | :heavy_check_mark: |
-| Canada Central | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :x: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :x:|
-| Brazil South | :heavy_check_mark: | :x: |
-| Switzerland North | :heavy_check_mark: | :x: |
+| Region | Availability | Same Zone HA | Zone redundant HA |
+| --- | --- | --- | --- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Canada East | :heavy_check_mark: | :x: | :x: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Japan West | :heavy_check_mark: | :x: | :x: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| UK West | :heavy_check_mark: | :x: | :x: |
+| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## Contacts
 
@@ -169,4 +206,4 @@ Now that you've read an introduction to Azure Database for MySQL - Single Server
 
 - Build your first app using your preferred language:
   - [Python](connect-python.md)
-  - [Php](connect-php.md)
+  - [PHP](connect-php.md)

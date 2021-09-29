@@ -112,5 +112,5 @@ Application gateway doesn't support changing the public IP address after creatio
 
 In this article, you learned how to create an Application Gateway and use an existing public IP. 
 
-- For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](nat-overview.md)
+- For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](./nat-gateway/nat-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).

@@ -10,6 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
 # Viewing apps using your Azure AD tenant for identity management
@@ -27,6 +28,7 @@ When filtered to **All Applications**, the **All Applications** **List** shows e
   - **Application Proxy Applications** – An application running in your on-premises environment that you want to provide secure single-sign on to externally
 - When signing up for, or signing in to, a third-party application integrated with Azure Active Directory. One example is [Smartsheet](https://app.smartsheet.com/b/home) or [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 - Microsoft apps such as Microsoft 365.
+- When you use managed identities for Azure resources. For more information, see [Managed identity types](../managed-identities-azure-resources/overview.md#managed-identity-types).
 - When you add a new application registration by creating a custom-developed application using the [Application Registry](../develop/quickstart-register-app.md)
 - When you add a new application registration by creating a custom-developed application using the [V2.0 Application Registration portal](../develop/quickstart-register-app.md)
 - When you add an application, you’re developing using Visual Studio’s [ASP.NET Authentication Methods](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) or [Connected Services](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)

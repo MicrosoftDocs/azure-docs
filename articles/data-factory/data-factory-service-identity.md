@@ -3,8 +3,9 @@ title: Managed identity for Data Factory
 description: Learn about managed identity for Azure Data Factory. 
 author: nabhishek
 ms.service: data-factory
+ms.subservice: security
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 07/19/2021
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,16 +20,29 @@ This article helps you understand what a managed identity is for Data Factory (f
 
 ## Overview
 
-When creating a data factory, a managed identity can be created along with factory creation. The managed identity is a managed application registered to Azure Active Directory, and represents this specific data factory.
+Managed identities in data factories eliminate the need for data engineers to manage credentials. Managed identities provide an identity for the Data Factory instance when connecting to resources that support Azure Active Directory (Azure AD) authentication. For example, Data Factory can use a managed identity to access resources like [Azure Key Vault](../key-vault/general/overview.md), where data admins can securely store credentials or access storage accounts. Data Factory uses the managed identity to obtain Azure AD tokens.
 
-Managed identity for Data Factory benefits the following features:
+There are two types of managed identities supported by Data Factory: 
+
+- **System-assigned:** Data factory allows you to enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the data factory creation, an identity is created in Azure AD tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Azure AD. So when the resource is deleted, Azure automatically deletes the identity for you.
+- **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a data factory. In user-assigned managed identities, the identity is managed separately from the resources that use it.
+
+
+
+Managed identity for Data Factory provides the below benefits:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case data factory managed identity is used for Azure Key Vault authentication.
 - Access data stores or computes using managed identity authentication, including Azure Blob storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks activity, Web activity, and more. Check the connector and activity articles for details.
+- User-assigned managed identity is also used to encrypt/ decrypt data factory meta-data using the customer-managed key stored in Azure Key Vault, providing double encryption. 
 
-## Generate managed identity
+## System-assigned managed identity 
 
-Managed identity for Data Factory is generated as follows:
+>[!NOTE]
+> System-assigned managed identity is also referred to as 'Managed identity' in the data factory documentations and in data factory UI for backward compatibility purpose. We will explicitly mention 'User-assigned managed identity' when referring to it. 
+
+#### <a name="generate-managed-identity"></a> Generate system-assigned managed identity
+
+System-assigned managed identity for Data Factory is generated as follows:
 
 - When creating data factory through **Azure portal or PowerShell**, managed identity will always be created automatically.
 - When creating data factory through **SDK**, managed identity will be created only if you specify "Identity = new FactoryIdentity()" in the factory object for creation. See example in [.NET quickstart - create data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
@@ -36,17 +50,18 @@ Managed identity for Data Factory is generated as follows:
 
 If you find your data factory doesn't have a managed identity associated following [retrieve managed identity](#retrieve-managed-identity) instruction, you can explicitly generate one by updating the data factory with identity initiator programmatically:
 
-- [Generate managed identity using PowerShell](#generate-managed-identity-using-powershell)
-- [Generate managed identity using REST API](#generate-managed-identity-using-rest-api)
-- [Generate managed identity using an Azure Resource Manager template](#generate-managed-identity-using-an-azure-resource-manager-template)
-- [Generate managed identity using SDK](#generate-managed-identity-using-sdk)
+- [Generate managed identity using PowerShell](#generate-system-assigned-managed-identity-using-powershell)
+- [Generate managed identity using REST API](#generate-system-assigned-managed-identity-using-rest-api)
+- [Generate managed identity using an Azure Resource Manager template](#generate-system-assigned-managed-identity-using-an-azure-resource-manager-template)
+- [Generate managed identity using SDK](#generate-system-assigned-managed-identity-using-sdk)
 
 >[!NOTE]
+>
 >- Managed identity cannot be modified. Updating a data factory which already have a managed identity won't have any impact, the managed identity is kept unchanged.
 >- If you update a data factory which already have a managed identity without specifying "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
 >- When you delete a data factory, the associated managed identity will be deleted along.
 
-### Generate managed identity using PowerShell
+##### Generate system-assigned managed identity using PowerShell
 
 Call **Set-AzDataFactoryV2** command, then you see "Identity" fields being newly generated:
 
@@ -62,7 +77,7 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-### Generate managed identity using REST API
+##### Generate system-assigned managed identity using REST API
 
 Call below API with "identity" section in the request body:
 
@@ -106,7 +121,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### Generate managed identity using an Azure Resource Manager template
+##### Generate system-assigned managed identity using an Azure Resource Manager template
 
 **Template**: add "identity": { "type": "SystemAssigned" }.
 
@@ -126,7 +141,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### Generate managed identity using SDK
+##### Generate system-assigned managed identity using SDK
 
 Call the data factory create_or_update function with Identity=new FactoryIdentity(). Sample code using .NET:
 
@@ -139,14 +154,14 @@ Factory dataFactory = new Factory
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
-## Retrieve managed identity
+#### <a name="retrieve-managed-identity"></a> Retrieve system-assigned managed identity
 
 You can retrieve the managed identity from Azure portal or programmatically. The following sections show some samples.
 
 >[!TIP]
 > If you don't see the managed identity, [generate managed identity](#generate-managed-identity) by updating your factory.
 
-### Retrieve managed identity using Azure portal
+#### Retrieve system-assigned managed identity using Azure portal
 
 You can find the managed identity information from Azure portal -> your data factory -> Properties.
 
@@ -157,7 +172,7 @@ The managed identity information will also show up when you create linked servic
 
 When granting permission, in Azure resource's Access Control (IAM) tab -> Add role assignment -> Assign access to -> select Data Factory under System assigned managed identity -> select by factory name; or in general, you can use object ID or data factory name (as managed identity name) to find this identity. If you need to get managed identity's application ID, you can use PowerShell.
 
-### Retrieve managed identity using PowerShell
+#### Retrieve system-assigned managed identity using PowerShell
 
 The managed identity principal ID and tenant ID will be returned when you get a specific data factory as follows. Use the **PrincipalId** to grant access:
 
@@ -181,7 +196,7 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 
-### Retrieve managed identity using REST API
+#### Retrieve managed identity using REST API
 
 The managed identity principal ID and tenant ID will be returned when you get a specific data factory as follows.
 
@@ -236,7 +251,36 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
+## User-assigned managed identity
+
+You can create, delete, manage user-assigned managed identities in Azure Active Directory. For more details refer [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) documentation. 
+
+### Credentials
+
+We are introducing Credentials which can contain user-assigned managed identities, service principals and also lists the system-assigned managed identity that you can use in the linked services that support Azure Active Directory (AAD) authentication. It helps you consolidate and manage all your AAD-based credentials.  
+
+Below are the generic steps for using a **user-assigned managed identity** in the linked services for authentication. 
+
+1. Associate a user-assigned managed identity to the data factory instance using Azure portal, SDK, PowerShell, REST API. 
+   Below screenshot used Azure portal (data factory blade) to associate the user-assigned managed identity. 
+
+   :::image type="content" source="media/managed-identities/uami-azure-portal.jpg" alt-text="Screenshot showing how to use Azure portal to associate an user-assigned managed identity." lightbox="media/managed-identities/uami-azure-portal.jpg":::
+
+2. Create a 'Credential' in data factory user interface interactively. You can select the user-assigned managed identity associated with the data factory in Step 1. 
+
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-1.png" alt-text="Screenshot showing the first step of creating new credentials." lightbox="media/managed-identities/credential-adf-ui-create-new-1.png":::
+
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-2a.png" alt-text="Screenshot showing the second step of creating new credentials." lightbox="media/managed-identities/credential-adf-ui-create-new-2a.png":::
+
+3. Create a new linked service and select 'user-assigned managed identity' under authentication
+
+   :::image type="content" source="media/managed-identities/credential-adf-ui-create-new-linked-service.png" alt-text="Screenshot showing the new linked service with user-assigned managed identity authentication." lightbox="media/managed-identities/credential-adf-ui-create-new-linked-service.png":::
+
+> [!NOTE] 
+> You can use SDK/ PowerShell/ REST APIs for the above actions.
+
 ## Next steps
+
 See the following topics that introduce when and how to use data factory managed identity:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)

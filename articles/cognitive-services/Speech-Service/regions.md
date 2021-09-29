@@ -25,6 +25,9 @@ Keep in mind the following points when considering regions:
 * If your application uses one of the Speech service's [REST APIs](./overview.md#reference-docs), the region is part of the endpoint URI you use when making requests.
 * Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
+> [!NOTE]
+> Speech Services doesn't store/process customer data outside the region the customer deploys the service instance in.
+
 ## Speech SDK
 
 In the [Speech SDK](speech-sdk.md), regions are specified as a string

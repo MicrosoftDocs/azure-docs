@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 08/27/2021
 ms.author: cshoe
 ---
 
@@ -29,7 +29,7 @@ Configuration for Azure Static Web Apps is defined in the _staticwebapp.config.j
 
 ## File location
 
-The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./github-actions-workflow.md). However, the file may be placed in any subfolder within the folder set as the `app_location`.
+The recommended location for the _staticwebapp.config.json_ is in the folder set as the `app_location` in the [workflow file](./build-configuration.md). However, the file may be placed in any subfolder within the folder set as the `app_location`.
 
 See the [example configuration](#example-configuration-file) file for details.
 
@@ -228,20 +228,17 @@ The following example configuration demonstrates how to override an error code.
 {
   "responseOverrides": {
     "400": {
-      "rewrite": "/invalid-invitation-error.html",
-      "statusCode": 200
+      "rewrite": "/invalid-invitation-error.html"
     },
     "401": {
       "statusCode": 302,
       "redirect": "/login"
     },
     "403": {
-      "rewrite": "/custom-forbidden-page.html",
-      "statusCode": 200
+      "rewrite": "/custom-forbidden-page.html"
     },
     "404": {
-      "rewrite": "/custom-404.html",
-      "statusCode": 200
+      "rewrite": "/custom-404.html"
     }
   }
 }
@@ -269,6 +266,11 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 ```
 
 When one or more IP address blocks are specified, requests originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
+
+## Authentication 
+
+* [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
+* [Custom authentication providers](authentication-custom.md) use the `authentication` property of the settings file. 
 
 ## Example configuration file
 
@@ -379,7 +381,7 @@ Based on the above configuration, review the following scenarios.
 
 ## Restrictions
 
-The following restrictions exist for the _staticwebapps.config.json_ file.
+The following restrictions exist for the _staticwebapp.config.json_ file.
 
 - Max file size is 100 KB
 - Max of 50 distinct roles

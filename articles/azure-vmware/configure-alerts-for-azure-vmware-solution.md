@@ -2,13 +2,15 @@
 title: Configure alerts and work with metrics in Azure VMware Solution 
 description: Learn how to use alerts to receive notifications. Also learn how to work with metrics to gain deeper insights into your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 07/23/2021
 ---
 
 # Configure Azure Alerts in Azure VMware Solution 
 
 In this article, you'll learn how to configure [Azure Action Groups](../azure-monitor/alerts/action-groups.md) in [Microsoft Azure Alerts](../azure-monitor/alerts/alerts-overview.md) to receive notifications of triggered events that you define. You'll also learn about using [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md) to gain deeper insights into your Azure VMware Solution private cloud.
 
+>[!NOTE]
+>Incidents affecting the availability of an Azure VMware Solution host and its corresponding restoration are sent automatically to the Account Administrator, Service Administrator (Classic Permission), Co-Admins (Classic Permission), and Owners (RBAC Role) of the subscription(s) containing Azure VMware Solution private clouds.
 
 ## Supported metrics and activities
 

@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -65,40 +65,44 @@ For more information on how to purchase storage reservations, see [Optimize cost
 ## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
 
-When you provision a premium file share, you specify how many GiBs your workload requires. Each GiB that you provision entitles you to additional IOPS and throughput on a fixed ratio. In addition to the baseline IOPS for which you are guaranteed, each premium file share supports bursting on a best effort basis. The formulas for IOPS and throughput are as follows:
-
-- Baseline IOPS = 400 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
-- Burst Limit = MAX(4000, 3 * Baseline IOPS).
-- Egress rate = 60 MiB/s + 0.06 * provisioned GiB.
-- Ingress rate = 40 MiB/s + 0.04 * provisioned GiB.
-
 The provisioned size of the file share can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/throughput scale changes will be effective within a few minutes after the provisioned size change.
 
 It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data but, you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
 
+### Provisioning method
+When you provision a premium file share, you specify how many GiBs your workload requires. Each GiB that you provision entitles you to additional IOPS and throughput on a fixed ratio. In addition to the baseline IOPS for which you are guaranteed, each premium file share supports bursting on a best effort basis. The formulas for IOPS and throughput are as follows:
+
+| Item | Value |
+|-|-|
+| Minimum size of a file share | 100 GiB |
+| Provisioning unit | 1 GiB |
+| Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
+| Burst limit | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
+| Burst credits | `BurstLimit * 3600` |
+| Ingress rate | `40 MiB/sec + 0.04 * ProvisionedGiB` |
+| Egress rate | `60 MiB/sec + 0.06 * ProvisionedGiB` |
+
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
-|Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 500     | Up to 4,000     | 66   | 44   |
-|500         | 900     | Up to 4,000  | 90   | 60   |
-|1,024       | 1,424   | Up to 4,000   | 122   | 81   |
-|5,120       | 5,520   | Up to 15,360  | 368   | 245   |
-|10,240      | 10,640  | Up to 30,720  | 675   | 450   |
-|33,792      | 34,192  | Up to 100,000 | 2,088 | 1,392   |
-|51,200      | 51,600  | Up to 100,000 | 3,132 | 2,088   |
-|102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
+| Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Ingress (MiB/sec) | Egress (MiB/sec) |
+|-|-|-|-|-|-|
+| 100 | 500 | Up to 4,000 | 14,400,000 | 44 | 66 |
+| 500 | 900 | Up to 4,000 | 14,400,000 | 60 | 90 |
+| 1,024 | 1,424 | Up to 4,272 | 15,379,200 | 81 | 122 |
+| 5,120 | 5,520 | Up to 16,560 | 59,616,000 | 245 | 368 |
+| 10,240 | 10,640 | Up to 31,920 | 114,912,000 | 450 | 675 |
+| 33,792 | 34,192 | Up to 100,000 | 360,000,000 | 1,392 | 2,088 |
+| 51,200 | 51,600 | Up to 100,000 | 360,000,000 | 2,088 | 3,132 |
+| 102,400 | 100,000 | Up to 100,000 | 360,000,000 | 4,136 | 6,204 |
 
-Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s
-ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB
-Multichannel](storage-files-enable-smb-multichannel.md) and spread the load across multiple VMs. Refer to [SMB multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel) and spread the load across multiple VMs. Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
 ### Bursting
-If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above share baseline IOPS limit to offer share performance it needs to meet the demand. Premium file shares can burst their IOPS up to 4,000 or up to a factor of three, whichever is a higher value. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit for a max duration of 60 minutes.
+If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above share baseline IOPS limit to offer share performance it needs to meet the demand. Premium file shares can burst their IOPS up to 4,000 or up to a factor of three, whichever is a higher value. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee.
 
 Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 500 baseline IOPS. If actual traffic on the share was 100 IOPS for a specific 1-second interval, then the 400 unused IOPS are credited to a burst bucket. Similarly, an idle 1 TiB share, accrues burst credit at 1,424 IOPS. These credits will then be used later when operations would exceed the baseline IOPS.
 
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst at the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining, up to max 60 minutes duration but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
+Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst up to the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
 
 Share credits have three states:
 

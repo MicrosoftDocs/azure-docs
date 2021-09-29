@@ -3,7 +3,7 @@ title: Device development for Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of developing devices to connect to your IoT Central application. Devices use telemetry to send streaming data and properties to report device state. Iot Central can set device state using writable properties and call commands on a device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/05/2020
+ms.date: 08/30/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -80,7 +80,7 @@ To learn more about best practices you edit a model, see [Edit an existing devic
 
 Each model has a unique _device twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then associate the correct device template with the device.
 
-[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) defines a set of conventions that a device should follow when it implements a DTDL model.
+[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a DTDL model.
 
 The [Azure IoT device SDKs](#languages-and-sdks) include support for the IoT Plug and Play conventions.
 
@@ -95,10 +95,10 @@ A device model is defined using the [DTDL](https://github.com/Azure/opendigitalt
 
 A DTDL model can be a _no-component_ or a _multi-component_ model:
 
-- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _default component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
-- Multi-component model. A more complex model that includes two or more components. These components include a single default component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
+- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _root component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
+- Multi-component model. A more complex model that includes two or more components. These components include a single root component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
-To learn more, see [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md)
+To learn more, see [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md)
 
 ### Conventions
 
@@ -114,7 +114,7 @@ A device should follow the IoT Plug and Play conventions when it exchanges data 
 
 To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
-To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-pnp/concepts-convention.md).
+To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-develop/concepts-convention.md).
 
 ### Device SDKs
 

@@ -9,6 +9,7 @@ ms.date: 07/12/2021
 ---
 
 # Choose an API in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB is a fully managed NoSQL database for modern app development. Azure Cosmos DB takes database administration off your hands with automatic management, updates, and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
@@ -42,13 +43,25 @@ This API stores data in document format. It offers the best end-to-end experienc
 
 If you are migrating from other databases such as Oracle, DynamoDB, HBase etc. and if you want to use the modernized technologies to build your apps, SQL API is the recommended option. SQL API supports analytics and offers performance isolation between operational and analytical workloads.
 
+### Capacity planning for migration to API for MongoDB
+
+Trying to do capacity planning for a migration to Azure Cosmos DB SQL API from an existing database cluster? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).
+
 ## API for MongoDB
 
 This API stores data in a document structure, via BSON format. It is compatible with MongoDB wire protocol; however, it does not use any native MongoDB related code. This API is a great choice if you want to use the broader MongoDB ecosystem and skills, without compromising on using Azure Cosmos DB’s features such as scaling, high availability, geo-replication, multiple write locations, automatic and transparent shard management, transparent replication between operational and analytical stores, and more.
 
-You can use your existing MongoDB apps with API for MongoDB by just changing the connection string. You can move any existing data using native MongoDB tools such as mongodump & mongorestore or using our Azure Database Migration tool. Tools, such as the MongoDB shell, [MongoDB Compass](mongodb-compass.md), and [Robo3T](mongodb-robomongo.md), can run queries and work with data as they do with native MongoDB.
+You can use your existing MongoDB apps with API for MongoDB by just changing the connection string. You can move any existing data using native MongoDB tools such as mongodump & mongorestore or using our Azure Database Migration tool. Tools, such as the MongoDB shell, [MongoDB Compass](mongodb/connect-using-compass.md), and [Robo3T](mongodb/connect-using-robomongo.md), can run queries and work with data as they do with native MongoDB.
 
-API for MongoDB is compatible with the 4.0, 3.6, and 3.2 MongoDB server versions. Server version 4.0 is recommended as it offers the best performance and full feature support. To learn more, see [API for MongoDB](mongodb-introduction.md) article.
+API for MongoDB is compatible with the 4.0, 3.6, and 3.2 MongoDB server versions. Server version 4.0 is recommended as it offers the best performance and full feature support. To learn more, see [API for MongoDB](mongodb/mongodb-introduction.md) article.
+
+### Capacity planning for migration to API for MongoDB
+
+Trying to do capacity planning for a migration to Azure Cosmos DB API for MongoDB from an existing database cluster? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](./mongodb/estimate-ru-capacity-planner.md).
 
 ## Cassandra API
 
@@ -66,12 +79,15 @@ Azure Cosmos DB's Gremlin API is based on the [Apache TinkerPop](https://tinkerp
 
 This API stores data in key/value format. If you are currently using Azure Table storage, you may see some limitations in latency, scaling, throughput, global distribution, index management, low query performance. Table API overcomes these limitations and it’s recommended to migrate your app if you want to use the benefits of Azure Cosmos DB. Table API only supports OLTP scenarios.
 
-Applications written for Azure Table storage can migrate to the Table API with little code changes and take advantage of premium capabilities. To learn more, see [Table API](table-introduction.md) article.
+Applications written for Azure Table storage can migrate to the Table API with little code changes and take advantage of premium capabilities. To learn more, see [Table API](table/introduction.md) article.
 
 ## Next steps
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
-* [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md)
+* [Get started with Azure Cosmos DB's API for MongoDB](mongodb/create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

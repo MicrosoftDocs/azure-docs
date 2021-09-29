@@ -2,8 +2,8 @@
 title: Virtual network service endpoints for Azure Key Vault
 description: Learn how virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network, including usage scenarios.
 services: key-vault
-author: amitbapat
-ms.author: ambapat
+author: mbaldwin
+ms.author: mbaldwin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general

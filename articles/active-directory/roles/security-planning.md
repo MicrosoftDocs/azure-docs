@@ -174,7 +174,7 @@ Azure AD Identity Protection is an algorithm-based monitoring and reporting tool
 
 #### Obtain your Microsoft 365 Secure Score (if using Microsoft 365)
 
-Secure Score looks at your settings and activities for the Microsoft 365 services you're using and compares them to a baseline established by Microsoft. You'll get a score based on how aligned you are with security practices. Anyone who has the administrator permissions for a Microsoft 365 Business Standard or Enterprise subscription can access the Secure Score at [https://securescore.office.com](https://securescore.office.com/).
+Secure Score looks at your settings and activities for the Microsoft 365 services you're using and compares them to a baseline established by Microsoft. You'll get a score based on how aligned you are with security practices. Anyone who has the administrator permissions for a Microsoft 365 Business Standard or Enterprise subscription can access the Secure Score at `https://securescore.office.com`.
 
 #### Review the Microsoft 365 security and compliance guidance (if using Microsoft 365)
 
@@ -421,7 +421,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 8. Make sure you save backups of relevant logs for potential forensic and legal investigation.
 
-For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
+For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](/compliance/assurance/assurance-security-incident-management).
 
 ## FAQ: Answers for securing privileged access  
 

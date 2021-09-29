@@ -16,7 +16,7 @@ ms.custom: aaddev, contperf-fy21q4
 
 # Publish your app to the Azure AD app gallery
 
-You can publish your app in the Azure Active Directory (Azure AD) app gallery. When your app is published, it will show up as an option for customers when they are [adding apps to their tenant](/en-us/azure/active-directory/manage-apps/add-application-portal). 
+You can publish your app in the Azure Active Directory (Azure AD) app gallery. When your app is published, it will show up as an option for customers when they are [adding apps to their tenant](../manage-apps/add-application-portal.md). 
 
 The steps to publishing your app in the Azure AD app gallery are:
 1. Prerequisites

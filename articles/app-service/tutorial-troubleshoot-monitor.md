@@ -38,15 +38,18 @@ To complete this tutorial, you'll need:
 
 ## Create Azure resources
 
-First, you run several commands locally to setup a sample app to use with this tutorial. The commands clone a sample app, create Azure resources, create a deployment user and deploy the app to Azure. You'll be prompted for the password supplied as a part of the creation of the deployment user. 
+First, you run several commands locally to setup a sample app to use with this tutorial. The commands create Azure resources, create a deployment user, and deploy the sample app to Azure. You'll be prompted for the password supplied as a part of the creation of the deployment user. 
 
 ```bash
-git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
 az group create --name myResourceGroup --location "South Central US"
 az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
-git remote add azure <url_from_previous_step>
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
+git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
+cd App-Service-Troubleshoot-Azure-Monitor
+git branch -m main
+git remote add azure <url-from-app-webapp-create>
 git push azure main
 ```
 

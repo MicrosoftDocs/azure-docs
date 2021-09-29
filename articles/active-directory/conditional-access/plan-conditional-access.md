@@ -10,7 +10,7 @@ ms.date: 10/16/2020
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: joflore
 
 ms.collection: M365-identity-device-management
@@ -313,7 +313,7 @@ With Conditional Access policies, you can implement automated responses to sign-
 
 * [Require all users to register for MFA](howto-conditional-access-policy-risk.md)
 
-* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk.md)
+* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk-user.md)
 
 * [Require MFA for users with medium or high sign-in risk](howto-conditional-access-policy-risk.md)
 

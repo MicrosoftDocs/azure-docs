@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/19/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -57,10 +57,10 @@ AllowEmailVerifiedUsers and AllowAdHocSubscriptions are tenant-wide settings tha
 
 If the preceding conditions are true, then a member user is created in the home tenant, and a B2B guest user is created in the inviting tenant.
 
-For more information on Flow and PowerApps trial sign-ups, see the following articles:
+For more information on Flow and Power Apps trial sign-ups, see the following articles:
 
 * [How can I prevent my existing users from starting to use Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Flow in your organization Q&A](/flow/organization-q-and-a)
+* [Flow in your organization Q&A](/power-automate/organization-q-and-a)
 
 ### How do the controls work together?
 These two parameters can be used in conjunction to define more precise control over self-service sign-up. For example, the following command will allow users to perform self-service sign-up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created first cannot perform self-service sign-up):

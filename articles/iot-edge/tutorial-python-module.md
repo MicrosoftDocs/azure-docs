@@ -4,7 +4,7 @@ title: Tutorial - Custom Python module tutorial using Azure IoT Edge
 description: This tutorial shows you how to create an IoT Edge module with Python code and deploy it to an edge device.
 services: iot-edge
 author: kgremban
-manager: philmea
+
 ms.reviewer: kgremban
 ms.author: kgremban
 ms.date: 08/04/2020
@@ -138,7 +138,7 @@ Each template includes sample code, which takes simulated sensor data from the *
             global TEMPERATURE_THRESHOLD
             while True:
                 try:
-                    input_message = await module_client.receive_message_on_input("input1")  # blocking call
+                    input_message = await module_client.on_message_received("input1")  # blocking call
                     message = input_message.data
                     size = len(message)
                     message_text = message.decode('utf-8')
@@ -161,7 +161,7 @@ Each template includes sample code, which takes simulated sensor data from the *
             global TEMPERATURE_THRESHOLD
             while True:
                 try:
-                    data = await module_client.receive_twin_desired_properties_patch()  # blocking call
+                    data = await module_client.on_twin_desired_properties_patch_received()  # blocking call
                     print( "The data in the desired properties patch was: %s" % data)
                     if "TemperatureThreshold" in data:
                         TEMPERATURE_THRESHOLD = data["TemperatureThreshold"]

@@ -7,10 +7,9 @@ ms.date: 04/28/2021
 
 # Publish and protect APIs running on Azure VMware Solution VMs
 
-Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) lets you securely publish to external or internal consumers.  Only the Developer (development) and Premium (production) SKUs allow for Azure Virtual Network integration to publish APIs that run on Azure VMware Solution workloads.  Both SKUs enable the connectivity between the API Management service and the backend. 
+Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) lets you securely publish to external or internal consumers.  Only the Developer (development) and Premium (production) SKUs allow Azure Virtual Network integration to publish APIs that run on Azure VMware Solution workloads. In addition, both SKUs enable the connectivity between the API Management service and the backend.
 
-The API Management configuration is the same for backend services that run on top of Azure VMware Solution virtual machines (VMs) and on-premises. For both deployments, API Management configures the virtual IP on the load balancer as the backend endpoint when the backend server is placed behind an NSX Load Balancer on the Azure VMware Solution. 
-
+The API Management configuration is the same for backend services that run on Azure VMware Solution virtual machines (VMs) and on-premises. In addition, API Management configures the virtual IP on the load balancer as the backend endpoint for both deployments when the backend server is placed behind an NSX Load Balancer on the Azure VMware Solution.
 
 ## External deployment
 
@@ -26,7 +25,7 @@ The traffic flow goes through the API Management instance, which abstracts the b
 
 API Management has an Azure Public API, and activating Azure DDOS Protection Service is recommended. 
 
-:::image type="content" source="media/api-management/external-deployment.png" alt-text="Diagram showing an external API Management deployment for Azure VMware Solution" border="false":::
+:::image type="content" source="media/api-management/api-management-external-deployment.png" alt-text="Diagram showing an external API Management deployment for Azure VMware Solution" border="false":::
 
 
 ## Internal deployment
@@ -51,4 +50,4 @@ In an internal deployment, APIs get exposed to the same API Management instance.
 * External traffic enters Azure through Application Gateway, which uses the external protection layer for API Management.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Diagram showing an internal API Management deployment for Azure VMware Solution" lightbox="media/api-management/internal-deployment.png" border="false":::
+:::image type="content" source="media/api-management/api-management-internal-deployment.png" alt-text="Diagram showing an internal API Management deployment for Azure VMware Solution" lightbox="media/api-management/api-management-internal-deployment.png" border="false":::

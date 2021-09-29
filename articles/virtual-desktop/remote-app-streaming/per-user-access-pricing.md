@@ -21,9 +21,9 @@ To enroll your Azure subscription into per-user access pricing:
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 
-2. Enter **Windows Azure Virtual Desktop** into the search bar, then find and select **Windows Virtual Desktop** under Services.
+2. Enter **Azure Virtual Desktop** into the search bar, then find and select **Azure Virtual Desktop** under Services.
 
-3. In the **Windows Virtual Desktop** overview page, select **Per-user access pricing**.
+3. In the **Azure Virtual Desktop** overview page, select **Per-user access pricing**.
 
 4. In the list of subscriptions, select the subscription where you'll deploy Azure Virtual Desktop resources.
 

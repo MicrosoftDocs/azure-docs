@@ -1,7 +1,7 @@
 ---
 title: How to protect your resource hierarchy - Azure Governance
 description: Learn how to protect your resource hierarchy with hierarchy settings that include setting the default management group.
-ms.date: 04/09/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 # How to protect your resource hierarchy
@@ -70,7 +70,7 @@ group:
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{rootMgID}/settings/default?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{rootMgID}/settings/default?api-version=2020-05-01
   ```
 
 - Request Body
@@ -123,7 +123,7 @@ hierarchy:
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{rootMgID}/settings/default?api-version=2020-02-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{rootMgID}/settings/default?api-version=2020-05-01
   ```
 
 - Request Body
@@ -157,7 +157,7 @@ $body = '{
 
 $token = (Get-AzAccessToken).Token
 $headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
-$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
+$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-05-01"
 
 Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
 ```
