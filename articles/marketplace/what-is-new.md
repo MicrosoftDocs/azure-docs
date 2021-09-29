@@ -23,8 +23,6 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Fees | Microsoft has reduced its standard store service fee to 3%. See [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) and Common questions about payouts and taxes, "[How do I find the current Store Service Fee and the payout rate?](/partner-center/payout-faq)". | 2021-07-14 |
 | Offers | Publishers can publish a virtual machine (VM) that they have built on premises. To learn more, see [Create a virtual machine using your own image](azure-vm-create-using-own-image.md). | 2021-06-23 |
 | Customer engagement | Publishers can now respond to user reviews on Azure Marketplace or AppSource. To learn more, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md). | 2021-06-03 |
-| Offers | <strike>Publishers now have a simpler and faster way to prepare and publish their Azure Virtual Machine-based offers in Partner Center. To learn more, see [How to create a virtual machine using an approved base](azure-vm-create-using-approved-base.md).</strike> | 2021-03-22 |
-| Analytics | <strike>Developers can use new report APIs to programmatically access commercial marketplace analytics data. You can schedule custom reports and download your marketplace data into your internal analytics systems. To learn more, see [Get started with programmatic access to analytics data](analytics-get-started.md).</strike> | 2021-03-08 |
 |
 
 ## Tax updates
@@ -56,5 +54,4 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Policy | The [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement) has been updated. To see what’s changed, see [Change history for Microsoft Publisher Agreement](/legal/marketplace/mpa-change-history). | 2021-04-16 |
 | Offers | Microsoft 365 independent software vendors (ISVs) can now link their software as a service (SaaS) offer to their related Teams apps, Office add-ins (WXPO), and SharePoint SPFx solutions in Partner Center. SaaS ISVs can also declare if their SaaS offer is integrated with Microsoft Graph API. To learn more, see [Test and deploy Microsoft 365 Apps by partners in the Integrated apps portal](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps). | 2021-04-08 |
 | Policy | Updated [certification](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) policy; see [change history](/legal/marketplace/offer-policies-change-history). | 2021-04-02 |
-| Policy | <strike>Updated [certification](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) policy; see [change history](/legal/marketplace/offer-policies-change-history).</strike> | 2021-03-05 |
 |
