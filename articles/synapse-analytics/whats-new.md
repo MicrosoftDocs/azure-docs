@@ -36,5 +36,5 @@ This article describes updates to Azure Synapse Analytics and lists features tha
 
 
 
-## Troubleshooting
+## Next steps
 
