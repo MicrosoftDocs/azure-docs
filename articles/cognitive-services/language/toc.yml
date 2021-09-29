@@ -10,6 +10,17 @@ items:
     href: whats-new.md
   - name: Pricing
     href: https://aka.ms/unifiedLanguagePricing
+- name: Responsible use of AI
+  items: 
+  - name: Transparency note for Azure Cognitive Service for language
+    href: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language/context/context
+    displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+  - name: Integration and responsible use
+    href: /legal/cognitive-services/language/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context
+    displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+  - name: Data, privacy, and security  
+    href: /legal/cognitive-services/language/data-privacy?context=/azure/cognitive-services/language/context/context
+    displayName: Data privacy, logging, data retention
 - name: Custom text classification
   items:
   - name: Overview
@@ -108,6 +119,17 @@ items:
     href: custom-question-answering/quickstart/sdk.md
   - name: Language support
     href: custom-question-answering/language-support.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for question answering
+      href: /legal/cognitive-services/language-service/transparency-note-question-answering?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-question-answering?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language-service/data-privacy-security-question-answering?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Query with REST APIs
@@ -164,6 +186,17 @@ items:
     href: entity-linking/quickstart.md
   - name: Language support
     href: entity-linking/language-support.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for entity linking
+      href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language/data-privacy?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
       - name: How to call the API
@@ -176,6 +209,17 @@ items:
     href: health/language-support.md
   - name: Quickstart
     href: health/quickstart.md 
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for the health feature
+      href: /legal/cognitive-services/language-service/transparency-note-health?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language/data-privacy?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: How to call the API
@@ -202,6 +246,17 @@ items:
     href: language-detection/language-support.md 
   - name: Quickstart
     href: language-detection/quickstart.md 
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for language detection
+      href: /legal/cognitive-services/language-service/transparency-note-language-detection?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language/data-privacy?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to
     items:
     - name: Call the API
@@ -220,6 +275,17 @@ items:
     href: key-phrase-extraction/language-support.md
   - name: Quickstart
     href: key-phrase-extraction/quickstart.md 
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for key phrase detection
+      href: /legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language/data-privacy?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Call Key Phrase Analysis
@@ -240,6 +306,17 @@ items:
     href: named-entity-recognition/language-support.md
   - name: Quickstart
     href: named-entity-recognition/quickstart.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for NER and PII
+      href: /legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language/data-privacy?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Call NER and PII
@@ -260,6 +337,17 @@ items:
     href: sentiment-opinion-mining/language-support.md
   - name: Quickstart
     href: sentiment-opinion-mining/quickstart.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for sentiment analysis and opinion mining
+      href: /legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language/data-privacy?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Call Sentiment Analysis and Opinion Mining
@@ -284,6 +372,17 @@ items:
     href: text-summarization/language-support.md
   - name: Quickstart
     href: text-summarization/quickstart.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for text summarization
+      href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language/data-privacy?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Call the Text Summarization API
