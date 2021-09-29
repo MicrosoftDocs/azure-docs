@@ -266,6 +266,57 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 [Zonal shared ultra disks template](https://aka.ms/SharedUltraDiskARMtemplateZonal)
 
 ---
+### Enable or modify sharing on an existing disk
+
+To enable sharing on an existing disk, or to change the maximum number of mounts, use PowerShell to modify the `maxShares` parameter.
+
+> [!IMPORTANT]
+> The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
+
+> [!NOTE]
+> Before detaching the disks, ensure you have a record of the LUN ID for when you later re-attach it.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$datadiskconfig = Get-AzDisk -DiskName "mySharedDisk"
+$datadiskconfig.maxShares = 3
+
+Update-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+```
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+#Modifying a disk to enable or modify sharing configuration
+az disk update --name mySharedDisk --max-shares 5
+```
+---
+
+### Disable sharing on a disk
+
+To disable sharing on an existing disk, use PowerShell to modify the `maxShares` parameter to 0.
+
+> [!IMPORTANT]
+> The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs.
+
+> [!NOTE]
+> Before detaching the disks, ensure you have a record of the LUN ID for when you later re-attach it.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$datadiskconfig = Get-AzDisk -DiskName "mySharedDisk"
+$datadiskconfig.maxShares = 0
+
+Update-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+```
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+#Modifying a disk to disable sharing
+az disk update --name mySharedDisk --max-shares 0
+```
+---
 
 ## Using Azure shared disks with your VMs
 
