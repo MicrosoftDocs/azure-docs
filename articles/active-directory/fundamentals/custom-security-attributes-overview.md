@@ -134,16 +134,16 @@ The following table lists the properties you can specify for attribute sets and 
 Here are some of the limits and constraints for custom security attributes.
 
 > [!div class="mx-tableFixed"]
-> | Resource | Dimension | Limit | Notes |
-> | --- | --- | --- | --- |
-> | Attributes in an attribute set | Per tenant | 500 | Applies only to active attributes in the tenant |
-> | Attribute set name | Per attribute set | 32 | Unicode characters |
-> | Attribute set description | Per attribute set | 128 | Unicode characters |
-> | Attribute name | Per attribute | 32 | Unicode characters |
-> | Attribute description | Per attribute | 128 | Unicode characters |
-> | Predefined values | Per attribute | 100 |  |
-> | Attribute values assigned | Per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
-> | Special characters | Per attribute set name<br/>Per attribute name | No special characters such as:<br/>&lt;space&gt; [ ] { } \| \ / < > ? . , : ; ' " ` ~ ! @ # $ % ^ * ( ) - = +  | Does not apply to attribute values |
+> | Resource | Limit | Notes |
+> | --- | --- | --- |
+> | Attributes in an attribute set per tenant | 500 | Applies only to active attributes in the tenant |
+> | Attribute set name length | 32 | Unicode characters |
+> | Attribute set description length | 128 | Unicode characters |
+> | Attribute name length | 32 | Unicode characters |
+> | Attribute description length | 128 | Unicode characters |
+> | Predefined values per attribute | 100 |  |
+> | Attribute values assigned per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
+> | Special characters for:<br/>Attribute set name<br/>Attribute name | No special characters allowed:<br/>` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? / &lt;space&gt;  | Does not apply to attribute values |
 
 ## Custom security attribute roles
 
