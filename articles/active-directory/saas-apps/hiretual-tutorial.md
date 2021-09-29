@@ -59,7 +59,7 @@ To configure and test Azure AD SSO with Hiretual-SSO, perform the following step
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Hiretual-SSO](#configure-hiretual-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Hiretual-SSO test user](#create-hiretual-sso-test-user)** - to have a counterpart of B.Simon in Hiretual that is linked to the Azure AD representation of user.
+    1. **[Create Hiretual-SSO test user](#create-hiretual-sso-test-user)** - to have a counterpart of B.Simon in Hiretual-SSO that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Log in to your Hiretual-SSO company site as an administrator.
 
-1. Go to **Security & Compilance** > **Single Sign-On**.
+1. Go to **Security & Compliance** > **Single Sign-On**.
 
 1. In the **SAML2.0 Authentication** page, perform the following steps:
 
