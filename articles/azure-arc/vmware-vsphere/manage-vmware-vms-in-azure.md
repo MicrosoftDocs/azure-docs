@@ -25,7 +25,7 @@ You can perform various operations on the VMware VMs that are enabled by Azure A
 - Install extensions (guest management enabled is required)
 
 
-:::image type="content" source="media/manage-vms.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/manage-virtual-machines.png":::
+:::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/manage-virtual-machines.png":::
 
 
 
