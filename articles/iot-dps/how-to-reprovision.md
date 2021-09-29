@@ -74,7 +74,7 @@ How often a device submits a provisioning request depends on the scenario. Howev
 
 The reprovisioning policy on an enrollment entry determines how the device provisioning service instance handles these provisioning requests, and if device state data should be migrated during reprovisioning. The same policies are available for individual enrollments and enrollment groups:
 
-For example code of sending provisioning requests from a device during a boot sequence, see [Auto-provisioning a simulated device](quick-create-simulated-device.md).
+For example code of sending provisioning requests from a device during a boot sequence, see [Auto-provisioning a simulated device](quick-create-simulated-device-tpm.md).
 
 
 ## Next steps
