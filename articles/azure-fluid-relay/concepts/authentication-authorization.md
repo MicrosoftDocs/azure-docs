@@ -98,12 +98,12 @@ generate tokens rather than signing them locally like the `InsecureTokenProvider
 
 You do this in your token provider. For example, you could make your Azure Function token provider authenticated. If an
 application tries to call the Function it would fail unless authenticated with your auth system. If you're using Azure
-Active Directory, for example, you might create an AAD application for your Azure Function, and tie it to your
-organization's auth system.
+Active Directory (Azure AD), for example, you might create an Azure AD application for your Azure Function, and tie it
+to your organization's auth system.
 
-In this case the user would sign into your application using AAD, through which you would obtain a token to use to call
-your Azure Function. The Azure Function itself behaves the same, but it's now only accessible to people who have also
-authenticated with AAD.
+In this case the user would sign into your application using Azure AD, through which you would obtain a token to use to
+call your Azure Function. The Azure Function itself behaves the same, but it's now only accessible to people who have
+also authenticated with Azure AD.
 
 Since the Azure Function is now your entrypoint into obtaining a valid token, only users who have properly authenticated
 to the Function will then be able to relay that token to the Azure Fluid Relay service from their client application.

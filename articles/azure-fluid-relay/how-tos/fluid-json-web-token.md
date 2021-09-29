@@ -9,7 +9,7 @@ ms.topic: reference
 ms.service: azure-fluid
 ---
 
-# Azure Fluid Relay Token Contract
+# Azure Fluid Relay token contract
 
 Requests sent to Azure Fluid Relay should contain a JWT token in the authorization header. This token should be signed by the tenant key (obtained during provisioning). This JWT token should have the required claims mentioned below.
 
@@ -23,7 +23,7 @@ Each piece is separated by a period (.) and separately Base64 encoded.
 
 <br/>
 
-## Header Claims
+## Header claims
 
 | Claim        | Format           | Description  |
 | ------------- |-------------| -----|
@@ -32,7 +32,7 @@ Each piece is separated by a period (.) and separately Base64 encoded.
 
 <br/>
 
-## Payload Claims
+## Payload claims
 
 | Claim        | Format           | Description  |
 | ------------- |-------------| -----|
@@ -44,7 +44,7 @@ Each piece is separated by a period (.) and separately Base64 encoded.
 | exp      | number, a UNIX timestamp       |   The "exp" (expiration time) claim identifies the expiration time on or after which the JWT must not be accepted for processing. The token lifetime can't be more than 1 hour. |
 | ver      | string      |   Indicates the version of the access token. Must be `1.0` . |
 
-## A Sample Azure Fluid Relay Token
+## A sample Azure Fluid Relay token
 
 ```typescript
 { 
