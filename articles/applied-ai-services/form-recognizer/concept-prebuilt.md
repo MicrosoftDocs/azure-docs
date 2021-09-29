@@ -34,7 +34,7 @@ recommendations: false
 * The file size must be less than 50 MB.
 * For images (JPEG, PNG, BMP, TIFF), the dimensions must be at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 * PDF dimensions cannot exceed 17 x 17 inches (Legal or A3 paper sizes).
-* For more guidance, *see*  our [**Overview**](overview#input-requirements) documentation.
+* For more guidance, *see*  our [**Overview**](overview.md#input-requirements) documentation.
 
 ## Prebuilt invoice model
 
@@ -122,7 +122,7 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 
 |Name| Type | Description | Standardized output <img width=500> |
 |:-----|:----|:----|:----|
-| ReceiptType | string | Type of sales receipt |  | Itemized |
+| ReceiptType | string | Type of sales receipt |  Itemized |
 | MerchantName | string | Name of the merchant issuing the receipt |  |
 | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx |
 | MerchantAddress | string | Listed address of merchant |   |
@@ -188,4 +188,4 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 
 * [**Try processing your own forms and documents**](quickstarts/try-sample-label-tool.md) with our [**Form Recognizer sample tool**](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [**Form Recognizer quickstart**](quickstart/try-sdk-rest-api.md) to get started creating a form processing app with Form Recognizer in the development language of your choice.
+* Complete a [**Form Recognizer quickstart**](quickstarts/try-sdk-rest-api.md) to get started creating a form processing app with Form Recognizer in the development language of your choice.

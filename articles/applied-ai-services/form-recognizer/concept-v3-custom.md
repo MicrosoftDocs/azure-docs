@@ -1,7 +1,7 @@
 ---
-title: Prebuilt models - Form Recognizer | Preview
+title: Prebuilt models - v3.0 Form Recognizer | Preview
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction using prebuilt models (preview)
+description: Concepts encompassing data extraction using v3.0 prebuilt custom model (preview)
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

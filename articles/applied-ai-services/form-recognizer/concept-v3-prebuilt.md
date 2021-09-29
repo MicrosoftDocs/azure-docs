@@ -1,7 +1,7 @@
 ---
-title: Prebuilt models - Form Recognizer | Preview
+title: Prebuilt models - Form Recognizer | v3.0 Preview
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction using prebuilt models (preview)
+description: Concepts encompassing data extraction using Form Reco prebuilt models (preview).
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,7 +11,7 @@ ms.date: 09/14/2021
 ms.author: lajanuar
 ---
 
-# Form Recognizer v3.0 | Preview
+# Form Recognizer v3.0 prebuilt models | Preview
 
 >[!NOTE]
 > Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities.
