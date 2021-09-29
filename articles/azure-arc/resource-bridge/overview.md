@@ -1,13 +1,13 @@
 ---
-title: Azure Arc resource bridge overview
-description: Learn how to use Azure Arc resource bridge to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
+title: Azure Arc resource bridge (preview) overview
+description: Learn how to use Azure Arc resource bridge (preview) to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
 ms.date: 09/28/2021
 ms.topic: overview
 ---
 
-# What is Azure Arc resource bridge?
+# What is Azure Arc resource bridge (preview)?
 
-Azure Arc resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines running in a hybrid environment on [Azure Stack HCI](/azure-stack/hci/overview) and VMware. The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster that requires no user management. This virtual appliance delivers the following benefits:
+Azure Arc resource bridge (preview) is part of the core Azure Arc platform, and is designed to host other Azure Arc services. In this release, the resource bridge supports VM self-servicing and management from Azure, for virtualized Windows and Linux virtual machines hosted in an on-premises environment on [Azure Stack HCI](/azure-stack/hci/overview) and VMware. The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster that requires no user management. This virtual appliance delivers the following benefits:
 
 * Enables VM self-servicing from Azure without having to create and manage a Kubernetes cluster
 * It is fully supported by Microsoft, including update of core components.
@@ -15,6 +15,31 @@ Azure Arc resource bridge supports VM self-servicing and management from Azure, 
 * Supports deployment to any private cloud hosted on Hyper-V or VMware from the Azure portal or using the Azure Command-Line Interface (CLI).
 
 All management operations are performed from Azure, no local configuration is required on the appliance.
+
+## Overview
+
+Azure resource bridge (preview) hosts other components such as Custom Locations, cluster extensions, and other Arc agents in order to deliver the level of functionality with the private cloud infrastructures it supports. This complex system is comprised of three layers:
+
+* The base layer that represents the resource bridge and the Arc agents
+* The platform layer that includes the Custom Location and Cluster extension
+* The solution layer for each service supported by Arc resource bridge (that is, the different type of VMs).
+
+:::image type="content" source="media/overview/architecture-overview.png" alt-text="Azure Arc resource bridge architecture diagram." border="false":::
+
+Azure Arc resource bridge (previvew) can host other Azure services or solutions running on-premises. In addition to a number of Arc agents, there are two primary objects hosted on the Arc resource bridge (preview):
+
+* Cluster extension: This is the Azure service deployed to run on-premises. For the preview release, it supports two services:
+
+   - Azure Arc-enabled VMware
+   - Azure Arc-enabled Azure Stack HCI
+
+* Custom Locations: This is a deployment target, where user can create Azure resources. It maps to different resource for different Azure services. For example, for Arc-enabled VMware, the Custom Locations resource maps to an instance of vCenter, and for Arc-enabled Azure Stack HCI, it maps to the HCI cluster instance.
+
+Custom Locations and cluster extension are both Azure resources, they are linked to the Azure Arc resource bridge (preview) resource in Azure Resource Manager. When you create a VM from Azure, you can select the custom location, and that routes that *create action* to the mapped vCenter or Azure Stack HCI cluster.
+
+There are a set of resources unique to the infrastructure. For example, vCenter has a resource pool, network and template resources. You need to specify these resources for VM creation. With Azure Stack HCI, you just need to select the custom location, network and template to create a VM.
+
+To summarize, the Azure resources are projections of the resources running in your on-premises private cloud. If the on-premises resource is not healthy, it can impact the health of the related resources. For example, if the Arc resource bridge (preview) has been deleted by accident, all the resources hosted in the Arc resource bridge (preview) are impacted. That is, the Custom Locations and cluster extensions are deleted as a result. The actual VMs are not impacted, as they are running on vCenter, but the management path to those VMs is interrupted. You won't be able to start/stop the VM from Azure. It is not recommended to manage or modify the Arc resource bridge (preview) using any on-premises applications directly.  
 
 Through the Azure Arc resource bridge, you can accomplish the following for each private cloud infrastructure from Azure:
 
