@@ -21,7 +21,7 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
-* Mobility services Preview to request public transit information, plan routes by blending different travel modes and real-time arrivals.
+* Mobility services preview to request public transit information, plan routes by blending different travel modes and real-time arrivals.
 * Time zone and Geolocation services.
 * Elevation services with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
