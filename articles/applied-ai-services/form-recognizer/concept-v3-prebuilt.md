@@ -1,4 +1,4 @@
- ---
+---
 title: Prebuilt models - Form Recognizer | v3.0 Preview
 titleSuffix: Azure Applied AI Services
 description: Concepts encompassing data extraction using Form Reco prebuilt models (preview).

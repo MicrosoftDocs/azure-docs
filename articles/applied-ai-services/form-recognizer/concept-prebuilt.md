@@ -128,10 +128,10 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 | MerchantAddress | string | Listed address of merchant |   |
 | TransactionDate | date | Date the receipt was issued | yyyy-mm-dd |
 | TransactionTime | time | Time the receipt was issued | hh-mm-ss (24-hour)  |
-| Total | number (USD)| Full transaction total of receipt | Two-decimal float||
+| Total | number (USD)| Full transaction total of receipt | Two-decimal float|
 | Subtotal | number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
 | Tax | number (USD) | Tax on receipt, often sales tax or equivalent | Two-decimal float |
-| Tip | number (USD) | Tip included by buyer | Two-decimal float||
+| Tip | number (USD) | Tip included by buyer | Two-decimal float|
 | Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
 | Name | string | Item name | |
 | Quantity | number | Quantity of each item | integer |
