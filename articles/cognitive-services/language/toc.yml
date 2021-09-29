@@ -111,73 +111,6 @@ items:
     items:
       - name: Backwards compatibility
         href: custom-language-understanding/concepts/backwards-compatibility.md
-- name: Question answering
-  items:
-  - name: Overview
-    href: custom-question-answering/overview.md
-  - name: Quickstart
-    href: custom-question-answering/quickstart/sdk.md
-  - name: Language support
-    href: custom-question-answering/language-support.md
-  - name: Responsible use of AI
-    items: 
-    - name: Transparency note for question answering
-      href: /legal/cognitive-services/language-service/transparency-note-question-answering?context=/azure/cognitive-services/language/context/context
-      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-question-answering?context=/azure/cognitive-services/language/context/context
-      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Data, privacy, and security  
-      href: /legal/cognitive-services/language-service/data-privacy-security-question-answering?context=/azure/cognitive-services/language/context/context
-      displayName: Data privacy, logging, data retention
-  - name: How-to guides
-    items:
-    - name: Query with REST APIs
-      href: custom-question-answering/how-to/url-test-tool.md
-    - name: Encrypt data at rest
-      href: custom-question-answering/how-to/encrypt-data-at-rest.md
-    - name: Migrate knowledge base
-      href: custom-question-answering/how-to/migrate-knowledge-base.md
-    - name: Add chit-chat
-      href: custom-question-answering/how-to/chit-chat.md
-    - name: Change default answer
-      href: custom-question-answering/how-to/change-default-answer.md
-    - name: Configure resources
-      href: custom-question-answering/how-to/configure-resources.md
-    - name: Analytics
-      href: custom-question-answering/how-to/analytics.md
-    - name: Manage knowledge base
-      href: custom-question-answering/how-to/manage-knowledge-base.md
-    - name: Generate answer
-      href: custom-question-answering/how-to/generate-answer.md
-    - name: Filter responses
-      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language/context/context
-    - name: Manage resources
-      href: custom-question-answering/how-to/manage-resources.md
-  - name: Concepts
-    items:
-    - name: Precise answering
-      href: custom-question-answering/concepts/precise-answering.md
-    - name: Development lifecycle
-      href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language/context/context
-    - name: Data sources and content
-      href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language/context/context
-    - name: Confidence score
-      href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language/context/context
-  - name: Tutorials
-    items:
-    - name: Create a FAQ Bot
-      href: custom-question-answering/tutorials/bot-service.md
-    - name: Guided conversations
-      href: custom-question-answering/tutorials/guided-conversations.md
-    - name: Active learning
-      href: custom-question-answering/tutorials/active-learning.md
-    - name: Adding synonyms
-      href: custom-question-answering/tutorials/adding-synonyms.md
-    - name: Multiple languages
-      href: custom-question-answering/tutorials/multiple-languages.md
-    - name: Multiple domains
-      href: custom-question-answering/tutorials/multiple-domains.md
 - name: Entity linking
   items:
   - name: Overview
@@ -329,6 +262,73 @@ items:
     items:
     - name: Extract information in Excel using Power Automate 
       href: named-entity-recognition/tutorials/extract-excel-information.md
+- name: Question answering
+  items:
+  - name: Overview
+    href: custom-question-answering/overview.md
+  - name: Quickstart
+    href: custom-question-answering/quickstart/sdk.md
+  - name: Language support
+    href: custom-question-answering/language-support.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for question answering
+      href: /legal/cognitive-services/language-service/transparency-note-question-answering?context=/azure/cognitive-services/language/context/context
+      displayName: Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-question-answering?context=/azure/cognitive-services/language/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language-service/data-privacy-security-question-answering?context=/azure/cognitive-services/language/context/context
+      displayName: Data privacy, logging, data retention
+  - name: How-to guides
+    items:
+    - name: Query with REST APIs
+      href: custom-question-answering/how-to/url-test-tool.md
+    - name: Encrypt data at rest
+      href: custom-question-answering/how-to/encrypt-data-at-rest.md
+    - name: Migrate knowledge base
+      href: custom-question-answering/how-to/migrate-knowledge-base.md
+    - name: Add chit-chat
+      href: custom-question-answering/how-to/chit-chat.md
+    - name: Change default answer
+      href: custom-question-answering/how-to/change-default-answer.md
+    - name: Configure resources
+      href: custom-question-answering/how-to/configure-resources.md
+    - name: Analytics
+      href: custom-question-answering/how-to/analytics.md
+    - name: Manage knowledge base
+      href: custom-question-answering/how-to/manage-knowledge-base.md
+    - name: Generate answer
+      href: custom-question-answering/how-to/generate-answer.md
+    - name: Filter responses
+      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language/context/context
+    - name: Manage resources
+      href: custom-question-answering/how-to/manage-resources.md
+  - name: Concepts
+    items:
+    - name: Precise answering
+      href: custom-question-answering/concepts/precise-answering.md
+    - name: Development lifecycle
+      href: ../qnamaker/concepts/development-lifecycle-knowledge-base.md?context=/azure/cognitive-services/language/context/context
+    - name: Data sources and content
+      href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language/context/context
+    - name: Confidence score
+      href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language/context/context
+  - name: Tutorials
+    items:
+    - name: Create a FAQ Bot
+      href: custom-question-answering/tutorials/bot-service.md
+    - name: Guided conversations
+      href: custom-question-answering/tutorials/guided-conversations.md
+    - name: Active learning
+      href: custom-question-answering/tutorials/active-learning.md
+    - name: Adding synonyms
+      href: custom-question-answering/tutorials/adding-synonyms.md
+    - name: Multiple languages
+      href: custom-question-answering/tutorials/multiple-languages.md
+    - name: Multiple domains
+      href: custom-question-answering/tutorials/multiple-domains.md
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
