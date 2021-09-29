@@ -1,5 +1,5 @@
 ---
-title: Set up diagnostics for Azure Virtual Desktop autoscaling feature
+title: Set up diagnostics for Azure Virtual Desktop autoscale feature
 description: How to set up diagnostic reports for the scaling service in your Azure Virtual Desktop deployment.
 author: Heidilohr
 ms.topic: how-to
@@ -7,15 +7,15 @@ ms.date: 09/21/2021
 ms.author: helohr
 manager: femila
 ---
-# Set up diagnostics for the autoscaling feature
+# Set up diagnostics for the autoscale feature
 
 > [!IMPORTANT]
-> The autoscaling feature is currently in preview.
+> The autoscale feature is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Diagnostics lets you monitor potential issues and fix them before they interfere with your autoscaling (preview) scaling plan.
+Diagnostics lets you monitor potential issues and fix them before they interfere with your autoscale (preview) scaling plan.
 
-Currently, you can either send diagnostic logs for the autoscaling feature to an Azure Storage account or consume logs with the Events hub. If you're using an Azure Storage account, make sure it's in the same region as your scaling plan. Learn more about diagnostic settings at [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md). For more information about resource log data ingestion time, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
+Currently, you can either send diagnostic logs for the autoscale feature to an Azure Storage account or consume logs with the Events hub. If you're using an Azure Storage account, make sure it's in the same region as your scaling plan. Learn more about diagnostic settings at [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md). For more information about resource log data ingestion time, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Enable diagnostics for scaling plans
 
@@ -29,7 +29,7 @@ To enable diagnostics for your scaling plan:
 
 4. Enter a name for the diagnostic setting.
 
-5. Next, select **Autoscaling** and choose either **storage account** or **event hub** depending on where you want to send the report.
+5. Next, select **Autoscale** and choose either **storage account** or **event hub** depending on where you want to send the report.
 
 6. Select **Save**.
 
@@ -67,7 +67,7 @@ The following JSON file is an example of what you'll see when you open a report:
     "time": "2021-08-31T16:00:46.5246835Z",
     "resourceId": "/SUBSCRIPTIONS/AD11111A-1C21-1CF1-A7DE-CB1111E1D111/RESOURCEGROUPS/TEST/PROVIDERS/MICROSOFT.DESKTOPVIRTUALIZATION/SCALINGPLANS/TESTPLAN",
     "operationName": "HostPoolLoadBalancerTypeUpdated",
-    "category": "Autoscaling",
+    "category": "Autoscale",
     "resultType": "Succeeded",
     "level": "Informational",
     "correlationId": "35ec619b-b5d8-5b5f-9242-824aa4d2b878",
@@ -82,5 +82,5 @@ The following JSON file is an example of what you'll see when you open a report:
 
 ## Next steps
 
-- Review how to create a scaling plan at [Autoscaling for Azure Virtual Desktop session hosts](autoscaling-new-existing.md).
+- Review how to create a scaling plan at [Autoscale for Azure Virtual Desktop session hosts](autoscaling-new-existing.md).
 - [Assign your scaling plan to new and existing host pools](autoscaling-new-existing.md)
