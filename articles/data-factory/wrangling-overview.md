@@ -39,11 +39,11 @@ Visually scan your data in a code-free manner to remove any outliers, anomalies,
 
 | Connector | Data format | Authentication type |
 | -- | -- | --|
-| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Account Key |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Service Principal |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Account Key, Service Principal |
-| [Azure SQL Database](connector-azure-sql-database.md) | - | SQL authentication |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | SQL authentication |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet, Excel | Account Key, Service Principal, MSI |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV, Parquet, Excel | Service Principal, MSI |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet, Excel | Account Key, Service Principal, MSI |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | SQL authentication, MSI, Service Principal |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | SQL authentication, MSI, Service Principal |
 
 ## The mashup editor
 
