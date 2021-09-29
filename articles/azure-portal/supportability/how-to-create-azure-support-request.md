@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 09/01/2021
+ms.date: 09/30/2021
 ---
 
 # Create an Azure support request
@@ -13,9 +13,9 @@ Azure enables you to create and manage support requests, also known as support t
 > [!NOTE]
 > The Azure portal URL is specific to the Azure cloud where your organization is deployed.
 >
->* Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
->* Azure portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
->* Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
+>- Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
+>- Azure- portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+>- Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
 
 Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
 
@@ -73,7 +73,9 @@ Next, we collect additional details about the problem. Providing thorough and de
 
 1. Complete the **problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. In some cases, there will be additional options to choose from, such as whether to allow access to a virtual machine's memory.
+1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. See the [Advanced diagnostic information logs](#advanced-diagnostic-information-logs) section for more details about the types of files we might collect.
+
+  In some cases, there will be additional options to choose from. For example, for certain types of Virtual Machine problem types, you can choose whether to [allow access to a virtual machine's memory](#memory-dump-collection).
 
 1. In the **Support method** section, select the severity of impact. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
 
@@ -88,6 +90,27 @@ Select **Next** when you've completed all of the necessary information.
 Before you create your request, review all of the details that you'll send to support. You can select **Previous** to return to any tab if you need to make changes. When you're satisfied the support request is complete, select **Create**.
 
 A support engineer will contact you using the method you indicated. For information about initial response times, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
+
+### Advanced diagnostic information logs
+
+When you allow collection of [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/), Microsoft support can collect information that can help solve your problem more quickly. This non-exhaustive list includes examples of the most common files collected under advanced diagnostic information for different services or environments.
+
+- [Microsoft Azure Paas VM logs](/troubleshoot/azure/virtual-machines/sdp352ef8720-e3ee-4a12-a37e-cc3b0870f359-windows-vm)
+- [Microsoft Azure IaaS VM logs](https://github.com/azure/azure-diskinspect-service/blob/master/docs/manifest_by_file.md)
+- [Microsoft Azure Service Fabric logs](/troubleshoot/azure/general/fabric-logs)
+- [StorSimple support packages and device logs](https://support.microsoft.com/topic/storsimple-support-packages-and-device-logs-cb0a1c7e-6125-a5a7-f212-51439781f646)
+- [SQL Server on Azure Virtual Machines logs](/troubleshoot/azure/general/sql-vm-logs)
+- [Azure Active Directory logs](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs)
+- [Azure Stack Edge support package and device logs](/troubleshoot/azure/general/azure-stack-edge-support-package-device-logs)
+- [Azure Synapse Analytics logs](/troubleshoot/azure/general/synapse-analytics-apache-spark-pools-diagnostic-logs)
+
+### Memory dump collection
+
+When you create a support case for certain Virtual Machine problem types you will be asked whether you agree to support accessing your virtual machine's memory to diagnose the problem. A complete memory dump is the largest kernel-mode dump file. This file includes all of the physical memory that is used by Windows. A complete memory dump does not, by default, include physical memory that is used by the platform firmware.
+
+The dump is copied from the compute node (Azure host) where it is created to another server for debugging within the same datacenter. Customer data is protected since the data does not leave Azure's secure boundary.
+
+The dump file is created by generating a Hyper-V save state of the virtual machine (VM). This process will pause the VM for up to 10 minutes, after which time the VM is resumed. The VM is not restarted as part of this process.
 
 ## Next steps
 
