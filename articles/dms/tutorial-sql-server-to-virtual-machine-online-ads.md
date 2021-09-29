@@ -158,10 +158,11 @@ The final step of the tutorial is to complete the migration cutover. The complet
 
 To complete the cutover:
 1. Stop all incoming transactions to the source database.
-1. Make application configuration changes to point to the target database in SQL 1. Server on Azure Virtual Machine.
+1. Make application configuration changes to point to the target database in SQL Server on Azure Virtual Machine.
 1. Take any tail log backups for the source database in the backup location specified.
 1. Ensure all database backups have the status *Restored* in the monitoring details page.
-- Select *Complete cutover* in the monitoring details page.
+1. Select *Complete cutover* in the monitoring details page.
+
 
 During the cutover process, the migration status changes from *in progress* to *completing*. The migration status changes to *succeeded* when the cutover process is completed. The database migration is successful and that the migrated database is ready for use.
 
