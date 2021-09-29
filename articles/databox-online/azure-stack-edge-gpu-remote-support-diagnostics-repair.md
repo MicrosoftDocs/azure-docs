@@ -324,8 +324,7 @@ Depending on your audit requirements, you may need to view the transcripts. Foll
 
     ![Screenshot of SupportTranscripts folder highlighted in Support package](media/azure-stack-edge-gpu-remote-support-diagnostics-repair/transcript-folder-support-package-1.png)
 
-> [!NOTE]
-> 
+
  
 ## Operations allowed in remote support
 
@@ -333,7 +332,7 @@ The following sections list the allowed cmdlets that Microsoft Support can execu
 
 #### Azure Stack Edge cmdlets
 
-| Cmdlets                      | Diagnostics | Diagnotics & repair | Description |
+| Cmdlets                      | Diagnostics | Diagnostics & repair | Description |
 |-----------------------------------------------|-------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Add-HcsExternalVirtualSwitch                  |             | Y                   | Creates a new external virtual switch to configure Kubernetes on your device.  |
 | Add-HcsVirtualNetwork                         |             | Y                   | Creates a new virtual switch on a specified network interface.|
