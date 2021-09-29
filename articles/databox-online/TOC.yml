@@ -406,6 +406,8 @@
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Device logs and diagnostics 
         href: azure-stack-edge-gpu-troubleshoot.md
+      - name: Enable remote support 
+        href: azure-stack-edge-gpu-remote-support-diagnostics-repair.md        
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
