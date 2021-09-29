@@ -95,7 +95,9 @@ Next you'll need to authenticate into Palo Alto and obtain an API key. For more 
 The following example uses PowerShell to authenticate and generate request headers that will be used later in this article:
 
 ```powershell
-$authResponse = irm "https://${PaloAltoIpAddress}/api/?type=keygen&user=yevster&password=CwtN8s@MuqXDNE!(gb!CqWY" -SkipCertificateCheck
+$username=<User Name for PaloAlto>
+$password
+$authResponse = irm "https://${PaloAltoIpAddress}/api/?type=keygen&user=${username}&password=${password}" -SkipCertificateCheck
 $paloAltoHeaders = @{'X-PAN-KEY' = $authResponse.response.result.key; 'Content-Type' = 'application/json' }
 ```
 
