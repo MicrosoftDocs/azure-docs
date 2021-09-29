@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot Azure Arc resource bridge issues
-description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge when trying to deploy or connect to the service.
+title: Troubleshoot Azure Arc resource bridge (preview) issues
+description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
 ms.date: 09/28/2021
 ms.topic: conceptual
 ---
 
-# Troubleshoot Azure Arc resource bridge issues
+# Troubleshoot Azure Arc resource bridge (preview) issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy, use, or remove the Azure Arc resource bridge. The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster. For general information, see [Azure Arc resource bridge overview](./overview.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy, use, or remove the Azure Arc resource bridge (preview). The resource bridge is a packaged virtual machine, which hosts a *management* Kubernetes cluster. For general information, see [Azure Arc resource bridge (preview) overview](./overview.md).
 
-## Azure Arc resource bridge is unreachable
+## Azure Arc resource bridge (preview) is unreachable
 
-Azure Arc resource bridge runs a Kubernetes cluster, and its control plane requires a static IP address. This is specified in the `infra.yaml` file. Sometimes, the resource bridge VM loses the reserved IP configuration. This is due to this [Loss of VIP's when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address is not assigned to the resource bridge VM, any call to the resource bridge API server will fail. As a result you are unable to create any new resource through the resource bridge, ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
+Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane requires a static IP address. This is specified in the `infra.yaml` file. Sometimes, the resource bridge VM loses the reserved IP configuration. This is due to this [Loss of VIP's when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address is not assigned to the resource bridge VM, any call to the resource bridge API server will fail. As a result you are unable to create any new resource through the resource bridge, ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
 
 ### Workaround
 
@@ -20,9 +20,12 @@ Reboot the resource bridge VM and it will recover its IP address.
 ## Resource bridge cannot be updated
 
 For this release, all the parameters specified at the creation time, there is not update to the properties. When there is a need to update the resource, you will need to delete it and re-deploy it again.
-For example, if you specified the wrong location, or subscription when you deploy the resource bridge, later the resource createion fails. If you only try to recreate the resource without re-deploy the resource bridge VM, you will see the status stuck at *WaitForHeartBeat*.
 
-**Workaround**: user needs to delete the appliance, update the appliance yaml file, then re-deploy & create the appliance. 
+For example, if you specified the wrong location, or subscription when you deploy the resource bridge, later the resource creation fails. If you only try to recreate the resource without re-deploying the resource bridge VM, you will see the status stuck at *WaitForHeartBeat*.
+
+**Workaround**
+
+You need to delete the appliance, update the appliance YAML file, then re-deploy & create the resource bridge.
 
 ## Token refresh error
 

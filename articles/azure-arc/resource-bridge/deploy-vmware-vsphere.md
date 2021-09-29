@@ -1,13 +1,13 @@
 ---
-title: Deploy Azure Arc resource bridge on VMware vSphere
-description: Learn how to deploy Azure Arc resource bridge to VMware vSphere.
+title: Deploy Azure Arc resource bridge (preview) on VMware vSphere
+description: Learn how to deploy Azure Arc resource bridge (preview) to VMware vSphere.
 ms.date: 09/28/2021
 ms.topic: overview
 ---
 
-# How to deploy Azure Arc resource bridge to VMware vSphere
+# How to deploy Azure Arc resource bridge (preview) to VMware vSphere
 
-Azure Arc resource bridge is a fully managed Kubernetes cluster, packaged in a virtual machine (VM) format. This article describes how you can deploy it in your private cloud environment running VMware vSphere. Inside the VM, their is a single node Kubernetes cluster hosting various components, including the custom locations and cluster extensions.
+Azure Arc resource bridge (preview) is a fully managed Kubernetes cluster, packaged in a virtual machine (VM) format. This article describes how you can deploy it in your private cloud environment running VMware vSphere. Inside the VM, their is a single node Kubernetes cluster hosting various components, including the Custom Locations and cluster extensions.
 
 You perform the following to complete the deployment:
 
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Install and register extension
 
-Before proceeding with installing and configuring the Arc resource bridge on your VMware vSphere infrastructure, you need to download and install the Arc resource bridge extension.  
+Before proceeding with installing and configuring the Arc resource bridge (preview) on your VMware vSphere infrastructure, you need to download and install the Arc resource bridge extension.  
 
 1. Download the Azure Command-Line Interface (CLI) Appliance Extension by running the following commands:
 
@@ -80,7 +80,7 @@ The `appliance.yaml` file is the main configuration file that specifies the path
           certificateFilePath: "<certificatePath>"
     ```
 
-2. Edit the values for **controlPlaneEndpoint**. If communicating through a proxy server, edit the values for **http** or **https** depending on if your proxy server only supports HTTP or HTTPS, and **certificateFilePath**. 
+2. Edit the values for **controlPlaneEndpoint**. If communicating through a proxy server, edit the values for **http** or **https** depending on if your proxy server only supports HTTP or HTTPS, and **certificateFilePath**.
 
 3. Save this file as `appliance.yaml` to a local folder.
 
@@ -141,7 +141,7 @@ The `resource.yaml` file contains all the information related to the Azure Resou
 
 ## Deployment
 
-Perform the following steps to deploy the Arc resource bridge in your vSphere environment.
+Perform the following steps to deploy the Arc resource bridge (preview) in your vSphere environment.
 
 1. Create the resource bridge vSphere virtual machine running the following command. It creates a kubeconfig file after a successful deployment.
 
@@ -149,7 +149,7 @@ Perform the following steps to deploy the Arc resource bridge in your vSphere en
     az arcappliance deploy vmware --config-file <path and name of the appliance.yaml> --out-file kubeconfig
     ```
 
-  This step can take around 30 minutes to complete. 
+  This step can take around 30 minutes to complete.
 
 2. Run the following command to create the resource bridge resource in Azure:
 
