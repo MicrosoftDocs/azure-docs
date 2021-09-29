@@ -155,7 +155,7 @@ Password-based authentication methods are a weaker form of authentication. Crede
 
 **Best practices**:
 
-- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use Integrated Windows authentication (for domain-joined machines with Azure AD).
+- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use integrated Windows authentication (for domain-joined machines with Azure AD).
   - See the article, [SSMS support for Azure AD Integrated authentication](authentication-aad-configure.md#active-directory-integrated-authentication).
 
 ### Minimize the use of password-based authentication for applications

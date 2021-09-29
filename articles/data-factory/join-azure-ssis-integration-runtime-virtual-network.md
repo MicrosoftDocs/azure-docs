@@ -37,7 +37,7 @@ The [configuring an Azure-SQL Server Integration Services (SSIS) integration run
 - If you use a network security group (NSG) on the subnet.
 - If you use Azure ExpressRoute or a user-defined route (UDR).
 - If you use customized Azure-SSIS IR.
-- If you use Azure Powershell provisioning.
+- If you use Azure PowerShell provisioning.
 
 ## Access to on-premises data stores
 
@@ -188,7 +188,7 @@ For example, if your Azure-SSIS IR is located at `UK South` and you want to insp
 > [!NOTE]
 > This approach incurs an additional maintenance cost. Regularly check the IP range and add new IP ranges into your UDR to avoid breaking the Azure-SSIS IR. We recommend checking the IP range monthly because when the new IP appears in the service tag, the IP will take another month go into effect. 
 
-To make the setup of UDR rules easier, you can run following Powershell script to add UDR rules for Azure Batch management services:
+To make the setup of UDR rules easier, you can run following PowerShell script to add UDR rules for Azure Batch management services:
 ```powershell
 $Location = "[location of your Azure-SSIS IR]"
 $RouteTableResourceGroupName = "[name of Azure resource group that contains your Route Table]"
@@ -255,7 +255,7 @@ For firewall appliance to allow outbound traffic, you need to allow outbound to 
 
 -   Port 1433, 11000-11999 with destination as Azure SQL Database (only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your server).
 
-    If you use Azure Firewall, you can specify network rule with Azure SQL Service Tag, otherwise you might allow destination as specific azure sql url in firewall appliance.
+    If you use Azure Firewall, you can specify network rule with Azure SQL Service Tag, otherwise you might allow destination as a specific Azure SQL URL in firewall appliance.
 
 -   Port 445 with destination as Azure Storage (only required when you execute SSIS package stored in Azure Files).
 
@@ -303,14 +303,14 @@ Make sure that the resource quota of your subscription is enough for the above t
 
   If you don't want any public IP address to be exposed, consider [configuring a self-hosted IR as proxy for your Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md) instead of joining your Azure-SSIS IR to a virtual network, if this applies to your scenario.
  
-- Can I add the public IP address of my Azure-SSIS IR to the firewall's allow list for my data sources?
+- Can I add the public IP address of my Azure-SSIS IR to the firewall's allowlist for my data sources?
 
-  You can now bring your own static public IP addresses for Azure-SSIS IR. In this case, you can add your IP addresses to the firewall's allow list for your data sources. You can also consider other options below to secure data access from your Azure-SSIS IR depending on your scenario:
+  You can now bring your own static public IP addresses for Azure-SSIS IR. In this case, you can add your IP addresses to the firewall's allowlist for your data sources. You can also consider other options below to secure data access from your Azure-SSIS IR depending on your scenario:
 
-  - If your data source is on premises, after connecting a virtual network to your on-premises network and joining your Azure-SSIS IR to the virtual network subnet, you can then add the private IP address range of that subnet to the firewall's allow list for your data source.
+  - If your data source is on premises, after connecting a virtual network to your on-premises network and joining your Azure-SSIS IR to the virtual network subnet, you can then add the private IP address range of that subnet to the firewall's allowlist for your data source.
   - If your data source is an Azure service that supports virtual network service endpoints, you can configure a virtual network service endpoint on your virtual network subnet and join your Azure-SSIS IR to that subnet. You can then add a virtual network rule with that subnet to the firewall for your data source.
-  - If your data source is a non-Azure cloud service, you can use a UDR to route outbound traffic from your Azure-SSIS IR to an NVA/Azure Firewall via a static public IP address. You can then add the static public IP address of your NVA/Azure Firewall to the firewall's allow list for your data source.
-  - If none of the above options meets your needs, consider [configuring a self-hosted IR as proxy for your Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md). You can then add the static public IP address of the machine that hosts your self-hosted IR to the firewall's allow list for your data source.
+  - If your data source is a non-Azure cloud service, you can use a UDR to route outbound traffic from your Azure-SSIS IR to an NVA/Azure Firewall via a static public IP address. You can then add the static public IP address of your NVA/Azure Firewall to the firewall's allowlist for your data source.
+  - If none of the above options meets your needs, consider [configuring a self-hosted IR as proxy for your Azure-SSIS IR](./self-hosted-integration-runtime-proxy-ssis.md). You can then add the static public IP address of the machine that hosts your self-hosted IR to the firewall's allowlist for your data source.
 
 - Why do I need to provide two static public addresses if I want to bring my own for Azure-SSIS IR?
 
@@ -318,8 +318,8 @@ Make sure that the resource quota of your subscription is enough for the above t
 
 - I have brought my own static public IP addresses for Azure-SSIS IR, but why it still cannot access my data sources?
 
-  - Confirm that the two static public IP addresses are both added to the firewall's allow list for your data sources. Each time your Azure-SSIS IR is upgraded, its static public IP address is switched between the two brought by you. If you add only one of them to the allow list, data access for your Azure-SSIS IR will be broken after its upgrade.
-  - If your data source is an Azure service, please check whether you have configured it with virtual network service endpoints. If that's the case, the traffic from Azure-SSIS IR to your data source will switch to use the private IP addresses managed by Azure services and adding your own static public IP addresses to the firewall's allow list for your data source will not take effect.
+  - Confirm that the two static public IP addresses are both added to the firewall's allowlist for your data sources. Each time your Azure-SSIS IR is upgraded, its static public IP address is switched between the two brought by you. If you add only one of them to the allowlist, data access for your Azure-SSIS IR will be broken after its upgrade.
+  - If your data source is an Azure service, please check whether you have configured it with virtual network service endpoints. If that's the case, the traffic from Azure-SSIS IR to your data source will switch to use the private IP addresses managed by Azure services and adding your own static public IP addresses to the firewall's allowlist for your data source will not take effect.
 
 ## Azure portal (Data Factory UI)
 
@@ -513,7 +513,7 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 
 ### Create an Azure-SSIS IR and join it to a virtual network
 
-You can create an Azure-SSIS IR and join it to a virtual network at the same time. For the complete script and instructions, see [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime.md#use-azure-powershell-to-create-an-integration-runtime).
+You can create an Azure-SSIS IR and join it to a virtual network at the same time. For the complete script and instructions, see [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime-powershell.md).
 
 ### Join an existing Azure-SSIS IR to a virtual network
 
