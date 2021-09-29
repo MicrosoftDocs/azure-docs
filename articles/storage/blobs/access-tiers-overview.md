@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: tamram
 
 ms.author: tamram
-ms.date: 09/23/2021
+ms.date: 09/29/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
