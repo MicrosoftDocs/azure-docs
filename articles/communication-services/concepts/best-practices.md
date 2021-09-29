@@ -60,8 +60,7 @@ if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMed
   // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
 }
  ```
- 
- To start a 'call.startVideo(localVideoStream)'
+Your application should invoke `call.startVideo(localVideoStream);` to started a video stream and should use `this.currentCall.unmute();` to unmute the audio.
 
 ### Device management
 You can use the Azure Communication Services SDK to manage your devices and media operations.

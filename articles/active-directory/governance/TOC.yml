@@ -18,6 +18,10 @@
       href: entitlement-management-access-package-first.md
     - name: Manage access to resources - Microsoft Graph
       href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+    - name: Onboard external users to Azure AD through an approval process
+      href: entitlement-management-onboard-external-user.md
+    - name: Manage the lifecycle of your group-based licenses in Azure AD
+      href: entitlement-management-group-licenses.md
 - name: Concepts
   expanded: true
   items:
