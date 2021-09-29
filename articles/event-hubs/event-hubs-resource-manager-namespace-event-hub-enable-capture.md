@@ -2,7 +2,7 @@
 title: Create an event hub with capture enabled - Azure Event Hubs | Microsoft Docs
 description: Create an Azure Event Hubs namespace with one event hub and enable Capture using Azure Resource Manager template
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/28/2021
 ms.custom:  devx-track-azurepowershell
 ---
 
