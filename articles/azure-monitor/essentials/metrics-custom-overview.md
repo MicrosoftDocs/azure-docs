@@ -171,7 +171,7 @@ After custom metrics are submitted to Azure Monitor, you can browse through them
 > [!NOTE]
 > You need to have a reader or contributor role to view custom metrics. See [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
 
-### Browse through your custom metrics via the Azure portal
+### Browse your custom metrics via the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Select the **Monitor** pane.
 3. Select **Metrics**.
