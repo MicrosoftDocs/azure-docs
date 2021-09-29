@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 09/29/2021
 
 ---
 # Performance benchmark test recommendations for Azure NetApp Files
@@ -16,6 +16,8 @@ This article provides benchmark testing recommendations for volume performance a
 ## Overview
 
 To understand the performance characteristics of an Azure NetApp Files volume, you can use the open-source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate a variety of workloads. FIO can be installed on both Linux and Windows-based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
+
+Azure NetApp Files PG does *not* recommend using the `dd` utility as a baseline benchmarking tool. It is recommended to use an actual application workload, workload simulation, and benchmarking & analyzing tools (e.g. Oracle AWR with Oracle or the IBM equivalent in the case of DB2) to establish and analyze optimal infrastructure performance. Tools such as FIO, vdbench, iometer have their places in determining virtual machines to storage limits – matching the parameters of the test to the actual application workload mixtures for most useful results. It is, however, always best to test with the real world application.  
 
 ### VM instance sizing
 
