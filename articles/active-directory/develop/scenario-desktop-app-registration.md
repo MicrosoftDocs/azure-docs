@@ -30,7 +30,7 @@ If your desktop application uses interactive authentication, you can sign in use
 
 ### Audience for desktop app silent flows
 
-- To use Integrated Windows Authentication or a username and a password, your application needs to sign in users in your own tenant, for example, if you're a line-of-business (LOB) developer. Or, in Azure Active Directory organizations, your application needs to sign in users in your own tenant if it's an ISV scenario. These authentication flows aren't supported for Microsoft personal accounts.
+- To use integrated Windows authentication or a username and a password, your application needs to sign in users in your own tenant, for example, if you're a line-of-business (LOB) developer. Or, in Azure Active Directory organizations, your application needs to sign in users in your own tenant if it's an ISV scenario. These authentication flows aren't supported for Microsoft personal accounts.
 - If you sign in users with social identities that pass a business-to-commerce (B2C) authority and policy, you can only use the interactive and username-password authentication.
 
 ## Redirect URIs
@@ -51,8 +51,8 @@ Specify the redirect URI for your app by [configuring the platform settings](qui
 
 - If you build a native Objective-C or Swift app for macOS, register the redirect URI based on your application's bundle identifier in the following format: `msauth.<your.app.bundle.id>://auth`. Replace `<your.app.bundle.id>` with your application's bundle identifier.
 - If you build a Node.js Electron app, use a custom file protocol instead of a regular web (https://) redirect URI in order to handle the redirection step of the authorization flow, for instance `msal://redirect`. The custom file protocol name shouldn't be obvious to guess and should follow the suggestions in the [OAuth2.0 specification for Native Apps](https://tools.ietf.org/html/rfc8252#section-7.1).
-- If your app uses only Integrated Windows Authentication or a username and a password, you don't need to register a redirect URI for your application. These flows do a round trip to the Microsoft identity platform v2.0 endpoint. Your application won't be called back on any specific URI.
-- To distinguish [device code flow](scenario-desktop-acquire-token.md#device-code-flow), [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication), and a [username and a password](scenario-desktop-acquire-token.md#username-and-password) from a confidential client application using a client credential flow used in [daemon applications](scenario-daemon-overview.md), none of which requires a redirect URI, configure it as a public client application. To achieve this configuration:
+- If your app uses only integrated Windows authentication or a username and a password, you don't need to register a redirect URI for your application. These flows do a round trip to the Microsoft identity platform v2.0 endpoint. Your application won't be called back on any specific URI.
+- To distinguish [device code flow](scenario-desktop-acquire-token-device-code-flow.md), [integrated Windows authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md), and a [username and a password](scenario-desktop-acquire-token-username-password.md) from a confidential client application using a client credential flow used in [daemon applications](scenario-daemon-overview.md), none of which requires a redirect URI, configure it as a public client application. To achieve this configuration:
 
     1. In the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, select your app in **App registrations**, and then select **Authentication**.
     1. In **Advanced settings** > **Allow public client flows** > **Enable the following mobile and desktop flows:**, select **Yes**.

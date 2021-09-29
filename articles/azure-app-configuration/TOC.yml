@@ -158,6 +158,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: Update to the New Spring Boot Library
       href: howto-convert-to-the-new-spring-boot.md
+    - name: Move a resource between Azure regions 
+      href: howto-move-resource-between-regions.md
 - name: Reference
   items:
     - name: Client libraries

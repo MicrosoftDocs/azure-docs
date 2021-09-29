@@ -49,6 +49,7 @@
 | GVA | Geneva, Switzerland | Switzerland North, Europe |
 | HEL | Helsinki, Finland | West Europe |
 | HK  | Hong Kong, Hong Kong SAR | East Asia |
+| HKB | Hong Kong, Hong Kong SAR | East Asia |
 | HKG | Chai Wan, Hong Kong SAR | East Asia |
 | HNL | Honolulu, Hawaii, USA | West US, United States |
 | HOU | Houston, Texas, USA | Central US, United States |

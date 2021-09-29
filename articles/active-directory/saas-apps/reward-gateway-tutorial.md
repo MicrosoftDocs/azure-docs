@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Reward Gateway
@@ -32,6 +32,8 @@ To configure Azure AD integration with Reward Gateway, you need the following it
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Reward Gateway supports **IDP** initiated SSO.
+
+* Reward Gateway supports [Automated user provisioning](reward-gateway-provisioning-tutorial.md).
 
 ## Add Reward Gateway from the gallery
 
@@ -132,13 +134,15 @@ To configure single sign-on on **Reward Gateway** side, start setting up an Inte
 
 In this section, you create a user called Britta Simon in Reward Gateway. Work with [Reward Gateway support team](mailto:clientsupport@rewardgateway.com) to add the users in the Reward Gateway platform. Users must be created and activated before you use single sign-on.
 
+Reward Gateway also supports automatic user provisioning, you can find more details [here](./reward-gateway-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Reward Gateway for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Reward Gateway tile in the My Apps, you should be automatically signed in to the Reward Gateway for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Reward Gateway tile in the My Apps, you should be automatically signed in to the Reward Gateway for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
