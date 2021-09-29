@@ -281,7 +281,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Desktop Virtualization Workspace Contributor](#desktop-virtualization-workspace-contributor) | Contributor of the Desktop Virtualization Workspace. | 21efdde3-836f-432b-bf3d-3e8e734d4b2b |
 > | [Desktop Virtualization Workspace Reader](#desktop-virtualization-workspace-reader) | Reader of the Desktop Virtualization Workspace. | 0fa44ee9-7a7d-466b-9bb2-2bf446b1204d |
 > | [Disk Backup Reader](#disk-backup-reader) | Provides permission to backup vault to perform disk backup. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
-> | [Disk Pool Operator](#disk-pool-operator) | Used by the StoragePool Resource Provider to manage Disks added to a Disk Pool. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
+> | [Disk Pool Operator](#disk-pool-operator) | Provide permission to StoragePool Resource Provider to manage disks added to a disk pool. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
 > | [Disk Restore Operator](#disk-restore-operator) | Provides permission to backup vault to perform disk restore. | b50d9833-a0cb-478e-945f-707fcc997c13 |
 > | [Disk Snapshot Contributor](#disk-snapshot-contributor) | Provides permission to backup vault to manage disk snapshots. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
@@ -13609,7 +13609,7 @@ Provides permission to backup vault to perform disk backup. [Learn more](../back
 
 ### Disk Pool Operator
 
-Used by the StoragePool Resource Provider to manage Disks added to a Disk Pool.
+Provide permission to StoragePool Resource Provider to manage disks added to a disk pool.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
