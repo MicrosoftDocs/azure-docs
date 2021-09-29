@@ -699,7 +699,7 @@ Supported tables are currently limited to those specified below. All data from t
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | Partial support in government clouds – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
 | Operation | Partial support – some of the data is ingested through internal services that aren't supported for export. This portion is missing in export currently. |
-| Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
+| Perf | Partial support – only Windows perf data is currently supported. The Linux perf data is missing in export currently. |
 | PowerBIDatasetsWorkspace |  |
 | PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |

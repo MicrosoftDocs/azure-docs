@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
+ms.date: 09/29/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -83,6 +83,14 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 -   You can't currently host projects on Bitbucket.
 
 -   You can't currently export and import alerts and matrices as parameters. 
+
+- In the code repository under the *adf_publish* branch, a folder named 'PartialArmTemplates' is currently added beside the 'linkedTemplates' folder, 'ARMTemplateForFactory.json' and 'ARMTemplateParametersForFactory.json' files as part of publishing with source control. 
+
+    :::image type="content" source="media/continuous-integration-delivery/partial-arm-templates-folder.png" alt-text="Diagram of 'PartialArmTemplates' folder.":::
+
+    We will no longer be publishing 'PartialArmTemplates' to the *adf_publish* branch starting 1-November 2021.    
+
+    **No action is required unless you are using 'PartialArmTemplates'. Otherwise, switch to any supported mechanism for deployments using: 'ARMTemplateForFactory.json' or 'linkedTemplates' files.**
 
 ## Next steps
 
