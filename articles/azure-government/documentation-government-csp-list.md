@@ -5,7 +5,7 @@ services: azure-government
 cloud: gov
 ms.service: azure-government
 ms.topic: article
-ms.date: 09/11/2021
+ms.date: 09/21/2021
 ---
 
 # Azure Government authorized reseller list
@@ -230,7 +230,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Lear360.com](https://www.lear360.com)|
 |[Leidos](https://www.leidos.com)|
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
-|[Liftoff, LLC](http://liftoffonline.com/)|
+|[LiftOff, LLC](https://www.liftoffonline.com)|
 |[Lightstream Managed Services, LLC](https://www.lightstream.tech)|
 |[Liquid Mercury Solutions](https://www.liquid-hg.com/)|
 |[Logicalis, Inc.](https://www.us.logicalis.com/)|
@@ -487,7 +487,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Johnson Technology Systems Inc](https://www.jtsusa.com/)|
 |[KAMIND IT, Inc.](https://www.kamind.com/)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
-|[LiftOff LLC](https://www.liftoffllc.com)|
+|[LiftOff, LLC](https://www.liftoffonline.com)|
 |[ManTech](https://www.mantech.com/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
@@ -495,7 +495,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Permuta Technologies, Inc.](http://www.permuta.com/)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Perspecta](https://perspecta.com)|
-|[Quiet Professionals, LLC](https://quietprofessionalsllc.com)||
+|[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
 |[Red River](https://www.redriver.com)|
 |[SAIC](https://www.saic.com)|

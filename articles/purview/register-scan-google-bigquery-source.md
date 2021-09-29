@@ -4,9 +4,9 @@ description: This article outlines how to register Google BigQuery project in Az
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/15/2021
+ms.date: 09/27/2021
 ---
 # Register and Scan Google BigQuery source (Preview)
 
@@ -22,8 +22,7 @@ BigQuery project and fetches Lineage between data assets.
 
 1.  Set up the latest [self-hosted integration
     runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see 
-    [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
+    For more information, see [create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Make sure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
     is installed on your virtual machine where self-hosted integration
@@ -65,14 +64,14 @@ On the Register sources (Google BigQuery) screen, do the following:
 
 3.  Select a collection or create a new one (Optional)
 
-4.  Click on **Register**.
+4.  Select **Register**.
     :::image type="content" source="media/register-scan-google-bigquery-source/configure-sources.png" alt-text="configure BigQuery source" border="true":::
 
 ## Creating and running a scan
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned
     [here](./manage-integration-runtimes.md)
@@ -99,9 +98,9 @@ To create and run a new scan, do the following:
     - Save your Private key file of the service account in the JSON format in the key vault's secret
 
     To create a new private key from Google's cloud platform, in the
-    navigation menu, click on IAM & Admin -\> Service Accounts -\> Select
-    a project -\> Click the email address of the service account that you
-    want to create a key for -\> Click the **Keys** tab -\> Click
+    navigation menu, select IAM & Admin -\> Service Accounts -\> Select
+    a project -\> Select the email address of the service account that you
+    want to create a key for -\> Select the **Keys** tab -\> Select
     the **Add key** drop-down menu, then select Create new key. Now choose
     JSON format.
 
@@ -138,14 +137,14 @@ Usage of NOT and special characters are not acceptable.
         the size of Google BigQuery project to be scanned.
         :::image type="content" source="media/register-scan-google-bigquery-source/scan.png" alt-text="scan BigQuery source" border="true":::
 
-6.  Click on **Test connection.**
+6.  Select **Test connection.**
 
-7.  Click on **Continue**.
+7.  Select **Continue**.
 
 8.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-9.  Review your scan and click on **Save and Run**.
+9.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

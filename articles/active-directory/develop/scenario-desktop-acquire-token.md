@@ -210,7 +210,7 @@ if not result:
 There are various ways you can acquire tokens in a desktop application.
 
 - [Interactively](scenario-desktop-acquire-token-interactive.md)
-- [Integrated Windows Auth](scenario-desktop-acquire-token-integrated-windows-authentication.md)
+- [Integrated Windows authentication](scenario-desktop-acquire-token-integrated-windows-authentication.md)
 - [WAM](scenario-desktop-acquire-token-wam.md)
 - [Username Password](scenario-desktop-acquire-token-username-password.md)
 - [Device code flow](scenario-desktop-acquire-token-device-code-flow.md)

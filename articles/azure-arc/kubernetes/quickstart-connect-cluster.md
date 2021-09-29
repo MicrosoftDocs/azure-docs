@@ -91,9 +91,9 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 | `https://management.azure.com` (for Azure Cloud), `https://management.usgovcloudapi.net` (for Azure US Government) | Required for the agent to connect to Azure and register the cluster. |
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (for Azure Cloud), `https://<region>.dp.kubernetesconfiguration.azure.us` (for Azure US Government) | Data plane endpoint for the agent to push status and fetch configuration information. |
 | `https://login.microsoftonline.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
-| `https://mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
+| `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
 | `https://gbl.his.arc.azure.com` |  Required to get the regional endpoint for pulling system-assigned Managed Service Identity (MSI) certificates. |
-| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Service Identity (MSI) certificates. |
+| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` and `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
 
 ## 1. Register providers for Azure Arc-enabled Kubernetes
@@ -257,6 +257,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc-
     > [!NOTE]
     > * Some network requests such as the ones involving in-cluster service-to-service communication need to be separated from the traffic that is routed via the proxy server for outbound communication. The `--proxy-skip-range` parameter can be used to specify the CIDR range and endpoints in a comma-separated way so that any communication from the agents to these endpoints do not go via the outbound proxy. At a minimum, the CIDR range of the services in the cluster should be specified as value for this parameter. For example, let's say `kubectl get svc -A` returns a list of services where all the services have ClusterIP values in the range `10.0.0.0/16`. Then the value to specify for `--proxy-skip-range` is `10.0.0.0/16,kubernetes.default.svc,.svc.cluster.local,.svc`.
     > * `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments. `--proxy-cert` is *only* required if you need to inject trusted certificates expected by proxy into the trusted certificate store of agent pods.
+    > * The outbound proxy has to be configured to allow websocket connections.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
