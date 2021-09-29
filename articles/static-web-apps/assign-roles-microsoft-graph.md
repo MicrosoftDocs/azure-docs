@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Assign Azure Static Web Apps roles with Microsoft Graph"
-description: Learn to use Azure DevOps to publish Azure Static Web Apps.
+description: Learn to use a role assignment function to assign custom roles based on Active Directory group membership.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
