@@ -124,7 +124,7 @@ For a desktop app to call a web API that signs in users, use the interactive tok
 
 ![A desktop app calling a web API](media/scenarios/desktop-app.svg)
 
-There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [Integrated Windows Authentication](https://aka.ms/msal-net-iwa).
+There's another possibility for Windows-hosted applications on computers joined either to a Windows domain or by Azure Active Directory (Azure AD). These applications can silently acquire a token by using [integrated Windows authentication](https://aka.ms/msal-net-iwa).
 
 Applications running on a device without a browser can still call an API on behalf of a user. To authenticate, the user must sign in on another device that has a web browser. This scenario requires that you use the [device code flow](https://aka.ms/msal-net-device-code-flow).
 
@@ -228,7 +228,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td>Integrated Windows Authentication</td>
+   <td>Integrated Windows authentication</td>
    <td>Work or school accounts</td>
  </tr>
 

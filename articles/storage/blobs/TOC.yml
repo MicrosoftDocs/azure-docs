@@ -740,8 +740,6 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Concepts
     items:
-    - name: Processing big data
-      href: data-lake-storage-data-scenarios.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Query acceleration
@@ -878,8 +876,6 @@ items:
         href: data-lake-storage-use-hdfs-data-lake-storage.md
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
-    - name: Optimize performance
-      href: data-lake-storage-performance-tuning-guidance.md
   - name: Reference
     items:
     - name: .NET
