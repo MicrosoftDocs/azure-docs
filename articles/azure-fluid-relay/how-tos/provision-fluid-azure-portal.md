@@ -11,10 +11,10 @@ ms.service: azure-fluid
 
 # How to: Provision an Azure Fluid Relay service
 
-Before you can connect your app to an Azure Fluid Relay server, you must provision an Azure Fluid Relay server resource on your Azure account. This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
-
 > [!NOTE]
-> The [Fluid Framework](https://fluidframework.com/) is an open source, platform independent framework. [Azure Fluid Relay](../overview/overview.md) is a turnkey implementation of a Fluid Framework server, and is recommended for production deployments.
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+
+Before you can connect your app to an Azure Fluid Relay server, you must provision an Azure Fluid Relay server resource on your Azure account. This article walks through the steps to get your Azure Fluid Relay service provisioned and ready to use. 
 
 ## Prerequisites
 
