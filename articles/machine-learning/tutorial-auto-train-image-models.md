@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Train an  object detection model to predict NYC taxi fares with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 author: swatig007
 ms.author: swatig
 ms.reviewer: nibaccam
-ms.date: 08/03/2021
-ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.date: 10/06/2021
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Train an object detection model (preview) with AutoML and Python
@@ -41,8 +41,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
 
-* Download the [**odFridgeObjects.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial.
-
+* Download the [**odFridgeObjects.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. 
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). To get the required packages,
 * Run `pip install azureml`
@@ -366,5 +365,8 @@ In this automated machine learning tutorial, you did the following tasks:
 
 > [!div class="checklist"]
 > * Configured a workspace and prepared data for an experiment.
-> * Trained by using an automated object detection model locally with custom parameters.
-> * Explored and reviewed training results.
+> * Trained an automated object detection model 
+> * Specified hyperparameter values for your model
+> * Performed a hyperparameter sweep 
+> * Deployed your model
+> * Visualized detections
