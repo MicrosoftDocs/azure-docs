@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 07/16/2021
+ms.date: 08/24/2021
 ms.custom: references_regions
 ---
 
@@ -58,7 +58,7 @@ The information in the rest of this document provides information on what featur
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
 | Virtual Network (VNet) support for inference                               | GA                   | YES                | YES         |
 | Scoring endpoint authentication                                            | Public Preview       | YES                | YES         |
-| Workplace private endpoint                                                 | GA  |  Public Preview  |  Public Preview |
+| Workplace private endpoint                                                 | GA  |  GA  |  GA |
 | ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind VNet                                                            | GA       | YES                 | YES          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |

@@ -24,7 +24,7 @@ This article provides an overview of VM extensions, prerequisites for using Azur
 Several different Azure VM extensions are available, each with a specific use case. Some examples include:
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](dsc-overview.md).
-- Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../azure-monitor/vm/quick-collect-azurevm.md).
+- Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../azure-monitor/vm/monitor-virtual-machine.md).
 - Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](/azure/developer/chef/windows-vm-configure).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -68,8 +68,8 @@ The Windows Guest Agent does not have proxy server support for you to redirect a
 Many different VM extensions are available for use with Azure VMs. To see a complete list, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). The following example lists all available extensions in the *WestUS* location:
 
 ```powershell
-Get-AzVmImagePublisher -Location "WestUS" | `
-Get-AzVMExtensionImageType | `
+Get-AzVmImagePublisher -Location "WestUS" |
+Get-AzVMExtensionImageType |
 Get-AzVMExtensionImage | Select Type, Version
 ```
 
@@ -344,7 +344,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\\<extensionName>*
+2. Check the actual extension logs for more details in `C:\WindowsAzure\Logs\Plugins\<extensionName>`
 
 3. Check extension specific documentation troubleshooting sections for error codes, known issues etc.
 

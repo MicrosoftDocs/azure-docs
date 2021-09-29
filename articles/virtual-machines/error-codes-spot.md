@@ -13,6 +13,8 @@ ms.author: cynthn
 
 # Error messages for Azure Spot Virtual Machines and scale sets
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Here are some possible error codes you could receive when using Azure Spot Virtual Machines and scale sets.
 
 

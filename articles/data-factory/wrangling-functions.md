@@ -136,7 +136,7 @@ An alternate for split by length and by position is listed below
 
 This option is accessible from the Extract option in the ribbon
 
-![Power Query Add Column](media/wrangling-data-flow/pq-split.png)
+:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query Add Column":::
 
 ### ```Table.CombineColumns```
 

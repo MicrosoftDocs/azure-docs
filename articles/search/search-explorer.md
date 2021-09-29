@@ -1,21 +1,21 @@
 ---
-title: Search explorer query tool in Azure portal
+title: "Quickstart: Search explorer query tool"
 titleSuffix: Azure Cognitive Search
-description: In this Azure portal quickstart, use Search Explorer to learn query syntax, test query expressions, or inspect a search document. Search explorer queries indexes in Azure Cognitive Search. 
+description: Search explorer is a query tool in the Azure portal that sends query requests to a search index in Azure Cognitive Search. Use it to learn syntax, test query expressions, or inspect a search document.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
+ms.date: 08/24/2021
 ---
 
 # Quickstart: Use Search explorer to run queries in the portal
 
-**Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
+**Search explorer** is a built-in query tool in the Azure portal used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
 
-This quickstart uses an existing index to demonstrate Search explorer. Requests are formulated using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
+This quickstart uses an existing index to demonstrate Search explorer. 
 
 ## Prerequisites
 
@@ -40,6 +40,8 @@ Before you begin, have the following prerequisites in place:
    :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Search explorer tab" border="true":::
 
 ## Unspecified query
+
+In Search explorer, requests are formulated using the [Search REST API](/rest/api/searchservice/search-documents), with responses returned as verbose JSON documents.
 
 For a first look at content, execute an empty search by clicking **Search** with no terms provided. An empty search is useful as a first query because it returns entire documents so that you can review document composition. On an empty search, there is no search rank and documents are returned in arbitrary order (`"@search.score": 1` for all documents). By default, 50 documents are returned in a search request.
 

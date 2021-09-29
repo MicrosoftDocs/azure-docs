@@ -42,8 +42,8 @@ landingContent:
             url: fhir-service-access-token-validation.md
       - linkListType: learn
         links:
-          - text: Access FHIR service using Postman
-            url: using-postman.md
+          - text: Access using Postman
+            url: ./../use-postman.md
       
 
   - title: FHIR Search Capabilities

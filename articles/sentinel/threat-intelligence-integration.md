@@ -63,7 +63,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### ThreatConnect
 
 - [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
-- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii.html)
+- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/v2/taxii/taxii.html)
 
 ## Integrated threat intelligence platform products
 
@@ -71,7 +71,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### Agari Phishing Defense and Brand Protection
 
-- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](connect-agari-phishing-defense.md) in Azure Sentinel.
+- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) in Azure Sentinel.
 
 ### Anomali ThreatStream
 
@@ -108,7 +108,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### ThreatQuotient Threat Intelligence Platform
 
-- See [Microsoft Sentinel Connector for ThreatQ integration](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=DetailsAndSupport) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
+- See [Microsoft Sentinel Connector for ThreatQ integration](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
 
 ## Incident enrichment sources
 

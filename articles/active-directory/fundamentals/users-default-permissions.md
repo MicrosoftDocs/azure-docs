@@ -52,7 +52,7 @@ Ability to create Microsoft 365 groups | Setting this option to No prevents user
 Restrict access to Azure AD administration portal | <p>Setting this option to No lets non-administrators use the Azure AD administration portal to read and manage Azure AD resources. Yes restricts all non-administrators from accessing any Azure AD data in the administration portal.</p><p>**Note**: this setting does not restrict access to Azure AD data using PowerShell or other clients such as Visual Studio.When set to Yes, to grant a specific non-admin user the ability to use the Azure AD administration portal assign any administrative role such as the Directory Readers role.</p><p>**Note**: this settings will block non-admin users who are owners of groups or applications from using the Azure portal to manage their owned resources.</p><p>This role allows reading basic directory information, which member users have by default (guests and service principals do not).</p>
 Ability to read other users | This setting is available in PowerShell only. Setting this flag to $false prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this flag to $false is not recommended.
 
->![NOTE]
+>[!NOTE]
 >It’s assumed the average user would only use the portal to access Azure AD, and not use PowerShell or CLI to access their resources. Currently, restricting access to users' default permissions only occurs when the user tries to access the directory within the Azure portal.
 
 ## Restrict guest users default permissions
@@ -129,6 +129,9 @@ Users can perform the following actions on owned devices.
 
 #### Owned groups
 Users can perform the following actions on owned groups.
+
+> [!NOTE]
+> Owners of dynamic groups must have a Global administrator, Group administrator, Intune administrator, or User administrator role to edit group membership rules. For more information, see [Create or update a dynamic group in Azure Active Directory](../enterprise-users/groups-create-rule.md).
 
 | **Actions** | **Description** |
 | --- | --- |

@@ -6,13 +6,13 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/11/2021
-
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-
 ms.custom: references_regions
+
+ROBOTS: NOINDEX
 ---
 # Deprecated: Login to a Linux virtual machine in Azure with Azure Active Directory using device code flow authentication
 

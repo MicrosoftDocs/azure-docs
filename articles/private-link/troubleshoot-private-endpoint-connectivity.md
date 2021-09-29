@@ -36,7 +36,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 1. Review Private Endpoint configuration by browsing the resource.
 
-    a. Go to **Private Link Center**.
+    a. Go to [Private Link Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
       ![Private Link Center](./media/private-endpoint-tsg/private-link-center.png)
 
@@ -116,7 +116,19 @@ Review these steps to make sure all the usual configurations are as expected to 
       - To the Private Endpoint from a different Source. By doing this you can isolate any Virtual Machine specific issues. 
       - To any Virtual Machine which is part of the same Virtual Network of that of Private Endpoint.  
 
-1. Contact the [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and a connectivity problem still exists.
+1. If the Private Endpoint is linked to a [Private Link Service](./troubleshoot-private-link-connectivity.md) which is linked to a Load Balancer, check if the backend pool is reporting healthy. Fixing the Load Balancer health will fix the issue with connecting to the Private Endpoint.
+
+    - You can see a visual diagram or a [dependency view](../azure-monitor/insights/network-insights-overview.md#dependency-view) of the related resources, metrics, and insights by going to:
+        - Azure Monitor
+        - Networks
+        - Private endpoints
+        - Dependency view 
+
+![Monitor-Networks](https://user-images.githubusercontent.com/20302679/134994620-0660b9e2-e2a3-4233-8953-d3e49b93e2f2.png)
+
+![DependencyView](https://user-images.githubusercontent.com/20302679/134994637-fb8b4a1a-81d5-4723-b1c3-d7bdc72162f3.png)
+
+9. Contact the [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) team if your problem is still unresolved and a connectivity problem still exists.
 
 ## Next steps
 

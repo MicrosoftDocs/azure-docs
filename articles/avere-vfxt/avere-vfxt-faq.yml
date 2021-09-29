@@ -102,7 +102,7 @@ sections:
       - question: |
           Does the Avere vFXT environment scale?
         answer: |
-          The Avere vFXT cluster can be as small as three virtual machine nodes or as large as 24 nodes. Contact Azure technical support for help with planning if you believe you need a cluster of more than nine nodes. The larger number of nodes requires a larger deployment architecture.
+          The Avere vFXT cluster can be as small as three virtual machine nodes or as large as 20 nodes. Contact Azure technical support if you need help planning the right cluster size for your workflow.
 
       - question: |
           Does the Avere vFXT environment "autoscale"?
@@ -291,7 +291,7 @@ sections:
         answer: |
           Cool tier blob storage is not usually recommended for an Avere vFXT for Azure core filer. Cool tier offers lower storage costs but higher operations costs. (See [Block blob pricing](<https://azure.microsoft.com/pricing/details/storage/blobs/>) for more details.) If data will be accessed and modified or deleted frequently, please consider using the Hot tier.
           
-          [Access tiers](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
+          [Access tiers](../storage/blobs/access-tiers-overview.md) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
           
       - question: |
           How do I encrypt the blob container?

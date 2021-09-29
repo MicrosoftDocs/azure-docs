@@ -2,7 +2,7 @@
 title: Prepare to deploy your solution in production - Azure IoT Edge
 description: Learn how to take your Azure IoT Edge solution from development to production, including setting up your devices with the appropriate certificates and making a deployment plan for future code updates. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -159,12 +159,12 @@ The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version 
 
 You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
 
-Obtain the images with the Docker pull command to place in your private registry. Be aware that you will need to update the images with each new release of IoT Edge runtime.
+Obtain the images with the Docker pull command to place in your private registry. You will need to specify the container version during the pull operation, find the latest container version at container description page as below, and replace the version in the pull command if needed. Be aware that you will need to update the images with each new release of IoT Edge runtime.
 
 | IoT Edge runtime container | Docker pull command |
 | --- | --- |
-| [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
-| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+| [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent:<VERSION_TAG>` |
+| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub:<VERSION_TAG>` |
 
 Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
 

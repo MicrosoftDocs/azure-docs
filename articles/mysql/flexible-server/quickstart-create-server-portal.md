@@ -19,7 +19,9 @@ Azure Database for MySQL Flexible Server is a managed service that you can use t
 > [!IMPORTANT]
 > Azure Database for MySQL Flexible Server is currently in public preview.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
 
 ## Sign in to the Azure portal
 Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -52,12 +54,16 @@ Complete these steps to create a flexible server:
     Region|The region closest to your users| The location that's closest to your users.|
     Workload type| Development | For production workload, you can choose Small/Medium-size or Large-size depending on [max_connections](concepts-server-parameters.md#max_connections) requirements|
     Availability zone| No preference | If your application in Azure VMs, virtual machine scale sets or AKS instance is provisioned in a specific availability zone, you can specify your flexible server in the same availability zone to collocate application and database to improve performance by cutting down network latency across zones.|
-    High Availability| Default | For production servers, enabling zone redundant high availability (HA) is highly recommended for business continuity and protection against zone failures|
+    High Availability| Unchecked | For production servers, choose between [zone redundant high availability](concepts-high-availability.md#zone-redundant-ha-architecture) and [same-zone high availability](concepts-high-availability.md#same-zone-ha-architecture). This is highly recommended for business continuity and protection against VM failures|
+    |Standby availability zone| No preference| Choose the standby server zone location and colocate it with the application standby server in case of zone failure |
     MySQL version|**5.7**| A MySQL major version.|
     Admin username |**mydemouser**| Your own sign-in account to use when you connect to the server. The admin user name can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.|
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. It must also contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).|
-    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, **7 days** | The compute, storage, IOPS, and backup configurations for your new server. Select **Configure server**. **Burstable**, **Standard_B1ms**, **10 GiB**, **100 iops**, and **7 days** are the default values for **Compute tier**, **Compute size**, **Storage size**, **iops**, and backup **Retention period**. You can leave those values as is or adjust them. For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost. To save the compute and storage selection, select **Save** to continue with the configuration. The following screenshot shows the compute and storage options.|
-    
+    Compute + storage | **Burstable**, **Standard_B1ms**, **10 GiB**, **100 IOPS**, **7 days** | The compute, storage, IOPS, and backup configurations for your new server. Select **Configure server**. **Burstable**, **Standard_B1ms**, **10 GiB**, **100 IOPS**, and **7 days** are the default values for **Compute tier**, **Compute size**, **Storage size**, **IOPS**, and backup **Retention period**. You can leave those values as is or adjust them. For faster data loads during migration, it is recommended to increase the IOPS to the maximum size supported by compute size and later scale it back to save cost. To save the compute and storage selection, select **Save** to continue with the configuration. The following screenshot shows the compute and storage options.|
+
+ 
+    > :::image type="content" source="./media/quickstart-create-server-portal/high-availability.png" alt-text="Screenshot that shows high availability options.":::
+
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Screenshot that shows compute and storage options.":::
 
 5. Configure networking options.
@@ -123,7 +129,7 @@ mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl
 
 If you see the following error message while connecting to your flexible server following the command earlier, you missed setting the firewall rule using the "Allow public access from any Azure service within Azure to this server" mentioned earlier or the option isn't saved. Please retry setting firewall and try again.
 
-ERROR 2002 (HY000): Can't connect to MySQL server on <servername> (115)
+ERROR 2002 (HY000): Can't connect to MySQL server on \<servername\> (115)
 
 ## Clean up resources
 You have now created an Azure Database for MySQL flexible server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group, or you can just delete the MySQL server. To delete the resource group, complete these steps:

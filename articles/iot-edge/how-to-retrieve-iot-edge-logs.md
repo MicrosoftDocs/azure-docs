@@ -2,7 +2,7 @@
 title: Retrieve IoT Edge logs - Azure IoT Edge
 description: IoT Edge module log retrieval and upload to Azure Blob Storage. 
 author: v-tcassi
-manager: philmea
+
 ms.author: v-tcassi
 ms.date: 11/12/2020
 ms.topic: conceptual
@@ -380,7 +380,7 @@ A successful request to upload logs returns a **"status": 200** followed by a pa
 
 | Name | Type | Description |
 |-|-|-|
-| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, or `Unknown`. |
+| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, 'Cancelled', or `Unknown`. |
 | message | string | Message if error, empty string otherwise. |
 | correlationId | string   | ID to query to status of the upload request. |
 

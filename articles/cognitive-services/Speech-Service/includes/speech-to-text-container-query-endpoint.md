@@ -1,5 +1,5 @@
 ---
-author: trevorbye
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service

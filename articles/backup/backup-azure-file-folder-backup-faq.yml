@@ -2,9 +2,9 @@
 metadata:
   title: Microsoft Azure Recovery Services (MARS) Agent – FAQ
   description: Addresses common questions about backing up files and folders with Azure Backup.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 04/05/2021
-  
     
 title: Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
 summary: |
@@ -86,6 +86,11 @@ sections:
         answer: |
           The change of Azure AD directory will have no impact on MARS Agent backups. 
 
+      - question: |
+          What happens if the expected Weekly, Monthly, or Yearly backup fails?
+        answer: |
+          If backup fails, the next successful backup after the expected Weekly, Monthly or Yearly backup is retained as per the retention period for Weekly, Monthly and Yearly recovery points (Long Term Retention (LTR) points) respectively, as per the backup policy. This successful backup could be an adhoc backup or a scheduled backup in case of MARS Agent.
+          
   - name: Manage backups
     questions:
       - question: |

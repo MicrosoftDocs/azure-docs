@@ -38,7 +38,7 @@ To protect an ASP.NET or ASP.NET Core web API, you must add the `[Authorize]` at
     [Authorize]
     public class TodoListController : Controller
     {
-     ...
+     // ...
     }
 ```
 
@@ -147,7 +147,7 @@ public class TodoListController : Controller
         // Do the work and return the result.
         // ...
     }
-...
+ // ...
 }
 ```
 
@@ -209,7 +209,7 @@ public class TodoListController : Controller
 
 Defining granular scopes for your web API and verifying the scopes in each controller action is the recommended approach. However it's also possible to verify the scopes at the level of the application or a controller. For details, see [Claim-based authorization](/aspnet/core/security/authorization/claims) in the ASP.NET core documentation.
 
-#### What is verified? 
+#### What is verified?
 
 The `[RequiredScope]` attribute and `VerifyUserHasAnyAcceptedScope` method, does something like the following steps:
 
@@ -227,7 +227,7 @@ public class TodoListController : ApiController
     public IEnumerable<TodoItem> Get()
     {
        ValidateScopes(new[] {"read"; "admin" } );
-        ...
+       // ...
     }
 ```
 
@@ -274,7 +274,7 @@ public class TodoListController : ApiController
     public IEnumerable<TodoItem> Get()
     {
         HttpContext.ValidateAppRole("access_as_application");
-        ...
+        // ...
     }
 ```
 
@@ -284,7 +284,7 @@ Instead, you can use the [Authorize("role")] attributes on the controller or an 
 [Authorize("role")]
 MyController : ApiController
 {
-    //
+    // ...
 }
 ```
 
@@ -314,7 +314,7 @@ public class TodoListController : ApiController
     public IEnumerable<TodoItem> Get()
     {
        ValidateAppRole("access_as_application");
-        ...
+       // ...
     }
 ```
 
@@ -351,7 +351,7 @@ If you want only daemon apps to call your web API, add the condition that the to
 ```csharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
 string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
-bool isAppOnlyToken = oid == sub;
+bool isAppOnly = oid != null && sub != null && oid == sub;
 ```
 
 Checking the inverse condition allows only apps that sign in a user to call your API.
@@ -372,7 +372,7 @@ System.UnauthorizedAccessException: IDW10201: Neither scope or roles claim was f
 ```Json
 {
  "AzureAD"
- { 
+ {
   // other properties
   "AllowWebApiToBeAuthorizedByACL" : true,
   // other properties

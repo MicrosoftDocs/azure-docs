@@ -17,7 +17,7 @@ ms.custom: references_regions
 > * [Edge locations by abbreviation](edge-locations-by-abbreviation.md)
 > 
 
-This article lists current metros containing edge locations, sorted by region, for Azure Front Door. Each metro may contain more than one edge locations. Currently, Azure Front Door has 116 edge locations across 100 metro cities.
+This article lists current metros containing edge locations, sorted by region, for Azure Front Door. Each metro may contain more than one edge locations. Currently, Azure Front Door has 118 edge locations across 100 metro cities.
 
 ## Microsoft edge locations
 
@@ -26,5 +26,5 @@ This article lists current metros containing edge locations, sorted by region, f
 ## Next steps
 
 * View [Azure Front Door edge locations by abbreviation](edge-locations-by-abbreviation.md).
-* To get the latest list of edge nodes for Azure Front Door, see [Edge Nodes List - REST API](/rest/api/cdn/cdn/edgenodes/list).
+* To get the latest list of edge nodes for Azure Front Door, see [Edge Nodes List - REST API](/rest/api/cdn/edge-nodes/list).
 * Learn how to [create an Azure Front Door Standard/Premium profile](create-front-door-portal.md).

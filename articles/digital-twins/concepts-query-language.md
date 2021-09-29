@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the basics of the Azure Digital Twins query language.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/22/2021
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
@@ -44,7 +44,7 @@ When writing queries for Azure Digital Twins, keep the following considerations 
 
   :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="EscapedSingleQuote":::
 
-* **Consider possible latency**: After making a change to the data in your graph, there may be a latency of up to 10 seconds before the changes will be reflected in queries. The [GetDigitalTwin API](how-to-manage-twin.md#get-data-for-a-digital-twin) doesn't experience this delay, so if you need an instant response, use the API call instead of querying to see your change reflected immediately.
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 ## Next steps
 

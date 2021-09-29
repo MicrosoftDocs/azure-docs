@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
 ms.author: v-doeris
+ms.custom: has-adal-ref
 #Customer intent: As an application developer, I want to learn how to change the code in my JavaScript application from using ADAL.js as its authentication library to MSAL.js.
 ---
 
@@ -94,7 +95,7 @@ In both ADAL.js and MSAL.js, the authority URI defaults to `https://login.micros
 
 Some of the [configuration options in ADAL.js](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context) that are used when initializing [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) are deprecated in MSAL.js, while some new ones are introduced. See the [full list of available options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md). Importantly, many of these options, except for `clientId`, can be overridden during token acquisition, allowing you to set them on a *per-request* basis. For instance, you can use a different **authority URI** or **redirect URI** than the one you set during initialization when acquiring tokens.
 
-Additionally, you no longer need to specify the login experience (i.e. whether using popup windows or redirecting the page) via the configuration options. Instead, MSAL.js exposes `loginPopup` and `loginRedirect` methods through the `PublicClientApplication` instance.
+Additionally, you no longer need to specify the login experience (that is, whether using pop-up windows or redirecting the page) via the configuration options. Instead, `MSAL.js` exposes `loginPopup` and `loginRedirect` methods through the `PublicClientApplication` instance.
 
 ## Enable logging
 
