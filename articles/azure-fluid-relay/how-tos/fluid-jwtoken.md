@@ -1,6 +1,6 @@
 ---
 title: Azure Fluid Relay Token Contract
-description: Better understand the the JWT token used in Azure Fluid Relay
+description: Better understand the JSON Web Token used in Azure Fluid Relay
 services: azure-fluid
 author: sharmakhushboo
 ms.author: sharmak
@@ -38,13 +38,11 @@ Each piece is separated by a period (.) and separately Base64 encoded.
 | ------------- |-------------| -----|
 | documentId      | string | Identifies the document for which the token is being generated. |
 | scope      | string[]      |   Identifies the permissions required by the client on the document or summary. For every scope, you can define the permissions you want to give to the client.  |
-| tenantId      | string      |   Identifies the tenant. This will be shared with you during the onboarding process. |
-| user (optional)     | { displayName: <display_name>, id: <user_id>,name: <user_name>, }       |   Identifies users of your application. This is sent back to your application by Alfred (the ordering service).  This can be used by your application to identify your users from the response it gets from Alfred. Azure Fluid Relay does not validate this information. |
+| tenantId      | string      |   Identifies the tenant. |
+| user (optional)     | `{ displayName: <display_name>, id: <user_id>, name: <user_name>, }`       |   Identifies users of your application. This is sent back to your application by Alfred, the ordering service.  It can be used by your application to identify your users from the response it gets from Alfred. Azure Fluid Relay doesn't validate this information. |
 | iat      | number, a UNIX timestamp       |   "Issued At" indicates when the authentication for this token occurred. |
-| exp      | number, a UNIX timestamp       |   The "exp" (expiration time) claim identifies the expiration time on or after which the JWT must not be accepted for processing. The token lifetime cannot be more than 1 hour. |
-| ver      | string      |   Indicates the version of the access token. Please use: 1.0  |
-
-<br/>
+| exp      | number, a UNIX timestamp       |   The "exp" (expiration time) claim identifies the expiration time on or after which the JWT must not be accepted for processing. The token lifetime can't be more than 1 hour. |
+| ver      | string      |   Indicates the version of the access token. Must be `1.0` . |
 
 ## A Sample Azure Fluid Relay Token
 
@@ -66,10 +64,9 @@ Each piece is separated by a period (.) and separately Base64 encoded.
 
 ## How can you generate an Azure Fluid Relay token? 
 
-You can use the jsonwebtoken npm package and sign your token using this method.
+You can use the [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) npm package and sign your token using this method.
 
 ```typescript
-
 export function getSignedToken(
     tenantId: string,
     documentId: string,
