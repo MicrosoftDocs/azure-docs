@@ -214,6 +214,10 @@ Except for the following two images, AKS images aren't required to run as root:
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
 
+## Deleted an AKS cluster by mistake, Can i restore/revoer it from any backups?
+
+No , We cannot recover or restore a deleted AKS cluster 
+
 ## What is Azure CNI Transparent Mode vs. Bridge Mode?
 
 From v1.2.0 Azure CNI will have Transparent mode as default for single tenancy Linux CNI deployments. Transparent mode is replacing bridge mode. In this section, we will discuss more about the differences about both modes and what are the benefits/limitation for using Transparent mode in Azure CNI.
