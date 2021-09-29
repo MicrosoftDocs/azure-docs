@@ -261,7 +261,7 @@ It is highly recommended that you always have auto update for the agent, [AutoUp
 
 When an extension update is available and automatic updates are enabled, once a [change to the VM model](#how-do-agents-and-extensions-get-updated) occurs, the Linux Agent downloads and upgrades the extension.
 
-Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *autoUpgradeMinorVersion": true,*:
+Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *"autoUpgradeMinorVersion": true,*:
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
