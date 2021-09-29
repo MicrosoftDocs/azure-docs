@@ -116,7 +116,7 @@ Example uses of the role assignment function include:
 - Determine a user's roles based on claims returned by the identity provider
 
 > [!NOTE]
-> The role assignment function feature is available in the Standard hosting plan and is currently in preview.
+> The role assignment function feature is only available when [custom authentication](authentication-custom.md) is configured.
 >
 > When a role assignment function is configured, any roles assigned via the built-in invitations system are ignored.
 
