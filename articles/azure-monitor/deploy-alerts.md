@@ -17,7 +17,7 @@ An alerting strategy defines your organizations standards for the types of alert
 
 
 ## Alert rules
-Alerts are created by alert rules. Azure Monitor does not have any alert rules by default, so you have to create them. See the monitoring documentation for each Azure service for guidance on recommended alert rules to create. 
+Alerts are created by alert rules that you need to create. Azure Monitor does not have any alert rules by default. See the monitoring documentation for each Azure service for guidance on recommended alert rules to create. 
 
 There are multiple types of alert rules defined by the type of data that they use. Each has different capabilities and a different cost. The basic strategy you should follow is to use the alert rule type with the lowest cost that provides the logic that you require.
 

@@ -8,7 +8,7 @@ ms.date: 09/28/2021
 
 ---
 
-# Deploy Azure Monitor - Planning
+# Deploy Azure Monitor - Planning your monitoring strategy and configuration
 Before implementing Azure Monitor, you should determine the configuration that will best support your monitoring requirements. This article defines planning that you should consider before starting your implementation. This ensures that the configuration options you choose meet your particular requirements.
 
 If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor/) which is part of the [Microsoft Cloud Adoption Framework for Azure](/cloud-adoption-framework/). This guide defines high level concepts of monitoring and provides guidance for defining your monitoring environment and supporting processes.

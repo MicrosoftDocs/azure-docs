@@ -193,13 +193,6 @@
       displayname: VM
     - name: Monitor Kubernetes
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Deploy
-    items:
-    - name: Deploy Azure Monitor
-      href: deploy.md
-    - name: Deploy at scale
-      displayName: Azure Policy, Policy
-      href: deploy-scale.md
   - name: Manage and configure
     items:
     - name: Roles permissions and security

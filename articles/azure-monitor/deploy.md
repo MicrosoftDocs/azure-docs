@@ -9,10 +9,20 @@ ms.date: 09/28/2021
 ---
 
 # Deploy Azure Monitor
-This guide provides recommended guidance for deploying Azure Monitor to monitor the performance and availability of your cloud and hybrid applications and resources. Enabling Azure Monitor to monitor of all your Azure resources is a combination of configuring Azure Monitor components and configuring Azure resources to generate monitoring data for Azure Monitor to collect. 
+This scenario provides recommended guidance for configuring features of Azure Monitor to monitor the performance and availability of your cloud and hybrid applications and resources. Enabling Azure Monitor to monitor of all your Azure resources is a combination of configuring Azure Monitor components and configuring Azure resources to generate monitoring data for Azure Monitor to collect. The goal of a complete implementation of Azure Monitor is to collect all available data from all of your cloud resources and applications and enable as many features in Azure Monitor as possible based on that data.
 
-The goal of a complete implementation of Azure Monitor is to collect all available data from all of your cloud resources and applications and enable as many features in Azure Monitor as possible based on that data.
+> [!IMPORTANT]
+> If you're new to Azure Monitor or are focused on simply monitoring a single Azure resource, then you should start with the tutorial [Monitor Azure resources with Azure Monitor](/essentials/monitor-azure-resource.md). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This scenario provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
 
-You may have additional requirements such as monitoring resources outside of Azure and sending data outside of Azure Monitor. Requirements such as these can be achieved with additional configuration of the features described in this scenario. Follow the links to documentation in each step for additional configuration options.
+This article introduces the scenario and provides general concepts for monitoring virtual machines in Azure Monitor. If you want to jump right into a specific area, see one of the other articles that are part of this scenario described in the following table.
 
+| Article | Description |
+|:---|:---|
+| [Planning](deploy-plan.md)  | Planning that you should consider before starting your implementation. Includes design decisions and information about your organization and requirements that you should gather. |
+| [Configure data collection](deploy-data-collection.md) | Tasks required to collect monitoring data from you Azure and hybrid applications and resources. |
+| [Analysis and visualizations](visualizations.md) | Standard features and additional visualizations that you can create to analyze collected monitoring data. |
+| [Alerts and automated responses](deploy-alerts.md) | Configure notifications and processes that are automatically triggered when an alert is created. |
 
+## Next steps
+
+- [Planning your monitoring strategy and configuration](deploy-plan.md)
