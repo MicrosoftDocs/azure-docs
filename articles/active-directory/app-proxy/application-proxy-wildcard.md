@@ -130,7 +130,7 @@ In this scenario, you have three different applications you want to publish:
 All three applications:
 
 - Are used by all your users
-- Use *Integrated Windows Authentication*
+- Use *Integrated Windows authentication*
 - Have the same properties
 
 You can publish the wildcard application using the steps outlined in [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md). This scenario assumes:
