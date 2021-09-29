@@ -474,6 +474,6 @@ See [Troubleshooting](java-standalone-troubleshoot.md).
 
 ## Next Steps
 - [Azure Monitor Java Auto-Instrumentation GitHub Repository](https://github.com/Microsoft/ApplicationInsights-Java)
-- [Azure Monitor Sample Application]()
+- [Azure Monitor Example Application]()
 - [OpenTelemetry Community Language GitHub Repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
 - [Enable web/browser user monitoring](javascript.md)
