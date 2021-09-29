@@ -30,7 +30,7 @@ The current update is Update 2110. This update installs two updates, the device 
 
 For information on what's new in this update, go to [Release notes](azure-stack-edge-placeholder.md).
 
-To apply 2110 update, your device must be running 2106. 
+**To apply 2110 update, your device must be running 2106.** 
 
 - If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. 
 - You can update to 2106 from an older version and then install 2110.
