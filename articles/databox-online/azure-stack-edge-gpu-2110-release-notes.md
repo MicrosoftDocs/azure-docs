@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/21/2021
+ms.date: 09/29/2021
 ms.author: alkohli
 ---
 
@@ -29,7 +29,7 @@ The following new features are available in the Azure Stack Edge 2110 release.
 - **Remote support** - In this release, you can enable remote support on your Azure Stack Edge device to allow Microsoft Support to diagnose and remediate issues by accessing your device remotely. When you enable this feature, you provide consent for the level of access and the duration of access. For more information, see [Enable remote support and diagnostics for Azure Stack Edge](azure-stack-edge-placeholder.md).
 - **High-performance network virtual machines** - Beginning this release, high-performance network virtual machines can be deployed on your Azure Stack Edge device. For more information, see [Deploy high-performance network virtual machines on Azure Stack Edge](azure-stack-edge-placeholder.md).
 - **Certificates for Edge container registry and Kubernetes dashboard** - Certificates for Edge container registry and Kubernetes dashboard are now supported. You can create and upload certificates via the local UI. For more information, see [Kubernetes certificates](azure-stack-edge-gpu-certificates-overview.md#kubernetes-certificates) and [Upload Kubernetes certificates](azure-stack-edge-gpu-manage-certificates.md#upload-kubernetes-certificates).
-- **Metallb in BGP mode** - Starting this release, you can configure load balancing on your Azure Stack Edge device using MetalLB via Border Gateway Protocol (BGP). Configuration is done by connecting to the PowerShell interface of the device and then running specific cmdlets. For more information, see [Configure load balancing with MetalLB on your Azure Stack Edge device](azure-stack-edge-placeholder.md).
+- **Metallb in BGP mode** - Starting this release, you can configure load balancing on your Azure Stack Edge device using MetalLB via Border Gateway Protocol (BGP). Configuration is done by connecting to the PowerShell interface of the device and then running specific cmdlets. For more information, see [Configure load balancing with MetalLB on your Azure Stack Edge device](azure-stack-edge-gpu-configure-metallb-bgp-mode.md).
 - Anything else? Provide a short title and a 1-line description
 
 
@@ -40,7 +40,11 @@ The following table lists the issues that were release noted in previous release
 
 | No. | Feature | Issue | 
 | --- | --- | --- |
-|**1.**|Feature name |Issue description|
+|**1.**|Azure Arc enabled Kubernetes |For the GA release, Azure Arc enabled Kubernetes is updated from version 0.1.18 to 0.2.9. As the Azure Arc enabled Kubernetes update is not supported on Azure Stack Edge device, you will need to redeploy Azure Arc enabled Kubernetes.|
+|**2.**|Azure Arc enabled Kubernetes|Azure Arc deployments are not supported if web proxy is configured on your Azure Stack Edge Pro device.|
+|**3.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | 
+|**4.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException. |
+|**5.**|Kubernetes Dashboard | *Https* endpoint for Kubernetes Dashboard with SSL certificate is not supported. | 
 
 
 
@@ -50,7 +54,8 @@ The following table provides a summary of known issues in the 2110 release.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS), and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
+|**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS), and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
+
 
 
 ## Known issues from previous releases
@@ -67,19 +72,14 @@ The following table provides a summary of known issues carried over from the pre
 |**6.**|NFS share connection|If multiple processes are copying to the same share, and the `nolock` attribute isn't used, you may see errors during the copy.​|The `nolock` attribute must be passed to the mount command to copy files to the NFS share. For example: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**7.**|Kubernetes cluster|When applying an update on your device that is running a Kubernetes cluster, the Kubernetes virtual machines will restart and reboot. In this instance, only pods that are deployed with replicas specified are automatically restored after an update.  |If you have created individual pods outside a replication controller without specifying a replica set, these pods won't be restored automatically after the device update. You will need to restore these pods.<br>A replica set replaces pods that are deleted or terminated for any reason, such as node failure or disruptive node upgrade. For this reason, we recommend that you use a replica set even if your application requires only a single pod.|
 |**8.**|Kubernetes cluster|Kubernetes on Azure Stack Edge Pro is supported only with Helm v3 or later. For more information, go to [Frequently asked questions: Removal of Tiller](https://v3.helm.sh/docs/faq/).|
-|**9.**|Azure Arc enabled Kubernetes |For the GA release, Azure Arc enabled Kubernetes is updated from version 0.1.18 to 0.2.9. As the Azure Arc enabled Kubernetes update is not supported on Azure Stack Edge device, you will need to redeploy Azure Arc enabled Kubernetes.|Follow these steps:<ol><li>[Apply device software and Kubernetes updates](azure-stack-edge-gpu-install-update.md).</li><li>Connect to the [PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Remove the existing Azure Arc agent. Type: `Remove-HcsKubernetesAzureArcAgent`.</li><li>Deploy [Azure Arc to a new resource](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Do not use an existing Azure Arc resource.</li></ol>|
-|**10.**|Azure Arc enabled Kubernetes|Azure Arc deployments are not supported if web proxy is configured on your Azure Stack Edge Pro device.||
 |**11.**|Kubernetes |Port 31000 is reserved for Kubernetes Dashboard. Port 31001 is reserved for Edge container registry. Similarly, in the default configuration, the IP addresses 172.28.0.1 and 172.28.0.10, are reserved for Kubernetes service and Core DNS service respectively.|Do not use reserved IPs.|
 |**12.**|Kubernetes |Kubernetes does not currently allow multi-protocol LoadBalancer services. For example, a DNS service that would have to listen on both TCP and UDP. |To work around this limitation of Kubernetes with MetalLB, two services (one for TCP, one for UDP) can be created on the same pod selector. These services use the same sharing key and spec.loadBalancerIP to share the same IP address. IPs can also be shared if you have more services than available IP addresses. <br> For more information, see [IP address sharing](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**13.**|Kubernetes cluster|Existing Azure IoT Edge marketplace modules may require modifications to run on IoT Edge on Azure Stack Edge device.|For more information, see Modify Azure IoT Edge modules from marketplace to run on Azure Stack Edge device.<!-- insert link-->|
 |**14.**|Kubernetes |File-based bind mounts aren't supported with Azure IoT Edge on Kubernetes on Azure Stack Edge device.|IoT Edge uses a translation layer to translate `ContainerCreate` options to Kubernetes constructs. Creating `Binds` maps to `hostpath` directory and thus file-based bind mounts cannot be bound to paths in IoT Edge containers. If possible, map the parent directory.|
 |**15.**|Kubernetes |If you bring your own certificates for IoT Edge and add those certificates on your Azure Stack Edge device after the compute is configured on the device, the new certificates are not picked up.|To work around this problem, you should upload the certificates before you configure compute on the device. If the compute is already configured, [Connect to the PowerShell interface of the device and run IoT Edge commands](azure-stack-edge-gpu-connect-powershell-interface.md#use-iotedge-commands). Restart `iotedged` and `edgehub` pods.|
 |**16.**|Certificates |In certain instances, certificate state in the local UI may take several seconds to update. |The following scenarios in the local UI may be affected.<ul><li>**Status** column in **Certificates** page.</li><li>**Security** tile in **Get started** page.</li><li>**Configuration** tile in **Overview** page.</li></ul>  |
-|**17.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | |
 |**18.**|Compute + Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
-|**19.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException. |Using the newer builds should help avoid this issue. If you still see this issue, the workaround is to retry the upgrade, and it should work.|
 |**20**|Internet Explorer|If enhanced security features are enabled, you may not be able to access local web UI pages. | Disable enhanced security, and restart your browser.|
-|**21.**|Kubernetes Dashboard | *Https* endpoint for Kubernetes Dashboard with SSL certificate is not supported. | |
 |**22.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP.NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
 |**23.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |To allow the deletion of resources when they're deleted from the git repository, set `--sync-garbage-collection` in Arc OperatorParams. For more information, see [Delete a configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
 |**24.**|NFS |Applications that use NFS share mounts on your device to write data should use Exclusive write. That ensures the writes are written to the disk.| |
