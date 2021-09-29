@@ -54,6 +54,6 @@ In this section, you'll enable resource pools, networks, and VM templates in Azu
 
 For information on the capabilities enabled by a guest agent, see [Manage access to VMware resources through Azure RBAC](manage-access-to-arc-vmware-resources.md).
 
-## Next Steps
+## Next steps
 
 - [Manage access to VMware resources through Azure RBAC](manage-access-to-arc-vmware-resources.md)

@@ -54,6 +54,6 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 1. Select **Create** after reviewing all the properties.  It should take a few minutes to provision the VM.
 
-## Next Steps
+## Next steps
 
 - [Perform operations on VMware VMs in Azure](manage-vmware-vms-in-azure.md)

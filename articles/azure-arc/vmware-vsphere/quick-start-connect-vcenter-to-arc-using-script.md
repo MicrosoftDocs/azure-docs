@@ -123,7 +123,7 @@ Follow the below instructions to run the script on a Linux machine:
     bash arcvmware-setup.sh 
     ```
 
-## Script Runtime
+## Script runtime
 The script execution may take up to 30 minutes to complete and you'll be prompted for the various details. Refer to the table below for information.
 
 | Requirements | Details |
@@ -160,6 +160,6 @@ If the appliance creation fails and you need to retry it. Run the command with `
 bash arcvmware-setup.sh --force
 ```
 
-## Next Steps
+## Next steps
 
 - [Browse and enable VMware vCenter resources in Azure](browse-and-enable-vcenter-resources-in-azure.md)
