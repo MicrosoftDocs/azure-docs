@@ -16,13 +16,83 @@ To send and receive EDIFACT messages in workflows that you create using Azure Lo
 
 This article shows how to add the EDIFACT encoding and decoding actions to an existing logic app workflow. Although you can use any trigger to start your workflow, the examples use the [Request](../connectors/connectors-native-reqres.md) trigger. For more information about the **EDIFACT** connector's triggers, actions, and limits version, review the [connector's reference page](/connectors/edifact/) as documented by the connector's Swagger file.
 
-## Limits
+## EDIFACT encoding and decoding
 
-For information about the EDIFACT connector limits for workflows running in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences), review the [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits). For example, in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), the ISE version for this connector uses the [B2B message limits for ISE](logic-apps-limits-and-config.md#b2b-protocol-limits).
+The following sections describe the tasks that you can complete using the EDIFACT encoding and decoding actions.
+
+### Encode to EDIFACT message action
+
+* Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier and identifier.
+
+* Serialize the Electronic Data Interchange (EDI), which converts XML-encoded messages into EDI transaction sets in the interchange.
+
+* Apply transaction set header and trailer segments.
+
+* Generate an interchange control number, a group control number, and a transaction set control number for each outgoing interchange.
+
+* Replace separators in the payload data.
+
+* Validate EDI and partner-specific properties, such as the schema for transaction-set data elements against the message schema, transaction-set data elements, and extended validation on transaction-set data elements.
+
+* Generate an XML document for each transaction set.
+
+* Request a technical acknowledgment, functional acknowledgment, or both, if configured.
+
+  * As a technical acknowledgment, the CONTRL message indicates the receipt for an interchange.
+
+  * As a functional acknowledgment, the CONTRL message indicates the acceptance or rejection for the received interchange, group, or message, including a list of errors or unsupported functionality.
+
+### Decode EDIFACT message action
+
+* Validate the envelope against the trading partner agreement.
+
+* Resolve the agreement by matching the sender qualifier and identifier along with the receiver qualifier and identifier.
+
+* Split an interchange into multiple transaction sets when the interchange has more than one transaction, based on the agreement's **Receive Settings**.
+
+* Disassemble the interchange.
+
+* Validate Electronic Data Interchange (EDI) and partner-specific properties, such as the interchange envelope structure, the envelope schema against the control schema, the schema for the transaction-set data elements against the message schema, and extended validation on transaction-set data elements.
+
+* Verify that the interchange, group, and transaction set control numbers aren't duplicates, if configured, for example:
+
+  * Check the interchange control number against previously received interchanges.
+
+  * Check the group control number against other group control numbers in the interchange.
+
+  * Check the transaction set control number against other transaction set control numbers in that group.
+
+* Split the interchange into transaction sets, or preserve the entire interchange, for example:
+
+  * Split Interchange as transaction sets - suspend transaction sets on error.
+
+    The decoding action splits the interchange into transaction sets and parses each transaction set. The action outputs only those transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+
+  * Split Interchange as transaction sets - suspend interchange on error.
+
+    The decoding action splits the interchange into transaction sets and parses each transaction set. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
+
+  * Preserve Interchange - suspend transaction sets on error.
+
+    The decoding action preserves the interchange and processes the entire batched interchange. The action outputs only those transaction sets that fail validation to `badMessages`, and outputs the remaining transactions sets to `goodMessages`.
+
+  * Preserve Interchange - suspend interchange on error.
+
+    The decoding action preserves the interchange and processes the entire batched interchange. If one or more transaction sets in the interchange fail validation, the action outputs all the transaction sets in that interchange to `badMessages`.
+
+* Generate a technical acknowledgment, functional acknowledgment, or both, if configured.
+
+  * A technical acknowledgment or the CONTRL ACK, which reports the results from a syntactical check on the complete received interchange.
+
+  * A functional acknowledgment that acknowledges the acceptance or rejection for the received interchange or group.
 
 ## Connector reference
 
 For technical information about the **EDIFACT** connector, review the [connector's reference page](/connectors/edifact/), which describes the triggers, actions, and limits as documented by the connector's Swagger file.
+
+## Other limits
+
+For information about the EDIFACT connector limits for workflows running in [multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or the integration service environment (ISE)](logic-apps-overview.md#resource-environment-differences), review the [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits). For example, in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), the ISE version for this connector uses the [B2B message limits for ISE](logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## Prerequisites
 
@@ -55,6 +125,41 @@ For technical information about the **EDIFACT** connector, review the [connector
 ## Encode EDIFACT messages
 
 ### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the designer, under the trigger or action where you want to add the EDIFACT action, select **New step**.
+
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter `edifact encode`. Select the action named **Encode to EDIFACT message by agreement name**.
+
+   ![Screenshot showing the Azure portal, workflow designer, and "Encode to EDIFACT message by agreement name" action selected.](./media/logic-apps-enterprise-integration-edifact/select-encode-edifact-consumption.png)
+
+1. When prompted to create a connection to your integration account, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+   ||||
+
+   For example:
+
+   ![Screenshot showing the "Encode to EDIFACT message by agreement name" connection pane.](./media/logic-apps-enterprise-integration-edifact/create-edifact-encode-connection-consumption.png)
+
+1. When you're done, select **Create**.
+
+1. After the EDIFACT operation appears on the designer, provide information for the following properties specific to this operation:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
+   | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
+   | Other parameters | No | This operation includes the following optional parameters: <p>- **Data element separator**, <br>- **Release indicator**, <br>- **Component separator**, <br>- **Repetition separator**, <br>- **Segment terminator**, <br>- **Segment terminator suffix**, <br>- **Decimal indicator**. |
+   ||||
+
+   For example, the XML message payload can be the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the "Encode to EDIFACT message by agreement name" operation with the message encoding properties.](./media/logic-apps-enterprise-integration-edifact/encode-edifact-message-agreement-consumption.png)
 
 ### [Standard](#tab/standard)
 
@@ -98,4 +203,4 @@ To handle an EDIFACT document or process an EDIFACT message that has a UN2.5 seg
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [EDIFACT message settings](logic-apps-enterprise-integration-edifact-message-settings.md)
