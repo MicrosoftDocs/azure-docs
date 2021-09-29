@@ -112,7 +112,7 @@ The role assignment function is an API function in your static web app. It is au
 Example uses of the role assignment function include:
 
 - Query a database to determine which roles a user should be assigned
-- Call the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to determine a user's roles based on their Active Directory group membership
+- Call the [Microsoft Graph API](../../graph/overview) to determine a user's roles based on their Active Directory group membership
 - Determine a user's roles based on claims returned by the identity provider
 
 > [!NOTE]
