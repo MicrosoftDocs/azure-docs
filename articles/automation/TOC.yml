@@ -31,8 +31,6 @@
   items:
     - name: Automation account authentication overview
       href: automation-security-overview.md
-    - name: Context switching in Automation
-      href: context-switching.md
     - name: Runbook execution overview
       href: automation-runbook-execution.md
     - name: Hybrid Runbook Worker overview
@@ -64,6 +62,8 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account - Resource Manager template
           href: quickstart-create-automation-account-template.md
+        - name: Disable local authentication
+          href: disable-local-authentication.md
         - name: Managed identity
           items:
             - name: Using system-assigned managed identity
