@@ -1,19 +1,21 @@
 ---
-title: Tutorial - Configure Palo Alto for Azure Spring Cloud
+title: How to configure Palo Alto for Azure Spring Cloud
 description: How to configure Palo Alto for Azure Spring Cloud
 author: karlerickson
 ms.author: vaangadi
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: spring-cloud
 ms.date: 09/17/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Tutorial: Configure Palo Alto for Azure Spring Cloud
+# How to configure Palo Alto for Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-This article describes how to use the [Reference Architecture for Azure Spring Cloud](/azure/spring-cloud/reference-architecture) with a Palo Alto firewall. The reference architecture includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead.
+This article describes how to use Azure Spring Cloud with a Palo Alto firewall.
+
+For example, the [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead, as described in this article.
 
 You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/vnet-customer-responsibilities). 
 
@@ -27,7 +29,6 @@ You should keep configuration information, such as rules and address wildcards, 
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A [reference architecture](/azure/spring-cloud/reference-architecture) deployment. For more information, see [Quickstart: Provision Azure Spring Cloud using an ARM template](/azure/spring-cloud/quickstart-deploy-infrastructure-vnet). You can also provision using [Azure CLI](/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-azure-cli), [Terraform](/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-azure-terraform), or [Bicep](/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-azure-bicep).
 * A Palo Alto deployment. If you don't have a deployment, you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2).
 * [PowerShell](/powershell/scripting/install/installing-powershell)
 * [Azure CLI](/cli/azure/install-azure-cli)
