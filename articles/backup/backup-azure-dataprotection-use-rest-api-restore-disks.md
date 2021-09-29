@@ -1,16 +1,18 @@
 ---
-title: Restore Azure disks using Azure Data Protection REST API
-description: In this article, learn how to restore Azure disks using Azure Data protection REST API.
+title: Restore Azure Disks using Azure Data Protection REST API
+description: In this article, learn how to restore Azure Disks using Azure Data protection REST API.
 ms.topic: conceptual
 ms.date: 09/29/2021
 ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
 ---
 
-# Restore Azure disks using Azure Data Protection REST API
+# Restore Azure Disks using Azure Data Protection REST API
 
 This article describes how to restore [disks](disk-backup-overview.md) using Azure Backup.
 
-Currently, the Original-Location Recovery (OLR) option of restoring by replacing the existing source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk in the same resource group of the source disk or in any other resource group. It's known as Alternate-Location Recovery (ALR).
+>[!Note]
+>- Currently, the Original-Location Recovery (OLR) option to restore by replacing the existing source disk (from where the backups were taken) isn't supported.
+>- You can restore from a recovery point to create a new disk in the same resource group of the source disk or in any other resource group. It's known as Alternate-Location Recovery (ALR).
 
 In this article, you'll learn how to:
 
@@ -26,15 +28,15 @@ In this article, you'll learn how to:
 
 - [Configure a disk backup](backup-azure-dataprotection-use-rest-api-backup-disks.md)
 
-We will refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_, where an Azure disk named "msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed" in the examples.
+In the example, we'll refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_, where an Azure Disk is named _msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed_.
 
 ## Restore to create a new Azure disk
 
-### Setting up permissions
+### Set up permissions
 
 Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk is to be restored.
 
-Backup vault uses a system-assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using the Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
+3Backup vault uses a system-assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. To grant permissions to the managed identity, use the Azure role-based access control (Azure RBAC). Managed identity is a specific service principal that you may only use with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks will be restored/created as mentioned [here](restore-managed-disks.md#restore-to-create-a-new-disk).
 
