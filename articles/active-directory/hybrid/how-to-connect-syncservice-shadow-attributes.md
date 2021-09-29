@@ -63,9 +63,9 @@ This logic for proxyAddresses is referred to as **ProxyCalc**. ProxyCalc is invo
 - You make a change to proxyAddresses or userPrincipalName.
 
 ProxyCalc will sanitize an address if ShadowProxyAddresses contains a non-verified domain and the cloud user has one of the following properties configured. 
-•	User is licensed with an EXO service type plan enabled (Excluding MyAnalytics)  
-•	User has MSExchRemoteRecipientType set (not null)  
-•	User is considered a shared resource
+- User is licensed with an EXO service type plan enabled (Excluding MyAnalytics)  
+- User has MSExchRemoteRecipientType set (not null)  
+- User is considered a shared resource
 
 To be considered a shared resource, the cloud user will have one of the following values set in CloudMSExchRecipientDisplayType 
 
