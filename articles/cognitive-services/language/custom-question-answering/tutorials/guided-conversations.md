@@ -16,7 +16,7 @@ ms.date: 06/29/2021
 For this example let's assume that users are asking for additional details about the Surface Pen product, particularly how to troubleshoot their Surface Pen, but they are not getting the correct answers. So, we add more prompts to support additional scenarios and guide the users to the correct answers using multi-turn prompts.
 
 ## View QnAs with context
-While creating the knowledge base for [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98), we choose to enable multi-turn extraction from the source document. For more details, follow [Create multi-turn conversation from document](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure). This lists the multi-turn prompts that are associated with QnA pairs, which can be viewed using **Show context** under **View Options**.
+While creating the knowledge base for [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98), we choose to enable multi-turn extraction from the source document. For more details, follow [Create multi-turn conversation from document](../../../qnamaker/how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure). This lists the multi-turn prompts that are associated with QnA pairs, which can be viewed using **Show context** under **View Options**.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot with view options show context outlined in red boxes]( ../media/guided-conversations/show-context.png) ]( ../media/guided-conversations/show-context.png#lightbox)

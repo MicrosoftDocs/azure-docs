@@ -142,6 +142,20 @@ items:
       href: ../qnamaker/concepts/data-sources-and-content.md?context=/azure/cognitive-services/language/context/context
     - name: Confidence score
       href: ../qnamaker/concepts/confidence-score.md?context=/azure/cognitive-services/language/context/context
+  - name: Tutorials
+    items:
+    - name: Create a FAQ Bot
+      href: custom-question-answering/tutorials/bot-service.md
+    - name: Guided conversations
+      href: custom-question-answering/tutorials/guided-conversations.md
+    - name: Active learning
+      href: custom-question-answering/tutorials/active-learning.md
+    - name: Adding synonyms
+      href: custom-question-answering/tutorials/adding-synonyms.md
+    - name: Multiple languages
+      href: custom-question-answering/tutorials/multiple-languages.md
+    - name: Multiple domains
+      href: custom-question-answering/tutorials/multiple-domains.md
 - name: Entity linking
   items:
   - name: Overview

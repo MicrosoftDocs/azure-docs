@@ -19184,6 +19184,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/tutorials/active-learning.md",
+      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/tutorials/active-learning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/tutorials/create-faq-bot-for-multiple-domains.md",
+      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/tutorials/multiple-domains",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/tutorials/guided-conversations.md",
+      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/tutorials/guided-conversations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/how-to/multiturn-conversation.md",
+      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/tutorials/guided-conversations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/tutorials/multiple-domains.md",
+      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/tutorials/multiple-domains",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/qnamaker/tutorials/adding-synonyms.md",
+      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/tutorials/adding-synonyms",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins.md",
       "redirect_url": "/azure/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins",
       "redirect_document_id": true
