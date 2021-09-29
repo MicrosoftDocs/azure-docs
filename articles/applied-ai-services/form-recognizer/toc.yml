@@ -21,7 +21,7 @@ items:
      - name: "Get started: client libraries and REST API"
        href: quickstarts/try-sdk-rest-api.md
    - name: "Form Recognizer v3.0 | Preview"
-      items:
+     items:
        - name: "Get started: Form Recognizer Studio (preview)"
          href: try-form-recognizer-studio.md
        - name: "Get started: REST API (preview)"
@@ -52,7 +52,6 @@ items:
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
-<<<<<<< HEAD
   - name: Build and train a custom model
     items:
     - name: Assemble a training data set
@@ -63,20 +62,8 @@ items:
       href: label-tool.md
     - name: Use table tags to train your custom model
       href: supervised-table-tags.md
-   - name: Migrate to Form Recognizer v3.0 (preview)
-    href: v3-migration.md
-=======
-  - name: Generate SAS tokens for Azure Blob containers
-    href:  generate-sas-tokens.md
-  - name: Train a custom model with the sample labeling tool
-    href: label-tool.md
-  - name: Build a training data set
-    href: build-training-data-set.md
-  - name: Use table tags to train your custom model
-    href: supervised-table-tags.md
-  - name:   Deploy the sample labeling tool
-    href: deploy-label-tool.md
->>>>>>> 22043e9f5edc7f5c86b31fa8acae5005f05c7d3d
+  - name: Migrate to Form Recognizer v3.0 (preview)
+    href: v3-migration-guide.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -88,7 +75,6 @@ items:
     - name: Container image tags
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
-      maintainContext: true
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
   - name: Back up and recover models
     href: disaster-recovery.md
