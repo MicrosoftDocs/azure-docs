@@ -19189,11 +19189,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/qnamaker/tutorials/adding-synonyms.md",
-      "redirect_url": "/azure/cognitive-services/language/custom-question-answering/tutorials/adding-synonyms",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/qnamaker/tutorials/create-faq-bot-for-multiple-domains.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/tutorials/multiple-domains",
       "redirect_document_id": false
