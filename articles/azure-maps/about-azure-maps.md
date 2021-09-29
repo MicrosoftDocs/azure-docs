@@ -21,7 +21,7 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
-* Mobility services (Preview) to request public transit information, plan routes by blending different travel modes and real-time arrivals.
+* Mobility services Preview to request public transit information, plan routes by blending different travel modes and real-time arrivals.
 * Time zone and Geolocation services.
 * Elevation services with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
@@ -65,7 +65,7 @@ Use the Geolocation service to retrieve the two-letter country/region code for a
 
 For more details, read the [Geolocation service documentation](/rest/api/maps/geolocation).
 
-### Mobility services (Preview) 
+### Mobility services preview
 
 The Azure Maps Mobility services improve the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility service also allows users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility services provide routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries.
 
@@ -73,7 +73,7 @@ To learn more about the service, see the [Mobility services documentation](/rest
 
 ### Render service
 
-The [Render service V2 (Preview)](/rest/api/maps/renderv2) introduces a new version of the [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
+The [Render service V2](/rest/api/maps/renderv2) introduces a new version of the [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service V2":::
 
