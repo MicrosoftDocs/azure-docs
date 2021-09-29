@@ -373,7 +373,7 @@ Now add the **Decode X12 message** action.
 
 You're now done setting up your B2B logic app workflow. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. For example, review the following documentation:
 
-* [Connect to SAP systems from Azure Logic Apps](/logic-apps-using-sap-connector.md)
+* [Connect to SAP systems from Azure Logic Apps](logic-apps-using-sap-connector.md)
 
 * [Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
 
