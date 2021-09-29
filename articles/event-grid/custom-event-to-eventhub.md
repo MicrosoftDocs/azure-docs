@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.' 
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.topic: quickstart 
 ms.custom: devx-track-azurecli
 ---
@@ -32,6 +32,9 @@ An event grid topic provides a user-defined endpoint that you post your events t
 
 ```azurecli-interactive
 topicname=<your-topic-name>
+```
+
+```azurecli-interactive
 az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 ```
 
@@ -41,6 +44,9 @@ Before subscribing to the custom topic, let's create the endpoint for the event 
 
 ```azurecli-interactive
 namespace=<unique-namespace-name>
+```
+
+```azurecli-interactive
 hubname=demohub
 
 az eventhubs namespace create --name $namespace --resource-group gridResourceGroup
@@ -89,7 +95,7 @@ done
 
 Navigate to the event hub in the portal, and notice that Event Grid sent those three events to the event hub.
 
-![Show messages](./media/custom-event-to-eventhub/show-result.png)
+:::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="Image showing the portal page with incoming message count as 3.":::
 
 Typically, you create an application that retrieves the events from the event hub. To create an application that gets messages from an event hub, see:
 

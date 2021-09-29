@@ -230,7 +230,7 @@ Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a
 
 1. In the Azure portal, select *Resource groups* on the left-hand side navigation.
 1. Choose your resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
-1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group windows, choose **Settings > Inbound security rules**.
+1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group window, choose **Settings > Inbound security rules**.
 1. Select **Add**, then create a rule to allow *TCP* port *636*. For improved security, choose the source as *IP Addresses* and then specify your own valid IP address or range for your organization.
 
     | Setting                           | Value        |

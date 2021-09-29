@@ -1,7 +1,6 @@
 ---
 title: Register a confidential client app in Azure AD - Azure API for FHIR
 description: Register a confidential client application in Azure Active Directory that authenticates on a user's behalf and requests access to resource applications.
-services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -40,10 +39,10 @@ To register a new confidential client application, refer to the steps below.
 
 ## API permissions
 
-Permissions for Azure API for FHIR are managed through RBAC. For more details, visit [Configure Azure RBAC for FHIR](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac).
+Permissions for Azure API for FHIR are managed through RBAC. For more details, visit [Configure Azure RBAC for FHIR](configure-azure-rbac.md).
 
 >[!NOTE]
->Use  grant_type of client_credentials when trying to otain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/tutorial-web-app-test-postman).
+>Use  grant_type of client_credentials when trying to otain an access token for Azure API for FHIR using tools such as Postman. For more details, visit [Testing the FHIR API on Azure API for FHIR](tutorial-web-app-test-postman.md).
 
 
 ## Application secret
