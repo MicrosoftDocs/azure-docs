@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 If you have an issue or question involving Azure Communication Services, then you have many options.
 
 ## Create an Azure Support Request
-With Azure, there are many [support options and plans](https://azure.microsoft.com/support/plans/) available, which you can explore and review. You can create a support ticket in the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+With Azure, there are many [support options and plans](https://azure.microsoft.com/support/plans/) available, which you can explore and review. You can create a support ticket in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Post a question to Microsoft Q&A
 
@@ -27,6 +27,10 @@ If you can't find an answer to your problem by searching you can, submit a new q
 ## Post a question on Stack Overflow
 
 You can also try asking your question on Stack Overflow, which has a large community developer community and ecosystem. Azure Communication Services has a [dedicated tag](https://stackoverflow.com/questions/tagged/azure-communication-services) there too.
+
+## Tech Community
+
+The [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-communication-services/bd-p/AzureCommunicationServices) is another place you can ask product or technical questions. The Azure Communication Services team regularly posts [blogs](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog) and hosts "Ask Me Anything" events on this forum.
 
 ## Provide feedback
 
