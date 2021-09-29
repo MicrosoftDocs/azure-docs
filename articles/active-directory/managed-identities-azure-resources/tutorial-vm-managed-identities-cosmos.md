@@ -440,6 +440,10 @@ az resource delete \
   --resource-type "Microsoft.Compute/virtualMachines"
 ```
 
+# [Resource Manager Template](#tab/azure-resource-manager)
+
+Section purposely left empty
+
 ---
 
 ## Next steps
