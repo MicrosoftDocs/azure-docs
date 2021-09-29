@@ -181,19 +181,19 @@ The following procedures show how to prepare the external load balancer for the 
     4. In the blade to the right, highlight the **Resource ID** and copy it to the clipboard. Alternatively, you can select **copy to clipboard** to the right of the **Resource ID** path.
     5. Paste the resource ID into the **value** property in the **Edit Parameters** editor that's open in the other browser window or tab:
 
-		```json
-		   ```json
-		   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		   "contentVersion": "1.0.0.0",
-		   "parameters": {
-			  "loadBalancers_myLoadbalancer_ext_name": {
-			  "value": "<target-external-lb-name>"
-		},
-			  "publicIPAddresses_myPubIP_in_externalid": {
-			  "value": "<target-publicIP-resource-ID>"
-		},
+        ```json
+           ```json
+           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+           "contentVersion": "1.0.0.0",
+           "parameters": {
+              "loadBalancers_myLoadbalancer_ext_name": {
+              "value": "<target-external-lb-name>"
+        },
+              "publicIPAddresses_myPubIP_in_externalid": {
+              "value": "<target-publicIP-resource-ID>"
+        },
 
-		```
+        ```
     6. Select **Save** in the online editor.
 
 
@@ -284,7 +284,7 @@ The following procedures show how to prepare the external load balancer for the 
                     }
                 ]
         ```
-       For information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
+       For information on load balancing rules, see [What is Azure Load Balancer?](load-balancer-overview.md).
 
     * **Probes**. You can add or remove a probe for the load balancer in the configuration by adding or removing entries in the **probes** section of the template.json file:
 
@@ -304,7 +304,7 @@ The following procedures show how to prepare the external load balancer for the 
                     }
                 ],
         ```
-       For more information, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+       For more information, see [Load Balancer health probes](load-balancer-custom-probe-overview.md).
 
     * **Inbound NAT rules**. You can add or remove inbound NAT rules for the load balancer by adding or removing entries in the **inboundNatRules** section of the template.json file:
 
@@ -352,7 +352,7 @@ The following procedures show how to prepare the external load balancer for the 
             }
         }
         ```
-        For information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
+        For information on inbound NAT rules, see [What is Azure Load Balancer?](load-balancer-overview.md).
 
     * **Outbound rules**. You can add or remove outbound rules in the configuration by editing the **outboundRules** property in the template.json file:
 
