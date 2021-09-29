@@ -1,130 +1,164 @@
 ---
-title: Troubleshoot missed workload classification
-description: Identify and troubleshoot scenarios where workloads are mis-classified to unintended workload groups.   
+title: Troubleshoot missed workload classification 
+description: Identify and troubleshoot scenarios in Azure Synapse Analytics where workloads are mis-classified to unintended workload groups.   
 author: SudhirRaparla
 ms.author: nvraparl
 manager: craigg
 ms.service: synapse-analytics
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to  
 ms.subservice: sql-dw 
-ms.date: 09/13/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.date: 09/29/2021
+ms.custom: template-how-to  
+ms.reviewer: wiassaf
 ---
 
+# Troubleshooting a missed classification in Azure Synapse Analytics
 
-# Troubleshooting a missed classification
+This article covers guidance on how to troubleshoot a missed workload classification, and how to identify the reason behind the classification.
 
-Guidance on how to troubleshoot a missed workload classification how to identify reason behind the classification.
+Azure Synapse Analytics provides workload management capabilities like [classifying workloads to appropriate workload groups](sql-data-warehouse-workload-classification.md), [assigning importance](sql-data-warehouse-workload-importance.md), and [isolating resources](sql-data-warehouse-workload-isolation.md) to meet SLAs.  However, in some scenarios, a combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. 
 
-Azure Synapse Analytics provides workload management capabilities like [Classifying workloads to appropriate workload groups](sql-data-warehouse-workload-classification.md), [Assigning importance](sql-data-warehouse-workload-importance.md), and [isolating resources](sql-data-warehouse-workload-isolation.md) to meet SLAs.  However, in some scenarios combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. Before we get into the scenarios, let us see how to get basic information for troubleshooting missed classification scenarios.
+First, you should query basic information for troubleshooting missed classification scenarios.
 
 ## Basic troubleshooting information
 
 To troubleshoot a missed classification scenario the following information is needed:
-1)	List of all workload groups
-2)	List of all workload classifiers and associated workload groups
-3)	List of users and mapped workload groups (system and user defined) 
-4)  Workload Group and Classifier details of a Request
+1. List of all [workload groups](#workload-groups)
+1. List of all [workload classifiers](#workload-classifiers) and associated workload groups
+1. List of [users and mapped workload groups](#users-and-mapped-resource-classes) (system and user defined) 
+1. List of [workload group and classifier details](#workload-group-and-classifier-details-of-a-request) of a request
 
 
-### Workload Groups
-To get a list of all workload groups(including system workload groups) and associated details in Azure portal  
-1)	Go to Azure Synapse workspace under which the Dedicated SQL Pool of interest is created
-2)	On the left side pane, select **SQL Pools** under Analytical Pools section. All SQL Pools created under the workspace are listed.
-3)	Select Dedicated SQL Pool of interest.
-4)	In the left side pane, select **Workload Management** under **Settings**
-5)	Under **Workload Groups** section, all workloads are listed. Note, by default only **User-Defined Workload groups** are listed. To view list of all Workload groups, edit filter and **Select All**.
+### Workload groups
 
-![Workload Group List](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png)
+#### Azure portal
 
-**Catalog views:** To view Workload groups using T-SQL, [connect to  Dedicated SQL Pool using SSMS](../sql/get-started-ssms.md) and issue following query:
+To get a list of all workload groups (including system workload groups) and associated details in the Azure portal:
+
+1. Go to the Azure Synapse workspace under which the dedicated SQL Pool of interest has been created.
+1. On the left side pane, all pool types created under the workspace are listed. Select **SQL Pools** under **Analytical Pools** section.
+1. Select the dedicated SQL pool of interest.
+1. In the left side pane, select **Workload management** under **Settings**.
+1. Under **Workload groups** section, all workloads are listed. By default only **User-Defined Workload groups** are listed. To view a list of both user-defined and system-defined workload groups, edit the filter and **Select All**.
+
+:::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png" alt-text="Workload Group List filter" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/filter-all-workload-groups.png":::
+
+#### T-SQL
+
+To view workload groups using T-SQL, [connect to the dedicated SQL Pool using SQL Server Management Studio (SSMS)](../sql/get-started-ssms.md) and issue following query:
  
 ```sql
-select * FROM sys.workload_management_workload_groups
+SELECT * FROM sys.workload_management_workload_groups;
 ```
 
-### Workload Classifiers
+For more information, see [sys.workload_management_workload_groups](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-groups-transact-sql).
 
-To list all Workload classifiers(including inbuilt classifiers) by workload group in Azure portal, select numbers listed in Classifiers column in Workload Group table. 
-![Classifier List](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png)
 
-To get the list of all Workload Classifiers(including System defined) using T-SQL, use following query:
+### Workload classifiers
+
+#### Azure portal
+
+To list all workload classifiers (including system-defined classifiers) by workload group in the Azure portal, see the numbers listed in **Classifiers** column in Workload group table (see previous section).
+
+:::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png" alt-text="Workload Group Classifier List" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/view-workload-classifiers.png":::
+
+#### T-SQL
+
+To get the list of all workload classifiers (including system-defined classifiers) using T-SQL, use following query:
 
 ```sql
-select * FROM sys.workload_management_workload_classifiers 
+SELECT * FROM sys.workload_management_workload_classifiers;
 ```
 
-### Users and mapped Resource Classes
+For more information, see [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql).
 
-To get a list of system defined Resource classes and mapped users, use following query:
+### Users and mapped resource classes
+
+To get a list of system defined resource classes and mapped users in T-SQL, use following query:
 
 ```sql
 SELECT  r.name AS [Resource Class]
-,       m.name AS membername
-FROM    sys.database_role_members rm
+,       m.name AS [Member Name]
+FROM    sys.database_role_members AS rm
 JOIN    sys.database_principals AS r ON rm.role_principal_id = r.principal_id
 JOIN    sys.database_principals AS m ON rm.member_principal_id = m.principal_id
 WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','staticrc30','staticrc40','staticrc50','staticrc60','staticrc70','staticrc80');
 ```
 
-### Workload Group and Classifier details of a Request
+### Workload group and classifier details of a request
 
-First step in troubleshooting a missed classification problem is to identify  Workload group and workload classifier for a query. [Sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) DMV contains this information for a given query and below is a SQL to get that information:
+The first step in troubleshooting a missed classification problem is to identify the workload group and workload classifier for a query. Use the dynamic management view [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to view submitted queries and their classification:
 
 ```sql
-SELECT * from sys.dm_pdw_exec_requests;
+SELECT * FROM sys.dm_pdw_exec_requests;
 ```
 
-## List of Common scenarios of missed Classifications
-List of common scenarios where unintended missed classification of workloads can happen:
+For more information, see [sys.dm_pdw_exec_requests](/sql/relational-databases/system-catalog-views/sys-dm-pdw-exec-requests-transact-sql).
 
-### Mixed usage of Resource Classes and user-defined Workload Management
+## Common scenarios of missed classifications
 
-In scenarios where Resource classes and workload groups are used together, user role to resource class mappings can conflict with workload classifier rules, and lead to unintended query classification. Consider following scenario:
-* A database user say DBAUser is assigned to largerc resource class role using sp_addrolemember procedure.
-* DBAUser has created s new workload group and classifier using workload management.
-* Newly created workload classifier maps database role DBARole (DBAUser is a member of this role) to mediumrc resource class with high importance.  
-* When DBAUser runs a query, the query is expected to run on mediumrc based on workload classifier. Instead it will be assigned to largerc, as **user** mapping takes precedence over **role membership** mapping to a classifier.
+Here are some common scenarios where the unintended missed classification of workloads can occur:
 
-It's best to avoid mixing usage of Resource Classes and Workload Management groups to do Workload management. Steps to convert Resource classes to Workloads are documented [here](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md). However, there can be situations where both Resource classes and Workload Management need to be used together. In such scenarios to simplify troubleshooting misclassification, recommendation is to remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for each member name returned from the corresponding resource class.
+### Mixed usage of resource classes and user-defined workload management
+
+In scenarios where resource classes and workload groups are used together, user role to resource class mappings can conflict with workload classifier rules, and lead to unintended query classification. 
+
+Consider following scenario:
+
+1. A database user, DBAUser, is assigned to largerc resource class role using `sp_addrolemember` procedure.
+1. DBAUser has created a new workload group and classifier using workload management.
+1. A newly-created workload classifier maps database role DBARole to mediumrc resource class with high importance. 
+1. DBAUser is a member of the DBARole database role.
+1. When DBAUser runs a query, the query is expected to run on mediumrc based on workload classifier. Instead it will be assigned to largerc, as **user** mapping takes precedence over **role membership** mapping to a classifier.
+
+It's best to avoid mixing usage of resource classes and workload management groups to do workload management. For more information on steps to convert resource classes to workloads, see [Convert Resource Classes to Workload Groups](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md). 
+
+However, there can be situations where both resource classes and workload management need to be used together. In such scenarios, to simplify troubleshooting misclassification, we recommend you remove resource class role mappings as you create workload classifiers. The code below returns existing resource class role memberships. Run [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for each member name returned from the corresponding resource class.
 
 ```sql
 SELECT  r.name AS [Resource Class]
 , m.name AS membername
-FROM    sys.database_role_members rm
+FROM    sys.database_role_members AS rm
 JOIN    sys.database_principals AS r ON rm.role_principal_id = r.principal_id
 JOIN    sys.database_principals AS m ON rm.member_principal_id = m.principal_id
 WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','staticrc30','staticrc40','staticrc50','staticrc60','staticrc70','staticrc80');
 
 --for each row returned run
-sp_droprolemember '[Resource Class]', membername
+EXEC sp_droprolemember '[Resource Class]', membername;
 ```
 
-### System Administrators and DBOs are always mapped to smallrc Workload Group
-Consider a scenario where System Administrator or dbo has either created a workload classifier or added themselves to a resource class role other than smallrc. Using query mentioned in **Users and Mapped Resource Classes** section above Service Admin verified the role/member and it shows the updated workload group. But all queries executed by the user run on smallrc resource class even though user is mapped to a different resource class or workload group. 
+### Service administrators and database owners are always mapped to smallrc workload group
 
-**Recommendation**: Service Administrators can't change their default workload group as documented [here](resource-classes-for-workload-management.md#default-resource-class). Service administrator is the user or role specified during SQL Pool provisioning process, and this user can either be a Server Admin Login or Active Directory admin. To identify service administrator, go to properties section of the dedicated SQL Pool and look for **Workspace SQL Admin Login** field, as shown below:
-
-![Identifying SQL Admin](./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png)
-
-Similarly dbo and db_owner roles are not allowed to change their default resource class. If a user is either dbo or added under db_owner role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However if a user who is part of this role would like to classify their queries to a different workload group, they can use MEMBERNAME option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
-
-### Use Workload Group Precedence for better classification
-
-In scenarios where workload classifiers are mapped to multiple workload groups or a user is mapped to multiple resource classes, precedence order determines chosen workload group and Resource class. List of precedence rules: 
+Consider a scenario where a service administrator or database owner has either created a workload classifier or added themselves to a resource class role other than smallrc. All queries executed by the user run on smallrc resource class, even though the user is mapped to a different resource class or workload group. Using the query mentioned in [Users and Mapped Resource Classes](#users-and-mapped-resource-classes) previously, the service administrator has verified the role/member and it shows the updated workload group. 
 
 > [!NOTE]
-> As mentioned in **Mixing Resource Classes and user-defined Workload Management** section, it isn't recommended to combine usage of Resource classes and user-defined Workload groups/classes.
+> The service administrator is the user created during the provisioning process. Users or groups defined as Active Directory admin are also service administrators.
 
-**If Resource Classes are being used:**
-In Scenarios where Resource Classes are being used it's best to create a dedicated user for each type of workload being run. However if a user is a member of multiple resource classes, then precedence rules documented in [Resource Class Precedence](resource-classes-for-workload-management.md#resource-class-precedence) take effect:
-1)	Dynamic resource class takes precedence over static resource class. For example if a user is member of mediumrc(dynamic) and staticrc80(static) user queries run with mediumrc
-2)	Bigger resource classes are preferred over Smaller resource classes. For example if a user is member of staticrc20 and staticrc80 then user queries will run with staticrc80.
+**Recommendation**: Service administrators can't change their default workload group. For more information, see [workload management with resource classes](resource-classes-for-workload-management.md#default-resource-class). To identify service administrator, go to properties section of the dedicated SQL Pool and look for **Workspace SQL Admin Login** field, as shown below:
 
-**If Workload Management Capabilities are used:**
-WLM provides capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have Weight score as shown below and this score determines order of precedence: 
+:::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png" alt-text="Identifying the service admin by looking at the Workspace SQL Admin Login field" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png":::
 
-|Classifier Parameter |Weight   |
+Similarly the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use MEMBERNAME option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
+
+### Use workload group precedence for better classification
+
+In scenarios where workload classifiers are mapped to multiple workload groups, or a user is mapped to multiple resource classes, precedence order determines chosen workload group and Resource class. List of precedence rules: 
+
+> [!NOTE]
+> As mentioned in [Mixing Resource Classes and user-defined Workload Management](#mixed-usage-of-resource-classes-and-user-defined-workload-management) section, it isn't recommended to combine usage of Resource classes and user-defined workload groups/classes.
+
+#### If resource classes are being used:
+
+In scenarios where resource classes are being used it's best to create a dedicated user for each type of workload being run. However, if a user is a member of multiple resource classes, then precedence rules documented in [Resource Class Precedence](resource-classes-for-workload-management.md#resource-class-precedence) take effect:
+
+1. Dynamic resource class takes precedence over static resource class. For example, if a user is member of mediumrc (dynamic) and staticrc80(static), user queries run with mediumrc.
+1. Bigger resource classes are preferred over smaller resource classes. For example, if a user is member of staticrc20 and staticrc80, then user queries will run with staticrc80.
+
+#### If Workload Management Capabilities are used
+
+WLM provides capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have **weight** score as shown below and this score determines order of precedence: 
+
+|**Classifier parameter** |**Weight**   |
 |---------------------|---------|
 |MEMBERNAME:USER      |64       |
 |MEMBERNAME:ROLE      |32       |
@@ -132,10 +166,7 @@ WLM provides capability to create multiple workload classifiers for same user or
 |WLM_CONTEXT          |8        |
 |START_TIME/END_TIME  |4        |
 
-Let us see these precedence rules in action using an example.
-
-**Example**
-If a user creates two Workload Classifiers as follows:
+Let us see these precedence rules in action using an example. If a user creates two workload classifiers as follows:
 
 ```sql
 CREATE WORKLOAD CLASSIFIER CLASSIFIER-1 WITH  
@@ -152,11 +183,13 @@ CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH
  ,IMPORTANCE     = 'Low')
 ```
 
-Queries submitted by User-1 can be submitted via both classifiers. Query run by User-1 with 'dimension_loads' label between 6PM and 7AM UTC will be assigned to wgDashboards as weight score of WLM_LABEL is higher than START_TIME/END_TIME. The weighting of classifier-1 is 80 (64 for user, plus 16 for WLM_LABEL). The weighting of classifier-2 is 68 (64 for user, 4 for START_TIME/END_TIME). More details on [Classification weighting](sql-data-warehouse-workload-classification.md#classification-weighting).
+Queries submitted by User-1 can be submitted via both classifiers. Query run by User-1 with the 'dimension_loads' label between 6PM and 7AM UTC will be assigned to `wgDashboards` as weight score of WLM_LABEL is higher than START_TIME/END_TIME. The weighting of `CLASSIFIER-1` is 80 (64 for user, plus 16 for WLM_LABEL). The weighting of `CLASSIFIER-2` is 68 (64 for user, 4 for START_TIME/END_TIME). 
 
-### What happens if Precedence in Workload Classification leads to a tie
+For more information on workload classification, see [classification weighting](sql-data-warehouse-workload-classification.md#classification-weighting) and [query labels](../sql/develop-label.md).
 
-Even after workload classifier precedence is applied, a query getting classified to multiple workload groups is a possibility. For example consider following classifiers:
+### What happens if precedence in workload classification leads to a tie?
+
+Even after workload classifier precedence is applied, it is possible for a query to be classified to multiple workload groups. For example, consider following classifiers:
 
 ```sql
 CREATE WORKLOAD CLASSIFIER CLASSIFIER-1 WITH  
@@ -172,14 +205,16 @@ CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH
  ,IMPORTANCE     = 'Low');
 ```
 
-If a user runs a query with Option set to Label = 'dimension_loads', it can be classified to either wgDataLoad or wgUserqueries based on precedence rules. But which workload group is chosen?
+If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, it can be classified to either `wgDataLoad` or `wgUserqueries` based on precedence rules. But which workload group is chosen?
 
-**Resolution:** 
+#### Workload group and classifier tie-breakers
+
 If there was a tie in workload groups or classifiers, following precedence takes effect:
-1.	The workload group with the highest resource allocation is chosen.  This behavior optimizes for performance in scenarios where logins are members of multiple resource classes. This behavior also ensures backward compatibility.  
 
-**Example:** Let us consider following two Workload Groups and Workload Classifiers
-
+1. The workload group with the highest resource allocation is chosen. This behavior optimizes for performance in scenarios where logins are members of multiple resource classes. This behavior also ensures backward compatibility.  
+    
+Consider the following two workload groups and workload classifiers:
+    
 ```sql
 -- Workload Groups
 CREATE WORKLOAD GROUP wgDataLoad
@@ -207,11 +242,13 @@ CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH
 ,WLM_LABEL      = 'dimension_loads' 
 ,IMPORTANCE     = 'High');
 ```
-              
-If a user runs a query with Option set to Label = 'dimension_loads', both the classifiers have a tie as the query meets criteria for both the classifiers. However request will be routed to wgUserQueries workload group as it has higher minimum resource allocation per request.
+                  
+If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, the query meets criteria for both the classifiers. However, the user request will be routed to `wgUserQueries` workload group as it has higher minimum resource allocation per request.
 
-2.	Concurrency setting and Available Concurrency for respective workload groups. Workload group with the highest available concurrency at a time when request arrived will give the query best chance of executing. 
-**Example:** Let us consider following two Workload Groups and Workload Classifiers
+2. Next, concurrency setting and available concurrency for respective workload groups is considered for tie-breakers. The workload group with the highest available concurrency at a time when request arrived will give the query best chance of executing. 
+
+Consider following two workload groups and workload classifiers:
+
 ```sql
 --Workload Groups
 CREATE WORKLOAD GROUP wgDataLoad
@@ -242,16 +279,16 @@ CREATE WORKLOAD CLASSIFIER CLASSIFIER-2 WITH
  ,IMPORTANCE     = 'High');
 ```
               
-If a user runs a query with Option set to Label = 'dimension_loads', both the classifiers have a tie as the query meets criteria for both. When user submits the query, assume 5 concurrent queries are getting executed in wgUserqueries group and 10 queries are getting executed in wgDataLoad group. Request will be routed to wgUserqueries group using CLASSIFIER-2 as wgUserqueries workload group has higher available concurrency at the time user submitted query.
+If a user runs a query with `OPTION (LABEL = 'dimension_loads')`, both the classifiers have a tie as the query meets criteria for both. When user submits the query, consider the scenario where five concurrent queries are getting executed in the `wgUserqueries` group and ten queries are getting executed in the `wgDataLoad` group. The user request will be routed to `wgUserqueries` group using `CLASSIFIER-2`, as the `wgUserqueries` workload group has higher available concurrency at the time the user submitted a query.
 
-3.	Importance setting of the classified request. If there was a tie in Workload Classification using precedence rules, Request will be routed to Workload group that has highest importance. 
+3. Next, the importance setting of the classified request is considered for tie-breakers. If there was a tie in workload classification using precedence rules, the request will be routed to workload group that has highest importance. For more information, see [workload importance](sql-data-warehouse-workload-importance.md).
 
-4.	Creation time of the workload group. Request will be routed to the workload group that is created latest. 
+4. Finally, the creation time of the workload group is considered for tie-breakers. The user request will be routed to the workload group that was created most recently. 
 
 
 ## Next steps
-- For more information on Classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
-- For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
+- For more information on classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
+- For more information on importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Go to Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)
