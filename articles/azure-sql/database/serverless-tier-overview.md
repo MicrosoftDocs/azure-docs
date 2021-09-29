@@ -44,7 +44,7 @@ Serverless is price-performance optimized for single databases with intermittent
 
 ### Scenarios well suited for serverless compute
 
-- Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity and lower average compute utilization over time.
+- Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity, and lower average compute utilization over time.
 - Single databases in the provisioned compute tier that are frequently rescaled and customers who prefer to delegate compute rescaling to the service.
 - New single databases without usage history where compute sizing is difficult or not possible to estimate prior to deployment in SQL Database.
 
@@ -155,7 +155,7 @@ If the result set is non-empty, it indicates that there are sessions currently p
 
 If the result set is empty, it is still possible that sessions were open, possibly for a short time, at some point earlier during the auto-pause delay period. To see if such activity has occurred during the delay period, you can use [Azure SQL Auditing](auditing-overview.md) and examine audit data for the relevant period.
 
-The presence of open sessions, with or without concurrent CPU utilization in the user resource pool, is the most common reason for a serverless database to not auto-pause as expected. Note that some [features](#auto-pausing) don't support auto-pausing, but do support auto-scaling.
+The presence of open sessions, with or without concurrent CPU utilization in the user resource pool, is the most common reason for a serverless database to not auto-pause as expected.
 
 ### Auto-resuming
 
