@@ -108,7 +108,7 @@ File to be restored to the active file system:
 `volume-azure-nfs/.snapshot/daily-10-min-past-12am.2021-09-08_0010/customer1/vm-8976.vmdk`
 
 Destination path in the active file system:  
-`volume-azure-nfs/currentCopy/customer1`.  
+`volume-azure-nfs/currentCopy/customer1`  
 
 The path `/volume-azure-nfs/currentCopy/customer1` must be valid in the active file system.
 
@@ -155,7 +155,7 @@ Destination path in the active file system:
 
 The path `N:\currentCopy\customer1` must be valid in the active file system.
 
-From the Azure portal : 
+From the Azure portal: 
 1. Click **Snapshots**. Select the snapshot `daily-10-min-past-12am.2021-09-08_0010`.
 2. Click **Restore Files**.
 3. Specify `/customer1/vm-9981.vmdk` in File Paths.
