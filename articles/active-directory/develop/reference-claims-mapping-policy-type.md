@@ -332,6 +332,29 @@ The ID element identifies which property on the source provides the value for th
 > [!NOTE]
 > Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
 
+### Group Filter
+
+**String:** GroupFilter
+
+**Data type:** JSON blob
+
+**Summary:** Use this property to apply a filter on the user’s groups to be included in the group claim. This can be a useful means of reducing the token size.
+
+**MatchOn:** The **MatchOn** property identifies the group attribute on which to apply the filter. 
+
+Set the **MatchOn** property to one of the follwoing values:
+
+- "displayname": The group display name.
+- "samaccountname": The On-premises SAM Account Name
+
+**Type:** The **Type** property selects the type of filter you wish to apply to the attribute selected by the **MatchOn** property. 
+
+Set the **Type** property to one of the following values:
+
+- "prefix": Include groups where the **MatchOn** property starts with the provided **Value** property.
+- "suffix": Include groups where the **MatchOn** property ends with the provided **Value** property.
+- "contains": Include groups where the **MatchOn** property contains with the provided **Value** property.
+
 ### Claims transformation
 
 **String:** ClaimsTransformation
