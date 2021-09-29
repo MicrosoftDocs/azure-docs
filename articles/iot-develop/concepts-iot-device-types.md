@@ -38,7 +38,7 @@ Below is a table showing some of the defining differences between an MCU and an 
 |**CPU**| Less | More |
 |**RAM**| Less | More |
 |**Flash**| Less | More |
-|**OS**| No or RTOS | General Purpose |
+|**OS**| Bare Metal / RTOS | General Purpose (Windows / Linux) |
 |**Development Difficulty**| Harder | Easier |
 |**Power Consumption**| Lower | Higher |
 |**Cost**| Lower | Higher |
