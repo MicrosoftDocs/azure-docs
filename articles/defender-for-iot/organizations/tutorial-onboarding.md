@@ -241,7 +241,7 @@ For post-installation validation, you must test to ensure the system is running,
 
 ## Configure a SPAN port
 
-A virtual switch does not have mirroring capabilities. However, you can use Promiscuous mode in a virtual switch environment. Promiscuous mode is a security policy that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
+A virtual switch does not have mirroring capabilities. However, you can use promiscuous mode in a virtual switch environment. Promiscuous mode  is a mode of operation, as well as a security, monitoring and administration technique, that is defined at the virtual switch, or portgroup level. By default, Promiscuous mode is disabled. When Promiscuous mode is enabled the virtual machine’s network interfaces that are in the same portgroup will use the Promiscuous mode to view all network traffic that goes through that virtual switch. You can implement a workaround with either ESXi, or Hyper-V.
 
 :::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="A screenshot of where in your architecture the sensor should be placed.":::
 
