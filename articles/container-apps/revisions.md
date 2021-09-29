@@ -9,7 +9,7 @@ ms.date: 09/16/2021
 ms.author: cshoe
 ---
 
-# Work with revisions in Azure Container Apps
+# Revisions in Azure Container Apps
 
 <!--
 https://github.com/microsoft/azure-worker-apps-preview/blob/main/docs/revisions.md
@@ -94,7 +94,7 @@ The following example shows how to split traffic where:
 }
 ```
 
-As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -105,7 +105,7 @@ az containerapp update \
   --traffic-weight <REVISION1_NAME>=50,<REVISION2_NAME>=30,latest=20
 ```
 
-As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ---
 
@@ -120,7 +120,7 @@ az containerapp revision list \
   -o table
 ```
 
-As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Show
 
@@ -133,20 +133,20 @@ az containerapp revision show \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Update
 
-Lets say you want to add a secret to your Worker App by running the following command
+To update a container app, use `az containerapp update`.
 
 ```sh
 az containerapp update \
   --name <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
- --secrets "storageconnectionstring=$CONNECTIONSTRING"
+  --secrets "storageconnectionstring=$CONNECTIONSTRING"
 ```
 
-As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Activate
 
@@ -159,7 +159,7 @@ az containerapp revision activate \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Deactivate
 
@@ -172,7 +172,7 @@ az containerapp revision deactivate \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Restart
 
@@ -185,7 +185,7 @@ az containerapp revision restart \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-As you interact with this sample, replace the placeholders surrounded by `<>` with your values.
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Next steps
 
