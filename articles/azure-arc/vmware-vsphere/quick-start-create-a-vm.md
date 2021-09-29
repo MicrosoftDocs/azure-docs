@@ -23,41 +23,39 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 ## How to create a VM in Azure portal
 
-1. Go to [private preview portal](https://aka.ms/AzureArcVM)
-
-2. You will see the new unified virtual machine browse experience that also includes Arc VMs.
+1. Go to [private preview portal](https://aka.ms/AzureArcVM). You'll see the new unified virtual machine browse experience that also includes Arc VMs.
 
     ![unified browse experience for Azure and arc vms](media/vm-browse.png)
 
-3. Click on **+Add**
+1. Click on **+Add**
 
-4. Select **Azure Arc machine** from the drop-down.
+1. Select **Azure Arc machine** from the drop-down.
 
-5. Select the **Subscription** and **Resource group** where you want to deploy the VM
+1. Select the **Subscription** and **Resource group** where you want to deploy the VM
 
-6. Provide the **Virtual machine name**
+1. Provide the **Virtual machine name**
 
-7. Select a **Custom location** that your administrator has shared with you.
+1. Select a **Custom location** that your administrator has shared with you.
 
-8. If multiple kinds of VMs are supported, select ***VMware***  as the **Virtual machine kind**.
+1. If multiple kinds of VMs are supported, select ***VMware***  as the **Virtual machine kind**.
 
-9. Pick the **Resource pool/cluster/host** into which the VM should be deployed.
+1. Pick the **Resource pool/cluster/host** into which the VM should be deployed.
 
-10. Pick the **Template** based on which the VM will be created.
+1. Pick the **Template** based on which the VM will be created.
 
-11. You can optionally chose to **Override the template defaults** for  **CPU Cores** and **Memory**.
+1. You can optionally chose to **Override the template defaults** for  **CPU Cores** and **Memory**.
 
-12. If you picked a Windows template, you can also provide a **Username**, **Password** for the **Administrator account**.
+1. If you picked a Windows template, you can also provide a **Username**, **Password** for the **Administrator account**.
 
-13. You can optionally change the disks configured in the template. You can add more disks or update existing disks. These disks will be created on the default datastore per the VMWare vCenter storage policies.
+1. You can optionally change the disks configured in the template. You can add more disks or update existing disks. These disks will be created on the default datastore per the VMWare vCenter storage policies.
 
-14. You can optionally change the network interfaces configured in the template. You can add Network interface cards or update existing NICs. You can also change the network that this NIC will be attached to provided you have appropriate permissions to the network resource.
+1. You can optionally change the network interfaces configured in the template. You can add Network interface cards or update existing NICs. You can also change the network that this NIC will be attached to provided you have appropriate permissions to the network resource.
 
-15. You can optionally add tags to the VM resource.
+1. You can optionally add tags to the VM resource.
 
-16. Finally click create after reviewing all the properties.
+1. Finally click create after reviewing all the properties.
 
-17. The VM should be provisioned in a few minutes.
+1. The VM should be provisioned in a few minutes.
 
 ## Next Steps
 
