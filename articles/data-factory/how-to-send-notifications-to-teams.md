@@ -13,7 +13,7 @@ ms.date: 09/29/2021
 
 # Send notifications to a Microsoft Teams channel from an Azure Data Factory or Synapse Analytics pipeline
 
-It's often necessary to send notifications during or after execution of a pipeline. Notification provides proactive alerting and reduces the need for reactive monitoring to discover issues.  You can learn about [how to send email notifications using logic apps](tutorial-control-flow-portal#create-email-workflow-endpoints) that
+It's often necessary to send notifications during or after execution of a pipeline. Notification provides proactive alerting and reduces the need for reactive monitoring to discover issues.  You can learn about [how to send email notifications using logic apps](tutorial-control-flow-portal.md#create-email-workflow-endpoints) that
 a data factory or Synapse pipeline can invoke.  Many enterprises are also increasingly using Microsoft Teams for collaboration.  This article shows how to configure notifications from pipeline alerts into Microsoft Teams. 
 
 ## Prerequisites
@@ -79,7 +79,7 @@ Before you can send notifications to Teams from your pipelines you must create a
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/webhook-reccomended-properties.png" alt-text="Shows the recommended properties of the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::
 
-    > [!NOTE] It is used to construct the monitoring URL. Suppose you do not provide a valid subscription and resource group (of the same data factory where the pipelines belong). In that case, the notification will not contain a valid pipeline monitoring URL, but the messages will still work.  Additionally, adding these parameters helps prevent the need to always pass those values from another pipeline. If you intend to control those values through a metadata-driven approach, then you should modify them accordingly.
+    These parameters are used to construct the monitoring URL. Suppose you do not provide a valid subscription and resource group (of the same data factory where the pipelines belong). In that case, the notification will not contain a valid pipeline monitoring URL, but the messages will still work.  Additionally, adding these parameters helps prevent the need to always pass those values from another pipeline. If you intend to control those values through a metadata-driven approach, then you should modify them accordingly.
     
 1.  Add an **Execute Pipeline** activity into the pipeline from which you would like to send notifications on the Teams channel. Select the pipeline generated from the **Send notification to a channel in Microsoft Teams** template as the **Invoked pipeline** in the **Execute Pipeline** activity.
 
@@ -99,7 +99,7 @@ make your messages dynamic. For example:  
 -   ``@activity("DataFlow").error.Message``
 
 The above expressions will return the relevant error messages from a failure, which can be sent out as notification on a Teams channel. Refer to the
-[Copy activity output properties](copy-activity-monitoring#monitor-programmatically.md) article for more details.
+[Copy activity output properties](copy-activity-monitoring.md#monitor-programmatically.md) article for more details.
 
 We also encourage you to review the Microsoft Teams supported [notification payload schema](https://adaptivecards.io/explorer/AdaptiveCard.html) and
 further customize the above template to your needs.
