@@ -31,6 +31,24 @@ To apply a policy definition or initiative, use the Azure portal.
 1. Select the **Parameters** page and update the **Effect** from `audit` to `deny` to block new deployments violating the baseline initiative. You can also add additional namespaces to exclude from evaluation. For this example, keep the default values.
 1. Select **Review + create** then **Create** to submit the policy assignment.
 
+## Create and assign a custom policy definition (preview)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Custom policies allow you to define rules for using Azure. For example, you can enforce:
+- Security practices
+- Cost management
+- Organization-specific rules (like naming or locations)
+
+Before creating a custom policy, check the [list of common patterns and samples][azure-policy-samples] to see if your case is already covered.
+
+Custom policy definitions are written in JSON. To learn more about creating a custom policy, see [Azure Policy definition structure][azure-policy-definition-structure] and [Create a custom policy definition][custom-policy-tutorial-create].
+
+> [!NOTE]
+> Azure Policy now utilizes a new property known as *templateInfo* that allows users to define the source type for the constraint template. By defining *templateInfo* in policy definitions, users don’t have to define *constraintTemplate* or *constraint* properties. Users still need to define *apiGroups* and *kinds*. For more information on this, see [Understanding Azure Policy effects][azure-policy-effects-audit].
+
+Once your custom policy definition has been created, see [Assign a policy definition][custom-policy-tutorial-assign] for a step-by-step walkthrough of assigning the policy to your Kubernetes cluster.
+
 ## Validate a Azure Policy is running
 
 Confirm the policy assignments are applied to your cluster by running the following:
@@ -172,3 +190,8 @@ For more information about how Azure Policy works:
 [azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
+[azure-policy-effects-audit]: ../governance/policy/concepts/effects.md#audit-properties
+[custom-policy-tutorial-create]: ../governance/policy/tutorials/create-custom-policy-definition.md
+[custom-policy-tutorial-assign]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
+[azure-policy-samples]: ../governance/policy/samples/index.md
+[azure-policy-definition-structure]: ../governance/policy/concepts/definition-structure.md

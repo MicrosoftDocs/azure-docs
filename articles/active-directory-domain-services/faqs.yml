@@ -86,7 +86,7 @@ sections:
           No. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. 
 
       - question: |
-          Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
+          Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, virtual network, or subnet?
         answer: |
           No. After you create an Azure AD Domain Services managed domain, you can't then move the managed domain to a different subscription, resource group, region, virtual network, or subnet. Take care to select the most appropriate subscription, resource group, region, virtual network, and subnet when you deploy the managed domain.
 

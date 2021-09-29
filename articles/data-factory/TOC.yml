@@ -210,8 +210,18 @@ items:
       - name: Data flow monitoring
         href: concepts-data-flow-monitoring.md
       - name: Data flow performance
-        href: concepts-data-flow-performance.md
-        displayName: merge, timeout
+        items:
+          - name: Overview
+            href: concepts-data-flow-performance.md
+            displayName: merge, timeout
+          - name: Optimizing sources
+            href: concepts-data-flow-performance-sources.md
+          - name: Optimizing sinks
+            href: concepts-data-flow-performance-sinks.md
+          - name: Optimizing transformations
+            href: concepts-data-flow-performance-transformations.md
+          - name: Using data flows in pipelines
+            href: concepts-data-flow-performance-pipelines.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
@@ -247,15 +257,33 @@ items:
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
-      href: continuous-integration-deployment.md
+      items:
+      - name: Overview
+        href: continuous-integration-delivery.md
+      - name: Automate with Azure Pipelines releases
+        href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Manually promote a Resource Manager template for each environment
+        href: continuous-integration-delivery-manual-promotion.md
+      - name: Use custom parameters with a Resource Manager template
+        href: continuous-integration-delivery-resource-manager-custom-parameters.md
+      - name: Linked Resource Manager templates
+        href: continuous-integration-delivery-linked-templates.md
+      - name: Using a hotfix production environment
+        href: continuous-integration-delivery-hotfix-environment.md
+      - name: Sample pre- and post-deployment script
+        href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
-      href: continuous-integration-deployment-improvements.md
+      href: continuous-integration-delivery-improvements.md
   - name: Connectors
     items:
     - name: Connector overview
       href: connector-overview.md
     - name: Amazon Marketplace Web Service
       href: connector-amazon-marketplace-web-service.md
+    - name: Amazon RDS for Oracle
+      href: connector-amazon-rds-for-oracle.md
+    - name: Amazon RDS for SQL Server 
+      href: connector-amazon-rds-for-sql-server.md          
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
@@ -562,6 +590,8 @@ items:
       href: control-flow-append-variable-activity.md
     - name: Execute Pipeline activity
       href: control-flow-execute-pipeline-activity.md
+    - name: Fail activity
+      href: control-flow-fail-activity.md
     - name: Filter activity
       href: control-flow-filter-activity.md
     - name: For Each activity
@@ -688,15 +718,29 @@ items:
     - name: Monitor visually
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
-      href: monitor-using-azure-monitor.md
-    - name: Monitor SSIS with Azure Monitor
-      href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
+      items:
+      - name: Overview
+        href: monitor-using-azure-monitor.md
+      - name: Azure Data Factory metrics and alerts
+        href: monitor-metrics-alerts.md
+      - name: Configure diagnostics settings and workspace
+        href: monitor-configure-diagnostics.md
+      - name: Setup diagnostics logs via the Azure Monitor REST API
+        href: monitor-logs-rest.md
+      - name: Monitor SSIS operations with Azure Monitor
+        href: monitor-ssis.md
+      - name: Schema of logs and events
+        href: monitor-schema-logs-events.md
+      - name: Install Azure Data Factory Analytics solution from Azure Marketplace
+        href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
+    - name: Run Data Pipelines with Service Level Agreements
+      href: tutorial-operationalize-pipelines.md
     - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
     - name: Copy or clone a data factory
@@ -727,7 +771,22 @@ items:
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
-      href: create-azure-ssis-integration-runtime.md
+      items:
+        - name: Overview and prerequisites
+          href: create-azure-ssis-integration-runtime.md
+          displayName: Azure SSIS
+        - name: Create with the Azure portal
+          href: create-azure-ssis-integration-runtime-portal.md
+          displayName: Azure SSIS
+        - name: Create with PowerShell
+          href: create-azure-ssis-integration-runtime-powershell.md
+          displayName: Azure SSIS
+        - name: Create with a Resource Manager template
+          href: create-azure-ssis-integration-runtime-resource-manager-template.md
+          displayName: Azure SSIS
+        - name: Deploy and run SSIS packages
+          href: create-azure-ssis-integration-runtime-deploy-packages.md
+          displayName: Azure SSIS
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
@@ -794,6 +853,8 @@ items:
     items:
     - name: Connect a Data Factory to Azure Purview
       href: connect-data-factory-to-azure-purview.md
+    - name: Access a secured Azure Purview account
+      href: ./how-to-access-secured-purview-account.md
     - name: Discover and explore data in ADF using Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
@@ -865,7 +926,7 @@ items:
       displayName: diu  
   - name: Troubleshooting guides
     items:
-    - name: Data Factory UX
+    - name: Azure Data Factory Studio
       href: data-factory-ux-troubleshoot-guide.md
     - name: Activities
       href: data-factory-troubleshoot-guide.md

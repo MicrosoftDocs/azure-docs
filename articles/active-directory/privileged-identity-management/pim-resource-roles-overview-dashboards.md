@@ -38,4 +38,4 @@ Below the charts are listed the number of users and groups with new role assignm
 
 ## Next steps
 
-- [Start an access review for Azure resource roles in Privileged Identity Management](pim-resource-roles-start-access-review.md)
+- [Start an access review for Azure resource roles in Privileged Identity Management](./pim-create-azure-ad-roles-and-resource-roles-review.md)

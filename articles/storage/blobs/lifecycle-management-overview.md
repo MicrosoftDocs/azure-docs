@@ -9,7 +9,7 @@ ms.date: 08/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: yzheng 
+ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, references_regions"
 ---
 
@@ -28,8 +28,6 @@ With the lifecycle management policy, you can:
 Consider a scenario where data is frequently accessed during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By moving data to the appropriate storage tier based on its age with lifecycle management policy rules, you can design the least expensive solution for your needs.
 
 Lifecycle management policies are supported for block blobs and append blobs in general-purpose v2, premium block blob, and Blob Storage accounts. Lifecycle management does not affect system containers such as the *$logs* or *$web* containers.
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!IMPORTANT]
 > If a data set needs to be readable, do not set a policy to move blobs to the archive tier. Blobs in the archive tier cannot be read unless they are first rehydrated, a process which may be time-consuming and expensive. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
@@ -151,8 +149,8 @@ Lifecycle management supports tiering and deletion of blobs, previous blob versi
 | tierToArchive               | Supported for `blockBlob`                  | Supported     | Supported     |
 | delete                      | Supported for `blockBlob` and `appendBlob` | Supported     | Supported     |
 
->[!NOTE]
->If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
+> [!NOTE]
+> If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
 The run conditions are based on age. Base blobs use the last modified time, blob versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
 
@@ -160,7 +158,7 @@ The run conditions are based on age. Base blobs use the last modified time, blob
 |--|--|--|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for base blob actions |
 | daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for blob version and blob snapshot actions |
-| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when  access tracking is enabled |
+| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when access tracking is enabled |
 
 ## Examples of lifecycle policies
 
@@ -360,9 +358,20 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 }
 ```
 
-## Availability and pricing
+## Feature support
 
-The lifecycle management feature is available in all Azure regions for general purpose v2 (GPv2) accounts, Blob Storage accounts, and premium block blobs storage accounts. Accounts with a hierarchical namespace are supported. For more information about types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
+## Regional availability and pricing
+
+The lifecycle management feature is available in all Azure regions.
 
 Lifecycle management policies are free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free.
 
@@ -378,7 +387,7 @@ The platform runs the lifecycle policy once a day. Once you configure a policy, 
 
 **If I update an existing policy, how long does it take for the actions to run?**
 
-The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted.  The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
+The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
 
 **I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**
 
@@ -387,5 +396,5 @@ When a blob is moved from one access tier to another, its last modification time
 ## Next steps
 
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
-- [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
+- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
