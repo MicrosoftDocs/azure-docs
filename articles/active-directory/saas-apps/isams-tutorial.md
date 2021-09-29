@@ -149,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ![Screenshot shows the User Accounts page with Modify User Properties selected.](./media/isams-tutorial/modify-user-properties.png)
 
 
-3. In the resulting popup window, select the **Account Details** tab, and change the **Authorization** to that of your newly created Identity Provider.
+3. In the resulting pop-up window, select the **Account Details** tab, and change the **Authorization** to that of your newly created Identity Provider.
 
     ![Screenshot shows Account Details with a value for Authorization.](./media/isams-tutorial/account-details.png)
 
