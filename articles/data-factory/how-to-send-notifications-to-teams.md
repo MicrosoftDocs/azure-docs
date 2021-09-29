@@ -5,6 +5,7 @@ description: Learn about how to send notifications to a Microsoft Teams channel 
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
+ms.custom: synapse
 ms.topic: how-to
 ms.subservice: tutorials
 ms.date: 09/29/2021
