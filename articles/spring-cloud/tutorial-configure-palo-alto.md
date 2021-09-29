@@ -27,6 +27,7 @@ You should keep configuration information, such as rules and address wildcards, 
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* A [reference architecture](/azure/spring-cloud/reference-architecture) deployment. For more information, see [Quickstart: Provision Azure Spring Cloud using an ARM template](/azure/spring-cloud/quickstart-deploy-infrastructure-vnet). You can also provision using [Azure CLI](/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-azure-cli), [Terraform](/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-azure-terraform), or [Bicep](/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-azure-bicep).
 * A Palo Alto deployment. If you don't have a deployment, you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2).
 * [PowerShell](/powershell/scripting/install/installing-powershell)
 * [Azure CLI](/cli/azure/install-azure-cli)
