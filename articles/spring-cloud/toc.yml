@@ -184,6 +184,8 @@
   items:
     - name: Reference architecture
       href: reference-architecture.md
+    - name: Use Palo Alto with the reference architecture
+      href: tutorial-configure-palo-alto.md
 - name: DevOps deployment
   items:
   - name: CI/CD with Azure DevOps

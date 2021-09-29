@@ -1,15 +1,17 @@
 ---
-title: How to configure Palo Alto for Azure Spring Cloud
+title: Tutorial - Configure Palo Alto for Azure Spring Cloud
 description: How to configure Palo Alto for Azure Spring Cloud
 author: karlerickson
 ms.author: vaangadi
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: spring-cloud
 ms.date: 09/17/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# How to configure Palo Alto for Azure Spring Cloud
+# Tutorial: Configure Palo Alto for Azure Spring Cloud
+
+**This article applies to:** ✔️ Java ✔️ C#
 
 This article describes how to use the [Reference Architecture for Azure Spring Cloud](/azure/spring-cloud/reference-architecture) with a Palo Alto firewall. The reference architecture includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead.
 
@@ -415,6 +417,8 @@ az network route-table route create `
     --next-hop-ip-address ${PaloAltoIpAddress} `
     --verbose
 ```
+
+Your configuration is now complete.
 
 ## Next steps
 
