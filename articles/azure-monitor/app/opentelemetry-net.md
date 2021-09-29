@@ -105,7 +105,7 @@ Run your application and open your Application Insights Resource.
 > If you have two or more micro-services using the same connection string, you are required to set cloud role names to represent them properly on the Application Map.
 
 ## Set Cloud Role Name and Cloud Role Instance
-You may set Cloud Role Name and Cloud Role Instance by setting [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. This updates Cloud Role Name and Cloud Role Instance from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node. Cloud Role Name will be set to `service.namespace` and `service.name` attributes combined using `.` separator. By default the Cloud Role Name will be initialized by `service.name` if `service.namespace` attribute is not set. Cloud Role Instance will be set to `service.instance.id` attribute value.
+You may set [Cloud Role Name](app-map.md#understanding-cloud-role-name-within-the-context-of-the-application-map) and Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. This updates Cloud Role Name and Cloud Role Instance from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node. Cloud Role Name uses `service.namespace` and `service.name` attributes (combined using `.` separator), though it falls back to `service.name` if `service.namespace` is not set. Cloud Role Instance uses the `service.instance.id` attribute value.
 
 ```csharp
 var resourceAttributes = new Dictionary<string, object> {
