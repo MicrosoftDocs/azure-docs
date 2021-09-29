@@ -11,7 +11,7 @@ ms.author: mmcc
 
 Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. Customers are asking for vender-neutral instrumentation, and we're delighted to partner with the OpenTelemetry community to create consistent APIs/SDKs across languages.
 
-Microsoft played a key role in brokering an agreement between [OpenCensus](https://opencensus.io/) and [OpenTracing](https://opentracing.io/), two previously popular open-source telemetry projects to create OpenTelemetry. OpenTelemetry includes contributions from all major cloud and APM vendors and is housed by the Cloud Native Computing Foundation (CNCF) of which Microsoft is a Platinum Member.
+Microsoft played a key role in brokering an agreement between [OpenCensus](https://opencensus.io/) and [OpenTracing](https://opentracing.io/), two previously popular open-source telemetry projects to create OpenTelemetry. OpenTelemetry includes contributions from all major cloud and APM vendors and is housed by the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) of which Microsoft is a Platinum Member.
 
 ## Concepts
 
