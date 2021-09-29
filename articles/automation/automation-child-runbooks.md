@@ -24,7 +24,7 @@ There are two ways to call a child runbook: inline or through a cmdlet. The foll
 | **Automation Account** |The parent runbook can use only a child runbook in the same Automation account. |Parent runbooks can use a child runbook from any Automation account, from the same Azure subscription, and even from a different subscription to which you have a connection. |
 | **Publishing** |A child runbook must be published before the parent runbook is published. |A child runbook is published anytime before the parent runbook is started. |
 
-## Call a child runbook inline
+## Call a child runbook by using inline execution
 
 To call a runbook inline from another runbook, use the name of the runbook and provide values for its parameters, just like you would use an activity or a cmdlet. All runbooks in the same Automation account are available to all others to be used in this way. The parent runbook waits for the child runbook to finish before moving to the next line, and any output returns directly to the parent.
 
