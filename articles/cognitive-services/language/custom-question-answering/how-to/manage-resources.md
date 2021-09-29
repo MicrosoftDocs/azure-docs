@@ -20,7 +20,7 @@ A solid understanding of the following concepts is helpful before creating your 
 
 This procedure creates the Azure resources needed to manage the knowledge base content. After you complete these steps, you'll find the *subscription* keys on the **Keys** page for the resource in the Azure portal.
 
-1.  Sign in to the Azure portal and [create a language](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource. <!--TODO: Change link-->
+1.  Sign in to the Azure portal and [create a language](https://aka.ms/create-language-resource) resource. <!--TODO: Change link-->
 
 1.  Select Custom question answering feature to add to the language resource. Click on **Continue to create your resource**.
 
