@@ -71,7 +71,7 @@ private async getToken(tenantId: string, documentId: string): Promise<string> {
 }
 ```
 
-The example below uses the [axios](https://www.npmjs.com/package/axios) library to make HTTP requests. You can use other libraries or approaches to making an HTTP request.
+The example below uses the [`axios`](https://www.npmjs.com/package/axios) library to make HTTP requests. You can use other libraries or approaches to making an HTTP request.
 
 ```typescript
 private async getTokenFromServer(input: any): Promise<string> {
