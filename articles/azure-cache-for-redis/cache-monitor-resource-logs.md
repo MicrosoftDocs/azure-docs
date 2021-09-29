@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Monitor Azure Cache for Redis data by using diagnostic settings in Azure
 
-Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they are also referred to as "data plane logs". The content of these logs varies by resource type.
+Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs". The content of these logs varies by resource type.
 
 Azure Cache for Redis uses Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes.
 
@@ -25,9 +25,8 @@ You turn on diagnostic setting for Azure Cache for Redis instances and send reso
 
 For more information on diagnostic requirements, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
 
-You'll be charged normal data rates for storage account and event hub usage when you send diagnostic to either destination. You are billed under Azure Monitor, not than Azure Cache for Redis.
-For more pricing information, [Azure Monitor pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-
+You'll be charged normal data rates for storage account and event hub usage when you send diagnostic to either destination. You're billed under Azure Monitor not Azure Cache for Redis.
+For more pricing information, [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Create diagnostics settings via the Azure portal
 
@@ -107,7 +106,7 @@ az monitor diagnostic-settings create
 
 ## Health and Administrative tasks
 
-You might notice IP addresses in the logs that are used by Azure Cache For Redis for internal health monitoring and other administrative tasks. These IP addresses are not counted towards client connections and should be ignored in your analysis.
+You might notice IP addresses in the logs that are used by Azure Cache For Redis for internal health monitoring and other administrative tasks. These IP addresses aren't counted towards client connections and should be ignored in your analysis.
 
 <!-- List of so-called runner IP addresses -->
 
