@@ -3818,7 +3818,7 @@ split('<text>', '<delimiter>')
 | [<*substring1*>,<*substring2*>,...] | Array | An array that contains substrings from the original string, separated by commas |
 ||||
 
-*Example*
+*Example 1*
 
 This example creates an array with substrings from the specified
 string based on the specified character as the delimiter:
@@ -3828,6 +3828,16 @@ split('a_b_c', '_')
 ```
 
 And returns this array as the result: `["a","b","c"]`
+
+*Example 2*
+  
+This example creates an array with a single element when the delimiter is not present in the string:
+
+```
+split('a_b_c', ' ')
+```
+
+And returns this array as the result: `["a_b_c"]`
 
 <a name="startOfDay"></a>
 
