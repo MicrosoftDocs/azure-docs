@@ -167,7 +167,7 @@
         - name: Work with a Hybrid Runbook Worker
           items:
             - name: Deploy extension-based worker
-              href: extension-based-hrw-install.md
+              href: extension-based-hybrid-runbook-worker-install.md
             - name: Deploy agent-based Windows worker
               href: automation-windows-hrw-install.md
             - name: Deploy agent-based Linux worker
@@ -177,7 +177,7 @@
             - name: Use Azure Policy to enforce job execution
               href: enforce-job-execution-hybrid-worker.md
             - name: Troubleshoot extension-based worker issues
-              href: troubleshoot/extension-based-hrw.md
+              href: troubleshoot/extension-based-hybrid-runbook-worker.md
             - name: Troubleshoot agent-based worker issues
               href: troubleshoot/hybrid-runbook-worker.md
         - name: Use source control integration
