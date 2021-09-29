@@ -78,7 +78,7 @@ TODO
 
 ## Prebuilt model: analyze invoice document content
 
- To analyze the content from a given invoice at a URI, use the `StartRecognizeInvoicesFromUriAsync` method. See our prebuilt invoice documentation for a list of [all supported fields](../../concept-invoices.md#key-value-pairs) returned by the service and corresponding types.
+ To analyze the content from a given invoice at a URI, use the `StartRecognizeInvoicesFromUriAsync` method. See our prebuilt invoice documentation for a list of [all supported fields](../../concept-v3-prebuilt.md) returned by the service and corresponding types.
 
 ### Analyze invoices from a URI
 

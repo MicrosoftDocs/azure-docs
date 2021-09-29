@@ -69,7 +69,7 @@ TODO
 
 ## Prebuilt model: analyze invoice document content
 
-To analyze the content from an invoice at a given URL, use the `beginRecognizeInvoicesFromUrl` method. See our prebuilt invoice documentation for a list of [all supported fields](../../concept-invoices.md#key-value-pairs) returned by the service and corresponding types.
+To analyze the content from an invoice at a given URL, use the `beginRecognizeInvoicesFromUrl` method. See our prebuilt invoice documentation for a list of [all supported fields](../../concept-v3-prebuilt.md) returned by the service and corresponding types.
 
 ```java
 // Copyright (c) Microsoft Corporation. All rights reserved.

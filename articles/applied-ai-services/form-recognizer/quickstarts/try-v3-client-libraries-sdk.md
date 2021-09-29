@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: lajanuar
+zone_pivot_groups: programming-languages-set-formre
 ---
 
 # Get started: Form Recognizer client library SDKs v3.0 | Preview

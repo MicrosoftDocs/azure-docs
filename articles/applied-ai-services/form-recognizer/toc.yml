@@ -23,7 +23,7 @@ items:
    - name: "Form Recognizer v3.0 | Preview"
      items:
        - name: "Get started: Form Recognizer Studio (preview)"
-         href: quickstarts/try-form-recognizer-studio.md
+         href: quickstarts/try-v3-form-recognizer-studio.md
        - name: "Get started: REST API (preview)"
          href: quickstarts/try-v3-rest-api.md
        - name: "Get started: client library SDKs (preview)"

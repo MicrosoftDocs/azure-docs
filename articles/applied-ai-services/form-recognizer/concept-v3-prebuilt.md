@@ -1,4 +1,4 @@
----
+ ---
 title: Prebuilt models - Form Recognizer | v3.0 Preview
 titleSuffix: Azure Applied AI Services
 description: Concepts encompassing data extraction using Form Reco prebuilt models (preview).
@@ -38,10 +38,10 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 | --- | :---: |:---:| :---: | :---: |:---: |
 |🆕prebuilt:document  | ✓  |  ✓ | ✓  | ✓  | ✓  |   |
 | prebuilt:layout  | ✓  |   | ✓  | ✓  |   |   |
-| prebuilt:invoice   | ✓ | ✓  | ✓  | ✓ |
-|prebuilt:receipt  | ✓  |   ✓ |   |  |
-| prebuilt:idDocument | ✓  |   ✓  |   |   |
-| prebuilt:businessCard    | ✓  |   ✓ |   |   |
+| prebuilt:invoice   | ✓ | ✓  | ✓  | ✓ |||
+|prebuilt:receipt  | ✓  |   ✓ |   |  |||
+| prebuilt:idDocument | ✓  |   ✓  |   |   |||
+| prebuilt:businessCard    | ✓  |   ✓ |   |   |||
 
 ### Input requirements
 
@@ -51,11 +51,11 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 * The file size must be less than 50 MB.
 * For images (JPEG, PNG, BMP, TIFF), the dimensions must be at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
 * PDF dimensions cannot exceed 17 x 17 inches (Legal or A3 paper sizes).
-* For more guidance, *see*  our [**Overview**](overview#input-requirements) documentation.
+* For more guidance, *see*  our [**Overview**](overview.md#input-requirements) documentation.
 
 ## Prebuilt document model
 
-* The prebuilt document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](overview#train-without-labels).
+* The prebuilt document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](overview.md#train-without-labels).
 
 * The prebuilt document model also supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization.
 

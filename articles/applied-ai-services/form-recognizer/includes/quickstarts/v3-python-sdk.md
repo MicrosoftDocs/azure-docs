@@ -64,7 +64,7 @@ TODO
 
 ### Analyze invoice from a given image
 
-Copy and paste the full code sample below to recognize the content from a give invoice at a URI. You'll use the `begin_recognize_invoices` method. See our prebuilt invoice documentation for a list of [all supported fields](../../concept-invoices.md#key-value-pairs) returned by the service and corresponding types.
+Copy and paste the full code sample below to recognize the content from a give invoice at a URI. You'll use the `begin_recognize_invoices` method. See our prebuilt invoice documentation for a list of [all supported fields](../../concept-v3-prebuilt.md) returned by the service and corresponding types.
 
 ```python
 # coding: utf-8
