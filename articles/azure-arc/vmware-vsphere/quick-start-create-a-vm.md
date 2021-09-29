@@ -50,7 +50,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 1. (Optional) Change the network interfaces configured in the template. For example, you can add network interface (NIC) cards or update existing NICs. You can also change the network to which this NIC will be attached, provided you have appropriate permissions to the network resource.
 
-1. Add tags to the VM resource if necessary.
+1. (Optional) Add tags to the VM resource if necessary.
 
 1. Select **Create** after reviewing all the properties.  It should take a few minutes to provision the VM.
 
