@@ -34,7 +34,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 1. Navigate to your Azure Cache for Redis account. Open the **Diagnostic settings** pane under the **Monitoring section** on the left. Then, select **Add diagnostic setting**.
 
-   :::image type="content" source="media/cache-monitor-resource-logs/cache-monitor-diagnostic-setting.png" alt-text="Select diagnostics":::
+   :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-monitor-diagnostic-setting.png" alt-text="Select diagnostics":::
 
 1. In the **Diagnostic settings** pane, select **ConnectedClientList** from **Category details**.
 
@@ -44,7 +44,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
   
 1. Once you select your **Categories details**, then send your logs to your preferred destination.
 
-    :::image type="content" source="media/cache-monitor-resource-logs/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
+    :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
 ## Create diagnostic setting via REST API
 
