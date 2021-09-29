@@ -117,7 +117,7 @@ From the Azure portal:
 1. Click **Snapshots**. Right-click the snapshot `daily-10-min-past-12am.2021-09-08_0010`.
 2. Click **Restore Files**.
 3. Specify **`/customer1/vm-8976.vmdk`** in File Paths.
-4. Specify **`currentCopy/customer1`** in Destination Path.
+4. Specify **`/currentCopy/customer1`** in Destination Path.
 
 ### SMB volumes 
 
@@ -131,7 +131,6 @@ Directory of N:\~snapshot
 09/08/2021  01:47 PM                 102,400,000 daily-10-min-past-12am.2021-09-08_0010
 09/09/2021  11:00 PM                 106,400,000 daily-10-min-past-12am.2021-09-09_0010
 N:\> cd daily-10-min-past-12am.2021-09-08_0010
-
 N:\> dir
 Directory of N:\~snapshot\daily-10-min-past-12am.2021-09-08_0010
 09/11/2021  12:10 AM    <DIR>          .
@@ -158,8 +157,8 @@ The path `N:\currentCopy\customer1` must be valid in the active file system.
 From the Azure portal: 
 1. Click **Snapshots**. Select the snapshot `daily-10-min-past-12am.2021-09-08_0010`.
 2. Click **Restore Files**.
-3. Specify `/customer1/vm-9981.vmdk` in File Paths.
-4. Specify `/currentCopy/customer1` in Destination Path.
+3. Specify **`/customer1/vm-9981.vmdk`** in File Paths.
+4. Specify **`/currentCopy/customer1`** in Destination Path.
 
 ## Next steps
 
