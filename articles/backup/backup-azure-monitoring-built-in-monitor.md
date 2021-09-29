@@ -54,6 +54,8 @@ The following scenarios are defined by service as alertable scenarios.
 - Backup/Restore failures
 - Backup succeeded with warnings for Microsoft Azure Recovery Services (MARS) agent
 - Stop protection with retain data/Stop protection with delete data
+- Soft-delete functionality disabled for vault
+- Unsupported backup type for database workloads
 
 ### Alerts from the following Azure Backup solutions are shown here
 
