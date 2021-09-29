@@ -87,7 +87,7 @@ sections:
           The change of Azure AD directory will have no impact on MARS Agent backups. 
 
       - question: |
-          What happens if the expected Weekly,Monthly or Yearly backup fails?
+          What happens if the expected Weekly, Monthly, or Yearly backup fails?
         answer: |
           Incase of backup failure, the next successful backup after the expected Weekly, Monthly or Yearly backup is retained as per the retention period for Weekly, Monthly and Yearly recovery points (Long Term Retention (LTR) points) respectively, as per the backup policy. This successful backup could be an adhoc backup or a scheduled backup in case of MARS Agent.
           
