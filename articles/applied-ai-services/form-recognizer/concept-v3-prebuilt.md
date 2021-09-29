@@ -87,9 +87,9 @@ Email | string | Email address. |
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----| 
 | ArrivalDate | date | Date of arrival | yyyy-mm-dd |
-| Currency | currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found |
+| Currency | currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found ||
 | DepartureDate | date | Date of departure | yyyy-mm-dd |
-| Items | array | | | |
+| Items | array | | | 
 | Items.*.Category | string | Item category, e.g. Room, Tax, etc. |  |
 | Items.*.Date | date | Item date | yyyy-mm-dd |
 | Items.*.Description | string | Item description | |

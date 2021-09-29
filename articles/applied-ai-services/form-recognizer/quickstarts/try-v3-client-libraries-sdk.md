@@ -43,6 +43,6 @@ zone_pivot_groups: programming-languages-set-formre
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [REST API quickstart](../includes/quickstarts/v-3-rest-api.md)]
+[!INCLUDE [REST API quickstart](../includes/quickstarts/v3-rest-api.md)]
 
 ::: zone-end

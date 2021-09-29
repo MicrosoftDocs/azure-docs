@@ -56492,7 +56492,7 @@
     {
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/concept-invoices.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-prebuilt.md#prebuilt-invoice-model",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-deploy-add-on.md",
