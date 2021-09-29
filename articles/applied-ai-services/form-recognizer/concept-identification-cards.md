@@ -56,10 +56,9 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 |  DocumentNumber | string | Relevant passport number, driver's license number, etc. | "340020013" |
 |  FirstName | string | Extracted given name and middle initial if applicable | "JENNIFER" |
 |  LastName | string | Extracted surname | "BROOKS" |
-|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard | "USA" |
+|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) | "USA" |
 |  Sex | string | Possible extracted values include "M", "F" and "X" | "F" |
-|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |
+|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each (Passport only) | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  Address | string | Extracted address (Driver's License only) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
 |  Region | string | Extracted region, state, province, etc. (Driver's License only) | "Washington" |
 
@@ -243,11 +242,6 @@ The `readResults` node contains all of the recognized text. Text is organized by
               "#/readResults/0/lines/33/words/4",
               "#/readResults/0/lines/34/words/0"
             ]
-          },
-          "DocumentType": {
-            "type": "string",
-            "text": "passport",
-            "confidence": 0.995
           }
         }
       }
@@ -255,6 +249,24 @@ The `readResults` node contains all of the recognized text. Text is organized by
   }
 }
 ```
+
+## Preview
+In Form Recognizer v3.0 preview, 3 additional fields are supported in US driver's license:
+
+|Name| Type | Description | Text | Value (standardized output) |
+|:-----|:----|:----|:----| :----|
+| Endorsements | string | Additional driving privileges | L | L |
+| Restrictions | string | Driving restrictions | B | B |
+| VehicleClassifications | string | Classification of the vehicle | D | D |
+
+## Analyze ID (v3.0)
+In v3.0 preview, you can analyze ID docuemnts by POST/GET to Azure REST APIs:
+* POST https://{endpoint}/formrecognizer/documentModels/prebuilt-idDocument:analyze?api-version=2021-09-30-preview
+* GET https://{endpoint}/formrecognizer/documentModels/prebuilt-idDocument/analyzeResults/{resultId}
+
+The Analyze Document operation takes an image or PDF of an ID document as the input and extracts the values of interest and text. The call returns a response header field called Operation-Location. The Operation-Location value is a URL that contains the Result ID to be used in the next step. We poll this Get Analyze Result URL to check the status of the analyze operation (recommend no more than once a second). Upon success, status is set to succeeded and analyzeResult is returned in the response body (see Analysis Result). If errors are encountered, status is set to failed and error is returned. See [more details]().
+
+To learn more about the changes in the v3.0 API, see the [migration guide]().
 
 ## Next steps
 
