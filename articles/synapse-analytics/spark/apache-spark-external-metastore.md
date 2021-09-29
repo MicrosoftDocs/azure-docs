@@ -31,21 +31,21 @@ The feature works with both Spark 2.4 and Spark 3.0. The following table shows t
 
 Follow below steps to set up a linked service to the external Hive metastore in Synapse workspace.
 
-1.    Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
+1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
-    :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
+   :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
 
-2.    Choose **Azure SQL Database**, click **Continue**.
+2. Choose **Azure SQL Database**, click **Continue**.
 
-3.    Provide **Name** of the linked service. Record the name of the linked service, this info will be used to configure Spark shortly.
+3. Provide **Name** of the linked service. Record the name of the linked service, this info will be used to configure Spark shortly.
 
-4.    You can either select the Azure SQL Database for the external Hive metastore from Azure subscription list, or enter the info manually.
+4. You can either select the Azure SQL Database for the external Hive metastore from Azure subscription list, or enter the info manually.
 
-5.    Currently we only support SQL authentication as the Authentication type. Provide **User name** and **Password** to set up the connection.
+5. Currently we only support SQL authentication as the Authentication type. Provide **User name** and **Password** to set up the connection.
 
-6.    **Test connection** to verify the username and password.
+6. **Test connection** to verify the username and password.
 
-7.    Click **Create** to create the linked service. 
+7. Click **Create** to create the linked service. 
 
 ### Test connection and get the metastore version in notebook
 Some network security rule settings may block access from Spark pool to the external Hive metastore DB. Before you configure the Spark pool, run below code in any Spark pool notebook to test connection to the external Hive metastore DB. 
@@ -135,15 +135,15 @@ If the underlying data of your Hive catalogs is stored in another ADLS Gen 2 acc
 ### Set up connection to Blob Storage
 If the underlying data of your Hive tables are stored in Azure Blob storage account, set up the connection follow below steps:
 
-1.    Open Synapse Studio, go to **Data > Linked tab > Add** button > **Connect to external data**.
+1. Open Synapse Studio, go to **Data > Linked tab > Add** button > **Connect to external data**.
 
-    :::image type="content" source="./media/use-external-metastore/connect-to-storage-account.png" alt-text="Connect to storage account" border="true":::
+   :::image type="content" source="./media/use-external-metastore/connect-to-storage-account.png" alt-text="Connect to storage account" border="true":::
 
-2.    Choose **Azure Blob Storage** and click **Continue**.
-3.    Provide **Name** of the linked service. Record the name of the linked service, this info will be used in Spark session configuration shortly.
-4.    Select the Azure Blob Storage account. Make sure Authentication method is **Account key**. Currently Spark pool can only access Blob Storage account via account key.
-5.    **Test connection** and click **Create**.
-6.    After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the the Blob Storage account for the Spark session. Learn more about why you need to do this [here](./apache-spark-secure-credentials-with-tokenlibrary.md).
+2. Choose **Azure Blob Storage** and click **Continue**.
+3. Provide **Name** of the linked service. Record the name of the linked service, this info will be used in Spark session configuration shortly.
+4. Select the Azure Blob Storage account. Make sure Authentication method is **Account key**. Currently Spark pool can only access Blob Storage account via account key.
+5. **Test connection** and click **Create**.
+6. After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the the Blob Storage account for the Spark session. Learn more about why you need to do this [here](./apache-spark-secure-credentials-with-tokenlibrary.md).
 
 ```
 %%pyspark
