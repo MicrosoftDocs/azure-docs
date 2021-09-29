@@ -2,7 +2,7 @@
 title: Service Bus queues and topics as event handlers for Azure Event Grid events
 description: Describes how you can use Service Bus queues and topics as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2021
 ---
 
 # Service Bus queues and topics as event handlers for Azure Event Grid events

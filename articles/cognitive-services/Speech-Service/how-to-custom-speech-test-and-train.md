@@ -148,7 +148,9 @@ Additionally, you'll want to account for the following restrictions:
 
 ## Pronunciation data for training
 
-If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. 
+If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. For a list of languages that support custom pronunciation,
+see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
+
 > [!IMPORTANT]
 > It is not recommended to use custom pronunciation files to alter the pronunciation of common words.
 
@@ -161,8 +163,6 @@ Provide pronunciations in a single text file. This includes examples of a spoken
 | IEEE | i triple e |
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
-
-For a list of supported languages, see **Pronunciation** in the **Customizations** column in [the Speeech-to-text table](language-support.md#speech-to-text).
 
 Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small, and should only be a few kilobytes in size.
 

@@ -1,5 +1,5 @@
 ---
-title: Legal holds for immutable blob data 
+title: Legal holds for immutable blob data
 titleSuffix: Azure Storage
 description: A legal hold stores blob data in a Write-Once, Read-Many (WORM) format until it is explicitly cleared. Use a legal hold when the period of time that the data must be kept in a WORM state is unknown.
 services: storage
@@ -49,7 +49,7 @@ A container-level legal hold must be associated with one or more user-defined al
 
 #### Audit logging
 
-Each container with a legal hold in effect provides a policy audit log.  the log contains the user ID, command type, time stamps, and legal hold tags. The audit log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines.
+Each container with a legal hold in effect provides a policy audit log. The log contains the user ID, command type, time stamps, and legal hold tags. The audit log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines.
 
 The [Azure Activity log](../../azure-monitor/essentials/platform-logs-overview.md) provides a more comprehensive log of all management service activities. [Azure resource logs](../../azure-monitor/essentials/platform-logs-overview.md) retain information about data operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
