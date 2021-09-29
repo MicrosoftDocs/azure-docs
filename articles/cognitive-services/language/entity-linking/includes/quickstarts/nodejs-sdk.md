@@ -42,7 +42,7 @@ npm init
 
 ### Install the client library
 
-Install the `@azure/ai-tbd` NPM packages:
+Install the NPM package:
 
 ```console
 npm install @azure/ai-text-analytics@5.2.0-beta.1

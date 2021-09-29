@@ -40,7 +40,7 @@ npm init
 
 ### Install the client library
 
-Install the `@azure/ai-text-analytics@5.2.0-beta.1` NPM packages:
+Install the NPM package:
 
 ```console
 nnpm install @azure/ai-text-analytics@5.2.0-beta.1

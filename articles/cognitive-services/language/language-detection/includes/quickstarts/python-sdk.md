@@ -26,7 +26,7 @@ ms.author: aahi
 After installing Python, you can install the client library with:
 
 ```console
-pip install azure-ai-tbd==1.0.0
+pip install azure-ai-textanalytics==5.2.0b1
 ```
 
 ## Code example
