@@ -268,7 +268,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 ---
 ### Enable or modify sharing on an existing disk
 
-To enable sharing on an existing disk, or to change the maximum number of mounts, use PowerShell to modify the `maxShares` parameter.
+To enable sharing on an existing disk, or to change the maximum number of mounts, modify the `maxShares` parameter.
 
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
