@@ -193,6 +193,6 @@ Placeholder
 ## Next Steps
 - [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter)
 - [Azure Monitor Exporter NPM Package](https://www.npmjs.com/package/@azure/monitor-opentelemetry-exporter)
-- [Azure Monitor Sample Application](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples/v1/javascript)
+- [Azure Monitor Example Application](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter/samples/v1/javascript)
 - [OpenTelemetry Javascript GitHub Repository](https://github.com/open-telemetry/opentelemetry-js)
 - [Enable web/browser user monitoring](javascript.md)
