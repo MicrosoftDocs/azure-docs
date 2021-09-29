@@ -327,6 +327,6 @@ for detailed troubleshooting steps.
 ## Next Steps
 - [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter)
 - [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/)
-- [Azure Monitor Sample Application]()
+- [Azure Monitor Example Application]()
 - [OpenTelemetry .NET GitHub Repository](https://github.com/open-telemetry/opentelemetry-dotnet)
 - [Enable web/browser user monitoring](javascript.md)

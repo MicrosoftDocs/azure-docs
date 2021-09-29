@@ -190,6 +190,6 @@ Placeholder
 ## Next Steps
 - [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md)
 - [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/)
-- [Azure Monitor Sample Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)
+- [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)
 - [OpenTelemetry Python GitHub Repository](https://github.com/open-telemetry/opentelemetry-python)
 - [Enable web/browser user monitoring](javascript.md)
