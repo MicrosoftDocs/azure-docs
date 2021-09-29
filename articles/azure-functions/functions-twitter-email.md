@@ -214,7 +214,7 @@ Create a connection to Twitter so your app can poll for new tweets.
 
 1. Select **Sign in**.
 
-1. Follow the prompts in the popup window to complete signing in to Twitter.
+1. Follow the prompts in the pop-up window to complete signing in to Twitter.
 
 1. Next, enter the following values in the _When a new tweet is posted_ box.
 
@@ -305,7 +305,7 @@ The _Detect Sentiment_ box should look like the following screenshot.
 
 1. Select the **Sign in** button.
 
-1. Follow the prompts in the popup window to complete signing in to Office 365 Outlook.
+1. Follow the prompts in the pop-up window to complete signing in to Office 365 Outlook.
 
 1. Enter your email address in the _To_ box.
 
