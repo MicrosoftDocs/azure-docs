@@ -131,7 +131,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-csharp"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
 
@@ -143,7 +143,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-nodejs"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
 
@@ -155,7 +155,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-python"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python.git) GitHub repository using the following command:
 
@@ -179,7 +179,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-java"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
 
@@ -403,7 +403,7 @@ To update and run the provisioning sample with your device information:
 
 5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file.  No changes are needed.
 
-6. Build and run the sample code using the following command after replacing the three example parameters (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, and `<primarykey>` with the primary key of your device).
+6. Build and run the sample code using the following command after replacing the three example parameters (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, and `<primarykey>` with the primary key of your device).
 
     ```console
     dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
@@ -468,7 +468,7 @@ To update and run the provisioning sample with your device information:
 
     No further changes are needed.
 
-5. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning Service):
+5. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URL of your Device Provisioning Service):
 
     ```console
     set PROVISIONING_HOST=<provisioning-host>
@@ -538,7 +538,7 @@ To update and run the provisioning sample with your device information:
 
     :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints-host.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
-3. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning Service):
+3. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URL of your Device Provisioning Service):
 
     ```console
     set PROVISIONING_HOST=<provisioning-host>
@@ -630,7 +630,7 @@ To update and run the provisioning sample with your device information:
 
     `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
 
-4. Replace the value of the following variables for your DPS and device enrollment(replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning Service):
+4. Replace the value of the following variables for your DPS and device enrollment(replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URL of your Device Provisioning Service):
 
     ```java
     private static final String SCOPE_ID = "<id-scope>";
