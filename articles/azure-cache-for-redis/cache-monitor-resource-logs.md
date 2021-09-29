@@ -20,10 +20,10 @@ Once configured, the setting logs all of the client connections to your cache by
 
 You turn on diagnostic setting for Azure Cache for Redis instances and send resource logs to the following destinations:
 
-- Event hub - diagnostic settings can't access **Event Hubs** resources when virtual networks are enabled. Enable the Allow trusted Microsoft services to bypass this firewall setting in Event Hub to grant access to your Event Hubs resources.
-- Storage Account - must be in the same region, but can be part of different subscription/resource group.
+- **event hub** - diagnostic settings can't access event gubs resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hubs resources.
+- **storage account** - must be in the same region, but can be part of different subscription/resource group.
 
-For more information on these diagnostic requirements, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
+For more information on diagnostic requirements, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
 
 ## Create diagnostics settings via the Azure portal
 
@@ -36,7 +36,7 @@ For more information on these diagnostic requirements, see [diagnostic settings]
 1. In the **Diagnostic settings** pane, select **ConnectedClientList** from **Category details**.
 
    |Category  | Definition  | Key Properties   |
-   |---------|---------|---------|---------|
+   |---------|---------|---------|
    |ConnectedClientList |  IP addresses and counts of clients connected to the cache, logged at a regular interval. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
   
 1. Once you select your **Categories details**, then send your logs to your preferred destination.
@@ -57,12 +57,10 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
    | Parameters/Headers | Value/Description |
    |---------|---------|
-   | name |The name of your diagnostic setting. |
+   | name | The name of your diagnostic setting. |
    | resourceUri | subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME} |
    | api-version | 2017-05-01-preview |
    | Content-Type | application/json |
-
-<!-- {resourceUri} is something like: subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Cache/Redis/{CACHE_NAME} -->
 
 ### Body
 
@@ -94,7 +92,7 @@ Use the `az monitor diagnostic-settings create` command to create a diagnostic s
 
 az monitor diagnostic-settings create 
     --resource /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/Microsoft.Cache/Redis/myname
-    --name clitest 
+    --name constoso-setting
     --logs '[{"category": "ConnectedClientList","enabled": true,"retentionPolicy": {"enabled": false,"days": 0}}]'    
     --event-hub MyEventHubName 
     --event-hub-rule /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/RootManageSharedAccessKey 
