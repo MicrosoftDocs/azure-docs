@@ -214,9 +214,9 @@ Except for the following two images, AKS images aren't required to run as root:
 - *mcr.microsoft.com/oss/kubernetes/coredns*
 - *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
 
-## Deleted an AKS cluster by mistake, Can i restore/revoer it from any backups?
+## I deleted an AKS cluster by mistake. Can I restore or recover it from any backups?
 
-No , We cannot recover or restore a deleted AKS cluster 
+No, we cannot recover or restore a deleted AKS cluster.
 
 ## What is Azure CNI Transparent Mode vs. Bridge Mode?
 
