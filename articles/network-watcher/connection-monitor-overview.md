@@ -332,7 +332,7 @@ In connection monitors that were created in the Connection Monitor experience, d
 
 Metrics are generated according to monitoring frequency, and they describe aspects of a connection monitor at a particular time. Connection Monitor metrics also have multiple dimensions, such as SourceName, DestinationName, TestConfiguration, and TestGroup. You can use these dimensions to visualize specific data and to target it while defining alerts.
 
-Azure metrics currently allow a minimum granularity of 1 minute, If the frequency is less than 1 minute, aggregated results will be displayed.
+Azure metrics currently allow a minimum granularity of 1 minute. If the frequency is less than 1 minute, aggregated results will be displayed.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor." lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -468,7 +468,7 @@ The same Azure VM can't be used with different configurations in the same connec
 Issues that are displayed on the Connection Monitor dashboard are found during topology discovery or hop exploration. There can be cases where the threshold set for % loss or RTT is breached but no issues are found on hops.
 
 ### When the existing Connection Monitor (Classic) is migrated to the latest Connection Monitor, what happens if the external endpoint tests are migrated with the TCP protocol only? 
-There is no protocol selection option in Connection Monitor (Classic). So a connectivity to external endpoints can't be specified by using the HTTP protocol in Connection Monitor (Classic). All the tests use only a TCP protocol in Connection Monitor (Classic), and that's why, during the migration, we create a TCP configuration in tests in Connection Monitor. 
+There is no protocol selection option in Connection Monitor (Classic). So a connection to external endpoints can't be specified by using the HTTP protocol in Connection Monitor (Classic). All the tests use only a TCP protocol in Connection Monitor (Classic), and that's why, during the migration, we create a TCP configuration in tests in Connection Monitor. 
 
 ## Next steps
 
