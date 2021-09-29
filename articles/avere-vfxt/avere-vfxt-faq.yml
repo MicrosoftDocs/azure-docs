@@ -291,7 +291,7 @@ sections:
         answer: |
           Cool tier blob storage is not usually recommended for an Avere vFXT for Azure core filer. Cool tier offers lower storage costs but higher operations costs. (See [Block blob pricing](<https://azure.microsoft.com/pricing/details/storage/blobs/>) for more details.) If data will be accessed and modified or deleted frequently, please consider using the Hot tier.
           
-          [Access tiers](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
+          [Access tiers](../storage/blobs/access-tiers-overview.md) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
           
       - question: |
           How do I encrypt the blob container?

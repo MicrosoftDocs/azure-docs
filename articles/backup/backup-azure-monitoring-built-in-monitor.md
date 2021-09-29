@@ -54,6 +54,8 @@ The following scenarios are defined by service as alertable scenarios.
 - Backup/Restore failures
 - Backup succeeded with warnings for Microsoft Azure Recovery Services (MARS) agent
 - Stop protection with retain data/Stop protection with delete data
+- Soft-delete functionality disabled for vault
+- Unsupported backup type for database workloads
 
 ### Alerts from the following Azure Backup solutions are shown here
 
@@ -67,7 +69,7 @@ The following scenarios are defined by service as alertable scenarios.
 
 ### Consolidated Alerts
 
-For Azure workload backup solutions such as SQL and SAP HANA, log backups can be generated very frequently (up to every 15 minutes according to the policy). So it's also possible that the log backup failures are also very frequent (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence. So an alert is sent for the first occurrence and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if the alert is inactivated by the user, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
+For Azure workload backup solutions such as SQL and SAP HANA, log backups can be generated very frequently (up to every 15 minutes according to the policy). So it's also possible that the log backup failures are also very frequent (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence. So an alert is sent for the first occurrence and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if the alert is inactivated by the user, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups. On-demand backup jobs are not consolidated.
 
 ### Exceptions when an alert is not raised
 
