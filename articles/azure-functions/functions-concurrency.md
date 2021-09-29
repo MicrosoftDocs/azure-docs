@@ -14,7 +14,7 @@ This article describes the concurrency behaviors of event-driven triggers in Azu
 >[!NOTE]
 >The dynamic concurrency model is currently in preview. Support for dynamic concurrency is limited to specific binding extensions, which are also in preview.  
 
-The hosting model for Functions allows multiple function invocations to run concurrently on a single compute instance. For example, consider a case where you have three different functions in your function app, which is scaled out and running on multiple instances. In this scenario, each function processes invocations on each VM instance on which your function app is running. The function invocations on a single instance sharing the same VM compute resources, such as memory, CPU, and connections. When your app is hosted in a dynamic plan (Consumption or Premium), the platform scales the number of function app instances up or down based on the number of incoming events. To learn more, see [Event Driven Scaling](./Event-Driven-Scaling.md)). When you host your functions in a Dedicated (App Service) plan, you manually configure your instances or [set up and autoscale scheme](dedicated-plan.md#scaling).
+The hosting model for Functions allows multiple function invocations to run concurrently on a single compute instance. For example, consider a case where you have three different functions in your function app, which is scaled out and running on multiple instances. In this scenario, each function processes invocations on each VM instance on which your function app is running. The function invocations on a single instance share the same VM compute resources, such as memory, CPU, and connections. When your app is hosted in a dynamic plan (Consumption or Premium), the platform scales the number of function app instances up or down based on the number of incoming events. To learn more, see [Event Driven Scaling](./Event-Driven-Scaling.md)). When you host your functions in a Dedicated (App Service) plan, you manually configure your instances or [set up an autoscale scheme](dedicated-plan.md#scaling).
 
 Because multiple function invocations can run on each instance concurrently, each function needs to have a way to throttle how many concurrent invocations it's processing at any given time.
 
@@ -24,7 +24,7 @@ Many of the triggers support a host-level static configuration model, which is u
 
 For trigger types that support concurrency configuration, there's a default behavior, which you can choose to override in the host.json file for your function app. These settings, which apply to all running instances, allow you to control the maximum concurrency for your functions on each instance. For example, when your function is CPU or resource-intensive, you may choose to limit concurrency to keep instances healthy. Similarly, when your function is making requests to a downstream service that is being throttled, you should also consider limiting concurrency. 
 
-While concurrency-focused app settings give you control of certain trigger behaviors, it can be difficult to determine the optimal values for these settings. Generally, you have to arrive at acceptable values via a trial and error process of load testing. Even when you determine a set of values that are working for a particular load profile, the number of events arriving from your connected services may change from day to day. This variability means your app often may run with suboptimal values. For example, your function app may process particularly demanding message payloads on the last day of the week, which requires you to throttle concurrency down. However, during the rest of the week the message payloads are simpler, which means you could use a higher concurrency level the rest of the week. 
+While such concurrency configurations give you control of certain trigger behaviors such as throttling your functions, it can be difficult to determine the optimal values for these settings. Generally, you have to arrive at acceptable values via a trial and error process of load testing. Even when you determine a set of values that are working for a particular load profile, the number of events arriving from your connected services may change from day to day. This variability means your app often may run with suboptimal values. For example, your function app may process particularly demanding message payloads on the last day of the week, which requires you to throttle concurrency down. However, during the rest of the week the message payloads are simpler, which means you could use a higher concurrency level the rest of the week. 
 
 Ideally, we want the system to allow instances to process as much work as they can while keeping each instance healthy and latencies low, which is what dynamic concurrency is designed to do.
 
@@ -33,7 +33,7 @@ Ideally, we want the system to allow instances to process as much work as they c
 Functions now provides a dynamic concurrency model that simplifies configuring concurrency for all function apps running in the same plan. 
 
 > [!NOTE]
-> Dynamic concurrency is currently only supported for the Service Bus trigger and requires you to use version 5.x of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension.
+> Dynamic concurrency is currently only supported for the Service Bus trigger and requires you to use [version 5.0.0-beta.6 (or higher)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6) of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension.
 
 ### Benefits
 
@@ -46,7 +46,7 @@ Using dynamic concurrency provides the following benefits:
 
 ### Dynamic concurrency configuration
 
-Dynamic concurrency is enabled at the host level in the host.json file. Any binding extensions that support dynamic concurrency used by your function app adjust concurrency dynamically as needed. Dynamic concurrency settings override any manually configured concurrency settings for triggers that support dynamic concurrency. 
+Dynamic concurrency can be enabled at the host level in the host.json file. When, enabled any binding extensions used by your function app that support dynamic concurrency will adjust concurrency dynamically as needed. Dynamic concurrency settings override any manually configured concurrency settings for triggers that support dynamic concurrency. 
 
 By default, dynamic concurrency is disabled. With dynamic concurrency enabled, concurrency starts at 1 for each function, and is adjusted up to an optimal value, which is determined by the host.
 
@@ -84,7 +84,7 @@ The Service Bus trigger currently supports three execution models. Dynamic concu
 - **Session based single dispatch topic/queue processing**: Each invocation of your function processes a single message. Depending on the number of active sessions for your topic/queue, each instance leases one or more sessions. Messages in each session are processed serially, to guarantee ordering in a session. When not using dynamic concurrency, concurrency is governed by the `MaxConcurrentSessions` setting. With dynamic concurrency enabled, `MaxConcurrentSessions` is ignored and the number of sessions each instance is processing is dynamically adjusted. 
 - **Batch processing**: Each invocation of your function processes a batch of messages, governed by the `MaxMessageCount` setting. Because batch invocations are serial, concurrency for your batch-triggered function is always one and dynamic concurrency doesn't apply. 
 
-To enable your Service Bus trigger to use dynamic concurrency, you must use version 5.x of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension. 
+To enable your Service Bus trigger to use dynamic concurrency, you must use [version 5.0.0-beta.6 (or higher)](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6) of the **Microsoft.Azure.WebJobs.Extensions.ServiceBus** extension. 
 
 ## Next steps
 
