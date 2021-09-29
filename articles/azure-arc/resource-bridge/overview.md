@@ -18,7 +18,7 @@ All management operations are performed from Azure, no local configuration is re
 
 ## Overview
 
-Azure resource bridge (preview) hosts other components such as Custom Locations, cluster extensions, and other Arc agents in order to deliver the level of functionality with the private cloud infrastructures it supports. This complex system is comprised of three layers:
+Azure resource bridge (preview) hosts other components such as Custom Locations, cluster extensions, and other Arc agents in order to deliver the level of functionality with the private cloud infrastructures it supports. This complex system is composed of three layers:
 
 * The base layer that represents the resource bridge and the Arc agents
 * The platform layer that includes the Custom Location and Cluster extension
@@ -26,37 +26,37 @@ Azure resource bridge (preview) hosts other components such as Custom Locations,
 
 :::image type="content" source="media/overview/architecture-overview.png" alt-text="Azure Arc resource bridge architecture diagram." border="false":::
 
-Azure Arc resource bridge (previvew) can host other Azure services or solutions running on-premises. In addition to a number of Arc agents, there are two primary objects hosted on the Arc resource bridge (preview):
+Azure Arc resource bridge (preview) can host other Azure services or solutions running on-premises. For this preview, there are two objects hosted on the Arc resource bridge (preview):
 
-* Cluster extension: This is the Azure service deployed to run on-premises. For the preview release, it supports two services:
+* Cluster extension: Is the Azure service deployed to run on-premises. For the preview release, it supports two services:
 
    - Azure Arc-enabled VMware
    - Azure Arc-enabled Azure Stack HCI
 
-* Custom Locations: This is a deployment target, where user can create Azure resources. It maps to different resource for different Azure services. For example, for Arc-enabled VMware, the Custom Locations resource maps to an instance of vCenter, and for Arc-enabled Azure Stack HCI, it maps to the HCI cluster instance.
+* Custom Locations: Is a deployment target, where you can create Azure resources. It maps to different resource for different Azure services. For example, for Arc-enabled VMware, the Custom Locations resource maps to an instance of vCenter, and for Arc-enabled Azure Stack HCI, it maps to an HCI cluster instance.
 
 Custom Locations and cluster extension are both Azure resources, they are linked to the Azure Arc resource bridge (preview) resource in Azure Resource Manager. When you create a VM from Azure, you can select the custom location, and that routes that *create action* to the mapped vCenter or Azure Stack HCI cluster.
 
-There are a set of resources unique to the infrastructure. For example, vCenter has a resource pool, network and template resources. You need to specify these resources for VM creation. With Azure Stack HCI, you just need to select the custom location, network and template to create a VM.
+There is a set of resources unique to the infrastructure. For example, vCenter has a resource pool, network, and template resources. During VM creation, these resouces need to be specified. With Azure Stack HCI, you just need to select the custom location, network and template to create a VM.
 
 To summarize, the Azure resources are projections of the resources running in your on-premises private cloud. If the on-premises resource is not healthy, it can impact the health of the related resources. For example, if the Arc resource bridge (preview) has been deleted by accident, all the resources hosted in the Arc resource bridge (preview) are impacted. That is, the Custom Locations and cluster extensions are deleted as a result. The actual VMs are not impacted, as they are running on vCenter, but the management path to those VMs is interrupted. You won't be able to start/stop the VM from Azure. It is not recommended to manage or modify the Arc resource bridge (preview) using any on-premises applications directly.  
 
-Through the Azure Arc resource bridge, you can accomplish the following for each private cloud infrastructure from Azure:
+Through the Azure Arc resource bridge (preview), you can accomplish the following for each private cloud infrastructure from Azure:
 
 * VMware vSphere - By registering resource pools, networks, and VM templates in Azure you can represent a subset of your vCenter resources in Azure to enable self-service. Integration with Azure allows you to not only manage access to your vCenter resources in Azure to maintain a secure environment, but also to perform various operations on the VMware virtual machines that are enabled by Arc-enabled VMware vSphere:
 
-   - Start, stop and restart a virtual machine.
+   - Start, stop, and restart a virtual machine.
    - Control access and add Azure tags.
-   - Add, remove and update network interfaces.
-   - Add, remove and update disks and update VM size (CPU cores and memory).
+   - Add, remove, and update network interfaces.
+   - Add, remove, and update disks and update VM size (CPU cores and memory).
    - Enable guest management.
    - Install extensions.
 
-* Azure Stack HCI - Placeholder for summaized benefits of integrating with HCI.
+* Azure Stack HCI - Placeholder for summarized benefits of integrating with HCI.
 
 ## Prerequisites
 
-[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments. 
+[Azure CLI](/cli/azure/install-azure-cli) is required to deploy the Azure Arc resource bridge on supported private cloud environments.
 
 If you are deploying on VMware, a x64 Python environment is required. The [pip](https://pypi.org/project/pip/) package installer for Python is also required.
 
@@ -88,13 +88,13 @@ The following private cloud environments and their versions are officially suppo
 
 ### vSphere requirements
 
-A vSphere account that can read all inventory, deploy and update VMs to all the resource pools (or clusters), networks and virtual machine templates that you want to use with Azure Arc. The account is also used for ongoing operations of the Arc-enabled VMware vSphere, and deployment of the Arc resource bridge VM.
+A vSphere account that can read all inventory, deploy, and update VMs to all the resource pools (or clusters), networks, and virtual machine templates that you want to use with Azure Arc. The account is also used for ongoing operations of the Arc-enabled VMware vSphere, and deployment of the Arc resource bridge VM.
 
 If you are using the [Azure VMware solution](../../azure-vmware/introduction.md), this account would be the **cloudadmin** account.
 
 ### Required Azure permissions
 
-* To onboard the Arc resource bridge, you are a member of the **Name of role** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
+* To onboard the Arc resource bridge, you are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
 * To read, modify, and delete the resource bridge, you are a member of the **Name of role** role in the resource group.
 
@@ -113,12 +113,8 @@ URLS:
 |`https://*.dp.kubernetesconfiguration.azure.com`|Azure Arc configuration service|
 |`https://*.servicebus.windows.net`|Cluster connect|
 |`https://guestnotificationservice.azure.com` |Guest notification service|
-|`https://*.dp.prod.appliances.azure.com`|Resource bridge (appliance) Dataplane service|
-|`https://ecpacr.azurecr.io` |Resource bridge (appliance) container image download |
-|`.blob.core.windows.net`<br> `*.dl.delivery.mp.microsoft.com`<br> `*.do.dsp.mp.microsoft.com` |Resource bridge (appliance) image download |
-
-## Download appliance
-
-You can download the Azure Arc resource bridge package from the locations listed below.
+|`https://*.dp.prod.appliances.azure.com`|Resource bridge data plane service|
+|`https://ecpacr.azurecr.io` |Resource bridge container image download |
+|`.blob.core.windows.net`<br> `*.dl.delivery.mp.microsoft.com`<br> `*.do.dsp.mp.microsoft.com` |Resource bridge image download |
 
 ## Next steps
