@@ -23,31 +23,30 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 ## How to create a VM in Azure portal
 
-1. From your browser, go to the [Azure portal](https://aka.ms/AzureArcVM). You'll see all the VMs including the Arc VMs.
+1. From your browser, go to the [Azure portal](https://aka.ms/AzureArcVM). You'll see unified browse experience for Azure and Arc virtual machines.
 
-    ![unified browse experience for Azure and arc vms](media/vm-browse.png)
+   :::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the unified browse experience for Azure and Arc virtual machines.":::
 
-1. Click on **+Add**
+1. Select **Add** and then select **Azure Arc machine** from the drop-down.
 
-1. Select **Azure Arc machine** from the drop-down.
+   :::image type="content" source="media/create-azure-arc-virtual-machine-1.png" alt-text="Screenshot showing the Basic tab for creating an Azure Arc virtual machine.":::
 
-1. Select the **Subscription** and **Resource group** where you want to deploy the VM
+1. Select the **Subscription** and **Resource group** where you want to deploy the VM.
 
-1. Provide the **Virtual machine name**
+1. Provide the **Virtual machine name** and then select a **Custom location** that your administrator has shared with you.
 
-1. Select a **Custom location** that your administrator has shared with you.
+   If multiple kinds of VMs are supported, select **VMware** from the **Virtual machine kind** drop-down.
 
-1. If multiple kinds of VMs are supported, select ***VMware***  as the **Virtual machine kind**.
+1. Select the **Resource pool/cluster/host** into which the VM should be deployed.
 
-1. Pick the **Resource pool/cluster/host** into which the VM should be deployed.
+1. Select the **Template** based on which the VM you'll create.
 
-1. Pick the **Template** based on which the VM will be created.
+   >[!TIP]
+   >You can override the template defaults for **CPU Cores** and **Memory**.
 
-1. You can optionally chose to **Override the template defaults** for  **CPU Cores** and **Memory**.
+   If you selected a Windows template, you can also provide a **Username**, **Password** for the **Administrator account**.
 
-1. If you picked a Windows template, you can also provide a **Username**, **Password** for the **Administrator account**.
-
-1. You can optionally change the disks configured in the template. You can add more disks or update existing disks. These disks will be created on the default datastore per the VMWare vCenter storage policies.
+1. You can optionally change the disks configured in the template. You can add more disks or update existing disks. These disks are created on the default datastore per the VMWare vCenter storage policies.
 
 1. You can optionally change the network interfaces configured in the template. You can add Network interface cards or update existing NICs. You can also change the network that this NIC will be attached to provided you have appropriate permissions to the network resource.
 
