@@ -1,7 +1,6 @@
 ---
 title: Best practices for secrets management - Azure Key Vault | Microsoft Docs
 description: Learn about best practices for Azure Key Vault secrets management
-services: key-vault
 author: msmbaldwin
 tags: azure-key-vault
 ms.service: key-vault
@@ -33,7 +32,7 @@ For more information about best practices for key vault, see:
 
 ## Configuration and storing 
 
-It's recommended to store dynamic parts of credentials like client application secrets, passwords, access keys in secret as value. Any related static attributes and identifiers like usernames, AppIds, service urls should be stored as secret tags.
+It's recommended to store dynamic parts of credentials, which are generated during rotation, like client application secrets, passwords, access keys in secret as value. Any related static attributes and identifiers like usernames, AppIds, service urls should be stored as secret tags and copied to new version of a secret during rotation.
 
 For more information about secrets, see:
 - [About Azure Key Vault secrets](about-secrets.md)
@@ -66,10 +65,10 @@ For more information about throttling guidance, see:
 - [Azure Key Vault throttling guidance](../general/overview-throttling.md)
 
 ## Monitoring
-Turn on logging for your Vault to monitor access to your secrets and their lifecycle. You can use [Azure Monitor](https://docs.microsoft.com//azure/azure-monitor/overview) to monitor all secrets activities in all your vaults in one place or [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) to monitor secret lifecycle with easy integration with Logic Apps and Azure Functions.
+Turn on logging for your Vault to monitor access to your secrets and their lifecycle. You can use [Azure Monitor](../../azure-monitor/overview.md) to monitor all secrets activities in all your vaults in one place or [Azure Event Grid](../../event-grid/overview.md) to monitor secret lifecycle with easy integration with Logic Apps and Azure Functions.
 
 For more information, see:
-- [Azure Key Vault as Event Grid source](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
+- [Azure Key Vault as Event Grid source](../../event-grid/event-schema-key-vault.md?tabs=event-grid-event-schema.md)
 - [Azure Key Vault logging](../general/logging.md)
 - [Monitoring and alerting for Azure Key Vault](../general/alert.md)
 

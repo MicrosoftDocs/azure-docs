@@ -61,12 +61,12 @@ For more information, see [Getting started with Azure Monitor Metrics Explorer](
 ## Data structure
 Data that Azure Monitor Metrics collects is stored in a time-series database that's optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
 
-* The time that the value was collected
-* The resource that the value is associated with
-* A namespace that acts like a category for the metric
-* A metric name
-* The value itself
-* [Multiple dimensions](#multi-dimensional-metrics) (up to 10) for some custom metrics
+* The time that the value was collected.
+* The resource that the value is associated with.
+* A namespace that acts like a category for the metric.
+* A metric name.
+* The value itself.
+* [Multiple dimensions](#multi-dimensional-metrics) when they're present. Note that custom metrics are limited to 10 dimensions.
 
 ## Multi-dimensional metrics
 One of the challenges to metric data is that it often has limited information to provide context for collected values. Azure Monitor addresses this challenge with multi-dimensional metrics. 
@@ -103,7 +103,7 @@ This metric can answer questions such as "What was the network throughput for ea
 ### Viewing multi-dimensional performance counter metrics in Metrics Explorer 
 It's not possible to send performance counter metrics that contain an asterisk (\*) to Azure Monitor via the Classic Guest Metrics API. This API can't display metrics that contain an asterisk because it's a multi-dimensional metric, which classic metrics don't support.
 
-To configure and view multi-dimensional performance counter metrics:
+To configure and view multi-dimensional guest OS performance counter metrics by using the Azure Diagnostic extension:
 
 1. Go to the **Diagnostic settings** page for your virtual machine.
 2. Select the **Performance counters** tab. 

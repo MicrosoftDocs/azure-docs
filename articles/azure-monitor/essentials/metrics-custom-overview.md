@@ -88,7 +88,7 @@ When you're publishing a metric value, you can specify only a single dimension v
 Although dimensions are optional, if a metric post defines dimension keys, corresponding dimension values are mandatory.
 
 ### Metric values
-Azure Monitor stores all metrics at one-minute granularity intervals. During a given minute, a metric might need to be sampled several times. An example is CPU utilization. Or a metric might need to be measured for many discrete events, such as sign-in transaction latencies. 
+Azure Monitor stores all metrics at 1-minute granularity intervals. During a given minute, a metric might need to be sampled several times. An example is CPU utilization. Or a metric might need to be measured for many discrete events, such as sign-in transaction latencies. 
 
 To limit the number of raw values that you have to emit and pay for in Azure Monitor, you can locally pre-aggregate and emit the values:
 
@@ -192,7 +192,7 @@ The following table lists supported Azure regions for custom metrics. It also li
 
 ## Latency and storage retention
 
-A newly added metric or a newly added dimension to a metric might take a few minutes to appear. After the data is in the system, it should appear in less than 30 seconds 99 percent of the time. 
+A newly added metric or a newly added dimension to a metric might take up to 3 minutes to appear. After the data is in the system, it should appear in less than 30 seconds 99 percent of the time. 
 
 If you delete a metric or remove a dimension, the change can take a week to a month to be deleted from the system.
 
@@ -201,7 +201,7 @@ Azure Monitor imposes the following usage limits on custom metrics:
 
 |Category|Limit|
 |---|---|
-|Active time series, subscriptions, or regions|50,000|
+|Total active time series in a subscription across all regions you've deployed to|50,000|
 |Dimension keys per metric|10|
 |String length for metric namespaces, metric names, dimension keys, and dimension values|256 characters|
 
