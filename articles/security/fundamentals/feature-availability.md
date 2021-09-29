@@ -306,7 +306,7 @@ The following table displays the current Azure Defender for IoT feature availabi
 | [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
 | [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/how-to-install-software.md#attach-a-clearpass-span-virtual-interface-to-the-virtual-switch) | GA | GA |
 | [CyberArk PSM](../../defender-for-iot/organizations/concept-key-concepts.md#integrations) | GA | GA |
-| Email | GA | GA |
+| [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
 | [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
 | [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
 | [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | Preview | Preview |
