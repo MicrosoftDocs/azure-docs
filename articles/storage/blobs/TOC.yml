@@ -222,7 +222,7 @@ items:
         href: storage-performance-checklist.md
       - name: Latency in Blob storage
         href: storage-blobs-latency.md
-      - name: Premium block blob scenarios 
+      - name: Premium performance tier 
         href: storage-blob-block-blob-premium.md
       - name: Azure Storage reserved capacity
         href: storage-blob-reserved-capacity.md
@@ -746,8 +746,6 @@ items:
       href: data-lake-storage-best-practices.md
     - name: Query acceleration
       href: data-lake-storage-query-acceleration.md
-    - name: Premium tier for Data Lake Storage
-      href: premium-tier-for-data-lake-storage.md
     - name: Architecture
       items:
       - name: Azure Blob File System driver for Hadoop

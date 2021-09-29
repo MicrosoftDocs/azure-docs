@@ -18,8 +18,8 @@ As enterprises deploy performance sensitive cloud-native applications, it's impo
 
 Azure block blob storage offers two different performance tiers:
 
-- **Standard**: optimized for high capacity and high throughput
 - **Premium**: optimized for high transaction rates and single-digit consistent storage latency
+- **Standard**: optimized for high capacity and high throughput
 
 The following considerations apply to the different performance tiers:
 
@@ -33,16 +33,6 @@ The following considerations apply to the different performance tiers:
 <div id="zone-redundant-storage"><sup>1</sup>Zone-redundant storage (ZRS) is available in select regions for premium  block blob storage accounts.</div>
 
 Regarding cost, premium performance provides optimized pricing for applications with high transaction rates to help [lower total storage cost](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) for these workloads.
-
-## Standard performance
-
-Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
-
-- **Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers, making it a perfect use case for both short-term and long-term disaster recovery datasets, secondary backups, and compliance data archiving.
-
-- **Media content**. Images and videos often are accessed frequently when first created and stored, but this content type is used less often as it gets older. Standard performance storage offers suitable tiers for media content needs.
-
-- **Bulk data processing**. These kinds of workloads are suitable for standard storage because they require cost-effective high-throughput storage instead of consistent low latency. Large, raw datasets are staged for processing and eventually migrate to cooler tiers.
 
 ## Premium performance
 
@@ -58,34 +48,17 @@ Premium performance storage is ideal for workloads that require fast and consist
 
 - **Data transformation**. Processes that require constant editing, modification, and conversion of data require instant updates. For accurate data representation, consumers of this data must see these changes reflected immediately.
 
-To learn more about how other partners have benefited from using the premium performance tier for their workloads, see [Premium block blob storage scenarios](storage-blob-block-blob-premium.md).
+For more information, see [Premium performance tier for Azure block blob storage](storage-blob-block-blob-premium.md).
 
-### The cost effectiveness of premium performance
-  
-The premium performance tier has a higher storage cost but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions, the premium performance tier can be cost-effective, especially if the workload is write-heavy.
+## Standard performance
 
-In most cases, workloads executing more than 35 to 40 transactions per second per terabyte (TPS/TB) are good candidates for this performance tier. For example, if your workload executes 500 million read operations and 100 million write operations in a month, then you can calculate the TPS/TB as follows: 
+Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
 
-- Write transactions per second = 100,000,000 / (30 x 24 x 60 x 60) = **39** (_rounded to the nearest whole number_) 
+- **Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers, making it a perfect use case for both short-term and long-term disaster recovery datasets, secondary backups, and compliance data archiving.
 
-- Read transactions per second = 500,000,000 / (30 x 24 x 60 x 60) = **193** (_rounded to the nearest whole number_)
+- **Media content**. Images and videos often are accessed frequently when first created and stored, but this content type is used less often as it gets older. Standard performance storage offers suitable tiers for media content needs.
 
-- Total transactions per second = **193** + **39** = **232** 
-
-- Assuming your account had **5TB** data on average, then TPS/TB would be **230 / 5** = **46**. 
-
-> [!NOTE]
-> Prices differ per operation and per region. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to compare pricing between standard and premium performance tiers. 
-
-The following table demonstrates the cost-effectiveness of the premium performance tier. This table is based on an account a Azure Data Lake Storage Gen2 enabled storage account (an account that has a hierarchical namespace). Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
-
-For example, assuming that your account is in the East US 2 region, the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, the premium performance tier is more cost-effective.
-
-> [!div class="mx-imgBorder"]
-> ![Performance table](./media/storage-blob-performance-tiers/premium-performance-data-lake-storage-cost-analysis-table.png)
-
-> [!NOTE]
-> If you prefer to evaluate cost effectiveness based on the number of transactions per second for each TB of data, you can use the column headings that appear at the bottom of the table.
+- **Bulk data processing**. These kinds of workloads are suitable for standard storage because they require cost-effective high-throughput storage instead of consistent low latency. Large, raw datasets are staged for processing and eventually migrate to cooler tiers.
 
 ## Migrate from standard to premium
 
