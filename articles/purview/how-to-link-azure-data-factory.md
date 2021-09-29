@@ -67,7 +67,7 @@ Data factory's managed identity is used to authenticate lineage push operations 
 
 - For Purview account created **on or after August 18, 2021**, grant the data factory's managed identity **Data Curator** role on Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator**](../role-based-access-control/built-in-roles.md#purview-data-curator) role on Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
+- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator (Legacy)**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) role on Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
 
 ### Remove data factory connections
 
