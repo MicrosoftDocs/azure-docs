@@ -31,7 +31,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files cross-region replication | Public preview | [Limited](cross-region-replication-introduction.md#supported-region-pairs) |
+| Azure NetApp Files cross-region replication | GA | [Limited](cross-region-replication-introduction.md#supported-region-pairs) |
 | Azure NetApp Files backup | Public preview | No |
 
 ## Portal access
