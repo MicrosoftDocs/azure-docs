@@ -23,10 +23,10 @@ ms.custom: include file
 
 <br />
 
-| Kubernetes Control Plane Limits    | Limit |  
+| Kubernetes Control Plane tier | Limit |  
 | -------------- | :--------------------------------------------- |
-| Paid tier      | Automatically scales out based on the load                                                                                                                                                                                                        |
-| Free tier      | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls                                                                                                                                                                                                         |
+| Paid tier      | Automatically scales out based on the load     |
+| Free tier      | Limited resources with [inflight requests limit](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) of 50 mutating and 100 read-only calls   |
 
 <!-- LINKS - Internal -->
 

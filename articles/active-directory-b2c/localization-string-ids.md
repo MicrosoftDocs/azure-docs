@@ -507,8 +507,8 @@ The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technic
 
 The following are the IDs for a [one-time password technical profile](one-time-password-technical-profile.md) error messages
 
-| ID | Default value |
-| -- | ------------- |
+| ID | Default value | Description | 
+| -- | ------------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
 | UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
 | UserMessageIfMaxNumberOfCodeGenerated | No | The message to display to the user if the code generation has exceeded the maximum allowed number of attempts. |
