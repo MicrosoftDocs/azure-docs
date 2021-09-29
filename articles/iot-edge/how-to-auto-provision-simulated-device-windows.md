@@ -60,13 +60,8 @@ When you create the individual enrollment, select **True** to declare that the s
 > [!TIP]
 > In the Azure CLI, you can create an [enrollment](/cli/azure/iot/dps/enrollment) or an [enrollment group](/cli/azure/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
 
-Simulated device and individual enrollment guides:
+To learn how to create an individual enrollment, see the [Provision a simulated TPM device quickstart guide](../iot-dps/quick-create-simulated-device-tpm.md).
 
-* [C](../iot-dps/quick-create-simulated-device.md)
-* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
-* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 After creating the individual enrollment, save the value of the **Registration ID**. You use this value when you configure the IoT Edge runtime.
 
