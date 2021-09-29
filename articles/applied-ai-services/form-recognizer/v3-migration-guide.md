@@ -49,7 +49,7 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{result
 * The request payload and call pattern remain unchanged.
 * The Analyze operation specifies the input document and content-specific configurations, it returns the analyze result URL via the Operation-Location header in the response.
 * Poll this Analyze Result URL, via a GET request to check the status of the analyze operation (minimum recommended interval between requests is 1 second).
-* Upon success, status is set to succeeded and [analyzeResult](#changestoanalyzeresult) is returned in the response body. If errors are encountered, status is set to failed and error is returned (see [error handling](#errorhandling).
+* Upon success, status is set to succeeded and [analyzeResult](#changes-to-analyze-result) is returned in the response body. If errors are encountered, status is set to failed and error is returned.
 
 | Model | v2.1 | v3.0 |
 |:--| :--| :--|

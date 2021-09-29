@@ -20,11 +20,11 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**Prebuilt layout**](#layout-api-analyze-form-and-document-content)
+* [**Prebuilt layout**](#analyze-layout)
 
-* [**Prebuilt document**]()
+* [**Prebuilt document**](#analyze-document)
 
-* [**Prebuilt invoice model**](#prebuilt-model-analyze-invoice-document-content)
+* [**Prebuilt invoice model**](#analyze-invoice)
 
 ## Prerequisites
 
@@ -93,7 +93,9 @@ You'll receive a `200 (success)` response with JSON content.
 * The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
 * The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
-## Analyze invoices
+## Analyze document
+
+## Analyze invoice
 
 You can use Form Recognizer to extract field text and semantic values from a given invoice document.  To start analyzing an invoice, use the cURL command below. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md). To start analyzing an invoice, call the **[Analyze Invoice](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)** API using the cURL command below. Before you run the command, make these changes:
 

@@ -20,12 +20,13 @@ ms.author: lajanuar
 
 ## Layout and custom model
 
-See [How to speciy the API version](./#) to use the preview languages. The preview model includes any enhancements to the currently GA languages.
+See [How to specify the API version]() to use the preview languages. The preview model includes any enhancements to the currently GA languages.
 
 ### Handwritten text
-|Language| Language code (optional) | |
+
+|Language| Language code (optional) | version |
 |:-----|:----:|:----:|
-|English|`en`|
+|English|`en`||
 |Chinese Simplified |`zh-Hans`| (preview)
 |French |`fr`| (preview)
 |German |`de`| (preview)
@@ -34,20 +35,21 @@ See [How to speciy the API version](./#) to use the preview languages. The previ
 |Spanish |`es`| (preview)
 
 ### Print text
-|Language| Language code (optional) | |
+
+|Language| Language code (optional) | version |
 |:-----|:----:|:----:|
-|Afrikaans|`af`|
-|Albanian |`sq`|
+|Afrikaans|`af`||
+|Albanian |`sq`||
 |Asturian |`ast`| |
 |Azerbaijani (Latin) | `az` | (preview) |
 |Basque  |`eu`| |
 |Belarusian (Cyrillic) | `be` | (preview) |
 |Belarusian (Latin) | `be` | (preview) |
-|Bislama   |`bi`| | 
+|Bislama   |`bi`| |
 |Bosnian (Latin)   |`bs`|preview) |
 |Breton    |`br`| |
 |Bulgarian |`bg`|(preview) |
-|Buryat (Cyrillic)|`bua`| (preview) | 
+|Buryat (Cyrillic)|`bua`| (preview) |
 |Catalan    |`ca`| |
 |Cebuano    |`ceb`| |
 |Chamorro  |`ch`| |
@@ -63,7 +65,7 @@ See [How to speciy the API version](./#) to use the preview languages. The previ
 |English | `en` | |
 |Erzya (Cyrillic) |`myv`| (preview) |
 |Estonian  |`et`|  |
-|Faroese |`fo`| (preview) | 
+|Faroese |`fo`| (preview) |
 |Fijian |`fj`| |
 |Filipino  |`fil`| |
 |Finnish | `fi` | |
@@ -147,7 +149,7 @@ See [How to speciy the API version](./#) to use the preview languages. The previ
 |Tongan|`to`|(preview) |
 |Turkish | `tr` | |
 |Turkmen (Latin)|`tk`| (preview) |
-|Tuvan|`tyv`| (preview) | 
+|Tuvan|`tyv`| (preview) |
 |Upper Sorbian  | `hsb` | |
 |Uzbek (Cyrillic)  | `uz-cyrl` |  |
 |Uzbek (Latin)     | `uz` |  |

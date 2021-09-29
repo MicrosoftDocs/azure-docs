@@ -23,11 +23,11 @@ items:
    - name: "Form Recognizer v3.0 | Preview"
      items:
        - name: "Get started: Form Recognizer Studio (preview)"
-         href: try-form-recognizer-studio.md
+         href: quickstarts/try-form-recognizer-studio.md
        - name: "Get started: REST API (preview)"
-         href: try-v3-rest-api.md
+         href: quickstarts/try-v3-rest-api.md
        - name: "Get started: client library SDKs (preview)"
-         href: try-v3-client-libraries-sdk.md
+         href: quickstarts/try-v3-client-libraries-sdk.md
 - name: Samples
   items:
   - name: "C#/.NET"
