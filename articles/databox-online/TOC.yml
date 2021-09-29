@@ -215,7 +215,7 @@
         - name: VMs - GPU
           href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md  
         - name: VMs - HPN
-          href: azure-stack-edge-gpu-deploy-gpu-virtual-machine-high-performance-network.md  
+          href: azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md  
         - name: VMs - Azure PowerShell cmdlets
           href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md 
         - name: VMs - Azure PowerShell script
