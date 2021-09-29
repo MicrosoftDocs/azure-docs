@@ -2,7 +2,7 @@
 title: OpenTelemetry Overview | Microsoft Docs
 description: Provides an overview of how to use OpenTelemetry with Azure Monitor
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 09/28/2021
 author: mattmccleary
 ms.author: mmcc
 ---
@@ -48,7 +48,7 @@ A direct exporter sends telemetry in-process (from the application’s code) dir
 
 **All Azure Monitor’s currently supported OpenTelemetry-based offerings use a direct exporter**. 
 
-Alternatively, sending telemetry via an agent will provide a path for any OpenTelemetry supported languguage to send to Azure Monitor via [OTLP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](platforms.md). We plan to support an agent-based approach in the future, though the details and timeline aren't available yet.
+Alternatively, sending telemetry via an agent will provide a path for any OpenTelemetry supported language to send to Azure Monitor via [OTLP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/README.md). This will enable customers to observe applications written in languages beyond our [supported languages](platforms.md). 
 
 > [!NOTE]
 > Some customers have begun to use the [OpenTelemetry-Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative even though Microsoft doesn’t officially support an agent-based approach yet.
@@ -65,6 +65,10 @@ Traces   | Logs
 Channel   | Exporter  
 Codeless / Agent-based   | Auto-Instrumentation
 
-## Next Step
+## Next step
 
 The following pages consist of language-by-language guidance to enable and configure Microsoft’s OpenTelemetry-based offerings. Importantly, we share the available functionality and limitations of each offering so you can determine whether OpenTelemetry is right for your project.
+- [.NET](opentelemetry-net.md) 
+- [Python](opentelemetry-python.md)
+- [JavaScript](opentelemetry-javascript.md)
+- [Java](java-in-process-agent.md)

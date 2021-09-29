@@ -3,12 +3,10 @@ title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 06/24/2021
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
 ---
 
-# Azure Monitor OpenTelemetry-based Auto-Instrumentation for Java Applications
+# Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. When you complete the instructions in this article, you’ll be able to use Azure Monitor Application Insights to monitor your application.
 
@@ -17,7 +15,8 @@ Java auto-instrumentation can be enabled without any code changes, and it works 
 > [!NOTE]
 > For most scenarios, Java 3.X auto-instrumentation is all you need. However, to enable some types of [custom telemetry](#supported-custom-telemetry), you'll also need to add the [Java 2.x SDK](./java-2x-get-started.md).
 
-## Get Started
+## Get started
+
 ### Prerequisites
 - Java Application using version 8+
 - Azure Subscription (Free to [create](https://azure.microsoft.com/free/))
@@ -96,7 +95,7 @@ In the `applicationinsights.json` file, you can additionally configure:
 
 See [configuration options](./java-standalone-config.md) for full details.
 
-## Instrumentation Libraries
+## Instrumentation libraries
 
 Java 3.X includes the following instrumentation libraries.
 
@@ -188,13 +187,14 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 [//]: # "}"
 [//]: # "console.log(str)"
 
-## Modify Telemetry
-### Add Span Attributes
+## Modify telemetry
+
+### Add span attributes
 You may use X to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
 
 For more information, see [GitHub Repo](link).
 
-#### Add Custom Dimension
+#### Add custom dimension
 Adding one or more custom dimensions will populate the _customDimensions_ field in the requests, dependencies, and/or exceptions table.
 
 > [!NOTE]
@@ -220,7 +220,7 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.getProperties().put("mydimension", "myvalue");
 ```
 
-#### Set User ID or Authenticated User ID
+#### Set user ID or authenticated user ID
 Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
 
 > [!TIP]
@@ -262,7 +262,7 @@ Populate the _client_IP_ field in the requests, dependencies, and/or exceptions 
 Placeholder
 ```
 
-### Override Span Name
+### Override span name
 You may use X to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
 > [!NOTE]
@@ -288,7 +288,8 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### Get Trace ID or Span ID
+### Get trace ID or span ID
+
 You may use X or Y to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
 
 > [!NOTE]
@@ -317,7 +318,7 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 String requestId = requestTelemetry.getId();
 String operationId = requestTelemetry.getContext().getOperation().getId();
 ```
-## Custom Telemetry
+## Custom telemetry
 
 Our goal in Application Insights Java 3.x is to allow you to send your custom telemetry using standard APIs.
 
@@ -457,7 +458,7 @@ Placeholder
 ```
 
 > [!NOTE]
-> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
+> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you [open an issue with the OpenTelemetry community](https://github.com/open-telemetry/opentelemetry-java-instrumentation/issues/new/choose) for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Troubleshooting
 See [Troubleshooting](java-standalone-troubleshoot.md).

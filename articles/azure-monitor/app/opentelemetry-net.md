@@ -2,42 +2,46 @@
 title: Azure Monitor OpenTelemetry for .NET | Microsoft Docs
 description: Provides guidance on how to enable Azure Monitor on .NET Applications using OpenTelemetry
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/28/2021
 author: mattmccleary
 ms.author: mmcc
 ---
 
-# Azure Monitor OpenTelemetry Exporter for .NET Applications **(Preview)**
+# Azure Monitor OpenTelemetry Exporter for .NET applications (Preview)
 
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you will be able to send OpenTelemetry traces to Azure Monitor Application Insights.
 
-> [!WARNING]
-> Please consider carefully whether this preview is right for you. It enables distributed tracing only and _excludes_ the following:
-> - Metrics API (custom metrics, [Pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
-> - [Live Metrics](live-stream.md)
-> - Logging API (console logs, logging libraries, etc.)
-> - Auto-capture of unhandled exceptions
-> - [Profiler](profiler-overview.md)
-> - [Snapshot Debugger](snapshot-debugger.md)
-> - Offline disk storage
-> - [AAD Authentication](azure-ad-authentication.md)
-> - Auto-population of RoleName, RoleInstance for Azure environments
-> Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
+## Limitations of preview release
+
+Please consider carefully whether this preview is right for you. It **enables distributed tracing only** and _excludes_ the following:
+ - Metrics API (custom metrics, [Pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
+ - [Live Metrics](live-stream.md)
+ - Logging API (console logs, logging libraries, etc.)
+ - Auto-capture of unhandled exceptions
+ - [Profiler](profiler-overview.md)
+ - [Snapshot Debugger](snapshot-debugger.md)
+ - Offline disk storage
+ - [Azure AD Authentication](azure-ad-authentication.md)
+ - Auto-population of RoleName, RoleInstance for Azure environments
+
+ Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
 > [!WARNING]
-> Enabling sampling will result in broken traces if used alongside the existing Application Insights SDKs, and it will make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
+> Enabling sampling alongside the existing Application Insights SDKs will result in broken traces. It will also make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
 
-## Get Started
+## Get started
+
 ### Prerequisites
 - Application using officially supported version of [.NET
   Core](https://dotnet.microsoft.com/download/dotnet) or [.NET
   Framework](https://dotnet.microsoft.com/download/dotnet-framework) except for
   versions lower than `.NET Framework 4.6.1`.
-- Azure Subscription (Free to [create](https://azure.microsoft.com/free/))
-- Application Insights Resource (Free to [create](create-workspace-resource.md#create-workspace-based-resource))
+- [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
+- [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
 
 ### Enable Azure Monitor Application Insights
-**1. Getting Started**
+
+**1. Getting started**
 
 Create a new console application as follows
 
@@ -85,24 +89,32 @@ public class Program
     }
 }
 ```
+
+> [!NOTE]
+> The above example shows how to collect traces in Azure Monitor using OpenTelemetry in console application. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). For all the application types extension method `AddAzureMonitorTraceExporter` to send data to Application Insights is applicable.
+
+**2. Add connection string**
+
 Replace placeholder `<Your Connection String>` with YOUR connection string from Application Insights resource.
 
-**Note**: The above example shows how to collect traces in Azure Monitor using OpenTelemetry in console application. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to examples [here](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). For all the application types extension method `AddAzureMonitorTraceExporter` to send data to Application Insights is applicable.
+Find the connection string on your Application Insights Resource.
 
-:::image type="content" source="media/opentelemetry-python/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
+:::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
-**2. Confirm Data is Flowing**
+**3. Confirm Data is flowing**
 
 Run your application and open your Application Insights Resource.
 
 > [!NOTE]
 > It may take a few minutes for data to show up in the Portal.
 
-:::image type="content" source="media/opentelemetry-python/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
+:::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
 
 > [!IMPORTANT]
-> If you have two or more micro-services using the same connection string, you are required to set cloud role names to represent them properly on the Application Map.
+> If you have two or more micro-services using the same connection string, you are required to set role names to represent them properly on the Application Map.
+
+## Set role name and role instance
 
 ## Set Cloud Role Name and Cloud Role Instance
 You may set [Cloud Role Name](app-map.md#understanding-cloud-role-name-within-the-context-of-the-application-map) and Cloud Role Instance via [Resource](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/resource/sdk.md#resource-sdk) attributes. This updates Cloud Role Name and Cloud Role Instance from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node. Cloud Role Name uses `service.namespace` and `service.name` attributes (combined using `.` separator), though it falls back to `service.name` if `service.namespace` is not set. Cloud Role Instance uses the `service.instance.id` attribute value.
@@ -130,7 +142,7 @@ Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/ope
 ## Sampling
 Sampling is not supported in preview.
 
-## Instrumentation Libraries
+## Instrumentation libraries
 <!-- Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release. -->
 The following libraries are validated to work with the Preview Release:
 
@@ -153,13 +165,14 @@ The following libraries are validated to work with the Preview Release:
   [1.0.0-rc7](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient/1.0.0-rc7)
 
 > [!NOTE]
-> The **preview** offering only includes instrumentations that handle HTTP and Database requests. In the future, we plan to support other request types. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
+> The **preview** offering only includes instrumentations that handle HTTP and Database requests. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
 
-## Modify Telemetry
+## Modify telemetry
 
-### Add Activity Attributes
+### Add activity attributes
+
 Activity attributes can be added using either of the following two options.
-1. Enrich option provided by the instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#Instrumentation-Libraries) for more details.
+1. Enrich option provided by the instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
 2. Adding your custom processor:
 
 If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
@@ -204,8 +217,9 @@ These attributes may include adding a custom business dimension to your telemetr
 
 For more information, see [GitHub Repo](link).
 
-#### Add Custom Dimension
-Any [attributes](#Add-Activity-Attributes) which are added to activity will be exported as custom dimensions to Application Insights.
+#### Add custom dimension
+
+Any [attributes](#add-activity-attributes) which are added to activity will be exported as custom dimensions to Application Insights.
 
 <!---
 #### Set User ID or Authenticated User ID
@@ -221,74 +235,77 @@ Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependen
 Placeholder
 ```
 --->
-#### Set User IP
+#### Set user IP
 You can populate the client_IP field for requests by setting `http.client_ip` attribute on activity. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
 > [!TIP]
 > Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
 
-### Override Activity Display Name
-You may use Enrich option from [instrumentation libraries](#Instrumentation-Libraries) or custom processor shown [here](#Add-Activity-Attributes) to override Activity display name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
+### Override activity display name
+You may use Enrich option from [instrumentation libraries](#instrumentation-libraries) or [custom processor](#add-activity-attributes) to override Activity display name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
-**Note** : Operation name is only available for requests, Operation for Dependency telemetry is not supported for preview..
+> [!NOTE]
+> Operation name is only available for requests, Operation for Dependency telemetry is not supported for preview.g
 
 <!-- For more information, see [GitHub Repo](link). -->
 
 ### Filter Telemetry
+
 You may use following three ways to filter out telemetry before leaving your application. 
-1. Filter option provided by many instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#Instrumentation-Libraries) for more details.
+1. Filter option provided by many instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
 
 2. Using custom processor:
-
-```csharp
-using var tracerProvider = Sdk.CreateTracerProviderBuilder()
-        .AddSource("OTel.AzureMonitor.Demo")
-        .AddProcessor(new ActivityFilteringProcessor())
-        .AddAzureMonitorTraceExporter(o =>
-        {
-                o.ConnectionString = "<Your Connection String>"
-        })
-        .Build();
-```
-
-Add `ActivityFilteringProcessor.cs` to your project with the code below.
-
-```csharp
-using System.Diagnostics;
-using OpenTelemetry;
-using OpenTelemetry.Trace;
-
-public class ActivityFilteringProcessor : BaseProcessor<Activity>
-{
-    public override void OnStart(Activity activity)
+    
+    ```csharp
+    using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+            .AddSource("OTel.AzureMonitor.Demo")
+            .AddProcessor(new ActivityFilteringProcessor())
+            .AddAzureMonitorTraceExporter(o =>
+            {
+                    o.ConnectionString = "<Your Connection String>"
+            })
+            .Build();
+    ```
+    
+    Add `ActivityFilteringProcessor.cs` to your project with the code below.
+    
+    ```csharp
+    using System.Diagnostics;
+    using OpenTelemetry;
+    using OpenTelemetry.Trace;
+    
+    public class ActivityFilteringProcessor : BaseProcessor<Activity>
     {
-        // prevents all exporters from exporting internal activities
-        if (activity.Kind == ActivityKind.Internal)
+        public override void OnStart(Activity activity)
         {
-            activity.IsAllDataRequested = false;
+            // prevents all exporters from exporting internal activities
+            if (activity.Kind == ActivityKind.Internal)
+            {
+                activity.IsAllDataRequested = false;
+            }
         }
     }
-}
-```
+    ```
 
 3. If a particular source is not explicitly added using `AddSource("ActivitySourceName")`, then none of the activities created using that source will be exported.
-
-For more information, see [GitHub Repo](link).
-<!---
-### Get Trace ID or Span ID
-You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
-
-> [!NOTE]
-> If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
-
-```C#
-Placeholder
-```
-
-For more information, see [GitHub Repo](link).
---->
+    
+    For more information, see [GitHub Repo](link).
+    <!---
+    ### Get Trace ID or Span ID
+    You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
+    
+    > [!NOTE]
+    > If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
+    
+    ```C#
+    Placeholder
+    ```
+    
+    For more information, see [GitHub Repo](link).
+    --->
 
 ## Enable OTLP Exporter
+
 You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
 
 ```csharp
@@ -304,29 +321,35 @@ using var tracerProvider = Sdk.CreateTracerProviderBuilder()
 ```
 
 > [!NOTE]
-> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
+> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you [open an issue with the OpenTelemetry community](https://github.com/open-telemetry/opentelemetry-dotnet/issues/new/choose) for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Troubleshooting
-### Enable Diagnostic Logging
+
+### Enable diagnostic logging
 The Azure Monitor exporter uses EventSource for its own internal logging. The
 exporter logs are available to any EventListener by opting into the source named
 "OpenTelemetry-AzureMonitor-Exporter". Refer to
-[Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting)
+[ OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting)
 for detailed troubleshooting steps.
 
+### Known issues
+Placeholder 
+
 ## Support
-- Review Troubleshooting steps in this article
+- Review troubleshooting steps in this article.
 - For Azure support issues, file an Azure SDK GitHub issue or open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry dotnet community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 
-## OpenTelemetry Feedback
+## OpenTelemetry feedback
+
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
 - Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
 
-## Next Steps
+## Next steps
+
 - [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter)
 - [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/)
 - [Azure Monitor Example Application]()
 - [OpenTelemetry .NET GitHub Repository](https://github.com/open-telemetry/opentelemetry-dotnet)
-- [Enable web/browser user monitoring](javascript.md)
+- [Enable web/browser user monitoring](javascript.md) to enabled usage experiences
