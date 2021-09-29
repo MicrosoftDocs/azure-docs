@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/15/2021
+ms.date: 09/21/2021
 ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
@@ -56,6 +56,22 @@ However, if you’d like all the latest features and updates, the best way to se
  - If you are still using an older version of Windows Server you should use Azure AD Connect V1.6. You can download the latest version of Azure AD Connect V1 using [this link](https://www.microsoft.com/download/details.aspx?id=103336). 
  - We are only applying critical changes to the V1 versions going forward, and you may not find some of the features and fixes for V2 in the V1 releases - so you should upgrade to the V2 version as soon as possible.
 
+## 1.6.14.2
+>[!NOTE] 
+>This is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer at this time. You cannot use this version to update an Azure AD Connect V2.0 server.
+>We will begin auto upgrading eligible tenants when this version is available for download, autoupgrade will take a few weeks to complete.
+
+### Release status
+9/21/2021: Released for download and auto upgrade.
+
+### Functional changes
+ - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
+ - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
+
+### Bug fixes
+ - We fixed a bug where the DesktopSSO settings were not persisted after upgrade from a previous version.
+ - We fixed a bug that caused the Set-ADSync\*Permission cmdlets to fail.
+
 ## 2.0.25.1
 
 >[!NOTE] 
@@ -79,8 +95,8 @@ However, if you’d like all the latest features and updates, the best way to se
  - We created new AAD Kerberos PowerShell cmdlets "\*-AADKerberosServer" to add a Claims Transform rule to the AAD Service Principal.
 
 ### Functional changes
- - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
- - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
+ - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
+ - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
 
 ## 2.0.10.0
 
@@ -445,7 +461,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 - We added the ability to target specific agent from cloud to test for agent connectivity.
 
 ### Fixed issues
-- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the Azure AD Connect user interface. 
+- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login Windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the Azure AD Connect user interface. 
 - A fix was made to enable DSSO simultaneously in all forest through the Azure AD Connect user interface
 
 ## 1.4.32.0

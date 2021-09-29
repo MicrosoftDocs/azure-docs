@@ -4,7 +4,6 @@ description: Learn how to configure Azure Purview metrics, alerts, and diagnosti
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
 ---

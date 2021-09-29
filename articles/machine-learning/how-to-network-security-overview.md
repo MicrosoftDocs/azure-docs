@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/15/2021
+ms.date: 09/24/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
 ---
@@ -48,13 +48,13 @@ The following table compares how services access different parts of an Azure Mac
 |**Public workspace, all other resources in a virtual network** | Public IP | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Public IP | Private IP  |
 |**Secure resources in a virtual network**| Private IP (private endpoint) | Public IP (service endpoint) <br> **- or -** <br> Private IP (private endpoint) | Public IP | Private IP  | 
 
-* **Workspace** - To secure the workspace, create a private endpoint for it. The private endpoint connects the workspace to the vnet through several private IP addresses.
+* **Workspace** - Create a private endpoint for your workspace. The private endpoint connects the workspace to the vnet through several private IP addresses.
     * **Public access** - You can optionally enable public access for a secured workspace.
-* **Associated resource** - Use service endpoints or private endpoints to connect to workspace resources like Azure storage, Azure Key Vault, and Azure Container Services.
+* **Associated resource** - Use service endpoints or private endpoints to connect to workspace resources like Azure storage, Azure Key Vault. For Azure Container Services, use a private endpoint.
     * **Service endpoints** provide the identity of your virtual network to the Azure service. Once you enable service endpoints in your virtual network, you can add a virtual network rule to secure the Azure service resources to your virtual network. Service endpoints use public IP addresses.
     * **Private endpoints** are network interfaces that securely connect you to a service powered by Azure Private Link. Private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet.
 * **Training compute access** - Access training compute targets like Azure Machine Learning Compute Instance and Azure Machine Learning Compute Clusters with public IP addresses. You can restrict communication to just the VNet by using Network Security Group (NSG) rules or a firewall.
-* **Inferencing compute access** - Access Azure Kubernetes Services (AKS) compute clusters with private IP addresses.
+* **Inference compute access** - Access Azure Kubernetes Services (AKS) compute clusters with private IP addresses.
 
 
 The next sections show you how to secure the network scenario described above. To secure your network, you must:
@@ -66,18 +66,37 @@ The next sections show you how to secure the network scenario described above. T
 1. Configure [**firewall settings**](#configure-firewall-settings).
 1. Configure [**DNS name resolution**](#custom-dns).
 
+## Public workspace and secured resources
+
+If you want to access the workspace over the public internet while keeping all the associated resources secured in a virtual network, use the following steps:
+
+1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the resources used by the workspace.
+1. Use __one__ of the following options to create a publicly accessible workspace:
+
+    * Create an Azure Machine Learning workspace that __does not__ use the virtual network. For more information, see [Manage Azure Machine Learning workspaces](how-to-manage-workspace.md).
+    * Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace. Then [enable public access to the workspace](#optional-enable-public-access).
+
+1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
+
+    | Service | Endpoint information | Allow trusted information |
+    | ----- | ----- | ----- |
+    | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
+    | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
+
 ## Secure the workspace and associated resources
 
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
 
+1. Create an [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) that will contain the workspace and other resources.
 1. Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
 1. Add the following services to the virtual network by using _either_ a __service endpoint__ or a __private endpoint__. Also allow trusted Microsoft services to access these services:
-    
+
     | Service | Endpoint information | Allow trusted information |
     | ----- | ----- | ----- |
     | __Azure Key Vault__| [Service endpoint](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Private endpoint](../key-vault/general/private-link-service.md) | [Allow trusted Microsoft services to bypass this firewall](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
-    | __Azure Storage Account__ | [Service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)</br>[Private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints) | [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
-    | __Azure Container Registry__ | [Service endpoint](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)</br>[Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
+    | __Azure Storage Account__ | [Service and private endpoint](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Private endpoint](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Grant access to trusted Azure services](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Azure Container Registry__ | [Private endpoint](../container-registry/container-registry-private-link.md) | [Allow trusted services](../container-registry/allow-access-trusted-services.md) |
 
 
 ![Architecture diagram showing how the workspace and associated resources communicate to each other over service endpoints or private endpoints inside of a VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
