@@ -1482,14 +1482,10 @@
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/sql-azure
-  - name: Known issues
-    items:
-    - name: Azure SQL Database
-      href: database/doc-changes-updates-known-issues.md
-    - name: Azure SQL Managed Instance
-      href: managed-instance/doc-changes-updates-known-issues.md
   - name: Troubleshoot
     items:
+    - name: Known issues with SQL Managed Instance 
+      href: managed-instance/doc-changes-updates-known-issues.md
     - name: Capacity errors during deployment
       href: capacity-errors-troubleshoot.md
     - name: Connectivity errors
