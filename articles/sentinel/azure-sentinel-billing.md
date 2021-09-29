@@ -317,7 +317,7 @@ When hunting or investigating threats in Azure Sentinel, you might need to acces
 
 ### Optimize Log Analytics costs with dedicated clusters
 
-If you ingest at least 1TB/day into your Azure Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 1TB/day or more.
+If you ingest at least 500GB/day into your Azure Sentinel workspace or workspaces in the same region, consider moving to a Log Analytics dedicated cluster to decrease costs. A Log Analytics dedicated cluster Commitment Tier aggregates data volume across workspaces that collectively ingest a total of 500GB/day or more.
 
 Log Analytics dedicated clusters don't apply to Azure Sentinel Commitment Tiers. Azure Sentinel costs still apply per workspace in the dedicated cluster.
 
@@ -325,7 +325,7 @@ You can add multiple Azure Sentinel workspaces to a Log Analytics dedicated clus
 
 - Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](../azure-monitor/logs/cross-workspace-query.md) for inclusion in a single cross-workspace query.
 
-- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 1 TB ingestion per day.
+- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 500GB ingestion per day.
 
 Here are some other considerations for moving to a dedicated cluster for cost optimization:
 
