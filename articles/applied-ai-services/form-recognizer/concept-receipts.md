@@ -89,7 +89,7 @@ The Receipt API also returns the following information:
 |Version| Supported receipt types | Supported locales |
 |:-----|:----|:----|
 | Prebuilt Receipts v2.1 | Sales (thermal) receipt | **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us**|
-| Prebuilt Receipts v3.0 (preview) | Sales (thermal) receipt | **en-au**, **en-ca**, **en-gb** |
+| Prebuilt Receipts v3.0 (preview) | Sales (thermal) receipt | **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us** |
 | Prebuilt Receipts v3.0 (preview) | [Hotel receipt](#preview) | **en-us** |
 
 
