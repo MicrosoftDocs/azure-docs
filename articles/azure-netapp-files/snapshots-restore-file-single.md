@@ -85,7 +85,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     ![Snapshot the Restore Files window.](../media/azure-netapp-files/snapshot-restore-files-window.png)
 
 ## Examples 
-This section shows you how to specify files from a snapshot to restore. 
+The following examples show you how to specify files from a volume snapshot for restore. 
 
 ### NFS volumes (NFSv3/NFSv4.1)   
 
