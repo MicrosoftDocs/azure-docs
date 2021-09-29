@@ -50,7 +50,7 @@ the value of a pair can be a complex object, the value of any given pair can onl
 
 - `SharedMap` -- a basic key-value data structure.
 
-### Key Value Scenarios
+### Key-value scenarios
 
 Key-value data structures are the most common choice for many scenarios.
 
