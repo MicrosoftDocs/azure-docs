@@ -271,17 +271,17 @@ You can disable local authentication by using the Azure portal, Azure Policy, or
 
 ### Azure portal
 
-1.    From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu. Then select **Enabled (click to change)** if the local authentication is enabled. 
+1. From your Application Insights resource, select **Properties** under the *Configure* heading in the left-hand menu. Then select **Enabled (click to change)** if the local authentication is enabled. 
 
-    :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot of Properties under the *Configure* selected and enabled (click to change) local authentication button.":::
+   :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot of Properties under the *Configure* selected and enabled (click to change) local authentication button.":::
 
-1. Select **Disabled** and apply changes. 
+1. Select **Disabled** and apply changes.
 
-    :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Screenshot of local authentication with the enabled/disabled button highlighted.":::
+   :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Screenshot of local authentication with the enabled/disabled button highlighted.":::
 
 1. Once your resource has disabled local authentication, you'll see the corresponding info in the **Overview** pane.
 
-    :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot of overview tab with the disabled(click to change) highlighted.":::
+   :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot of overview tab with the disabled(click to change) highlighted.":::
 
 ### Azure Policy 
 

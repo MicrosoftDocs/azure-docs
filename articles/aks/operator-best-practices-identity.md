@@ -167,14 +167,14 @@ In the following example, a developer creates a pod that uses a managed identity
 > [!NOTE]
 > Pod-managed identities is currently in preview status.
 
-To use Pod-managed identities, see [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity).
+To use Pod-managed identities, see [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](use-azure-ad-pod-identity.md).
 
 ## Next steps
 
 This best practices article focused on authentication and authorization for your cluster and resources. To implement some of these best practices, see the following articles:
 
 * [Integrate Azure Active Directory with AKS][aks-aad]
-* [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)
+* [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](use-azure-ad-pod-identity.md)
 
 For more information about cluster operations in AKS, see the following best practices:
 

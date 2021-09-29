@@ -317,7 +317,7 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status, or set it a
  - Removed Explicit column from CS Search page in the Old Sync UI
  - Additional UI has been added to the Group Writeback flow to prompt the user for credentials or to configure their own permissions using the ADSyncConfig module if credentials have not already been provided in an earlier step.
  - Auto-create MSA for ADSync Service Account on a DC. 
- -     Added ability to set and get Azure Active Directory DirSync feature Group Writeback V2 in the existing cmdlets:
+ - Added ability to set and get Azure Active Directory DirSync feature Group Writeback V2 in the existing cmdlets:
     - Set-ADSyncAADCompanyFeature
     - Get-ADSyncAADCompanyFeature
  - Added 2 cmdlets to read AWS API version
