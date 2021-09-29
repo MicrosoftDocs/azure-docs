@@ -31,21 +31,21 @@ The feature works with both Spark 2.4 and Spark 3.0. The following table shows t
 
 Follow below steps to set up a linked service to the external Hive metastore in Synapse workspace.
 
-1.	Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
+1. Open Synapse Studio, go to **Manage > Linked services** at left, click **New** to create a new linked service.
 
-    :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
+   :::image type="content" source="./media/use-external-metastore/set-up-hive-metastore-linked-service.png" alt-text="Set up Hive Metastore linked service" border="true":::
 
-2.	Choose **Azure SQL Database**, click **Continue**.
+2. Choose **Azure SQL Database**, click **Continue**.
 
-3.	Provide **Name** of the linked service. Record the name of the linked service, this info will be used to configure Spark shortly.
+3. Provide **Name** of the linked service. Record the name of the linked service, this info will be used to configure Spark shortly.
 
-4.	You can either select the Azure SQL Database for the external Hive metastore from Azure subscription list, or enter the info manually.
+4. You can either select the Azure SQL Database for the external Hive metastore from Azure subscription list, or enter the info manually.
 
-5.	Currently we only support SQL authentication as the Authentication type. Provide **User name** and **Password** to set up the connection.
+5. Currently we only support SQL authentication as the Authentication type. Provide **User name** and **Password** to set up the connection.
 
-6.	**Test connection** to verify the username and password.
+6. **Test connection** to verify the username and password.
 
-7.	Click **Create** to create the linked service. 
+7. Click **Create** to create the linked service. 
 
 ### Test connection and get the metastore version in notebook
 Some network security rule settings may block access from Spark pool to the external Hive metastore DB. Before you configure the Spark pool, run below code in any Spark pool notebook to test connection to the external Hive metastore DB. 
@@ -103,7 +103,7 @@ spark.sql.hive.metastore.jars /opt/hive-metastore/lib-2.1/*:/usr/hdp/current/had
 ```
 
 ### Configure a Spark session
-If you don’t want to configure your Spark pool, you can also configure the Spark session in notebook using %%configure magic command. Here is the code. Same configuration can also be applied to a Spark batch job. 
+If you don't want to configure your Spark pool, you can also configure the Spark session in notebook using %%configure magic command. Here is the code. Same configuration can also be applied to a Spark batch job. 
 
 ```
 %%configure -f
@@ -127,7 +127,7 @@ The linked service to Hive metastore database just provides access to Hive catal
 
 ### Set up connection to ADLS Gen 2
 #### Workspace primary storage account
-If the underlying data of your Hive tables is stored in the workspace primary storage account, you don’t need to do extra settings. It will just work as long as you followed storage setting up instructions during workspace creation.
+If the underlying data of your Hive tables is stored in the workspace primary storage account, you don't need to do extra settings. It will just work as long as you followed storage setting up instructions during workspace creation.
 
 #### Other ADLS Gen 2 account
 If the underlying data of your Hive catalogs is stored in another ADLS Gen 2 account, you need to make sure the users who run Spark queries have **Storage Blob Data Contributor** role on the ADLS Gen2 storage account. 
@@ -135,15 +135,15 @@ If the underlying data of your Hive catalogs is stored in another ADLS Gen 2 acc
 ### Set up connection to Blob Storage
 If the underlying data of your Hive tables are stored in Azure Blob storage account, set up the connection follow below steps:
 
-1.	Open Synapse Studio, go to **Data > Linked tab > Add** button > **Connect to external data**.
+1. Open Synapse Studio, go to **Data > Linked tab > Add** button > **Connect to external data**.
 
-    :::image type="content" source="./media/use-external-metastore/connect-to-storage-account.png" alt-text="Connect to storage account" border="true":::
+   :::image type="content" source="./media/use-external-metastore/connect-to-storage-account.png" alt-text="Connect to storage account" border="true":::
 
-2.	Choose **Azure Blob Storage** and click **Continue**.
-3.	Provide **Name** of the linked service. Record the name of the linked service, this info will be used in Spark session configuration shortly.
-4.	Select the Azure Blob Storage account. Make sure Authentication method is **Account key**. Currently Spark pool can only access Blob Storage account via account key.
-5.	**Test connection** and click **Create**.
-6.	After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the the Blob Storage account for the Spark session. Learn more about why you need to do this [here](./apache-spark-secure-credentials-with-tokenlibrary.md).
+2. Choose **Azure Blob Storage** and click **Continue**.
+3. Provide **Name** of the linked service. Record the name of the linked service, this info will be used in Spark session configuration shortly.
+4. Select the Azure Blob Storage account. Make sure Authentication method is **Account key**. Currently Spark pool can only access Blob Storage account via account key.
+5. **Test connection** and click **Create**.
+6. After creating the linked service to Blob Storage account, when you run Spark queries, make sure you run below Spark code in the notebook to get access to the the Blob Storage account for the Spark session. Learn more about why you need to do this [here](./apache-spark-secure-credentials-with-tokenlibrary.md).
 
 ```
 %%pyspark
@@ -161,9 +161,9 @@ After setting up storage connections, you can query the existing tables in the H
 ## Known limitations
 
 - Synapse Studio object explorer will continue to show objects in managed Synapse metastore instead of the external HMS, we are improving the experience of this.
-- [SQL <-> spark synchronization](../sql/develop-storage-files-spark-tables.md) doesn’t work when using external HMS.  
+- [SQL <-> spark synchronization](../sql/develop-storage-files-spark-tables.md) doesn't work when using external HMS.  
 - Only Azure SQL Database is supported as external Hive Metastore database. Only SQL authorization is supported.
-- Currently Spark only works external Hive tables and non-transactional/non-ACID managed Hive tables. It doesn’t support Hive ACID/transactional tables now.
+- Currently Spark only works external Hive tables and non-transactional/non-ACID managed Hive tables. It doesn't support Hive ACID/transactional tables now.
 - Apache Ranger integration is not supported as of now.
 
 ## Troubleshooting
@@ -190,7 +190,7 @@ spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name
 Py4JJavaError : An error occurred while calling o305.load. : Operation failed: "This request is not authorized to perform this operation using this permission.", 403, HEAD
 ```
 
-This could happen because the user who run Spark query doesn’t have enough access to the underlying storage account. Make sure the users who run Spark queries have **Storage Blob Data Contributor** role on the ADLS Gen2 storage account. This step can be done later after creating the linked service.
+This could happen because the user who run Spark query doesn't have enough access to the underlying storage account. Make sure the users who run Spark queries have **Storage Blob Data Contributor** role on the ADLS Gen2 storage account. This step can be done later after creating the linked service.
 
 ### HMS schema related settings 
 To avoid changing HMS backend schema/version, following hive configs are set by system by default: 
@@ -208,10 +208,10 @@ spark.hadoop.hive.metastore.schema.verification false
 spark.hadoop.hive.synapse.externalmetastore.schema.usedefault false
 ```
 
-If you need to migrate your HMS version, we recommend using [hive schema tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). And if the HMS has been used by HDInsight clusters, we suggest using [HDI provided version](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-migrate-workloads). 
+If you need to migrate your HMS version, we recommend using [hive schema tool](https://cwiki.apache.org/confluence/display/Hive/Hive+Schema+Tool). And if the HMS has been used by HDInsight clusters, we suggest using [HDI provided version](../../hdinsight/interactive-query/apache-hive-migrate-workloads.md). 
 
 ### When sharing the metastore with HDInsight 4.0 Spark clusters, I cannot see the tables
 If you want to share the Hive catalog with a spark cluster in HDInsight 4.0, please ensure your property `spark.hadoop.metastore.catalog.default` in Synapse spark aligns with the value in HDInsight spark. The default value is `Spark`.
 
 ### When sharing the Hive metastore with HDInsight 4.0 Hive clusters, I can list the tables successfully, but only get empty result when I query the table
-As mentioned in the limitations, Synapse Spark pool only supports external hive tables and non-transactional/ACID managed tables, it doesn’t support Hive ACID/transactional tables currently. By default in HDInsight 4.0 Hive clusters, all managed tables are created as ACID/transactional tables by default, that’s why you get empty results when querying those tables. 
+As mentioned in the limitations, Synapse Spark pool only supports external hive tables and non-transactional/ACID managed tables, it doesn't support Hive ACID/transactional tables currently. By default in HDInsight 4.0 Hive clusters, all managed tables are created as ACID/transactional tables by default, that's why you get empty results when querying those tables. 
