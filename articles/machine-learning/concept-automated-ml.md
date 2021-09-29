@@ -78,7 +78,7 @@ These settings allow you to review and control your experiment runs and its chil
 |**Get guardrails**| ✓|✓|
 |**Pause & resume runs**| ✓| |
 
-## When to use AutoML: classification, regression, forecasting, and computer vision
+## When to use AutoML: classification, regression, forecasting & computer vision
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
