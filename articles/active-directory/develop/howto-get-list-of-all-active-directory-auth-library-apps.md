@@ -27,7 +27,11 @@ Workbooks are a set of queries that collect and visualize information that is av
 
 ## Step 1: Integrate sign-in logs with Azure Monitor
 
-Follow the steps in the [Integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) and select **SignInLogs** only in the **Diagnostic settings** menu before accessing workbook. Only sign-in events created after Azure Monitor integration will be stored.
+Azure AD doesn't send sign-in events to Azure Monitor by default, which the Sign-ins workbook in Azure Monitor requires.
+
+Configure AD to send sign-in events to Azure Monitor by following the steps in [Integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). In the **Diagnostic settings** configuration step, select the **SignInLogs** check box.
+
+No sign-in event that occurred *before* you configure Azure AD to send the events to Azure Monitor will appear in the Sign-ins workbook.
 
 ## Step 2: Access sign-ins workbook in Azure portal
 
