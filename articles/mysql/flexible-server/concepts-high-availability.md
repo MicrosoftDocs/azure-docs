@@ -102,8 +102,8 @@ Here are some considerations to keep in mind when you use high availability:
 * Zone-redundant high availability can be set only when the flexible server is created.
 * High availability isn't supported in the burstable compute tier.
 * Restarting the primary database server to pick up static parameter changes also restarts the standby replica.
-* Read replicas aren't supported for zone-redundant HA servers.
-* Data-in Replication isn't supported for HA servers. 
+* Read replicas aren't supported for HA servers.
+* Data-in Replication isn't supported for HA servers.
 * GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [restrictions or limitations on replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
  
 ## Frequently asked questions (FAQ)
