@@ -177,7 +177,7 @@ Here are some queries that you can enter into the **Log search** search bar to h
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/platform/alerts-metric-overview.md), [logs](../../azure-monitor/platform/alerts-unified-log.md), and the [activity log](../../azure-monitor/platform/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
 
-If you are creating or running an application which run on Azure Key Vault, [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights.md) may offer additional types of alerts.
+If you are creating or running an application which run on Azure Key Vault, [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
 
 Here are some common and recommended alert rules for Azure Key Vault.
 
