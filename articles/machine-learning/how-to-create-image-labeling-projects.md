@@ -83,7 +83,7 @@ To directly upload your data:
 1. **Dataset type** is set to file, only file dataset types are supported for images.
 1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
-1. (Optional) Select or create a datastore. Or keep the default upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 1. Select **Browse** to select the local files or folder(s) to upload.
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.

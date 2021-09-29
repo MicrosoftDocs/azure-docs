@@ -37,7 +37,7 @@ Azure Machine Learning data labeling is a central place to create, manage, and m
 Text data can be either ".txt" or ".csv" files.
 
 * For ".txt" files, each file represents one item to be labeled.
-* For ".csv" files, each row represents one item presented to the labeler.  You can display one or more columns to use whgen labeling that row.
+* For ".csv" files, each row represents one item presented to the labeler.  You can display one or more columns to use when labeling that row.
 
 ## Prerequisites
 
@@ -94,7 +94,7 @@ To directly upload your data:
     * Select **File** if you are using separate .txt files for each response.
 1. (Optional) Provide a description of your dataset.
 1. Select **Next**
-1. (Optional) Select or create a datastore. Or keep the default upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 1. Select **Upload** to select the local file(s) or folder(s) to upload.
 1. Select **Next**.
 1. If uploading .csv files:
