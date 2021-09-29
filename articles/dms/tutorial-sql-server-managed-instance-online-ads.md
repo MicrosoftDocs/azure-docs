@@ -86,7 +86,6 @@ To complete this tutorial, you need to:
 1. On the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-online-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
 1. In the first step of the migration wizard, link your existing or new Azure account to Azure Data Studio.
-    :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/step-1-add-azure-account.png" alt-text="Link Azure Account"::: 
 
 ## Run database assessment and select target
 1. Select the database(s) to run assessment and select **Next**.
