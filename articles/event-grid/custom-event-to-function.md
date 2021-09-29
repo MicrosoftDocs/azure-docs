@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Send custom events to Azure Function - Event Grid'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI or portal to publish a topic, and subscribe to that event. An Azure Function is used for the endpoint.' 
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 ---
 
