@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/14/2021
 ---
 
-# Create and manage integration accounts for B2B workflows in Azure Logic Apps using the Enterprise Integration Pack
+# Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
 
 Before you can build business-to-business (B2B) and enterprise integration workflows using Azure Logic Apps, you need to create an *integration account* resource. This account is a scalable cloud-based container in Azure that simplifies how you store and manage B2B artifacts that you define and use in your workflows for B2B scenarios. Such artifacts include [trading partners](logic-apps-enterprise-integration-partners.md), [agreements](logic-apps-enterprise-integration-agreements.md), [maps](logic-apps-enterprise-integration-maps.md), [schemas](logic-apps-enterprise-integration-schemas.md), [certificates](logic-apps-enterprise-integration-certificates.md), and so on. You also need to have an integration account to electronically exchange B2B messages with other organizations. When other organizations use protocols and message formats different from your organization, you have to convert these formats so your organization's system can process those messages. Supported industry-standard protocols include [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
