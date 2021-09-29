@@ -4,11 +4,11 @@ description: This article outlines how to register a Looker source in Azure Purv
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/16/2021
+ms.date: 09/27/2021
 ---
-# Register and Scan Looker(Preview)
+# Register and Scan Looker (Preview)
 
 This article outlines how to register a Looker Server in Purview and set
 up a scan.
@@ -77,7 +77,7 @@ On the Register sources (Looker) screen, do the following:
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, click on Integration runtimes. If it is
+1. In the Management Center, select Integration runtimes. If it is
     not set up, use the steps mentioned
     [here](./manage-integration-runtimes.md)
     to setup a self-hosted integration runtime
@@ -105,7 +105,7 @@ To create and run a new scan, do the following:
     - Provide your Looker API3 key's client ID in the User name field
     - Save your Looker API3 key's client secret in the key vault's secret.
 
-    **Note:** To access client ID and client secret, navigate to Looker -\>Admin -\> Users -\> Click on **Edit** on an user -\> Click on **EditKeys** -\> Use the Client ID and Client Secret or create a new one.
+    **Note:** To access client ID and client secret, navigate to Looker -\>Admin -\> Users -\> Select **Edit** on an user -\> Select **EditKeys** -\> Use the Client ID and Client Secret or create a new one.
     :::image type="content" source="media/register-scan-looker-source/looker-details.png" alt-text="get looker details" border="true":::
     
 
@@ -121,14 +121,14 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="trigger scan" border="true":::
 
-6. Click on **Test connection.**
+6. Select **Test connection.**
 
-7. Click on **Continue**.
+7. Select **Continue**.
 
 8. Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-9. Review your scan and click on **Save and Run**.
+9. Review your scan and select on **Save and Run**.
 
 ## Viewing your scans and scan runs
 

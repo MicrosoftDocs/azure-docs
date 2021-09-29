@@ -1,12 +1,11 @@
 ---
-title: Data lineage in Azure Purview (preview)
+title: Data lineage in Azure Purview
 description: Describes the concepts for data lineage. 
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 09/27/2021
 ---
 # Data lineage in Azure Purview Data Catalog client
 
@@ -61,4 +60,4 @@ Lineage is a critical feature of the Purview Data Catalog to support quality, tr
 
 * [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
 * [Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell.md)
-* [Quickstart: Use Purview Studio](use-purview-studio.md)
+* [Use the Purview Studio](use-purview-studio.md)
