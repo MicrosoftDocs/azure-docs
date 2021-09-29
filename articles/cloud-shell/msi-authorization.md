@@ -9,7 +9,7 @@ ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 09/29/2021
 ---
 
 # Acquire a token in Azure Cloud Shell
