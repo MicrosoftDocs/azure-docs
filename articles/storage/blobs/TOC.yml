@@ -129,7 +129,11 @@ items:
   - name: Concepts
     items:
     - name: Storage accounts
-      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      items:
+      - name: Overview
+        href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Performance tiers
+        href: storage-blob-performance-tiers.md
     - name: Authorization
       items:
       - name: Authorizing data operations
@@ -202,14 +206,12 @@ items:
         href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Customer-managed failover for disaster recovery
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Access and performance tiers
+    - name: Blob access tiers and lifecycle management
       items:
-      - name: Access tiers
-        href: storage-blob-storage-tiers.md
-      - name: Rehydrate data from archive tier
+      - name: Overview
+        href: access-tiers-overview.md
+      - name: Blob rehydration from archive tier
         href: archive-rehydrate-overview.md
-      - name: Performance tiers
-        href: storage-blob-performance-tiers.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md
     - name: Object replication
