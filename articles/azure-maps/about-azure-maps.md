@@ -228,7 +228,8 @@ To access Azure Maps services, go to the [Azure portal](https://portal.azure.com
 
 Azure Maps uses a key-based authentication scheme. When you create your account, two keys are generated. To authenticate for Azure Maps services, you can use either key.
 
-Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. The Mobility services, which include integration with Moovit, are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!Note]
+Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. The Mobility services, which include integration with Moovit, are currently in [preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Microsoft is currently in the process of adding TomTom, Moovit, and AccuWeather to the Online Services Subcontractor List.
 
