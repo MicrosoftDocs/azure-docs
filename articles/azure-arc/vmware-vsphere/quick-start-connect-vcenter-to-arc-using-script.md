@@ -72,7 +72,7 @@ A Windows or Linux machine that can access both your vCenter server and internet
  
 ### Windows
 
-1. Open a PowerShell window and navigate to the folder where you want to keep the setup files.
+1. Open PowerShell and navigate to the folder where you want to keep the setup files.
 
 2. Download the script.
 
@@ -97,7 +97,7 @@ A Windows or Linux machine that can access both your vCenter server and internet
 
 Follow the below instructions to run the script on a Linux machine:
 
-1. Open the terminal and navigate to the folder where you want to keep the setup files. 
+1. Open a terminal and navigate to the folder where you want to keep the setup files. 
 
 2. Download the onboarding script.
 

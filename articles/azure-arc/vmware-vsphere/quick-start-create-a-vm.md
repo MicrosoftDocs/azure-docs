@@ -23,7 +23,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 ## How to create a VM in Azure portal
 
-1. Go to [private preview portal](https://aka.ms/AzureArcVM). You'll see the new unified virtual machine browse experience that also includes Arc VMs.
+1. From your browser, go to the [Azure portal](https://aka.ms/AzureArcVM). You'll see all the VMs including the Arc VMs.
 
     ![unified browse experience for Azure and arc vms](media/vm-browse.png)
 
