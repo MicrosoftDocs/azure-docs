@@ -175,6 +175,8 @@
         href: snapshots-edit-hide-path.md
       - name: Restore a snapshot to a new volume
         href: snapshots-restore-new-volume.md
+      - name: Restore individual files using single-file snapshot restore
+        href: snapshots-restore-file-single.md
       - name: Restore a file from a snapshot using a client
         href: snapshots-restore-file-client.md
       - name: Restore a volume using snapshot revert
