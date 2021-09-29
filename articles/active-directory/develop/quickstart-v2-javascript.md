@@ -237,7 +237,7 @@ myMSALObj.loginPopup(loginRequest)
 |---------|---------|
 | `scopes`   | (Optional) Contains scopes that are being requested for user consent at sign-in time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (that is, `api://<Application ID>/access_as_user`). |
 
-Alternatively, you might want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a popup window.
+Alternatively, you might want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a pop-up window.
 
 ### Request tokens
 
@@ -275,7 +275,7 @@ There are situations where you force users to interact with the Microsoft identi
 
 The usual recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
+Calling the `acquireTokenPopup` results in a pop-up window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -293,7 +293,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 ```
 
 > [!NOTE]
-> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods with Microsoft Internet Explorer, because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the handling of popup windows by Internet Explorer.
+> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods with Microsoft Internet Explorer, because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the handling of pop-up windows by Internet Explorer.
 
 ## Next steps
 

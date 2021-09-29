@@ -363,10 +363,6 @@ IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a 
 
 An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device model](#device-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. An IoT Plug and Play device might be implemented directly or as an IoT Edge module. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
 
-### IoT solution accelerators
-
-Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/about-iot-accelerators.md)
-
 ## J
 
 ### Job

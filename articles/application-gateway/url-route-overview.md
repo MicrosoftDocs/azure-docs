@@ -59,7 +59,7 @@ The urlPathMap element is used to specify Path patterns to back-end server pool 
 
 ### PathPattern
 
-PathPattern is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/." The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. Otherwise, any characters allowed in a URL are allowed in PathPattern.
+PathPattern is a list of path patterns to match. Each path must start with / and may use \* as a wildcard character. The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. Otherwise, any characters allowed in a URL are allowed in PathPattern.
 
 The supported patterns depend on whether you deploy Application Gateway v1 or v2:
 
