@@ -69,14 +69,12 @@ The Service Bus queue is to be used for receiving messages designated as critica
    
    Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **Save**. 
 
-<!--
    **Queue Name:** Tne name of the queue from which the message will be sent. Click this dropdown list and select the queue name 
-that was set in the setup steps. (This tutorial uses **contososbqueue**).
+that was set in the setup steps. This tutorial uses **contososbqueue**.
 
    **Queue Type:** The type of queue. Select **Main** from the dropdown list.
 
    Take the defaults for the other fields. Select **Save**.
--->
 
 6. Select **+New Step**. The **Choose an operation** pane is displayed. Select **Office 365 Outlook** and then in the list, find and select **Send an Email (V2)**. Sign in to your Office 365 account.   
 
