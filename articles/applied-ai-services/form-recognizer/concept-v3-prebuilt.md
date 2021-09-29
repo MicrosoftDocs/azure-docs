@@ -36,12 +36,12 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 
 | **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
 | --- | :---: |:---:| :---: | :---: |:---: |
-|🆕prebuilt:document  | ✓  |  ✓ | ✓  | ✓  | ✓  |   |
-| prebuilt:layout  | ✓  |   | ✓  | ✓  |   |   |
-| prebuilt:invoice   | ✓ | ✓  | ✓  | ✓ |||
-|prebuilt:receipt  | ✓  |   ✓ |   |  |||
-| prebuilt:idDocument | ✓  |   ✓  |   |   |||
-| prebuilt:businessCard    | ✓  |   ✓ |   |   |||
+|🆕prebuilt:document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+| prebuilt:layout  | ✓  |   | ✓  | ✓  |   |
+| prebuilt:invoice   | ✓ | ✓  | ✓  | ✓ ||
+|prebuilt:receipt  | ✓  |   ✓ |   |  ||
+| prebuilt:idDocument | ✓  |   ✓  |   |   ||
+| prebuilt:businessCard    | ✓  |   ✓ |   |   ||
 
 ### Input requirements
 
@@ -55,7 +55,7 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 
 ## Prebuilt document model
 
-* The prebuilt document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](overview.md#train-without-labels).
+* The prebuilt document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](concept-custom.md#train-without-labels).
 
 * The prebuilt document model also supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization.
 

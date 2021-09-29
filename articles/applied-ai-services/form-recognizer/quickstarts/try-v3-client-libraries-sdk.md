@@ -40,3 +40,9 @@ zone_pivot_groups: programming-languages-set-formre
 [!INCLUDE [Python SDK quickstart](../includes/quickstarts/v3-python-sdk.md)]
 
 ::: zone-end
+
+::: zone pivot="programming-language-rest-api"
+
+[!INCLUDE [REST API quickstart](../includes/quickstarts/v-3-rest-api.md)]
+
+::: zone-end
