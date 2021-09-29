@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/29/2021
 ---
 
 # Flatten transformation in mapping data flow
@@ -19,6 +19,8 @@ ms.date: 09/09/2021
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Use the flatten transformation to take array values inside hierarchical structures such as JSON and unroll them into individual rows. This process is known as denormalization.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWLX9j]
 
 ## Configuration
 
