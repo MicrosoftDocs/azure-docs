@@ -47,7 +47,7 @@ Certain transformations such as joins and aggregates reshuffle your data partiti
 
 The monitoring display will show how the data is distributed across each partition along with two metrics, skewness and kurtosis. **Skewness** is a measure of how asymmetrical the data is and can have a positive, zero, negative, or undefined value. Negative skew means the left tail is longer than the right. **Kurtosis** is the measure of whether the data is heavy-tailed or light-tailed. High kurtosis values are not desirable. Ideal ranges of skewness lie between -3 and 3 and ranges of kurtosis are less than 10. An easy way to interpret these numbers is looking at the partition chart and seeing if 1 bar is significantly larger than the rest.
 
-If your data is not evenly partitioned after a transformation, you can use the [optimize tab](#optimize-tab) to repartition. Reshuffling data takes time and may not improve your data flow performance.
+If your data is not evenly partitioned after a transformation, you can use the [optimize tab](concepts-data-flow-performance.md#optimize-tab) to repartition. Reshuffling data takes time and may not improve your data flow performance.
 
 > [!TIP]
 > If you repartition your data, but have downstream transformations that reshuffle your data, use hash partitioning on a column used as a join key.
