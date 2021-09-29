@@ -17,7 +17,8 @@ ms.date: 10/06/2021
 
 # Set up AutoML to train computer vision models with Python (preview)
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+> [!IMPORTANT]
+> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see Supplemental Terms of Use for Microsoft Azure Previews.
 
 In this article, you learn how to train computer vision models on image data with automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
@@ -37,7 +38,7 @@ Automated ML supports model training for computer vision tasks like image classi
     * [Install the `automl` package yourself](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
     > [!NOTE]
-    > Only Python 3.7 is compatible with `Automl for images`. 
+    > Only Python 3.7 is compatible with automated ML support for computer vision tasks. 
 
 ## Select your task type
 Automated ML for images supports the following task types:
