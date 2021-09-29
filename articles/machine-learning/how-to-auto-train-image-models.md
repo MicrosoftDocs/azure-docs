@@ -1,5 +1,5 @@
 ---
-title: Set up AutoML for images 
+title: Set up AutoML for computer vision 
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train computer vision models  with the Azure Machine Learning Python SDK (preview).
 services: machine-learning
