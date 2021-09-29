@@ -107,12 +107,12 @@ As you remove a user, keep in mind the following items:
 
 Instead of using the built-in invitations system, you can use a custom function to programmatically assign roles to users when they log in.
 
-The role assignment function is a normal API function in your static web app. It is automatically called after a user successfully authenticates with an identity provider. The function is passed an object containing the user's information from the provider. It must return a list of custom roles that are assigned to the user.
+The role assignment function is an API function in your static web app. It is automatically called after a user successfully authenticates with an identity provider. The function is passed an object containing the user's information from the provider. It must return a list of custom roles that are assigned to the user.
 
 Example uses of the role assignment function include:
 
 - Query a database to determine which roles a user should be assigned
-- Call the Microsoft Graph API to determine a user's roles based on their Active Directory group membership
+- Call the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to determine a user's roles based on their Active Directory group membership
 - Determine a user's roles based on claims returned by the identity provider
 
 > [!NOTE]
@@ -190,7 +190,7 @@ If you do not want to assign additional roles, return an empty `roles` array.
 
 ### Configure a role assignment function
 
-To configure Static Web Apps to use an API function as the role assignment function, add a `rolesSource` to the `auth` section of your app's [configuration file](configuration.md). The value of the `rolesSource` is the path to the API function.
+To configure Static Web Apps to use an API function as the role assignment function, add a `rolesSource` property to the `auth` section of your app's [configuration file](configuration.md). The value of the `rolesSource` is the path to the API function.
 
 ```json
 {
@@ -203,7 +203,7 @@ To configure Static Web Apps to use an API function as the role assignment funct
 }
 ```
 
-Once configured, the role assignment function will no longer be accessible by external HTTP requests.
+Once configured, the role assignment function can no longer be accessed by external HTTP requests.
 
 ---
 
