@@ -16,7 +16,7 @@ Diagnostic settings in Azure are used to collect resource logs. Azure resource L
 
 Azure Cache for Redis uses Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes.
 
-Once configured, the setting logs all of the client connections to your cache by their IP addresses. It also provides a count of how many times connections originated from those specific IP addresses. These log snapshots are taken at 10-second intervals. The count represents point-in-time snapshots, not a cumulative count of connections
+Once configured, the setting logs all of the client connections to your cache by their IP addresses. It also provides a count of how many times connections originated from those specific IP addresses. These log snapshots are taken at 10-second intervals. The count represents point-in-time snapshots, not a cumulative count of connections.
 
 You turn on diagnostic setting for Azure Cache for Redis instances and send resource logs to the following destinations:
 
