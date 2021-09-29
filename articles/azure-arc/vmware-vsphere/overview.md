@@ -22,7 +22,7 @@ Arc-enabled VMware vSphere allows you to:
 
 ## How does it work?
 
-To deliver this experience, you need to deploy the Arc Resource Bridge (a virtual appliance) in your vSphere environment, and it connects your vCenter to Azure. Arc Resource Bridge enables you to represent the VMware resources in Azure and perform various operations on them.
+To deliver this experience, you need to deploy the Arc Resource Bridge (a virtual appliance) in your vSphere environment, and it connects your vCenter to Azure. Arc Resource Bridge enables you to represent the VMware resources in Azure and do various operations on them.
 
 ## Supported VMware vSphere versions
 
@@ -40,7 +40,7 @@ The following scenarios are supported in Azure Arc-enabled VMware vSphere:
 
 - App teams can use Azure portal, CLI, or REST API to manage the lifecycle of on-premises VMs they use for deploying their applications (CRUD, Start/Stop/Restart).
 
-- App teams and administrators can install extensions (LogAnalytics agent, Custom Script extension, DependencyAgent) onto the virtual machines and perform operations supported by the extensions.
+- App teams and administrators can install extensions (LogAnalytics agent, Custom Script extension, DependencyAgent) onto the virtual machines and do operations supported by the extensions.
 
 ## Supported regions
 

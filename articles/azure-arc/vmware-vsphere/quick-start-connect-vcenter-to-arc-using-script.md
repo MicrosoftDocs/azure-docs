@@ -83,13 +83,13 @@ A Windows or Linux machine that can access both your vCenter server and internet
 
 3.  Allow the script to run as an unsigned script. If you close the session before completing all the steps, rerun this for a new session.
 
-    ``` powershell-interactive
+    ```powershell-interactive
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
     ```
 
 3. Execute the script by providing the parameters (refer to the table [above](#run-the-script) to know about the parameters).
 
-     ``` powershell-interactive
+     ```powershell-interactive
      ./arcvmware-setup.ps1 -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
      ```
 
@@ -101,7 +101,7 @@ Follow the below instructions to run the script on a Linux machine:
 
 2. Download the onboarding script.
 
-   ```
+   ```bash
    wget https://arcvmwaredl.blob.core.windows.net/arc-appliance/arcvmware-setup.sh
    ```
 
@@ -119,7 +119,7 @@ Follow the below instructions to run the script on a Linux machine:
 
 4. Execute the script.
 
-    ```sh
+    ```bash
     bash arcvmware-setup.sh 
     ```
 
@@ -148,7 +148,7 @@ Once the command execution completes, you can [try out the capabilities](browse-
 
 If the appliance creation fails and you need to retry it. Run the command with `-Force` would clean up and onboard again. 
 
-``` powershell-interactive
+```powershell-interactive
 ./arcvmware-setup.ps1 -Force -Subscription <Subscription> -ResourceGroup <ResourceGroup> -AzLocation <AzLocation> -ApplianceName <ApplianceName> -CustomLocationName <CustomLocationName> -VcenterName <VcenterName>
 ```
 

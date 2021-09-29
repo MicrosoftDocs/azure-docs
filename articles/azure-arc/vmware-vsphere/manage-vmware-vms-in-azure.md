@@ -1,6 +1,6 @@
 ---
 title: Manage VMware virtual machines Azure Arc
-description: Learn how to view the operations that you can perform on VMware virtual machines and install the Log Analytics agent.
+description: Learn how to view the operations that you can do on VMware virtual machines and install the Log Analytics agent.
 ms.topic: how-to 
 ms.date: 09/28/2021
 
@@ -8,17 +8,17 @@ ms.date: 09/28/2021
 
 # Manage VMware VMs in Azure through Arc enabled VMware vSphere
 
-In this article, you'll install extensions supported in Arc enabled VMware virtual machines (VMs). The extensions can leverage various Azure management services like Azure Policy, Azure Security Center, and Azure Monitor. For more information, such as benefits and capabilities, see [VM extension management with Azure Arc-enabled servers](../servers/manage-vm-extensions.md).
+In this article, you'll install extensions supported in Arc enabled VMware virtual machines (VMs). The extensions can use various Azure management services like Azure Policy, Azure Security Center, and Azure Monitor. 
 
-You can perform various operations on the VMware VMs that are enabled by Azure Arc, such as:
+You can do various operations on the VMware VMs that are enabled by Azure Arc, such as:
 
-- Start, stop and restart a VM
+- Start, stop, and restart a VM
 
 - Control access and add Azure tags
 
-- Add, remove and update network interfaces
+- Add, remove, and update network interfaces
 
-- Add, remove and update disks and update VM size (CPU cores, memory)
+- Add, remove, and update disks and update VM size (CPU cores, memory)
 
 - Enable guest management
 
@@ -27,7 +27,7 @@ You can perform various operations on the VMware VMs that are enabled by Azure A
 
 :::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/manage-virtual-machines.png":::
 
-
+For more information, such as benefits and capabilities, see [VM extension management with Azure Arc-enabled servers](../servers/manage-vm-extensions.md).
 
 ## Supported extensions and management services
 
@@ -84,19 +84,18 @@ Before you can install an extension, you must enable guest management on the VMw
 
 1. Search for and select the VMware VM that you want to install extension.
 
-1. Navigate to the **Extensions** blade and select **Add**.
+1. Navigate to **Extensions** and select **Add**.
 
 1. Select the extension you want to install. Based on the extension, you'll need to provide the details, such as the workspace ID and key for LogAnalytics extension. Then select **Review + create**.
 
-This triggers a deployment and installs the selected extension on the selected VM. 
-
+The deployment starts the installation of the extension on the selected VM.
 
 
 ## Clean up
 
 If you no longer need the VM, you can delete it.
 
-1. From your browser, go to the [private preview portal](https://aka.ms/AzureArcVM)
+1. From your browser, go to the [Azure portal](https://aka.ms/AzureArcVM)
 
 2. Search for and select the VM you want to delete. 
 
