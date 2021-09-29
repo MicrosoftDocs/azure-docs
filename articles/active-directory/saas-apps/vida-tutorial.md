@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Identifier (Entity ID)** text box, type in the following: 
     `urn:amazon:cognito:sp:eu-west-2_IDmTxjGr6`
     
-    In the **Identifier (Entity ID)** text box, type in the following:
+    In the **Reply URL (Assertion Consumer Service URL)** text box, type in the following:
     `https://vitruevida.auth.eu-west-2.amazoncognito.com/saml2/idpresponse`
     
     In the **Sign-on URL** text box, type a URL using the following pattern:
