@@ -48,7 +48,7 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 ## Share diagnostic information with Azure support
 
-When you create a support request, you can select **Yes** or **No** in the **Share diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources that can potentially help resolve your issue.
+When you create a support request, you can select **Yes** or **No** in the **Share diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue.
 
 To change your **Share diagnostic information** selection after the request has been created:
 
