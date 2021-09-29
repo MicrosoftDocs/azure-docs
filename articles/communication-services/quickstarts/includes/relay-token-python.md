@@ -15,7 +15,7 @@ ms.author: rahulva
 > [!NOTE]
 > Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/relay-token-quickstart)
 
-## Prerequisites
+## Prerequisites for Python
 
  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7 or 3.6+.

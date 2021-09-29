@@ -1,7 +1,7 @@
 ---
 title: Conceptual Documentation for  Azure Communication Services - Network Traversal
 titleSuffix: An Azure Communication Services concept document
-description: Learn more about Azure Communication Services SDKs and REST APIs.
+description: Learn more about Azure Communication Services Network Traversal SDKs and REST APIs.
 author: rahulva
 manager: shahen
 services: azure-communication-services
@@ -25,4 +25,4 @@ Azure Communication Service provides high bandwidth, low latency connections bet
 Next Steps:
 
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
-* For an introduction to acquire relay candidates, see [Create and manage access tokens](../quickstarts/relay-tokens.md).
+* For an introduction to acquire relay candidates, see [Create and manage access tokens](../quickstarts/relay-token.md).
