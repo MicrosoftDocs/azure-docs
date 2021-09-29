@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Tutorial: Manually configure Azure Front Door for Azure Static Web Apps
 
-Learn to add Azure Front Door as the CDN for your static web app.
+Learn to add [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app.  Azure Front Door is a scalable and secure entry point for fast delivery of your web applications.
 
 In this tutorial, you learn how to:
 
@@ -146,9 +146,12 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
 With Azure Front Door enabled, your site is no longer available via the generated `*.azurestaticapps.net` URL, but exclusively through the Front Door `*.azurefd.net` URL.
 
+> [!NOTE]
+> When you deploy updates to existing files in your static web app, Azure Front Door may continue to serve older versions of your files until their [time-to-live](https://wikipedia.org/wiki/Time_to_live) expires. [Purge the Azure Front Door cache](../frontdoor/front-door-caching.md#cache-purge) for the affected paths to ensure the latest files are served.
+
 Now that Front Door is managing your site, you no long use the Azure Static Web Apps custom domain feature. Azure Front Door has a separate process for adding a custom domain. Refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor Azure Static Web Apps](monitor.md)
+> [Add an API](apis.md)
