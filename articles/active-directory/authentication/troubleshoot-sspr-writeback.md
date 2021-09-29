@@ -56,7 +56,7 @@ Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -
 Or run the following:
 
 ```powershell
-Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.servicebus.windows.net -Verbose
+Invoke-WebRequest -Uri https://ssprdedicatedsbprodscu.servicebus.windows.net -Verbose
 ```
 
 For more information, see the [connectivity prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
