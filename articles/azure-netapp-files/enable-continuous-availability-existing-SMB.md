@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 09/28/2021
 ms.author: b-juche
 ---
 # Enable Continuous Availability on existing SMB volumes
@@ -22,7 +22,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 
 ## Considerations
 
-* The [**Hide Snapshot Path**](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) option currently does not have any effect for CA-enabled SMB volumes.  
+* The [**Hide Snapshot Path**](snapshots-edit-hide-path.md) option currently does not have any effect for CA-enabled SMB volumes.  
 
 * The `~snapshot` directory (which can be used to traverse in other SMB volumes) is not visible for CA-enabled SMB volumes. You can still manually type `~snapshot\<snapshotName>` to access the snapshot.
 
@@ -33,7 +33,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
 3. On the Edit window that appears, select the **Enable Continuous Availability** checkbox.   
     ![Snapshot that shows the Enable Continuous Availability option.](../media/azure-netapp-files/enable-continuous-availability.png)
 
-4. Reboot the server.   
+4. Reboot the Windows systems connecting to the existing SMB share.   
 
     > [!NOTE]
     > Selecting the **Enable Continuous Availability** option alone does not automatically make the existing SMB sessions continuously available. After selecting the option, be sure to reboot the server for the change to take effect.  
@@ -46,7 +46,7 @@ You can enable the SMB Continuous Availability (CA) feature when you [create a n
  
     You might need to install a newer PowerShell version. 
 
-    If you know the server name, you can use the `-ServerName` parameter with the command. See the [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) powershell command details.
+    If you know the server name, you can use the `-ServerName` parameter with the command. See the [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) PowerShell command details.
 
 ## Next steps  
 
