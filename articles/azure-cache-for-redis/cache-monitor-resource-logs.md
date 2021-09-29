@@ -1,7 +1,7 @@
 ---
-title: Monitor Azure Cache for Redis connections using Azure diagnostic settings
+title: Monitor Azure Cache for Redis data using diagnostic settings
 titleSuffix: Azure Cache for Redis
-description: Learn how to use Azure diagnostic settings to monitor connected ip addresses to your Azure Cache for Redis.
+description: Learn how to use diagnostic settings to monitor connected ip addresses to your Azure Cache for Redis.
 author: curib
 ms.author: cauribeg
 ms.service: cache
@@ -10,7 +10,7 @@ ms.date: 09/30/2021
 ms.custom: template-how-to 
 ---
 
-# Monitor Azure Cache for Redis data by using diagnostic settings in Azure
+# Monitor Azure Cache for Redis data using diagnostic settings
 
 Diagnostic settings in Azure are used to collect resource logs. Azure resource Logs are emitted by a resource and provide rich, frequent data about the operation of that resource. These logs are captured per request and they're also referred to as "data plane logs". The content of these logs varies by resource type.
 
@@ -25,7 +25,7 @@ You turn on diagnostic setting for Azure Cache for Redis instances and send reso
 
 For more information on diagnostic requirements, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
 
-You'll be charged normal data rates for storage account and event hub usage when you send diagnostic to either destination. You're billed under Azure Monitor not Azure Cache for Redis.
+You'll be charged normal data rates for storage account and event hub usage when you send diagnostic logs to either destination. You're billed under Azure Monitor not Azure Cache for Redis.
 For more pricing information, [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Create diagnostics settings via the Azure portal
