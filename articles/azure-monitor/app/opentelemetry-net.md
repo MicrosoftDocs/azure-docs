@@ -316,7 +316,7 @@ for detailed troubleshooting steps.
 
 ## Support
 - Review Troubleshooting steps in this article
-- For Azure support issues, file an Azure SDK GitHub issue or open a CSS Ticket.
+- For Azure support issues, file an Azure SDK GitHub issue or open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry dotnet community](https://github.com/open-telemetry/opentelemetry-dotnet) directly.
 
 ## OpenTelemetry Feedback
