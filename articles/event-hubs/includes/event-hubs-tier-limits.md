@@ -27,7 +27,7 @@ The following table shows limits that may be different for basic, standard, and 
 | Size of the schema registry (namespace) in mega bytes | N/A | 25 | 100 | 1024 |
 | Number of schema groups in a schema registry or namespace | N/A | 1 - excluding the default group | 100 <br/>1 MB per schema | 1000<br/>1 MB per schema |
 | Number of schema versions across all schema groups | N/A | 25 | 1000 | 10000 |
-| Throughput per unit | Ingress - 1 MB/s or 1000 events per second<br/>Egress – 2 Mb/s or 4096 events per second | Ingress - 1 MB/s or 1000 events per second<br/>Egress – 2 Mb/s or 4096 events per second | No limits per PU * | No limits per CU * |
+| Throughput per unit | Ingress - 1 MB/s or 1000 events per second<br/>Egress – 2 MB/s or 4096 events per second | Ingress - 1 MB/s or 1000 events per second<br/>Egress – 2 MB/s or 4096 events per second | No limits per PU * | No limits per CU * |
 
 \* Depends on various factors such as resource allocation, number of partitions, storage, and so on. 
  
