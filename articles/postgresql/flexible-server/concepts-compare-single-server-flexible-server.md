@@ -17,7 +17,7 @@ The following table provides a high-level features and capabilities comparisons 
 | **Feature / Capability** | **Single Server** | **Flexible Server** |
 | ---- | ---- | ---- |
 | **General**  | | |
-| General availability | GA since 2018 | Public Preview |
+| General availability | GA since 2018 | GA since 2021|
 | PostgreSQL | Community | Community |
 | Versions | 9.6, 10, 11 | 11, 12, 13 |
 | Underlying O/S | Windows | Linux  |
