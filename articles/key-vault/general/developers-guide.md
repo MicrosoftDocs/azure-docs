@@ -98,22 +98,17 @@ Access to keys, secrets, and certificates is controlled by data plane. Data plan
 |[Reference](/cli/azure/keyvault/secret)<br>[Quickstart](../secrets/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../secrets/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#secret-operations)|[Reference](/azure/templates/microsoft.keyvault/vaults/secrets)<br>[Quickstart](../secrets/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.secrets)<br>[Quickstart](../secrets/quick-create-net.md)|[Reference](/python/api/overview/azure/keyvault-secrets-readme)<br>[Quickstart](../secrets/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.2.0/index.html)<br>[Quickstart](../secrets/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-secrets/)<br>[Quickstart](../secrets/quick-create-node.md)|
 
 ### Secrets Usage
-The Azure Key Vault secrets component should only be used to store secrets for your applications. For any non-secrets objects, you should use [Azure App Configuration](../../azure-app-configuration/overview.md).
+The Azure Key Vault secrets should only be used to store secrets for your application. 
 
-- Examples of secrets that should be stored in Key Vault:
+Examples of secrets that should be stored in Key Vault:
     - Client application secrets
     - Connection strings
     - Passwords
     - Shared access keys
     - SSH keys
 
-- Examples of non-secrets that should be stored in App Configuration:
-    - Client application IDs
-    - IP addresses
-    - Service endpoints
-    - Service configuration parameters
-    - Usernames
-
+Additionally any secret related information like usernames, application ids can be stored as a tag in secret. For any other sensitive configuration settings, you should use [Azure App Configuration](../../azure-app-configuration/overview.md).
+ 
 ### References 
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
