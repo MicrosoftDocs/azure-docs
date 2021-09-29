@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 09/29/2021
 ms.custom: references_regions
 ---
 # Add spell check to queries in Cognitive Search
@@ -18,19 +18,17 @@ ms.custom: references_regions
 
 You can improve recall by spell-correcting individual search query terms before they reach the search engine. The **speller** parameter is supported for all query types: [simple](query-simple-syntax.md), [full](query-lucene-syntax.md), and the new [semantic](semantic-how-to-query-request.md) option currently in public preview.
 
+Speller was released in tandem with the [semantic search preview](semantic-search-overview.md) and shares the queryLanguage parameter, but is otherwise an independent feature. There is no sign-up, no additional charges, and no tier restrictions. Speller is available in all regions.
+
 ## Prerequisites
 
-Speller was released in tandem with the [semantic search preview](semantic-search-overview.md). As such, [sign up](https://aka.ms/SemanticSearchPreviewSignup) is required but there is no charge for using it, and no tier restrictions. Speller is available in the [same regions](semantic-search-overview.md#availability-and-pricing) as semantic search.
+To use spell check, you will need the following:
 
-Once sign up is processed, you will need the following:
++ An existing search index with content in a [supported language](#supported-languages).
 
-+ An existing search index, with content in a [supported language](#supported-languages). Currently, spell correction does not work with [synonyms](search-synonyms.md). Avoid using it on indexes that specify a synonym map in any field definition.
++ A search client that supports preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs.
 
-+ A search client for sending queries
-
-  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs.
-
-+ [A query request](/rest/api/searchservice/preview-api/search-documents) that invokes spell correction must have "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage" set to a [supported language](#supported-languages).
++ [A query request](/rest/api/searchservice/preview-api/search-documents) that invokes spell correction must have "api-version=2020-06-30-Preview", "speller=lexicon", and "queryLanguage" set to a [supported language](#supported-languages). Spell check works on strings passed in the "search" parameter. It's not supported for filters.
 
 ## Spell correction with simple search
 
@@ -50,7 +48,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Spell correction with full Lucene
 
-Spelling correction occurs on individual query terms that undergo analysis, which is why you can use the speller parameter with some Lucene queries, but not others.
+Spelling correction occurs on individual query terms that undergo text analysis, which is why you can use the speller parameter with some Lucene queries, but not others.
 
 + Incompatible query forms that bypass text analysis include: wildcard, regex, fuzzy
 + Compatible query forms include: fielded search, proximity, term boosting
@@ -88,7 +86,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Supported languages
 
-For spell check valid values for queryLanguage can be found in the following table. This list is a subset of the [supported languages (REST API reference)](/rest/api/searchservice/preview-api/search-documents#queryLanguage). If you are using semantic captions and answers without spell check, you can choose from the larger list of languages and variants.
+Valid values for queryLanguage can be found in the following table, copied from the list of [supported languages (REST API reference)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
 
 | Language | queryLanguage |
 |----------|---------------|
@@ -96,10 +94,17 @@ For spell check valid values for queryLanguage can be found in the following tab
 | Spanish [ES] | ES, ES-ES (default)|
 | French [FR] | FR, FR-FR (default) |
 | German [DE] | DE, DE-DE (default) |
+| Dutch [NL] | NL, NL-BE, NL-NL (default) |
 
-## Language considerations
+### queryLanguage considerations
 
-The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index. For example, if a field's content was indexed using the "fr.microsoft" language analyzer, then queries, spell check, semantic captions, and semantic answers should all use a French language library of some form.
+As noted elsewhere, a query request can only have one queryLanguage parameter, but that parameter is shared by multiple features, each of which supports a different cohort of languages. If you are just spell check, the list of supported languages in the above table is the complete list. 
+
+### Language analyzer considerations
+
+Indexes that contain non-English content often use [language analyzers](index-add-language-analyzers.md) on non-English fields to apply the linguistic rules of the native language.
+
+If you are now adding spell check to content that also undergoes language analysis, you will achieve better results if you use the same language at every step of indexing and query processing. For example, if a field's content was indexed using the "fr.microsoft" language analyzer, then queries, spell check, semantic captions, and semantic answers should all use a French lexicon or language library of some form.
 
 To recap how language libraries are used in Cognitive Search:
 
@@ -107,7 +112,7 @@ To recap how language libraries are used in Cognitive Search:
 
 + Language lexicons invoked during spell check are specified using one of the language codes in the table above.
 
-In a query request, the queryLanguage applies equally to speller, [answers](semantic-answers.md), and captions. There is no override for individual parts of a semantic response. 
+In a query request, the value assigned to queryLanguage applies equally to speller, [answers](semantic-answers.md), and captions. 
 
 > [!NOTE]
 > Language consistency across various property values is only a concern if you are using language analyzers. If you are using language-agnostic analyzers (such as keyword, simple, standard, stop, whitespace, or `standardasciifolding.lucene`), then the queryLanguage value can be whatever you want.
