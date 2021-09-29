@@ -17,7 +17,7 @@ This article provides information on troubleshooting and resolving issues with A
 
 To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 
-- Check the OS is supported and the prerequisites have been met. See [Prerequisites](../extension-based-hrw-install.md#prerequisites).
+- Check the OS is supported and the prerequisites have been met. See [Prerequisites](../extension-based-hybrid-runbook-worker-install.md#prerequisites).
 
 - Check whether the system-assigned managed identity is enabled on the VM. Azure VMs and Arc enabled Azure Machines should be enabled with a system-assigned managed identity.
 
