@@ -63,13 +63,14 @@ Generate requests in your application and open your Application Insights Resourc
 
 
 > [!IMPORTANT]
-> If you have two or more micro-services using the same connection string, you are required to set cloud role names to represent them properly on the Application Map.
+> If you have two or more micro-services using the same connection string, you are required to set  role names to represent them properly on the Application Map.
 
 > [!NOTE]
 > OpenTelemetry does not populate operation name on dependency telemetry, which adversely impacts your experience in the Failures and Performance Blades. You can mitigate this impact by [joining request and dependency data in the Logs Blade](java-standalone-upgrade-from-2x.md#operation-name-on-dependencies).
 
 ## Set role name
-You may use the Resource API to set Cloud Role Name. This updates Cloud Role Name from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node.
+
+You may use the Resource API to set role name. This updates role name from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node.
 
 ```python
 Placeholder

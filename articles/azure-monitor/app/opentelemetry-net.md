@@ -171,7 +171,7 @@ The following libraries are validated to work with the Preview Release:
 ### Add activity attributes
 
 Activity attributes can be added using either of the following two options.
-1. Enrich option provided by the instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#Instrumentation-Libraries) for more details.
+1. Enrich option provided by the instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
 2. Adding your custom processor:
 
 If using custom processor, make sure to add the processor before the Azure monitor exporter as shown below in the code.
@@ -218,7 +218,7 @@ For more information, see [GitHub Repo](link).
 
 #### Add custom dimension
 
-Any [attributes](#Add-Activity-Attributes) which are added to activity will be exported as custom dimensions to Application Insights.
+Any [attributes](#add-activity-attributes) which are added to activity will be exported as custom dimensions to Application Insights.
 
 <!---
 #### Set User ID or Authenticated User ID
@@ -241,7 +241,7 @@ You can populate the client_IP field for requests by setting `http.client_ip` at
 > Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
 
 ### Override activity display name
-You may use Enrich option from [instrumentation libraries](#Instrumentation-Libraries) or [custom processor](#Add-Activity-Attributes) to override Activity display name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
+You may use Enrich option from [instrumentation libraries](#instrumentation-libraries) or [custom processor](#add-activity-attributes) to override Activity display name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
 > [!NOTE]
 > Operation name is only available for requests, Operation for Dependency telemetry is not supported for preview.g
@@ -251,7 +251,7 @@ You may use Enrich option from [instrumentation libraries](#Instrumentation-Libr
 ### Filter Telemetry
 
 You may use following three ways to filter out telemetry before leaving your application. 
-1. Filter option provided by many instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#Instrumentation-Libraries) for more details.
+1. Filter option provided by many instrumentation libraries. Refer to Readme document of individual [instrumentation libraries](#instrumentation-libraries) for more details.
 
 2. Using custom processor:
     
