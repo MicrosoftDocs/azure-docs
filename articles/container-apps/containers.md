@@ -22,6 +22,8 @@ There is no required base container image when running containers in Azure Conta
 
 Any changes to the `containers` section triggers a new [container app revision](application-lifecycle-management.md).
 
+If your container crashes, then it automatically restarts.
+
 ## Configuration
 
 The following example configuration shows the options available when setting up a container.
