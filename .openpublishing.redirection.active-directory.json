@@ -9,6 +9,16 @@
         "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-remediate-users-flagged-for-risk.md",
         "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md",
+        "redirect_url": "/azure/active-directory/develop/v2-howto-app-gallery-listing",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-registration-portal.md",
+        "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
+        "redirect_document_id": false
       }
     ]
 }
