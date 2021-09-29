@@ -310,4 +310,5 @@ systemctl restart ModemManager
 [Connect using USB modem](./connect-over-cellular-usb.md).
 
 Back to the main article on LTE and 5G:
+
 [Connect using LTE or 5G](./connect-over-cellular.md).

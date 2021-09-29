@@ -31,5 +31,7 @@ With additional hardware, you can connect the Azure Percept DK using 5G/LTE conn
 
 ## Next steps
 Depending on what cellular device you might have access to, follow these links to connect your Azure Percept dev kit:
-- [Connect using cellular gateway](./connect-over-cellular-gateway.md).
-- [Connect using USB modem](./connect-over-cellular-usb.md).
+
+[Connect using cellular gateway](./connect-over-cellular-gateway.md).
+
+[Connect using USB modem](./connect-over-cellular-usb.md).
