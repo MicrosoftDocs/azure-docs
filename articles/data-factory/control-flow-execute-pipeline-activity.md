@@ -62,7 +62,7 @@ name | Name of the execute pipeline activity. | String | Yes
 type | Must be set to: **ExecutePipeline**. | String | Yes
 pipeline | Pipeline reference to the dependent pipeline that this pipeline invokes. A pipeline reference object has two properties: **referenceName** and **type**. The referenceName property specifies the name of the reference pipeline. The type property must be set to PipelineReference. | PipelineReference | Yes
 parameters | Parameters to be passed to the invoked pipeline | A JSON object that maps parameter names to argument values | No
-waitOnCompletion | Defines whether activity execution waits for the dependent pipeline execution to finish. Default is false. | Boolean | No
+waitOnCompletion | Defines whether activity execution waits for the dependent pipeline execution to finish. Default is true. | Boolean | No
 
 ## Sample
 This scenario has two pipelines:

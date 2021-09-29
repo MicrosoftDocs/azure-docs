@@ -70,13 +70,10 @@ Optionally, you can upload a certificate (public key) and use the Certificate ID
 
 ## API permissions
 
-Select the **API permissions** option, and select **Add a permission**. From the Request API permissions screen, select the **APIs my organization uses** tab. Type “Azure Healthcare APIs” in the search box.
+Permissions for the Healthcare APIs are managed through RBAC. For more details, visit [Configure Azure RBAC for the FHIR service](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-azure-rbac-for-fhir).
 
-[ ![Screenshot of request API permissions.](media/register-application-seven.png) ](media/register-application-seven.png#lightbox)
-
-The search result for Azure Healthcare APIs will return if you've already deployed the Azure Healthcare APIs in the tenant. Select **Azure Healthcare APIs**. Select **user impersonation**, and then select **Add permissions**.
-
-[ ![Screenshot of add permissions.](media/register-application-eight.png) ](media/register-application-eight.png#lightbox)
+>[!NOTE]
+>Use  grant_type of client_credentials when trying to otain an access token for the FHIR service using tools such as Postman or Rest Client. For more details, visit [Access using Postman](https://docs.microsoft.com/azure/healthcare-apis/use-postman) and [Accessing the Healthcare APIs using the REST Client Extension in Visual Studio Code](https://docs.microsoft.com/azure/healthcare-apis/using-rest-client).
 
 Your application registration is now complete.
 

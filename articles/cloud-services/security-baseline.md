@@ -199,7 +199,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Eve
 
 **Guidance**: Microsoft maintains time sources for Azure resources for Azure Cloud Services. Customers might need to create a network rule to allow access to a time server used in their environment, over port 123 with UDP protocol.
 
-- [NTP server access](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
+- [NTP server access](../firewall/protect-azure-virtual-desktop.md#additional-considerations)
 
 **Responsibility**: Shared
 

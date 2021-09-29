@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 09/24/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -128,7 +128,7 @@ For the properties used for device rules, see [Rules for devices](#rules-for-dev
 
 ## Supported expression operators
 
-The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix.
+The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix. The **Contains** operator does partial string matches but not item in a collection matches.
 
 | Operator | Syntax |
 | --- | --- |
@@ -199,7 +199,7 @@ The correct way to reference the null value is as follows:
 
 ## Rules with multiple expressions
 
-A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. 
+A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination.
 
 The following are examples of properly constructed membership rules with multiple expressions:
 
@@ -391,7 +391,7 @@ The following device attributes can be used.
  deviceOwnership | Personal, Company, Unknown | (device.deviceOwnership -eq "Company")
  enrollmentProfileName | Apple Device Enrollment Profile name, Android Enterprise Corporate-owned dedicated device Enrollment Profile name, or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
- managementType | MDM (for mobile devices)<br>PC (for computers managed by the Intune PC agent) | (device.managementType -eq "MDM")
+ managementType | MDM (for mobile devices) | (device.managementType -eq "MDM")
  deviceId | a valid Azure AD device ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | a valid Azure AD object ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | any string value used by Autopilot, such as all Autopilot devices, OrderID, or PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")

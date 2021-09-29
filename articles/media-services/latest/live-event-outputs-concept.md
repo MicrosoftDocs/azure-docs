@@ -215,9 +215,11 @@ For details, see [long-running operations](media-services-apis-overview.md#long-
 
 ## Live outputs
 
-Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [live output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). live output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints).  
+Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [live output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). Live output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints). 
+
+AMS's default allocation is 5 live events per Media Services account. If you would like to increase this limit, please file a support ticket in the Azure portal. AMS is able to increase your live event limit depending on your streaming situation and regional datacenter availabilities.
 
 For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr-time-how-to.md).
 ## Live event output questions
 
-See the [live event questions in the FAQ](frequently-asked-questions.yml).
+See the [live event questions in the FAQ](frequently-asked-questions.yml). For information on live event quotas, see [quotas and limits](limits-quotas-constraints-reference.md)

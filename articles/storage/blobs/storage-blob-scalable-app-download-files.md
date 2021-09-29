@@ -17,9 +17,9 @@ This tutorial is part three of a series. This tutorial shows you how to download
 In part three of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Update the application
-> * Run the application
-> * Validate the number of connections
+> - Update the application
+> - Run the application
+> - Validate the number of connections
 
 ## Prerequisites
 
@@ -218,8 +218,8 @@ C:\>
 In part three of the series, you learned about downloading large amounts of data from a storage account, including how to:
 
 > [!div class="checklist"]
-> * Run the application
-> * Validate the number of connections
+> - Run the application
+> - Validate the number of connections
 
 Go to part four of the series to verify throughput and latency metrics in the portal.
 
