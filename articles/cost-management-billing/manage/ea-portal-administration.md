@@ -3,11 +3,11 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/25/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
 ---
 
@@ -193,7 +193,7 @@ Enterprise Administrators can associate existing accounts to Departments under t
 
 1. Sign in to the Azure EA Portal as an enterprise administrator.
 1. Select **Manage** on the left navigation.
-1. Select **Department**.
+1. Select **Account**.
 1. Hover over the row with the account and select the pencil icon on the right.
 1. Select the department from the drop-down menu.
 1. Select **Save**.
