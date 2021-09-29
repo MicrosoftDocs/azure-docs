@@ -13,21 +13,16 @@ ms.reviewer: clausjor
 
 # Premium performance tier for Azure block blob storage
 
-Premium performance accounts store data in SSDs. SSDs store data on instantly accessible memory chips and therefore offer faster file transfers and overall snappier performance than HDDs. HDDs can only access data faster the closer it is from the read/write heads, while all parts of the SSD can be accessed at once. Due to these characteristics, customers across various domains and use cases have found tremendous value in using premium accounts. Here are a few examples on when you should also consider using Premium accounts.
+Premium performance accounts store data in SSDs. SSDs store data on instantly accessible memory chips and therefore offer faster file transfers and overall snappier performance than HDDs. HDDs can only access data faster the closer it is from the read/write heads, while all parts of the SSD can be accessed at once. Due to these characteristics, customers across various domains and use cases have found tremendous value in using premium accounts. 
 
-Statement here about how this applies
+Consider using the premium performance tier for scenarios that require low and consistent latencies and/or high IOPs requirements. Premium becomes more economical if your workloads are transaction heavy. Transactions costs for premium accounts are about a third of corresponding hot tier prices. As a result, if the workload is transaction heavy, premium tends to be cheaper along with being more performant.
 
+## Performance characteristics
 
-Customers use Premium Blobs or Premium tier for ADLS for two reasons primarily:
-
-1.	Performance - they have scenarios that require low and consistent latencies and/or have high IOPs requirements
+Performance - they have scenarios that require low and consistent latencies and/or have high IOPs requirements
 Even as we see transaction volumes rising, achieving low latency remains critical in a variety of industries and across various application classes. Highly interactive and real-time applications for instance need data to be written or read as quickly as possible. In interactive editing or multi-player online gaming applications, real time updates are needed to maintain a quality experience. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.
 
-2.	Cost – their workloads are transaction heavy and so premium is more economical
-Transactions costs for premium accounts are about a third of corresponding hot tier prices. As a result, if the workload is transaction heavy, premium tends to be cheaper along with being more performant.
-As a rule of thumb, we recommend that customers use Premium ADLS if their scenario involves analytics.
-
-### The cost effectiveness of premium performance
+## Cost effectiveness
   
 The premium performance tier has a higher storage cost but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions, the premium performance tier can be cost-effective, especially if the workload is write-heavy.
 
@@ -54,7 +49,7 @@ For example, assuming that your account is in the East US 2 region, the number o
 > [!NOTE]
 > If you prefer to evaluate cost effectiveness based on the number of transactions per second for each TB of data, you can use the column headings that appear at the bottom of the table.
 
-## Scenarios for using the premium performance
+## Scenarios
 
 Here's a few scenarios for using this tier:
 
@@ -83,7 +78,7 @@ Customers running ecommerce businesses often need to support not only their cust
 
 One such customer utilizes Premium Blobs for its data warehousing and analytics use case. Their catalog team maintains a data warehousing application for various kinds of data pertaining to an item such as offers, pricing, ship methods, suppliers, inventory, logistics, etc. Information here is queried, scanned, extracted and mined for multiple use cases. The team runs analytics on this data to provide various merchandising teams with relevant insights and information. The customer used standard blobs previously but switched over to premium blobs to satisfy their low latency requirements. 
 
-## Scenarios for using the premium performance with Data Lake Storage Gen2
+## Scenarios with Data Lake Storage Gen2 enabled accounts
 
 Enabling both Data Lake Storage Gen2 capabilities and the premium performance tier can help you with any of these scenarios
 
