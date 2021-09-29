@@ -96,7 +96,7 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 - For differential backups, in the second month changed blocks A2, A3, A4, and A9 are backed up. In the third month, these same blocks are backed up again, along with changed block A5. The changed blocks continue to be backed up until the next full backup happens.
 - For incremental backups, in the second month blocks A2, A3, A4, and A9 are marked as changed and transferred. In the third month, only changed block A5 is marked and transferred.
 
-![Image showing comparisons of backup methods](./media/backup-architecture/backup-method-comparison.png)
+![Diagram showing that storage consumption, recovery time objective (RTO), and network consumption varies for each backup type.](./media/backup-architecture/backup-method-comparison.png)
 
 ## Backup features
 

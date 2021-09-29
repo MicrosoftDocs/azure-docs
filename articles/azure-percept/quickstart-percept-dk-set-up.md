@@ -145,7 +145,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
     - Select an existing Resource Group. If one does not exist, select **Create new** and follow the prompts.
     - Select the Azure region closest to your physical location.
     - Give your new IoT Hub a name.
-    - Select the S1 (standard) pricing tier.
+    - Select the **S1 (standard) pricing tier**.
 
     > [!NOTE]
     > It may take a few minutes for your IoT Hub deployment to complete. If you need a higher [message throughput](../iot-hub/iot-hub-scaling.md#message-throughput) for your edge AI applications, you may [upgrade your IoT Hub to a higher standard tier](../iot-hub/iot-hub-upgrade.md) in the Azure Portal at any time. B and F tiers do NOT support Azure Percept.

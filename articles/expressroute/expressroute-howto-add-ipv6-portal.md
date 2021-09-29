@@ -11,7 +11,10 @@ ms.author: duau
 
 # Add IPv6 support for private peering using the Azure portal (Preview)
 
-This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using the Azure portal. 
+This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using the Azure portal.
+
+>[!NOTE]
+> Some aspects of the portal experience are still being implemented. Therefore, please follow the exact order of instructions provided in this document to successfully add IPv6 support via the portal. Specifically, please make sure to create your virtual network and subnet, or add IPv6 address space to your existing virtual network and GatewaySubnet, *prior* to creating a new virtual network gateway in the portal.
 
 ## Sign in to the Azure portal
 
@@ -56,6 +59,9 @@ Follow the steps below if you have an existing environment of Azure resources th
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
+    
+>[!NOTE]
+> If you have an existing gateway that is not zone-redundant (meaning it is Standard, High Performance, or Ultra Performance SKU), you will need to delete and [recreate the gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU and a Standard, Static public IP address.
 
 ## Create a connection to a new virtual network
 
@@ -72,7 +78,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 ## Limitations
 While IPv6 support is available for connections to deployments in Public Azure regions, it doesn't support the following use cases:
 
-* Connections to existing ExpressRoute gateways that are *not* zone-redundant
+* Connections to *existing* ExpressRoute gateways that are not zone-redundant. Note that *newly* created ExpressRoute gateways of any SKU (both zone-redundant and not) using  a Standard, Static IP address can be used for dual-stack ExpressRoute connections
 * Global Reach connections between ExpressRoute circuits
 * Use of ExpressRoute with virtual WAN
 * FastPath with non-ExpressRoute Direct circuits

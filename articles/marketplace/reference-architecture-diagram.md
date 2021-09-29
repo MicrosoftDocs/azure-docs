@@ -7,7 +7,7 @@ ms.reviewer: stmummer
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 02/18/2021
+ms.date: 09/22/2021
 ---
 
 # Reference architecture diagram
@@ -19,6 +19,8 @@ The reference architecture diagram can be created via multiple tools. We recomme
 A helpful starting point for building reference architecture diagrams is to leverage the [Azure Architecture models](/azure/architecture/browse/).
 
 ## Typical components of a reference architecture diagram
+
+The diagram must clearly identify your IP as solution, application, or service code both deployed on and driving consumption of Microsoft Azure. This code must be highly reusable and not depend on extensive customization per deployment.
 
 - Cloud services that host and interact with your offer, including ones that consume Azure resources
 - Data connections, data layers, and data services being consumed by your offer

@@ -41,6 +41,8 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name: Generate SAS tokens for Azure Blob containers
+    href:  generate-sas-tokens.md
   - name: Train a custom model with the sample labeling tool
     href: label-tool.md
   - name: Build a training data set
@@ -57,12 +59,11 @@
     - name: Configure containers
       href: containers/form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
+    - name: Container image tags
+      href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
       maintainContext: true
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-    - name: All Cognitive Services containers documentation
-      href: ../../cognitive-services/containers/index.yml
-      maintainContext: true
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Enterprise readiness
