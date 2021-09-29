@@ -65,8 +65,8 @@ However, if you’d like all the latest features and updates, the best way to se
 9/21/2021: Released for download and auto upgrade.
 
 ### Functional changes
- - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
- - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
+ - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
+ - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
 
 ### Bug fixes
  - We fixed a bug where the DesktopSSO settings were not persisted after upgrade from a previous version.
@@ -95,8 +95,8 @@ However, if you’d like all the latest features and updates, the best way to se
  - We created new AAD Kerberos PowerShell cmdlets "\*-AADKerberosServer" to add a Claims Transform rule to the AAD Service Principal.
 
 ### Functional changes
- - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
- - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](https://docs.microsoft.com/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
+ - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
+ - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
 
 ## 2.0.10.0
 
@@ -461,7 +461,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 - We added the ability to target specific agent from cloud to test for agent connectivity.
 
 ### Fixed issues
-- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the Azure AD Connect user interface. 
+- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login Windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the Azure AD Connect user interface. 
 - A fix was made to enable DSSO simultaneously in all forest through the Azure AD Connect user interface
 
 ## 1.4.32.0
