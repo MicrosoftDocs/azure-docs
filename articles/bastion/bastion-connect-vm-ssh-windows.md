@@ -35,7 +35,7 @@ Make sure that you have set up an Azure Bastion host for the virtual network in 
 
 To SSH to a Windows virtual machine, you must also ensure that:
 * Your Windows virtual machine is running Windows Server 2019 or later
-* You have OpenSSH Server installed and running on your Windows virtual machine. To learn how to do this, see [Install OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse).
+* You have OpenSSH Server installed and running on your Windows virtual machine. To learn how to do this, see [Install OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse).
 * Azure Bastion has been configured to use the Standard SKU.
 
 ### Required roles
