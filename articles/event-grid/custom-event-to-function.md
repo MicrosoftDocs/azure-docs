@@ -39,14 +39,13 @@ An event grid topic provides a user-defined endpoint that you post your events t
     :::image type="content" source="./media/custom-event-to-function/select-event-grid-topics.png" alt-text="Image showing the selection of Event Grid Topics.":::
 3. On the **Event Grid Topics** page, select **+ Add** on the toolbar. 
 
-    :::image type="content" source="./media/custom-event-to-function/add-event-grid-topic-button.png" alt-text="Image showing the Create button to create an Event Grid topic.":::
+    :::image type="content" source="./media/custom-event-to-function/add-event-grid-topic-button.png" alt-text="Image showing the Create button to create an event grid topic.":::
 4. On the **Create Topic** page, follow these steps:
-
-    2. Select your **Azure subscription**.
-    3. Select the same **resource group** from the previous steps.
-    1. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
-    1. Select a **location** for the event grid topic.
-    6. Select **Review + create**. 
+    1. Select your **Azure subscription**.
+    2. Select the same **resource group** from the previous steps.
+    3. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
+    4. Select a **location** for the event grid topic.
+    5. Select **Review + create**. 
     
         :::image type="content" source="./media/custom-event-to-function/create-custom-topic.png" alt-text="Image showing the Create Topic page.":::      
     1. On the **Review + create** page, review settings and select **Create**. 
