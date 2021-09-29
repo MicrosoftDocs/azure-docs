@@ -56,7 +56,7 @@ The following table lists the features of Azure SQL Managed Instance that have g
 
 ## Documentation changes
 
-Learn about significant changes to the documentation.
+Learn about significant changes to the Azure SQL Managed Instance documentation.
 
 
 ### July 2021

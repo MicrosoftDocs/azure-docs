@@ -17,7 +17,6 @@ ms.date: 09/24/2021
 
 This article lists the currently known issues with [Azure SQL Managed Instance](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance), as well as their resolution date or possible workaround. To learn more about Azure SQL Managed Instance, see the [overview](sql-managed-instance-paas-overview.md), and [what's new](doc-changes-updates-release-notes-whats-new.md). 
 
-For Azure SQL Database, see [Known issues](../database/doc-changes-updates-known-issues.md).
 
  
 ## Known issues
@@ -70,7 +69,7 @@ You can neglect this error message if Service Principal for the managed instance
 
 To check whether Service Principal exists, navigate to the _Enterprise applications_ page on the Azure portal, choose _Managed Identities_ from the _Application type_ dropdown list, click _Apply_ and type the name of the managed instance in the search box. If the instance name shows up in the result list, Service Principal already exists and no further actions are needed.
 
-If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly-created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by folowing [instructions](./authentication-aad-configure.md?tabs=azure-powershell#powershell).
+If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly-created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by folowing [instructions](../database/authentication-aad-configure.md?tabs=azure-powershell#powershell).
 
 ### Changing the connection type does not affect connections through the failover group endpoint
 
@@ -177,6 +176,10 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 
 **(Resolved in March 2020)** SQL Agent creates a new session each time a job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit, which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
 
+### @query parameter not supported in sp_send_db_mail
+
+The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
+
 ### In-memory OLTP memory limits are not applied
 
 The Business Critical service tier will not correctly apply [max memory limits for memory-optimized objects](../managed-instance/resource-limits.md#in-memory-oltp-available-space) in some cases. SQL Managed Instance may enable workload to use more memory for in-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediately. This issue will be fixed soon. The queries that use more in-memory OLTP memory will fail sooner if they reach the [limits](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
@@ -216,9 +219,7 @@ Impersonation using `EXECUTE AS USER` or `EXECUTE AS LOGIN` of the following Azu
 -   Aliased Azure AD users. The following error is returned in this case: `15517`.
 - Azure AD logins and users based on Azure AD applications or service principals. The following errors are returned in this case: `15517` and `15406`.
 
-### @query parameter not supported in sp_send_db_mail
 
-The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure doesn't work.
 
 ### Transactional Replication must be reconfigured after geo-failover
 
@@ -507,7 +508,7 @@ You can neglect this error message if Service Principal for the managed instance
 
 To check whether Service Principal exists, navigate to the _Enterprise applications_ page on the Azure portal, choose _Managed Identities_ from the _Application type_ dropdown list, click _Apply_ and type the name of the managed instance in the search box. If the instance name shows up in the result list, Service Principal already exists and no further actions are needed.
 
-If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly-created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by folowing [instructions](./authentication-aad-configure.md?tabs=azure-powershell#powershell).
+If you already followed the instructions from the error message and clicked the link from the error message, Service Principal of the managed instance has been recreated. In that case, please assign Azure AD read permissions to the newly-created Service Principal in order for Azure AD authentication to work properly. This can be done via Azure PowerShell by following [instructions](../database/authentication-aad-configure.md?tabs=azure-powershell#powershell).
 
 ### Azure AD logins and users are not supported in SSDT
 
@@ -516,7 +517,7 @@ SQL Server Data Tools don't fully support Azure AD logins and users.
 ### Impersonation of Azure AD login types is not supported
 
 Impersonation using `EXECUTE AS USER` or `EXECUTE AS LOGIN` of the following Azure Active Directory (Azure AD) principals is not supported:
--   Aliased Azure AD users. The following error is returned in this case: `15517`.
+- Aliased Azure AD users. The following error is returned in this case: `15517`.
 - Azure AD logins and users based on Azure AD applications or service principals. The following errors are returned in this case: `15517` and `15406`.
 
 ### Transactional Replication must be reconfigured after geo-failover
