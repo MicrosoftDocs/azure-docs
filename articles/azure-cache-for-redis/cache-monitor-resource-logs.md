@@ -25,6 +25,7 @@ You turn on diagnostic setting for Azure Cache for Redis instances and send reso
 
 For more information on diagnostic requirements, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
 
+
 ## Create diagnostics settings via the Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com).
@@ -41,7 +42,7 @@ For more information on diagnostic requirements, see [diagnostic settings](/azur
   
 1. Once you select your **Categories details**, then send your logs to your preferred destination.
 
-    :::image type="content" source="media/cache-monitor-resource-logs/diagnostics-resource-specific-2.png" alt-text="Select enable resource-specific":::
+    :::image type="content" source="media/cache-monitor-resource-logs/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
 ## Create diagnostic setting via REST API
 
