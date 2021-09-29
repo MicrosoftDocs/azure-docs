@@ -451,9 +451,14 @@ You will likely have multiple StorSimple volumes, each with their own shares tha
 
 There are no limits in defining migration jobs. You can define the same StorSimple source volume, the same Azure file share, across the same or different StorSimple appliances. However, running them has limitations:
 
-* Only one migration job with the same StorSimple source volume may run at the same time.
-* Only one migration job with the same target Azure file share may run at the same time.
-* You can run up to four migration jobs in parallel per StorSimple appliance as long as you also abide by the previous rules. 
+* Only one migration job with the same StorSimple source volume can run at the same time.
+* Only one migration job with the same target Azure file share cam run at the same time.
+* You can run up to four migration jobs in parallel per StorSimple device manager, as long as you also abide by the previous rules.
+
+When you attempt to start a migration job, the previous rules are checked. If there are jobs running, you may not be able to start the current job. An appropriate error message will even list the name of the currently running job(s) that need to finish before you can start this job.
+
+> [!TIP]
+> It's a good idea to regularly check your migration jobs in the *Job definition* tab of your *Data Manager* resource, to see if any of them have paused and need your input to complete.
 
 ### Phase 3 summary
 
