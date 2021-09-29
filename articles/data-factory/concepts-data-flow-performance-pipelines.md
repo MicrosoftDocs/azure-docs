@@ -19,7 +19,7 @@ When building complex pipelines with multiple data flows, your logical flow can 
 
 If you execute multiple data flows in parallel, the service spins up separate Spark clusters for each activity. This allows for each job to be isolated and run in parallel, but will lead to multiple clusters running at the same time.
 
-If your data flows execute in parallel, its recommended to not enable the Azure IR time to live property as it will lead to multiple unused warm pools.
+If your data flows execute in parallel, we recommend that you don't enable the Azure IR time to the live property because it will lead to multiple unused warm pools.
 
 > [!TIP]
 > Instead of running the same data flow multiple times in a for each activity, stage your data in a data lake and use wildcard paths to process the data in a single data flow.
