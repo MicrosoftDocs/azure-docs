@@ -154,13 +154,8 @@ IoT Hub Device Provisioning Service provides samples that simulate a TPM and ret
 1. Keep the window hosting the simulated TPM running until you're completely finished testing this scenario.
 1. Return to this article to create a DPS enrollment and configure your device.
 
-Simulated TPM samples:
+To learn how to create an individual enrollment for a simulated TPM device, see the [Provision a simulated TPM device quickstart guide](../iot-dps/quick-create-simulated-device-tpm.md).
 
-* [C](../iot-dps/quick-create-simulated-device.md)
-* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
-* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 ## Create a device enrollment entry
 
