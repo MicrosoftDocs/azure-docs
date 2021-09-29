@@ -1,10 +1,10 @@
 ---
-title: Deploy Azure Monitor
-description: Describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription.
+title: Deploy Azure Monitor - Planning
+description: Guidance and recommendations for planning and design before deploying Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 09/28/2021
 
 ---
 
@@ -39,11 +39,11 @@ Azure Monitor is the preferred solution for monitoring Azure and hybrid cloud re
 ### Security monitoring
 The [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/) defines the [primary monitoring objectives](/azure/cloud-adoption-framework/strategy/monitoring-strategy#formulate-monitoring-requirements) you should focus on for your Azure resources. Azure Monitor is designed to address Health and Status monitoring. Security monitoring in Azure is performed by Azure Security Center and Azure Sentinel. These services each have additional cost, so you should determine their value in your environment before you implement them.
 
-- [Azure Security Center](../../security-center/security-center-introduction.md) collects information about Azure resources and hybrid servers. Although Security Center can collect security events, Security Center focuses on collecting inventory data, assessment scan results, and policy audits to highlight vulnerabilities and recommend corrective actions. Noteworthy features include an interactive network map, just-in-time VM access, adaptive network hardening, and adaptive application controls to block suspicious executables.
+- [Azure Security Center](../security-center/security-center-introduction.md) collects information about Azure resources and hybrid servers. Although Security Center can collect security events, Security Center focuses on collecting inventory data, assessment scan results, and policy audits to highlight vulnerabilities and recommend corrective actions. Noteworthy features include an interactive network map, just-in-time VM access, adaptive network hardening, and adaptive application controls to block suspicious executables.
 
-- [Azure Defender for Servers](../../security-center/azure-defender.md) is the server assessment solution provided by Security Center. Defender for Servers can send Windows Security Events to Log Analytics. Security Center doesn't rely on Windows Security Events for alerting or analysis. Using this feature allows centralized archival of events for investigation or other purposes.
+- [Azure Defender for Servers](../security-center/azure-defender.md) is the server assessment solution provided by Security Center. Defender for Servers can send Windows Security Events to Log Analytics. Security Center doesn't rely on Windows Security Events for alerting or analysis. Using this feature allows centralized archival of events for investigation or other purposes.
 
-- [Azure Sentinel](../../sentinel/overview.md) is a security information event management (SIEM) and security orchestration automated response (SOAR) solution. Sentinel collects security data from a wide range of Microsoft and third-party sources to provide alerting, visualization, and automation. This solution focuses on consolidating as many security logs as possible, including Windows Security Events. Azure Sentinel can also collect Windows Security Event Logs and commonly shares a Log Analytics workspace with Security Center. Security events can only be collected from Azure Sentinel or Security Center when they share the same workspace. Unlike Security Center, security events are a key component of alerting and analysis in Azure Sentinel.
+- [Azure Sentinel](../sentinel/overview.md) is a security information event management (SIEM) and security orchestration automated response (SOAR) solution. Sentinel collects security data from a wide range of Microsoft and third-party sources to provide alerting, visualization, and automation. This solution focuses on consolidating as many security logs as possible, including Windows Security Events. Azure Sentinel can also collect Windows Security Event Logs and commonly shares a Log Analytics workspace with Security Center. Security events can only be collected from Azure Sentinel or Security Center when they share the same workspace. Unlike Security Center, security events are a key component of alerting and analysis in Azure Sentinel.
 
 - [Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. It was designed with a primary focus on protecting Windows user devices. Defender for Endpoint monitors workstations, servers, tablets, and cellphones with various operating systems for security issues and vulnerabilities. Defender for Endpoint is closely aligned with Microsoft Endpoint Manager to collect data and provide security assessments. Data collection is primarily based on ETW trace logs and is stored in an isolated workspace.
 
@@ -64,7 +64,7 @@ Following are design decisions that you should consider as you start planning yo
 ### Log Analytics workspace
 You require at least one Log Analytics workspace to enable [Azure Monitor Logs](logs/data-platform-logs.md), which is required for collecting such data as logs from Azure resources, collecting data from the guest operating system of Azure virtual machines, and for most Azure Monitor insights. 
 
-Other services such as Azure Sentinel and Azure Security Center also use a Log Analytics workspace and can share the same one that you use for Azure Monitor. You can start with a single workspace to support this monitoring, but see  [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md) for guidance on when to use multiple workspaces. Depending on your particular requirements, you might choose to share a common workspace or separate your availability and performance data from your security data. For complete details on logic that you should consider for designing a workspace configuration, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
+Other services such as Azure Sentinel and Azure Security Center also use a Log Analytics workspace and can share the same one that you use for Azure Monitor. You can start with a single workspace to support this monitoring, but see  [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md) for guidance on when to use multiple workspaces. Depending on your particular requirements, you might choose to share a common workspace or separate your availability and performance data from your security data. For complete details on logic that you should consider for designing a workspace configuration, see [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md).
 
 There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Manage usage and costs with Azure Monitor Logs](logs/manage-cost-storage.md) for details.  
 

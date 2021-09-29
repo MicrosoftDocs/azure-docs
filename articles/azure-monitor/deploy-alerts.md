@@ -1,10 +1,10 @@
 ---
-title: Deploy Azure Monitor
-description: Describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription.
+title: Deploy Azure Monitor - Alerts and automated actions
+description: Recommendations for deployment of Azure Monitor alerts and automated actions.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 09/28/2021
 
 ---
 

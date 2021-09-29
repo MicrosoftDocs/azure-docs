@@ -106,17 +106,17 @@ Once the remediation tasks are complete, your VMs should be compliant with agent
 
 
 ## Azure Policy
-To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for Virtual Machine Scale Sets** initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
+To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for Virtual Machine Scale Sets** initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
 
-![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for Virtual Machine Scale Sets.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for Virtual Machine Scale Sets.](media/vminsights-enable-policy/virtual-machine-scale-set-assign-initiative.png)
 
 Select the workspace that the data will be sent to. This workspace must have the *VMInsights* solution installed, as described in [Configure Log Analytics workspace for VM insights](vm/vminsights-configure-workspace.md).
 
-![Screenshot that shows selecting a workspace.](media/deploy-scale/virtual-machine-scale-set-workspace.png)
+![Screenshot that shows selecting a workspace.](media/vminsights-enable-policy/virtual-machine-scale-set-workspace.png)
 
 Create a remediation task if you have existing virtual machine scale sets that need to be assigned this policy.
 
-![Screenshot that shows creating a remediation task.](media/deploy-scale/virtual-machine-scale-set-remediation.png)
+![Screenshot that shows creating a remediation task.](media/vminsights-enable-policy/virtual-machine-scale-set-remediation.png)
 
 
 

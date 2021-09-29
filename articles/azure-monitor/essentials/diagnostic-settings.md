@@ -245,7 +245,7 @@ Rather than create an assignment for each policy definition, a common strategy i
 - Create a single assignment for the initiative instead of multiple assignments for each resource type. Use the same initiative for multiple monitoring groups, subscriptions, or resource groups.
 - Modify the initiative when you need to add a new resource type or destination. For example, your initial requirements might be to send data only to a Log Analytics workspace, but later you want to add an event hub. Modify the initiative instead of creating new assignments.
 
-For details on creating an initiative, see [Create and assign an initiative definition](../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition). Consider the following recommendations:
+For details on creating an initiative, see [Create and assign an initiative definition](../../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition). Consider the following recommendations:
 
 - Set **Category** to **Monitoring** to group it with related built-in and custom policy definitions.
 - Instead of specifying the details for the Log Analytics workspace and the event hub for policy definitions included in the initiative, use a common initiative parameter. This parameter allows you to easily specify a common value for all policy definitions and change that value if necessary.
@@ -253,7 +253,7 @@ For details on creating an initiative, see [Create and assign an initiative defi
 ![Screenshot that shows settings for initiative definition.](media/diagnostic-settings/initiative-definition.png)
 
 ### Assignment 
-Assign the initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
+Assign the initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
 
 ![Screenshot of the settings for the Basics tab in the Assign initiative section of the Diagnostic settings to Log Analytics workspace in the Azure portal.](media/diagnostic-settings/initiative-assignment.png)
 
@@ -262,9 +262,9 @@ By using initiative parameters, you can specify the workspace or any other detai
 ![Screenshot that shows initiative parameters on the Parameters tab.](media/diagnostic-settings/initiative-parameters.png)
 
 ### Remediation
-The initiative will apply to each virtual machine as it's created. A [remediation task](../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can create diagnostic settings for any resources that were already created. 
+The initiative will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can create diagnostic settings for any resources that were already created. 
 
-When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md) for details on the remediation.
+When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md) for details on the remediation.
 
 ![Screenshot that shows initiative remediation for a Log Analytics workspace.](media/diagnostic-settings/initiative-remediation.png)
 
