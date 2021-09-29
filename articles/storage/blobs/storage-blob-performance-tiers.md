@@ -1,10 +1,11 @@
 ---
-title: Block blob storage performance tiers — Azure Storage
+title: Block blob storage performance tiers
+titleSuffix: Azure Storage
 description: Discusses the difference between premium and standard performance tiers for Azure block blob storage.
 author: normesta
 
 ms.author: normesta
-ms.date: 05/17/2021
+ms.date: 09/23/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -59,8 +60,8 @@ Premium performance storage is ideal for workloads that require fast and consist
 
 To learn more about how other partners have benefited from using the premium performance tier for their workloads, see [Premium block blob storage scenarios](storage-blob-block-blob-premium.md).
 
-### The cost effectiveness of premium performance  
-
+### The cost effectiveness of premium performance
+  
 The premium performance tier has a higher storage cost but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions, the premium performance tier can be cost-effective, especially if the workload is write-heavy.
 
 In most cases, workloads executing more than 35 to 40 transactions per second per terabyte (TPS/TB) are good candidates for this performance tier. For example, if your workload executes 500 million read operations and 100 million write operations in a month, then you can calculate the TPS/TB as follows: 

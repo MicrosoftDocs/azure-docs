@@ -255,9 +255,6 @@
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
-      - name: IoT Solution Accelerators
-        tocHref: /azure/iot-accelerators/
-        topicHref: /azure/iot-accelerators/
       - name: IoT Hub Device Provisioning Service
         tocHref: /azure/iot-dps/
         topicHref: /azure/iot-dps/
@@ -634,9 +631,6 @@
 #    - name: IoT Hub Device Provisioning Service
 #      tocHref: /azure/iot-dps/
 #      topicHref: /azure/iot-dps/
-#    - name: IoT solution accelerators
-#     tocHref: /azure/iot-accelerators/
-#      topicHref: /azure/iot-accelerators/
 #    - name: IoT Central
 #      tocHref: /azure/iot-central/
 #      topicHref: /azure/iot-central/
