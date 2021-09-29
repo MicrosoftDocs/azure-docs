@@ -61,7 +61,7 @@ landingContent:
             url: hpc-cache-support-ticket.md
           - text: Edit a storage target
             url: hpc-cache-edit-storage.md
-          - text: Manage storage targets
+          - text: View and manage storage targets
             url: manage-storage-targets.md
           - text: Work around firewall settings to create Blob storage targets
             url: hpc-cache-blob-firewall-fix.md
