@@ -261,7 +261,7 @@ More features are available when you use the remote compute, as shown in the tab
 | Data streaming (Large data support, up to 100 GB)          | ✓      |       | 
 | DNN-BERT-based text featurization and training             | ✓      |       |
 | Out-of-the-box GPU support (training and inference)        | ✓      |       |
-| Image Classification and Labeling support                  | ✓      |       |
+| Image classification (preview) and labeling support        | ✓      |       |
 | Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | 
 | Multiple runs/iterations in parallel                       | ✓      |       |
 | Create models with interpretability in AutoML studio web experience UI      | ✓      |       |
