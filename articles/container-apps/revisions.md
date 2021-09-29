@@ -38,7 +38,7 @@ The scenario shown above presumes the container app is in following state:
 
 Changes made to a container app fall under one of two categories: *revision-scope* and *application-scope* changes. Revision-scope changes are any change that triggers a new revision, while application-scope changes don't create revisions.
 
-### Revision scope changes
+### Revision-scope changes
 
 The following types of changes create a new revision:
 
@@ -47,7 +47,7 @@ The following types of changes create a new revision:
 - Changes to Dapr settings
 - Any change that affects the `template` section of the configuration
 
-### Application scope changes
+### Application-scope changes
 
 The following types of changes do not create a new revision:
 
