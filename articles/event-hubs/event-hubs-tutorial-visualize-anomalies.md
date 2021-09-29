@@ -26,7 +26,7 @@ Before you start, make sure you have completed the following steps:
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Create an Event Hubs namespace and an event hub in the namespace](event-hubs-create.md).
 - Follow instructions from [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Note down the connection string to the Event Hubs namespace and the name of the event hub. 
-- Install [Visual Studio](https://www.visualstudio.com/). You use a Vistual Studio solution to run an app to produce and send test event data to the event hub. 
+- Install [Visual Studio](https://www.visualstudio.com/). You use a Visual Studio solution to run an app to produce and send test event data to the event hub. 
 - You need a Power BI account to analyze output from a Stream Analytics job. You can [try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).
 
 ## Run app to produce test event data
