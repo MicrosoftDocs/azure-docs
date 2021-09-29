@@ -15,11 +15,19 @@ The Azure Container Apps application lifecycle revolves around [revisions](revis
 
 When you deploy a container app, the first revision is automatically created. [More revisions are created](revisions.md) as [containers](containers.md) change, or any adjustments are made to the `template` section of the configuration.
 
-The following diagram shows how revisions flow through the Container Apps application lifecycle.
+A container app flows through three phases: deployment, update, and deactivation.
 
-:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-diagram.png" alt-text="Azure Container Apps application lifecycle management":::
+:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-deployment.png" alt-text="Azure Container Apps: Deployment phase":::
 
-In this example, as a container app is deployed, the first revision is automatically created. When the container app is updated with a change to the container, a new revision is created, and both revisions are available simultaneously. Once a revision is no longer needed, you can deactivate a revision with the option to reactivate later. To completely remove a revision, you can permanently [shut it down](#shutdown).
+As a container app is deployed, the first revision is automatically created.
+
+:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-update.png" alt-text="Azure Container Apps: Update phase":::
+
+As a container app is updated with a [revision scope change](revisions.md#change-types), a new revision is created and both revisions are available simultaneously.
+
+:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-deactivate.png" alt-text="Azure Container Apps: Deactivation phase":::
+
+Once a revision is no longer needed, you can deactivate a revision with the option to reactivate later. During deactivation the container is [shut down](#shutdown).
 
 ## Shutdown
 
