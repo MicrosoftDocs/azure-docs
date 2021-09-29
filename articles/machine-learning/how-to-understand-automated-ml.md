@@ -7,7 +7,7 @@ author: gregorybchris
 ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.date: 12/09/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl

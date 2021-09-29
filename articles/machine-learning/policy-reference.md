@@ -6,6 +6,7 @@ ms.author: larryfr
 author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
+ms.subservice: enterprise-readiness
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in policy definitions for Azure Machine Learning

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to enable HTTPS with TLS version 1.2 to secure a web service that's deployed through Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: jhirono
 author: jhirono
 ms.date: 07/07/2021

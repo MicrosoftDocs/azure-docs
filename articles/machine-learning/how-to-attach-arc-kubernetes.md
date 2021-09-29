@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.date: 06/18/2021
 ms.topic: how-to 
 ---

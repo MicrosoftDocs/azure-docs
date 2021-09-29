@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to manage the process of labeling images so they can be used in multi-class image classification models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Create and run machine learning pipelines to create and manage the workflows that stitch together machine learning (ML) phases. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann

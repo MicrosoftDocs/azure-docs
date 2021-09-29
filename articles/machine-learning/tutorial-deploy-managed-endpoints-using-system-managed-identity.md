@@ -3,7 +3,7 @@ title: 'Tutorial: Managed online endpoints for accessing resources'
 description: Securely access Azure resources for your machine learning model deployment with a managed online endpoint and a system-assigned managed identity.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur

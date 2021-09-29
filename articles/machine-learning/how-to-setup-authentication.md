@@ -7,7 +7,7 @@ author: cjgronlund
 ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.date: 05/27/2021
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps

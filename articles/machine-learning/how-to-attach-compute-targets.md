@@ -1,13 +1,13 @@
 ---
 title: Set up training & inference compute targets
 titleSuffix: Azure Machine Learning
-description: Add  compute resources (compute targets) to your workspace to use for machine learning training and inference
+description: Add compute resources (compute targets) to your workspace to use for machine learning training and inference.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1

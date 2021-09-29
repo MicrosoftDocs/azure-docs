@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Train and deploy a demand forecasting model without writing code, using Azure Machine Learning's automated machine learning (automated ML) interface.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam

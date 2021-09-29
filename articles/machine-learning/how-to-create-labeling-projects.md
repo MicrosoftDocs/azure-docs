@@ -5,7 +5,7 @@ description: Use our data labeling tool to label images or label text. Use ML as
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml

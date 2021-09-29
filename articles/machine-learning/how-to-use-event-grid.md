@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Set up event-driven applications, processes, or CI/CD machine learning workflows in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: cgronlun

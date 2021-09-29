@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Secure Azure Machine Learning workspace resources and compute environments using an isolated Azure Virtual Network (VNet).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Roll out newer versions of ML models without disruption.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur

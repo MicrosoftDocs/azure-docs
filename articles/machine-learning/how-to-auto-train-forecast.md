@@ -6,7 +6,7 @@ services: machine-learning
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
 ms.date: 06/11/2021

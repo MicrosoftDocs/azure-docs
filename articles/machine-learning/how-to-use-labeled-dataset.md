@@ -5,7 +5,7 @@ description: Learn how to export data labels from your Azure Machine Learning la
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
 ms.date: 05/14/2020
