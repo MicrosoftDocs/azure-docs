@@ -210,8 +210,18 @@ items:
       - name: Data flow monitoring
         href: concepts-data-flow-monitoring.md
       - name: Data flow performance
-        href: concepts-data-flow-performance.md
-        displayName: merge, timeout
+        items:
+          - name: Overview
+            href: concepts-data-flow-performance.md
+            displayName: merge, timeout
+          - name: Optimizing sources
+            href: concepts-data-flow-performance-sources.md
+          - name: Optimizing sinks
+            href: concepts-data-flow-performance-sinks.md
+          - name: Optimizing transformations
+            href: concepts-data-flow-performance-transformations.md
+          - name: Using data flows in pipelines
+            href: concepts-data-flow-performance-pipelines.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
@@ -247,9 +257,23 @@ items:
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
-      href: continuous-integration-deployment.md
+      items:
+      - name: Overview
+        href: continuous-integration-delivery.md
+      - name: Automate with Azure Pipelines releases
+        href: continuous-integration-delivery-automate-azure-pipelines.md
+      - name: Manually promote a Resource Manager template for each environment
+        href: continuous-integration-delivery-manual-promotion.md
+      - name: Use custom parameters with a Resource Manager template
+        href: continuous-integration-delivery-resource-manager-custom-parameters.md
+      - name: Linked Resource Manager templates
+        href: continuous-integration-delivery-linked-templates.md
+      - name: Using a hotfix production environment
+        href: continuous-integration-delivery-hotfix-environment.md
+      - name: Sample pre- and post-deployment script
+        href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
-      href: continuous-integration-deployment-improvements.md
+      href: continuous-integration-delivery-improvements.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -747,7 +771,22 @@ items:
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
-      href: create-azure-ssis-integration-runtime.md
+      items:
+        - name: Overview and prerequisites
+          href: create-azure-ssis-integration-runtime.md
+          displayName: Azure SSIS
+        - name: Create with the Azure portal
+          href: create-azure-ssis-integration-runtime-portal.md
+          displayName: Azure SSIS
+        - name: Create with PowerShell
+          href: create-azure-ssis-integration-runtime-powershell.md
+          displayName: Azure SSIS
+        - name: Create with a Resource Manager template
+          href: create-azure-ssis-integration-runtime-resource-manager-template.md
+          displayName: Azure SSIS
+        - name: Deploy and run SSIS packages
+          href: create-azure-ssis-integration-runtime-deploy-packages.md
+          displayName: Azure SSIS
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT

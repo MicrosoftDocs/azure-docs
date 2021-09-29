@@ -232,7 +232,7 @@ This content applies only to federated domain accounts.
 Reasons for failure:
 
 - Unable to get an access token silently for the DRS resource.
-   - Windows&nbsp;10 devices acquire the authentication token from the Federation Service by using Integrated Windows Authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
+   - Windows&nbsp;10 devices acquire the authentication token from the Federation Service by using integrated Windows authentication to an active WS-Trust endpoint. For more information, see [Federation Service configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
 
 **Common error codes**:
 

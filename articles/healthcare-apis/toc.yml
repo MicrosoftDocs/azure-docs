@@ -42,6 +42,11 @@ items:
     - name: Logging
       href: logging.md
 
+- name: Concepts
+  items:
+    - name: Security controls by Azure Policy
+      href: security-controls-policy.md
+
 - name: Resources
   expanded: true
   items:
