@@ -178,7 +178,7 @@ For example, if you received the error code "AADSTS50058" then do a search in [h
 | AADSTS51001 | DomainHintMustbePresent - Domain hint must be present with on-premises security identifier or on-premises UPN. |
 | AADSTS51004 | UserAccountNotInDirectory - The user account doesn’t exist in the directory. |
 | AADSTS51005 | TemporaryRedirect - Equivalent to HTTP status 307, which indicates that the requested information is located at the URI specified in the location header. When you receive this status, follow the location header associated with the response. When the original request method was POST, the redirected request will also use the POST method. |
-| AADSTS51006 | ForceReauthDueToInsufficientAuth - Integrated Windows authentication is needed. User logged in using a session token that is missing the Integrated Windows authentication claim. Request the  user to log in again. |
+| AADSTS51006 | ForceReauthDueToInsufficientAuth - Integrated Windows authentication is needed. User logged in using a session token that is missing the integrated Windows authentication claim. Request the  user to log in again. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn - The user has not provided consent for access to LinkedIn resources. |
 | AADSTS53000 | DeviceNotCompliant - Conditional Access policy requires a compliant device, and the device is not compliant. The user must enroll their device with an approved MDM provider like Intune. |
 | AADSTS53001 | DeviceNotDomainJoined - Conditional Access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device. |
