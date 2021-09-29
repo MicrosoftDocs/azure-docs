@@ -17,14 +17,16 @@ ms.date: 07/08/2021
 This article lists the curated environments with latest framework versions in Azure Machine Learning. Curated environments are provided by Azure Machine Learning and are available in your workspace by default. They are backed by cached Docker images that use the latest version of the Azure Machine Learning SDK, reducing the run preparation cost and allowing for faster deployment time. Use these environments to quickly get started with various machine learning frameworks.
 
 > [!NOTE]
-> This list is updated as of September 2021. Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment?view=azure-cli-latest&preserve-view=true#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the most updated list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
+> Use the [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment?view=azure-cli-latest&preserve-view=true#az_ml_environment_list), or Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) to get the full list of environments and their dependencies. For more information, see the [environments article](how-to-use-environments.md#use-a-curated-environment). 
 
+## Training curated environments
 
-## PyTorch
+### PyTorch
 
 **Name**: AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu  
 **Description**: An environment for deep learning with PyTorch containing the AzureML Python SDK and additional python packages.  
-**Dockerfile configuration**: The following Dockerfile can be customized for your personal workflows.
+
+The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
 FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20210922.v1
@@ -70,11 +72,16 @@ RUN HOROVOD_WITH_PYTORCH=1 \
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ```
 
-## LightGBM
+Other available PyTorch environments:
+* AzureML-pytorch-1.8-ubuntu18.04-py37-cuda11-gpu
+* AzureML-pytorch-1.7-ubuntu18.04-py37-cuda11-gpu
+
+### LightGBM
 
 **Name**: AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu  
 **Description**: An environment for machine learning with Scikit-learn, LightGBM, XGBoost, Dask containing the AzureML Python SDK and additional packages.  
-**Dockerfile configuration**: The following Dockerfile can be customized for your personal workflows.
+
+The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
 FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210922.v1
@@ -113,10 +120,11 @@ RUN HOROVOD_WITH_TENSORFLOW=1 \
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ```
 
-## Sklearn
+### Sklearn
 **Name**: AzureML-sklearn-0.24-ubuntu18.04-py37-cuda11-gpu  
 **Description**: An environment for tasks such as regression, clustering, and classification with Scikit-learn. Contains the AzureML Python SDK and additional python packages.  
-**Dockerfile configuration**: The following Dockerfile can be customized for your personal workflows.
+
+The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
 FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210922.v1
@@ -148,11 +156,12 @@ RUN pip install 'matplotlib>=3.3,<3.4' \
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ```
 
-## TensorFlow
+### TensorFlow
 
 **Name**: AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu  
 **Description**: An environment for deep learning with Tensorflow containing the AzureML Python SDK and additional python packages.  
-**Dockerfile configuration**: The following Dockerfile can be customized for your personal workflows:
+
+The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
 FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210922.v1
@@ -245,3 +254,8 @@ Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated enviro
 Framework version | CPU/GPU | Pre-installed packages | MCR Path | Curated environment
  --- | --- | --- | --- | --- |
 NA | CPU | NA | `mcr.microsoft.com/azureml/minimal-ubuntu18.04-py37-cpu-inference:latest` | AzureML-minimal-ubuntu18.04-py37-cpu-inference  |
+
+
+## Security
+Version updates for supported environments are released every two weeks to address vulnerabilties no older than 30 days. 
+
