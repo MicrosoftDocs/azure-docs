@@ -371,7 +371,7 @@ The [Azure SQL Database pricing calculator](https://azure.microsoft.com/pricing/
 
 ### Example scenario
 
-Consider a serverless database configured with 1 min vCore and 4 max vCores.  This corresponds to around 3 GB min memory and 12 GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24-hour period and otherwise inactive.    
+Consider a serverless database configured with 1 min vCore and 4 max vCores.  This configuration corresponds to around 3 GB min memory and 12 GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24-hour period and otherwise inactive.    
 
 In this case, the database is billed for compute and storage during the first 8 hours.  Even though the database is inactive starting after the second hour, it is still billed for compute in the subsequent 6 hours based on the minimum compute provisioned while the database is online.  Only storage is billed during the remainder of the 24-hour period while the database is paused.
 
