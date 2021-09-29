@@ -42,7 +42,8 @@ Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-
 Setting up a message routing consists of two steps.
 
 ### Add an endpoint
-This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub routing-endpoint create](/cli/azure/iot/hub/route?view=azure-cli-latest#az_iot_hub_route_create) CLI command, based on your preference.
+
+This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub routing-endpoint create](/cli/azure/iot/hub/route#az_iot_hub_route_create) CLI command, based on your preference.
 
 Here is the list of parameters to use with the command to create an endpoint:
 

@@ -29,7 +29,7 @@ To successfully deploy a disk pool, you must have:
 
 If you're going to use the Azure PowerShell module, install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 
-If you're going to use the Azure CLI, install [the latest version](/cli/azure/disk-pool?view=azure-cli-latest).
+If you're going to use the Azure CLI, install [the latest version](/cli/azure/disk-pool).
 
 ## Register your subscription for the preview
 
