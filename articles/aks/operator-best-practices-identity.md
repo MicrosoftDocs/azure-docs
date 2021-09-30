@@ -137,7 +137,7 @@ Azure Active Directory Pod Identity supports 2 modes of operation:
 
 The `managed` mode provides the following advantages over the `standard`:
 
-1. Identity assignment on the VMSS of a node pool can take up 40-60s. In case of cronjobs or applications that require access to the identity and can’t tolerate the assignment delay, it’s best to use `managed` mode as the identity is pre-assigned to the VMSS of the node pool, manually or via the [az aks pod-identity add](/cli/azure/aks/pod-identity?view=azure-cli-latest#az_aks_pod_identity_add) command.
+1. Identity assignment on the VMSS of a node pool can take up 40-60s. In case of cronjobs or applications that require access to the identity and can't tolerate the assignment delay, it's best to use `managed` mode as the identity is pre-assigned to the VMSS of the node pool, manually or via the [az aks pod-identity add](/cli/azure/aks/pod-identity?view=azure-cli-latest#az_aks_pod_identity_add) command.
 2. In `standard` mode, MIC requires write permissions on the VMSS used by the AKS cluster and `Managed Identity Operator` permission on the user-assigned managed identities. While running in `managed mode`, since there is no MIC, the role assignments are not required.
 
 Instead of manually defining credentials for pods, pod-managed identities request an access token in real time, using it to access only their assigned services. In AKS, there are two components that handle the operations to allow pods to use managed identities:
@@ -166,14 +166,14 @@ In the following example, a developer creates a pod that uses a managed identity
 > [!NOTE]
 > Pod-managed identities is currently in preview status.
 
-To use Pod-managed identities, see [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity).
+To use Pod-managed identities, see [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](use-azure-ad-pod-identity.md).
 
 ## Next steps
 
 This best practices article focused on authentication and authorization for your cluster and resources. To implement some of these best practices, see the following articles:
 
 * [Integrate Azure Active Directory with AKS][aks-aad]
-* [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)
+* [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](use-azure-ad-pod-identity.md)
 
 For more information about cluster operations in AKS, see the following best practices:
 
