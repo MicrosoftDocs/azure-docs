@@ -62,6 +62,11 @@
             - name: Auto-train an ML model
               displayName: automl, automated, auto ml,
               href: tutorial-auto-train-models.md
+        - name: Object detection with Automated ML
+          items: 
+            - name: Auto-train an object detection model
+              displayName: automl, automated, auto ml,
+              href: tutorial-auto-train-image-models.md
         - name: Batch score models with pipelines
           displayName: pipelines
           href: tutorial-pipeline-batch-scoring-classification.md
