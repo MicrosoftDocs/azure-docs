@@ -2,10 +2,8 @@
 title: Receipts - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Learn concepts related to receipt analysis with the Form Recognizer API - usage and limits.
-services: cognitive-services
 author: laujan
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
@@ -79,26 +77,21 @@ The Receipt API also returns the following information:
 * Field confidence level (each field returns an associated confidence value)
 * OCR raw text (OCR-extracted text output for the entire receipt)
 * Bounding box for each value, line and word
-* The new receipt type and fields supported in [preview](#preview).
 
 ## Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## Supported receipt document types and locales
-|Version| Supported receipt types | Supported locales |
-|:-----|:----|:----|
-| Prebuilt Receipts v2.1 | Sales (thermal) receipt | **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us**|
-| Prebuilt Receipts v3.0 (preview) | Sales (thermal) receipt | **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us** |
-| Prebuilt Receipts v3.0 (preview) | [Hotel receipt](#preview) | **en-us** |
+## Supported locales
 
+* **Pre-built receipt v2.1** supports sales receipts in the **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us** English locales
 
   > [!NOTE]
   > Language input
   >
   > Prebuilt Receipt v2.1 has an optional request parameter to specify a receipt locale from additional English markets. For sales receipts in English from Australia (en-au), Canada (en-ca), Great Britain (en-gb), and India (en-in), you can specify the locale to get improved results. If no locale is specified in v2.1, the model will automatically detect the locale.
 
-## Analyze Receipt (v2.1)
+## Analyze Receipt
 
 The [Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
@@ -106,7 +99,7 @@ The [Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/f
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
 
-## Get Analyze Receipt Result (v2.1)
+## Get Analyze Receipt Result
 
 The second step is to call the [Get Analyze Receipt Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeReceiptResult) operation. This operation takes as input the Result ID that was created by the Analyze Receipt operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
@@ -453,37 +446,6 @@ See the following example of a successful JSON response (the output has been sho
   }
 }
 ```
-
-## Preview
-In Form Recognizer v3.0 preview, in addition to sales (thermal) receipts, single page hotel receipt is supported with the following fields extracted:
-
-|Name| Type | Description | Text | Value (standardized output) |
-|:-----|:----|:----|:----| :----|
-| ArrivalDate | date | Date of arrival | 27Mar21 | 2021-03-27 |
-| Currency | currency | Currency unit of receipt amounts, or 'MIXED' if multiple values are found | | USD |
-| DepartureDate | date | Date of departure | 28Mar21 | 2021-03-28 |
-| Items | array | | | |
-| Items.*.Category | string | Item category, e.g. Room, Tax, etc. | | Room |
-| Items.*.Date | date | Item date | 27Mar21 | 2021-03-27 |
-| Items.*.Description | string | Item description | "Room Charge" | "Room Charge" |
-| Items.*.TotalPrice |  number | Item total price | "88.00" | 88 |
-| Locale | string | Locale of the receipt |  | "en-US" |
-| MerchantAddress | string | Listed address of merchant | "5600 148th Ave NE, Redmond, WA 98052" | "5600 148th Ave NE, Redmond, WA 98052" |
-| MerchantAliases | array| | | |
-| MerchantAliases.* | string | Alternative name of merchant | Contoso | Contoso |
-| MerchantName | string | Name of the merchant issuing the receipt | Name of the merchant issuing the receipt | "Contoso Inn" | "Contoso Inn" |
-| MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | "987-654-4321" | +19876544321 |
-| ReceiptType | string | Type of receipt, e.g. Hotel, Itemized | | Hotel |
-| Total | number | Full transaction total of receipt | "104.92" | 104.92 |
-
-## Analyze Receipt (v3.0)
-In v3.0 preview, you can analyze receipts by POST/GET to Azure REST APIs:
-* POST https://{endpoint}/formrecognizer/documentModels/prebuilt-receipt:analyze?api-version=2021-09-30-preview
-* GET https://{endpoint}/formrecognizer/documentModels/prebuilt-receipt/analyzeResults/{resultId}
-
-The Analyze Document operation takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called Operation-Location. The Operation-Location value is a URL that contains the Result ID to be used in the next step. We poll this Get Analyze Result URL to check the status of the analyze operation (recommend no more than once a second). Upon success, status is set to succeeded and analyzeResult is returned in the response body (see Analysis Result). If errors are encountered, status is set to failed and error is returned. See [more details]().
-
-To learn more about the changes in the v3.0 API, see the [migration guide]().
 
 ## Next steps
 
