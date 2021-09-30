@@ -131,7 +131,7 @@ To enable viewing the device inventory in ClearPass, you need to set up Defender
 
 1. In the Defender for IoT sensor, select **System Settings** from the left side panel.
 
-1. In the **System Settings** pane, select **ClearPass** :::image type="content" source="media/tutorial-clearpass/clearpass-icon.png" alt-text="Screenshot of the ClearPass icon from the left side.":::.
+1. In the **System Settings** pane, select :::image type="content" source="media/tutorial-clearpass/clearpass-icon.png" alt-text="Screenshot of the ClearPass icon from the left side.":::.
 
 1. Set the following parameters:
 
