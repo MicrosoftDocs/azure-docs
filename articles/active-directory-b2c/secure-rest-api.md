@@ -262,11 +262,11 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
   <DisplayName>Bearer token</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
-<ClaimType Id="grant_type">
+<ClaimType Id="auth_grant_type">
   <DisplayName>Grant type</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
-<ClaimType Id="scope">
+<ClaimType Id="api_scope">
   <DisplayName>scope</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
@@ -336,8 +336,8 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
     <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_SecureRESTClientSecret" />
   </CryptographicKeys>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" />
+    <InputClaim ClaimTypeReferenceId="auth_grant_type" PartnerClaimType="grant_type" DefaultValue="client_credentials" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="api_scope" PartnerClaimType="scope" DefaultValue="https://graph.microsoft.com/.default" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />
