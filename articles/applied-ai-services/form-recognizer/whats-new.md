@@ -25,7 +25,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 :::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
 
-### Example charts
+### Charts
 
 :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metrics chart in the Azure portal.":::
 
