@@ -23,7 +23,8 @@ These are the rules for the message routing; these were set up in Part 1 of this
 |Value |Result|
 |------|------|
 |level="storage" |Write to Azure Storage.|
-|level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
+|level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from 
+ the queue and uses Office 365 to e-mail the message.|
 |default |Display this data using Power BI.|
 
 Now you create the resources to which the messages will be routed, run an app to send messages to the hub, and see the routing in action.
@@ -239,17 +240,17 @@ Now, with the application still running, set up the Power BI visualization to se
 
 2. Select **My Workspace**. It shows at least one dataset that was just created. If there's nothing there, run the **Simulated Device** application for another 5-10 minutes to stream more data. After the workspace appears, it will have a dataset called ContosoDataset. Right-click on the three vertical dots to the right of the dataset name. In the dropdown list, select **Create report**.
 
-     ![Power BI creating report](./media/tutorial-routing-view-message-routing-results/BI-my-workspace.png)
+     ![Power BI creating report](./media/tutorial-routing-view-message-routing-results/bi-personal-workspace.png)
 
 3. Look in the **Visualizations** section on the right-hand side and select **Line chart**. This inserts a line chart in the BI report page. Drag the graphic so it fills the space horizontally. Now in the **Fields** section on the right, open ContosoTable. Select **EventEnqueuedUtcTime**. It should put it across the X-Axis. Select **temperature** and drag it into the **Values** field for temperature. This adds temperature to the chart. You should have something that looks like the following graphic:
 
-     ![Power BI graph of temperature](./media/tutorial-routing-view-message-routing-results/BI-chart-temperature.png)
+     ![Power BI graph of temperature](./media/tutorial-routing-view-message-routing-results/bi-temperature-chart.png)
 
 4. Click in the bottom half of the chart area. Select **Line Chart** again. It creates a chart under the first one.
 
 5. In the table, select **EventQueuedTime**, it will put it in the Axis field. Drag **humidity** to the Values field. Now you see both charts.
 
-     ![Power BI graph of both fields](./media/tutorial-routing-view-message-routing-results/BI-chart-both.png)
+     ![Power BI graph of both fields](./media/tutorial-routing-view-message-routing-results/bi-chart-temp-humidity.png)
 
 You sent messages from the default endpoint of the IoT Hub to the Azure Stream Analytics. Then you added a PowerBI report to show the data, adding two charts to represent the temperature and the humidity. 
 
