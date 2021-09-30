@@ -106,11 +106,13 @@ When you allow collection of [advanced diagnostic information](https://azure.mic
 
 ### Memory dump collection
 
-When you create a support case for certain Virtual Machine problem types you will be asked whether you agree to support accessing your virtual machine's memory to diagnose the problem. A complete memory dump is the largest kernel-mode dump file. This file includes all of the physical memory that is used by Windows. A complete memory dump does not, by default, include physical memory that is used by the platform firmware.
+When you create a support case for certain Virtual Machine (VM) problem types, you will be asked whether you'll allow support to access your virtual machine's memory. If you do so, we may collect a memory dump to help diagnose the problem.
 
-The dump is copied from the compute node (Azure host) where it is created to another server for debugging within the same datacenter. Customer data is protected since the data does not leave Azure's secure boundary.
+A complete memory dump is the largest kernel-mode dump file. This file includes all of the physical memory that is used by Windows. A complete memory dump does not, by default, include physical memory that is used by the platform firmware.
 
-The dump file is created by generating a Hyper-V save state of the virtual machine (VM). This process will pause the VM for up to 10 minutes, after which time the VM is resumed. The VM is not restarted as part of this process.
+The dump is copied from the compute node (Azure host) to another server for debugging within the same datacenter. Customer data is protected, since the data does not leave Azure's secure boundary.
+
+The dump file is created by generating a Hyper-V save state of the VM. This will pause the VM for up to 10 minutes, after which time the VM is resumed. The VM is not restarted as part of this process.
 
 ## Next steps
 
