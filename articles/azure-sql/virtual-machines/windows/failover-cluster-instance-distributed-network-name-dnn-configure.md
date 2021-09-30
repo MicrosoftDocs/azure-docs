@@ -142,10 +142,11 @@ Use Failover Cluster Manager to restart the SQL Server instance. Follow these st
 
 ## Update connection string
 
-To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client version is earlier than 4.6.1. 
+Update the connection string of any application connecting to the SQL Server FCI DNN, and include `MultiSubnetFailover=True` in the connection string. If your client does not support the MultiSubnetFailover parameter, it is not compatible with a DNN. 
 
-Following is an example connection string for a DNN SQL FCI with a DNS name of FCIDNN
-**Data Source= FCIDNN, MultiSubnetFailover=True**
+The following is an example connection string for a SQL FCI DNN with the DNS name of **FCIDNN**: 
+
+`Data Source=FCIDNN, MultiSubnetFailover=True`
 
 Additionally, if the DNN is not using the original VNN, SQL clients that connect to the SQL Server FCI will need to update their connection string to the DNN DNS name. To avoid this requirement, you can update the DNS name value to be the name of the VNN. But you'll need to [replace the existing VNN with a placeholder](#rename-the-vnn) first. 
 
