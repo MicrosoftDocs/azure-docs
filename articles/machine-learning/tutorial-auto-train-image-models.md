@@ -182,7 +182,7 @@ automl_image_run.wait_for_completion(wait_post_processing=True)
 
 When doing a hyperparameter sweep, it can be useful to visualize the different configurations that were tried using the HyperDrive UI. You can navigate to this UI by going to the 'Child runs' tab in the UI of the main automl_image_run from above, which is the HyperDrive parent run. Then you can go into the 'Child runs' tab of this one. Alternatively, here below you can see directly the HyperDrive parent run and navigate to its 'Child runs' tab:
 
-```
+```python
 from azureml.core import Run
 hyperdrive_run = Run(experiment=experiment, run_id=automl_image_run.id + '_HD')
 hyperdrive_run
@@ -193,7 +193,6 @@ hyperdrive_run
 Once the run completes, we can register the model that was created from the best run.
 
 ```python
-
 best_child_run = automl_image_run.get_best_child()
 model_name = best_child_run.properties['model_name']
 model = best_child_run.register_model(model_name = model_name, model_path='outputs/model.pt')
@@ -370,3 +369,6 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Performed a hyperparameter sweep 
 > * Deployed your model
 > * Visualized detections
+
+* Learn more about computer vision in automated ML (preview).
+* [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
