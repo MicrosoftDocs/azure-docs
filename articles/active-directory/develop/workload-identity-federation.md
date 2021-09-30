@@ -1,7 +1,7 @@
 ---
 title: Worload identity federation | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about workload identity federation, which allows developers to use a token from another identity provider (such as GitHub) as the credential for accessing Azure resources.  This eliminates the need for storing and maintaining long-lived secrets outside of Azure.
+description: Learn about workload identity federation, which allows developers to exchange a token from another identity provider (such as GitHub) for an access token in order to access Azure resources.  This eliminates the need for storing and maintaining long-lived secrets outside of Azure.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,7 +14,7 @@ ms.date: 09/28/2021
 ms.author: ryanwi
 ms.reviewer: keyam, udayh, vakarand
 ms.custom: 
-#As a developer, I want to workload identity federation is used 
+#As a developer, I want to learn what workload identity federation is and what it's used for. 
 ---
 
 # Workload identity federation (preview)
@@ -33,27 +33,6 @@ Workload identity federation enables a variety of scenarios:
 
 Setup a GitHub Actions CI/CD to deploy to Azure without storing service principal secrets in GitHub.  GitHub tokens are exchanged for access tokens from Microsoft identity platform. 
 
-
-## Federated identity credential
-First, create the trust between the external identity provider and Microsoft identity platform. Configure a federated identity credential on the application object in Azure AD with the following properties. 
-
-The *issuer* and *subject* are the key pieces which setup the trust relationship. *issuer* is the URL of the incoming "trusted" issuer (STS). Matches the issuer claim of an access token. For Azure AD, this is: 
-- Azure AD (global service): "https://login.microsoftonline.com/{tenantid}/v2.0 " 
-- Azure AD for US Government: "https://login.microsoftonline.us/{tenantid}/v2.0 " 
-- Azure AD Germany: "https://login.microsoftonline.de/{tenantid}/v2.0 " 
-- Azure AD China operated by 21Vianet: "https://login.chinacloudapi.cn/{tenantid}/v2.0 " 
-
-*subject* For AAD issuer, the objectId of the servicePrincipal (can represent a managed identity) that can impersonate the app. The object associated with this guid needs to exist in the tenant. For all other issuers, a string with no additional validation 
-
-It says that Azure AD should trust the issuer for this particular application registration, and if the incoming token is issued by the issuer and has the matching subject claim, then Azure AD should accept that as the secret for this application and satisfy any requests for access tokens. The combination of *issuer* and *subject* must be unique on the app. 
-
-The *name* is the unique identifier for the federated identity.
-
-The *audiences* is optional, and defaults to `api://AzureADTokenExchange`. It says what Azure AD should accept in the audience claim in the incoming token. If GitHub, Kubernetes, and other scenarios allow the developer to configure the audience for the token issued by them, then the guidance would be for developers to configure those with `api://AzureADTokenExchange` and then not supply an audience when creating the federated identity credential. However, if the issuer does not have the flexibility for the developer to configure the audience in the token, then the developer can configure the audience that will show up in the token when creating the federated identity credential. 
-
-*description* is the user-provided description of what the federated identity credential is used for.
-
-For more information, see *Create a new federated identity credential*.
 
 ## Generic pattern of exchanging tokens and accessing Azure 
 Each scenario has different methods for exchanging a foreign token for an access token and accessing Azure resources, but the underlying pattern remains the same. The following steps show the end-to-end workflow at runtime, after the federated identity credential is created and the trust relationship between identity providers is established.  
