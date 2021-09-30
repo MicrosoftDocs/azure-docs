@@ -212,8 +212,17 @@ When using private link, your workspace cannot use Azure Container Registry task
 az ml workspace create -g <resource-group-name> --file privatelink.yml
 ```
 
-> [!NOTE]
-> Note that you cannot use the Azure CLI to create a private link endpoint for your Azure Machine Learning workspace today. You must use the Azure portal, Azure Resource Manager or Terraform options to create the private link endpoint.
+After creating the workspace, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create a private link endpoint for the workspace.
+
+```
+az network private-endpoint create \
+    --name <private-endpoint-name> \
+    --vnet-name <vnet-name> \
+    --subnet <subnet-name> \
+    --private-connection-resource-id "/subscriptions/<subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>" \
+    --group-id amlworkspace \
+    --connection-name workspace -l <location>
+```
 
 ---
 
