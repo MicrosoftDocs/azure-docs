@@ -83,7 +83,7 @@ If you created a _portal_ private endpoint for your Purview account **prior to 2
 
         3. Fill in the basic information.
 
-        4. On the **Resource** tab, for **Resource type**, select **Microsoft.Purview/portal**.
+        4. On the **Resource** tab, for **Resource type**, select **Microsoft.Purview/account**.
 
         5. For **Resource**, select the Azure Purview account, and for **Target sub-resource**, select **portal**.
 
