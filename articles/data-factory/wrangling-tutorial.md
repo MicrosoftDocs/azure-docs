@@ -51,7 +51,7 @@ Author your wrangling Power Query using code-free data preparation. For the list
 
 To execute a pipeline debug run of a Power Query activity, click **Debug** in the pipeline canvas. Once you publish your pipeline, **Trigger now** executes an on-demand run of the last published pipeline. Power Query pipelines can be schedule with all existing Azure Data Factory triggers.
 
-:::image type="content" source="media/data-flow/power-query-activity-001.png" alt-text="Screenshot that shows how to add a Power Query data wrangling activity.":::
+:::image type="content" source="media/data-flow/power-query-activity.png" alt-text="Screenshot that shows how to add a Power Query data wrangling activity.":::
 
 Go to the **Monitor** tab to visualize the output of a triggered Power Query activity run.
 
