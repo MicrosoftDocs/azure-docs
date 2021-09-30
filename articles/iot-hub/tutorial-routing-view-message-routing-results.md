@@ -255,7 +255,7 @@ You sent messages from the default endpoint of the IoT Hub to the Azure Stream A
 
 7. Select **File > Save** to save the report, entering a name for the report when prompted. Save your report in your workspace.
 
-You able to see data on both charts. This result means the following statements are true:
+You are able to see data on both charts. This result means the following statements are true:
 
    * The routing to the default endpoint is working correctly.
    * The Azure Stream Analytics job is streaming correctly.
