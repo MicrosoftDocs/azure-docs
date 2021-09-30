@@ -32,9 +32,11 @@ To achieve scale with your Power Query activity, Azure Data Factory translates y
 
 ## Sink
 
-
+Choose the dataset you wish to use for landing your trasnformed data once the Power Query M script has been executed on Spark. For more details on configuring sinks, visit the documentation for [data flow sinks[(data-flow-sink).
 
 ## Mapping
+
+In the Mapping tab, you can configure column mapping from the output of your Power Query activity to the target schema of your chosen sink. Read more about column mapping from the data flow sink mapping documentation (https://docs.microsoft.com/azure/data-factory/data-flow-sink#field-mapping).
 
 ## Next steps
 
