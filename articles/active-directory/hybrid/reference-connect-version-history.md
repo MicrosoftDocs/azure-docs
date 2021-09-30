@@ -8,9 +8,9 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/26/2021
+ms.date: 09/21/2021
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: rodejo
 ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ Required permissions | For permissions required to apply an update, see [account
 
 
 >[!IMPORTANT]
-> **On 31 August 2022, all 1.x versions of Azure Active Directory (Azure AD) Connect will be retired because they include SQL Server 2012 components that will no longer be supported.** Either upgrade to the most recent version of Azure AD Connect (2.x version) by that date, or [evaluate and switch to Azure AD cloud sync](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync).
+> **On 31 August 2022, all 1.x versions of Azure Active Directory (Azure AD) Connect will be retired because they include SQL Server 2012 components that will no longer be supported.** Either upgrade to the most recent version of Azure AD Connect (2.x version) by that date, or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
 > 
 > You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
 > 
@@ -52,16 +52,65 @@ However, if you’d like all the latest features and updates, the best way to se
 
 
 ## Download links
-If you are using Windows Server 2016 or newer you should use Azure AD Connect V2.0. You can download the latest version of Azure AD Connect 2.0 using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
-If you are still using an older version of Windows Server you should use Azure AD Connect V1.6. You can download the latest version of Azure AD Connect 1.6 using [this link](https://www.microsoft.com/download/details.aspx?id=103336)
+ - If you are using Windows Server 2016 or newer you should use Azure AD Connect V2.0. You can download the latest version of Azure AD Connect 2.0 using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+ - If you are still using an older version of Windows Server you should use Azure AD Connect V1.6. You can download the latest version of Azure AD Connect V1 using [this link](https://www.microsoft.com/download/details.aspx?id=103336). 
+ - We are only applying critical changes to the V1 versions going forward, and you may not find some of the features and fixes for V2 in the V1 releases - so you should upgrade to the V2 version as soon as possible.
+
+## 1.6.14.2
+>[!NOTE] 
+>This is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer at this time. You cannot use this version to update an Azure AD Connect V2.0 server.
+>We will begin auto upgrading eligible tenants when this version is available for download, autoupgrade will take a few weeks to complete.
+
+### Release status
+9/21/2021: Released for download and auto upgrade.
+
+### Functional changes
+ - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
+ - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
+
+### Bug fixes
+ - We fixed a bug where the DesktopSSO settings were not persisted after upgrade from a previous version.
+ - We fixed a bug that caused the Set-ADSync\*Permission cmdlets to fail.
+
+## 2.0.25.1
+
+>[!NOTE] 
+> This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer and fixes a security issue that is present in version 2.0 of Azure AD Connect, as well as some other bug fixes.
+
+### Release status
+9/14/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+
+ - We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
+ - Fixing an import config issue with writeback enabled when using the existing AD connector account.
+ - We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from 1.6 due to an invalid inheritance type.
+ - The cmdlet we published in a previous release to set the TLS version had an issue where it overwrites the keys, destroying any values that were in them. We fixed this by only creating a new key if one does not already exist. A warning is also added to let users know the TLS registry changes are not exclusive to Azure AD Connect and may impact other applications on the same server as well.
+ - We added a check to enforce auto upgrade for V2.0 to require Windows Server 2016 or newer.
+ - We added 'Replicating Directory Changes' permission in the Set-ADSyncBasicReadPermissions cmdlet.
+ - We made a change to prevent UseExistingDatabase and import configuration from being used together since these could contain conflicting configuration settings.
+ - We made a change to allow a user with the Application Admin role to change the App Proxy service configuration.
+ - We removed the '(Preview)' label from the labels of Import/Export settings - this functionality has been in General Availability for some time now.
+ - We change some labels that still refered to "Company Administrator" - we now use the role name "Global Administrator".
+ - We created new AAD Kerberos PowerShell cmdlets "\*-AADKerberosServer" to add a Claims Transform rule to the AAD Service Principal.
+
+### Functional changes
+ - We added the latest versions of MIM Connectors (1.1.1610.0). More information can be found at [the release history page of the MiM connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021)
+ - We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](/powershell/module/msonline/set-msoldirsyncfeature?view=azureadps-1.0#example-2--block-soft-matching-for-the-tenant) shows how to disable Soft Matching.
 
 ## 2.0.10.0
+
+### Release status
+8/19/2021: Released for download only, not available for auto upgrade.
 
 >[!NOTE] 
 >This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. This hotfix addresses an issue that is present in version 2.0 as well as in Azure AD Connect version 1.6. If you are running Azure AD Connect on an older Windows Server you should install the [1.6.13.0](#16130) build instead.
 
 ### Release status
 8/19/2021: Released for download only, not available for auto upgrade.
+
+### Known issues
+ - Under certain circumstances the installer for this version will display an error mentioning that TLS 1.2 is not enabled and will stop the installation. This is due to an error in the code that verifies the registry setting for TLS 1.2. We will correct this in a future release. Customers who see this issue should follow the instructions for enabling TLS 1.2 that can be found in the article "[TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md)".
 
 ### Bug fixes
 
@@ -412,7 +461,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 - We added the ability to target specific agent from cloud to test for agent connectivity.
 
 ### Fixed issues
-- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the Azure AD Connect user interface. 
+- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login Windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the Azure AD Connect user interface. 
 - A fix was made to enable DSSO simultaneously in all forest through the Azure AD Connect user interface
 
 ## 1.4.32.0

@@ -43,25 +43,25 @@ The template defines four parameters:
 
 1. Go to the **Move files** template. Select existing connection or create a **New** connection to your source file store where you want to move files from. Be aware that **DataSource_Folder** and **DataSource_File** are reference to the same connection of your source file store.
 
-    ![Create a new connection to the source](media/solution-template-move-files/move-files1.png)
+    :::image type="content" source="media/solution-template-move-files/move-files1.png" alt-text="Create a new connection to the source":::
 
 2. Select existing connection or create a **New** connection to your destination file store where you want to move files to.
 
-    ![Create a new connection to the destination](media/solution-template-move-files/move-files2.png)
+    :::image type="content" source="media/solution-template-move-files/move-files2.png" alt-text="Create a new connection to the destination":::
 
 3. Select **Use this template** tab.
 	
 4. You'll see the pipeline, as in the following example:
 
-    ![Show the pipeline](media/solution-template-move-files/move-files4.png)
+    :::image type="content" source="media/solution-template-move-files/move-files4.png" alt-text="Show the pipeline":::
 
 5. Select **Debug**, enter the **Parameters**, and then select **Finish**.   The parameters are the folder path where you want to move files from and the folder path where you want to move files to. 
 
-    ![Run the pipeline](media/solution-template-move-files/move-files5.png)
+    :::image type="content" source="media/solution-template-move-files/move-files5.png" alt-text="Run the pipeline":::
 
 6. Review the result.
 
-    ![Review the result](media/solution-template-move-files/move-files6.png)
+    :::image type="content" source="media/solution-template-move-files/move-files6.png" alt-text="Review the result":::
 
 ## Next steps
 

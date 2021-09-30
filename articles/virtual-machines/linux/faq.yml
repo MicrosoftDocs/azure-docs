@@ -132,19 +132,13 @@ sections:
           
           The following passwords are not allowed:
           
-          <table>
-              <tr>
-                  <td style="text-align:center">abc@123</td>
-                  <td style="text-align:center">P@$$w0rd</td>
-                  <td style="text-align:center">P@ssw0rd</td>
-                  <td style="text-align:center">P@ssword123</td>
-                  <td style="text-align:center">Pa$$word</td>
-              </tr>
-              <tr>
-                  <td style="text-align:center">pass@word1</td>
-                  <td style="text-align:center">Password!</td>
-                  <td style="text-align:center">Password1</td>
-                  <td style="text-align:center">Password22</td>
-                  <td style="text-align:center">iloveyou!</td>
-              </tr>
-          </table>
+          * abc@123
+          * P@$$w0rd
+          * P@ssw0rd
+          * P@ssword123
+          * Pa$$word
+          * pass@word1
+          * Password!
+          * Password1
+          * Password22
+          * iloveyou!

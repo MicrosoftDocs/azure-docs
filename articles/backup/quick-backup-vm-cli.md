@@ -86,6 +86,7 @@ az backup protection backup-now \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
+    --backup-management-type AzureIaaSVM
     --retain-until 18-10-2017
 ```
 
@@ -123,6 +124,7 @@ az backup protection disable \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
+    --backup-management-type AzureIaaSVM
     --delete-backup-data true
 az backup vault delete \
     --resource-group myResourceGroup \

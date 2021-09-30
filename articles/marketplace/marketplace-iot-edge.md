@@ -37,7 +37,7 @@ IoT Edge Modules are only published to the Azure Marketplace; AppSource does not
 
 ## Technical Requirements
 
-The primary technical requirements for an IoT Edge Module, in order for it to get certified and published in the Azure Marketplace, are detailed in the [Prepare your IoT Edge module technical assets](iot-edge-technical-asset.md).
+The technical requirements to get an IoT Edge Module certified and published in the Azure Marketplace are detailed in the [Prepare your IoT Edge module technical assets](iot-edge-technical-asset.md).
 
 ## Eligibility prerequisites
 

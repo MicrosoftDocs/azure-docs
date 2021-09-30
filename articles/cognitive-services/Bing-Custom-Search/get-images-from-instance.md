@@ -3,14 +3,14 @@ title: Get images from your custom view - Bing Custom Search
 titleSuffix: Azure Cognitive Services
 description: High-level overview about using Bing Custom Search to get images from your custom view of the Web.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: scottwhi
+
 ---
 
 # Get images from your custom view

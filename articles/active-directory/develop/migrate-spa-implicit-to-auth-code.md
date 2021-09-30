@@ -3,14 +3,14 @@ title: Migrate JavaScript single-page app from implicit grant to authorization c
 titleSuffix: Microsoft identity platform
 description: How to update a JavaScript SPA using MSAL.js 1.x and the implicit grant flow to MSAL.js 2.x and the authorization code flow with PKCE and CORS support.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/17/2020
-ms.author: hahamil
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
 ---
 

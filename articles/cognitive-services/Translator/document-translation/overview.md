@@ -1,11 +1,15 @@
 ---
 title: What is Microsoft Azure Cognitive Services Document Translation?
 description: An overview of the cloud-based batch document translation service and process.
-ms.topic: overview
-manager: nitinme
-ms.author: lajanuar
+services: cognitive-services
 author: laujan
-ms.date: 08/09/2021
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: translator-text
+ms.topic: overview
+ms.date: 05/25/2021
+ms.author: lajanuar
+recommendations: false
 ---
 # What is Document Translation?
 
@@ -39,7 +43,7 @@ You can add Document Translation to your applications using the REST API or a cl
 
 * The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
 
-* The [**client-library SDKs**](client-sdks.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](/python/azure-ai-translation-document/latest/azure.ai.translation.document.html).
+* The [**client-library SDKs**](client-sdks.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
 
 ## Get started
 

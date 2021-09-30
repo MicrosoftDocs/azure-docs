@@ -75,8 +75,6 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `map`       |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 | `struct`    |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 
-<!-- TODO: Add precision and scale to the types mentioned above -->
-
 ## Security model
 
 The Spark databases and tables, as well as their synchronized representations in the SQL engine will be secured at the underlying storage level. Since they do not currently have permissions on the objects themselves, the objects can be seen in the object explorer.
@@ -162,7 +160,7 @@ CREATE TABLE mytestdb.myexternalparquettable
 
 Replace the placeholder `<fs>` with the file system name that is the workspace default file system and the placeholder `<synapse_ws>` with the name of the synapse workspace you're using to run this example.
 
-The previous example creates the table `myextneralparquettable` in the database `mytestdb`. After a short delay, you can see the table in your serverless SQL pool. For example, run the following statement from your serverless SQL pool.
+The previous example creates the table `myexternalparquettable` in the database `mytestdb`. After a short delay, you can see the table in your serverless SQL pool. For example, run the following statement from your serverless SQL pool.
 
 ```sql
 USE mytestdb;
@@ -189,5 +187,3 @@ id | name | birthdate
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
 - [Learn more about Azure Synapse Analytics' shared metadata database](database.md)
-
-

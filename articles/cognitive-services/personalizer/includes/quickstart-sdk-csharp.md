@@ -56,7 +56,7 @@ Build succeeded.
 Within the application directory, install the Personalizer client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0-preview
+dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 1.0.0
 ```
 
 > [!TIP]

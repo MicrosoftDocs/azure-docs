@@ -48,7 +48,7 @@ event.
 >| Description |The media description information was not received before the actual media data was delivered. |
 >| Suggested solution|The LiveEvent does not receive the stream description (header or FLV tag) from the encoder. This is a protocol violation. Contact encoder vendor. |
 >|**MPE_INGEST_MEDIA_QUALITIES_EXCEEDED** ||
->| Description|The count of qualities for audio or video type exceeded the maximum allowed limit. |
+>| Description| The count of quality levels for audio or video type exceeded the maximum allowed limit. Quality levels beyond the limit were ignored by the service.|
 >| Suggested solution|When Live Event mode is Live Encoding, the encoder should push a single bitrate of video and audio.  Note that a redundant push from the same bitrate is allowed. Check the encoder preset or output settings to make sure it outputs a single bitrate stream. |
 >|**MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED** ||
 >| Description|The total incoming bitrate in a live event or channel service exceeded the maximum allowed limit. |

@@ -2,8 +2,8 @@
 title: Export data from Azure IoT Central | Microsoft Docs
 description: How to use the new data export to export your IoT data to Azure and custom cloud destinations.
 services: iot-central
-author: viv-liu
-ms.author: viviali
+author: dominicbetts
+ms.author: dobett
 ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
@@ -136,7 +136,7 @@ Now that you have a destination to export your data to, set up data export in yo
     |--------------|------------------|
     |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that have *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message optionally sent by devices that use the device SDKs. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
     |Property changes|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain property changes that meet the filter conditions</li></ul>|
-    |Device connectivity|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
+    |Device connectivity|<ul><li>Filter by device name, device ID, device template, organizations, and if the device is simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
     |Device lifecycle|<ul><li>Filter by device name, device ID, device template, and if the device is provisioned, enabled, or simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
     |Device template lifecycle|<ul><li>Filter by device template</li></ul>|
     
@@ -144,7 +144,7 @@ Now that you have a destination to export your data to, set up data export in yo
 <a name="DataExportEnrichmnents"></a>
     - **Custom string**: Adds a custom static string to each message. Enter any key, and enter any string value.
     - **Property**, which adds to each message:
-       - Device metadata such as device name, device template name, enabled, provisioned, and simulated
+       - Device metadata such as device name, device template name, enabled, organizations, provisioned, and simulated.
        - The current device reported property or cloud property value to each message. If the exported message is from a device that doesn't have the specified property, the exported message doesn't get the enrichment.
 
 1. Add a new destination or add a destination that you've already created. Select the **Create a new one** link and add the following information:

@@ -1,17 +1,9 @@
 ---
 title: 'Azure AD Connect: When you already have Azure AD | Microsoft Docs'
 description: This topic describes how to use Connect when you have an existing Azure AD tenant.
-services: active-directory
-documentationcenter: ''
 author: billmath
-manager: daveba
-editor: ''
-
-ms.assetid:
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
@@ -52,16 +44,18 @@ If you matched your objects with a soft-match, then the **sourceAnchor** is adde
 ### Hard-match vs Soft-match
 For a new installation of Connect, there is no practical difference between a soft- and a hard-match. The difference is in a disaster recovery situation. If you have lost your server with Azure AD Connect, you can reinstall a new instance without losing any data. An object with a sourceAnchor is sent to Connect during initial install. The match can then be evaluated by the client (Azure AD Connect), which is a lot faster than doing the same in Azure AD. A hard match is evaluated both by Connect and by Azure AD. A soft match is only evaluated by Azure AD.
 
+ We have added a configuration option to disable the Soft Matching feature in Azure AD Connect. We advise customers to disable soft matching unless they need it to take over cloud only accounts. This [article](/powershell/module/msonline/set-msoldirsyncfeature) shows how to disable Soft Matching.
+
 ### Other objects than users
 For mail-enabled groups and contacts, you can soft-match based on proxyAddresses. Hard-match is not applicable since you can only update the sourceAnchor/immutableID (using PowerShell) on Users only. For groups that aren't mail-enabled, there is currently no support for soft-match or hard-match.
 
 ### Admin role considerations
 To prevent untrusted on-premises users from matching with a cloud user that has any admin role, Azure AD Connect will not match on-premises user objects with objects that have an admin role. This is by default. To workaround this behavior you can do the following:
 
-1.	Remove the directory roles from the cloud-only user object.
-2.	If there was a failed user sync attempt, hard delete the Quarantined object in the cloud.
-3.	Trigger a sync.
-4.	Optionally add the directory roles back to the user object in cloud once the matching has occurred.
+1.    Remove the directory roles from the cloud-only user object.
+2.    If there was a failed user sync attempt, hard delete the Quarantined object in the cloud.
+3.    Trigger a sync.
+4.    Optionally add the directory roles back to the user object in cloud once the matching has occurred.
 
 
 

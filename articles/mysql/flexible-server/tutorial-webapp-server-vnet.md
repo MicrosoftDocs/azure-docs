@@ -31,7 +31,7 @@ In this tutorial you will learn how to:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
@@ -84,7 +84,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 
 > [!NOTE]
 > - For the --location argument, use the same location as you did for the database in the previous section.
-> - Replace _&lt;app-name>_ with a unique name across all Azure (the server endpoint is https://\<app-name>.azurewebsites.net). Allowed characters for <app-name> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
+> - Replace _\<app-name\>_ with a unique name across all Azure (the server endpoint is `https://\<app-name>.azurewebsites.net`). Allowed characters for \<app-name\> are A-Z, 0-9, and -. A good pattern is to use a combination of your company name and an app identifier.
 > - App Service Basic tier does not support VNET integration. Please use Standard or Premium. 
 
 This command performs the following actions, which may take a few minutes:

@@ -18,7 +18,7 @@ For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgr
 This article requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail. For more information, see [increase quotas](../azure-portal/supportability/resource-manager-core-quotas-request.md)
+> An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail. For more information, see [increase quotas](../azure-portal/supportability/regional-quota-requests.md)
 
 ## Check for available AKS cluster upgrades
 
@@ -145,7 +145,7 @@ Register the `AutoUpgradePreview` feature flag by using the [az feature register
 az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It can take several minutes for the status to show *Registered*. Please wait for the registration to finish. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"

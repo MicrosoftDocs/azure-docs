@@ -29,6 +29,10 @@ Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipelin
 
 ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
 
+> [!NOTE]
+> The execution of parallel Spark Notebooks in Azure Synapse pipelines be queued and executed in a FIFO manner, jobs order in the queue is according to the time sequence, the expire time of a job in the queue is 3 days, please notice that queue for notebook only work in synapse pipeline.
+
+
 ### Add a notebook to Synapse pipeline
 
 Select the **Add to pipeline** button on the upper right corner to add a notebook to an existing pipeline or create a new pipeline.
