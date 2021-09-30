@@ -58,7 +58,8 @@ Once any errors have been addressed, the administrator then can activate each ke
 
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant.
 
-[!IMPORTANT] The preview is not supported in Azure Government or sovereign clouds.
+>[!IMPORTANT]
+>The preview is not supported in Azure Government or sovereign clouds.
 
 ## Next steps
 
