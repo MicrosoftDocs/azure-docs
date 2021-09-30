@@ -3831,7 +3831,7 @@ And returns this array as the result: `["a","b","c"]`
 
 *Example 2*
   
-This example creates an array with a single element when the delimiter is not present in the string:
+This example creates an array with a single element when no delimiter exists in the string:
 
 ```
 split('a_b_c', ' ')
