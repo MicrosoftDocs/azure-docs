@@ -305,15 +305,15 @@ The front-end app now has the required permissions to access the back-end app as
 1. In the **authsettingsV2** view, click **Edit**. Drill down to `properties.identityProviders.azureActiveDirectory.login` and add `loginParameters` with the following JSON string, using the client ID you copied. 
 
     ```json
-    "loginParameters": ["response_type=code id_token","scope=openid api://<back-end-client-id>/user_impersonation"],
+    "loginParameters": ["response_type=code id_token","scope=openid offline_access api://<back-end-client-id>/user_impersonation"],
     ```
 
     :::image type="content" source="./media/tutorial-auth-aad/add-loginparameters.png" alt-text="Screenshot of a code example in the authsettingsV2 view showing the loginParameters string with an example of a client ID.":::
 
     > [!TIP]
-    > The scope `api://<back-end-client-id>/user_impersonation` is added by default to the app registration for the back-end app. To view it in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu.
+    > The scope `api://<back-end-client-id>/user_impersonation` is added by default to the app registration for the back-end app. To view it in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu. For information about the other scopes, see [openid](../active-directory/develop/v2-permissions-and-consent.md#openid) and [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access).
     >
-    > Note that the scope requires admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the front-end app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
+    > Note that the scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the front-end app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
 
 1. Save your settings by clicking **PUT**.
 
