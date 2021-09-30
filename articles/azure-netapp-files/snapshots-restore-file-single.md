@@ -98,7 +98,7 @@ daily-10-min-past-12am.2021-09-08_0010
 daily-10-min-past-12am.2021-09-09_0010
 bash# cd daily-10-min-past-12am.2021-09-08_0010
 bash# ls
-contoso customer2 customer3
+contoso department1 department2
 bash# cd contoso
 bash# ls
 vm-7891.vmdk vm-8976.vmdk
@@ -136,7 +136,7 @@ Directory of N:\~snapshot\daily-10-min-past-12am.2021-09-08_0010
 09/11/2021  12:10 AM    <DIR>          .
 09/22/2021  07:56 PM    <DIR>          ..
 02/27/2021  01:47 PM                 102,400 contoso
-04/21/2021  11:00 PM                 106,400 customer2
+04/21/2021  11:00 PM                 106,400 department1
 N:\> cd contoso
 N:\> dir
 Directory of N:\~snapshot\ daily-10-min-past-12am.2021-09-08_0010\contoso
