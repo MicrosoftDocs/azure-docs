@@ -63,18 +63,19 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![The list of triggers](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
 
-5. Fill in the screen with the connection information. 
+5. Fill in the screen with the connection information.
 
    **Connection Name**: ContosoConnection
    
-   Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **Save**. 
+   Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **RootManageSharedAccessKey**. The **Create** button cchanges to blue (active). Select it; it shows the queue selection screen.  
 
-   **Queue Name:** Tne name of the queue from which the message will be sent. Click this dropdown list and select the queue name 
-that was set in the setup steps. This tutorial uses **contososbqueue**.
+5. Fill in the information about the queue.
+
+   **Queue Name:** This is the name of the queue from which the message is sent. Click this dropdown list and select the queue name that was set in the setup steps. This tutorial uses **contososbqueue**.
 
    **Queue Type:** The type of queue. Select **Main** from the dropdown list.
 
-   Take the defaults for the other fields. Select **Save**.
+   Take the defaults for the other fields. Select **Save** to save the logic apps designer configuration.
 
 6. Select **+New Step**. The **Choose an operation** pane is displayed. Select **Office 365 Outlook** and then in the list, find and select **Send an Email (V2)**. Sign in to your Office 365 account.   
 
@@ -82,11 +83,11 @@ that was set in the setup steps. This tutorial uses **contososbqueue**.
 
    ![Select to send-an-email from one of the Oulook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) 
 
-   **To:** Put in the e-mail address where the warning should be sent.
+   **To:** Put in the e-mail address where the warning is to be sent.
 
    **Subject:** Fill in the subject for the e-mail.
 
-   **Body**: Fill in some text for the body. Click **Add dynamic**, it will show fields you can pick from the e-mail to include. Select **Body** to have the body from the e-mail displayed in the error message.
+   **Body**: Fill in some text for the body. Click **Add dynamic content**, it will show fields you can pick from the e-mail to include. If you don't see any, select **See More** to see more options. Select **Content** to have the body from the e-mail displayed in the error message.
 
    Click **Save** to save your changes. Close the Logic app Designer. 
 
@@ -96,7 +97,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Create the Stream Analytics job
 
-1. Put **stream** **analytics** **job** in the [Azure portal](https://portal.azure.com) and select **enter**. Select **Create** to get to the Stream Analytics job screen, and then **create** again to get to the create screen. 
+1. Put **stream** **analytics** **job** in the [Azure portal](https://portal.azure.com) and select **Enter**. Select **Create** to get to the Stream Analytics job screen, and then **create** again to get to the create screen. 
 
 2. Enter the following information for the job.
 
