@@ -65,11 +65,46 @@ Some resources in Azure require globally unique names. Before deploying your res
 **variables.tf**:
 :::code language="terraform" source="~/terraform/quickstart/201-machine-learning-moderately-secure/variables.tf":::
 
-**network.tf**:
-:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-moderately-secure/network.tf":::
-
 **workspace.tf**:
 :::code language="terraform" source="~/terraform/quickstart/201-machine-learning-moderately-secure/workspace.tf":::
+
+**network.tf**:
+```terraform
+# Virtual Network
+resource "azurerm_virtual_network" "default" {
+  name                = "vnet-${var.name}-${var.environment}"
+  address_space       = var.vnet_address_space
+  location            = azurerm_resource_group.default.location
+  resource_group_name = azurerm_resource_group.default.name
+}
+
+resource "azurerm_subnet" "snet-training" {
+  name                                           = "snet-training"
+  resource_group_name                            = azurerm_resource_group.default.name
+  virtual_network_name                           = azurerm_virtual_network.default.name
+  address_prefixes                               = var.training_subnet_address_space
+  enforce_private_link_endpoint_network_policies = true
+}
+
+resource "azurerm_subnet" "snet-aks" {
+  name                                           = "snet-aks"
+  resource_group_name                            = azurerm_resource_group.default.name
+  virtual_network_name                           = azurerm_virtual_network.default.name
+  address_prefixes                               = var.aks_subnet_address_space
+  enforce_private_link_endpoint_network_policies = true
+}
+
+resource "azurerm_subnet" "snet-workspace" {
+  name                                           = "snet-workspace"
+  resource_group_name                            = azurerm_resource_group.default.name
+  virtual_network_name                           = azurerm_virtual_network.default.name
+  address_prefixes                               = var.ml_subnet_address_space
+  enforce_private_link_endpoint_network_policies = true
+}
+
+# ...
+# For full reference, see: https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/network.tf
+```
 
 When using private link endpoints for both Azure Container Registry and Azure Machine Learning, Azure Container Registry tasks cannot be used for building [environment](/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) images. Instead you can build images using an Azure Machine Learning compute cluster. To configure the cluster name of use, set the [image_build_compute_name](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument. You can configure to [allow public access](/azure/machine-learning/how-to-configure-private-link?tabs=python#enable-public-access) to a workspaces that has a private link endpoint using the [public_network_access_enabled](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/machine_learning_workspace) argument.
 
