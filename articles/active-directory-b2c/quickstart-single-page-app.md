@@ -86,7 +86,4 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 - Create an Azure AD B2C user account (created automatically at sign-in)
 - Call a web API protected by Azure AD B2C -->
 
-Get started creating your own Azure AD B2C tenant.
-
-> [!div class="nextstepaction"]
-> [Create an Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)
+- Get started creating your own [Azure Active Directory B2C tenant in the Azure portal](tutorial-create-tenant.md)
