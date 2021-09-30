@@ -267,9 +267,9 @@ spark = SparkSession \
 
 **To manage or select your Synapse workspace**
 
-To manage or select a different Synapse workspace than the one you're currently signed in to, select Configure Azure Synapse > Manage Synapse workspace.
+To manage or select a different Synapse workspace than the one you're currently signed in to, select **Configure Azure Synapse > Manage Synapse workspace**.
 
-Then in the **Select workspace** page, make sure your Azure Active Directory and Subscription values are correct, and select your Synapse workspace from the *Workspace name** dropdown.
+Then in the **Select workspace** page, make sure your Azure Active Directory and Subscription values are correct, and select your Synapse workspace from the **Workspace name** dropdown.
 
 ## Troubleshooting
 
