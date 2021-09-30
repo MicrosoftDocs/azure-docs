@@ -84,7 +84,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
    Executing operation pipelineTopologyList
    -----------------------  Request: pipelineTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "1.1"
    }
    ---------------  Response: pipelineTopologyList - Status: 200  ---------------
    {
@@ -103,7 +103,7 @@ Open an application such as [VLC media player](https://www.videolan.org/vlc/). S
 
      ```
      {
-       "@apiVersion": "1.0",
+       "@apiVersion": "1.1",
        "name": "Sample-Pipeline-1",
        "properties": {
          "topologyName": "InferencingWithHttpExtension",

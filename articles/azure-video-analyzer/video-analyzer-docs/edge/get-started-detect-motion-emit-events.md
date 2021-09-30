@@ -127,7 +127,7 @@ Using the same steps as above, you can invoke `pipelineTopologySet` to set a pip
 
 ```json
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "1.1",
     "name": "MotionDetection",
     "properties": {
         "description": "Analyzing live video to detect motion and emit events",

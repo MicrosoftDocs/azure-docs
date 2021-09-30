@@ -134,7 +134,7 @@ Using the same steps as above, you can invoke `pipelineTopologySet` to set a pip
 
 ```
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "EVRtoVideoSinkOnMotionDetection",
   "properties": {
     "description": "Event-based video recording to Video Sink based on motion events",

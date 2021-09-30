@@ -142,9 +142,10 @@ Add the following extensionConfiguration after the rtsp params:
 
 
 Your `operations.json` should look like this:
+
 ```
 {
-  "apiVersion": "1.0",
+  "apiVersion": "1.1,
   "operations": [
       {
           "opName": "pipelineTopologyList",
@@ -279,7 +280,7 @@ Tracking:
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "1.1",
            "name": "Sample-Pipeline-1",
            "properties": {
              "topologyName": "InferencingWithGrpcExtension",
