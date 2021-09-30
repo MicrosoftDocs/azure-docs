@@ -15,6 +15,8 @@ Connecting cameras to the cloud using a transparent gateway allows cameras to co
 * When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
 
 <!-- TODO: add graphic -->
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/use-transparent-gateway/use-transparent-gateway.svg" alt-text="Connecting cameras to the cloud using a transparent gateway":::
 
 ## Pre-reading
 [Get started with Azure Video Analyzer in the Portal](../get-started-detect-motion-emit-events-portal.md)
