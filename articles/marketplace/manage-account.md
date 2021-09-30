@@ -28,7 +28,7 @@ If you have not already done so, you (or your organization's administrator) shou
 
 1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 
-1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
+1. In the top-right, select **Settings** (gear icon), then **Account settings**.
 
     [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
@@ -132,6 +132,8 @@ To access the Agreements page:
 **Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**.
 
 ## Set up a payout profile
+
+To have a transactable offer in Azure Marketplace, a Tax profile and Payment profile must be submitted and validated in Partner Center.  A Tax profile needs to be submitted first before a Payout profile can be created. A Tax profile submission can take up to 48 hours to validate.
 
 A payout profile is the bank account to which proceeds are sent from your sales. This bank account must be in the same country or region where you registered your Partner Center account. For more information about a payout profile, see [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account).
 

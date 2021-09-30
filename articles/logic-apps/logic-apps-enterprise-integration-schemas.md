@@ -1,6 +1,6 @@
 ---
-title: Add schemas for XML validation in workflows
-description: Add schemas to validate XML documents for workflows in Azure Logic Apps using the Enterprise Integration Pack.
+title: Add schemas to validate XML in workflows
+description: Add schemas to validate XML documents in workflows with Azure Logic Apps and the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/14/2021
 ---
 
-# Add schemas to validate XML documents for workflows in Azure Logic Apps
+# Add schemas to validate XML in workflows with Azure Logic Apps
 
 To check that documents use valid XML and have the expected data in the predefined format, your logic app workflow can use XML schemas with the **XML Validation** action. An XML schema describes a business document that's represented in XML using the [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/).
 
