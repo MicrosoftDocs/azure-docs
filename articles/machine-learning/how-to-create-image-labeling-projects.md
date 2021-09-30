@@ -52,6 +52,10 @@ Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe"
 
 * Select **Next** when you're ready to continue.
 
+## Add workforce (optional)
+
+[!INCLUDE [start](../../includes/machine-learning-data-labeling-outsource.md)]
+
 ## Specify the data to label
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
@@ -225,3 +229,4 @@ Use these tips if you see any of these issues.
 
 * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 * [How to tag images](how-to-label-data.md)
+* [Work with a data labeling vendor company (preview)](how-to-outsource-data-labeling.md)

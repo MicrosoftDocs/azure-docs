@@ -94,6 +94,10 @@ Now that you have access to the data you want to have labeled, create your label
     
     Select **Next** to continue creating the project.
 
+### Add workforce (optional)
+
+Select **Next** to continue.  You won't be using an external workforce for this tutorial.
+
 ### Select or create a dataset
 
 1.   On the **Select or create a dataset** form, select the second choice, **Create a dataset**, then select the link **From datastore**.

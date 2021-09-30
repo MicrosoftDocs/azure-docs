@@ -56,6 +56,10 @@ Text data can be either ".txt" or ".csv" files.
 
 * Select **Next** when you're ready to continue.
 
+## Add workforce (optional)
+
+[!INCLUDE [start](../../includes/machine-learning-data-labeling-outsource.md)]
+
 ## Specify the data to label
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
