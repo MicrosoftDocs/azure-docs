@@ -63,7 +63,7 @@ For more information, see [License requirements](entitlement-management-overview
 
    On this tab, you create a request policy. A *policy* defines the rules for access to an access package. You'll create a policy that allows employees in the resource directory to request the access package.
 
-3. In the **Users who can request access** section, select **For users in your directory** and then select **All members (excluding guests)**. These settings make it so that only members of your directory will be able to request Office licenses.
+3. In the **Users who can request access** section, select **For users in your directory** and then select **All members (excluding guests)**. These settings make it so that only members of your directory can request Office licenses.
 
 4. Ensure that **Require approval** is set to **Yes**.
 
@@ -115,24 +115,26 @@ For more information, see [License requirements](entitlement-management-overview
 
 In this step, you can delete the Office Licenses access package. 
 
-**Prerequisite role:** Global administrator, Identity Governance administrator or Access package manager
+**Prerequisite role:** Global Administrator, Identity Governance Administrator, or Access Package Manager
 
-1. In the **Azure portal**, in the left navigation, click **Azure Active Directory**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**.
 
-2. In the left menu, click **Identity Governance**.
+2. Under **Manage**, select **Identity Governance**.
 
-3. In the left menu, click **Access Packages**. 
+3. Under **Entitlement Management**, select **Access packages**. 
 
 4. Open the **Office Licenses** access package. 
 
-5. Click **Resource Roles**.
+5. Select **Resource Roles**.
 
-6. Select the group you added to this access package and in the details pane click **Remove resource role**. In the message that appears, click **Yes**.
+6. Select the group you added to the access package. In the details pane, select **Remove resource role**. In the message box that appears, select **Yes**.
 
 7. Open the list of access packages.
 
-8. For **Office Licenses**, click the ellipsis (...) and then click **Delete**. In the message that appears, click **Yes**.
+8. For **Office Licenses**, select the ellipsis button (...) and then select **Delete**. In the message box that appears, select **Yes**.
 
 ## Next steps
 
-Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Azure AD entitlement management](/active-directory/governance/entitlement-management-access-package-first.md)
+Learn how to create access packages to manage access to other types of resources, like applications and sites: 
+
+[Manage access to resources in Azure AD entitlement management](/active-directory/governance/entitlement-management-access-package-first.md)
