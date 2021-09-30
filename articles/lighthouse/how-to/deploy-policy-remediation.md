@@ -20,6 +20,9 @@ To allow a **principalId** to create a managed identity in the customer tenant, 
 
 After the customer is onboarded, the **principalId** created in this authorization will be able to assign these built-in roles to managed identities in the customer tenant. However, they will not have any other permissions normally associated with the User Access Administrator role.
 
+> [!NOTE]
+> [Role assignments](../../role-based-access-control/roles-assignments-steps.md#step-5-assign-role) across tenants must be done by using Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs. Roles can't be assigned across tenants by using the Azure portal.
+
 The example below shows a **principalId** who will have the User Access Administrator role. This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
 
 ```json
