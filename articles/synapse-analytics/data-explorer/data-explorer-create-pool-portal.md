@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | Setting | Suggested value | Description |
     |--|--|--|
     | Data Explorer pool name | contosodataexplorer | This is the name that the Data Explorer pool will have. |
-    | Workload | Computer optimized | This workload provides a higher CPU to SSD storage ratio. |
+    | Workload | Compute optimized | This workload provides a higher CPU to SSD storage ratio. |
     | Node size | Small (4 cores) | Set this to the smallest size to reduce costs for this quickstart |
 
     ![Basics for Azure portal new Data Explorer pool](media/create-data-explorer-pool-portal/create-data-explorer-pool-basics-portal.png)

@@ -64,7 +64,7 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
     | Setting | Suggested value | Description |
     |--|--|--|
     | Data Explorer pool name | contosodataexplorer | This is the name that the Data Explorer pool will have. |
-    | Workload | Computer optimized | This workload provides a higher CPU to SSD storage ratio. |
+    | Workload | Compute optimized | This workload provides a higher CPU to SSD storage ratio. |
     | Node size | Small (4 cores) | Set this to the smallest size to reduce costs for this quickstart |
 
     :::image type="content" source="media/create-data-explorer-pool-studio/create-data-explorer-pool-basics-studio.png" alt-text="Basics for Synapse Studio new Data Explorer pool":::
