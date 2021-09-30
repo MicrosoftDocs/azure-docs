@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/22/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 
@@ -57,6 +57,9 @@ This section helps you create a new Azure Bastion resource using Azure PowerShel
    ```azurepowershell-interactive
    $bastion = New-AzBastion -ResourceGroupName "myBastionRG" -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
    ```
+## Disassociate the VM public IP address
+
+Azure Bastion does not use the public IP address to connect to the client VM. If you do not need the public IP address for your VM, you can disassociate the public IP address by using the steps in this article: [Dissociate a public IP address from an Azure VM](../virtual-network/remove-public-ip-address-vm.md).
 
 ## Next steps
 

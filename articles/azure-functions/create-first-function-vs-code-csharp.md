@@ -63,7 +63,7 @@ Before you get started, make sure you have the following requirements in place:
 ---
 ::: zone-end
 ::: zone pivot="programming-runtime-functions-v4"
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 

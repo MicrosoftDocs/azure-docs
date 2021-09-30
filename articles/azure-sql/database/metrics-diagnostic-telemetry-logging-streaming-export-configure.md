@@ -9,7 +9,7 @@ ms.topic: how-to
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 04/06/2020
+ms.date: 09/21/2021
 ---
 
 # Configure streaming export of Azure SQL Database and SQL Managed Instance diagnostic telemetry
@@ -457,7 +457,10 @@ Refer to the following table for details about advanced metrics.
 
 <sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models.
 
-<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
+<sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Synapse Analytics SQL pools.
+
+> [!NOTE]
+> Both Basic and Advanced metrics may be unavailable for databases that have been inactive for 7 days or longer.
 
 ### Basic logs
 
