@@ -10,7 +10,7 @@ ms.date: 02/11/2021
 
 # Overview of Azure IoT Device SDKs
 
-The Azure IoT device SDKs cover device client libraries, developer guides, samples, and documentation. The device SDKs provide a convenient way to connect devices to Azure IoT services. The SDKs are available in a variety of programming languages as well as different RTOS supported versions for Embedded devices.
+The Azure IoT device SDKs cover device client libraries, developer guides, samples, and documentation. The device SDKs provide a convenient way to connect devices to Azure IoT services. The SDKs are available in various programming languages and support multiple RTOSs for embedded devices.
 
 ## Why use an Azure IoT Device SDK?
 
@@ -29,11 +29,11 @@ The primary consideration to account for when choosing your SDK is the devices c
 * For constrained devices, refer to the [Embedded device SDKs](#embedded-device-sdks). 
 * For all other devices, refer to the [Device application SDKs](#device-application-sdks).
 
-For additional guidance on different device catagories so you can choose the best SDK for your device, refer to [Azure IoT Device Types](concepts-iot-device-types.md).
+For more information on different device categories so you can choose the best SDK for your device, see [Azure IoT Device Types](concepts-iot-device-types.md).
 
 ## Device application SDKs
 
-These SDKs can run on any device that can support a higher-order language runtime. This includes devices such as PCs, Raspberry Pis, and smartphones. 
+These SDKs can run on any device that can support a higher-order language runtime, including devices such as PCs, Raspberry Pis, and smartphones. 
 
 The SDKs are available in **multiple languages** to provide the flexibility to choose which best suits your team and scenario.
 
@@ -50,7 +50,7 @@ The SDKs are available in **multiple languages** to provide the flexibility to c
 
 ## Embedded device SDKs
 
-These SDKs where designed and created to run on devices with limited compute and memory resources and are implemented using the C language.
+These SDKs were designed and created to run on devices with limited compute and memory resources and are implemented using the C language.
 
 The embedded device SDKs are available for **multiple operating systems** to provide the flexibility to choose which best suits your team and scenario.
 
