@@ -19,6 +19,9 @@ The web client lets you access your Azure Virtual Desktop resources from a web b
 
 ## Supported operating systems and browsers
 
+>[!IMPORTANT]
+>As of September 30th, 2021, the Azure Virtual Desktop web client no longer supports Internet Explorer. We recommend that you use Microsoft Edge to connect to the web client instead. For more information, see our [blog post](https://aka.ms/WVDSupportIE11).
+
 While any HTML5-capable browser should work, we officially support the following operating systems and browsers.
 
 | Browser           | Supported OS                     | Notes               |
