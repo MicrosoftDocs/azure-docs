@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/24/2021
+ms.date: 09/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -62,5 +62,5 @@ The correlation ID is an identifier that correlates sign-ins from the same sign-
 
 ## Next steps
 
-* [Azure AD reports overview](overview-reports.md)
-* [Programmatic access to Azure AD reports](concept-reporting-api.md)
+* [Sign-in logs in Azure Active Directory](concept-sign-ins.md)
+* [What is the sign-in diagnostic in Azure AD?](overview-sign-in-diagnostics.md)
