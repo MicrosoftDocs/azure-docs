@@ -10,4 +10,4 @@ ms.author: aahi
 ---
 * [Transparency note for Azure Cognitive Service for language](/legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language/context/context)
 * [Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language/context/context)
-* [Data, privacy and security](/legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language/context/context)

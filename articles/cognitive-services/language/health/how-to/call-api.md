@@ -44,7 +44,7 @@ You submit text to the Health API.  Document size must be under 5,120 characters
 
 Depending on what text you submit to the Health API, you will get:
 
-[!INCLUDE [health features](includes/features.md)]
+[!INCLUDE [health features](../includes/features.md)]
 
 
 ## Data limits
