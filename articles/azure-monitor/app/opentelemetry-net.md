@@ -32,7 +32,7 @@ Please consider carefully whether this preview is right for you. It **enables di
 ## Prerequisites
 
 - Application using officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) except for versions lower than `.NET Framework 4.6.1`.
-- Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Once you have your Azure subscription, if you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource) in the Azure portal to get your connection string.
 
 ## Setting up
