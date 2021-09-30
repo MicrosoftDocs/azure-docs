@@ -42,13 +42,13 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
    |---------|---------|---------|
    |ConnectedClientList |  IP addresses and counts of clients connected to the cache, logged at a regular interval. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
   
-1. Once you select your **Categories details**, then send your logs to your preferred destination.
+1. Once you select your **Categories details**, send your logs to your preferred destination. Select the information on the right.
 
     :::image type="content" source="media/cache-monitor-diagnostic-settings/diagnostics-resource-specific.png" alt-text="Select enable resource-specific":::
 
 ## Create diagnostic setting via REST API
 
-Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [diagnostic settings](/rest/api/monitor/diagnostic-settings/create-or-update).
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update.md). 
 
 ### Request
 
@@ -112,4 +112,4 @@ You might notice IP addresses in the logs that are used by Azure Cache For Redis
 
 ## Next steps
 
-For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings) article.
+For detailed information about how to create a diagnostic setting by using the Azure portal, CLI, or PowerShell, see [create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) article.
