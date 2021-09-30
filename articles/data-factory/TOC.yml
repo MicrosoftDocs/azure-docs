@@ -725,6 +725,8 @@ items:
         href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Monitor pipelines with Microsoft Teams notifications
+      href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
