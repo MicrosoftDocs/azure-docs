@@ -35,7 +35,7 @@ In Azure AD, a resource access has three relevant components:
 - **What** – The target (Resource) accessed by the identity.
 
 
-Each component has an associated unique identifier (ID). Below is an example of user using the Windows Azure Service Management API to access the Azure poral.
+Each component has an associated unique identifier (ID). Below is an example of user using the Windows Azure Service Management API to access the Azure portal.
 
 ![Open audit logs](./media/reference-basic-info-identifiers/sign-in-details-basic-info.png)
 
