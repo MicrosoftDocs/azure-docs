@@ -76,7 +76,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
         * If you don’t specify a destination path, the files will be restored to their original location.  If files with the same names already exist in the original location, they will be overwritten by the files restored from the snapshot.  
         * If you specify a destination path: 
             * Ensure that all directories in the path are present in the active file system.  Otherwise, the restore operation will fail.   
-                For example, if you specify `/CurrentCopy/customer1` as the destination path, the `/CurrentCopy/customer1` path must already exist.  
+                For example, if you specify `/CurrentCopy/contoso` as the destination path, the `/CurrentCopy/contoso` path must already exist.  
             * By specifying a destination path, all files specified in the File Paths field will be restored to the destination path (folder).
             * Regardless of the volume’s protocol type (NFS, SMB, or dual protocol), directories in the path must be specified using forward slashes (`/`) and not backslashes (`\`).   
 
@@ -98,26 +98,26 @@ daily-10-min-past-12am.2021-09-08_0010
 daily-10-min-past-12am.2021-09-09_0010
 bash# cd daily-10-min-past-12am.2021-09-08_0010
 bash# ls
-customer1 customer2 customer3
-bash# cd customer1
+contoso customer2 customer3
+bash# cd contoso
 bash# ls
 vm-7891.vmdk vm-8976.vmdk
 ```
 
 File to be restored to the active file system:   
-`volume-azure-nfs/.snapshot/daily-10-min-past-12am.2021-09-08_0010/customer1/vm-8976.vmdk`
+`volume-azure-nfs/.snapshot/daily-10-min-past-12am.2021-09-08_0010/contoso/vm-8976.vmdk`
 
 Destination path in the active file system:  
-`volume-azure-nfs/currentCopy/customer1`  
+`volume-azure-nfs/currentCopy/contoso`  
 
-The path `/volume-azure-nfs/currentCopy/customer1` must be valid in the active file system.
+The path `/volume-azure-nfs/currentCopy/contoso` must be valid in the active file system.
 
 From the Azure portal:   
 
 1. Click **Snapshots**. Right-click the snapshot `daily-10-min-past-12am.2021-09-08_0010`.
 2. Click **Restore Files**.
-3. Specify **`/customer1/vm-8976.vmdk`** in File Paths.
-4. Specify **`/currentCopy/customer1`** in Destination Path.
+3. Specify **`/contoso/vm-8976.vmdk`** in File Paths.
+4. Specify **`/currentCopy/contoso`** in Destination Path.
 
 ### SMB volumes 
 
@@ -135,11 +135,11 @@ N:\> dir
 Directory of N:\~snapshot\daily-10-min-past-12am.2021-09-08_0010
 09/11/2021  12:10 AM    <DIR>          .
 09/22/2021  07:56 PM    <DIR>          ..
-02/27/2021  01:47 PM                 102,400 customer1
+02/27/2021  01:47 PM                 102,400 contoso
 04/21/2021  11:00 PM                 106,400 customer2
-N:\> cd customer1
+N:\> cd contoso
 N:\> dir
-Directory of N:\~snapshot\ daily-10-min-past-12am.2021-09-08_0010\customer1
+Directory of N:\~snapshot\ daily-10-min-past-12am.2021-09-08_0010\contoso
 09/11/2021  12:10 AM    <DIR>          .
 09/22/2021  07:56 PM    <DIR>          ..
 02/27/2021  01:47 PM                 102,400 vm-9981.vmdk
@@ -147,18 +147,18 @@ Directory of N:\~snapshot\ daily-10-min-past-12am.2021-09-08_0010\customer1
 ```
 
 File to be restored to active file system:   
-`N: \~snapshot\daily-10-min-past-12am.2021-09-08_0010\customer1\vm-9981.vmdk`
+`N: \~snapshot\daily-10-min-past-12am.2021-09-08_0010\contoso\vm-9981.vmdk`
 
 Destination path in the active file system:   
-`N: \currentCopy\customer1`
+`N: \currentCopy\contoso`
 
-The path `N:\currentCopy\customer1` must be valid in the active file system.
+The path `N:\currentCopy\contoso` must be valid in the active file system.
 
 From the Azure portal: 
 1. Click **Snapshots**. Select the snapshot `daily-10-min-past-12am.2021-09-08_0010`.
 2. Click **Restore Files**.
-3. Specify **`/customer1/vm-9981.vmdk`** in File Paths.
-4. Specify **`/currentCopy/customer1`** in Destination Path.
+3. Specify **`/contoso/vm-9981.vmdk`** in File Paths.
+4. Specify **`/currentCopy/contoso`** in Destination Path.
 
 ## Next steps
 
