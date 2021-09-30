@@ -195,8 +195,16 @@ Instance segmentation | `maskrcnn_resnet50_fpn`
 
 The following table describes the hyperparameters that are model agnostic.
 
-| Parameter name       | Description           | Default  |
-| ------------- |-------------|-----|
+| Parameter name | Description | Default|
+| ---------------- | ------------- | ------- |
+| `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All (except yolov5): 15 <br>yolov5: 30 |
+| `training_batch_size` | Training batch size.<br> Must be a positive integer. <br> <br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*. | Multi-class/multi-label: 78 <br> Object detection (except yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16 |
+| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. <br><br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*.|Multi-class / multi-label: 78 <br>Object detection (except yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16  |
+
+New table
+
+| Parameter name | Description | Default|
+| ---------------- | ------------- | ------- |
 | `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All&nbsp;(except yolov5):&nbsp;15 <br>yolov5: 30 |
 | `training_batch_size` | Training batch size.<br> Must be a positive integer. <br> <br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*. | Multi-class&nbsp;/&nbsp;multi-label:&nbsp;78 <br> Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation:&nbsp;2 <br>yolov5: 16 |
 | `validation_batch_size` | Validation batch size.<br> Must be a positive integer. <br><br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*.|Multi-class / multi-label: 78 <br>Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation: 2 <br>yolov5: 16  |
@@ -212,14 +220,15 @@ The following table describes the hyperparameters that are model agnostic.
 | `optimizer` | Type of optimizer. <br> Must be either `sgd`, `adam`, `adamw`.  | `sgd` |
 | `momentum` | Value of momentum for the optimizer if it's of type `sgd`. <br> Must be a float in the range [0, 1]. | 0.9 |
 | `weight_decay` | Value of weight decay for the optimizer if it's of type `sgd`, `adam`, or `adamw`. <br> `Must be a float in the range [0, 1]. | 1e-4 |
-| `nesterov` | Enable `nesterov` for the optimizer if it is of type `sgd`. <br> Must be 0 or 1.| 1 |
-| `beta1` | Value of `beta1` for the optimizer if it's of type `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
-| `beta2` | Value of `beta2` for the optimizer if it's of type `adam` or `adamw`.<br>Must be a float in the range [0, 1]. | 0.999 |
-| `amsgrad` | Enable `amsgrad` for the optimizer if it's of type `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
-| `evaluation_frequency` | Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer.| 1 |
-| `split_ratio` | Validation split ratio when splitting train data into random train and validation subsets if validation data is not defined. <br> Must be a float in the range [0, 1].| 0.2 |
-| `checkpoint_frequency` | Frequency to store model checkpoints.<br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
-| `layers_to_freeze` | How many layers to freeze for your model. <br> For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1. <br> Must be a positive integer. | no default value |
+|`nesterov`| Enable `nesterov` for the optimizer if it is of type `sgd`. <br> Must be 0 or 1.| 1 |
+|`beta1` | Value of `beta1` for the optimizer if it's of type `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
+|`beta2` | Value of `beta2` for the optimizer if it's of type `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
+|`amsgrad` | Enable `amsgrad` for the optimizer if it's of type `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
+|`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
+|`split_ratio`| Validation split ratio when splitting train data into random train and validation subsets if validation data is not defined. <br> Must be a float in the range [0, 1].| 0.2 |
+|`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
+|`layers_to_freeze`| How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1. <br> Must be a positive integer. | no default value |
+
 
 ### Task-specific hyperparameters
 
