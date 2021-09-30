@@ -207,6 +207,10 @@ You can iterate quickly with command jobs and then connect them together into a 
 
 You can use the overrides section in component job to change the resource and distribution settings. See [this example using TensorFlow](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world/) or [this example using PyTorch](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/6y_pytorch_hello_world).  
 
+### How can I define an environment with conda dependencies inside a component?
+See [this example](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/5c_env_conda_file).
+ 
+
 ## Next steps
 
 - To share your pipeline with colleagues or customers, see [Publish machine learning pipelines](how-to-deploy-pipelines.md)
