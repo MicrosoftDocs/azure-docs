@@ -1,28 +1,32 @@
 ---
-title: Troubleshoot missed workload classification 
-description: Identify and troubleshoot scenarios in Azure Synapse Analytics where workloads are mis-classified to unintended workload groups.   
+title: Troubleshoot missed workload classification in a dedicated SQL pool
+description: Identify and troubleshoot scenarios where workloads are mis-classified to unintended workload groups in a dedicated SQL pool in Azure Synapse Analytics.   
 author: SudhirRaparla
 ms.author: nvraparl
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to  
 ms.subservice: sql-dw 
-ms.date: 09/29/2021
+ms.date: 09/30/2021
 ms.custom: template-how-to  
 ms.reviewer: wiassaf
 ---
 
-# Troubleshooting a missed classification in Azure Synapse Analytics
+# Troubleshooting a missed classification in a dedicated SQL pool in Azure Synapse Analytics
 
-This article covers guidance on how to troubleshoot a missed workload classification, and how to identify the reason behind the classification.
+This article covers guidance on how to troubleshoot a missed workload classification, and how to identify the reason behind the classification, for workloads in a dedicated SQL pool.
 
-Azure Synapse Analytics provides workload management capabilities like [classifying workloads to appropriate workload groups](sql-data-warehouse-workload-classification.md), [assigning importance](sql-data-warehouse-workload-importance.md), and [isolating resources](sql-data-warehouse-workload-isolation.md) to meet SLAs.  However, in some scenarios, a combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. 
+Azure Synapse Analytics provides workload management capabilities like [classifying workloads to appropriate workload groups](sql-data-warehouse-workload-classification.md), [assigning importance](sql-data-warehouse-workload-importance.md), and [isolating resources](sql-data-warehouse-workload-isolation.md) to meet SLAs. 
 
-First, you should query basic information for troubleshooting missed classification scenarios.
+However, in some scenarios, a combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. First, you should query basic information for troubleshooting missed classification scenarios.
+
+> [!NOTE]
+> This article does not apply to serverless SQL pools in Azure Synapse Analytics.
 
 ## Basic troubleshooting information
 
 To troubleshoot a missed classification scenario the following information is needed:
+
 1. List of all [workload groups](#workload-groups)
 1. List of all [workload classifiers](#workload-classifiers) and associated workload groups
 1. List of [users and mapped workload groups](#users-and-mapped-resource-classes) (system and user defined) 
@@ -127,18 +131,18 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc','staticrc10','staticrc20','st
 EXEC sp_droprolemember '[Resource Class]', membername;
 ```
 
-### Service administrators and database owners are always mapped to smallrc workload group
+### Some administrative users are always mapped to smallrc workload group
 
-Consider a scenario where a service administrator or database owner has either created a workload classifier or added themselves to a resource class role other than smallrc. All queries executed by the user run on smallrc resource class, even though the user is mapped to a different resource class or workload group. Using the query mentioned in [Users and Mapped Resource Classes](#users-and-mapped-resource-classes) previously, the service administrator has verified the role/member and it shows the updated workload group. 
+Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Azure Active Directory admin (user or group member), or a database owner. These users may still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these user will still run on smallrc resource class, even though the user is mapped to a different resource class or workload group. 
 
-> [!NOTE]
-> The service administrator is the user created during the provisioning process. Users or groups defined as Active Directory admin are also service administrators.
+**Recommendation**: These administrative users can't change their default workload group. For more information, see [workload management with resource classes](resource-classes-for-workload-management.md#default-resource-class). It is recommended that critical or performance-sensitive workloads not run as one of these administrative users in the dedicated SQL pool.
 
-**Recommendation**: Service administrators can't change their default workload group. For more information, see [workload management with resource classes](resource-classes-for-workload-management.md#default-resource-class). To identify service administrator, go to properties section of the dedicated SQL Pool and look for **Workspace SQL Admin Login** field, as shown below:
+The Azure Synapse Workspace SQL Admin login and the Azure Synapse Azure Active Directory admin (user or group member) are specified in the Azure portal:
 
 :::image type="content" source="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png" alt-text="Identifying the service admin by looking at the Workspace SQL Admin Login field" lightbox="./media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png":::
 
-Similarly the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use MEMBERNAME option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
+Similarly, the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use MEMBERNAME option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
+
 
 ### Use workload group precedence for better classification
 
