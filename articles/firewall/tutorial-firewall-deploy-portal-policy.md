@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 05/03/2021
+ms.date: 08/26/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -277,4 +277,4 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+> [Deploy and configure Azure Firewall Premium](premium-deploy.md)

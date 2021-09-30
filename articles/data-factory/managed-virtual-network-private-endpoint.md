@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 07/20/2021
+ms.date: 10/15/2021
 ---
 
 # Azure Data Factory Managed Virtual Network (preview)
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article will explain Managed Virtual Network and Managed Private endpoints in Azure Data Factory.
 
@@ -78,6 +78,9 @@ Interactive authoring capabilities is used for functionalities like test connect
 By design, Azure integration runtime in managed virtual network takes longer queue time than public Azure integration runtime as we are not reserving one compute node per data factory, so there is a warm up for each activity to start, and it occurs primarily on virtual network join rather than Azure integration runtime. For non-copy activities including pipeline activity and external activity, there is a 60 minutes Time To Live (TTL) when you trigger them at the first time. Within TTL, the queue time is shorter because the node is already warmed up. 
 > [!NOTE]
 > Copy activity doesn't have TTL support yet.
+
+> [!NOTE]
+> 2 DIU for Copy activity is not supported in managed virtual network.
 
 ## Create managed virtual network via Azure PowerShell
 ```powershell

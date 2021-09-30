@@ -13,7 +13,7 @@ ms.date: 05/05/2020
 This article describes how to use Azure Monitor to collect and analyze monitoring data from Azure virtual machines to maintain their health. Virtual machines can be monitored for availability and performance with Azure Monitor like any [other Azure resource](../essentials/monitor-azure-resource.md), but they're unique from other resources since you also need to monitor the guest operating and system and the workloads that run in it. 
 
 > [!NOTE]
-> This article provides a complete overview of the concepts and options for monitoring virtual machines in Azure Monitor. To start monitoring your virtual machines quickly without focusing on the underlying concepts, see [Quickstart: Monitor an Azure virtual machine with Azure Monitor](./quick-monitor-azure-vm.md).
+> This article provides a complete overview of the concepts and options for monitoring virtual machines in Azure Monitor. To start monitoring your virtual machines quickly without focusing on the underlying concepts, see [Quickstart: Monitor an Azure virtual machine with Azure Monitor](./monitor-virtual-machine.md).
 
 
 ## Differences from other Azure resources

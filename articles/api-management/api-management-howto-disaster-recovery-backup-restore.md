@@ -3,17 +3,12 @@ title: Implement disaster recovery using backup and restore in API Management
 titleSuffix: Azure API Management
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
-documentationcenter: ''
-author: mikebudzynski
-manager: erikre
-editor: ''
+author: dlepow
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/05/2020
-ms.author: apimpm 
+ms.date: 08/20/2021
+ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -53,40 +48,34 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 ### Create an Azure Active Directory application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Using the subscription that contains your API Management service instance, navigate to the **App registrations** tab in **Azure Active Directory** (Azure Active Directory > Manage/App registrations).
-
+1. Using the subscription that contains your API Management service instance, navigate to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) to register an app in Active Directory.
     > [!NOTE]
     > If the Azure Active Directory default directory isn't visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account.
+1. Select **+ New registration**.
+1. On the **Register an application** page, set the values as follows:
+    
+    * Set **Name** to a meaningful name.
+    * Set **Supported account types** to **Accounts in this organizational directory only**. 
+    * In **Redirect URI** enter a placeholder URL such as `https://resources`. It's a required field, but the value isn't used later. 
+    * Select **Register**.
 
-3. Click **New application registration**.
+### Add permissions
 
-    The **Create** window appears on the right. That's where you enter the AAD app relevant information.
-
-4. Enter a name for the application.
-5. For the application type, select **Native**.
-6. Enter a placeholder URL such as `http://resources` for the **Redirect URI**, as it's a required field, but the value isn't used later. Click the check box to save the application.
-7. Click **Create**.
-
-### Add an application
-
-1. Once the application is created, click **API permissions**.
-2. Click **+ Add a permission**.
-4. Press **Select Microsoft APIs**.
-5. Choose **Azure Service Management**.
-6. Press **Select**.
+1. Once the application is created, select **API permissions** > **+ Add a permission**.
+1. Select **Microsoft APIs**.
+1. Select **Azure Service Management**.
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Screenshot that shows how to add app permissions."::: 
 
-7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
+1. Click **Delegated Permissions** beside the newly added application, and check the box for **Access Azure Service Management as organization users (preview)**.
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Screenshot that shows adding delegated app permissions.":::
 
-8. Press **Select**.
-9. Click **Add Permissions**.
+1. Select **Add permissions**.
 
-### Configuring your app
+### Configure your app
 
-Before calling the APIs that generate the backup and restore it, you need to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package to retrieve the token.
+Before calling the APIs that generate the backup and restore, you need to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package to retrieve the token.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -133,6 +122,9 @@ Replace `{tenant id}`, `{application id}`, and `{redirect uri}` using the follow
 
 The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/2020-12-01/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/2020-12-01/api-management-service/restore).
 
+> [!NOTE]
+> Backup and restore operations can also be performed with PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) and [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) commands respectively.
+
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 
 ```csharp
@@ -152,7 +144,7 @@ where:
 -   `subscriptionId` - ID of the subscription that holds the API Management service you're trying to back up
 -   `resourceGroupName` - name of the resource group of your Azure API Management service
 -   `serviceName` - the name of the API Management service you're making a backup of specified at the time of its creation
--   `api-version` - replace with `2020-12-01`
+-   `api-version` - replace with a supported REST API version such as `2020-12-01`
 
 In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
@@ -204,14 +196,8 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 >
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
-<!-- Dummy comment added to suppress markdown lint warning -->
-
-> [!NOTE]
-> Backup and restore operations can also be performed with PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) and [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) commands respectively.
-
 ## Constraints when making backup or restore request
 
--   **Container** specified in the request body **must exist**.
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Changes** made to the service configuration (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
@@ -251,5 +237,5 @@ Check out the following resources for different walkthroughs of the backup/resto
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
-[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ip-addresses
 [azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

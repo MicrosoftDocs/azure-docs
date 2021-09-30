@@ -1,7 +1,7 @@
 ---
 title: Deploy a policy that can be remediated
 description: To deploy policies that use a remediation task via Azure Lighthouse, you'll need to create a managed identity in the customer tenant.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: how-to
 ---
 

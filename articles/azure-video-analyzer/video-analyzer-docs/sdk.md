@@ -32,6 +32,10 @@ The following platforms are supported:
 - [Python](https://aka.ms/ava/sdk/client/python)
 - [Java](https://aka.ms/ava/sdk/client/java)
 
+## See Also
+
+- You can also refer [Azure Video Analyzer APIs](/rest/api/videoanalyzer/)
+
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
 [docs-iot-hub-sdks]: ../../iot-hub/iot-hub-devguide-sdks.md

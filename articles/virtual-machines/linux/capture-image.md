@@ -5,14 +5,16 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 10/08/2018
+ms.date: 08/27/2021
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
 ---
 # How to create a managed image of a virtual machine or VHD
 
-To create multiple copies of a virtual machine (VM) for use in Azure for development and test, capture a managed image of the VM or of the OS VHD. To create, store and share images at scale, see [Shared Image Galleries](../shared-images-cli.md).
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
+To create multiple copies of a virtual machine (VM) for use in Azure for development and test, capture a managed image of the VM or of the OS VHD. To create, store and share images at scale, see [Shared Image Galleries](../create-gallery.md).
 
 One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use a [Shared Image Galleries](../shared-image-galleries.md) image configured with 1 replica for every 20 concurrent VM deployments.
 
@@ -134,4 +136,4 @@ az vm show \
 ```
 
 ## Next steps
-To create, store and share images at scale, see [Shared Image Galleries](../shared-images-cli.md).
+To create, store and share images at scale, see [Shared Image Galleries](../create-gallery.md).

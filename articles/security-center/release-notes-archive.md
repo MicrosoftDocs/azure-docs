@@ -931,7 +931,7 @@ Enforcing a secure configuration, based on a specific recommendation, is offered
 
 - Using the **Deny** effect of Azure Policy, you can stop unhealthy resources from being created
 
-- Using the **Enforce** option, you can take advantage of Azure policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation
+- Using the **Enforce** option, you can take advantage of Azure Policy's **DeployIfNotExist** effect and automatically remediate non-compliant resources upon creation
  
 This is available for selected security recommendations and can be found at the top of the resource details page.
 
@@ -1279,7 +1279,7 @@ Automating your organization's monitoring and incident response processes can gr
 
 To deploy your automation configurations across your organization, use these built-in 'DeployIfdNotExist' Azure policies to create and configure [continuous export](continuous-export.md) and [workflow automation](workflow-automation.md) procedures:
 
-The policies can be found in Azure policy:
+The policy definitions can be found in Azure Policy:
 
 
 |Goal  |Policy  |Policy ID  |
@@ -1310,9 +1310,9 @@ Learn more in the [Network recommendations](recommendations-reference.md#recs-ne
 
 ### New policies for enabling threat protection and advanced data security
 
-The new policies below were added to the ASC Default initiative and are designed to assist with enabling threat protection or advanced data security for the relevant resource types.
+The new policy definitions below were added to the ASC Default initiative and are designed to assist with enabling threat protection or advanced data security for the relevant resource types.
 
-The policies can be found in Azure policy:
+The policy definitions can be found in Azure Policy:
 
 
 | Policy                                                                                                                                                                                                                                                                | Policy ID                            |
@@ -1438,7 +1438,7 @@ Learn more about security controls in [Enhanced secure score (preview)](secure-s
 
 Custom policies are now part of the Security Center recommendations experience, secure score, and the regulatory compliance standards dashboard. This feature is now generally available and allows you to extend your organization's security assessment coverage in Security Center. 
 
-Create a custom initiative in Azure policy, add policies to it and onboard it to Azure Security Center, and visualize it as recommendations.
+Create a custom initiative in Azure Policy, add policies to it and onboard it to Azure Security Center, and visualize it as recommendations.
 
 We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
 

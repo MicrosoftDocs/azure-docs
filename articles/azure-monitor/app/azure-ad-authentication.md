@@ -6,7 +6,7 @@ ms.date: 08/02/2021
 
 ---
 # Azure AD authentication for Application Insights (Preview)
-Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD, you can now ensure that only authenticated telemetry is ingested in your Application Insights resources. 
+Application Insights now supports Azure Active Directory (Azure AD) authentication. By using Azure AD, you can ensure that only authenticated telemetry is ingested in your Application Insights resources. 
 
 Typically, using various authentication systems can be cumbersome and pose risk since it’s difficult to manage credentials at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) and [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is ingested in your Application Insights resource. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational (alerting/autoscale etc.) and business decisions.
 
@@ -270,7 +270,7 @@ tracer = Tracer(
 
 After the Azure AD authentication is enabled, you can choose to disable local authentication. This will allow you to ingest telemetry authenticated exclusively by Azure AD and impacts data access (for example, through API Keys). 
 
-You can disable local authentication by using the Azure portal, Azure policy, or programmatically.
+You can disable local authentication by using the Azure portal, Azure Policy, or programmatically.
 
 ### Azure portal
 
@@ -286,11 +286,11 @@ You can disable local authentication by using the Azure portal, Azure policy, or
 
     :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot of overview tab with the disabled(click to change) highlighted.":::
 
-### Azure policy 
+### Azure Policy 
 
-Azure policy for ‘DisableLocalAuth’ will deny from users to create a new Application Insights resource without this property setting to ‘true’. The policy name is ‘Application Insights components should block non-AAD auth ingestion’.
+Azure Policy for ‘DisableLocalAuth’ will deny from users to create a new Application Insights resource without this property setting to ‘true’. The policy name is ‘Application Insights components should block non-AAD auth ingestion’.
 
-To apply this policy to your subscription, [create a new policy assignment and assign the policy](../..//governance/policy/assign-policy-portal.md).
+To apply this policy definition to your subscription, [create a new policy assignment and assign the policy](../../governance/policy/assign-policy-portal.md).
 
 Below is the policy template definition:
 ```JSON

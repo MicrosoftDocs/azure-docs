@@ -45,8 +45,6 @@ items:
       href: tutorial-web-app-test-postman.md
     - name: 4. Write web application
       href: tutorial-web-app-write-web-app.md
-  - name: Access FHIR API with Postman
-    href: access-fhir-postman-tutorial.md
   - name: Use SMART on FHIR proxy
     href: use-smart-on-fhir-proxy.md
   - name: Ingest data from IoT devices

@@ -10,6 +10,9 @@ ms.reviewer: cynthn
 ---
 
 # Updates and maintenance overview
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article provides an overview of the various update and maintenance options for Azure virtual machines (VMs).
 
 ## Automatic OS image upgrade
