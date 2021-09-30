@@ -92,4 +92,4 @@ Users can follow the steps below to migrate knowledge bases:
 
 ## Next steps
 
-- Learn how to re-enable analytics and telemetry with [Azure Monitor diagnostic logs](analytics).
+- Learn how to re-enable analytics and telemetry with [Azure Monitor diagnostic logs](analytics.md).
