@@ -140,11 +140,11 @@ A value of `1` for `is_distributed_network_name` indicates the listener is a dis
 
 ## Update connection string
 
-Update connection strings for applications so that they connect to the DNN listener. Connection strings for DNN listeners must provide the DNN port number. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it.
+Update the connection string for any application that needs to connect to the DNN listener. The connection string to the DNN listener must provide the DNN port number, and specify `MultiSubnetFailover=True` in the connection string. If the SQL client does not support the `MultiSubnetFailover=True` parameter, then it is not compatible with a DNN listener.  
 
-Following is an example connection string for a listener name of ‘DNN_Listener’, and listener port as 6789
+The following is an example of a connection string for listener name **DNN_Listener** and port 6789: 
 
-**DataSource= DNN_Listener,6789,MultiSubnetFailover=True**
+`DataSource=DNN_Listener,6789,MultiSubnetFailover=True`
 
 ## Test failover
 
