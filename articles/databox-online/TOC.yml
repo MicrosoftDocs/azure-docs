@@ -214,6 +214,8 @@
           href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
         - name: VMs - GPU
           href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md  
+        - name: VMs - HPN
+          href: azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md  
         - name: VMs - Azure PowerShell cmdlets
           href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md 
         - name: VMs - Azure PowerShell script
@@ -356,8 +358,6 @@
       href: azure-stack-edge-gpu-data-residency.md 
     - name: View key vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
-    - name: Enable proactive logging
-      href: azure-stack-edge-gpu-proactive-log-collection.md
   - name: Shared security
     items:
     - name: Security overview
@@ -406,6 +406,10 @@
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Device logs and diagnostics 
         href: azure-stack-edge-gpu-troubleshoot.md
+      - name: Enable proactive logging 
+        href: azure-stack-edge-gpu-proactive-log-collection.md
+      - name: Enable remote support 
+        href: azure-stack-edge-gpu-remote-support-diagnostics-repair.md        
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
