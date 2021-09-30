@@ -67,7 +67,11 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    **Connection Name**: ContosoConnection
    
-   Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **RootManageSharedAccessKey**. The **Create** button cchanges to blue (active). Select it; it shows the queue selection screen.  
+   Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **RootManageSharedAccessKey**. The **Create** button changes to blue (active). Select it; it shows the queue selection screen.  
+
+6. Specify the information about the queue. 
+
+   ![Selecting a queue](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
 5. Fill in the information about the queue.
 
