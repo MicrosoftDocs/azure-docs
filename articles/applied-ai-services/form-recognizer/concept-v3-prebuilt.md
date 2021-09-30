@@ -18,30 +18,30 @@ ms.author: lajanuar
 
 Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
-* [**Prebuilt document (v3.0)**](#prebuilt-document-model) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Prebuilt receipt (v3.0)**](#prebuilt-receipt-model) model supports single-page hotel receipt processing.
-* [**Prebuilt ID document (v3.0)**](#prebuilt-id-document-model) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**General document (v3.0)**](#general-document-model) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Receipt (v3.0)**](#receipt-model) model supports single-page hotel receipt processing.
+* [**ID document (v3.0)**](#id-document-model) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Custom model API (v3.0)**](#custom-model) supports signature detection for custom forms.
 
-| **Prebuilt model ID**   | **Description**   |
+| **Prebuilt model**   | **Description**   |
 | --- | --- |
-| 🆕prebuilt:document  | extract text, tables, structure, key-value pairs and named entities.  |
-| prebuilt:layout  | Extracts text and layout information from documents.  |
-| prebuilt:invoice  | Extract key information from English invoices.  |
-| prebuilt:receipt  | Extract key information from English receipts.  |
-| prebuilt:idDocument  | Extract key information from US driver licenses and international passports.  |
-| prebuilt:businessCard  | Extract key information from English business cards.  |
+| 🆕General document  | extract text, tables, structure, key-value pairs and named entities.  |
+| Layout  | Extracts text and layout information from documents.  |
+| Invoice  | Extract key information from English invoices.  |
+| Receipt  | Extract key information from English receipts.  |
+| ID document  | Extract key information from US driver licenses and international passports.  |
+| Business card  | Extract key information from English business cards.  |
 
 ### Prebuilt model data extraction
 
 | **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
 | --- | :---: |:---:| :---: | :---: |:---: |
-|🆕prebuilt:document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
-| prebuilt:layout  | ✓  |   | ✓  | ✓  |   |
-| prebuilt:invoice   | ✓ | ✓  | ✓  | ✓ ||
-|prebuilt:receipt  | ✓  |   ✓ |   |  ||
-| prebuilt:idDocument | ✓  |   ✓  |   |   ||
-| prebuilt:businessCard    | ✓  |   ✓ |   |   ||
+|🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+| Layout  | ✓  |   | ✓  | ✓  |   |
+| Invoice  | ✓ | ✓  | ✓  | ✓ ||
+|Receipt  | ✓  |   ✓ |   |  ||
+| ID document | ✓  |   ✓  |   |   ||
+| Business card    | ✓  |   ✓ |   |   ||
 
 ### Input requirements
 
