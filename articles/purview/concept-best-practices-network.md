@@ -25,9 +25,9 @@ Based on your network and security requirements, you can set up and maintain Azu
 
 To understand what option is the most suitable for your environment, we suggest you to perform the following actions first: 
 
-- Review your network topology and security requirements before registering and scanning any data sources in Azure Purview. For more information see, [define an Azure network topology](../cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology.md). 
+- Review your network topology and security requirements before registering and scanning any data sources in Azure Purview. For more information see, [define an Azure network topology](/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology). 
 
-- Define your [network connectivity model for PaaS services](./cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services.md). 
+- Define your [network connectivity model for PaaS services](/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services). 
 
 ## Intended audience  
 
