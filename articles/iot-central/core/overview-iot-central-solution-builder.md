@@ -3,7 +3,7 @@ title: Solution building for Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of building integrated solutions with IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/11/2021
+ms.date: 10/05/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,35 +14,155 @@ ms.custom: mvc
 
 # IoT Central solution builder guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for solution builders who use IoT Central to build integrated solutions. An IoT Central application lets you manage devices, analyze device telemetry, and integrate with other back-end services.
+Azure IoT Central is an application platform that:
 
-A solution builder:
+- Includes rich functionality such as device monitoring and management at scale.
+- Provides many built-in features that help you to reduce the burden and cost of developing an IoT solution.
+- Has extensibility and integration points that let you use its features and capabilities in your wider solution.
 
-- Configures dashboards and views in the IoT Central web UI.
-- Uses the built-in rules and analytics tools to derive business insights from the connected devices.
-- Uses the data export and rules capabilities to integrate IoT Central with other back-end services.
+A typical IoT solution:
 
-## Configure dashboards and views
+- Enables IoT devices to connect to your solution and send it data.
+- Manages and secures the connected devices and their data.
+- Extracts business value from your device data.
+- Is composed of multiple services and applications.
 
-An IoT Central application can have one or more dashboards that operators use to view and interact with the application. As a solution builder, you can customize the default dashboard and create specialized dashboards:
+:::image type="content" source="media/overview-iot-central-solution-builder/architecture.png" alt-text="IoT Central solution architecture":::
 
-- To view some examples of customized dashboards, see [Industry focused templates](concepts-app-templates.md#industry-focused-templates).
-- To learn more about dashboards, see [Create and manage multiple dashboards](howto-manage-dashboards.md) and [Configure the application dashboard](howto-manage-dashboards.md).
+The responsibilities of a solution builder include:
 
-When a device connects to an IoT Central, the device is associated with a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. As a solution developer, you can create and customize the available views for a device type. To learn more, see [Add views](howto-set-up-template.md#views).
+- Configuring dashboards and views in the IoT Central web UI.
+- Using the built-in rules and analytics tools to derive business insights from the connected devices.
+- Using the data export, rules capabilities, and API to integrate IoT Central with other services and applications.
 
-## Use built-in rules and analytics
+## Connect devices and send data
 
-A solution developer can add rules to an IoT Central application that run customizable actions. Rules evaluate conditions, based on data coming from a device, to determine when to run an action. To learn more about rules, see:
+Device developers typically use one of the device SDKs to implement devices that connect to an IoT Central application. Some scenarios, such as for devices that can't connect to the internet, also require a gateway. To learn more about the device connectivity options available to device developers, see:
 
-- [Tutorial: Create a rule and set up notifications in your Azure IoT Central application](tutorial-create-telemetry-rules.md)
-- [Configure rules](howto-configure-rules.md)
+- [Get connected to Azure IoT Central](concepts-get-connected.md)
+- [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md)
 
-IoT Central has built-in analytics capabilities that an operator can use to analyze the data flowing from the connected devices. To learn more, see [How to use analytics to analyze device data](howto-create-analytics.md).
+A solution design must take into account the required device connectivity pattern. These patterns fall in to two broad categories. Both categories include devices sending telemetry to your IoT Central application:
+
+### Persistent connections
+
+Persistent connections are required your solution needs *command and control* capabilities. In command and control scenarios, the IoT Central application sends commands to devices to control their behavior in near real time. Persistent connections maintain a network connection to the cloud and reconnect whenever there's a disruption. Use either the MQTT or the AMQP protocol for persistent device connections to IoT Central.
+
+The following options support persistent device connections:
+
+- Use the IoT device SDKs to connect devices and send telemetry:
+
+  The device SDKs enable both the MQTT and AMQP protocols for creating persistent connections to IoT Central. To learn more, see [Get connected to Azure IoT Central](concepts-get-connected.md).
+
+- Connect devices over a local network to an IoT Edge device that forwards telemetry to IoT Central:
+
+  An IoT Edge device can make a persistent connection to IoT Central. For devices that can't connect to the internet or that require network isolation, use an IoT Edge device as a local gateway. The gateway forwards device telemetry to IoT Central. This option enables command and control of the downstream devices connected to the IoT Edge device.
+
+  To learn more, see [Connect Azure IoT Edge devices to an Azure IoT Central application](concepts-iot-edge.md).
+
+- Use IoT Central Device Bridge to connect devices that use a custom protocol:
+
+  Some devices use a protocol or encoding, such as LWM2M or COAP, that IoT Central doesn't currently support. IoT Central Device Bridge acts as a translator that forwards telemetry to IoT Central. Because the connection the bridge maintains is persistent, this option enables command and control of the devices connected to the bridge.
+
+  To learn more, see the [Azure IoT Central Device Bridge](https://github.com/Azure/iotc-device-bridge) GitHub repository.
+
+### Ephemeral connections
+
+Ephemeral connections are brief connections for devices to send telemetry to your IoT Central application. After a device sends the telemetry, it drops the connection. The device reconnects when it has more telemetry to send. Ephemeral connections aren't suitable for command and control scenarios.
+
+The following options support ephemeral device connections:
+
+- Connect devices and send telemetry using HTTP:
+
+  IoT Central supports device clients that use the HTTP API to send telemetry. To learn more, see the [Send Device Event](/rest/api/iothub/device/send-device-event) API documentation.
+
+  > [!NOTE]
+  > Use DPS to provision and register your device with IoT Central before you use the HTTP API to send telemetry.
+
+- Use IoT Central Device Bridge in stateless mode to connect devices:
+  
+  Deploy IoT Central Device Bridge as an Azure Function. The function accepts incoming telemetry data as HTTP requests and forwards it to IoT Central. IoT Central Device Bridge integrates with DPS and automatically handles device provisioning for you.
+
+  To learn more, see [Azure IoT Central Device Bridge](https://github.com/iot-for-all/iotc-device-bridge) GitHub repository.
+
+- Use IoT Central Device Bridge in stateless mode to connect external clouds:
+  
+  Use Azure IoT Central Device Bridge to forward messages to IoT Central from other IoT clouds, such as SigFox, Particle, and The Things Network.
+
+  To learn more, see [Azure IoT Central Device Bridge](https://github.com/iot-for-all/iotc-device-bridge) GitHub repository.
+
+### Data transformation and custom computation on ingress
+
+Some scenarios require device telemetry augmented with data from external systems or stores. Augmenting telemetry before it reaches IoT Central enables features such as dashboards and rules to use the augmented data.
+
+Some scenarios require you to transform telemetry before it reaches IoT Central. For example, transforming telemetry from legacy formats.
+
+The following options are available for custom transformations or computations before IoT Central ingests the telemetry:
+
+- Use IoT Edge:
+  
+  Use custom modules in IoT Edge for custom transformations and computations. Use IoT Edge when your devices use the Azure IoT device SDKs.
+
+- Use IoT Central Device Bridge:
+  
+  Use IoT Central Device Bridge adapters for custom transformations and computations.
+
+To learn more, see [Transform data for IoT Central](howto-transform-data.md).
+
+## Extract business value
+
+IoT Central provides a rich platform to help you extract business value from your IoT data. IoT Central has many built-in features that you can use to gain insights and take action on your IoT data. However, some IoT solution scenarios need more specialized business processes to extract value from your IoT data.
+
+Built-in features that you can use to extract business value include:
+
+- Configure dashboards and views
+
+  An IoT Central application can have one or more dashboards that operators use to view and interact with the application. You can customize the default dashboard and create specialized dashboards:
+
+  - To view some examples of customized dashboards, see [Industry focused templates](concepts-app-templates.md#industry-focused-templates).
+  
+  - To learn more about dashboards, see [Create and manage multiple dashboards](howto-manage-dashboards.md) and [Configure the application dashboard](howto-manage-dashboards.md).
+  
+  - When a device connects to an IoT Central, the device is associated with a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. You can create and customize the available views for each device type. To learn more, see [Add views](howto-set-up-template.md#views).
+
+- Use built-in rules and analytics
+
+  You can add rules to an IoT Central application that run customizable actions. Rules evaluate conditions, based on data coming from a device, to determine when to run an action. To learn more about rules, see:
+  
+  - [Tutorial: Create a rule and set up notifications in your Azure IoT Central application](tutorial-create-telemetry-rules.md)
+  - [Configure rules](howto-configure-rules.md)
+  
+  IoT Central has built-in analytics capabilities that an operator can use to analyze the data flowing from the connected devices. To learn more, see [How to use analytics to analyze device data](howto-create-analytics.md).
+
+Scenarios that process IoT data outside of IoT Central to extract business value include:
+
+- Compute, enrich, and transform
+  
+  IoT Central lets you capture, manage, and visualize IoT data. Sometimes, it's useful to enrich or transform you IoT data using external data sources. You can then feed the enriched data back into IoT Central.
+
+  For example, use the IoT Central continuous data export feature to trigger an Azure function. The function enriches captured device telemetry and pushes the enriched data back into IoT Central while preserving timestamps.
+
+- Extract business metrics and use artificial intelligence (AI) and machine learning (ML)
+  
+  Use IoT data to calculate common business metrics such as *overall equipment effectiveness* (OEE)  and *overall process effectiveness* (OPE). You can also use IoT data to enrich your existing AI and ML assets. For example, IoT Central can help to capture the data you need to build, train, and deploy your models.
+
+  Use the IoT Central continuous data export feature to publish captured IoT data into an Azure data lake. Then use a connected to Azure Databricks workspace to compute OEE and OPE. Pipe the same data to Azure ML or Azure Synapse to use their machine learning capabilities.
+
+- Streaming computation, monitoring, and diagnostics
+
+  IoT Central provides a scalable and reliable infrastructure to capture streaming data from millions of connected devices. Sometimes, you need to run stream computations over the hot or warm data paths to meet business requirements. You can also merge IoT data with data in external stores such as Azure Data explorer to provide enhanced diagnostics.
+
+- Analyze and visualize IoT data alongside business data
+
+  IoT Central provides feature-rich dashboards and visualizations. However, business-specific reports may require you to merge IoT data with existing business data sourced from external systems. Use the IoT Central integration features to extract IoT data from IoT Central. Then merge the IoT data with existing business data to deliver a centralized solution for analyzing and visualizing you business processes.
+
+  For example, use the IoT Central continuous data export feature to continuously ingest your IoT data into an Azure Synapse store. Then use Azure Data Factory to bring data from external systems into the Azure Synapse store. Use the Azure Synapse store with Power BI to generate your business reports.
+
+To learn more, see [Transform data for IoT Central](howto-transform-data.md). For a complete, end-to-end sample, see the [IoT Central Compute](https://github.com/iot-for-all/iot-central-compute) GitHub repository.
 
 ## Integrate with other services
 
-As a solution builder, you can use the data export and rules capabilities in IoT Central to integrate with other service. To learn more, see:
+You can use the data export and rules capabilities in IoT Central to integrate with other service. To learn more, see:
 
 - [Export IoT data to cloud destinations using data export](howto-export-data.md)
 - [Transform data for IoT Central](howto-transform-data.md)
@@ -52,9 +172,9 @@ As a solution builder, you can use the data export and rules capabilities in IoT
 
 You can use IoT Edge devices connected to your IoT Central application to integrate with [Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md). To learn more, see the [Azure IoT Central gateway module for Azure Video Analyzer](https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md) on GitHub.
 
-## APIs
+## Integrate with companion applications
 
-IoT Central APIs let you build deep integrations with other services in your IoT solution. The available APIs are categorized as *data plane* or *control plane* APIs.
+IoT Central provides rich operator dashboards and visualizations. However, some IoT solutions must integrate with existing applications, or require new companion applications to expand its capabilities. To integrate with other applications, use IoT Central extensibility points such as the REST API and the continuous data export feature.
 
 You use data plane APIs to access the entities in and the capabilities of your IoT Central application. For example managing devices, device templates, users, and roles. The IoT Central REST API operations are *data plane* operations. To learn more, see [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
 
