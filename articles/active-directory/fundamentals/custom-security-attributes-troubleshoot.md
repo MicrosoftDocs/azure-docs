@@ -40,14 +40,11 @@ When signed in to the Azure portal as Global Administrator and you try to click 
 
 **Cause**
 
-You don't have permissions to add an attribute set. To add an attributes set and custom security attributes, you must be assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) role.
-
-> [!IMPORTANT]
-> By default, [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+You don't have permissions to add an attribute set. To add an attribute set and custom security attributes, you must be assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) role. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 **Solution**
 
-Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** and check if the Attribute Definition Administrator role is assigned to you. If not, ask your Azure AD administrator to you assign you this role. For more information, see [Assign Azure AD roles to users](../roles/manage-roles-portal.md).
+Make sure that you are assigned the [Attribute Definition Administrator](../roles/permissions-reference.md#attribute-definition-administrator) role at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
 
 ## Symptom - Error when you try to assign a custom security attribute
 
@@ -60,28 +57,24 @@ This account does not have the necessary admin privileges to change custom secur
 
 **Cause**
 
-You don't have permissions to assign custom security attributes. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+You don't have permissions to assign custom security attributes. To assign custom security attributes, you must be assigned the [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) role. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 **Solution**
 
-Make sure that you are assigned the following Azure AD built-in role:
-
-- [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
+Make sure that you are assigned the [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) role at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
 
 ## Symptom - Cannot filter custom security attributes for users or applications
 
 **Cause 1**
 
-To read and filter custom security attributes for users or enterprise applications, you must be assigned the [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader) or [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) role. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) roles do not have permissions to read, filter, define, manage, or assign custom security attributes.
+You don't have permissions to filter custom security attributes. To read and filter custom security attributes for users or enterprise applications, you must be assigned the [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader) or [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator) role. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 **Solution 1**
 
-Make sure that you are assigned one of the following Azure AD built-in roles:
+Make sure that you are assigned one of the following Azure AD built-in roles at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
 
 - [Attribute Assignment Administrator](../roles/permissions-reference.md#attribute-assignment-administrator)
 - [Attribute Assignment Reader](../roles/permissions-reference.md#attribute-assignment-reader)
-    
-Make sure you have been assigned access to an attribute set at either the tenant level or attribute set level. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
 
 **Cause 2**
 
@@ -89,7 +82,7 @@ You are assigned the Attribute Assignment Reader or Attribute Assignment Adminis
 
 **Solution 2**
 
-You can delegate the management of custom security attributes at the tenant level or at the attribute set level. Make sure you have been assigned access to an attribute set at either the tenant level or attribute set level. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+You can delegate the management of custom security attributes at the tenant scope or at the attribute set scope. Make sure you have been assigned access to an attribute set at either the tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
 
 **Cause 3**
 
