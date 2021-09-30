@@ -130,6 +130,7 @@ var resourceAttributes = new Dictionary<string, object> {
                                         { "service.name", "my-service" },
                                         { "service.namespace", "my-namespace" },
                                         { "service.instance.id", "my-instance" }};
+var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
 
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .SetResourceBuilder(resourceBuilder) // Sets cloud_RoleName as my-namespace.my-service and cloud_RoleInstance as my-instance
