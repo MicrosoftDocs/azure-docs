@@ -37,8 +37,6 @@ The content of the question and answer pair includes:
 * Metadata tags used to filter answer choices during the search
 * Follow-up prompts to continue the search refinement
 
-![Example question and answer with metadata](../../qnamaker/media/qnamaker-overview-learnabout/example-question-and-answer-with-metadata.png)
-
 After you publish your knowledge base, a client application sends a user's question to your endpoint. Your QnA Maker service processes the question and responds with the best answer.
 
 ## Create a chat bot programmatically
