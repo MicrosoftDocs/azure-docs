@@ -40,7 +40,7 @@ In your module level build.gradle add the dependency on the chat sdk.
 
 ## Add the Teams UI layout
 
-Replace the code in activity_main.xml with the following snippet. It adds inputs for the thread id and for sending messages, a button for sending the typed message and a basic chat layout.
+Replace the code in activity_main.xml with the following snippet. It adds inputs for the thread ID and for sending messages, a button for sending the typed message and a basic chat layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
