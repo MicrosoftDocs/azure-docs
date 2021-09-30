@@ -14,6 +14,8 @@ ms.date: 07/05/2021
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Mapping Data Flows in ADF provide a way to transform data at scale without any coding required. You can design a data transformation job in the data flow designer by constructing a series of transformations. Start with any number of source transformations followed by data transformation steps. Then, complete your data flow with sink to land your results in a destination.
 
 Get started by first creating a new V2 Data Factory from the Azure portal. After creating your new factory, select "Open" in the "Open Azure Data Factory Studio" tile to launch the Data Factory UI.

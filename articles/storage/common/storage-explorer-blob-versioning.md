@@ -57,7 +57,7 @@ In this view, Storage Explorer displays:
 
 - Active non-version blobs
 - Current versions
-- Latest active previous versions. 
+- Latest active previous versions.
 
 For blobs that don't have a current version but have an active previous version, Storage Explorer displays their latest active previous version as a representation of that blob.
 
@@ -68,13 +68,13 @@ In this view, Storage Explorer displays:
 - Active non-version blobs
 - Soft-deleted non-version blobs
 - Current versions
-- Latest previous versions. 
+- Latest previous versions.
 
 For blobs that don't have a current version, Storage Explorer displays their latest previous version as a representation of that blob.
 
-> [!Note]
+> [!NOTE]
 > Due to service limitation, Storage Explorer needs some additional processing to get a hierarchical view of your virtual directories when listing blob versions. It will take longer to list blobs in the following views:
-> 
+>
 > - Active blobs and blobs without current version
 > - All blobs and blobs without current version
 
@@ -112,6 +112,6 @@ Each blob version has its own access tier. To change access tier of blob version
 
 ## See Also
 
-* [Blob versioning](../blobs/versioning-overview.md)
-* [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)
-* [Azure Storage Explorer soft delete guide](./storage-explorer-soft-delete.md)
+- [Blob versioning](../blobs/versioning-overview.md)
+- [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)
+- [Azure Storage Explorer soft delete guide](./storage-explorer-soft-delete.md)

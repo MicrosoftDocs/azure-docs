@@ -1,5 +1,4 @@
 ---
-
 title: Tutorial to migrate Okta sign on policies to Azure Active Directory Conditional Access
 titleSuffix: Active Directory
 description: Learn how to migrate Okta sign on policies to Azure Active Directory Conditional Access
@@ -107,13 +106,13 @@ tenant settings for your organization.
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and sign in with a global administrator account.
 
-2. Select **Azure Active Directory**, followed by **Users**, and then **Multi-Factor Authentication** this will take you to the Legacy Azure MFA portal.
+1. Select **Azure Active Directory**, followed by **Users**, and then **Multi-Factor Authentication** this will take you to the Legacy Azure MFA portal.
 
    ![image shows legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
 
-Instead, you can use **<https://aka.ms/mfaportal>**.
+   Instead, you can use **<https://aka.ms/mfaportal>**.
 
-4. From the **Legacy Azure MFA** menu, change the status menu through **enabled** and **enforced** to confirm you have no users enabled for Legacy MFA. If your tenant has users in the below views, you must disable them in the legacy menu. Only then CA policies will take effect on their account.
+1. From the **Legacy Azure MFA** menu, change the status menu through **enabled** and **enforced** to confirm you have no users enabled for Legacy MFA. If your tenant has users in the below views, you must disable them in the legacy menu. Only then CA policies will take effect on their account.
 
    ![image shows disable user in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
 
@@ -121,9 +120,9 @@ Instead, you can use **<https://aka.ms/mfaportal>**.
 
    ![image shows enforced field is empty in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
 
-5. After confirming no users are configured for legacy MFA, select the **Service settings** option. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
+1. After confirming no users are configured for legacy MFA, select the **Service settings** option. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
 
-6. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** boxes are unchecked and then select **Save**.
+1. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** boxes are unchecked and then select **Save**.
 
    >[!NOTE]
    >See [best practices for configuring MFA prompt settings](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
