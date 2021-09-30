@@ -11,28 +11,28 @@ ms.date: 09/30/2021
 
 # Migrate from QnA Maker to custom question answering
 
-Custom question answering was introduced in May 2021 with several new features including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each custom question answering project is equivalent to a knowledge base in QnA Maker. Users can easily migrate knowledge bases from a QnA Maker resource to custom question answering projects within a [language resource](https://aka.ms/create-language-resource). Users can also choose to migrate knowledge bases from multiple QnA Maker resources to a specific language resource.
+Custom question answering was introduced in May 2021 with several new features including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Each custom question answering project is equivalent to a knowledge base in QnA Maker. You can easily migrate knowledge bases from a QnA Maker resource to custom question answering projects within a [language resource](https://aka.ms/create-language-resource). You can also choose to migrate knowledge bases from multiple QnA Maker resources to a specific language resource.
 
-To successfully migrate knowledgebases, **users need contributor access to the selected QnA Maker and language resource**. When a knowledge base is migrated, the following details are copied to the new custom question answering project:
+To successfully migrate knowledge bases, **the account performing the migration needs contributor access to the selected QnA Maker and language resource**. When a knowledge base is migrated, the following details are copied to the new custom question answering project:
 
-- QnA pairs including active learning suggestions
-- Synonyms and default answer from the QnA Maker resource
-- Knowledge base name is copied as project description
+- QnA pairs including active learning suggestions.
+- Synonyms and default answer from the QnA Maker resource.
+- Knowledge base name is copied to project description field.
 
-Resource level settings such as Role-based access control (RBAC) settings are not migrated to the new resource. Such resource level settings would have to be reconfigured for the language resource. You also need to [enable analytics](analytics.md) for the language resource again.
+Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. Such resource level settings would have to be reconfigured for the language resource. You also need to [re-enable analytics](analytics.md) for the language resource.
 
 ## QnA Maker knowledge base migration
 
-Users can follow the steps below to migrate knowledge bases:
+You can follow the steps below to migrate knowledge bases:
 
-1. Create a [language resource](https://aka.ms/create-language-resource) with custom question answering enabled in advance. When you create the language resource in Azure portal, you will see the option to enable custom question answering. When you select that option and proceed, you will be asked for Azure search details to save the knowledge bases.
+1. Create a [language resource](https://aka.ms/create-language-resource) with custom question answering enabled in advance. When you create the language resource in the Azure portal, you will see the option to enable custom question answering. When you select that option and proceed, you will be asked for Azure Search details to save the knowledge bases.
 
-2. If you want to add knowledge bases in multiple languages to your language resource, visit [Language Studio](https://lanuage.azure.com) to create your first custom question answering project and select the first option as shown below. Language setting for the language resource can be specified only when creating a project. If you want to migrate existing knowledge bases in a single language to the language resource, you can skip this step.
+2. If you want to add knowledge bases in multiple languages to your language resource, visit [Language Studio](https://lanuage.azure.com) to create your first custom question answering project and select the first option as shown below. Language settings for the language resource can be specified only when creating a project. If you want to migrate existing knowledge bases in a single language to the language resource, you can skip this step.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of language selection for creating a new project](../media/migrate-qnamaker/choose-language.png)
 
-3. Visit [https://www.qnamaker.ai](https://www.qnamaker.ai) and select **Start Migration** in the migration note on the knowledge bases page. A dialog box will open to initiate the migration.
+3. Visit [https://www.qnamaker.ai](https://www.qnamaker.ai) and select **Start Migration** in the migration note on the knowledge base page. A dialog box will open to initiate the migration.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of message at the top of qnamaker.ai UI with a button for "Start Migration"](../media/migrate-qnamaker/start-migration.png)
@@ -52,9 +52,9 @@ Users can follow the steps below to migrate knowledge bases:
    > [!div class="mx-imgBorder"]
    > ![Migrate QnAMaker with red selection box around the language resource option currently selected resource contains the information that language is unspecified](../media/migrate-qnamaker/language-setting.png)
 
-    If you want to migrate knowledge bases in multiple languages to the language resource, you must enable multiple language setting when creating the first custom question answering project for the language resource. You can do so by following the instructions in step #2. If the language setting for the language resource is not specified, it is assigned the language of the selected QnA Maker resource.
+    If you want to migrate knowledge bases in multiple languages to the language resource, you must enable the multiple language setting when creating the first custom question answering project for the language resource. You can do so by following the instructions in step #2. **If the language setting for the language resource is not specified, it is assigned the language of the selected QnA Maker resource**.
 
-7. Select all the knowledge bases that you wish to migrate > Select **Next**.
+7. Select all the knowledge bases that you wish to migrate > select **Next**.
 
    > [!div class="mx-imgBorder"]
    > ![Migrate QnAMaker with red selection box around the knowledge base selection option with a drop-down displaying three knowledge base names](../media/migrate-qnamaker/select-knowledge-bases.png)
@@ -80,7 +80,7 @@ Users can follow the steps below to migrate knowledge bases:
     If any knowledge bases fail to migrate to custom question answering projects, an error will be displayed. The most common migration errors occur when:
     
     - Your source and target resources are invalid.
-    - You are trying to migrate an empty knowledge base (KB)
+    - You are trying to migrate an empty knowledge base (KB).
     - You have reached the limit for an Azure Search instance linked to your target resources.
 
     > [!div class="mx-imgBorder"]
