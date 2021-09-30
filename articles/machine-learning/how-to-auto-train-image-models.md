@@ -33,7 +33,7 @@ Automated ML supports model training for computer vision tasks like image classi
 
 * The Azure Machine Learning Python SDK installed.
     To install the SDK you can either, 
-    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
+    * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
     * [Install the `automl` package yourself](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
@@ -97,7 +97,7 @@ Here is a sample JSONL file for image classification:
   }
   ```
 
-  The following is a sample JSONL file for object detection:
+  The following code is a sample JSONL file for object detection:
   ```python
   {
       "image_url": "AmlDatastore://image_data/Image_01.png",
@@ -140,7 +140,7 @@ Here is a sample JSONL file for image classification:
 
 If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. 
 
-Once your data is in JSONL format, you can create a TabularDataset with following:
+Once your data is in JSONL format, you can create a TabularDataset with the following code:
 
 ```python
 from azureml.core import Dataset
@@ -166,7 +166,7 @@ automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 
 ## Compute to run experiment
 
-You need to provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets)  your AutoML model training. AutoML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend using the NCsv3-series (with v100 GPUs) for faster training. Using a compute target with a multi-GPU VM SKU leverages multiple GPUs to speed up training. Additionally, setting up a compute target with multiple nodes will allow for faster model training by leveraging parallelism, when tuning hyperparameters for your model.
+Provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
 
 The compute target is a required parameter and is passed in using the `compute_target` parameter of the `AutoMLImageConfig`. For example:
 
@@ -179,7 +179,7 @@ automl_image_config = AutoMLImageConfig(compute_target=compute_target)
 
 With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep.
 
-The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple.In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific.
+The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple. In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific.
 
 ### Supported model algorithms
 
@@ -196,38 +196,30 @@ Instance segmentation | `maskrcnn_resnet50_fpn`
 The following table describes the hyperparameters that are model agnostic.
 
 | Parameter name | Description | Default|
-| ---------------- | ------------- | ------- |
-| `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All (except yolov5): 15 <br>yolov5: 30 |
-| `training_batch_size` | Training batch size.<br> Must be a positive integer. <br> <br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*. | Multi-class/multi-label: 78 <br> Object detection (except yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16 |
-| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. <br><br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*.|Multi-class / multi-label: 78 <br>Object detection (except yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16  |
-
-New table
-
-| Parameter name | Description | Default|
-| ---------------- | ------------- | ------- |
-| `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All&nbsp;(except yolov5):&nbsp;15 <br>yolov5: 30 |
-| `training_batch_size` | Training batch size.<br> Must be a positive integer. <br> <br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*. | Multi-class&nbsp;/&nbsp;multi-label:&nbsp;78 <br> Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation:&nbsp;2 <br>yolov5: 16 |
-| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. <br><br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*.|Multi-class / multi-label: 78 <br>Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation: 2 <br>yolov5: 16  |
+| -------------- | ------------- | ------- |
+| `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All (not yolov5): 15 <br>yolov5: 30 |
+| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label: 78 <br> Object detection (not yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16 <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
+| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. |Multi-class/multi-label: 78 <br>Object detection (not yolov5): 2 <br> Instance segmentation: 2 <br>yolov5: 16<br><br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.  |
 | `early_stopping` | Enable early stopping logic during training. <br> Must be 0 or 1.| 1 |
-| `early_stopping_patience` | Minimum number of epochs or validation evaluations with no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
-| `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
-| `learning_rate` | Initial learning rate. <br>Must be a float in the range [0, 1]. | Multi-class: 0.01 <br>Multi-label: 0.035 <br>Object&nbsp;detection&nbsp;(except yolov5):&nbsp;0.05 <br> Instance&nbsp;segmentation:&nbsp;0.05  <br>yolov5: 0.01  |
-| `lr_scheduler` | Type of learning rate scheduler. <br> Must be `warmup_cosine` or `step`. | warmup_cosine |
-| `step_lr_gamma` | Value of gamma for the learning rate scheduler if it's of type `step`.<br> Must be a float in the range [0, 1]. | 0.5 |
-| `step_lr_step_size` | Value of step size for the learning rate scheduler if it's of type `step`.<br> Must be a positive integer. | 5 |
-| `warmup_cosine_lr_cycles` | Value of cosine cycle for the learning rate scheduler if it's of type `warmup_cosine`. <br> Must be a float in the range [0, 1]. | 0.45 |
-| `warmup_cosine_lr_warmup_epochs` | Value of warmup epochs  for the learning rate scheduler if it's of type `warmup_cosine`. <br> Must be a positive integer. | 2 |
+| `early_stopping_patience` | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
+| `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
+| `learning_rate` | Initial learning rate. <br>Must be a float in the range [0, 1]. | Multi-class: 0.01 <br>Multi-label: 0.035 <br>Object detection (not yolov5): 0.05 <br> Instance segmentation: 0.05  <br>yolov5: 0.01  |
+| `lr_scheduler` | Type of learning rate scheduler. <br> Must be `warmup_cosine` or `step`. | `warmup_cosine` |
+| `step_lr_gamma` | Value of gamma when learning rate scheduler is `step`.<br> Must be a float in the range [0, 1]. | 0.5 |
+| `step_lr_step_size` | Value of step size when learning rate scheduler is `step`.<br> Must be a positive integer. | 5 |
+| `warmup_cosine_lr_cycles` | Value of cosine cycle when learning rate scheduler is `warmup_cosine`. <br> Must be a float in the range [0, 1]. | 0.45 |
+| `warmup_cosine_lr_warmup_epochs` | Value of warmup epochs when learning rate scheduler is `warmup_cosine`. <br> Must be a positive integer. | 2 |
 | `optimizer` | Type of optimizer. <br> Must be either `sgd`, `adam`, `adamw`.  | `sgd` |
-| `momentum` | Value of momentum for the optimizer if it's of type `sgd`. <br> Must be a float in the range [0, 1]. | 0.9 |
-| `weight_decay` | Value of weight decay for the optimizer if it's of type `sgd`, `adam`, or `adamw`. <br> `Must be a float in the range [0, 1]. | 1e-4 |
-|`nesterov`| Enable `nesterov` for the optimizer if it is of type `sgd`. <br> Must be 0 or 1.| 1 |
-|`beta1` | Value of `beta1` for the optimizer if it's of type `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
-|`beta2` | Value of `beta2` for the optimizer if it's of type `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
-|`amsgrad` | Enable `amsgrad` for the optimizer if it's of type `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
+| `momentum` | Value of momentum when optimizer is `sgd`. <br> Must be a float in the range [0, 1]. | 0.9 |
+| `weight_decay` | Value of weight decay when optimizer is `sgd`, `adam`, or `adamw`. <br> Must be a float in the range [0, 1]. | 1e-4 |
+|`nesterov`| Enable `nesterov` when optimizer is `sgd`. <br> Must be 0 or 1.| 1 |
+|`beta1` | Value of `beta1` when optimizer is `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
+|`beta2` | Value of `beta2` when optimizer is `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
+|`amsgrad` | Enable `amsgrad` when optimizer is `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
 |`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
-|`split_ratio`| Validation split ratio when splitting train data into random train and validation subsets if validation data is not defined. <br> Must be a float in the range [0, 1].| 0.2 |
+|`split_ratio`| If validation data is not defined, this specifies the split ratio for splitting train data into random train and validation subsets. <br> Must be a float in the range [0, 1].| 0.2 |
 |`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
-|`layers_to_freeze`| How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1. <br> Must be a positive integer. | no default value |
+|`layers_to_freeze`| How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1. <br> Must be a positive integer. | no default  |
 
 
 ### Task-specific hyperparameters
@@ -273,7 +265,7 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 
 ## Configure your experiment settings
 
-Before doing a large sweep to search for the optimal models and hyperparameters, we recommend trying the default values to get a first baseline. Next, you can explore multiple hyperparameters for the same model before sweeping over multiple models and their parameters. This is for employing a more iterative approach, because with multiple models and multiple hyperparameters for each, the search space grows exponentially and you need more iterations to find optimal configurations.
+Before doing a large sweep to search for the optimal models and hyperparameters, we recommend trying the default values to get a first baseline. Next, you can explore multiple hyperparameters for the same model before sweeping over multiple models and their parameters. This way, you can employ a more iterative approach, because with multiple models and multiple hyperparameters for each, the search space grows exponentially and you need more iterations to find optimal configurations.
 
 If you wish to use the default hyperparameter values for a given algorithm (say yolov5), you can specify the config for your AutoML Image runs as follows:
 
@@ -317,7 +309,7 @@ You can optionally enable early stopping for your computer vision experiment usi
 ## Sweeping hyperparameters for your model
 
 When training computer vision models, model performance depends heavily on the hyperparameter values selected. Often, you might want to tune the hyperparameters to get optimal performance.
-AutoML for Images allows you to sweep hyperparameters to find the optimal settings for your model. It leverages the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
+With support for computer vision tasks in automated ML, you can sweep hyperparameters to find the optimal settings for your model. This feature applies the hyperparameter tuning capabilities in Azure Machine Learning. [Learn how to tune hyperparameters](how-to-tune-hyperparameters.md).
 
 ### Define the parameter search space
 
