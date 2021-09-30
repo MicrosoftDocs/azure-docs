@@ -367,12 +367,17 @@
       items: 
         - name: Label data
           items: 
-            - name: Get data labeled
-              displayName: data, dataset, labeling
-              href: how-to-create-labeling-projects.md
+            - name: Set up image labeling
+              displayName: data, dataset
+              href: how-to-create-image-labeling-projects.md
+            - name: Set up text labeling
+              displayName: data, dataset
+              href: how-to-create-text-labeling-projects.md
             - name: Label images and text
               displayName: data, dataset, labeling
               href: how-to-label-data.md
+            - name: Outsource labeling tasks
+              href: how-to-outsource-data-labeling.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
