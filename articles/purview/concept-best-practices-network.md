@@ -1,10 +1,10 @@
 ---
-title: Purview collections architecture and best practices
-description: This article provides examples of Azure Purview collections architectures and describes best practices.
+title: Purview network architecture and best practices
+description: This article provides examples of Azure Purview network architecture options and describes best practices.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-map
+ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 09/29/2021
 ---
@@ -52,7 +52,7 @@ By default, You can use Azure Purview accounts through public endpoints accessib
 
 ### Integration Runtime options 
 
-To scan data sources while Purview account firewall is set to Allow Public Access, you can use both Azure integration runtime and [self-hosted integration runtime](./manage-integration-runtimes.md) for scans, according to your [data sources supportability](./purview/manage-data-sources.md).  
+To scan data sources while Purview account firewall is set to Allow Public Access, you can use both Azure integration runtime and [self-hosted integration runtime](./manage-integration-runtimes.md) for scans, according to your [data sources supportability](manage-data-sources.md).  
 
 - You may use Azure integration runtime or a self-hosted integration runtime to scan Azure data sources such as Azure SQL Database or Azure Blob Storage.  
 - It is recommended to use Azure integration runtime to scan Azure data sources when possible, to reduce cost and administrative overhead. 
@@ -77,7 +77,7 @@ When scanning a data source in Azure Purview, you need to provide a credential, 
 
 - Data source type. For example, if the data source is an Azure SQL Database, you need to use a SQL authentication with db_datareader access to each database. This can be a user or Azure Purview managed identity or a Service Principal in your Azure Active Directory added to the Azure SQL Database as db_datareader. If the data source is an Azure Blob Storage, you can use Azure Purview managed identity or a Service Principal in your Azure Active Directory added as Storage Blob Data Reader role on the Azure Storage Account or simply use Storage Account's key.  
 
-- It is recommended to use Azure Purview managed identity to scan Azure data sources when possible, to reduce administrative overhead. For any other authentication types you need to [setup credentials for source authentication inside Azure Purview](./manage-credential.md): 
+- It is recommended to use Azure Purview managed identity to scan Azure data sources when possible, to reduce administrative overhead. For any other authentication types you need to [setup credentials for source authentication inside Azure Purview](manage-credential.md): 
 
   - Generate a secret inside an Azure Key Vault. 
   - Register the key vault inside Azure Purview.  
@@ -89,13 +89,13 @@ When scanning a data source in Azure Purview, you need to provide a credential, 
 
 - If you choose to scan data sources using public endpoints, your on-premises or VM-based data sources must have an outbound connectivity to Azure endpoints. 
 
-- Your self-hosted integration runtime VMs must have [outbound connectivity to Azure endpoints](./azure/purview/manage-integration-runtimes.md#networking-requirements). 
+- Your self-hosted integration runtime VMs must have [outbound connectivity to Azure endpoints](manage-integration-runtimes.md#networking-requirements). 
 
 - Your Azure data sources must allow public access, however, if service endpoint is enabled on the data source, make sure you _allow Azure services on the trusted services list_ to access your Azure data sources. The service endpoint routes traffic from the VNet through an optimal path to the Azure. 
 
 ## Option 2 - Use private endpoints 
 
-You can use [Azure private endpoints](./azure/private-link/private-endpoint-overview.md) for your Azure Purview accounts, if you need to scan Azure IaaS and PaaS data sources inside Azure virtual networks and on-premises data sources through a private connection or to allow users on a virtual network to securely access Azure Purview over a [Private Link](./azure/private-link.md). 
+You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Azure Purview accounts, if you need to scan Azure IaaS and PaaS data sources inside Azure virtual networks and on-premises data sources through a private connection or to allow users on a virtual network to securely access Azure Purview over a [Private Link](../private-link.md). 
 
 Similar to other Platform as a Service solutions, Azure Purview does not support deploying directly into a virtual network, because of this you cannot leverage certain networking features with the offering's resources such as network security groups, route tables, or other network-dependent appliances such as an Azure Firewall. Instead, you can use private endpoints that can be enabled on your virtual network and you can disable public internet access to securely connect to Purview. 
 
@@ -103,7 +103,7 @@ You must use private endpoints for your Azure Purview account, if you need to fu
 
 - You need to have an end-to-end network isolation for Purview accounts and data sources. 
 
-- You need to [block public access](.//catalog-private-link-end-to-end.md#firewalls-to-restrict-public-access) to your Purview accounts. 
+- You need to [block public access](./catalog-private-link-end-to-end.md#firewalls-to-restrict-public-access) to your Purview accounts. 
 
 - Your PaaS data sources are deployed with private endpoints and you have blocked all access through the public endpoint. 
 
@@ -117,9 +117,9 @@ You must use private endpoints for your Azure Purview account, if you need to fu
 
 - To scan data sources through private connectivity, you need to configure at least one account and one ingestion private endpoint for Purview. Scans must be configured using a self-hosted integration runtime using an authentication method other than Azure Purview managed identity. 
 
-- Review [Support matrix for scanning data sources through ingestion private endpoint](./catalog-private-link#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint) before setting up any scans.
+- Review [Support matrix for scanning data sources through ingestion private endpoint](catalog-private-link#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint) before setting up any scans.
 
-- Review [DNS requirements](./catalog-private-link-name-resolution#deployment-options.md). If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Purview account endpoints to the Private Endpoint IP address. 
+- Review [DNS requirements](catalog-private-link-name-resolution#deployment-options.md). If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Purview account endpoints to the Private Endpoint IP address. 
 
 ### Integration Runtime options 
 
@@ -129,7 +129,7 @@ You must use private endpoints for your Azure Purview account, if you need to fu
 
 - When using private endpoint with Azure Purview, you need to allow network connectivity from data sources to self-hosted integration VM on the Azure virtual network where Purview private endpoints are deployed.  
 
-- We recommend allowing self-hosted integration runtime auto-upgrade. Make sure you open required outbound rules in your Azure virtual network or on your corporate firewall to allow auto-upgrade. For more information, see [Self-hosted integration runtime networking requirements](./manage-integration-runtimes#networking-requirements.md).
+- We recommend allowing self-hosted integration runtime auto-upgrade. Make sure you open required outbound rules in your Azure virtual network or on your corporate firewall to allow auto-upgrade. For more information, see [Self-hosted integration runtime networking requirements](manage-integration-runtimes.md#networking-requirements).
 
 ### Authentication options  
 
@@ -143,9 +143,9 @@ You must use private endpoints for your Azure Purview account, if you need to fu
 
 - Scanning Azure multiple sources using the entire subscription or resources group using ingestion private endpoints and self-hosted integration runtime is not supported when using private endpoints for ingestion, instead you can register and scan data sources individually. 
 
-- For limitation related to Azure Purview private endpoints, see [Known limitations](./catalog-private-link-troubleshoot.md#known-limitations) 
+- For limitation related to Azure Purview private endpoints, see [Known limitations](catalog-private-link-troubleshoot.md#known-limitations) 
 
-- For limitations related to Private Link service, see [Azure Private Link limits](./azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits). 
+- For limitations related to Private Link service, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits). 
 
 ### Private endpoint scenarios 
 
@@ -161,7 +161,7 @@ This architecture is suitable mainly for small organizations or development, tes
 
 #### Scenario 2: Single Region – Multiple VNets 
 
-To connect two or more virtual networks in Azure together, you can use [virtual network peering](../virtual-network/virtual-network-peering-overview). Network traffic between peered virtual networks is private and is kept on the Azure backbone network. 
+To connect two or more virtual networks in Azure together, you can use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). Network traffic between peered virtual networks is private and is kept on the Azure backbone network. 
 
 Many customers build their network infrastructure in Azure using the hub and spoke network architecture, where: 
 
@@ -172,7 +172,7 @@ In hub and spoke network architectures, your organization's data governance team
 
 self-hosted integration runtime VMs must be in the same VNet as ingestion private endpoint but they can be in a separate subnet.
 
-  :::image type="content" source="media/concept-best-practices/network-pe-multi-vnet.png" alt-text="Screenshot that shows Azure Purview with private endpoints in a single vnet scenario."lightbox="media/concept-best-practices/network-pe-multi-vnet.png":::
+  :::image type="content" source="media/concept-best-practices/network-pe-multi-vnet.png" alt-text="Screenshot that shows Azure Purview with private endpoints in a multi-vnet scenario."lightbox="media/concept-best-practices/network-pe-multi-vnet.png":::
 
 You can optionally deploy additional self-hosted integration runtime in the spoke virtual networks. In tha case an additional account and ingestion private endpoint must be deployed in the spoke virtual network. 
 
@@ -184,11 +184,11 @@ For performance and cost optimization purposes, it is highly recommended deployi
 
 If you need to register and scan any Azure Data Lake Storage (Gen 2) resources from other regions, it is required to have a local self-hosted integration runtime VM in the region where the data source is located. 
 
-  :::image type="content" source="media/concept-best-practices/network-pe-multi-region.png" alt-text="Screenshot that shows Azure Purview with private endpoints in a single vnet scenario."lightbox="media/concept-best-practices/network-pe-multi-region.png":::
+  :::image type="content" source="media/concept-best-practices/network-pe-multi-region.png" alt-text="Screenshot that shows Azure Purview with private endpoints in a multi-vnet and multi-region scenario."lightbox="media/concept-best-practices/network-pe-multi-region.png":::
 
 ## Option 3 - Use both private endpoint and public endpoints
 
-This option is needed when you have a subset of your data sources using private endpoints and at the same time, you need to scan other data sources that are configured with [Service Endpoint](./azure/virtual-network/virtual-network-service-endpoints-overview.md) or data sources that have a public endpoint that is accessible through the internet.
+This option is needed when you have a subset of your data sources using private endpoints and at the same time, you need to scan other data sources that are configured with [Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) or data sources that have a public endpoint that is accessible through the internet.
 
 You can use private endpoints for your Azure Purview account, and set **Public network access** to _allow_ on your Purview account, if you need to fulfill any of the following requirements:
   
@@ -202,7 +202,7 @@ You can use private endpoints for your Azure Purview account, and set **Public n
 
 - To scan on-premises data sources, you can also install a self-hosted integration runtime either on an on-premises Windows machine or a VM inside Azure virtual network. 
 
-- We recommend allowing self-hosted integration runtime auto-upgrade. Make sure you open required outbound rules in your Azure virtual network or on your corporate firewall to allow auto-upgrade. For more information, see [Self-hosted integration runtime networking requirements](./manage-integration-runtimes#networking-requirements.md).
+- We recommend allowing self-hosted integration runtime auto-upgrade. Make sure you open required outbound rules in your Azure virtual network or on your corporate firewall to allow auto-upgrade. For more information, see [Self-hosted integration runtime networking requirements](manage-integration-runtimes.md#networking-requirements).
 
 ### Authentication options  
 
@@ -216,6 +216,4 @@ You can use private endpoints for your Azure Purview account, and set **Public n
   - You are required to create a credential in Azure Purview based of each secret that you create in the Azure Key Vault. You need to assign at minimum _get_ and _list_ access for secrets for your Azure Purview on the Key Vault resource in Azure, otherwise, the credentials won't work in Azure Purview account. 
 
 ## Next steps
--  [Create a collection and assign permissions in Purview](./quickstart-create-collection.md)
--  [Create and manage collections in Azure Purview](./how-to-create-and-manage-collections.md)
--  [Access control in Azure Purview](./catalog-permissions.md)
+-  [Use private endpoints for secure access to Purview](./catalog-private-link.md)
