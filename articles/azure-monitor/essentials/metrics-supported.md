@@ -1920,7 +1920,7 @@ The Azure Monitor Agent replaces the Azure Diagnostics extension and Log Analyti
 |exceptions/server|No|Server exceptions|Count|Count|Count of uncaught exceptions thrown in the server application.|cloud/roleName, cloud/roleInstance|
 |pageViews/count|Yes|Page views|Count|Count|Count of page views.|operation/synthetic, cloud/roleName|
 |pageViews/duration|Yes|Page view load time|MilliSeconds|Average|Page view load time|operation/synthetic, cloud/roleName|
-|performanceCounters/exceptionsPerSecond|Yes|Exception rate|CountPerSecond|Average|Count of handled and unhandled exceptions reported to windows, including .NET exceptions and unmanaged exceptions that are converted into .NET exceptions.|cloud/roleInstance|
+|performanceCounters/exceptionsPerSecond|Yes|Exception rate|CountPerSecond|Average|Count of handled and unhandled exceptions reported to Windows, including .NET exceptions and unmanaged exceptions that are converted into .NET exceptions.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|Yes|Available memory|Bytes|Average|Physical memory immediately available for allocation to a process or for system use.|cloud/roleInstance|
 |performanceCounters/processCpuPercentage|Yes|Process CPU|Percent|Average|The percentage of elapsed time that all process threads used the processor to execute instructions. This can vary between 0 to 100. This metric indicates the performance of w3wp process alone.|cloud/roleInstance|
 |performanceCounters/processIOBytesPerSecond|Yes|Process IO rate|BytesPerSecond|Average|Total bytes per second read and written to files, network and devices.|cloud/roleInstance|
