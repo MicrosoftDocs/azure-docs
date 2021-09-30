@@ -77,7 +77,7 @@ Before you can send notifications to Teams from your pipelines you must create a
 3.  We recommend adding the current Data Factory **Subscription ID**, **Resource Group**, and the **Teams webhook URL** (refer to 
     [prerequisites](#prerequisites)) for the default value of the relevant parameters.
     
-    :::image type="content" source="media/how-to-send-notifications-to-teams/webhook-reccomended-properties.png" alt-text="Shows the recommended properties of the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::
+    :::image type="content" source="media/how-to-send-notifications-to-teams/webhook-recommended-properties.png" alt-text="Shows the recommended properties of the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::
 
     These parameters are used to construct the monitoring URL. Suppose you do not provide a valid subscription and resource group (of the same data factory where the pipelines belong). In that case, the notification will not contain a valid pipeline monitoring URL, but the messages will still work.  Additionally, adding these parameters helps prevent the need to always pass those values from another pipeline. If you intend to control those values through a metadata-driven approach, then you should modify them accordingly.
     
@@ -89,9 +89,12 @@ Before you can send notifications to Teams from your pipelines you must create a
 
     :::image type="content" source="media/how-to-send-notifications-to-teams/customize-parameters-by-activity-type.png" alt-text="Shows customization of parameters in the pipeline created by the &quot;Send notification to a channel in Microsoft Teams&quot; template.":::   
   
+1.  Receive notifications in Teams.
+
+    :::image type="content" source="media/how-to-send-notifications-to-teams/teams-notifications-view-pipeline-run.png" alt-text="Shows pipeline notifications in a Teams channel.":::
 ## Add dynamic messages with system variables and expressions
 
-You can use[system variables](control-flow-system-variables.md) and [expressions](control-flow-expression-language-functions.md)to
+You can use [system variables](control-flow-system-variables.md) and [expressions](control-flow-expression-language-functions.md) to
 make your messages dynamic. For example:  
 
 -   ``@activity("CopyData").output.errors[0].Message``
@@ -103,5 +106,3 @@ The above expressions will return the relevant error messages from a failure, wh
 
 We also encourage you to review the Microsoft Teams supported [notification payload schema](https://adaptivecards.io/explorer/AdaptiveCard.html) and
 further customize the above template to your needs.
-
-:::image type="content" source="media/how-to-send-notifications-to-teams/teams-notifications-view-pipeline-run.png" alt-text="Shows pipeline notifications in a Teams channel.":::
