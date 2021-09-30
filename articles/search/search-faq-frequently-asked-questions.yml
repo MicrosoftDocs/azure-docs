@@ -9,14 +9,14 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: conceptual
-  ms.date: 04/10/2020
+  ms.date: 09/24/2021
     
 title: Azure Cognitive Search - frequently asked questions (FAQ)
 summary:  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Cognitive Search.
 
 
 sections:
-  - name: Platform
+  - name: Search service
     questions:
       - question: |
           How is Azure Cognitive Search different from full text search in my DBMS?
@@ -67,7 +67,7 @@ sections:
       - question: |
           Can I restrict search index access by user identity?
         answer: |
-          You can implement [security filters](./search-security-trimming-for-azure-search.md) with `search.in()` filter. The filter composes well with [identity management services like Azure Active Directory(AAD)](./search-security-trimming-for-azure-search-with-aad.md) to trim search results based on defined user group membership. You can also sign up for [role-based access](search-security-rbac.md), currently in public preview.
+          You can implement [security filters](./search-security-trimming-for-azure-search.md) with `search.in()` filter. The filter composes well with [identity management services like Azure Active Directory (Azure AD)](./search-security-trimming-for-azure-search-with-aad.md) to trim search results based on defined user group membership. You can also sign up for [role-based access](search-security-rbac.md), currently in public preview.
           
       - question: |
           Why are there zero matches on terms I know to be valid?
@@ -79,7 +79,7 @@ sections:
       - question: |
           My wildcard searches are slow.
         answer: |
-          Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing of scanning the search index adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be very slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
+          Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be very slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
           
       - question: |
           Why is the search rank a constant or equal score of 1.0 for every hit?

@@ -25,12 +25,12 @@ Disabling PTA can be done using the following cmdlets.
 
 ## Prerequisites
 The following prerequisites are required:
-- Any windows machine that has the PTA agent installed. 
+- Any Windows machine that has the PTA agent installed. 
 - Agent must be at version 1.5.1742.0 or later. 
 - An Azure global administrator account in order to run the PowerShell cmdlets to disable PTA.
 
 >[!NOTE]
-> If your agent is older then it may not have the cmdlets required to complete this operation. You can get a new agent from Azure Portal an install it on any windows machine and provide admin credentials. (Installing the agent does not affect the PTA status in the cloud)
+> If your agent is older then it may not have the cmdlets required to complete this operation. You can get a new agent from Azure Portal an install it on any Windows machine and provide admin credentials. (Installing the agent does not affect the PTA status in the cloud)
 
 > [!IMPORTANT]
 > If you are using the Azure Government cloud then you will have to pass in the ENVIRONMENTNAME parameter with the following value. 
