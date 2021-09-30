@@ -17,7 +17,7 @@ Before you start using Chaos Studio, it's useful to understand the core site rel
 
 Creating large-scale, distributed applications has never been easier. Infrastructure is hosted in the cloud, programming language support is diverse, and there are a plethora of open source and hosted components and services to build upon. Unfortunately, there is no reliability guarantee for these underlying components and dependencies, or for systems built upon them. Infrastructure can go offline and service disruptions or outages can occur at any time. Minor disruptions in one area can be magnified and have longstanding side effects in another. 
 
-Applications and services need to plan for and accomodate service outages, disruptions to known and unknown dependencies, sudden unexpected load, and latencies throughout the system. Applications and services need to be designed to handle failure and hardned against disruptions. 
+Applications and services need to plan for and accommodate service outages, disruptions to known and unknown dependencies, sudden unexpected load, and latencies throughout the system. Applications and services need to be designed to handle failure and be hardened against disruptions. 
 
 Applications and services that deal with stresses and issues gracefully are **resilient**. Individual component reliability is good, but **resilience is a property of the entire system**. End to end system resilience needs to be validated in an integrated, production-like environment with the conditions and load that will be faced in production.
 

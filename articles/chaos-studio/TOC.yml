@@ -16,7 +16,7 @@
     href: chaos-studio-tutorial-service-direct.md
   - name: Create and run an experiment that uses agent-based faults
     href: chaos-studio-tutorial-agent-based.md
-  - name: Create and run an expeirment that uses Chaos Mesh faults on AKS
+  - name: Create and run an experiment that uses Chaos Mesh faults on AKS
     href: chaos-studio-tutorial-aks.md
 - name: Samples
   items:
