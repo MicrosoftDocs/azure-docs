@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 10/15/2021
+ms.date: 09/28/2021
 ---
 
-# Azure Data Factory Managed Virtual Network (preview)
+# Azure Data Factory Managed Virtual Network
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -31,9 +31,6 @@ Benefits of using Managed Virtual Network:
 
 > [!IMPORTANT]
 >Currently, the managed Virtual Network is only supported in the same region as Azure Data Factory region.
-
-> [!Note]
->As Azure Data Factory managed Virtual Network is still in public preview, there is no SLA guarantee.
 
 > [!Note]
 >Existing public Azure integration runtime can't switch to Azure integration runtime in Azure Data Factory managed virtual network and vice versa.
@@ -130,19 +127,20 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ### Supported Data Sources
 Below data sources have native Private Endpoint support and can be connected through private link from ADF Managed Virtual Network.
 - Azure Blob Storage (not including Storage account V1)
-- Azure Table Storage (not including Storage account V1)
-- Azure Files (not including Storage account V1)
-- Azure Data Lake Gen2
-- Azure SQL Database (not including Azure SQL Managed Instance)
-- Azure Synapse Analytics
-- Azure CosmosDB SQL
-- Azure Key Vault
-- Azure Private Link Service
-- Azure Search
+- Azure Cognitive Search
+- Azure Cosmos DB SQL API
+- Azure Data Lake Storage Gen2
+- Azure Database for MariaDB
 - Azure Database for MySQL
 - Azure Database for PostgreSQL
-- Azure Database for MariaDB
+- Azure Files (not including Storage account V1)
+- Azure Key Vault
 - Azure Machine Learning
+- Azure Private Link Service
+- Azure Purview
+- Azure SQL Database (not including Azure SQL Managed Instance)
+- Azure Synapse Analytics
+- Azure Table Storage (not including Storage account V1)
 
 > [!Note]
 > You still can access all data sources that are supported by Data Factory through public network.

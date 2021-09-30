@@ -592,6 +592,22 @@ namespace CommonCacheMsalV3
 
 ---
 
+## Plain text fallback mode
+
+MSAL allows you to store unencrypted tokens in clear text. This is intended for use in development environments for debugging purposes only. 
+You can use the plain text fallback mode using the following code pattern.
+
+```csharp
+storageProperties =
+    new StorageCreationPropertiesBuilder(
+        Config.CacheFileName + ".plaintext",
+        Config.CacheDir)
+    .WithUnprotectedFile()
+    .Build();
+
+var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties).ConfigureAwait(false);
+```
+
 ## Next steps
 
 The following samples illustrate token cache serialization.

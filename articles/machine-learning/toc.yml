@@ -280,7 +280,7 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: Audit and manage compliance
+        - name: Audit and manage
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: Workspaces & compute resources
@@ -376,6 +376,8 @@
             - name: Label images and text
               displayName: data, dataset, labeling
               href: how-to-label-data.md
+            - name: Outsource labeling tasks
+              href: how-to-outsource-data-labeling.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md

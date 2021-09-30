@@ -148,6 +148,7 @@ To deploy a different language stack, update <abbr title="This template is compa
 ::: zone pivot="platform-linux"
 <details>
 <summary>How do I deploy a different language stack?</summary>
+ 
 To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown below. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | Language    | Example                                              |

@@ -1,10 +1,11 @@
 ---
-title: Block blob storage performance tiers — Azure Storage
+title: Block blob storage performance tiers
+titleSuffix: Azure Storage
 description: Discusses the difference between premium and standard performance tiers for Azure block blob storage.
 author: normesta
 
 ms.author: normesta
-ms.date: 05/17/2021
+ms.date: 09/23/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -49,7 +50,7 @@ Premium performance storage is ideal for workloads that require fast and consist
 
 ## Standard performance
 
-Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
+Standard performance supports different [access tiers](access-tiers-overview.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
 
 - **Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers, making it a perfect use case for both short-term and long-term disaster recovery datasets, secondary backups, and compliance data archiving.
 
