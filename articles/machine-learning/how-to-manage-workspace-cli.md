@@ -214,7 +214,7 @@ az ml workspace create -g <resource-group-name> --file privatelink.yml
 
 After creating the workspace, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create a private link endpoint for the workspace.
 
-```
+```azurecli-interactive
 az network private-endpoint create \
     --name <private-endpoint-name> \
     --vnet-name <vnet-name> \
