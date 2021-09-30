@@ -42,9 +42,9 @@ This graph illustrates decreases in 10% at a time, from pure read to pure write.
 
 ## Linux scale-up  
 
-The graphs in this section show the validation testing results for the client-side mount option with NFSv3. See the [`nconnect` section of Linux mount options](performance-linux-mount-options.md#nconnect) section for more information.
+The graphs in this section show the validation testing results for the client-side mount option with NFSv3. See the [`nconnect` section of Linux mount options](performance-linux-mount-options.md#nconnect) for more information.
 
-The graphs compare the advantages of `nconnect` to a non-`connected` mounted volume. In the graphs, FIO generated the workload from a single D32s_v4 instance in the us-west2 Azure region using a 64-KiB sequential workload – the largest I/O size supported by Azure NetApp Files at the time of the testing represented here. Azure NetApp Files now supports larger I/O sizes. For more details, see [rsize and wsize section of Linux mount options](performance-linux-mount-options.md#rsize-and-wsize).
+The graphs compare the advantages of `nconnect` to a non-`connected` mounted volume. In the graphs, FIO generated the workload from a single D32s_v4 instance in the us-west2 Azure region using a 64-KiB sequential workload – the largest I/O size supported by Azure NetApp Files at the time of the testing represented here. Azure NetApp Files now supports larger I/O sizes. For more details, see the [rsize and wsize section of Linux mount options](performance-linux-mount-options.md#rsize-and-wsize).
 
 ### Linux read throughput  
 
