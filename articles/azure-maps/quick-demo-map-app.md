@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Interactive map search with Azure Maps'
 description: 'Quickstart: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get a primary key, and use the Web SDK to set up map applications'
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 09/30/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -61,7 +61,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 >[!NOTE]
 > This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but that the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
 
-## Download and update the Azure Map demo
+## Download and update the Azure Maps demo
 
 1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Copy the contents of the file.
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
