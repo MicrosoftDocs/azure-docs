@@ -10,7 +10,7 @@ ms.date: 11/09/2020
 
 The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 
-[!INCLUDE [Custom question answering](../includes/new-version.md)]
+[!INCLUDE [Custom question answering](./includes/new-version.md)]
 
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
