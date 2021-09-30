@@ -55,6 +55,10 @@ A further level of cost analysis detail can be obtained by specifying a **Resour
 
 ### View cost analysis for a Batch pool
 
+#### Batch service pool allocation mode
+
+For Batch accounts created with the Batch service pool allocation mode:
+
 1. In the Azure portal, type in or select **Cost Management + Billing** .
 1. Select your subscription in the **Billing scopes** section.
 1. Under **Cost Management**, select **Cost analysis**.
@@ -68,6 +72,24 @@ The resulting cost analysis shows the cost of the pool as well as the resources 
 > The pool in this example uses **Virtual Machine Configuration**, which is [recommended for most pools](batch-pool-cloud-service-to-virtual-machine-configuration.md) and are charged based on the Virtual Machines pricing structure. Pools that use **Cloud Services Configuration** are charged based on the Cloud Services pricing structure.
 
 [Tags](../azure-resource-manager/management/tag-resources.md) can be associated with Batch accounts, allowing tags to be used for further cost filtering. For example, tags can be used to associate project, user, or group information with a Batch account. Tags cannot currently be associated with Batch pools.
+
+#### User subscription pool allocation mode
+
+For Batch accounts created with the user subscription pool allocation mode:
+
+1. In the Azure portal, type in or select **Cost Management + Billing** .
+1. Select your subscription in the **Billing scopes** section.
+1. Under **Cost Management**, select **Cost analysis**.
+1. Select **Add Filter**. In the first drop-down, select **Tag**.
+1. In the second drop-down, select **poolname**.
+1. In the third drop-down, select the Batch pool.
+
+   :::image type="content" source="media/batch-budget/user-subscription-pool.png" alt-text="Screenshot showing cost analysis of a user subscription Batch pool in the Azure portal.":::
+
+Note that if you're interested in viewing cost data for all pools in a user subscription Batch account, you can select **batchaccountname** in the second drop-down and the name of your Batch account in the third drop-down. 
+
+> [!NOTE]
+> Pools created by user subscription Batch accounts will not show up under the **Resource** filter, though their usage will still show up when filtering for "virtual machines" under service name.
 
 ### Create a budget for a Batch pool
 
