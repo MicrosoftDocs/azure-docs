@@ -15,7 +15,7 @@ A gateway that connects to the internet over 5G or LTE and provides ethernet por
 ## 5G/LTE gateway topology overview
 Below you can see how a 5G/LTE gateway can be easily paired with the Azure Percept DK.
 
-:::image type="Image" source="media/connect-over-cellular/topology.png" alt-text="This diagram shows how the Azure Percept DK connects to a 5G/LTE gateway via Ethernet." lightbox="topology-expanded.png":::
+:::image type="Image" source="media/connect-over-cellular/topology.png" alt-text="This diagram shows how the Azure Percept DK connects to a 5G/LTE gateway via Ethernet." lightbox="media/connect-over-cellular/topology-expanded.png":::
 
 ## Considerations when connecting to a 5G or LTE gateway
 Here are some important points to consider when connecting the Azure Percept DK to a 5G/LTE gateway.
