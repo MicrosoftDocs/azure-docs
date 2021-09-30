@@ -61,7 +61,7 @@ To upload the root and endpoint certificates on the device, use the **+ Add cert
 
 #### Upload Kubernetes certificates
 
-THe Kubernetes certificates can be for Edge Container Registry or for Kubernetes dashboard. In each case, a certificate and a key file must be uploaded. Follow these steps to create and upload Kubernetes certificates:
+The Kubernetes certificates can be for Edge Container Registry or for Kubernetes dashboard. In each case, a certificate and a key file must be uploaded. Follow these steps to create and upload Kubernetes certificates:
 
 
 1. You'll use `openssl` to create the Kubernetes dashboard certificate or Edge Container Registry. Make sure to install openssl on the system you would use to create the certificates. On a Windows system, you can use Chocolatey to install `openssl`. After you've installed Chocolatey, open PowerShell and type:
