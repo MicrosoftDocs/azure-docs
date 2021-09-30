@@ -17,7 +17,7 @@ Azure Chaos Studio is an Azure service in preview that helps you measure, unders
 
 Chaos Studio's core resource type is the chaos experiment. An experiment is a set of one or more faults that are executed in parallel or sequentially, depending on how you configure it. A fault (generically called an “action” in the Chaos Studio REST API) is a condition that is injected into the target system. Chaos Studio supports various faults, such as generating CPU pressure on a VM or stopping a Windows service. Each fault has specific parameters you can control, like which process to kill or how much CPU pressure to generate, and a duration and set of target resources. When you build a chaos experiment, you define a set of steps to execute sequentially and within each step a branch for each fault that you want to execute in parallel. Finally, you organize the resources (“targets”) that each fault will be run against into groups called selectors so that you can easily reference a group in each fault.
 
-![Chaos Experiment](images/chaosexperiment.png)
+![Chaos Experiment](images/chaos-experiment.png)
 
 A Chaos Experiment is an Azure resource that lives in a subscription and resource group. You can currently only create an experiment with the REST API. You also use this API to start, cancel, and view the status of an experiment. An Azure portal experience is in the works that we will share for feedback when ready. When you run an experiment, you can opt in to have fault telemetry emitted directly to Azure Application Insights to correlate between experiment events and service/application telemetry.
  

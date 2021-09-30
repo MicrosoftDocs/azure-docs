@@ -65,7 +65,7 @@ Once the network security group fault provider has been created, you can now sta
 1. Enter the name you want to give the experiment and select the subscription, resource group, and location (region) where the experiment will be created.
 1. Click **Next : Experiment designer >**.
 
-    ![Create an Experiment in Azure portal](images/create-an-experiment-dnsoutage.png)
+    ![Create an Experiment in Azure portal](images/create-an-experiment-dns-outage.png)
 
 1. Click **Add fault**.
 1. Select **network security group Fault** from the faults dropdown menu.

@@ -17,7 +17,7 @@ Azure Chaos Studio leverages [Chaos Mesh](https://chaos-mesh.org/), a free, open
 * The AKS cluster must be running Chaos Mesh version **1.1.4 or older**. Newer Chaos Mesh versions are not yet supported.
 * The AKS cluster you are performing fault injection against must have [AKS-managed Azure Active Directory](../aks/managed-aad.md) **disabled**. You can check if your cluster has AKS-managed AAD enabled by going to the Azure Portal blade for your cluster, clicking on "JSON View" in the top right corner, and searching the JSON for a `"aadProfile"` property.
 
-  ![AKS-managed AAD](images/create-exp-aks-aad.png)
+  ![AKS-managed AAD](images/create-exp-aks-azure-ad.png)
 
   If the property is set to `true` you cannot execute chaos experiments against this cluster yet. There is no way to disable AKS-managed AAD.
 
@@ -107,7 +107,7 @@ The Azure portal is the easiest way to create and manage experiments. Follow the
 
 5. You are now in the Experiment Designer. By default, you see one step with one branch and no actions. Steps execute sequentially, branches execute in parallel within a step, and actions execute sequentially within a branch. The next step only begins once all actions in all branches in the previous step complete and actions within a branch only starts once the previous action has completed. Optionally, give your step and branch friendly names, then click **Add fault** to add a fault to your first branch.
 
-    ![Experiment designer](images/create-exp-service-addfault.png)
+    ![Experiment designer](images/create-exp-service-add-fault.png)
 
 6. In the page that appears, select **AKS Chaos Mesh Pod Faults** fault from the fault dropdown and fill in the **Duration** and **Spec** properties. Descriptions and parameters for each fault are available in the [Fault Library](chaos-studio-fault-library.md). Click **Next : Target resources**.
 
@@ -152,11 +152,11 @@ The Azure portal is the easiest way to create and manage experiments. Follow the
         ```
     5. Paste the minified JSON into the **Spec** field in the portal.
 
-    ![Define fault parameters](images/create-exp-aks-addfault-details.png)
+    ![Define fault parameters](images/create-exp-aks-add-fault-details.png)
 
 7. Pick the resources that the fault will target. Only resources that have been onboarded to Chaos Studio (those that have a provider configuration for their resource type) and only resource types for which the fault is applicable appear in the list. Select the AKS cluster(s) you would like to target and click **Add**.
 
-    ![Select targets](images/create-exp-aks-addfault-targets.png)
+    ![Select targets](images/create-exp-aks-add-fault-targets.png)
 
 8. Continue to add steps, branches, and faults. When done click **Review + Create**.
 
@@ -176,7 +176,7 @@ The Azure portal is the easiest way to create and manage experiments. Follow the
 
 12. Under **Role** select "Azure Kubernetes Service Cluster User Role" and under **Select** search for the name of your experiment. When you create an experiment Chaos Studio creates a system-assigned managed identity for the experiment with the same name. This identity is used to inject faults against your resources. If an identity already exists with the experiment name, Chaos Studio truncates the experiment name and adds random characters to it. Select the identity for your experiment and click **Save**. Repeat this process for any resources targeted by your experiment.
 
-    ![Add role assignment final view](images/create-exp-aks-addrole.png)
+    ![Add role assignment final view](images/create-exp-aks-add-role.png)
 
 Congratulations! You've created your first chaos experiment and setup resources for fault injection!
 
