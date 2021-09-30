@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.date: 09/24/2021
 ---
 
-# Tutorial: Migrate SQL Server to an SQL Server on Azure Virtual Machine online using Azure Data Studio with DMS (Preview)
+# Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio with DMS (Preview)
 
 Use the Azure SQL Migration extension in Azure Data Studio to migrate the databases from a SQL Server instance to a [SQL Server on Azure Virtual Machine](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) with minimal downtime. For methods that may require some manual effort, see the article [SQL Server instance migration to SQL Server on Azure Virtual Machine](../azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md).
 
