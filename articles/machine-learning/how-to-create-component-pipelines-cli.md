@@ -40,8 +40,8 @@ Pipelines in AzureML let you sequence a collection of machine learning tasks int
 
 | Benefit | Description |
 | --- | --- |
-| Self-contained | Pipelines may run in a self-contained way for hours, or even days, taking upstream data, processing it, and passing it to subsequent scripts without any manual intervention. |
-| Powerful | Pipelines may run on large compute clusters hosted in the cloud that have the processing power to crunch large datasets or to perform thousands of sweeps to find the best models. | 
+| Self-contained | Pipelines may run in a self-contained way for hours, or even days, taking upstream data, processing it, and passing it to later scripts without any manual intervention. |
+| Powerful | Pipelines may run on large compute clusters hosted in the cloud that have the processing power to crunch large datasets or to do thousands of sweeps to find the best models. | 
 | Repeatable & Automatable | Pipelines can be scheduled to run and process new data and update ML models, making ML workflows repeatable. | 
 | Reproducible | Pipelines can generate reproducible results by logging all activity and persisting all outputs including intermediate data to the cloud, helping meet compliance and audit requirements. |
 
@@ -55,7 +55,7 @@ From the `cli/jobs/pipelines-with-components/basics` directory of the`azureml-ex
 az ml compute list
 ```
 
-If you do not have it, create a cluster called `cpu-cluster` by running:
+If you don't have it, create a cluster called `cpu-cluster` by running:
 
 ```azurecli
 az ml compute create -n cpu-cluster --type amlcompute --min-instances 0 --max-instances 10
@@ -107,7 +107,7 @@ If you open the job's URL in Studio (the value of `interaction_endpoints.Studio.
 
 :::image type="content" source="media/how-to-create-component-pipelines-cli/pipeline-graph.png" lightbox="media/how-to-create-component-pipelines-cli/pipeline-graph.png" alt-text="The pipeline's graph representation in Studio":::
 
-There are no dependencies between the components in this pipeline. Generally, pipelines will have dependencies and this page will show them visually. Since these components are not dependent upon each other, and since the `cpu-cluster` had sufficient nodes, they ran concurrently. 
+There are no dependencies between the components in this pipeline. Generally, pipelines will have dependencies and this page will show them visually. Since these components aren't dependent upon each other, and since the `cpu-cluster` had sufficient nodes, they ran concurrently. 
 
 If you double-click on a component in the pipeline graph, you can see details of the component's child run. 
 
@@ -122,7 +122,7 @@ You define input data directories for your pipeline in the pipeline YAML file us
 :::image type="content" source="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png" alt-text="Image showing how the inputs and outputs paths map to the jobs inputs and outputs paths" lightbox="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png":::
 
 1. The `inputs.pipeline_sample_input_data` path creates a key identifier and uploads the input data from the `local_path` directory. This key `inputs.pipeline_sample_input_data` is then used as the value of the `jobs.componentA_job.inputs.componentA_input` key. 
-1. The `jobs.componentA_job.outputs.componentA_output` path is a key identifier that is used as the value for the subsequent step's `jobs.componentB_job.inputs.componentB_input` key. 
+1. The `jobs.componentA_job.outputs.componentA_output` path is a key identifier that is used as the value for the next step's `jobs.componentB_job.inputs.componentB_input` key. 
 1. As with Component A, the output of Component B is used as the input to Component C.
 1. The pipeline's `outputs.final_pipeline_output` is the value for the `jobs.componentC_job.outputs.componentC_output` key. In other words, Component C's output is the pipeline's final output.
 
@@ -154,7 +154,7 @@ print("componentA_output path: %s" % args.componentA_output)
 
 ```
 
-For inputs, the pipeline orchestrator downloads (or mounts) the data from the cloud store and makes it available as a local folder to read from for the script that runs in each job. This behavior means the script does not need any modification between running locally and running on cloud compute. Similarly, for outputs, the script writes to a local folder that is mounted and synced to the cloud store or is uploaded after script is complete. You can use the `mode` keyword to specify download vs mount for inputs and upload vs mount for outputs. 
+For inputs, the pipeline orchestrator downloads (or mounts) the data from the cloud store and makes it available as a local folder to read from for the script that runs in each job. This behavior means the script doesn't need any modification between running locally and running on cloud compute. Similarly, for outputs, the script writes to a local folder that is mounted and synced to the cloud store or is uploaded after script is complete. You can use the `mode` keyword to specify download vs mount for inputs and upload vs mount for outputs. 
 
 ## Create a preparation-train-evaluate pipeline
 
@@ -187,11 +187,11 @@ By default, only those components whose inputs have changed are rerun. You can c
 ### How do I change the location of the outputs generated by the pipeline?
 You can use the `settings` section in the pipeline job to specify a different datastore for all the jobs in the pipeline (See line 25 - 26 in [this example](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml)). Specifying a different datastore for a specific job or specific output is currently not supported. Specifying paths where are outputs are saved on the datastore is also not currently supported.
 
-### How do I specify the a compute that can be used by all jobs?
+### How do I specify a compute that can be used by all jobs?
 You can specify a compute at the pipeline job level, which will be used by jobs that don't explicitly mention a compute. (See line 28 in [this example](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/1a_e2e_local_components/pipeline.yml).)
 
 ### What job types are supported in the pipeline job?
-The current release supports command and component job types. For component job type, only command component is supported. We will support more job types such as sweep in future releases.
+The current release supports command and component job types. For component job type, only command component is supported. We'll support more job types such as sweep in future releases.
 
 ### What are the different modes that I use with inputs or outputs?
 | Category | Allowed Modes | Default |
@@ -201,9 +201,9 @@ The current release supports command and component job types. For component job 
 | Outputs | `rw_mount`, `upload` | `rw_mount` | 
 
 ### When do I use command jobs vs component jobs?
-You can iterate quickly with command jobs and then connect them together into a pipeline. However, this makes the pipeline monolithic. If someone needs to use one of the steps of the pipeline in a different pipeline, they need to copy over the job definition, the scripts, environment, etc. If you want to make the individual steps reusable across pipelines and easy to understand and use for others on your team, the additional steps to create and register makes sense. The other reason you want to consider using Components is you want to use the Drag-and-Drop Designer UI to build Pipelines. Since jobs are not registered with the workspace, you cannot drag-and-drop them on the Designer canvas.
+You can iterate quickly with command jobs and then connect them together into a pipeline. However, this makes the pipeline monolithic. If someone needs to use one of the steps of the pipeline in a different pipeline, they need to copy over the job definition, the scripts, environment, and so on. If you want to make the individual steps reusable across pipelines and easy to understand and use for others on your team, the additional steps to create and register makes sense. The other reason you want to consider using Components is you want to use the Drag-and-Drop Designer UI to build Pipelines. Since jobs aren't registered with the workspace, you can't drag-and-drop them on the Designer canvas.
 
-### I'm doing distributed training in my component. The component, which is registered, specifies distributed training settings including node count. How can I change the number of nodes used during runtime? The optimal number of nodes is best determined at runtime, hence I don't want to update the component and register a new version.
+### I'm doing distributed training in my component. The component, which is registered, specifies distributed training settings including node count. How can I change the number of nodes used during runtime? The optimal number of nodes is best determined at runtime, so I don't want to update the component and register a new version.
 
 You can use the overrides section in component job to change the resource and distribution settings. See [this example using TensorFlow](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/6a_tf_hello_world/) or [this example using PyTorch](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/jobs/pipelines-with-components/basics/6y_pytorch_hello_world).  
 
