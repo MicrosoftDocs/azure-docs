@@ -43,7 +43,9 @@ items:
       - name: Deployment best practices
         href: deployment-best-practices.md
       - name: Collections architecture
-        href: concept-best-practices-collections.md    
+        href: concept-best-practices-collections.md
+      - name: network architecture
+        href: concept-best-practices-network.md        
   - name: Purview permissions
     href: catalog-permissions.md
   - name: Data map
