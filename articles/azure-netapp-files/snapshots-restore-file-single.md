@@ -122,7 +122,7 @@ From the Azure portal:
 ### SMB volumes 
 
 ```
-C:\> net use N: \\scppr2-8336.anfnbregr.com\volume-azure-smb
+C:\> net use N: \\scppr2-8336.contoso.com\volume-azure-smb
 N:\> cd ~snapshot
 N:\ dir
 Directory of N:\~snapshot
