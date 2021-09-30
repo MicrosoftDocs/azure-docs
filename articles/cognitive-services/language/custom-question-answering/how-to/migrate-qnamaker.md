@@ -19,7 +19,7 @@ To successfully migrate knowledge bases, **the account performing the migration 
 - Synonyms and default answer from the QnA Maker resource.
 - Knowledge base name is copied to project description field.
 
-Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. Such resource level settings would have to be reconfigured for the language resource. You also need to [re-enable analytics](analytics.md) for the language resource.
+Resource level settings such as Role-based access control (RBAC) are not migrated to the new resource. These resource level settings would have to be reconfigured for the language resource post migration. You will also need to [re-enable analytics](analytics.md) for the language resource.
 
 ## QnA Maker knowledge base migration
 
@@ -92,4 +92,4 @@ You can follow the steps below to migrate knowledge bases:
 
 ## Next steps
 
-- Learn how to re-enable analytics and telemetry with [Azure Monitor diagnostic logs](analytics.md).
+- Learn how to re-enable analytics with [Azure Monitor diagnostic logs](analytics.md).
