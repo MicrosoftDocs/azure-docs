@@ -184,16 +184,9 @@ using OpenTelemetry.Trace;
 
 public class ActivityEnrichingProcessor : BaseProcessor<Activity>
 {
-    private readonly string name;
-
-    public MyProcessor(string name = "ActivityEnrichingProcesor")
-    {
-        this.name = name;
-    }
-
     public override void OnEnd(Activity activity)
     {
-        // Azure Monitor will receive the following updated activity.
+        // The updated activity will be available to all processors which are called after this processor.
         activity.DisplayName = "Updated-" + activity.DisplayName;
         activity.SetTag("CustomDimension1", "Value1");
         activity.SetTag("CustomDimension2", "Value2");
