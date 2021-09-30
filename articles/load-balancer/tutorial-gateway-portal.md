@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 10/6/2021
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Create a gateway load balancer using the Azure portal
@@ -190,13 +190,13 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 8. Select **Dynamic** for **Assignment**.
 
-10. Select **Add**.
+9. Select **Add**.
 
-11. Select **Next: Backend pools** at the bottom of the page.
+10. Select **Next: Backend pools** at the bottom of the page.
 
-12. In the **Backend pools** tab, select **+ Add a backend pool**.
+11. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-13. In **Add backend pool**, enter or select the following information.
+12. In **Add backend pool**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -210,13 +210,13 @@ In this section, you'll create the configuration and deploy the gateway load bal
     | External VXLAN configuration port | Leave the default of **10801**. |
     | External VXLAN configuration identifier | Leave the default of **801**. |
 
-16. Select **Add**.
+13. Select **Add**.
 
-17. Select the **Next: Inbound rules** button at the bottom of the page.
+14. Select the **Next: Inbound rules** button at the bottom of the page.
 
-18. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
+15. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
-19. In **Add load balancing rule**, enter or select the following information:
+16. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -229,12 +229,11 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
     :::image type="content" source="./media/tutorial-gateway-portal/add-load-balancing-rule.png" alt-text="Screenshot of create load-balancing rule." border="true":::
 
-20. Select **Add**.
+17. Select **Add**.
 
-21. Select the blue **Review + create** button at the bottom of the page.
+18. Select the blue **Review + create** button at the bottom of the page.
 
-22. Select **Create**.
-
+19. Select **Create**.
 
 The load balancer is ready for NVAs in the backend pool.
 
