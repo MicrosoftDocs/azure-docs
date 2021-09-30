@@ -1,6 +1,6 @@
 ---
 title: Understand Azure NetApp Files backup | Microsoft Docs
-description: Describes what Azure NetApp Files backup does and the cost model.  
+description: Describes what Azure NetApp Files backup does, supported regions, and the cost model.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,8 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 09/28/2021
 ms.author: b-juche
+ms.custom: references_regions
 ---
 # Understand Azure NetApp Files backup
 
@@ -22,6 +23,20 @@ Azure NetApp Files backup expands the data protection capabilities of Azure NetA
 
 > [!IMPORTANT]
 > The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using the Azure NetApp Files backup feature.
+
+## Supported regions 
+
+Azure NetApp Files backup is supported for the following regions:   
+
+* East US
+* East US 2
+* West US 
+* South Central
+* West US2
+* North Europe 
+* West Europe
+* Australia East
+* Japan East
 
 ## Cost model for Azure NetApp Files backup
 
