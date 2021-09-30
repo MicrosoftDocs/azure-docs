@@ -136,7 +136,7 @@ An alternate for split by length and by position is listed below
 
 This option is accessible from the Extract option in the ribbon
 
-:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query Add Column":::
+:::image type="content" source="media/wrangling-data-flow/power-query-split.png" alt-text="Power Query Add Column":::
 
 ### ```Table.CombineColumns```
 
@@ -146,11 +146,11 @@ This option is accessible from the Extract option in the ribbon
 
 * Select Pivot transformation from the PQ editor and select your pivot column
 
-![Power Query Pivot Common](media/wrangling-data-flow/pq-pivot-1.png)
+![Power Query Pivot Common](media/wrangling-data-flow/power-query-pivot-1.png)
 
 * Next, select the value column and the aggregate function
 
-![Power Query Pivot Selector](media/wrangling-data-flow/pq-pivot-2.png)
+![Power Query Pivot Selector](media/wrangling-data-flow/power-query-pivot-2.png)
 
 * When you click OK, you will see the data in the editor updated with the pivoted values
 * You will also see a warning message that the transformation may be unsupported
