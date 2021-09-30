@@ -210,8 +210,18 @@ items:
       - name: Data flow monitoring
         href: concepts-data-flow-monitoring.md
       - name: Data flow performance
-        href: concepts-data-flow-performance.md
-        displayName: merge, timeout
+        items:
+          - name: Overview
+            href: concepts-data-flow-performance.md
+            displayName: merge, timeout
+          - name: Optimizing sources
+            href: concepts-data-flow-performance-sources.md
+          - name: Optimizing sinks
+            href: concepts-data-flow-performance-sinks.md
+          - name: Optimizing transformations
+            href: concepts-data-flow-performance-transformations.md
+          - name: Using data flows in pipelines
+            href: concepts-data-flow-performance-pipelines.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
@@ -725,6 +735,8 @@ items:
         href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Monitor pipelines with Microsoft Teams notifications
+      href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
