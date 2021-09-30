@@ -166,17 +166,13 @@ To view the scoring results:
 1. On the resulting blobstore page, paste the above path into the search box. You'll find the scoring outputs in the folder.
 :::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.gif" alt-text="Screencast of opening the score folder and scoring output" lightbox="media/how-to-use-batch-endpoint/scoring-view.gif":::
 
-## Create a batch endpoint with no code
+## Deploy a new model
 
-If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/batch-score.sh" ID="create_batch_endpoint" :::
-
-Below is the YAML file defining the MLFlow batch endpoint:
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/create-batch-endpoint.yml":::
+Once you have an endpoint, you can continue to refine your model and add new deployments.
 
 ### Create a new batch deployment hosting an MLflow model
+
+If you're using an MLflow model, you can use no-code batch deployment creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
 
 Use the following command to create a new batch deployment under an existing batch endpoint, but not set as the default deployment:
 

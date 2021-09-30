@@ -10,7 +10,7 @@ ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.date: 09/25/2021
+ms.date: 10/01/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -58,6 +58,8 @@ Create and manage batch and online endpoints with multiple developer tools:
 ## What are online endpoints (preview)?
 
 **Online endpoints** (preview) are endpoints that are used for online (real-time) inferencing. Compared to **batch endpoints**, **online endpoints** contain **deployments** that are ready to receive data from clients and can send responses back in real time.
+
+:::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
 ### Online endpoints requirements
 
