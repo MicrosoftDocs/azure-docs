@@ -112,7 +112,7 @@ There are three ways to register with the extension:
 
 ### Named instance support
 
-The SQL Server IaaS Agent extension works with a named instance of SQL Server if it is the only SQL Server instance available on the virtual machine. If VM have multiple named SQL Server instances with no default instance on the VM then SQL IaaS extension registers in lightweight mode and picks the instance of the highest edition or the first instance if all the instances are of same edition.
+The SQL Server IaaS Agent extension works with a named instance of SQL Server if it is the only SQL Server instance available on the virtual machine. If a VM has multiple named SQL Server instances and no default instance, then the SQL IaaS extension will register in lightweight mode and pick either the instance with the highest edition, or the first instance, if all the instances have the same edition. 
 
 To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL IaaS Extension](sql-agent-extension-manually-register-single-vm.md).
 
