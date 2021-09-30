@@ -30,7 +30,7 @@ The result will be a collection of recognized entities in your text, URLs to an 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
 
 * [Transparency note for entity linking](/legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language/context/context)
-[!INCLUDE [Responsible AI links](../includes/overview-typical-workflow.md)]
+[!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 
 ## Next steps
 
