@@ -1,7 +1,7 @@
 ---
 title: What is sentiment analysis and opinion mining in Azure Cognitive Service for language?
 titleSuffix: Azure Cognitive Services
-description: Learn about sentiment analysis and opinion mining with Language Services.
+description: An overview of the sentiment analysis feature in Azure Cognitive Services, which helps you find out what people think of a topic by mining text for clues.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -21,21 +21,21 @@ Sentiment analysis and opinion mining are features offered by [Azure Cognitive S
 
 ## Sentiment analysis 
 
-The sentiment analysis feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises using a container.
+The sentiment analysis feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. 
+
+### Deploy on premises using Docker containers
+
+Use the available Docker container to [deploy sentiment analysis on-premises](how-to/use-containers.md). These docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
 
 ## Opinion mining
 
-Opinion mining is a feature of Sentiment Analysis. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
+Opinion mining is a feature of sentiment analysis. Also known as aspect-based sentiment analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
-## Deploy on premises using Docker containers
-
-Use the available Docker container to [deploy this feature on-premises](how-to/use-containers.md). These docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
-
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for language detection](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for sentiment analysis](/legal/cognitive-services/language-service/transparency-note-sentiment-analysis?context=/azure/cognitive-services/language/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
 [!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 
