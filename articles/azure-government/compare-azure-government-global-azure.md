@@ -74,6 +74,8 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure IoT Hub|\*.azure-devices.net|\*.azure-devices.us||    
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|\*.servicebus.windows.net|\*.servicebus.usgovcloudapi.net||
+|**Intune**|Enterprise Registration|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us||
+||Enterprise Enrollment|\*.manage.microsoft.com|\*.manage.microsoft.us||
 |**Management and Governance**|Azure Monitor logs|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
 |||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
 |||\*.ods.opinsights.azure.com|\*.ods.opinsights.azure.us||
