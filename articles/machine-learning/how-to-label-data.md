@@ -5,7 +5,7 @@ description: Learn how to use the data labeling tools to rapidly prepare text or
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.custom: data4ml
