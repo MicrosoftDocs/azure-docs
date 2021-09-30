@@ -44,7 +44,7 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 |[Resource Governor on Business Critical service tier might need to be reconfigured after failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Has Workaround||
 |[Cross-database Service Broker dialogs must be reinitialized after service tier upgrade](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|Aug 2019|Has Workaround||
 |[Impersonation of Azure AD login types is not supported](#impersonation-of-azure-ad-login-types-is-not-supported)|Jul 2019|No Workaround||
-|[@query parameter not supported in sp_send_db_mail](#query-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|Resolved|Jan 2021|
+|[@query parameter not supported in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|Resolved|Jan 2021|
 |[Transactional Replication must be reconfigured after geo-failover](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|No Workaround||
 |[Temporary database is used during RESTORE operation](#temporary-database-is-used-during-restore-operation)||Has Workaround||
 |[TEMPDB structure and content is re-created](#tempdb-structure-and-content-is-re-created)||No Workaround||

@@ -59,13 +59,6 @@ The following table lists the features of Azure SQL Managed Instance that have g
 Learn about significant changes to the Azure SQL Managed Instance documentation.
 
 
-### July 2021
-
-| Changes | Details |
-| --- | --- |
-| **Maintenance window** | The maintenance window feature allows you to configure a maintenance schedule for your Azure SQL Managed Instance, currently in Public Preview. To learn more, see [maintenance window](/database/maintenance-window.md).|
-||| 
-
 ### June 2021
 
 | Changes | Details |
@@ -90,11 +83,12 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 
 | Changes | Details |
 | --- | --- |
-| **Log Replay Service** | It's now possible to migrate databases from SQL Server to Azure SQL Managed Instance using the Log Replay Service. To learn more, see [Migrate with Log Replay Service](log-replay-service-migrate.md). Currently in Public Preview. | 
-| **Machine Learning Services GA** | The Machine Learning Services for Azure SQL Managed Instance are now generally available (GA). To learn more, see [Machine Learning Services for SQL Managed Instance](machine-learning-services-overview.md).| 
-| **Service Broker message exchange** | The Service Broker component of Azure SQL Managed Instance allows you to compose your applications from independent, self-contained services, by providing native support for reliable and secure message exchange between the databases attached to the service. Currently in Public Preview. To learn more, see [Service Broker](/sql/database-engine/configure-windows/sql-server-service-broker).
-| **Long-term backup retention** | Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance. To learn more, see [Long-term backup retention](long-term-backup-retention-configure.md)|
 | **Audit management operations** | The ability to audit SQL Managed Instance operations is now generally available (GA). | 
+| **Log Replay Service** | It's now possible to migrate databases from SQL Server to Azure SQL Managed Instance using the Log Replay Service. To learn more, see [Migrate with Log Replay Service](log-replay-service-migrate.md). Currently in Public Preview. | 
+| **Long-term backup retention** | Support for Long-term backup retention up to 10 years on Azure SQL Managed Instance. To learn more, see [Long-term backup retention](long-term-backup-retention-configure.md)|
+| **Machine Learning Services GA** | The Machine Learning Services for Azure SQL Managed Instance are now generally available (GA). To learn more, see [Machine Learning Services for SQL Managed Instance](machine-learning-services-overview.md).| 
+| **Maintenance window** | The maintenance window feature allows you to configure a maintenance schedule for your Azure SQL Managed Instance, currently in Public Preview. To learn more, see [maintenance window](/database/maintenance-window.md).|
+| **Service Broker message exchange** | The Service Broker component of Azure SQL Managed Instance allows you to compose your applications from independent, self-contained services, by providing native support for reliable and secure message exchange between the databases attached to the service. Currently in Public Preview. To learn more, see [Service Broker](/sql/database-engine/configure-windows/sql-server-service-broker).
 | **SQL insights** | SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance. To learn more, see [SQL insights](../../azure-monitor/insights/sql-insights-overview.md). | 
 ||| 
 
@@ -117,29 +111,6 @@ The following changes were added to SQL Managed Instance and the documentation i
 | **User-initiated failover** | User-initiated failover is now generally available, providing you with the capability to manually initiate an automatic failover using PowerShell, CLI commands, and API calls, improving application resiliency. To learn more, see, [testing resiliency](../database/high-availability-sla.md#testing-application-fault-resiliency). 
 |  |  |
 
-### 2019
-
-The following changes were added to the product and the documentation in 2019: 
-
-| Changes | Details |
-| --- | --- |
-| **Service-aided subnet configuration** | Using a service-aided subnet configuration is a secure and convenient way to manage subnet configuration where you control data traffic while SQL Managed Instance ensures the uninterrupted flow of management traffic. To learn more, see [service-aided subnet configuration](connectivity-architecture-overview.md#service-aided-subnet-configuration). |
-| **Bring your own key (BYOK) to TDE** | It's now possible to bring your own key (BYOK) when encrypting your database with Transparent Data Encryption (TDE) for data protection at rest, allowing organizations to separate management duties for keys and data. To learn more, see [TDE with customer-managed keys](../database/transparent-data-encryption-byok-overview.md). | 
-| **Auto-failover groups** | It's now possible to configure an auto-failover group for your managed instances, allowing you to replicate all databases from a primary instance to a secondary instance in another region. To learn more, see [auto-failover groups](../database/auto-failover-group-overview.md).|
-| **Global trace flags** | It's now possible to enable global trace flags to configure SQL Managed Instance behavior. To learn more, see [Trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).|
-| **Subscriptions with resource limits** | Support for subscriptions with [resource limits](resource-limits.md) Azure monthly credit for Visual Studio subscribers and increased [regional limits](resource-limits.md#regional-resource-limitations).
-| **Sharepoint support** | Support has been added for deploying your managed instance with Sharepoint 2016 and Sharepoint 2019. To learn more, see [SQL Managed Instance and Sharepoint](/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019).
-| **Dynamics 365 Business Central support** | Support has been added for deploying your managed instance with Dynamics 365 Business Central. To learn more, see [SQL Managed Instance and Dynamics 365 Business central](/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance). |
-| **Instance level collation & time zone** | It's now possible to create a managed instance with <a href="/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template">instance-level collation</a> and a <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">time zone</a> of your choice.|
-| **Built-in firewall** | You can now protect your SQL Managed Instance with a [built-in firewall](management-endpoint-verify-built-in-firewall.md).|
-| **Public endpoint & proxy override** | Configure SQL Managed Instance to use [public endpoints](public-endpoint-configure.md), [Proxy override](../database/connectivity-architecture.md#connection-policy) connection to get better network performance. |
-| **Backup improvements** | <a href="/azure/azure-sql/database/automated-backups-overview">Configure backup retention up to 35 days</a> for point-in-time restore. [Long-term backup retention](../database/long-term-retention-overview.md) (up to 10 years) is currently in public preview.  | 
-| **Geo-restore** | It's now possible to restore your database to a new region. To learn more, see [geo-restore](../database/recovery-using-backups.md#geo-restore) |
-| **Database rename** | It's now possible to rename your database for your SQL Managed Instance. To learn more, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) and [sp_rename](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql).|
-| **Delete virtual cluster** | It's now possible to delete your virtual cluster. To learn more, see [delete virtual cluster](virtual-cluster-delete.md). | 
-| **Instance Contributor role** |  New built-in [Instance Contributor role](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.|
-| **Government cloud support** | SQL Managed Instance is available in the following Azure Government regions to GA (US Gov Texas, US Gov Arizona) and in China North 2 and China East 2. It is also available in the following public regions: Australia Central, Australia Central 2, Brazil South, France South, UAE Central, UAE North, South Africa North, South Africa West.| 
-|  |  |
 
 
 ## Known issues

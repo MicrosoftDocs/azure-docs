@@ -20,11 +20,8 @@ This article summarizes the documentation changes associated with new features a
 For Azure SQL Managed Instance, see [What's new](../managed-instance/doc-changes-updates-release-notes-whats-new.md).
 
 
-## Feature availability
 
-The following two sections list the features of Azure SQL Database that are currently in public preview or have recently transitioned in general availability.
-
-### Public preview 
+## Public preview 
 
 The following table lists the features of Azure SQL Database that are currently in public preview. 
 
@@ -42,33 +39,38 @@ The following table lists the features of Azure SQL Database that are currently 
 | [SQL insights](../../azure-monitor/insights/sql-insights-overview.md) |  SQL insights is a comprehensive solution for monitoring any product in the Azure SQL family. SQL insights uses dynamic management views to expose the data you need to monitor health, diagnose problems, and tune performance.| 
 |||
 
-### General availability (GA)
+## General availability (GA)
 
-The following table lists the features of Azure SQL Database that have recently transitioned to general availability (GA). 
+The following table lists the features of Azure SQL Database that have recently transitioned to general availability (GA) in the last 12 months. 
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
-| [AAD service principal](authentication-aad-service-principal.md) |  September 2021 | Azure Active Directory (Azure AD) supports user creation in Azure SQL Database on behalf of Azure AD applications (service principals)| 
+| [AAD service principal](authentication-aad-service-principal.md) |  September 2021 | Azure Active Directory (Azure AD) supports user creation in Azure SQL Database on behalf of Azure AD applications (service principals).| 
 | [AAD directory readers and guest users](authentication-aad-guest-users.md)  | September 2021  | Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. | 
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
 |||| 
 
+## Documentation changes
 
-## July 2021
+Learn about significant changes to the Azure SQL Database documentation.
+
+
+### July 2021
+
 
 | Changes | Details |
 | --- | --- |
 | **Azure AD-only authentication** | It's now possible to restrict authentication to your Azure SQL Database to Azure Active Directory users only. This feature is currently in public preview. To learn more, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md). | 
 |||
 
-## June 2021
+### June 2021
 
 | Changes | Details |
 | --- | --- |
 | **Query store hints** | It's now possible to use query hints to optimize your query execution via the OPTION clause. This feature is currently in public preview. To learn more, see [Query store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-current&preserve-view=true). | 
 |||
 
-## May 2021
+### May 2021
 
 | Changes | Details |
 | --- | --- |
