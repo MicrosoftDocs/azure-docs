@@ -30,7 +30,7 @@ You can use the Azure portal to create and modify activity log alert rules. The 
 
 ### Create an alert rule from the Azure Monitor alerts pane
 
-Here's how to create a metric alert rule in the Azure portal:
+Here's how to create an activity log alert rule in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), select **Monitor**. The Monitor pane consolidates all your monitoring settings and data in one view.
 
