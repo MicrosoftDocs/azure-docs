@@ -12,14 +12,11 @@ ms.custom: template-how-to
 
 Here below you can find steps to prepare and connect Azure Percept DK using USB modems to 5G or LTE networks. These instructions are applicable to only the special Azure Percept DK SW that you can download following the instruction here below. This special Azure Percept image includes ModemManager open-source SW that supports wide variety of USB modems. NOTE, this image does not support OTA updates to the OS or other SW. With this SW, you can use simple cost efficient LTE USB modem or more sophisticated 5G modems to connect your Azure Percept to internet and Azure. 
 
-These instructions are intended to be used with USB modems that support MBIM interface. Before obtaining a USB modem, please ensure it supports MBIM interface. Then make sure it is listed in the ModemManager supported modem list. ModemManager SW can be used with other interfaces, but we focused on MBIM interface. More info on ModemManager can be found here:
-https://www.freedesktop.org/wiki/Software/ModemManager/
+> [!Note]
+> These instructions are intended to be used with USB modems that support MBIM interface. Before obtaining a USB modem, please ensure it supports MBIM interface. Then make sure it is listed in the ModemManager supported modem list. ModemManager SW can be used with other interfaces, but we focused on MBIM interface. More info on ModemManager can be found here: https://www.freedesktop.org/wiki/Software/ModemManager/
 
 
-:::image type="Image" source="media/connect-over-cellular/Azure_Percept_all_modems.png" alt-text="USB modems connected to Azure Percept.":::
-
-
-Any feedback on the content or additional questions on using LTE or 5G can be sent to azpercept5G@microsoft.com 
+:::image type="Image" source="media/connect-over-cellular/azure-percept-all-modems.png" alt-text="USB modems connected to Azure Percept.":::
 
 ## Setting up the Devkit for using USB Modem
 
@@ -33,21 +30,21 @@ Any feedback on the content or additional questions on using LTE or 5G can be se
 Here below you can find instructions for three different USB modems. First one is a simple LTE CAT-4 USB dongle (Vodafone) that does not have any special features. The instructions for this modem can be used for similar simple cost efficient USB modems. The second one (Multitech) is an example of a USB modem that has different USB modes of operation. For this type of modem, you have to enable the proper USB mode first to enable the MBIM interface that ModemManager supports. The third one is a 5G modem (Quectel DK) and it also has different modes and you have to enable the proper MBIM mode first.  
 
 ### Vodafone USB Connect 4G v2 modem
-:::image type="Image" source="media/connect-over-cellular/Vodafone_USB_modem_75.png" alt-text="Vodafone USB modem":::
+:::image type="Image" source="media/connect-over-cellular/vodafone-usb-modem-75.png" alt-text="Vodafone USB modem":::
 
 Here are the instructions for connecting your Azure Percept DK using a simple USB modem like the Vodafone USB Connect 4G v2.
 
 [Connecting using Vodafone Connect 4G vs USB modem](./connect-over-cellular-usb-vodafone.md).   
 
 ### Multitech Multiconnect USB modem
-:::image type="Image" source="media/connect-over-cellular/multitech_USB_modem_75.png" alt-text="Multitech USB modem":::
+:::image type="Image" source="media/connect-over-cellular/multitech-usb-modem-75.png" alt-text="Multitech USB modem":::
 
 Here are the instructions for connecting your Azure Percept DK using a simple USB modem like the Multitech USB modem (MTCM-LNA3-B03).
 
 [Connecting using Multitech USB modem](./connect-over-cellular-usb-multitech.md).   
 
 ### Quectel 5G developer kit
-:::image type="Image" source="media/connect-over-cellular/Quectel_5G_dk_75.png" alt-text="Quectel 5G DK":::
+:::image type="Image" source="media/connect-over-cellular/quectel-5-g-dk-75.png" alt-text="Quectel 5G DK":::
 
 Here are the instructions for connecting your Azure Percept DK using a 5G USB modem like Quectel RM500Q-GL.
 

@@ -18,19 +18,19 @@ northamerica-sales@quectel.com – for NA customers
 
 sales@quectel.com – for global customers
 
-## Note about 5G modems and USB cables
-This is applicable only for 5G modems. 5G modems require more power than LTE modems. Also the USB cable can become a bottleneck for best possible 5G data rates. In order to supply enough and consistent power to a 5G modem, you should make sure the USB cable is not too long and can withstand at least 3A current. For maximum throughput, you should use USB 3.1 Gen2 cables and make sure there is a USB-IF logo stating the certification. So as a summary:
+> [!Note] 
+> about 5G modems and USB cables
+> This is applicable only for 5G modems. 5G modems require more power than LTE modems. Also the USB cable can become a bottleneck for best possible 5G data rates. In order to supply enough and consistent power to a 5G modem, you should make sure the USB cable is not too long and can withstand at least 3A current. For maximum throughput, you should use USB 3.1 Gen2 cables and make sure there is a USB-IF logo stating the certification. So as a summary: 
+> **For Power:**
+> - Max amperage should be equal or greater than 3 Amp
+> - Less than 1 m long
+> - When using 5G modems, only one USB A port on Azure Percept DK should be active
+>  
+> **For throughput:**
+> - USB 3.1 Gen2
+> - USB-IF certified
 
-**For Power:**
-- Max amperage should be equal or greater than 3 Amp
-- Less than 1 m long
-- When using 5G modems, only one USB A port on Azure Percept DK should be active 
-
-**For throughput:**
-- USB 3.1 Gen2
-- USB-IF certified
-
-## Preparation:
+## Preparation
 Make sure you have done the Azure Percept preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md) and that you have noted the comments on USB cables that should be used. 
 
 ### Preparation of the modem
@@ -69,11 +69,14 @@ At this point, the modem should disconnect and later reconnect to the USB port.
 
 ## Using the modem to connect
 
-### 1. Put a SIM card in the Quectel modem
-### 2. Plug the Quectel modem to Azure Percept USB port. Remember to use a proper USB cable!
-### 3. Power-up Azure Percept
+**1. Put a SIM card in the Quectel modem**
 
-### 4. Ensure ModemManager is running
+**2. Plug the Quectel modem to Azure Percept USB port. Remember to use a proper USB cable!**
+
+**3. Power-up Azure Percept**
+
+**4. Ensure ModemManager is running**
+
 ```
 systemctl status ModemManager
 ```
@@ -86,7 +89,8 @@ You should get something like this:
 ```
 If not, then you should make sure you have flashed the correct image to your Azure Percept (5G enabled).
 
-### 5. List active modems
+**5. List active modems**
+
 When you list the modems, you should see that the Quectel modem has been recognized and is now handled by ModemManager.
 ```
 mmcli --list-modems
@@ -97,7 +101,8 @@ And you get something like this:
 ```
 The modem ID is here `0`, which is used in the following commands to address it (that is: `--modem 0`.)
 
-### 6. Get modem details
+**6. Get modem details**
+
 By default, the modem is disabled (`Status -> state: disabled`), see status:
 ```
 mmcli --modem 0
@@ -172,7 +177,8 @@ General  |                    path: /org/freedesktop/ModemManager1/Modem/0
   SIM      |        primary sim path: /org/freedesktop/ModemManager1/SIM/0
 ```
 
-### 7. Enable the modem
+**7. Enable the modem**
+
 Prior to establish a connection, we need to turn ON the modem's radio(s).
 ```
 mmcli --modem 0 --enable
@@ -186,7 +192,8 @@ After some time, the modem should be registering to a cell tower and you should 
 mmcli --modem 0
 ```
 
-### 8. Connect using the APN information
+**8. Connect using the APN information**
+
 Usually, the modems will provide which APN to use (see `3GPP EPS -> initial bearer APN` information) so you can use it to establish a connection. Otherwise, consult with your cell phone provider for the APN to use. Here is the ModemManager command to connect using, for example,  Verizon APN `APN=vzwinternet`
 ```
 mmcli --modem 0 --simple-connect="apn=vzwinternet"
@@ -196,7 +203,8 @@ And again you should get this:
 successfully connected the modem
 ```
 
-### 9. Get the modem status
+**9. Get the modem status**
+
 Now, you should see `Status -> state: connected` and a new `Bearer` category at the end of the status message.
 ```
 mmcli -m 0
@@ -281,7 +289,8 @@ mmcli -m 0
 
 ```
 
-### 10. Get the bearer details
+**10. Get the bearer details**
+
 The bearer resulting from the above `--simple-connect` is here at path: `/org/freedesktop/ModemManager1/Bearer/1`.
 This is the one we are querying the modem information about the active connection. The initial bearer is not attached to an active connection and will thus not hold any IP information.
 ```
@@ -313,7 +322,8 @@ Some details about:
 - `Status -> interface: wwan0` - list which Linux network interface matches this modem.
 - `IPv4 configuration` - provides the IP configuration for the above interface to set for it to be usable.
 
-### 11. Check modem network interface status
+**11. Check modem network interface status**
+
 The network interface should be `DOWN` by default.
 ```
 ip link show dev wwan0
@@ -324,12 +334,14 @@ Results in:
     link/ether ce:92:c2:b8:1e:f2 brd ff:ff:ff:ff:ff:ff
 ```
 
-### 12. Bring up the interface
+**12. Bring up the interface**
+
 ```
 sudo ip link set dev wwan0 up
 ```
 
-### 13. Check IP information
+**13. Check IP information**
+
 You should see the interface as `UP,LOWER_UP` with no IP information by default.
 ```
 sudo ip address show dev wwan0
@@ -341,13 +353,15 @@ sudo ip address show dev wwan0
        valid_lft forever preferred_lft forever
 ```
 
-### 14. Issue a DHCP request
+**14. Issue a DHCP request**
+
 This is a feature specific, but not limited to, the Quectel module. Usually the IP information is to be set manually to the interface or through a network manager daemon supporting ModemManager (for example, NetworkManager.), but here we can simply use the dhclient on the Quectel modem:
 ```
 sudo dhclient wwan0
 ```
 
-### 15. Check IP information
+**15. Check IP information**
+
 The IP configuration for this interface should match the ModemManager bearer details.
 ```
 sudo ip address show dev wwan0
@@ -362,7 +376,8 @@ And results:
        valid_lft forever preferred_lft forever
 ```
 
-### 16. Check interface routes
+**16. Check interface routes**
+
 Notice the DHCP client also set a default route for packets to go through the `wwan0` interface.
 ```
 ip route show dev wwan0
@@ -375,7 +390,8 @@ default via 25.21.113.166
 So now you have established a connection to Azure using the Quectel Modem!
 
 
-### 17. Test connectivity
+**17. Test connectivity**
+
 We execute a `ping` request through the `wwan0` interface.
 ```
 ping -I wwan0 8.8.8.8
@@ -391,7 +407,7 @@ rtt min/avg/max/mdev = 113.899/125.530/137.162/11.636 ms
 ```
 
 ## Debugging
-See [Connecting using USB modem](./connect-over-cellular-usb.md).
+See [Connect using USB modem](./connect-over-cellular-usb.md).
 
 ## Next steps
 [Connect using USB modem](./connect-over-cellular-usb.md).

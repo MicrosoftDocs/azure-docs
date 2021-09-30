@@ -17,15 +17,16 @@ https://www.vodafone.com/business/iot/iot-devices/integrated-terminals
 ## Using the modem to connect
 Make sure you have done the Azure Percept DK preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md). No preparation for the USB modem itself needed.   
 
-### 1. Plug a SIM card in the Vodafone modem
+**1. Plug a SIM card in the Vodafone modem**
 
-### 2. Plug the Vodafone modem into the Azure Percept USB A port
+**2. Plug the Vodafone modem into the Azure Percept USB A port**
 
-### 3. Power-up Azure Percept
+**3. Power-up Azure Percept**
 
-### 4. SSH into the Azure Percept DK
+**4. SSH into the Azure Percept DK**
 
-### 5. Ensure ModemManager is running
+**5. Ensure ModemManager is running**
+
 Write the following command to your SSH prompt:
 ```
 systemctl status ModemManager
@@ -36,7 +37,8 @@ If all is ok, you will get something like this:
 *Loaded: loaded (/lib/systemd/system/ModemManager.service; enabled; vendor preset: enabled)*
 *Active: active (running) since Mon 2021-08-09 20:52:03 UTC; 23 s ago*
 
-### 6. List active modems
+**6. List active modems**
+
 Then let us check that ModemManager can recognize your modem.
 ```
 mmcli --list-modems
@@ -45,7 +47,8 @@ And you will get something like this, where the modem ID is `0`, but it could be
 
  */org/freedesktop/ModemManager1/Modem/0 [Alcatel] Mobilebroadband*
 
-### 7. Get modem details
+**7. Get modem details**
+
 To get the modem status details, you can use the below command and modem ID `0`
 ```
 mmcli --modem 0
@@ -107,7 +110,8 @@ By default, the modem is disabled (`Status -> state: disabled`)
 ```
 We recommend starting with the default setting: `Modes: current: allowed: 2g, 3g, 4g; preferred: 2g`, which can be set, if not already using: `mmcli --modem 0 --set-allowed-modes='2g|3g|4g' --set-preferred-mode='2g'`.
 
-### 8. Enable the modem
+**8. Enable the modem**
+
 Prior to establish a connection, we need to turn ON the modem's radio(s).
 ```
 mmcli --modem 0 --enable
@@ -119,14 +123,16 @@ After some time, the modem should be registering to a cell tower and you should 
 mmcli --modem 0
 ```
 
-### 9. Connect using the APN information
+**9. Connect using the APN information**
+
 Access Point Name=APN is provided by your cell phone provider, like here for Vodafone:
 ```
 mmcli --modem 0 --simple-connect="apn=internet4gd.gdsp"  
 ```
 and if all ok you will get *successfully connected the modem*
 
-### 10. Get the modem status
+**10. Get the modem status**
+
 You should see `Status -> state: connected` now and a new `Bearer` category at the end of the status message.
 ```
 mmcli --modem 0
@@ -194,7 +200,8 @@ mmcli --modem 0
   Bearer   |                paths: /org/freedesktop/ModemManager1/Bearer/0
 ```
 
-### 11. Get the bearer details
+**11. Get the bearer details**
+
 Bearer details are needed to connect the OS to the packet data connection that the Modem has now established with the cellular network. So at this point the Modem has IP connection, but OS is not yet configured to use it.
 
 ```
@@ -224,18 +231,21 @@ Bearer details listed:
   Statistics         |   attempts: 1
 ```
 
-### 12. Bring up the network interface
+**12. Bring up the network interface**
+
 ```
 sudo ip link set dev wwan0 up
 ```
 
-### 13. Configure the network interface
+**13. Configure the network interface**
+
 Using the information provided by the bearer details, replace the IP address (here 162.177.2.0/22) with the one your bearer has:
 ```
 sudo ip address add 162.177.2.0/22 dev wwan0
 ```
 
-### 14. Check IP information
+**14. Check IP information**
+
 The IP configuration for this interface should match the ModemManager bearer details.
 ```
 sudo ip address show dev wwan0
@@ -250,7 +260,8 @@ wwan0: <BROADCAST,MULTICAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state U
        valid_lft forever preferred_lft forever
 ```
 
-### 15. Setting the default route
+**15. Setting the default route**
+
 Using the information provided by the bearer again and use the modem's gateway (replace 162.177.2.1) as default destination for network packets:
 ```
 sudo ip route add default via 162.177.2.1 dev wwan0
@@ -258,7 +269,8 @@ sudo ip route add default via 162.177.2.1 dev wwan0
 Now you should have enabled Azure Percept to connect to Azure using the LTE modem.
 
 
-### 16. Test connectivity
+**16. Test connectivity**
+
 We execute a `ping` request through the `wwan0` interface. But you can also use Azure Percept Studio and check if telemetry messages come (make sure you do not have ethernet cable or Wi-Fi enabled so that you are sure to use LTE)
 ```
 ping -I wwan0 8.8.8.8
@@ -277,7 +289,7 @@ rtt min/avg/max/mdev = 88.779/97.254/110.964/9.787 ms
 
 
 ## Debugging
-In general, see [Connecting using USB modem](./connect-over-cellular-usb.md).
+In general, see [Connect using USB modem](./connect-over-cellular-usb.md).
    
 ### Vodafone modem rules to mitigate enumeration issues
 

@@ -10,11 +10,12 @@ ms.custom: template-how-to
 ---
 
 # Connect Azure Percept over LTE with USB modem Multitech Multiconnect 
-Here are steps how to connect your Azure Percept using Multitech Multiconnect (MTCM-LNA3-B03) USB modem. Note, there are several models and we used LNA3 that works at least with Verizon and Vodafone SIM cards. We were not able to connect to an AT&T network, but we are investigating that and will modify this if we find the root cause. More info on this particular modem HW can be found following this page:
+Here are steps how to connect your Azure Percept using Multitech Multiconnect (MTCM-LNA3-B03) USB modem. 
 
-https://www.multitech.com/brands/multiconnect-microcell
+> [!Note]
+> There are several models and we used LNA3 that works at least with Verizon and Vodafone SIM cards. We were not able to connect to an AT&T network, but we are investigating that and will modify this if we find the root cause. More info on this particular modem HW can be found following this page: https://www.multitech.com/brands/multiconnect-microcell
 
-## Preparation:
+## Preparation
 Make sure you have done the Azure Percept preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md) and that you have noted the comments on USB cables that should be used. 
 
 ### Preparation of the modem
@@ -52,15 +53,16 @@ At this point, the modem should disconnect and later reconnect to the USB port u
 ## Using the modem to connect
 Make sure you have done the Azure Percept preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md).   
 
-### 1. Plug a SIM card in the Multitech modem
+**1. Plug a SIM card in the Multitech modem**
 
-### 2. Plug the Multitech modem into the Azure Percept USB A port
+**2. Plug the Multitech modem into the Azure Percept USB A port**
 
-### 3. Power-up Azure Percept
+**3. Power-up Azure Percept**
 
-### 4. SSH into the Azure Percept DK
+**4. SSH into the Azure Percept DK**
 
-### 5. Ensure ModemManager is running
+**5. Ensure ModemManager is running**
+
 Write the following command to your SSH prompt:
 ```
 systemctl status ModemManager
@@ -71,7 +73,8 @@ If all is ok you will get something like this:
 *Loaded: loaded (/lib/systemd/system/ModemManager.service; enabled; vendor preset: enabled)*
 *Active: active (running) since Mon 2021-08-09 20:52:03 UTC; 23 s ago*
 
-### 6. List active modems
+**6. List active modems**
+
 You should see in this case that the FIH7160 model has been recognized by ModemManager.
 ```
 mmcli --list-modems
@@ -79,7 +82,8 @@ mmcli --list-modems
 And you will get something like this:
   */org/freedesktop/ModemManager1/Modem/0 [Telit] FIH7160*
 
-### 7. Get modem details
+**7. Get modem details**
+
 The modem ID is here `0`, which could be different in your case. Modem ID (`--modem 0`.) is used in the ModemManager commands like this
 ```
 mmcli --modem 0
@@ -130,7 +134,8 @@ By default, the modem is disabled (`Status -> state: disabled`)
   SIM      |     primary sim path: /org/freedesktop/ModemManager1/SIM/0
 ```
 
-### 8. Enable the modem
+**8. Enable the modem**
+
 Prior to establishing a connection, we need to turn ON the modem's radio(s).
 ```
 mmcli --modem 0 --enable
@@ -142,14 +147,16 @@ After some time, the modem should be registering to a cell tower and you should 
 mmcli --modem 0
 ```
 
-### 9. Connect using the APN information
+**9. Connect using the APN information**
+
 Access Point Name=APN is provided by your cell phone provider, like here for Verizon:
 ```
 mmcli --modem 0 --simple-connect="apn=vzwinternet"  
 ```
 and if all ok you will get *successfully connected the modem*
 
-### 10. Get the modem status
+**10. Get the modem status**
+
 You should see `Status -> state: connected` now and a new `Bearer` category at the end of the status message.
 ```
 mmcli --modem 0
@@ -207,7 +214,8 @@ mmcli --modem 0
   Bearer   |                paths: /org/freedesktop/ModemManager1/Bearer/0
 ```
 
-### 11. Get the bearer details
+**11. Get the bearer details**
+
 Bearer details are needed to connect the OS to the packet data connection that the Modem has now established with the cellular network. So at this point the Modem has IP connection, but OS is not yet configured to use it.
 ```
 mmcli --bearer 0
@@ -237,18 +245,21 @@ Bearer details listed:
                      | total-duration: 119
 ```
 
-### 12. Bring up the network interface
+**12. Bring up the network interface**
+
 ```
 sudo ip link set dev wwan0 up
 ```
 
-### 13. Configure the network interface
+**13. Configure the network interface**
+
 Using the information provided by the bearer, replace the IP address (here 100.112.107.46/24) with the one your bearer has:
 ```
 sudo ip address add 100.112.107.46/24 dev wwan0
 ```
 
-### 14. Check IP information
+**14. Check IP information**
+
 The IP configuration for this interface should match the ModemManager bearer details.
 ```
 sudo ip address show dev wwan0
@@ -263,14 +274,16 @@ and see that your bearer IP is listed below:
        valid_lft forever preferred_lft forever
 ```
 
-### 15. Setting the default route
+**15. Setting the default route**
+
 Using the information provided by the bearer again and use the modem's gateway (replace 100.112.107.1) as default destination for network packets:
 ```
 sudo ip route add default via 100.112.107.1 dev wwan0
 ```
 And now your Azure Percept has connection that uses the USB modem!
 
-### 16. Test connectivity
+**16. Test connectivity**
+
 We execute a `ping` request through the `wwan0` interface. But you can also use Azure Percept Studio and check if telemetry messages come (make sure you do not have ethernet cable or Wi-Fi enabled so that you are sure to use LTE)
 ```
 ping -I wwan0 8.8.8.8
@@ -289,7 +302,7 @@ rtt min/avg/max/mdev = 88.779/97.254/110.964/9.787 ms
 
 
 ## Debugging
-In general, see [Connecting using USB modem](./connect-over-cellular-usb.md).
+In general, see [Connect using USB modem](./connect-over-cellular-usb.md).
 
 ## Next steps
 [Connect using USB modem](./connect-over-cellular-usb.md).
