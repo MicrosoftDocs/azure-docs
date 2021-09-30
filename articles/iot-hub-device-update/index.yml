@@ -9,9 +9,9 @@ metadata:
   services: iot-hub
   ms.service: iot-hub
   ms.topic: landing-page
-  author: philmea
-  ms.author: philmea
-  manager: philmea
+  author: vimeht
+  ms.author: vimeht
+  
   ms.date: 2/17/2021
 
 landingContent:
@@ -41,12 +41,14 @@ landingContent:
           url: device-update-plug-and-play.md
         - text: Understand device update authentication and authorization
           url: device-update-control-access.md
-        - text: Understand device update agent
+        - text: Understand Device Update agent
           url: device-update-agent-overview.md
-        - text: Understand device update importing
+        - text: Understand Device Update importing
           url: import-concepts.md
-        - text: Understand device update groups
+        - text: Understand Device Update groups
           url: device-update-groups.md
+        - text: Understand Device Update limits
+          url: device-update-limits.md
   - title: Developer guide
     linkLists:
     - linkListType: how-to-guide

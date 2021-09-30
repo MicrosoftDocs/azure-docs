@@ -3,12 +3,15 @@ title: Get started with Azure Service Bus topics and subscriptions
 description: This quickstart shows you how to send messages to Azure Service Bus topics using the azure-messaging-servicebus package. 
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/29/2021
-ms.custom: contperf-fy21q3
+ms.date: 09/16/2021
+ms.custom: contperf-fy22q1
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from its subscriptions (.NET)
 This quickstart shows how to send messages to a Service Bus topic and receive messages a subscription to that topic by using the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET library.
+
+> [!NOTE]
+> You can find more .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ## Prerequisites
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart. 
@@ -40,7 +43,7 @@ This section shows you how to create a .NET Core console application to send mes
 ### Add the Service Bus NuGet package
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
-1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
+1. Run the following command to install the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) NuGet package:
 
     ```cmd
     Install-Package Azure.Messaging.ServiceBus
@@ -56,6 +59,7 @@ This section shows you how to create a .NET Core console application to send mes
     1. Sends the batch of messages to the Service Bus topic using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
     
         For more information, see code comments.
+
         ```csharp
         using System;
         using System.Threading.Tasks;
@@ -93,7 +97,7 @@ This section shows you how to create a .NET Core console application to send mes
                     // create a batch 
                     using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
         
-                    for (int i = 1; i <= 3; i++)
+                    for (int i = 1; i <= numOfMessages; i++)
                     {
                         // try adding a message to the batch
                         if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))

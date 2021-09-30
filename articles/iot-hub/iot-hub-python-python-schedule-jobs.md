@@ -27,7 +27,7 @@ Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins](iot-hub-python-twin-getstarted.md) and [Tutorial: How to use device twin properties](tutorial-device-twins.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: direct methods](quickstart-control-device-python.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: direct methods](./quickstart-control-device.md?pivots=programming-language-python)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -76,71 +76,75 @@ In this section, you create a Python console app that responds to a direct metho
 3. Add the following `import` statements and variables at the start of the **simDevice.py** file. Replace `deviceConnectionString` with the connection string of the device you created above:
 
     ```python
-    import threading
     import time
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-4. Add the following function callback to handle the **lockDoor** method:
+4. Define the following function, which will instantiate a client and configure it to respond to the **lockDoor** method, as well as receive device twin updates:
 
     ```python
-    def lockdoor_listener(client):
-        while True:
-            # Receive the direct method request
-            method_request = client.receive_method_request("lockDoor")  # blocking call
-            print( "Locking Door!" )
+    def create_client():
+        # Instantiate the client
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
-            resp_status = 200
-            resp_payload = {"Response": "lockDoor called successfully"}
-            method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
-            client.send_method_response(method_response)
-    ```
+        # Define behavior for responding to the lockDoor direct method
+        def method_request_handler(method_request):
+            if method_request.name == "lockDoor":
+                print("Locking Door!")
 
-5. Add another function callback to handle device twins updates:
+                resp_status = 200
+                resp_payload = {"Response": "lockDoor called successfully"}
+                method_response = MethodResponse.create_from_method_request(
+                    method_request=method_request,
+                    status=resp_status,
+                    payload=resp_payload
+                )
+                client.send_method_response(method_response)
 
-    ```python
-    def twin_update_listener(client):
-        while True:
-            patch = client.receive_twin_desired_properties_patch()  # blocking call
-            print ("")
-            print ("Twin desired properties patch received:")
-            print (patch)
-    ```
+        # Define behavior for receiving a twin patch
+        def twin_patch_handler(twin_patch):
+            print("")
+            print("Twin desired properties patch received:")
+            print(twin_patch)
 
-6. Add the following code to register the handler for the **lockDoor** method. Also include the `main` routine:
-
-    ```python
-    def iothub_jobs_sample_run():
+        # Set the handlers on the client
         try:
-            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+            print("Beginning to listen for 'lockDoor' direct method invocations...")
+            client.on_method_request_received = method_request_handler
+            print("Beginning to listen for updates to the Twin desired properties...")
+            client.on_twin_desired_properties_patch_received = twin_patch_handler
+        except:
+            # If something goes wrong while setting the handlers, clean up the client
+            client.shutdown()
+            raise
+    ```
 
-            print( "Beginning to listen for 'lockDoor' direct method invocations...")
-            lockdoor_listener_thread = threading.Thread(target=lockdoor_listener, args=(client,))
-            lockdoor_listener_thread.daemon = True
-            lockdoor_listener_thread.start()
+5. Add the following code to run the sample:
 
-            # Begin listening for updates to the Twin desired properties
-            print ( "Beginning to listen for updates to Twin desired properties...")
-            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
-            twin_update_listener_thread.daemon = True
-            twin_update_listener_thread.start()
-            
+    ```python
+    def main():
+        print ("Starting the IoT Hub Python jobs sample...")
+        client = create_client()
+
+        print ("IoTHubDeviceClient waiting for commands, press Ctrl-C to exit")
+        try:
             while True:
-                time.sleep(1000)
-
+                time.sleep(100)
         except KeyboardInterrupt:
-            print ( "IoTHubDeviceClient sample stopped" )
+            print("IoTHubDeviceClient sample stopped!")
+        finally:
+            # Graceful exit
+            print("Shutting down IoT Hub Client")
+            client.shutdown()
+
 
     if __name__ == '__main__':
-        print ( "Starting the IoT Hub Python jobs sample..." )
-        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
-
-        iothub_jobs_sample_run()
+        main()
     ```
 
-7. Save and close the **simDevice.py** file.
+6. Save and close the **simDevice.py** file.
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).

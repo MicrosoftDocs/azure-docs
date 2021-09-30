@@ -80,8 +80,7 @@ Instantiate an **SmsClient** with your connection string. Learn how to [manage y
 # Create the SmsClient object which will be used to send SMS messages
 sms_client = SmsClient.from_connection_string(<connection_string>)
 ```
-For simplicity we are using connection strings in this quickstart, but in production environments we recommend using [managed identities](../../../quickstarts/managed-identity.md) because they are more secure and manageable at scale.
-
+For simplicity we are using connection strings in this quickstart, but in production environments we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
 
 ## Send a 1:1 SMS Message
 

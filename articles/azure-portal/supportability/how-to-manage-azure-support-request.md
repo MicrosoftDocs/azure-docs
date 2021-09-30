@@ -2,9 +2,8 @@
 title: Manage an Azure support request
 description: Describes how to view support requests, send messages, change the request severity level, share diagnostic information with Azure support, reopen a closed support request, and upload files.
 tags: billing
-ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 09/01/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
@@ -32,13 +31,10 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 > [!NOTE]
 > The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
->
 
 1. On the **All support requests** page, select the support request.
 
 1. On the **Support Request** page, select **Change**.
-
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Change support request severity":::
 
 1. The Azure portal shows one of two screens, depending on whether your request is already assigned to a support engineer:
 
@@ -52,16 +48,16 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 ## Share diagnostic information with Azure support
 
-When you create a support request, the **Share diagnostic information** option is selected by default. This option allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources that can potentially help resolve your issue.
+When you create a support request, you can select **Yes** or **No** in the **Share diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources that can potentially help resolve your issue.
 
 To change your **Share diagnostic information** selection after the request has been created:
 
 1. On the **All support requests** page, select the support request.
-    
+
 1. On the **Support Request** page, look for **Share diagnostic information** and then select **Change**.
-    
-1.  Select **Yes** or **No**, then select **OK** to confirm.
-    
+
+1. Select **Yes** or **No**, then select **OK** to confirm.
+
     :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
 
 ## Upload files
@@ -78,11 +74,11 @@ You can use the file upload option to upload diagnostic files or any other files
 
 Follow these guidelines when you use the file upload option:
 
-* To protect your privacy, do not include any personal information in your upload.
-* The file name must be no longer than 110 characters.
-* You can't upload more than one file.
-* Files can't be larger than 4 MB.
-* All files must have a file name extension, such as *.docx* or *.xlsx*. The following table shows the filename extensions that are allowed for upload.
+- To protect your privacy, do not include any personal information in your upload.
+- The file name must be no longer than 110 characters.
+- You can't upload more than one file.
+- Files can't be larger than 4 MB.
+- All files must have a file name extension, such as *.docx* or *.xlsx*. The following table shows the filename extensions that are allowed for upload.
 
 | 0-9, A-C    | D-G   | H-N         | O-Q   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -117,18 +113,17 @@ Follow these guidelines when you use the file upload option:
 
 ## Close a support request
 
-If you need to close a support request, [send a message](#send-a-message) asking that the request be closed.
+To close a support request, [send a message](#send-a-message) asking that the request be closed.
 
 ## Reopen a closed request
 
-If you need to reopen a closed support request, create a [new message](#send-a-message), which automatically reopens the request.
+To reopen a closed support request, create a [new message](#send-a-message), which automatically reopens the request.
 
 ## Cancel a support plan
 
-If you need to cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
+To cancel a support plan, see [Cancel a support plan](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
 ## Next steps
 
-[How to create an Azure support request](how-to-create-azure-support-request.md)
-
-[Azure support ticket REST API](/rest/api/support)
+- Review the process to [create an Azure support request](how-to-create-azure-support-request.md).
+- Learn about the [Azure support ticket REST API](/rest/api/support).

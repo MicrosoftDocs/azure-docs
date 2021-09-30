@@ -56,10 +56,10 @@ static async Task Main(string[] args)
 
 ## Authenticate the client
 
-Phone Number clients can be authenticated using connection string acquired from an Azure Communication Resources in the [Azure portal][azure_portal].
+Phone Number clients can be authenticated using connection string acquired from an Azure Communication Services resources in the [Azure portal][azure_portal].
 
 ```csharp
-// Get a connection string to our Azure Communication resource.
+// Get a connection string to our Azure Communication Services resource.
 var connectionString = "<connection_string>";
 var client = new PhoneNumbersClient(connectionString);
 ```
@@ -68,7 +68,7 @@ Phone Number clients also have the option to authenticate with Azure Active Dire
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables need to be set up for authentication.
 
 ```csharp
-// Get an endpoint to our Azure Communication resource.
+// Get an endpoint to our Azure Communication Services resource.
 var endpoint = new Uri("<endpoint_url>");
 TokenCredential tokenCredential = new DefaultAzureCredential();
 client = new PhoneNumbersClient(endpoint, tokenCredential);

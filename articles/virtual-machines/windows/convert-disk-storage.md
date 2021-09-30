@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 
 # Update the storage type of a managed disk
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows 
+
 There are four disk types of Azure managed disks: Azure ultra disks, premium SSD, standard SSD, and standard HDD. You can switch between premium SSD, standard SSD, and standard HDD based on your performance needs. You are not yet able to switch from or to an ultra disk, you must deploy a new one.
 
 This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
@@ -112,7 +114,7 @@ Follow these steps:
 3. If the VM isn't stopped, select **Stop** at the top of the VM **Overview** pane, and wait for the VM to stop.
 4. In the pane for the VM, select **Disks** from the menu.
 5. Select the disk that you want to convert.
-6. Select **Configuration** from the menu.
+6. Select **Size + performance** from the menu.
 7. Change the **Account type** from the original disk type to the desired disk type.
 8. Select **Save**, and close the disk pane.
 

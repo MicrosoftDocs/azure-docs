@@ -2,15 +2,15 @@
 title: Azure Active Directory Application Management certificates frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about managing certificates for apps using Azure Active Directory as an Identity Provider (IdP).  
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/19/2021
-ms.author: mtillman
-ms.reviewer: secherka, mifarca, shchaur, shravank, sureshja
+ms.author: davidmu
+ms.reviewer: sureshja, saumadan
 ---
 
 # Azure Active Directory (Azure AD) Application Management certificates frequently asked questions
@@ -19,7 +19,7 @@ This page answers frequently asked questions about managing the certificates for
 
 ## Is there a way to generate a list of expiring SAML signing certificates?
 
-You can export all app registrations with expiring secrets, certificates and their owners for the specified apps from your directory in a CSV file through [PowerShell scripts](app-management-powershell-samples.md). 
+You can export all app registrations with expiring secrets, certificates and their owners for the specified apps from your directory in a CSV file through [PowerShell scripts](app-management-powershell-samples.md).
 
 ## Where can I find the information about soon to expire certificates renewal steps?
 
@@ -31,10 +31,10 @@ By default, Azure AD configures a certificate to expire after three years when i
 
 ## How can I automate the certificates expiration notifications?
 
-Azure AD will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications. 
+Azure AD will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications.
 
 > [!NOTE]
-> You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails. 
+> You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails.
 
 To specify the emails you want the notifications to be sent to, see [Add email notification addresses for certificate expiration](manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration).
 
@@ -44,17 +44,17 @@ There is no option to edit or customize these email notifications received from 
 
 The owner of the application or Global Administrator or Application Administrator can update the certificates through Azure portal UI, PowerShell or Microsoft Graph.
 
-## I need more details about certificate signing options.
+## I need more details about certificate signing options
 
 In Azure AD, you can set up certificate signing options and the certificate signing algorithm. To learn more, see [Advanced SAML token certificate signing options for Azure AD apps](certificate-signing-options.md).
 
-## I need to replace the certificate for Azure AD Application Proxy applications and need more instructions.
+## I need to replace the certificate for Azure AD Application Proxy applications and need more instructions
 
 To replace certificates for Azure AD Application Proxy applications, see [PowerShell sample - Replace certificate in Application Proxy apps](../app-proxy/scripts/powershell-get-custom-domain-replace-cert.md).
 
 ## How do I manage certificates for custom domains in Azure AD Application Proxy?
 
-To configure an on-premises app to use a custom domain, you need a verified Azure Active Directory custom domain, a PFX certificate for the custom domain, and an on-premises app to configure. To learn more, see [Custom domains in Azure AD Application Proxy](../app-proxy/application-proxy-configure-custom-domain.md). 
+To configure an on-premises app to use a custom domain, you need a verified Azure Active Directory custom domain, a PFX certificate for the custom domain, and an on-premises app to configure. To learn more, see [Custom domains in Azure AD Application Proxy](../app-proxy/application-proxy-configure-custom-domain.md).
 
 ## I need to update the token signing certificate on the application side. Where can I get it on Azure AD side?
 
@@ -62,11 +62,11 @@ You can renew a SAML X.509 Certificate, see [SAML Signing certificate](configure
 
 ## What is Azure AD signing key rollover?
 
-You can find more details [here](../develop/active-directory-signing-key-rollover.md). 
+You can find more details [here](../develop/active-directory-signing-key-rollover.md).
 
 ## How do I renew application token encryption certificate?
 
-To renew an application token encryption certificate, see [How to renew a token encryption certificate for an enterprise application](howto-saml-token-encryption.md). 
+To renew an application token encryption certificate, see [How to renew a token encryption certificate for an enterprise application](howto-saml-token-encryption.md).
 
 ## How do I renew application token signing certificate?
 

@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 06/22/2021
+  ms.date: 06/29/2021
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -34,6 +34,10 @@ landingContent:
             url: virtual-wan-locations-partners.md
           - text: FAQ
             url: virtual-wan-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual WAN
+            url: /learn/modules/introduction-azure-virtual-wan/
       - linkListType: video
         links:
           - text: Remote user connectivity with Azure Virtual WAN

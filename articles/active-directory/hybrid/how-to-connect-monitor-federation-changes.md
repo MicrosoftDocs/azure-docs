@@ -30,8 +30,8 @@ To monitor the trust relationship, we recommend you set up alerts to be notified
 Follow these steps to set up alerts to monitor the trust relationship:
 
 1. [Configure Azure AD audit logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to flow to an Azure Log Analytics Workspace. 
-2. [Create an alert rule](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log) that triggers based on Azure AD log query. 
-3. [Add an action group](https://docs.microsoft.com/azure/azure-monitor/alerts/action-groups) to the alert rule that gets notified when the alert condition is met.  
+2. [Create an alert rule](../../azure-monitor/alerts/alerts-log.md) that triggers based on Azure AD log query. 
+3. [Add an action group](../../azure-monitor/alerts/action-groups.md) to the alert rule that gets notified when the alert condition is met.  
 
 After the environment is configured, the data flows as follows: 
 
@@ -57,6 +57,6 @@ After the environment is configured, the data flows as follows:
 ## Next steps
 
 - [Integrate Azure AD logs with Azure Monitor logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-- [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log)
+- [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 - [Manage AD FS trust with Azure AD using Azure AD Connect](how-to-connect-azure-ad-trust.md)
-- [Best practices for securing Active Directory Federation Services](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)
+- [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)

@@ -4,7 +4,7 @@ description: Describes how to use the scope property when deploying extension re
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 07/30/2021
 ---
 
 # Set scope for extension resources in Bicep
@@ -18,11 +18,15 @@ This article shows how to set the scope for an extension resource type when depl
 > [!NOTE]
 > The scope property is only available to extension resource types. To specify a different scope for a resource type that isn't an extension type, use a [module](modules.md).
 
+### Microsoft Learn
+
+To learn more about extension resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+
 ## Apply at deployment scope
 
-To apply an extension resource type at the target deployment scope, you add the resource to your template, as would with any resource type. The available scopes are [resource group](deploy-to-resource-group.md), [subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), and [tenant](deploy-to-tenant.md). The deployment scope must support the resource type.
+To apply an extension resource type at the target deployment scope, add the resource to your template as you would with any other resource type. The available scopes are [resource group](deploy-to-resource-group.md), [subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), and [tenant](deploy-to-tenant.md). The deployment scope must support the resource type.
 
-The following template deploys a lock.
+When deployed to a resource group, the following template adds a lock to that resource group.
 
 ```bicep
 resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
@@ -34,7 +38,7 @@ resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-The next example assigns a role.
+The next example assigns a role to the subscription it's deployed to.
 
 ```bicep
 targetScope = 'subscription'
@@ -114,9 +118,23 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
     principalId: principalId
   }
   scope: demoStorageAcct
-  dependsOn: [
-    demoStorageAcct
-  ]
+}
+```
+
+You can apply an extension resource to an existing resource. The following example adds a lock to an existing storage account.
+
+```bicep
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
+  name: 'examplestore'
+}
+
+resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
+  name: 'storeLock'
+  scope: demoStorageAcct
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Storage account should not be deleted.'
+  }
 }
 ```
 

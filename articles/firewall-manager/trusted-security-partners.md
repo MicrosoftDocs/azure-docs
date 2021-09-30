@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 08/03/2021
 ms.author: victorh
 ---
 
@@ -20,6 +20,10 @@ You can deploy secured hubs configured with the security partner of your choice 
 The supported security partners are **Zscaler**, **[Check Point](check-point-overview.md)**, and **iboss**.
 
 ![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
+
+See the following video by Jack Tracey for a Zscaler overview:
+
+ > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4n8]
 
 ## Key scenarios
 

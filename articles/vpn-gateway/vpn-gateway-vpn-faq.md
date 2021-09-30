@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/26/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -55,7 +55,7 @@ You can configure your virtual network to use both Site-to-Site and Point-to-Sit
 
 ## <a name="privacy"></a>Privacy
 
-### Does the VPN service store customer data?
+### Does the VPN service store or process customer data?
 
 No.
 

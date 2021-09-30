@@ -126,6 +126,23 @@ This example shows how a Recurrence trigger definition might look in an underlyi
 }
 ```
 
+The following example shows how to update the trigger definition so that the trigger runs only once on the last day of each month:
+
+```json
+"triggers": {
+    "Recurrence": {
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
+        },
+        "type": "Recurrence"
+    }
+}
+```
+
 <a name="daylight-saving-standard-time"></a>
 
 ## Trigger recurrence shift between daylight saving time and standard time

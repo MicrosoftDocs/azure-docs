@@ -102,7 +102,7 @@
   - name: Weather services concepts
     href: weather-services-concepts.md
   - name: Weather services FAQ
-    href: weather-services-faq.md
+    href: weather-services-faq.yml
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -202,6 +202,8 @@
         href: map-add-drawing-toolbar.md
       - name: Get shape data
         href: map-get-shape-data.md
+      - name: Add a snap grid
+        href: map-add-snap-grid.md
       - name: React to drawing events
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
@@ -394,10 +396,8 @@
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ./index.yml
     - name: Time Series Insights

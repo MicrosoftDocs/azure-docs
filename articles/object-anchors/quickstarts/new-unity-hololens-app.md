@@ -3,7 +3,6 @@ title: 'Quickstart: Create a new HoloLens Unity app'
 description: In this quickstart, you learn how to create a new HoloLens Unity app using Object Anchors.
 author: RamonArguelles
 manager: virivera
-
 ms.author: rgarcia
 ms.date: 06/23/2021
 ms.topic: quickstart
@@ -43,7 +42,7 @@ We'll first set up our project and Unity scene:
 
 ## Install Mixed Reality Feature Tool feature packages
 
-1. Follow the <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
+1. Follow the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
 1. Under the **Platform Support** section, install the **Mixed Reality OpenXR Plugin** feature package, version 1.0.0 or newer, into the Unity project folder.
 1. Under the **Azure Mixed Reality Services** section, install the **Microsoft Azure Object Anchors** feature package, into the Unity project folder.
 1. Go back to your **Unity Editor**. It might take a few minutes, while the **Mixed Reality Feature Tool** feature packages are installed.

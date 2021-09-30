@@ -290,7 +290,7 @@ authentication decisions. For more information, see the
 
 * If you're using a version of Azure AD that doesn't include Conditional Access, ensure that you're using the [Azure AD security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
 
-   For more information about Azure AD feature licensing, see the [Azure AD pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+   For more information about Azure AD feature licensing, see the [Azure AD pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Monitor 
 

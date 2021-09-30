@@ -52,9 +52,9 @@ The following items are required to complete the tutorial:
 * Install Visual Studio Code or Visual Studio.
 * Create a new Azure Media Services account, as described in [this quickstart](./account-create-how-to.md).
 * Get credentials needed to use Media Services APIs by following [Access APIs](./access-api-howto.md)
-* Set the appropriate values in the app configuration file (appsettings.json).
+* Set the appropriate values in the app configuration file (appsettings.json or .env file).
 
-## Download code
+## Download the code and configure the sample
 
 Clone a GitHub repository that contains the full .NET sample discussed in this article to your machine using the following command:
 
@@ -63,6 +63,8 @@ Clone a GitHub repository that contains the full .NET sample discussed in this a
  ```
  
 The "Encrypt with DRM" sample is located in the [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM) folder.
+
+[!INCLUDE [appsettings or .env file](./includes/note-appsettings-or-env-file.md)]
 
 > [!NOTE]
 > The sample creates unique resources every time you run the app. Typically, you'll reuse existing resources like transforms and policies (if existing resource have required configurations).

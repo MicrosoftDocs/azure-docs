@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
 ---
@@ -56,7 +56,7 @@ To complete this tutorial on Windows, install the following software on your loc
 
 ## Download the code
 
-If you completed the [Quickstart: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub (C)](../articles/iot-pnp/quickstart-connect-device.md) you've already downloaded the code.
+If you completed the [Tutorial: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub (C)](../articles/iot-develop/tutorial-connect-device.md) you've already downloaded the code.
 
 In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C SDK.
 
@@ -79,7 +79,7 @@ You can build and run the code using Visual Studio or `cmake` at the command lin
 1. Open the root folder of the cloned repository. After a couple of seconds, the **CMake** support in Visual Studio creates all you need to run and debug the project.
 1. When Visual Studio is ready, in **Solution Explorer**, navigate to the sample *iothub_client/samples/pnp/pnp_temperature_controller/*.
 1. Right-click on the *pnp_temperature_controller.c* file and select **Add Debug Configuration**. Select **Default**.
-1. Visual Studio opens the *launch.vs.json* file. Edit this file as shown in the following snippet to set the required environment variables. You made a note of the scope ID and enrollment primary key when you completed [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-pnp/set-up-environment.md):
+1. Visual Studio opens the *launch.vs.json* file. Edit this file as shown in the following snippet to set the required environment variables. You made a note of the scope ID and enrollment primary key when you completed [Set up your environment for the IoT Plug and Play quickstarts and tutorials](../articles/iot-develop/set-up-environment.md):
 
     ```json
     {
@@ -157,7 +157,7 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](../articles/iot-pnp/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 ### IoT Plug and Play helper functions
 
