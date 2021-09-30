@@ -99,13 +99,13 @@ For more information, see [Customer leads from your commercial marketplace offer
 
 ## Business Applications ISV Program
 
-Your offer is initially enrolled in the Standard tier. If your solution meets program eligibility criteria, you may request an upgrade to the Premium tier, which offers expanded program benefits. If you do so, be sure to complete the [Co-sell module](https://aka.ms/BizAppsISVProgram) before you publish your offer.
+Your offer is initially enrolled in the Standard tier.
 
-Select the check box to request an upgrade to the premium tier.
+Before publishing your offer, complete the [Co-sell module](https://aka.ms/BizAppsISVProgram).
 
 Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 
 ## Next steps
 
-- [Configure offer properties](dynamics-365-operations-properties.md)
+- Configure offer [Properties](dynamics-365-operations-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
