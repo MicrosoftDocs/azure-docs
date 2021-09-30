@@ -84,7 +84,7 @@ items:
   - name: Configure settings
     expanded: false
     items:
-    - name: Configure another Azure API for FHIR settings
+    - name: Configure other Azure API for FHIR settings
       href: azure-api-for-fhir-additional-settings.md
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
@@ -167,6 +167,8 @@ items:
       href: iot-data-flow.md
     - name: Azure IoT Connector for FHIR (preview) mapping templates
       href: iot-mapping-templates.md
+  - name: FHIR Rest API capabilities
+    href: fhir-rest-api-capabilities.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
@@ -179,8 +181,6 @@ items:
     href: fhir-features-supported.md
   - name: GitHub Projects
     href: fhir-github-projects.md
-  - name: Partner ecosystem
-    href: partner-ecosystem.md
 - name: Reference
   items:
   - name: Azure CLI
