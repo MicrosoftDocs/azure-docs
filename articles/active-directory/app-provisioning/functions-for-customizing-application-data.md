@@ -755,7 +755,7 @@ The PCase function converts the first character of each word in a string to uppe
 
 **Remarks:**
 
-* If the *wordSeparators* parameter is not specified, then PCase internally invokes the .NET function [ToTitleCase](https://docs.microsoft.com/dotnet/api/system.globalization.textinfo.totitlecase?view=net-5.0) to convert the *source* string to proper case. The .NET function *ToTitleCase* supports a comprehensive set of the  [Unicode character categories](https://www.unicode.org/reports/tr44/#General_Category_Values) as word separators. 
+* If the *wordSeparators* parameter is not specified, then PCase internally invokes the .NET function [ToTitleCase](/dotnet/api/system.globalization.textinfo.totitlecase) to convert the *source* string to proper case. The .NET function *ToTitleCase* supports a comprehensive set of the  [Unicode character categories](https://www.unicode.org/reports/tr44/#General_Category_Values) as word separators. 
   * Space character
   * New line character
   * *Control* characters like CRLF

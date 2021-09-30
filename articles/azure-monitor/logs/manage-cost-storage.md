@@ -225,7 +225,7 @@ To set the retention of a particular data type (in this example SecurityEvent) t
     }
 ```
 
-Valid values for `retentionInDays` are from 30 through 730.
+Valid values for `retentionInDays` are from 4 through 730.
 
 The `Usage` and `AzureActivity` data types can't be set with custom retention. They take on the maximum of the default workspace retention or 90 days. 
 
