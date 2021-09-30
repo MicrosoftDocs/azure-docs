@@ -1,7 +1,6 @@
 ---
-title: FortiGate deployment guide | Microsoft Docs
+title: FortiGate deployment guide
 description: Set up and work with the Fortinet FortiGate next-generation firewall product.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
