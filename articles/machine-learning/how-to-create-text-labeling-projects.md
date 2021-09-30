@@ -47,14 +47,14 @@ Text data can be either ".txt" or ".csv" files.
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
-* Select **Text** to create a text labeling project.
+1. Select **Text** to create a text labeling project.
 
     :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
 
     * Choose **Text Classification Multi-class (Preview)** for projects when you want to apply only a *single label* from a set of labels to each piece of text.
     * Choose **Text Classification Multi-label (Preview)** for projects when you want to apply *one or more* labels from a set of labels to each piece of text.
 
-* Select **Next** when you're ready to continue.
+1. Select **Next** when you're ready to continue.
 
 ## Add workforce (optional)
 
@@ -130,7 +130,7 @@ To directly upload your data:
 
 ## Run and monitor the project
 
-[!INCLUDE [run](../../includes/machine-learning-data-labeling-initialize.md)]
+[!INCLUDE [run](../../includes/machine-learning-data-labeling-run.md)]
 
 ### Dashboard
 

@@ -10,4 +10,4 @@ Labeling projects are administered from Azure Machine Learning. You use the **Da
 
 If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For an example of using a datastore, see [Tutorial: Create your first image classification labeling project](../articles/machine-learning/tutorial-labeling.md).
 
-* To create a project, select **Add project**. Give the project an appropriate name. The project name cannot be reused, even if the project is deleted in future.
+1. To create a project, select **Add project**. Give the project an appropriate name. The project name cannot be reused, even if the project is deleted in future.

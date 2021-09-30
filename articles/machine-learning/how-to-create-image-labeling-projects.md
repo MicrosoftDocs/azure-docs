@@ -41,7 +41,7 @@ Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe"
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
-* Select **Image** to create an image labeling project.
+1. Select **Image** to create an image labeling project.
 
     :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation for mage labeling":::
 
@@ -50,7 +50,7 @@ Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe"
   * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
   * Choose **Instance Segmentation (Polygon)** for projects when you want to assign a label and draw a polygon around each object within an image.
 
-* Select **Next** when you're ready to continue.
+1. Select **Next** when you're ready to continue.
 
 ## Add workforce (optional)
 
@@ -214,8 +214,6 @@ Access exported Azure Machine Learning datasets in the **Datasets** section of M
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
 
 ## Troubleshooting
-
-Use these tips if you see any of these issues.
 
 [!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
 
