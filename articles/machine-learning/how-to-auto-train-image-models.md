@@ -199,7 +199,8 @@ In addition to controlling the model algorithm, you can also tune hyperparameter
 
 The following tables describe the hyperparameters that are model agnostic
 
-| Parameter name| Description   | Default  |
+
+| Parameter name | Description   | Default  |
 | ------------- |-----------| --------|
 | `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All&nbsp;(except yolov5):&nbsp;15 <br>yolov5: 30 |
 | `training_batch_size` | Training batch size.<br> Must be a positive integer. <br> <br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory* | Multi-class&nbsp;/&nbsp;multi-label:&nbsp;78 <br> Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation:&nbsp;2 <br>yolov5: 16 |
@@ -225,9 +226,11 @@ The following tables describe the hyperparameters that are model agnostic
 | `checkpoint_frequency` | Frequency to store model checkpoints.<br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation|
 | `layers_to_freeze` | How many layers to freeze for your model. <br> For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1. <br> Must be a positive integer. | no default value |
 
+
 #### Task-specific hyperparameters
 
 The following table summarizes hyperparmeters for image classification (multi-class and multi-label) tasks.
+
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
@@ -248,7 +251,7 @@ The following hyperparameters are for object detection and instance segmentation
 | `min_size` | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*| 600 |
 | `max_size` | Maximum size of the image to be rescaled before feeding it to the backbone <br> Must be a positive integer.<br> <br> *Note: training run may get into CUDA OOM if the size is too big* | 1333 |
 | `box_score_thresh` | During inference, only return proposals with a classification score greater than box_score_thresh <br> Must be a float in the range [0, 1].| 0.3 |
-| `box_nms_thresh` | Non maximum suppression (NMS) threshold for the prediction head. Used during inference.  Must be a float in the range [0, 1]. | 0.5 |
+| `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
 
 
@@ -263,7 +266,7 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | `model_size` | Model size <br> Must be `small`, `medium`, `large`, or `xlarge` <br> *Note: training run may get into CUDA OOM if the model size is too big*  | `medium` |
 | `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*  | 0 |
 | `box_score_thresh` | During inference, only return proposals with a score greater than box_score_thresh. The score is the multiplication of the objectness score and classification probability <br> Must be a float in the range [0, 1]. | 0.1 |
-| `box_iou_thresh` | IoU threshold used during inference in non maximum suppression post processing <br> Must be a float in the range [0, 1] | 0.5 |
+| `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing <br> Must be a float in the range [0, 1] | 0.5 |
 
 
 ## Configure your experiment settings
