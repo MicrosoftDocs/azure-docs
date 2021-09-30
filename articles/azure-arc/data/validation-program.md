@@ -40,6 +40,12 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |-----|-----|-----|-----|-----|
 | Karbon 2.2<br/>AOS: 5.19.1.5<br/>AHV:20201105.1021<br/>PC: Version pc.2021.3.02<br/> | 1.19.8-0 | v1.0.0_2021-07-30 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
 
+### Platform 9
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| PMK v5.3.0 <br/><br/> Additional storage network driver: Calico v3.18.1 | 1.20.5 || SQL Server 2019 (15.0.4138)||
+
 ### PureStorage
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
