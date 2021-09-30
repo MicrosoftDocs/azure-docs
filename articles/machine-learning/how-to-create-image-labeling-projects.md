@@ -219,7 +219,7 @@ Use these tips if you see any of these issues.
 
 [!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
 
-### Object detection
+### Object detection troubleshooting
 
 |Issue  |Resolution  |
 |---------|---------|
