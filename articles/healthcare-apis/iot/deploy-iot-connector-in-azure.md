@@ -74,14 +74,13 @@ Under the **Basics** tab, complete the required fields under **Instance details*
     For more information about Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
 
 5. Select **Next: Device mapping**. 
-    
-    Proceed to the next section about entering device mapping properties and for information the Device Mapper tool. Otherwise, proceed to the section [Configure Destination](#configure-destination).
   
 ## Configure Device mapping properties
 
- The Device Mapper is a tool to visualize the mapping configuration for normalizing a device's input data, and then transform it to FHIR resources. Developers can use this tool to edit and test devices, FHIR mappings, and export the data to upload to an IoT connector in the Azure portal. This tool also helps developers understand their device's mapping configurations.
-
-For more information, see the open source documentation [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
+> [!TIP]
+> The Device Mapper is a tool to visualize the mapping configuration for normalizing a device's input data, and then transform it to FHIR resources. Developers can use this tool to edit and test devices, FHIR mappings, and export the data to upload to an IoT connector in the Azure portal. This tool also helps developers understand their device's mapping configurations.
+>
+> For more information, see the open source documentation [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
 
 1. Under the **Device Mapping** tab, enter the Device mapping JSON code associated with your IoT connector.
 
