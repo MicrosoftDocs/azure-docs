@@ -34,7 +34,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 
 - Have an active Azure subscription to use with Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).<!--Add LFS note.--> 
-  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, "auto splitting" the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share?tabs=azure-portal.md#enable-large-files-shares-on-an-existing-account).
+  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, "auto splitting" the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
   - For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
 - Have an adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
