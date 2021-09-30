@@ -1,7 +1,7 @@
 ---
 title: Deploy a policy that can be remediated
 description: To deploy policies that use a remediation task via Azure Lighthouse, you'll need to create a managed identity in the customer tenant.
-ms.date: 09/13/2021
+ms.date: 09/30/2021
 ms.topic: how-to
 ---
 
@@ -40,7 +40,7 @@ Once you have created the user with the necessary permissions as described above
 
 For example, let's say you wanted to enable diagnostics on Azure Key Vault resources in the customer tenant, as illustrated in this [sample](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). A user in the managing tenant with the appropriate permissions (as described above) would deploy an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) to enable this scenario.
 
-Note that creating the policy assignment to use with a delegated subscription must currently be done through APIs, not in the Azure portal. When doing so, the **apiVersion** must be set to **2019-04-01-preview**, which includes the new **delegatedManagedIdentityResourceId** property. This property allows you to include a managed identity that resides in the customer tenant (in a subscription or resource group which has been onboarded to Azure Lighthouse).
+Note that creating the policy assignment to use with a delegated subscription must currently be done through APIs, not in the Azure portal. When doing so, the **apiVersion** must be set to  **2020-10-01-preview**, which includes the new **delegatedManagedIdentityResourceId** property. This property allows you to include a managed identity that resides in the customer tenant (in a subscription or resource group which has been onboarded to Azure Lighthouse).
 
 The following example shows a role assignment with a **delegatedManagedIdentityResourceId**.
 
