@@ -195,6 +195,20 @@ An existing Hybrid Connection can be added to other App Service Web Apps by any 
 
 Anyone with `Reader` access to the Relay will be able to _see_ the Hybrid Connection when attempting to add it to their Web App in the Azure portal, but they will not be able to _add_ it as they lack the permissions to retrieve the connection string that is used to establish the relay connection. In order to successfully add the Hybrid Connection, they must have the `listKeys` permission (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). The `Contributor` role or any other role that includes this permission on the Relay will allow users to use the Hybrid Connection and add it to their own Web Apps.
 
+## Manage your Hybrid Connections ##
+
+### Change an existing Hybrid Connection endpoint ###
+
+If you need to change the endpoint host or port for a Hybrid Connection, follow the steps below:
+
+1. Remove the Hybrid Connection from the Hybrid Connection Manager on the local machine by selecting the connection and selecting "Remove" at the top left of the Hybrid Connection Details window.
+1. Disconnect the Hybrid Connection from your App Service by navigating to "Hybrid Connections" in the App Service "Networking" page.
+1. Navigate to the Relay for the endpoint you need to update and select "Hybrid Connections" under "Entities" in the left-hand navigation menu.
+1. Select the Hybrid Connection you want to update and select "Properties" under "Settings" in the left-hand navigation menu.
+1. Make your changes and hit "Save changes" at the top.
+1. Return to the "Hybrid Connections" settings for your App Service and add the Hybrid Connection again. Ensure the endpoint is updated as intended. If you don't see the Hybrid Connection in the list, refresh in 5-10 minutes.
+1. Return to the Hybrid Connection Manager on the local machine and readd the connection.
+
 ## Troubleshooting ##
 
 ### Hybrid Connection endpoint issues ### 
@@ -215,29 +229,6 @@ If your status says **Connected** but your app cannot reach your endpoint then:
 In App Service, the **tcpping** command-line tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it doesn't tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you're only confirming that it uses a host:port combination.  
 
 If you have a command-line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
-
-### Change an existing Hybrid Connection endpoint ###
-
-If you need to change the endpoint host or port number for a Hybrid Connection, follow the steps below:
-
-1. Remove the Hybrid Connection from the Hybrid Connection Manager by selecting the connection and selecting "Remove" at the top left of the Hybrid Connection Details window.
-1. Disconnect the Hybrid Connection from your App Service by navigating to "Hybrid Connections" in the App Service "Networking" page.
-1. Navigate to the Relay for the endpoint you need to update and select "Hybrid Connections" under "Entities" in the left-hand navigation menu.
-1. Select the Hybrid Connection you want to update and select "Properties" under "Settings" in the left-hand navigation menu.
-1. Make your changes and hit "Save changes" at the top.
-1. Return to the "Hybrid Connections" settings for your App Service and add the Hybrid Connection again. Ensure the endpoint is updated as intended.
-
-### Outbound access through proxy ###
-
-If your outbound requests are required to use a proxy, you'll need to modify both *HybridConnectionManagerUi.exe.config* and *Microsoft.HybridConnectionManager.Listener.exe.config* with the below where `proxyaddress` is the name of the proxy server to route requests through. These files should be located in C:\Program Files\Microsoft\HybridConnectionManager 0.7.
-
-```xml
-<system.net>
-    <defaultProxy>
-        <proxy usesystemdefault="true" proxyaddress="http://myproxy.local:81" />
-    </defaultProxy>
-</system.net>
-```
 
 <!--Links-->
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/
