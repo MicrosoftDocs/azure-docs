@@ -156,7 +156,7 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine needs to connect through a firewall or proxy server to communicate over the internet, the agent communicates outbound instead using the HTTP protocol. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
 
-To further secure your network connectivity to Azure Arc instead of using public networks and proxy servers, you can implement an [Azure Arc Private Link Scope](private-link-security.md) (preview).
+To further secure your network connectivity to Azure Arc, instead of using public networks and proxy servers, you can implement an [Azure Arc Private Link Scope](private-link-security.md) (preview).
 
 > [!NOTE]
 > Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
