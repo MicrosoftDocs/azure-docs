@@ -1,5 +1,5 @@
 ---
-title: Azure Purview Data Policies
+title: Azure Purview Data Policy Concepts
 description: Understand Azure Purview Data Policies
 author: prmujumd
 ms.author: prmujumd
