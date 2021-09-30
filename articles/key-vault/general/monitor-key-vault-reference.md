@@ -66,7 +66,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Ke
 
 |Resource Type | Notes |
 |-------|-----|
-| [Key Vault](/azure-monitor/reference/tables/tables-resourcetype#key-vaults) | |
+| [Key Vault](/azure/azure-monitor/reference/tables/tables-resourcetype#key-vaults) | |
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure-monitor/reference/tables/tables-resourcetype).
 

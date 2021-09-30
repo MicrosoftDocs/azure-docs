@@ -484,6 +484,9 @@
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
+        - name: Manage environments with the CLI (v2)
+          displayName: environment
+          href: how-to-manage-environments-v2.md
         - name: Interpret & explain models
           displayName: interpretability
           items: 

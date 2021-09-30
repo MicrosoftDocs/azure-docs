@@ -42,8 +42,6 @@
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ./index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
       href: ../iot-develop/index.yml
     - name: Azure Maps
