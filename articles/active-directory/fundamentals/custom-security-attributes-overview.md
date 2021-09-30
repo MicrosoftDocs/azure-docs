@@ -115,7 +115,7 @@ To better understand custom security attributes, you can refer back to the follo
 The following table lists the properties you can specify for attribute sets and custom security attributes. Some properties are immutable and cannot be changed later.
 
 | Property | Required | Can be changed later | Description |
-| --- | --- | --- | --- |
+| --- | :---: | :---: | --- |
 | Attribute set name  | :heavy_check_mark: |  | Name of the attribute set. |
 | Attribute set description |  | :heavy_check_mark: | A short description of the custom security attribute. |
 | Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes for the attribute set. |
@@ -135,7 +135,7 @@ Here are some of the limits and constraints for custom security attributes.
 
 > [!div class="mx-tableFixed"]
 > | Resource | Limit | Notes |
-> | --- | --- | --- |
+> | --- | :---: | --- |
 > | Attributes in an attribute set per tenant | 500 | Applies only to active attributes in the tenant |
 > | Attribute set name length | 32 | Unicode characters |
 > | Attribute set description length | 128 | Unicode characters |
