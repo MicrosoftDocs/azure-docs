@@ -7,7 +7,7 @@ ms.date: 09/21/2021
 ms.author: helohr
 manager: femila
 ---
-# Autoscaling for Azure Virtual Desktop session hosts
+# Autoscale for Azure Virtual Desktop host pools
 
 > [!IMPORTANT]
 > The autoscaling feature is currently in preview.
@@ -151,7 +151,7 @@ Also, keep these limitations in mind:
 
 - Autoscale overwrites drain mode, so make sure to use exclusion tags when updating VMs in host pools.
 
-- Autoscaling ignores existing load-balancing algorithms in your host pool settings, and instead applies load balancing based on your schedule configuration.
+- Autoscale ignores existing load-balancing algorithms in your host pool settings, and instead applies load balancing based on your schedule configuration.
 
 ## Create a scaling plan
 
