@@ -48,11 +48,11 @@ Premium performance storage is ideal for workloads that require fast and consist
 
 - **Data transformation**. Processes that require constant editing, modification, and conversion of data require instant updates. For accurate data representation, consumers of this data must see these changes reflected immediately.
 
-For more information, see [Premium performance tier for Azure block blob storage](storage-blob-block-blob-premium.md).
+To learn more, see [Premium performance tier for Azure block blob storage](storage-blob-block-blob-premium.md).
 
 ## Standard performance
 
-Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
+Standard performance supports different [access tiers](access-tiers-overview.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
 
 - **Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers, making it a perfect use case for both short-term and long-term disaster recovery datasets, secondary backups, and compliance data archiving.
 

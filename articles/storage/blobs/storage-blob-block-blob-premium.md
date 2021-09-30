@@ -1,6 +1,6 @@
 ---
 title: Premium performance tier for Azure block blob storage
-description: Description goes here.
+description: Achieve lower and consistent latencies for Azure Storage workloads that require fast and consistent response times.
 author: normesta
 
 ms.author: normesta
@@ -17,13 +17,15 @@ The premium performance tier makes data available via high-performance hardware.
 
 This tier is ideal for workloads that require fast and consistent response times and/or require a high number of input output operations per second (IOP). Storage costs are higher, but transaction costs are lower. This means that if your workloads execute a large number of transactions, this tier can be economical. 
 
+The premium performance tier is available for block blob, page blob, and file shares. This article focuses on premium performance tier in a block blob storage account. 
+
 ## Performance characteristics
 
-Storage accounts that use the premium performance tier store data on solid-state drives (SSDs). Data is stored on instantly accessible memory chips and that makes file transfer much faster. This type of storage makes all parts of a drive accessible at once. By contrast, the performance of a hard disk drive (HDD) depends on the proximity of data to the read/write heads. 
+Data is stored on instantly accessible memory chips and that makes file transfer much faster. This type of storage makes all parts of a drive accessible at once. By contrast, the performance of a hard disk drive (HDD) depends on the proximity of data to the read/write heads. 
 
 Low latency remains critical in various industries and across various types of applications. For example, low latency is important to highly interactive and real-time applications that must write data quickly. Interactive editing or multi-player online gaming applications maintain a quality experience by providing real-time updates. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.
 
-Later in this article, you'll find real-world examples of Azure Storage customers that used the premium performance tier in their solutions. Some of these customers have enabled Azure Data Lake Storage Gen2 in addition to the premium performance tier. Data Lake Storage Gen2 introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios.
+This article contains real-world examples of Azure Storage customers that used the premium performance tier in their solutions. Some of these customers have enabled Azure Data Lake Storage Gen2 in addition to the premium performance tier. Data Lake Storage Gen2 introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios.
 
 ## Cost effectiveness
   
@@ -42,7 +44,7 @@ In most cases, workloads executing more than 35 to 40 transactions per second pe
 > [!NOTE]
 > Prices differ per operation and per region. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to compare pricing between standard and premium performance tiers. 
 
-The following table demonstrates the cost-effectiveness of the premium performance tier. This table is based on an account an Azure Data Lake Storage Gen2 enabled storage account (an account that has a hierarchical namespace). Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
+The following table demonstrates the cost-effectiveness of the premium performance tier. The numbers in this table are based on a Azure Data Lake Storage Gen2 enabled storage account. Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
 
 For example, assuming that your account is in the East US 2 region, the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, the premium performance tier is more cost-effective.
 
@@ -80,7 +82,7 @@ In almost every industry, there is a need for enterprises to query and analyze t
 
 One of our customers uses Presto and Spark to produce insights from hive tables. They must analyze telemetry data from millions of devices quickly to better understand how their products are used, and to make product release decisions. They scale storage and compute independently to allow for petabyte scale data and point access to their data. Storing data in SQL databases is expensive. 
 
-To reduce cost, and to increase queryable surface area, they use an [Azure Data Lake Storage Gen2](create-data-lake-storage-account.md) enabled account that uses the premium performance tier and perform computation in Presto and Spark. This way, even rarely accessed data has all of the power of compute that frequently accessed data has. To close the gap between SQL's subsecond performance and Presto input output operations per second (IOPs) to external storage, consistency and speed are critical, especially when dealing with small optimized row columnar (ORC) files. The premium performance tier when used in a Data Lake Storage Gen2 enabled account, has repeatedly demonstrated a 3X performance improvement over the standard performance tier in this scenario. Queries executed fast enough to feel local to the compute machine. 
+To reduce cost, and to increase queryable surface area, they use an Azure Data Lake Storage Gen2 enabled account that uses the premium performance tier and perform computation in Presto and Spark. This way, even rarely accessed data has all of the power of compute that frequently accessed data has. To close the gap between SQL's subsecond performance and Presto input output operations per second (IOPs) to external storage, consistency and speed are critical, especially when dealing with small optimized row columnar (ORC) files. The premium performance tier when used in a Data Lake Storage Gen2 enabled account, has repeatedly demonstrated a 3X performance improvement over the standard performance tier in this scenario. Queries executed fast enough to feel local to the compute machine. 
 
 Another customer stores and queries logs that are generated from their security solution. The logs are generated by using Databricks, and then and stored in a Data Lake Storage Gen2 enabled account that uses the premium performance tier. End users query and search this data by using Azure Data Explorer. This customer chose this tier to reduce cost, increase stability, and increase the performance of interactive queries. The customer also sets the life cycle management `Delete Action` policy to a few days, which helps to reduce costs. This policy prevents them from keeping the data forever. Instead, data is deleted once it is no longer needed. 
 
@@ -112,11 +114,9 @@ Companies in the media and entertainment industry can generate a large number of
 
 Data is uploaded into multiple premium performance Blob Storage accounts. Each account is connected to an Event Grid and Event Hub resource. ADX retrieves the data from Blob Storage, performs any required transformations to normalize the data (For example: decompressing zip files or converting from JSON to CSV). Then, the data is made available for query through ADX and dashboards displayed in Grafana. Grafana dashboards are used by operators, executives, and other users. The customer retains their original logs in premium performance storage, or they copy them to a storage account that uses the standard performance tier where they can be stored in the hot or cool access tier for long-term retention and future analysis.
 
-## Next steps
+## See also
 
-Evaluate hot, cool, and archive in GPv2 and Blob storage accounts.
-
-- [Learn about rehydrating blob data from the archive tier](archive-rehydrate-overview.md)
-- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](./monitor-blob-storage.md)
-- [Check hot, cool, and archive pricing in Blob storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
-- [Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)
+- [Performance tiers for block blob storage](storage-blob-performance-tiers.md)
+- [Storage account overview](../common/storage-account-overview.md)
+- [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
+- [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md)
