@@ -25,9 +25,9 @@ Based on your network and security requirements, you can set up and maintain Azu
 
 To understand what option is the most suitable for your environment, we suggest you to perform the following actions first: 
 
-- Review your network topology and security requirements before registering and scanning any data sources in Azure Purview. If you do not have a network architecture in place yet, [define an Azure network topology](./azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology.md). 
+- Review your network topology and security requirements before registering and scanning any data sources in Azure Purview. For more information see, [define an Azure network topology](../cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology.md). 
 
-- Define your [network connectivity model for PaaS services](./azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services.md). 
+- Define your [network connectivity model for PaaS services](../cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services.md). 
 
 ## Intended audience  
 
@@ -77,7 +77,7 @@ When scanning a data source in Azure Purview, you need to provide a credential, 
 
 - Data source type. For example, if the data source is an Azure SQL Database, you need to use a SQL authentication with db_datareader access to each database. This can be a user or Azure Purview managed identity or a Service Principal in your Azure Active Directory added to the Azure SQL Database as db_datareader. If the data source is an Azure Blob Storage, you can use Azure Purview managed identity or a Service Principal in your Azure Active Directory added as Storage Blob Data Reader role on the Azure Storage Account or simply use Storage Account's key.  
 
-- It is recommended to use Azure Purview managed identity to scan Azure data sources when possible, to reduce administrative overhead. For any other authentication types you need to [setup credentials for source authentication inside Azure Purview](manage-credential.md): 
+- It is recommended to use Azure Purview managed identity to scan Azure data sources when possible, to reduce administrative overhead. For any other authentication types you need to [setup credentials for source authentication inside Azure Purview](manage-credentials.md): 
 
   - Generate a secret inside an Azure Key Vault. 
   - Register the key vault inside Azure Purview.  
@@ -95,7 +95,7 @@ When scanning a data source in Azure Purview, you need to provide a credential, 
 
 ## Option 2 - Use private endpoints 
 
-You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Azure Purview accounts, if you need to scan Azure IaaS and PaaS data sources inside Azure virtual networks and on-premises data sources through a private connection or to allow users on a virtual network to securely access Azure Purview over a [Private Link](../private-link.md). 
+You can use [Azure private endpoints](../private-link/private-endpoint-overview.md) for your Azure Purview accounts, if you need to scan Azure IaaS and PaaS data sources inside Azure virtual networks and on-premises data sources through a private connection or to allow users on a virtual network to securely access Azure Purview over a [Private Link](../private-link/private-link-overview.md). 
 
 Similar to other Platform as a Service solutions, Azure Purview does not support deploying directly into a virtual network, because of this you cannot leverage certain networking features with the offering's resources such as network security groups, route tables, or other network-dependent appliances such as an Azure Firewall. Instead, you can use private endpoints that can be enabled on your virtual network and you can disable public internet access to securely connect to Purview. 
 
@@ -117,9 +117,9 @@ You must use private endpoints for your Azure Purview account, if you need to fu
 
 - To scan data sources through private connectivity, you need to configure at least one account and one ingestion private endpoint for Purview. Scans must be configured using a self-hosted integration runtime using an authentication method other than Azure Purview managed identity. 
 
-- Review [Support matrix for scanning data sources through ingestion private endpoint](catalog-private-link#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint) before setting up any scans.
+- Review [Support matrix for scanning data sources through ingestion private endpoint](catalog-private-link.md#support-matrix-for-scanning-data-sources-through-ingestion-private-endpoint) before setting up any scans.
 
-- Review [DNS requirements](catalog-private-link-name-resolution#deployment-options.md). If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Purview account endpoints to the Private Endpoint IP address. 
+- Review [DNS requirements](catalog-private-link-name-resolution.md#deployment-options). If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Purview account endpoints to the Private Endpoint IP address. 
 
 ### Integration Runtime options 
 
