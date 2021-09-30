@@ -38,9 +38,7 @@ Azure Sentinel now supports integrating notebooks with Azure Synapse Analytics, 
 
 - Ingest, transform, model, analyze, and distribute unstructured and semi-structured data at scale and speed, via the batch job features provided by a Synapse compute
 
-> [!TIP]
-> To support this broader functionality, we've expanded the **Notebooks** area in Azure Sentinel. Now we have an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook Types** column to indicate the type of each notebook displayed. For example, notebooks can have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
->
+To support this broader functionality, we've expanded the **Notebooks** area in Azure Sentinel. Now we have an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook Types** column in the notebooks grid to indicate the type of each notebook displayed. For example, notebooks can have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
 
 For more information, see [Integrate notebooks with Azure Synapse Analytics](notebooks.md#integrate-notebooks-with-azure-synapse-analytics).
 
