@@ -41,20 +41,22 @@ Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe"
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
+1. To create a project, select **Add project**. Give the project an appropriate name. The project name cannot be reused, even if the project is deleted in future.
+
 1. Select **Image** to create an image labeling project.
 
     :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation for mage labeling":::
 
-  * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
-  * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
-  * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
-  * Choose **Instance Segmentation (Polygon)** for projects when you want to assign a label and draw a polygon around each object within an image.
+    * Choose **Image Classification Multi-class** for projects when you want to apply only a *single label* from a set of labels to an image.
+    * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of labels to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
+    * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
+    * Choose **Instance Segmentation (Polygon)** for projects when you want to assign a label and draw a polygon around each object within an image.
 
 1. Select **Next** when you're ready to continue.
 
 ## Add workforce (optional)
 
-[!INCLUDE [start](../../includes/machine-learning-data-labeling-outsource.md)]
+[!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
 
 ## Specify the data to label
 

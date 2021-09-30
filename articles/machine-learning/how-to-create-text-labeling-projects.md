@@ -47,6 +47,8 @@ Text data can be either ".txt" or ".csv" files.
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
+1. To create a project, select **Add project**. Give the project an appropriate name. The project name cannot be reused, even if the project is deleted in future.
+
 1. Select **Text** to create a text labeling project.
 
     :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
@@ -58,7 +60,7 @@ Text data can be either ".txt" or ".csv" files.
 
 ## Add workforce (optional)
 
-[!INCLUDE [start](../../includes/machine-learning-data-labeling-outsource.md)]
+[!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
 
 ## Specify the data to label
 
