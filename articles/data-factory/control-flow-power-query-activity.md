@@ -32,7 +32,7 @@ To achieve scale with your Power Query activity, Azure Data Factory translates y
 
 ## Sink
 
-Choose the dataset you wish to use for landing your trasnformed data once the Power Query M script has been executed on Spark. For more details on configuring sinks, visit the documentation for [data flow sinks](data-flow-sink.md).
+Choose the dataset you wish to use for landing your transformed data once the Power Query M script has been executed on Spark. For more details on configuring sinks, visit the documentation for [data flow sinks](data-flow-sink.md).
 
 ## Mapping
 
