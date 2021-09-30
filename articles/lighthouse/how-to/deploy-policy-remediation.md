@@ -14,14 +14,14 @@ ms.topic: how-to
 
 ## Create a user who can assign roles to a managed identity in the customer tenant
 
-When you onboard a customer to Azure Lighthouse, you use an [Azure Resource Manager template](onboard-customer.md#create-an-azure-resource-manager-template) along with a parameters file to define authorizations that grant access to delegated resources in the customer tenant. Each authorization specifies a **principalId** that corresponds to an Azure AD user, group, or service principal in the managing tenant, and a **roleDefinitionId** that corresponds to the [Azure built-in role](../../role-based-access-control/built-in-roles.md) which will be granted.
+When you onboard a customer to Azure Lighthouse, you use an [Azure Resource Manager template](onboard-customer.md#create-an-azure-resource-manager-template) along with a parameters file to define authorizations that grant access to delegated resources in the customer tenant. Each authorization specifies a **principalId** that corresponds to an Azure AD user, group, or service principal in the managing tenant, and a **roleDefinitionId** that corresponds to the [Azure built-in role](../../role-based-access-controlc) which will be granted.
 
 To allow a **principalId** to create a managed identity in the customer tenant, you must set its **roleDefinitionId** to **User Access Administrator**. While this role is not generally supported, it can be used in this specific scenario, allowing user accounts with this permission to assign one or more specific built-in roles to managed identities. These roles are defined in the **delegatedRoleDefinitionIds** property, and can include any [supported Azure built-in role](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse) except for User Access Administrator or Owner.
 
 After the customer is onboarded, the **principalId** created in this authorization will be able to assign these built-in roles to managed identities in the customer tenant. However, they will not have any other permissions normally associated with the User Access Administrator role.
 
 > [!NOTE]
-> [Role assignments](../../role-based-access-control/roles-assignments-steps.md#step-5-assign-role) across tenants must be done by using Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs. Roles can't be assigned across tenants by using the Azure portal.
+> [Role assignments](../../role-based-access-control/role-assignments-steps.md#step-5-assign-role) across tenants must be done by using Azure PowerShell, Azure CLI, Azure SDKs, or REST APIs. Roles can't be assigned across tenants by using the Azure portal.
 
 The example below shows a **principalId** who will have the User Access Administrator role. This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
 
