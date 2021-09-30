@@ -294,8 +294,8 @@ In general, see [Connecting using USB modem](./connect-over-cellular-usb.md).
 ## Next steps
 [Connect using USB modem](./connect-over-cellular-usb.md).
 
-Back to the main article on LTE and 5G:
+Back to the main article on 5G or LTE:
 
-[Connect using LTE or 5G](./connect-over-cellular.md).
+[Connect using 5G or LTE](./connect-over-cellular.md).
    
 

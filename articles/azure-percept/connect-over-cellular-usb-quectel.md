@@ -18,8 +18,8 @@ northamerica-sales@quectel.com – for NA customers
 
 sales@quectel.com – for global customers
 
-## Special note about 5G modems and USB cables
-5G modems require more power than simple LTE modems. Also the USB cable can become a bottleneck for best possible 5G data rates. In order to supply enough and consistent power to a 5G modem, you should make sure the USB cable is not too long and can withstand at least 3A current. For maximum throughput, you should use USB 3.1 Gen2 cables and make sure there is a USB-IF logo stating the certification. So as a summary:
+## Note about 5G modems and USB cables
+This is applicable only for 5G modems. 5G modems require more power than LTE modems. Also the USB cable can become a bottleneck for best possible 5G data rates. In order to supply enough and consistent power to a 5G modem, you should make sure the USB cable is not too long and can withstand at least 3A current. For maximum throughput, you should use USB 3.1 Gen2 cables and make sure there is a USB-IF logo stating the certification. So as a summary:
 
 **For Power:**
 - Max amperage should be equal or greater than 3 Amp
@@ -396,6 +396,6 @@ See [Connecting using USB modem](./connect-over-cellular-usb.md).
 ## Next steps
 [Connect using USB modem](./connect-over-cellular-usb.md).
 
-Back to the main article on LTE and 5G:
+Back to the main article on 5G or LTE:
 
-[Connect using LTE or 5G](./connect-over-cellular.md).  
+[Connect using 5G or LTE](./connect-over-cellular.md).  

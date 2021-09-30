@@ -1,5 +1,5 @@
 ---
-title: Connecting Azure Percept over 5G or LTE networks using a USB Modem
+title: Connect Azure Percept over 5G or LTE networks using a USB Modem
 description: This article explains how to connect the Azure Percept DK over 5G or LTE networks using USB modem.
 author: juhaluoto
 ms.author: amiyouss
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 09/03/2021
 ms.custom: template-how-to
 ---
-# Connecting Azure Percept over 5G or LTE networks using a USB Modem
+# Connect Azure Percept over 5G or LTE networks using a USB Modem
 
 Here below you can find steps to prepare and connect Azure Percept DK using USB modems to 5G or LTE networks. These instructions are applicable to only the special Azure Percept DK SW that you can download following the instruction here below. This special Azure Percept image includes ModemManager open-source SW that supports wide variety of USB modems. NOTE, this image does not support OTA updates to the OS or other SW. With this SW, you can use simple cost efficient LTE USB modem or more sophisticated 5G modems to connect your Azure Percept to internet and Azure. 
 
@@ -106,8 +106,8 @@ Now check out the instructions for different USB modems:
 
 [Connect using Quectel 5G Developer Kit](./connect-over-cellular-usb-quectel.md)
 
+Back to the main article on 5G or LTE:
+
+[Connect using 5G or LTE](./connect-over-cellular.md).
+
 [Connect using cellular gateway](./connect-over-cellular-gateway.md).
-
-Back to the main article on LTE and 5G:
-
-[Connect using LTE or 5G](./connect-over-cellular.md).

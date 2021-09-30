@@ -15,7 +15,7 @@ More info on this particular modem HW can be found from Vodafone following this 
 https://www.vodafone.com/business/iot/iot-devices/integrated-terminals
 
 ## Using the modem to connect
-Make sure you have done the Azure Percept DK preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md).   
+Make sure you have done the Azure Percept DK preparations from here [Connecting using USB modem](./connect-over-cellular-usb.md). No preparation for the USB modem itself needed.   
 
 ### 1. Plug a SIM card in the Vodafone modem
 
@@ -309,6 +309,6 @@ systemctl restart ModemManager
 ## Next steps
 [Connect using USB modem](./connect-over-cellular-usb.md).
 
-Back to the main article on LTE and 5G:
+Back to the main article on 5G or LTE:
 
-[Connect using LTE or 5G](./connect-over-cellular.md).
+[Connect using 5G or LTE](./connect-over-cellular.md).
