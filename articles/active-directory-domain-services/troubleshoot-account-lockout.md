@@ -95,13 +95,14 @@ For Example: If you have RADIUS server, which can forward the auth to AAD DS. To
 
 03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Returns 0xC000006A
 
-Enable RDP to your DCs in NSG to backend to configure diagnostics capture (i.e netlogon)
-https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules 
-if you have modified default NSG already , Please follow PSlet way to enable
-https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop
+Enable RDP to your DCs in NSG to backend to configure diagnostics capture (i.e netlogon).
+[Inbound security rules](alert-nsg.md#inbound-security-rules)
 
-To enable Netlogon log on any server 
-https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
+If you have modified the default NSG already, follow these steps:
+[Port 3389 - management using remote desktop](network-considerations.md#port-3389---management-using-remote-desktop)
+
+To enable Netlogon log on any server, follow these steps:
+[Enabling debug logging for the Netlogon service](/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service)
 
 ## Next steps
 
