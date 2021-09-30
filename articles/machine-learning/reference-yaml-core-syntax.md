@@ -21,29 +21,31 @@ This article provides an overview of core syntax concepts you will encounter whi
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## Creating an Azure ML entity from YAML
-`az ml <entity> create --file entity.yml`
+## Referencing an Azure ML entity
 
-#### Short-form
+When configuring a YAML file, you may need to reference an existing Azure ML entity, such as referencing an existing registered environment in your workspace to use as the environment for a job. Azure ML provides a reference syntax, consisting of a shorthand and longhand syntax, for this purpose.
 
-The short-form syntax consists of the following:
+#### Shorthand
+
+The shorthand syntax consists of the following:
 * For assets: `azureml:<asset-name>:<asset-version>`
 * For resources: `azureml:<resource-name>`
 
 Azure ML will resolve this reference to the specified asset or resource in the workspace.
 
-#### Long-form
+#### Longhand
 
-The long-form syntax consists of the `azureml:` prefix plus the ARM resource ID of the entity:
+The longhand syntax consists of the `azureml:` prefix plus the ARM resource ID of the entity:
 
-`azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/environments/<environment-name>/versions/<environment-version>`
+```
+azureml:/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/environments/<environment-name>/versions/<environment-version>
+```
 
-
-## Azure ML data URI syntax
+## Azure ML data reference URI
 
 Azure ML offers a convenience data URI format to point to data in an Azure storage service. This can be used for scenarios where you need to specify a cloud storage location in your YAML file, such as creating an Azure ML model from file(s) in storage, or pointing to data to pass as input to a job.
 
-To use this data URI format, the storage service you want to reference must first be registered as a datastore in your workspace. This format also consists of both a short-form and long-form syntax.
+To use this data URI format, the storage service you want to reference must first be registered as a datastore in your workspace.
 
 The Azure ML data URI format is supported in addition to the direct storage URI formats supported.
 
@@ -57,14 +59,7 @@ For example:
 * `azureml://datastores/mydatastore/paths/mnist/`
 * `azureml://datastores/mydatastore/paths/iris.csv/`
 
-### Long-form
-
-The long-form syntax uses the following format:
-
-`azureml://subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`
-
-
-## Context and expression syntax for configuring Azure ML jobs and components
+## Expression syntax for configuring Azure ML jobs and components
 
 v2 job and component YAML files allow for the use of expressions to bind to contexts for different scenarios. The essential use case is for the author of the YAML file to use an expression for a value that might not be known at the time of authoring the configuration, but must be resolved at runtime.
 
@@ -72,7 +67,7 @@ Use the following syntax to tell Azure ML to evaluate an expression rather than 
 
 `${{ <expression> }}`
 
-The supported context scenarios are covered below.
+The supported scenarios are covered below.
 
 ### Parameterizing the `command` with the `inputs` and `outputs` contexts of a job
 
@@ -97,7 +92,7 @@ outputs:
   model_dir:
 ```
 
-### Parameterizing the `command` with the `search_space` context for sweeping hyperparameters
+### Parameterizing the `command` with the `search_space` context of a sweep job
 
 You will also need to use this context syntax when performing hyperparameter tuning via sweep job, since the actual values of the hyperparameters are not known during job authoring time. When you run a sweep job, Azure ML will select hyperparameter values for each trial based on the `search_space`. In order to access those values in your training script, you must pass them in via the script's command-line arguments. To do so, use the `${{search_space.<hyperparameter>}}` syntax in the `trial.command`.
 
@@ -220,3 +215,4 @@ outputs:
 ## Next steps
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
+- [CLI (v2) YAML schemas](reference-yaml-overview.md)
