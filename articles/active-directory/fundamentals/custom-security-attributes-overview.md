@@ -97,7 +97,7 @@ Here are some ways that custom security attributes compare with [directory schem
 
 1. **Use attributes**
 
-    This can include searching and filtering users and applications or adding conditions to Azure role assignments for fine-grained access control. [Learn more](../enterprise-users/users-custom-security-attributes.md)
+    This can include filtering users and applications or adding conditions to Azure role assignments for fine-grained access control. [Learn more](../enterprise-users/users-custom-security-attributes.md)
 
 ## Terminology
 
