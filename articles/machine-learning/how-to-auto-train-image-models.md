@@ -179,7 +179,7 @@ automl_image_config = AutoMLImageConfig(compute_target=compute_target)
 
 With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep.
 
-The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple.
+The model algorithm is required and is passed in via `model_name` parameter. You can either specify a single `model_name` or choose between multiple.In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific.
 
 ### Supported model algorithms
 
@@ -187,21 +187,16 @@ The following table summarizes the supported models for each computer vision tas
 
 Task | supported model algorithms
 ---|---
-Image classification<br> (multi-class and multi-label)|<li>`resnet18`<li>`resnet34`<li> `resnet50` <li> `mobilenetv2`<li> `seresnext`
+Image classification<br> (multi-class and multi-label)|<li>`resnet18` <li>`resnet34` <li> `resnet50` <li> `mobilenetv2`<li> `seresnext`
 Object detection | <li>`yolov5` <li> `fasterrcnn_resnet50_fpn`<li> `fasterrcnn_resnet34_fpn`<li> `fasterrcnn_resnet18_fpn`<li> `retinanet_resnet50_fpn`
 Instance segmentation | `maskrcnn_resnet50_fpn`
 
-### Hyperparameters for model training
+### Model agnostic hyperparameters
 
-In addition to controlling the model algorithm, you can also tune hyperparameters used for model training. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific.
+The following table describes the hyperparameters that are model agnostic.
 
-#### Model-agnostic hyperparameters
-
-The following tables describe the hyperparameters that are model agnostic
-
-
-| Parameter name | Description   | Default  |
-| ------------- |-----------| --------|
+| Parameter name       | Description           | Default  |
+| ------------- |-------------|-----|
 | `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All&nbsp;(except yolov5):&nbsp;15 <br>yolov5: 30 |
 | `training_batch_size` | Training batch size.<br> Must be a positive integer. <br> <br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*. | Multi-class&nbsp;/&nbsp;multi-label:&nbsp;78 <br> Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation:&nbsp;2 <br>yolov5: 16 |
 | `validation_batch_size` | Validation batch size.<br> Must be a positive integer. <br><br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*.|Multi-class / multi-label: 78 <br>Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation: 2 <br>yolov5: 16  |
@@ -226,8 +221,7 @@ The following tables describe the hyperparameters that are model agnostic
 | `checkpoint_frequency` | Frequency to store model checkpoints.<br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
 | `layers_to_freeze` | How many layers to freeze for your model. <br> For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1. <br> Must be a positive integer. | no default value |
 
-
-#### Task-specific hyperparameters
+### Task-specific hyperparameters
 
 The following table summarizes hyperparmeters for image classification (multi-class and multi-label) tasks.
 
@@ -244,7 +238,6 @@ The following hyperparameters are for object detection and instance segmentation
 > [!Warning]
 > These parameters are not supported with the `yolo 5` algorithm.
 
-
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
 | `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
@@ -255,7 +248,7 @@ The following hyperparameters are for object detection and instance segmentation
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
 
 
-#### Model-specific hyperparameters
+### Model-specific hyperparameters
 
 This table summarizes hyperparameters specific to the `yolov5` algorithm.
 
