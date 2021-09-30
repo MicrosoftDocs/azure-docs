@@ -37,11 +37,11 @@ Click **Create** to open the Power Query Online mashup editor.
 
 First, you will choose a dataset source for the mashup editor.
 
-:::image type="content" source="media/wrangling-data-flow/pq-new-source.png" alt-text="Power Query source.":::
+:::image type="content" source="media/wrangling-data-flow/power-query-new-source.png" alt-text="Power Query source.":::
 
 Once you have completed building your Power Query, you can save it and add the mashup as an activity to your pipeline. That is when you will set the sink dataset properties.
 
-:::image type="content" source="media/wrangling-data-flow/pq-new-sink.png" alt-text="Power Query sink.":::
+:::image type="content" source="media/wrangling-data-flow/power-query-new-sink.png" alt-text="Power Query sink.":::
 
 Author your wrangling Power Query using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md). ADF translates the M script into a data flow script so that you can execute your Power Query at scale using the Azure Data Factory data flow Spark environment.
 
@@ -51,7 +51,7 @@ Author your wrangling Power Query using code-free data preparation. For the list
 
 To execute a pipeline debug run of a Power Query activity, click **Debug** in the pipeline canvas. Once you publish your pipeline, **Trigger now** executes an on-demand run of the last published pipeline. Power Query pipelines can be schedule with all existing Azure Data Factory triggers.
 
-:::image type="content" source="media/data-flow/pq-activity-001.png" alt-text="Screenshot that shows how to add a Power Query data wrangling activity.":::
+:::image type="content" source="media/data-flow/power-query-activity-001.png" alt-text="Screenshot that shows how to add a Power Query data wrangling activity.":::
 
 Go to the **Monitor** tab to visualize the output of a triggered Power Query activity run.
 
