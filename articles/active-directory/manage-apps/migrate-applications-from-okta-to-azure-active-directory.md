@@ -160,7 +160,7 @@ To complete the migration, repeat the configuration steps for all applications d
 
     ![Screenshot that shows where to clear the selection for Okta as an authentication service.](media/migrate-applications-from-okta-to-azure-active-directory/deselect-okta.png)
 
-Salesforce is now successfully configured with Azure AD for SSO. Later in this tutorial, follow the steps to clean up the Okta portal.
+Salesforce is now successfully configured with Azure AD for SSO.
 
 ## Migrate an OIDC/OAuth 2.0 application to Azure AD
 
@@ -232,6 +232,6 @@ The default Okta authorization server should be mapped to Microsoft Graph scopes
 
 - [Migrate Okta federation to Azure AD](migrate-okta-federation-to-azure-active-directory.md)
 
-- [Migrate Okta sync provisioning to synchronization based on Azure AD Connect](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
 
 - [Migrate Okta sign-on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)

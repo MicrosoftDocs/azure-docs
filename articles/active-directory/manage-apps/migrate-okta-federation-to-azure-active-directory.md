@@ -210,7 +210,7 @@ To configure the enterprise application registration for Okta:
 
     :::image type="content" source="media/migrate-okta-federation-to-azure-active-directory/add-platform.png" alt-text="Screenshot that shows how to add a web platform." lightbox="media/migrate-okta-federation-to-azure-active-directory/add-platform.png":::
 
-23. Add the redirect URI that you recorded in the IDP in Okta. Then select **Access and ID tokens**.
+23. Add the redirect URI that you recorded in the IDP in Okta. Then select **Access tokens** and **ID tokens**.
 
     ![Screenshot that shows Okta access and I D tokens.](media/migrate-okta-federation-to-azure-active-directory/access-id-tokens.png)
 
@@ -247,7 +247,7 @@ After you configure the Okta reverse-federation app, have your users conduct ful
 
 >[!IMPORTANT]
 >Identify any additional Conditional Access policies
-you might need before you completely defederate the domains from Okta. Refer to **Okta sign-on policies to Azure AD Conditional Access migration** for steps to secure your environment before the full cut-off.
+you might need before you completely defederate the domains from Okta. to secure your environment before the full cut-off, see [Okta sign-on policies to Azure AD Conditional Access migration](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md).
 
 ## 6 - Defederate Office 365 domains
 
