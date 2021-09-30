@@ -75,9 +75,9 @@ mlflow_run = mlflow.start_run()
 
 |Logged Value|Example code| Notes|
 |----|----|----|
-|Log a numeric value (int or float) | `mlfow.log_metric('my_metric', 1)`| |
-|Log a boolean value | `mlfow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
-|Log a string | `mlfow.log_text('foo', 'my_string')`| Logged as an artifact|
+|Log a numeric value (int or float) | `mlflow.log_metric('my_metric', 1)`| |
+|Log a boolean value | `mlflow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
+|Log a string | `mlflow.log_text('foo', 'my_string')`| Logged as an artifact|
 |Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
 |Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
 

@@ -88,13 +88,17 @@ To do so, follow these steps:
 1. Save [this script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1).
 1. Navigate to where you saved the script by using an administrative Command Prompt or PowerShell window. 
 1. Connect to Azure (`az login`).
-1. Execute the script, passing in SubscriptionIds as parameters such as   
-   `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+1. Execute the script, passing in SubscriptionIds as parameters. If no subscriptions are sepcified, the script will enable auto-registration for all the subscriptions in the  user account.    
 
-   For example: 
+   The following command will enable auto-registration for two subscriptions: 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
+   ```
+   The following command will enable auto-registration for all subscriptions: 
+
+   ```console
+   .\EnableBySubscription.ps1
    ```
 
 Failed registration errors are stored in `RegistrationErrors.csv` located in the same directory where you saved and executed the `.ps1` script from. 

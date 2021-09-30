@@ -62,7 +62,7 @@ Azure Backup follows strict security guidelines. Even though it's a native Azure
 
 8. When the data transfer is complete, the coordinator confirms the commit with the backup service.
 
-    ![Backup process](./media/backup-azure-database-postgresql/backup-process.png)
+    ![Backup process](./media/backup-azure-database-postgresql-overview/backup-process.png)
 
 ## Configure backup on Azure PostgreSQL databases
 

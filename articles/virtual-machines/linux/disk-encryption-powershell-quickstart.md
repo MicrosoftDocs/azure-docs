@@ -44,7 +44,7 @@ It will take a few minutes for your VM to be deployed.
 Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). To enable the Key Vault to store encryption keys, use the -EnabledForDiskEncryption parameter.
 
 > [!Important]
-> Every key vault must have a name that is unique across Azure. In the examples below, replace <your-unique-keyvault-name> with the  name you choose.
+> Every key vault must have a name that is unique across Azure. In the examples below, replace \<your-unique-keyvault-name\> with the  name you choose.
 
 ```azurepowershell-interactive
 New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location EastUS -EnabledForDiskEncryption

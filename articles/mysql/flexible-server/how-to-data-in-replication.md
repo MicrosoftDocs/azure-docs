@@ -15,7 +15,7 @@ ms.date: 06/08/2021
 This article describes how to set up [Data-in replication](concepts-data-in-replication.md) in Azure Database for MySQL Flexible Server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -23,7 +23,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
 ## Create an Azure Database for MySQL Flexible Server instance to use as a replica
 
-1. Create a new instance of Azure Database for MySQL Flexible Server (ex. "replica.mysql.database.azure.com"). Refer to [Create an Azure Database for MySQL Flexible Server server by using the Azure portal](quickstart-create-server-portal.md) for server creation. This server is the "replica" server for Data-in replication.
+1. Create a new instance of Azure Database for MySQL Flexible Server (for example, `replica.mysql.database.azure.com`). Refer to [Create an Azure Database for MySQL Flexible Server server by using the Azure portal](quickstart-create-server-portal.md) for server creation. This server is the "replica" server for Data-in replication.
 
 2. Create the same user accounts and corresponding privileges.
 

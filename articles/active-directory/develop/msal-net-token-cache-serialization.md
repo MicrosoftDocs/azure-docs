@@ -134,27 +134,39 @@ using Microsoft.Extensions.DependencyInjection;
 
 ```CSharp
 
- private static IConfidentialClientApplication app;
-
-public static async Task<IConfidentialClientApplication> BuildConfidentialClientApplication(
-  string clientId,
-  CertificateDescription certDescription,
-  string tenant)
+public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X509Certificate cert, string authority, string[] scopes)
  {
-  if (app== null)
-  {
      // Create the confidential client application
      app= ConfidentialClientApplicationBuilder.Create(clientId)
        // Alternatively to the certificate you can use .WithClientSecret(clientSecret)
-       .WithCertificate(certDescription.Certificate)
+       .WithCertificate(cert)
        .WithLegacyCacheCompatibility(false)
-       .WithTenantId(tenant)
+       .WithAuthority(authority)
        .Build();
 
-     // Add an in-memory token cache. Other options available: see below
-     app.AddInMemoryTokenCache();
-   }
-   return app;
+     // Add a static in-memory token cache. Other options available: see below
+     app.AddInMemoryTokenCache();  // Microsoft.Identity.Web 1.16+
+   
+     // Make the call to get a token for client_credentials flow (app to app scenario) 
+     return await app.AcquireTokenForClient(scopes).ExecuteAsync();
+     
+     // OR Make the call to get a token for OBO (web api scenario)
+     return await app.AcquireTokenOnBehalfOf(scopes, userAssertion).ExecuteAsync();
+     
+     // OR Make the call to get a token via auth code (web app scenario)
+     return await app.AcquireTokenByAuthorizationCode(scopes, authCode);    
+     
+     // OR, when the user has previously logged in, get a token silently
+     var homeAccountId = GetHomeAccountIdFromClaimsPrincipal(); // uid and utid claims
+     var account = await app.GetAccountAsync(homeAccountId);
+     try
+     {
+          return await app.AcquireTokenSilent(scopes, account).ExecuteAsync();; 
+     } 
+     catch (MsalUiRequiredException)
+     {
+      	// cannot get a token silently, so redirect the user to be challenged 
+     }
   }
 ```
 
@@ -579,6 +591,22 @@ namespace CommonCacheMsalV3
 ```
 
 ---
+
+## Plain text fallback mode
+
+MSAL allows you to store unencrypted tokens in clear text. This is intended for use in development environments for debugging purposes only. 
+You can use the plain text fallback mode using the following code pattern.
+
+```csharp
+storageProperties =
+    new StorageCreationPropertiesBuilder(
+        Config.CacheFileName + ".plaintext",
+        Config.CacheDir)
+    .WithUnprotectedFile()
+    .Build();
+
+var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties).ConfigureAwait(false);
+```
 
 ## Next steps
 

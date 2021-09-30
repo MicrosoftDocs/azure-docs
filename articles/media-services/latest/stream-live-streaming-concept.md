@@ -111,6 +111,7 @@ The asset that the live output is archiving to, automatically becomes an on-dema
 - [Live event types feature comparison](live-event-types-comparison-reference.md)
 - [States and billing](live-event-states-billing-concept.md)
 - [Latency](live-event-latency-reference.md)
+- [Quotas and limits](limits-quotas-constraints-reference.md)
 
 ## Live streaming FAQ
 

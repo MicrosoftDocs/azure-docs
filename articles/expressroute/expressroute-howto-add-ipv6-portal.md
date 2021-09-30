@@ -11,7 +11,10 @@ ms.author: duau
 
 # Add IPv6 support for private peering using the Azure portal (Preview)
 
-This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using the Azure portal. 
+This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using the Azure portal.
+
+>[!NOTE]
+> Some aspects of the portal experience are still being implemented. Therefore, please follow the exact order of instructions provided in this document to successfully add IPv6 support via the portal. Specifically, please make sure to create your virtual network and subnet, or add IPv6 address space to your existing virtual network and GatewaySubnet, *prior* to creating a new virtual network gateway in the portal.
 
 ## Sign in to the Azure portal
 

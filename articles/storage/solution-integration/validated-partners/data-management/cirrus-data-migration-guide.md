@@ -157,5 +157,6 @@ In the CMC portal, select **Help Center** tab on the CMC portal to contact Cirru
 ## Next steps
 - Learn more on [Azure virtual machines](/azure/virtual-machines/windows/overview)
 - Learn more on [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
+- Learn more on [storage migration](/azure/storage/common/storage-migration-overview)
 - [Cirrus Data website](https://www.cirrusdata.com/)
 - Step-by-step guides for [cMotion](https://support.cirrusdata.cloud/en/category/howtos-1un623w/)

@@ -249,7 +249,7 @@
               displayName: vnet, workspace, container instance, container registry
               href: how-to-secure-workspace-vnet.md
             - name: Secure training environment
-              displayName: vnet
+              displayName: vnet, No public IP
               href: how-to-secure-training-vnet.md
             - name: Secure inferencing environment
               displayName: vnet
@@ -280,7 +280,7 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: Audit and manage compliance
+        - name: Audit and manage
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: Workspaces & compute resources
@@ -301,7 +301,7 @@
           - name: Create & manage compute resources
             items: 
               - name: Compute instance
-                displayName: compute target
+                displayName: compute target, No public IP
                 href: how-to-create-manage-compute-instance.md
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
@@ -547,7 +547,7 @@
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Troubleshoot managed online endpoints
-              href: how-to-troubleshoot-managed-online-endpoints.md
+              href: how-to-troubleshoot-online-endpoints.md
           - name: Batch
             items:
             - name: Batch scoring with batch endpoints

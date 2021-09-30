@@ -23,6 +23,8 @@
   items:
   - name: Deploy Workbench
     href: deploy.md
+  - name: Migrate to another ledger
+    href: https://github.com/Azure-Samples/blockchain/blob/caleteet-migration/migration/abw-migration.md
   - name: Manage Workbench users
     href: manage-users.md
   - name: Versioning apps

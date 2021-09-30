@@ -1,18 +1,18 @@
 ---
-title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
-description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
+title: Deploy an agent-based Linux Hybrid Runbook Worker in Automation
+description: This article tells how to install an agent-based  Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2021
+ms.date: 09/24/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Deploy a Linux Hybrid Runbook Worker
+# Deploy an agent-based Linux Hybrid Runbook Worker in Automation
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
 
-The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Azure Automation stores and manages runbooks and then delivers them to one or more designated machines. This article describes how to install the Hybrid Runbook Worker on a Linux machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
+The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. This article describes how to: install the Hybrid Runbook Worker on a Linux machine, remove the worker, and remove a Hybrid Runbook Worker group. For User Hybrid Runbook Workers, see also [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Automation](./extension-based-hybrid-runbook-worker-install.md)
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
@@ -32,7 +32,7 @@ The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monit
 
 ### Supported Linux operating systems
 
-The Hybrid Runbook Worker feature supports the following distributions. All operating systems are assumed to be x64. x86 is not supported for any operating system.
+The Hybrid Runbook Worker feature supports the following distributions. All operating systems are assumed to be x64. x86 isn't supported for any operating system.
 
 * Amazon Linux 2012.09 to 2015.09
 * CentOS Linux 5, 6, 7, and 8
@@ -40,7 +40,7 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 18.04, and 20.04 LTS
-* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE did not release versions numbered 13 or 14)
+* SUSE Linux Enterprise Server 12, 15, and 15.1 (SUSE didn't release versions numbered 13 or 14)
 
 > [!IMPORTANT]
 > Before enabling the Update Management feature, which depends on the system Hybrid Runbook Worker role, confirm the distributions it supports [here](update-management/operating-system-requirements.md).
@@ -74,17 +74,17 @@ You can add the worker machine to a Hybrid Runbook Worker group in one of your A
 
 ## Supported Linux hardening
 
-The following are not yet supported:
+The following aren't yet supported:
 
 * CIS
 
 ## Supported runbook types
 
-Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Automation, and they are described in the following table.
+Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Automation, and they're described in the following table.
 
 |Runbook type | Supported |
 |-------------|-----------|
-|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8 and CentOS 8|
+|Python 3 (preview)|Yes, required for these distros only: SUSE LES 15, RHEL 8, and CentOS 8|
 |Python 2 |Yes, for any distro that doesn't require Python 3<sup>1</sup> |
 |PowerShell |Yes<sup>2</sup> |
 |PowerShell Workflow |No |
@@ -101,7 +101,7 @@ For networking requirements for the Hybrid Runbook Worker, see [Configuring your
 
 ## Install a Linux Hybrid Runbook Worker
 
-There are two methods to deploy a Hybrid Runbook Worker. You can import and run a runbook from the Runbook Gallery in the Azure portal, or you can manually run a series of PowerShell commands to accomplish the same task.
+There are two methods to deploy a Hybrid Runbook Worker. You can import and run a runbook from the Runbook Gallery in the Azure portal, or you can manually run a series of PowerShell commands.
 
 ### Importing a runbook from the Runbook Gallery
 
@@ -120,7 +120,7 @@ The runbook uses the following parameters.
 | `CreateVM` | Mandatory | If true, use the value of `VMName` as the name of a new VM. If false, use `VMName` to find and register existing VM. |
 | `VMName` | Optional | The name of the virtual machine that's either created or registered, depending on the value of `CreateVM`. |
 | `VMImage` | Optional | The name of the VM image to be created. |
-| `VMlocation` | Optional | Location of the VM that's either created or registered. If this location is not specified, the value of `LAlocation` is used. |
+| `VMlocation` | Optional | Location of the VM that's either created or registered. If this location isn't specified, the value of `LAlocation` is used. |
 | `RegisterHW` | Mandatory | If true, register the VM as a hybrid worker. |
 | `WorkerGroupName` | Mandatory | Name of the Hybrid Worker Group. |
 
@@ -151,7 +151,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
         - Using Azure Policy.
 
-            Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition to audit if the Arc-enabled server has the Log Analytics agent installed. If the agent is not installed, it automatically deploys it using a remediation task. Alternatively, if you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
+            Using this approach, you use the Azure Policy [Deploy Log Analytics agent to Linux or Windows Azure Arc machines](../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition to audit if the Arc-enabled server has the Log Analytics agent installed. If the agent isn't installed, it automatically deploys it using a remediation task. If you plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../governance/policy/samples/built-in-initiatives.md#monitoring) initiative to install and configure the Log Analytics agent.
 
         We recommend installing the Log Analytics agent for Windows or Linux using Azure Policy.
 
@@ -165,7 +165,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     The Log Analytics agent for Linux connects machines to an Azure Monitor Log Analytics workspace. When you install the agent on your machine and connect it to your workspace, it automatically downloads the components that are required for the Hybrid Runbook Worker.
 
-    When the agent has successfully connected to your Log Analytics workspace after a few minutes, you can run the following query to verify that it is sending heartbeat data to the workspace.
+    When the agent has successfully connected to your Log Analytics workspace after a few minutes, you can run the following query to verify that it's sending heartbeat data to the workspace.
 
     ```kusto
     Heartbeat
@@ -173,7 +173,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
     | where TimeGenerated > ago(30m)
     ```
 
-    In the search results, you should see heartbeat records for the machine, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace.
+    In the search results, you should see heartbeat records for the machine, indicating that it's connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace.
 
 4. Run the following command to add the machine to a Hybrid Runbook Worker group, specifying the values for the parameters `-w`, `-k`, `-g`, and `-e`.
 
@@ -185,7 +185,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     * For the `-k` parameter, copy the value for **PRIMARY ACCESS KEY**.
 
-    * For the `-g` parameter, specify the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook worker should join. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it is created with that name.
+    * For the `-g` parameter, specify the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook worker should join. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it's created with that name.
 
     * For the `-w` parameter, specify your Log Analytics workspace ID.
 

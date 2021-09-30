@@ -5,6 +5,7 @@ description: Use Azure Communication Services SDKs to display the call transcrip
 author: probableprime
 ms.author: rifox
 ms.service: azure-communication-services
+ms.subservice: calling
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to

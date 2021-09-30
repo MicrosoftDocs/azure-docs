@@ -155,7 +155,8 @@ Then, use the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.re
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateParameterFile .\azuredeploy.parameters.json -TemplateFile .\azuredeploy.json
 ```
 
-It's important to note that the group deployment name and role assignment GUID need to be unique. If you try to deploy a resource assignment with a non-unique GUID, then you'll get a `RoleAssignmentUpdateNotPermitted` error.
+> [!NOTE] 
+> The group deployment name and role assignment GUID must be unique. If you try to deploy a resource assignment by using a non-unique GUID, you'll see a `RoleAssignmentUpdateNotPermitted` error.
 
 If you plan to use the template several times to add several Active Directory objects to the DevTest Labs User role for your lab, consider using dynamic objects in your PowerShell command. The following example uses the [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) cmdlet to specify the resource group deployment name and role assignment GUID dynamically.
 
