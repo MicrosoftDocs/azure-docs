@@ -14,6 +14,7 @@ ms.date: 07/16/2020
 
 # Get an answer from a QNA Maker knowledge base
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ::: zone pivot="url-test-tool-curl"
 

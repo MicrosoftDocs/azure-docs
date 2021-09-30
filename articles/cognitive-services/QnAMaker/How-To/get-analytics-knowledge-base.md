@@ -15,6 +15,8 @@ ms.date: 08/25/2021
 
 QnA Maker stores all chat logs and other telemetry, if you have enabled Application Insights during the [creation of your QnA Maker service](./set-up-qnamaker-service-azure.md). Run the sample queries to get your chat logs from Application Insights.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 1. Go to your Application Insights resource.
 
     ![Select your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)

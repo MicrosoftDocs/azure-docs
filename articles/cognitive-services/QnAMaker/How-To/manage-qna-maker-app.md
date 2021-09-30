@@ -12,6 +12,8 @@ ms.date: 11/09/2020
 QnA Maker allows you to collaborate with different authors and content editors by offering a capability to restrict collaborator access based on the collaborator's role.
 Learn more about [QnA Maker collaborator authentication concepts](../Concepts/role-based-access-control.md).
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Add Azure role-based access control (Azure RBAC)
 
 QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).

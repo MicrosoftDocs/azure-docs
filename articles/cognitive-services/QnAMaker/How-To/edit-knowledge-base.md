@@ -13,6 +13,8 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
 
 QnA pairs are added from a datasource, such as a file or URL, or added as an editorial source. An editorial source indicates the QnA pair was added in the QnA portal manually. All QnA pairs are available for editing.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 <a name="add-an-editorial-qna-set"></a>
 
 ## Question and answer pairs
