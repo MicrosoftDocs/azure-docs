@@ -74,9 +74,9 @@ set ENDPOINT_NAME=YOUR_ENDPOINT_NAME
 
 ## Review the endpoint and deployment configurations
 
-The following snippet shows the *endpoints/online/managed/saferollout/endpoint.yml* file: 
+The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* file: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/saferollout/endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml":::
 
 > [!NOTE]
 > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
@@ -156,13 +156,13 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 First create the endpoint. Optionally, for a local endpoint, you can skip this step and directly create the deployment (next step), which will, in turn, create the required metadata. This is useful for development and testing purposes.
 
 ```azurecli
-az ml online-endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/saferollout/endpoint.yml
+az ml online-endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/sample/endpoint.yml
 ```
 
 Now, create a deployment named `blue` under the endpoint.
 
 ```azurecli
-az ml online-deployment create --local -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/saferollout/blue-deployment.yml
+az ml online-deployment create --local -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment.yml
 ```
 
 > [!NOTE]
@@ -273,7 +273,7 @@ To understand how `update` works:
 1. Run this command:
 
     ```azurecli
-    az ml online-deployment update -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/saferollout/blue-deployment.yml
+    az ml online-deployment update -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment.yml
     ```
 
     > [!Note]
