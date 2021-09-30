@@ -46,7 +46,7 @@ You can use Azure portal to restore an entire live account or selected databases
 
 1. After you select the above parameters, select the **Submit** button to kick off a restore. The restore cost is a one time charge, which is based on the size of data and the cost of backup storage in the selected region. To learn more, see the [Pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) section.
 
-While the restore is in progress, don't modify your source account. Operations on the source account such as increasing the account RU/s, adding a new region, deleting the account etc. can result in an unpredicted behavior.
+Deleting source account while a restore is in-progress could result in failure of the restore.
 
 ### <a id="event-feed"></a>Use event feed to identify the restore time
 
