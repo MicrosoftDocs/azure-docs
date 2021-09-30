@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 09/30/2021
 ms.author: alkohli
 ---
 # Prepare certificates to upload on your Azure Stack Edge Pro GPU
@@ -58,7 +58,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
 1. Run *certlm.msc* to launch the local machine certificate store.
 
-1. Double click on the **Personal** folder, and then on **Certificates**.
+1. Double-click on the **Personal** folder, and then on **Certificates**.
 
     ![Export certificate 1](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-1.png)
  
@@ -93,7 +93,7 @@ Take the following steps to export an SSL certificate with private key on a Wind
 
     ![Export certificate 8](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-8.png)
 
-9. You receive a message The export was successful. Select **OK**.
+9. You receive a message that the export was successful. Select **OK**.
 
     ![Export certificate 9](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-9.png)
 
