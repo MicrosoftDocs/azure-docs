@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 09/28/2021
+ms.date: 09/30/2021
 ms.author: cshoe
 
 ---
 
 # Tutorial: Assign custom roles with a function and Microsoft Graph
 
-This article demonstrates how to use a function to query a user's Active Directory group membership with Microsoft Graph and assign custom Static Web Apps roles to the user.
+This article demonstrates how to use a function to query Microsoft Graph and assign custom Static Web Apps roles to a user based on their Active Directory group membership.
 
 In this tutorial, you learn to:
 
@@ -52,9 +52,9 @@ In this tutorial, you learn to:
 
 1. Enter **my-custom-roles-app-group** in the textbox.
 
-1. Under to _Static Web App details_, enter **my-custom-roles-app** in the textbox.
+1. Under _Static Web App details_, enter **my-custom-roles-app** in the _Name_ textbox.
 
-1. Under _Hosting plan_, select **Standard**. Customizing roles using a function requires the Stadard plan.
+1. Under _Hosting plan_, select **Standard** as the _Plan type_. Customizing authentication and assigning roles using a function require the Stadard plan.
 
 1. Under _Azure Functions and staging details_, select a region closest to you.
 
@@ -101,7 +101,7 @@ In this tutorial, you learn to:
 
 1. Select **Register**.
 
-1. After the app registration is created, note the **Application (client) ID** and **Directory (tenant) ID** in the *Essentials* section. You will need this value to configure Active Directory authentication in your static web app.
+1. After the app registration is created, note the **Application (client) ID** and **Directory (tenant) ID** in the *Essentials* section. You'll need these values to configure Active Directory authentication in your static web app.
 
 ### Enable ID tokens
 
@@ -119,18 +119,18 @@ In this tutorial, you learn to:
 
 1. Enter a name for the client secret. For example, **MyStaticWebApp**.
 
-1. Leave the default of 6 months for the *Expires* field.
+1. Leave the default of _6 months_ for the *Expires* field.
 
     > [!NOTE]
     > You must rotate the secret before the expiration date.
 
 1. Select **Add**.
 
-1. Note the **Value** of the client secret you created. You will need this value to configure Active Directory authentication in your static web app.
+1. Note the **Value** of the client secret you created. You'll need this value to configure Active Directory authentication in your static web app.
 
 ## Configure Active Directory authentication
 
-1. In a browser, the GitHub repository containing the static web app you deployed. Navigate to the app's configuration file at *frontend/staticwebapp.config.json*. It contains the following section:
+1. In a browser, open the GitHub repository containing the static web app you deployed. Navigate to the app's configuration file at *frontend/staticwebapp.config.json*. It contains the following section:
 
     ```json
     "auth": {
@@ -189,7 +189,7 @@ In this tutorial, you learn to:
     };
     ```
 
-    The *GetRoles* function will be called whenever a user is successfully authenticated with Azure Active Directory. The function uses the user's access token to query their group membership from Microsoft Graph. If they user is a member a matching group ID in the `roleGroupMappings` object, the user will be granted the corresponding custom role.
+    The *GetRoles* function will be called whenever a user is successfully authenticated with Azure Active Directory. The function uses the user's access token to query their Active Directory group membership from Microsoft Graph. If the user is a member of any groups defined in the `roleGroupMappings` object , they will be granted the corresponding custom role.
 
 1. Select **Commit directly to the main branch** and select **Commit changes**.
 
@@ -199,16 +199,19 @@ In this tutorial, you learn to:
 
 1. Log in to your static web app using Azure Active Directory.
 
-1. When you are logged in, you should see a list of custom roles displayed if you are a member of Active Directory groups in the `roleGroupMappings` object.
+1. When you are logged in, you should see a list of custom roles displayed if you're a member of one or more Active Directory groups in the `roleGroupMappings` object.
 
 ## Clean up resources
 
 Clean up the resources you deployed by deleting the resource group.
 
 1. From the Azure portal, select **Resource group** from the left menu.
-2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name you used in this tutorial.
-4. Select **Delete resource group** from the top menu.
+
+1. Enter the resource group name in the **Filter by name** field.
+
+1. Select the resource group name you used in this tutorial.
+
+1. Select **Delete resource group** from the top menu.
 
 ## Next steps
 
