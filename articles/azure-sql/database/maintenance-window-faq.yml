@@ -10,7 +10,7 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: mathoma
   ms.custom: 
-  ms.date: 09/15/2021
+  ms.date: 09/30/2021
 
 title: Maintenance window FAQ
 summary: This article answers frequently asked questions about the maintenance window for [Azure SQL database](sql-database-paas-overview.md) and [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md).
@@ -104,6 +104,11 @@ sections:
       - question: I have the default maintenance window selected. Can I enable advance notifications for that maintenance?
         answer: |
           No, advance notifications cannot be configured for the default maintenance window option. When choosing a maintenance window, choose an option other than **System default** to configure and enable advance notifications.
+
+      - question: I am not able to set up advance notifications for planned maintenance, will I still see planned maintenance event in Service Health dashboard?
+        answer: |
+          No, if advance notifications are not configured, Service Health will not show the planned maintenance events. 
+
 
 additionalContent: |
  ## See Also
