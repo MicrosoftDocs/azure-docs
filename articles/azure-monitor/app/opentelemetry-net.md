@@ -23,11 +23,10 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Offline disk storage
  - [Azure AD Authentication](azure-ad-authentication.md)
  - Cloud Role Name and Cloud Role Instance Auto-population in Azure environments
+ - [Sampling](sampling.md) (not supported for Azure Monitor OpenTelemetry Exporter)
+ 
 
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
-
-> [!WARNING]
-> Enabling sampling alongside the existing Application Insights SDKs will result in broken traces. It will also make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
 
 ## Get started
 
@@ -138,7 +137,12 @@ Reference: [Resource Semantic Conventions](https://github.com/open-telemetry/ope
 <!-- For more information, see [GitHub Repo](link). -->
 
 ## Sampling
-Sampling is not yet supported.
+
+While sampling is supported in OpenTelemetry, it is not supported in Azure Monitor OpenTelemetry Exporter at this time.
+
+> [!WARNING]
+> Enabling sampling alongside the existing Application Insights SDKs will result in broken traces. It will also make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
+
 
 ## Instrumentation libraries
 <!-- Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release. -->

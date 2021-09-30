@@ -20,7 +20,7 @@ Telemetry, the data collected to observe your application, can be broken into th
 2.	Metrics
 3.	Logs
 
-Initially the OpenTelemetry community took on Distributed Tracing. Metrics and Logs are still in progress. A complete observability story includes all three pillars, but currently our Azure Monitor OpenTelemetry-based offerings **only include Distributed Tracing** with plans to add the other pillars as they mature in the OpenTelemetry community.
+Initially the OpenTelemetry community took on Distributed Tracing. Metrics and Logs are still in progress. A complete observability story includes all three pillars, but currently our Azure Monitor OpenTelemetry-based offerings **only include Distributed Tracing**.
 
 There are several sources that explain the three pillars in detail including the [OpenTelemetry community website](https://opentelemetry.io/docs/concepts/data-sources/), [OpenTelemetry Specifications](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/overview.md), and [Distributed Systems Observability](https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/ch04.html) by Cindy Sridharan.
 
