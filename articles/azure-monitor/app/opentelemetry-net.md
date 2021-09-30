@@ -109,7 +109,7 @@ Find the connection string on your Application Insights Resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
-## Confirm Data is flowing
+### Confirm data is flowing
 
 Run your application and open your Application Insights Resource.
 
