@@ -320,13 +320,17 @@ You may use following three ways to filter out telemetry before leaving your app
 
 You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
 
+1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package along with [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) in your project.
+
+2. Add following code snippet. This example assumes you have a OpenTelemetry Collector with an OTLP receiver running. For details refer to example [here](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
+
 ```csharp
 // sends data to Application Insights as well as OTLP
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("OTel.AzureMonitor.Demo")
         .AddAzureMonitorTraceExporter(o =>
         {
-                o.ConnectionString = "<Your Connection String>"
+            o.ConnectionString = "<Your Connection String>"
         })
         .AddOtlpExporter()
         .Build();
