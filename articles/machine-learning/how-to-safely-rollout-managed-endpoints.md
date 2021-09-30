@@ -60,7 +60,7 @@ git clone https://github.com/Azure/azureml-examples
 cd azureml-examples/cli
 ```
 
-The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/saferollout/` subdirectory.
+The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
 ## Confirm your existing deployment is created
 
