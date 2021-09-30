@@ -14,6 +14,6 @@ ms.author: alkohli
 |    http:\//windowsupdate.microsoft.com<br>http://\*.windowsupdate.microsoft.com<br>https://\*.windowsupdate.microsoft.com<br>http://\*.update.microsoft.com<br>https://\*.update.microsoft.com<br>http://\*.windowsupdate.com<br>http://download.microsoft.com<br>http://\*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*.ws.microsoft.com<br>https://\*.ws.microsoft.com<br>http://\*.mp.microsoft.com |    Microsoft Update servers                                                                             |
 |    http://\*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    Akamai CDN                                                                                           |
 |    http://\*.data.microsoft.com     |    Telemetry service in Windows, see the update for customer experience and diagnostic telemetry |
-|    http://<vault-name>.vault.azure.net:443     |    Key Vault |
+|    `http://<vault-name>.vault.azure.net:443`     |    Key Vault |
 <!--|    http://www.msftconnecttest.com/connecttest.txt  |    For diagnostics     ||  |-->   
 
