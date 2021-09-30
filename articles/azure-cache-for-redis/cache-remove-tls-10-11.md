@@ -25,8 +25,8 @@ As a part of this effort, we'll be making the following changes to Azure Cache f
 
 As part of this change, we'll also remove support for older cypher suites that aren't secure. Our supported cypher suites are restricted to the following suites when the cache is configured with a minimum of TLS 1.2:
 
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 
 This article provides general guidance about how to detect dependencies on these earlier TLS versions and remove them from your application.
 
