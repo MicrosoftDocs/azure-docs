@@ -175,7 +175,7 @@ The same can also be expressed with:
 ```
 
 >[!NOTE]
->Currently, all layered deployments must include an `edgeAgent` object to be considered valid. Even if a layered deployment only updates module properties, include an empty object. An example is `"$edgeAgent":{}`. A layered deployment with an empty `edgeAgent` object will be shown as **targeted** in the `edgeAgent` module twin, not **applied**.
+>Currently, all layered deployments must include an `edgeAgent` object to be considered valid. Even if a layered deployment only updates module properties, include an empty object. For example: `"$edgeAgent":{}`. A layered deployment with an empty `edgeAgent` object will be shown as **targeted** in the `edgeAgent` module twin, not **applied**.
 
 In summary, to create a layered deployment:
 
@@ -218,14 +218,14 @@ Use the same command with the `--layered` flag to create a layered deployment.
 
 The create command for deployment takes the following parameters:
 
-* **--layered**: An optional flag to identify the deployment as a layered deployment.
-* **--deployment-id**: The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that's up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`. This parameter is required.
-* **--content**: File path to the deployment manifest JSON. This parameter is required.
-* **--hub-name**: Name of the IoT hub in which the deployment will be created. The hub must be in the current subscription. Change your current subscription by using the `az account set -s [subscription name]` command.
-* **--labels**: Name/value pairs that describe and help you track your deployments. Labels take JSON formatting for the names and values. An example is `{"HostPlatform":"Linux", "Version:"3.0.1"}`.
-* **--target-condition**: The condition that determines which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties, and it should match the expression format. An example is `tags.environment='test' and properties.reported.devicemodel='4000x'`.
-* **--priority**: A positive integer. If two or more deployments are targeted at the same device, the deployment with the highest numerical value for priority will apply.
-* **--metrics**: Metrics that query the `edgeHub` reported properties to track the status of a deployment. Metrics take JSON input or a file path. An example is `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
+* **--layered**. An optional flag to identify the deployment as a layered deployment.
+* **--deployment-id**. The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that's up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`. This parameter is required.
+* **--content**. File path to the deployment manifest JSON. This parameter is required.
+* **--hub-name**. Name of the IoT hub in which the deployment will be created. The hub must be in the current subscription. Change your current subscription by using the `az account set -s [subscription name]` command.
+* **--labels**. Name/value pairs that describe and help you track your deployments. Labels take JSON formatting for the names and values. For example: `{"HostPlatform":"Linux", "Version:"3.0.1"}`.
+* **--target-condition**. The condition that determines which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties, and it should match the expression format. For example: `tags.environment='test' and properties.reported.devicemodel='4000x'`.
+* **--priority**. A positive integer. If two or more deployments are targeted at the same device, the deployment with the highest numerical value for priority will apply.
+* **--metrics**. Metrics that query the `edgeHub` reported properties to track the status of a deployment. Metrics take JSON input or a file path. For example: `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
 To monitor a deployment by using the Azure CLI, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-with-azure-cli).
 
@@ -249,14 +249,14 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 
 The deployment update command takes the following parameters:
 
-* **--deployment-id**: The name of the deployment that exists in the IoT hub.
-* **--hub-name**: The name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription by using the command `az account set -s [subscription name]`.
-* **--set**: Update a property in the deployment. You can update the following properties:
+* **--deployment-id**. The name of the deployment that exists in the IoT hub.
+* **--hub-name**. The name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription by using the command `az account set -s [subscription name]`.
+* **--set**. Update a property in the deployment. You can update the following properties:
   * `targetCondition` (for example, `targetCondition=tags.location.state='Oregon'`)
   * `labels`
   * `priority`
-* **--add**: Add a new property to the deployment, including target conditions or labels.
-* **--remove**: Remove an existing property, including target conditions or labels.
+* **--add**. Add a new property to the deployment, including target conditions or labels.
+* **--remove**. Remove an existing property, including target conditions or labels.
 
 ## Delete a deployment
 
@@ -270,8 +270,8 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 The `deployment delete` command takes the following parameters:
 
-* **--deployment-id**: The name of the deployment that exists in the IoT hub.
-* **--hub-name**: The name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription by using the command `az account set -s [subscription name]`.
+* **--deployment-id**. The name of the deployment that exists in the IoT hub.
+* **--hub-name**. The name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription by using the command `az account set -s [subscription name]`.
 
 ## Next steps
 
