@@ -229,4 +229,3 @@ Use these tips if you see any of these issues.
 
 * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
 * [How to tag images](how-to-label-data.md)
-* [Work with a data labeling vendor company (preview)](how-to-outsource-data-labeling.md)

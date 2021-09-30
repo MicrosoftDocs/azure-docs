@@ -8,20 +8,16 @@ ms.subservice: core
 ms.reviewer: sgilley
 author: kvijaykannan
 ms.author: vkann
-ms.date: 09/03/2021
+ms.date: 09/30/2021
 ms.topic: how-to
 # As a project manager, I want to hire a company to label the data in my data labeling project
 # Keywords: data labeling companies, volume 170.  No other keywords found. 
 ---
 
-# Work with a data labeling vendor company (preview)
+# Work with a data labeling vendor company
 
 Learn how to engage a data labeling vendor company to help you label your data. You can learn more about these companies and the labeling services they provide in their listing pages in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend).
 
-> [!IMPORTANT]
-> Features described in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Workflow summary
 
