@@ -144,7 +144,7 @@ $nsgrule2 = @{
     SourceAddressPrefix = '0.0.0.0/0'
     DestinationAddressPrefix = '0.0.0.0/0'
     Access = 'Allow'
-    Priority = '101'
+    Priority = '100'
     Direction = 'Outbound'
 }
 $rule2 = New-AzNetworkSecurityRuleConfig @nsgrule2
