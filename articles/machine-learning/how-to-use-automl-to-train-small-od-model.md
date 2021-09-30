@@ -1,5 +1,5 @@
 ---
-title: Set up AutoML for images to train small object detection model
+title: Use AutoML to detect small objects in images
 description: Set up Azure Machine Learning automated ML to train computer vision models for small object detection.
 author: PhaniShekhar
 ms.author: phmantri
@@ -15,7 +15,7 @@ In this article, you'll learn how to train an object detection model to detect s
 
 ## Prerequisites
 
-This article assumes that you already know how to configure an automated ML experiment for Object detection.
+This article assumes that you already know how to configure an automated ML experiment for Object Detection.
 For information about configuration, see the following articles:
 
 - TODO: Add links to how to guide for AutoML for Images
@@ -42,6 +42,8 @@ The tiles and entire image are passed through the model in the validation/infere
 
 To enable tiling, you can set the tile_grid_size parameter to a value like (3, 2). When this parameter is set to (3, 2), each image is split into a grid of 3 * 2 tiles as shown in the above image. Each tile has an overlap of 25% with the adjacent tiles so that any objects that fall on the tile border are included completely in one of the tiles.
 
+When tiling is enabled, the generated tiles and the entire image corresponding to each image are passed through the model. The computation time increases proportionally because of processing this extra data. For example, when the tile_grid_size parameter is (3, 2), the computation time would be approximately 7 times when compared to no tiling.
+
 You can specify the value for tile_grid_size in your hyperparameter space as shown below. You need to specify the value as a string.
 
 ```python
@@ -52,7 +54,9 @@ parameter_space = {
 }
 ```
 
-The value for tile_grid_size parameter depends on the image dimensions and size of objects within the image. To choose the optimal value for this parameter for your dataset, you can use hyperparameter search. To do so, you can specify a choice of values for this parameter in your hyperparameter space as shown below.
+The value for tile_grid_size parameter depends on the image dimensions and size of objects within the image. For example, larger number of tiles would be helpful when there are smaller objects in the images.
+
+To choose the optimal value for this parameter for your dataset, you can use hyperparameter search. To do so, you can specify a choice of values for this parameter in your hyperparameter space as shown below.
 
 ```python
 parameter_space = {
@@ -75,6 +79,7 @@ The following are the parameters you can use to control the tiling feature.
 - tile_grid_size
     - The grid size to use for tiling each image.
     - This parameter is used in training, validation, and inference phases.
+    - Setting this parameter would increase the computation time proportionally, since all the tiles and the images are processed by the model.
 
 - tile_overlap_ratio
 	- This parameter is used to control the overlap ratio between adjacent tiles in width and height dimensions.
@@ -85,6 +90,14 @@ The following are the parameters you can use to control the tiling feature.
 	- While merging the object proposals from the tiles and the image, it might be possible that the same object is detected from multiple tiles. Duplication detection is done to remove such duplicates.
 	- Duplicate detection is done by running NMS (non-maximal suppression) on the proposals from the tiles and the image. When multiple proposals overlap, the one with the highest score is picked and others are discarded as duplicates.
 	- Two proposals are considered to be overlapping when the iou (intersection over union) between them is greater than tile_predictions_nms_thresh parameter.
+	- If there are multiple boxes detected per object in the final predictions, you can change this parameter.
+
+
+### Tiling during inference
+
+When a model trained with tiling is deployed, it does tiling during inference as well. It uses the tile_grid_size value from training to generate the tiles during inference.
+
+However, enabling tiling only in inference without enabling it in training might give performance boost for some datasets. You won't incur the extra cost that comes with tiling at training time in this case. To do so, you can train a model without tiling and set the tile_grid_size parameter only during inference.
 
 ### Supported models
 
