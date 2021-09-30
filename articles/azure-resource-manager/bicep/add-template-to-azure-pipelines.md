@@ -81,5 +81,6 @@ An Azure CLI task takes the following inputs:
 
 ## Next steps
 
+* To learn more about using Bicep with Azure Pipelines, and for hands-on guidance, see [Build your first Bicep deployment pipeline by using Azure Pipelines](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) on **Microsoft Learn**.
 * To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 * To learn about using Bicep file with GitHub Actions, see [Deploy Bicep files by using GitHub Actions](./deploy-github-actions.md).

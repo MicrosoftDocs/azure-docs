@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/27/2019
+ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
 ---
 
 # Managing consent to applications and evaluating consent requests
 
-Microsoft recommends [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent for only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
+Microsoft recommends [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
 
 After end-user consent is disabled or restricted, there are several important considerations to ensure your organization stays secure while still allowing business critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, while preventing the use of unmanaged accounts in third-party applications.
 
@@ -104,16 +104,16 @@ For more a broader overview including how to handle additional complex scenarios
 
 ## Disable all future user consent operations to any application
 
-Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md).
+Disabling user consent for your entire directory prevents end users from consenting to any application. Administrators can still consent on user’s behalf. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 To disable all future user consent operations in your entire directory, follow these steps:
 
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4. Select **Users and groups** in the navigation menu.
-5. Select **User settings**.
-6. Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
+4. Select **Enterprise applications** and select **User settings** in the **Manage** section.
+:::image type="content" source="media/manage-consent-requests/disable-user-consent-operations.png" alt-text="disabling user consent operations for all apps.":::
+5. Disable all future user consent operations by setting the **Users can consent to apps accessing company data on their behalf** toggle to **No** and click the **Save** button.
 
 ## Next steps
 

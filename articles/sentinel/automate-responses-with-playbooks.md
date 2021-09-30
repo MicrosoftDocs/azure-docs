@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 06/29/2021
 ms.author: yelevin
 
 ---
@@ -30,6 +30,8 @@ SIEM/SOC teams are typically inundated with security alerts and incidents on a r
 Many, if not most, of these alerts and incidents conform to recurring patterns that can be addressed by specific and defined sets of remediation actions.
 
 A playbook is a collection of these remediation actions that can be run from Azure Sentinel as a routine. A playbook can help [**automate and orchestrate your threat response**](tutorial-respond-threats-playbook.md); it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+
+For example, if an account and machine are compromised, a playbook can isolate the machine from the network and block the account by the time the SOC team is notified of the incident.
 
 Playbooks are created and applied at the subscription level, but the **Playbooks** tab (in the new **Automation** blade) displays all the playbooks available across any selected subscriptions.
 
@@ -194,7 +196,7 @@ If the alert creates an incident, the incident will trigger an automation rule w
 
 For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “When an Azure Sentinel Alert is triggered”), attach the playbook to an analytics rule:
 
-1. Edit the [analytics rule](tutorial-detect-threats-custom.md) that generates the alert you want to define an automated response for.
+1. Edit the [analytics rule](detect-threats-custom.md) that generates the alert you want to define an automated response for.
 
 1. Under **Alert automation** in the **Automated response** tab, select the playbook or playbooks that this analytics rule will trigger when an alert is created.
 
@@ -239,7 +241,7 @@ Manual triggering is available from the Azure Sentinel portal in the following b
 
 ### Run a playbook manually on an incident
 
-Not supported yet. <!--make this a note instead? -->
+Not supported yet.
 
 ## Manage your playbooks
 
@@ -272,6 +274,29 @@ To see all the API connections, enter *API connections* in the header search box
 Another way to view API connections would be to go to the **All Resources** blade and filter it by type *API connection*. This way allows the selection, tagging, and deletion of multiple connections at once.
 
 In order to change the authorization of an existing connection, enter the connection resource, and select **Edit API connection**.
+
+## Recommended playbooks
+
+The following recommended playbooks, and other similar playbooks are available to you in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks):
+
+- **Notification playbooks** are triggered when an alert or incident is created and send a notification to a configured destination:
+
+    - [Post a message in a Microsoft Teams channel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Teams)
+    - [Send an Outlook email notification](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification)
+    - [Post a message in a Slack channel](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Post-Message-Slack)
+
+- **Blocking playbooks** are triggered when an alert or incident is created, gather entity information like the account, IP address, and host, and blocks them from further actions:
+
+    - [Prompt to block an IP address](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-IPs-on-MDATP-Using-GraphSecurity).
+    - [Block an AAD user](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-AADUser)
+    - [Reset an AAD user password](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Reset-AADUserPassword/)
+    - [Prompt to isolate a machine](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Isolate-AzureVMtoNSG)
+
+- **Create, update, or close playbooks** can create, update, or close incidents in Azure Sentinel, Microsoft 365 security services, or other ticketing systems:
+
+    - [Change an incident's severity](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Change-Incident-Severity)
+    - [Create a ServiceNow incident](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Create-SNOW-record)
+
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 06/06/2020
 ---
 # Event File target code for extended events in Azure SQL Database
@@ -37,12 +37,12 @@ This topic presents a two-phase code sample:
 
 - An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 - Any database you can create a table in.
-  
+
   - Optionally you can [create an **AdventureWorksLT** demonstration database](single-database-create-quickstart.md) in minutes.
 
 - SQL Server Management Studio (ssms.exe), ideally its latest monthly update version.
   You can download the latest ssms.exe from:
-  
+
   - Topic titled [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   - [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
@@ -436,9 +436,11 @@ GO
 If the target fails to attach when you run, you must stop and restart the event session:
 
 ```sql
-ALTER EVENT SESSION ... STATE = STOP;
+ALTER EVENT SESSION gmeventsessionname240b
+    ON DATABASE STATE = STOP;
 GO
-ALTER EVENT SESSION ... STATE = START;
+ALTER EVENT SESSION gmeventsessionname240b
+    ON DATABASE STATE = START;
 GO
 ```
 
@@ -502,7 +504,7 @@ Suppose you wanted to run the preceding Transact-SQL sample on Microsoft SQL Ser
 - For simplicity, you would want to completely replace use of the Azure Storage container with a simple file such as *C:\myeventdata.xel*. The file would be written to the local hard drive of the computer that hosts SQL Server.
 - You would not need any kind of Transact-SQL statements for **CREATE MASTER KEY** and **CREATE CREDENTIAL**.
 - In the **CREATE EVENT SESSION** statement, in its **ADD TARGET** clause, you would replace the Http value assigned made to **filename=** with a full path string like *C:\myfile.xel*.
-  
+
   - No Azure Storage account need be involved.
 
 ## More information

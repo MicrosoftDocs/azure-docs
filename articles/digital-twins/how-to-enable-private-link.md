@@ -52,7 +52,7 @@ This section describes how to turn on Private Link while setting up an Azure Dig
 
 The Private Link options are located in the **Networking** tab of instance setup.
 
-1. Begin setting up an Azure Digital Twins instance in the Azure portal. For instructions, see [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md).
+1. Begin setting up an Azure Digital Twins instance in the Azure portal. For instructions, see [Set up an instance and authentication](how-to-set-up-instance-portal.md).
 1. When you reach the **Networking** tab of instance setup, you can enable private endpoints by selecting the **Private endpoint** option for the **Connectivity method**.
 
     This will add a section called **Private endpoint connections** where you can configure the details of your private endpoint. Select the **+ Add** button to continue.

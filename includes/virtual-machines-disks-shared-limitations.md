@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/19/2021
+ ms.date: 08/16/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -35,14 +35,13 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 - Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) is not currently supported.
 
-#### Regional availability
+#### Premium SSD regional availability
 
-For shared disks on P1-P15 sizes, they are currently only available in Central US and East US. Shared disks on all other other premium SSD sizes are available in all regions that managed disks are available. 
+Shared disks on all premium SSD sizes are available in all regions that managed disks are available.
 
 
 ### Standard SSDs
 
-- Must email SharedDiskFeedback@microsoft .com for your subscription to be able to deploy shared standard SSDs.
 - Can only be enabled on data disks, not OS disks.
 - When using Availability sets and virtual machine scale sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain is not enforced for the shared data disk.
 - When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
@@ -50,3 +49,7 @@ For shared disks on P1-P15 sizes, they are currently only available in Central U
 - Azure Site Recovery support is not yet available.
 - Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) is not currently supported.
+
+#### Standard SSD regional availability
+
+Shared disks on all standard SSD sizes are available in all regions that managed disks are available.

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to ingest device telemetry messages from IoT Hub.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/15/2020
+ms.date: 9/9/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -27,11 +27,11 @@ This how-to document walks through the process for writing a function that can i
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
 * **An IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
+* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
 
 This article also uses **Visual Studio**. You can download the latest version from [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/).
 
-### Example telemetry scenario
+## Example telemetry scenario
 
 This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using a function in Azure. There are many possible configurations and matching strategies you can use for sending messages, but the example for this article contains the following parts:
 * A thermostat device in IoT Hub, with a known device ID
@@ -66,11 +66,7 @@ When the twin is created successfully, the CLI output from the command should lo
   "$metadata": {
     "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
     "Temperature": {
-      "ackCode": 200,
-      "ackDescription": "Auto-Sync",
-      "ackVersion": 1,
-      "desiredValue": 0.0,
-      "desiredVersion": 1
+      "lastUpdateTime": "2021-09-09T20:32:46.6692326Z"
     }
   },
   "Temperature": 0.0
@@ -95,6 +91,10 @@ In this section, you'll create an Azure function to access Azure Digital Twins a
     Save your function code.
 
 4. Publish the project with the *IoTHubtoTwins.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+
+[!INCLUDE [digital-twins-verify-function-publish.md](../../includes/digital-twins-verify-function-publish.md)]
+
+To access Azure Digital Twins, your function app needs a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
 
 ### Configure the function app
 
@@ -135,7 +135,7 @@ Select the _Create_ button to create the event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by this [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by this [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
 1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -174,4 +174,4 @@ To see the value change, repeatedly run the query command above.
 ## Next steps
 
 Read about data ingress and egress with Azure Digital Twins:
-* [Concepts: Data ingress and egress](concepts-data-ingress-egress.md)
+* [Data ingress and egress](concepts-data-ingress-egress.md)

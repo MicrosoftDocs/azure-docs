@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.author: shipatel
-author: shivp950
+ms.author: cgronlun
+author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 05/11/2020
 ---

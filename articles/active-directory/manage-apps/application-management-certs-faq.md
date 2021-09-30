@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 03/19/2021
 ms.author: davidmu
-ms.reviewer: secherka, mifarca, shchaur, shravank, sureshja
+ms.reviewer: sureshja, saumadan
 ---
 
 # Azure Active Directory (Azure AD) Application Management certificates frequently asked questions

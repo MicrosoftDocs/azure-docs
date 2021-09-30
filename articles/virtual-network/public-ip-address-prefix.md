@@ -14,8 +14,8 @@ ms.author: allensu
 
 # Public IP address prefix
 
-A public IP address prefix is a reserved range of [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure. Public IP prefixes are assigned from a [pool of addresses](https://www.microsoft.com/download/details.aspx?id=56519) in each Azure region. 
-You create a public IP address prefix in an Azure region and subscription by specifying a name and prefix size. The prefix size is the number of addresses available for use. Public IP address prefixes consist of IPv4 or IPv6 addresses.  After the public IP prefix is created, you can create public IP addresses.
+A public IP address prefix is a reserved range of [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure. Public IP prefixes are assigned from a pool of addresses in each Azure region. 
+You create a public IP address prefix in an Azure region and subscription by specifying a name and prefix size. The prefix size is the number of addresses available for use. Public IP address prefixes consist of IPv4 or IPv6 addresses.  In regions with Availability Zones, Public IP address prefixes can be created as zone-redundant or associated with a specific availability zone.  After the public IP prefix is created, you can create public IP addresses.
 
 ## Benefits
 

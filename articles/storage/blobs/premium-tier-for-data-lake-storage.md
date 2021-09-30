@@ -1,6 +1,6 @@
 ---
-title: Premium tier for Azure Data Lake Storage | Microsoft Docs
-description: Use the premium performance tier with Azure Data Lake Storage Gen2 
+title: Premium tier for Azure Data Lake Storage
+description: Use the premium performance tier with Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -15,41 +15,41 @@ Azure Data Lake Storage Gen2 now supports the [premium performance tier](storage
 
 ## Workloads that can benefit from the premium performance tier
 
-Example workloads include interactive workloads, IoT, streaming analytics, artificial intelligence, and machine learning. 
+Example workloads include interactive workloads, IoT, streaming analytics, artificial intelligence, and machine learning.
 
-**Interactive workloads** 
+**Interactive workloads**
 
-These workloads require instant updates and user feedback, such as e-commerce and mapping applications, interactive video applications, etc. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. As another example, data scientists, analysts and developers can derive time-sensitive insights even faster by running queries on data stored in an account that uses the premium performance tier. 
+These workloads require instant updates and user feedback, such as e-commerce and mapping applications, interactive video applications, etc. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. As another example, data scientists, analysts and developers can derive time-sensitive insights even faster by running queries on data stored in an account that uses the premium performance tier.
 
-**IoT/streaming analytics** 
+**IoT/streaming analytics**
 
-In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be ingested, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of the premium performance tier make it efficient for this type of workload. 
+In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be ingested, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of the premium performance tier make it efficient for this type of workload.
 
-**Artificial intelligence/machine learning (AI/ML)** 
+**Artificial intelligence/machine learning (AI/ML)**
 
-AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis. 
+AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis.
 
 ## Cost effectiveness
 
 The premium performance tier has a higher storage cost but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions, the premium performance tier can be cost-effective.
 
-The following table demonstrates the cost-effectiveness of the premium tier for Azure Data Lake Storage. Each column represents the number of transactions in a month.  Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed. 
+The following table demonstrates the cost-effectiveness of the premium tier for Azure Data Lake Storage. Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
 
 For example, assuming that your account is in the East US 2 region, the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, the premium performance tier is more cost-effective.
 
 > [!div class="mx-imgBorder"]
 > ![image goes here](./media/premium-tier-for-data-lake-storage/premium-performance-data-lake-storage-cost-analysis-table.png)
 
-> [!NOTE] 
+> [!NOTE]
 > If you prefer to evaluate cost effectiveness based on the number of transactions per second for each TB of data, you can use the column headings that appear at the bottom of the table.
 
 For more information about pricing, see the [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
-## Feature availability 
+## Feature availability
 
-Some Blob storage features might not be available or might only have partial support with the premium performance tier. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
+Some Blob storage features might not be available or might only have partial support with the premium performance tier. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
 
-## Enabling the premium performance tier 
+## Enabling the premium performance tier
 
 You can use the premium tier for Azure Data Lake Storage by creating a BlockBlobStorage account with the **Hierarchical namespace** setting **enabled**. For complete guidance, see [Create a BlockBlobStorage account](../common/storage-account-create.md) account.
 
@@ -67,9 +67,8 @@ The following image shows this setting in the **Create storage account** page.
 
 ## Next steps
 
-Use the premium tier for Azure Data Lake Storage with your favorite analytics service such as Azure Databricks, Azure HDInsight and Azure Synapse Analytics. 
+Use the premium tier for Azure Data Lake Storage with your favorite analytics service such as Azure Databricks, Azure HDInsight and Azure Synapse Analytics.
 
-- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md) 
-- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
-  HDInsight currently supports an account that uses the premium performance tier along with an HBase cluster that has accelerated writes enabled.
+- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks, and Spark](data-lake-storage-use-databricks-spark.md)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). HDInsight currently supports an account that uses the premium performance tier along with an HBase cluster that has accelerated writes enabled.
 - [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md)

@@ -60,7 +60,6 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 | New Activity Detected - Using Yokogawa VNetIP Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Asset Detected | A new source device was detected on the network but has not been authorized. | Major |
 | New LLDP Device Configuration | A new source device was detected on the network but has not been authorized. | Major |
-| New Port Discovery | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Warning |
 | Omron FINS Unauthorized Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | S7 Plus PLC Firmware Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
 | Sampled Values Message Type Settings | Message (identified by protocol ID) settings were changed on a source device. | Warning |

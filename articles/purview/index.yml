@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Purview documentation
-summary: Learn how to use Azure Purview so your organization can find, understand, and consume data sources.
+summary: Learn how to use Azure Purview so your organization can find, understand, govern, and consume data sources. Tutorials, REST API reference, and other documentation show you how to plan and configure your data repository where you can discover available data sources and manage right use.
 
 metadata:
   title: Azure Purview documentation
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 06/09/2021
+  ms.date: 09/27/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,16 +24,20 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Use Purview Studio
-            url: use-purview-studio.md
           - text: Deployment best practices
             url: deployment-best-practices.md
-          - text: Data Catalog Permissions
+          - text: Use Purview Studio
+            url: use-purview-studio.md
+          - text: Understand Purview access control
             url: catalog-permissions.md
-          - text: Supported data sources and file types
-            url: sources-and-scans.md
-          - text: Data lineage
-            url: concept-data-lineage.md
+          - text: Understand the elastic data map
+            url: catalog-permissions.md
+          - text: Scan and ingest sources
+            url: concept-scans-and-ingestion.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Purview
+            url: /learn/modules/intro-to-azure-purview/
   # Card
   - title: Get started
     linkLists:
@@ -41,8 +45,14 @@ landingContent:
         links:
           - text: Create a Purview account - Portal
             url: create-catalog-portal.md
-          - text: Create a Purview account - PowerShell/CLI
-            url: create-catalog-powershell.md
+          - text: Create a Collection - Portal
+            url: quickstart-create-collection.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage access and collections
+            url: how-to-create-and-manage-collections.md
+          - text: Connect to sources
+            url: manage-credentials.md
       - linkListType: tutorial
         links:
           - text: Run starter kit and scan data 
@@ -55,6 +65,8 @@ landingContent:
             url: tutorial-schemas-and-classifications.md
           - text: Create glossary terms
             url: tutorial-import-create-glossary-terms.md
+          - text: Use the REST APIs
+            url: tutorial-using-rest-apis.md
   # Card
   - title: Register and scan Azure data sources
     linkLists:
@@ -70,31 +82,16 @@ landingContent:
             url: register-scan-synapse-workspace.md
           - text: Scan Power BI Tenant
             url: register-scan-power-bi-tenant.md
-          - text: Scan Azure Dedicated SQL pool (formerly SQL DW)
-            url: register-scan-azure-synapse-analytics.md
           - text: Scan Azure Blob Storage
             url: register-scan-azure-blob-storage-source.md
+          - text: Troubleshoot connections
+            url: troubleshoot-connections.md
       - linkListType: tutorial
         links:
           - text: Onboard Azure sources at scale
             url: tutorial-data-sources-readiness.md
   #Card
-  - title: Discover data 
-    linkLists:
-    - linkListType: tutorial
-      links:
-        - text: Browse and lineage
-          url: tutorial-browse-and-view-lineage.md
-    - linkListType: how-to-guide
-      links:
-        - text: Use data lineage features
-          url: catalog-lineage-user-guide.md
-        - text: Browse by asset type
-          url: how-to-browse-catalog.md
-        - text: Search for assets, terms, annotations, and contacts
-          url: how-to-search-catalog.md          
-  #Card
-  - title: Curate data 
+  - title: Classify data
     linkLists:
     - linkListType: tutorial
       links:
@@ -104,6 +101,8 @@ landingContent:
           url: tutorial-import-create-glossary-terms.md
     - linkListType: how-to-guide
       links:
+        - text: Apply sensitivity labels
+          url: create-sensitivity-label.md
         - text: Create, edit, & delete custom classifications and rules
           url: create-a-custom-classification-and-classification-rule.md
         - text: Create, import, & export a glossary
@@ -111,12 +110,31 @@ landingContent:
         - text: Bulk edit assets
           url: how-to-bulk-edit-assets.md
   #Card
+  - title: Discover data 
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Browse and lineage
+          url: tutorial-browse-and-view-lineage.md
+    - linkListType: how-to-guide
+      links:
+        - text: Connect to Azure Data Factory
+          url: how-to-link-azure-data-factory.md
+        - text: Use data lineage features
+          url: catalog-lineage-user-guide.md
+        - text: Browse by asset type
+          url: how-to-browse-catalog.md
+        - text: Search for assets, terms, annotations, and contacts
+          url: how-to-search-catalog.md
+  #Card
   - title: Scan non-Azure data sources
     linkLists:
     - linkListType: how-to-guide
       links:
         - text: Scan SQL server on-premises
           url: register-scan-on-premises-sql-server.md
+        - text: Scan Google BigQuery
+          url: register-scan-google-bigquery-source.md
         - text: Scan Amazon S3
           url: register-scan-amazon-s3.md
         - text: Scan Oracle
@@ -124,7 +142,7 @@ landingContent:
         - text: Scan Hive Metastore Database
           url: register-scan-hive-metastore-source.md
   #Card
-  - title: Understand your data estate 
+  - title: Understand your data
     linkLists:
     - linkListType: how-to-guide
       links:
@@ -136,4 +154,15 @@ landingContent:
           url: classification-insights.md
         - text: View glossary insights
           url: glossary-insights.md
+  #Card
+  - title: Secure your network
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Use private endpoints with Purview
+          url: catalog-private-link.md
+        - text: Network configuration
+          url: catalog-private-link-name-resolution.md
+        - text: Connect to private networks
+          url: manage-integration-runtimes.md
  

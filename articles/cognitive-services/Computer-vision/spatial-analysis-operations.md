@@ -357,7 +357,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are counted and the distance between people is measured. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
 | `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. |
-| `type` | string| For **cognitiveservices.vision.spatialanalysis-persondistance** this should be `people_distance`.|
+| `type` | string| For **cognitiveservices.vision.spatialanalysis-persondistance** this should be `persondistance`.|
 | `trigger` | string| The type of trigger for sending an event. Supported values are `event` for sending events when the count changes or `interval` for sending events periodically, irrespective of whether the count has changed or not.
 | `output_frequency` | int | The rate at which events are egressed. When `output_frequency` = X, every X event is egressed, ex. `output_frequency` = 2 means every other event is output. The `output_frequency` is applicable to both `event` and `interval`.|
 | `minimum_distance_threshold` | float| A distance in feet that will trigger a "TooClose" event when people are less than that distance apart.|

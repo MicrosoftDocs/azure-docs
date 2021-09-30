@@ -7,13 +7,12 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 #  Perform a Point in Time Restore
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 Azure Arc-enabled SQL Managed Instance comes built in with many PaaS like capabilities. One such capability is the ability to restore a database to a point-in-time, within the pre-configured retention settings. This article describes how to do a point-in-time restore of a database in Azure Arc-enabled SQL managed instance.
 
@@ -124,5 +123,3 @@ The backups are stored under ```/var/opt/mssql/backups/archived/<dbname>/<dateti
 ### Clean up 
 
 If you need to delete older backups either to create space or no longer need them, any of the folders under ```/var/opt/mssql/backups/archived/``` folder can be removed. Removing folders in the middle of a timeline could impact the ability to restore to a point in time during that window. It is recommended to delete the oldest folders first allowing for a continuous timeline of restorability. 
-
-

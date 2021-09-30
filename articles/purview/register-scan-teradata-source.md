@@ -1,12 +1,12 @@
 ---
-title: Register a Teradata source and setup scans in Azure Purview
+title: Register a Teradata source and setup scans
 description: This article outlines how to register a Teradata source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
+ms.date: 09/27/2021
 ---
 # Register and scan Teradata source
 
@@ -53,7 +53,7 @@ To register a new Teradata source in your data catalog, do the
 following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **Teradata**. Select **Continue**
 
@@ -78,9 +78,9 @@ On the **Register sources (Teradata)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to setup a self-hosted integration runtime
+1.  In the Management Center, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to setup a self-hosted integration runtime
 
-2.  Select the **Data Map** tab on the left pane in the Purview Studio.
+2.  Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 3.  Select the registered Teradata source.
 
@@ -129,12 +129,12 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="setup scan" border="true":::
 
-6.  Click on **Continue**.
+6.  Select **Continue**.
 
 7.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-8.  Review your scan and click on **Save and Run**.
+8.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

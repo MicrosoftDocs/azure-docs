@@ -54,7 +54,6 @@ If your cluster is located in a region listed in this table, you only need to ad
 | Australia | Australia East | HDInsight.AustraliaEast |
 | &nbsp; | Australia Southeast | HDInsight.AustraliaSoutheast |
 | &nbsp; | Australia Central | HDInsight.AustraliaCentral |
-| &nbsp; | Australia Central2 | HDInsight.AustraliaCentral2 |
 | Brazil | Brazil South | HDInsight.BrazilSouth |
 | &nbsp; | Brazil Southeast | HDInsight.BrazilSoutheast |
 | China | China East 2 | HDInsight.ChinaEast2 |
@@ -71,7 +70,6 @@ If your cluster is located in a region listed in this table, you only need to ad
 | France | France Central| HDInsight.FranceCentral |
 | Germany | Germany West Central| HDInsight.GermanyWestCentral |
 | Norway | Norway East | HDInsight.NorwayEast |
-| &nbsp; | Norway West | HDInsight.NorwayWest |
 | Switzerland | Switzerland North | HDInsight.SwitzerlandNorth |
 | &nbsp; | Switzerland West | HDInsight.SwitzerlandWest |
 | UK | UK South | HDInsight.UKSouth |

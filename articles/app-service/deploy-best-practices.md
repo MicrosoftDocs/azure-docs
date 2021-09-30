@@ -123,7 +123,7 @@ In your script, log in using `az login --service-principal`, providing the princ
 
 ### Java
 
-Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-war-file) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [this article](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
+Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-warjarear-packages) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [this article](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### Node
 
@@ -153,3 +153,7 @@ For more information on best practices, visit [App Service Diagnostics](./overvi
 - Click **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
 
 You can also use this link to directly open App Service Diagnostics for your resource: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+
+## More resources
+
+[Environment variables and app settings reference](reference-app-settings.md)

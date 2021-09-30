@@ -104,8 +104,10 @@
           href: database/authentication-aad-service-principal.md
         - name: Directory Readers role
           href: database/authentication-aad-directory-readers-role.md
-        - name: Azure AD-only Authentication
+        - name: Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication.md
+        - name: Azure Policy for Azure AD-only authentication
+          href: database/authentication-azure-ad-only-authentication-policy.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -158,8 +160,6 @@
 
   - name: Shared how-to's
     items:
-    - name: Request quota increases
-      href: database/quota-increase-request.md
     - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
@@ -201,6 +201,8 @@
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-tutorial.md
+        - name: Enforce Azure AD-only authentication using Azure Policy
+          href: database/authentication-azure-ad-only-authentication-policy-how-to.md
         - name: Create server with Azure AD-only authentication enabled
           href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK
@@ -503,6 +505,8 @@
           href: database/private-endpoint-overview.md
         - name: VNet endpoints
           href: database/vnet-service-endpoint-rule-overview.md
+        - name: Server roles
+          href: database/security-server-roles.md
 
     - name: Database sharding
       items:
@@ -779,6 +783,8 @@
       href: database/arm-templates-content-guide.md?tabs=single-database
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
+    - name: Azure Resource Graph queries
+      href: database/resource-graph-samples.md
 
 - name: SQL Managed Instance (SQL MI)
   items:
@@ -1114,8 +1120,8 @@
     
     - name: Migrate
       items: 
-      - name: Migrate to SQL Managed Instance
-        href: managed-instance/migrate-to-instance-from-sql-server.md
+      - name: Migrate SQL Server to Azure SQL Managed Instance Guide
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Migrate database using Log Replay Service
         href: managed-instance/log-replay-service-migrate.md
       - name: Migrate TDE cert 
@@ -1235,16 +1241,15 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Install SQL IaaS Agent extension
+        - name: SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration
             href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
-          - name: Single VM
+          - name: Register single VM
             href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
-
       - name: Migrate
         items:
         - name: SQL Server database to VM
@@ -1479,6 +1484,8 @@
     href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Troubleshoot
     items:
+    - name: Capacity errors during deployment
+      href: capacity-errors-troubleshoot.md
     - name: Connectivity errors
       href: database/troubleshoot-common-errors-issues.md
     - name: Common connection issues
@@ -1487,6 +1494,8 @@
       href: database/database-import-export-hang.md
     - name: Transaction log errors
       href: database/troubleshoot-transaction-log-errors-issues.md
+    - name: Request quota increases
+      href: database/quota-increase-request.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring

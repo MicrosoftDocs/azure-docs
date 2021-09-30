@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: nmurav
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Pricing Scenarios
@@ -72,10 +72,6 @@ Alice makes an outbound call from an Azure Communication Services app to a telep
 - 1 participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
 
 **Total cost for the call**: $0.04 + $0.04 = $0.08
-
-> [!Note]
-> Azure Communication Services direct routing leg is not charged until 08/01/2021.
-
 
 ### Pricing example: Group audio call using JS SDK and one PSTN leg
 

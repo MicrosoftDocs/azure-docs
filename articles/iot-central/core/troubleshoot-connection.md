@@ -49,7 +49,7 @@ Use the following commands to sign in the subscription where you have your IoT C
 
 ```azurecli
 az login
-az set account --subscription <your-subscription-id>
+az account set --subscription <your-subscription-id>
 ```
 
 To monitor the telemetry your device is sending, use the following command:

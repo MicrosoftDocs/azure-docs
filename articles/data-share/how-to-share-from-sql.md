@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 09/10/2021
 ---
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
 
@@ -253,6 +253,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    To open invitation from email, check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Click on **View invitation** to see your invitation in Azure. 
 
    To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
+
+   If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it is valid for 12 months.
 
    ![List of Invitations](./media/invitations.png "List of invitations") 
 

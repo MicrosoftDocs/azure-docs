@@ -12,6 +12,7 @@ ms.date: 10/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
+ms.reviewer: miccohen
 ---
 
 # Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access

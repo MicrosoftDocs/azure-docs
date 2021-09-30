@@ -203,7 +203,7 @@ Create a container registry by following the instructions in [Quickstart: Create
 
     ![sign in to Azure](./media/quickstart-docker/sign-in.png)
 
-1. In the [Status Bar](https://code.visualstudio.com/docs/getstarted/userinterface) at the bottom, verify that your Azure account email address. In the **APP SERVICE** explorer, your subscription should be displayed.
+1. In the [Status Bar](https://code.visualstudio.com/docs/getstarted/userinterface) at the bottom, verify your Azure account email address. In the **APP SERVICE** explorer, your subscription should be displayed.
 
 1. In the Activity Bar, select the **Docker** logo. In the **REGISTRIES** explorer, verify that the container registry you created appears.
 
@@ -286,7 +286,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 
 3. In the image tag box, specify the tag you want in the following format: `<acr-name>.azurecr.io/<image-name>/<tag>`, where `<acr-name>` is the name of the container registry you created. Press **Enter**.
 
-4. When the image finishes building, click **Refresh** at the top of the **IMAGES** explorer and verify the image is built successfully.
+4. When the image finishes building, click **Refresh** at the top of the **IMAGES** explorer and verify that the image is built successfully.
 
     ![Screenshot shows the built image with tag.](./media/quickstart-docker/built-image.png)
 
@@ -295,7 +295,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 1. In the Activity Bar, click the **Docker** icon. In the **IMAGES** explorer, find the image you just built.
 1. Expand the image, right-click on the tag you want, and click **Push**.
 1. Make sure the image tag begins with `<acr-name>.azurecr.io` and press **Enter**.
-1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify the image is pushed successfully.
+1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify that the image is pushed successfully.
 
     ![Screenshot shows the image deployed to Azure container registry.](./media/quickstart-docker/image-in-registry.png)
 
@@ -308,7 +308,7 @@ After deployment, your app is available at `http://<app-name>.azurewebsites.net`
 
 A **Resource Group** is a named collection of all your application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
 
-An **App Service Plan** defines the physical resources that will be used to host your website. This quickstart uses a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. If you start with the **Basic** plan, you can use the Azure portal to scale up so that yours is the only site running on a machine.
+An **App Service Plan** defines the physical resources that will be used to host your website. This quickstart uses a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. If you start with the **Basic** plan, you can use the Azure portal to scale up so that yours is the only site running on a machine. For pricing, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux).
 
 ## Browse the website
 

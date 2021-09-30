@@ -47,6 +47,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
     
     ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
+    > [!NOTE]
+    > You can change the preset configuration when creating your cluster by selecting *View all preset configurations* and choosing a different option.
+    > ![Create AKS cluster - portal preset options](media/kubernetes-walkthrough-portal/cluster-preset-options.png)
+
 4. Select **Next: Node pools** when complete.
 
 5. Keep the default **Node pools** options. At the bottom of the screen, click **Next: Authentication**.
@@ -141,7 +145,7 @@ Two Kubernetes Services are also created:
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -184,7 +188,7 @@ Two Kubernetes Services are also created:
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1

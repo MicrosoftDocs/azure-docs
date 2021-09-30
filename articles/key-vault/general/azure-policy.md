@@ -54,7 +54,7 @@ This policy allows you to manage the lifetime action specified for certificates 
 
 ### Certificates should be issued by the specified integrated certificate authority (preview)
 
-If you use a Key Vault integrated certificate authority (Digicert or GlobalSign) and you want users to use one or either of these providers, you can use this policy to audit or enforce your selection. This policy can also be used to audit or deny the creation of self-signed certificates in key vault.
+If you use a Key Vault integrated certificate authority (Digicert or GlobalSign) and you want users to use one or either of these providers, you can use this policy to audit or enforce your selection. This policy will evaluate the CA selected in the issuance policy of the cert and the CA provider defined in the key vault. This policy can also be used to audit or deny the creation of self-signed certificates in key vault.
 
 ### Certificates should be issued by the specified non-integrated certificate authority (preview)
 

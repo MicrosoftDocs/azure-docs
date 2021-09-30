@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -16,13 +16,12 @@ ms.topic: how-to
 > [!IMPORTANT] 
 >  There is no cost to use Azure Arc-enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **Microsoft.AzureArcData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Connectivity Modes - Implications for billing data
 
 In the future, there will be two modes in which you can run your Azure Arc-enabled data services:
 
-- **Indirectly connected** - There is no direct connection to Azure. Data is sent to Azure only through an export/upload process. All Azure Arc data services deployments work in this mode today in preview.
+- **Indirectly connected** - There is no direct connection to Azure. Data is sent to Azure only through an export/upload process.
 - **Directly connected** - In this mode there will be a dependency on the Azure Arc-enabled Kubernetes service to provide a direct connection between Azure and the Kubernetes cluster on which the Azure Arc-enabled data services are running. This will enable more capabilities and will also enable you to use the Azure portal and the Azure CLI to manage your Azure Arc-enabled data services just like you manage your data services in Azure PaaS.  This connectivity mode is not yet available in preview, but will be coming soon.
 
 You can read more about the difference between the [connectivity modes](./connectivity.md).
@@ -42,7 +41,7 @@ To upload billing data to Azure, the following should happen first:
 Run the following command to export out the billing data:
 
 ```azurecli
-az arcdata dc export -t usage -p usage.json
+az arcdata dc export -t usage -p usage.json --k8s-namespace <namespace> --use-k8s
 ```
 
 For now, the file is not encrypted so that you can see the contents. Feel free to open in a text editor and see what the contents look like.

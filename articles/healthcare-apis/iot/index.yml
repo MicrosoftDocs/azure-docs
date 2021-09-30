@@ -1,0 +1,46 @@
+### YamlMime:Landing
+
+title: IoT Connector
+summary: IoT Connector documentation page for Azure Healthcare APIs (preview). 
+
+metadata:
+  title: Azure Healthcare APIs IoT Connector
+  description: Data Transformation documentation section for Azure Healthcare APIs
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: data-transformation
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: ginalee-dotcom
+  ms.author: ginle
+  ms.date: 06/01/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: Deploy IoT Connector
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Deploy IoT Connector Using Portal
+            url: deploy-iot-connector-in-azure.md
+            
+  - title: Using IoT Connector
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: IoT Connector Data Flow
+            url: iot-data-flow.md
+          - text: FHIR mapping templates
+            url: how-to-use-fhir-mapping-iot.md
+          - text: Device mapping templates
+            url: how-to-use-device-mapping-iot.md
+            
+  - title: Azure IoT Hub
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Receive device data through Azure IoT Hub
+            url: device-data-through-iot-hub.md 
+    

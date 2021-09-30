@@ -133,26 +133,14 @@ To provision your device, you need to gather information from your TPM chip and 
 
 First, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. Then, you need to provide a **Registration ID** for your device. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 
-IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this information from your TPM. To use the script, follow these steps on your device:
+IoT Edge for Linux on Windows provides a PowerShell fucntion to help retrieve this information from your TPM. To use the script, follow these steps on your device:
 
 1. Open PowerShell in an elevated session.
-
-1. Clone the [iotedge-eflow](https://github.com/Azure/iotedge-eflow) repository.
-
-   ```powershell
-   git clone https://github.com/Azure/iotedge-eflow.git
-   ```
-
-1. Import the downloaded module.
-
-   ```powershell
-   Import-Module <path>\iotedge-eflow\samples\scripts\EflowTpmProvisioningInfo.ps1
-   ```
 
 1. Run the command.
 
    ```powershell
-   Get-EflowVmTpmProvisioningInformation
+   Get-EflowVmTpmProvisioningInfo
    ```
 
 ### Simulate a TPM (optional)
@@ -166,13 +154,8 @@ IoT Hub Device Provisioning Service provides samples that simulate a TPM and ret
 1. Keep the window hosting the simulated TPM running until you're completely finished testing this scenario.
 1. Return to this article to create a DPS enrollment and configure your device.
 
-Simulated TPM samples:
+To learn how to create an individual enrollment for a simulated TPM device, see the [Provision a simulated TPM device quickstart guide](../iot-dps/quick-create-simulated-device-tpm.md).
 
-* [C](../iot-dps/quick-create-simulated-device.md)
-* [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
-* [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
-* [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 ## Create a device enrollment entry
 

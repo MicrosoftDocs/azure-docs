@@ -59,6 +59,9 @@ The following chart shows how requests are handled locally.
 - **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Used for debugging the API application, but not required for the CLI.
 
+> [!NOTE]
+> In order to run `swa` with an [API locally](add-api.md#run-the-frontend-and-api-locally), the Azure Functions Core Tools are required.
+
 ## Get started
 
 Open a terminal to the root folder of your existing Azure Static Web Apps site.

@@ -96,10 +96,14 @@
     href: howto-conditional-access-session-lifetime.md
   - name: Troubleshooting
     items:
+    - name: Troubleshoot policy changes
+      href: troubleshoot-policy-changes-audit-log.md
     - name: Troubleshoot sign-in problems
       href: troubleshoot-conditional-access.md
     - name: Troubleshoot using the What If tool 
       href: troubleshoot-conditional-access-what-if.md
+    - name: Troubleshoot continuous access evaluation
+      href: howto-continuous-access-evaluation-troubleshoot.md
     - name: FAQ
       href: faqs.md
   - name: Migrate classic policies

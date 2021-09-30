@@ -71,7 +71,7 @@ To configure the DNS suffix, follow these steps:
 
 ## Edit a host file
 
-Since there is no active directory, there is no way to authenticate windows connections. As such, assign trust by editing the host file with a text editor. 
+Since there is no active directory, there is no way to authenticate Windows connections. As such, assign trust by editing the host file with a text editor. 
 
 To edit the host file, follow these steps:
 

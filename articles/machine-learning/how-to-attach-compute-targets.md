@@ -23,11 +23,10 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Apache Spark pools (powered by Azure Synapse Analytics)
 * Azure HDInsight
 * Azure Batch
-* Azure Databricks
+* Azure Databricks - used as a training compute target only in [machine learning pipelines](how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
 * Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
-
 
 To use compute targets managed by Azure Machine Learning, see:
 

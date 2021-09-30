@@ -15,7 +15,7 @@ You can send an email from a runbook with [SendGrid](https://sendgrid.com/soluti
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can  [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [A SendGrid account](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account).
+* [A SendGrid account](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account).
 * Sender Verification has been configured in Send Grid. Either [Domain or Single Sender](https://sendgrid.com/docs/for-developers/sending-email/sender-identity/) 
 * [Automation account](./index.yml) with **Az** modules.
 * [Run As account](./automation-security-overview.md#run-as-accounts) to store and execute the runbook.
@@ -25,7 +25,7 @@ You can send an email from a runbook with [SendGrid](https://sendgrid.com/soluti
 You can create an Azure Key Vault using the following PowerShell script. Replace the variable values with values specific to your environment. Use the embedded Azure Cloud Shell via the **Try It** button, located in the top-right corner of the code block. You can also copy and run the code locally if you have the [Az modules](/powershell/azure/install-az-ps) installed on your local machine. This script also creates a [Key Vault access policy](../key-vault/general/assign-access-policy-portal.md) that allows the Run As account to get and set key vault secrets in the specified key vault.
 
 > [!NOTE]
-> To retrieve your API key, use the steps in [Find your SendGrid API key](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key).
+> To retrieve your API key, use the steps in [Find your SendGrid API key](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key).
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
