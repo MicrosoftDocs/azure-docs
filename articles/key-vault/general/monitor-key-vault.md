@@ -10,6 +10,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
+ms.custom: subject-monitoring
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ---
 

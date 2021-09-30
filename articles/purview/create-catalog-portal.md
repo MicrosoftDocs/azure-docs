@@ -1,9 +1,9 @@
 ---
-title: 'Quickstart: Create an Azure Purview account in the Azure portal'
+title: 'Quickstart: Create a Purview account in the Azure portal'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 09/10/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
 ms.custom:
@@ -13,9 +13,6 @@ ms.custom:
 # Quickstart: Create an Azure Purview account in the Azure portal
 
 This quickstart describes the steps to create an Azure Purview account in the Azure portal and get started on the process of classifying, securing, and discovering your data in Purview!
-
-> [!IMPORTANT]
-> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
@@ -27,7 +24,7 @@ For more information about Purview, [see our overview page](overview.md). For mo
 
 1. Go to the **Purview accounts** page in the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure Portal":::
+    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure portal":::
 
 1. Select **Create** to create a new Azure Purview account.
 
