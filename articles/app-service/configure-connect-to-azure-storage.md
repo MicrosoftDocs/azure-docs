@@ -56,7 +56,7 @@ The following features are supported for Linux containers:
 
 ::: zone pivot="container-windows"
 
-- [An existing Windows Container app in Azure App Service](quickstart-custom-container.md)
+- [An existing App Service Container or An existing Linux Docker Container on Azure App Service](quickstart-custom-container.md)
 - [Create Azure file share](../storage/files/storage-how-to-use-files-cli.md)
 - [Upload files to Azure File share](../storage/files/storage-how-to-create-file-share.md)
 
