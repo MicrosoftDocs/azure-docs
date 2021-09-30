@@ -53,7 +53,7 @@ You first need to set up a compute target to use for your automated ML model tra
 
 This tutorial uses the NCsv3-series (with v100 GPUs) as this type of compute target leverages multiple GPUs to speed up training. Additionally, you can set up multiple nodes to take advantage of parallelism when tuning hyperparameters for your model.
 
-The following creates a GPU compute of size Standard _NC6 with four nodes that is attached to the workspace, `ws`. 
+The following code creates a GPU compute of size Standard _NC6 with four nodes that are attached to the workspace, `ws`. 
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -98,8 +98,7 @@ ds.upload(src_dir='./odFridgeObjects', target_path='odFridgeObjects')
 
 Once uploaded to the datastore, you can create an Azure Machine Learning dataset from the data. Datasets package your data into a consumable object for training. 
 
-The following code creates a dataset for training 
-Since no validation dataset is specified, by default 20% of your training data is used for validation. 
+The following code creates a dataset for training. Since no validation dataset is specified, by default 20% of your training data is used for validation. 
 
 ``` python
 from azureml.contrib.dataset.labeled_dataset import _LabeledDatasetFactory, LabeledDatasetTask
@@ -118,21 +117,21 @@ else:
 print("Training dataset name: " + training_dataset.name)
 ```
 
-## Configuring your AutoML run for image tasks
+## Configure your object detection experiment
 
-To configure AutoML runs for image related tasks, use the `AutoMLImageConfig` object. In your `AutoMLImageConfig`, you can specify the model algorithms with the `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined parameter space to find the optimal model.
+To configure automated ML runs for image-related tasks, use the `AutoMLImageConfig` object. In your `AutoMLImageConfig`, you can specify the model algorithms with the `model_name` parameter and configure the settings to perform a hyperparameter sweep over a defined parameter space to find the optimal model.
 
-In this example, we use the `AutoMLImageConfig` to train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over 200K labeled images with over 80 label cateogories. 
+In this example, we use the `AutoMLImageConfig` to train an object detection model with `yolov5` and `fasterrcnn_resnet50_fpn`, both of which are pretrained on COCO, a large-scale object detection, segmentation, and captioning dataset that contains over thousands of labeled images with over 80 label categories. 
 
-### Hyperparameter sweeping for your AutoML models for image tasks
+### Hyperparameter sweeping for image tasks
 
-When using AutoML for image tasks, you can perform a hyperparameter sweep over a defined parameter space to find the optimal model. 
+You can perform a hyperparameter sweep over a defined parameter space to find the optimal model. 
 
-The following code, defines the parameter space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the parameter space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc, for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
+The following code, defines the parameter space in preparation for the hyperparameter sweep for each defined algorithm, `yolov5` and `fasterrcnn_resnet50_fpn`.  In the parameter space, specify the range of values for `learning_rate`, `optimizer`, `lr_scheduler`, etc., for AutoML to choose from as it attempts to generate a model with the optimal primary metric. If hyperparameter values are not specified, then default values are used for each algorithm.
 
-For the tuning settings, use random sampling to pick samples from this parameter space by importing the `GridParameterSampling, RandomParameterSampling` and `BayesianParameterSampling` classes.  Doing so, tells automated ML to try a total of 20 iterations with these different samples, running 4 iterations at a time on our compute target, which was set up using 4 nodes. The more parameters the space has, the more iterations you need to find optimal models.
+For the tuning settings, use random sampling to pick samples from this parameter space by importing the `GridParameterSampling, RandomParameterSampling` and `BayesianParameterSampling` classes.  Doing so, tells automated ML to try a total of 20 iterations with these different samples, running four iterations at a time on our compute target, which was set up using four nodes. The more parameters the space has, the more iterations you need to find optimal models.
 
-The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration which significantly saves compute resources.
+The Bandit early termination policy is also used. This policy terminates poor performing configurations; that is, those configurations that are not within 20% slack of the best performing configuration, which significantly saves compute resources.
 
 ```python 
 from azureml.train.hyperdrive import GridParameterSampling, RandomParameterSampling, BayesianParameterSampling
@@ -165,7 +164,7 @@ tuning_settings = {
 }
 ```
 
-Once the parameter space and tuning settings are defined, you can pass them into your AutoMLImageConfig object and then submit the experiment to train an image model using your training dataset. 
+Once the parameter space and tuning settings are defined, you can pass them into your `AutoMLImageConfig` object and then submit the experiment to train an image model using your training dataset. 
 
 ```python
 from azureml.train.automl import AutoMLImageConfig
@@ -200,11 +199,11 @@ model = best_child_run.register_model(model_name = model_name, model_path='outpu
 
 ## Deploy model as a web service
 
-Once you have your trained model, you can deploy the model on Azure. You can deploy your trained model as a web service on Azure Container Instances (ACI) or Azure Kubernetes Service (AKS). ACI is the perfect option for testing deployments, while AKS is better suited for for high-scale, production usage.
+Once you have your trained model, you can deploy the model on Azure. You can deploy your trained model as a web service on Azure Container Instances (ACI) or Azure Kubernetes Service (AKS). ACI is the perfect option for testing deployments, while AKS is better suited for high-scale, production usage.
 
 In this tutorial, we deploy the model as a web service in AKS.
 
-1. Create an AKS compute cluster. In this example a GPU virtual machine SKU is used for the deployment cluster
+1. Create an AKS compute cluster. In this example, a GPU virtual machine SKU is used for the deployment cluster
 
     ```python
     from azureml.core.compute import ComputeTarget, AksCompute
@@ -269,7 +268,7 @@ In this tutorial, we deploy the model as a web service in AKS.
 
 ## Test the web service
 
-You can test the deployed web service to predict new images. For this tutorial, pass a random image from the dataset and pass it to te scoring URI.
+You can test the deployed web service to predict new images. For this tutorial, pass a random image from the dataset and pass it to the scoring URI.
 
 ```python
 import requests
@@ -296,7 +295,7 @@ resp = requests.post(scoring_uri, data, headers=headers)
 print(resp.text)
 ```
 ## Visualize detections
-Now that you have scored a test image, you can visualize the bounding boxes for this image. To do this, be sure you have matplotlib installed. 
+Now that you have scored a test image, you can visualize the bounding boxes for this image. To do so, be sure you have matplotlib installed. 
 
 ```
 %pip install --upgrade matplotlib
