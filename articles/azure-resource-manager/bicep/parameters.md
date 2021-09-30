@@ -4,7 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 09/30/2021
 ---
 
 # Parameters in Bicep
@@ -49,9 +49,20 @@ You can use another parameter value to build a default value. The following temp
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
-## Secure parameters
+## Decorators
 
-Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration.
+Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. You can mark a parameter as secure, specify allowed values, set the minimum and maximum length for a string, set the minimum and maximum value for an integer, and provide a description of the parameter. The following sections show how to use these decorators.
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
+
+## Secure parameters
 
 You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
 
