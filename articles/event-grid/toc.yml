@@ -252,7 +252,7 @@
       href: auth0-how-to.md
   - name: Get access keys for topics or domains
     href: get-access-keys.md
-  - name: Post to custom topics using access keys
+  - name: Publish events custom topics using access keys
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
