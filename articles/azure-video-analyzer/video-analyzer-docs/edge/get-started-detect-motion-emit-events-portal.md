@@ -754,7 +754,7 @@ If you also created the pipeline called _mdpipeline2_, then you can't delete the
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "mdpipeline2"
 }
 ```
