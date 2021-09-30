@@ -36,7 +36,7 @@ Choose the dataset you wish to use for landing your transformed data once the Po
 
 ## Mapping
 
-In the Mapping tab, you can configure column mapping from the output of your Power Query activity to the target schema of your chosen sink. Read more about column mapping from the [data flow sink mapping documentation](data-flow-sink#field-mapping).
+In the Mapping tab, you can configure column mapping from the output of your Power Query activity to the target schema of your chosen sink. Read more about column mapping from the [data flow sink mapping documentation](data-flow-sink.md#field-mapping).
 
 ## Next steps
 
