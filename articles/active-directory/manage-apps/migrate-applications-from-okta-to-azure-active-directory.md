@@ -170,7 +170,7 @@ To complete the migration, repeat the following configuration steps for all appl
 
 1. In the [Azure AD portal](https://aad.portal.azure.com), select **Azure Active Directory** > **Enterprise applications**. Under **All applications**, select **New application**.
 
-2. Select **Create your own application**. In the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. Then select **Create**.
+2. Select **Create your own application**. On the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. Then select **Create**.
 
    :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png" alt-text="Screenshot that shows how to create an O I D C application." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png":::
 
@@ -214,7 +214,7 @@ To complete the migration, repeat the following configuration steps for all appl
 
     :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/configure-tokens.png" alt-text="Screenshot that shows how to configure tokens." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/configure-tokens.png":::
     
-    In the **Authentication** menu, under **Advanced settings** and **Allow public client flows**, if necessary, select **Yes**.
+    On the **Authentication** menu, under **Advanced settings** and **Allow public client flows**, if necessary, select **Yes**.
 
     ![Screenshot that shows how to allow public client flows.](media/migrate-applications-from-okta-to-azure-active-directory/allow-client-flows.png)
 
