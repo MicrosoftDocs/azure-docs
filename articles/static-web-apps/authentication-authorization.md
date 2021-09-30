@@ -107,7 +107,7 @@ As you remove a user, keep in mind the following items:
 
 Instead of using the built-in invitations system, you can use a custom function to programmatically assign roles to users when they log in.
 
-The role assignment function is an API function in your static web app. It is automatically called after a user successfully authenticates with an identity provider. The function is passed an object containing the user's information from the provider. It must return a list of custom roles that are assigned to the user.
+The role assignment function is an API function in your static web app. It is automatically called each time after a user successfully authenticates with an identity provider. The function is passed an object containing the user's information from the provider. It must return a list of custom roles that are assigned to the user.
 
 Example uses of the role assignment function include:
 
@@ -122,7 +122,7 @@ Example uses of the role assignment function include:
 
 ### Create a role assignment function
 
-Define a role assignment function by creating an [API function](apis.md) to a managed function app or a bring your own function app.
+Define a role assignment function by creating an [API function](apis.md) in your static web app. You can use a managed function app or a bring your own function app.
 
 Each time a user successfully authenticates with an identity provider, the role assignment function is called. The function is passed a JSON object in the request body that contains the user's information from the provider. This is an example payload from Azure Active Directory:
 
@@ -186,16 +186,16 @@ To assign the user to the `Reader` and `Contributor` roles, return the following
 }
 ```
 
-If you do not want to assign additional roles, return an empty `roles` array.
+If you do not want to assign any additional roles to the user, return an empty `roles` array.
 
 ### Configure a role assignment function
 
-To configure Static Web Apps to use an API function as the role assignment function, add a `rolesSource` property to the `auth` section of your app's [configuration file](configuration.md). The value of the `rolesSource` is the path to the API function.
+To configure Static Web Apps to use an API function as the role assignment function, add a `rolesSource` property to the `auth` section of your app's [configuration file](configuration.md). The value of the `rolesSource` property is the path to the API function.
 
 ```json
 {
   "auth": {
-    "rolesSource": "/api/roles",
+    "rolesSource": "/api/GetRoles",
     "identityProviders": {
       // ...
     }
@@ -203,7 +203,8 @@ To configure Static Web Apps to use an API function as the role assignment funct
 }
 ```
 
-Once configured, the role assignment function can no longer be accessed by external HTTP requests.
+> [!NOTE]
+> Once configured, the role assignment function can no longer be accessed by external HTTP requests.
 
 To learn more, see [Tutorial: Assign custom roles with a function and Microsoft Graph](assign-roles-microsoft-graph.md).
 
