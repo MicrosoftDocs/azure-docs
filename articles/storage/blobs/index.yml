@@ -172,6 +172,6 @@ landingContent:
       - linkListType: concept
         links:
           - text: Hot, cool, and archive storage
-            url: storage-blob-storage-tiers.md
+            url: access-tiers-overview.md
           - text: Manage the Blob storage lifecycle
             url: storage-lifecycle-management-concepts.md

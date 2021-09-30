@@ -52,10 +52,6 @@ ms.reviewer: laobri
 
 The `az ml environment` command can be used for managing Azure Machine Learning environments.
 
-## Examples
-
-[TODO]
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/environment.schema.json. The schema is provided below in JSON and YAML formats for convenience.

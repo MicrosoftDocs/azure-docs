@@ -31,10 +31,6 @@ ms.reviewer: laobri
 
 The `az ml compute` command can be used for managing Virtual Machines (VM) attached to an Azure Machine Learning workspace.
 
-<!-- ## Examples
-
-[TODO] -->
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/vmCompute.schema.json. The schema is provided below in JSON and YAML formats for convenience.

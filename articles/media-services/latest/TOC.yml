@@ -219,6 +219,9 @@
     - name: Content-aware encoding 
       href: encode-content-aware-concept.md
       displayName: Content aware encoding, encode, transcode, ABR, adaptive bitrate, resolution, HLS, DASH, Smooth, per title encoding, per title, per scene encoding, scene based, QVBR, Quality Defined Variable Bitrate, Quality-Defined
+    - name: Preset overrides
+      href: encode-concept-preset-overrides.md
+      displayName: preset, override, transform, job, per-job, language, encode, transcode, custom, per job, encoding settings, customize, job output, output
     - name: Media reserved units (legacy)
       href: concept-media-reserved-units.md
       displayName: MRU, reserved units, scaling, scale, encoding, media reserved units      

@@ -39,10 +39,6 @@ ms.reviewer: laobri
 
 The `az ml dataset` commands can be used for managing Azure Machine Learning datasets.
 
-## Examples
-
-[TODO]
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/dataset.schema.json. The schema is provided below in JSON and YAML formats for convenience.

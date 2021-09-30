@@ -112,7 +112,7 @@ The staged rollout feature have some unsupported scenarios, they are as follows:
 
 - Legacy authentication such as POP3 and SMTP aren't supported.
 
-- If you have configured hybrid Azure AD join for use with Okta, all of the hybrid Azure AD join flows will still go to Okta until the domain has been de-federated. A sign-on policy should remain in Okta that allows Legacy authentication for Hybrid Azure AD join windows clients.
+- If you have configured hybrid Azure AD join for use with Okta, all of the hybrid Azure AD join flows will still go to Okta until the domain has been de-federated. A sign-on policy should remain in Okta that allows Legacy authentication for Hybrid Azure AD joined Windows clients.
 
 ## Step 3 - Create Okta app in Azure AD
 

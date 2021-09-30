@@ -4,7 +4,7 @@ description: Learn how to use App Service authentication and authorization to se
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 09/23/2021
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
@@ -305,18 +305,30 @@ The front-end app now has the required permissions to access the back-end app as
 1. In the **authsettingsV2** view, click **Edit**. Drill down to `properties.identityProviders.azureActiveDirectory.login` and add `loginParameters` with the following JSON string, using the client ID you copied. 
 
     ```json
-    "loginParameters": ["response_type=code id_token","scope=openid api://<back-end-client-id>/user_impersonation"],
+    "loginParameters": ["response_type=code id_token","scope=openid offline_access api://<back-end-client-id>/user_impersonation"],
     ```
 
     :::image type="content" source="./media/tutorial-auth-aad/add-loginparameters.png" alt-text="Screenshot of a code example in the authsettingsV2 view showing the loginParameters string with an example of a client ID.":::
 
     > [!TIP]
-    > The scope `api://<back-end-client-id>/user_impersonation` is added by default to the app registration for the back-end app. To view it in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu.
+    > The scope `api://<back-end-client-id>/user_impersonation` is added by default to the app registration for the back-end app. To view it in the Azure portal, go to the **Authentication** page for the back-end app, click the link under **Identity provider**, then click **Expose an API** in the left menu. For information about the other scopes, see [openid](../active-directory/develop/v2-permissions-and-consent.md#openid) and [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access).
     >
-    > Note that the scope requires admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the front-end app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
+    > Note that the scopes require admin or user consent. This requirement causes the consent request page to be displayed when a user signs into the front-end app in the browser. To avoid this consent page, add the front end's app registration as an authorized client application in the **Expose an API** page by clicking **Add a client application** and supplying the client ID of the front end's app registration.
 
 1. Save your settings by clicking **PUT**.
 
+    ::: zone pivot="platform-linux"
+    
+    > [!NOTE]
+    > For Linux apps, There's a temporary requirement to configure a versioning setting for the back-end app registration. In the Cloud Shell, configure it with the following commands. Be sure to replace *\<back-end-client-id>* with your back end's client ID.
+    >
+    > ```azurecli-interactive
+    > id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+    > az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
+    > ```    
+
+    ::: zone-end
+    
     Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
 For information on how to configure the access token for other providers, see [Refresh identity provider tokens](configure-authentication-oauth-tokens.md#refresh-auth-tokens).

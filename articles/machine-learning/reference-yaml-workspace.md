@@ -43,10 +43,6 @@ ms.reviewer: laobri
 
 The `az ml workspace` command can be used for managing Azure Machine Learning workspaces.
 
-## Examples
-
-[TODO]
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/workspace.schema.json. The schema is provided below in JSON and YAML formats for convenience.

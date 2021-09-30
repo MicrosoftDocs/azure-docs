@@ -17,13 +17,54 @@ ms.reviewer: laobri
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
+## YAML syntax
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
+| `type` | const | **Required.** The type of job. | `pipeline` | |
+| `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate the name. | | |
+| `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, will default to the same value as `name`. | | |
+| `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
+| `description` | string | Description of the job. | | |
+| `tags` | object | Dictionary of tags for the job. | | |
+| `settings` | object | Default settings for the pipeline job. See [Attributes of the `settings` key](#attributes-of-the-settings-key) for the set of configurable properties. | | |
+| `jobs` | object | **Required.** Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. <br><br> The key is the name of the step within the context of the pipeline job. This name is different from the unique job name of the child job. The value is the job specification, which can follow the [command job schema](reference-yaml-job-command.md#yaml-syntax) or [component job schema](reference-yaml-job-component.md#yaml-syntax). Currently only command jobs and component jobs running command components can be run in a pipeline. Later releases will have support for other job types. | | |
+| `inputs` | object | Dictionary of inputs to the pipeline job. The key is a name for the input within the context of the job and the value is the input value. <br><br> These pipeline inputs can be referenced by the inputs of an individual step job in the pipeline using the `${{ inputs.<input_name> }}` expression. | | |
+| `inputs.<input_name>` | number, integer, boolean, string, or object | One of a literal value (of type number, integer, boolean, or string), [JobInputUri](#jobinputuri), or [JobInputDataset](#jobinputdataset). | | |
+| `outputs` | object | Dictionary of output configurations of the pipeline job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> These pipeline outputs can be referenced by the outputs of an individual step job in the pipeline using the `${{ outputs.<output_name> }}` expression. | |
+| `outputs.<output_name>` | object | You can either specify an optional `mode` or leave the object empty. For each named output specified in the `outputs` dictionary, Azure ML will autogenerate an output location based on the following templatized path: `{default-datastore}/azureml/{job-name}/{output-name}/`. Users will be allowed to provide a custom location in a later release. | |
+| `outputs.<output_name>.mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode, the output directory will be a mounted directory. For upload mode, the files written to the output directory will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
+| `compute` | string | Name of the default compute target to execute a step job on, if the individual step does not have compute specified. This value must be a reference to an existing compute in the workspace using the `azureml:<compute-name>` syntax. |
+
+### Attributes of the `settings` key
+
+| Key | Type | Description |
+| --- | ---- | ----------- |
+| `datastore` | string | Name of the datastore to use as the default datastore for the pipeline job. This value must be a reference to an existing datastore in the workspace using the `azureml:<datastore-name>` syntax. Any outputs defined in the `outputs` property of the parent pipeline job or child step jobs will be stored in this datastore. If omitted, outputs will be stored in the workspace blob datastore. |
+| `environment` | string or object | Name of the default environment to use for a step job, if the individual step does not have environment specified.  This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the name and version properties as they are not supported for inline environments. |
+| `code.local_path` | string | Local path to the source code directory to be uploaded and used as the default code directory for a step job, if the individual step does not have the code specified. |
+
+### Job inputs
+
+#### JobInputUri
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core YAML syntax](). **One of `file` or `folder` is required.**  | | |
+| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. For more information on how to use the `azureml` URI format, see [Core YAML syntax](). **One of `file` or `folder` is required.**   | | |
+| `mode` | string | Mode of how the data should be delivered to the compute target. For read-only mount and read-write mount, the data will be consumed as a mount path. For download mode, the data will be consumed as a downloaded path. | `ro_mount`, `rw_mount`, `download` | `ro_mount` |
+
+#### JobInputDataset
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `dataset` | string or object | **Required.** A dataset to use as input. This value can be either a reference to an existing versioned dataset in the workspace or an inline dataset specification. <br><br> To reference an existing dataset, use the `azureml:<dataset-name>:<dataset-version>` syntax. <br><br> To define a dataset inline, follow the [Dataset schema](reference-yaml-dataset.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline datasets. | | |
+| `mode` | string | Mode of how the dataset should be delivered to the compute target. For read-only mount, the dataset will be consumed as a mount path. For download mode, the dataset will be consumed as a downloaded path. | `ro_mount`, `download` | `ro_mount` |
+
 ## Remarks
 
-The `az ml job` command can be used for managing Azure Machine Learning jobs.
-
-## Examples
-
-[TODO]
+The `az ml job` commands can be used for managing Azure Machine Learning pipeline jobs.
 
 ## Schema
 

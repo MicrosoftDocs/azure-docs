@@ -169,6 +169,8 @@
             href: concept-open-source.md 
           - name: ML pipelines
             href: concept-ml-pipelines.md
+          - name: Components
+            href: concept-component.md
           - name: MLflow  
             href: concept-mlflow.md        
           - name: Responsible ML
@@ -247,7 +249,7 @@
               displayName: vnet, workspace, container instance, container registry
               href: how-to-secure-workspace-vnet.md
             - name: Secure training environment
-              displayName: vnet
+              displayName: vnet, No public IP
               href: how-to-secure-training-vnet.md
             - name: Secure inferencing environment
               displayName: vnet
@@ -278,7 +280,7 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: Audit and manage compliance
+        - name: Audit and manage
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: Workspaces & compute resources
@@ -299,7 +301,7 @@
           - name: Create & manage compute resources
             items: 
               - name: Compute instance
-                displayName: compute target
+                displayName: compute target, No public IP
                 href: how-to-create-manage-compute-instance.md
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
@@ -482,6 +484,9 @@
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
+        - name: Manage environments with the CLI (v2)
+          displayName: environment
+          href: how-to-manage-environments-v2.md
         - name: Interpret & explain models
           displayName: interpretability
           items: 
@@ -553,7 +558,7 @@
             - name: Debug managed online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
             - name: Troubleshoot managed online endpoints
-              href: how-to-troubleshoot-managed-online-endpoints.md
+              href: how-to-troubleshoot-online-endpoints.md
           - name: Batch
             items:
             - name: Batch scoring with batch endpoints
@@ -744,6 +749,8 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
+            - name: Component
+              href: reference-yaml-job-component.md
         - name: Datastore
           items:
             - name: Azure Blob

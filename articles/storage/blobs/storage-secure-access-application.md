@@ -16,14 +16,14 @@ ms.custom: "mvc, devx-track-csharp, devx-track-azurecli"
 
 # Secure access to application data
 
-This tutorial is part three of a series. You learn how to secure access to the storage account. 
+This tutorial is part three of a series. You learn how to secure access to the storage account.
 
 In part three of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Use SAS tokens to access thumbnail images
-> * Turn on server-side encryption
-> * Enable HTTPS-only transport
+> - Use SAS tokens to access thumbnail images
+> - Turn on server-side encryption
+> - Enable HTTPS-only transport
 
 [Azure blob storage](../common/storage-introduction.md#blob-storage) provides a robust service to store files for applications. This tutorial extends [the previous topic][previous-tutorial] to show how to secure access to your storage account from a web application. When you're finished the images are encrypted and the web app uses secure SAS tokens to access the thumbnail images.
 
@@ -51,7 +51,7 @@ Set-AzStorageAccount -ResourceGroupName "MyResourceGroup" -AccountName $blobStor
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
-    --account-name $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv)
 
 az storage container set-permission \
     --account-name $blobStorageAccount \
@@ -186,9 +186,9 @@ HTTP/1.1 400 The account being accessed does not support http.
 In part three of the series, you learned how to secure access to the storage account, such as how to:
 
 > [!div class="checklist"]
-> * Use SAS tokens to access thumbnail images
-> * Turn on server-side encryption
-> * Enable HTTPS-only transport
+> - Use SAS tokens to access thumbnail images
+> - Turn on server-side encryption
+> - Enable HTTPS-only transport
 
 Advance to part four of the series to learn how to monitor and troubleshoot a cloud storage application.
 

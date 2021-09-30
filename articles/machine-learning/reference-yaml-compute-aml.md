@@ -47,28 +47,6 @@ ms.reviewer: laobri
 
 The `az ml compute` commands can be used for managing Azure Machine Learning compute clusters (AmlCompute).
 
-## Examples
-
-### Minimal
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-minimal.yml":::
-
-### Basic
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-basic.yml":::
-
-### Low priority
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-low-priority.yml":::
-
-### Custom location
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-location.yml":::
-
-### SSH with password
-
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-ssh-password.yml":::
-
 ## Schema
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/amlCompute.schema.json. The schema is provided below in JSON and YAML formats for convenience.

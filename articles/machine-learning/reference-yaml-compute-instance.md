@@ -40,8 +40,6 @@ ms.reviewer: laobri
 
 The `az ml compute` command can be used for managing Azure Machine Learning compute instances.
 
-## Examples
-
 ### Minimal
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/instance-minimal.yml":::
