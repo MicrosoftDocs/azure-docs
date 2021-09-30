@@ -206,7 +206,7 @@ See the official [Azure Updates announcement](https://azure.microsoft.com/update
 
 ### Standard Encoder support for v2 API features
 
-In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 version of the encoding API.
+In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 (or later) version of the encoding API.
 
 - Multiple Input File stitching is now supported using the new **JobInputClip** support.
     - An example is available for .NET showing how to [stitch two assets together](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).
