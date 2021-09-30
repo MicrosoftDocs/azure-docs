@@ -72,36 +72,6 @@ It takes about 20 minutes to do these steps.
       <artifactId>azure-resourcemanager</artifactId>
       <version>2.8.0</version>
     </dependency>
-    <dependency>
-      <groupId>com.azure.resourcemanager</groupId>
-      <artifactId>azure-resourcemanager-appservice</artifactId>
-      <version>2.8.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.azure.resourcemanager</groupId>
-      <artifactId>azure-resourcemanager-network</artifactId>
-      <version>2.8.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.squareup.okio</groupId>
-      <artifactId>okio</artifactId>
-      <version>1.13.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.nimbusds</groupId>
-      <artifactId>nimbus-jose-jwt</artifactId>
-      <version>3.6</version>
-    </dependency>
-    <dependency>
-      <groupId>net.minidev</groupId>
-      <artifactId>json-smart</artifactId>
-      <version>1.0.6.3</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.mail</groupId>
-      <artifactId>mail</artifactId>
-      <version>1.4.5</version>
-    </dependency>
     ```
 
 3. Save the file.
