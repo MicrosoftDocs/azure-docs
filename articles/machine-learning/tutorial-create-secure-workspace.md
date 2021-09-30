@@ -171,6 +171,9 @@ To create a virtual network, use the following steps:
 
 1. Select __Review + Create__. Verify that the information is correct, and then select __Create__.
 
+> [!TIP]
+> If you plan to use [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) in your pipeline, it is also required to configure private endpoints target **queue** and **table** sub-resources. ParallelRunStep uses queue and table under the hood for task scheduling and dispatching.
+
 ## Create a key vault
 
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Key Vault__. Select the __Key Vault__ entry, and then select __Create__.
