@@ -1,7 +1,7 @@
 ---
-title: Image labeling
+title: Set up image labeling project
 titleSuffix: Azure Machine Learning
-description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task.
+description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task. 
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -14,6 +14,8 @@ ms.custom: data4ml
 # Create an image labeling project and export labels
 
 Learn how to create and run data labeling projects to label images in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
+
+Set up labels for classification, object detection (bounding box), or instance segmentation (polygon).
 
 You can also use the data labeling tool to [create a text labeling project](how-to-create-text-labeling-projects.md).
 
