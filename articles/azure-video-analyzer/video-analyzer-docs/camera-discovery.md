@@ -19,7 +19,7 @@ This how to guide walks you through how to use the Azure Video Analyzer edge mod
   - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](get-started-detect-motion-emit-events-portal.md)
 - Have the Video Analyzer edge module version 1.1 (or newer) deployed to your IoT Edge device.
 
-   * The ONVIF feature of the Video Analyzer edge module requires specific [container create options][#containercreateoptions]
+  - The ONVIF feature of the Video Analyzer edge module requires specific [container create options][#containercreateoptions]
   
 >[!NOTE]
 >If you have a new deployment of Video Analyzer account and/or a new deployment of the Video Analyzer edge module then you can skip to the section for [**Use direct method calls**][#Use direct method calls].  If not please follow the below sections to upgrade your existing Video Analyzer edge module to enable the ONVIF discovery feature.  
@@ -38,7 +38,7 @@ This how to guide walks you through how to use the Azure Video Analyzer edge mod
   1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
   1. Click on Set modules and click on review + create.
   1. Click on create.
-1. After a few moments the Video Analyzer edge module will update and you can run the above command again to verify.  
+  1. After a few moments the Video Analyzer edge module will update and you can run the above command again to verify.  
 
 ### Enable ONVIF discovery feature
 
@@ -47,22 +47,23 @@ If the Video Analyzer edge module was updated from 1.0 to 1.1 (or newer) it is n
 1. In the Azure portal navigate to the IoT Hub that is used with your Video Analyzer account deployment.
 1. Click on IoT Edge under Automatic Device Management and select the IoT Edge device that is configured to run the Video Analyzer edge module.
 1. Click on Set modules and select the Video Analyzer edge module.
-1. Select <a name= "containercreateoptions"></a>`Container Create Options` and add the following:
+2. Select `Container Create Options` and add the following:
 
-  ```JSON
-  { 
-    "NetworkingConfig": {  
-        "EndpointsConfig": {  
-           "host": {}  
-           }  
-      }, 
-     "HostConfig": { 
-         "NetworkMode": "host" 
-            } 
-   } 
-  ```
-1. Click on `Update` at the bottom and then click on `Review + create`.
-1. Click on `Create`.
+    ```JSON
+    { 
+        "NetworkingConfig": {  
+            "EndpointsConfig": {  
+            "host": {}  
+            }  
+        }, 
+        "HostConfig": { 
+            "NetworkMode": "host" 
+                } 
+    } 
+    ```
+
+3. Click on `Update` at the bottom and then click on `Review + create`.
+4. Click on `Create`.
 
 ## Use direct method calls
 
@@ -75,56 +76,57 @@ The following steps apply to both the `onvifDeviceDiscover` and the `onvifDevice
 
 ### onvifDeviceDiscover
 
-Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module. 
+Lists all the discoverable ONVIF devices on the same network as the Video Analyzer edge module.
 
 > [!NOTE]
 > The discover process only returns the discoverable devices in the same subnet as the IoT Edge device that is running the Video Analyzer edge module.
 
 1. In the method name enter:
 
-  ```
-  onvifDeviceDiscover
-  ```
+    ```
+    onvifDeviceDiscover
+    ```
+
 1. In the payload enter:
-   
-  ```JSON
-  {
-    "@apiVersion":"1.1",
-    "discoveryDuration":"PT10S"
-  }
-  ```
-  
-  > [!NOTE]
-  > The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value. 
 
-  Within a few seconds you see the following `Result`:
+    ```JSON
+    {
+        "@apiVersion":"1.1",
+        "discoveryDuration":"PT10S"
+    }
+    ```
+    
+    > [!NOTE]
+    > The discovery duration is the amount of time that the Video Analyzer edge module waits to receive responses from ONVIF discoverable devices.  It might be necessary in a large environment to adjust this value.
 
-  ```JSON
-   {
-      "status": 200,
-      "payload": {
-          "value": [
-              {
-                  "serviceIdentifier": "{urn:uuid}",
-                  "remoteIPAddress": "{IP_ADDRESS}",
-                  "transportAddresses": [
-                      "http://10.0.1.79/onvif/device_service",
-                      "https://10.0.1.79/onvif/device_service"
-                  ],
-                  "scopes": [
-                      "onvif://www.onvif.org/type/Network_Video_Transmitter",
-                      "onvif://www.onvif.org/name/{CAMERA_MANUFACTURE}",
-                      "onvif://www.onvif.org/location/",
-                      "onvif://www.onvif.org/hardware/{CAMERA_MODEL}",
-                      "onvif://www.onvif.org/Profile/Streaming",
-                      "onvif://www.onvif.org/Profile/G",
-                      "onvif://www.onvif.org/Profile/T"
-                  ]
-              }
-          ]
-      }
-  }
-  ```
+  Within a few seconds you see the following `result`:
+
+```JSON
+{
+    "status": 200,
+    "payload": {
+        "value": [
+            {
+                "serviceIdentifier": "{urn:uuid}",
+                "remoteIPAddress": "{IP_ADDRESS}",
+                "transportAddresses": [
+                    "http://10.0.1.79/onvif/device_service",
+                    "https://10.0.1.79/onvif/device_service"
+                ],
+                "scopes": [
+                    "onvif://www.onvif.org/type/Network_Video_Transmitter",
+                    "onvif://www.onvif.org/name/{CAMERA_MANUFACTURE}",
+                    "onvif://www.onvif.org/location/",
+                    "onvif://www.onvif.org/hardware/{CAMERA_MODEL}",
+                    "onvif://www.onvif.org/Profile/Streaming",
+                    "onvif://www.onvif.org/Profile/G",
+                    "onvif://www.onvif.org/Profile/T"
+                ]
+            }
+        ]
+    }
+}
+```
 
   > [!NOTE]
   > The return status of 200 indicates that the direct method call was handled successfully.
@@ -135,27 +137,28 @@ This direct method helps you retrieve detailed information about a specific ONVI
 
 1. In the method name enter:
 
-  ```
-  onvifDeviceGet
-  ```
+    ```
+    onvifDeviceGet
+    ```
+
 1. In the payload enter:
 
-  ```JSON
-  { 
-     "@apiVersion": "1.1",  
-     "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
-     "username": "{USER_NAME}", 
-     "password": "{PASSWORD}" 
-  } 
-  ```
+    ```JSON
+    { 
+        "@apiVersion": "1.1",  
+        "remoteIPAddress": "{IP_ADDRESS_OF_ONVIF_DEVICE}", 
+        "username": "{USER_NAME}", 
+        "password": "{PASSWORD}" 
+    } 
+    ```
 
   In the above payload:
 
-   - remoteIPAddress is the IP address of the camera you wish to get additional details from.
-   - username is the user name that is used to authenticate with the ONVIF device.
-   - password is the user accounts password.
+- remoteIPAddress is the IP address of the camera you wish to get additional details from.
+- username is the user name that is used to authenticate with the ONVIF device.
+- password is the user accounts password.
 
-  Within a few seconds you see the following `Result`:
+  Within a few seconds you see the following `result`:
 
   ```JSON
   {
@@ -171,7 +174,7 @@ This direct method helps you retrieve detailed information about a specific ONVI
               "timeZone": "GMT"
           },
           "dns": {
-              "fromDHCP": true,
+              "fromDhcp": true,
               "ipv4Address": [
                   "{IP_ADDRESS}"
               ],
@@ -193,7 +196,7 @@ This direct method helps you retrieve detailed information about a specific ONVI
                           "bitRateLimit": 15600,
                           "encodingInterval": 1,
                           "frameRateLimit": 30,
-                          "guarantedFrameRate": false
+                          "guaranteedFrameRate": false
                       },
                       "quality": 50,
                       "h264": {
@@ -217,7 +220,7 @@ This direct method helps you retrieve detailed information about a specific ONVI
                           "bitRateLimit": 1900,
                           "encodingInterval": 1,
                           "frameRateLimit": 30,
-                          "guarantedFrameRate": false
+                          "guaranteedFrameRate": false
                       },
                       "quality": 50,
                       "h264": {
@@ -233,37 +236,37 @@ This direct method helps you retrieve detailed information about a specific ONVI
 
 ### Return status of onvifDeviceGet
 
-| Status | Code     | Meaning / solution                                           |
-| ------ | -------- | ------------------------------------------------------------ |
-| 200    | Success  | The direct method call completed successfully.               |
+| Status | Code      | Meaning / solution                                                                                                                                                                                                            |
+| ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 200    | Success   | The direct method call completed successfully.                                                                                                                                                                                |
 | 403    | Forbidden | The direct method call could not successfully retrieve the requested information from the ONVIF device due to a authentication failure.  Check to ensure that the username and / or password in the message body was correct. |
-| 504    | Timeout  | The direct method call expired before the response of the ONVIF device was received. |
-| 500    | Error    | If an error occurred that is unknown.                         |
+| 504    | Timeout   | The direct method call expired before the response of the ONVIF device was received.                                                                                                                                          |
+| 500    | Error     | If an error occurred that is unknown.                                                                                                                                                                                         |
 
-## Troubleshooting 
+## Troubleshooting
 
-If the following error occurs:
+- If you receive the error "An error prevented the operation from successfully completing.  The request failed with status code 504.":
 
-:::image type="content" source="./media/camera-discovery/504-error.png" alt-text="Screenshot that shows the 504 error.":::
+    :::image type="content" source="./media/camera-discovery/five-zero-four-error.png" alt-text="Screenshot that shows the 504 error.":::
 
-Check to ensure that the setting for `"discoveryDuration":"PT10S"` in the above direct method calls is shorter than the `Connection Timeout` or `Method Timeout` values
+  - Then check to ensure that the setting for `"discoveryDuration":"PT10S"` in the above direct method call is shorter than the `Connection Timeout` or `Method Timeout` values.
 
-:::image type="content" source="./media/camera-discovery/504-error-fix.png" alt-text="Screenshot that shows the 504 error fix.":::
+    :::image type="content" source="./media/camera-discovery/five-zero-four-error-fix.png" alt-text="Screenshot that shows the 504 error fix.":::
 
-If the following message return is displayed in the direct method `Results` field:
+- If the direct method `Results` field displays "{"status":200,"payload":{"value":[]}} 
 
-:::image type="content" source="./media/camera-discovery/result-status-200-null.png" alt-text="The message return is displayed in the direct method `Results` field":::
+    :::image type="content" source="./media/camera-discovery/result-status-two-hundred-null.png" alt-text="The message return is displayed in the direct method `Results` field":::
 
-adjust the time value (x) in `"discoveryDuration":"PTxS"` to a larger number.  Also adjust the `Connection Timeout` and / or `Method Timeout` values accordingly.
+  - Adjust the time value (x) in `"discoveryDuration":"PTxS"` to a larger number.  Also adjust the `Connection Timeout` and / or `Method Timeout` values accordingly.
 
-The `onvifDeviceGet` direct method call will not display any media profiles for H.265 encoded media streams.
+- The `onvifDeviceGet` direct method call will not display any media profiles for H.265 encoded media streams.
 
-Return status of 403 can be returned in the event that the user account used to connect to the ONVIF device does not have permissions to the ONVIF camera features. Some ONVIF compliant cameras require that a user is added to the ONVIF security settings to retrieve the ONVIF device information.
+- Return status of 403 can be returned in the event that the user account used to connect to the ONVIF device does not have permissions to the ONVIF camera features. Some ONVIF compliant cameras require that a user is added to the ONVIF security settings to retrieve the ONVIF device information.
+
+- Currently the Video Analyzer edge module will return up to 200 ONVIF enabled cameras that are reachable on the same subnet via multicast.  This also requires that port 3702 is available. 
 
 ## Next steps
 
 - Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md).
 - Try the [tutorial for analyzing video with Spatial Analytics](computer-vision-for-spatial-analysis.md).
 - Try the [How-to guide for analyzing live video with multiple AI models](analyze-ai-composition.md).
-
-
