@@ -250,24 +250,6 @@ The `readResults` node contains all of the recognized text. Text is organized by
 }
 ```
 
-## Preview
-In Form Recognizer v3.0 preview, 3 additional fields are supported in US driver's license:
-
-|Name| Type | Description | Text | Value (standardized output) |
-|:-----|:----|:----|:----| :----|
-| Endorsements | string | Additional driving privileges | L | L |
-| Restrictions | string | Driving restrictions | B | B |
-| VehicleClassifications | string | Classification of the vehicle | D | D |
-
-## Analyze ID (v3.0)
-In v3.0 preview, you can analyze ID docuemnts by POST/GET to Azure REST APIs:
-* POST https://{endpoint}/formrecognizer/documentModels/prebuilt-idDocument:analyze?api-version=2021-09-30-preview
-* GET https://{endpoint}/formrecognizer/documentModels/prebuilt-idDocument/analyzeResults/{resultId}
-
-The Analyze Document operation takes an image or PDF of an ID document as the input and extracts the values of interest and text. The call returns a response header field called Operation-Location. The Operation-Location value is a URL that contains the Result ID to be used in the next step. We poll this Get Analyze Result URL to check the status of the analyze operation (recommend no more than once a second). Upon success, status is set to succeeded and analyzeResult is returned in the response body (see Analysis Result). If errors are encountered, status is set to failed and error is returned. See [more details]().
-
-To learn more about the changes in the v3.0 API, see the [migration guide]().
-
 ## Next steps
 
 * Try your own IDs and samples in the [Form Recognizer Sample UI](https://aka.ms/fott-2.1-ga).
