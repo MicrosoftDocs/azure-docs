@@ -18,7 +18,7 @@ Azure Automation State Configuration is an Azure configuration management servic
 compile PowerShell Desired State Configuration (DSC) [configurations](/powershell/scripting/dsc/configurations/configurations) for nodes in any cloud or on-premises datacenter. The service also imports [DSC Resources](/powershell/scripting/dsc/resources/resources), and assigns configurations to target nodes, all in the cloud. You can access Azure Automation State Configuration in the Azure portal by selecting **State configuration (DSC)** under **Configuration Management**.
 
 > [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/policy/concepts/guest-configuration.md). The guest configuration service combines features of DSC Extension, Azure Automation state configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/policy/concepts/guest-configuration.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
 
 You can use Azure Automation State Configuration to manage a variety of machines:
 
