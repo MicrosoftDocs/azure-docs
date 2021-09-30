@@ -16,7 +16,7 @@ Defender for IoT delivers ICS, and IIoT cybersecurity platform with ICS-aware th
 
 Threat actors are using compromised remote access credentials to access critical infrastructure networks via remote desktop and VPN connections. By using trusted connections, this approach easily bypasses any OT perimeter security. Credentials are typically stolen from privileged users,  such as control engineers and partner maintenance personnel, who require remote access to perform daily tasks.
 
-The Defender for IoT integration along with with CyberARK allows you to:
+The Defender for IoT integration along with CyberARK allows you to:
 
 - Reduce OT risks from unauthorized remote access
 
@@ -26,7 +26,7 @@ The Defender for IoT integration along with with CyberARK allows you to:
 
 The Defender for IoT appliance is connected to the OT network via a SPAN port (mirror port) on network devices such as switches, and routers via a one-way (inbound) connection to the dedicated network interfaces on the Defender for IoT appliance.
 
-A dedicated network interface is also provided in the Defender for IoT appliance for centralized management and API access. This interface is also used for communicating with the CyberArk PSM solution which is deployed in the data center of the organization to manage privileged users and secure remote access connections.
+A dedicated network interface is also provided in the Defender for IoT appliance for centralized management and API access. This interface is also used for communicating with the CyberArk PSM solution that is deployed in the data center of the organization to manage privileged users and secure remote access connections.
 
 :::image type="content" source="media/tutorial-cyberark/architecture.png" alt-text="The CyberArk PSM solution deployment":::
 
@@ -48,7 +48,7 @@ In this tutorial, you learn how to:
 
 ## Configure PSM CyberArk
 
-CyberArk must be configured to allow communication with Defender for IoT. This is accomplished by configuring PSM.
+CyberArk must be configured to allow communication with Defender for IoT. This communication is accomplished by configuring PSM.
 
 **To configure PSM**:
 
@@ -87,7 +87,7 @@ In order to enable the integration, Syslog Server will need to be enabled in the
 
     :::image type="content" source="media/tutorial-cyberark/toggle.png" alt-text="Screenshot of the syslog server toggled to on.":::
 
-1. (Optional) Change the port by signing in to the system via the CLI, and navigate to `/var/cyberx/properties/syslog.properties`, and change the following: `listener: 514/udp`.
+1. (Optional) Change the port by signing in to the system via the CLI, and navigate to `/var/cyberx/properties/syslog.properties`, and change `listener: 514/udp`.
 
 ## View and manage detections
 
@@ -125,7 +125,7 @@ Whenever PSM authorizes a remote connection, it is  visible in the Defender for 
 
 ### Auditing & forensics
 
-Administrators can audit, and investigate remote access sessions by querying the Defender for IoT platform via its built-in data mining interface. This can be used to identify all remote access connections that have occurred including forensic details such as from, or to devices, protocols (RDP, or SSH), source, and destination users, time-stamps, and whether the sessions were authorized using PSM.
+Administrators can audit, and investigate remote access sessions by querying the Defender for IoT platform via its built-in data mining interface. This information can be used to identify all remote access connections that have occurred including forensic details such as from, or to devices, protocols (RDP, or SSH), source, and destination users, time-stamps, and whether the sessions were authorized using PSM.
 
 **To audit and investigate**:
 
@@ -139,7 +139,7 @@ Administrators can audit, and investigate remote access sessions by querying the
 
 ## Stop the Integration
 
-At any point you can stop the integration from communicating.
+At any point in time, you can stop the integration from communicating.
 
 **To stop the integration**:
 
