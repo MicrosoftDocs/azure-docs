@@ -509,7 +509,7 @@
           displayName: automl, auto ml
           items: 
           - name: Use automated ML (Python)
-            displayName: SDK automl
+            displayName: SDK, automl
             href: how-to-configure-auto-train.md
           - name: Use automated ML (interface)
             href: how-to-use-automated-ml-for-ml-models.md
@@ -519,6 +519,9 @@
           - name: Auto-train a forecast model
             displayName: time series
             href: how-to-auto-train-forecast.md
+          - name: Auto-train computer vision models (Python)
+            displayName: SDK, automl, image
+            href: how-to-auto-train-image-models.md
           - name: Data splits & cross-validation (Python)
             displayName: automl, feature engineering, feature importance
             href: how-to-configure-cross-validation-data-splits.md
