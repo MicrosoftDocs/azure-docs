@@ -792,7 +792,18 @@ items:
       - name: Data flow monitoring
         href: ../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Data flow performance
-        href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        items:
+          - name: Overview
+            href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+            displayName: merge, timeout
+          - name: Optimizing sources
+            href: ../data-factory/concepts-data-flow-performance-sources.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Optimizing sinks
+            href: ../data-factory/concepts-data-flow-performance-sinks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Optimizing transformations
+            href: ../data-factory/concepts-data-flow-performance-transformations.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Using data flows in pipelines
+            href: ../data-factory/concepts-data-flow-performance-pipelines.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Integration Runtime performance
         href: ../data-factory/concepts-integration-runtime-performance.md?context=/azure/synapse-analytics/context/context
       - name: Manage graph
