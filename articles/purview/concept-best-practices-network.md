@@ -27,7 +27,7 @@ To understand what option is the most suitable for your environment, we suggest 
 
 - Review your network topology and security requirements before registering and scanning any data sources in Azure Purview. For more information see, [define an Azure network topology](../cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology.md). 
 
-- Define your [network connectivity model for PaaS services](../cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services.md). 
+- Define your [network connectivity model for PaaS services](./cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services.md). 
 
 ## Intended audience  
 
