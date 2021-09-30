@@ -87,7 +87,6 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
     | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
     | Kubernetes clusters should disable automounting API credentials             | Manage access and permissions            | No                     |
     | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
-    | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
     | Containers sharing sensitive host namespaces should be avoided              | Manage access and permissions            | No                     |
     | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | No                     |
