@@ -2,7 +2,8 @@
 title: Azure Automation FAQ
 description: This article gives answers to frequently asked questions about Azure Automation.
 services: automation
-ms.topic: overview
+ms.subservice: 
+ms.topic: conceptual
 ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an implementer, I want answers to various questions.
@@ -40,7 +41,7 @@ Azure Automation doesn't plan to migrate Python 2 runbooks and packages to Pytho
 
 ## What packages are supported by default in Python 3 environment?
 
-Azure package 4.0.0 is installed by default in Python 3 Automation environment. You can manually import a higher version of Azure package to override the default version.
+Azure package 4.0.0. For more information, see [Manage Python 3 packages](python-3-packages.md).
 
 ## What if I run a Python 3 runbook that references a Python 2 package or the other way around?
 
@@ -56,7 +57,7 @@ For a Windows Runbook Worker, when running a Python 2 runbook it looks for the e
 
 For Python 3, it looks for the `PYTHON_3_PATH` env variable first and then falls back to the `PATH` environment variable.
 
-When using only one version of Python, you can add the installation path to the `PATH` variable. If you want to use both versions on the Runbook Worker, set `PYTHON_2_PATH` and `PYTHON_3_PATH` to the location of the module for those versions.
+See [Multiple Python versions](automation-runbook-types.md#multiple-python-versions).
 
 ## How does a Hybrid Runbook Worker locate the Python interpreter?
 
@@ -68,23 +69,11 @@ No. Source Control isn't currently supported for Python 3. By default, Python ru
 
 ## How can a runbook author know what Python packages are available in an Azure sandbox?
 
-Use the following code to list the default installed modules:
-
-```python
-#!/usr/bin/env python3
-
-import pkg_resources
-installed_packages = pkg_resources.working_set
-installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
-   for i in installed_packages])
-
-for package in installed_packages_list:
-    print(package)
-```
+See [Identify available packages in sandbox](python-3-packages.md#identify-available-packages-in-sandbox).
 
 ## How can a runbook author set which version of a package module to be used if there are multiple modules?
 
-The default version can be overridden by importing the Python packages in the Automation account. Preference is given to the imported version in the Automation account.
+See [Manage Python 3 packages](python-3-packages.md).
 
 ## Next steps
 
