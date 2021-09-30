@@ -7,8 +7,14 @@ ms.date: 11/01/2021
 ---
 
 # Connecting cameras to the cloud using a transparent gateway
+Azure Video Analyzer allows users to connect cameras directly to the cloud in order capture and record video, using cloud pipelines.
+Connecting cameras to the cloud using a transparent gateway allows cameras to connect to Video Analyzer via the Video Analyzer Edge module acting as a transparent gateway. This approach is useful in the following scenarios:
 
+* When cameras connected to the gateway need to be shielded from exposure to the internet
+* When cameras do not have the functionality to connect to IoT Hub independently
+* When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
 
+<!-- TODO: add graphic -->
 
 ## Pre-reading
 [Get started with Azure Video Analyzer in the Portal](../get-started-detect-motion-emit-events-portal.md)
@@ -29,8 +35,9 @@ The following are required for this tutorial:
 
 
 
-
 ## Ensure that camera(s) are on the same network as edge device
+<!-- TODO: add instructions for testing using VLC on the edge server-->
+
 
 ## Create IoT device for camera via Portal
 An IoT device has to be created for each camera to connect to the cloud.
@@ -63,7 +70,7 @@ In Azure Portal:
 ```
  {
    "@apiVersion" : "1.0",
-   "name": "remoteDeviceAdapter",
+   "name": "remoteDeviceAdapterCamera1",
    "properties": {
      "target": {
        "host": "<Camera's IP address>:<Camera's RTSP port>"
@@ -77,6 +84,8 @@ In Azure Portal:
     }
  }
 ```
+If successful, you will receive a response with a status code 201.
+
 > [!NOTE]
 > IoT Hub ARM ID and IoT Hub User-Assiged Managed Identity ARM ID will be needed for the next steps. To acquire the IoT Hub ARM ID, navigate to the **Overview** pane of the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub ARM ID. To acquire the IoT Hub User-Assiged Managed Identity ARM ID, navigate to the **Overview** pane of the user-assigned managed identity that has been assigned **Owner** role on the IoT Hub and select **JSON View**. Record the **Resource ID** value for the IoT Hub User-Assiged Managed Identity ARM ID.
 
@@ -112,7 +121,7 @@ The following values are required to enable tunneling:
 ``` 
 
 
-## Run pipeline
+<!-- TODO: add link to Mayank's Cloud pipeline quickstart -->
 
 ## Playback in Portal
 
