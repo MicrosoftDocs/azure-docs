@@ -180,7 +180,7 @@ The Device Update agent can also be configured without the IoT Identity service 
        
     1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
     
-    1. In the terminal, replace <your-connection-string> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look this example:
+    1. In the terminal, replace \<your-connection-string\> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look this example:
 	
         ```text
         connection_string=<ADD CONNECTION STRING HERE>

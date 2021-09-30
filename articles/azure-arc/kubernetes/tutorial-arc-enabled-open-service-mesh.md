@@ -1,7 +1,6 @@
 ---
 title: Azure Arc-enabled Open Service Mesh (Preview)
 description: Open Service Mesh (OSM) extension on Azure Arc-enabled Kubernetes cluster
-services: azure-arc
 ms.service: azure-arc
 ms.date: 07/23/2021
 ms.topic: article
@@ -122,7 +121,7 @@ To ensure that the privileged init container setting is not reverted to the defa
 
 ### Install Azure Arc-enabled OSM using ARM template
 
-After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the <cluster-name> value:
+After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the \<cluster-name\> value:
 
 ```json
 {
@@ -460,7 +459,7 @@ Make sure to back up your Custom Resources prior to deleting the CRDs so that th
 
 ### Upgrade instructions
 
-1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/charts/osm/crds) corresponds to the new version of the chart.
+1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/cmd/osm-bootstrap/crds) corresponds to the new version of the chart.
     ```azurecli-interactive
     kubectl delete --ignore-not-found --recursive -f ./charts/osm/crds/
 

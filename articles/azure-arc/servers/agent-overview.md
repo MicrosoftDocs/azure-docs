@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/01/2021
+ms.date: 09/14/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -61,7 +61,7 @@ The following metadata information is requested by the agent from Azure:
 
 ## Download agents
 
-You can download the Azure Connected Machine agent package for Windows and Linux from the locations listed below.
+You can download the Azure Connected Machine agent package for Windows and Linux from the locations listed below.
 
 * [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
 
@@ -172,23 +172,23 @@ Azure Arc-enabled servers depend on the following Azure resource providers in yo
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 
-If they are not registered, you can register them using the following commands:
+If they are not registered, you can register them using the following commands:
 
-Azure PowerShell:
+Azure PowerShell:
 
 ```azurepowershell-interactive
 Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
 ```
 
-Azure CLI:
+Azure CLI:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 You can also register the resource providers in the Azure portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
@@ -204,6 +204,7 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 |--------|-------------|
 | Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
 | At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](onboard-service-principal.md).<br> This method creates a service principal to connect machines non-interactively.|
+| At scale | Install and configure the agent for multiple machines following the method [Connect hybrid machines to Azure from Automation Update Management](onboard-update-management-machines.md).<br> This method creates a service principal, and installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
 | At scale | Install and configure the agent for multiple machines following the method [Using Windows PowerShell DSC](onboard-dsc.md).<br> This method uses a service principal to connect machines non-interactively with PowerShell DSC. |
 
 ## Connected Machine agent technical overview
@@ -321,12 +322,12 @@ Azure Arc-enabled servers Connected Machine agent is designed to manage agent an
 - The Extension Service agent is limited to use up to 5% of the CPU.
 
    - This only applies to install/uninstall/upgrade operations. Once installed, extensions are responsible for their own resource utilization and the 5% CPU limit does not apply.
-   - The Log Analytics agent and Azure Monitor Agent is allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
+   - The Log Analytics agent and Azure Monitor Agent are allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) on these systems.
 
 ## Next steps
 
 * To begin evaluating Azure Arc-enabled servers, follow the article [Connect hybrid machines with Azure Arc-enabled servers](learn/quick-enable-hybrid-vm.md).
 
-* Before deploying the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
+* Before you deploy the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).
 
 * Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).

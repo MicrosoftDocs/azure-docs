@@ -169,7 +169,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    
    * [Azure App Service Dependencies](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
    * [Azure Cache Service Dependencies](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
-   * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#network-configuration)
+   * [Azure API Management Dependencies](../api-management/api-management-using-with-vnet.md#network-configuration-issues)
 
 <a name="create-environment"></a>
 

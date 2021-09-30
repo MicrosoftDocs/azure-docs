@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 08/30/2021
+ms.date: 09/14/2021
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -217,7 +217,7 @@ To illustrate the change sequence, we will assume server A is the primary server
 
 ## Best practices for SQL Managed Instance
 
-The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance.
+The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All user databases in the instance will be replicated to the secondary instance. System databases like _master_ and _msdb_ will not be replicated.
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
 
@@ -315,13 +315,14 @@ Let's assume instance A is the primary instance, instance B is the existing seco
 > When the failover group is deleted, the DNS records for the listener endpoints are also deleted. At that point, there is a non-zero probability of somebody else creating a failover group or server alias with the same name, which will prevent you from using it again. To minimize the risk, don't use generic failover group names.
 
 ### Enable scenarios dependent on objects from the system databases
-System databases are not replicated to the secondary instance in a failover group. To enable scenarios that depend on objects from the system databases, on the secondary instance, make sure to create the same objects on the secondary. 
+System databases are **not** replicated to the secondary instance in a failover group. To enable scenarios that depend on objects from the system databases, make sure to create the same objects on the secondary instance and keep them synchronized with the primary instance. 
 For example, if you plan to use the same logins on the secondary instance, make sure to create them with the identical SID. 
 ```SQL
 -- Code to create login on the secondary instance
 CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 ``` 
-
+### Synchronize instance properties and retention policies between primary and secondary instance
+Instances in failover group remain separate Azure resources, and no changes made to the configuration of the primary instance will be automatically replicated to the secondary instance. Make sure to perform all relevant changes both on primary _and_ secondary instance. For example, if you change backup storage redundancy or long-term backup retention policy on primary instance, make sure to change it on secondary instance as well.
 
 ## Failover groups and network security
 
