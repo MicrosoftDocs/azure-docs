@@ -125,9 +125,9 @@ If your OU enforces password expiration, you must update the password before the
 
 Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represent the storage account doesn't need to be synced to Azure AD.
 
-#### (Optional) Enable AES256 authentication
+#### (Optional) Enable AES256 encryption
 
-If you want to enable AES 256 authentication, follow the steps in this section to do so. If you plan to use RC4, you can skip this section.
+If you want to enable AES 256 encryption, follow the steps in this section to do so. If you plan to use RC4, you can skip this section.
 
 The domain object that represents your storage account must meet the following requirements:
 - The storage account name cannot exceed 15 characters.
