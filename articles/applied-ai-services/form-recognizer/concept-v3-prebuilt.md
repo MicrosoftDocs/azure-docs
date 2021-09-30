@@ -23,7 +23,7 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 * [**ID document (v3.0)**](#id-document-model) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Custom model API (v3.0)**](#custom-model) supports signature detection for custom forms.
 
-| **Prebuilt model**   | **Description**   |
+| **Model**   | **Description**   |
 | --- | --- |
 | 🆕General document  | extract text, tables, structure, key-value pairs and named entities.  |
 | Layout  | Extracts text and layout information from documents.  |
@@ -34,7 +34,7 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 
 ### Prebuilt model data extraction
 
-| **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+| **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
 | --- | :---: |:---:| :---: | :---: |:---: |
 |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
 | Layout  | ✓  |   | ✓  | ✓  |   |
@@ -53,7 +53,7 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 * PDF dimensions cannot exceed 17 x 17 inches (Legal or A3 paper sizes).
 * For more guidance, *see*  our [**Overview**](overview.md#input-requirements) documentation.
 
-## Prebuilt document model
+## General document
 
 * The prebuilt document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](concept-custom.md#train-without-labels).
 
@@ -78,7 +78,7 @@ Email | string | Email address. |
 | DateTime | string| Dates and times of day. |
 | Quantity | string | Numerical measurements and units. |
 
-## Prebuilt receipt model
+## Receipt
 
  Azure Form Recognizer v3.0 prebuilt receipt model analyzes and extracts key information from sales receipts and supports processing single-page hotel receipts. 
 
@@ -103,7 +103,7 @@ Email | string | Email address. |
 | ReceiptType | string | Type of receipt, e.g. Hotel, Itemized | |
 | Total | number | Full transaction total of receipt | Two-decimal float |
 
-## Prebuilt ID document model 
+## ID document
 
 Azure Form Recognizer v3.0 prebuilt ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia.) and the biographical page from international passports (excluding visa and other travel documents).
 

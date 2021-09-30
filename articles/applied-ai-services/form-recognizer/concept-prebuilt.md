@@ -19,7 +19,7 @@ recommendations: false
 
 ## Model overview
 
-| **Prebuilt model**   | **Description**   |
+| **Model**   | **Description**   |
 | --- | --- |
 | Invoice  | Extracts key information from English-text invoices.  |
 | Receipt  | Extracts key information from English-text receipts.  |
@@ -36,7 +36,7 @@ recommendations: false
 * PDF dimensions cannot exceed 17 x 17 inches (Legal or A3 paper sizes).
 * For more guidance, *see*  our [**Overview**](overview.md#input-requirements) documentation.
 
-## Prebuilt invoice model
+## Invoice
 
 Azure Form Recognizer prebuilt invoice model analyzes and extracts key information from sales invoices. The Invoice API enables you to automate invoice processing by taking invoices in various formats and returning structured data. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as customer name, billing address, due date, and amount due from English-language invoices.
 
@@ -46,7 +46,7 @@ The Invoice API also powers the [AI Builder invoice processing prebuilt model](/
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
-## Prebuilt receipt model
+## Receipt
 
 Azure Form Recognizer prebuilt receipt model analyzes and extracts key information from sales receipts. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as merchant name, merchant phone number, transaction date, tax, and transaction total from English-language receipts.
 
@@ -56,7 +56,7 @@ The Receipt API also powers the [AI Builder receipt processing prebuilt model](/
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
-## Prebuilt ID document model
+## ID document
 
 Azure Form Recognizer prebuilt ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia.) and the biographical page from international passports (excluding visa and other travel documents). It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as  first name, last name, address, expiration date, and date of birth.
 
@@ -66,7 +66,7 @@ The ID Document API also powers the [AI Builder ID reader prebuilt model](/ai-bu
 
 :::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
-## Prebuilt business card model
+## Business card
 
 Azure Form Recognizer prebuilt business cards model analyzes and extracts key information from business card images . It combines powerful Optical Character Recognition (OCR) capabilities with our business card understanding model to extract key information from business cards in English and is publicly available in the Form Recognizer v2.1.
 
