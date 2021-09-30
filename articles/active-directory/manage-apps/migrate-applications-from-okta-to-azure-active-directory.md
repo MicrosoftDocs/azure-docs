@@ -29,7 +29,7 @@ Follow these steps to create an application inventory:
 
 2. On the API dashboard, under **Security**, select **Tokens** > **Create Token**.
 
-   ![Screenshot that shows the "Create Token" button.](media/migrate-applications-from-okta-to-azure-active-directory/token-creation.png)
+   ![Screenshot that shows the button for creating a token.](media/migrate-applications-from-okta-to-azure-active-directory/token-creation.png)
 
 3. Insert a token name and then select **Create Token**.
 
@@ -125,7 +125,7 @@ To complete the migration, repeat the configuration steps for all applications d
 
 9. On the Azure AD **Enterprise applications** page, in the SAML SSO settings, select **Upload metadata file** to upload the file to the Azure AD portal. Before you save, make sure that the imported values match the recorded values.
 
-   ![Screenshot that shows how to upload the metadata file in Azure AD.](media/migrate-applications-from-okta-to-azure-active-directory/upload-metadata-file.png)
+   ![Screenshot that shows how to upload the metadata file in Azure A D.](media/migrate-applications-from-okta-to-azure-active-directory/upload-metadata-file.png)
 
 10. In the Salesforce administration console, select **Company Settings** > **My Domain**. Go to **Authentication Configuration** and then select **Edit**.
 
@@ -147,7 +147,7 @@ To complete the migration, repeat the configuration steps for all applications d
 
     ![Screenshot that shows where to sign in.](media/migrate-applications-from-okta-to-azure-active-directory/new-identity-provider.png)
 
-    If everything has been correctly configured, the test user will land on the Salesforce homepage. For troubleshooting help, see the [debugging guide](../manage-apps/debug-saml-sso-issues.md).
+    If everything has been correctly configured, the test user will land on the Salesforce home page. For troubleshooting help, see the [debugging guide](../manage-apps/debug-saml-sso-issues.md).
 
 16. On the **Enterprise applications** page, assign the remaining users to the Salesforce application with the correct roles.
 
@@ -172,13 +172,13 @@ To complete the migration, repeat the following configuration steps for all appl
 
 2. Select **Create your own application**. In the menu that appears, name the OIDC app and then select **Register an application you're working on to integrate with Azure AD**. Then select **Create**.
 
-   :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png" alt-text="Screenshot that shows how to create an OIDC application." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png":::
+   :::image type="content" source="media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png" alt-text="Screenshot that shows how to create an O I D C application." lightbox="media/migrate-applications-from-okta-to-azure-active-directory/new-oidc-application.png":::
 
 3. On the next page, set up the tenancy of your application registration. For more information, see [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
 
    In this example, we'll choose **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** > **Register**.
 
-   ![Screenshot that shows how to select Azure AD directory multitenant.](media/migrate-applications-from-okta-to-azure-active-directory/multitenant-azure-ad-directory.png)
+   ![Screenshot that shows how to select Azure A D directory multitenant.](media/migrate-applications-from-okta-to-azure-active-directory/multitenant-azure-ad-directory.png)
 
 4. On the **App registrations** page, under **Azure Active Directory**, open the newly created registration.
 
