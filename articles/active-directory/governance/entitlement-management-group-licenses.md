@@ -20,12 +20,13 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Manage the lifecycle of your group-based licenses in Azure AD
  
-With Azure Active Directory (Azure AD), you can use groups to manage the [licenses for your applications](/azure/active-directory/enterprise-users/licensing-groups-assign.md). You can make the management of these groups even easier by using entitlement management: 
+With Azure Active Directory (Azure AD), you can use groups to manage the [licenses for your applications](/active-directory/enterprise-users/licensing-groups-assign.md). You can make the management of these groups even easier by using entitlement management: 
 
 *	Configure periodic access reviews to ensure only employees that need the licenses are in the group. 
 *	Allow other employees to request membership to the group.
 
-In this tutorial, you play the role of an IT administrator for Woodgrove Bank. You're asked to create an access package so employees in your organization can easily gain access to Office licenses. (You should already have a group that manages your [Office licenses](/azure/active-directory/enterprise-users/licensing-groups-assign.md).) You want to be able to review these group members every year. You also want to allow new employees to request Office licenses, pending manager approval. 
+In this tutorial, you play the role of an IT administrator for Woodgrove Bank. You're asked to create an access package so employees in your organization can easily gain access to Office licenses. (You should already have a group that manages your [Office licenses](/active-directory/enterprise-users/licensing-groups-assign.md).) You want to be able to review these group members every year. You also want to allow new employees to request Office licenses, pending manager approval.
+ 
 To use Azure AD entitlement management, you must have one of these licenses:
 
 - Azure AD Premium P2
