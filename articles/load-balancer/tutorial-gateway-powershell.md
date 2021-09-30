@@ -122,9 +122,9 @@ Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetwor
 ```azurepowershell-interactive
 ## Create rule for network security group and place in variable. ##
 $nsgrule1 = @{
-    Name = 'myNSGRule-AllowAll-TCP'
-    Description = 'Allow all TCP'
-    Protocol = 'TCP'
+    Name = 'myNSGRule-AllowAll'
+    Description = 'Allow all'
+    Protocol = 'All'
     SourcePortRange = '*'
     DestinationPortRange = '*'
     SourceAddressPrefix = '0.0.0.0/0'
@@ -149,26 +149,12 @@ $nsgrule2 = @{
 }
 $rule2 = New-AzNetworkSecurityRuleConfig @nsgrule2
 
-$nsgrule3 = @{
-    Name = 'myNSGRule-AllowAll-UDP'
-    Description = 'Allow all UDP'
-    Protocol = 'UDP'
-    SourcePortRange = '*'
-    DestinationPortRange = '*'
-    SourceAddressPrefix = '0.0.0.0/0'
-    DestinationAddressPrefix = '0.0.0.0/0'
-    Access = 'Allow'
-    Priority = '102'
-    Direction = 'Inbound'
-}
-$rule3 = New-AzNetworkSecurityRuleConfig @nsgrule3
-
 ## Create network security group ##
 $nsg = @{
     Name = 'myNSG'
     ResourceGroupName = 'TutorGwLB-rg'
     Location = 'eastus'
-    SecurityRules = $rule1,$rule2,$rule3
+    SecurityRules = $rule1,$rule2
 }
 New-AzNetworkSecurityGroup @nsg
 ```
@@ -207,7 +193,7 @@ $int1 = @{
     Type = 'Internal'
     Protocol = 'Vxlan'
     Identifier = '800'
-    Port = '2000'
+    Port = '10800'
 }
 $tunnelInterface1 = New-AzLoadBalancerBackendAddressPoolTunnelInterfaceConfig @int1
 
@@ -215,7 +201,7 @@ $int2 = @{
     Type = 'External'
     Protocol = 'Vxlan'
     Identifier = '801'
-    Port = '2001'
+    Port = '10801'
 }
 $tunnelInterface2 = New-AzLoadBalancerBackendAddressPoolTunnelInterfaceConfig @int2
 
