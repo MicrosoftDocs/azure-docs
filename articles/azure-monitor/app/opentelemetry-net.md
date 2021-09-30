@@ -29,33 +29,41 @@ Please consider carefully whether this preview is right for you. It **enables di
 > [!WARNING]
 > Enabling sampling alongside the existing Application Insights SDKs will result in broken traces. It will also make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
 
-## Get started
+## Prerequisites
 
-### Prerequisites
-- Application using officially supported version of [.NET
-  Core](https://dotnet.microsoft.com/download/dotnet) or [.NET
-  Framework](https://dotnet.microsoft.com/download/dotnet-framework) except for
-  versions lower than `.NET Framework 4.6.1`.
-- [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
-- [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
+- Application using officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) except for versions lower than `.NET Framework 4.6.1`.
+- Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+- Application Insights resource - [Create an Application Insights resource for free](create-workspace-resource.md#create-workspace-based-resource)
 
-### Enable Azure Monitor Application Insights
+## Setting up
 
-**1. Getting started**
+### Prepare the C# application
 
-Create a new console application as follows
+If you already have a C# application to instrument OpenTelemetry, you could skip this section.
 
-```sh
-dotnet new console --output getting-started
+In a console window (such as cmd, PowerShell, or Bash), use the dotnet new command to create a new console app with the name `azuremonitor-otel-getting-started`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
+
+```dotnetcli
+dotnet new console --output azuremonitor-otel-getting-started
 ```
 
-Install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) nuget package
+### Install the NuGet libraries
 
-```sh
-dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter
+Change your directory to the application folder and install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) nuget package.
+
+```dotnetcli
+# Switch to the app directory
+cd azuremonitor-otel-getting-started 
+
+# Install the latest package
+dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter 
 ```
 
-Copy the following code in `Program.cs`
+## Enable OpenTelemetry
+
+### Add OpenTelemetry instrumentation code
+
+The following code demonstrates enabling OpenTelemetry in the newly created "Hello World" console app. You could copy the code and replace everything in `Program.cs` of the "HelloWorld" app, or add the same logic to your own application.
 
 ```csharp
 using System.Diagnostics;
@@ -93,15 +101,15 @@ public class Program
 > [!NOTE]
 > The above example shows how to collect traces in Azure Monitor using OpenTelemetry in console application. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). For all the application types extension method `AddAzureMonitorTraceExporter` to send data to Application Insights is applicable.
 
-**2. Add connection string**
+### Set Application Insights connection string
 
-Replace placeholder `<Your Connection String>` with YOUR connection string from Application Insights resource.
+Replace placeholder `<Your Connection String>` in the above code with YOUR connection string from the Application Insights resource.
 
 Find the connection string on your Application Insights Resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
-**3. Confirm Data is flowing**
+## Confirm Data is flowing
 
 Run your application and open your Application Insights Resource.
 
