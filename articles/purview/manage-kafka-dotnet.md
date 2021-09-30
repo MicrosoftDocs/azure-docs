@@ -7,7 +7,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: dotnet
-ms.date: 04/15/2021
+ms.date: 09/27/2021
 ---
 
 # Publish messages to and process messages from Azure Purview's Atlas Kafka topics via Event Hubs using .NET 
@@ -255,7 +255,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 ### Create a project for the receiver
 
-1. In the Solution Explorer window, right-click the **EventHubQuickStart** solution, point to **Add**, and select **New Project**. 
+1. In the Solution Explorer window, select and hold (or right-click) the **EventHubQuickStart** solution, point to **Add**, and select **New Project**. 
 1. Select **Console App (.NET Core)**, and select **Next**. 
 1. Enter **PurviewKafkaConsumer** for the **Project name**, and select **Create**. 
 

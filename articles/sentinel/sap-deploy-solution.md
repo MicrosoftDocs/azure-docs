@@ -132,7 +132,7 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 1. Use the following command as an example, inserting the values for your resource group and VM name:
 
     ```azurecli
-    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username AzureUser --data-disk-sizes-gb 10 – --size Standard_DS2_– --generate-ssh-keys  --assign-identity
+    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity
     ```
 
 1. On your new VM, install:

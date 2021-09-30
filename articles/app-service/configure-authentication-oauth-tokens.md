@@ -53,9 +53,9 @@ When your provider's access token (not the [session token](#extend-session-token
         ```
 
     5. Click **Put**.
-
-> [!NOTE]
-> If you configured your application with the Authentication (Classic) blade, instead of navigating to the the **authSettingsV2** section in [https://resources.azure.com](https://resources.azure.com), navigate to **authsettings**. Then edit the setting ```"additionalLoginParams": ["scope=openid offline_access"]```.
+    
+    > [!NOTE]
+    > The scope that gives you a refresh token is [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access). See how it's used in [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md).
 
 Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 
