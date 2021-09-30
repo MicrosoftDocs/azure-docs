@@ -9,17 +9,24 @@ ms.date: 09/16/2021
 ms.author: cshoe
 ---
 
-# Manage an app in Azure Container Apps
+# Manage revisions Azure Container Apps
 
-<!-- PRELIMINARY OUTLINE
-## Revisions
+## CLI commands
 
-## Application-wide settings
+CLI commands from revisions doc
 
-## Upgrading
+## Set active revision mode
+
+** change to json
+
+## Verify revision endpoint
+
+## Traffic splitting
+
+
+
 
 ## Next steps
--->
 
 > [!div class="nextstepaction"]
 > [Get started](get-started.md)
