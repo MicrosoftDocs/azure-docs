@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/27/2021
+ms.date: 09/30/2021
 ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identitypla | Azuretformtop40
@@ -57,7 +57,7 @@ The following object model illustrates the type of object you may receive and wh
 
 ![public client application inheritance model](media/v2-shared-device-mode/ipublic-client-app-inheritance.png)
 
-You'll need to do a type check and cast to the appropriate interface when you get your `PublicClientApplication` object. The following code checks for multiple account mode or single account modes, and casts the application object appropriately:
+You'll need to do a type check and cast to the appropriate interface when you get your `PublicClientApplication` object. The following code checks for multiple account mode or single account mode, and casts the application object appropriately:
 
 ```java
 private IPublicClientApplication mApplication;
@@ -104,5 +104,4 @@ The following diagram shows the overall app lifecycle and common events that may
 
 For more information on how to run a frontline worker app on a shared mode on Android device, see:
 
-> [!div class="nextstepaction"] 
->[Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md)
+- [Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md)
