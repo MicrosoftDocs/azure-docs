@@ -205,7 +205,7 @@ While we do our best to provide a stable and reliable service, sometimes things 
 
 ## Autoscaling issues
 
-If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale](../../azure/azure-monitor/autoscale/autoscale-troubleshoot.md).
+If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale](../azure/azure-monitor/autoscale/autoscale-troubleshoot.md).
 
 ## HTTP status codes
 
