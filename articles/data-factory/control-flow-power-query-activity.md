@@ -13,7 +13,7 @@ ms.date: 08/12/2021
 
 The Power Query activity allows you to build and execute Power Query mash-ups to execute data wrangling at scale in a Data Factory pipeline. You can create a new Power Query mash-up from the New resources menu option or by adding a Power Activity to your pipeline.
 
-![Screenshot that shows Power Query in the factory resources pane.](media/data-flow/power_query_activity_1.png)
+![Screenshot that shows Power Query in the factory resources pane.](media/data-flow/power-query-activity-1.png)
 
 You can work directly inside of the Power Query mash-up editor to perform interactive data exploration and then save your work. Once complete, you can take your Power Query activity and add it to a pipeline. Azure Data Factory will automatically scale it out and operationalize your data wrangling using Azure Data Factory's data flow Spark environment.
 
