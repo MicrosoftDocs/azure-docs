@@ -7,7 +7,7 @@ ms.service: storage
 ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
-ms.date: 09/23/2021
+ms.date: 10/08/2021
 ms.custom: template-tutorial, devx-track-azurepowershell
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
@@ -38,10 +38,10 @@ The exercises in this tutorial require a VM. Follow the steps in this section to
 Before you begin, find the `$azRegion` variable located in the first line of sample code and update the value to reflect your desired region. For example, to specify the **Central US** region, use `$azRegion = "Central US"`. Next, use the code to deploy a VM within a new resource group. You're prompted for username and password values for the VM's local administrator account.
 
 ```azurepowershell-interactive
-$azRegion        = "[Your Region]"
+$azRegion = "[Your Region]"
 $azResourceGroup = "myDemoResourceGroup"
-$azVMName        = "myDemoVM"
-$azDataDiskName  = "myDemoDataDisk"
+$azVMName = "myDemoVM"
+$azDataDiskName = "myDemoDataDisk"
 
 New-AzVm `
     -Location $azRegion `
@@ -51,7 +51,7 @@ New-AzVm `
     -VirtualNetworkName "myDemoVnet" `
     -SubnetName "myDemoSubnet" `
     -SecurityGroupName "myDemoNetworkSecurityGroup" `
-    -PublicIpAddressName "myDemoPublicIpAddress"    
+    -PublicIpAddressName "myDemoPublicIpAddress"
 ```
 
 The output confirms the VM's successful creation.
@@ -167,7 +167,7 @@ A data disk must be attached to a VM before the VM can access it. Complete the s
     RequestId IsSuccessStatusCode StatusCode ReasonPhrase
     --------- ------------------- ---------- ------------
                              True         OK OK
-    ```  
+    ```
 
 ### Initialize the data disk
 
@@ -441,7 +441,7 @@ Follow the steps in this section to upgrade a managed disk from standard to prem
 
 ## Detach a data disk
 
-You can detach a data disk from a VM when it's no longer needed. A detached disk is removed from the VM, but isn't deleted. If you've subscribed to premium storage, you'll continue to incur storage charges for the disk until it's deleted.
+You can detach a data disk from a VM when you want to attach it to a different VM, or when it's no longer needed. By default, detached disks are not deleted to prevent unintentional data loss. A detached disk will continue to incur storage charges until it's deleted.
 
 1. First, select the VM to which the disk is attached with the `Get-AzVM` cmdlet.
 
