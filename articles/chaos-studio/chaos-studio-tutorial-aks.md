@@ -1,5 +1,5 @@
 ---
-title: Create an experiment that uses an AKS service-direct fault
+title: Create an experiment that uses an AKS service-direct fault with Azure Chaos Studio
 description: Create an experiment that uses an AKS service-direct fault
 services: chaos-studio
 author: johnkemnetz

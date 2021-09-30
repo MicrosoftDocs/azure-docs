@@ -1,5 +1,5 @@
 ---
-title: Internet DNS outage using network security group fault
+title: Use Azure Chaos Studio to replicate an internet DNS outage using the network security group fault
 description: Get started with Chaos Studio by creating a DNS outage using the network security group fault.
 services: chaos-studio
 author: johnkemnetz

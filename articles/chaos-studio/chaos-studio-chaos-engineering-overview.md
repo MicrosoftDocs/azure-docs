@@ -1,5 +1,5 @@
 ---
-title: Understanding chaos engineering and resilience
+title: Understanding chaos engineering and resilience with Azure Chaos Studio
 description: Understand the concepts of chaos engineering and resilience.
 services: chaos-studio
 author: johnkemnetz

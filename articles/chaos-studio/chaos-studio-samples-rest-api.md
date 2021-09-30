@@ -1,5 +1,5 @@
 ---
-title: Use the REST APIs to manage chaos experiments
+title: Use the REST APIs to manage Azure Chaos Studio experiments
 description: Run and manage a chaos experiment with Azure Chaos Studio using REST APIs.
 services: chaos-studio
 author: johnkemnetz
