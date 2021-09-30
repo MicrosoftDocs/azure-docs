@@ -211,10 +211,9 @@ It is important to note that system routes for traffic related to virtual networ
 
 Individuals involved in the design or implementation of routing topologies in Azure should understand how Azure routes traffic and develop an architecture that balances the necessary functionality of systems with the required security and visibility. Care should be taken to plan the environment appropriately to avoid excessive interventions and exceptions to routing behaviours as this will increase complexity and may make troubleshooting and fault finding more difficult and time consuming.
 
-| Resource | Link  |
-| --- | --- |
-| *View effective routes* | <https://docs.microsoft.com/azure/virtual-network/manage-route-table#view-effective-routes> |
-|
+| Resource | 
+| --- | 
+| [View effective routes](../virtual-network/manage-route-table.md#view-effective-routes)
 
 ### System routes
 
