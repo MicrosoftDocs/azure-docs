@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Migrate SQL Server online to SQL Server on Azure Virtual Machine using Azure Data Studio with Azure Database Migration Service"
+title: "Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Complete an online migration from SQL Server to SQL Server on Azure Virtual Machine using Azure Data Studio with Azure Database Migration Service.
 services: dms
