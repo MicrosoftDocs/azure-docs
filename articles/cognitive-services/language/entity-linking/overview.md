@@ -14,7 +14,7 @@ ms.author: aahi
 
 # What is entity linking?
 
-Entity linking is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Entity linking provides the ability to identify and disambiguate the identity of entities found in text. For example, in the sentence "*We went to Seattle last week.*", the word *Seattle* would be identified, with a link to more information on Wikipedia.
+Entity linking is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Entity linking identifies and disambiguates the identity of entities found in text. For example, in the sentence "*We went to Seattle last week.*", the word *Seattle* would be identified, with a link to more information on Wikipedia.
 
 This documentation contains the following types of articles:
 
@@ -23,7 +23,7 @@ This documentation contains the following types of articles:
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
-The result will be a collection of recognized entities in your text, URLs to an online knowledge base. 
+The result will be a collection of recognized entities in your text, with URLs to Wikipedia as an online knowledge base. 
 
 ## Responsible AI 
 
@@ -34,5 +34,5 @@ An AI system includes not only the technology, but also the people who will use 
 ## Next steps
 
 There are two ways to get started using the entity linking feature:
-1. [Language Studio](../concepts/language-studio.md), which is a web-based platform that enables to try several service features without needing to write code.
-2. The Azure portal, which is the primary site where you'll manage your resource, and other Azure services if you use them. See the [quickstart](quickstart.md) for more information on creating a resource using Azure portal.  
+1. [Language Studio](../concepts/language-studio.md), which is a web-based platform that enables you to try several service features without needing to write code.
+2. The [quickstart](quickstart.md) article for instructions on making requests to the service using the REST API and client library SDK.  
