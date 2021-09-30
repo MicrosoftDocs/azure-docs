@@ -203,27 +203,27 @@ The following tables describe the hyperparameters that are model agnostic
 | Parameter name | Description   | Default  |
 | ------------- |-----------| --------|
 | `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  All&nbsp;(except yolov5):&nbsp;15 <br>yolov5: 30 |
-| `training_batch_size` | Training batch size.<br> Must be a positive integer. <br> <br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory* | Multi-class&nbsp;/&nbsp;multi-label:&nbsp;78 <br> Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation:&nbsp;2 <br>yolov5: 16 |
-| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. <br><br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*|Multi-class / multi-label: 78 <br>Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation: 2 <br>yolov5: 16  |
-| `early_stopping` | Enable early stopping logic during training <br> Must be 0 or 1.| 1 |
+| `training_batch_size` | Training batch size.<br> Must be a positive integer. <br> <br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*. | Multi-class&nbsp;/&nbsp;multi-label:&nbsp;78 <br> Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation:&nbsp;2 <br>yolov5: 16 |
+| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. <br><br> *Note: The defaults are largest batch size which can be used on 12GiB GPU memory*.|Multi-class / multi-label: 78 <br>Object&nbsp;detection&nbsp;(except&nbsp;yolov5):&nbsp;2 <br> Instance&nbsp;segmentation: 2 <br>yolov5: 16  |
+| `early_stopping` | Enable early stopping logic during training. <br> Must be 0 or 1.| 1 |
 | `early_stopping_patience` | Minimum number of epochs or validation evaluations with no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
 | `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
 | `learning_rate` | Initial learning rate. <br>Must be a float in the range [0, 1]. | Multi-class: 0.01 <br>Multi-label: 0.035 <br>Object&nbsp;detection&nbsp;(except yolov5):&nbsp;0.05 <br> Instance&nbsp;segmentation:&nbsp;0.05  <br>yolov5: 0.01  |
-| `lr_scheduler` | Type of learning rate scheduler <br> Must be either: `warmup_cosine` or `step` | warmup_cosine |
+| `lr_scheduler` | Type of learning rate scheduler. <br> Must be `warmup_cosine` or `step`. | warmup_cosine |
 | `step_lr_gamma` | Value of gamma for the learning rate scheduler if it's of type `step`.<br> Must be a float in the range [0, 1]. | 0.5 |
-| `step_lr_step_size` | Value of step size for the learning rate scheduler if it's of type step.<br> Must be a positive integer. | 5 |
-| `warmup_cosine_lr_cycles` | Value of cosine cycle for the learning rate scheduler if it's of type `warmup_cosine` <br> Must be a float in the range [0, 1]. | 0.45 |
-| `warmup_cosine_lr_warmup_epochs` | Value of warmup epochs  for the learning rate scheduler if it's of type `warmup_cosine` <br> Must be a positive integer. | 2 |
+| `step_lr_step_size` | Value of step size for the learning rate scheduler if it's of type `step`.<br> Must be a positive integer. | 5 |
+| `warmup_cosine_lr_cycles` | Value of cosine cycle for the learning rate scheduler if it's of type `warmup_cosine`. <br> Must be a float in the range [0, 1]. | 0.45 |
+| `warmup_cosine_lr_warmup_epochs` | Value of warmup epochs  for the learning rate scheduler if it's of type `warmup_cosine`. <br> Must be a positive integer. | 2 |
 | `optimizer` | Type of optimizer. <br> Must be either `sgd`, `adam`, `adamw`.  | `sgd` |
-| `momentum` | Value of momentum for the optimizer if it's of type `sgd` <br> Must be a float in the range [0, 1]. | 0.9 |
-| `weight_decay` | Value of weight decay for the optimizer if it's of type `sgd`, `adam`, or `adamw` <br> `Must be a float in the range [0, 1]. | 1e-4 |
-| `nesterov` | Enable `nesterov` for the optimizer if it is of type `sgd` <br> Must be 0 or 1.| 1 |
-| `beta1` | Value of `beta1` for the optimizer if it's of type `adam` or `adamw` <br> Must be a float in the range [0, 1]. | 0.9 |
-| `beta2` | Value of `beta2` for the optimizer if it's of type `adam` or `adamw` <br>Must be a float in the range [0, 1]. | 0.999 |
-| `amsgrad` | Enable `amsgrad` for the optimizer if it's of type `adam` or `adamw` <br> Must be 0 or 1. | 0 |
+| `momentum` | Value of momentum for the optimizer if it's of type `sgd`. <br> Must be a float in the range [0, 1]. | 0.9 |
+| `weight_decay` | Value of weight decay for the optimizer if it's of type `sgd`, `adam`, or `adamw`. <br> `Must be a float in the range [0, 1]. | 1e-4 |
+| `nesterov` | Enable `nesterov` for the optimizer if it is of type `sgd`. <br> Must be 0 or 1.| 1 |
+| `beta1` | Value of `beta1` for the optimizer if it's of type `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
+| `beta2` | Value of `beta2` for the optimizer if it's of type `adam` or `adamw`.<br>Must be a float in the range [0, 1]. | 0.999 |
+| `amsgrad` | Enable `amsgrad` for the optimizer if it's of type `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
 | `evaluation_frequency` | Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer.| 1 |
-| `split_ratio` | Validation split ratio when splitting train data into random train and validation subsets if validation data is not defined <br> Must be a float in the range [0, 1].| 0.2 |
-| `checkpoint_frequency` | Frequency to store model checkpoints.<br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation|
+| `split_ratio` | Validation split ratio when splitting train data into random train and validation subsets if validation data is not defined. <br> Must be a float in the range [0, 1].| 0.2 |
+| `checkpoint_frequency` | Frequency to store model checkpoints.<br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
 | `layers_to_freeze` | How many layers to freeze for your model. <br> For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1. <br> Must be a positive integer. | no default value |
 
 
@@ -234,9 +234,9 @@ The following table summarizes hyperparmeters for image classification (multi-cl
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
-| `weighted_loss` | 0 for no weighted loss<br>1 for weighted loss with sqrt(class_weights), and 2 for weighted loss with class_weights <br> Must be 0 or 1 or 2. | 0 |
-|`resize_size` | Image size to which to resize before cropping for validation dataset <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size <li> Training run may get into CUDA OOM if the size is too big*  | 256  |
-| `crop_size` | Image crop size that's input to your neural network.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size <li> Training run may get into CUDA OOM if the size is too big* | 224 |
+| `weighted_loss` | 0 for no weighted loss.<br>1 for weighted loss with sqrt.(class_weights) <br> 2 for weighted loss with class_weights. <br> Must be 0 or 1 or 2. | 0 |
+|`resize_size` | Image size to which to resize before cropping for validation dataset. <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*.  | 256  |
+| `crop_size` | Image crop size that's input to your neural network.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
 
 
 The following hyperparameters are for object detection and instance segmentation tasks.
@@ -247,11 +247,11 @@ The following hyperparameters are for object detection and instance segmentation
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
-| `validation_metric_type` | Metric computation method to use for validation metrics  <br> Must be `none`, `coco`, `voc`, or `coco_voc` | `voc` |
-| `min_size` | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*| 600 |
-| `max_size` | Maximum size of the image to be rescaled before feeding it to the backbone <br> Must be a positive integer.<br> <br> *Note: training run may get into CUDA OOM if the size is too big* | 1333 |
-| `box_score_thresh` | During inference, only return proposals with a classification score greater than box_score_thresh <br> Must be a float in the range [0, 1].| 0.3 |
-| `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  Must be a float in the range [0, 1]. | 0.5 |
+| `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
+| `min_size` | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*.| 600 |
+| `max_size` | Maximum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer.<br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 1333 |
+| `box_score_thresh` | During inference, only return proposals with a classification score greater than `box_score_thresh`. <br> Must be a float in the range [0, 1].| 0.3 |
+| `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
 
 
@@ -261,12 +261,12 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|----|
-| `validation_metric_type` | Metric computation method to use for validation metrics  <br> Must be `none`, `coco`, `voc`, or `coco_voc` | `voc` |
-| `img_size` | Image size for train and validation <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big* | 640 |
-| `model_size` | Model size <br> Must be `small`, `medium`, `large`, or `xlarge` <br> *Note: training run may get into CUDA OOM if the model size is too big*  | `medium` |
-| `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*  | 0 |
-| `box_score_thresh` | During inference, only return proposals with a score greater than box_score_thresh. The score is the multiplication of the objectness score and classification probability <br> Must be a float in the range [0, 1]. | 0.1 |
-| `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing <br> Must be a float in the range [0, 1] | 0.5 |
+| `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
+| `img_size` | Image size for train and validation. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 640 |
+| `model_size` | Model size. <br> Must be `small`, `medium`, `large`, or `xlarge`. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*.  | `medium` |
+| `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*. | 0 |
+| `box_score_thresh` | During inference, only return proposals with a score greater than `box_score_thresh`. The score is the multiplication of the objectness score and classification probability. <br> Must be a float in the range [0, 1]. | 0.1 |
+| `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
 
 
 ## Configure your experiment settings
@@ -303,7 +303,7 @@ You can optionally specify the maximum time budget for your AutoML Vision experi
 
 <!---
 ### Early stopping
-You can optionally enable early stopping for your AutoML Vision experiment using `enable_early_stopping` parameter.
+You can optionally enable early stopping for your computer vision experiment using `enable_early_stopping` parameter.
 | Parameter Name       | Description           | Default  |
 | ------------- |-------------| -----|
 | early_stopping | Enable early stopping logic during training | 1 |
