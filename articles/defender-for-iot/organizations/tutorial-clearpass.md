@@ -163,11 +163,11 @@ To enable viewing the alerts discovered by Defender for IoT in Aruba, you need t
 
 1. In the **Forwarding** pane, select **Create Forwarding Rule**.
 
-        :::image type="content" source="media/tutorial-clearpass/forwarding.png" alt-text="The Forwarding pane with all of its options.":::
+    :::image type="content" source="media/tutorial-clearpass/forwarding.png" alt-text="The Forwarding pane with all of its options.":::
 
 1. Add the name, and the severity of the rule, and then from the **Action** drop-down list, select **Send to** > **ClearPass**.
 
-        :::image type="content" source="media/tutorial-clearpass/rule.png" alt-text="Create a Forwarding Rule.":::
+    :::image type="content" source="media/tutorial-clearpass/rule.png" alt-text="Create a Forwarding Rule.":::
 
 1. In the **Actions** pane, set the following parameters:
 
