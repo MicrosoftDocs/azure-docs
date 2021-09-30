@@ -44,27 +44,7 @@ You submit text to the Health API.  Document size must be under 5,120 characters
 
 Depending on what text you submit to the Health API, you will get:
 
-### Named Entity Recognition
-
-Named Entity Recognition detects words and phrases mentioned in unstructured text that can be associated with one or more semantic types, such as diagnosis, medication name, symptom/sign, or age.
-
-### Relation Extraction
-
-Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
-
-### Entity Linking
-
-Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts including the Unified Medical Language System (UMLS). Medical concepts are also assigned preferred naming, as an additional form of normalization.
-
-The Health API supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
-
-### Assertion Detection
-
-The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. The Health API supports three categories of assertion detection for entities in the text: 
-
-* Certainty
-* Conditional
-* Association
+[!INCLUDE [health features](includes/features.md)]
 
 
 ## Data limits

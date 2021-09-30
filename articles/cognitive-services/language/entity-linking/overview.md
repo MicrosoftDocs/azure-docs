@@ -1,7 +1,7 @@
 ---
-title: Entity linking in Azure Language services
+title: What is entity linking in Azure Cognitive Service for language?
 titleSuffix: Azure Cognitive Services
-description: Learn about entity linking with Language Services.
+description: An overview of entity linking in Azure Cognitive Services, which helps you extract entities from text, and provides links to an online knowledge base.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,14 +12,14 @@ ms.date: 09/20/2021
 ms.author: aahi
 ---
 
-# What is entity linking?
+# What is entity linking in Azure Cognitive Service for language?
 
-Entity linking is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Entity linking identifies and disambiguates the identity of entities found in text. For example, in the sentence "*We went to Seattle last week.*", the word *Seattle* would be identified, with a link to more information on Wikipedia.
+Entity linking is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Entity linking identifies and disambiguates the identity of entities found in text. For example, in the sentence "*We went to Seattle last week.*", the word "*Seattle*" would be identified, with a link to more information on Wikipedia.
 
 This documentation contains the following types of articles:
 
-* [Quickstarts](quickstart.md) are getting-started instructions to guide you through making requests to the service.
-* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific ways.
+* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific ways.
 
 [!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
