@@ -83,7 +83,6 @@ For Batch accounts created with the user subscription pool allocation mode:
 1. Select **Add Filter**. In the first drop-down, select **Tag**.
 1. In the second drop-down, select **poolname**.
 1. In the third drop-down, select the Batch pool.
-
    :::image type="content" source="media/batch-budget/user-subscription-pool.png" alt-text="Screenshot showing cost analysis of a user subscription Batch pool in the Azure portal.":::
 
 Note that if you're interested in viewing cost data for all pools in a user subscription Batch account, you can select **batchaccountname** in the second drop-down and the name of your Batch account in the third drop-down. 
@@ -137,7 +136,7 @@ By default, pool nodes use managed disks, which incur costs. Virtual Machine Con
 
 ### Purchase reservations for virtual machine instances
 
-If you intend to use Batch for a long period of time, you can reduce the cost of VMs by using [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) for your workloads. A reservation rate is considerably lower than a pay-as-you-go rate. Virtual machine instances used without a reservation are charged at the pay-as-you-go rate. When you purchase a reservation, the reservation discount is applied. By committing to one-year or three-year plans for [VM instances](../virtual-machines/prepay-reserved-vm-instances.md), significant discounts are applied to VM usage, including [VMs consumed via Batch pools](../virtual-machines/prepay-reserved-vm-instances#determine-the-right-vm-size-before-you-buy.md).
+If you intend to use Batch for a long period of time, you can reduce the cost of VMs by using [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) for your workloads. A reservation rate is considerably lower than a pay-as-you-go rate. Virtual machine instances used without a reservation are charged at the pay-as-you-go rate. When you purchase a reservation, the reservation discount is applied. By committing to one-year or three-year plans for [VM instances](../virtual-machines/prepay-reserved-vm-instances.md), significant discounts are applied to VM usage, including [VMs consumed via Batch pools](../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).
 
 It is important to note that reservation discount is "use-it-or-lose-it."  If there no matching resources are used for an hour, you'll lose the reservation quantity for that hour. Unused reserved hours can't be carried forward, and are therefore lost if not used. Batch workloads often scale the number of allocated VMs according to load and have varying load, including periods where there is no load. Care therefore needs to be taken determining the reservation amount, given that reserved hours will be lost if Batch VMs are scaled down below the reservation quantity.
 
