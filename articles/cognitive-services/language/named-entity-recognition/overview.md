@@ -1,60 +1,43 @@
 ---
-title: Named Entity Recognition (NER) and Personally Identifiable Information (PII) - Azure Cognitive Services
+title: What is the NER feature and PII detection in Azure Cognitive Service for language?
 titleSuffix: Azure Cognitive Services
-description: Learn how to extract entities and PII using the Language Services API.
+description: An overview of Named Entity Recognition feature in Azure Cognitive Services, which helps you extract entities and sensitive information (PII) in text.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 09/30/2021
 ms.author: aahi
-keywords: text mining, sentiment analysis, text analytics
 ---
 
-# What is the Named Entity Recognition and Personally Identifiable Information API?
+# What is Named Entity Recognition (NER) and Personally Identifiable Information (PII) detection in Azure Cognitive Service for language?
 
-This API is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis.
+Named Entity Recognition(NER) is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. The NER feature can identify and categorize entities in unstructured text.
 
-The API is a part of [Azure Cognitive Services](../../index.yml), a collection of cloud-based machine learning and AI algorithms for your development projects. You can use these features with the REST API, or the client libraries.
-
-This documentation contains the following types of articles:
-
-* [How-to guides](./how-to-call.md) contain instructions for using the service in more specific or customized ways.
+* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](how-to-call.md) contain instructions for using the service in more specific or customized ways.
+* The [**conceptual articles**](concepts/health-entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
 ## Named Entity Recognition (NER)
 
-Named Entity Recognition (NER) can Identify and categorize entities in your text as people, places, organizations, quantities, Well-known entities are also recognized and linked to more information on the web.
+NER can identify and place entities in your text into predefined categories, such as people, places, organizations, and quantities. 
 
-## Personally Identifying Information (PII)
+## Personally Identifying Information (PII) recognition
 
 Identify, and redact PII that occurs in text, such as phone numbers, email addresses, and other identification information. 
 
-## Typical workflow
-
-To use the API, you submit data for analysis and handle outputs in your application. Analysis is performed as-is, with no additional customization to the model used on your data.
-
-1. Create an Azure resource for Language Services. Afterwards, get the key and endpoint generated for you to authenticate your requests.
-
-2. Formulate a request using either the REST API or the client library for: C#, Java, JavaScript or Python. You can also call the API asynchronously to combine requests to multiple [Language Services](../overview.md) features in a single call.
-
-3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
-
-4. Stream or store the response locally. The result will be the recognized entities in the text you send.  
-
+[!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also: the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for NER and PII](/legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/cognitive-services/language/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
-* [Transparency note for Language services](../overview.md)
-* [Transparency note for NER and PII](../overview.md)
-* [Integration and responsible use](../overview.md)
-* [Data, privacy, and security](../overview.md)
+[!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
 
 ## Next steps
 
-Follow a quickstart to implement and run a service in your preferred development language.
-
-* [Quickstart: Sentiment Analysis and opinion mining](../overview.md)
+There are two ways to get started using the entity linking feature:
+1. [Language Studio](../concepts/language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+2. The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  
