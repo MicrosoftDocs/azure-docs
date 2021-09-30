@@ -96,7 +96,7 @@ Use the following example to create a network security group. You'll configure t
 
 2. Select **+ Create**.
 
-3. In the **Basics** tab of **Create network security group**, enter or select the followin information:
+3. In the **Basics** tab of **Create network security group**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -155,7 +155,7 @@ Use the following example to create a network security group. You'll configure t
 
 15. Select **Add**.
 
-Select this NSG when creating the NVA's for your deployment.
+Select this NSG when creating the NVAs for your deployment.
 
 ## Create gateway load balancer
 
