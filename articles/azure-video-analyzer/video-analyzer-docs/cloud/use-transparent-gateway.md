@@ -128,4 +128,4 @@ The following values are required to enable tunneling:
 ## Playback in Portal
 
 ## Next Steps
-Run cloud pipeline with RTSP source enabled with tunneling
+
