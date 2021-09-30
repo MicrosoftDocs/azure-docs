@@ -42,23 +42,23 @@ In this article, you'll learn to:
 
 * If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
 
-```azurecli
-az account set --subscription <subscription id>
-az configure --defaults workspace=<azureml workspace name> group=<resource group>
-```
+   ```azurecli
+   az account set --subscription <subscription id>
+   az configure --defaults workspace=<azureml workspace name> group=<resource group>
+   ```
 
 * An existing online endpoint and deployment. This article assumes that your deployment is as described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 
 * If you haven't already set the environment variable $ENDPOINT_NAME, do so now:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+   :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
 * (Recommended) Clone the samples repository and switch to the repository's `cli/` directory: 
 
-```azurecli
-git clone https://github.com/Azure/azureml-examples
-cd azureml-examples/cli
-```
+   ```azurecli
+   git clone https://github.com/Azure/azureml-examples
+   cd azureml-examples/cli
+   ```
 
 The commands in this tutorial are in the file `deploy-safe-rollout-online-endpoints.sh` and the YAML configuration files are in the `endpoints/online/managed/sample/` subdirectory.
 
