@@ -1,5 +1,5 @@
 ---
-title: Run and manage a chaos experiment
+title: Run and manage a chaos experiment with Azure Chaos Studio
 description: Run and manage a chaos experiment with Azure Chaos Studio
 services: chaos-studio
 author: johnkemnetz

@@ -1,5 +1,5 @@
 ---
-title: Create an experiment that uses an agent-based fault
+title: Create an Azure Chaos Studio experiment that uses an agent-based fault
 description: Create an experiment that uses an agent-based fault and configure agents
 services: chaos-studio
 author: johnkemnetz
