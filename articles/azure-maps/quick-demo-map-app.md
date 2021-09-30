@@ -44,7 +44,7 @@ Create a new Azure Maps account with the following steps:
     * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
     * Click the **Create** button.
 
-    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Create Maps account in portal":::
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Create Maps account in portal" lightbox="./media/quick-demo-map-app/create-account.png":::
 
 <a id="getkey"></a>
 
@@ -56,16 +56,19 @@ Once your Maps account is successfully created, retrieve the primary key that en
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
->[!NOTE]
-> If you use the subscription key instead of the primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
-
 :::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Get Primary Key Azure Maps key in Azure portal":::
+
+>[!NOTE]
+> This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but that the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
 
 ## Download the demo application
 
 1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Copy the content of the file.
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
-3. Search for the string `<Your Azure Maps Key>`. Replace it with the **Primary Key** value from the preceding section.
+3. Add the **Primary Key** value you got in the preceding section
+    1. Comment out all of the code in the `authOptions` function, this code is used for Azure Active Directory authentication.
+    1. Uncomment the last two lines in the `authOptions` function, this code is used for Shared Key authentication, the approach being used in this quickstart.
+    1. Replace `<Your Azure Maps Key>` with the **Primary Key** value from the preceding section.
 
 ## Open the demo application
 
@@ -76,7 +79,6 @@ Once your Maps account is successfully created, retrieve the primary key that en
 5. Move your mouse over the list of addresses and locations that appear below the search box. Notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown.
 
     :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Interactive map search web application":::
-
 
 ## Clean up resources
 
