@@ -20,7 +20,7 @@ For information on the Azure Disk backup region availability, supported scenario
 
 ## Configure backup
 
-Once the vault and policy are created, there are two critical points that the user needs to consider to protect all Azure Azure disks.
+Once the vault and policy are created, there are two critical points that the user needs to consider to protect all Azure Disks.
 
 ### Key entities involved
 
@@ -52,7 +52,7 @@ You need to assign a few permissions via RBAC to the vault (represented by vault
 
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for an Azure disk . The Azure Resource Manager ID (ARM ID) of the Azure disk and its details are mentioned in the 'datasourceinfo' section and the policy information is present in the 'policyinfo' section where the snapshot RG is given as one of the policy parameters.
+Once the relevant permissions are set to the vault and the disk, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for an Azure Disk. The Azure Resource Manager ID (ARM ID) of the Azure Disk and its details are mentioned in the _datasourceinfo_ section and the policy information is present in the _policyinfo_ section where the snapshot resource group is provided as one of the policy parameters.
 
 ```json
 {
@@ -85,21 +85,21 @@ Once the relevant permissions are set to the vault and the disk, and the vault a
 
 ### Validate the request to configure backup
 
-We can validate whether the request to configure backup or not will be successful or not using [the validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). The response can be used by customer to perform all required pre-requisites and then submit the configuration for backup request.
+To validate if the request to configure backup will be successful, use [the validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). You can use the response to perform the required prerequisites, and then submit the configuration for backup request.
 
-Validate for backup request is a POST operation and the URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
+Validate for backup request is a _POST_ operation and the URI contains `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.DataProtection/backupVaults/{backupVaultName}/validateForBackup?api-version=2021-01-01
 ```
 
-For example, this translates to
+For example, this API translates to:
 
 ```http
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
 ```
 
-The [request body](#prepare-the-request-to-configure-backup) that we prepared earlier will be used to give the details of the Azure disk to be protected.
+The [request body](#prepare-the-request-to-configure-backup) that we prepared earlier will be used to provide details of the Azure Disk to be protected.
 
 #### Example request body
 
@@ -132,9 +132,9 @@ The [request body](#prepare-the-request-to-configure-backup) that we prepared ea
 }
 ```
 
-#### Responses for validate backup request
+#### Responses for backup request validation
 
-Validate for backup request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+Backup request validation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
 
@@ -148,7 +148,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 ###### Error response
 
-In case the given disk is already protected, the response is HTTP 400 (Bad request) and clearly states that the given disk is protected to a backup vault along with details.
+If the given disk is already protected, it returns the response as HTTP 400 (Bad request) and states that the given disk is protected to a backup vault along with details.
 
 ```http
 HTTP/1.1 400 BadRequest
@@ -233,7 +233,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 ```
 
-It returns 200(OK) once it completes and the response body lists further requirements to be fulfilled, such as permissions.
+It returns 200 (OK) once it completes and the response body lists further requirements to be fulfilled, such as permissions.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
@@ -275,7 +275,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 ```
 
-If all the permissions are granted, then resubmit the validate request, track the resulting operation and it will return 200(OK) as succeeded if all the conditions are met.
+If you grant all permissions, then resubmit the validate request, track the resulting operation, and it'll return the success response as 200 (OK) if all the conditions are met.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==?api-version=2021-01-01
@@ -291,9 +291,9 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ### Configure backup request
 
-Once the request is validated, then you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). A Backup instance represents an item protected with data protection service of Azure Backup within the backup vault. In this case, the Azure disk is the backup instance and you can use the same request body, which was validated above, with minor additions.
+Once the request is validated, then you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). A Backup instance represents an item protected with data protection service of Azure Backup within the Backup vault. Here, the Azure Disk is the backup instance and you can use the same request body, which was validated above, with minor additions.
 
-You have to decide a unique name for the backup instance and hence we recommend you use a combination of the resource name and a unique identifier. We will use an example of "msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed" here and mark it as the backup instance name.
+Use a unique name for the backup instance. So, we recommend you use a combination of the resource name and a unique identifier. For example, in the following operation, we'll use _msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed_ and mark it as the backup instance name.
 
 To create or update the backup instance, use the following ***PUT*** operation.
 
@@ -301,7 +301,7 @@ To create or update the backup instance, use the following ***PUT*** operation.
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/{BkpvaultName}/backupInstances/{UniqueBackupInstanceName}?api-version=2021-01-01
 ```
 
-For example, this translates to
+For example, this API translates to:
 
 ```http
  PUT https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed?api-version=2021-01-01
@@ -309,7 +309,7 @@ For example, this translates to
 
 #### Create the request for configure backup
 
-To create a backup instance, following are the components of the request body
+To create a backup instance, following are the components of the request body:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -317,7 +317,7 @@ To create a backup instance, following are the components of the request body
 
 ##### Example request for configure backup
 
-We will use the same request body that we used to validate the backup request with a unique name as we mentioned [above](#configure-backup).
+We'll use the same request body that we used to validate the backup request with a unique name as we mentioned [above](#configure-backup).
 
 ```json
 {
@@ -352,9 +352,9 @@ We will use the same request body that we used to validate the backup request wi
 
 #### Responses to configure backup request
 
-The create backup instance request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+The _create backup instance request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 201 (Created) when backup instance is created and the protection is being configured and then 200 (OK) when that configuration completes.
+It returns two responses: 201 (Created) when backup instance is created and the protection is being configured, and then 200 (OK) when that configuration completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -364,7 +364,7 @@ It returns two responses: 201 (Created) when backup instance is created and the 
 
 ##### Example responses to configure backup request
 
-Once you submit the *PUT* request to create a backup instance, the initial response is 201 (Created) with an Azure-asyncOperation header. Please note that the request body contains all the backup instance properties.
+Once you submit the *PUT* request to create a backup instance, the initial response is 201 (Created) with an Azure-asyncOperation header. Note that the request body contains all the backup instance properties.
 
 ```http
 HTTP/1.1 201 Created
@@ -441,7 +441,7 @@ Once the operation completes, it returns 200 (OK) with the success message in th
 
 ### Stop protection and delete data
 
-To remove the protection on an Azure disk and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/dataprotection/backup-instances/delete).
+To remove the protection on an Azure Disk and delete the backup data as well, perform a [delete operation](/rest/api/dataprotection/backup-instances/delete).
 
 Stopping protection and deleting data is a *DELETE* operation.
 
@@ -449,7 +449,7 @@ Stopping protection and deleting data is a *DELETE* operation.
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}?api-version=2021-01-01
 ```
 
-For our example, this translates to:
+For example, this API translates to:
 
 ```http
 DELETE "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed?api-version=2021-01-01"
@@ -457,9 +457,9 @@ DELETE "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/Test
 
 #### Responses for delete protection
 
-*DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+*DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -468,7 +468,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 ##### Example responses for delete protection
 
-Once you submit the *DELETE* request, the initial response will be 202 Accepted along with an Azure-asyncOperation header.
+Once you submit the *DELETE* request, the initial response will be 202 (Accepted) with an Azure-asyncOperation header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -507,7 +507,7 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 [Restore data from an Azure disk backup](backup-azure-arm-userestapi-restoreazurevms.md).
 
-For more information on the Azure Backup REST APIs, see the following documents:
+For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Azure Data Protection Provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)

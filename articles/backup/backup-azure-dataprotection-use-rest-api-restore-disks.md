@@ -203,7 +203,7 @@ POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBk
 
 ##### Request body to validate restore request
 
-We have constructed a section of the same in the [above section](#constructing-the-request-body-for-restore-request). Now, we'll add object type and use it to trigger a validate operation.
+We have constructed a section of the same in the [above section](#construct-the-request-body-for-restore-request). Now, we'll add object type and use it to trigger a validate operation.
 
 ```json
 
