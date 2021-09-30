@@ -109,6 +109,7 @@ resource "azurerm_subnet" "snet-workspace" {
 ```
 
 There are several options to connect to your private link endpoint workspace. To learn more about these options, refer to [Securely connect to your workspace](/azure/machine-learning/how-to-secure-workspace-vnet#securely-connect-to-your-workspace).
+
 ---
 
 ## Troubleshooting
