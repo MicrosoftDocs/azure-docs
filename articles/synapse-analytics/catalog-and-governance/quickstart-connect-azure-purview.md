@@ -76,7 +76,7 @@ Once you connect the Synapse workspace to a Purview account, you see the followi
 
 :::image type="content" source="./media/monitor-purview-connection-status.png" alt-text="Screenshot for monitoring the integration status between Azure Synapse and Purview.":::
 
-For **Data Lineage - Pipeline**, you may see one of below status:
+For **Data Lineage - Synapse Pipeline**, you may see one of below status:
 
 - **Connected**: The Synapse workspace is successfully connected to the Purview account. Note this indicates Synapse workspace is associated with a Purview account and has permission to push lineage to it. If your Purview account is protected by firewall, you also need to make sure the integration runtime used to execute the activities and conduct lineage push can reach the Purview account. Learn more from [Access a secured Azure Purview account](how-to-access-secured-purview-account.md).
 - **Disconnected**: The Synapse workspace cannot push lineage to Purview because Purview Data Curator role is not granted to Synapse workspace's managed identity. To fix this issue, go to your Purview account to check the role assignments, and manually grant the role as needed. Learn more from [Set up authentication](#set-up-authentication) section.
