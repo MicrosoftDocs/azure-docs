@@ -24,7 +24,7 @@ Please consider carefully whether this preview is right for you. It enables dist
  - Offline disk storage
  - [Azure AD Authentication](azure-ad-authentication.md)
  - Cloud Role Name and Cloud Role Instance Auto-population in Azure environments
- - [Sampling](sampling.md) (not supported for Azure Monitor OpenTelemetry Exporter)
+ - [Sampling](sampling.md)
  
 Those who require a full-feature experience should use the existing [Application Insights Node.js SDK](nodejs.md) until the OpenTelemetry-based offering matures.
 
