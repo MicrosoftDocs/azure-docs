@@ -15,7 +15,7 @@ recommendations: false
 
 In this article, you'll learn how to generate user delegation shared access signature (SAS) tokens for Azure Blob Storage containers. A user delegation SAS token is signed with Azure Active Directory (Azure AD) credentials instead of Azure Storage keys. It provides superior secure and delegated access to resources in your Azure storage account.
 
-At a high level, here's how it works: your application provides the SAS token to Azure Storage as part of a request. If the storage service verifies that the SAS is valid, the request is authorized. If the SAS is considered invalid, the request is declined with error code 403 (Forbidden).
+At a high level, here's how it works: your application provides the SAS token to Azure Storage as part of a request. If the storage service verifies that the shared access signature is valid, the request is authorized. If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
 
 Azure Blob Storage offers three types of resources:
 
@@ -25,13 +25,13 @@ Azure Blob Storage offers three types of resources:
 
 > [!NOTE]
 >
-> * If your Azure storage account is protected by a virtual network or firewall, you can't grant access by using an SAS token. You'll have to use a [managed identity](managed-identity-byos.md) to grant access to your storage resource.
+> * If your Azure storage account is protected by a virtual network or firewall, you can't grant access by using a SAS token. You'll have to use a [managed identity](managed-identity-byos.md) to grant access to your storage resource.
 > * [Managed identity](managed-identity-byos.md) supports both privately and publicly accessible Azure Blob Storage accounts.
 >
 
 ## When to use a shared access signature
 
-* If you're using storage containers with public access, you can opt to use an SAS token to grant limited access to your storage resources.
+* If you're using storage containers with public access, you can opt to use a SAS token to grant limited access to your storage resources.
 * When you're training a custom model, your assembled set of training documents *must* be uploaded to an Azure Blob Storage container. You can grant permission to your training resources with a user delegation SAS token.
 
 ## Prerequisites
@@ -64,11 +64,11 @@ To get started, you'll need:
 > [!NOTE]
 > By default, the REST API uses form documents located at the root of your container. However, you can use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](/azure/applied-ai-services/form-recognizer/build-training-data-set.md#organize-your-data-in-subfolders-optional).
 
-## Create an SAS with the Azure portal
+## Create a shared access signature with the Azure portal
 
 > [!IMPORTANT]
 >
-> Generate and retrieve the SAS for your container, not for the storage account itself.
+> Generate and retrieve the shared access signature for your container, not for the storage account itself.
 
 1. In the [Azure portal](https://ms.portal.azure.com/#home), select **Your storage account** > **Containers**.
 1. Select a container from the list.
@@ -92,11 +92,11 @@ To get started, you'll need:
      > * [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC) is the authorization system used to manage access to Azure resources. Azure RBAC helps you manage access and permissions for your Azure resources.
     > * [Assign an Azure role for access to blob data](/azure/role-based-access-control/role-assignments-portal?tabs=current) shows you how to assign a role that allows for read, write, and delete permissions for your Azure storage container. For example, see [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor).
 
-1. Specify the signed key **Start** and **Expiry** times. The value for the expiry time is a maximum of seven days from the start of the SAS.
+1. Specify the signed key **Start** and **Expiry** times. The value for the expiry time is a maximum of seven days from the start of the shared access signature.
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
 
-1. The **Allowed protocols** field is optional and specifies the protocol permitted for a request made with the SAS. The default value is HTTPS.
+1. The **Allowed protocols** field is optional and specifies the protocol permitted for a request made with the shared access signature. The default value is HTTPS.
 
 1. Select **Generate SAS token and URL**.
 
@@ -104,7 +104,7 @@ To get started, you'll need:
 
 1. Copy and paste the **Blob SAS token** and **Blob SAS URL** values in a secure location. They're displayed only once and can't be retrieved after the window is closed.
 
-## Create an SAS with the Azure CLI
+## Create a shared access signature with the Azure CLI
 
 1. To create a user delegation SAS for a container by using the Azure CLI, make sure that you've installed version 2.0.78 or later. To check your installed version, use the `az --version` command.
 
@@ -117,7 +117,7 @@ To get started, you'll need:
 
 1. Supported permissions for a user delegation SAS on a container include Add (a), Create (c), Delete (d), List (l), Read (r), and Write (w). Make sure **r**, **w**, **d**, and **l** are included as part of the permissions parameters.
 
-1. When you create a user delegation SAS with the Azure CLI, the maximum interval during which the user delegation key is valid is seven days from the start date. Specify an expiry time for the SAS that's within seven days of the start time. For more information, see [Create a user delegation SAS for a container or blob with the Azure CLI](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
+1. When you create a user delegation SAS with the Azure CLI, the maximum interval during which the user delegation key is valid is seven days from the start date. Specify an expiry time for the shared access signature that's within seven days of the start time. For more information, see [Create a user delegation SAS for a container or blob with the Azure CLI](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
 
 ### Example
 
