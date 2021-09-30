@@ -169,12 +169,9 @@ If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will 
 
 ## Special considerations for node pools that span multiple Availability Zones
 
-AKS uses best-effort zone balancing in node groups. During an Upgrade surge, zone for the surge node provisioned in VMSS is unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. AKS deletes the surge node once the upgrade has been completed and preserves the original zone balance.
+AKS uses best-effort zone balancing in node groups. During an Upgrade surge, zone for the surge node in VMSS is unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes the surge node once the upgrade has been completed and preserves the original zone balance. If you desire to keep your zones balanced during upgrade, increase the surge to 3 nodes. VMSS will then balance your nodes across Availability Zones with best-effort zone balancing.
 
-However, if you have PVCs backed by Azure LRS Disks, they will be bound to a particular zone and may fail to drain if the surge node does not match the zone of the PVC. To handle this case, change the node surge to 3 or more nodes. This should result in a node in each availability zone and enable zone-bound pods to drain.
-
-> [!WARNING]
-> Surge of 3 nodes may result in draining all your application replicas at the same time and cause downtime to your application. We highly recommend configuring a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application to avoid this.
+If you have PVCs backed by Azure LRS Disks, they will be bound to a particular zone and may fail to recover immediately if the surge node does not match the zone of the PVC. This could cause downtime on your application when the Upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application. This allows Kubernetes to respect your availability requirements during Upgrade's drain operation. 
 
 
 ## Next steps
