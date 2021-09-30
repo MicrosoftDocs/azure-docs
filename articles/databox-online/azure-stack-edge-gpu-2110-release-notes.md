@@ -19,18 +19,17 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2110** release, which maps to software version number **2.2.XXXX.XXXX**. This software can be applied to your device if you are running at least Azure Stack Edge 2010 (2.1.1377.2170) software.
+This article applies to the **Azure Stack Edge 2110** release, which maps to software version number **2.2.XXXX.XXXX**. This software can be applied to your device if you are running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
 
 ## What's new
 
 The following new features are available in the Azure Stack Edge 2110 release. 
 
-- **Windows updates and security fixes** - The [latest cumulative update (LCU) for Windows and September security fixes](https://support.microsoft.com/en-us/topic/june-8-2021-kb5003697-monthly-rollup-457aa997-18a0-46e9-8612-497f01ccaa54) were rolled into the updates package for Azure Stack Edge.
-- **Remote support** - In this release, you can enable remote support on your Azure Stack Edge device to allow Microsoft Support to diagnose and remediate issues by accessing your device remotely. When you enable this feature, you provide consent for the level of access and the duration of access. For more information, see [Enable remote support and diagnostics for Azure Stack Edge](azure-stack-edge-placeholder.md).
-- **High-performance network virtual machines** - Beginning this release, high-performance network virtual machines can be deployed on your Azure Stack Edge device. For more information, see [Deploy high-performance network virtual machines on Azure Stack Edge](azure-stack-edge-placeholder.md).
+- **Windows updates and security fixes** - The [latest cumulative update (LCU) for Windows and September security fixes](https://support.microsoft.com/topic/september-14-2021-kb5005623-monthly-rollup-bcdb6598-517e-4d53-aa7c-dd7fcfdca204) were rolled into the updates package for Azure Stack Edge.
+- **Remote support** - In this release, you can enable remote support on your Azure Stack Edge device to allow Microsoft Support to diagnose and remediate issues by accessing your device remotely. When you enable this feature, you provide consent for the level of access and the duration of access. For more information, see [Enable remote support and diagnostics for Azure Stack Edge](azure-stack-edge-gpu-remote-support-diagnostics-repair.md).
+- **High-performance network virtual machines** - Beginning this release, high-performance network virtual machines can be deployed on your Azure Stack Edge device. For more information, see [Deploy high-performance network virtual machines on Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
 - **Certificates for Edge container registry and Kubernetes dashboard** - Certificates for Edge container registry and Kubernetes dashboard are now supported. You can create and upload certificates via the local UI. For more information, see [Kubernetes certificates](azure-stack-edge-gpu-certificates-overview.md#kubernetes-certificates) and [Upload Kubernetes certificates](azure-stack-edge-gpu-manage-certificates.md#upload-kubernetes-certificates).
 - **Metallb in BGP mode** - Starting this release, you can configure load balancing on your Azure Stack Edge device using MetalLB via Border Gateway Protocol (BGP). Configuration is done by connecting to the PowerShell interface of the device and then running specific cmdlets. For more information, see [Configure load balancing with MetalLB on your Azure Stack Edge device](azure-stack-edge-gpu-configure-metallb-bgp-mode.md).
-- Anything else? Provide a short title and a 1-line description
 
 
 
