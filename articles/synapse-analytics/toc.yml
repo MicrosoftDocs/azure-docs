@@ -109,7 +109,7 @@ items:
     - name: Source control
       href: ./cicd/source-control.md
     - name: Continuous integration and delivery
-      href: ./cicd/continuous-integration-deployment.md
+      href: ./cicd/continuous-integration-delivery.md
     - name: Security
       items:
       - name: Security baseline
@@ -232,10 +232,6 @@ items:
       href: ./sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?context=/azure/synapse-analytics/context/context
     - name: Cost management for serverless SQL pool
       href: sql/data-processed.md
-    - name: Best practices serverless SQL pool
-      href: sql/best-practices-serverless-sql-pool.md
-    - name: Best practices dedicated SQL pools
-      href: sql/best-practices-dedicated-sql-pool.md
   - name: Quickstarts
     items:
     - name: Use serverless SQL pool
@@ -297,8 +293,10 @@ items:
       items:
       - name: Overview
         href: sql/develop-overview.md
-      - name: Best practices
-        href: sql/develop-best-practices.md
+      - name: Best practices serverless SQL pool
+        href: sql/best-practices-serverless-sql-pool.md
+      - name: Best practices dedicated SQL pools
+        href: sql/best-practices-dedicated-sql-pool.md
       - name: Materialized view
         items:
         - name: Performance tuning guidance
@@ -794,7 +792,18 @@ items:
       - name: Data flow monitoring
         href: ../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Data flow performance
-        href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        items:
+          - name: Overview
+            href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+            displayName: merge, timeout
+          - name: Optimizing sources
+            href: ../data-factory/concepts-data-flow-performance-sources.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Optimizing sinks
+            href: ../data-factory/concepts-data-flow-performance-sinks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Optimizing transformations
+            href: ../data-factory/concepts-data-flow-performance-transformations.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+          - name: Using data flows in pipelines
+            href: ../data-factory/concepts-data-flow-performance-pipelines.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Integration Runtime performance
         href: ../data-factory/concepts-integration-runtime-performance.md?context=/azure/synapse-analytics/context/context
       - name: Manage graph
@@ -819,6 +828,8 @@ items:
         href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon RDS for Oracle
         href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
+      - name: Amazon RDS for SQL Server
+        href: ../data-factory/connector-amazon-rds-for-sql-server.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon Redshift
         href: ../data-factory/connector-amazon-redshift.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon S3

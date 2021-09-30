@@ -154,7 +154,7 @@ Once the events are pushed to Log Analytics, you can run the following [query](.
 
 1. Select **New alert rule**. 
 1. In the **Create rule** page, leave `collectorworkspace` as the **Resource**.
-1. Under **Condition**, select the entry *Whenever the customer log search is <login undefined>*. The **Configure signal logic** page will open.
+1. Under **Condition**, select the entry *Whenever the customer log search is \<login undefined\>*. The **Configure signal logic** page will open.
 1. Under **Threshold value**, enter *0* and then select **Done**.
 1. Under **Actions**, select **Create action group**. The **Add action group** page will open.
 1. In **Action group name**, type *myActionGroup*.

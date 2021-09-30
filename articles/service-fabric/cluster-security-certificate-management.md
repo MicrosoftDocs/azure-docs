@@ -446,7 +446,7 @@ In either case, transport fails and the cluster may go down; the symptoms vary. 
 
 To mitigate against such incidents, we recommend:
   - do not mix the SANs of different vault certificates; each vault certificate should serve a distinct purpose, and their subject and SAN should reflect that with specificity
-  - include the subject common name in the SAN list (as, literally, "CN=<subject common name>")  
+  - include the subject common name in the SAN list (as, literally, `CN=<subject common name>`)  
   - if unsure, disable linking on renewal for certificates provisioned with the KVVM extension 
 
 #### Why use a user-assigned managed identity? What are the implications of using it?
