@@ -48,7 +48,7 @@ In this tutorial, you learn how to:
 
 ## Configure PSM CyberArk
 
-The PSM configuration for CyberArk must be configured to communicate with Defender for IoT.
+CyberArk must be configured to allow communication with Defender for IoT. This is accomplished by configuring PSM.
 
 **To configure PSM**:
 
@@ -65,7 +65,7 @@ The PSM configuration for CyberArk must be configured to communicate with Defend
 
 1. Save the file, and close it.
 
-1. Place the Defender for IoT syslog configuration file `CyberX.xsl` in c:\Program Files\PrivateArk\Server\Syslog\CyberX.xsl
+1. Place the Defender for IoT syslog configuration file `CyberX.xsl` in `c:\Program Files\PrivateArk\Server\Syslog\CyberX.xsl`.
 
 1. Open the **Server Central Administration**.
 
@@ -83,7 +83,7 @@ In order to enable the integration, Syslog Server will need to be enabled in the
 
 1. In Defender for IoT management console, navigate to **System Settings**.
 
-1. Toggle **On** the Syslog Server.
+1. Toggle the Syslog Server to **On**.
 
     :::image type="content" source="media/tutorial-cyberark/toggle.png" alt-text="Screenshot of the syslog server toggled to on.":::
 
@@ -107,7 +107,7 @@ Whenever the Defender for IoT platform identifies remote sessions that have not 
 
 1. From the list of alerts, select the alert titled **Unauthorized Remote Session**.
 
-:::image type="content" source="media/tutorial-cyberark/unauthorized.png" alt-text="The Unauthorized Remote Session alert.":::
+    :::image type="content" source="media/tutorial-cyberark/unauthorized.png" alt-text="The Unauthorized Remote Session alert.":::
 
 ### Event timeline
 
@@ -121,7 +121,7 @@ Whenever PSM authorizes a remote connection, it is  visible in the Defender for 
 
 1. Locate any event titled PSM Remote Session.
 
-:::image type="content" source="media/tutorial-cyberark/event.png" alt-text="A view of the Event Log screen.":::
+    :::image type="content" source="media/tutorial-cyberark/event.png" alt-text="A view of the Event Log screen.":::
 
 ### Auditing & forensics
 
@@ -135,7 +135,7 @@ Administrators can audit, and investigate remote access sessions by querying the
 
 1. Select **Remote Access**.
 
-:::image type="content" source="media/tutorial-cyberark/data-mining.png" alt-text="A view of the data mining interface.":::
+    :::image type="content" source="media/tutorial-cyberark/data-mining.png" alt-text="A view of the data mining interface.":::
 
 ## Stop the Integration
 
@@ -147,7 +147,7 @@ At any point you can stop the integration from communicating.
 
 1. Toggle the Syslog Server option to **Off** .
 
-:::image type="content" source="media/tutorial-cyberark/toggle.png" alt-text="A view of th Server status.":::
+    :::image type="content" source="media/tutorial-cyberark/toggle.png" alt-text="A view of th Server status.":::
 
 ## Clean up resources
 
