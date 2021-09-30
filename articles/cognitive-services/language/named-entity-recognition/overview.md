@@ -1,5 +1,5 @@
 ---
-title: What is the NER feature and PII detection in Azure Cognitive Service for language?
+title: What is the Named Entity Recognition (NER) feature and Personally Identifying Information (PII) detection in Azure Cognitive Service for language?
 titleSuffix: Azure Cognitive Services
 description: An overview of the Named Entity Recognition feature in Azure Cognitive Services, which helps you extract entities and sensitive information (PII) in text.
 services: cognitive-services
