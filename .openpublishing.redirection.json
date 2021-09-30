@@ -28511,6 +28511,11 @@
     {
       "source_path_from_root": "/articles/storage/storage-blob-storage-tiers.md",
       "redirect_url": "/azure/storage/blobs/storage-blob-storage-tiers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/blobs/storage-blob-storage-tiers.md",
+      "redirect_url": "/azure/storage/blobs/access-tiers-overview",
       "redirect_document_id": true
     },
     {
@@ -56463,6 +56468,112 @@
       "source_path_from_root": "/articles/aks/open-service-mesh-deploy-add-on.md",
       "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-node.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-python.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-symmetric-key-java.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-csharp.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-java.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-node.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-tpm-python.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-tpm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-csharp.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-java.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-node.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-create-simulated-device-x509-python.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-csharp.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-java.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-node.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-python.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-csharp.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-java.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-node.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-python.md",
+      "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
+      "redirect_document_id": false
     }
+
   ]
 }
