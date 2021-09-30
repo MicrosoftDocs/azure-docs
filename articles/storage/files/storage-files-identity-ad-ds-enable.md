@@ -31,7 +31,7 @@ The cmdlets in the AzFilesHybrid PowerShell module make the necessary modificati
 
 ### Download AzFilesHybrid module
 
-- If you don't have [.Net Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) installed, install it now. It is required for the module to import successfully.
+- If you don't have [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) installed, install it now. It is required for the module to import successfully.
 - [Download and unzip the AzFilesHybrid module (GA module: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Note that AES 256 kerberos encryption is supported on v0.2.2 or above. If you have enabled the feature with a AzFilesHybrid version below v0.2.2 and want to update to support AES 256 Kerberos encryption, please refer to [this article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
 - Install and execute the module in a device that is domain joined to on-premises AD DS with AD DS credentials that have permissions to create a service logon account or a computer account in the target AD.
 -  Run the script using an on-premises AD DS credential that is synced to your Azure AD. The on-premises AD DS credential must have either **Owner** or **Contributor** Azure role on the storage account.
@@ -127,7 +127,7 @@ Keep the SID of the newly created identity, you'll need it for the next step. Th
 
 #### (Optional) Enable AES256 encryption
 
-If you want to enable AES 256 encryption, follow the steps in this section to do so. If you plan to use RC4, you can skip this section.
+If you want to enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, you can skip this section.
 
 The domain object that represents your storage account must meet the following requirements:
 - The storage account name cannot exceed 15 characters.
