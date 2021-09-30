@@ -38,8 +38,8 @@ Before you create an import job to transfer data into Azure Files, carefully rev
   - For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
 - Have an adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
-- Have downloaded the current release of the WAImportExport version 1 tool, for file imports, on the Windows system:
-  1. [Download WAImportExport version 2](https://aka.ms/waiev2) (current version is 2.2.0.300).
+- Download the current release of the WAImportExport version 1 tool, for files, on the Windows system:
+  1. [Download WAImportExport version 2](https://aka.ms/waiev2). The current version is 2.2.0.300.
   1. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
     - The account must be valid, should have balance, and must have return shipping capabilities.
@@ -60,20 +60,21 @@ Do the following steps to prepare the drives.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 3. Modify the *dataset.csv* file in the root folder where the tool is. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.
 
-   - **To import a file**: In the following example, the data to copy is on the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it's created in the Azure Storage account. Folder structure is maintained. *NOTE TO REVIEWERS: Please edit sample command to remove Disposition, MetadataFile, PropertiesFile. It's not clear how much should go.*
+   - **To import a file**: In the following example, the data to copy is on the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it's created in the Azure Storage account. Folder structure is maintained.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
        ```
+
    - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to the fileshare. Folder structure is maintained. If you import a file with the same name as an existing file in the destination folder, the imported file will overwrite that file.
-   
-       > [!NOTE]
-       > The /Disposition parameter, which let you choose what to do when you import a file that already exists in earlier versions of the tool, is not supported in Azure ImportExport version 1.5.0.300. In the earlier tool versions, an imported file with the same name as an existing file was renamed by default.
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
        ```
+   
+       > [!NOTE]
+       > The /Disposition parameter, which let you choose what to do when you import a file that already exists in earlier versions of the tool, is not supported in Azure ImportExport version 2.2.0.300. In the earlier tool versions, an imported file with the same name as an existing file was renamed by default.
 
      Multiple entries can be made in the same file corresponding to folders or files that are imported.
 
@@ -82,7 +83,7 @@ Do the following steps to prepare the drives.
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
        ```
 
-   Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import). *THIS ARTICLE IS ARCHIVED.*
+<!--ARCHIVED ARTICLE -Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).-->
 
 
 4. Modify the *driveset.csv* file in the root folder where the tool is. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.

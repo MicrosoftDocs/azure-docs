@@ -5,14 +5,14 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/29/2021
+ms.date: 09/30/2021
 ms.author: alkohli
 ms.subservice: common
 ---
 # Repairing an export job
 
 > [!IMPORTANT]
-> [!INCLUDE [storage-import-export-repair-support](../../includes/storage-import-export-repair-support.md)]
+> Beginning with version 1.5.0.300, the Azure ImportExport tool no longer supports repairing export jobs for blobs. To fix issues, [create a new export job](storage-import-export-data-from-blobs.md?tabs=azure-portal#step-1-create-an-export-job) after you resolve the errors.
 
 After an export job has completed, you can run the Microsoft Azure Import/Export Tool on-premises to:  
   

@@ -33,11 +33,11 @@ You must:
 * Have an active Azure subscription that can be used for the Import/Export service.
 * Have at least one Azure Storage account with a storage container. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).
   * For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
-  * For information on creating storage container, go to [Create a storage container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
+  * For information on creating storage containers, go to [Create a storage container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 * Have adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 * Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 * Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-* Have downloaded the current release of the Azure ImportExport version 1 tool, for blob imports, on the Windows system. The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.
+* Download the current release of the Azure ImportExport version 1 tool, for blobs, on the Windows system. The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.<!--Get a release description from the product team.-->
   1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
   1. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 * Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
@@ -96,7 +96,7 @@ Perform the following steps to prepare the drives.
     |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
 
     > [!NOTE]
-    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. In earlier tool versions (before 2.2.0.300), a \Disposition parameter was used to specify what to do when an import blobs that already existing in storage.
+    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. In earlier tool versions (before 1.5.0.300), a \Disposition parameter was used to specify what to do when an import blobs that already existing in storage.
 
 8. Repeat the previous step for each disk that needs to be shipped. 
 
