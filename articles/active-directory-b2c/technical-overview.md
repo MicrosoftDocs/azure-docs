@@ -301,4 +301,7 @@ Learn more about [Azure AD B2C service limits and restrictions](service-limits.m
 
 ## Next steps
 
-Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
+Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C:
+- Get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
+- [Set up sign in for a single-page app using Azure Active Directory B2C](quickstart-single-page-app.md)
+- [Azure Active Directory B2C concepts](application-types.md) 
