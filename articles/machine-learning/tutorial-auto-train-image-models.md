@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Train an  object detection model to predict NYC taxi fares with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: automl
+ms.subservice: core
 ms.topic: tutorial
 author: swatig007
 ms.author: swatig
 ms.reviewer: nibaccam
 ms.date: 10/06/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, automl
 ---
 
 # Tutorial: Train an object detection model (preview) with AutoML and Python
