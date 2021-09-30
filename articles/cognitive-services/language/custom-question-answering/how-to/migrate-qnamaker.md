@@ -61,7 +61,7 @@ Users can follow the steps below to migrate knowledge bases:
 
 8. You can review the knowledge bases you plan to migrate. There could be some validation errors in project names as we follow stricter validation rules for custom question answering projects. 
 
-    > [!WARNING]
+    > [!CAUTION]
     > If you migrate a knowledge base with the same name as a project that already exists in the target language resource, **the content of the project will be overridden** by the content of the selected knowledge base.
 
     > [!div class="mx-imgBorder"]
@@ -90,9 +90,6 @@ Users can follow the steps below to migrate knowledge bases:
 
 11. The migration will only copy the test instances of your knowledge bases. Once your migration is complete, you will need to manually deploy the knowledge bases to copy the test index to the production index.
 
+## Next steps
 
-
-
-
-
-
+- Learn how to re-enable analytics and telemetry with [Azure Monitor diagnostic logs](analytics).
