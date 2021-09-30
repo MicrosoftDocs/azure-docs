@@ -5,33 +5,33 @@ ms.topic: how-to
 ms.date: 10/04/2021
 ---
 
-# Introduction to Auto Scaling on Service Fabric managed clusters
-[Auto scaling](../azure-monitor/autoscale/autoscale-overview.md) enables a Service Fabric managed cluster secondary node type to automatically increase or decrease the number of nodes that run your application. Auto scaling gives great elasticity and enables provisioning of additional or reduction of nodes on demand. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the acceptable performance for a positive customer experience. When those defined thresholds are met, auto scale rules take action to adjust the capacity of your node type. Auto scaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable auto scaling, and how to configure an example auto scale policy.
+# Introduction to AutoScaling on Service Fabric managed clusters
+[Autoscaling](../azure-monitor/autoscale/autoscale-overview.md) enables a Service Fabric managed cluster secondary node type to automatically increase or decrease the number of nodes that run your application. Autoscaling gives great elasticity and enables provisioning of additional or reduction of nodes on demand. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the acceptable performance for a positive customer experience. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
 
 
 **Requirements and supported metrics:**
-* In order to use auto scaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
+* In order to use autoscaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
 * The cluster SKU must be Standard.
 * Can only be configured on a secondary node type in your cluster.
-* On a node type where auto scale is enabled, `vmInstanceCount` property should be set to `-1` in the cluster resource
+* On a node type where autoscale is enabled, `vmInstanceCount` property should be set to `-1` in the cluster resource
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
-A common scenario where auto-scaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
+A common scenario where autoscaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
 * If all instances of my gateway are using more than 70% on average, then scale the gateway service out by adding two more instance. Do this every 30 minutes, but never have more than twenty instances in total.
 * If all instances of my gateway are using less than 40% cores on average, then scale the service in by removing one instance. Do this every 30 minutes, but never have fewer than three instances in total.
 
-## Example auto scale deployment
+## Example autoscale deployment
 
 This example will walk through: 
 * Creating a Standard SKU Service Fabric managed cluster with two node types, `NT1` and `NT2` by default.
 * Adding auto scale rules to the secondary node type, `NT2`.
 
 >[!NOTE] 
-> Auto-scale of the node type is done based on the managed cluster VMSS CPU host metrics. 
-> VMSS resource is auto-resolved in the template. 
+> Autoscale of the node type is done based on the managed cluster VMSS CPU host metrics. 
+> VMSS resource is autoresolved in the template. 
 
 
-The following will take you step by step through setup of a cluster with auto scale configured.
+The following will take you step by step through setup of a cluster with autoscale configured.
 
 1) Create resource group in a region
 
@@ -55,7 +55,7 @@ The following will take you step by step through setup of a cluster with auto sc
    New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterObject $parameters -Verbose
    ```
 
-3) Configure auto scale rules on a secondary node type
+3) Configure autoscale rules on a secondary node type
  
    Download the [SF-Managed-Standard-SKU-autoscale sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/sfmc-autoscale-enable.json) that you will use to configure auto scaling with the following commands:
 
@@ -66,12 +66,12 @@ The following will take you step by step through setup of a cluster with auto sc
    ```
 
 >[!NOTE]
-> After this deployment completes, future cluster resource deployments should set the `vmInstanceCount` property to `-1` on secondary node types that have auto scale rules enabled. This will make sure cluster deployments do not conflict with auto scale.
+> After this deployment completes, future cluster resource deployments should set the `vmInstanceCount` property to `-1` on secondary node types that have autoscale rules enabled. This will make sure cluster deployments do not conflict with autoscale.
 
 
-## Enable or disable auto scaling on a secondary node type
+## Enable or disable autoscaling on a secondary node type
 
-Node types deployed by Service Fabric managed cluster do not enable auto scaling by default. Auto scaling can be enabled or disabled at any time, per node type, that are configured and available.
+Node types deployed by Service Fabric managed cluster do not enable autoscaling by default. Autoscaling can be enabled or disabled at any time, per node type, that are configured and available.
 
 To enable this feature, configure the `enabled` property under the type `Microsoft.Insights/autoscaleSettings` in an ARM Template as shown below:
 
@@ -89,11 +89,11 @@ To enable this feature, configure the `enabled` property under the type `Microso
             ...
 ```
 
-To disable auto scaling, set the value to `false`
+To disable autoscaling, set the value to `false`
 
-## Set policies for auto scaling
+## Set policies for autoscaling
 
- A Service Fabric managed cluster does not configure any [policies for auto scaling](../azure-monitor/autoscale/autoscale-understanding-settings.md) by default. Auto scaling policies must be configured for any scaling actions to occur on the underlying resources.
+ A Service Fabric managed cluster does not configure any [policies for autoscaling](../azure-monitor/autoscale/autoscale-understanding-settings.md) by default. Autoscaling policies must be configured for any scaling actions to occur on the underlying resources.
 
 The following example will set a policy for `nodeType2Name` to be at least 3 nodes, but allow scaling up to 20 nodes. It will trigger scaling up when average CPU usage is 70% over the last 30 minutes with 1 minute granularity. It will trigger scaling down once average CPU usage is under 40% for the last 30 minutes with 1 minute granularity.
 
@@ -167,9 +167,9 @@ The following example will set a policy for `nodeType2Name` to be at least 3 nod
 You can download this [ARM Template to enable autoscale](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/sfmc-autoscale-enable.json) which contains the above example
 
 
-## View configured auto scale definitions of your managed cluster resource
+## View configured autoscale definitions of your managed cluster resource
 
-You can view configured auto scale settings by using [Azure Resource Explorer](https://resources.azure.com/).
+You can view configured autoscale settings by using [Azure Resource Explorer](https://resources.azure.com/).
 
 1) Go to [Azure Resource Explorer](https://resources.azure.com/)
 
@@ -182,9 +182,9 @@ You'll see something similar to this on the navigation tree:
 
 3) On the right-hand side, you can view the full definition of this autoscale setting. 
 
-In this example, auto scale is configured with a CPU% based scale-out and scale-in rule.
+In this example, autoscale is configured with a CPU% based scale-out and scale-in rule.
 
-![Azure Resource Explorer example node type auto scale details][autoscale-nt-details]
+![Azure Resource Explorer example node type autoscale details][autoscale-nt-details]
 
 
 
@@ -192,7 +192,7 @@ In this example, auto scale is configured with a CPU% based scale-out and scale-
 
 Some things to consider: 
 
-* Review auto scale events that are being triggered against managed clusters secondary node types
+* Review autoscale events that are being triggered against managed clusters secondary node types
 
    1) Go to the cluster Activity log
    2) Look for write operation initiated by Windows Azure Application Insights that represent triggers
@@ -221,7 +221,7 @@ Once you've been through these steps, if you're still having autoscale problems,
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Read about Azure Monitor auto scale support](../azure-monitor/autoscale/autoscale-overview.md)
+> [Read about Azure Monitor autoscale support](../azure-monitor/autoscale/autoscale-overview.md)
 > [!div class="nextstepaction"]
 > [Review Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 > [!div class="nextstepaction"]
