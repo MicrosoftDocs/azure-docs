@@ -246,9 +246,9 @@ Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling T
 
 ## Monitoring
 
-Both public and internal [Standard Load Balancer](./load-balancer-overview.md) expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through Azure Monitor. These metrics can be consumed by other Azure services or partner applications. 
+Both public and internal [Standard Load Balancer](./load-balancer-overview.md) expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through [Azure Monitor](./monitor-load-balancer.md). These metrics can be consumed by other Azure services or partner applications. 
 
-Basic public Load Balancer exposes health probe status summarized per backend pool via Azure Monitor logs.  Azure Monitor logs are not available for internal Basic Load Balancers.  You can use [Azure Monitor logs](./monitor-load-balancer.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+Azure Monitor logs are not available for both public and internal Basic Load Balancers.
 
 ## Limitations
 

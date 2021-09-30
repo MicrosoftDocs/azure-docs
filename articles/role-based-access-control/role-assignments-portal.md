@@ -7,7 +7,7 @@ manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 09/24/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q3-portal,subject-rbac-steps
 ---
@@ -82,8 +82,8 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
     | Type | Description |
     | --- | --- |
     | **User, group, or service principal** | If you want to assign the role to a user, group, or service principal (application), select this type. |
-    | **User assigned managed identity** | If you want to assign the role to a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select this type. |
-    | *System assigned managed identity* | If you want to assign the role to a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select the Azure service instance where the managed identity is located. |
+    | **User-assigned managed identity** | If you want to assign the role to a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select this type. |
+    | *System-assigned managed identity* | If you want to assign the role to a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md), select the Azure service instance where the managed identity is located. |
 
    ![Screenshot of selecting a security principal in Add role assignment.](./media/role-assignments-portal/add-role-assignment-type.png)
 
@@ -171,23 +171,21 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
    ![Screenshot of Select members pane for preview experience.](./media/shared/select-members.png)
 
-1. Click **Save** to add the users, groups, or service principals to the Members list.
+1. Click **Select** to add the users, groups, or service principals to the Members list.
 
 1. To assign the selected role to one or more managed identities, select **Managed identity**.
 
 1. Click **Select members**.
 
-1. In the **Select managed identities** pane, select whether the type is [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) or [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
+1. In the **Select managed identities** pane, select whether the type is [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) or [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Find and select the managed identities.
 
-    If you selected a system-assigned managed identity, you need to select the Azure service instance where the managed identity is located.
+    For system-assigned managed identities, you can select managed identities by Azure service instance.
 
-   ![Screenshot of Add system-assigned managed identities using Select principal pane for preview experience.](./media/role-assignments-portal/select-managed-identity-system.png)
+   ![Screenshot of Select managed identities pane for preview experience.](./media/role-assignments-portal/select-managed-identity.png)
 
-   ![Screenshot of Add user-assigned managed identities using Select principal pane for preview experience.](./media/role-assignments-portal/select-managed-identity-user.png)
-
-1. Click **Save** to add the managed identities to the Members list.
+1. Click **Select** to add the managed identities to the Members list.
 
 1. In the **Description** box enter an optional description for this role assignment.
 
@@ -197,7 +195,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
 ## Step 5: (Optional) Add condition (preview)
 
-If you selected a role that supports conditions, a **Condition** tab will appear and you have the option to add a condition to your role assignment. A [condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
+If you selected a role that supports conditions, a **Conditions (optional)** tab will appear and you have the option to add a condition to your role assignment. A [condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control.
 
 Currently, conditions can be added to built-in or custom role assignments that have [storage blob data actions](conditions-format.md#actions). These include the following built-in roles:
 

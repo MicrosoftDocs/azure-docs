@@ -230,7 +230,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Lear360.com](https://www.lear360.com)|
 |[Leidos](https://www.leidos.com)|
 |[Leslie Digital Imaging LLC.](https://www.myldi.com)|
-|LiftOff, LLC|
+|[LiftOff, LLC](https://www.liftoffonline.com)|
 |[Lightstream Managed Services, LLC](https://www.lightstream.tech)|
 |[Liquid Mercury Solutions](https://www.liquid-hg.com/)|
 |[Logicalis, Inc.](https://www.us.logicalis.com/)|
@@ -487,7 +487,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Johnson Technology Systems Inc](https://www.jtsusa.com/)|
 |[KAMIND IT, Inc.](https://www.kamind.com/)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
-|LiftOff, LLC|
+|[LiftOff, LLC](https://www.liftoffonline.com)|
 |[ManTech](https://www.mantech.com/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|

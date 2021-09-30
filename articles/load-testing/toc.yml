@@ -8,7 +8,7 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Identify performance bottleneck
+    - name: Identify bottlenecks from Azure portal
       href: tutorial-identify-bottlenecks-in-azure-portal.md
 - name: Reference
   items: 
