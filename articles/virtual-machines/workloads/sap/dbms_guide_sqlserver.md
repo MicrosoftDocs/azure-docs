@@ -2,10 +2,8 @@
 title: SQL Server Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
 description: SQL Server Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: 'Azure, SQL Server, SAP, AlwaysOn'
 ms.service: virtual-machines-sap
@@ -15,7 +13,6 @@ ms.workload: infrastructure
 ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver
@@ -316,7 +313,7 @@ This document covers several different areas to consider when deploying SQL Serv
 
 In general, you should consider using the most recent SQL Server releases to run SAP workload in Azure IaaS. The latest SQL Server releases offer better integration into some of the Azure services and functionality. Or have changes that optimize operations in an Azure IaaS infrastructure.
 
-It is recommended to review the article [What is SQL Server on Azure Virtual Machines (Windows)][https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview] before continuing.
+It is recommended to review the article [What is SQL Server on Azure Virtual Machines (Windows)](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) before continuing.
 
 In the following sections, pieces of parts of the documentation under the link above are aggregated and mentioned. Specifics around SAP are mentioned as well and some concepts are described in more detail. However, it is highly recommended to work through the documentation above first before reading the SQL Server-specific documentation.
 
@@ -484,9 +481,10 @@ Database Mirroring as supported by SAP (see SAP Note [965908]) relies on definin
 
 As of Cloud-Only deployments, the easiest method is to have another domain setup in Azure to have those DBMS VMs (and ideally dedicated SAP VMs) within one domain.
 
-If a domain is not possible, one can also use certificates for the database mirroring endpoints as described here: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+If a domain is not possible, one can also use certificates for the database mirroring endpoints as described here:
+[Use Certificates for a Database Mirroring Endpoint (Transact-SQL)](/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql)
 
-A tutorial to set up Database Mirroring in Azure can be found here: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+A tutorial to set up Database Mirroring in Azure can be found here: [Database Mirroring (SQL Server)](/sql/database-engine/database-mirroring/database-mirroring-sql-server)
 
 ### SQL Server Always On
 As Always On is supported for SAP on-premises (see SAP Note [1772688]), it is supported in combination with SAP in Azure. There are some special considerations around deploying the SQL Server Availability Group Listener (not to be confused with the Azure Availability Set) since Azure at this point in time does not allow creating an AD/DNS object as it is possible on-premises. Therefore, some different installation steps are necessary to overcome the specific behavior of Azure.
