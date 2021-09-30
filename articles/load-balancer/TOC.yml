@@ -45,6 +45,8 @@
       href: tutorial-cross-region-cli.md
   - name: Gateway load balancer
     items:
+    - name: Create gateway load balancer - Portal
+      href: tutorial-gateway-portal.md
     - name: Create gateway load balancer - PowerShell
       href: tutorial-gateway-powershell.md
     - name: Create gateway load balancer - Azure CLI
