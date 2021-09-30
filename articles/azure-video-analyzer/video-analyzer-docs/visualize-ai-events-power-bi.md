@@ -25,7 +25,7 @@ In this tutorial, you will:
 
 - [Monitoring and logging](monitor-log-edge.md) in Video Analyzer
 - Reading [device-to-cloud messages from IoT Hub](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) built-in endpoints
-- Introduction to [Power BI dashboards](https://docs.microsoft.com/power-bi/create-reports/service-dashboards)
+- Introduction to [Power BI dashboards](/power-bi/create-reports/service-dashboards)
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ In Power BI, you can visualize streaming data in 2 ways:
 2. A dashboard tile with custom streaming dataset
 
    > [!NOTE]
-   > In this article, we will use the first method to create reports and then pin to dashboard. This method retains data on the visual for longer duration and aggregates automatically based on incoming data. To learn more about the second method, see [Setup your custom streaming dataset in Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+   > In this article, we will use the first method to create reports and then pin to dashboard. This method retains data on the visual for longer duration and aggregates automatically based on incoming data. To learn more about the second method, see [Setup your custom streaming dataset in Power BI](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ### Create and publish a Power BI report
 
@@ -194,7 +194,7 @@ Optionally, you can also [embed a player widget](embed-player-in-power-bi.md) to
 > :::image type="content" source="./media/power-bi/pinned-dashboard.png" alt-text="Power BI Dashboard with report pinned and widget player added in a tile.":::
 
 > [!NOTE]
-> The video playback and report creation will not be in sync because of the method used to generate reports. For a more near real-time experience, see [Setup your custom streaming dataset in Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+> The video playback and report creation will not be in sync because of the method used to generate reports. For a more near real-time experience, see [Setup your custom streaming dataset in Power BI](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ## Interpret the dashboard
 

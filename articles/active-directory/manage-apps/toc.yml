@@ -107,7 +107,7 @@
       - name: Create collections on My Apps
         href: access-panel-collections.md
       - name: Enable self-service app access
-        href: access-panel-manage-self-service-access.md
+        href: manage-self-service-access.md
       - name: Hide an app
         href: hide-application-from-user-portal.md
       - name: Disable user sign-on
@@ -180,7 +180,7 @@
       href: application-types.md
     - name: Reasons users are assigned to an app
       href: ways-users-get-assigned-to-applications.md
-    - name: Remove user access
+    - name: Methods of removing user access to an app
       href: methods-for-removing-user-access.md
   - name: Resources
     items:
