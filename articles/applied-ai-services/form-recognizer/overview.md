@@ -63,6 +63,7 @@ The following features  and development options are supported by the Form Recogn
 |[**Prebuilt identity document (updated)**](concept-v3-prebuilt.md#prebuilt-id-document-model) |Automated data processing and extraction of key information from US driver's licenses and international passports.</br></br>Prebuilt ID document API suports the **extraction of endorsements, restrictions, and vehicle classifications from US driver's licenses**. |<ul><li> [**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
 |[**Prebuilt invoice model**](concept-prebuilt.md#prebuilt-invoice-model) | Automated data processing and extraction of key information from sales invoices. | <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
 |[**Prebuilt business card**](concept-prebuilt.md#prebuilt-business-card-model) |Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
+
 ---
 
 ## Prerequisites

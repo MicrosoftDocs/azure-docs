@@ -45487,7 +45487,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md",

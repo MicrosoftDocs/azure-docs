@@ -96,7 +96,7 @@ Email | string | Email address. |
 | Items.*.TotalPrice |  number | Item total price | integer |
 | Locale | string | Locale of the receipt, for example, en-US. | ISO language-county code   |
 | MerchantAddress | string | Listed address of merchant | |
-| MerchantAliases | array| | | |
+| MerchantAliases | array| | | 
 | MerchantAliases.* | string | Alternative name of merchant |  |
 | MerchantName | string | Name of the merchant issuing the receipt | |
 | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx|
