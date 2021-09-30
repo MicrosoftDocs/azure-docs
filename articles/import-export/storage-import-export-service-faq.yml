@@ -6,7 +6,7 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 09/28/2021
+  ms.date: 09/30/2021
   ms.author: alkohli
   ms.subservice: common
     
@@ -74,7 +74,7 @@ sections:
       - question: | 
           I found problems in the data copy logs for an import/export job. Can I repair the job?
         answer: |
-          No. The current versions of the the Azure ImportExport tool (version 1.5.0.300 for blob imports and version 2.2.0.300 for file imports) don't support job repair. You'll need to create a new Import/Export job after you resolve the issues that you found.
+          No The current versions of the the Azure ImportExport tool (version 1.5.0.300 for blobs and version 2.2.0.300 for files) don't support job repair. You'll need to create a new Import/Export job after you resolve the issues that you found. See [Create an import job for blobs](storage-import-export-data-to-blobs.md&tabs=azure-portal#step-2-create-an-import-job) or [Create an import job for files](storage-import-export-data-to-files.md&tabs=azure-portal#step-2-create-an-import-job).
 
       - question: |
           The uploaded blob shows status as "Lease expired". What should I do?
