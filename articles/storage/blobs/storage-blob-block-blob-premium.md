@@ -13,14 +13,17 @@ ms.reviewer: clausjor
 
 # Premium performance tier for Azure block blob storage
 
-Premium performance accounts store data in SSDs. SSDs store data on instantly accessible memory chips and therefore offer faster file transfers and overall snappier performance than HDDs. HDDs can only access data faster the closer it is from the read/write heads, while all parts of the SSD can be accessed at once. Due to these characteristics, customers across various domains and use cases have found tremendous value in using premium accounts. 
+The premium performance tier makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives.
 
-Consider using the premium performance tier for scenarios that require low and consistent latencies and/or high IOPs requirements. Premium becomes more economical if your workloads are transaction heavy. Transactions costs for premium accounts are about a third of corresponding hot tier prices. As a result, if the workload is transaction heavy, premium tends to be cheaper along with being more performant.
+This tier is ideal for workloads that require fast and consistent response times and/or require a high number of input output operations per second (IOP). Storage costs are higher, but transaction costs are lower. This means that if your workloads execute a large number of transactions, this tier can be very economical. 
 
 ## Performance characteristics
 
-Performance - they have scenarios that require low and consistent latencies and/or have high IOPs requirements
-Even as we see transaction volumes rising, achieving low latency remains critical in a variety of industries and across various application classes. Highly interactive and real-time applications for instance need data to be written or read as quickly as possible. In interactive editing or multi-player online gaming applications, real time updates are needed to maintain a quality experience. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.
+Storage accounts that use the premium performance tier store data on solid-state drives (SSDs). Data is stored on instantly accessible memory chips and that makes file transfers much faster. This type of storage makes all parts of a drive accessible at once. By contrast, the performance of a hard disk drives (HDD) depends on the proximity of data to the read/write heads. 
+
+Low latency remains critical in a variety of industries and across various types of applications. For example, low latency is important to highly interactive and real-time applications that must write data quickly. Interactive editing or multi-player online gaming applications maintain a quality experience by providing real time updates. In the financial services sector, a fraction of a second could be the difference between making or losing massive sums of money.
+
+Later in this article, you'll find real-world examples of Azure Storage customers that used the premium performance tier in their solutions. Some of these customers have enabled Azure Data Lake Storage Gen2 in addition to the premium performance tier. Data Lake Storage Gen2 introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios.
 
 ## Cost effectiveness
   
@@ -49,46 +52,27 @@ For example, assuming that your account is in the East US 2 region, the number o
 > [!NOTE]
 > If you prefer to evaluate cost effectiveness based on the number of transactions per second for each TB of data, you can use the column headings that appear at the bottom of the table.
 
-## Scenarios
-
-Here's a few scenarios for using this tier:
-
-- Fast hydration
-- Interactive editing applications
-- Data visualization software
-- E-Commerce business
-
-#### Fast Hydration
+## Fast Hydration
 
 In certain scenarios, customers need the ability to hydrate or bring up their environments as quickly as possible. In industries such as banking, certain requlatory requirements may require customers to tear down their environments on a regular basis and bring them back up from scratch. To do this, customers need a way to store data required for hydration in a storage that offers fast data load times. One such customer uses Premium Blobs to store a copy of their MongoDB instance each week. To perform hydration after tear-down and get the system back online quickly again, the latest copy is read and loaded into the instance. For audit purposes, previous copies are maintained in cloud storage for a certain time.
 
-#### Interactive editing applications
+## Interactive editing applications
 
 In applications where multiple users may be editing the same content, speed of updates becomes critical for a smooth user experience. 
 As an example, a customer that offers a video editing software uses Premium Blobs to ensure that its users have a seamless collaborative experience where updates made by other users are immediately visible. This experience lets users focus on the task at hand rather than waiting for content updates to happen. This is made possible by the low and consistent latencies offered by Premium Blobs.
 
-#### Data visualization software
+## Data visualization software
 
 Like interactive editing applications, customers working with visualization software can be much more productive and effective if the rendering time if quick. 
 One of our customers in the mapping industry uses a mapping editor to detect issues with maps based on data from heat maps generated from customer GPS data. The editing software needs a way to quickly perform key looks-ups to render small sections of a map for overlap purposes. They were previously using HDI with HBase backed by standard storage. However, keeping large clusters running all the time led to increasing costs. The customer then decided to move away from this architecture and instead use Premium Blobs for fast key looks-ups using REST APIs to render tiles corresponding to GPS coordinates for overlap purposes. Premium Blobs was able to provide them a cost-effective solution. In addition, Premium Blobs provided predictable latency which standard blobs could not. 
 
-#### E-commerce businesses
+## E-commerce businesses
 
 Customers running ecommerce businesses often need to support not only their customer facing stores but also provide data warehousing and analytics solutions to internal teams. 
 
 One such customer utilizes Premium Blobs for its data warehousing and analytics use case. Their catalog team maintains a data warehousing application for various kinds of data pertaining to an item such as offers, pricing, ship methods, suppliers, inventory, logistics, etc. Information here is queried, scanned, extracted and mined for multiple use cases. The team runs analytics on this data to provide various merchandising teams with relevant insights and information. The customer used standard blobs previously but switched over to premium blobs to satisfy their low latency requirements. 
 
-## Scenarios with Data Lake Storage Gen2 enabled accounts
-
-Enabling both Data Lake Storage Gen2 capabilities and the premium performance tier can help you with any of these scenarios
-
-- Interactive analytics and queries
-- Data processing pipelines
-- Internet of Things (IoT)
-- Machine Learning
-- Near real-time streaming analytics
-
-#### Interactive analytics and queries
+## Interactive analytics and queries
 
 In almost every industry, there is a need for enterprises to query and analyze their data interactively. Data scientists, analysts and developers can derive time-sensitive insights faster by running queries on data that is stored in an account that uses the premium performance tier. Executives can load their dashboards much more quickly when the data that appears in those dashboards come from a storage account that uses the premium performance tier instead of the standard performance tier. The premium performance tier makes sense in scenarios that are latency sensitive because this tier provides more consistent latencies, whereas the standard performance tier has higher tail latencies. 
 
@@ -98,19 +82,19 @@ To reduce cost, and to increase queryable surface area, they use an [Azure Data 
 
 Another customer stores and queries logs that are generated from their security solution. The logs are generated by using Databricks, and then and stored in a Data Lake Storage Gen2 enabled account that uses the premium performance tier. End users query and search this data by using Azure Data Explorer. This customer chose this tier to reduce cost, increase stability, and increase the performance of interactive queries. The customer also sets the life cycle management `Delete Action` policy to a few days which helps to reduce costs. This policy prevents them from keeping the data forever. Instead, data is deleted once it is no longer needed. 
 
-#### Data processing pipelines
+## Data processing pipelines
 
 In almost every industry, there is a need for enterprises to process data. Raw data from multiple sources needs to be cleansed and processed so that it becomes useful for downstream consumption in things like data dashboards that help users make decisions. While speed of processing is not always the top concern when processing data, some industries require it. For example, companies in the financial services industry often need to process data reliably and in the quickest way possible. To detect fraud, those companies must process inputs from various sources, identify risks to their customers, and take swift action. 
 
 One of our customers uses multiple storage accounts to stores data from various sources. They then move some of this data to a Data Lake Storage enabled storage account that uses the premium performance tier where a data processing application frequently reads newly arriving data. Directory listing calls in this account were much faster and performed much more consistently than they would otherwise perform in an account that uses the standard performance tier. This speed ensured that newly arrived data was made available to downstream processing systems as quickly as possible. This helped them to catch and then act upon potential security risks promptly.
      
-#### Internet of Things (IoT)
+## Internet of Things (IoT)
 
 IoT has become a big part of our daily lives. IoT is used to track car movements, control lights, and monitor our health. It also has industrial applications. For example, companies use IoT to enable their smart factory projects, improve agricultural output, and on oil rigs for predictive maintenance. The premium performance tier adds significant value to these scenarios.
  
 One of our customers is in the mining industry. They use a Data Lake Storage Gen2 enable account and the premium performance tier along with HD Insight (Hbase) to ingest time series sensor data from multiple mining equipment types, with a very taxing load profile. The premium performance tier has helped to satisfy their need to for high sample rate ingestion. It's also very cost effective, because the premium performance tier is cost optimized for workloads that produce a large number of write transactions, and this workload generates a large number of small write transactions (in the tens of thousands per second).  
 
-#### Machine Learning
+## Machine Learning
 
 The adoption of machine learning has increased rapidly in recent years. Artificial intelligence and machine learning applications exist in many industries today and drive a wide variety of use cases. In most cases, a lot of data has to be processed to train a model. This takes time so compute machines must run for longer periods of time. This time can be significantly reduced by using a Data Lake Storage Gen2 enabled storage account along with the premium performance tier.  This can dramatically reduce costs because compute costs usually account for a much larger percentage of a your bill as compared to storage costs. 
 
@@ -118,7 +102,7 @@ One example of a common ML scenario involves data processing pipelines deployed 
 
 Taking another example, a customer in the semiconductor industry has a use case that intersects IoT and ML. IoT devices attached to machines in the manufacturing plant take images of semiconductor wafers produced and send it to Premium ADLS. Using deep learning inference, the system can inform the on-premise machines if there is an issue with the production and if an action needs to be taken. Reliable and fast loading and processing of images is a requirement that Premium ADLS comes in handy for. 
 
-#### Near real-time streaming analytics
+## Near real-time streaming analytics
 
 For certain use cases, large amounts of data need to be ingested, lightly processed, and made available to downstream systems for interactive analytics in near real-time. Premium Blobs and Premium ADLS are perfectly suited for such scenarios.
 
