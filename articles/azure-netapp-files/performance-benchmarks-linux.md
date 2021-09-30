@@ -42,13 +42,13 @@ This graph illustrates decreases in 10% at a time, from pure read to pure write.
 
 ## Linux scale-up  
 
-The graphs in this section show the validation testing results for the client-side mount option with NFSv3. Refer to the [`nconnect` section of Linux mount options](performance-linux-mount-options.md#nconnect) section for more information.
+The graphs in this section show the validation testing results for the client-side mount option with NFSv3. See the [`nconnect` section of Linux mount options](performance-linux-mount-options.md#nconnect) section for more information.
 
-The graphs compare the advantages of nconnect to a non-connected mounted volume. In the graphs, FIO generated the workload from a single D32s_v4 instance in the us-west2 Azure region using a 64KiB sequential workload – the largest I/O size supported by Azure NetApp Files at the time of the testing represented here. Azure NetApp Files now supports larger I/O sizes, for more details refer to [rsize and wsize section of Linux mount options](performance-linux-mount-options.md#rsize-and-wsize).
+The graphs compare the advantages of `nconnect` to a non-`connected` mounted volume. In the graphs, FIO generated the workload from a single D32s_v4 instance in the us-west2 Azure region using a 64-KiB sequential workload – the largest I/O size supported by Azure NetApp Files at the time of the testing represented here. Azure NetApp Files now supports larger I/O sizes. For more details, see [rsize and wsize section of Linux mount options](performance-linux-mount-options.md#rsize-and-wsize).
 
 ### Linux read throughput  
 
-The following graphs show 64 KiB sequential reads of ~3,500 MiB/s reads with `nconnect`, roughly 2.3X non-`nconnect`.
+The following graphs show 64-KiB sequential reads of ~3,500 MiB/s reads with `nconnect`, roughly 2.3X non-`nconnect`.
 
 ![Linux read throughput](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
@@ -60,13 +60,13 @@ The following graphs show sequential writes. They indicate that `nconnect` has n
 
 ### Linux read IOPS  
 
-The following graphs show 4KiB random reads of ~200,000 read IOPS with `nconnect`, roughly 3X non-`nconnect`.
+The following graphs show 4-KiB random reads of ~200,000 read IOPS with `nconnect`, roughly 3X non-`nconnect`.
 
 ![Linux read IOPS](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### Linux write IOPS  
 
-The following graphs show 4KiB random writes of ~135,000 write IOPS with `nconnect`, roughly 3X non-`nconnect`.
+The following graphs show 4-KiB random writes of ~135,000 write IOPS with `nconnect`, roughly 3X non-`nconnect`.
 
 ![Linux write IOPS](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 
