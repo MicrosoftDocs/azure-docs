@@ -34,21 +34,21 @@ In the example, we'll refer to an existing backup vault _TestBkpVault_, under th
 
 ### Set up permissions
 
-Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk is to be restored.
+Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the resource group where the disk needs to be restored.
 
-3Backup vault uses a system-assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. To grant permissions to the managed identity, use the Azure role-based access control (Azure RBAC). Managed identity is a specific service principal that you may only use with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
+Backup vault uses a system-assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. To grant permissions to the managed identity, use the Azure role-based access control (Azure RBAC). Managed identity is a specific service principal that you may only use with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks will be restored/created as mentioned [here](restore-managed-disks.md#restore-to-create-a-new-disk).
+Assign the relevant permissions for vault's system-assigned managed identity on the target resource group where the disks will be restored/created. [Learn more](restore-managed-disks.md#restore-to-create-a-new-disk).
 
-### Fetching the list of recovery points
+### Fetch the list of recovery points
 
-All the available recovery points for a backup instance can be listed using the [list recovery points](/rest/api/dataprotection/recovery-points/list) API.
+To list all the available recovery points for a backup instance, use the [list recovery points](/rest/api/dataprotection/recovery-points/list) API.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/recoveryPoints?api-version=2021-01-01
 ```
 
-For our example, this translates to
+For example, this API translates to:
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed/recoveryPoints?api-version=2021-01-01
@@ -56,12 +56,12 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 #### Responses for list of recovery points
 
-Once you submit the *GET* request, the response is 200(OK) with the list of all discrete recovery points with all the relevant details.
+Once you submit the *GET* request, this returns response as 200 (OK) and the list of all discrete recovery points with all the relevant details.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |    [AzureBackupRecoveryPointResourceList](/rest/api/dataprotection/recovery-points/list#azurebackuprecoverypointresourcelist)     |   OK      |
-|Other Status codes     |    [CloudError](/rest/api/dataprotection/recovery-points/list#clouderror)     |     Error response describing why the operation failed.    |
+|Other Status codes     |    [CloudError](/rest/api/dataprotection/recovery-points/list#clouderror)     |     Error response describes the reason for the operation failure.    |
 
 ##### Example response for list of recovery points
 
@@ -149,15 +149,17 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Select the relevant recovery points from the list above and proceed to preparing the restore request. We will choose a recovery point named "a3d02fc3ab8a4c3a8cc26688c26d3356" from the above list to restore.
+Select the relevant recovery points from the above list and proceed to prepare the restore request. We'll choose a recovery point named _a3d02fc3ab8a4c3a8cc26688c26d3356_ from the above list to restore.
 
-### Preparing the restore request
+### Prepare the restore request
 
-Construct the ARM ID of the new disk to be created with the target resource group, to which permissions were assigned as detailed [above](#setting-up-permissions), and the required disk name. We'll use an example of a disk named _APITestDisk2_, under a resource group _targetrg_, present in the same region as the backed up disk, but under a different subscription.
+Construct the Azure Resource Manager (ARM) ID of the new disk to be created with the target resource group (to which permissions were assigned as detailed [above](#set-up-permissions)) and the required disk name.
 
-#### Constructing the request body for restore request
+For example, we'll use a disk named _APITestDisk2_, under a resource group _targetrg_, present in the same region as the backed-up disk, but under a different subscription.
 
-The following request body details the recovery point ID and the restore target details.
+#### Construct the request body for restore request
+
+The following request body contains the recovery point ID and the restore target details.
 
 ```json
 {
@@ -183,25 +185,25 @@ The following request body details the recovery point ID and the restore target 
 }
 ```
 
-#### Validating restore requests
+#### Validate restore requests
 
-Once request body is prepared, it can be validated using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like the validate for backup API, this is a *POST* operation.
+Once request body is prepared, validate it using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Such as validate for backup API - this is a *POST* operation.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/validateRestore?api-version=2021-01-01
 ```
 
-For our example, this translates to:
+For example, this API translates to:
 
 ```http
 POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed/validateRestore?api-version=2021-01-01"
 ```
 
-The request body for this POST API is detailed [here](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body). 
+[Learn more](/rest/api/dataprotection/backup-instances/validate-for-restore#request-body) about the request body for this POST API. 
 
 ##### Request body to validate restore request
 
-We have constructed a section of the same in the [above section](#constructing-the-request-body-for-restore-request). We will add object type and use it to trigger a validate operation.
+We have constructed a section of the same in the [above section](#constructing-the-request-body-for-restore-request). Now, we'll add object type and use it to trigger a validate operation.
 
 ```json
 
@@ -231,9 +233,9 @@ We have constructed a section of the same in the [above section](#constructing-t
 
 ##### Response to validate restore requests
 
-The validate restore request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+The _validate restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -242,7 +244,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 ###### Example response to restore validate request
 
-Once the *POST* operation is submitted, the initial response will be 202 Accepted along with an Azure-asyncOperation header.
+Once the *POST* operation is submitted, it'll return the initial response as 202 (Accepted) with an Azure-asyncOperation header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -277,27 +279,27 @@ Track the Azure-AsyncOperation header with a simple *GET* request. When the requ
 }
 ```
 
-#### Triggering restore requests
+#### Trigger restore requests
 
-The triggering restore operation is a ***POST*** API. All details about the trigger restore operation are documented [here](/rest/api/dataprotection/backup-instances/trigger-restore).
+The trigger restore operation is a ***POST*** API. [Learn more](/rest/api/dataprotection/backup-instances/trigger-restore) about the trigger restore operation.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/restore?api-version=2021-01-01
 ```
 
-For our example, this translates to:
+For example, the API translates to:
 
 ```http
 POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupInstances/msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed/restore?api-version=2021-01-01"
 ```
 
-##### Creating a request body for restore operations
+##### Create a request body for restore operations
 
-Once the requests are validated, the same request body can be used to trigger the restore request with minor changes.
+Once the requests are validated, use the same request body to trigger the _restore request_ with minor changes.
 
 ###### Example request body for restore
 
-The only change from the validate restore request body is to remove the "restoreRequest" object at the start and change the object type..
+The only change from the validate restore request body is to remove the _restoreRequest_ object at the start and change the object type.
 
 ```json
 {
@@ -323,9 +325,9 @@ The only change from the validate restore request body is to remove the "restore
 
 #### Response to trigger restore requests
 
-The trigger restore request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+The _trigger restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -334,7 +336,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 ##### Example response to trigger restore request
 
-Once the *POST* operation is submitted, the initial response will be 202 Accepted along with an Azure-asyncOperation header.
+Once the *POST* operation is submitted, it'll return the initial response as 202 (Accepted) with an Azure-asyncOperation header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -355,7 +357,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the Azure-AsyncOperation header with a simple *GET* request. When the request is successful it returns 200 OK with a Job ID which should be further tracked for completion of restore request.
+Track the Azure-AsyncOperation header with a simple *GET* request. When the request is successful, it'll return 200 (OK) with a Job ID that should be further tracked for completion of restore request.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExO2Q1NDIzY2VjLTczYjYtNDY5ZC1hYmRjLTc1N2Q0ZTJmOGM5OQ==?api-version=2021-01-01
@@ -373,11 +375,11 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 ```
 
-#### Tracking jobs
+#### Track jobs
 
-The trigger restore requests triggered the restore job and the resultant Job ID should be tracking using the [GET Jobs API](/rest/api/dataprotection/jobs/get).
+The _trigger restore requests_ triggered the restore job. To track the resultant Job ID, use the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
-Use the simple GET command to track the JobId given in the [trigger restore response](#example-response-to-trigger-restore-request) above.
+Use the simple GET command to track the _JobId_ present in the [trigger restore response](#example-response-to-trigger-restore-request) above.
 
 ```http
  GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/c4bd49a1-0645-4eec-b207-feb818962852?api-version=2021-01-01
