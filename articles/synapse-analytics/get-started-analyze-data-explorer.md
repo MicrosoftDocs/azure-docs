@@ -2,7 +2,7 @@
 title: 'Quickstart: Get started analyzing with Data Explorer pools (Preview)'
 description: In this quickstart, you'll learn to analyze data with Data Explorer.
 ms.topic: quickstart
-ms.date: 09/19/2021
+ms.date: 09/30/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
@@ -13,7 +13,7 @@ ms.subservice: data-explorer
 
 # Quickstart: Analyze with Data Explorer (Preview)
 
-In this tutorial, you'll learn the basic steps to load and analyze data with Data Explorer for Azure Synapse.
+In this article, you'll learn the basic steps to load and analyze data with Data Explorer for Azure Synapse.
 
 ## Create a Data Explorer pool
 
@@ -23,7 +23,7 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Dat
     | Setting | Suggested value | Description |
     |--|--|--|
     | Data Explorer pool name | contosodataexplorer | This is the name that the Data Explorer pool will have. |
-    | Workload | Computer optimized | This workload provides a higher CPU to SSD storage ratio. |
+    | Workload | Compute optimized | This workload provides a higher CPU to SSD storage ratio. |
     | Node size | Small (4 cores) | Set this to the smallest size to reduce costs for this quickstart |
 
     > [!IMPORTANT]
