@@ -124,11 +124,11 @@ To determine VM utilization, you can log in to a node when running tasks to view
 
 Multiple task slots can be specified for a pool, so that the corresponding number of tasks can be run in parallel on each node. Pool task slots can be used to reduce the number of nodes used in a pool by choosing larger VM sizes and running multiple tasks in parallel on the node to ensure the node is well utilized. If nodes are underutilized, slots can be used to increase utilization. For example, for a single-threaded task application, one slot per core could be configured. It is also possible to have more slots than cores. This would be applicable if the application blocks significantly waiting for calls to external services to be returned, for one example.
 
-Using '[taskSchedulingPolicy](/rest/api/batchservice/pool/add#taskschedulingpolicy)' can help ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
+Setting '[taskSchedulingPolicy](/rest/api/batchservice/pool/add#taskschedulingpolicy)' to `pack` will help ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
 
 ### Use low-priority virtual machines
 
-[Low-priority VMs](batch-low-pri-vms.md) reduce the cost of Batch workloads by taking advantage of surplus computing capacity in Azure. When you specify low-priority VMs in your pools, Batch uses this surplus to run your workload. There can be substantial cost savings when you use low-priority VMs instead of dedicated VMs. Keep in mind that low-priority VMS are not suitable for all workloads, since there may not be available capacity to allocate, or they may get preempted.
+[Low-priority VMs](batch-low-pri-vms.md) reduce the cost of Batch workloads by taking advantage of surplus computing capacity in Azure. When you specify low-priority VMs in your pools, Batch uses this surplus to run your workload. There can be substantial cost savings when you use low-priority VMs instead of dedicated VMs. Keep in mind that low-priority VMs are not suitable for all workloads, since there may not be available capacity to allocate, or they may get preempted.
 
 ### Use ephemeral OS disks
 
