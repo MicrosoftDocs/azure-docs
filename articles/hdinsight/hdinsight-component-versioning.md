@@ -3,7 +3,7 @@ title: Apache Hadoop components and versions - Azure HDInsight
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 09/29/2021
 ---
 
 # Azure HDInsight versions
@@ -16,7 +16,7 @@ This table lists the versions of HDInsight that are available in the Azure porta
 
 | HDInsight version | VM OS | Release date| Support type | Support expiration date | Retirement date | High availability |
 | --- | --- | --- | --- | --- | --- | ---|
-| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | | |Yes |
+| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 18.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | | |Yes |
 | [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Standard support expired on June 30, 2021 for all cluster types.<br> Basic support expires on April 3, 2022. See [HDInsight 3.6 component versions](hdinsight-36-component-versioning.md) for cluster type details. |April 4, 2022 |Yes |
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. And it may no longer available through the Azure portal for cluster creation.
