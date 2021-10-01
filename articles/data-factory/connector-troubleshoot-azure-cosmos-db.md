@@ -93,6 +93,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 For more troubleshooting help, try these resources:
 
+- [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)

@@ -240,6 +240,7 @@ The errors below are general to the copy activity and could occur with any conne
 
 For more troubleshooting help, try these resources:
 
+- [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
