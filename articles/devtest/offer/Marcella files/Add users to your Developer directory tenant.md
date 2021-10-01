@@ -22,8 +22,8 @@ Step 1 is determining whether you need to add a new user to your subscription. H
 - Working on a project and need to give IT access to monitor for security  
 - Working on new API protocols that could be beneficial to another member of an organization  
 - Need to give access at the subscription level so they can access all resource groups  
-- At the business level, you may need to give access to a single resource group to log on to one computer, but they don’t need access to the subscription  
-- Provides more visibility and transparency for projects you are working on, but still able to isolate certain parts of work if necessary  
+- At the business level, a single resource group needs to sign in to one computer but they don’t need access to the subscription  
+- Provides more visibility and transparency for projects you're working on but still isolates certain parts of work if necessary  
 - Add a consultant as a user or within a group to contribute  
 - You want to collaborate with someone to test and monitor pre-production  
 
@@ -31,13 +31,13 @@ Step 1 is determining whether you need to add a new user to your subscription. H
 
 Within AAD access management is a critical function. [Azure role-based access control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) \(Azure RBAC\) is the authorization system that provides fine-grained access management of Azure resources.  
 
-Once you’ve determined that you need to add a user, you must understand where you are adding them within your subscription and what resources they need access to. The set of resources that a user can have access to is referred to as scope.  
+Once you’ve determined you need to add a user, you must understand where you're adding them and what resources they need access to. The set of resources that a user can access is referred to as scope.  
 
-If the project and tasks you are working on need to be monitored by IT to enable security protocols, you will need that user to have an Admin role within the Management group to have full access and permissions within the subscription.  
+If the project and tasks you're working on need to be monitored by IT to enable security protocols, you'll need that user to have an Admin role within the Management group to have full access and permissions within the subscription.  
 
 ![A screenshot of the access levels in Azure.](images/accessmanagement.png "Managing roles with management groups in Azure.")
 
-However, if you are collaborating with another developer or a colleague, they may only need access at the resource or resource group level.  
+However, if you're collaborating with another developer or a colleague, they may only need access at the resource or resource group level.  
 
 Follow [this link](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) to better understand how Azure RBAC works and the purpose it serves within your subscription.  
 
