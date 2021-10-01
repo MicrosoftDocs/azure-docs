@@ -197,6 +197,9 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: The partition key path is empty for update and delete operations.
 - **Recommendation**: Use the providing partition key in the Azure Cosmos DB sink settings.
 
+- **Message**: Partition key is not mapped in sink for delete and update operations.
+- **Cause**: An invalid partition key is provided.
+- **Recommendation**: In Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
 
 ## Error code: DF-Cosmos-IdPropertyMissed
 - **Message**: 'id' property should be mapped for delete and update operations.
@@ -207,11 +210,6 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: partition key should start with /.
 - **Cause**: An invalid partition key is provided.
 - **Recommendation**: Ensure that the partition key start with `/` in Cosmos DB sink settings, for example: `/movieId`.
-
-## Error code: DF-Cosmos-InvalidPartitionKey
-- **Message**: Partition key is not mapped in sink for delete and update operations.
-- **Cause**: An invalid partition key is provided.
-- **Recommendation**: In Cosmos DB sink settings, use the right partition key that is same as your container's partition key.
 
 ## Error code: DF-Cosmos-InvalidConnectionMode
 - **Message**: Invalid connection mode.
@@ -233,12 +231,11 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: The User/password is missed.
 - **Recommendation**: Make sure that you have right credential settings in the related PostgreSQL linked service.
 
-## Error code: DF-Snowflake-InvalidStageConfiguration
+## Error code: DF-Snowflake-InvalidStageConfiguration (only blob storage can be used as stage)
 - **Message**: Only blob storage type can be used as stage in snowflake read/write operation.
 - **Cause**: An invalid staging configuration is provided in the Snowflake.
 - **Recommendation**: Update Snowflake staging settings to ensure that only Azure Blob linked service is used.
 
-## Error code: DF-Snowflake-InvalidStageConfiguration
 - **Message**: Snowflake stage properties should be specified with Azure Blob + SAS authentication.
 - **Cause**: An invalid staging configuration is provided in the Snowflake.
 - **Recommendation**: Ensure that only the Azure Blob + SAS authentication is specified in the Snowflake staging settings.
@@ -258,7 +255,6 @@ This article lists common error codes and messages reported by mapping data flow
 - **Cause**: An invalid staging configuration is provided in the Hive.
 - **Recommendation**: Please update the related ADLS Gen2 linked service that is used as staging. Currently, only the service principal key credential is supported.
 
-## Error code: DF-Hive-InvalidGen2StagingConfiguration
 - **Message**: ADLS Gen2 storage staging properties should be specified. Either one of key or tenant/spnId/spnKey or miServiceUri/miServiceToken is required.
 - **Cause**: An invalid staging configuration is provided in the Hive.
 - **Recommendation**: Update the related ADLS Gen2 linked service with right credentials that are used as staging in the Hive.
