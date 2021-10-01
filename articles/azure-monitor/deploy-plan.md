@@ -8,7 +8,7 @@ ms.date: 09/28/2021
 
 ---
 
-# Deploy Azure Monitor - Planning your monitoring strategy and configuration
+# Deploying Azure Monitor - Planning your monitoring strategy and configuration
 This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes how to configure monitoring of your Azure and hybrid virtual machines in Azure Monitor. It defines planning that you should consider before starting your implementation. This ensures that the configuration options you choose meet your particular requirements.
 
 If you're not already familiar with monitoring concepts, start with the [Cloud monitoring guide](/azure/cloud-adoption-framework/manage/monitor/) which is part of the [Microsoft Cloud Adoption Framework for Azure](/cloud-adoption-framework/). This guide defines high level concepts of monitoring and provides guidance for defining requirements for your monitoring environment and supporting processes.

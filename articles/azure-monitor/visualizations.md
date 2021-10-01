@@ -8,7 +8,7 @@ ms.date: 07/28/2021
 
 ---
 
-# Deploy Azure Monitor - analyze and visualize data
+# Deploying Azure Monitor - Analyze and visualize data
 This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It describes builtin features for analyzing collected data and for creating custom visualizations to meet the requirements of different users in the organization. Visualizations such as charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns. Depending on the tool that you use, you might also have the option to share visualizations with other users inside and outside your organization.
 
 
