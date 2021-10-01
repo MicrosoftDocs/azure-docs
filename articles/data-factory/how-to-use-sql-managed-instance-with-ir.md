@@ -127,7 +127,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
 1. Select SQL Managed Instance private endpoint or public endpoint.
 
-    When [provisioning Azure-SSIS IR](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime) in Azure portal/ADF app, on SQL Settings page, use SQL Managed Instance **private endpoint** or **public endpoint** when creating SSIS catalog (SSISDB).
+    When [provisioning Azure-SSIS IR](create-azure-ssis-integration-runtime-portal.md#provision-an-azure-ssis-integration-runtime) in Azure portal/ADF app, on SQL Settings page, use SQL Managed Instance **private endpoint** or **public endpoint** when creating SSIS catalog (SSISDB).
 
     Public endpoint host name comes in the format <mi_name>.public.<dns_zone>.database.windows.net and that the port used for the connection is 3342.  
 
@@ -149,7 +149,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png" alt-text="Screenshot shows the Integration runtime setup Advanced settings, where you can select a virtual network for your runtime to join.":::
 
-For more info about how to create an Azure-SSIS IR, see [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime).
+For more info about how to create an Azure-SSIS IR, see [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime-portal.md#provision-an-azure-ssis-integration-runtime).
 
 ## Clean up SSISDB logs
 
