@@ -66,6 +66,8 @@ landingContent:
             url: ./validated-partners/data-management/komprise-quick-start-guide.md
           - text: StorageX getting started guide
             url: ./validated-partners/data-management/storagex-quick-start-guide.md
+          - text: Cirrus Data getting started guide
+            url: ./validated-partners/data-management/cirrus-data-migration-guide.md
                      # Card
   - title: Primary and secondary storage partners
     linkLists:

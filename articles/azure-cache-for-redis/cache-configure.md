@@ -21,7 +21,7 @@ This article describes the configurations available for your Azure Cache for Red
 
 ## Configure Azure Cache for Redis settings
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-browse.md)]
 
 Azure Cache for Redis settings are viewed and configured on the **Azure Cache for Redis** on the left using the **Resource Menu**.
 

@@ -123,6 +123,7 @@ Currently, speaking style adjustments are supported for the following neural voi
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
 * `en-US-SaraNeural`
+* `ja-JP-NanamiNeural`
 * `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
@@ -183,6 +184,9 @@ Use this table to determine which speaking styles are supported for each neural 
 | `en-US-SaraNeural`      | `style="cheerful"`        | Expresses a positive and happy tone    |
 |                         | `style="sad"`             | Expresses a sorrowful tone   |
 |                         | `style="angry"`           | Expresses an angry and annoyed tone   |
+| `ja-JP-NanamiNeural`    | `style="cheerful"`        | Expresses a positive and happy tone   |
+|                         | `style="chat"`            | Expresses a casual and relaxed tone   |
+|                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support    |
 | `pt-BR-FranciscaNeural` | `style="calm"`            | Expresses a cool, collected, and composed attitude when speaking. Tone, pitch, prosody is much more uniform compared to other types of speech.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
@@ -243,7 +247,7 @@ Use this table to determine which speaking styles are supported for each neural 
 | `zh-CN-XiaoruiNeural`   | `style="sad"`             | Expresses a sorrowful tone, with higher pitch, less intensity, and lower vocal energy. Common indicators of this emotion would be whimpers or crying during speech.         |
 |                         | `style="angry"`           | Expresses an angry and annoyed tone, with lower pitch, higher intensity, and higher vocal energy. The speaker is in a state of being irate, displeased, and offended.       |
 |                         | `style="fearful"`         | Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tenseness and uneasiness.                       |
-| `zh-CN-XiaoshuangNeural`   | `style="chat"` | Expresses a casual and relaxed tone |
+| `zh-CN-XiaoshuangNeural`   | `style="chat"` | Expresses a casual and relaxed tone. |
 
 Use this table to check the supported roles and their definitions.
 
@@ -566,6 +570,9 @@ To define how multiple entities are read, you can create a custom lexicon, which
 
 The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced. When `alias` and `phoneme` element are provided with the same `grapheme` element, `alias` has higher priority.
 
+> [!IMPORTANT]
+> The `lexeme` element is case sensitive in custom lexicon. For example, if you only provide a phoneme for `lexeme` 'Hello', it will not work for `lexeme` 'hello'.
+
 Lexicon contains necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so apply it for a different locale it won't work.
 
 It's important to note, that you cannot directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
@@ -580,6 +587,8 @@ It's important to note, that you cannot directly set the pronunciation of a phra
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
+> [!Note]
+> The syllable boundary is '.' in the International Phonetic Alphabet.
 
 You could also directly provide your expected `alias` for the acronym or abbreviated term. For example:
 ```xml
@@ -614,6 +623,8 @@ After you've published your custom lexicon, you can reference it from your SSML.
 ```
 
 When using this custom lexicon, "BTW" will be read as "By the way". "Benigni" will be read with the provided IPA "bɛˈniːnji".
+
+Since it's easy to make mistakes in custom lexicon, Microsoft has provided [validation tool for custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It provides detailed error messages that help you find errors. Before you send SSML with custom lexicon to the Speech service, you should check your custom lexicon with this tool. 
 
 **Limitations**
 - File size: custom lexicon file size maximum limit is 100KB, if beyond this size, synthesis request will fail.
