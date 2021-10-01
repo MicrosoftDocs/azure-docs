@@ -6,11 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-<<<<<<< HEAD
 ms.date: 10/01/2021
-=======
-ms.date: 09/27/2021
->>>>>>> 12de73f285e93f7af2803ee55cfd546b266607d8
 ---
 
 # Search the Azure Purview Data Catalog
@@ -25,25 +21,17 @@ The search bar can be quickly accessed from the top bar of the Purview Studio UX
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
-<<<<<<< HEAD
 Once you click on the search bar, you will be presented with your search history and the assets recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
 Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in search keywords, Purview dynamically suggests assets and searches that may fit your needs. To complete your search, click on "View search results" or press "Enter".
-=======
-When you select the search bar, you can see your recent search history and recently accessed assets. Select **View all** to see all of the recently viewed assets.
-
-:::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
-
-Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, select **View search results** or press "Enter".
->>>>>>> 12de73f285e93f7af2803ee55cfd546b266607d8
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
 Once you enter in your search, Purview returns a list of data assets a user is a data reader for to that matched to the keywords entered in.
 
-The Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a table that matches on multiple keywords that a data steward has assigned glossary terms and given a description is likely going to be more interesting to a data consumer than a folder which has been unannotated. A large set of factors go into an asset’s relevance score and the Purview search team is constantly tuning the relevance engine to ensure the top search results have value to yo.
+The Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a table that matches on multiple keywords that a data steward has assigned glossary terms and given a description is likely going to be more interesting to a data consumer than a folder which has been unannotated. A large set of factors determine an asset’s relevance score and the Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
 
 If the top results don’t include the assets you are looking for, you can use the facets on the left-hand side to filter down by business metadata such glossary terms, classifications and the containing collection. If you are interested in a particular data source type such as Azure Data Lake Storage Gen2 or Azure SQL Database, you can use the source type pill filter to narrow down your search.
 
@@ -52,15 +40,11 @@ If the top results don’t include the assets you are looking for, you can use t
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
-<<<<<<< HEAD
 For certain annotations, you can click on the ellipses to choose between an AND condition or an OR condition. 
 
 :::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
 
-Once you find the asset you are looking for, you can select it to view additional details such as schema, lineage, and a detailed classification list. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
-=======
- Select your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
->>>>>>> 12de73f285e93f7af2803ee55cfd546b266607d8
+Once you find the asset you are looking for, you can select it to view details such as schema, lineage, and a detailed classification list. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
 
@@ -83,9 +67,9 @@ Below are the operators that can be used to compose a search query. Operators ca
 | OR | Specifies that an asset must have at least one of the two keywords. Must be in all caps. A white space is also an OR operator.  | The query `hive OR database` returns assets that contain 'hive' or 'database' or both. |
 | AND | Specifies that an asset must have both keywords. Must be in all caps | The query `hive AND database` returns assets that contain both 'hive' and 'database'. |
 | NOT | Specifies that an asset can't contain the keyword to the right of the NOT clause | The query `hive NOT database` returns assets that contain 'hive', but not 'database'. |
-| () | Groups a set of keywords and operators together. When combining multiple operators, parenthesis specify the order of operations. | The query `hive AND (database OR warehouse)` returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
+| () | Groups a set of keywords and operators together. When combining multiple operators, parentheses specify the order of operations. | The query `hive AND (database OR warehouse)` returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
 | "" | Specifies exact content in a phrase that the query must match to. | The query `"hive database"` returns assets that contain the phrase "hive database" in their properties |
-| * | A wildcard that matches on one to many characters. Can't be the first character in a keyword. | The query `dat*` returns assets that have properties that starts with 'dat' such as 'data' or 'database'. |
+| * | A wildcard that matches on one to many characters. Can't be the first character in a keyword. | The query `dat*` returns assets that have properties that start with 'dat' such as 'data' or 'database'. |
 | ? | A wildcard that matches on a single character. Can't be the first character in a keyword | The query `dat?` returns assets that have properties that start with 'dat' and are four letters such as 'date' or 'data'. |
 
 > [!Note]

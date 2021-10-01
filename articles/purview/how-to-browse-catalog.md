@@ -11,7 +11,7 @@ ms.date: 10/01/2021
 
 # Browse the Azure Purview data catalog
 
-Searching a data catalog is a great tool for data discovery if a data consumer knows what they are looking for, but often times users don't know exactly how their data estate is structured. The Azure Purview data catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog.
+Searching a data catalog is a great tool for data discovery if a data consumer knows what they are looking for, but often users don't know exactly how their data estate is structured. The Azure Purview data catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog.
 
 To access the browse experience, select “Browse assets” from the data catalog home page.
 
@@ -26,7 +26,7 @@ Browse by collection allows you to explore the different collections you are a d
 
 :::image type="content" source="media/how-to-browse-catalog/browse-by-collection.png" alt-text="Screenshot showing the browse by collection page" border="true":::
 
-Once a collection is selected, you will get a list of assets in that collection with the facets and filters available in search. As a collection can have thousands of assets, browse also leverages the Purview search relevance engine to boost the most important assets to the top.
+Once a collection is selected, you will get a list of assets in that collection with the facets and filters available in search. As a collection can have thousands of assets, browse uses the Purview search relevance engine to boost the most important assets to the top.
 
 :::image type="content" source="media/how-to-browse-catalog/browse-collection-results.png" alt-text="Screenshot showing the browse by collection results" border="true":::
 
@@ -63,7 +63,7 @@ A native browsing experience with hierarchical namespace is provided for each co
 
 1. On the next page, top-level assets under your chosen data type are listed. Pick one of the assets to further explore its contents. For example, after selecting "Azure SQL Database", you will see a list of databases with assets in the data catalog.
 
-    :::image type="content" source="media/how-to-browse-catalog/asset-type-specific-browse.png" alt-text="Asset type specific browse page. Example shown is Azure SQL Database" border="true":::
+    :::image type="content" source="media/how-to-browse-catalog/asset-type-specific-browse.png" alt-text="Azure SQL Database browse page" border="true":::
 
 1. The explorer view will open. Start browsing by selecting the asset on the left panel. Child assets will be listed on the right panel of the page.
 
