@@ -13,7 +13,7 @@ author: palma21
 
 AKS releases a new node image weekly and every new cluster, new node pool, or upgrade cluster will always receive the latest image that can make it hard to maintain your environments consistent and to have repeatable environments.
 
-Node pool snapshots allow you to take a configuration snapshot of your node pool and then create new node pools or new clusters based of that snapshot for as long as that configuration and kubernetes version is supported. For more information on the supportability windows, see [Supported Kubernetes versions in AKS](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions).
+Node pool snapshots allow you to take a configuration snapshot of your node pool and then create new node pools or new clusters based of that snapshot for as long as that configuration and kubernetes version is supported. For more information on the supportability windows, see [Supported Kubernetes versions in AKS][supported-versions].
 
 The snapshot is an Azure resource that will contain the configuration information from the source node pool such as the node image version, kubernetes version, OS type, and OS SKU. You can then reference this snapshot resource and the respective values of its configuration to create any new node pool or cluster based off of it.
 
@@ -122,7 +122,7 @@ Now, we can use this command to create this cluster off of the snapshot configur
 az aks cluster create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
 ```
 
-## Upgrading a node pool to a snapshot
+## Upgrading a cluster to a snapshot
 
 You can upgrade a cluster to a snapshot configuration so long as the snapshot kubernetes version and node image version are more recent than the versions in all of the clusters current node pools.
 
@@ -147,6 +147,7 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --snapshot-i
 - 
 
 <!-- LINKS - internal -->
+[supported-versions]: supported-kubernetes-versions.md
 [upgrade-cluster]: upgrade-cluster.md
 [node-image-upgrade]: node-image-upgrade.md
 [github-schedule]: node-upgrade-github-actions.md
