@@ -84,7 +84,7 @@ CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-d
 To prevent issues during the creation of the subscription use this reference to validate the compatibility between topic and subscription schemas. When a topic is created an incoming event schema is defined, as well as an outgoing event schema is defined when subscription is created.
 
 > [!NOTE]
-> This compatibility table reference applies for: Custom Topics, System Topics and Event Domains. If you are using System Topics then an Event Grid schema is defined as incoming event schema.
+> This compatibility table reference applies for: Custom Topics and Event Domains.
 
 | Incoming event schema | Outgoing event schema | Supported |
 | ---- | ---- | ---- |
