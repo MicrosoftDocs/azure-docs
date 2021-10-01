@@ -64,17 +64,15 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    ![The list of triggers](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
 
-5. Fill in the fields on this screen with the connection information.
+5. Fill in the fields on the next screen with the connection information.
 
    **Connection Name**: ContosoConnection
    
    Select the Service Bus Namespace. This tutorial uses **ContosoSBNamespace**. The name of the key (RootManageSharedAccessKey) and the rights (Listen, Manage, Send) are retrieved and loaded. Select **RootManageSharedAccessKey**. The **Create** button changes to blue (active). Select it; it shows the queue selection screen.  
 
-6. Specify the information about the queue. 
+6. Next, you are asked for information about the queue.  
 
    ![Selecting a queue](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
-
-7. Fill in the information about the queue.
 
    **Queue Name:** This field is the name of the queue from which the message is sent. Click this dropdown list and select the queue name that was set in the setup steps. This tutorial uses **contososbqueue**.
 
@@ -82,11 +80,11 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    Take the defaults for the other fields. Select **Save** to save the logic apps designer configuration.
 
-8. Select **+New Step**. The **Choose an operation** pane is displayed. Select **Office 365 Outlook**. In the list, find and select **Send an Email (V2)**. Sign in to your Office 365 account.   
+7. Select **+New Step**. The **Choose an operation** pane is displayed. Select **Office 365 Outlook**. In the list, find and select **Send an Email (V2)**. Sign in to your Office 365 account.   
 
-9. Fill in the fields. 
+8. Fill in the fields to be used when sending an e-mail about the message in the queue. 
 
-   ![Select to send-an-email from one of the Oulook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) 
+   ![Select to send-an-email from one of the Outlook connectors](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) 
 
    **To:** Put in the e-mail address where the warning is to be sent.
 
@@ -94,7 +92,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    **Body**: Fill in some text for the body. Click **Add dynamic content**, it will show fields you can pick from the e-mail to include. If you don't see any, select **See More** to see more options. Select **Content** to have the body from the e-mail displayed in the error message.
 
-10. Click **Save** to save your changes. Close the Logic app Designer. 
+9. Click **Save** to save your changes. Close the Logic app Designer. 
 
 ## Set up Azure Stream Analytics
 
@@ -102,7 +100,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Create the Stream Analytics job
 
-1. Put **stream** **analytics** **job** in the [Azure portal](https://portal.azure.com) and select **Enter**. Select **Create** to get to the Stream Analytics job screen, and then **create** again to get to the create screen. 
+1. Put **stream** **analytics** **job** in the [Azure portal](https://portal.azure.com) search box and select **Enter**. Select **Create** to get to the Stream Analytics job screen, and then **create** again to get to the create screen. 
 
 2. Enter the following information for the job.
 
@@ -224,7 +222,7 @@ If everything is set up correctly, at this point you should see the following re
 
 2. In the [Azure portal](https://portal.azure.com), select **Resource groups** and select your Resource Group. This tutorial uses **ContosoResources**. 
 
-    Select the storage account, select **Containers**, then select the Container. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
+    Select the storage account, select **Containers**, then select the container that stores your results. This tutorial uses **contosoresults**. You should see a folder, and you can drill down through the directories until you see one or more files. Open one of those files; they contain the entries routed to the storage account. 
 
    ![The result files in storage](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -232,7 +230,7 @@ This result means the following statement is true.
 
    * The routing to the storage account is working correctly.
 
-Now, with the application still running, set up the Power BI visualization to see the messages coming through the default routing.
+With the application still running, set up the Power BI visualization to see the messages coming through the default endpoint.
 
 ## Set up the Power BI visualizations
 
