@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 10/01/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -15,30 +15,30 @@ recommendations: false
 
 # Form Recognizer prebuilt models
 
- Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Prebuilt models use optical character recognition (OCR) to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer then  returns the extracted data in an organized structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
+ Azure Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer then  returns the extracted data in an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
 
 ## Model overview
 
 | **Model**   | **Description**   |
 | --- | --- |
 | Invoice  | Extracts key information from English-text invoices.  |
-| Receipt  | Extracts key information from English-text receipts.  |
+| Receipt  | Extracts key information from printed and handwritten English-text receipts.  |
 | ID document  | Extracts key information from US driver licenses and international passports.  |
 |Business cards  | Extracts key information from English-text business cards.  |
 
 ### Input requirements
 
 * For best results, provide one clear photo or scan per document.
-* Supported file formats: JPEG, PNG, PDF, BMP and TIFF.
+* Supported file formats: JPEG, PNG, PDF, BMP, and TIFF.
 * For PDF and TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
 * The file size must be less than 50 MB.
 * For images (JPEG, PNG, BMP, TIFF), the dimensions must be at least 50 x 50 pixels and at most 10,000 x 10,000 pixels.
-* PDF dimensions cannot exceed 17 x 17 inches (Legal or A3 paper sizes).
+* PDF dimensions can't exceed 17 x 17 inches (Legal or A3 paper sizes).
 * For more guidance, *see*  our [**Overview**](overview.md#input-requirements) documentation.
 
 ## Invoice
 
-Azure Form Recognizer invoice model analyzes and extracts key information from sales invoices. The Invoice API enables you to automate invoice processing by taking invoices in various formats and returning structured data. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as customer name, billing address, due date, and amount due from English-language invoices.
+The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats; extracts key information such as customer name, billing address, due date, and amount due; and returns a structured JSON data representation.
 
 The Invoice API also powers the [AI Builder invoice processing prebuilt model](/ai-builder/flow-invoice-processing).
 
@@ -48,7 +48,7 @@ The Invoice API also powers the [AI Builder invoice processing prebuilt model](/
 
 ## Receipt
 
-Azure Form Recognizer receipt model analyzes and extracts key information from sales receipts. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as merchant name, merchant phone number, transaction date, tax, and transaction total from English-language receipts.
+The receipt model analyzes and extracts key information from sales receipts. The API analyzes printed and handwritten receipts; extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total; and returns a structured JSON data representation.
 
 The Receipt API also powers the [AI Builder receipt processing prebuilt model](/ai-builder/flow-receipt-processing).
 
@@ -58,7 +58,7 @@ The Receipt API also powers the [AI Builder receipt processing prebuilt model](/
 
 ## ID document
 
-Azure Form Recognizer prebuilt ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia.) and the biographical page from international passports (excluding visa and other travel documents). It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as  first name, last name, address, expiration date, and date of birth.
+The ID document model analyzes and extracts key information from U.S. Driver's Licenses (all 50 states and District of Columbia) and international passport biographical pages (excluding visa and other travel documents). The API analyzes identity documents; extracts key information such as first name, last name, address, and date of birth; and returns a structured JSON data representation.
 
 The ID Document API also powers the [AI Builder ID reader prebuilt model](/ai-builder/id-reader).
 
@@ -68,7 +68,7 @@ The ID Document API also powers the [AI Builder ID reader prebuilt model](/ai-bu
 
 ## Business card
 
-Azure Form Recognizer business card model analyzes and extracts key information from business card images . It combines powerful Optical Character Recognition (OCR) capabilities with our business card understanding model to extract key information from business cards in English and is publicly available in the Form Recognizer v2.1.
+The business card model analyzes and extracts key information from business card images. The API analyzes printed business cards; extracts key information such as first name, last name, company name, email address, and phone number;  and returns a structured JSON data representation.
 
 The Business Card API also powers the [AI Builder Business reader prebuilt model](/ai-builder/prebuilt-business-card).
 
@@ -80,16 +80,16 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 
 | **Model ID**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |
 | --- | :---: |:---:| :---: | :---: |
-| Invoice  | ✓ | ✓  | ✓  | ✓  
+| Invoice  | ✓ | ✓  | ✓  | ✓  |
 | Receipt  | ✓  |   ✓ |   |  |
 | ID document  | ✓  |   ✓  |   |   |
 | Business Card  | ✓  |   ✓ |   |   |
 
-## Key-value pair fields
+## Key-value pair extraction
 
 ### [Invoice](#tab/invoice)
 
-|Name| Type | Description | Standardized output <img width=500>|
+|Name| Type | Description | Standardized output |
 |:-----|:----|:----|:---:|
 | CustomerName | string | Invoiced customer| |
 | CustomerId | string | Customer reference ID | |
@@ -120,7 +120,7 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 
 ### [Receipt](#tab/receipt)
 
-|Name| Type | Description | Standardized output <img width=500> |
+|Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----|
 | ReceiptType | string | Type of sales receipt |  Itemized |
 | MerchantName | string | Name of the merchant issuing the receipt |  |
@@ -130,7 +130,7 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 | TransactionTime | time | Time the receipt was issued | hh-mm-ss (24-hour)  |
 | Total | number (USD)| Full transaction total of receipt | Two-decimal float|
 | Subtotal | number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
-| Tax | number (USD) | Tax on receipt, often sales tax or equivalent | Two-decimal float |
+| Tax | number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
 | Tip | number (USD) | Tip included by buyer | Two-decimal float|
 | Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
 | Name | string | Item name | |
@@ -140,25 +140,25 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 
 ### [ID document](#tab/id)
 
-|Name| Type | Description | Standardized output <img width=500>|
+|Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----|
 |  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
 |  DateOfBirth | date | DOB | yyyy-mm-dd |
 |  DateOfExpiration | date | Expiration date DOB | yyyy-mm-dd |
-|  DocumentNumber | string | Relevant passport number, driver's license number, etc. |  |
+|  DocumentNumber | string | Passport number, driver's license number, etc. |  |
 |  FirstName | string | Extracted given name and middle initial if applicable |  |
 |  LastName | string | Extracted surname |  |
 |  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard |  |
 |  Sex | string | Possible extracted values include "M", "F" and "X" | |
-|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |
+|  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | |
+|  DocumentType | string | Document type, for example, Passport, Driver's License | |
 |  Address | string | Extracted address (Driver's License only) ||
 |  Region | string | Extracted region, state, province, etc. (Driver's License only) |  |
 
 ### [Business card](#tab/businesscard)
 
-|Name| Type | Description | Text | Value (standardized output) |
-|:-----|:----|:----|:----|:----|
+|Name| Type | Description |Standardized output |
+|:-----|:----|:----|:----:|
 | ContactNames | array of objects | Contact name |  |
 | FirstName | string | First (given) name of contact |  |
 | LastName | string | Last (family) name of contact |  |
@@ -181,7 +181,7 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
-|Receipt</br><br>Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Auto-detected |
+|Receipt</br><br>Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
  |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
 
 ## Next steps
