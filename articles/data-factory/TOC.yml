@@ -983,9 +983,11 @@ items:
       href: pipeline-trigger-troubleshoot-guide.md 
     - name: Data Flows
       items:
-      - name: Data flows overview
+      - name: Data flow troubleshooting overview
         href: data-flow-troubleshoot-guide.md
         displayName: timeout
+      - name: Data flow errors and messages
+        href: data-flow-troubleshoot-errors.md
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
     - name: Continuous Integration and Deployment 
