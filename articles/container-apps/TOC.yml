@@ -31,8 +31,8 @@
       href: scale-app.md
     - name: Monitor an app
       href: monitor.md
-    - name: Manage an app
-      href: manage-app.md
+    - name: Manage revisions
+      href: revisions-manage.md
     - name: Connect multiple apps
       href: connect-apps.md
 - name: Tutorials
