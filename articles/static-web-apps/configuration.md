@@ -285,7 +285,13 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 > [!NOTE]
 > Forwarding gateway configuration is only available in the Azure Static Web Apps Standard plan.
 
-The `forwardingGateway` section designates which host names are allowed to forward to your static web app. You can add multiple values to the `allowedForwardedHosts` array with hostnames of various forms.
+The `forwardingGateway` section configures how a static web app is accessed from a forwarding gateway such as a CDN or Azure Front Door.
+
+### Allowed Forwarded Hosts
+  
+The `allowedForwardedHosts` list specifies which hostnames to accept in the [X-Forwarded-Host](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) header. If a matching domain is in the list, Static Web Apps uses the `X-Forwarded-Host` value when constructing redirect URLs, such as after a successful login.
+
+For Static Web Apps to function correctly behind a forwarding gateway, the request from the gateway must include the correct hostname in the `X-Forwarded-Host` header and the same hostname must be listed in `allowedForwardedHosts`.
 
 ```json
 "forwardingGateway": {
@@ -297,15 +303,13 @@ The `forwardingGateway` section designates which host names are allowed to forwa
 }
 ```
 
-The `allowedForwardedHosts` section specifies which hostnames to accept in the [X-Forwarded-Host](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) header. If a matching domain in the list, Static Web Apps uses the `X-Forwarded-Host` value when constructing redirect URLs, such as after a successful login.
-
 If the `X-Forwarded-Host` header doesn't match a value in the list, the requests still succeed, but the header isn't used in the response.
 
 ### Required headers
 
-Required headers are sent with each request to your site. One use of a required header is to deny access to a site unless one or more header is present in each request.
+Required headers are headers that must be sent with each request to your site. One use is to deny access to a site unless one or more headers are present in each request.
 
-For example, the following configuration shows how you can add a unique identifier for [Azure Front Door](../frontdoor/front-door-overview.md).
+For example, the following configuration shows how you can add a unique identifier for [Azure Front Door](../frontdoor/front-door-overview.md) that limits access to your site from a specific Azure Front Door instance. See the [Configure Azure Front Door tutorial](front-door-manual.md) for full details.
 
 ```json
 "forwardingGateway": {
@@ -317,7 +321,7 @@ For example, the following configuration shows how you can add a unique identifi
 
 - Key/value pairs can be any set of arbitrary strings
 - Keys are case insensitive
-- Values are case sensitive.
+- Values are case sensitive
 
 ## Example configuration file
 
