@@ -40,15 +40,15 @@ GitHub authentication makes it easy to start experimenting with Azure services. 
 
 To get started with the Azure Monthly Credit Subscription using your GitHub account, select “Sign in using GitHub” on any [Microsoft sign in page](https://login.microsoftonline.com)  
 
-![Screenshot of the sign in options page .](images/signin.png "Sign in options page.")  
+![Screenshot of the sign in options page .](media/sign-into-azure-with-github/signin.png "Sign in options page.")  
 
-![Screenshot of the Microsoft sign into Github to continue to Microsoft-Corporation.](images/mssignin.png "Sign into Github to continue to Microsoft-Corporation.")  
+![Screenshot of the Microsoft sign into Github to continue to Microsoft-Corporation.](media/sign-into-azure-with-github/mssignin.png "Sign into Github to continue to Microsoft-Corporation.")  
 
 If you haven’t activated your credits yet, go to the [Monthly Azure Credits for Visual Studio Subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers) page, select “Activate Your Credits” then “Sign in with GitHub” to get started.  
 
-![Screenshot of Monthly Azure credits for Visual Studio subscribers page.](images/activatecredits.png "Activate your credits.")  
+![Screenshot of Monthly Azure credits for Visual Studio subscribers page.](media/sign-into-azure-with-github/activatecredits.png "Activate your credits.")  
 
-![Screenshot of a Microsoft account sign in page.](images/signinwithgithub.png "Sign in with Email, phone, or Skype.")  
+![Screenshot of a Microsoft account sign in page.](media/sign-into-azure-with-github/signinwithgithub.png "Sign in with Email, phone, or Skype.")  
 
 Once you complete the sign-in process, you'll be taken to the last Azure Visual Studio organization you visited. If you’re new to Azure Visual Studio and Credits Subscription, you’ll land within a new organization created for you.  
 
