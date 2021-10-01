@@ -30,7 +30,7 @@ highlightedContent:
       url: concepts/language-studio.md
     - title: Responsible use of AI
       itemType: concept
-      url: /legal/cognitive-services/text-analytics/transparency-note
+      url: /legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language/context/context
 
 conceptualContent:
   items:
