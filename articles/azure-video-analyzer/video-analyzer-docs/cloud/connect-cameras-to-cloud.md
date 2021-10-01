@@ -20,6 +20,9 @@ This method allows cameras to connect to Video Analyzer via the Video Analyzer E
 * When cameras/devices do not have the functionality to connect to IoT Hub independently
 * When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
 
+> [!NOTE]
+> The Video Analyzer edge module is not acting as a transparent gateway for messaging and telemetry from the camera to IoT Hub, but only as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service.
+
 ## Connecting behind a firewall using an IoT PnP command
 This method allows cameras to connect to Video Analyzer behind a firewall using [IoT’s Plug and Play command interface](../../../iot-develop/overview-iot-plug-and-play.md) and eliminates the need for an edge device. This method requires that a suitable application can be installed and run on cameras to turn them into an IoT device. Currently, this method has only been fully implemented for Axis camera models <!--- TODO: add what models or what firmware the camera must be running --> using the [Video Analyzer ACAP application](). Information for how to connect a compatible device from any manufacturer is [here](connect-devices.md).
 
