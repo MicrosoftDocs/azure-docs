@@ -1,19 +1,20 @@
 ---
-title: How to use self-service application access in Azure AD
+title: How to use self-service application access
+titleSuffix: Azure AD
 description: Enable self-service so users can find apps in Azure AD
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/11/2017
-ms.author: davidmu
+ms.author: jomondi
 ms.reviewer: lenalepa
 ---
 
-# How to use self-service application access
+# How to use self-service application access in Azure Active Directory
 
 Before your users can self-discover applications from their My Apps page, you need to enable **Self-service application access** to any applications that you wish to allow users to self-discover and request access to.
 
