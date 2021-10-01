@@ -9,7 +9,7 @@ ms.date: 08/02/2021
 ms.author: amverma
 ---
 
-# Migrate your H and H_Promo-series virtual machines by August 31, 2022
+# Migrate your H and H-series Promo virtual machines by August 31, 2022
 
 Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings.
 
@@ -32,7 +32,7 @@ Azure [HC](hc-series.md), [HBv2](hbv2-series.md), [HBv3](hbv3-series.md), [Dv4](
 
 After August 31, 2022, any remaining H-series VM subscriptions in the preceding list will be set to a deallocated state. They'll stop working and no longer incur billing charges.
 
-The current VM size retirement only affects the VM sizes in the [H series](h-series.md), which includes the H-series Promo VM sizes.
+The current VM size retirement only affects the VM sizes in the [H series](h-series.md), which includes the H-series Promo.
 
 ## What actions should I take?
 
