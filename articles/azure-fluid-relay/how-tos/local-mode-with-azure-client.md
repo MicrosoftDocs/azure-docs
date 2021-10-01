@@ -1,7 +1,12 @@
 ---
-title: Local mode with AzureClient
-description: How to use AzureClient locally
+title: 'How to: Use AzureClient for local testing'
+description: How to use AzureClient to test an application without a service
+services: azure-fluid
+author: timtwang
+ms.author: wangtim
+ms.date: 09/30/2021
 ms.topic: reference
+ms.service: azure-fluid
 ---
 
 # How to: Use AzureClient for local testing
