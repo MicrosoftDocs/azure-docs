@@ -16,6 +16,8 @@ To send and receive EDIFACT messages in workflows that you create using Azure Lo
 
 This article shows how to add the EDIFACT encoding and decoding actions to an existing logic app workflow. Although you can use any trigger to start your workflow, the examples use the [Request](../connectors/connectors-native-reqres.md) trigger. For more information about the **EDIFACT** connector's triggers, actions, and limits version, review the [connector's reference page](/connectors/edifact/) as documented by the connector's Swagger file.
 
+   ![Overview screenshot showing the "Decode EDIFACT message" operation with the message decoding properties.](./media/logic-apps-enterprise-integration-edifact/decode-edifact-message-consumption.png)
+
 ## EDIFACT encoding and decoding
 
 The following sections describe the tasks that you can complete using the EDIFACT encoding and decoding actions.
@@ -150,7 +152,7 @@ For technical information about the **EDIFACT** connector, review the [connector
    |----------|----------|-------------|
    | **Name of EDIFACT agreement** | Yes | The EDIFACT agreement to use. |
    | **XML message to encode** | Yes | The business identifier for the message sender as specified by your EDIFACT agreement |
-   | Other parameters | No | This operation includes the following optional parameters: <p>- **Data element separator**, <br>- **Release indicator**, <br>- **Component separator**, <br>- **Repetition separator**, <br>- **Segment terminator**, <br>- **Segment terminator suffix**, <br>- **Decimal indicator**. |
+   | Other parameters | No | This operation includes the following other parameters: <p>- **Data element separator**, <br>- **Release indicator**, <br>- **Component separator**, <br>- **Repetition separator**, <br>- **Segment terminator**, <br>- **Segment terminator suffix**, <br>- **Decimal indicator**. |
    ||||
 
    For example, the XML message payload can be the **Body** content output from the Request trigger:
@@ -166,6 +168,43 @@ For technical information about the **EDIFACT** connector, review the [connector
 ## Decode EDIFACT messages
 
 ### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+
+1. On the designer, under the trigger or action where you want to add the EDIFACT action, select **New step**.
+
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter `edifact encode`. Select the action named **Decode EDIFACT message**.
+
+1. When prompted to create a connection to your integration account, provide the following information:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Connection name** | Yes | A name for the connection |
+   | **Integration account** | Yes | From the list of available integration accounts, select the account to use. |
+   ||||
+
+1. When you're done, select **Create**.
+
+1. After the EDIFACT operation appears on the designer, provide information for the following properties specific to this operation:
+
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **EDIFACT flat file message to decode** | Yes ||
+   | **Component separator** | No ||
+   | **Data element separator** | No ||
+   | **Release indicator** | No ||
+   | **Repetition separator** | No ||
+   | **Segment terminator** | No ||
+   | **Segment terminator suffix** | No ||
+   | **Decimal indicator** | No ||
+   | **Payload character set** | No ||
+   | **Segment terminator suffix** | No ||
+   | Other parameters | No | This operation includes the following other parameters: <p>- **Preserve Interchange**, <br>- **Suspend Interchange On Error** |
+   ||||
+
+   For example, the XML message payload to decode can be the **Body** content output from the Request trigger:
+
+   ![Screenshot showing the "Decode EDIFACT message" operation with the message decoding properties.](./media/logic-apps-enterprise-integration-edifact/decode-edifact-message-consumption.png)
 
 ### [Standard](#tab/standard)
 
