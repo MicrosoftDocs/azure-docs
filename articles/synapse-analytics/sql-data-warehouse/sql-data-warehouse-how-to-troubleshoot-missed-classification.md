@@ -27,10 +27,10 @@ However, in some scenarios, a combination of these capabilities can lead to work
 
 To troubleshoot a misclassified workload scenario the following information is needed:
 
-1. List of all [workload groups](#workload-groups)
-1. List of all [workload classifiers](#workload-classifiers) and associated workload groups
-1. List of [users and mapped workload groups](#users-and-mapped-resource-classes) (system and user defined) 
-1. List of [workload group and classifier details](#workload-group-and-classifier-details-of-a-request) of a request
+- List of all [workload groups](#workload-groups)
+- List of all [workload classifiers](#workload-classifiers) and associated workload groups
+- List of [users and mapped workload groups](#users-and-mapped-resource-classes) (system and user defined) 
+- List of [workload group and classifier details](#workload-group-and-classifier-details-of-a-request) of a request
 
 
 ### Workload groups
