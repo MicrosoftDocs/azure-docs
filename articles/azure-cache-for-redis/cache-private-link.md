@@ -164,15 +164,15 @@ To create a private endpoint, follow these steps.
 
     :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Search for Azure Cache for Redis.":::
 
-2. Select the cache instance you want to add a private endpoint to.
+1. Select the cache instance you want to add a private endpoint to.
 
-3. On the left side of the screen, select **Private Endpoint**.
+1. On the left side of the screen, select **Private Endpoint**.
 
-4. Select the **Private Endpoint** button to create your private endpoint.
+1. Select the **Private Endpoint** button to create your private endpoint.
 
     :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Add private endpoint.":::
 
-5. On the **Create a private endpoint page**, configure the settings for your private endpoint.
+1. On the **Create a private endpoint page**, configure the settings for your private endpoint.
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -181,21 +181,21 @@ To create a private endpoint, follow these steps.
    | **Name** | Enter a private endpoint name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and can contain only letters, numbers, underscores, periods, or hyphens. |
    | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your private endpoint. |
 
-6. Select the **Next: Resource** button at the bottom of the page.
+1. Select the **Next: Resource** button at the bottom of the page.
 
-7. In the **Resource** tab, select your subscription, choose the resource type as `Microsoft.Cache/Redis`, and then select the cache you want to connect the private endpoint to.
+1. In the **Resource** tab, select your subscription, choose the resource type as `Microsoft.Cache/Redis`, and then select the cache you want to connect the private endpoint to.
 
-8. Select the **Next: Configuration** button at the bottom of the page.
+1. Select the **Next: Configuration** button at the bottom of the page.
 
-9. In the **Configuration** tab, select the virtual network and subnet you created in the previous section.
+1. In the **Configuration** tab, select the virtual network and subnet you created in the previous section.
 
-10. Select the **Next: Tags** button at the bottom of the page.
+1. Select the **Next: Tags** button at the bottom of the page.
 
-11. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
+1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
 
-12. Select **Review + create**. You're taken to the **Review + create** tab where Azure validates your configuration.
+1. Select **Review + create**. You're taken to the **Review + create** tab where Azure validates your configuration.
 
-13. After the green **Validation passed** message appears, select **Create**.
+1. After the green **Validation passed** message appears, select **Create**.
 
 > [!IMPORTANT]
 >
@@ -206,8 +206,15 @@ To create a private endpoint, follow these steps.
 
 ## FAQ
 
-- link 1
-- link 2
+- [Why can't I connect to a private endpoint?](#why-cant-i-connect-to-a-private-endpoint)
+- [What features aren't supported with private endpoints?](#what-features-arent-supported-with-private-endpoints)
+- [How do I verify if my private endpoint is configured correctly?](#how-do-i-verify-if-my-private-endpoint-is-configured-correctly)
+- [How can I change my private endpoint to be disabled or enabled from public network access?](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+- [How can I migrate my VNet injected cache to a Private Link cache?](#how-can-i-migrate-my-vnet-injected-cache-to-a-private-link-cache)
+- [How can I have multiple endpoints in different virtual networks?](#how-can-i-have-multiple-endpoints-in-different-virtual-networks)
+- [What happens if I delete all the private endpoints on my cache?](#what-happens-if-i-delete-all-the-private-endpoints-on-my-cache)
+- [Are network security groups (NSG) enabled for private endpoints?](#are-network-security-groups-nsg-enabled-for-private-endpoints)
+- [My private endpoint instance isn't in my VNet, so how is it associated with my VNet?](#my-private-endpoint-instance-isnt-in-my-vnet-so-how-is-it-associated-with-my-vnet)
 
 ### Why can't I connect to a private endpoint?
 
@@ -230,11 +237,11 @@ To change the value in the Azure portal, follow these steps.
 
 1. In the Azure portal, search for **Azure Cache for Redis**.  Then, press enter or select it from the search suggestions.
 
-2. Select the cache instance you want to change the public network access value.
+1. Select the cache instance you want to change the public network access value.
 
-3. On the left side of the screen, select **Private Endpoint**.
+1. On the left side of the screen, select **Private Endpoint**.
 
-4. Select the **Enable public network access** button.
+1. Select the **Enable public network access** button.
 
 To change the value through a Restful API PATCH request, see below and edit the value to reflect which flag you want for your cache.
 
