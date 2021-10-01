@@ -31,7 +31,7 @@ Create a Maven project in your preferred IDE or development environment. Then ad
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0</version>
+        <version>5.2.0-beta.1</version>
     </dependency>
 </dependencies>
 ```

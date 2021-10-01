@@ -1,44 +1,40 @@
 ---
-title: Key Phrase Extraction in Azure Language services
+title: What is key phrase extraction in Azure Cognitive Service for language?
 titleSuffix: Azure Cognitive Services
-description: Learn about Key Phrase Extraction with Language Services.
+description: An overview of key phrase extraction in Azure Cognitive Services, which helps you identify main concepts in unstructured text
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/09/2021
+ms.date: 09/30/2021
 ms.author: aahi
 ---
 
-# What is the Key Phrase Extraction API?
+# What is key phrase extraction in Azure Cognitive Service for language?
 
-Use Key Phrase Extraction to quickly identify the main concepts in text. For example, in the text "The food was delicious and there were wonderful staff", Key Phrase Extraction will return the main talking points: "food" and "wonderful staff".
+Key phrase extraction is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use key phrase extraction to quickly identify the main concepts in text. For example, in the text "*The food was delicious and the staff were wonderful.*", key phrase extraction will return the main topics: "*food*" and "*wonderful staff*".
 
 This documentation contains the following types of articles:
 
-* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
+* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
-This feature is a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API and client library.
+[!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
-## Typical workflow
+## Deploy on premises using Docker containers
 
-To use the API, you submit data for analysis and handle outputs in your application. Analysis is performed as-is, with no additional customization to the model used on your data.
-
-1. Create an Azure resource for Language Services. Afterwards, get the key and endpoint generated for you to authenticate your requests.
-
-2. Formulate a request using either the REST API or the client library for: C#, Java, JavaScript or Python. You can also call the API asynchronously to combine requests to multiple [Language Services](../overview.md) features in a single call.
-
-3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
-
-4. Stream or store the response locally. The result will be a collection of important words and terms in your text. 
+Use the available Docker container to [deploy this feature on-premises](how-to/use-containers.md). These docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for key phrase extraction](/legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
-* [Transparency note for Language services](/legal/cognitive-services/text-analytics/transparency-note)
-* [Transparency note for Sentiment Analysis and Opinion Mining](/legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis)
-* [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
-* [Data, privacy and security](/legal/cognitive-services/text-analytics/data-privacy)
+[!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
+
+## Next steps
+
+There are two ways to get started using the entity linking feature:
+* [Language Studio](../concepts/language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+* The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  

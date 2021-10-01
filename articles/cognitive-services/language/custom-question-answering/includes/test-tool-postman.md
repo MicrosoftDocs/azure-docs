@@ -17,7 +17,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 * You must have
     * Latest [**Postman**](https://www.getpostman.com/).
     * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-   * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) <!-- TODO: Replace Link-->with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+   * A [Language resource](https://aka.ms/create-language-resource) <!-- TODO: Replace Link-->with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Language resource name you selected when you created the resource.
    * A trained and published knowledge base with questions and answers, from the previous [quickstart](../../../qnamaker/Quickstarts/add-question-metadata-portal.md), configured with metadata and Chit chat.
 
 <!-- TODO: Replace Link-->

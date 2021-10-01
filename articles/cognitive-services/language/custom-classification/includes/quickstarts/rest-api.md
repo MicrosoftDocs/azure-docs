@@ -94,7 +94,7 @@ After your project has been created, you can begin training a text classificatio
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/train`. 
+{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/train. 
 ```
 
 |Placeholder  |Value  | Example |
@@ -138,14 +138,14 @@ Use the following **GET** request to query the status of your model's training p
 
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/train/jobs/{jobId}
+{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/train/jobs/{jOB-ID}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `myProject` |
+|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
 
@@ -153,7 +153,7 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
 
 ### Response Body
@@ -199,14 +199,14 @@ Once you send the request, you will get the following response.
 }
 ```
 
-## Deploy your model
+## Publish your model
 
-Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [improve model](../../how-to/improve-model.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review it's [evaluation details](../../how-to/view-model-evaluation.md) and [improve model](../../how-to/improve-model.md) if necessary. In this quickstart, you will just publish your model, and make it available for you to try. 
 
-Create a **POST** request using the following URL, headers, and JSON body to start deploying a text classification model.
+Create a **POST** request using the following URL, headers, and JSON body to start publishing a text classification model.
 
 ```rest
-{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{projectName}/publish
+{YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/publish
 ```
 
 |Placeholder  |Value  | Example |
@@ -220,7 +220,7 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
 ### Request body
 
@@ -242,11 +242,11 @@ Once you send your API request, you will receive a `202` response indicating suc
 {YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
 ``` 
 
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the deployment status.
+`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the publishing status.
 
-## Get the deployment status
+## Get the publishing status
 
-Use the following **GET** request to query the status of your model's training process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+Use the following **GET** request to query the status of your model's publishing process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
 {YOUR-ENDPOINT}/language/text/authoring/v1.0-preview.2/projects/{PROJECT-NAME}/publish/jobs/{JOB-ID}
@@ -256,7 +256,7 @@ Use the following **GET** request to query the status of your model's training p
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case sensitive.  | `myProject` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `myProject` |
+|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
 
@@ -264,7 +264,7 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
 
 ### Response Body
@@ -304,9 +304,9 @@ Once you send the request, you will get the following response.
 
 ## Start a text classification task
 
-Now that your model is deployed, you can begin sending text classification tasks to it 
+Now that your model is published, you can begin sending text classification tasks to it 
 
-Create a **POST** request using the following URL, headers, and JSON body to start deploying a text classification model.
+Create a **POST** request using the following URL, headers, and JSON body to start publishing a text classification model.
 
 ```rest
 {YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze
@@ -322,7 +322,7 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
 
 ### Request body
 
@@ -358,7 +358,7 @@ Use the following JSON in your request. Replace the `modelId` placeholder value 
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
-|`{YOUR-MODEL-ID}`     | The ID for your model.   | `myContainer` |
+|`{YOUR-MODEL-ID}`     | The ID for your model.   | `myModel` |
 
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `operation-location` value. It will be formatted like this: 
 
@@ -366,11 +366,11 @@ Once you send your API request, you will receive a `202` response indicating suc
 {YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/{JOB-ID}
 ``` 
 
-`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the deployment status.
+`JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the task status and results.
 
 ## Get the classification task status and results
 
-Use the following **GET** request to query the status of your text classification task. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
+After you've created a classification task, you can create a **GET** request to query the status of the task. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
 {YOUR-ENDPOINT}/text/analytics/v3.1-preview.ct.1/analyze/jobs/{JOB-ID}
@@ -379,7 +379,7 @@ Use the following **GET** request to query the status of your text classificatio
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `myProject` |
+|`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
 ### Headers
 
@@ -387,9 +387,9 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|Ocp-Apim-Subscription-Key| The key to your resource. Used for authenticating your API requests.|
 
-#### Response Body
+### Response body
 
 The response will be a JSON document with the following parameters.
 
@@ -478,4 +478,4 @@ Use the following header to authenticate your request.
 
 |Key|Value|
 |--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
+|Ocp-Apim-Subscription-Key| The key to your resource. Used for authenticating your API requests.|

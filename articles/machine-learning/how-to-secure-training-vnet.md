@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 09/22/2021
+ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
 
 ---
@@ -112,7 +112,7 @@ In this article you learn how to secure the following training compute resources
 * When your workspace uses a private endpoint, the compute instance can only be accessed from inside the virtual network. If you use a custom DNS or hosts file, add an entry for `<instance-name>.<region>.instances.azureml.ms`. Map this entry to the private IP address of the workspace private endpoint. For more information, see the [custom DNS](./how-to-custom-dns.md) article.
 * Virtual network service endpoint policies don't work for compute cluster/instance system storage accounts.
 * If storage and compute instance are in different regions, you may see intermittent timeouts.
-* If the Azure Container Registry for your workspace uses a private endpoint to connect to the virtual network, you cannot use a managed identity for the compute instance. To use a managed identity with the compute instance, use a service endpoint with the Azure Container Registry for the workspace.
+* If the Azure Container Registry for your workspace uses a private endpoint to connect to the virtual network, you cannot use a managed identity for the compute instance. To use a managed identity with the compute instance, do not put the container registry in the VNet.
 * If you want to use Jupyter Notebooks on a compute instance:
 
     * Don't disable websocket communication. Make sure your network allows websocket communication to `*.instances.azureml.net` and `*.instances.azureml.ms`.
