@@ -28,6 +28,18 @@
       href: quickstart-v2-javascript-auth-code.md
     - name: React
       href: quickstart-v2-javascript-auth-code-react.md
+    - name: 1-React
+      items: 
+      - name: Create and register your project
+        href: tutorial-react-spa-create-project.md
+      - name: Authorization code flow
+        href: tutorial-react-spa-auth-intro.md
+      - name: Sign in users
+        href: tutorial-react-spa-sign-in-users.md
+      - name: Get user profile from a web API
+        href: tutorial-react-spa-get-user-profile.md
+      - name: Sign out users
+        href: tutorial-react-spa-sign-out-users.md
   - name: Web app
     items:
     - name: ASP.NET
