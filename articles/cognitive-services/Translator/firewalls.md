@@ -25,7 +25,3 @@ The IP addresses for Translator geographical endpoints as of September 21, 2021 
 |United States|api-nam.cognitive.microsofttranslator.com|20.42.6.144, 20.49.96.128, 40.80.190.224, 40.64.128.192|
 |Europe|api-eur.cognitive.microsofttranslator.com|20.50.1.16, 20.38.87.129|
 |Asia Pacific|api-apc.cognitive.microsofttranslator.com|40.80.170.160, 20.43.132.96, 20.37.196.160, 20.43.66.16|
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Translate behind IP firewalls in Translator](reference/v3-0-translate.md)
