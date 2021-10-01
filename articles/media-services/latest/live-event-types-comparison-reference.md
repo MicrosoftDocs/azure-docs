@@ -28,11 +28,12 @@ This articles compares features of the live event types.
 
 The following table compares features of the Live Event types. The types are set during creation using [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. The ingested streams passes through the Live Event without any further processing. Also referred to as a pass-through Live Event.
+* **LiveEventEncodingType.PassThroughBasic**: An on-premises live encoder sends a multiple bitrate stream. The basic pass-through is limited to a peak ingress of 5Mbps, 8 hour DVR window, and live transcription is not supported.
+* **LiveEventEncodingType.PassThroughStandard**: An on-premises live encoder sends a multiple bitrate stream. The standard pass-through has higher ingest limits, 25 hour DVR window, and support for live transcriptions.
 * **LiveEventEncodingType.Standard** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrate pairs (details follow later in the article).
 * **LiveEventEncodingType.Premium1080p** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. The Default1080p preset specifies the output set of resolution/bitrate pairs (details follow later in the article). 
 
-| Feature | Pass-through Live Event | Standard or Premium1080p Live Event |
+| Feature | Standard pass-through | Standard or Premium1080p Live Event |
 | --- | --- | --- |
 | Single bitrate input is encoded into multiple bitrates in the cloud |No |Yes |
 | Maximum video resolution for contribution feed |4K (4096x2160 at 60 frames/sec) |1080p (1920x1088 at 30 frames/sec)|
