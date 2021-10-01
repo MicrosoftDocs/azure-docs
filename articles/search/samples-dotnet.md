@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 10/01/2021
 ---
 
 # .NET (C#) code samples for Azure Cognitive Search
