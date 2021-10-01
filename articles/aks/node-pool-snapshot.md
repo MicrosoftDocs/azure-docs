@@ -1,6 +1,6 @@
 ---
 title: Snapshot Azure Kubernetes Service (AKS) node pools (preview)
-description: Learn how to snapshot AKS cluster nodes node pools and create clusters and node pools from a snapshot.
+description: Learn how to snapshot AKS cluster node pools and create clusters and node pools from a snapshot.
 ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2020
@@ -11,11 +11,11 @@ author: palma21
 
 # Azure Kubernetes Service (AKS) node pool snapshot (preview)
 
-AKS releases a new node image weekly and every new cluster, new node pool or upgrade cluster will always receive the latest image which can make it hard to maintain your environments completely consistent and to have repeatable environments.
+AKS releases a new node image weekly and every new cluster, new node pool, or upgrade cluster will always receive the latest image that can make it hard to maintain your environments consistent and to have repeatable environments.
 
 Node pool snapshots allow you to take a configuration snapshot of your node pool and then create new node pools or new clusters based of that snapshot for as long as that configuration and kubernetes version is supported. For more information on the supportability windows, see [Supported Kubernetes versions in AKS](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions).
 
-The snapshot is an Azure resource that will contain the configuration information from the source node pool such as the node image version, kubernetes version, OS type and OS SKU. You can then reference this snapshot resource and the respective values of its configuration to to create any new node pool or cluster based off of it.
+The snapshot is an Azure resource that will contain the configuration information from the source node pool such as the node image version, kubernetes version, OS type, and OS SKU. You can then reference this snapshot resource and the respective values of its configuration to create any new node pool or cluster based off of it.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -25,8 +25,8 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Limitations
 
- - Any node pool or cluster created from a snapshot must use a VM from the same virtual machine family as the snapshot for example, you cannot create a new N-Series node pool based of a snapshot captured from a D-Series node pool because the node images in those cases are structurally different. 
- - During preview snapshots must be created and used in the same region and subscription as the source node pool.
+ - Any node pool or cluster created from a snapshot must use a VM from the same virtual machine family as the snapshot, for example, you can't create a new N-Series node pool based of a snapshot captured from a D-Series node pool because the node images in those cases are structurally different. 
+ - During preview, snapshots must be created and used in the same region and subscription as the source node pool.
 
 ### Install aks-preview CLI extension
 
@@ -84,7 +84,7 @@ First you'll need the resource ID from the snapshot that was previously created,
 SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
-Now, we can use this to add a new node pool based off of this snapshot.
+Now, we can use the command below to add a new node pool based off of this snapshot.
 
 ```azurecli-interactive
 az aks nodepool add --name np2 --cluster-name myAKSCluster --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
@@ -92,7 +92,7 @@ az aks nodepool add --name np2 --cluster-name myAKSCluster --resource-group myRe
 
 ## Upgrading a node pool to a snapshot
 
-You can upgrade a nodepool to a snapshot configuration so long as the snapshot kubernetes version and node image version are more recent than the versions in the current node pool.
+You can upgrade a node pool to a snapshot configuration so long as the snapshot kubernetes version and node image version are more recent than the versions in the current node pool.
 
 First you'll need the resource ID from the snapshot that was previously created, which you can get from the command below:
 
@@ -100,7 +100,7 @@ First you'll need the resource ID from the snapshot that was previously created,
 SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
-Now, we can use this to upgrade this node pool to this snapshot configuration.
+Now, we can use this command to upgrade this node pool to this snapshot configuration.
 
 ```azurecli-interactive
 az aks nodepool upgrade --name nodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
@@ -116,7 +116,7 @@ First you'll need the resource ID from the snapshot that was previously created,
 SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
-Now, we can use this to create this cluster off of the snapshot configuration.
+Now, we can use this command to create this cluster off of the snapshot configuration.
 
 ```azurecli-interactive
 az aks cluster create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
@@ -132,7 +132,7 @@ First you'll need the resource ID from the snapshot that was previously created,
 SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
 ```
 
-Now, we can use this to upgrade the all the cluster's node pools to this snapshot configuration.
+Now, we can use this command to upgrade the all the cluster's node pools to this snapshot configuration.
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
