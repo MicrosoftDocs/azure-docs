@@ -182,6 +182,8 @@ In this tutorial, you learn to:
 
 ## Test the custom roles
 
+The sample application that you deployed contains a role assignment function (*api/GetRoles/index.js*) that queries Microsoft Graph using the logged in user's access token to determine if they are in pre-defined groups. Based on the user's group memberships, the function assigns custom roles to the user. The application is configured to restrict certain routes based on these custom roles.
+
 1. In your GitHub repository, navigate to the *GetRoles* function located at *api/GetRoles/index.js*. Near the top, there is a `roleGroupMappings` object that maps static web app custom role names to Azure Active Directory groups.
 
 1. Click the *Edit* button.
@@ -190,8 +192,8 @@ In this tutorial, you learn to:
 
     ```js
     const roleGroupMappings = {
-        'admin': '6b0b2fff-53e9-4cff-914f-dd97a13bfbd6',
-        'reader': 'b6059db5-9cef-4b27-9434-bb793aa31805'
+      'admin': '6b0b2fff-53e9-4cff-914f-dd97a13bfbd6',
+      'reader': 'b6059db5-9cef-4b27-9434-bb793aa31805'
     };
     ```
 
@@ -205,7 +207,7 @@ In this tutorial, you learn to:
 
 1. Log in to your static web app using Azure Active Directory.
 
-1. When you are logged in, you should see a list of custom roles displayed if you're a member of one or more Active Directory groups in the `roleGroupMappings` object.
+1. When you are logged in, you should see a list of custom roles displayed if you're a member of one or more Active Directory groups in the `roleGroupMappings` object. Depending on the custom roles that you are assigned, you are permitted or prohibited to access some of the routes in the static web app.
 
 ## Clean up resources
 
