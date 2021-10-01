@@ -359,8 +359,8 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: Read excel files with different schema is not supported now.
 - **Cause**: Reading excel files with different schemas is not supported now.
 - **Recommendation**: Please apply one of following options to solve this problem:
-    1. Use **ForEach** + **data flow** activity to read Excel worksheets one by one. 
-    1. Update each worksheet schema to have the same columns manually before reading data.
+    - Use **ForEach** + **data flow** activity to read Excel worksheets one by one. 
+    - Update each worksheet schema to have the same columns manually before reading data.
 
 ## Error code: DF-Excel-InvalidDataType
 - **Message**: Data type is not supported.
@@ -391,9 +391,9 @@ This article lists common error codes and messages reported by mapping data flow
 - **Message**: Failed to delete data from cosmos after 3 times retry.
 - **Cause**: The throughput on the Cosmos collection is small and leads to meeting throttling or row data not existing in Cosmos.
 - **Recommendation**: Please take the following actions to solve this problem:
-    1. If the error is 404, make sure that the related row data exists in the Cosmos collection. 
-    1. If the error is throttling, please increase the Cosmos collection throughput or set it to the automatic scale.
-    1. If the error is request timed out, please set 'Batch size' in the Cosmos sink to smaller value, for example 1000.
+    - If the error is 404, make sure that the related row data exists in the Cosmos collection. 
+    - If the error is throttling, please increase the Cosmos collection throughput or set it to the automatic scale.
+    - If the error is request timed out, please set 'Batch size' in the Cosmos sink to smaller value, for example 1000.
 
 ## Error code: DF-SQLDW-ErrorRowsFound
 - **Cause**: Error/invalid rows are found when writing to the Azure Synapse Analytics sink.
@@ -537,11 +537,11 @@ This article lists common error codes and messages reported by mapping data flow
     2. Broadcast has a default timeout of 60 seconds in debug runs and 300 seconds in job runs. On the broadcast join, the stream chosen for the broadcast seems too large to produce data within this limit. If a broadcast join is not used, the default broadcast done by a data flow can reach the same limit.
 
 - **Recommendation**:
-    1. Do data preview at sources to confirm the sources are well configured. 
-    1. Turn off the broadcast option or avoid broadcasting large data streams where the processing can take more than 60 seconds. Instead, choose a smaller stream to broadcast. 
-    1. Large SQL/Data Warehouse tables and source files are typically bad candidates. 
-    1. In the absence of a broadcast join, use a larger cluster if the error occurs. 
-    1. If the problem persists, contact the customer support.
+    - Do data preview at sources to confirm the sources are well configured. 
+    - Turn off the broadcast option or avoid broadcasting large data streams where the processing can take more than 60 seconds. Instead, choose a smaller stream to broadcast. 
+    - Large SQL/Data Warehouse tables and source files are typically bad candidates. 
+    - In the absence of a broadcast join, use a larger cluster if the error occurs. 
+    - If the problem persists, contact the customer support.
 
 ## Error code: DF-Cosmos-ShortTypeNotSupport
 - **Message**: Short data type is not supported in Cosmos DB.
