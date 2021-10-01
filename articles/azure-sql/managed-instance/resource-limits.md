@@ -31,7 +31,7 @@ SQL Managed Instance has characteristics and resource limits that depend on the 
 | **Number of vCores** | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Max memory (memory/core ratio)** | 7 GB per vCore<br/>Add more vCores to get more memory. | 5.1 GB per vCore<br/>Add more vCores to get more memory. |
 | **Max In-Memory OLTP memory** | Instance limit: 1-1.5 GB per vCore| Instance limit: 0.8 - 1.65 GB per vCore |
-| **Max instance reserved storage** |  General Purpose: 8 TB, 16 TB (preview) depending on the number of cores <br/>Business Critical: 1 TB | General Purpose: 8 TB<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
+| **Max instance reserved storage** |  General Purpose: 8 TB <br/>Business Critical: 1 TB | General Purpose: 8 TB, 16 TB (preview) depending on the number of cores<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 > [!IMPORTANT]
 > - Gen4 hardware is being phased out and is not available anymore for new deployments. All new instances of SQL Managed Instance must be deployed on Gen5 hardware.
