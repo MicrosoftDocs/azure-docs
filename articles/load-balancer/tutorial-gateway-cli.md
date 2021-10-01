@@ -187,7 +187,7 @@ To create the load balancer, use [az network lb create](/cli/azure/network/lb#az
     --frontend-ip-name myFrontEnd
 ```
 
-### Create tunnel interfaces
+### Create tunnel interface
 
 An internal interface is automatically created with Azure CLI with the **`--identifier`** of **800** and **`--port`** of **10800**.
 
@@ -218,29 +218,6 @@ A health probe is required to monitor the health of the backend instances in the
     --interval '360' \
     --threshold '5'
     
-```
-
-### Create tunnel interfaces
-You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az_network_lb_address_pool_tunnel_interface_add) to create two tunnel interfaces for the load balancer. 
-
-```azurecli-interactive
-  az network lb address-pool tunnel-interface add \
-    --address-pool myBackEndPool \
-    --identifier '800' \
-    --lb-name myLoadBalancer-gw \
-    --protocol Vxlan \
-    --resource-group TutorGwLB-rg \
-    --type Internal \
-    --port '2000'
-
-  az network lb address-pool tunnel-interface add \
-    --address-pool myBackEndPool \
-    --identifier '801' \
-    --lb-name myLoadBalancer-gw \
-    --protocol Vxlan \
-    --resource-group TutorGwLB-rg \
-    --type External \
-    --port '2001'
 ```
 
 ### Create load-balancing rule
