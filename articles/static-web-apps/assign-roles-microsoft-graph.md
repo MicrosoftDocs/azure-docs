@@ -62,7 +62,7 @@ In this tutorial, you learn to:
 
 1. Select the **Sign-in with GitHub** button and authenticate with GitHub.
 
-1. Select your preferred _Organization_ name.
+1. Select your the name of the _Organization_ where you created the repository.
 
 1. Select **my-custom-roles-app** from the _Repository_ drop-down.
 
@@ -99,15 +99,19 @@ In this tutorial, you learn to:
 
     Replace `<YOUR_SITE_URL>` with the URL of your static web app.
 
+    :::image type="content" source="media/assign-roles-microsoft-graph/create-app-registration.png" alt-text="Create an app registration":::
+
 1. Select **Register**.
 
 1. After the app registration is created, note the **Application (client) ID** and **Directory (tenant) ID** in the *Essentials* section. You'll need these values to configure Active Directory authentication in your static web app.
 
 ### Enable ID tokens
 
-1. Select *API permissions* in the menu bar.
+1. Select *Authentication* in the menu bar.
 
 1. In the *Implicit grant and hybrid flows* section, select **ID tokens (used for implicit and hybrid flows)**.
+
+    :::image type="content" source="media/assign-roles-microsoft-graph/enable-id-tokens.png" alt-text="Enable ID tokens":::
 
 1. Select **Save**.
 
@@ -127,6 +131,8 @@ In this tutorial, you learn to:
 1. Select **Add**.
 
 1. Note the **Value** of the client secret you created. You'll need this value to configure Active Directory authentication in your static web app.
+
+    :::image type="content" source="media/assign-roles-microsoft-graph/create-client-secret.png" alt-text="Create a client secret":::
 
 ## Configure Active Directory authentication
 
@@ -161,7 +167,7 @@ In this tutorial, you learn to:
 
 1. A GitHub Actions run will be triggered to update the static web app.
 
-1. Navigate to your static web app in the Azure portal.
+1. Navigate to your static web app resource in the Azure portal.
 
 1. Select **Configuration** in the menu bar.
 
@@ -170,7 +176,7 @@ In this tutorial, you learn to:
     | Name | Value |
     |------|-------|
     | `AAD_CLIENT_ID` | *Your Active Directory application (client) ID* |
-    | `AAD_CLIENT_SECRET` | *Your Active Directory application secret value* |
+    | `AAD_CLIENT_SECRET` | *Your Active Directory application client secret value* |
 
 1. Select **Save**.
 
