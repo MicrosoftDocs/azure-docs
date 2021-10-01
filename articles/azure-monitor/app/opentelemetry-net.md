@@ -28,33 +28,49 @@ Please consider carefully whether this preview is right for you. It **enables di
 
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
+
 ## Get started
 
+Follow the five steps in this section and you will be able to instrument OpenTelemetry with your C# application.
+
 ### Prerequisites
-- Application using officially supported version of [.NET
-  Core](https://dotnet.microsoft.com/download/dotnet) or [.NET
-  Framework](https://dotnet.microsoft.com/download/dotnet-framework) except for
-  versions lower than `.NET Framework 4.6.1`.
-- [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
-- [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
 
-### Enable Azure Monitor Application Insights
+- Application using officially supported version of [.NET Core](https://dotnet.microsoft.com/download/dotnet) or [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) except for versions lower than `.NET Framework 4.6.1`.
+- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- Once you have your Azure subscription, if you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource) in the Azure portal to get your connection string.
 
-**1. Getting started**
+### Set up your environment
 
-Create a new console application as follows
+#### 1. Prepare the C# application
 
-```sh
-dotnet new console --output getting-started
+If you already have a C# application to instrument OpenTelemetry, you could skip this section.
+
+In a console window (such as cmd, PowerShell, or Bash), use the dotnet new command to create a new console app with the name `azuremonitor-otel-getting-started`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
+
+```dotnetcli
+dotnet new console --output azuremonitor-otel-getting-started
 ```
 
-Install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) nuget package
+#### 2. Install the NuGet libraries
 
-```sh
-dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter
+Change your directory to the application folder and install the latest [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) nuget package.
+
+```dotnetcli
+# Switch to the app directory
+cd azuremonitor-otel-getting-started 
+
+# Install the latest package
+dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter 
 ```
 
-Copy the following code in `Program.cs`
+> [!NOTE]
+> If you're not able to install the library, please go to [Troubleshooting](#specifying-nuget-source).
+
+### Enable OpenTelemetry
+
+#### 3. Add OpenTelemetry instrumentation code
+
+The following code demonstrates enabling OpenTelemetry in the newly created "Hello World" console app. You could copy the code and replace everything in `Program.cs` of the "HelloWorld" app, or add the same logic to your own application.
 
 ```csharp
 using System.Diagnostics;
@@ -92,20 +108,20 @@ public class Program
 > [!NOTE]
 > The above example shows how to collect traces in Azure Monitor using OpenTelemetry in console application. For details on how to configure OpenTelemetry for other types of applications such as ASP.NET and ASP.NET Core, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). For all the application types extension method `AddAzureMonitorTraceExporter` to send data to Application Insights is applicable.
 
-**2. Add connection string**
+#### 4. Set Application Insights connection string
 
-Replace placeholder `<Your Connection String>` with YOUR connection string from Application Insights resource.
+Replace placeholder `<Your Connection String>` in the above code with YOUR connection string from the Application Insights resource.
 
 Find the connection string on your Application Insights Resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
-**3. Confirm Data is flowing**
+#### 5. Confirm data is flowing
 
-Run your application and open your Application Insights Resource.
+Run your application and open your Application Insights Resource blade on the Azure portal. It may take a few minutes for data to show up in the Portal.
 
 > [!NOTE]
-> It may take a few minutes for data to show up in the Portal.
+> If you're not able to run the application or not getting data as expected, please go to [Troubleshooting](#troubleshooting).
 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
@@ -121,6 +137,7 @@ var resourceAttributes = new Dictionary<string, object> {
                                         { "service.name", "my-service" },
                                         { "service.namespace", "my-namespace" },
                                         { "service.instance.id", "my-instance" }};
+var resourceBuilder = ResourceBuilder.CreateDefault().AddAttributes(resourceAttributes);
 
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .SetResourceBuilder(resourceBuilder) // Sets cloud_RoleName as my-namespace.my-service and cloud_RoleInstance as my-instance
@@ -303,13 +320,17 @@ You may use following three ways to filter out telemetry before leaving your app
 
 You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
 
+1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package along with [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) in your project.
+
+2. Add following code snippet. This example assumes you have a OpenTelemetry Collector with an OTLP receiver running. For details refer to example [here](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
+
 ```csharp
 // sends data to Application Insights as well as OTLP
 using var tracerProvider = Sdk.CreateTracerProviderBuilder()
         .AddSource("OTel.AzureMonitor.Demo")
         .AddAzureMonitorTraceExporter(o =>
         {
-                o.ConnectionString = "<Your Connection String>"
+            o.ConnectionString = "<Your Connection String>"
         })
         .AddOtlpExporter()
         .Build();
@@ -326,6 +347,21 @@ exporter logs are available to any EventListener by opting into the source named
 "OpenTelemetry-AzureMonitor-Exporter". Refer to
 [ OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting)
 for detailed troubleshooting steps.
+
+### Specifying nuget source
+
+If you try to install the package and get errors like the following, it's mostly due to missing NuGet package sources.
+
+```dotnetcli
+error: There are no versions available for the package 'Azure.Monitor.OpenTelemetry.Exporter'.
+```
+
+You could try to specify the source with `-s` option.
+
+```dotnetcli
+# Install the latest package with NuGet package source specified
+dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://api.nuget.org/v3/index.json
+```
 
 ### Known issues
 Placeholder 
