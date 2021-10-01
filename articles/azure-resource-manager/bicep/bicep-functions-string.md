@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/01/2021
 ---
 
 # String functions for Bicep
@@ -142,7 +142,7 @@ The output from the preceding example with the default values is:
 
 ## concat
 
-Instead of using the concat function, use string interpolation. 
+Instead of using the concat function, use string interpolation.
 
 ```bicep
 param prefix string = 'prefix'
@@ -1259,7 +1259,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 }
 ```
 
-If you need to create a new unique name each time you deploy a Bicep file, and don't intend to update the resource, you can use the [utcNow](./bicep-functions-date.md#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](./bicep-functions-date.md#utcnow).
+If you need to create a new unique name each time you deploy a Bicep file, and don't intend to update the resource, you can use the [utcNow](./bicep-functions-date.md#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](./bicep-functions-date.md#utcnow). Note the utcNow function can only be used within an expression for the default value of a parameter.
 
 ### Return value
 
