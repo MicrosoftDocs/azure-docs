@@ -14,12 +14,12 @@ Connecting cameras to the cloud using a transparent gateway allows cameras to co
 * When cameras do not have the functionality to connect to IoT Hub independently
 * When power, space, or other considerations permit only a lightweight edge device to be deployed on-premise
 
-<!-- TODO: add graphic -->
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-transparent-gateway/use-transparent-gateway.svg" alt-text="Connecting cameras to the cloud using a transparent gateway":::
-
 > [!NOTE]
 > The Video Analyzer edge module is not acting as a transparent gateway for messaging and telemetry from the camera to IoT Hub, but only as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service.
+
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/use-transparent-gateway/use-transparent-gateway.svg" alt-text="Connecting cameras to the cloud using a transparent gateway":::
 
 ## Pre-reading
 [Get started with Azure Video Analyzer in the Portal](../get-started-detect-motion-emit-events-portal.md)
@@ -125,10 +125,19 @@ The following values are required to enable tunneling:
 
 ``` 
 
-
 <!-- TODO: add link to Mayank's Cloud pipeline quickstart -->
 
-## Playback in Portal
+## Playback recorded video in Azure Portal
+You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
+
+1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
+1. Select **Videos** in the **Video Analyzer** section.
+1. You'll find a video listed with the name specified in the video sink node of the pipeline topology used.
+1. Select the video.
+1. The video details page will open and the playback should start automatically.
+
+[!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Next Steps
 
