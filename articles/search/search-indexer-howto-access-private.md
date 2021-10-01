@@ -52,7 +52,10 @@ You can also query the Azure resources for which outbound private endpoint conne
 In the remainder of this article, a mix of Azure portal (or the [Azure CLI](/cli/azure/) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
 
 > [!NOTE]
-> To create a private endpoint connection to Azure Data Lake Storage Gen2 you need to create two private endpoints. One private endpoint with the groupID 'dfs' and another private endpoint with the groupID 'blob'.
+> There are Azure Cognitive Search data sources and other configurations that require creating more than one shared private link to work appropriately. Here are three examples and which group IDs are necessary for each:
+> Azure Data Lake Storage Gen2 data source - You need to create two private endpoints. One private endpoint with the groupID 'dfs' and another private endpoint with the groupID 'blob'.
+> Skillset with Knowledge store configured - You must create two private endpoints. One private endpoint with the groupID 'table' and another private endpoint with the groupID 'blob'.
+> Indexer with cache enabled - You have to create two private endpoints. One private endpoint with the groupID 'table' and another private endpoint with the groupID 'blob'.
 
 ## Set up indexer connection through private endpoint
 
@@ -66,25 +69,25 @@ The examples in this article are based on the following assumptions:
 
 The steps for restricting access varies by resource. The following scenarios show three of the more common types of resources.
 
-- Scenario 1: Data source
+- Scenario 1: Azure Storage
 
-    The following is an example of how to configure an Azure storage account. If you select this option and leave the page empty, it means that no traffic from virtual networks is allowed.
+    The following is an example of how to configure an Azure storage account firewall. If you select this option and leave the page empty, it means that no traffic from virtual networks is allowed.
 
     ![Screenshot of the "Firewalls and virtual networks" pane for Azure storage, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
 - Scenario 2: Azure Key Vault
 
-    The following is an example of how to configure Azure Key Vault.
+    The following is an example of how to configure Azure Key Vault firewall.
  
     ![Screenshot of the "Firewalls and virtual networks" pane for Azure Key Vault, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
     
 - Scenario 3: Azure Functions
 
-    No network setting changes are needed for Azure Functions. Later in the following steps, when you create the shared private endpoint the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
+    No network setting changes are needed for Azure Functions firewall. In the following instructions, when you create the shared private endpoint, the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
 
 ### Step 2: Create a shared private link resource to the Azure resource
 
-The following section describes how to create a shared private link resource either using the Azure portal or the Azure CLI.
+The following section describes how to create a shared private link resource either using the Azure portal or the Azure CLI. 
 
 #### Option 1: Portal
 
