@@ -138,7 +138,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
     Executing operation pipelineTopologyList
     -----------------------  Request: pipelineTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "1.1"
     }
     ---------------  Response: pipelineTopologyList - Status: 200  ---------------
     {
@@ -154,7 +154,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
      
      ```
      {
-       "@apiVersion": "1.0",
+       "@apiVersion": "1.1",
        "name": "Sample-Pipeline-1",
        "properties": {
          "topologyName": "CVRToVideoSink",

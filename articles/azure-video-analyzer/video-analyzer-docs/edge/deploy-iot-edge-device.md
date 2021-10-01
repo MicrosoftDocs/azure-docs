@@ -96,7 +96,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
     
    ```
    {
-       "@apiVersion": "1.0"
+       "@apiVersion": "1.1"
    }
    ```
 1. Click on “Invoke Method” option on top of the page

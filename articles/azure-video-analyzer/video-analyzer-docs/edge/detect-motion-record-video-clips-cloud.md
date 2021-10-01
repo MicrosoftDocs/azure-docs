@@ -106,7 +106,7 @@ This step enumerates all the [pipeline topologies](../pipeline.md) in the module
    
 ```json
 {
-    "@apiVersion" : "1.0"
+    "@apiVersion" : "1.1"
 }
 ```
 
@@ -134,7 +134,7 @@ Using the same steps as above, you can invoke `pipelineTopologySet` to set a pip
 
 ```
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "EVRtoVideoSinkOnMotionDetection",
   "properties": {
     "description": "Event-based video recording to Video Sink based on motion events",
@@ -430,7 +430,7 @@ Now invoke `pipelineTopologyGet` with the following payload
 ```
 
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "EVRtoVideoSinkOnMotionDetection"
 }
 ```
@@ -594,7 +594,7 @@ Next, create a live pipeline that references the above pipeline topology. Invoke
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "Sample-Pipeline-1",
     "properties" : {
         "topologyName" : "EVRtoVideoSinkOnMotionDetection",
@@ -658,7 +658,7 @@ Next, you can activate the live pipeline - which starts the flow of (simulated) 
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "Sample-Pipeline-1"
 }
 ```
@@ -682,7 +682,7 @@ Now invoke the `livePipelineGet` direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "Sample-Pipeline-1"
 }
 ```
@@ -912,7 +912,7 @@ Invoke the`livePipelineDeactivate` direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "Sample-Pipeline-1"
 }
 ```
@@ -937,7 +937,7 @@ Invoke the direct method `livePipelineDelete` with the following payload
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "Sample-Pipeline-1"
 }
 ```
@@ -962,7 +962,7 @@ Invoke the `pipelineTopologyDelete` direct method with the following payload:
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "EVRtoVideoSinkOnMotionDetection"
 }
 ```

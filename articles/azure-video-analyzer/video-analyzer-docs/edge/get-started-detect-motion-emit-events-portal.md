@@ -240,7 +240,7 @@ This step enumerates all the [pipeline topologies](../pipeline.md) in the module
 
    ```json
    {
-     "@apiVersion": "1.0"
+     "@apiVersion": "1.1"
    }
    ```
 
@@ -265,7 +265,7 @@ By using the same steps described earlier, you can invoke `pipelineTopologySet` 
 
 ```json
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "MotionDetection",
   "properties": {
     "description": "Analyzing live video to detect motion and emit events",
@@ -429,7 +429,7 @@ Invoke `pipelineTopologyGet` by using the following payload:
 
 ```json
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "MotionDetection"
 }
 ```
@@ -525,7 +525,7 @@ Next, create a live pipeline that references the preceding pipeline topology. In
 
 ```json
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "mdpipeline1",
   "properties": {
     "topologyName": "MotionDetection",
@@ -609,7 +609,7 @@ You can activate the live pipeline to start the flow of (simulated) live video t
 
 ```json
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "mdpipeline1"
 }
 ```
@@ -631,7 +631,7 @@ Invoke the `livePipelineGet` direct method with the following payload:
 
 ```json
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "mdpipeline1"
 }
 ```
@@ -710,7 +710,7 @@ Invoke the`livePipelineDeactivate` direct method with the following payload:
 
 ```json
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "mdpipeline1"
 }
 ```
@@ -734,7 +734,7 @@ Invoke the direct method `livePipelineDelete` with the following payload:
 
 ```json
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "mdpipeline1"
 }
 ```
@@ -754,7 +754,7 @@ If you also created the pipeline called _mdpipeline2_, then you can't delete the
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "1.1",
     "name" : "mdpipeline2"
 }
 ```
@@ -778,7 +778,7 @@ After all live pipelines have been deleted, you can invoke the `pipelineTopology
 
 ```json
 {
-  "@apiVersion": "1.0",
+  "@apiVersion": "1.1",
   "name": "MotionDetection"
 }
 ```

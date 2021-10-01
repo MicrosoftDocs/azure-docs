@@ -87,7 +87,7 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
    Executing operation pipelineTopologyList
    -----------------------  Request: pipelineTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "1.1"
    }
    ---------------  Response: pipelineTopologyList - Status: 200  ---------------
    {
@@ -106,7 +106,7 @@ In this quickstart, you'll use Video Analyzer to detect objects such as vehicles
 
    ```
    {
-     "@apiVersion": "1.0",
+     "@apiVersion": "1.1",
      "name": "Sample-Pipeline-1",
      "properties": {
        "topologyName": "InferencingWithGrpcExtension",
