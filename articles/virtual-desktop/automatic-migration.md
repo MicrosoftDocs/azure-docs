@@ -3,7 +3,7 @@ title: Migrate automatically from Azure Virtual Desktop (classic) (preview) - Az
 description: How to migrate automatically from Azure Virtual Desktop (classic) to Azure Virtual Desktop by using the migration module.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 09/15/2021
 ms.author: helohr
 manager: femila
 ---
@@ -88,7 +88,7 @@ To prepare your PowerShell environment:
     Install-Module -Name PackageManagement -Repository PSGallery -Force
     Install-Module -Name PowerShellGet -Repository PSGallery -Force
     # Then restart shell
-    Install-Module -Name Microsoft.RdInfra.RDPowershell.Migration -RequiredVersion 1.0.3670-Prerelease -AllowPrerelease -AllowClobber
+    Install-Module -Name Microsoft.RdInfra.RDPowershell.Migration -RequiredVersion 1.0.3725-Prerelease -AllowPrerelease -AllowClobber
     Import-Module <Full path to the location of the migration module>\Microsoft.RdInfra.RDPowershell.Migration.psd1
     ```
 

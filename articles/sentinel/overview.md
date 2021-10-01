@@ -15,27 +15,27 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2020
+ms.date: 08/23/2021
 ms.author: yelevin
 
 ---
 # What is Azure Sentinel?
 
-Microsoft Azure Sentinel is a scalable, cloud-native, **security information event management (SIEM)** and **security orchestration automated response (SOAR)** solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. 
+Microsoft Azure Sentinel is a scalable, cloud-native, **security information event management (SIEM)** and **security orchestration automated response (SOAR)** solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
 Azure Sentinel is your birds-eye view across the enterprise alleviating the stress of increasingly sophisticated attacks, increasing volumes of alerts, and long resolution time frames.
 
-- **Collect data at cloud scale** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds. 
+- **Collect data at cloud scale** across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
-- **Detect previously undetected threats**, and [minimize false positives](false-positives.md) using Microsoft's analytics and unparalleled threat intelligence. 
+- **Detect previously undetected threats**, and [minimize false positives](false-positives.md) using Microsoft's analytics and unparalleled threat intelligence.
 
-- **Investigate threats with artificial intelligence**, and hunt for suspicious activities at scale, tapping into years of cyber security work at Microsoft. 
+- **Investigate threats with artificial intelligence**, and hunt for suspicious activities at scale, tapping into years of cyber security work at Microsoft.
 
-- **Respond to incidents rapidly** with built-in orchestration and automation of common tasks.
+- **Respond to incidents rapidly** with built-in orchestration and automation of common tasks.
 
 ![Azure Sentinel core capabilities](./media/overview/core-capabilities.png)
 
-Building on the full range of existing Azure services, Azure Sentinel natively incorporates proven foundations, like Log Analytics, and Logic Apps. Azure Sentinel enriches your investigation and detection with AI, and provides Microsoft's threat intelligence stream and enables you to bring your own threat intelligence. 
+Building on the full range of existing Azure services, Azure Sentinel natively incorporates proven foundations, like Log Analytics, and Logic Apps. Azure Sentinel enriches your investigation and detection with AI, and provides Microsoft's threat intelligence stream and enables you to bring your own threat intelligence.
 
 ## Connect to all your data
 
@@ -51,9 +51,15 @@ For more information, see [Find your data connector](data-connectors-reference.m
 
 ## Workbooks
 
-After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can monitor the data using the Azure Sentinel integration with Azure Monitor Workbooks, which provides versatility in creating custom workbooks. While Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
+After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can monitor the data using the Azure Sentinel integration with Azure Monitor Workbooks, which provides versatility in creating custom workbooks.
+
+While Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
 
 ![Dashboards](./media/tutorial-monitor-data/access-workbooks.png)
+
+- Workbooks are intended for SOC engineers and analysts of all tiers to visualize data.
+
+- While Workbooks are best used for high-level views of Azure Sentinel data, and require no coding knowledge, you cannot integrate Workbooks with external data.
 
 ## Analytics
 
@@ -64,11 +70,17 @@ To help you reduce noise and minimize the number of alerts you have to review an
 
 ## Security automation & orchestration
 
-Automate your common tasks and [simplify security orchestration with playbooks](tutorial-respond-threats-playbook.md) that integrate with Azure services as well as your existing tools. Built on the foundation of Azure Logic Apps, Azure Sentinel's automation and orchestration solution provides a highly-extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a growing gallery of built-in playbooks. These include [200+ connectors](../connectors/apis-list.md) for services such as Azure functions. The connectors allow you to apply any custom logic in code, ServiceNow, Jira, Zendesk, HTTP requests, Microsoft Teams, Slack, Windows Defender ATP, and Cloud App Security.
+Automate your common tasks and [simplify security orchestration with playbooks](tutorial-respond-threats-playbook.md) that integrate with Azure services and your existing tools.
+
+Built on the foundation of Azure Logic Apps, Azure Sentinel's automation and orchestration solution provides a highly extensible architecture that enables scalable automation as new technologies and threats emerge. To build playbooks with Azure Logic Apps, you can choose from a growing gallery of built-in playbooks. These include [200+ connectors](../connectors/apis-list.md) for services such as Azure functions. The connectors allow you to apply any custom logic in code, ServiceNow, Jira, Zendesk, HTTP requests, Microsoft Teams, Slack, Windows Defender ATP, and Cloud App Security.
 
 For example, if you use the ServiceNow ticketing system, you can use the tools provided to use Azure Logic Apps to automate your workflows and open a ticket in ServiceNow each time a particular event is detected.
 
 ![Playbooks](./media/tutorial-respond-threats-playbook/logic-app.png)
+
+- Playbooks are intended for SOC engineers and analysts of all tiers, to automate and simplify tasks, including data ingestion, enrichment, investigation, and remediation.
+
+- Playbooks work best with single, repeatable tasks, and require no coding knowledge. Playbooks are not suitable for ad-hoc or complex task chains, or for documenting and sharing evidence.
 
 
 ## Investigation
@@ -84,9 +96,26 @@ Use Azure Sentinel's [powerful hunting search-and-query tools](hunting.md), base
 
 ![Overview of hunting feature](./media/overview/hunting.png)
 
+## Notebooks
+
+Azure Sentinel supports Jupyter notebooks in Azure Machine Learning workspaces, including full libraries for machine learning, visualization, and data analysis.
+
+[Use notebooks in Azure Sentinel](notebooks.md) to extend the scope of what you can do with Azure Sentinel data. For example, perform analytics that aren't built in to Azure Sentinel, such as some Python machine learning features, create data visualizations that aren't built in to Azure Sentinel, such as custom timelines and process trees, or integrate data sources outside of Azure Sentinel, such as an on-premises data set.
+
+:::image type="content" source="media/notebooks/sentinel-notebooks-on-machine-learning.png" alt-text="Screenshot of a Sentinel notebook in an AML workspace.":::
+
+- Azure Sentinel notebooks are intended for threat hunters or Tier 2-3 analysts, incident investigators, data scientists, and security researchers.
+
+- Notebooks provide queries to both Azure Sentinel and external data, features for data enrichment, investigation, visualization, hunting, machine learning, and big data analytics.
+
+- Notebooks are best for more complex chains of repeatable tasks, ad-hoc procedural controls, machine learning and custom analysis, support rich Python libraries for manipulating and visualizing data, and are useful in documenting and sharing analysis evidence.
+
+- Notebooks require a higher learning curve and coding knowledge, and have limited automation support.
+
+
 ## Community
 
-The Azure Sentinel community is a powerful resource for threat detection and automation. Our Microsoft security analysts constantly create and add new workbooks, playbooks, hunting queries, and more, posting them to the community for you to use in your environment. You can download sample content from the private community GitHub [repository](https://aka.ms/asicommunity) to create custom workbooks, hunting queries, notebooks, and playbooks for Azure Sentinel. 
+The Azure Sentinel community is a powerful resource for threat detection and automation. Our Microsoft security analysts constantly create and add new workbooks, playbooks, hunting queries, and more, posting them to the community for you to use in your environment. You can download sample content from the private community GitHub [repository](https://aka.ms/asicommunity) to create custom workbooks, hunting queries, notebooks, and playbooks for Azure Sentinel.
 
 ![Explore the user community](./media/overview/community.png)
 

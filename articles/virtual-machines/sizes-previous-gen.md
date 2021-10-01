@@ -81,7 +81,7 @@ Each GPU in NVv2 instances comes with a GRID license. This license gives you the
 
 This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
-For more information on resizing a Linux VM, see [Resize a Linux VM](linux/change-vm-size.md).  
+For more information on resizing a Linux VM, see [Resize a VM](resize-vm.md).  
 
 <br>
 
@@ -159,7 +159,7 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 | Standard_A10 | 8  | 56  | 382 | 32 | 32x500 | 2 |
 | Standard_A11 | 16 | 112 | 382 | 64 | 64x500 | 4 |
 
-<sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
+<sup>1</sup> For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
 
 > [!NOTE]
 > The [A8 – A11 VMs are planned for retirement on 3/2021](https://azure.microsoft.com/updates/a8-a11-azure-virtual-machine-sizes-will-be-retired-on-march-1-2021/). We strongly recommend not creating any new A8 – A11 VMs. Please migrate any existing A8 – A11 VMs to newer and powerful high-performance computing VM sizes such as H, HB, HC, HBv2 as well as general purpose compute VM sizes such as D, E, and F for better price-performance. 

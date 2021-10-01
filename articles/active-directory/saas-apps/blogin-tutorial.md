@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 
@@ -34,6 +34,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * BlogIn supports **SP and IDP** initiated SSO.
 * BlogIn supports **Just In Time** user provisioning.
+* BlogIn supports [Automated user provisioning](blogin-provisioning-tutorial.md).
 
 ## Add BlogIn from the gallery
 
@@ -142,6 +143,8 @@ For a more detailed explanation of setting up SSO on BlogIn, see [How to set up 
 ### Create BlogIn test user
 
 In this section, a user called B.Simon is created in BlogIn. BlogIn supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in BlogIn, a new one is created after authentication.
+
+BlogIn also supports automatic user provisioning, you can find more details [here](./blogin-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

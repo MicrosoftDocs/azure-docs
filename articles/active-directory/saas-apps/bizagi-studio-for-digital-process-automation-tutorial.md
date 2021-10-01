@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: jeedes
 ---
 
@@ -35,6 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a Bizagi project using Automation services or server.
 
 * Bizagi for Digital Process Automation supports **SP** initiated SSO.
+* Bizagi for Digital Process Automation supports [Automated user provisioning](bizagi-studio-for-digital-process-automation-provisioning-tutorial.md).
 
 ## Add Bizagi for Digital Process Automation from the gallery
 
@@ -122,6 +123,8 @@ To configure single sign-on on **Bizagi for Digital Process Automation** side, y
 ### Create Bizagi for Digital Process Automation test user
 
 In this section, you create a user called Britta Simon in Bizagi for Digital Process Automation. Work with [Bizagi for Digital Process Automation support team](mailto:jarvein.rivera@bizagi.com) to add the users in the Bizagi for Digital Process Automation platform. Users must be created and activated before you use single sign-on.
+
+Bizagi for Digital Process Automation also supports automatic user provisioning, you can find more details [here](./bizagi-studio-for-digital-process-automation-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

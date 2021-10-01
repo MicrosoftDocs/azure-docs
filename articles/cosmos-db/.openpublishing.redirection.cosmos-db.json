@@ -3096,6 +3096,36 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/import-github-notebooks.md",
+    "redirect_url": "/azure/cosmos-db/sql/import-github-notebooks",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/javascript-query-api.md",
+    "redirect_url": "/azure/cosmos-db/sql/javascript-query-api",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/kafka-connector.md",
+    "redirect_url": "/azure/cosmos-db/sql/kafka-connector",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/kafka-connector-sink.md",
+    "redirect_url": "/azure/cosmos-db/sql/kafka-connector-sink",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/kafka-connector-source.md",
+    "redirect_url": "/azure/cosmos-db/sql/kafka-connector-source",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/manage-with-cli.md",
+    "redirect_url": "/azure/cosmos-db/sql/manage-with-cli",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/cosmosdb-sql-api-migrate-data-striim.md",
     "redirect_url": "/azure/cosmos-db/sql/migrate-data-striim",
     "redirect_document_id": true
@@ -3178,6 +3208,11 @@
   {
     "source_path_from_root": "/articles/cosmos-db/performance-tips.md",
     "redirect_url": "/azure/cosmos-db/sql/performance-tips",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/powershell-samples.md",
+    "redirect_url": "/azure/cosmos-db/sql/powershell-samples",
     "redirect_document_id": true
   },
   {
@@ -3311,8 +3346,13 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-bulk-executor-jav.md",
+    "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-bulk-executor-java.md",
     "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-bulk-executor-java",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-dotnet.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-dotnet",
     "redirect_document_id": true
   },
   {
@@ -3328,11 +3368,6 @@
   {
     "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-dotnet-standard.md",
     "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-dotnet-standard",
-    "redirect_document_id": true
-  },
-  {
-    "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-dotnet.md",
-    "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-dotnet",
     "redirect_document_id": true
   },
   {

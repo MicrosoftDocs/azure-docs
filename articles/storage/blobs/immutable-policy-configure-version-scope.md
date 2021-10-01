@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 09/10/2021
 ms.author: tamram
-ms.subservice: blobs 
+ms.subservice: blobs
 ---
 
 # Configure immutability policies for blob versions (preview)
@@ -155,7 +155,7 @@ If the container does not have an existing time-based retention policy when you 
 if ($migrationOperation.JobStateInfo.State -eq "Failed") {
 Write-Host $migrationOperation.Error
 }
-The container <container-name> must have an immutability policy set as a default policy 
+The container <container-name> must have an immutability policy set as a default policy
 before initiating container migration to support object level immutability with versioning.
 ```
 
@@ -280,7 +280,7 @@ For more information on blob versioning, see [Blob versioning](versioning-overvi
 
 ### [Portal](#tab/azure-portal)
 
-The Azure portal displays a list of blobs when you navigate to a container. Each blob displayed represents the current version of the blob. You can access a list of previous versions by selecting the **More** button for a blob and choosing **View previous versions**.  
+The Azure portal displays a list of blobs when you navigate to a container. Each blob displayed represents the current version of the blob. You can access a list of previous versions by selecting the **More** button for a blob and choosing **View previous versions**.
 
 ### Configure a retention policy on the current version of a blob
 
@@ -404,7 +404,7 @@ $blobVersion = Get-AzStorageBlob -Container $containerName `
     -Context $ctx
 
 # Extend the retention interval by five days.
-$blobVersion = $blobVersion | 
+$blobVersion = $blobVersion |
     Set-AzStorageBlobImmutabilityPolicy -ExpiresOn (Get-Date).AddDays(5) `
 
 # View the new policy parameters.
@@ -423,7 +423,7 @@ To modify an unlocked time-based retention policy with PowerShell, call the **az
 
 ```azurecli
 az storage blob immutability-policy set \
-    --expiry-time 2021-10-018:00:00Z \
+    --expiry-time 2021-10-0T18:00:00Z \
     --policy-mode Unlocked \
     --container <container> \
     --name <blob-version> \
@@ -472,7 +472,7 @@ $blobVersion = Get-AzStorageBlob -Container $containerName `
     -VersionId "2021-08-31T00:26:41.2273852Z" `
     -Context $ctx
 
-$blobVersion = $blobVersion | 
+$blobVersion = $blobVersion |
     Set-AzStorageBlobImmutabilityPolicy `
         -ExpiresOn $blobVersion.BlobProperties.ImmutabilityPolicy.ExpiresOn `
         -PolicyMode Locked
@@ -484,7 +484,7 @@ To lock a policy with PowerShell, call the **az storage blob immutability-policy
 
 ```azurecli
 az storage blob immutability-policy set \
-    --expiry-time 2021-10-018:00:00Z \
+    --expiry-time 2021-10-0T18:00:00Z \
     --policy-mode Locked \
     --container <container> \
     --name <blob-version> \

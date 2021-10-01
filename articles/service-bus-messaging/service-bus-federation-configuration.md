@@ -2,7 +2,7 @@
 title: Configured replication tasks - Azure Service Bus | Microsoft Docs
 description: This article explains how to configure replication tasks
 ms.topic: article
-ms.date: 12/12/2020
+ms.date: 09/27/2021
 ---
 
 # Configured replication tasks

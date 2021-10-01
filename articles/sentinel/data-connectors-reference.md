@@ -15,6 +15,10 @@ ms.author: bagol
 
 This article describes how to deploy data connectors in Azure Sentinel, listing all supported, built-in data connectors, together with links to generic deployment procedures and extra steps required for specific connectors.
 
+> [!TIP]
+> Some data connectors are deployed only via solutions. For more information, see the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md). You can also find other, community-built data connectors in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
+>
+
 ## How to use this guide
 
 1. First, locate and select the connector for your product, service, or device in the headings menu to the right.
@@ -159,7 +163,6 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | --- | --- |
 | **Data ingestion method** | [**Log Analytics agent - custom logs**](connect-custom-logs.md) <br><br>[Extra configuration for Alsid](#extra-configuration-for-alsid)|
 | **Log Analytics table(s)** | AlsidForADLog_CL |
-| **Custom log sample file:** | https://github.com/Azure/azure-quickstart-templates/blob/master/alsid-syslog-proxy/logs/AlsidForAD.log |
 | **Kusto function alias:** | afad_parser |
 | **Kusto function URL:** | https://aka.ms/sentinel-alsidforad-parser |
 | **Supported by** | [Alsid](https://www.alsid.com/contact-us/) |

@@ -11,7 +11,7 @@ ms.author: olayemio
 ms.custom: devx-track-azurepowershell
 ---
 
-# Preview: Use customer-managed keys for encrypting images
+# Use customer-managed keys for encrypting images
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 

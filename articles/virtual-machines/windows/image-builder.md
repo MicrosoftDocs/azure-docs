@@ -70,8 +70,6 @@ We will be using some pieces of information repeatedly, so we will create some v
 imageResourceGroup=myWinImgBuilderRG
 # Region location 
 location=WestUS2
-# Name for the image 
-imageName=myWinBuilderImage
 # Run output name
 runOutputName=aibWindows
 # name of the image to be created
