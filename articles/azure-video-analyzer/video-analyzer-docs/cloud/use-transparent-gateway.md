@@ -8,7 +8,7 @@ ms.date: 11/01/2021
 
 # Connecting cameras to the cloud using a transparent gateway
 Azure Video Analyzer allows users to connect cameras directly to the cloud in order capture and record video, using cloud pipelines.
-Connecting cameras to the cloud using a transparent gateway allows cameras to connect to Video Analyzer via the Video Analyzer Edge module acting as a transparent gateway. This approach is useful in the following scenarios:
+Connecting cameras to the cloud using a transparent gateway allows cameras to connect to Video Analyzer via the Video Analyzer edge module acting as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service. This approach is useful in the following scenarios:
 
 * When cameras connected to the gateway need to be shielded from exposure to the internet
 * When cameras do not have the functionality to connect to IoT Hub independently
@@ -17,6 +17,9 @@ Connecting cameras to the cloud using a transparent gateway allows cameras to co
 <!-- TODO: add graphic -->
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-transparent-gateway/use-transparent-gateway.svg" alt-text="Connecting cameras to the cloud using a transparent gateway":::
+
+> [!NOTE]
+> The Video Analyzer edge module is not acting as a transparent gateway for messaging and telemetry from the camera to IoT Hub, but only as a transparent gateway for video packets and RTSP protocol from the camera to Video Analyzer's cloud service.
 
 ## Pre-reading
 [Get started with Azure Video Analyzer in the Portal](../get-started-detect-motion-emit-events-portal.md)
