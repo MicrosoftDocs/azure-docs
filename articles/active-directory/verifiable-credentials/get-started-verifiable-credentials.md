@@ -7,6 +7,7 @@ author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 04/01/2021
+ROBOTS: NOINDEX
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
