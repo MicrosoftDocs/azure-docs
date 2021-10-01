@@ -83,7 +83,7 @@ The steps for restricting access varies by resource. The following scenarios sho
     
 - Scenario 3: Azure Functions
 
-    No network setting changes are needed for Azure Functions firewall. In the following instructions, when you create the shared private endpoint, the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
+    No network setting changes are needed for Azure Functions firewall. Later in the following steps, when you create the shared private endpoint, the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
 
 ### Step 2: Create a shared private link resource to the Azure resource
 
