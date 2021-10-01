@@ -22,9 +22,9 @@ ms.subservice: identity
 
 To ensure all the recent fixes and updates, it's recommended you always stay up to date with the latest SDKs available. If there is a newer version of the SDK(s) you are using available, you will see a recommendation show up in the **Performance** category to update to the latest SDK.
 
-![Azure Advisor example showing recommendation to update chat SDK.](../media/advisor-chat-sdk-update-example.png)
+![Azure Advisor example showing recommendation to update chat SDK.](./media/advisor-chat-sdk-update-example.png)
 
-The following SDKs are supported for this feature, along with all their supported languages. You can learn more about the [SDK options](../sdk-options.md) available.
+The following SDKs are supported for this feature, along with all their supported languages. You can learn more about the [SDK options](./sdk-options.md) available.
 
 * Calling (client)
 * Chat
@@ -39,6 +39,6 @@ The following SDKs are supported for this feature, along with all their supporte
 
 The following documents may be interesting to you:
 
-- [Logging and diagnostics](../logging-and-diagnostics.md)
-- [Metrics](../metrics.md)
+- [Logging and diagnostics](./logging-and-diagnostics.md)
+- [Metrics](./metrics.md)
 - 
