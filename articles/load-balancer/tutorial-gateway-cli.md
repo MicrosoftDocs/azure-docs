@@ -145,7 +145,7 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule
     --resource-group TutorGwLB-rg \
     --nsg-name myNSG \
     --name myNSGRule-AllowAll \
-    --protocol 'All' \
+    --protocol '*' \
     --direction inbound \
     --source-address-prefix '0.0.0.0/0' \
     --source-port-range '*' \
