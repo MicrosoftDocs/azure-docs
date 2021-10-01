@@ -2,7 +2,7 @@
     "redirections": [
       {
         "source_path_from_root": "/articles/communication-services/concepts/ui-library/teams-embed.md",
-        "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-overview.md",
+        "redirect_url": "/azure/communication-services/concepts/ui-library/ui-library-overview",
         "redirect_document_id": false
       },
       {
