@@ -116,3 +116,14 @@ Combining hardware cryptography acceleration that implements secure cipher modes
 **7 Properties**: Hardware-based Root of Trust, Defense in Depth, Compartmentalization, Small Trusted Computing Base
 
 **SMM Practices**: Implementation of Data Protection Controls
+
+## Embedded Security Components – Device Identity
+
+In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern Internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device for the purposes of stealing data, sending fraudulent information, or tampering with device functionality. Therefore, it is imperative that each IoT device that connects to a cloud service has a way to identify itself that is not easily bypassed.
+
+### Unique verifiable device identifier
+
+Content coming
+
+### Credentials/certificates
+
