@@ -124,7 +124,7 @@ Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetwor
 $nsgrule1 = @{
     Name = 'myNSGRule-AllowAll'
     Description = 'Allow all'
-    Protocol = 'All'
+    Protocol = '*'
     SourcePortRange = '*'
     DestinationPortRange = '*'
     SourceAddressPrefix = '0.0.0.0/0'
