@@ -16,9 +16,9 @@ Diagnostic settings in Azure are used to collect resource logs. Azure resource L
 
 Azure Cache for Redis uses Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes.
 
-Once configured, the setting logs all of the client connections to your cache by their IP addresses. It also provides a count of how many times connections originated from those specific IP addresses. These log snapshots are taken at 10-second intervals. The count represents point-in-time snapshots, not a cumulative count of connections.
+Once configured, the setting logs all of the client connections to your cache by their IP addresses. It also provides a count of how many times connections originated from those specific IP addresses. The snapshots in the log are point-in-time snapshots taken at 10-second intervals and aren't cumulative counts of connections.
 
-You turn on diagnostic setting for Azure Cache for Redis instances and send resource logs to the following destinations:
+You can turn on diagnostic settings for Azure Cache for Redis instances and send resource logs to the following destinations:
 
 - **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
 - **Storage account** - must be in the same region as the cache.
@@ -48,7 +48,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 ## Create diagnostic setting via REST API
 
-Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update.md). 
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update.md).
 
 ### Request
 
@@ -89,7 +89,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 ## Create diagnostic setting via Azure CLI
 
-Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on this command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md). 
+Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on this command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
 ```azurecli
 
@@ -103,12 +103,6 @@ az monitor diagnostic-settings create
 
 
 ```
-
-## Health and Administrative tasks
-
-You might notice IP addresses in the logs that are used by Azure Cache For Redis for internal health monitoring and other administrative tasks. These IP addresses aren't counted towards client connections and should be ignored in your analysis.
-
-<!-- List of so-called runner IP addresses -->
 
 ## Next steps
 
