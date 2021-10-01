@@ -250,7 +250,7 @@ With the application still running, set up the Power BI visualization to see the
 
      ![Power BI graph of both fields](./media/tutorial-routing-view-message-routing-results/bi-chart-temp-humidity.png)
 
-You sent messages from the default endpoint of the IoT Hub to the Azure Stream Analytics. Then you added a Power BI report to show the data, adding two charts to represent the temperature and the humidity. 
+   You sent messages from the default endpoint of the IoT Hub to the Azure Stream Analytics. Then you added a Power BI report to show the data, adding two charts to represent the temperature and the humidity. 
 
 7. Select **File > Save** to save the report, entering a name for the report when prompted. Save your report in your workspace.
 
