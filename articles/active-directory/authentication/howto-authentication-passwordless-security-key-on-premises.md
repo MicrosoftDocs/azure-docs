@@ -94,10 +94,9 @@ Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 ```
 
 > [!NOTE]
-
-If your orginization protects password-based sign-in and enfores using modern authentication methods such as MFA, FIDO2 or Smart Card, you must use the "-UserPrincipalName" parameter with the User Principal Name of a Global administrator.
-- Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
-- Replace `administrator@contoso.onmicrosoft.com` in the following example with the User Principal Name of a Global administrator.
+> If your organization protects password-based sign-in and enforces modern authentication methods such as MFA, FIDO2, or Smart Card, you must use the "-UserPrincipalName" parameter with the User Principal Name of a Global administrator.
+>    - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
+>    - Replace `administrator@contoso.onmicrosoft.com` in the following example with the User Principal Name of a Global administrator.
 
 ```powerShell
 Import-Module ".\AzureAdKerberos.psd1"
