@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 09/20/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -37,7 +37,7 @@ You must:
 * Have adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 * Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 * Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-* Download the current release of the Azure ImportExport version 1 tool, for blobs, on the Windows system. The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.<!--Get a release description from the product team.-->
+* Download the current release of the Azure Import/Export version 1 tool (WAImportExportV1.zip), for blobs, on the Windows system. <!--The latest version of the tool has security updates to allow an external protector for the BitLocker key, and the updated unlock mode feature.-->
   1. [Download WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659). The current version is 1.5.0.300.
   1. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 * Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
@@ -96,7 +96,7 @@ Perform the following steps to prepare the drives.
     |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
 
     > [!NOTE]
-    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. In earlier tool versions (before 1.5.0.300), a \Disposition parameter was used to specify what to do when an import blobs that already existing in storage.
+    > If you import a blob with the same name as an existing blob in the destination container, the imported blob will overwrite the existing blob. In earlier tool versions (before 1.5.0.300), the imported blob was renamed by default, and a \Disposition parameter could be used to specify whether to rename, overwrite, or disregard the blob in the import.
 
 8. Repeat the previous step for each disk that needs to be shipped. 
 
@@ -258,7 +258,7 @@ Use the following steps to create an import job in Azure PowerShell.
 > While the **Az.ImportExport** PowerShell module is in preview, you must install it separately
 > using the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it
 > will be part of future Az PowerShell module releases and available by default from within Azure
-> Cloud Shell.<!--Does this note still apply?-->
+> Cloud Shell.
 
 ```azurepowershell-interactive
 Install-Module -Name Az.ImportExport
@@ -363,7 +363,7 @@ Skip this step and go to the next step if you want to use the Microsoft managed 
 
 ## Step 6: Verify data upload to Azure
 
-Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you have verified that upload was successful.
+Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you have verified that the upload was successful. For more information, see [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md).
 
 ## Next steps
 
