@@ -55,14 +55,14 @@ Content-type: `application/json-patch+json`
 ```
 [
 	{
-		“op”: “test”,
-		“path”: “/deceasedBoolean”,
-		“value”: false
+		"op": "test",
+		"path": "/deceasedBoolean",
+		"value": false
 	},
 	{
-		“op”: “replace”
-		“path”: “/deceasedBoolean”,
-		“value”: true
+		"op": "replace",
+		"path": "/deceasedBoolean",
+		"value": true
 	}
 ]
 
@@ -79,20 +79,20 @@ content-type: `application/json`
 
 ```
 {
-	“resourceType”: “Bundle”
-	“id”: “bundle-batch”,
-	“type”: “batch”
-	“entry”: [
+	"resourceType": "Bundle",
+	"id": "bundle-batch",
+	"type": "batch",
+	"entry": [
 		{
-			“fullUrl”: “Patient/{PatientID}”,
-			“resource”: {
-				“resourceType”: “Binary”,
-				“contentType”: “application/json-patch+json”,
-				“data”: "W3sib3AiOiJyZXBsYWNlIiwicGF0aCI6Ii9nZW5kZXIiLCJ2YWx1ZSI6ImZlbWFsZSJ9XQ=="
+			"fullUrl": "Patient/{PatientID}",
+			"resource": {
+				"resourceType": "Binary",
+				"contentType": "application/json-patch+json",
+				"data": "W3sib3AiOiJyZXBsYWNlIiwicGF0aCI6Ii9nZW5kZXIiLCJ2YWx1ZSI6ImZlbWFsZSJ9XQ=="
 			},
-			“request”: { 
-				“method”: “PATCH”,
-				“url”: “Patient/{PatientID}”
+			"request": { 
+				"method": "PATCH",
+				"url": "Patient/{PatientID}"
 			}
 		}
 	]
