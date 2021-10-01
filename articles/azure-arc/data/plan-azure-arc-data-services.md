@@ -9,17 +9,17 @@ ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
 ---
-# Plan to deploy Azure Arc-enabled data services
+# Plan an Azure Arc-enabled data services deployment
 
 This article describes how to plan to deploy Azure Arc-enabled data services.
 
-Before you do so, it's important to properly understand the database workloads and the business requirements for those workloads. For example, you need to consider availability, business continuity, and capacity requirements for memory, CPU, and storage for those workloads. And you need to carefully prepare the infrastructure to support those database workloads, based on your business requirements.
+As you begin planning to deploy Azure Arc-enabled data services, it's important to properly understand your database workloads and your business requirements for those workloads. For example, you need to consider availability, business continuity, and capacity requirements for memory, CPU, and storage for the workloads. And you need to carefully prepare the infrastructure to support the database workloads, based on your business requirements.
 
 ## Prerequisites
 
-Before you begin, be sure that you've met certain prerequisites and have the necessary background and information ready. To ensure a successful deployment, your infrastructure environment must be properly configured with the right level of access and the appropriate capacity for storage, CPU, and memory. 
+Before you start, be sure that you've met certain prerequisites and have the necessary background and information ready. To ensure a successful deployment, your infrastructure environment must be properly configured with the right level of access and the appropriate capacity for storage, CPU, and memory. 
 
-Review the following sections:
+Review the following articles:
 
 - [Sizing guidance](sizing-guidance.md)
 - [Storage configuration](storage-configuration.md)
@@ -31,20 +31,19 @@ Verify that:
 - The other [client tools](install-client-tools.md) are installed.
 - You have access to the Kubernetes cluster.
 - Your *kubeconfig* file is configured. It should point to the Kubernetes cluster that you want to deploy to. To verify the current context of the cluster, run the following command:
-
    ```console
    kubectl cluster-info
    ```  
 - You have an Azure subscription that resources such as an Azure Arc data controller, Azure Arc-enabled SQL Managed Instance, or Azure Arc-enabled PostgreSQL Hyperscale server will be projected and billed to.
 
 After you're prepared the infrastructure, deploy Azure Arc-enabled data services in the following way:
-1. Create an Azure Arc-enabled data controller on one of the validated distributions of a Kubernetes cluster
+1. Create an Azure Arc-enabled data controller on one of the validated distributions of a Kubernetes cluster.
 1. Create an Azure Arc-enabled SQL Managed Instance and/or an Azure Arc-enabled PostgreSQL Hyperscale server group.
 
 > [!CAUTION]
 > Some of the data services tiers and modes are in [general availability (GA)](release-notes.md), and some are in preview. We recommend that you don't mix GA and preview services on the same data controller. If you mix GA and preview services on the same data controller, you can't upgrade in place. In that scenario, when you want to upgrade, you must remove and re-create the data controller and data services.
 
-## Overview: Create the Azure Arc-enabled data controller
+## Overview: Create an Azure Arc-enabled data controller
 
 You can create Azure Arc-enabled data services on various types of Kubernetes clusters, and you can create managed Kubernetes services by using a variety of approaches.
 
@@ -83,13 +82,11 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 
 ## Additional concepts for direct connectivity mode
 
-As detailed in [Connectivity modes and requirements](./connectivity.md), you can deploy the Azure Arc data controller in direct or indirect connectivity mode. Deploying Azure Arc data services in direct connectivity mode requires an understanding a couple of additional concepts and considerations.
+As we've outlined in [Connectivity modes and requirements](./connectivity.md), you can deploy the Azure Arc data controller in direct or indirect connectivity mode. Deploying Azure Arc data services in direct connectivity mode requires an understanding of a couple of additional concepts and considerations:
 
-* First, the Kubernetes cluster where the Azure Arc-enabled data services will be deployed needs to be an [Azure Arc-enabled Kubernetes cluster](../kubernetes/overview.md). Deploying the Kubernetes cluster to Azure Arc provides Azure connectivity with capabilities such as automatic upload of usage information, logs, and metrics. By connecting your Kubernetes cluster to Azure, you can also deploy and manage Azure Arc data services to your cluster directly from the Azure portal. Do the following:
+* First, the Kubernetes cluster where the Azure Arc-enabled data services will be deployed needs to be an [Azure Arc-enabled Kubernetes cluster](../kubernetes/overview.md). Deploying the Kubernetes cluster to Azure Arc provides Azure connectivity with capabilities such as automatic upload of usage information, logs, and metrics. By connecting your Kubernetes cluster to Azure, you can also deploy and manage Azure Arc data services to your cluster directly from the Azure portal. To learn how, see [Connect your cluster to Azure](../kubernetes/quickstart-connect-cluster.md).
 
-   - [Connect your cluster to Azure](../kubernetes/quickstart-connect-cluster.md)
-
-* Second, after the Kubernetes cluster is deployed to Azure Arc, deploy Azure Arc-enabled data services on an Azure Arc-enabled Kubernetes cluster by doing the following:
+* After the Kubernetes cluster is deployed to Azure Arc, deploy Azure Arc-enabled data services on an Azure Arc-enabled Kubernetes cluster by doing the following:
    1. Create the Arc data services extension. To learn how, see [Cluster extensions on Azure Arc-enabled Kubernetes](../kubernetes/conceptual-extensions.md).
    1. Create a custom location. To learn how, see [Custom locations on top of Azure Arc-enabled Kubernetes](../kubernetes/conceptual-custom-locations.md).
    1. Create the Azure Arc data controller.
@@ -101,7 +98,7 @@ After you've installed the Azure Arc data controller, you can access data servic
 
 ## Next steps
 
-There are additional options for creating the Azure Arc data controller:
+You have several additional options for creating the Azure Arc data controller:
 
 > **Just want to try things out?**
 > Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on AKS, Amazon EKS, or GKE, or in an Azure VM.
