@@ -68,7 +68,7 @@ This section provides a list of Video Analyzer endpoints.
 Public:
 
 * [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
-* [Understand Azure IoT Hub endpoints](../../ot-hub/iot-hub-devguide-endpoints.md)
+* [Understand Azure IoT Hub endpoints](../../iot-hub/iot-hub-devguide-endpoints.md)
 * [What is Azure Private Link?](../../private-link/private-link-overview.md)
 * [Azure service tags overview](../../virtual-network/service-tags-overview.md)
 
