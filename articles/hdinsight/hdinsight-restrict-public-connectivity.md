@@ -1,25 +1,23 @@
 ---
-title: Create a Private Inbound Cluster in Azure HDInsight (preview)
+title: Restrict Public Connectivity in Azure HDInsight (preview)
 description: Learn to remove access to all outbound public IP addresses
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/20/2021
 ---
 
-# Create a Private Inbound Cluster in Azure HDInsight (preview)
+# Restrict Public Connectivity in Azure HDInsight (preview)
 
-In Azure HDInsight's [default virtual network architecture](./hdinsight-virtual-network-architecture.md), the HDInsight resource provider (RP) communicates with the cluster using public IP addresses over public network. In this article, you learn about the advanced controls you can use to create a private HDInsight cluster where inbound connectivity is restricted to the private network. In certain scenarios, you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting public connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md). Private inbound clusters also have support for private link enabled dependency resources that can be configured to use with these clusters.
-The following diagram shows what a potential HDInsight virtual network architecture could look like when `resourceProviderConnection` is set to outbound:
+In Azure HDInsight's [default virtual network architecture](./hdinsight-virtual-network-architecture.md), the HDInsight resource provider (RP) communicates with the cluster using public IP addresses over public network. In this article, you learn about the advanced controls you can use to create a restricted HDInsight cluster where inbound connectivity is restricted to the private network. In certain scenarios, you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources, consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md). Private inbound clusters also have support for private link enabled dependency resources that can be configured to use with these clusters.
+The following diagram shows what a potential HDInsight virtual network architecture could look like when `resourceProviderConnection` is set to *outbound*:
 
 :::image type="content" source="media/hdinsight-private-link/outbound-resource-provider-connection-only.png" alt-text="Diagram of HDInsight architecture using an outbound resource provider connection":::
 
-You can create private Inbound HDInsight, begin by removing access to all public IP addresses by setting `resourceProviderConnection` to outbound.
+> [!NOTE] Restricting public connectivity is a prerequisite for enabling Private Link and should not be considered as the same capability.
 
->[!NOTE] Removing outbound public IP addresses is a prerequisite for enabling Azure Private Link
+## Initialize a Restricted Cluster
 
-## Initialize a Private Inbound Cluster
-
-By default, the HDInsight RP uses an *inbound* connection to the cluster using public IPs. When the `resourceProviderConnection` network property is set to *outbound* (this is the only configuration you need to change to create a private inbound cluster), it reverses the connections to the HDInsight RP so that the connections are always initiated from inside the cluster out to the RP. In this configuration, without an inbound connection, there is no need to configure inbound service tags in the NSG or bypass firewall/network virtual appliance via UDR rules.
+By default, the HDInsight RP uses an *inbound* connection to the cluster using public IPs. When the `resourceProviderConnection` network property is set to *outbound* (this is the only configuration you need to change to create a cluster with inbound public connectivity disabled), it reverses the connections to the HDInsight RP so that the connections are always initiated from inside the cluster out to the RP. In this configuration, without an inbound connection, there is no need to configure inbound service tags in the NSG or bypass firewall/network virtual appliance via UDR rules.
 After creating your cluster, you should set up proper DNS resolution by adding DNS records that are needed for configuring access to your private inbound HDInsight cluster. The following canonical name DNS record (CNAME) is created on the Azure-managed Public DNS Zone: `azurehdinsight.net`
 
 ```dns
@@ -33,7 +31,7 @@ To access the cluster using cluster FQDNs, you can either use the internal load 
 <clustername-ssh>    A   10.0.0.2
 ```
 
-> [!NOTE] Creating both public and private inbound clusters under a VNET configured with a private DNS zone for `azurehdinsight.net` is discouraged as it may cause unintended DNS resolution behavior/conflict.
+> [!NOTE] Creating both public and private inbound clusters under a VNet configured with a private DNS zone for `azurehdinsight.net` is discouraged as it may cause unintended DNS resolution behavior/conflict.
 
 To make setting us DNS easier, we return the FQDNS and corresponding Private IP addresses as part of the cluster `GET` response. You can use this PowerShell snippet to get started.
 
@@ -109,7 +107,7 @@ $isolationDnsVnetLink = New-AzPrivateDnsVirtualNetworkLink `
 
 ## Adding private link connectivity (Private Endpoints) to cluster dependent resources (optional)
 
-Configuring `resourceProviderConnection` to outbound also allows you to access cluster-specific resources, such as Storage (Azure Data Lake Storage Gen2 and Windows Azure Storage Blob), SQL meta stores (Apache Ranger, Ambari, Oozie and Hive), and Azure Key Vault using private endpoints. It is not mandatory to use private endpoints for these resources, but if you plan to use private endpoints for these resources, you must create these resources, configure the private endpoints and DNS entries before you create the HDInsight cluster. All these resources should be accessible from inside the cluster subnet, either through a private endpoint or otherwise.
+Configuring `resourceProviderConnection` to *outbound* also allows you to access cluster-specific resources, such as Storage (Azure Data Lake Storage Gen2 and Windows Azure Storage Blob), SQL meta stores (Apache Ranger, Ambari, Oozie and Hive), and Azure Key Vault using private endpoints. It is not mandatory to use private endpoints for these resources, but if you plan to use private endpoints for these resources, you must create these resources, configure the private endpoints and DNS entries before you create the HDInsight cluster. All these resources should be accessible from inside the cluster subnet, either through a private endpoint or otherwise.
 When connecting to Azure Data Lake Storage Gen2 over Private Endpoint, make sure the Gen2 storage account has an endpoint set for both ‘blob’ and ‘dfs’. For more information please see [creating a Private Endpoint](../private-link/create-private-endpoint-portal).
 
 ## Using Firewall (optional)
@@ -138,6 +136,6 @@ To use Azure CLI, see the example [here](/cli/azure/hdinsight#az_hdinsight_creat
 
 ## Next steps
 
-* [Enable Private Link on your private inbound cluster](./hdinsight-private-link.md)
+* [Enable Private Link on your cluster](./hdinsight-private-link.md)
 * [Enterprise Security Package for Azure HDInsight](enterprise-security-package.md)
 * [Enterprise security general information and guidelines in Azure HDInsight](./domain-joined/general-guidelines.md)

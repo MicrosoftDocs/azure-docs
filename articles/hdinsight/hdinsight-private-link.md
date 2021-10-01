@@ -1,21 +1,20 @@
 ---
-title: Enable Private Link on a Private Inbound Cluster (preview)
+title: Enable Private Link on a restricted HDInsight cluster (preview)
 description: Learn how to connect outside HDInsight cluster using Azure Private Link.
 ms.service: HDInsight
 ms.topic: conceptual
 ms.date: 10/15/2020
 ---
 
-# Enable Private Link on a Private Inbound Cluster (preview)
+# Enable Private Link on a restricted HDInsight cluster (preview)
 
-In this article, you will learn about leveraging Azure Private Link to connect to your HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of our main article [create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md) where we focus on the basics of creating a private inbound cluster. In certain scenarios, you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources,  consider restricting public connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md)
+In this article, you will learn about leveraging Azure Private Link to connect to your HDInsight cluster privately across networks over the Microsoft backbone network. This article is an extension of our main article [restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md) where we focused on disabling inbound public connectivity. In certain scenarios, you may opt to have public connectivity to/within your HDInsight cluster(s) and dependent resources,  consider restricting connectivity of your cluster by following guidelines from [control network traffic in Azure HDInsight](./control-network-traffic.md)
 
 Private link can be leveraged in cross VNet scenarios where VNet peering is not available or enabled. For example, if you want to integrate Azure Data Factory with Azure HDInsight, where it is required to have Azure Data Factory connect to HDInsight clusters over private network (i.e. private link) for compliance and security reasons.
 
-> [!NOTE]
-> Removing outbound public IP addresses is a prerequisite for enabling Private Link and should not be considered as the same capability
+> [!NOTE] Restricting public connectivity is a prerequisite for enabling Private Link and should not be considered as the same capability.
 
-Private Link, which is an optional feature and is disabled by default. The feature is only available when the `resourceProviderConnection` network property is set to outbound as described in the article [create a Private Inbound Cluster in Azure HDInsight](./hdinsight-private-inbound-cluster.md).
+Private Link, which is an optional feature and is disabled by default. The feature is only available when the `resourceProviderConnection` network property is set to *outbound* as described in the article [restrict cluster connectivity in Azure HDInsight](./hdinsight-restrict-public-connectivity.md).
 
 When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLB) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link Service is what allows you to access the HDInsight cluster from private endpoints.
 
@@ -54,7 +53,7 @@ There are two connection approval methods that a Private Link service consumer (
 * Manual: On the contrary, if the service consumer doesn’t have Azure RBAC permissions on the HDInsight resource, the consumer can choose the manual approval method. In this case, the connection request appears on the HDInsight resources as Pending. The request needs to be manually approved by HDInsight resource before connections can be established. 
 
 To manage private endpoints, in your cluster view in Azure Portal, navigate to Networking (preview) section under Security + Networking. Here you will be able to see all existing connections, connection states, and private endpoint details. You can also approve, reject or remove existing connections. When creating a private connection, you can specify which HDInsight sub-resource (Gateway, Headnode etc) you want to connect to as well.
-The below table shows the various HDInsight resource actions and the resulting connection states for Private Endpoints. HDInsight resource can also change the connection state of the private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side.
+The table below shows the various HDInsight resource actions and the resulting connection states for Private Endpoints. HDInsight resource can also change the connection state of the private endpoint connection at a later time without consumer intervention. The action will update the state of the endpoint on the consumer side.
 
 |Service Provider Action   |Service Consumer Private Endpoint State   |Description   |
 |---------|---------|---------|
