@@ -646,21 +646,21 @@ The following example validates a client certificate to match the policy's defau
 ### Attributes
 
 | Name                            | Description      | Required |  Default    |
-| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| ------------------------------- | -----------------| -------- | ----------- |
 | validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list.  | no   | True  |
 | validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. | no | True |
-| validate-not-before | Boolean. Validates value against current time. | no | True | 
-| validate-not-after  | Boolean. Validates value against current time. | no | True| 
-| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no. | False |  
-| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A | 
+| validate-not-before | Boolean. Validates value against current time. | no | True |
+| validate-not-after  | Boolean. Validates value against current time. | no | True|
+| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no | False |
+| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A |
 | thumbprint | Certificate thumbprint. | no | N/A |
 | serial-number | Certificate serial number. | no | N/A |
 | common-name | Certificate common name (part of Subject string). | no | N/A |
 | subject | Subject string. Must follow format of Distinguished Name. | no | N/A |
-| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A | 
-| issuer-subject | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
-| issuer-thumbprint | Issuer thumbprint. | no | N/A | 
-| issuer-certificate-id | Identifier of existing certificate entity representing the issuer’s public key. Mutually exclusive with other issuer attributes.  | no | N/A | 
+| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A |
+| issuer-subject | Issuer's subject. Must follow format of Distinguished Name. | no | N/A |
+| issuer-thumbprint | Issuer thumbprint. | no | N/A |
+| issuer-certificate-id | Identifier of existing certificate entity representing the issuer's public key. Mutually exclusive with other issuer attributes.  | no | N/A |
 
 ### Usage
 

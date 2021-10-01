@@ -140,7 +140,7 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a template for your function | Durable Functions HTTP starter | Create an HTTP starter function |
-    | Provide a function name | DurableFunctionsHttpStart | Name of your activity function |
+    | Provide a function name | DurableFunctionsHttpStart | Name of your client function |
     | Authorization level | Anonymous | For demo purposes, allow the function to be called without authentication |
 
 You've added an HTTP triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/\_\_init__.py* to see that it uses `client.start_new` to start a new orchestration. Then it uses `client.create_check_status_response` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
