@@ -18,9 +18,9 @@ ms.author: lajanuar
 
 Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
-* [**General document (v3.0)**](#general-document-model) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Receipt (v3.0)**](#receipt-model) model supports single-page hotel receipt processing.
-* [**ID document (v3.0)**](#id-document-model) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**General document (v3.0)**](#general-document) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Receipt (v3.0)**](#receipt) model supports single-page hotel receipt processing.
+* [**ID document (v3.0)**](#id-document) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Custom model API (v3.0)**](#custom-model) supports signature detection for custom forms.
 
 | **Model**   | **Description**   |
