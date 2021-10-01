@@ -735,6 +735,8 @@ items:
         href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Monitor pipelines with Microsoft Teams notifications
+      href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
       href: monitor-integration-runtime.md
     - name: Monitor Azure-SSIS integration runtime
@@ -859,6 +861,8 @@ items:
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
     items:    
+    - name: Monitor pipelines with Microsoft Teams notifications
+      href: how-to-send-notifications-to-teams.md
     - name: Data migration for data lake & EDW
       items:
       - name: Why Azure Data Factory
