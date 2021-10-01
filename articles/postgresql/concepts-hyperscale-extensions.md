@@ -37,7 +37,7 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5-2 | 10.0-3 | 10.0-3 | 10.2-2 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5-2 | 10.0-3 | 10.1-1 | 10.2-2 |
 
 ### Data types extensions
 
@@ -46,14 +46,14 @@ The versions of each extension installed in a server group sometimes differ base
 > |---|---|---|---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Provides a case-insensitive character string type. | 1.5 | 1.6 | 1.6 | 1.6 |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | Provides a data type for multidimensional cubes. | 1.4 | 1.4 | 1.4 | 1.5 |
-> | [hll](https://github.com/citusdata/postgresql-hll) | Provides a HyperLogLog data structure. | 2.15 | 2.15 | 2.15 | 2.16 |
+> | [hll](https://github.com/citusdata/postgresql-hll) | Provides a HyperLogLog data structure. | 2.15 | 2.15 | 2.16 | 2.16 |
 > | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Provides a data type for storing sets of key-value pairs. | 1.5 | 1.6 | 1.7 | 1.8 |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | Provides data types for international product numbering standards. | 1.2 | 1.2 | 1.2 | 1.2 |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. | 1.1 | 1.1 | 1.1 | 1.1 |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. | 1.1 | 1.1 | 1.2 | 1.2 |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. | 1.3 | 1.3 | 1.3 | 1.4 |
-> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.0 | 1.0 | 1.0 | 1.2.0 |
-> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.3.1 | 2.3.1 | 2.3.1 | 2.4.0 |
+> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.0 | 1.0 | 1.2.0 | 1.2.0 |
+> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.3.1 | 2.3.1 | 2.4.0 | 2.4.0 |
 
 ### Full-text search extensions
 
