@@ -142,7 +142,7 @@ In this code, you're changing the `longRunningOperationRetryTimeout` property of
 
 ### Create a live event
 
-This section shows how to create a basic *pass-through* type of live event (`LiveEventEncodingType` set to `PassThroughBasic`). For information about the available types, see [Live event types](live-event-outputs-concept.md#live-event-types). In addition to basic or standard pass-through, you can use a live encoding event for 720p or 1080p adaptive bitrate cloud encoding.
+This section shows how to create a basic *pass-through* type of live event (`LiveEventEncodingType` set to `PassthroughBasic`). For information about the available types, see [Live event types](live-event-outputs-concept.md#live-event-types). In addition to basic or standard pass-through, you can use a live encoding event for 720p or 1080p adaptive bitrate cloud encoding.
  
 You might want to specify the following things when you're creating the live event:
 
