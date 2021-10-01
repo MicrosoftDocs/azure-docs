@@ -482,6 +482,8 @@ items:
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?context=/azure/synapse-analytics/context/context
         - name: Convert resource classes to workload groups
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?context=/azure/synapse-analytics/context/context
+        - name: Troubleshooting a missed classification
+          href: ./sql-data-warehouse/sql-data-warehouse-how-to-troubleshoot-missed-classification.md?context=/azure/synapse-analytics/context/context
     - name: Ingest and prepare data
       items:
       - name: Into the data warehouse
@@ -1189,6 +1191,8 @@ items:
       items:
       - name: Pipeline runs
         href: monitoring/how-to-monitor-pipeline-runs.md
+      - name: Monitor pipelines with Microsoft Teams notifications
+        href: ../data-factory/how-to-send-notifications-to-teams.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Create integration runtime
       items:
       - name: Azure integration runtime
