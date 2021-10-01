@@ -27,36 +27,56 @@ Please consider carefully whether this preview is right for you. It **enables di
 
 ## Get started
 
+Follow these steps in this section and you will be able to instrument OpenTelemetry with your Python application.
+
 ### Prerequisites
 
 - Python Application using version 3.6+
-- [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
-- [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
+- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- Once you have your Azure subscription, if you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource) in the Azure portal to get your connection string.
 
-### Enable Azure Monitor Application Insights
+### Set up your environment
 
-**1. Install package**
+#### 1. Prepare the Python application
 
-Add code to xyz.file in your application
+If you already have a Python application to instrument OpenTelemetry, you could skip this section.
 
-```python
+Create a "HelloWorld" Python project.
+
+placeholder
+
+#### 2. Install the libraries
+
+In a console window (such as cmd, PowerShell, or Bash), use the `python -m pip install` command to install the library.
+
+```powershell
 Placeholder
 ```
 
-**2. Add connection string**
+### Enable OpenTelemetry
 
-Replace placeholder `<Your Connection String>` with YOUR connection string from Application Insights resource.
+#### 3. Add OpenTelemetry instrumentation code
+
+The following code demonstrates enabling OpenTelemetry in the newly created "HelloWorld" Python app. You could copy the code and replace everything in `.py` file of the "HelloWorld" app, or add the same logic to your own application.
+
+```python
+placeholder
+```
+
+#### 4. Set Application Insights connection string
+
+Replace placeholder `<Your Connection String>` in the above code with YOUR connection string from the Application Insights resource.
 
 Find the connection string on your Application Insights Resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
-**3. Confirm data is flowing**
+#### 5. Confirm data is flowing
 
-Generate requests in your application and open your Application Insights Resource.
+Generate some requests in your application and open your Application Insights Resource blade on the Azure portal. It may take a few minutes for data to show up in the Portal.
 
 > [!NOTE]
-> It may take a couple minutes for data to show up in the Portal.
+> If you're not able to run the application or not getting data as expected, please go to [Troubleshooting](#troubleshooting).
 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
 
