@@ -21,7 +21,17 @@
     displayName: automl, auto ml
     href: concept-automated-ml.md     
 - name: How-to guides
-
+  items:
+  - name: How to get started with your individual Azure DevTest credit
+    href: how-to-get-started-with-your-individual-azure-devtest-credit.md
+  - name: Change directory tenants
+    href: change-directory-tenants.md
+  - name: Removing credit limits 
+    href: removing-credit-limits.md
+  - name: Add users to your directory
+    href: add-users-to-your-directory.md
+  - name: Sign into Azure with GitHub
+    href: sign-into-azure-with-github.md
 - name: Resources
   items: 
     - name: Azure roadmap
