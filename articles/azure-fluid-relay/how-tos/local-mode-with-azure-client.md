@@ -38,7 +38,7 @@ This example uses the **InsecureTokenProvider** to generate and sign authenticat
 
 To run locally, you first configure the orderer and storage URLs to point to the domain and port that the local Azure Fluid Relay service instance is running at (http://localhost:7070 by default). The final step is to set the `tenantId` to `LOCAL_MODE_TENANT_ID`. All of these settings together configure AzureClient to work with a local Azure Fluid Relay service.  
 
-- ## Enabling debug logging
+## Enabling debug logging
 
 You can enable the built-in debug logging from the Fluid Framework using the following setting in a browser console.
 
