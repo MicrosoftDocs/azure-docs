@@ -278,7 +278,7 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 ## Authentication
 
 * [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
-* [Custom authentication providers](authentication-custom.md) use the `authentication` property of the settings file.
+* [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
 
 ## Forwarding gateway
 
@@ -307,7 +307,7 @@ If the `X-Forwarded-Host` header doesn't match a value in the list, the requests
 
 ### Required headers
 
-Required headers are headers that must be sent with each request to your site. One use is to deny access to a site unless one or more headers are present in each request.
+Required headers are HTTP headers that must be sent with each request to your site. One use of required headers is to deny access to a site unless all of the required headers are present in each request.
 
 For example, the following configuration shows how you can add a unique identifier for [Azure Front Door](../frontdoor/front-door-overview.md) that limits access to your site from a specific Azure Front Door instance. See the [Configure Azure Front Door tutorial](front-door-manual.md) for full details.
 

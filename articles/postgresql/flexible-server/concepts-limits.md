@@ -91,6 +91,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 - Postgres 10 and older are not supported. We recommend using the [Single Server](../overview-single-server.md) option if you require older Postgres versions.
 - Extension support is currently limited to the Postgres `contrib` extensions.
 - Built-in PgBouncer connection pooler is currently not available for Burstable servers.
+- SCRAM authentication is not supported with connectivity using built-in PgBouncer.
 
 ### Stop/start operation
 

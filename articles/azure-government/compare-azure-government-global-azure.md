@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: stevevi
 ms.author: stevevi
-ms.date: 09/22/2021
+ms.date: 10/01/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -82,6 +82,8 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |||api.loganalytics.io|api.loganalytics.us||
 |||docs.loganalytics.io|docs.loganalytics.us||
 ||Azure Automation|\*.azure-automation.net|\*.azure-automation.us||
+||Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
+|||\*.manage.microsoft.com|\*.manage.microsoft.us|Enterprise enrollment|
 ||Portal and Cloud Shell|https:\//portal.azure.com|https:\//portal.azure.us||
 ||Gallery URL|https:\//gallery.azure.com/|https:\//gallery.azure.us/||
 |**Migration**|Azure Site Recovery|\*.hypervrecoverymanager.windowsazure.com|\*.hypervrecoverymanager.windowsazure.us|Site Recovery service|
@@ -132,7 +134,7 @@ For more information, see [How do I create a bot that uses US Government data ce
 
 ### [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md)
 
-For feature variations and limitations, see [Azure Machine Learning sovereign cloud parity](../machine-learning/reference-machine-learning-cloud-parity.md).
+For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md).
 
 ### [Cognitive Services: Content Moderator](../cognitive-services/content-moderator/overview.md)
 
@@ -164,13 +166,6 @@ The following Translator **features are not currently available** in Azure Gover
 This section outlines variations and considerations when using Analytics services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
 ### [Azure HDInsight](../hdinsight/hdinsight-overview.md)
-
-The following HDInsight **features are not currently available** in Azure Government:
-
-- HDInsight on Windows
-- Azure Data Lake Storage
-
-Azure Blob Storage is the only available storage option currently.
 
 For secured virtual networks, you will want to allow network security groups (NSGs) access to certain IP addresses and ports. For Azure Government, you should allow the following IP addresses (all with an Allowed port of 443):
 
@@ -355,30 +350,13 @@ The following Azure Monitor **features behave differently** in Azure Government:
 
 #### [Application Insights](../azure-monitor/app/app-insights-overview.md)
 
-This section describes the supplemental configuration that is required to use Application Insights (part of Azure Monitor) in Azure Government.
+Application Insights (part of Azure Monitor) enables the same features in both Azure and Azure Government. This section describes the supplemental configuration that is required to use Application Insights in Azure Government.
 
-**Enable Application Insights for [ASP.NET](#web) & [ASP.NET Core](#web) with Visual Studio**
+**Visual Studio** - In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
 
-In Azure Government, you can enable Application Insights with a [codeless agent](../azure-monitor/app/azure-web-apps.md) for your Azure App Services hosted applications or via the traditional **Add Applications Insights Telemetry** button in Visual Studio, which requires a small manual workaround. If you are experiencing the associated issue, you may see error messages like "There is no Azure subscription associated with this account" or "The selected subscription does not support Application Insights" even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
+**SDK endpoint modifications** - In order to send data from Application Insights to an Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/custom-endpoints.md).
 
-1. Switch Visual Studio to [target the Azure Government cloud](./documentation-government-welcome.md).
-2. Create (or if already existing, set) the User Environment variable for `AzureGraphApiVersion` as follows:
-
-   - Variable name: `AzureGraphApiVersion`
-   - Variable value: `2014-04-01`
-   
-   To create a User Environment variable, go to **Control Panel > System > Advanced system settings > Advanced > Environment Variables**.
-
-3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](#web) or [ASP.NET Core](#web) depending on your project type.
-
-**Snapshot Debugger** is now available for Azure Government customers. To use Snapshot Debugger, the only other prerequisite is to ensure that you are using [Snapshot Collector version 1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5-pre-1906.403) or later. Then follow the standard [Snapshot Debugger documentation](../azure-monitor/app/snapshot-debugger.md).
-
-**SDK endpoint modifications** - In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/custom-endpoints.md).
-
->[!NOTE]
->[**Connection strings**](../azure-monitor/app/sdk-connection-string.md?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
-
-**Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+**Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) from where you can download Azure Government IP addresses.
 
 >[!NOTE]
 >Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
@@ -392,15 +370,11 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 
 ## Media
 
-This section outlines variations and considerations when using Media services in the Azure Government environment.
-For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For Azure Media Services v3 availability, see [Azure clouds and regions in which Media Services v3 exists](../media-services/latest/azure-clouds-regions.md).
+This section outlines variations and considerations when using Media services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
 ### [Media Services](../media-services/previous/index.yml)
 
-For information on how to connect to Media Services v2, see [Access the Azure Media Services API with Azure AD authentication](../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md). The following Media Services **features are not currently available** in Azure Government:
-
-- Analyzing – the Azure Media Indexer 2 Preview Azure Media Analytics media processor is not available in Azure Government.
-- CDN integration – there is no CDN integration with streaming endpoints in Azure Government data centers.
+For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](../media-services/latest/azure-clouds-regions.md#us-government-cloud).
 
 
 ## Migration
@@ -411,8 +385,13 @@ This section outlines variations and considerations when using Migration service
 
 The following Azure Migrate **features are not currently available** in Azure Government:
 
-- Dependency visualization functionality as Azure Migrate depends on Service Map for dependency visualization, which is currently unavailable in Azure Government.
+- Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service.
+- Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on Azure Kubernetes Service (AKS).
+- Containerizing ASP.NET apps and deploying them on Windows containers on AKS.
+- Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
+
+For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#supported-geographies-azure-government).
 
 
 ## Networking
@@ -421,52 +400,7 @@ This section outlines variations and considerations when using Networking servic
 
 ### [Azure ExpressRoute](../expressroute/index.yml)
 
-Azure ExpressRoute is used to create private connections between Azure Government datacenters and your on-premises infrastructure or a colocation facility. ExpressRoute connections do not go over the public Internet—they offer optimized pathways (shortest hops, lowest latency, highest performance, and so on) to Azure Government geo-redundant regions.
-
-- By default, all Azure Government ExpressRoute connectivity is configured active-active redundant with support for bursting, and it delivers up to 10 G circuit capacity (smallest is 50 MB).
-- Microsoft owns and operates all fiber infrastructure between Azure Government regions and Azure Government ExpressRoute Meet-Me locations.
-- Azure Government ExpressRoute provides connectivity to Microsoft Azure, Microsoft 365, and Dynamics 365 cloud services.
-
-Aside from ExpressRoute, you can also use an [IPSec protected VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) (site-to-site for a typical organization) to connect securely from your on-premises infrastructure to Azure Government. For network services to support Azure Government customer applications and solutions, it is recommended that ExpressRoute (private connectivity) is implemented to connect to Azure Government. If you use VPN connections, you should consider the following recommendations:
-
-- You should contact your authorizing official/agency to determine whether private connectivity or other secure connection mechanism is required and to identify any extra restrictions to consider.
-- You should decide whether to mandate that the site-to-site VPN is routed through a private connectivity zone.
-- You should obtain either a Multi-Protocol Label Switching (MPLS) circuit or VPN with a licensed private connectivity access provider.
-
-If you utilize a private connectivity architecture, you should validate that an appropriate implementation is established and maintained for your connection to the Gateway Network/Internet (GN/I) edge router demarcation point for Azure Government. Similarly, your organization must establish network connectivity between your on-premises environment and Gateway Network/Customer (GN/C) edge router demarcation point for Azure Government.
-
-#### BGP communities
-
-This section provides an overview of how BGP communities are used with ExpressRoute in Azure Government. Microsoft advertises routes in the public peering and Microsoft peering paths, with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below.
-
-If you are connecting to Microsoft through ExpressRoute at any one peering location within the Azure Government region, you will have access to all Microsoft cloud services across all regions within the government boundary. For example, if you connected to Microsoft in Washington D.C. through ExpressRoute, you would have access to all Microsoft cloud services hosted in Azure Government. [ExpressRoute overview](../expressroute/expressroute-introduction.md) provides details on locations and partners and a list of peering locations for Azure Government.
-
-You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This arrangement means you will have multiple paths from your network into Microsoft, which can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services.
-
-Microsoft tags prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer optimal routing to customers. For more information, see [Optimize ExpressRoute routing](../expressroute/expressroute-optimize-routing.md).
-
-|Azure Government region|BGP community value|
-|-----------------------|-------------------|
-|US Gov Arizona|12076:51106|
-|US Gov Virginia|12076:51105|
-|US Gov Texas|12076:51108|
-|US DoD Central|12076:51209|
-|US DoD East|12076:51205|
-
-All routes advertised from Microsoft are tagged with the appropriate community value.
-
-In addition to the above, Microsoft also tags prefixes based on the service they belong to. This tagging applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
-
-|Service in national clouds|BGP community value|
-|--------------------------|-------------------|
-|Exchange Online|12076:5110|
-|SharePoint Online|12076:5120|
-|Skype for Business Online|12076:5130|
-|Dynamics 365|12076:5140|
-|Other Office 365 Online services|12076:5200|
-
->[!NOTE]
->Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
+For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md). For an overview of how **BGP communities** are used with ExpressRoute in Azure Government, see [BGP community support in National Clouds](../expressroute/expressroute-routing.md#bgp-community-support-in-national-clouds).
 
 ### [Private Link](../private-link/private-link-overview.md)
 
@@ -506,6 +440,11 @@ This section outlines variations and considerations when using Storage services 
 The following Azure Backup **features are not currently available** in Azure Government:
 
 - Azure Disk Backup, as documented in [Azure Disk Backup support matrix](../backup/disk-backup-support-matrix.md).
+
+### [Azure NetApp Files](../azure-netapp-files/index.yml)
+
+For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government,
+see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md). 
 
 ### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
 
@@ -568,10 +507,6 @@ The following App Service **features are not currently available** in Azure Gove
 
 - Deployment
     - Deployment options: only Local Git Repository and External Repository are available
-- Development tools
-    - Resource explorer
-- Azure Government portal
-    - Private endpoints for Web Apps cannot be configured in the UI; however, private endpoints are enabled in Azure Government and you can use the Private Link Center if you need the UI.
 
 ### [Azure Functions](../azure-functions/index.yml)
 
