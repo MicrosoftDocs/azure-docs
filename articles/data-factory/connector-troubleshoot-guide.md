@@ -17,9 +17,9 @@ ms.custom: has-adal-ref, synapse
 
 This article describes how to troubleshoot connectors in Azure Data Factory and Azure Synapse Analytics.  
 
-## Connector troubleshooting
+## Connector specific problems
 
-You can refer to the troubleshooting pages for each connector to see errors specific to it with explanations of their causes and recommendations to resolve them.
+You can refer to the troubleshooting pages for each connector to see problems specific to it with explanations of their causes and recommendations to resolve them.
 
 - [Azure Blob Storage](connector-troubleshoot-azure-blob-storage.md)
 - [Azure Cosmos DB (including SQL API connector)](connector-troubleshoot-azure-cosmos-db.md)
@@ -240,7 +240,6 @@ The errors below are general to the copy activity and could occur with any conne
 
 For more troubleshooting help, try these resources:
 
-- [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
