@@ -59,11 +59,11 @@ This section provides a list of Video Analyzer endpoints.
 * **Authentication and Authorization**: please refer to the Azure IoT Hub documentation.
 * **Requirement**: Properly configured and functioning edge device with Azure IoT Edge Runtime is required to ensure that the Azure Video Analyzer edge module operates correctly.
 
-## 1.1.4	TLS ENCRYPTION
+## 1.1.4	TLS encryption 
 
 * **Encryption and Server Authentication**: all Video Analyzer endpoints are exposed through TLS 1.2 compliant endpoints.
 
-## 1.1.5	REFERENCES
+## 1.1.5	References 
 
 Public:
 
