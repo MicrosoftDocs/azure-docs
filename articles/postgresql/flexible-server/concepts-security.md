@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/08/2021
+ms.date: 10/01/2021
 ---
 
 
@@ -21,6 +21,10 @@ Multiple layers of security are available to help protect the data on your Azure
 Azure Database for PostgreSQL encrypts data in two ways:
 
 - **Data in transit**: Azure Database for PostgreSQL encrypts in-transit data with Secure Sockets Layer and Transport Layer Security (SSL/TLS). Encryption is enforced by default. See this [guide](how-to-connect-tls-ssl.md) for more details. For better security, you may choose to enable [SCRAM authentication](how-to-connect-scram.md).
+
+>[!Note]
+> By default, secured connectivity between the client and the server is enforced. If your application does not support TLS/SSL and you want to disable secured connectivity to the flexible server, you can change the server parameter `require_secure_transport` to `OFF`. Please note tht it is provided to allow application compatibility and not recommended to turn it off. 
+
 - **Data at rest**: For storage encryption, Azure Database for PostgreSQL uses the FIPS 140-2 validated cryptographic module. Data is encrypted on disk, including backups and the temporary files created while queries are running. 
 
   The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. This is similar to other at-rest encryption technologies, like transparent data encryption in SQL Server or Oracle databases. Storage encryption is always on and can't be disabled.
