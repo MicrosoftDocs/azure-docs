@@ -9,7 +9,7 @@ ms.date: 09/30/2021
 ms.custom: devtestoffer
 ---
 
-## Add users to your Azure credit subscription  
+# Add users to your Azure credit subscription  
 
 To manage and access subscription resources, you must be a user within the directory. When in the subscriptions themselves, the hierarchy is controlled by the Azure Active Directory (AAD) tenancies. AAD is a lightweight directory protocol (LDAP) that stores account names and passwords.  
 
@@ -29,7 +29,7 @@ Step 1 is determining whether you need to add a new user to your subscription. H
 
 ## Where do I add users and their roles within my subscription?
 
-Within AAD access management is a critical function. [Azure role-based access control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) \(Azure RBAC\) is the authorization system that provides fine-grained access management of Azure resources.  
+Within AAD access management is a critical function. [Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) \(Azure RBAC\) is the authorization system that provides fine-grained access management of Azure resources.  
 
 Once you’ve determined you need to add a user, you must understand where you're adding them and what resources they need access to. The set of resources that a user can access is referred to as scope.  
 
@@ -39,10 +39,10 @@ If the project and tasks you're working on need to be monitored by IT to enable 
 
 However, if you're collaborating with another developer or a colleague, they may only need access at the resource or resource group level.  
 
-Follow [this link](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) to better understand how Azure RBAC works and the purpose it serves within your subscription.  
+Follow [this link](https://docs.microsoft.com/azure/role-based-access-control/overview) to better understand how Azure RBAC works and the purpose it serves within your subscription.  
 
 ## How to Add Users or delete users using Azure Active Directory  
 
-- [Add or delete users - Azure Active Directory | Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory)  
+- [Add or delete users - Azure Active Directory | Microsoft Docs](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)  
 
-- [Steps to assign an Azure role - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-steps)  
+- [Steps to assign an Azure role - Azure RBAC | Microsoft Docs](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps)  
