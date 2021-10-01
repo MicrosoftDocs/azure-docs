@@ -15,11 +15,7 @@
         - name: 3. Use your own data
           href: tutorial-experiment-bring-data.md
 - name: Samples
-- name: Concepts
-  items: 
-  - name: Automated ML
-    displayName: automl, auto ml
-    href: concept-automated-ml.md     
+- name: Concepts  
 - name: How-to guides
 - name: Resources
   items: 
