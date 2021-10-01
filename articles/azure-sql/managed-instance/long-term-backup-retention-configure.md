@@ -84,7 +84,7 @@ You can configure SQL Managed Instance to [retain automated backups](../database
 3. When complete, click **Apply**.
 
 > [!IMPORTANT]
-> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](../database/long-term-retention-overview.md).
+> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadence, see [long-term backup retention](../database/long-term-retention-overview.md).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -92,7 +92,7 @@ You can configure SQL Managed Instance to [retain automated backups](../database
 
     ```azurecli
     az sql midb show /
-    --resource group mygroup /
+    --resource-group mygroup /
     --managed-instance myinstance /
     --name mymanageddb /
     --subscription mysubscription
@@ -193,30 +193,24 @@ View the backups that are retained for a specific database with an LTR policy, a
 
 ### View LTR policies
 
-Run the [az sql midb ltr-policy show](/cli/azure/sql/midb/ltr-policy#az_sql_midb_ltr_policy_show) command to view LTR policies for a single database within an instance.
+Run the [az sql midb ltr-policy show](/cli/azure/sql/midb/ltr-policy#az_sql_midb_ltr_policy_show) command to view the LTR policy for a single database within an instance.
 
 ```azurecli
 az sql midb ltr-policy show /
---resource-group mygroup /
---managed-instance myinstance /
---name mymanageddb
+    --resource-group mygroup /
+    --managed-instance myinstance /
+    --name mymanageddb
 ```
 
 ### View LTR backups
 
-Use the [az sql midb ltr-backup show](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_show) command to list the LTR backups within an instance.
+Use the [az sql midb ltr-backup list](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_list) command to view the LTR backups within an instance.
 
 ```azurecli
-aq sql midb ltr-backup show /
---managed-instance myinstance
-```
-
-Add the `location` parameter to get a list of backups in a specific region.
-
-```azurecli
-aq sql midb ltr-backup show /
---managed-instance myinstance /
---location eastus2
+az sql midb ltr-backup list /
+    --resource-group mygroup /
+    --location eastus2 /
+    --managed-instance myinstance
 ```
 
 ### Delete LTR backups
@@ -225,10 +219,10 @@ Run the [az sql midb ltr-backup delete](/cli/azure/sql/midb/ltr-backup#az_sql_mi
 
 ```azurecli
 az sql midb ltr-backup delete /
---location eastus2 /
---managed-instance myinstance /
---database mymanageddb /
---name ltrbackupname
+    --location eastus2 /
+    --managed-instance myinstance /
+    --database mymanageddb /
+    --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000"
 ```
 
 > [!IMPORTANT]
@@ -238,13 +232,26 @@ az sql midb ltr-backup delete /
 
 Run the [az sql midb ltr-backup restore](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_restore) command to restore your database from an LTR backup. You can run [az sql midb ltr-backup show](/cli/azure/sql/midb/ltr-backup#az_sql_midb_ltr_backup_show) to get the `backup-id`.
 
-```azurecli
-az sql midb ltr-backup restore /
---dest-database targetmidb /
---dest-mi myinstance /
---dest-resource-group mygroup /
---backup-id ltrbackupdb
-```
+1. Create a variable for the `backup-id` with the command `az sql db ltr-backup show` for future use.
+
+   ```azurecli
+    get_backup_id=$(az sql midb ltr-backup show
+       --location eastus2 /
+       --server myserver /
+       --managed-instance myinstance /
+       --database mydb /
+       --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000" /
+       --output tsv)
+   ```
+2. Restore your database from an LTR backup
+
+    ```azurecli
+    az sql midb ltr-backup restore /
+        --dest-database targetmidb /
+        --dest-mi myinstance /
+        --dest-resource-group mygroup /
+        --backup-id get_backup_id
+    ```
 
 > [!IMPORTANT]
 > To restore from an LTR backup after the instance has been deleted, you must have permissions scoped to the subscription of the instance and that subscription must be active.

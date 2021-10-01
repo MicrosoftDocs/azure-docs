@@ -89,13 +89,13 @@ This table summarizes the capabilities and features of [point in time restore (P
 
 To perform a restore, see [Restore database from backups](recovery-using-backups.md). You can try backup configuration and restore operations using the following examples:
 
-| Operation | Azure portal | Azure PowerShell |
-|---|---|---|
-| **Change backup retention** | [SQL Database](#change-the-short-term-retention-policy-using-the-azure-portal) <br/> [SQL Managed Instance](#change-the-short-term-retention-policy-using-the-azure-portal) | [SQL Database](#change-the-short-term-retention-policy-using-powershell) <br/>[SQL Managed Instance](#change-the-short-term-retention-policy-using-powershell) |
-| **Change long-term backup retention** | [SQL Database](long-term-backup-retention-configure.md#create-long-term-retention-policies)<br/> [SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) | [SQL Database](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
-| **Restore a database from a point in time** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [SQL Database](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Restore a deleted database** | [SQL Database](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Restore a database from Azure Blob storage** | SQL Database - N/A <br/>SQL Managed Instance - N/A  | SQL Database - N/A <br/>[SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md) |
+| Operation | Azure portal | Azure CLI | Azure PowerShell |
+|---|---|---|---|
+| **Change backup retention** | [SQL Database](#change-the-short-term-retention-policy-using-the-azure-portal) <br/> [SQL Managed Instance](#change-the-short-term-retention-policy-using-the-azure-portal) | [SQL Database](#change-the-short-term-retention-policy-using-azure-cli) <br/> [SQL Managed Instance](#change-the-short-term-retention-policy-using-azure-cli) | [SQL Database](#change-the-short-term-retention-policy-using-powershell) <br/>[SQL Managed Instance](#change-the-short-term-retention-policy-using-powershell) |
+| **Change long-term backup retention** | [SQL Database](long-term-backup-retention-configure.md#create-long-term-retention-policies)<br/> [SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) | [SQL Database](long-term-backup-retention-configure.md) <br/> [SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) | [SQL Database](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
+| **Restore a database from a point in time** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [SQL Database](/cli/azure/sql/db#az_sql_db_restore) <br/> [SQL Managed Instance](/cli/azure/sql/midb#az_sql_midb_restore) | [SQL Database](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restore a deleted database** | [SQL Database](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](long-term-backup-retention-configure.md#restore-from-ltr-backups) <br/> [SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md#restore-from-ltr-backups) | [SQL Database](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restore a database from Azure Blob storage** |  |  | <br/>[SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md) |
 
 ## Backup scheduling
 
@@ -278,6 +278,69 @@ To change the PITR backup retention period or the differential backup frequency 
 
 ---
 
+### Change the short-term retention policy using Azure CLI
+
+Prepare your environment for the Azure CLI.
+
+[!INCLUDE[azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+#### [SQL Database](#tab/single-database)
+
+Change the PITR backup retention and differential backup frequency for active Azure SQL Databases by using the following example.
+
+```azurecli
+# Set new PITR differential backup frequency on an active individual database
+# Valid backup retention must be between 1 and 35 days
+# Valid differential backup frequency must be ether 12 or 24
+az sql db str-policy set /
+  --resource-group myresourcegroup /
+  --server myserver /
+  --name mydb /
+  --retention-days 28 /
+  --diffbackup-hours 24
+```
+
+#### [SQL Database](#tab/managed-instance)
+
+Use the following example to change the PITR backup retention of a **single active** database in a SQL Managed Instance.
+
+```azurecli
+# Set new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
+az sql midb short-term-retention-policy set
+  --resource-group myresourcegroup /
+  --managed-instance myinstance /
+  --name mymanageddb /
+  --retention-days 1 /
+```
+
+Use the following example to change the PITR backup retention for **all active** databases in a SQL Managed Instance.
+
+```azurecli
+# Set new PITR backup retention period for ALL active databases
+# Valid backup retention must be between 1 and 35 days
+az sql midb short-term-retention-policy set
+  --resource-group myresourcegroup /
+  --managed-instance myinstance /
+  --retention-days 1 /
+```
+
+Use the following example to change the PITR backup retention for a **single deleted** database in a SQL Managed Instance.
+
+```azurecli
+# Set new PITR backup retention on an individual deleted database
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
+az sql midb short-term-retention-policy set
+  --resource-group myresourcegroup /
+  --managed-instance myinstance /
+  --name mymanageddb /
+  --deleted-time "2021-05-20T05:34:22"
+  --retention-days 0 /
+```
+
+Zero (0) days retention would denote that backup is immediately deleted and no longer kept for a deleted database.
+Once PITR backup retention has been reduced for a deleted database, it no longer can be increased.
+
 ### Change the short-term retention policy using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -295,7 +358,7 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 ```
 
 ```powershell
-# SET new PITR differental backup frequency on an active individual database
+# SET new PITR differential backup frequency on an active individual database
 # Valid differential backup frequency must be ether 12 or 24. 
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28 -DiffBackupIntervalInHours 24
 ```
@@ -440,6 +503,36 @@ Find the option to select backup storage redundancy on the **Compute + storage**
 ![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
 
 ---
+
+### Configure backup storage redundancy by using Azure CLI
+
+#### [SQL Database](#tab/single-database)
+
+To configure backup storage redundancy when creating a new database, you can specify the `backup-storage-redundancy` parameter. Possible values are Geo, Zone, and Local. By default, all SQL Databases use geo-redundant storage for backups. Geo-restore is disabled if a database is created or updated with local or zone redundant backup storage.
+
+```azurecli
+az sql db create /
+    --resource-group myresourcegroup /
+    --server myserver /
+    --name mydb /
+    --tier GeneralPurpose /
+    --backup-storage-redundancy Local
+```
+
+You can also update an existing database with the `backup-storage-redundancy` parameter.
+
+```azurecli
+az sql db update /
+    --resource-group myresourcegroup /
+    --server myserver /
+    --name mydb /
+    --backup-storage-redundancy Local
+```
+For more details, see [az sql db create](/cli/azure/sql/db#az_sql_db_create) and [az sql db update](/cli/azure/sql/db#az_sql_db_update).
+
+#### [SQL Managed Instance](#tab/managed-instance)
+
+Configuring backup storage redundancy is not available for a SQL Managed Instance when using the Azure CLI. For more information, see the [Azure portal](#configure-backup-storage-redundancy-by-using-the-azure-portal) or [PowerShell](#configure-backup-storage-redundancy-by-using-powershell) options.
 
 ### Configure backup storage redundancy by using PowerShell
 

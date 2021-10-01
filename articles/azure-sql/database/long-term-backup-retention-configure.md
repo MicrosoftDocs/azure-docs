@@ -94,22 +94,22 @@ Run the [az sql db ltr-policy set](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_po
 
 ```azurecli
 az sql db ltr-policy set /
---resource-group mygroup /
---server myserver /
---name mydb /
---weekly-retention "P12W"
+   --resource-group mygroup /
+   --server myserver /
+   --name mydb /
+   --weekly-retention "P12W"
 ```
 
 This example sets a retention policy for 12 weeks for the weekly backup, 5 years for the yearly backup, and the week of April 15 in which to take the yearly LTR backup.
 
 ```azurecli
 az sql db ltr-policy set /
---resource-group mygroup /
---server myserver /
---name mydb /
---weekly-retention "P12W" /
---yearly-retention "P5Y" /
---week-of-year 16
+   --resource-group mygroup /
+   --server myserver /
+   --name mydb /
+   --weekly-retention "P12W" /
+   --yearly-retention "P5Y" /
+   --week-of-year 16
 ```
 
 # [PowerShell](#tab/powershell)
@@ -172,25 +172,24 @@ View the backups that are retained for a specific database with an LTR policy, a
 
 ### View LTR policies
 
-Run the [az sql db ltr-policy show](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_policy_show) command to view LTR policies for a single database on your server.
+Run the [az sql db ltr-policy show](/cli/azure/sql/db/ltr-policy#az_sql_db_ltr_policy_show) command to view the LTR policy for a single database on your server.
 
 ```azurecli
 az sql db ltr-policy show /
---resource-group mygroup /
---server myserver /
---name mydb
+    --resource-group mygroup /
+    --server myserver /
+    --name mydb
 ```
 
 ### View LTR backups
 
-Use the [az sql db ltr-backup show](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_show) command to list the LTR backups on your server.
+Use the [az sql db ltr-backup list](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_list) command to list the LTR backups for a database. 
 
 ```azurecli
-aq sql db ltr-backup show /
---location eastus2 /
---server myserver /
---database mydb /
---name ltrbackupname
+az sql db ltr-backup list /
+   --location eastus2 /
+   --server myserver /
+   --database mydb /
 ```
 
 ### Delete LTR backups
@@ -199,10 +198,10 @@ Run the [az sql db ltr-backup delete](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr
 
 ```azurecli
 az sql db ltr-backup delete /
---location eastus2 /
---server myserver /
---database mydb /
---name ltrbackupname
+   --location eastus2 /
+   --server myserver /
+   --database mydb /
+   --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000"
 ```
 
 > [!IMPORTANT]
@@ -212,19 +211,32 @@ az sql db ltr-backup delete /
 
 Run the [az sql db ltr-backup restore](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_restore) command to restore your database from an LTR backup. You can run [az sql db ltr-backup show](/cli/azure/sql/db/ltr-backup#az_sql_db_ltr_backup_show) to get the `backup-id`.
 
-```azurecli
---az sql db ltr-backup restore /
---dest-database targetdb /
---dest-server myserver /
---dest-resource-group mygroup /
---backup-id ltrbackupid
-```
+1. Create a variable for the `backup-id` with the command `az sql db ltr-backup show' for future use.
+
+   ```azurecli
+   get_backup_id=$(az sql db ltr-backup show 
+       --location eastus2 /
+       --server myserver /
+       --database mydb
+       --name "3214b3fb-fba9-43e7-96a3-09e35ffcb336;132292152080000000" /
+       --output tsv)
+   ```
+
+2. Restore your database from the LTR backup.
+
+    ```azurecli
+    az sql db ltr-backup restore /
+       --dest-database targetdb /
+       --dest-server myserver /
+       --dest-resource-group mygroup /
+       --backup-id get_backup_id
+    ```
 
 > [!IMPORTANT]
 > To restore from an LTR backup after the server or resource group has been deleted, you must have permissions scoped to the server's subscription and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
 
 > [!NOTE]
-> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](recovery-using-backups.md#point-in-time-restore).
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, like database swapping. See [point in time restore](recovery-using-backups.md#point-in-time-restore).
 
 # [PowerShell](#tab/powershell)
 
