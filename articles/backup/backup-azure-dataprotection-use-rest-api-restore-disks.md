@@ -244,7 +244,7 @@ It returns two responses: 202 (Accepted) when another operation is created, and 
 
 ###### Example response to restore validate request
 
-Once the *POST* operation is submitted, it'll return the initial response as 202 (Accepted) with an Azure-asyncOperation header.
+Once the *POST* operation is submitted, it'll return the initial response as 202 (Accepted) with an _Azure-asyncOperation_ header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -265,7 +265,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the Azure-AsyncOperation header with a simple *GET* request. When the request is successful it returns 200 OK with a success status response.
+Track the _Azure-AsyncOperation_ header with a simple *GET* request. When the request is successful, it returns 200 (OK) with a success status response.
 
 ```http
  GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzVlNzMxZDBiLTQ3MDQtNDkzNS1hYmNjLWY4YWEzY2UzNTk1ZQ==?api-version=2021-01-01
@@ -336,7 +336,7 @@ It returns two responses: 202 (Accepted) when another operation is created, and 
 
 ##### Example response to trigger restore request
 
-Once the *POST* operation is submitted, it'll return the initial response as 202 (Accepted) with an Azure-asyncOperation header.
+Once the *POST* operation is submitted, it'll return the initial response as 202 (Accepted) with an _Azure-asyncOperation_ header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -357,7 +357,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the Azure-AsyncOperation header with a simple *GET* request. When the request is successful, it'll return 200 (OK) with a Job ID that should be further tracked for completion of restore request.
+Track the _Azure-AsyncOperation_ header with a simple *GET* request. When the request is successful, it'll return 200 (OK) with a job ID that should be further tracked for completion of restore request.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExO2Q1NDIzY2VjLTczYjYtNDY5ZC1hYmRjLTc1N2Q0ZTJmOGM5OQ==?api-version=2021-01-01
