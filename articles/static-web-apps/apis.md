@@ -36,7 +36,7 @@ The following table contrasts the differences between using managed and existing
 | [Managed identity](../app-service/overview-managed-identity.md) | ✕ | ✔ |
 | [Azure App Service Authentication and Authorization](../app-service/configure-authentication-provider-aad.md) token management | ✕ | ✔ |
 | API functions available outside Azure Static Web Apps | ✕ | ✔ |
-| [Supports Key Vault references](../app-service/app-service-key-vault-references.md) | ✕ | ✔ |
+| [Key Vault references](../app-service/app-service-key-vault-references.md) | ✕ | ✔ |
 
 ## Configuration
 
