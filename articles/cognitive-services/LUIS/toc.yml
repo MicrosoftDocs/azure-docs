@@ -28,13 +28,13 @@ items:
   - name: Transparency notes
     items:
     - name: LUIS use cases
-      href: /legal/cognitive-services/luis/luis-transparency-note.md?context=/azure/cognitive-services/LUIS/context/context
+      href: /legal/cognitive-services/luis/luis-transparency-note?context=/azure/cognitive-services/LUIS/context/context
     - name: Characteristics and limitations
-      href: /legal/cognitive-services/luis/characteristics-and-limitations.md?context=/azure/cognitive-services/LUIS/context/context
+      href: /legal/cognitive-services/luis/characteristics-and-limitations?context=/azure/cognitive-services/LUIS/context/context
   - name: Integration and responsible use
-    href: /legal/cognitive-services/luis/guidance-integration-responsible-use.md?context=/azure/cognitive-services/LUIS/context/context
+    href: /legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/cognitive-services/LUIS/context/context
   - name: Data, privacy, and security
-    href: /legal/cognitive-services/luis/data-privacy-security.md?context=/azure/cognitive-services/LUIS/context/context
+    href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context
 - name: How-to guides
   items:
   - name: Sign in to LUIS portal
