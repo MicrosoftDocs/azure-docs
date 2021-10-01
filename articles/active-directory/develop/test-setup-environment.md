@@ -34,7 +34,7 @@ Set up your test environment in a separate tenant (not your organization's produ
 - You plan on performing automated sign-ins to your application for testing and your production tenant has configured authentication method policies that require some user interaction.  For example, if multifactor authentication is required for all users you won't be able to perform automated sign-ins for integration testing.
 - You must ensure that global administrators can't manage or access specific test resources. You'll need to isolate that
 resource in a separate tenant with separate global administrators.
-- Adding non-production resources and/or workload to your production tenant would [exceed service or throttling limits](test-throttle-and-service-limits.md) for that tenant.
+- Adding non-production resources and/or workload to your production tenant would [exceed service or throttling limits](test-throttle-service-limits.md) for that tenant.
 
 If none of these conditions apply to you, then follow these steps to [set up your test environment in your production tenant](#set-up-a-test-environment-in-your-production-tenant).  If any of them do apply, however, you should [set up a test environment in a separate tenant](#set-up-a-test-environment-in-a-separate-tenant).
 
@@ -137,7 +137,7 @@ For detailed instructions on restricting an app to specific users in a tenant, g
 
 ## Next steps
  
-Learn about [throttling and service limits](test-throttle-and-service-limits.md) you might hit while setting up a test environment.
+Learn about [throttling and service limits](test-throttle-service-limits.md) you might hit while setting up a test environment.
 
 For more detailed information about test environments, read [Securing Azure environments with Azure Active Directory](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/).
   

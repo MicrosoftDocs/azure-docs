@@ -325,7 +325,7 @@
     - name: Setup a test environment
       href: test-setup-environment.md
     - name: Throttling and service limits
-      href: test-throttle-and-service-limits.md
+      href: test-throttle-service-limits.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
