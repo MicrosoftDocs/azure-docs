@@ -6,7 +6,7 @@ tags: azure-key-vault
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/01/2021
 ms.author: mbaldwin
 
 # Customer intent: As a developer using Key Vault secrets I want to know the best practices so I can implement them.
