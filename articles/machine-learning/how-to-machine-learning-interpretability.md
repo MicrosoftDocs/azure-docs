@@ -49,7 +49,7 @@ Using the classes and methods in the SDK, you can:
 
 In machine learning, **features** are the data fields used to predict a target data point. For example,
 to predict credit risk, data fields for age, account size, and account age might be used. In this case,
-age, account size, and account age are **features**. Feature importance tells you how each data field affected the model's predictions. For example, age may be heavily used in the prediction while account size and age do not affect the prediction values significantly. This process allows data scientists to explain resulting predictions, so that stakeholders have visibility into what features are most important in the model.
+age, account size, and account age are **features**. Feature importance tells you how each data field affected the model's predictions. For example, age may be heavily used in the prediction while account size and account age do not affect the prediction values significantly. This process allows data scientists to explain resulting predictions, so that stakeholders have visibility into what features are most important in the model.
 
 ## Supported interpretability techniques
 
