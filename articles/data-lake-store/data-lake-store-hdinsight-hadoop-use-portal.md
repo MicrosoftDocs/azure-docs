@@ -2,11 +2,11 @@
 title: Create Azure HDInsight clusters with Data Lake Storage Gen1 - portal
 description: Use the Azure portal to create and use HDInsight clusters with Azure Data Lake Storage Gen1
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Create HDInsight clusters with Azure Data Lake Storage Gen1 by using the Azure portal

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
-ms.subservice: common 
+ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ---
 

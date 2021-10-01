@@ -1,6 +1,6 @@
 ---
 title: Enable soft delete for blobs
-titleSuffix: Azure Storage 
+titleSuffix: Azure Storage
 description: Enable soft delete for blobs to protect blob data from accidental deletes or overwrites.
 services: storage
 author: tamram
@@ -11,7 +11,6 @@ ms.date: 06/29/2021
 ms.author: tamram
 ms.subservice: blobs  
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Enable soft delete for blobs
@@ -106,14 +105,14 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 1. Save your changes.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot showing how to enable soft delete in the Azure portal in accounts that have a hierarchical namespace](./media/soft-delete-blob-enable/blob-soft-delete-configuration-portal-hierarchical-namespace.png)
+> ![Screenshot showing how to enable soft delete in the Azure portal in accounts that have a hierarchical namespace.](./media/soft-delete-blob-enable/blob-soft-delete-configuration-portal-hierarchical-namespace.png)
 
 ### [PowerShell](#tab/azure-powershell)
 
 1. Install the latest **PowershellGet** module. Then, close and reopen the PowerShell console.
 
     ```powershell
-    install-Module PowerShellGet –Repository PSGallery –Force 
+    install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 2. Install **Az.Storage** preview module.
@@ -124,7 +123,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
     For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
-3. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). See [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
+3. Obtain storage account authorization by using either a storage account key, a connection string, or Azure Active Directory (Azure AD). For more information, see [Connect to the account](data-lake-storage-directory-file-acl-powershell.md#connect-to-the-account).
 
    The following example obtains authorization by using a storage account key.
 
@@ -156,7 +155,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
    az extension add -n storage-preview
    ```
 
-3. Connect to your storage account. See [Connect to the account](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account).
+3. Connect to your storage account. For more information, see [Connect to the account](data-lake-storage-directory-file-acl-cli.md#connect-to-the-account).
 
    > [!NOTE]
    > The example presented in this article show Azure Active Directory (Azure AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).

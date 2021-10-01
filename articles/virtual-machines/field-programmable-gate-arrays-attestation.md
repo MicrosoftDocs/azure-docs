@@ -48,9 +48,9 @@ You can also use the Azure portal for this as well.
 
 ## Upload your netlist file to Azure blob storage  
 
-There are several ways to copy the file; an example using the az storage upload cmdlet is shown below. The az commands run on both Linux and Windows. You can choose any name for the “blob” name but make sure to retain the xclbin extension. 
+There are several ways to copy the file; an example using the az storage upload cmdlet is shown below. The az commands run on both Linux and Windows. You can choose any name for the "blob" name but make sure to retain the `xclbin` extension.
 
-```az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>  ```
+`az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>`
 
 ## Download the attestation scripts  
 

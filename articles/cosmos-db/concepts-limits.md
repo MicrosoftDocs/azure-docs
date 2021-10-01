@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 09/23/2021
 ---
 
 # Azure Cosmos DB service quotas
@@ -97,7 +97,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
+| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) up to 1,000 max.|
 | Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
 
 > [!NOTE]
@@ -111,16 +111,16 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum number of databases | Unlimited |
+| Maximum number of databases | 500 |
 | Maximum number of containers per database with shared throughput |25 |
-| Maximum number of containers per database or account with dedicated throughput  |unlimited |
+| Maximum number of containers per database or account with dedicated throughput  | 500 |
 | Maximum number of regions | No limit (All Azure regions) |
 
 ### Serverless
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of databases | Unlimited |
+| Maximum number of databases | 500 |
 | Maximum number of containers per account  | 100 |
 | Maximum number of regions | 1 (Any Azure region) |
 

@@ -8,7 +8,7 @@ ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
-ms.reviewer: prishet 
+ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ---
 
@@ -22,7 +22,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. For more information, see [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
@@ -38,7 +38,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
     az --version
    ```
 
-   If your version of Azure CLI is lower than `2.6.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+   If your version of Azure CLI is lower than `2.6.0`, then install a later version. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to the account
 
@@ -144,7 +144,7 @@ Delete a directory by using the `az storage fs directory delete` command.
 This example deletes a directory named `my-directory`.
 
 ```azurecli
-az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## Check if a directory exists
@@ -154,7 +154,7 @@ Determine if a specific directory exists in the container by using the `az stora
 This example reveals whether a directory named `my-directory` exists in the `my-file-system` container.
 
 ```azurecli
-az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
+az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Download from a directory
@@ -212,7 +212,7 @@ Delete a file by using the `az storage fs file delete` command.
 This example deletes a file named `my-file.txt`
 
 ```azurecli
-az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## See also

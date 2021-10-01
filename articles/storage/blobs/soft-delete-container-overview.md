@@ -1,6 +1,6 @@
 ---
 title: Soft delete for containers
-titleSuffix: Azure Storage 
+titleSuffix: Azure Storage
 description: Soft delete for containers protects your data so that you can more easily recover your data when it is erroneously modified or deleted by an application or by another storage account user.
 services: storage
 author: tamram

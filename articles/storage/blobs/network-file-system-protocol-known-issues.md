@@ -1,5 +1,5 @@
 ---
-title: Known issues with NFS 3.0 in Azure Blob Storage | Microsoft Docs
+title: Known issues with NFS 3.0 in Azure Blob Storage
 description: Learn about limitations and known issues of Network File System (NFS) 3.0 protocol support in Azure Blob Storage.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
 ms.reviewer: yzheng
-
 ---
 
 # Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage

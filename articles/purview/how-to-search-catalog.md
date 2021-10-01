@@ -6,7 +6,11 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
+<<<<<<< HEAD
 ms.date: 10/01/2021
+=======
+ms.date: 09/27/2021
+>>>>>>> 12de73f285e93f7af2803ee55cfd546b266607d8
 ---
 
 # Search the Azure Purview Data Catalog
@@ -21,11 +25,19 @@ The search bar can be quickly accessed from the top bar of the Purview Studio UX
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
+<<<<<<< HEAD
 Once you click on the search bar, you will be presented with your search history and the assets recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
 Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in search keywords, Purview dynamically suggests assets and searches that may fit your needs. To complete your search, click on "View search results" or press "Enter".
+=======
+When you select the search bar, you can see your recent search history and recently accessed assets. Select **View all** to see all of the recently viewed assets.
+
+:::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
+
+Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, select **View search results** or press "Enter".
+>>>>>>> 12de73f285e93f7af2803ee55cfd546b266607d8
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
@@ -40,11 +52,15 @@ If the top results don’t include the assets you are looking for, you can use t
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
+<<<<<<< HEAD
 For certain annotations, you can click on the ellipses to choose between an AND condition or an OR condition. 
 
 :::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
 
 Once you find the asset you are looking for, you can select it to view additional details such as schema, lineage, and a detailed classification list. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
+=======
+ Select your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
+>>>>>>> 12de73f285e93f7af2803ee55cfd546b266607d8
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
 

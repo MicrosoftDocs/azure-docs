@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.subservice: blobs 
+ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
 

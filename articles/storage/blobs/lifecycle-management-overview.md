@@ -9,7 +9,7 @@ ms.date: 08/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: yzheng 
+ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, references_regions"
 ---
 
@@ -158,7 +158,7 @@ The run conditions are based on age. Base blobs use the last modified time, blob
 |--|--|--|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for base blob actions |
 | daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for blob version and blob snapshot actions |
-| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when  access tracking is enabled |
+| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when access tracking is enabled |
 
 ## Examples of lifecycle policies
 
@@ -387,7 +387,7 @@ The platform runs the lifecycle policy once a day. Once you configure a policy, 
 
 **If I update an existing policy, how long does it take for the actions to run?**
 
-The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted.  The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
+The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted. The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
 
 **I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**
 
@@ -396,5 +396,5 @@ When a blob is moved from one access tier to another, its last modification time
 ## Next steps
 
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
-- [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
+- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)

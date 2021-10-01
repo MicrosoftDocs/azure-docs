@@ -1,5 +1,5 @@
 ---
-title: Filter data by using Azure Data Lake Storage query acceleration | Microsoft Docs
+title: Filter data by using Azure Data Lake Storage query acceleration
 description: Use query acceleration to retrieve a subset of data from your storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -200,7 +200,7 @@ Update-Module -Name Az
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-csv</artifactId>
         <version>1.8</version>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-storage-blob</artifactId>
@@ -551,9 +551,9 @@ Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
 }
 
 $container = "data"
-$query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType 
-            FROM BlobStorage 
-            WHERE ItemType IN 
+$query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
+            FROM BlobStorage
+            WHERE ItemType IN
                 ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')"
 
 ```
@@ -563,9 +563,9 @@ $query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
 ```cs
 static async Task QueryDvds(BlockBlobClient blob)
 {
-    string query = @"SELECT BibNum, Title, Author, ISBN, Publisher, ItemType 
-        FROM BlobStorage 
-        WHERE ItemType IN 
+    string query = @"SELECT BibNum, Title, Author, ISBN, Publisher, ItemType
+        FROM BlobStorage
+        WHERE ItemType IN
             ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')";
     await DumpQueryCsv(blob, query, true);
 }
@@ -602,7 +602,7 @@ async function queryDvds(blob)
 {
     const query = "SELECT BibNum, Title, Author, ISBN, Publisher, ItemType " +
                   "FROM BlobStorage " +
-                  "WHERE ItemType IN " + 
+                  "WHERE ItemType IN " +
                   " ('acdvd', 'cadvd', 'cadvdnf', 'calndvd', 'ccdvd', 'ccdvdnf', 'jcdvd', 'nadvd', 'nadvdnf', 'nalndvd', 'ncdvd', 'ncdvdnf')";
     await dumpQueryCsv(blob, query, true);
 }
