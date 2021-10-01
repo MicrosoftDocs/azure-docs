@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/07/2021
+ms.date: 09/16/2021
 ms.author: aahi
 ms.reviewer: chtufts
 ---
@@ -27,10 +27,12 @@ Use this article to find the limits for the size, and rates that you can send da
 > * Data and rate limits are based on the number of documents you send to the API. If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
 >   * A document is a single string of text characters.  
 
+
+
 | Limit | Value |
 |------------------------|---------------|
 | Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Also applies to Text Analytics for health. |
-| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Does not apply to Text Analytics for health. |
+| Maximum number of characters per request (`/analyze` endpoint)  | 125K characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). Does not apply to Text Analytics for health. |
 | Maximum size of entire request | 1 MB. Also applies to Text Analytics for health. |
 
 

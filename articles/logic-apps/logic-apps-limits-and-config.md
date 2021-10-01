@@ -1,23 +1,21 @@
 ---
 title: Limits and configuration reference guide
-description: Reference guide to limits and configuration information for Azure Logic Apps
+description: Reference guide to limits and configuration information for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 08/30/2021
+ms.date: 09/16/2021
 ---
 
 # Limits and configuration reference for Azure Logic Apps
 
-> For Power Automate, see [Limits and configuration in Power Automate](/power-automate/limits-and-config).
+> For Power Automate, review [Limits and configuration in Power Automate](/power-automate/limits-and-config).
 
 This article describes the limits and configuration information for Azure Logic Apps and related resources. To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
 
 > [!NOTE]
-> Many limits are the same across these host environments, but differences are noted where they exist. 
-> If your scenarios require different limits, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) 
-> to discuss your requirements.
+> Many limits are the same across the available environments where Azure Logic Apps runs, but differences are noted where they exist. 
 
 The following table briefly summarizes differences between the original **Logic App (Consumption)** resource type and the **Logic App (Standard)** resource type. You'll also learn how the *single-tenant* environment compares to the *multi-tenant* and *integration service environment (ISE)* for deploying, hosting, and running your logic app workflows.
 
@@ -357,13 +355,14 @@ The following table lists the values for a single workflow definition:
 
 ## Custom connector limits
 
-For multi-tenant and integration service environment only, you can create and use [custom managed connectors](/connectors/custom-connectors), which are wrappers around an existing REST API or SOAP API. For single-tenant only, you can create and use [custom built-in connectors](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+In multi-tenant Azure Logic Apps and the integration service environment only, you can create and use [custom managed connectors](/connectors/custom-connectors), which are wrappers around an existing REST API or SOAP API. In single-tenant Azure Logic Apps, you can create and use only [custom built-in connectors](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 The following table lists the values for custom connectors:
 
 | Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
 |------|--------------|---------------|---------------------------------|-------|
 | Custom connectors | 1,000 per Azure subscription | Unlimited | 1,000 per Azure subscription ||
+| Custom connectors - Number of APIs | SOAP-based: 50 | Not applicable | SOAP-based: 50 ||
 | Requests per minute for a custom connector | 500 requests per minute per connection | Based on your implementation | 2,000 requests per minute per *custom connector* ||
 | Connection timeout | 2 min | Idle connection: <br>4 min <p><p>Active connection: <br>10 min | 2 min ||
 ||||||

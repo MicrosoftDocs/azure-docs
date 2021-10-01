@@ -1,5 +1,4 @@
 ---
-
 title: Tutorial to migrate Okta sync provisioning to Azure AD Connect based synchronization
 titleSuffix: Active Directory
 description: Learn how to migrate your Okta sync provisioning to Azure AD Connect based synchronization
@@ -14,7 +13,6 @@ ms.date: 09/01/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
 ---
-
 
 # Tutorial: Migrate Okta sync provisioning to Azure Active Directory Connect based synchronization
 
