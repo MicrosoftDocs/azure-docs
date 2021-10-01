@@ -18,7 +18,7 @@ After model training is completed, you can view the model details and see how we
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart/using-language-studio.md)
+* Successfully created a [Custom text classification project](../quickstart.md)
 
 * Completed [model training](train-model.md) successfully.
 

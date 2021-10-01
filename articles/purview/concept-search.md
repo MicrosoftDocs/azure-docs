@@ -1,12 +1,12 @@
 ---
-title: Understand search features in Azure Purview (preview)
+title: Understand search features in Azure Purview
 description: This article explains how Azure Purview enables data discovery through search features.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 09/27/2021
 ---
 
 # Understand search features in Azure Purview
@@ -55,4 +55,4 @@ Relevance is the default sort order in the search result page. The search releva
 
 * [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
 * [Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell.md)
-* [Quickstart: Use Purview Studio](use-purview-studio.md)
+* [Use the Purview Studio](use-purview-studio.md)

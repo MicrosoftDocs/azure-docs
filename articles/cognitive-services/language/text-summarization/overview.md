@@ -1,5 +1,5 @@
 ---
-title: What is the Text Summarization API?
+title: What is text summarization in Azure Cognitive Service for language?
 titleSuffix: Azure Cognitive Services
 description: Learn about summarizing text with Language Services.
 services: cognitive-services
@@ -8,37 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/09/2021
+ms.date: 09/30/2021
 ms.author: aahi
 ---
 
-# What is the Text Summarization API?
+# What is text summarization in Azure Cognitive Service for language?
 
-Extractive summarization is a feature in Language Services that produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
+Text summarization is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. This extractive summarization feature can produce a summary by extracting sentences that collectively represent the most important or relevant information within a document. It condenses articles, papers, or documents to key sentences.
 
-This feature is designed to help address the problem with content that users think is too long to read. Extractive summarization condenses articles, papers, or documents to key sentences.
+* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 
-* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
-
-This feature is a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API and client library.
-
-## Typical workflow
-
-To use the API, you submit data for analysis and handle outputs in your application. Analysis is performed as-is, with no additional customization to the model used on your data.
-
-1. Create an Azure resource for Language Services. Afterwards, get the key and endpoint generated for you to authenticate your requests.
-
-2. Formulate a request using either the REST API or the client library for: C#, Java, JavaScript or Python. You can also call the API asynchronously to combine requests to multiple [Language Services](../overview.md) features in a single call.
-
-3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
-
-4. Stream or store the response locally. The result will be a collection of summarized sentences extracted from your text. 
+[!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for language detection](/legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
-* [Transparency note for Language services](/legal/cognitive-services/text-analytics/transparency-note)
-* [Transparency note for Sentiment Analysis and Opinion Mining](/legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis)
-* [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
-* [Data, privacy, and security](/legal/cognitive-services/text-analytics/data-privacy)
+[!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
+
+## Next steps
+
+There are two ways to get started using the entity linking feature:
+* [Language Studio](../concepts/language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+* The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  

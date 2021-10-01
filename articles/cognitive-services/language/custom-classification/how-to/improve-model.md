@@ -18,7 +18,7 @@ After you've trained your model you reviewed its evaluation details, you can sta
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart/using-language-studio.md).
+* Successfully created a [Custom text classification project](../quickstart.md).
 * Completed [model training](train-model.md) successfully.
 * Viewed [model evaluation details](view-model-evaluation.md).
 

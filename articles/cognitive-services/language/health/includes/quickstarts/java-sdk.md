@@ -24,14 +24,14 @@ ms.author: aahi
 
 ### Add the client library
 
-Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) online.
+Create a Maven project in your preferred IDE or development environment. Then add the following dependency to your project's *pom.xml* file. You can find the implementation syntax [for other build tools](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0-beta.1) online.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0</version>
+        <version>5.2.0-beta.1</version>
     </dependency>
 </dependencies>
 ```

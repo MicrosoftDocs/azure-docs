@@ -29,7 +29,7 @@ Custom question answering uses [CMK support from Azure search](../../../../searc
 
 Follow these steps to enable CMKs:
 
-1.	Go to the **Encryption** tab of your Text Analytics service with Custom question answering (preview) feature enabled.
+1.	Go to the **Encryption** tab of your language resource with custom question answering enabled.
 2.	Select the **Customer Managed Keys** option. Provide the details of your [customer-managed keys](../../../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal) and select **Save**.
 
 > [!div class="mx-imgBorder"]
@@ -38,7 +38,7 @@ Follow these steps to enable CMKs:
 3.	On a successful save, the CMK will be used to encrypt the data stored in the Azure Search Index.
 
 > [!IMPORTANT]
-> It is recommended to set your CMK in a fresh Azure Cognitive Search service before any knowledge bases are created. If you set CMK in a Text Analytics service with existing knowledge bases, you might lose access to them. Read more about [working with encrypted content](../../../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure Cognitive search.
+> It is recommended to set your CMK in a fresh Azure Cognitive Search service before any knowledge bases are created. If you set CMK in a langauge resource with existing knowledge bases, you might lose access to them. Read more about [working with encrypted content](../../../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure Cognitive search.
 
 > [!NOTE]
 > To request the ability to use customer-managed keys, fill out and submit the [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk).

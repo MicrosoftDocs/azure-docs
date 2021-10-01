@@ -19,7 +19,7 @@ Before creating a custom text classification model, you need to have tagged data
 
 ## Prerequisites
 
-* a [created project](../quickstart/using-language-studio.md) with a valid resource and storage account.
+* a [created project](../quickstart.md) with a valid resource and storage account.
 
 ## Tag your data
 

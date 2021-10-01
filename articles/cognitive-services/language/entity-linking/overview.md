@@ -1,49 +1,38 @@
 ---
-title: Entity linking in Azure Language services
+title: What is entity linking in Azure Cognitive Service for language?
 titleSuffix: Azure Cognitive Services
-description: Learn about entity linking with Language Services.
+description: An overview of entity linking in Azure Cognitive Services, which helps you extract entities from text, and provides links to an online knowledge base.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/09/2021
+ms.date: 09/20/2021
 ms.author: aahi
-keywords: text mining
 ---
 
-# What is the entity linking API?
+# What is entity linking in Azure Cognitive Service for language?
 
-Azure Language services is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis, including entity linking
+Entity linking is one of the features offered by [Azure Cognitive Services for language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Entity linking identifies and disambiguates the identity of entities found in text. For example, in the sentence "*We went to Seattle last week.*", the word "*Seattle*" would be identified, with a link to more information on Wikipedia.
 
 This documentation contains the following types of articles:
 
-* [How-to guides](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
+* [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific ways.
 
-## Entity linking
+[!INCLUDE [Typical workflow for pre-configured language features](../includes/overview-typical-workflow.md)]
 
-Entity linking is the ability to identify and disambiguate the identity of an entity found in text. 
-
-This feature is a part of Azure Language services, which is a part [Azure Cognitive Services](../overview.md), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API and client library.
-
-## Typical workflow
-
-To use the API, you submit data for analysis and handle outputs in your application. Analysis is performed as-is, with no additional customization to the model used on your data.
-
-1. Create an Azure resource for Language Services. Afterwards, get the key and endpoint generated for you to authenticate your requests.
-
-2. Formulate a request using either the REST API or the client library for: C#, Java, JavaScript or Python. You can also call the API asynchronously to combine requests to multiple [Language Services](../overview.md) features in a single call.
-
-3. Send the request containing your data as raw unstructured text. Your key and endpoint will be used for authentication.
-
-4. Stream or store the response locally. The result will be a collection of recognized entities in your text, URLs to an online knowledge base. 
+The result will be a collection of recognized entities in your text, with URLs to Wikipedia as an online knowledge base. 
 
 ## Responsible AI 
 
-An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
+An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the [transparency note for entity linking](/legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language/context/context) to learn about responsible AI use and deployment in your systems. You can also see the following articles for more information:
 
-* [Transparency note for Language services](/legal/cognitive-services/text-analytics/transparency-note)
-* [Transparency note for Sentiment Analysis and Opinion Mining](/legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis)
-* [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
-* [Data, privacy and security](/legal/cognitive-services/text-analytics/data-privacy)
+[!INCLUDE [Responsible AI links](../includes/overview-responsible-ai-links.md)]
+
+## Next steps
+
+There are two ways to get started using the entity linking feature:
+* [Language Studio](../concepts/language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+* The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  

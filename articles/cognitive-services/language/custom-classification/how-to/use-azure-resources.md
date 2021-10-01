@@ -16,26 +16,32 @@ ms.author: aahi
 
 When you create a custom text classification project, you will connect it to a blob storage container where your data is uploaded. Use this article to learn how to set up Azure resources to work with custom classification.
 
-## Creating Azure resources
+## Creating new Azure resources
 
-Before you start using custom classification, you will need a Language Services resource. We recommend the steps in the [quickstart](../quickstart/using-language-studio.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. 
+Before you start using custom classification, you will need a Language Services resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. 
 
 # [Azure portal](#tab/portal)
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
+:::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../../media/azure-portal-resource-credentials.png":::
+
 # [Language Studio](#tab/studio)
 
 ### Create a new resource from Language Studio
 
-If it's your first time logging in, you'll see a window appear in [Language Studio](https://language.azure.com/) that will let you choose a language resource. You can also create a resource by clicking the settings icon in the top right corner, selecting **Resources**, then clicking **Create a new resource**. Follow the steps that appear to create your resource.
+If it's your first time logging in, you'll see a window appear in [Language Studio](https://language.azure.com/) that will let you choose a language resource or create a new one. You can also create a resource by clicking the settings icon in the top right corner, selecting **Resources**, then clicking **Create a new resource**.
 
 > [!IMPORTANT]
 > * Be sure to to select **Managed Identity** when you create a resource. This will let Azure authenticate to your Azure Blob storage account. 
 > * To use Custom Text Classification, you'll need a Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier.
 
-Afterwards you'll need to:
-1. [create an Azure Blob storage account](/azure/storage/common/storage-account-create). 
+:::image type="content" source="../../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../../media/create-new-resource.png":::
+
+If you use Language Studio, you'll need to [create an Azure Blob storage account](/azure/storage/common/storage-account-create). 
+
+After your storage account is created, continue reading this article for the following steps:
+
 1. Enable identity management on your Azure resource.
 2. Set the correct roles on the storage account
 
@@ -70,7 +76,7 @@ See the ARM template documentation for information on [deploying templates](/azu
 
 --- 
 
-## (optional) Using a preexisting resource
+## (optional) Using a preexisting Azure resource
 
 You can use an existing Text Analytics resource to get started with custom features as long as this resource meets the below requirements:
 
@@ -83,7 +89,7 @@ You can use an existing Text Analytics resource to get started with custom featu
 
 When you create a new project, you will need to connect your storage account with your existing preexisting resource. If you don't have a storage account, you need to [create a new one](/azure/storage/common/storage-account-create?tabs=azure-portal) and follow the steps below to apply the right Azure roles and permissions.
 
-## Identity management for your Language Services resource
+## Enable identity management for your resource
 
 Your Language Services resource must have identity management, which can be enabled either using the Azure portal or from Language Studio. To enable it using [Language Studio](https://language.azure.com/):
 1. Click the settings icon in the top right corner of the screen
@@ -108,5 +114,5 @@ To set proper roles on your storage account:
 
 ## Next steps
 
-* [Custom classification quickstart](../quickstart/using-language-studio.md)
+* [Custom classification quickstart](../quickstart.md)
 * [Recommended practices](../concepts/recommended-practices.md)

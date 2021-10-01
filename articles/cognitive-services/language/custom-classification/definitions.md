@@ -28,8 +28,8 @@ Within your project you can do the following operations:
 * [Build and train your model](./how-to/train-model.md): The core step of your project. In this step, your model starts learning from your tagged data. 
 * [View the model evaluation details](./how-to/view-model-evaluation.md): Review your model performance to decide if there is room for improvement or you are satisfied with the results.
 * [Improve the model](./how-to/improve-model.md): Determine what went wrong with your model and improve performance.
-* [Deploy the model](quickstart/using-language-studio.md#deploy-your-model): Make your model available for use. 
-* [Test model](quickstart/using-language-studio.md#test-your-model): Test your model and see how it performs.
+* [Deploy the model](quickstart.md?pivots=language-studio#deploy-your-model): Make your model available for use. 
+* [Test model](quickstart.md?pivots=language-studio#test-your-model): Test your model and see how it performs.
 
 ### Project types
 

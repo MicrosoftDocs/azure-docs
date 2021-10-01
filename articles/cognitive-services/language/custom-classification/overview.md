@@ -8,26 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/15/2021
+ms.date: 09/20/2021
 ms.author: aahi
 ---
 
 # What is custom text classification?
 
-Custom text classification is one of the features offered by Azure Cognitive Service for language. Custom text classification abstracts away the need for in-house AI expertise, and lets you more easily build models that work on your data. 
+Custom text classification is one of the features offered by [Azure Cognitive Service for language](../overview.md). Custom text classification simplifies many of the details required for building a custom model, and lets you focus on building a model around your data. 
 
-Your data can be previously annotated documents, or ones that you upload and tag within the [Language Studio](https://language.azure.com). By building a custom classification model, you can predict the class or classes that 
- your data belongs to. Custom text classification supports two types of projects:
+
+Your data can be previously annotated documents, or ones that you upload and tag within the [Language Studio](https://language.azure.com). By building a custom classification model, you can predict the class or classes that your data belongs to. Custom text classification supports two types of projects:
+
+
 * **Single label classification**: You can only assign one class for each file of your dataset. For example, if a file is a movie script, it could only classified as "*Action*", "*Thriller*" or "*Romance*".
 
 * **Multiple label classification**: You can assign *multiple* classes for each file of your dataset. For example, if a file is a movie script, it could be classified as  "*Action*" or "*Action*" and "*Thriller*".
 
-## Custom text Classification
+## Example: Use custom text classification to triage support tickets
 
-**Use Custom text classification to triage support tickets** 
-
-Creating automation to triage support tickets is a time and effort consuming task. With custom text classification models you can save both valuable time and effort by classifying the support tickets to be routed to relevant departments automatically.
-
+Creating automation to triage support tickets can be a time consuming and difficult task. With custom text classification models, you can save both time and effort by automatically classifying support tickets to be routed to relevant departments.
 
 ## Application development lifecycle
 
@@ -53,4 +52,4 @@ Follow these steps to get the most out of your model:
 
 ## Next steps
 
-Use the [quickstart article](quickstart/using-language-studio.md) to start sending requests using Language Studio.  
+Use the [quickstart article](quickstart.md) to start sending requests using Language Studio.  

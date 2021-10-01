@@ -18,7 +18,7 @@ You may want to create a copy of your knowledge base for several reasons:
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
+> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and language resource name you selected when you created the resource. <!--TODO: Change link-->
 
 <!-- TODO: Replace Link
 > * Set up [Custom question answering](../How-To/set-up-qnamaker-service-azure.md)

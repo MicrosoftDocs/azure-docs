@@ -35,7 +35,7 @@ Before starting the training process, files in your dataset are divided into thr
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart/using-language-studio.md)
+* Successfully created a [Custom text classification project](../quickstart.md)
 
 * Finished [tagging your data](tag-data.md).
     * You can create and train multiple [models](../definitions.md#model) within the same [project](../definitions.md#project). However, if you re-train a specific model it will overwrite the previous state.
@@ -48,7 +48,7 @@ Before starting the training process, files in your dataset are divided into thr
 
 3. Select the model you want to train from the **Model name** dropdown, if you don’t have models already, type in the name of your model and select **create new model**.
 
-    :::image type="content" source="../media/train-model-1.png" alt-text="Create a new model" lightbox="../media/train-model-1.png":::
+    :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
 4. Select the **Train** button at the bottom of the page. If the model you selected is already trained, a pop-up window will appear to confirm overwriting the last model state.
 

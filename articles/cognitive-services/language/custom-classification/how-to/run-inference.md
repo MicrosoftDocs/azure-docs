@@ -21,7 +21,7 @@ After deploying your model it is ready for you to send text classification tasks
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](../quickstart/using-language-studio.md) with
+* Successfully created a [Custom text classification project](../quickstart.md) with
     * Model training completed 
     * Successful model deployment.
 * Completed [data tagging](tag-data.md).
