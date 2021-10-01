@@ -223,7 +223,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-**Labeled datasets** created from [data labeling projects](how-to-create-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
+**Labeled datasets** created from [image labeling projects](how-to-create-image-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
 
 ```python
 # Dataset that only contains records where the label column value is dog
