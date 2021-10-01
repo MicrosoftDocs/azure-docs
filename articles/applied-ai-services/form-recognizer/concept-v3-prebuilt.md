@@ -18,14 +18,14 @@ ms.author: lajanuar
 
 Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
-* [**General document (v3.0)**](#general-document) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**General document (v3.0)**](#general-document) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Receipt (v3.0)**](#receipt) model supports single-page hotel receipt processing.
 * [**ID document (v3.0)**](#id-document) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Custom model API (v3.0)**](#custom-model) supports signature detection for custom forms.
 
 | **Model**   | **Description**   |
 | --- | --- |
-| 🆕General document  | extract text, tables, structure, key-value pairs and named entities.  |
+| 🆕General document  | Extract text, tables, structure, key-value pairs and named entities.  |
 | Layout  | Extracts text and layout information from documents.  |
 | Invoice  | Extract key information from English invoices.  |
 | Receipt  | Extract key information from English receipts.  |
@@ -55,9 +55,11 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 
 ## General document
 
-* The general document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](concept-custom.md#train-without-labels).
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](concept-custom.md#train-without-labels).
 
-* The general document model also supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization.
+* The general document is a pre-trained model and can be directly invoked via the REST API. 
+
+* The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content and not just the extracted values.
 
 ### Named entity recognition categories
 

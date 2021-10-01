@@ -64,6 +64,12 @@ The following features  and development options are supported by the Form Recogn
 |[**Invoice model**](concept-prebuilt.md#invoice) | Automated data processing and extraction of key information from sales invoices. | <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
 |[**Business card model**](concept-prebuilt.md#business-card) |Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer Studio**]()</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li></ul>|
 
+### Form Recognizer REST API v3.0 | preview
+
+Learn more about Form Recognizer v3.0 updates by exploring our API reference documentation:
+
+[**Form Recognizer API v3.0 reference**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+>
 ---
 
 ## Prerequisites
