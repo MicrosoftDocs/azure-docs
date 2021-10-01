@@ -16,7 +16,7 @@ ms.subservice: identity
 
 # Azure Advisor for Azure Communication Services
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Communication Services is onboarded to Azure Advisor and will post recommendations for ways to optimize your communication resources. You can view these recommendations in the [Azure Portal](https://portal.azure.com) in the [Advisor blade](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview). Recommendations are stored in your [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview), and you can configure alerts for these recommendations via [ARM templates](https://docs.microsoft.com/azure/advisor/advisor-alerts-arm?tabs=CLI) or the [portal](https://docs.microsoft.com/azure/advisor/advisor-alerts-portal). 
+[Azure Advisor](../../advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. Azure Communication Services is onboarded to Azure Advisor and will post recommendations for ways to optimize your communication resources. You can view these recommendations in the [Azure Portal](https://portal.azure.com) in the [Advisor blade](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview). Recommendations are stored in your [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview), and you can configure alerts for these recommendations via [ARM templates](../../advisor/advisor-alerts-arm?tabs=CLI) or the [portal](../../advisor/advisor-alerts-portal). 
 
 ## Install the latest SDKs
 
