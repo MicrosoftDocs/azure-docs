@@ -482,6 +482,8 @@ items:
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?context=/azure/synapse-analytics/context/context
         - name: Convert resource classes to workload groups
           href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?context=/azure/synapse-analytics/context/context
+        - name: Troubleshooting a missed classification
+          href: ./sql-data-warehouse/sql-data-warehouse-how-to-troubleshoot-missed-classification.md?context=/azure/synapse-analytics/context/context
     - name: Ingest and prepare data
       items:
       - name: Into the data warehouse
