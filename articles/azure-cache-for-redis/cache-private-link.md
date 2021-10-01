@@ -17,7 +17,7 @@ Azure Private Endpoint is a network interface that connects you privately and se
 You can restrict public access to the private endpoint of your cache by disabling the `PublicNetworkAccess` flag.
 
 >[!Important]
->>The `PublicNetworkAccess` flag is set to disabled by default on private endpoint creation. This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to Enabled. If set to Disabled, it only allows private endpoint access. For more information on how to change the value, see the FAQ.
+>The `PublicNetworkAccess` flag is set to `Disabled` by default on private endpoint creation. This flag allows you to optionally allow both public and private endpoint access to the cache if set to `Enabled`. If set to `Disabled`,  the flag only allows private endpoint access. For more information on how to change the value, see the FAQ.
 >
 >
 
@@ -115,7 +115,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 > [!IMPORTANT]
 > There is a `publicNetworkAccess` flag which is `Disabled` by default.
-> This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled`. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+> When set to `Enabled`, this flag is meant to allow you to optionally allow both public and private endpoint access to the cache. If set to `Disabled`, it allows private endpoint access. You can set the value to `Disabled` or `Enabled`. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
 >
 >
 
@@ -209,10 +209,6 @@ To create a private endpoint, follow these steps.
 - link 1
 - link 2
 
-### How do I verify if my private endpoint is configured correctly?
-
-You can run a command like *nslookup* from within the VNet that is linked to the private endpoint. Use *nslookup* to verify that the command resolves to the private IP address for the cache.  The IP address is found on the DNS configuration setting on the left under Private endpoint resource on portal.
-
 ### Why can't I connect to a private endpoint?
 
 If your cache is already a VNet injected cache, private endpoints cannot be used with your cache instance. If your cache instance is using an unsupported feature listed below, you can't connect to your private endpoint instance.
@@ -220,6 +216,10 @@ If your cache is already a VNet injected cache, private endpoints cannot be used
 ### What features aren't supported with private endpoints?
 
 Currently, portal console support, and persistence to firewall storage accounts are not supported.
+
+### How do I verify if my private endpoint is configured correctly?
+
+You can run a command like *nslookup* from within the VNet that is linked to the private endpoint. Use *nslookup* to verify that the command resolves to the private IP address for the cache.  The IP address is found on the DNS configuration setting on the left under Private endpoint resource on portal.
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
