@@ -44,7 +44,7 @@ Open the Podfile, and add the following dependencies to the `ChatQuickstart` tar
 
 ```
 pod 'AzureCommunicationCommon', '~> 1.0.2'
-pod 'AzureCommunicationChat', '~> 1.1.0-beta.1'
+pod 'AzureCommunicationChat', '~> 1.1.0-beta.2'
 ```
 
 Install the dependencies with the following command: `pod install`. Note that this also creates an Xcode workspace.
