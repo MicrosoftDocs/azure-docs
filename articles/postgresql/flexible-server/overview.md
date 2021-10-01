@@ -93,7 +93,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | 
 | Australia Southeast | :heavy_check_mark: | :x: | 
-| Brazil South | V3 only :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
 | Central India | :heavy_check_mark: | :x: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | 
@@ -117,7 +117,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | UK West | :heavy_check_mark: | :x: | 
 | West Europe | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: |
-| West US 2 | V3 Only :heavy_check_mark: | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: (v3 only) | :heavy_check_mark: |
 
 <!-- We continue to add more regions for flexible server. -->
 

@@ -115,7 +115,7 @@ Here is an example of configuring pglogical at the provider database server and 
    ```
    or
    ```SQL
-   GRANT myAdminUser to myUSer;
+   GRANT myAdminUser to myUser;
    ```
 2. At the **provider** (source/publisher) database server, create the provider node.
    ```SQL
