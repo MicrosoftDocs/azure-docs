@@ -81,42 +81,44 @@ Modify your apps to use the system browser for sign-in. For details, see [Embedd
 Starting September 30, Microsoft will globally roll out a device sign-in flow that serves as a workaround for apps still using embedded web-views to ensure that authentication isn’t blocked.
 
 ### How to sign in with the device sign-in flow
+
 The device sign-in flow prompts users who sign in with a Gmail account in an embedded web-view to enter a code in a separate browser before they can finish signing in. If users are signing in with their Gmail account for the first time with no active sessions in the browser, they'll see the following sequence of screens. If an existing Gmail account is already signed in, some of these steps might be eliminated.
 
-1. On the **Sign in** screen, users can enter their Gmail address and then select **Next**.
+1. On the **Sign in** screen, the user enters their Gmail address and selects **Next**.
 
    ![Screenshot showing the sign-in screen](media/google-federation/1-sign-in.png)
-   
-2. The following screen appears, prompting the user to open a new window, navigate to https://microsoft.com/devicelogin, and enter the 9-digit alphanumeric code displayed.
+
+1. The following screen appears, prompting the user to open a new window, navigate to https://microsoft.com/devicelogin, and enter the 9-digit alphanumeric code displayed.
 
    ![Screenshot showing the 9-digit code](media/google-federation/2-sign-in-code.png)
 
-3. The device sign-in page opens, where the user can enter the code. 
+1. The device sign-in page opens, where the user can enter the code. 
 
    ![Screenshot showing the device sign-in page](media/google-federation/3-enter-code.png)
-   
-4. If the codes match, for security purposes the user is asked to reenter their email to confirm their app and sign-in location.
+
+1. If the codes match, for security purposes the user is asked to reenter their email to confirm their app and sign-in location.
 
    ![Screenshot showing the screen for reentering email](media/google-federation/4-sign-in-reenter-email.png)
-   
-5. The user signs in to Google with their email and password.
+
+1. The user signs in to Google with their email and password.
 
    ![Screenshot showing the Google sign-in screen](media/google-federation/5-sign-in-with-google.png)
-   
-7. Once again, they're asked to confirm the application they're signing into.
 
-   ![image](https://user-images.githubusercontent.com/15203472/134458470-b51c5892-4eeb-4e21-a512-07d2d291b80b.png)
+1. Once again, they're asked to confirm the app they're signing into.
 
-7. The user selects **Continue**. A prompt confirms that they’re signed in. The user closes the tab or window and is returned to the first screen, where they're now signed in to the app.
+   ![Screenshot showing application confirmation screen](media/google-federation/6-confirm-sign-in.png)
+
+1. The user selects **Continue**. A prompt confirms that they’re signed in. The user closes the tab or window and is returned to the first screen, where they're now signed in to the app.
 
    ![Screenshot showing sign-in confirmation](media/google-federation/7-app-sign-in-confirmed.png)
 
 Alternatively, you can have your existing and new Gmail users sign in with email one-time passcode. To have your Gmail users use email one-time passcode:
+
 1. [Enable email one-time passcode](one-time-passcode.md#enable-email-one-time-passcode)
 2. [Remove Google Federation](google-federation.md#how-do-i-remove-google-federation)
 3. [Reset redemption status](reset-redemption-status.md) of your Gmail users so they can use email one-time passcode going forward.
 
-If you want to request extension, impacted customers with affected OAuth client ID(s) should have received an email from Google Developers with the following information regarding a one-time policy enforcement extension, which must be completed by Jan 31, 2022:
+If you want to request an extension, impacted customers with affected OAuth client ID(s) should have received an email from Google Developers with the following information regarding a one-time policy enforcement extension, which must be completed by Jan 31, 2022:
    >If necessary, you may request a one-time **policy enforcement extension for embedded webviews** for each listed OAuth client ID until January 31, 2022. For clarity, the policy for embedded webviews will be enforced on February 1, 2022 with no exceptions or extensions.
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
