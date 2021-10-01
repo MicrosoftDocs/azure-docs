@@ -786,8 +786,13 @@ items:
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity
-      href: how-to-invoke-ssis-package-ssis-activity.md
-      displayName: retry, timeout
+      items:
+        - name: Using the Azure Data Factory Studio portal UI
+          href: how-to-invoke-ssis-package-ssis-activity.md
+          displayName: retry, timeout
+        - name: Using PowerShell
+          href: how-to-invoke-ssis-package-ssis-activity-powershell.md
+          displayName: retry, timeout
     - name: Run SSIS packages with Stored Procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
