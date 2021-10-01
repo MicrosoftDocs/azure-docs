@@ -133,7 +133,7 @@ For technical information about the **EDIFACT** connector, review the [connector
    ![Screenshot showing the Azure portal, workflow designer, and "Encode to EDIFACT message by agreement name" action selected.](./media/logic-apps-enterprise-integration-edifact/select-encode-edifact-message-consumption.png)
 
    > [!NOTE]
-   > You can choose to select the **Encode EDIFACT messages by identities** action instead, but you later have to 
+   > You can choose to select the **Encode to EDIFACT message by identities** action instead, but you later have to 
    > provide different values, such as the **Sender identifier** and **Receiver identifier** that's specified by 
    > your EDIFACT agreement. You also have to specify the **XML message to encode**, which can be the output from 
    > the trigger or a preceding action.
@@ -174,6 +174,12 @@ For technical information about the **EDIFACT** connector, review the [connector
 1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter `edifact encode`. Select the action named **Encode to EDIFACT message by agreement name**.
 
    ![Screenshot showing the Azure portal, workflow designer, and "Encode to EDIFACT message by agreement name" operation selected.](./media/logic-apps-enterprise-integration-edifact/select-encode-edifact-message-standard.png)
+
+   > [!NOTE]
+   > You can choose to select the **Encode to EDIFACT message by identities** action instead, but you later have to 
+   > provide different values, such as the **Sender identifier** and **Receiver identifier** that's specified by 
+   > your EDIFACT agreement. You also have to specify the **XML message to encode**, which can be the output from 
+   > the trigger or a preceding action.
 
 1. When prompted to create a connection to your integration account, provide the following information:
 
