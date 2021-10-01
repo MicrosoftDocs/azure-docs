@@ -164,6 +164,8 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
+        - name: Node Pool Snapshot
+          href: node-pool-snapshot.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
         - name: Custom node configuration (preview)
