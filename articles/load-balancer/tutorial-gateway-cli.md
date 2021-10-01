@@ -189,7 +189,7 @@ To create the load balancer, use [az network lb create](/cli/azure/network/lb#az
 
 ### Create tunnel interfaces
 
-A internal interface is automatically created with Azure CLI with the **`--identifier`** of **800** and **`--port`** of **10800**.
+An internal interface is automatically created with Azure CLI with the **`--identifier`** of **800** and **`--port`** of **10800**.
 
 You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az_network_lb_address_pool_tunnel_interface_add) to create external tunnel interface for the load balancer. 
 
