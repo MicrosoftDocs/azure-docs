@@ -2,7 +2,7 @@
 title: Restore Azure Disks using Azure Data Protection REST API
 description: In this article, learn how to restore Azure Disks using Azure Data protection REST API.
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 10/01/2021
 ms.assetid: 30f4e7ff-2a55-4a85-be44-55feedc24607
 ---
 
@@ -451,7 +451,7 @@ The job status above indicates that the restore job is completed and the disks h
 
 [Overview of Azure disk backup](disk-backup-overview.md).
 
-For more information on the Azure Backup REST APIs, see the following documents:
+For more information on the Azure Backup REST APIs, see the following articles:
 
 - [Azure Data Protection provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
