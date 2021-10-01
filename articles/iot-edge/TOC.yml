@@ -162,7 +162,13 @@
       - name: Windows
         href: how-to-provision-devices-at-scale-windows-x509.md
     - name: Symmetric key attestation
-      href: how-to-auto-provision-symmetric-keys.md
+      items:
+      - name: Linux
+        href: how-to-provision-devices-at-scale-linux-symmetric.md
+      - name: Linux containers on Windows
+        href: how-to-provision-devices-at-scale-linux-on-windows-symmetric.md
+      - name: Windows
+        href: how-to-provision-devices-at-scale-windows-symmetric.md
   - name: Develop custom modules
     items:
     - name: Develop with Visual Studio 2019
@@ -299,8 +305,6 @@
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ./index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
       href: ../iot-develop/index.yml
     - name: Azure Maps

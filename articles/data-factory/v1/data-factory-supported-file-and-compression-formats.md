@@ -3,6 +3,7 @@ title: File and compression formats in Azure Data Factory
 description: 'Learn about the file formats supported by Azure Data Factory.'
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
