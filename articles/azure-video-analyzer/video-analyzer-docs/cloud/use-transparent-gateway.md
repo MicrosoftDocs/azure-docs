@@ -34,6 +34,8 @@ The following are required for this tutorial:
   * User-assigned managed identity (UAMI)
 * IoT Hub
   * Video Analyzer associated UAMI has **Owner** role
+> [!NOTE]
+> In Video Analyzer, IoT Hubs must be onboarded with a user-assigned managed identity (UAMI) that must be specified in the list of identities registered with the Video Analyzer account.
 * [IoT Edge with Video Analyzer edge module installed and configured manually](../edge/deploy-iot-edge-device.md)
 * [Azure Directory application with Owner access, service principal, and client secret](../../../active-directory/develop/howto-create-service-principal-portal.md)
   * Be sure to keep record of the values for the Tenant ID, App (Client) ID, and client secret.
@@ -140,5 +142,5 @@ You can examine the Video Analyzer video resource that was created by the live p
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Next Steps
-Now with the camera connected to Video Analyzer, try out the [different available nodes in the cloud](../pipeline.md) to create a topology and run a pipeline that fit your needs.
+Now with the camera connected to Video Analyzer, try out the [different available nodes in the cloud](../quotas-limitations.md) to create a topology and run a pipeline that fits your needs.
 
