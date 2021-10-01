@@ -8,13 +8,13 @@ ms.date: 11/01/2021
 
 # Connect cameras to the cloud
 
-Azure Video Analyzer allows users to connect cameras directly to the cloud in order capture and record video, using [cloud pipelines](../pipeline.md). This will either reduce the computational load on an edge device or eliminate the need for an edge device completely. Video Analyzer currrently supports three different methods for connecting cameras to the cloud: connecting via a transparent gateway, connecting from behind a firewall using an IoT PnP command, and connecting over the open internet without a firewall.
+Azure Video Analyzer allows users to connect cameras directly to the cloud in order capture and record video, using [cloud pipelines](../pipeline.md). This will either reduce the computational load on an edge device or eliminate the need for an edge device completely. Video Analyzer currrently supports three different methods for connecting cameras to the cloud: connecting via a transparent gateway for video and RTSP protocol, connecting from behind a firewall using an IoT PnP command, and connecting over the open internet without a firewall.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/connect-cameras-to-cloud/connect-cameras-to-cloud.svg" alt-text="3 different methods for connecting cameras to the cloud":::
 
 ## Connecting via a transparent gateway
-This method allows cameras to connect to Video Analyzer via the Video Analyzer Edge module acting as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md). This approach is useful in the following scenarios:
+This method allows cameras to connect to Video Analyzer via the Video Analyzer Edge module acting as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md) for video packets and RTSP protocol from the camera to Video Analyzer's cloud service. This approach is useful in the following scenarios:
 
 * When cameras/devices connected to the gateway need to be shielded from exposure to the internet
 * When cameras/devices do not have the functionality to connect to IoT Hub independently
