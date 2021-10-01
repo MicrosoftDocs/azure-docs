@@ -29,8 +29,7 @@ You can use Purview to do full scans on Cassandra to extract metadata and lineag
 
 3.  Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed
     on the self-hosted integration runtime machine. If you don't
-    have this update installed, [download it from
-    here](https://www.microsoft.com/download/details.aspx?id=30679).
+    have this update installed, [download it](https://www.microsoft.com/download/details.aspx?id=30679).
 
 4.  Ensure your Cassandra server is version 3.*x* or 4.*x*.
 
@@ -42,6 +41,7 @@ To register a new Cassandra server in your data catalog:
 2.  Select **Data Map** in the left pane.
 3.  Select **Register**.
 4.  On the **Register sources** screen, select **Cassandra**, and then select **Continue**:
+
     :::image type="content" source="media/register-scan-cassandra-source/register-sources.png" alt-text="Screenshot that shows the Register sources screen." border="true":::
    
 1. On the **Register sources (Cassandra)** screen:
@@ -83,7 +83,7 @@ To create and run a new scan:
         to:
 
     - Select **Basic Authentication** as the authentication method.
-    - In the **User name** field, provide the name of the user you're making the connection for. 
+    - In the **User name** box, provide the name of the user you're making the connection for. 
     - In the key vault's secret, save the password of the Cassandra user you're making the connection for.
 
     For more information, see [Credentials for source authentication in Purview](manage-credentials.md).
@@ -102,7 +102,7 @@ To create and run a new scan:
 
     You can't use NOT or special characters.
     
-    e. **Use Secure Sockets Layer(SSL)** : Select **True** or **False** to specify whether
+    e. **Use Secure Sockets Layer(SSL)**: Select **True** or **False** to specify whether
     to use Secure Sockets Layer (SSL) when connecting to the
     Cassandra server. By default, this option is set to **False**.
 
@@ -140,9 +140,10 @@ To manage or delete a scan:
 
 1. Go to the Management Center. Select **Data sources** in the **Sources and scanning** section. Then select the data source whose scan you want to manage.
 
-2. Select the scan you want to manage. You can edit the scan by selecting **Edit**.
+2. Select the scan you want to manage. 
+   - You can edit the scan by selecting **Edit**.
 
-3. You can delete the scan by selecting **Delete**.
+   - You can delete the scan by selecting **Delete**.
 
 ## Next steps
 
