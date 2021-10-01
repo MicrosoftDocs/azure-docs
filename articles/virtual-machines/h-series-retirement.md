@@ -1,6 +1,6 @@
 ---
 title: H-series retirement
-description: H-series retirement starts September 1, 2021.
+description: H-series retirement started September 1, 2021.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc

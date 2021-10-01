@@ -1,6 +1,6 @@
 ---
 title: HB-series retirement
-description: HB-series retirement starts September 1, 2021.
+description: HB-series retirement started September 1, 2021.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
