@@ -183,7 +183,7 @@ To create the load balancer, use [az network lb create](/cli/azure/network/lb#az
     --sku Gateway \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --address-pool myBackendPool \
+    --backend-pool-name myBackendPool \
     --frontend-ip-name myFrontEnd
 ```
 
@@ -196,7 +196,7 @@ You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/
 ```azurecli-interactive
   az network lb address-pool tunnel-interface add \
     --address-pool myBackEndPool \
-    --identifier '801' \
+    --identifier '901' \
     --lb-name myLoadBalancer-gw \
     --protocol VXLAN \
     --resource-group TutorGwLB-rg \
