@@ -20,7 +20,7 @@ Examples in this article use the portal and REST APIs. For examples in C#, see [
 
 ## Supported access tiers
 
-Data Lake Storage Gen2 [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers.
+Data Lake Storage Gen2 [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers.
 
 ## Access control
 
