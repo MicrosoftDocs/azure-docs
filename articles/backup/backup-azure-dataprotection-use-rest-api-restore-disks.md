@@ -30,7 +30,7 @@ In this article, you'll learn how to:
 
 In the example, we'll refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_, where an Azure Disk is named _msdiskbackup-2dc6eb5b-d008-4d68-9e49-7132d99da0ed_.
 
-## Restore to create a new Azure disk
+## Restore to create a new Azure Disk
 
 ### Set up permissions
 
@@ -449,7 +449,7 @@ The job status above indicates that the restore job is completed and the disks h
 
 ## Next steps
 
-[Overview of Azure disk backup](disk-backup-overview.md).
+[Overview of Azure Disk backup](disk-backup-overview.md).
 
 For more information on the Azure Backup REST APIs, see the following articles:
 

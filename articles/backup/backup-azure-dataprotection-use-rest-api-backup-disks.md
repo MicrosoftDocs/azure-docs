@@ -219,7 +219,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the resulting operation using the "Azure-AsyncOperation" header with a simple *GET* command
+Track the resulting operation using the "Azure-AsyncOperation" header with a simple *GET* command.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzM2NDdhZDNjLTFiNGEtNDU4YS05MGJkLTQ4NThiYjRhMWFkYg==?api-version=2021-01-01
@@ -505,7 +505,7 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 ## Next steps
 
-[Restore data from an Azure disk backup](backup-azure-arm-userestapi-restoreazurevms.md).
+[Restore data from an Azure Disk backup](backup-azure-arm-userestapi-restoreazurevms.md).
 
 For more information on the Azure Backup REST APIs, see the following articles:
 

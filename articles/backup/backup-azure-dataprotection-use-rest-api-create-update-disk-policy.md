@@ -191,7 +191,7 @@ Once the operation completes, it returns 200 (OK) with the policy content in the
 
 ## Next steps
 
-[Enable protection for disks](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+[Enable protection for Azure Disks](backup-azure-dataprotection-use-rest-api-backup-disks.md).
 
 For more information on the Azure Backup REST APIs, see the following articles:
 
