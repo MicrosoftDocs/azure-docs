@@ -14,7 +14,7 @@ This scenario provides recommended guidance for configuring features of Azure Mo
 > [!IMPORTANT]
 > If you're new to Azure Monitor or are focused on simply monitoring a single Azure resource, then you should start with the tutorial [Monitor Azure resources with Azure Monitor](/essentials/monitor-azure-resource.md). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This scenario provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
 
-This article introduces the scenario and provides general concepts for monitoring virtual machines in Azure Monitor. If you want to jump right into a specific area, see one of the other articles that are part of this scenario described in the following table.
+This article introduces the scenario. If you want to jump right into a specific area, see one of the other articles that are part of this scenario described in the following table.
 
 | Article | Description |
 |:---|:---|
@@ -22,6 +22,12 @@ This article introduces the scenario and provides general concepts for monitorin
 | [Configure data collection](deploy-data-collection.md) | Tasks required to collect monitoring data from you Azure and hybrid applications and resources. |
 | [Analysis and visualizations](visualizations.md) | Standard features and additional visualizations that you can create to analyze collected monitoring data. |
 | [Alerts and automated responses](deploy-alerts.md) | Configure notifications and processes that are automatically triggered when an alert is created. |
+
+## Scope of the scenario
+Azure Monitor is available the moment you create an Azure subscription. The Activity log immediately starts collecting events about activity in the subscription, and platform metrics are collected for any Azure resources you created. Features such as metrics explorer are available to analyze data. Other features require configuration. This scenario identifies the configuration steps required to take advantage of all Azure Monitor features. It also makes recommendations for which features you should leverage and how to determine configuration options based on your particular requirements.
+
+This is not intended to be a detailed deployment guide but rather guidance you can use in a monitoring implementation. It focuses on configuration requirements and deployment options as opposed to actual configuration details. Links are provided to other content that provide the details for actually performing required configuration.
+
 
 ## Next steps
 

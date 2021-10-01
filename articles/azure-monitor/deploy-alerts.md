@@ -9,26 +9,34 @@ ms.date: 09/28/2021
 ---
 
 # Deploy Azure Monitor - Alerts and automated actions
-Alerts in Azure Monitor proactively notify you of important data or patterns identified in your monitoring data. Some insights will generate alerts without configuration. For other scenarios, you need to create [alert rules](alerts/alerts-overview.md) that include the data to analyze and the criteria for when to generate an alert, and action groups which define the action to take when an alert is generated. 
-
-This article provides guidance on defining and creating alert rules in Azure Monitor.
+This article is part of the scenario [Recommendations for configuring Azure Monitor](deploy.md). It provides guidance on alerts in Azure Monitor, which proactively notify you of important data or patterns identified in your monitoring data. You can view alerts in the Azure portal, have them send a proactive notification, or have them initiated some automated action. To enable alerts though, you need to create [alert rules](alerts/alerts-overview.md) that include the data to analyze and the criteria for when to generate an alert.
 ## Alerting strategy
 An alerting strategy defines your organizations standards for the types of alert rules that you'll create for different scenarios, how you'll categorize and manage alerts after they're created, and automated actions and notifications that you'll take in response to alerts. See [Successful alerting strategy](/azure/cloud-adoption-framework/manage/monitor/alerting#successful-alerting-strategy) for factors that you should consider in developing an alerting strategy.
 
 
-## Alert rules
-Alerts are created by alert rules that you need to create. Azure Monitor does not have any alert rules by default. See the monitoring documentation for each Azure service for guidance on recommended alert rules to create. 
+## Alert rule types
+Azure Monitor does not have any alert rules by default. See the monitoring documentation for each Azure service for guidance on specific alert rules to create. 
 
 There are multiple types of alert rules defined by the type of data that they use. Each has different capabilities and a different cost. The basic strategy you should follow is to use the alert rule type with the lowest cost that provides the logic that you require.
 
-- [Activity log rules](alerts/activity-log-alerts.md). Creates an alert in response to a new Activity log event that matches specified conditions. There is no cost to these alerts so they should be your first choice. See [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md) for details on creating an Activity log alert.
-- [Metric alert rules](alerts/alerts-metric-overview.md). Creates an alert in response to one or more metric values exceeding a threshold. Metric alerts are stateful meaning that the alert will automatically close when the value drops below the threshold, and it will only send out notifications when the state changes. There is a cost to metric alerts, but this is significantly less than log alerts. See [Create, view, and manage metric alerts using Azure Monitor](alerts/alerts-metric.md) for details on creating a metric alert.
+- [Activity log rules](alerts/activity-log-alerts.md). Creates an alert in response to a new Activity log event that matches specified conditions. There is no cost to these alerts so they should be your first choice, although the conditions they can detect are limited. See [Create, view, and manage activity log alerts by using Azure Monitor](alerts/alerts-activity-log.md) for details on creating an Activity log alert.
+- [Metric alert rules](alerts/alerts-metric-overview.md). Creates an alert in response to one or more metric values exceeding a threshold. Metric alerts are stateful meaning that the alert will automatically close when the value drops below the threshold, and it will only send out notifications when the state changes. There is a cost to metric alerts, but this is often significantly less than log alerts. See [Create, view, and manage metric alerts using Azure Monitor](alerts/alerts-metric.md) for details on creating a metric alert.
 - [Log alert rules](alerts/alerts-unified-log.md). Creates an alert when the results of a schedule query matches specified criteria. They are the most expensive of the alert rules, but they allow the most complex criteria. See [Create, view, and manage log alerts using Azure Monitor](alerts/alerts-log.md) for details on creating a log query alert.
 - [Application alerts](app/monitor-web-app-availability.md) allow you to perform proactive performance and availability testing of your web application. You can perform a simple ping test at no cost, but there is a cost to more complex testing. See [Monitor the availability of any website](app/monitor-web-app-availability.md) for a description of the different tests and details on creating them.
 
+## Alert severity
+Each alert rule defines the severity of the alerts that it creates based on the table below. You should assess the severity of the condition each rule is identifying to assign an appropriate level. Alerts in the Azure portal are grouped by level so that you can manage similar alerts together and quickly identify those that require the greatest urgency.
+
+| Level | Name | Description |
+|:---|:---|:---|
+| Sev 0 = Critical  | Loss of service or application availability or severe degradation of performance. Requires immediate attention. |
+| Sev 1 = Error  | Degradation of performance or loss of availability of some aspect of an application or service. Requires attention but not immediate. |
+| Sev 2 = Warning | A problem that does not include any current loss in availability or performance, although has the potential to lead to more sever problems if unaddressed. |
+| Sev 3 | Informational | Does not indicate a problem but rather interesting information to an operator such as successful completion of a regular process. |
+| Sev 4 = Verbose | Detailed information not useful 
 
 ## Action groups
-Automated responses to alerts are defined in [action groups](alerts/action-groups.md). An action group is a collection of one or more notifications and actions that are fired when an alert is triggered. A single action group can be used with multiple alert rules. 
+Automated responses to alerts in Azure Monitor are defined in [action groups](alerts/action-groups.md). An action group is a collection of one or more notifications and actions that are fired when an alert is triggered. A single action group can be used with multiple alert rules and contain one or more of the following:
 
 - Notifications. Messages that notify operators and administrators that an alert was created.
 - Actions. Automated processes that attempt to correct the detected issue, 
@@ -59,13 +67,17 @@ Use the following actions to attempt automated remediation of the issue identifi
 
 
 ## Minimizing alert activity
-Use the following guidelines to minimize your alert activity to ensure that critical issues are surfaced while you don't generate excess information and notifications for administrators. 
+While you want to create alerts for any important information in your environment, you should ensure that you aren't creating excessive alerts and notifications for issues that don't warrant them. Use the following guidelines to minimize your alert activity to ensure that critical issues are surfaced while you don't generate excess information and notifications for administrators. 
 
 - See [Successful alerting strategy](/azure/cloud-adoption-framework/manage/monitor/alerting#successful-alerting-strategy) for principles on determining whether a symptom is an appropriate candidate for alerting.
-- Use metric alerts for better performance and latency. Use log query alerts when metrics can't be used or for more complex logic.
+- Use the **Automatically resolve alerts** option in metric alert rules to resolve alerts when the condition has been corrected.
 - Use **Suppress alerts** option in log query alert rules which prevents creating multiple alerts for the same issue.
-
-## Alert severity
-Every alert has a severity level that you define in the 
+- Ensure that you use appropriate severity levels for alert rules so that high priority issues can be analyzed together.
+- Limit notifications for alerts with a severity of Warning or less since they don't require immediate attention.
 
 ## Create alert rules at scale
+
+
+## Next steps
+
+- [Define alerts and automated actions from Azure Monitor data](deploy-alerts.md)
