@@ -21,7 +21,7 @@ Azure Active Directory Business-to-consumer (Azure AD B2C) provides business-to-
 
 Azure AD B2C is a customer identity access management (CIAM) solution capable of supporting millions of users and billions of authentications per day. It takes care of the scaling and safety of the authentication platform, monitoring, and automatically handling threats like denial-of-service, password spray, or brute force attacks.
 
-Azure AD B2C is a separate service from [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis). It is built on the same technology as Azure AD but for a different purpose - to allow businesses build customer facing application and then allow anyone to sign up into those applications with no restrictions on user account.
+Azure AD B2C is a separate service from [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). It is built on the same technology as Azure AD but for a different purpose - to allow businesses build customer facing application and then allow anyone to sign up into those applications with no restrictions on user account.
    
 ## Who uses Azure AD B2C?
 Any business or individual who wishes to allow anyone to sign up to their web/mobile applications. 
