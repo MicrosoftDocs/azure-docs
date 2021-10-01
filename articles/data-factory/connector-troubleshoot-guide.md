@@ -30,7 +30,7 @@ You can refer to the troubleshooting pages for each connector to see errors spec
 - [DB2](connector-troubleshoot-db2.md)
 - [Delimited text format](connector-troubleshoot-delimited-text.md)
 - [Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM](connector-troubleshoot-dynamics-dataverse.md)
-- [FTP, SFTP and HTTP](connector-troubleshoot.ftp-sftp-http.md)
+- [FTP, SFTP and HTTP](connector-troubleshoot-ftp-sftp-http.md)
 - [Oracle](connector-troubleshoot-oracle.md)
 - [ORC format](connector-troubleshoot-orc.md)
 - [Parquet format](connector-troubleshoot-parquet.md)
