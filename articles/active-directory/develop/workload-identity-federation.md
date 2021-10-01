@@ -10,11 +10,11 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/01/2021
 ms.author: ryanwi
 ms.reviewer: keyam, udayh, vakarand
 ms.custom: 
-#As a developer, I want to learn what workload identity federation is and why I should use it. 
+#As a developer, I want to learn what workload identity federation is, why I should use it, and how it works. 
 ---
 
 # Workload identity federation (preview)
@@ -32,6 +32,8 @@ Workload identity federation allows an Azure AD application to trust tokens from
 First, a trust relationship is created between the external identity provider and Microsoft identity platform. A federated identity credential is configured on an application object in Azure AD, which can be done in the *Azure portal* or through *Microsoft Graph*.
 
 Each scenario has different methods for exchanging a foreign token for an access token and accessing Azure resources, but the underlying pattern remains the same. Let’s look at an example where GitHub Actions will be the foreign token issuer. GitHub issues a token to a GitHub Actions workflow. The Azure login action uses this token and requests Microsoft identity platform to exchange it for an access token. Identity platform validates the token issued by GitHub and checks that it is trusted by the Azure AD application for which a token is requested. When the checks are satisfied, identity platform returns an access token to the workflow. The workflow can then perform specific actions against Azure, for example deploying an application from a GitHub repo to Azure Functions or Azure App Service.  
+
+The following diagram shows the general workflow of a workload exchanging a foreign token for an access token and then accessing Azure resources.
 
 :::image type="content" source="media/workload-identity-federation/workflow.png" alt-text="Shows a foreign token exchanged for an access token and accessing Azure" border="false":::
 
