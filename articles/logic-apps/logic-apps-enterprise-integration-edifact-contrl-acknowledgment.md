@@ -12,7 +12,7 @@ ms.date: 07/25/2021
 
 # CONTRL acknowledgments and error codes for EDIFACT messages in Azure Logic Apps
 
-In Azure Logic Apps, you can create workflows that handle EDIFACT messages for Electronic Data Interchange (EDI) communication when you use **EDIFACT** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**EDIFACT Decode** action](logic-apps-enterprise-integration-edifact-decode.md) can return one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
+In Azure Logic Apps, you can create workflows that handle EDIFACT messages for Electronic Data Interchange (EDI) communication when you use **EDIFACT** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**EDIFACT Decode** action](logic-apps-enterprise-integration-edifact.md) can return one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
 
 This topic provides a brief overview about the EDIFACT CONTRL ACK, the CONTRL ACK segments in an interchange, and the error codes used in those segments.
 
