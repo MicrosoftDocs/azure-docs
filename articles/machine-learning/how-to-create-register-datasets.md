@@ -328,9 +328,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|True|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
-## Create a dataset from a dataframe
-
-You can create and register TabularDatasets from a pandas or spark dataframe. 
+## Create a dataset from pandas dataframe
 
 To create a TabularDataset from an in memory pandas dataframe
 use the [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactoryy#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method registers the TabularDataset to the workspace and uploads data to your underlying storage, which incurs storage costs. 
@@ -345,18 +343,10 @@ datastore = Datastore.get(ws, '<name of your datastore>')
 dataset = Dataset.Tabular.register_pandas_dataframe(pandas_df, datastore, "dataset_from_pandas_df", show_progress=True)
 
 ```
-
-You can also create a TabularDataset from a readily available spark dataframe with the 
-[`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) method. This method   registers the TabularDataset to the workspace and uploads data to your underlying storage, which incurs storage costs. 
-
-```python
-from azureml.core import Workspace, Datastore, Dataset
-
-ws = Workspace.from_config()
-datastore = Datastore.get(ws, '<name of your datastore>')
-dataset = Dataset.Tabular.register_spark_dataframe(spark_df, datastore, "dataset_from_spark_df", show_progress=True)
-
-```
+> [!TIP]
+> Create and register a TabularDataset from an in memory spark dataframe or a dask dataframe with the public preview methods, [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory##register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) and [`register_dask_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-dask-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-). These methods are [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features, and may change at any time. 
+> 
+>  These methods upload data to your underlying storage, and as a result incur storage costs. 
 
 ## Register datasets
 
