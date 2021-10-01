@@ -188,7 +188,7 @@ To set up the Power BI report, you need data, so you'll set up Power BI after yo
 
 ## Run simulated device app
 
-In Part 1 of this tutorial, you set up a device to simulate using an IoT device. In this section, you download the .NET console app that simulates that device sending device-to-cloud messages to an IoT hub (assuming you didn't already download the app and resources in Part 1).
+In Part 1 of this tutorial, you set up a device to simulate using an IoT device. If you haven't already downloaded it, download it not the .NET console app that simulates the device sending device-to-cloud messages to an IoT hub, you'll download it here.
 
 This application sends messages for each of the different message routing methods. There is also a folder in the download that contains the complete Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts.
 
@@ -271,7 +271,6 @@ If you want to remove all of the Azure resources you've created through both par
 ### Clean up resources in the Power BI visualization
 
 Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the Power BI visualization, go to DataSets and select the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
-
 
 ### Use the Azure CLI to clean up resources
 
