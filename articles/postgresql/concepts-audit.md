@@ -67,7 +67,7 @@ By using pgAudit, you can configure session or object audit logging. [Session au
 > [!NOTE]
 > The pgAudit settings are specified globally and can't be specified at a database or role level.
 
-After you [install pgAudit](#installing-pgaudit), you can configure its parameters to start logging.
+After you [install pgAudit](#install-pgaudit), you can configure its parameters to start logging.
 
 To configure pgAudit, in the [portal](https://portal.azure.com):
 
