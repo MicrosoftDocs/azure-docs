@@ -35,15 +35,8 @@ Each scenario has different methods for exchanging a foreign token for an access
 
 :::image type="content" source="media/workload-identity-federation/workflow.png" alt-text="Shows a foreign token exchanged for an access token and accessing Azure" border="false":::
 
-1. Request a token from the external identity provider
-1. Get the token: {subject: `id`, audience: `Azure AD`}
-1. Request the token from Microsoft identity platform using the foreign token. Azure AD will support an OAuth Confidential Client with a token as a client assertion. This will allow anyone to send the foreign token as a client assertion when requesting an Azure AD token
-1. Identity platform checks the trust on the app and validates the incoming token.
-1. Identity platform issues an access token: {sub: `app-id`, aud: `aud`}
-1. Access Azure resources using the access token. 
 
- 
 ## Next steps
 Learn how Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#get-a-token) and a client assertion issued by another identity provider to get a token.
 
-Learn how to *configure the trust reLationship in the Azure portal*.
+Learn how to *deploy a web app to Azure App Service using GitHub Actions*.
