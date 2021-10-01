@@ -31,7 +31,7 @@ The following list covers important networking components in an Azure Red Hat Op
 * **aro-internal**
     * This endpoint balances internal service traffic. For this load balancer, the worker nodes are in the backend pool.
     * This load balancer is not created by default. This load balancer is created once you create a service of type LoadBalancer with the correct annotations. For example: service.beta.kubernetes.io/azure-load-balancer-internal: "true".
-* **aro-internal-lb**
+* **aro**
     * This endpoint is used for any public traffic. When you create and application and a route, this is the path for ingress traffic.
     * This load balancer also covers egress Internet connectivity from any pod running in the worker nodes through Azure Load Balancer Outbound Rules.
         * Currently outbound rules aren't configurable. They allocate 1,024 TCP ports to each node.
