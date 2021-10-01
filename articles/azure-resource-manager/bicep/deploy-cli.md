@@ -16,7 +16,7 @@ This article explains how to use Azure CLI with Bicep files to deploy your resou
 
 You need a Bicep file to deploy. The file must be local.
 
-You need Azure CLI and be connected to Azure:
+You need Azure CLI and to be connected to Azure:
 
 - **Install Azure CLI commands on your local computer.** To deploy Bicep files, you need [Azure CLI](/cli/azure/install-azure-cli) version **2.20.0 or later**.
 - **Connect to Azure by using [az login](/cli/azure/reference-index#az_login)**. If you have multiple Azure subscriptions, you might also need to run [az account set](/cli/azure/account#az_account_set).
