@@ -314,7 +314,7 @@ For example, the following configuration shows how you can add a unique identifi
 ```json
 "forwardingGateway": {
   "requiredHeaders": {
-    "X-Azure-FDID" : "10dd26ef"
+    "X-Azure-FDID" : "692a448c-2b5d-4e4d-9fcc-2bc4a6e2335f"
   }
 }
 ```
