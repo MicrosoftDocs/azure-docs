@@ -52,10 +52,13 @@ You can also query the Azure resources for which outbound private endpoint conne
 In the remainder of this article, a mix of Azure portal (or the [Azure CLI](/cli/azure/) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
 
 > [!NOTE]
-> There are Azure Cognitive Search data sources and other configurations that require creating more than one shared private link to work appropriately. Here are three examples and which group IDs are necessary for each:
-> Azure Data Lake Storage Gen2 data source - You need to create two private endpoints. One private endpoint with the groupID 'dfs' and another private endpoint with the groupID 'blob'.
-> Skillset with Knowledge store configured - You must create two private endpoints. One private endpoint with the groupID 'table' and another private endpoint with the groupID 'blob'.
-> Indexer with cache enabled - You have to create two private endpoints. One private endpoint with the groupID 'table' and another private endpoint with the groupID 'blob'.
+> There are Azure Cognitive Search data sources and other configurations that require creating more than one shared private link to work appropriately. Here is a list of the configurations with this requirement and which group IDs are necessary for each:
+> * **Azure Data Lake Storage Gen2 data source** - Create two shared private links: One shared private link with the groupID 'dfs' and another shared private link with the groupID 'blob'.
+> * **Skillset with Knowledge store configured** - One or two shared private links are necessary, depending on the projections set for Knowledge store:
+>   * If using blob and/or file projections, create one shared private link with the groupID 'blob'. 
+>   * If using table projections, create one shared private link with the groupID 'table'. 
+>   * In case blob/file and also table projections are used, create two shared private links: one with groupID 'blob' and one with groupID 'table'. 
+> * **Indexer with cache enabled** - Create two shared private links: One shared private link with the groupID 'table' and another shared private link with the groupID 'blob'.
 
 ## Set up indexer connection through private endpoint
 
@@ -83,7 +86,7 @@ The steps for restricting access varies by resource. The following scenarios sho
     
 - Scenario 3: Azure Functions
 
-    No network setting changes are needed for Azure Functions firewall. Later in the following steps, when you create the shared private endpoint, the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
+    No network setting changes are needed for Azure Functions firewalls. Later in the following steps, when you create the shared private endpoint, the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
 
 ### Step 2: Create a shared private link resource to the Azure resource
 
