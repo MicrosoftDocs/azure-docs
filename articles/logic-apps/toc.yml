@@ -213,10 +213,6 @@
         href: logic-apps-enterprise-integration-edifact.md
       - name: EDIFACT message settings
         href: logic-apps-enterprise-integration-edifact-message-settings.md
-      - name: EDIFACT encoding
-        href: logic-apps-enterprise-integration-edifact-encode.md
-      - name: EDIFACT decoding
-        href: logic-apps-enterprise-integration-edifact-decode.md
       - name: EDIFACT CONTRL acknowledgments and error codes
         href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
     - name: RosettaNet messaging
