@@ -15,35 +15,35 @@ ms.topic: how-to
 
 Use the point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to do a point-in-time restore of a database in Azure Arc enabled SQL managed instance.
 
-Point-in-time restore can restore a database from:
+Point-in-time restore can restore a database:
 
-- An existing database
+- From an existing database
 - To a new database on the same Azure Arc enabled SQL managed instance
 
 You can restore a database to a point-in-time within a pre-configured retention setting.
 
-Point-in-time restore is an instance level setting with two properties - recovery point objective (RPO) and retention time (RT). RPO determines how often the transaction log backups are taken. RPO is the amount of time data loss is to be expected. RT is how long Azure Arc-enabled data services keeps the backups. Retention time applies to full, differential and transaction log backup files.  
+Point-in-time restore is an instance level setting with two properties - recovery point objective (RPO) and retention period. RPO determines how often the transaction log backups are taken. RPO is the amount of time data loss is to be expected. RPO is specified in minutes. Retention period determines how long (in number of days) you want the database backups stored by Azure Arc-enabled data services. Retention period applies to full, differential and transaction log backup files.  
 
 Currently, point-in-time restore can restore a database:
 
-- from an existing database on a SQL instance
-- to a new database on the same SQL instance
+- From an existing database on an instance
+- To a new database on the same instance
 
 ## Limitations
 
 Point-in-time restore to Azure Arc enabled SQL Managed Instance has the following limitations:
 
-- Point-in-time restore of a whole Azure Arc enabled SQL Managed Instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on Azure Arc enabled SQL Managed Instance.
+- Point-in-time restore of a whole Azure Arc enabled SQL Managed Instance is not possible. 
 - An Azure Arc-enabled SQL managed instance that is deployed with high availability (preview) does not currently support point-in-time restore.
-- You can only restore to the same Azure Arc-enabled SQL managed instance
-- Point-in-time restore can be performed only via a yaml file 
-- Older backup files that are beyond the pre-configured retention period need to be manually cleaned up
-- Renaming a database starts a new backup chain in a new folder
-- Dropping and creating different databases with same names isn't handled properly at this time
+- You can only restore to the same Azure Arc-enabled SQL managed instance.
+- Point-in-time restore can be performed only via a yaml file .
+- Older backup files that are beyond the pre-configured retention period need to be manually cleaned up.
+- Renaming a database starts a new backup chain in a new folder.
+- Dropping and creating different databases with same names isn't handled properly at this time.
 
 ## Description
 
-Point-in-time restore restores a database to a specific point in time. The process to complete a point in time is to restore a specific set of backup files in order. For example:
+Point-in-time restore restores a database to a specific point in time. To restore a database to a specific point in time, Azure Arc-enabled data services applies the backup files in a specific order. For example:
 
 1. Full backup
 2. Differential backup 
@@ -55,12 +55,12 @@ Azure Arc enabled SQL Managed Instance comes with built-in capability to do a po
 
 There are two parameters that affect the point-in-time restore capability:
 
-- Recovery point objective
-- Retention days
+- Recovery point objective 
+- Retention period
 
 ## Create a database from a point in time
 
-The following are steps to restore a database to the same Azure Arc enabled SQL Managed Instance using the Azure CLI:
+The following are steps to restore a database to the same Azure Ar-enabled SQL Managed Instance using the `kubectl`:
 
 1. Create a task for the restore operation. Create a .yaml file with the restore parameters.
 
@@ -109,6 +109,8 @@ The following are steps to restore a database to the same Azure Arc enabled SQL 
    ```console
    kubectl get sqlmirestoretask -n <namespace>
    ```
+
+   Replace `<namespace>` with the namespace that hosts the SQL instance.
 
 Once the status of the restore task shows **Completed**, the new database should be available. 
 
