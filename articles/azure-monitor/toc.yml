@@ -814,7 +814,7 @@
         - name: Troubleshooting
           href: app/java-standalone-troubleshoot.md
       - name: Python
-        href: /app/opentelemetry-python.md
+        href: app/opentelemetry-python.md
       - name: FAQ
         href: /azure/azure-monitor/faq#opentelemetry
     - name: Create a resource (classic)

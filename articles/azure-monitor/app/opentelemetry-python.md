@@ -196,8 +196,8 @@ Placeholder
 - Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
 
 ## Next steps
-- [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md)
-- [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/)
-- [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)
-- [OpenTelemetry Python GitHub Repository](https://github.com/open-telemetry/opentelemetry-python)
-- [Enable web/browser user monitoring](javascript.md)
+- Review the source code at the [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md).
+- To install the PyPI package, check for updates, or view release notes, visit the [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) page.
+-  Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
+- To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry Python GitHub Repository](https://github.com/open-telemetry/opentelemetry-python).
+- [Enable web/browser user monitoring](javascript.md) to enabled usage experiences.

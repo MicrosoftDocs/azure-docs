@@ -379,8 +379,8 @@ Placeholder
 
 ## Next steps
 
-- [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter)
-- [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/)
-- [Azure Monitor Example Application]()
-- [OpenTelemetry .NET GitHub Repository](https://github.com/open-telemetry/opentelemetry-dotnet)
-- [Enable web/browser user monitoring](javascript.md) to enabled usage experiences
+- Review the source code at the [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter).
+- To install the NuGet package, check for updates, or view release notes, visit the [Azure Monitor Exporter NuGet Package](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter/) page.
+- Become more familiar Azure Monitor Application Insights and OpenTelemetry with the [Azure Monitor Example Application]().
+- To learn more about OpenTelemetry and it's community, visit the [OpenTelemetry .NET GitHub Repository](https://github.com/open-telemetry/opentelemetry-dotnet).
+- [Enable web/browser user monitoring](javascript.md) to enabled usage experiences.
