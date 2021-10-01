@@ -15,7 +15,7 @@ recommendations: false
 
 # Form Recognizer prebuilt models
 
- Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Prebuilt models use optical character recognition (OCR) to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer then  returns the extracted data in an organized structured JSON response. Form Recognizer v2.1 supports invoice, receipt, identity document, and business card models.
+ Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Prebuilt models use optical character recognition (OCR) to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer then  returns the extracted data in an organized structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
 
 ## Model overview
 
@@ -23,7 +23,7 @@ recommendations: false
 | --- | --- |
 | Invoice  | Extracts key information from English-text invoices.  |
 | Receipt  | Extracts key information from English-text receipts.  |
-| Identity document  | Extracts key information from US driver licenses and international passports.  |
+| ID document  | Extracts key information from US driver licenses and international passports.  |
 |Business cards  | Extracts key information from English-text business cards.  |
 
 ### Input requirements
@@ -38,7 +38,7 @@ recommendations: false
 
 ## Invoice
 
-Azure Form Recognizer prebuilt invoice model analyzes and extracts key information from sales invoices. The Invoice API enables you to automate invoice processing by taking invoices in various formats and returning structured data. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as customer name, billing address, due date, and amount due from English-language invoices.
+Azure Form Recognizer invoice model analyzes and extracts key information from sales invoices. The Invoice API enables you to automate invoice processing by taking invoices in various formats and returning structured data. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as customer name, billing address, due date, and amount due from English-language invoices.
 
 The Invoice API also powers the [AI Builder invoice processing prebuilt model](/ai-builder/flow-invoice-processing).
 
@@ -48,7 +48,7 @@ The Invoice API also powers the [AI Builder invoice processing prebuilt model](/
 
 ## Receipt
 
-Azure Form Recognizer prebuilt receipt model analyzes and extracts key information from sales receipts. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as merchant name, merchant phone number, transaction date, tax, and transaction total from English-language receipts.
+Azure Form Recognizer receipt model analyzes and extracts key information from sales receipts. It combines our powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key information such as merchant name, merchant phone number, transaction date, tax, and transaction total from English-language receipts.
 
 The Receipt API also powers the [AI Builder receipt processing prebuilt model](/ai-builder/flow-receipt-processing).
 
@@ -68,7 +68,7 @@ The ID Document API also powers the [AI Builder ID reader prebuilt model](/ai-bu
 
 ## Business card
 
-Azure Form Recognizer prebuilt business cards model analyzes and extracts key information from business card images . It combines powerful Optical Character Recognition (OCR) capabilities with our business card understanding model to extract key information from business cards in English and is publicly available in the Form Recognizer v2.1.
+Azure Form Recognizer business card model analyzes and extracts key information from business card images . It combines powerful Optical Character Recognition (OCR) capabilities with our business card understanding model to extract key information from business cards in English and is publicly available in the Form Recognizer v2.1.
 
 The Business Card API also powers the [AI Builder Business reader prebuilt model](/ai-builder/prebuilt-business-card).
 
@@ -82,7 +82,7 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 | --- | :---: |:---:| :---: | :---: |
 | Invoice  | ✓ | ✓  | ✓  | ✓  
 | Receipt  | ✓  |   ✓ |   |  |
-| Identity document  | ✓  |   ✓  |   |   |
+| ID document  | ✓  |   ✓  |   |   |
 | Business Card  | ✓  |   ✓ |   |   |
 
 ## Key-value pair fields
@@ -138,7 +138,7 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 | Price | number | Individual price of each item unit| Two-decimal float |
 | Total Price | number | Total price of line item | Two-decimal float |
 
-### [Identity document](#tab/id)
+### [ID document](#tab/id)
 
 |Name| Type | Description | Standardized output <img width=500>|
 |:-----|:----|:----|:----|
@@ -173,7 +173,7 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 | WorkPhones | array of phone numbers | Work phone number(s) from business card | +1 xxx xxx xxxx | 
 | OtherPhones     | array of phone numbers | Other phone number(s) from business card | +1 xxx xxx xxxx |
 
-## Supported languages and locales
+## Supported languages and locales v2.1
 
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
@@ -182,7 +182,7 @@ The Business Card API also powers the [AI Builder Business reader prebuilt model
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 |Receipt</br><br>Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Auto-detected |
- |Identity document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
+ |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
 
 ## Next steps
 

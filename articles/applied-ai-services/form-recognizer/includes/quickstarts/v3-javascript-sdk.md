@@ -14,7 +14,7 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 * Custom forms—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
 * Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
 * Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
-* Identity Documents—Analyze and extract common fields from identity documents like passports or driver's licenses, using a pre-trained identity documents model.
+* ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
 * Business Cards—Analyze and extract common fields from business cards, using a pre-trained business cards model.
 * Analyze custom forms—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
 
@@ -22,7 +22,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Layout API**](#layout-api-analyze-form-and-document-content)
 
-* [**Prebuilt invoice model**](#prebuilt-model-analyze-invoice-document-content)
+* [**Invoice model**](#prebuilt-model-analyze-invoice-document-content)
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ TODO
 
 ### Analyze invoice from a given image
 
-Copy and paste the full code sample below to recognize the content from a give invoice at a URI. You'll use the `beginRecognizeInvoices` method. See our prebuilt invoice documentation for a list of [all supported fields](../../concept-v3-prebuilt.md) returned by the service and corresponding types.
+Copy and paste the full code sample below to recognize the content from a give invoice at a URI. You'll use the `beginRecognizeInvoices` method. See our invoice model documentation for a list of [all supported fields](../../concept-v3-prebuilt.md) returned by the service and corresponding types.
 
 ```javascript
 // Copyright (c) Microsoft Corporation.

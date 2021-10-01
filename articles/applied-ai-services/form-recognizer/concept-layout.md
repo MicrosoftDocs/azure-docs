@@ -21,7 +21,7 @@ The Layout API extracts text, tables with table headers included, selection mark
 
 **Data extraction features**
 
-| **Prebuilt model**   | **Text Extraction**   | **Selection Marks**   | **Tables**  |
+| **Layout model**   | **Text Extraction**   | **Selection Marks**   | **Tables**  |
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  |  
 

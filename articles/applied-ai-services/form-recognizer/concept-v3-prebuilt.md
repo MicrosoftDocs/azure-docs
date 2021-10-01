@@ -55,9 +55,9 @@ Form Recognizer prebuilt models enable you to add intelligent form processing to
 
 ## General document
 
-* The prebuilt document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](concept-custom.md#train-without-labels).
+* The general document API will analyze your documents and associate values to the keys and entries to tables that it discovers. You can use it in place of [training a custom model without labels](concept-custom.md#train-without-labels).
 
-* The prebuilt document model also supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization.
+* The general document model also supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization.
 
 ### Named entity recognition categories
 
@@ -80,7 +80,7 @@ Email | string | Email address. |
 
 ## Receipt
 
- Azure Form Recognizer v3.0 prebuilt receipt model analyzes and extracts key information from sales receipts and supports processing single-page hotel receipts. 
+ Azure Form Recognizer v3.0 receipt model analyzes and extracts key information from sales receipts and supports processing single-page hotel receipts. 
 
 ### Hotel receipt key-value pair fields
 
@@ -117,7 +117,7 @@ Azure Form Recognizer v3.0 prebuilt ID document model analyzes and extracts key 
 |  DocumentNumber | string | Relevant passport number, driver's license number, etc. |  |
 |  FirstName | string | Extracted given name and middle initial if applicable |  |
 |  LastName | string | Extracted surname |  |
-|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard |  |
+|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
 |  Sex | string | Possible extracted values include "M", "F" and "X" | |
 |  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |
@@ -150,3 +150,21 @@ To try signature detection:
 1. **Label your documents**.  For signature fields, using region labeling is recommended for better accuracy.
 
 1. Once your training set has been labeled, you can **train your custom model** and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
+
+## Supported languages and locales v3.0
+
+>[!NOTE]
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|Receipt (hotel) </br></br>Invoice | <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+|Receipt (sales)</br><br>Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Auto-detected |
+ |ID document| <ul><li>English (United States)—en-US (driver's license)</li><li>Biographical pages from international passports</br> (excluding visa and other travel documents)</li></ul></br>|English (United States)—en-US|
+
+## Next steps
+
+Learn more about Form Recognizer v3.0 changes and updates:
+
+> [!div class="nextstepaction"]
+> [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md)

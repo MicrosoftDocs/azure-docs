@@ -161,7 +161,7 @@ See [How to specify the API version]() to use the preview languages. The preview
 |Zhuang | `za` | |
 |Zulu  | `zu` |  |
 
-## Prebuilt receipt and business card
+## Receipt and business card models
 
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
@@ -176,13 +176,13 @@ Pre-Built Receipt and Business Cards support all English receipts and business c
 |English (India|`en-in`|
 |English (United States)| `en-us`|
 
-## Prebuilt invoice
+## Invoice model
 
 Language| Locale code |
 |:-----|:----:|
 |English (United States)|en-us|
 
-## Prebuilt identity documents
+## Prebuilt ID documents
 
 This technology is currently available for US driver licenses and the biographical page from international passports (excluding visa and other travel documents).
 

@@ -14,17 +14,17 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 * Custom forms—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
 * Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
 * Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
-* Identity Documents—Analyze and extract common fields from identity documents like passports or driver's licenses, using a pre-trained identity documents model.
+* ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
 * Business Cards—Analyze and extract common fields from business cards, using a pre-trained business cards model.
 
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**Prebuilt layout**](#analyze-layout)
+* [**Layout**](#analyze-layout) model
 
-* [**Prebuilt document**](#analyze-document)
+* [**General document**](#analyze-document) model
 
-* [**Prebuilt invoice model**](#analyze-invoice)
+* [**Invoice model**](#analyze-invoice) model
 
 ## Prerequisites
 
