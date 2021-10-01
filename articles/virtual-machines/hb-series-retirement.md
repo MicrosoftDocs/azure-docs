@@ -1,5 +1,5 @@
 ---
-title: HB-series-retirement
+title: HB-series retirement
 description: HB-series retirement starts September 1, 2021.
 author: vermagit
 ms.service: virtual-machines
@@ -11,30 +11,31 @@ ms.author: amverma
 
 # Migrate your HB-series virtual machines by August 31, 2024
 
-Microsoft Azure has introduced HBv2 and HBv3-series virtual machines (VMs) for high-performance computing (HPC). As a result, we recommend that you migrate workloads from original HB-series VMs to our newer offerings.  
+Microsoft Azure has introduced HBv2 and HBv3-series virtual machines (VMs) for high-performance computing (HPC). For this reason, we recommend that you migrate workloads from original HB-series VMs to our newer offerings.
 
-Azure [HBv2](hbv2-series.md) and [HBv3](hbv3-series.md) VMs have greater memory bandwidth, improved remote direct memory access (RDMA) networking capabilities, larger and faster local solid-state drives, and better cost and performance across a variety of HPC workloads. Consequently, we're retiring our HB-series Azure Virtual Machine sizes on August 31, 2024.
+Azure [HBv2](hbv2-series.md) and [HBv3](hbv3-series.md) VMs have greater memory bandwidth, improved remote direct memory access (RDMA) networking capabilities, larger and faster local solid-state drives, and better cost and performance across various HPC workloads. As a result, we're retiring our HB-series Azure VM sizes on August 31, 2024.
 
 ## How does the HB-series migration affect me?
 
-After August 31, 2024, any remaining HB-size VM subscriptions will be set to a deallocated state. They'll stop working and no longer incur billing charges.  
+After August 31, 2024, any remaining HB-size VM subscriptions will be set to a deallocated state. They'll stop working and no longer incur billing charges.
+
 > [!NOTE]
 > This VM size retirement only affects the VM sizes in the HB series. This retirement announcement doesn't apply to the newer HBv2, HBv3, and HC-series VMs.
 
 ## What actions should I take?
 
-You'll need to resize or deallocate your H-series VMs. We recommend that you migrate workloads from the original H-series and the H-series Promo VMs to our newer offerings.
+You'll need to resize or deallocate your H-series VMs. We recommend that you migrate workloads from the original H-series VMs and the H-series Promo VMs to our newer offerings.
 
-[HBv2](hbv2-series.md), and [HBv3](hbv3-series.md) VMs offer substantially higher levels of HPC workload performance and cost efficiency because of:
+[HBv2](hbv2-series.md) and [HBv3](hbv3-series.md) VMs offer substantially higher levels of HPC workload performance and cost efficiency because of:
 
 - Large improvements in CPU core architecture.
 - Higher memory bandwidth.
 - Larger L3 caches.
-- Enhanced InfiniBand networking as compared to HB-series.
+- Enhanced InfiniBand networking as compared to HB series.
 
-As a result, HBv2 and HBv3-series will in general offer substantially better performance per unit of cost (for example, maximizing performance for a fixed amount of spend) and cost per performance (for example, minimizing cost for a fixed amount of performance).
+As a result, HBv2 and HBv3 series will in general offer substantially better performance per unit of cost (maximizing performance for a fixed amount of spend) and cost per performance (minimizing cost for a fixed amount of performance).
 
-All regions that contain HB-series VMs contain HBv2 and HBv3-series VMs, so existing workloads that run on HB-series VMs can be migrated without concern for geographic placement or for access to additional services in those regions.
+All regions that contain HB-series VMs contain HBv2 and HBv3-series VMs. Existing workloads that run on HB-series VMs can be migrated without concern for geographic placement or for access to more services in those regions.
 
 [HB-series](hb-series.md) VMs won't be retired until September 2024. We're providing this guide in advance to give you a long window to assess, plan, and execute your migration.
 
