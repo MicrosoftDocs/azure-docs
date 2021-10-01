@@ -3,9 +3,9 @@ title: Encode EDIFACT messages
 description: Validate EDI and generate XML with EDIFACT message encoder for Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, divswa, logicappspm
+author: ecfan
+ms.author: estfan
+ms.reviewer: divswa, azla
 ms.topic: article
 ms.date: 04/22/2020
 ---
@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 
 With the Encode EDIFACT message connector, you can validate EDI and partner-specific properties, 
 generate an XML document for each transaction set, 
-and request a Technical Acknowledgement, Functional Acknowledgment, or both.
+and request a Technical Acknowledgment, Functional Acknowledgment, or both.
 To use this connector, you must add the connector to an existing trigger in your logic app.
 
 ## Before you start

@@ -245,7 +245,7 @@ The following example shows a completed data controller yaml file. Update the ex
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: sa-mssql-controller
+  name: sa-arc-controller
 ---
 apiVersion: arcdata.microsoft.com/v1
 kind: DataController

@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to onboard to Azure Defender f
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/06/2021
+ms.date: 09/23/2021
 ms.custom: template-tutorial
 ---
 
@@ -271,7 +271,7 @@ A vSwitch does not have mirroring capabilities, but you can use a workaround to 
 
 1. Select **OK**.
 
-1. Connect to the sensor and verify that mirroring works.
+1. Connect to the sensor, and verify that mirroring works.
 
 ### Configure a SPAN port with Hyper-V
 
