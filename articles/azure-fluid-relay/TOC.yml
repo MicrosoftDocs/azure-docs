@@ -24,6 +24,8 @@
       href: how-tos/provision-fluid-azure-portal.md
     - name: 'How to: Connect to an Azure Fluid Relay service'
       href: how-tos/connect-fluid-azure-service.md
+    - name: 'How to: Use AzureClient for local testing'
+      href: how-tos/local-mode-with-azure-client.md
     - name: 'How to: Write a TokenProvider with an Azure Function'
       href: how-tos/azure-function-token-provider.md
     - name: 'How to: Use JWT tokens'
