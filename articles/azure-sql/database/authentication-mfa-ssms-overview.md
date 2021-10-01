@@ -63,9 +63,6 @@ If you are running SSMS 18.x or later, the AD domain name or tenant ID is no lon
 
 ### Azure AD business to business support
 
-> [!IMPORTANT]
-> Support for guest users to connect to Azure SQL Database, SQL Managed Instance, and Azure Synapse without the need to be part of a group is currently in **public preview**. For more information, see [Create Azure AD guest users and set as an Azure AD admin](authentication-aad-guest-users.md).
-
 Azure AD users that are supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../../active-directory/external-identities/what-is-b2b.md)) can connect to SQL Database and Azure Synapse only as part of members of a group created in the associated Azure AD, and mapped manually using the [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) statement in a given database. For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure AD domain `contosotest.onmicrosoft.com`), an Azure AD group, such as `usergroup` must be created in the Azure AD that contains the `steve@gmail.com` member. Then, this group must be created for a specific database (for example, `MyDatabase`) by an Azure AD SQL admin or Azure AD DBO,  by executing the Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` statement. 
 
 After the database user is created, then the user `steve@gmail.com` can sign into `MyDatabase` using the SSMS authentication option `Azure Active Directory – Universal with MFA`. By default, the `usergroup` has only the connect permission. Any further data access will need to be [granted](/sql/t-sql/statements/grant-transact-sql) in the database by a user with enough privilege. 
