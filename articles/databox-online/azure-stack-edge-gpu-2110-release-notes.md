@@ -1,29 +1,29 @@
 ---
-title: Azure Stack Edge 2110 release notes
-description: Describes critical open issues and resolutions for the Azure Stack Edge running 2110 release.
+title: Azure Stack Edge 2109 release notes
+description: Describes critical open issues and resolutions for the Azure Stack Edge running 2109 release.
 services: databox
 author: alkohli
  
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ---
 
-# Azure Stack Edge 2110 release notes
+# Azure Stack Edge 2109 release notes
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-The following release notes identify the critical open issues and the resolved issues for the 2110 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
+The following release notes identify the critical open issues and the resolved issues for the 2109 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2110** release, which maps to software version number **2.2.XXXX.XXXX**. This software can be applied to your device if you are running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
+This article applies to the **Azure Stack Edge 2109** release, which maps to software version number **2.2.XXXX.XXXX**. This software can be applied to your device if you are running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
 
 ## What's new
 
-The following new features are available in the Azure Stack Edge 2110 release. 
+The following new features are available in the Azure Stack Edge 2109 release. 
 
 - **Windows updates and security fixes** - The [latest cumulative update (LCU) for Windows and September security fixes](https://support.microsoft.com/topic/september-14-2021-kb5005623-monthly-rollup-bcdb6598-517e-4d53-aa7c-dd7fcfdca204) were rolled into the updates package for Azure Stack Edge.
 - **Remote support** - In this release, you can enable remote support on your Azure Stack Edge device to allow Microsoft Support to diagnose and remediate issues by accessing your device remotely. When you enable this feature, you provide consent for the level of access and the duration of access. For more information, see [Enable remote support and diagnostics for Azure Stack Edge](azure-stack-edge-gpu-remote-support-diagnostics-repair.md).
@@ -33,7 +33,7 @@ The following new features are available in the Azure Stack Edge 2110 release.
 
 
 
-## Issues fixed in 2110 release
+## Issues fixed in 2109 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
@@ -47,9 +47,9 @@ The following table lists the issues that were release noted in previous release
 
 
 
-## Known issues in 2110 release
+## Known issues in 2109 release
 
-The following table provides a summary of known issues in the 2110 release.
+The following table provides a summary of known issues in the 2109 release.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
