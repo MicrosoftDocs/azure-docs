@@ -282,6 +282,9 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 
 ## Forwarding gateway
 
+> [!NOTE]
+> Forwarding gateway configuration is only available in the Azure Static Web Apps Standard plan.
+
 The `forwardingGateway` section designates which host names are allowed to forward to your static web app. You can add multiple values to the `allowedForwardedHosts` array with hostnames of various forms.
 
 ```json

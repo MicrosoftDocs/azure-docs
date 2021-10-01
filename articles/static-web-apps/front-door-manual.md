@@ -20,6 +20,9 @@ In this tutorial, you learn how to:
 > - Create an Azure Front Door instance
 > - Associate Azure Font Door with your Azure Static Web Apps site
 
+> [!NOTE]
+> This tutorial requires the Azure Static Web Apps Standard plan.
+
 ## Copy URL
 
 1. Navigate to the Azure portal.
