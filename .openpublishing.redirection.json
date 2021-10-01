@@ -2454,6 +2454,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-create-labeling-projects.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-image-labeling-projects",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/overview-what-is-azure-ml.md",
       "redirect_url": "/azure/machine-learning/overview-what-is-azure-machine-learning",
       "redirect_document_id": true
