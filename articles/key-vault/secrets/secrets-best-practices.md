@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 Azure Key Vault allows you to securely store service or application credentials like passwords and access keys as secrets. All secrets in your Key Vault are encrypted with a software key. When using Key Vault, application developers no longer need to store security information in their application. 
 
-Examples of secrets that should be stored in Key Vault:
+Examples of secrets that should be stored in Key Vault include:
 
 - Client application secrets
 - Connection strings
@@ -38,7 +38,7 @@ For more information about secrets, see:
 - [About Azure Key Vault secrets](about-secrets.md)
 
 ## Secrets rotation
-Secrets many times are stored in application memory as environment variables or configuration settings for entire application lifecycle, which makes them sensitive to unwanted exposure. Because of secrets being sensitive to leakage or exposure, it is important to rotate secrets often, at least every 60 days. 
+Secrets are often stored in application memory as environment variables or configuration settings for entire application lifecycle, which makes them sensitive to unwanted exposure. Because secrets are sensitive to leakage or exposure, it's important to rotate them often, at least every 60 days. 
 
 For more information about secret rotation process, see:
 - [Automate the rotation of a secret for resources that have two sets of authentication credentials](tutorial-rotation-dual.md) 
@@ -57,7 +57,7 @@ For more information about access control in Azure Key Vault, see:
 - [Assign a Key Vault access policy](../general/assign-access-policy.md)
  
 ## Service limits and caching
-Key Vault was originally created with throttling limits specified in [Azure Key Vault service limits](../general/service-limits.md). To maximize your Key Vault throughput rates, here are some recommended guidelines and best practices:
+Key Vault was originally created with throttling limits specified in [Azure Key Vault service limits](../general/service-limits.md). To maximize your Key Vault throughput rates, here are two recommended best practices:
 - Cache secrets in your application for at least eight hours.
 - Implement exponential back-off retry logic to handle scenarios when service limits are exceeded.
 
