@@ -17,9 +17,12 @@ The atomic unit of storage in the Azure Fluid Relay service is a container. The 
 
 Containers are referenced by containerID. Any process with a valid JWT can access a container. It is the responsibility of the developer to generate JWTs for container access, which puts them in control of the business logic to control that access as appropriate for their scenario. The Azure Fluid Relay service has no knowledge of which users should have access to a container.
 
+> [!NOTE]
+> The JWT field **documentID** corresponds to the Fluid container ID.
+
 ## Container naming
 
-Containers are named by the Azure Fluid Relay service at container creation time. The Create action returns a container name in the form of a GUID that must be used later to open the container.
+Containers are named by the Azure Fluid Relay service at container creation time. The **create** action returns a container name in the form of a GUID that must be used later to open the container.
 
 ## Container discovery
 
@@ -27,5 +30,4 @@ Developers are responsible for any experience and business logic related to user
 
 ## Container tracking
 
-In most cases, developers will want to manage an inventory of containers that includes information about who has access
-to the containers as well as metadata like the friendly name of the container.
+In most cases, developers will want to manage an inventory of containers that includes information about who has access to the containers as well as metadata like the friendly name of the container.
