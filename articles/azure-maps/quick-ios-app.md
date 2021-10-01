@@ -6,9 +6,8 @@ ms.author: v-dbogomolov
 ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
 ---
-#  Create an iOS app (Public Preview)
+#  Create an iOS app (Public preview)
 
 This article shows you how to add the Azure Maps to an iOS app. It walks you through these basic steps:
 
@@ -30,73 +29,86 @@ This article shows you how to add the Azure Maps to an iOS app. It walks you thr
 Create a new Azure Maps account with the following steps:
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com/) , click **Create a resource**.
-2. In the _Search the Marketplace_ box, type **Azure Maps**.
-3. From the _Results_, select **Azure Maps**. Click **Create** button that appears below the map.
-4. On the **Create Maps Account** page, enter the following values:
-	* The _Subscription_ that you want to use for this account.
-	* The _Resource group_ name for this account. You may choose to _Create new_ or _Use existing_ resource group.
-	* The _Name_ of your new account.
-	* The _Pricing tier_ for this account.
-	* Read the _License_ and _Privacy Statement_, and check the checkbox to accept the terms.
-	* Click the **Create** button.
 
-![Create an azure maps ccont.](./media/quick-ios-app/create-account.png)
+2. In the _Search the Marketplace_ box, type **Azure Maps**.
+
+3. From the _Results_, select **Azure Maps**. Click **Create** button that appears below the map.
+
+4. On the **Create Maps Account** page, enter the following values:
+   - The _Subscription_ that you want to use for this account.
+   - The _Resource group_ name for this account. You may choose to _Create new_ or _Use existing_ resource group.
+   - The _Name_ of your new account.
+   - The _Pricing tier_ for this account.
+   - Read the _License_ and _Privacy Statement_, and check the checkbox to accept the terms.
+   - Click the **Create** button.
+
+   :::image source="./media/quick-ios-app/create-account.png" alt-text="Screenshot to create an Azure Maps Account.":::
 
 ## Get the primary key for your account
 
 Once your Maps account is successfully created, retrieve the primary key that enables you to query the Maps APIs.
 
 1. Open your Maps account in the portal.
+
 2. In the settings section, select **Authentication**.
+
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
-> [!Note]
-> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
+   > [!Note]
+   > If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 
-![get the subscription key.](./media/quick-ios-app/get-key.png)
+   :::image source="./media/quick-ios-app/get-key.png" alt-text="Screenshot to get the subscription key.":::
 
 ## Create a project in Xcode
 
 First, create a new iOS App project. Complete these steps to create an Xcode project:
 
 1. Under **File**, select **New** -> **Project**.
+
 2. On the **iOS** tab, select **App**, and then select **Next**.
+
 3. Enter app name, bundle ID and select **Next**.
 
-See the [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
+   See the [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
 
-![create the first iOS application.](./media/quick-ios-app/create-app.png)
+:::image source="./media/quick-ios-app/create-app.png" alt-text="Create the first iOS application.":::
 
 ## Install the Azure Maps iOS SDK
 
 The next step in building your application is to install the Azure Maps iOS SDK. Complete these steps to install the SDK:
 
 1. In **Project navigator** select project file
+
 2. In opened **Project Editor** select project
+
 3. Switch to **Swift Package** tab
+
 4. Add Azure Maps iOS SDK: `{link goes here}`
 
-![add a iOS project](./media/quick-ios-app/add-project.png)
-
+   :::image source="./media/quick-ios-app/add-project.png" alt-text="Screenshot to add a iOS project.":::
+  
 ## Add MapControl view
 
 1. Add custom `UIView` to view controller
+
 2. Select `MapControl` class from `AzureMapsControl` module
 
-![add auzre maps contro.l](./media/quick-ios-app/add-map-control.png)
+   :::image source="./media/quick-ios-app/add-map-control.png" alt-text="Screenshot to add Azure Maps control.":::
 
 3. In the **AppDelegate.swift** file you'll need to:
-	* add import for the Azure Maps SDK
-	* set your Azure Maps authentication information
-Setting the authentication information on the AzureMaps class globally using the `AzureMaps.configure(subscriptionKey:)` or `AzureMaps.configure(aadClient:aadAppId:aadTenant:)` methods makes it so you won't have to add your authentication information on every view.
+
+   - Add import for the Azure Maps SDK.
+   - Set your Azure Maps authentication information.
+   
+   Setting the authentication information on the AzureMaps class globally using the `AzureMaps.configure(subscriptionKey:)` or `AzureMaps.configure(aadClient:aadAppId:aadTenant:)` methods makes it so you won't have to add your authentication information on every view.
 
 4. Select the run button, as shown in the following graphic (or press `CMD` + `R`), to build your application.
 
-![run the ios application.](./media/quick-ios-app/run.png)
+   :::image source="./media/quick-ios-app/run.png" alt-text="Screenshot of running the iOS application.":::
 
-Xcode will take a few seconds to build the application. After the build is complete, you can test your application in the simulated iOS device. You should see a map like this one:
+   Xcode will take a few seconds to build the application. After the build is complete, you can test your application in the simulated iOS device. You should see a map like this one:
 
-![your first map on iOS application.](./media/quick-ios-app/example.png)
+   :::image source="./media/quick-ios-app/example.png" alt-text="Screenshot of your first map on iOS application.":::
 
 ## Clean up resources
 
