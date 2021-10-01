@@ -54,6 +54,11 @@
             "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices-development.md",
             "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/synapse-analytics/quickstart-sql-on-demand.md",
+            "redirect_url": "/azure/synapse-analytics/quickstart-serverless-sql-pool",
+            "redirect_document_id": false
         }
     ]
 }
