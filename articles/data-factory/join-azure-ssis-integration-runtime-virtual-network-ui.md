@@ -146,9 +146,9 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
       If you select the check box, complete the following steps.
 
-      1. For **First static public IP address**, select the first static public IP address that [meets the requirements](#publicIP) for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
+      1. For **First static public IP address**, select the first static public IP address that [meets the requirements](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP) for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 	  
-      1. For **Second static public IP address**, select the second static public IP address that [meets the requirements](#publicIP) for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
+      1. For **Second static public IP address**, select the second static public IP address that [meets the requirements](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP) for your Azure-SSIS IR. If you don't have any, click **Create new** link to create static public IP addresses on Azure portal and then click the refresh button here, so you can select them.
 
    1. Select **VNet Validation**. If the validation is successful, select **Continue**. 
 
