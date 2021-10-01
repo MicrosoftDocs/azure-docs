@@ -54,7 +54,7 @@ The steps include:
     - If you use Azure ExpressRoute or a user-defined route (UDR).
     - If you use customized Azure-SSIS IR.
     
-    For more info, check [virtual network configuration](join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration).
+    For more info, check [virtual network configuration](azure-ssis-integration-runtime-virtual-network-configuration.md#virtual-network-configuration).
 
 ## Configure a virtual network
 
