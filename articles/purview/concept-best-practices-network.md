@@ -52,24 +52,35 @@ By default, You can use Azure Purview accounts through public endpoints accessib
 
 ### Integration Runtime options 
 
-To scan data sources while Purview account firewall is set to Allow Public Access, you can use both Azure integration runtime and [self-hosted integration runtime](./manage-integration-runtimes.md) for scans, according to your [data sources supportability](manage-data-sources.md).  
+To scan data sources while Purview account firewall is set to Allow Public Access, you can use both Azure integration runtime and [self-hosted integration runtime](./manage-integration-runtimes.md), according to your [data sources supportability](manage-data-sources.md).  
 
 - You may use Azure integration runtime or a self-hosted integration runtime to scan Azure data sources such as Azure SQL Database or Azure Blob Storage.  
-- It is recommended to use Azure integration runtime to scan Azure data sources when possible, to reduce cost and administrative overhead. 
-- Scanning an on-premises and a VM-based data sources always requires using a self-hosted integration runtime. Azure integration runtime is not supported for these data sources.
-- To scan multiple Azure data sources, use public network and the Azure integration runtime.
 
-The following steps show the communication flow at very high level, when using Azure integration runtime to scan a data source in Azure:
+- It is recommended to use Azure integration runtime to scan Azure data sources when possible, to reduce cost and administrative overhead. 
+  
+- To scan multiple Azure data sources, use public network and the Azure integration runtime. The following steps show the communication flow at very high level, when using Azure integration runtime to scan a data source in Azure:
 
   :::image type="content" source="media/concept-best-practices/network-azure-runtime.png" alt-text="Screenshot that shows the connection flow between Azure Purview, runtime and data sources."lightbox="media/concept-best-practices/network-azure-runtime.png":::
 
   1. A manual or an automatic scan is initiated from the Purview data map using Azure integration runtime. 
    
-  2. Azure integration runtime connects to the data sources to extract metadata.
+  2. Azure integration runtime connects to the data source to extract metadata.
 
   3. Metadata is queued in Azure Purview's managed storage and stored in Azure blob storage. 
 
-  4. metadata is sent to Azure purview data map. 
+  4. metadata is sent to Azure Purview data map. 
+
+- Scanning an on-premises and a VM-based data sources always requires using a self-hosted integration runtime. Azure integration runtime is not supported for these data sources. The following steps show the communication flow at very high level, when using a self-hosted integration runtime to scan a data source:
+
+  :::image type="content" source="media/concept-best-practices/network-self-hosted-runtime.png" alt-text="Screenshot that shows the connection flow between Azure Purview, self-hosted runtime and data sources."lightbox="media/concept-best-practices/network-self-hosted-runtime.png":::
+
+  1. A manual or an automatic scan is initiated from the Purview data map using a self-hosted integration runtime. 
+   
+  2. The self-hosted integration runtime service from the virtual machine connects to the data source to extract metadata.
+
+  3. Metadata is processed in self-hosted integration runtime VM memory. Metadata is queued in Azure Purview's managed storage and then stored in Azure blob storage. 
+
+  4. Metadata is sent to Azure Purview data map. 
 
 ### Authentication options  
 
