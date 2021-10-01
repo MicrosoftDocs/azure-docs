@@ -17,6 +17,8 @@ A revision is an immutable snapshot of a container app.
 - New revisions are automatically created when a container app's `template` configuration changes.
 - While revisions are immutable, they're affected by changes to global configuration values, which apply to all revisions.
 
+:::image type="content" source="media/revisions/azure-container-apps-revisions.png" alt-text="Azure Container Apps: Containers":::
+
 Revisions are most useful when you enable [ingress](overview.md) to make your container app accessible via HTTP.  Revisions are often used when you want to direct traffic from one snapshot of your container app to the next. Typical traffic direction strategies include [A/B testing](https://wikipedia.org/wiki/A/B_testing) and [BlueGreen deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html).
 
 The following diagram shows a container app with two revisions.
@@ -47,12 +49,20 @@ The following types of changes create a new revision:
 
 The following types of changes do not create a new revision:
 
-- Changes to [traffic splitting rules](revisions.md#traffic-splitting)
+- Changes to [traffic splitting rules](overview.md)
 - Turning [ingress](overview.md) on or off
 - Changes to [secret values](secure-app.md)
 - Any change outside the `template` section of the configuration
 
 While changes to secrets are an application-scope change, revisions must be [restarted](overview.md) before a container recognizes new secret values.
+
+## Activation state
+
+New revisions remain active until you deactivate them, or you set your container app to automatically deactivate old revisions.
+
+- Inactive revisions remain as a snapshot record of your container app in a certain state.
+- You are not charged for inactive revisions.
+- Up to 100 revisions remain available before being purged.
 
 ## Next steps
 

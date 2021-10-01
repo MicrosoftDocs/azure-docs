@@ -17,19 +17,27 @@ When you deploy a container app, the first revision is automatically created. [M
 
 A container app flows through three phases: deployment, update, and deactivation.
 
-:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-deployment.png" alt-text="Azure Container Apps: Deployment phase":::
+## Deployment
 
 As a container app is deployed, the first revision is automatically created.
 
+:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-deployment.png" alt-text="Azure Container Apps: Deployment phase":::
+
+## Update
+
+As a container app is updated with a [revision scope-change](revisions.md#revision-scope-change), a new revision is created. You can choose whether to [automatically deactivate new old revisions, or allow them to remain available](overview.md).
+
 :::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-update.png" alt-text="Azure Container Apps: Update phase":::
 
-As a container app is updated with a [revision scope-change](revisions.md#revision-scope-change), a new revision is created and both revisions are available simultaneously.
-
-:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-deactivate.png" alt-text="Azure Container Apps: Deactivation phase":::
+## Deactivate
 
 Once a revision is no longer needed, you can deactivate a revision with the option to reactivate later. During deactivation the container is [shut down](#shutdown).
 
+:::image type="content" source="media/application-lifecycle-management/azure-container-apps-lifecycle-deactivate.png" alt-text="Azure Container Apps: Deactivation phase":::
+
 ## Shutdown
+
+<!-- move to containers.md -->
 
 The containers are shut down in the following situations:
 
@@ -39,7 +47,7 @@ The containers are shut down in the following situations:
 
 When a shutdown is initiated, the container host sends a [SIGTERM message](https://wikipedia.org/wiki/Signal_(IPC)) to your container. The code implemented in the container can respond to this operating system-level message to handle termination.
 
-If your application does not respond to the `SIGTERM` message in *** seconds, then a [SIGKILL](https://wikipedia.org/wiki/Signal_(IPC)) message is sent to the application running in the container.
+If your application does not respond to the `SIGTERM` message in *** seconds, then [SIGKILL](https://wikipedia.org/wiki/Signal_(IPC)) terminates your container.
 
 ## Delete a container app
 
