@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 1/15/2020
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ---

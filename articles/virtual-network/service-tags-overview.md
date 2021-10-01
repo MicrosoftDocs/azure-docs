@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/23/2021
+ms.date: 9/30/2021
 ms.author: kumud
 ms.reviewer: kumud
 ---
@@ -63,6 +63,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDatabricks** | Azure Databricks. | Both | No | No |
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
+| **AzureDeviceUpdate** | Device update for IoT Hub. | Both | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | No |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*Note: This tag is not currently configurable via Azure Portal*| Inbound | No | Yes |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Note:* This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for event routes. *This tag is not currently configurable via Azure Portal* | Inbound | No | Yes |
@@ -82,6 +83,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureSignalR** | Azure SignalR. | Outbound | No | No |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** and **Storage** tags. | Outbound | No | No |
 | **AzureTrafficManager** | Azure Traffic Manager probe IP addresses.<br/><br/>For more information on Traffic Manager probe IP addresses, see [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md). | Inbound | No | Yes |  
+| **AzureUpdateDelivery** | For accessing Windows Updates. <br/><br/>*Note:* This tag provides access to Windows Update metadata services. To successfully download updates you must also enable the **AzureFrontDoor.FirstParty** service tag and configure outbound security rules with the protocol and port defined as follows: <ul><li>AzureUpdateDelivery: TCP, port 443</li><li>AzureFrontDoor.FirstParty: TCP, port 80</li></ul>*This tag is not currently configurable via Azure Portal*| Outbound | No | No |  
 | **BatchNodeManagement** | Management traffic for deployments dedicated to Azure Batch. | Both | No | Yes |
 | **CognitiveServicesManagement** | The address ranges for traffic for Azure Cognitive Services. | Both | No | No |
 | **DataFactory**  | Azure Data Factory | Both | No | No |
@@ -95,6 +97,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653). | Both | No | No |
 | **LogicApps** | Logic Apps. | Both | No | No |
 | **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | No |
+| **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. | Outbound | No | No |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>*Note:* This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
 | **PowerBI** | PowerBi. *Note: This tag is not currently configurable via Azure Portal.* | Both | No | No|
@@ -105,6 +108,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **Storage** | Azure Storage. <br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
 | **StorageSyncService** | Storage Sync Service. | Both | No | No |
+| **WindowsAdminCenter** | Allow the Windows Admin Center backend service to communicate with customers' installation of Windows Admin Center. *Note: This tag is not currently configurable via Azure Portal.* | Outbound | No | Yes |
 | **WindowsVirtualDesktop** | Windows Virtual Desktop. | Both | No | Yes |
 | **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, virtual networks connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations), and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). This tag might also contain default routes. | Both | No | No |
 
@@ -148,6 +152,19 @@ You can download JSON files that contain the current list of service tags togeth
 - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 The IP address ranges in these files are in CIDR notation. 
+
+Note that the following AzureCloud tags do not have regional names formatted according to the normal schema: 
+- AzureCloud.centralfrance (FranceCentral)
+- AzureCloud.southfrance (FranceSouth)
+- AzureCloud.germanywc (GermanyWestCentral)
+- AzureCloud.germanyn (GermanyNorth)
+- AzureCloud.norwaye (NorwayEast)
+- AzureCloud.norwayw (NorwayWest)
+- AzureCloud.switzerlandn (SwitzerlandNorth)
+- AzureCloud.switzerlandw (SwitzerlandWest)
+- AzureCloud.usstagee (EastUSSTG)
+- AzureCloud.usstagec (SouthCentralUSSTG)
+
 
 > [!NOTE]
 >A subset of this information has been published in XML files for [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064), and [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). These XML downloads will be deprecated by June 30, 2020 and will no longer be available after that date. You should migrate to using the Discovery API or JSON file downloads as described in the previous sections.

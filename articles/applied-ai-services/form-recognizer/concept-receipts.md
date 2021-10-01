@@ -2,10 +2,8 @@
 title: Receipts - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Learn concepts related to receipt analysis with the Form Recognizer API - usage and limits.
-services: cognitive-services
 author: laujan
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual

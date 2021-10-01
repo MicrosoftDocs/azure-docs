@@ -2,11 +2,14 @@
 title: Enable managed identity on Azure Event Grid custom topics and domains
 description: This article describes how enable managed service identity for an Azure Event Grid custom topic or domain. 
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 08/20/2021
 ---
 
 # Assign a managed identity to an Event Grid custom topic or domain 
 This article shows you how to assign a system-assigned or a user-assigned identity to an Event Grid custom topic or a domain. To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+> [!IMPORTANT]
+> You can enable either system-assigned identity or user-assigned identity for an Event Grid topic or domain, but not both. You can have at most two user-assigned identities assigned to a topic or domain. 
 
 ## Enable identity when creating a topic or domain
 
@@ -58,7 +61,7 @@ The following procedure shows you how to enable system-assigned identity for a c
 
 ### To assign a user-assigned identity to a topic
 1. Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) article. 
-1. On the **Identity** page, Switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
+1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
     :::image type="content" source="./media/managed-service-identity/user-assigned-identity-add-button.png" alt-text="Image showing the User Assigned Identity tab":::     
 1. In the **Add user managed identity** window, follow these steps:

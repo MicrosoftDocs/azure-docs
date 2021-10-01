@@ -1,15 +1,15 @@
 ---
-title: Set up your Azure Percept DK
+title: Set up the Azure Percept DK device
 description: Set up you Azure Percept DK and connect it to Azure IoT Hub
-author: mimcco
-ms.author: mimcco
+author: WendyAnn0079
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart 
 ---
 
-# Set up your Azure Percept DK
+# Set up the Azure Percept DK device
 
 Complete the Azure Percept DK setup experience to configure your dev kit. After verifying that your Azure account is compatible with Azure Percept, you will:
 
@@ -145,7 +145,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
     - Select an existing Resource Group. If one does not exist, select **Create new** and follow the prompts.
     - Select the Azure region closest to your physical location.
     - Give your new IoT Hub a name.
-    - Select the S1 (standard) pricing tier.
+    - Select the **S1 (standard) pricing tier**.
 
     > [!NOTE]
     > It may take a few minutes for your IoT Hub deployment to complete. If you need a higher [message throughput](../iot-hub/iot-hub-scaling.md#message-throughput) for your edge AI applications, you may [upgrade your IoT Hub to a higher standard tier](../iot-hub/iot-hub-upgrade.md) in the Azure Portal at any time. B and F tiers do NOT support Azure Percept.

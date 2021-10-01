@@ -5,8 +5,6 @@ description: 'Learn how and where to deploy machine learning models. Deploy to A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 04/21/2021
 ms.topic: how-to
@@ -178,7 +176,7 @@ The inference configuration below specifies that the machine learning deployment
 You can use any [Azure Machine Learning inference curated environments](concept-prebuilt-docker-images-inference.md#list-of-prebuilt-docker-images-for-inference) as the base Docker image when creating your project environment. We will install the required dependencies on top and store the resulting Docker image into the repository that is associated with your workspace.
 
 > [!NOTE]
-> Azure machine learning [inference source directory](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) upload does not respect **.gitignore** or **.amlignore**
+> Azure machine learning [inference source directory](/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py#constructor&preserve-view=true) upload does not respect **.gitignore** or **.amlignore**
 
 # [Azure CLI](#tab/azcli)
 

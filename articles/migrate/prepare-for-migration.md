@@ -75,16 +75,17 @@ Review the tables to identify the changes you need to make.
 
 ### Windows machines
 
-Required changes are summarized in the table.
+Changes performed are summarized in the table.
 
 **Action** | **VMware (agentless migration)** | **VMware (agent-based)/physical machines** | **Windows on Hyper-V**
 --- | --- | --- | ---
-**Configure the SAN policy as Online All**<br/><br/> | Set automatically for machines running Windows Server 2008 R2 or later.<br/><br/> Configure manually for earlier operating systems. | Set automatically in most cases. | Configure manually.
+**Configure the SAN policy as Online All**<br/><br/> | Set automatically for machines running Windows Server 2008 R2 or later.<br/><br/> Configure manually for earlier operating systems. | Set automatically in most cases. | Set automatically for machines running Windows Server 2008 R2 or later.
 **Install Hyper-V Guest Integration** | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) on machines running Windows Server 2003.
-**Enable Azure Serial Console**.<br/><br/>[Enable the console](/troubleshoot/azure/virtual-machines/serial-console-windows) on Azure VMs to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable manually | Enable manually | Enable manually
+**Enable Azure Serial Console** <br/><br/>[Enable the console](/troubleshoot/azure/virtual-machines/serial-console-windows) on Azure VMs to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable manually | Enable manually | Enable manually
+**Install the Windows Azure Guest Agent** <br/><br/> The Virtual Machine Agent (VM Agent) is a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. |  Set automatically for machines running Windows Server 2008 R2 or later. <br/> Configure manually for earlier operating systems. | Set automatically for machines running Windows Server 2008 R2 or later. | Set automatically for machines running Windows Server 2008 R2 or later.
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
- [Learn more](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers) on changes performed on Windows servers.
+[Learn more](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
 
 #### Configure SAN policy
 
@@ -109,7 +110,7 @@ Azure Migrate completes these actions automatically for these versions
 
 - Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
 - Debian 9, 8, 7
 - Oracle Linux 6, 7.7, 7.7-CI
@@ -126,25 +127,27 @@ For other versions, prepare machines as summarized in the table.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
+**Install the Linux Azure Guest Agent** | The Microsoft Azure Linux Agent (waagent) is a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.| Enable manually for all versions except those called out above.  <br> Follow instructions to [install the Linux Agent manually](../virtual-machines/extensions/agent-linux.md#installation) for other OS versions. Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. 
 
-[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) on changes performed on Linux servers
+[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) on the changes performed on Linux servers for agentless VMware migrations.
 
 The following table summarizes the steps performed automatically for the operating systems listed above.
 
 
-| Action                                      | Agent\-Based VMware Migration | Agentless VMware Migration | Hyper\-V   |
+| Action                                      | Agent\-Based VMware Migration | Agentless VMware Migration | Agentless Hyper\-V Migration   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
-| Install Hyper\-V Linux Integration Services | Yes                           | Yes                        | Not needed |
-| Enable Azure Serial Console logging         | Yes                           | Yes                        | No         |
+| Update kernel image with Hyper\-V Linux Integration Services. <br> (The LIS drivers should be present on the kernel.) | Yes                           | Yes                        | Yes |
+| Enable Azure Serial Console logging         | Yes                           | Yes                        | Yes        |
 | Update device map file                      | Yes                           | No                         | No         |
-| Update fstab entries                        | Yes                           | Yes                        | No         |
-| Remove udev rule                            | Yes                           | Yes                        | No         |
-| Update network interfaces                   | Yes                           | Yes                        | No         |
-| Enable ssh                                  | No                            | No                         | No         |
+| Update fstab entries                        | Yes                           | Yes                        | Yes        |
+| Remove udev rule                            | Yes                           | Yes                        | Yes        |
+| Update network interfaces                   | Yes                           | Yes                        | Yes        |
+| Enable ssh                                  | No                            | No                         | No         |    
+| Install Azure VM Linux agent                | Yes                           | Yes                        | Yes        |
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 
-Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL6, RHEL7, CentOS7 (6 should be supported similar to RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04, Ubuntu 19.04, Ubuntu 19.10, and Ubuntu 20.04 when using the agentless method of VMware migration.
+Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8/7/6, CentOS 8/7/6, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
 
 ## Check Azure VM requirements
 

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/30/2021
+ms.date: 09/09/2021
 ---
 
 # Copy data from an SAP table using Azure Data Factory or Azure Synapse Analytics
@@ -48,7 +48,7 @@ The version 7.01 or later refers to SAP NetWeaver version instead of SAP ECC ver
 1. Use SAP GUI to connect to the SAP System. 
 2. Go to **System** -> **Status**. 
 3. Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
-      ![Check SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+      :::image type="content" source="./media/connector-sap-table/sap-basis.png" alt-text="Check SAP_BASIS":::
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ To use this SAP table connector, you need to:
 
 - Download the 64-bit [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the self-hosted integration runtime machine. During installation, make sure you select the **Install Assemblies to GAC** option in the **Optional setup steps** window.
 
-  ![Install SAP Connector for .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
+  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Install SAP Connector for .NET":::
 
 - The SAP user who's being used in the SAP table connector must have the following permissions:
 
@@ -68,6 +68,30 @@ To use this SAP table connector, you need to:
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to an SAP table using UI
+
+Use the following steps to create a linked service to an SAP table in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for SAP and select the SAP table connector.
+
+    :::image type="content" source="media/connector-sap-table/sap-table-connector.png" alt-text="Screenshot of the SAP table connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-sap-table/configure-sap-table-linked-service.png" alt-text="Screenshot of configuration for an SAP table linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define the entities specific to the SAP table connector.
 
@@ -302,7 +326,7 @@ Currently SAP Table connector only supports one single table with the default fu
 
 Below is an example:
 
-![Sap Table Join](./media/connector-sap-table/sap-table-join.png) 
+:::image type="content" source="./media/connector-sap-table/sap-table-join.png" alt-text="Sap Table Join"::: 
 
 >[!TIP]
 >You can also consider having the joined data aggregated in the VIEW, which is supported by SAP Table connector.
@@ -316,13 +340,13 @@ As a quick guidance, here are some requirements to get started with the "Custom 
 
 - Definition:
 
-    ![Definition](./media/connector-sap-table/custom-function-module-definition.png) 
+    :::image type="content" source="./media/connector-sap-table/custom-function-module-definition.png" alt-text="Definition"::: 
 
 - Export data into one of the tables below:
 
-    ![Export table 1](./media/connector-sap-table/export-table-1.png) 
+    :::image type="content" source="./media/connector-sap-table/export-table-1.png" alt-text="Export table 1"::: 
 
-    ![Export table 2](./media/connector-sap-table/export-table-2.png)
+    :::image type="content" source="./media/connector-sap-table/export-table-2.png" alt-text="Export table 2":::
  
 Below are illustrations of how SAP table connector works with custom function module:
 
@@ -338,11 +362,11 @@ Below are illustrations of how SAP table connector works with custom function mo
 
     1. Parse the value in the Fields table to get the schemas.
 
-        ![Parse values in Fields](./media/connector-sap-table/parse-values.png)
+        :::image type="content" source="./media/connector-sap-table/parse-values.png" alt-text="Parse values in Fields":::
 
     1. Get the values of the output table to see which table contains these values.
 
-        ![Get values in output table](./media/connector-sap-table/get-values.png)
+        :::image type="content" source="./media/connector-sap-table/get-values.png" alt-text="Get values in output table":::
 
     1. Get the values in the OUT_TABLE, parse the data and then write it into the sink.
 

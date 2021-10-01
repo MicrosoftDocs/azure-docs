@@ -9,7 +9,7 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
-ms.date: 02/18/2020
+ms.date: 09/07/2021
 ---
 # Migration overview: SQL Server to Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -80,6 +80,7 @@ We recommend the following migration tools:
 
 |Technology | Description|
 |---------|---------|
+|[Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md)  | The Azure SQL Migration extension for Azure Data Studio provides both the SQL Server assessment and migration capabilities in Azure Data Studio. It supports migrations in either online (for migrations that require minimal downtime) or offline (for migrations where downtime persists through the duration of the migration) modes. |
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | This Azure service helps you discover and assess your SQL data estate at scale on VMware. It provides Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md)  | This Azure service supports migration in the offline mode for applications that can afford downtime during the migration process. Unlike the continuous migration in online mode, offline mode migration runs a one-time restore of a full database backup from the source to the target. | 
 |[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance supports restore of native SQL Server database backups (.bak files). It's the easiest migration option for customers who can provide full database backups to Azure Storage. Full and differential backups are also supported and documented in the [section about migration assets](#migration-assets) later in this article.| 
@@ -103,6 +104,7 @@ The following table compares the migration options that we recommend:
 
 |Migration option  |When to use  |Considerations  |
 |---------|---------|---------|
+|[Azure SQL Migration extension for Azure Data Studio](../../../dms/migration-using-azure-data-studio.md) | - Migrate single databases or multiple databases at scale. </br> - Can run in both online (minimal downtime) and offline (acceptable downtime) modes. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - Easy to setup and get started. </br> - Requires setup of self-hosted integration runtime to access on-premises SQL Server and backups. </br> - Includes both assessment and migration capabilities. |
 |[Azure Database Migration Service](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migrate single databases or multiple databases at scale. </br> - Can accommodate downtime during the migration process. </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - Migrations at scale can be automated via [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> - Time to complete migration depends on database size and is affected by backup and restore time. </br> - Sufficient downtime might be required. |
 |[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | - Migrate individual line-of-business application databases.  </br> - Quick and easy migration without a separate migration service or tool.  </br> </br> Supported sources: </br> - SQL Server (2005 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - Database backup uses multiple threads to optimize data transfer to Azure Blob Storage, but partner bandwidth and database size can affect transfer rate. </br> - Downtime should accommodate the time required to perform a full backup and restore (which is a size of data operation).| 
 |[Log Replay Service](../../managed-instance/log-replay-service-migrate.md) | - Migrate individual line-of-business application databases.  </br> - More control is needed for database migrations.  </br> </br> Supported sources: </br> - SQL Server (2008 to 2019) on-premises or Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - The migration entails making full database backups on SQL Server and copying backup files to Azure Blob Storage. Log Replay Service is used to restore backup files from Azure Blob Storage to SQL Managed Instance. </br> - Databases being restored during the migration process will be in a restoring mode and can't be used to read or write until the process has finished.| 
@@ -163,7 +165,7 @@ By default, Azure Database Migration Service supports migrating only SQL logins.
 
 After you restart the service, Windows user or group logins appear in the list of logins available for migration. For any Windows user or group logins that you migrate, you're prompted to provide the associated domain name. Service user accounts (accounts with the domain name NT AUTHORITY) and virtual user accounts (accounts with the domain name NT SERVICE) are not supported. To learn more, see [How to migrate Windows users and groups in a SQL Server instance to Azure SQL Managed Instance using T-SQL](../../managed-instance/migrate-sql-server-users-to-instance-transact-sql-tsql-tutorial.md).
 
-Alternatively, you can use the [PowerShell utility](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) specially designed by Microsoft data migration architects. The utility uses PowerShell to create a T-SQL script to re-create logins and select database users from the source to the target. 
+Alternatively, you can use the [PowerShell utility](https://www.microsoft.com/download/details.aspx?id=103111) specially designed by Microsoft data migration architects. The utility uses PowerShell to create a T-SQL script to re-create logins and select database users from the source to the target. 
 
 The PowerShell utility automatically maps Windows Server Active Directory accounts to Azure AD accounts, and it can do a UPN lookup for each login against the source Active Directory instance. The utility scripts custom server and database roles, along with role membership and user permissions. Contained databases are not yet supported, and only a subset of possible SQL Server permissions are scripted. 
 

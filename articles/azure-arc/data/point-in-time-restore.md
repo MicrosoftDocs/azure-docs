@@ -123,5 +123,3 @@ The backups are stored under ```/var/opt/mssql/backups/archived/<dbname>/<dateti
 ### Clean up 
 
 If you need to delete older backups either to create space or no longer need them, any of the folders under ```/var/opt/mssql/backups/archived/``` folder can be removed. Removing folders in the middle of a timeline could impact the ability to restore to a point in time during that window. It is recommended to delete the oldest folders first allowing for a continuous timeline of restorability. 
-
-

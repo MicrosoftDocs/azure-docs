@@ -4,7 +4,6 @@ description: Learn how to configure a disaster recovery environment for Azure Pu
 author: sudheerreddykoppula
 ms.author: sukoppul
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/23/2021
 ---

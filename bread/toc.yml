@@ -255,9 +255,6 @@
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
-      - name: IoT Solution Accelerators
-        tocHref: /azure/iot-accelerators/
-        topicHref: /azure/iot-accelerators/
       - name: IoT Hub Device Provisioning Service
         tocHref: /azure/iot-dps/
         topicHref: /azure/iot-dps/
@@ -536,7 +533,7 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Devtest Labs
+  - name: Azure DevTest Labs
     tocHref: /azure/devtest-labs/
     topicHref: /azure/devtest-labs/
   - name: FXT Edge Filer
@@ -634,9 +631,6 @@
 #    - name: IoT Hub Device Provisioning Service
 #      tocHref: /azure/iot-dps/
 #      topicHref: /azure/iot-dps/
-#    - name: IoT solution accelerators
-#     tocHref: /azure/iot-accelerators/
-#      topicHref: /azure/iot-accelerators/
 #    - name: IoT Central
 #      tocHref: /azure/iot-central/
 #      topicHref: /azure/iot-central/
@@ -782,7 +776,7 @@
       - name: Peering Service
         tocHref: /azure/peering-service/
         topicHref: /azure/peering-service/
-      - name: Route Server (Preview)
+      - name: Route Server
         tocHref: /azure/route-server/
         topicHref: /azure/route-server/
       - name: Traffic Manager
@@ -795,6 +789,9 @@
           - name: NAT gateway
             tocHref: /azure/virtual-network/nat-gateway
             topicHref: /azure/virtual-network/nat-gateway
+          - name: IP services
+            tocHref: /azure/virtual-network/ip-services
+            topicHref: /azure/virtual-network/ip-services
       - name: Virtual WAN
         tocHref: /azure/virtual-wan/
         topicHref: /azure/virtual-wan/
