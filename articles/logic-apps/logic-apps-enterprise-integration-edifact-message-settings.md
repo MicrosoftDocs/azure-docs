@@ -111,7 +111,7 @@ After you finish setting up a validation row, the next row automatically appears
 |----------|-------------|
 | **Receipt of Message (CONTRL)** | The host partner that sends the message requests a technical (CONTRL) acknowledgment from the guest partner. |
 | **Acknowledgement (CONTRL)** | The host partner that sends the message expects requests a functional (CONTRL) acknowledgment from the guest partner. |
-| **Generate SG1/SG4 loop for accepted transaction sets** | If you chose to request a functional acknowledgement, this setting forces the generation of SG1/SG4 loops in the functional acknowledgments for accepted transaction sets. |
+| **Generate SG1/SG4 loop for accepted transaction sets** | If you chose to request a functional acknowledgment, this setting forces the generation of SG1/SG4 loops in the functional acknowledgments for accepted transaction sets. |
 |||
 
 ### Schemas
