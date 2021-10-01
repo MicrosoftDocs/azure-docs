@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/30/2021
+ms.date: 10/01/2021
 ms.author: jasteppe
 ---
 # IoT connector troubleshooting guide
@@ -14,7 +14,7 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article provides steps for troubleshooting common IoT connector error messages and conditions. You'll also learn how to create copies of the IoT connector Fast Healthcare Interoperability Resources (FHIR&#174;). Device and FHIR destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal.  
+This article provides steps for troubleshooting common IoT connector error messages and conditions. You'll also learn how to create copies of the IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal.  
 
 > [!TIP]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include copies of your Device and FHIR destination mappings to assist in the troubleshooting process.
