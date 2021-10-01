@@ -21,9 +21,9 @@ This article shows you how to add the Azure Maps to an iOS app. It walks you thr
 ## Prerequisites
 
 * Create an Azure Maps account by signing into the  [Azure portal](https://portal.azure.com/) . If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/)  before you begin.
-* [Make an Azure Maps account](https://docs.microsoft.com//azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account)
-* [Obtain a primary subscription key](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account) , also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see  [manage authentication in Azure Maps](https://docs.microsoft.com//azure/azure-maps/how-to-manage-authentication) .
-* Download [‎Xcode on the Mac App Store](https://apps.apple.com/cz/app/xcode/id497799835?mt=12) for free.
+* [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+* [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) , also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see  [manage authentication in Azure Maps](how-to-manage-authentication.md).
+* Download [Xcode on the Mac App Store](https://apps.apple.com/cz/app/xcode/id497799835?mt=12) for free.
 
 ## Create an Azure Maps account
 
@@ -51,7 +51,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
 
 > [!Note]
-> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation-dual)
+> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 
 ![get the subscription key.](./media/quick-ios-app/get-key.png)
 
@@ -117,7 +117,7 @@ If you don't plan on continuing to develop with the Azure Maps iOS SDK:
 <!--
 For more code examples, see these guides:
 
-*  [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
+*  [Manage authentication in Azure Maps](how-to-manage-authentication.md)
 *  [Change map styles in iOS maps](Set%20map%20style%20%28iOS%20SDK%29.md)
 *  [Add a symbol layer](Add%20a%20symbol%20layer%20%28iOS%20SDK%29.md)
 *  [Add a line layer](Add%20a%20line%20layer%20to%20the%20map%20%28iOS%20SDK%29.md)
@@ -127,8 +127,6 @@ For more code examples, see these guides:
 ## Next steps
 
 In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
-In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Load GeoJSON data into Azure Maps](tutorial-load-geojson-file-android.md)
-
