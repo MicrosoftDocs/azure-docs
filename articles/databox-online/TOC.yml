@@ -184,7 +184,7 @@
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
 
-    - name: Virtual machines
+    - name: Virtual machines (Preview)
       items:
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md
@@ -299,7 +299,7 @@
             href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md  
           - name: Develop C# module
             href: azure-stack-edge-gpu-create-iot-edge-module.md 
-        - name: Via Azure Arc (Preview)
+        - name: Via Azure Arc
           items:
           - name: Enable Arc on Kubernetes cluster
             href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
