@@ -22,8 +22,8 @@ ms.collection: M365-identity-device-management
  
 With Azure Active Directory (Azure AD), you can use groups to manage the [licenses for your applications](../enterprise-users/licensing-groups-assign.md). You can make the management of these groups even easier by using entitlement management: 
 
-*	Configure periodic access reviews to ensure only employees that need the licenses are in the group. 
-*	Allow other employees to request membership to the group.
+* Configure periodic access reviews to ensure only employees that need the licenses are in the group. 
+* Allow other employees to request membership to the group.
 
 In this tutorial, you play the role of an IT administrator for Woodgrove Bank. You're asked to create an access package so employees in your organization can easily gain access to Office licenses. (You should already have a group that manages your [Office licenses](../enterprise-users/licensing-groups-assign.md).) You want to be able to review these group members every year. You also want to allow new employees to request Office licenses, pending manager approval.
  
@@ -37,7 +37,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 **Prerequisite role:** Global Administrator, Identity Governance Administrator, User Administrator, Catalog Owner, or Access Package Manager
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**.
+1. In the Azure portal, on the left pane, select **Azure Active Directory**.
 
 2. Under **Manage**, select **Identity Governance**.
 
@@ -93,7 +93,9 @@ For more information, see [License requirements](entitlement-management-overview
 	
 3. In **Assignments expire after**, enter **365**. This box specifies when members who have access to the access package will need to renew their access. 
 
-4. You can also configure access reviews, which allow periodic checks of whether the employee still needs access to the access package. A review can be a self-review performed by the employee. Or you can set the employee's manager or another person as the reviewer. For more information, see [Access reviews](entitlement-management-access-reviews-create.md). In this scenario, you want all employees to review whether they still need a license for Office each year.
+4. You can also configure access reviews, which allow periodic checks of whether the employee still needs access to the access package. A review can be a self-review performed by the employee. Or you can set the employee's manager or another person as the reviewer. For more information, see [Access reviews](entitlement-management-access-reviews-create.md). 
+ 
+    In this scenario, you want all employees to review whether they still need a license for Office each year.
 
     1.	Under **Require access reviews**, select **Yes**.
     2.	You can leave **Starting on** set to the current date. This date is when the access review will start. After you create an access review, you can't update its start date.
@@ -117,7 +119,7 @@ In this step, you can delete the Office Licenses access package.
 
 **Prerequisite role:** Global Administrator, Identity Governance Administrator, or Access Package Manager
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**.
+1. In the Azure portal, on the left pane, select **Azure Active Directory**.
 
 2. Under **Manage**, select **Identity Governance**.
 
@@ -127,7 +129,7 @@ In this step, you can delete the Office Licenses access package.
 
 5. Select **Resource Roles**.
 
-6. Select the group you added to the access package. In the details pane, select **Remove resource role**. In the message box that appears, select **Yes**.
+6. Select the group you added to the access package. On the details pane, select **Remove resource role**. In the message box that appears, select **Yes**.
 
 7. Open the list of access packages.
 
