@@ -1,41 +1,60 @@
 ---
 title: 'How to: search the Data Catalog'
-description: This article gives an overview of how to search a data catalog.
+description: This article gives an overview of how to search the Azure Purview data catalog.
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 10/01/2021
 ---
 
 # Search the Azure Purview Data Catalog
 
-Data discovery is the first step for a data analytics or data governance workload for data consumers. Data discovery can be time consuming because you may not know where to find the data that you want. Even after finding the data, you may have doubts about whether or not you can trust the data and take a dependency on it.
+After data is scanned and ingested into the Azure Purview data map, data consumers need to easily find the data needed for their analytics or governance workloads. Data discovery can be time consuming because you may not know where to find the data that you want. Even after finding the data, you may have doubts about whether you can trust the data and take a dependency on it.
 
 The goal of search in Azure Purview is to speed up the process of data discovery to quickly find the data that matters. This article outlines how to search the Azure Purview data catalog to quickly find the data you are looking for.
 
 ## Search the catalog for assets
 
-In Azure Purview, the search bar is located at the top of the Purview studio UX.
+The search bar can be quickly accessed from the top bar of the Purview Studio UX. In the data catalog home page, the search bar is in the center of the screen.
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
-When you click on the search bar, you can see your recent search history and recently accessed assets. Select "View all" to see all of the recently viewed assets.
+Once you click on the search bar, you will be presented with your search history and the assets recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
-Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, click on "View search results" or press "Enter".
+Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in search keywords, Purview dynamically suggests assets and searches that may fit your needs. To complete your search, click on "View search results" or press "Enter".
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
-The search results page shows a list of assets that match the keywords provided in order of relevance. There are various factors that can affect the relevance score of an asset. You can filter down the list more by selecting specific data stores, classifications, contacts, labels, and glossary terms that apply to the asset you are looking for.
+Once you enter in your search, Purview returns a list of data assets a user is a data reader for to that matched to the keywords entered in.
+
+The Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a table that matches on multiple keywords that a data steward has assigned glossary terms and given a description is likely going to be more interesting to a data consumer than a folder which has been unannotated. A large set of factors go into an asset’s relevance score and the Purview search team is constantly tuning the relevance engine to ensure the top search results have value to yo.
+
+If the top results don’t include the assets you are looking for, you can use the facets on the left-hand side to filter down by business metadata such glossary terms, classifications and the containing collection. If you are interested in a particular data source type such as Azure Data Lake Storage Gen2 or Azure SQL Database, you can use the source type pill filter to narrow down your search.
+
+> [!NOTE]
+> Search will only return assets in collections you are a data reader or curator for. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
- Click on your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
+For certain annotations, you can click on the ellipses to choose between an AND condition or an OR condition. 
+
+:::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
+
+Once you find the asset you are looking for, you can select it to view additional details such as schema, lineage, and a detailed classification list. To learn more about the asset details page, see [Manage catalog assets](catalog-asset-details.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
+
+## Bulk edit search results
+
+If you are looking to make changes to multiple assets returned by search, Azure Purview lets you modify glossary terms, classifications, and contacts in bulk. To learn more, see the [bulk edit assets](how-to-bulk-edit-assets.md) guide.
+
+## Browse the data catalog
+
+While searching is great if you know what you are looking for, there are times where data consumers wish to explore the data available to them. The Azure Purview data catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog. For more information, see [browse the data catalog](how-to-browse-catalog.md).
 
 ## Search query syntax
 
