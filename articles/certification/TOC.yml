@@ -37,6 +37,8 @@
       href: concepts-legacy.md  
     - name: Marketing concepts
       href: concepts-marketing.md
+    - name: Software levels
+      href: how-to-software-levels.md
     
 - name: How-to guides
   items:
@@ -52,3 +54,5 @@
   items:
     - name: Certification Glossary
       href: resources-glossary.md
+    - name: MPN/Microsoft Partner Network Support
+      href: /partner-center

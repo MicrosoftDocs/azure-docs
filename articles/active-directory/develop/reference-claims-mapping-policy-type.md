@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/16/2021
+ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -28,7 +28,7 @@ There are certain sets of claims that define how and when they're used in tokens
 | Claim set | Description |
 |---|---|
 | Core claim set | Are present in every token regardless of the policy. These claims are also considered restricted, and can't be modified. |
-| Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can omit or modify basic claims by using the claims mapping policies. |
+| Basic claim set | Includes the claims that are emitted by default for tokens (in addition to the core claim set). You can [omit or modify basic claims](active-directory-claims-mapping.md#omit-the-basic-claims-from-tokens) by using the claims mapping policies. |
 | Restricted claim set | Can't be modified using policy. The data source cannot be changed, and no transformation is applied when generating these claims. |
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
@@ -266,6 +266,9 @@ If the source is transformation, the **TransformationID** element must be includ
 
 The ID element identifies which property on the source provides the value for the claim. The following table lists the values of ID valid for each value of Source.
 
+> [!WARNING]
+> Currently, the only available multi-valued claim sources on a user object are multi-valued extension attributes which have been synced from AADConnect.  Other properties, such as OtherMails and tags, are multi-valued but only one value is emitted when selected as a source.
+
 #### Table 3: Valid ID values per source
 
 | Source | ID | Description |
@@ -400,13 +403,8 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 | ExtractMailPrefix | None |
 | Join | The suffix being joined must be a verified domain of the resource tenant. |
 
-### Cross-tenant scenarios
-
-Claims mapping policies do not apply to guest users. If a guest user tries to access an application with a claims mapping policy assigned to its service principal, the default token is issued (the policy has no effect).
-
-
 ## Next steps
 
-- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](active-directory-claims-mapping.md)
+- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
 - To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
 - To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).

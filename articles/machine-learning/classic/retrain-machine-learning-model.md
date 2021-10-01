@@ -1,6 +1,6 @@
 ---
-title: 'ML Studio (classic): retrain a web service - Azure'
-description: Learn how to update a web service to use a newly trained machine learning model in Azure Machine Learning Studio (classic).
+title: 'ML Studio (classic): Retrain a web service - Azure'
+description: Learn how to update a web service to use a newly trained machine learning model in Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -8,13 +8,14 @@ ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: "seodec18, devx-track-csharp, devx-track-azurepowershell"
 ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Retraining is one way to ensure machine learning models stay accurate and based on the most relevant data available. This article shows how to retrain and deploy a machine learning model as a new web service in Studio (classic). If you're looking to retrain a classic web service, [view this how-to article.](retrain-classic-web-service.md)
 
@@ -46,7 +47,7 @@ Use the following steps to deploy a retraining web service:
     Now, you deploy the training experiment as a retraining web service that outputs a trained model and model evaluation results.
 
 1. At the bottom of the experiment canvas, click **Set Up Web Service**
-1. Select **Deploy Web Service [New]**. The Azure Machine Learning Web Services portal opens to the **Deploy Web Service** page.
+1. Select **Deploy Web Service [New]**. The Machine Learning Web Services portal opens to the **Deploy Web Service** page.
 1. Type a name for your web service and choose a payment plan.
 1. Select **Deploy**.
 
@@ -65,7 +66,7 @@ Use the following steps to call the retraining APIs:
 
 Add the NuGet package Microsoft.AspNet.WebApi.Client, as specified in the comments. To add the reference to Microsoft.WindowsAzure.Storage.dll, you might  need to install the [client library for Azure Storage services](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-The following screenshot shows the **Consume** page in the Azure Machine Learning Web Services portal.
+The following screenshot shows the **Consume** page in the Machine Learning Web Services portal.
 
 ![Consume page](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
@@ -156,7 +157,7 @@ Type : Microsoft.MachineLearning/webServices
 Tags : {}
 ```
 
-Alternatively, to determine the resource group name of an existing web service, sign in to the Azure Machine Learning Web Services portal. Select the web service. The resource group name is the fifth element of the URL of the web service, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
+Alternatively, to determine the resource group name of an existing web service, sign in to the Machine Learning Web Services portal. Select the web service. The resource group name is the fifth element of the URL of the web service, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
 
 `https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237`
 

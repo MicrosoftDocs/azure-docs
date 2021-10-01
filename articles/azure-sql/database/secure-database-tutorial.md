@@ -200,7 +200,7 @@ To add a user with Azure AD authentication:
 1. In the query window, enter the following command and modify `<Azure_AD_principal_name>` to the principal name of the Azure AD user or the display name of the Azure AD group:
 
    ```sql
-   CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
+   CREATE USER [<Azure_AD_principal_name>] FROM EXTERNAL PROVIDER;
    ```
 
 > [!NOTE]

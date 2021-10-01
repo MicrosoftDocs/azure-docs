@@ -68,7 +68,7 @@ These JSON files are stored in the `temps` subfolder underneath  the HDInsight c
 
 First configure a DataFrame that describes the source of the data and any settings required by that source. This example draws from the JSON files in Azure Storage and applies a schema to them at read time.
 
-```sql
+```scala
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
 
@@ -86,7 +86,7 @@ val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath)
 
 Next,  apply a query that contains the desired operations against the Streaming DataFrame. In this case, an aggregation groups all the rows into 1-hour windows, and then computes the minimum, average, and maximum temperatures in that 1-hour window.
 
-```sql
+```scala
 val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
 ```
 
@@ -94,7 +94,7 @@ val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min
 
 Next,  define the destination for the rows that are added to the results table within each trigger interval. This example  just outputs all  rows to an in-memory table `temps` that you can later query with SparkSQL. Complete  output mode ensures that all rows for all windows are output every time.
 
-```sql
+```scala
 val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete")
 ``` 
 
@@ -102,7 +102,7 @@ val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temp
 
 Start the streaming query and run until a termination signal is received.
 
-```sql
+```scala
 val query = streamingOutDF.start() 
 ``` 
 

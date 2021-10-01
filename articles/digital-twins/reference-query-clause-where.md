@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 This document contains reference information on the **WHERE clause** for the [Azure Digital Twins query language](concepts-query-language.md).
 
-The WHERE clause is the last part of a query. It is used to filter the items that are returned based on specific conditions.
+The WHERE clause is the last part of a query. It's used to filter the items that are returned based on specific conditions.
 
 This clause is optional while querying.
 
@@ -45,10 +45,10 @@ A condition evaluating to a `Boolean` value.
 
 ### Examples
 
-Here is an example using properties and operators. The following query specifies in the WHERE clause to only return the twin with a `$dtId` value of *Room1*.
+Here's an example using properties and operators. The following query specifies in the WHERE clause to only return the twin with a `$dtId` value of Room1.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereExample":::
 
-Here is an example using a function. The following query uses the `IS_OF_MODEL` function to specify in the WHERE clause to only return the twins with a model of `dtmi:sample:Room;1`. For more about the `IS_OF_MODEL` function, see [Azure Digital Twins query language reference: Functions](reference-query-functions.md#is_of_model).
+Here's an example using a function. The following query uses the `IS_OF_MODEL` function to specify in the WHERE clause to only return the twins with a model of `dtmi:sample:Room;1`. For more about the `IS_OF_MODEL` function, see [Azure Digital Twins query language reference: Functions](reference-query-functions.md#is_of_model).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="WhereFunctionExample":::

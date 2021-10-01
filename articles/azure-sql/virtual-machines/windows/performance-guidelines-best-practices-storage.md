@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -23,7 +24,7 @@ This article provides storage best practices and guidelines to optimize performa
 
 There is typically a trade-off between optimizing for costs and optimizing for performance. This performance best practices series is focused on getting the *best* performance for SQL Server on Azure Virtual Machines. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
-To learn more, see the other articles in this series: [Performance Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), and [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
+To learn more, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Security](security-considerations-best-practices.md), [HADR configuration](hadr-cluster-best-practices.md), and [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
 
 ## Checklist
 
@@ -45,8 +46,6 @@ Review the following checklist for a brief overview of the storage best practice
     - Always stop the SQL Server service before changing the cache settings of your disk.
 - For development and test workloads, and long-term backup archival consider using standard storage. It is not recommended to use Standard HDD/SDD for production workloads.
 - [Credit-based Disk Bursting](../../../virtual-machines/disk-bursting.md#credit-based-bursting) (P1-P20) should only be considered for smaller dev/test workloads and departmental systems.
-- Provision the storage account in the same region as the SQL Server VM. 
-- Disable Azure geo-redundant storage (geo-replication) and use LRS (local redundant storage) on the storage account.
 - Format your data disk to use 64 KB block size (allocation unit size) for all data files placed on a drive other than the temporary `D:\` drive (which has a default of 4 KB). SQL Server VMs deployed through Azure Marketplace come with data disks formatted with a block size and interleave for the storage pool set to 64 KB. 
 
 To compare the storage checklist with the others, see the comprehensive [Performance best practices checklist](performance-guidelines-best-practices-checklist.md). 
@@ -82,7 +81,7 @@ Many Azure virtual machines contain another disk type called the temporary disk 
 
 The temporary storage drive is not persisted to remote storage and therefore should not store user database files, transaction log files, or anything that must be preserved. 
 
-Place tempdb on the local temporary SSD `D:\` drive for SQL Server workloads unless consumption of local cache is a concern. If you are using a virtual machine that [does not have a temporary disk](../../../virtual-machines/azure-vms-no-temp-disk.md) then it is recommended to place tempdb on its own isolated disk or storage pool with caching set to read-only. To learn more, see [tempdb data caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies).
+Place tempdb on the local temporary SSD `D:\` drive for SQL Server workloads unless consumption of local cache is a concern. If you are using a virtual machine that [does not have a temporary disk](../../../virtual-machines/azure-vms-no-temp-disk.yml) then it is recommended to place tempdb on its own isolated disk or storage pool with caching set to read-only. To learn more, see [tempdb data caching policies](performance-guidelines-best-practices-storage.md#data-file-caching-policies).
 
 ### Data disks
 
@@ -188,10 +187,12 @@ The following table provides a summary of the recommended caching policies based
 |---------|---------|
 | **Data disk** | Enable `Read-only` caching for the disks hosting SQL Server data files. <br/> Reads from cache will be faster than the uncached reads from the data disk. <br/> Uncached IOPS and throughput plus Cached IOPS and throughput will yield the total possible performance available from the virtual machine within the VMs limits, but actual performance will vary based on the workload's ability to use the cache (cache hit ratio). <br/>|
 |**Transaction log disk**|Set the caching policy to `None` for disks hosting the transaction log.  There is no performance benefit to enabling caching for the Transaction log disk, and in fact having either `Read-only` or `Read/Write` caching enabled on the log drive can degrade performance of the writes against the drive and decrease the amount of cache available for reads on the data drive.  |
-|**Operating OS disk** | The default caching policy could be `Read-only` or `Read/write` for the OS drive. <br/> It is not recommended to change the caching level of the OS drive.  |
+|**Operating OS disk** | The default caching policy is `Read/write` for the OS drive. <br/> It is not recommended to change the caching level of the OS drive.  |
 | **tempdb**| If tempdb cannot be placed on the ephemeral drive `D:\` due to capacity reasons, either resize the virtual machine to get a larger ephemeral drive or place tempdb on a separate data drive with `Read-only` caching configured. <br/> The virtual machine cache and ephemeral drive both use the local SSD, so keep this in mind when sizing as tempdb I/O will count against the cached IOPS and throughput virtual machine limits when hosted on the ephemeral drive.| 
 | | | 
 
+> [!IMPORTANT]
+> Changing the cache setting of an Azure disk detaches and reattaches the target disk. When changing the cache setting for a disk that hosts SQL Server data, log, or application files, be sure to stop the SQL Server service along with any other related services to avoid data corruption.
 
 To learn more, see [Disk caching](../../../virtual-machines/premium-storage-performance.md#disk-caching). 
 
@@ -273,10 +274,12 @@ There are specific Azure Monitor metrics that are invaluable for discovering cap
 To learn more about performance best practices, see the other articles in this series:
 - [Quick checklist](performance-guidelines-best-practices-checklist.md)
 - [VM size](performance-guidelines-best-practices-vm-size.md)
+- [Security](security-considerations-best-practices.md)
+- [HADR settings](hadr-cluster-best-practices.md)
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
 
 For detailed testing of SQL Server performance on Azure VMs with TPC-E and TPC_C benchmarks, refer to the blog [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/sql-server/optimize-oltp-performance-with-sql-server-on-azure-vm/ba-p/916794).
 
-Review other SQL Server Virtual Machine articles at [SQL Server on Azure Virtual Machines Overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+Review other SQL Server Virtual Machine articles at [SQL Server on Azure Virtual Machines Overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).

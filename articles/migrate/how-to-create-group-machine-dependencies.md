@@ -81,7 +81,7 @@ To install the agent on a Windows server:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
-You can install the agent from the command line or using an automated method such as Configuration Manager or [Intigua](https://www.intigua.com/intigua-for-azure-migration).
+You can install the agent from the command line or using an automated method such as Configuration Manager or Intigua.
 - [Learn more](../azure-monitor/agents/log-analytics-agent.md#installation-options) about using these methods to install the MMA agent.
 - The MMA agent can also be installed using this [script](https://github.com/brianbar-MSFT/Install-MMA).
 - [Learn more](../azure-monitor/agents/agents-overview.md#supported-operating-systems) about the Windows operating systems supported by MMA.
@@ -91,18 +91,20 @@ You can install the agent from the command line or using an automated method suc
 To install the MMA on a Linux server:
 
 1. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
+
 2. Install the bundle by using the --install argument.
 
-    ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
+   `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
 
 [Learn more](../azure-monitor/agents/agents-overview.md#supported-operating-systems) about the list of Linux operating systems support by MMA. 
 
 ## Install the Dependency agent
 
 1. To install the Dependency agent on a Windows server, double-click the setup file and follow the wizard.
+
 2. To install the Dependency agent on a Linux server, install as root using the following command:
 
-    ```sh InstallDependencyAgent-Linux64.bin```
+   `sh InstallDependencyAgent-Linux64.bin`
 
 - [Learn more](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
 - [Learn more](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) about the operating systems supported by the Dependency agent.

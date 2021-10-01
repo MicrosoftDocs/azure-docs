@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/26/2021
 ms.author: banders
 ---
 
@@ -153,7 +153,7 @@ You may want to access your invoices for your old Microsoft Online Subscription 
 
 You must use your account administrator credentials for your old account if the credentials differ from those used to access your new Microsoft Customer Agreement account.
 
-1.	Sign in to the Azure portal at https://azure.portal.com.
+1.	Sign in to the Azure portal at https://portal.azure.com/.
 1.	Navigate to **Cost Management + Billing**.
 1.	Select **Billing Scopes** in the left pane.
 1.	Select the billing account associated with your Microsoft Online Subscription Agreement account.
@@ -177,7 +177,7 @@ Azure Marketplace products transfer along with their respective subscriptions.
 
 ### Azure Reservations transfer
 
-If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations don't automatically move with the subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
+If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations automatically move with the subscriptions.
 
 ### Access to Azure services
 

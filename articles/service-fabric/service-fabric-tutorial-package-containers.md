@@ -78,7 +78,7 @@ To add another container service to an application already created using Yeoman,
 1. Change directory one level to the **TestContainer** directory, for example, *./TestContainer*
 2. Run `yo azuresfcontainer:AddService`
 3. Name the service 'azurevoteback'
-4. Provide the container image path for Redis - 'alpine:redis'
+4. Provide the container image path for Redis - 'redis:alpine'
 5. Press Enter to leave the Commands section empty
 6. Specify an instance count of "1".
 
@@ -86,7 +86,7 @@ The entries for adding the service used are all shown:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: alpine:redis
+? Input the Image Name: redis:alpine
 ? Commands:
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -265,7 +265,7 @@ Use the install script provided in the **TestContainer** directory to copy the a
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
+Open a browser and navigate to Service Fabric Explorer at https:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expand the Applications node and note that there is an entry for your application type and another for the instance.
 
 ![Service Fabric Explorer][sfx]
 
@@ -370,7 +370,6 @@ Use the uninstall script provided in the template to delete the application inst
    <CodePackage Name="code" Version="1.0.0">
       <EntryPoint>
          <ContainerHost>
-            <ImageName>alpine:redis</ImageName>
             <Commands></Commands>
          </ContainerHost>
       </EntryPoint>

@@ -6,10 +6,11 @@ author: fanche
 manager: phans
 services: azure-communication-services
 
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: rifox
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: chat
 zone_pivot_groups: acs-js-csharp-java-python-swift-android
 ---
 # Quickstart: Add Chat to your App

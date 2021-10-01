@@ -1,15 +1,15 @@
 ---
 title: 'Monitoring Azure Time Series Insights data reference | Microsoft Docs'
 description: Reference documentation for monitoring Azure Time Series Insights.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.custom: lyrana
 ---
 
 # Monitoring Azure Time Series Insights data reference
@@ -20,7 +20,6 @@ Learn about the data and resources collected by Azure Monitor from your Azure Ti
 
 This section lists all the automatically collected platform metrics collected for Azure Time Series Insights. For a list of all Azure Monitor support metrics (including Azure Time Series Insights), see [Azure Monitor supported metrics](../azure-monitor/essentials/metrics-supported.md).
 The resource provider for these metrics is [Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) and [Microsoft.TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
-
 
 ### Ingress
 
@@ -50,6 +49,7 @@ This section lists the types of resource logs you can collect for your Azure Tim
 | Ingress | TSIIngress | The Ingress category tracks errors that occur in the ingress pipeline. This category includes errors that occur when receiving events (such as failures to connect to an Event Source) and processing events (such as errors when parsing an event payload). |
 
 ## Schemas
+
 The following schemas are in use by Azure Time Series Insights
 
 ### TSIIngress table

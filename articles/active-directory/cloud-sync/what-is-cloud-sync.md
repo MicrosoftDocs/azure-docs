@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/11/2020
+ms.date: 09/30/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -20,7 +20,6 @@ Azure AD Connect cloud sync is new offering from Microsoft designed to meet and 
 - Simplified installation with light-weight provisioning agents: The agents act as a bridge from AD to Azure AD, with all the sync configuration managed in the cloud. 
 - Multiple provisioning agents can be used to simplify high availability deployments, particularly critical for organizations relying upon password hash synchronization from AD to Azure AD.
 - Support for large groups with up to 50K members. It is recommended to use only the OU scoping filter when synchronizing large groups.
-
 
 ![What is Azure AD Connect](media/what-is-cloud-sync/architecture-1.png)
 
@@ -67,10 +66,13 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Support for writeback (passwords, devices, groups) |● | |
 | Azure AD Domain Services support|● | |
 | [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
+| Unlimited number of objects per AD domain |● | |
 | Support for up to 150,000 objects per AD domain |● |● |
-| Large group support - groups with up to 50,000 members |● |● |
+| Groups with up to 50,000 members |● |● |
+| Large groups with up to 250,000 members |● |  |
 | Cross domain references|● | |
-| On-demand provisioning| |● |
+| On-demand provisioning|● |● |
+| Support for US Government|● |● |
 
 ## Next steps 
 

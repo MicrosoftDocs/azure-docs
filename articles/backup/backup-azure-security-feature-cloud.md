@@ -2,7 +2,8 @@
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 04/30/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Soft delete for Azure Backup
 
@@ -21,7 +22,9 @@ This flow chart shows the different steps and states of a backup item when Soft 
 
 ## Enabling and disabling soft delete
 
-Soft delete is enabled by default on newly created vaults to protect backup data from accidental or malicious deletes.  Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) Only the vault owner can disable this feature. If you disable this feature, all future deletions of protected items will result in immediate removal, without the ability to restore. Backup data that exists in soft deleted state before disabling this feature, will remain in soft deleted state for the period of 14 days. If you wish to permanently delete these immediately, then you need to undelete and delete them again to get permanently deleted.
+Soft delete is enabled by default on newly created vaults to protect backup data from accidental or malicious deletes.  Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment).
+
+To disable soft delete on a vault, you must have the Backup Contributor role for that vault (you should have permissions to perform Microsoft.RecoveryServices/Vaults/backupconfig/write on the vault). If you disable this feature, all future deletions of protected items will result in immediate removal, without the ability to restore. Backup data that exists in soft deleted state before disabling this feature, will remain in soft deleted state for the period of 14 days. If you wish to permanently delete these immediately, then you need to undelete and delete them again to get permanently deleted.
 
 It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads. For example, it's not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
 

@@ -61,7 +61,7 @@ Routing for the Suggest API is contained in the [function.json](https://github.c
 
 ## Client: Suggestions from the catalog
 
-Th Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
+The Suggest function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/components/SearchBar/SearchBar.js" highlight="52-60" :::
 

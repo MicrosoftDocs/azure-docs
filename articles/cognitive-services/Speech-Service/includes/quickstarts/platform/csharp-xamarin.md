@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: erhopf
+ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
 
@@ -32,8 +32,6 @@ This quickstart requires:
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-xamarin-create-proj.md)]
 
 The Speech SDK is now installed. You may now delete or re-use the "helloworld" project you created in the previous steps.
-
-You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

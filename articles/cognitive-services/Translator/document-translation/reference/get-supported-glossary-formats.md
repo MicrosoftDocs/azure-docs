@@ -15,13 +15,13 @@ ms.author: v-jansk
 
 # Get supported glossary formats
 
-The Get supported glossary formats method returns a list of supported glossary formats supported by the Document Translation service. The list includes the common file extension used.
+The Get supported glossary formats method returns a list of glossary formats supported by the Document Translation service. The list includes the common file extension used.
 
 ## Request URL
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/glossaries/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/glossaries/formats
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -58,11 +58,14 @@ Base type for list return in the Get supported glossary formats API.
 
 Base type for list return in the Get supported glossary formats API.
 
-|Status Code|Description|
-|--- |--- |
-|200|OK. Returns the list of supported glossary file formats.|
-|500|Internal Server Error.|
-|Other Status Codes|Too many requestsServer temporary unavailable|
+|Name|Type|Description|
+|--- |--- |--- |
+|value|FileFormat []|FileFormat[] contains the details listed below.|
+|value.contentTypes|string []|Supported Content-Types for this format.|
+|value.defaultVersion|string|Default version if none is specified|
+|value.fileExtensions|string []| Supported file extension for this format.|
+|value.format|string|Name of the format.|
+|value.versions|string []| Supported version.|
 
 ### Error response
 
@@ -70,9 +73,10 @@ Base type for list return in the Get supported glossary formats API.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerErrorV2|New Inner Error format, which conforms to Cognitive Services API Guidelines. It contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error (this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
 
 ## Examples
 
@@ -91,6 +95,7 @@ The following is an example of a successful response.
             "contentTypes": [
                 "application/xliff+xml"
             ],
+            "defaultVersion": "1.2",
             "versions": [
                 "1.0",
                 "1.1",
@@ -105,11 +110,20 @@ The following is an example of a successful response.
             ],
             "contentTypes": [
                 "text/tab-separated-values"
+            ]
+        },
+        {
+            "format": "CSV",
+            "fileExtensions": [
+                ".csv"
             ],
-            "versions": []
+            "contentTypes": [
+                "text/csv"
+            ]
         }
     ]
 }
+
 ```
 
 ### Example error response

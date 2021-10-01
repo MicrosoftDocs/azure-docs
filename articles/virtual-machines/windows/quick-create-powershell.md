@@ -13,6 +13,8 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Quickstart: Create a Windows virtual machine in Azure with PowerShell
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a virtual machine (VM) in Azure that runs Windows Server 2016. You will also RDP to the VM and install the IIS web server, to show the VM in action.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

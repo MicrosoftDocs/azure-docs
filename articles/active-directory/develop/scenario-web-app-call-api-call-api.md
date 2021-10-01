@@ -130,8 +130,8 @@ public async Task<IActionResult> Profile()
   string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
   // Use the access token to call a protected web API.
-  HttpClient client = new HttpClient();
-  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+  HttpClient httpClient = new HttpClient();
+  httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
   var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 

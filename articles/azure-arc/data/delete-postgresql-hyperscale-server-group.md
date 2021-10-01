@@ -1,17 +1,17 @@
 ---
-title: Delete an Azure Arc enabled PostgreSQL Hyperscale server group
-description: Delete an Azure Arc enabled Postgres Hyperscale server group
+title: Delete an Azure Arc-enabled PostgreSQL Hyperscale server group
+description: Delete an Azure Arc-enabled Postgres Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Delete an Azure Arc enabled PostgreSQL Hyperscale server group
+# Delete an Azure Arc-enabled PostgreSQL Hyperscale server group
 
 This document describes the steps to delete a server group from your Azure Arc setup.
 
@@ -21,31 +21,31 @@ This document describes the steps to delete a server group from your Azure Arc s
 
 As an example, let's consider we want to delete the _postgres01_ instance from the below setup:
 
-```console
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 Name        State    Workers
 ----------  -------  ---------
 postgres01  Ready    3
 ```
 
 The general format of the delete command is:
-```console
-azdata arc postgres server delete -n <server group name>
+```azurecli
+az postgres arc-server delete -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 When you execute this command, you will be requested to confirm the deletion of the server group. If you are using scripts to automate deletions you will need to use the --force parameter to bypass the confirmation request. For example, you would run a command like: 
-```console
-azdata arc postgres server delete -n <server group name> --force
+```azurecli
+az postgres arc-server delete -n <server group name> --force --k8s-namespace <namespace> --use-k8s
 ```
 
 For more details about the delete command, run:
-```console
-azdata arc postgres server delete --help
+```azurecli
+az postgres arc-server delete --help 
 ```
 
 ### Delete the server group used in this example
 
-```console
-azdata arc postgres server delete -n postgres01
+```azurecli
+az postgres arc-server delete -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Reclaim the Kubernetes Persistent Volume Claims (PVCs)
@@ -108,7 +108,7 @@ persistentvolumeclaim "data-postgres01-0" deleted
   
 
 >[!NOTE]
-> As indicated, not deleting the PVCs might eventually get your Kubernetes cluster in a situation where it will throw errors. Some of these errors may include being unable to login to your Kubernetes cluster with azdata as the pods may be evicted from it because of this storage issue (normal Kubernetes behavior).
+> As indicated, not deleting the PVCs might eventually get your Kubernetes cluster in a situation where it will throw errors. Some of these errors may include being unable to create, read, update, delete resources from the Kubernetes API, or being able to run commands like `az arcdata dc export` as the controller pods may be evicted from the Kubernetes nodes because of this storage issue (normal Kubernetes behavior).
 >
 > For example, you may see messages in the logs similar to:  
 > ```output
@@ -119,4 +119,4 @@ persistentvolumeclaim "data-postgres01-0" deleted
 > ```
     
 ## Next step
-Create [Azure Arc enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)
+Create [Azure Arc-enabled PostgreSQL Hyperscale](create-postgresql-hyperscale-server-group.md)

@@ -14,7 +14,7 @@ ms.custom: device-developer, devx-track-azurecli
 
 # Troubleshoot why data from your devices isn't showing up in Azure IoT Central
 
-This document helps device developers find out why the data their devices are sending to IoT Central may not be showing up in the application.
+This document helps you find out why the data your devices are sending to IoT Central may not be showing up in the application.
 
 There are two main areas to investigate:
 
@@ -49,7 +49,7 @@ Use the following commands to sign in the subscription where you have your IoT C
 
 ```azurecli
 az login
-az set account --subscription <your-subscription-id>
+az account set --subscription <your-subscription-id>
 ```
 
 To monitor the telemetry your device is sending, use the following command:
@@ -213,7 +213,7 @@ If you prefer to use a GUI, use the IoT Central **Raw data** view to see if some
 
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
-If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices.md).
+If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices-individually.md).
 
 ## Next steps
 

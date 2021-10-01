@@ -10,10 +10,12 @@ ms.date: 10/1/2020
 
 # Limitations in Azure Database for MySQL - Flexible Server (Preview)
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
-This article describes limitations in the Azure Database for MySQL Flexible Server service. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
+This article describes limitations in the Azure Database for MySQL Flexible Server service. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource limitations (compute, memory, storage), see the [compute and storage](concepts-compute-storage.md) article.
 
 ## Server parameters
 
@@ -22,11 +24,9 @@ This article describes limitations in the Azure Database for MySQL Flexible Serv
 
 Azure Database for MySQL supports tuning the values of server parameters. The min and max value of some parameters (ex. `max_connections`, `join_buffer_size`, `query_cache_size`) is determined by the compute tier and compute size of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits.
 
-Password plugins such as "validate_password" and "caching_sha2_password" are not supported by the service.
-
 ## Storage engines
 
-MySQL supports many storage engines. On Azure Database for MySQL Flexible Server, the following storage engines are supported and unsupported:
+MySQL supports many storage engines. On Azure Database for MySQL Flexible Server, the following is the list of supported and unsupported storage engines:
 
 ### Supported
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -40,8 +40,6 @@ MySQL supports many storage engines. On Azure Database for MySQL Flexible Server
 
 ## Privileges & data manipulation support
 
-Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the MySQL server. To maintain the service integrity and SLA at a product level, this service does not expose multiple roles. 
-
 The MySQL service does not allow direct access to the underlying file system. Some data manipulation commands are not supported. 
 
 ### Unsupported
@@ -54,7 +52,7 @@ The following are unsupported:
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
 
 ### Supported
-- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
+- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB). Additionally, if you are using MySQL client version >= 8.0 you need to include `-–local-infile=1` parameter in your connection string.
 
 ## Functional limitations
 
@@ -64,8 +62,6 @@ The following are unsupported:
 
 ### Networking
 - Connectivity method cannot be changed after creating the server. If the server is created with *Private access (VNet Integration)*, it cannot be changed to *Public access (allowed IP addresses)* after create, and vice versa
-- TLS/SSL is enabled by default and cannot be disabled.
-- Minimum TLS version supported on the server is TLS1.2. Refer to [connect using TLS/SSL](./how-to-connect-tls-ssl.md) to learn more.
 
 ### Stop/start operation
 - Not supported with zone redundant HA configurations (both primary and standby).

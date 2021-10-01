@@ -3,21 +3,31 @@ title: Task hubs in Durable Functions - Azure
 description: Learn what a task hub is in the Durable Functions extension for Azure Functions. Learn how to configure task hubs.
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 05/12/2021
 ms.author: azfuncdf
 ---
 
 # Task hubs in Durable Functions (Azure Functions)
 
-A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
+A *task hub* in [Durable Functions](durable-functions-overview.md) is a logical container for durable storage resources that are used for orchestrations and entities. Orchestrator, activity, and entity functions can only directly interact with each other when they belong to the same task hub.
 
-If multiple function apps share a storage account, each function app *must* be configured with a separate task hub name. A storage account can contain multiple task hubs. The following diagram illustrates one task hub per function app in shared and dedicated storage accounts.
+> [!NOTE]
+> This document describes the details of task hubs in a way that is specific to the default [Azure Storage provider for Durable Functions](durable-functions-storage-providers.md#azure-storage). If you are using a non-default storage provider for your Durable Functions app, you can find detailed task hub documentation in the provider-specific documentation:
+> 
+> * [Task Hub information for the Netherite storage provider](https://microsoft.github.io/durabletask-netherite/#/storage)
+> * [Task Hub information for the Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql/#/taskhubs)
+> 
+> For more information on the various storage provider options and how they compare, see the [Durable Functions storage providers](durable-functions-storage-providers.md) documentation.
+
+If multiple function apps share a storage account, each function app *must* be configured with a separate task hub name. A storage account can contain multiple task hubs. This restriction generally applies to other storage providers as well.
+
+The following diagram illustrates one task hub per function app in shared and dedicated Azure Storage accounts.
 
 ![Diagram showing shared and dedicated storage accounts.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
 ## Azure Storage resources
 
-A task hub consists of the following storage resources:
+A task hub in Azure Storage consists of the following resources:
 
 * One or more control queues.
 * One work-item queue.
@@ -26,11 +36,11 @@ A task hub consists of the following storage resources:
 * One storage container containing one or more lease blobs.
 * A storage container containing large message payloads, if applicable.
 
-All of these resources are created automatically in the default Azure Storage account when orchestrator, entity, or activity functions run or are scheduled to run. The [Performance and Scale](durable-functions-perf-and-scale.md) article explains how these resources are used.
+All of these resources are created automatically in the configured Azure Storage account when orchestrator, entity, or activity functions run or are scheduled to run. The [Performance and Scale](durable-functions-perf-and-scale.md) article explains how these resources are used.
 
 ## Task hub names
 
-Task hubs are identified by a name that conforms to these rules:
+Task hubs in Azure Storage are identified by a name that conforms to these rules:
 
 * Contains only alphanumeric characters
 * Starts with a letter
@@ -97,7 +107,7 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 }
 ```
 
-The following code demonstrates how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
+In addition to **host.json**, task hub names can also be configured in [orchestration client binding](durable-functions-bindings.md#orchestration-client) metadata. This is useful if you need to access orchestrations or entities that live in a separate function app. The following code demonstrates how to write a function that uses the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to work with a task hub that is configured as an App Setting:
 
 # [C#](#tab/csharp)
 
@@ -150,7 +160,10 @@ The task hub property in the `function.json` file is set via App Setting:
 
 ---
 
-Task hub names must start with a letter and consist of only letters and numbers. If not specified, a default task hub name will be used as shown in the following table:
+> [!NOTE]
+> Configuring task hub names in client binding metadata is only necessary when you use one function app to access orchestrations and entities in another function app. If the client functions are defined in the same function app as the orchestrations and entities, you should avoid specifying task hub names in the binding metadata. By default, all client bindings get their task hub metadata from the **host.json** settings.
+
+Task hub names in Azure Storage must start with a letter and consist of only letters and numbers. If not specified, a default task hub name will be used as shown in the following table:
 
 | Durable extension version | Default task hub name |
 | - | - |

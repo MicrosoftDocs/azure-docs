@@ -105,13 +105,13 @@ tools:
   items:
   - title: C#
     imageSrc: media/index/logo_Csharp.svg
-    url: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
+    url: /dotnet/api/overview/azure/cognitiveservices/client/computervision
   - title: Node.js
     imageSrc: media/index/logo_nodejs.svg
-    url: /javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
+    url: /javascript/api/@azure/cognitiveservices-computervision/
   - title: Python
     imageSrc: media/index/logo_python.svg
-    url: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+    url: /python/api/overview/azure/cognitiveservices/computervision
   - title: Go
     imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision

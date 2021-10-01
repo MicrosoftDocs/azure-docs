@@ -59,7 +59,7 @@ Microsoft is able to scale through its partners. Scale is what will allow us to 
 
 ## Publishing to Azure Marketplace
 
-1. Join the Partner Network - It’s a requirement for publishing but easy to sign up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](/azure/marketplace/create-account#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace).
+1. Join the Partner Network - It’s a requirement for publishing but easy to sign up. Instructions are located here: [Ensure you have a MPN ID and Partner Center Account](../../marketplace/create-account.md#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace).
 2. Enable your partner center account as Publisher / Developer for Marketplace, follow the instructions [here](../../marketplace/create-account.md).
 3. With an enabled Partner Center Account, publish listing as a SaaS App as instructed [here](../../marketplace/create-new-saas-offer.md).
 

@@ -4,13 +4,13 @@ description: Learn how to connect Microsoft Excel to a database in Azure SQL Dat
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: sqldbrb=1 
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: mathoma
 ms.date: 05/29/2020
 ---
 

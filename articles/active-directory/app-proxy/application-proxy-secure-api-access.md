@@ -8,9 +8,10 @@ ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 05/06/2021
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: has-adal-ref
 ---
 # Secure access to on-premises APIs with Azure Active Directory Application Proxy
 
@@ -90,7 +91,7 @@ You've published your web API through Azure AD Application Proxy. Now, add users
 1. Back on the **Add Assignment** page, select **Assign**.
 
 > [!NOTE]
-> APIs that use Integrated Windows Authentication might require [additional steps](./application-proxy-configure-single-sign-on-with-kcd.md).
+> APIs that use integrated Windows authentication might require [additional steps](./application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## Register the native app and grant access to the API
 
@@ -104,7 +105,7 @@ To register the AppProxyNativeAppSample native app:
 
    1. Under **Name**, enter *AppProxyNativeAppSample*.
 
-   1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+   1. Under **Supported account types**, select **Accounts in any organizational directory**.
 
    1. Under **Redirect URL**, drop down and select **Public client (mobile & desktop)**, and then enter *https://login.microsoftonline.com/common/oauth2/nativeclient*.
 

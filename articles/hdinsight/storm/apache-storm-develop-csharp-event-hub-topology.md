@@ -99,7 +99,7 @@ You can download a complete version of the project created in this article from 
 
 * The [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](/azure/developer/java/fundamentals/java-support-on-azure).
 
   * The **JAVA_HOME** environment variable must point to the directory that contains Java.
   * The **%JAVA_HOME%/bin** directory must be in the path.
@@ -199,7 +199,7 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 ## Delete your cluster
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next steps
 

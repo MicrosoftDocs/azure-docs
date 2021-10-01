@@ -1,4 +1,4 @@
-﻿---
+---
  title: include file for PowerShell for Azure DNS
  description: include file for PowerShell for Azure DNS
  services: dns
@@ -7,7 +7,7 @@
  ms.topic: include file for PowerShell for Azure DNS
  ms.date: 04/28//2021
  ms.author: subsarma
- ms.custom: include file for PowerShell for Azure DNS
+ ms.custom: include file for PowerShell for Azure DNS, devx-track-azurepowershell
 ---
 
 ## Set up Azure PowerShell for Azure DNS

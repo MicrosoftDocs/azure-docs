@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 03/18/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -79,7 +79,10 @@ Before you start cabling your device, you need the following:
 - Your Azure Stack Edge Mini R physical device on the installation site.
 - One power cable.
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
-- One 10-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 3 or PORT 4 needs to be connected to the Internet (with connectivity to Azure).  
+- One 10-GbE SFP+ cable for each data network interface to be configured. At least one data network interface from PORT 3 or PORT 4 needs to be connected to the Internet (with connectivity to Azure).
+
+  Use of the highest-performing copper SFP+ (10 Gbps) transceiver is strongly recommended. Compatible fiber-optic transceivers can be used but have not been tested. For more information, see [transceiver and cable specifications](azure-stack-edge-mini-r-technical-specifications-compliance.md#transceivers-cables) for Azure Stack Edge Mini R.
+   
 - Access to one power distribution unit (recommended).
 
 > [!NOTE]
@@ -94,10 +97,10 @@ On your Azure Stack Edge device:
     - The device has 1 SSD disk in the slot. 
     - The device also has a CFx card that serves as storage for the operating system disk.
     
-- The front panel has network interfaces and access to Wi-Fi.
+- The front panel has network interfaces and access to Wi-Fi. 
 
-    - 2 X 1 GbE RJ 45 network interfaces. These are PORT 1 and PORT 2 on the local UI of the device.
-    - 2 X 10 GbE SFP+ network interfaces. These are PORT 3 and PORT 4 on the local UI of the device. 
+    - 2 X 1 GbE RJ 45 network interfaces (PORT 1 and PORT 2 on the local UI of the device)
+    - 2 X 10 GbE SFP+ network interfaces (PORT 3 and PORT 4 on the local UI of the device) 
     - One Wi-Fi port with a Wi-Fi transceiver attached to it.
 
 - The front panel also has a power button. 
@@ -111,7 +114,7 @@ Take the following steps to cable your device for power and network.
 
     ![Network and storage interfaces on device](./media/azure-stack-edge-mini-r-deploy-install/ports-front-plane.png)
 
-2. Locate the power button on the  bottom left corner of the front of the device. 
+2. Locate the power button on the  bottom-left corner of the front of the device. 
 
     ![Front plane of a device with power button on the device](./media/azure-stack-edge-mini-r-deploy-install/device-power-button.png)
 

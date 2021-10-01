@@ -30,7 +30,7 @@ This article will show you how to:
 
 You'll need:
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -168,16 +168,8 @@ dataprep_step = PythonScriptStep(
     )
 ```
 
-You may choose to upload the contents of your `OutputFileDatasetConfig` object at the end of a run. In that case, use the `as_upload()` function along with your `OutputFileDatasetConfig` object, and specify whether to overwrite existing files in the destination. 
-
-```python
-#get blob datastore already registered with the workspace
-blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=(blob_store, 'outputdataset')).as_upload(overwrite=False)
-```
-
 > [!NOTE]
-> Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using distributed training. 
+> Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using [distributed training](how-to-train-distributed-gpu.md). 
 
 ### Use `OutputFileDatasetConfig` as outputs of a training step
 
@@ -242,7 +234,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
 
 * Programmatically delete intermediate data at the end of a pipeline run, when it is no longer needed
-* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
+* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/lifecycle-management-overview.md?tabs=azure-portal)) 
 * Regularly review and delete no-longer-needed data
 
 For more information, see [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).

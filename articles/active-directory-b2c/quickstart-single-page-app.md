@@ -73,7 +73,7 @@ The sample single-page application includes an access token in the request to th
 
 ## Clean up resources
 
-You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).
 
 ## Next steps
 

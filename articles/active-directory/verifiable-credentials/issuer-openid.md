@@ -3,7 +3,7 @@ title: Issuer service communication examples (preview) - Azure Active Directory 
 description: Details of communication between identity provider and issuer service
 author: barclayn
 manager: davba
-ms.service: identity
+ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.workload: identity
 ms.topic: conceptual

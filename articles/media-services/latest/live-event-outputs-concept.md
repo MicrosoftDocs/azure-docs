@@ -41,7 +41,7 @@ A [live event](/rest/api/media/liveevents) can be set to either a *pass-through*
 
 When using the pass-through **live event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the live event (using RTMP or fragmented-MP4 protocol). The live event then carries through the incoming video streams without any further processing. Such a pass-through live event is optimized for long-running live events or 24x365 linear live streaming. When creating this type of live event, specify None (LiveEventEncodingType.None).
 
-You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. For more information, see [Live event types comparison](live-event-types-comparison-reference.md).
+You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC (Smooth ingest only) video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. For more information, see [Live event types comparison](live-event-types-comparison-reference.md).
 
 > [!NOTE]
 > Using a pass-through method is the most economical way to do live streaming when you're doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [Pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
@@ -215,10 +215,11 @@ For details, see [long-running operations](media-services-apis-overview.md#long-
 
 ## Live outputs
 
-Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [live output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). live output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints).  
+Once you have the stream flowing into the live event, you can begin the streaming event by creating an [Asset](/rest/api/media/assets), [live output](/rest/api/media/liveoutputs), and [Streaming Locator](/rest/api/media/streaminglocators). Live output will archive the stream and make it available to viewers through the [Streaming Endpoint](/rest/api/media/streamingendpoints). 
+
+AMS's default allocation is 5 live events per Media Services account. If you would like to increase this limit, please file a support ticket in the Azure portal. AMS is able to increase your live event limit depending on your streaming situation and regional datacenter availabilities.
 
 For detailed information about live outputs, see [Using a cloud DVR](live-event-cloud-dvr-time-how-to.md).
-
 ## Live event output questions
 
-See the [live event output questions](questions-collection.md#live-streaming) article.
+See the [live event questions in the FAQ](frequently-asked-questions.yml). For information on live event quotas, see [quotas and limits](limits-quotas-constraints-reference.md)

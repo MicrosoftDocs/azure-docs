@@ -1,18 +1,22 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
 ---
+
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
 
 ## Prerequisites
 
 To complete the steps in this article, you need the following resources:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](../articles/iot-central/core/quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
-* A development machine with [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
-* A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Then unzip the file to a suitable location on your local machine.
+[!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
+
+- A development machine with [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/).
+
+- A local copy of the [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Then unzip the file to a suitable location on your local machine.
 
 ## Review the code
 

@@ -86,7 +86,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 #### [Free](https://azure.microsoft.com/free/)
 
 - 12 months of popular free services
-- USD200 credit in your billing currency to explore services for 30 days
+- $200 credit in your billing currency to explore services for 30 days
 - 25+ services are always free
 
 #### [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)
@@ -157,7 +157,7 @@ Tags are a effective way to understand costs that span across multiple teams and
 
 Similarly, you might also have web apps or environments, such as Test or Production, that use resources across multiple subscriptions owned by different teams. To better understand the full cost of the workloads, tag the resources that they use. When tags are applied properly, you can apply them as a filter in cost analysis to better understand trends.
 
-After you plan for resource tagging, you can configure an Azure policy to enforce tagging on resources. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to understand the tools available that help you enforce scalable resource tagging. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+After you plan for resource tagging, you can configure an Azure Policy definition to enforce tagging on resources. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to understand the tools available that help you enforce scalable resource tagging. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 

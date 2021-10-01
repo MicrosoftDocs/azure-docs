@@ -1,9 +1,9 @@
 ---
-title: Single-page app sign-in & sign-out 
+title: Single-page app sign-in & sign-out
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (sign-in)
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: nacanuma
+ms.author: marsma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -56,25 +56,14 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-let username = "";
+let accountId = "";
 
 const myMsal = new PublicClientApplication(config);
 
 myMsal.loginPopup(loginRequest)
     .then(function (loginResponse) {
-        //login success
-
-        // In case multiple accounts exist, you can select
-        const currentAccounts = myMsal.getAllAccounts();
-    
-        if (currentAccounts === null) {
-            // no accounts detected
-        } else if (currentAccounts.length > 1) {
-            // Add choose account code here
-        } else if (currentAccounts.length === 1) {
-            username = currentAccounts[0].username;
-        }
-    
+        accountId = loginResponse.account.homeAccountId;
+        // Display signed-in user content, call API, etc.
     }).catch(function (error) {
         //login failure
         console.log(error);
@@ -227,7 +216,7 @@ import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
 function WelcomeUser() {
     const { accounts } = useMsal();
     const username = accounts[0].username;
-    
+
     return <p>Welcome, {username}</p>
 }
 
@@ -262,7 +251,7 @@ function SignInButton() {
 function WelcomeUser() {
     const { accounts } = useMsal();
     const username = accounts[0].username;
-    
+
     return <p>Welcome, {username}</p>
 }
 
@@ -303,28 +292,30 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-let username = "";
+let accountId = "";
 
 const myMsal = new PublicClientApplication(config);
 
 function handleResponse(response) {
-    //handle redirect response
+    if (response !== null) {
+        accountId = response.account.homeAccountId;
+        // Display signed-in user content, call API, etc.
+    } else {
+        // In case multiple accounts exist, you can select
+        const currentAccounts = myMsal.getAllAccounts();
 
-    // In case multiple accounts exist, you can select
-    const currentAccounts = myMsal.getAllAccounts();
-
-    if (currentAccounts === null) {
-        // no accounts detected
-    } else if (currentAccounts.length > 1) {
-        // Add choose account code here
-    } else if (currentAccounts.length === 1) {
-        username = currentAccounts[0].username;
+        if (currentAccounts.length === 0) {
+            // no accounts signed-in, attempt to sign a user in
+            myMsal.loginRedirect(loginRequest);
+        } else if (currentAccounts.length > 1) {
+            // Add choose account code here
+        } else if (currentAccounts.length === 1) {
+            accountId = currentAccounts[0].homeAccountId;
+        }
     }
 }
 
 myMsal.handleRedirectPromise().then(handleResponse);
-
-myMsal.loginRedirect(loginRequest);
 ```
 
 # [JavaScript (MSAL.js v1)](#tab/javascript1)
@@ -402,7 +393,7 @@ import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
 function WelcomeUser() {
     const { accounts } = useMsal();
     const username = accounts[0].username;
-    
+
     return <p>Welcome, {username}</p>
 }
 
@@ -437,7 +428,7 @@ function SignInButton() {
 function WelcomeUser() {
     const { accounts } = useMsal();
     const username = accounts[0].username;
-    
+
     return <p>Welcome, {username}</p>
 }
 
@@ -460,9 +451,9 @@ function App() {
 
 ---
 
-## Sign-out with a popup window
+## Sign-out with a pop-up window
 
-MSAL.js v2 provides a `logoutPopup` method that clears the cache in browser storage and opens a popup window to the Azure Active Directory (Azure AD) sign-out page. After sign-out, Azure AD redirects the popup back to your application and MSAL.js will close the popup.
+MSAL.js v2 provides a `logoutPopup` method that clears the cache in browser storage and opens a pop-up window to the Azure Active Directory (Azure AD) sign-out page. After sign-out, Azure AD redirects the popup back to your application and MSAL.js will close the popup.
 
 You can configure the URI to which Azure AD should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect Uri in your application registration.
 
@@ -491,7 +482,7 @@ await myMsal.logoutPopup(logoutRequest);
 ```
 # [JavaScript (MSAL.js v1)](#tab/javascript1)
 
-Signing out with a popup window is not supported in MSAL.js v1
+Signing out with a pop-up window is not supported in MSAL.js v1
 
 # [Angular (MSAL.js v2)](#tab/angular2)
 
@@ -518,7 +509,7 @@ logout() {
 
 # [Angular (MSAL.js v1)](#tab/angular1)
 
-Signing out with a popup window is not supported in MSAL Angular v1
+Signing out with a pop-up window is not supported in MSAL Angular v1
 
 # [React](#tab/react)
 

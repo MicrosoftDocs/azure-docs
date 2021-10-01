@@ -15,13 +15,13 @@ Today, Azure Backup provides a variety of built-in policies (using [Azure Policy
 
 If your organization has a central backup team that manages backups across application teams, you can use this policy to configure backup to an existing central Recovery Services vault in the same subscription and location as the VMs being governed. You can choose to **exclude** VMs which contain a certain tag, from the scope of this policy.
 
-## Policy 2 - [Preview] Configure backup on VMs with a given tag to an existing recovery services vault in the same location
+## Policy 2 - Configure backup on VMs with a given tag to an existing recovery services vault in the same location
 This policy works the same as Policy 1 above, with the only difference being that you can use this policy to **include** VMs which contain a certain tag, in the scope of this policy. 
 
-## Policy 3 - [Preview] Configure backup on VMs without a given tag to a new recovery services vault with a default policy
+## Policy 3 - Configure backup on VMs without a given tag to a new recovery services vault with a default policy
 If you organize applications in dedicated resource groups and want to have them backed up by the same vault, this policy allows you to automatically manage this action. You can choose to **exclude** VMs which contain a certain tag, from the scope of this policy.
 
-## Policy 4 - [Preview] Configure backup on VMs with a given tag to a new recovery services vault with a default policy
+## Policy 4 - Configure backup on VMs with a given tag to a new recovery services vault with a default policy
 This policy works the same as Policy 3 above, with the only difference being that you can use this policy to **include** VMs which contain a certain tag, in the scope of this policy. 
 
 In addition to the above, Azure Backup also provides an [audit-only](../governance/policy/concepts/effects.md#audit) policy - **Azure Backup should be enabled for Virtual Machines**. This policy identifies which virtual machines do not have backup enabled, but doesn't automatically configure backups for these VMs. This is useful when you are only looking to evaluate the overall compliance of the VMs but not looking to take action immediately.
@@ -35,8 +35,6 @@ In addition to the above, Azure Backup also provides an [audit-only](../governan
 * For Policies 1 and 2, management group scope is currently unsupported.
 
 * For Policies 1 and 2, the specified vault and the VMs configured for backup can be under different resource groups.
-
-* Policies 1, 2, 3 and 4 are currently not available in national clouds.
 
 * Policies 3 and 4 can be assigned to a single subscription at a time (or a resource group within a subscription).
 

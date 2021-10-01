@@ -3,14 +3,27 @@ title: Troubleshoot Azure Automation managed identity issues (preview)
 description: This article tells how to troubleshoot and resolve issues when using a managed identity with an Automation account.
 services: automation
 ms.subservice:
-ms.date: 04/28/2021
-ms.author: v-dturcaso
+ms.date: 06/28/2021
 ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Automation managed identity issues (preview)
 
 This article discusses solutions to problems that you might encounter when you use a managed identity with your Automation account. For general information about using managed identity with Automation accounts, see [Azure Automation account authentication overview](../automation-security-overview.md#managed-identities-preview).
+
+## Scenario: Fail to get MSI token for account
+
+### Issue
+
+When working with a user-assigned managed identity in your Automation account, you receive an error similar to: `Failed to get MSI token for account a123456b-1234-12a3-123a-aa123456aa0b`.
+
+### Cause
+
+Using a user-assigned managed identity before enabling a system-assigned managed identity for your Automation account.
+
+### Resolution
+
+Enable a system-assigned managed identity for your Automation account. Then use the user-assigned managed identity.  
 
 ## Scenario: Attempt to use managed identity with Automation account fails
 

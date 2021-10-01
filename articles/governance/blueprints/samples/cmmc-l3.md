@@ -1,12 +1,12 @@
 ---
 title: CMMC Level 3 blueprint sample
 description: Overview of the CMMC Level 3 blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 03/24/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # CMMC Level 3 blueprint sample
 
-The CMMC Level 3 blueprint sample provides governance guard-rails using
+The CMMC Level 3 blueprint sample provides governance guardrails using
 [Azure Policy](../../policy/overview.md) that help you assess specific
 [Cybersecurity Maturity Model Certification (CMMC) framework](https://www.acq.osd.mil/cmmc/index.html)
 controls. This blueprint helps customers deploy a core set of policies for any Azure-deployed
@@ -137,7 +137,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|CMMC Level 3|Policy Assignment|Include Arc-connected servers when evaluating guest configuration policies|By selecting 'true,' you agree to be charged monthly per Arc connected machine; for more information, visit https://aka.ms/policy-pricing|
+|CMMC Level 3|Policy Assignment|Include Arc-connected servers when evaluating guest configuration policies|By selecting 'true', you agree to be charged monthly per Arc connected machine; for more information, visit https://aka.ms/policy-pricing|
 |CMMC Level 3|Policy Assignment|List of users that must be excluded from Windows VM Administrators group|A semicolon-separated list of users that should be excluded in the Administrators local group; Ex: Administrator; myUser1; myUser2|
 |CMMC Level 3|Policy Assignment|List of users that must be included in Windows VM Administrators group|A semicolon-separated list of users that should be included in the Administrators local group; Ex: Administrator; myUser1; myUser2|
 |CMMC Level 3|Policy Assignment|Log Analytics workspace ID for VM agent reporting|ID (GUID) of the Log Analytics workspace where VMs agents should report|
@@ -316,8 +316,8 @@ The following table provides a list of the blueprint artifact parameters:
 |CMMC Level 3|Policy Assignment|Namespaces excluded from evaluation of policy: Kubernetes cluster pods should only use approved host network and port range|List of Kubernetes namespaces to exclude from policy evaluation.|
 |CMMC Level 3|Policy Assignment|Latest Java version for App Services|Latest supported Java version for App Services|
 |CMMC Level 3|Policy Assignment|Latest Python version for Linux for App Services|Latest supported Python version for App Services|
-|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Linux OS to add to scope when auditing Log Analytics agent deployment|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
-|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Windows OS to add to scope when auditing Log Analytics agent deployment|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
+|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Linux OS to add to scope when auditing Log Analytics agent deployment|Example value: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
+|CMMC Level 3|Policy Assignment|Optional: List of VM images that have supported Windows OS to add to scope when auditing Log Analytics agent deployment|Example value: `/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage`|
 |CMMC Level 3|Policy Assignment|List of regions where Network Watcher should be enabled|Audit if Network Watcher is not enabled for region(s).|
 |CMMC Level 3|Policy Assignment|List of resource types that should have diagnostic logs enabled||
 |CMMC Level 3|Policy Assignment|Maximum value in the allowable host port range that pods can use in the host network namespace|The maximum value in the allowable host port range that pods can use in the host network namespace.|

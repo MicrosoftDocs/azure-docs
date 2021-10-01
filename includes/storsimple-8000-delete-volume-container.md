@@ -6,7 +6,7 @@ author: alkohli
  
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
 ms.custom: include file
 ---
@@ -29,7 +29,7 @@ When the volume container has no associated volumes, backup policies, and cloud 
 
 3. If a volume container has no associated volumes, backup policies, and cloud snapshots, then it can be deleted. When prompted for confirmation, review and select the checkbox stating the impact of deleting the volume container. Click **Delete** to then delete the volume container.
 
-    ![Confirm deletion](./media/storsimple-8000-delete-volume-container/delete-volume-container-02.png)
+    ![Confirm deletion](./media/storsimple-8000-delete-volume-container/delete-volume-container-02.png)<!--Added missing border.-->
 
 The list of volume containers is updated to reflect the deleted volume container.
 

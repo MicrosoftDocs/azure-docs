@@ -7,7 +7,7 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: "devx-track-csharp, devx-track-azurepowershell"
+ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Quickstart: Azure Key Vault key client library for .NET (SDK v4)
@@ -29,26 +29,21 @@ For more information about Key Vault and keys, see:
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
+This quickstart is using `dotnet` and Azure CLI
+
 ## Setup
 
-This quickstart is using Azure Identity library to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
+This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
 
 ### Sign in to Azure
 
 1. Run the `login` command.
 
-    # [Azure CLI](#tab/azure-cli)
     ```azurecli-interactive
     az login
     ```
-    # [Azure PowerShell](#tab/azurepowershell)
-    
-    ```azurepowershell-interactive
-    Connect-AzAccount
-    ```
-    ---
 
-    If Azure CLI or Azure PowerShell can open your default browser, it will do so and load an Azure sign-in page.
+    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
 
     Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
     authorization code displayed in your terminal.
@@ -59,16 +54,9 @@ This quickstart is using Azure Identity library to authenticate user to Azure Se
 
 Create an access policy for your key vault that grants key permissions to your user account
 
-# [Azure CLI](#tab/azure-cli)
-```azurecli-interactive
+```console
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
-# [Azure PowerShell](#tab/azurepowershell)
-
-```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy -VaultName <your-key-vault-name> -UserPrincipalName user@domain.com -PermissionsToSecrets delete,get,list,set,purge
-```
----
 
 ### Create new .NET console app
 
@@ -115,7 +103,7 @@ Windows
 set KEY_VAULT_NAME=<your-key-vault-name>
 ````
 Windows PowerShell
-```azurepowershell
+```powershell
 $Env:KEY_VAULT_NAME="<your-key-vault-name>"
 ```
 
@@ -142,9 +130,9 @@ using Azure.Security.KeyVault.Keys;
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
 var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -155,7 +143,7 @@ var client = new KeyClient(new Uri(kvUri), new DefaultAzureCredential());
 
 ### Save a key
 
-For this task, use the [CreateKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.createkeyasync) method. The method's parameters accepts a key name and the [key type](https://docs.microsoft.com/dotnet/api/azure.security.keyvault.keys.keytype).
+For this task, use the [CreateKeyAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.createkeyasync) method. The method's parameters accepts a key name and the [key type](/dotnet/api/azure.security.keyvault.keys.keytype).
 
 ```csharp
 var key = await client.CreateKeyAsync("myKey", KeyType.Rsa);

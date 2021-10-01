@@ -2,7 +2,7 @@
 title: Backup Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/06/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
 
@@ -38,6 +38,12 @@ You may use this solution independently or in addition to the native backup solu
 - Only the data is recovered at the time of restore. "Roles" aren't restored.
 - In preview, we recommend that you run the solution only on your test environment.
 
+## Prerequisite permissions for configure backup and restore
+
+Azure Backup follows strict security guidelines. Even though it's a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
+
+[Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
+
 ## Backup process
 
 1. This solution uses **pg_dump** to take backups of your Azure PostgreSQL databases.
@@ -56,7 +62,7 @@ You may use this solution independently or in addition to the native backup solu
 
 8. When the data transfer is complete, the coordinator confirms the commit with the backup service.
 
-    ![Backup process](./media/backup-azure-database-postgresql/backup-process.png)
+    ![Backup process](./media/backup-azure-database-postgresql-overview/backup-process.png)
 
 ## Configure backup on Azure PostgreSQL databases
 
@@ -151,21 +157,22 @@ You can restore a database to any Azure PostgreSQL server within the same subscr
 Follow this step-by-step guide to trigger a restore:
 
 1. There are two ways to start the restore process:
-    1. Go to [Backup Center](backup-center-overview.md) -> **Overview** -> **Restore**.
 
-    ![Select Restore in Backup Center](./media/backup-azure-database-postgresql/backup-center-restore.png)
+   1. Go to [Backup Center](backup-center-overview.md) -> **Overview** -> **Restore**.
 
-    Under **Initiate: Restore**, select the **Datasource type** as **Azure Database for PostgreSQL**. Select the **Backup instance**.
+      ![Select Restore in Backup Center](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    ![Select Datasource type in Initiate:Restore](./media/backup-azure-database-postgresql/initiate-restore.png)
+      Under **Initiate: Restore**, select the **Datasource type** as **Azure Database for PostgreSQL**. Select the **Backup instance**.
 
-    1. Alternatively, you can directly go to **Backup vault** -> **Backup Instances**. Select **Backup instance** corresponding to the database you want to restore.
+      ![Select Datasource type in Initiate:Restore](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    ![Backup instances for restore](./media/backup-azure-database-postgresql/backup-instances-restore.png)
+   1. Alternatively, you can directly go to **Backup vault** -> **Backup Instances**. Select **Backup instance** corresponding to the database you want to restore.
 
-    ![List of Backup Instances](./media/backup-azure-database-postgresql/list-backup-instances.png)
+      ![Backup instances for restore](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
-    ![Select Restore](./media/backup-azure-database-postgresql/select-restore.png)
+      ![List of Backup Instances](./media/backup-azure-database-postgresql/list-backup-instances.png)
+
+      ![Select Restore](./media/backup-azure-database-postgresql/select-restore.png)
 
 1. **Select recovery point** from the list of all full backups available for the selected backup instance. By default, the latest recovery point is selected.
 
@@ -207,11 +214,7 @@ Follow this step-by-step guide to trigger a restore:
 >[!NOTE]
 >Archive support for Azure Database for PostgreSQL is in limited public preview.
 
-## Prerequisite permissions for configure backup and restore
 
-Azure Backup follows strict security guidelines. Even though itâ€™s a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
-
-[Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
 
 ## Manage the backed-up Azure PostgreSQL databases
 
@@ -225,12 +228,6 @@ Choose from the list of retention rules that were defined in the associated Back
 ![Trigger backup now](./media/backup-azure-database-postgresql/backup-now.png)
 
 ![Choose from list of retention rules](./media/backup-azure-database-postgresql/retention-rules.png)
-
-### Stop protection
-
-You can stop protection on a backup item. This will also delete the associated recovery points for that backup item. If recovery points are not in the archive tier for a minimum of six months, deletion of those recovery points will incur early deletion cost. We don't yet provide the option of stop protection while retaining the existing recovery points.
-
-![Stop protection](./media/backup-azure-database-postgresql/stop-protection.png)
 
 ### Change policy
 
@@ -299,6 +296,9 @@ Refer to [this document](https://download.microsoft.com/download/7/4/d/74d689aa-
 ### UserErrorMissingNetworkSecurityPermissions
 
 Establish network line of sight by enabling the **Allow access to Azure services** flag in the server view. In the server view, under the **Connection security** pane, set the **Allow access to Azure services** flag to **Yes**.
+
+>[!Note]
+>Before you enable this flag, ensure that you set the **Deny public network access** flag to **No**.
 
 ![Allow access to Azure services](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 

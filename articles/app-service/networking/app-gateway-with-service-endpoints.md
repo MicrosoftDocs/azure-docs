@@ -1,6 +1,6 @@
 ---
-title: Application Gateway integration with service endpoints - Azure App Service | Microsoft Docs
-description: Describes how Application Gateway integrates with Azure App Service secured with service endpoints.
+title: Application Gateway integration - Azure App Service | Microsoft Docs
+description: Describes how Application Gateway integrates with Azure App Service.
 services: app-service
 documentationcenter: ''
 author: madsd
@@ -12,14 +12,14 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/04/2021
 ms.author: madsd
 ms.custom: seodec18
 
 ---
 
-# Application Gateway integration with service endpoints
-There are three variations of App Service that require slightly different configuration of the integration with Azure Application Gateway. The variations include regular App Service - also known as multi-tenant, Internal Load Balancer (ILB) App Service Environment (ASE) and External ASE. This article will walk through how to configure it with App Service (multi-tenant) and discuss considerations about ILB, and External ASE.
+# Application Gateway integration
+There are three variations of App Service that require slightly different configuration of the integration with Azure Application Gateway. The variations include regular App Service - also known as multi-tenant, Internal Load Balancer (ILB) App Service Environment (ASE) and External ASE. This article will walk through how to configure it with App Service (multi-tenant) using service endpoint to secure traffic. The article will also discuss considerations around using private endpoint and integrating with ILB, and External ASE. Finally the article has considerations on scm/kudu site.
 
 ## Integration with App Service (multi-tenant)
 App Service (multi-tenant) has a public internet facing endpoint. Using [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) you can allow traffic only from a specific subnet within an Azure Virtual Network and block everything else. In the following scenario, we'll use this functionality to ensure that an App Service instance can only receive traffic from a specific Application Gateway instance.
@@ -37,10 +37,10 @@ With Azure portal, you follow four steps to provision and configure the setup. I
 
 You can now access the App Service through Application Gateway, but if you try to access the App Service directly, you should receive a 403 HTTP error indicating that the web site is stopped.
 
-![Screenshot shows the text of an Error 403 - Forbidden.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
+:::image type="content" source="./media/app-gateway-with-service-endpoints/website-403-forbidden.png" alt-text="Screenshot shows the text of an Error 403 - Forbidden.":::
 
 ## Using Azure Resource Manager template
-The [Resource Manager deployment template][template-app-gateway-app-service-complete] will provision a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you'll have to clone the repo or download the template and edit it. 
+The [Resource Manager deployment template][template-app-gateway-app-service-complete] will provision a complete scenario. The scenario consists of an App Service instance locked down with service endpoints and access restriction to only receive traffic from Application Gateway. The template includes many Smart Defaults and unique postfixes added to the resource names for it to be simple. To override them, you'll have to clone the repo or download the template and edit it.
 
 To apply the template you can use the Deploy to Azure button found in the description of the template, or you can use appropriate PowerShell/CLI.
 
@@ -53,8 +53,14 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 
 In the default configuration, the command will ensure both setup of the service endpoint configuration in the subnet and the access restriction in the App Service.
 
+## Considerations when using private endpoint
+
+As an alternative to service endpoint, you can use private endpoint to secure traffic between Application Gateway and App Service (multi-tenant). You will need to ensure that Application Gateway can DNS resolve the private IP of the App Service apps or alternatively that you use the private IP in the backend pool and override the host name in the http settings.
+
+:::image type="content" source="./media/app-gateway-with-service-endpoints/private-endpoint-appgw.png" alt-text="Diagram shows the traffic flowing to an Application Gateway in an Azure Virtual Network and flowing from there through a private endpoint to instances of apps in App Service.":::
+
 ## Considerations for ILB ASE
-ILB ASE isn't exposed to the internet and traffic between the instance and an Application Gateway is therefore already isolated to the Virtual Network. The following [how-to guide](../environment/integrate-with-application-gateway.md) configures an ILB ASE and integrates it with an Application Gateway using Azure portal. 
+ILB ASE isn't exposed to the internet and traffic between the instance and an Application Gateway is therefore already isolated to the Virtual Network. The following [how-to guide](../environment/integrate-with-application-gateway.md) configures an ILB ASE and integrates it with an Application Gateway using Azure portal.
 
 If you want to ensure that only traffic from the Application Gateway subnet is reaching the ASE, you can configure a Network security group (NSG) which affect all web apps in the ASE. For the NSG, you are able to specify the subnet IP range and optionally the ports (80/443). Make sure you don't override the [required NSG rules](../environment/network-info.md#network-security-groups) for ASE to function correctly.
 
@@ -63,7 +69,7 @@ To isolate traffic to an individual web app you'll need to use ip-based access r
 ## Considerations for External ASE
 External ASE has a public facing load balancer like multi-tenant App Service. Service endpoints don't work for ASE, and that's why you'll have to use ip-based access restrictions using the public IP of the Application Gateway instance. To create an External ASE using the Azure portal, you can follow this [Quickstart](../environment/create-external-ase.md)
 
-[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2/ "Azure Resource Manager template for complete scenario"
+[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "Azure Resource Manager template for complete scenario"
 
 ## Considerations for kudu/scm site
 The scm site, also known as kudu, is an admin site, which exists for every web app. It isn't possible to reverse proxy the scm site and you most likely also want to lock it down to individual IP addresses or a specific subnet.

@@ -2,13 +2,14 @@
 title: Using the Azure Communication Services Teams Embed Library
 description: Learn about the Communication Services Teams Embed library capabilities.
 author: palatter
+
 ms.author: palatter
-ms.date: 02/24/2021
-ms.topic: conceptual
+ms.date: 06/30/2021
+ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: teams-interop
 
 zone_pivot_groups: acs-plat-ios-android
-
 ---
 
 # Use the Communication Services Teams Embed library

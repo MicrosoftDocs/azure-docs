@@ -2,7 +2,7 @@
 title: Troubleshoot connectivity issues - Azure Event Hubs | Microsoft Docs
 description: This article provides information on troubleshooting connectivity issues with Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/15/2021
 ---
 
 # Troubleshoot connectivity issues - Azure Event Hubs
@@ -21,10 +21,10 @@ Verify that the connection string you are using is correct. See [Get connection 
 
 For Kafka clients, verify that producer.config or consumer.config files are configured properly. For more information, see [Send and receive messages with Kafka in Event Hubs](event-hubs-quickstart-kafka-enabled-event-hubs.md#send-and-receive-messages-with-kafka-in-event-hubs).
 
-[!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
+[!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
 
-### Verify that AzureEventGrid service tag is allowed in your network security groups
-If your application is running inside a subnet and there is an associated network security group, confirm whether the internet outbound is allowed or AzureEventGrid service tag is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
+### Verify that EventHub service tag is allowed in your network security groups
+If your application is running inside a subnet and there is an associated network security group, confirm whether the internet outbound is allowed or EventHub service tag is allowed. See [Virtual network service tags](../virtual-network/service-tags-overview.md) and search for `EventHub`.
 
 ### Check if the application needs to be running in a specific subnet of a vnet
 Confirm that your application is running in a virtual network subnet that has access to the namespace. If it's not, run the application in the subnet that has access to the namespace or add the IP address of the machine on which application is running to the [IP firewall](event-hubs-ip-filtering.md). 

@@ -1,15 +1,14 @@
 ---
 title: Azure IoT device management with IoT extension for Azure CLI | Microsoft Docs
 description: Use the IoT extension for Azure CLI tool for Azure IoT Hub device management, featuring the Direct methods and the Twin’s desired properties management options.
-author: chrissie926
+author: robinsh
 manager: 
 keywords: azure iot device management, azure iot hub device management, device management iot, iot hub device management
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
-ms.author: menchi
+ms.author: robinsh
 ---
 
 # Use the IoT extension for Azure CLI for Azure IoT Hub device management
@@ -38,7 +37,7 @@ Device twins are JSON documents that store device state information (metadata, c
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts. These articles cover the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.
@@ -77,7 +76,7 @@ Set a desired property interval = 3000 by running the following command:
 
 ```azurecli
 az iot hub device-twin update -n <your hub name> \
-  -d <your device id> --set properties.desired.interval = 3000
+  -d <your device id> --set properties.desired.interval=3000
 ```
 
 This property can be read from your device.
@@ -106,7 +105,7 @@ Add a field role = temperature&humidity to the device by running the following c
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
-  --set tags = '{"role":"temperature&humidity"}}'
+  --set tags='{"role":"temperature&humidity"}'
 ```
 
 ## Device twin queries

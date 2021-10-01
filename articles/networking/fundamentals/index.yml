@@ -56,13 +56,13 @@ landingContent:
           - text: What is a public IP address?
             url: ../../virtual-network/virtual-networks-overview.md
           - text: What is virtual network NAT Gateway?
-            url: ../../virtual-network/nat-overview.md
+            url: ../../virtual-network/nat-gateway/nat-overview.md
       - linkListType: how-to-guide
         links:
           - text: Create a public IP address
             url: ../../virtual-network/create-public-ip-portal.md
           - text: Create a NAT gateway
-            url: ../../virtual-network/tutorial-create-nat-gateway-portal.md
+            url: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
       - linkListType: learn
         links:
           - text: Design an IP addressing schema for your Azure deployment

@@ -248,7 +248,7 @@ Forbidden. The authorization token is invalid, expired, or was not provided.  Th
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
 Code: 500
-Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### Activate a subscription
 
@@ -305,8 +305,8 @@ This error is often a symptom of not performing the [SaaS registration](pc-saas-
 Code: 404 
 Not found. The SaaS subscription is in an *Unsubscribed* state.
 
-Code: 500 
-Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Code: 500
+Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### Get list of all subscriptions
 
@@ -418,7 +418,7 @@ Forbidden. The authorization token is unavailable, invalid, or expired.
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
 Code: 500
-Internal server error. Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error. Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### Get subscription
 
@@ -492,7 +492,7 @@ Code: 404
 Not found.  SaaS subscription with the specified `subscriptionId` cannot be found.
 
 Code: 500
-Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### List available plans
 
@@ -550,7 +550,7 @@ Forbidden. The authorization token is invalid, expired, or was not provided.  Th
 This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
 Code: 500
-Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### Change the plan on the subscription
 
@@ -614,7 +614,7 @@ Code: 404
 Not found.  The SaaS subscription with `subscriptionId` is not found.
 
 Code: 500
-Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 >[!NOTE]
 >Either the plan or quantity of seats can be changed at one time, not both.
@@ -685,7 +685,7 @@ Code: 404
 Not found.  The SaaS subscription with `subscriptionId` is not found.
 
 Code: 500
-Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 >[!Note]
 >Only a plan or quantity can be changed at one time, not both.
@@ -749,7 +749,7 @@ Code: 404
 Not found.  The SaaS subscription with `subscriptionId` is not found.
 
 Code: 500
-Internal server error. Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error. Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ### Operations APIs
 
@@ -817,7 +817,7 @@ Code: 404
 Not found.  The SaaS subscription with `subscriptionId` is not found.
 
 Code: 500
-Internal server error. Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error. Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### Get operation status
 
@@ -881,7 +881,7 @@ Not found.
 * Operation with `operationId` is not found.
 
 Code: 500
-Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### Update the status of an operation
 
@@ -937,7 +937,7 @@ Code: 409
 Conflict.  For example, a newer update is already fulfilled.
 
 Code: 500
-Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
+Internal server error.  Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## Implementing a webhook on the SaaS service
 
@@ -987,7 +987,7 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
   "quantity": " 20",
   "timeStamp": "2019-04-15T20:17:31.7350641Z",
   "action": "Reinstate",
-  "status": "In Progress"
+  "status": "InProgress"
 }
 ```
 
@@ -1012,6 +1012,6 @@ See [Support for the commercial marketplace program in Partner Center](../suppor
 
 ## Next steps
 
-See the [commercial marketplace metering service APIs](marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
+See the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) for more options for SaaS offers in the commercial marketplace.
 
 Review and use the [clients for different programming languages and samples](https://github.com/microsoft/commercial-marketplace-samples).

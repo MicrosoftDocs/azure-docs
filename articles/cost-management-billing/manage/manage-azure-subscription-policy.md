@@ -12,9 +12,6 @@ ms.author: andalmia
 
 # Manage Azure subscription policies
 
->[!NOTE]
->This feature is currently in preview and is being gradually rolled out, so not everyone may see this experience on the Azure portal yet.
-
 This article helps you configure Azure subscription policies for subscription operations to control the movement of Azure subscriptions from and into directories.
 
 ## Prerequisites

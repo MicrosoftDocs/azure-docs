@@ -1,5 +1,5 @@
 ---
-title: Pull settingsfromo App Configuration with Azure Pipelines
+title: Pull settings to App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to pull key-values to an App Configuration Store
 services: azure-app-configuration
 author: drewbatgit
@@ -22,40 +22,12 @@ The [Azure App Configuration](https://marketplace.visualstudio.com/items?itemNam
 
 ## Create a service connection
 
-A [service connection](/azure/devops/pipelines/library/service-endpoints) allows you to access resources in your Azure subscription from your Azure DevOps project.
-
-1. In Azure DevOps, go to the project containing your target pipeline and open the **Project settings** at the bottom left.
-1. Under **Pipelines** select **Service connections**.
-1. If you don't have any existing service connections, click the **Create service connection** button in the middle of the screen. Otherwise, click **New service connection** in the top right of the page.
-1. Select **Azure Resource Manager**.
-![Screenshot shows selecting Azure Resource Manager from the New service connection dropdown list.](./media/new-service-connection.png)
-1. In the **Authentication method** dialog, select **Service principal (automatic)**.
-    > [!NOTE]
-    > **Managed identity** authentication is currently unsupported for the App Configuration task.
-1. Fill in your subscription and resource. Give your service connection a name.
-
-Now that your service connection is created, find the name of the service principal assigned to it. You'll add a new role assignment to this service principal in the next step.
-
-1. Go to **Project Settings** > **Service connections**.
-1. Select the service connection that you created in the previous section.
-1. Select **Manage Service Principal**.
-1. Note the **Display name** listed.
+[!INCLUDE [azure-app-configuration-service-connection](../../includes/azure-app-configuration-service-connection.md)]
 
 ## Add role assignment
 
-Assign the proper App Configuration role to the service connection being used within the task so that the task can access the App Configuration store.
+[!INCLUDE [azure-app-configuration-role-assignment](../../includes/azure-app-configuration-role-assignment.md)]
 
-1. Navigate to your target App Configuration store. For a walkthrough of setting up an App Configuration store, see [Create an App Configuration store](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) in one of the Azure App Configuration quickstarts.
-1. On the left, select **Access control (IAM)**.
-1. On the right side, click the **Add role assignments** button.
-![Screenshot shows the Add role assignments button.](./media/add-role-assignment-button.png).
-1. Under **Role**, select **App Configuration Data Reader**. This role allows the task to read from the App Configuration store. 
-1. Select the service principal associated with the service connection that you created in the previous section.
-![Screenshot shows the Add role assignment dialog.](./media/add-role-assignment-reader.png)
-
-> [!NOTE]
-> To resolve Azure Key Vault references within App Configuration, the service connection must also be granted permission to read secrets in the referenced Azure Key Vaults.
-  
 ## Use in builds
 
 This section will cover how to use the Azure App Configuration task in an Azure DevOps build pipeline.

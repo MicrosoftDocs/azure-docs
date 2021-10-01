@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 05/25/2021
 ms.custom: devx-track-js
 ---
 
 # Add and run code snippets by using inline code in Azure Logic Apps
 
-When you want to run a piece of code inside your logic app, you can add the built-in Inline Code action as a step in your logic app's workflow. This action works best when you want to run code that fits this scenario:
+When you want to run a piece of code inside your logic app workflow, you can add the built-in Inline Code action as a step in your logic app's workflow. This action works best when you want to run code that fits this scenario:
 
-* Runs in JavaScript. More languages coming soon.
+* Runs in JavaScript. More languages are in development.
 
 * Finishes running in five seconds or fewer.
 
@@ -21,8 +21,9 @@ When you want to run a piece of code inside your logic app, you can add the buil
 
 * Doesn't require working with the [**Variables** actions](../logic-apps/logic-apps-create-variables-store-values.md), which are not yet supported.
 
-* Uses Node.js version 8.11.1. For more information, see 
-[Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Uses Node.js version 8.11.1 for [multi-tenant based logic apps](logic-apps-overview.md) or [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/) for [single-tenant based logic apps](single-tenant-overview-compare.md).
+
+  For more information, see [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
   > [!NOTE]
   > The `require()` function isn't supported by the Inline Code action for running JavaScript.
@@ -35,49 +36,38 @@ In this article, the example logic app triggers when a new email arrives in a wo
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The logic app where you want to add your code snippet, including a trigger. If you don't have a logic app, see [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* The logic app workflow where you want to add your code snippet, including a trigger. The example in this topic uses the Office 365 Outlook trigger that's named **When a new email arrives**.
 
-   The example in this topic uses the Office 365 Outlook trigger that's named **When a new email arrives**.
+  If you don't have a logic app, review the following documentation:
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app.
+  * Multi-tenant: [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+  * Single-tenant: [Create single-tenant based logic app workflows](create-single-tenant-workflows-azure-portal.md)
 
-  * Make sure that you use an integration account that's appropriate for your use case or scenario.
+* Based on whether your logic app is multi-tenant or single-tenant, review the following information.
 
-    For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration accounts are meant only for exploratory scenarios and workloads, not production scenarios, are limited in usage and throughput, and aren't supported by a service-level agreement (SLA). Other tiers incur costs, but include SLA support, offer more throughput, and have higher limits. Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+  * Multi-tenant: Requires Node.js version 8.11.1. You also need an empty [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app. Make sure that you use an integration account that's appropriate for your use case or scenario.
 
-   * If you don't want to use an integration account, you can try using [Azure Logic Apps Preview](logic-apps-overview-preview.md), and create a logic app from the **Logic App (Preview)** resource type.
+    For example, [Free-tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration accounts are meant only for exploratory scenarios and workloads, not production scenarios, are limited in usage and throughput, and aren't supported by a service-level agreement (SLA).
 
-     In Azure Logic Apps Preview, **Inline Code** is now named **Inline Code Operations** along with these other differences:
+    Other integration account tiers incur costs, but include SLA support, offer more throughput, and have higher limits. Learn more about integration account [tiers](../logic-apps/logic-apps-pricing.md#integration-accounts), [pricing](https://azure.microsoft.com/pricing/details/logic-apps/), and [limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-     * **Execute JavaScript Code** is now named **Run in-line JavaScript**.
-
-     * If you use macOS or Linux, the Inline Code Operations actions are currently unavailable when you use the Azure Logic Apps (Preview) extension in Visual Studio Code.
-
-     * Inline Code Operations actions have [updated limits](logic-apps-overview-preview.md#inline-code-limits).
-
-     You can start from either option here:
-
-     * Create the logic app from the **Logic App (Preview)** resource type [by using the Azure portal](create-stateful-stateless-workflows-azure-portal.md).
-
-     * Create a project for the logic app [by using Visual Studio Code and the Azure Logic Apps (Preview) extension](create-stateful-stateless-workflows-visual-studio-code.md)
+  * Single-tenant: Requires [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/). However, you don't need an integration account, but the Inline Code action is renamed **Inline Code Operations** and has [updated limits](logic-apps-limits-and-config.md).
 
 ## Add inline code
 
-1. If you haven't already, in the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+1. If you haven't already, in the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the designer, choose where to add the Inline Code action in your logic app's workflow.
+1. In your workflow, choose where to add the Inline Code action, either as a new step at the end of your workflow or between steps.
 
-   * To add the action at the end of your workflow, select **New step**.
+   To add the action between steps, move your mouse pointer over the arrow that connects those steps. Select the plus sign (**+**) that appears, and select **Add an action**.
 
-   * To add the action between steps, move your mouse pointer over the arrow that connects those steps. Select the plus sign (**+**) that appears, and select **Add an action**.
-
-   This example adds the Inline Code action under the Office 365 Outlook trigger.
+   This example adds the action under the Office 365 Outlook trigger.
 
    ![Add the new step under the trigger](./media/logic-apps-add-run-inline-code/add-new-step.png)
 
-1. Under **Choose an action**, in the search box, enter `inline code`. From the actions list, select the action named **Execute JavaScript Code**.
+1. In the action search box, enter `inline code`. From the actions list, select the action named **Execute JavaScript Code**.
 
    ![Select the "Execute JavaScript Code" action](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 

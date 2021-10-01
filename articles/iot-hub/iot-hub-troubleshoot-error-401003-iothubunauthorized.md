@@ -31,6 +31,7 @@ Requests to IoT Hub fail with one of the following error messages:
 * Authorization rule '\*' does not allow access for '\*'
 * Authentication failed for this device, renew token or certificate and reconnect
 * Thumbprint does not match configuration: Thumbprint: SHA1Hash=\*, SHA2Hash=\*; Configuration: PrimaryThumbprint=\*, SecondaryThumbprint=\*
+* Principal user@example.com is not authorized for GET on /exampleOperation due to no assigned permissions
 
 ## Cause
 
@@ -67,6 +68,7 @@ In general, the error message presented should explain how to fix the error. If 
 - For X.509 certificate thumbprint authentication, the thumbprint of the device certificate is registered with IoT Hub.
 - The authorization credential is well formed for the protocol that you use. To learn more, see [Control access to IoT Hub](iot-hub-devguide-security.md).
 - The authorization rule used has the permission for the operation requested.
+- For the last error messages beginning with "principal...", this error can be resolved by assigning the correct level of Azure RBAC permission to the user. For example, an Owner on the IoT Hub can assign the "IoT Hub Data Owner" role, which gives all permissions. Try this role to resolve the lack of permission issue.
 
 ## Next steps
 
