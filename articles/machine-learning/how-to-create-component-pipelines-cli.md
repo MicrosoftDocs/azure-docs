@@ -117,20 +117,20 @@ If you double-click on a component in the pipeline graph, you can see details of
 
 The example `3b_pipeline_with_data` demonstrates how you define input and output data flow and storage in pipelines. 
 
-You define input data directories for your pipeline in the pipeline YAML file using the `inputs` path. You define output and intermediate data directories using the `outputs` path. You use these definitions in the `jobs.{component_name}.inputs` and `jobs.{component_name}.outputs` paths, as shown in the following image:
+You define input data directories for your pipeline in the pipeline YAML file using the `inputs` path. You define output and intermediate data directories using the `outputs` path. You use these definitions in the `jobs.<JOB_NAME>.inputs` and `jobs.<JOB_NAME>.outputs` paths, as shown in the following image:
 
 :::image type="content" source="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png" alt-text="Image showing how the inputs and outputs paths map to the jobs inputs and outputs paths" lightbox="media/how-to-create-component-pipelines-cli/inputs-and-outputs.png":::
 
-1. The `inputs.pipeline_sample_input_data` path creates a key identifier and uploads the input data from the `local_path` directory. This key `inputs.pipeline_sample_input_data` is then used as the value of the `jobs.componentA_job.inputs.componentA_input` key. 
-1. The `jobs.componentA_job.outputs.componentA_output` path is a key identifier that is used as the value for the next step's `jobs.componentB_job.inputs.componentB_input` key. 
+1. The `inputs.pipeline_sample_input_data` path creates a key identifier and uploads the input data from the `local_path` directory. This identifier`${{inputs.pipeline_sample_input_data}}` is then used as the value of the `jobs.componentA_job.inputs.componentA_input` key. 
+1. The `jobs.componentA_job.outputs.componentA_output` path as an identifier (`${{jobs.componentA_job.outputs.componentA_output`}}) that's used as the value for the next step's `jobs.componentB_job.inputs.componentB_input` key. 
 1. As with Component A, the output of Component B is used as the input to Component C.
-1. The pipeline's `outputs.final_pipeline_output` is the value for the `jobs.componentC_job.outputs.componentC_output` key. In other words, Component C's output is the pipeline's final output.
+1. The pipeline's `outputs.final_pipeline_output` key is the source of the identifier used as the value for the `jobs.componentC_job.outputs.componentC_output` key. In other words, Component C's output is the pipeline's final output.
 
 Studio's visualization of this pipeline looks like this: 
 
 :::image type="content" source="media/how-to-create-component-pipelines-cli/pipeline-graph-dependencies.png" alt-text="Screenshot showing Studio's graph view of a pipeline with data dependencies" lightbox="media/how-to-create-component-pipelines-cli/pipeline-graph-dependencies.png":::
 
-You can see that `inputs.pipeline_sample_input_data` is represented as a `Dataset`. The keys of the `jobs.{component_name}.inputs` and `outputs` paths are shown as data flows between the pipeline components.
+You can see that `inputs.pipeline_sample_input_data` is represented as a `Dataset`. The keys of the `jobs.<COMPONENT_NAME>.inputs` and `outputs` paths are shown as data flows between the pipeline components.
 
 You can run this example by switching to the `3b_pipeline_with_data` subdirectory of the samples repository and running:
 
