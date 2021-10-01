@@ -144,8 +144,8 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule
   az network nsg rule create \
     --resource-group TutorGwLB-rg \
     --nsg-name myNSG \
-    --name myNSGRule-AllowAll-TCP \
-    --protocol 'TCP' \
+    --name myNSGRule-AllowAll \
+    --protocol 'All' \
     --direction inbound \
     --source-address-prefix '0.0.0.0/0' \
     --source-port-range '*' \
@@ -165,21 +165,9 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule
     --destination-address-prefix '0.0.0.0/0' \
     --destination-port-range '*' \
     --access allow \
-    --priority 101
-
-  az network nsg rule create \
-    --resource-group TutorGwLB-rg \
-    --nsg-name myNSG \
-    --name myNSGRule-AllowAll-UDP \
-    --protocol 'UDP' \
-    --direction inbound \
-    --source-address-prefix '0.0.0.0/0' \
-    --source-port-range '*' \
-    --destination-address-prefix '0.0.0.0/0' \
-    --destination-port-range '*' \
-    --access allow \
-    --priority 102
+    --priority 100
 ```
+
 ## Configure gateway load balancer
 
 In this section, you'll create the configuration and deploy the gateway load balancer.  
@@ -201,19 +189,7 @@ To create the load balancer, use [az network lb create](/cli/azure/network/lb#az
 
 ### Create tunnel interfaces
 
-To update the default tunnel interface, use [az network lb address-pool tunnel-interface update](/cli/azure/network/lb/address-pool/tunnel-interface#az_network_lb_address_pool_tunnel_interface_update).
-
-```azurecli-interactive
-  az network lb address-pool tunnel-interface update \ 
-    --address-pool myBackendPool \
-    --index 0 \
-    --lb-name myLoadBalancer-gw \
-    --resource-group TutorGwLB-rg \
-    --identifier 800 \
-    --port 2000 \
-    --protocol VXLAN \ 
-    --type Internal
-```
+A internal interface is automatically created with Azure CLI with the **`--identifier`** of **800** and **`--port`** of **10800**.
 
 You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/lb/address-pool/tunnel-interface#az_network_lb_address_pool_tunnel_interface_add) to create external tunnel interface for the load balancer. 
 
@@ -225,7 +201,7 @@ You'll use [az network lb address-pool tunnel-interface add](/cli/azure/network/
     --protocol VXLAN \
     --resource-group TutorGwLB-rg \
     --type External \
-    --port '2001'
+    --port '10801'
 ```
 
 ### Create health probe
