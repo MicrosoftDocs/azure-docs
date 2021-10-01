@@ -26,7 +26,7 @@ There are two ways you can enroll your devices with the provisioning service:
     You create an enrollment group in the portal for a group of devices using the following steps:
 
     1. Log in to the Azure portal and click **All resources** from the left-hand menu.  
-    1. Click the Device Provisioning service you want to enroll your device to from the list of resources.  
+    1. Click the Device Provisioning Service you want to enroll your device to from the list of resources.  
     1. In your provisioning service, click **Manage enrollments**, then Click the **Add enrollment group** button at the top.  
      
         ![Enrollment group in the portal](./media/how-to-manage-enrollments/add-group-enrollment.png)
@@ -50,7 +50,7 @@ There are two ways you can enroll your devices with the provisioning service:
     You can create an individual enrollment in the portal using the following steps:
 
     1. Log in to the Azure portal and click **All resources** from the left-hand menu.
-    1. Click the Device Provisioning service you want to enroll your device to from the list of resources.
+    1. Click the Device Provisioning Service you want to enroll your device to from the list of resources.
     1. In your provisioning service, click **Manage enrollments**, then click the **Add individual enrollment** button at the top.   
 
        [![Add an individual enrollment in the portal](./media/how-to-manage-enrollments/add-individual-enrollment.png)](./media/how-to-manage-enrollments/add-individual-enrollment.png#lightbox)
@@ -62,7 +62,7 @@ There are two ways you can enroll your devices with the provisioning service:
         | Field | Description |
         | :--- | :--- |
         | **Mechanism** | Select **X.509**, **TPM**, or **Symmetric Key** for the attestation mechanism to use depending on the attestation method your devices will use. |
-        | Attestation settings | For step-by-step instructions on creating and using individual enrollments with symmetric keys or X.509 certificates, see one of the [Provision a symmetric device](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) or [Provision a X.509 certificate device](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry) quickstarts.<br><br>For step-by-step instructions on creating and using individual enrollments using TPM attestation, see one of the [Provision a simulated TPM device](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry) samples.|
+        | Attestation settings | For step-by-step instructions on creating and using individual enrollments with symmetric keys or X.509 certificates, see [Quickstart:Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md#create-a-device-enrollment) or [Quickstart:Provision a X.509 certificate device](quick-create-simulated-device-x509.md#create-a-device-enrollment).<br><br>For step-by-step instructions on creating and using individual enrollments using TPM attestation, see one of the [Provision a simulated TPM device](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry) samples.|
         | **IoT Hub Device ID** |  This ID will represent your device. It must follow the rules for a device ID. For more information, see [Device identity properties](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).<br><br>When using X.509 certificates, this text must be the subject name on the device certificate you upload for the enrollment. That subject name must conform to the rules for a device ID.|
             
 
@@ -70,7 +70,7 @@ There are two ways you can enroll your devices with the provisioning service:
 ## Update an enrollment entry
 You can update an existing enrollment entry in the portal using the following steps:
 
-1. Open your Device Provisioning service in the Azure portal and click **Manage Enrollments**. 
+1. Open your Device Provisioning Service in the Azure portal and click **Manage Enrollments**. 
 1. Navigate to the enrollment entry you want to modify. Click the entry, which opens a summary information about your device enrollment. 
 1. On this page, you can modify items other than the security type and credentials, such as the IoT hub the device should be linked to, and the device ID. You may also modify the initial device twin state. 
 1. Once completed, click **Save** to update your device enrollment. 
@@ -80,7 +80,7 @@ You can update an existing enrollment entry in the portal using the following st
 ## Remove a device enrollment
 In cases where your device(s) do not need to be provisioned to any IoT hub, you can remove the related enrollment entry in the portal using the following steps:
 
-1. Open your Device Provisioning service in the Azure portal and click **Manage Enrollments**. 
+1. Open your Device Provisioning Service in the Azure portal and click **Manage Enrollments**. 
 1. Navigate to and select the enrollment entry you want to remove. 
 1. Click the **Delete** button at the top and then select **Yes** when prompted to confirm. 
 1. Once the action is completed, you'll see your entry removed from the list of device enrollments. 

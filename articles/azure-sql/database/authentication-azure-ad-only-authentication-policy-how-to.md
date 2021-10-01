@@ -8,7 +8,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
+ms.date: 09/22/2021
 ---
 
 # Using Azure Policy to enforce Azure Active Directory only authentication with Azure SQL
