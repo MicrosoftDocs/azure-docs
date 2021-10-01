@@ -5,7 +5,7 @@ ms.service: azure-government
 ms.topic: article
 author: stevevi
 ms.author: stevevi
-ms.date: 09/22/2021
+ms.date: 10/01/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -440,6 +440,11 @@ This section outlines variations and considerations when using Storage services 
 The following Azure Backup **features are not currently available** in Azure Government:
 
 - Azure Disk Backup, as documented in [Azure Disk Backup support matrix](../backup/disk-backup-support-matrix.md).
+
+### [Azure NetApp Files](../azure-netapp-files/index.yml)
+
+For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government,
+see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md). 
 
 ### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
 
