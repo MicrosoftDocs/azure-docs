@@ -40,9 +40,6 @@ sections:
   - name: Billing 
     questions:
 
-      - question: How will I be billed during Preview?
-        answer: Billing during Preview is monthly on a pay-as-you-go basis. Additional options are available at general availability (GA).
-
       - question: Is there an SLA on disk replacement when failures occur? 
         answer: Any host with disk issues are replaced. It rolls up to 99.9 SLA availability of the Azure VMware Solution service.
 
