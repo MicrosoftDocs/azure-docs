@@ -1055,6 +1055,7 @@
       "sensitive-language-ma": {
         "exclude": [
           "articles/app-service/deploy-local-git.md",
+          "articles/azure-netapp-files/azure-netapp-files-faqs.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
@@ -1077,6 +1078,7 @@
       "sensitive-language-sl": {
         "exclude": [
           "articles/azure-netapp-files/azure-netapp-files-create-volumes.md",
+          "articles/azure-netapp-files/azure-netapp-files-faqs.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-listener-tutorial.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-stonith-tutorial.md",
           "articles/cognitive-services/Computer-vision/deploy-computer-vision-on-premises.md",
@@ -1133,7 +1135,8 @@
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
-          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md"
+          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md",
+          "articles/web-application-firewall/afds/waf-front-door-drs.md"
         ]
       },
       "sensitive-language-wl": {

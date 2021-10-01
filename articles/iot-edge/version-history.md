@@ -20,8 +20,8 @@ Azure IoT Edge is a product built from the open-source IoT Edge project hosted o
 
 The IoT Edge documentation on this site is available for two different versions of the product, so that you can choose the content that applies to your IoT Edge environment. Currently, the two supported versions are:
 
-* **IoT Edge 1.2** contains additional content for new features and capabilities that are in the latest stable release.
-* **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. The documentation for this version covers all features and capabilities from all previous versions through 1.1. This documentation version will be stable through the supported lifetime of version 1.1, and will not reflect new features released in later versions.
+* **IoT Edge 1.2** contains content for new features and capabilities that are in the latest stable release.
+* **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. The documentation for this version covers all features and capabilities from all previous versions through 1.1. This documentation version will be stable through the supported lifetime of version 1.1, and will not reflect new features released in later versions. IoT Edge 1.1 LTS will be supported until December 3, 2022 to match the [.NET Core 3.1 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 For more information about IoT Edge releases, see [Azure IoT Edge supported systems](support.md).
 
