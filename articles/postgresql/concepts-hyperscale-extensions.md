@@ -35,14 +35,14 @@ The versions of each extension installed in a server group sometimes differ base
 ### Citus extension
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5-2 | 10.0-3 | 10.1-1 | 10.2-2 |
 
 ### Data types extensions
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Provides a case-insensitive character string type. | 1.5 | 1.6 | 1.6 | 1.6 |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | Provides a data type for multidimensional cubes. | 1.4 | 1.4 | 1.4 | 1.5 |
@@ -58,7 +58,7 @@ The versions of each extension installed in a server group sometimes differ base
 ### Full-text search extensions
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [dict\_int](https://www.postgresql.org/docs/current/static/dict-int.html) | Provides a text search dictionary template for integers. | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | Text search dictionary template for extended synonym processing. | 1.0 | 1.0 | 1.0 | 1.0 |
@@ -67,7 +67,7 @@ The versions of each extension installed in a server group sometimes differ base
 ### Functions extensions
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | Functions for autoincrementing fields. | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | Provides a means to calculate great-circle distances on the surface of the Earth. | 1.1 | 1.1 | 1.1 | 1.1 |
@@ -88,7 +88,7 @@ The versions of each extension installed in a server group sometimes differ base
 ### Index types extensions
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [bloom](https://www.postgresql.org/docs/current/bloom.html) | Bloom access method - signature file-based index. | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [btree\_gin](https://www.postgresql.org/docs/current/static/btree-gin.html) | Provides sample GIN operator classes that implement B-tree-like behavior for certain data types. | 1.3 | 1.3 | 1.3 | 1.3 |
@@ -97,14 +97,14 @@ The versions of each extension installed in a server group sometimes differ base
 ### Language extensions
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | PL/pgSQL loadable procedural language. | 1.0 | 1.0 | 1.0 | 1.0 |
 
 ### Miscellaneous extensions
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Administrative functions for PostgreSQL. | 2.0 | 2.0 | 2.1 | 2.1 |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Functions for verifying relation integrity. | 1.1 | 1.2 | 1.2 | 1.3 |
@@ -129,7 +129,7 @@ The versions of each extension installed in a server group sometimes differ base
 ### PostGIS extensions
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14 ** |
+> | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
 > | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
