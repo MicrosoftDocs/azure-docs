@@ -74,13 +74,15 @@ To scan data sources while Purview account firewall is set to Allow Public Acces
 
   :::image type="content" source="media/concept-best-practices/network-self-hosted-runtime.png" alt-text="Screenshot that shows the connection flow between Azure Purview, self-hosted runtime and data sources."lightbox="media/concept-best-practices/network-self-hosted-runtime.png":::
 
-  1. A manual or an automatic scan is initiated from the Purview data map using a self-hosted integration runtime. 
+  1. A manual or an automatic scan is triggered. Azure purview connects to Azure Key Vault to retrieve the credential to access a data source.
    
-  2. The self-hosted integration runtime service from the virtual machine connects to the data source to extract metadata.
+  2. Scan is initiated from the Purview data map using a self-hosted integration runtime. 
+   
+  3. The self-hosted integration runtime service from the virtual machine connects to the data source to extract metadata.
 
-  3. Metadata is processed in self-hosted integration runtime VM memory. Metadata is queued in Azure Purview's managed storage and then stored in Azure blob storage. 
+  4. Metadata is processed in self-hosted integration runtime VM memory. Metadata is queued in Azure Purview's managed storage and then stored in Azure blob storage. 
 
-  4. Metadata is sent to Azure Purview data map. 
+  5. Metadata is sent to Azure Purview data map. 
 
 ### Authentication options  
 
