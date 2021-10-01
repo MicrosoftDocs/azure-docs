@@ -36,7 +36,7 @@ This list includes the Cognitive Services used in this tutorial. Follow the link
 | Service | Feature | Description |
 |---------|---------|-------------|
 | Translator | [Get Languages](./reference/v3-0-languages.md) | Retrieve a complete list of supported languages for text translation. |
-| Translator | [Translate](./reference/v3-0-translate.md) | Translate text into 90 languages and dialects. |
+| Translator | [Translate](./reference/v3-0-translate.md) | Translate text. |
 | Translator | [Detect](./reference/v3-0-detect.md) | Detect the language of the input text. Includes confidence score for detection. |
 | Bing Spell Check | [Spell Check](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Correct spelling errors to improve translation accuracy. |
 
