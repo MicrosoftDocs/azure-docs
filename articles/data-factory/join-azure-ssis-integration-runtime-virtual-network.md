@@ -72,8 +72,6 @@ If your SSIS packages access data stores/resources that allow only specific stat
 
 In all cases, the virtual network can be deployed only through the Azure Resource Manager deployment model.
 
-The following sections provide more details. 
-
 ## Next steps
 
 - [Azure-SSIS integration runtime virtual network configuration details](azure-ssis-integration-runtime-virtual-network-configuration.md)
