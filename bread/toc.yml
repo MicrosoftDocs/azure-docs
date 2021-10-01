@@ -789,6 +789,9 @@
           - name: NAT gateway
             tocHref: /azure/virtual-network/nat-gateway
             topicHref: /azure/virtual-network/nat-gateway
+          - name: IP services
+            tocHref: /azure/virtual-network/ip-services
+            topicHref: /azure/virtual-network/ip-services
       - name: Virtual WAN
         tocHref: /azure/virtual-wan/
         topicHref: /azure/virtual-wan/
