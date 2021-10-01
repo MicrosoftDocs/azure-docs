@@ -943,6 +943,9 @@ items:
     - name: Connectors
       href: connector-troubleshoot-guide.md
       displayName: polybase, timeout
+      items:
+      - name: Azure Blob Storage
+        href: connector-troubleshoot-azure-blob-storage.md
     - name: Pipeline Triggers 
       href: pipeline-trigger-troubleshoot-guide.md 
     - name: Data Flows
