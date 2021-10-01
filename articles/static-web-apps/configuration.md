@@ -300,7 +300,7 @@ If the `X-Forwarded-Host` header doesn't match a value in the list, the requests
 
 ### Required headers
 
-Required headers are sent with each request to your site. One use of a required header is to deny access to a site unless one or more header is present in each request.
+Required headers are HTTP headers that must be sent with each request to your site. One use of required headers is to deny access to a site unless all of the required headers are present in each request.
 
 For example, the following configuration shows how you can add a unique identifier for [Azure Front Door](../frontdoor/front-door-overview.md).
 
