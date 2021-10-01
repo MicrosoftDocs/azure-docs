@@ -282,10 +282,10 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 
 ## Forwarding gateway
 
+The `forwardingGateway` section configures how a static web app is accessed from a forwarding gateway such as a CDN or Azure Front Door.
+
 > [!NOTE]
 > Forwarding gateway configuration is only available in the Azure Static Web Apps Standard plan.
-
-The `forwardingGateway` section configures how a static web app is accessed from a forwarding gateway such as a CDN or Azure Front Door.
 
 ### Allowed Forwarded Hosts
   
