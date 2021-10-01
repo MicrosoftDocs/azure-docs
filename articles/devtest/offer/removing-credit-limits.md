@@ -29,13 +29,13 @@ The spending limit in Azure prevents overspending. While you can’t change the 
 
 You can [remove the spending limit](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/spending-limit) at any time as long as there’s a valid payment method associated with your Azure subscription.  
 
-Additional Cost Management docs:  
+More Cost Management docs:  
 * [Understand Cost Management Data](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data)  
 * [Optimize Your Cloud Investment with Azure Cost Management](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/cost-mgt-best-practices)  
 
 ## Payment Methods and Overages
 
-When removing limits or changing offers, you may be required to [update or add a new credit](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-credit-card). Note that you won't be able to use your credit card for overages until your credit has been exhausted.  
+When removing limits or changing offers, you may be required to [update or add a new credit](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/change-credit-card). You won't be able to use your credit card for overages until your credit has been exhausted.  
 
 In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/subscription-transfer#whoisaa) or you must have the correct [MCA permissions](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/understand-mca-roles) to make these changes.  
 

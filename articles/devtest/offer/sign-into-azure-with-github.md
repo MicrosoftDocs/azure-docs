@@ -13,23 +13,30 @@ ms.custom: devtestoffer
 ---
 ## Sign into your Monthly Azure Credit Subscription and Visual Studio using your GitHub credentials 
 
-Across all of Microsoft, we're focused on empowering developers to build better apps, faster. One way we accomplish that is by providing a range of products and services, covering all stages of the software development lifecycle.  
+Across all of Microsoft, we're focused on empowering developers to build better apps, faster. One way we accomplish that is by providing a range of products and services, covering all stages of the software development lifecycle. Products and services included:  
 
-This focus includes IDEs and DevOps tools, application and data platforms on the cloud, operating systems, Artificial Intelligence, IoT solutions, and more. We center efforts around developers. You may work as an individual. Perhaps, you work in teams and organizations. Or maybe you're a member of developer communities.
+- IDEs and DevOps tools
+- Application and data platforms on the cloud
+- Operating systems
+- Artificial Intelligence
+- IoT solutions
+- And more  
 
-GitHub is one of the largest developer communities. For millions of developers around the world, their GitHub identity is a critical aspect of their digital life. We’re excited to announce improvements that help GitHub users get started easily with our developer services, including Monthly Azure Credits for Visual Studio Subscribers.  
+We center our efforts around developers whether you work as an individual, in teams, or developer communities like GitHub.  
+
+Developers around the world use their GitHub identity as a critical aspect of their digital life. We’re excited to announce improvements that help GitHub users get started easily with our developer services, including Monthly Azure Credits for Visual Studio Subscribers.  
 
 ## Your GitHub credentials can now log you in to Microsoft services  
 
-Now, developers can sign in with their existing GitHub account to Microsoft online services, on any Microsoft sign in page. Using your GitHub credentials, you can sign in via OAuth anywhere a personal Microsoft account does, including Azure Credit Subscriptions and Visual Studio.  
+Now, developers can sign in with their existing GitHub account to Microsoft online services, on any Microsoft sign-in page. Using your GitHub credentials, you can sign in via OAuth anywhere a personal Microsoft account does, including Azure Credit Subscriptions and Visual Studio.  
 
 After signing into GitHub and authorizing the Microsoft application, you'll get a new Microsoft account that's linked to your GitHub identity. During this process, you can also link to an existing Microsoft account if you already have one.  
 
 ## Sign in to Azure Credit Subscription  
 
-[Azure Credit Subscription for Visual Studio Subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers) offers you a suite of services to create, deploy, and manage applications on your preferred platforms and devices. Use credits in Azure for learning, development, and test services, plus collaboration tools and access to Azure DevOps Services.  
+[Azure Credit Subscription for Visual Studio Subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers) offers you a suite of services. Use them to create, deploy, and manage applications on your preferred platforms and devices. Use your credits in Azure for learning, development, and test services. You can also access collaboration tools and Azure DevOps Services.  
 
-With support for GitHub authentication, we're making it easier to get started experimenting with different Azure services from Virtual Machines, Websites, and SQL Databases to Mobile Services. Using skills you already have and the technologies you know, you can use Windows Virtual Desktop to quickly deploy and manage hundreds of VMs for development and testing.  
+GitHub authentication makes it easy to start experimenting with Azure services. Choose from Virtual Machines, Websites, SQL Databases, and Mobile Services. Use Windows Virtual Desktop to quickly deploy and manage hundreds of VMs for development and testing.  
 
 To get started with the Azure Monthly Credit Subscription using your GitHub account, select “Sign in using GitHub” on any [Microsoft sign in page](https://login.microsoftonline.com)  
 
@@ -43,11 +50,11 @@ If you haven’t activated your credits yet, go to the [Monthly Azure Credits fo
 
 ![Screenshot of a Microsoft account sign in page.](images/signinwithgithub.png "Sign in with Email, phone, or Skype.")  
 
-Once you complete the sign in process, you'll be taken to the last Azure Visual Studio organization you visited. If you’re new to Azure Visual Studio and Credits Subscription, you’ll land within a new organization created for you.  
+Once you complete the sign-in process, you'll be taken to the last Azure Visual Studio organization you visited. If you’re new to Azure Visual Studio and Credits Subscription, you’ll land within a new organization created for you.  
 
 ## Access all of Microsoft online services  
 
-In addition to accessing developer services such as Azure Dev/Test, Monthly Credits, and Visual Studio, your GitHub account can access all Microsoft online services, from Excel Online to Xbox.  
+Your GitHub account lets you access developer services like Azure Dev/Test, Monthly Credits, and Visual Studio. Your GitHub credentials can also access all Microsoft online services, from Excel Online to Xbox.  
 
 When authenticating with those services, you can find your GitHub account after clicking on “Sign in options”.  
 
@@ -57,7 +64,7 @@ When you first use your GitHub account to sign in with Microsoft, GitHub will as
 
 If you consent, GitHub will share the email addresses on your GitHub account (both public and private) and select profile information, like your name. We’ll use this data to check if you already have an account with us. If you don't, we'll create a new account for you. Connecting your GitHub identity to a Microsoft identity doesn't give Microsoft access to your repositories in GitHub. Apps like Visual Studio will request access to your repositories separately if they need to work with your code.  
 
-While your GitHub account is used to log into your Microsoft account, they’re still separate entities – one just uses the other as a sign in method. Changes you make to your GitHub account (like changing the password or enabling two-factor authentication) won’t change your Microsoft account, and the other way around. Manage the connection between your GitHub and Microsoft identities in your [account management page](https://account.live.com/proofs/manage/) under the Security tab.  
+While your GitHub account is used to log into your Microsoft account, they are still separate entities. One uses the other as a sign-in method. Changes you make to your GitHub account (like changing the password or enabling two-factor authentication) won’t change your Microsoft account, and the other way around. You can manage the connection between your GitHub and Microsoft identities. Go to your [account management page](https://account.live.com/proofs/manage/) under the Security tab.  
 
 ## Start exploring Azure Visual Studio and Monthly Credit Subscription now  
 
