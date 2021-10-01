@@ -32,7 +32,7 @@ For more information about best practices for Key Vault, see:
 
 ## Configuration and storing 
 
-The dynamic parts of credentials, which are generated during rotation, like client application secrets, passwords, and access keys should be stored in secret as values. Any related static attributes and identifiers like usernames, AppIds, service urls should be stored as secret tags and copied to the new version of a secret during rotation.
+Store the dynamic parts of credentials, which are generated during rotation, like client application secrets, passwords, and access keys  in secret as values. Any related static attributes and identifiers like usernames, AppIds, service urls should be stored as secret tags and copied to the new version of a secret during rotation.
 
 For more information about secrets, see:
 - [About Azure Key Vault secrets](about-secrets.md)
@@ -73,7 +73,7 @@ For more information, see:
 - [Monitoring and alerting for Azure Key Vault](../general/alert.md)
 
 ## Backup and purge protection
-Turn on [purge protection](../general/soft-delete-overview.md#purge-protection) to guard against forced deletion of a secret. Take regular backups of your vault on update/delete/create of secrets within a Vault.
+Turn on [purge protection](../general/soft-delete-overview.md#purge-protection) to guard against forced deletion of a secret. Take regular back ups of your vault on update/delete/create of secrets within a Vault.
 
 ### Azure PowerShell Backup commands
 
