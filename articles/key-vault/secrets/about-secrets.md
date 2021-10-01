@@ -81,7 +81,7 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 | When to use | Examples |
 |--------------|-------------|
-|Securly store, manage lifecycle, and monitor credentials for service-to-service communication like passwords, access keys, service principal client secrets.  | - [Use Azure Key Vault with a Virtual Machine](../general/tutorial-net-virtual-machine.md)<br> - [Use Azure Key Vault with an Azure Web App](../general/tutorial-net-create-vault-azure-web-app.md) |
+|Securely store, manage lifecycle, and monitor credentials for service-to-service communication like passwords, access keys, service principal client secrets.  | - [Use Azure Key Vault with a Virtual Machine](../general/tutorial-net-virtual-machine.md)<br> - [Use Azure Key Vault with an Azure Web App](../general/tutorial-net-create-vault-azure-web-app.md) |
 
 ## Next steps
 
