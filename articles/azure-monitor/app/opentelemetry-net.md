@@ -64,7 +64,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter
 ```
 
 > [!NOTE]
-> If you're not able to install the library, please go to [Troubleshooting](#specifying-nuget-source).
+> If you're not able to install the library, please go to [Troubleshooting](#specify-nuget-package-source).
 
 ### Enable OpenTelemetry
 
@@ -348,7 +348,7 @@ exporter logs are available to any EventListener by opting into the source named
 [ OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting)
 for detailed troubleshooting steps.
 
-### Specifying nuget source
+### Specify NuGet package source
 
 If you try to install the package and get errors like the following, it's mostly due to missing NuGet package sources.
 
