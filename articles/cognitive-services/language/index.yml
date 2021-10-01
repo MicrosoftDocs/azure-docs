@@ -87,23 +87,6 @@ conceptualContent:
           text: Text summarization
           url: text-summarization/overview.md 
 
-tools:
-  title: Software Development Kits (SDKs)
-  summary: Get started with the Language Services SDK in your favorite programming language.
-  items:
-  - title: C#
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-    url: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
-  - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
-  - title: JavaScript
-    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-  - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
-
 additionalContent:
   sections:
     - items:
