@@ -32,6 +32,8 @@ items:
     href: tutorial-register-scan-on-premises-sql-server.md
   - name: Use REST APIs for Purview data planes
     href: tutorial-using-rest-apis.md
+  - name: Using REST APIs for Collection Management
+    href: tutorial-metadata-policy-collections-apis.md
 - name: Concepts
   items:
   - name: Use Purview Studio

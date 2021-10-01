@@ -48,30 +48,32 @@ Using one of the deployment options from this guide, you can deploy a new Azure 
 
 3. Under **Account and portal** select **+ Add** to add a private endpoint for your Azure Purview account.
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-1.png" alt-text="Screenshot that shows create private endpoint for account and portal page selections.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account-portal.png" alt-text="Screenshot that shows create private endpoint for account and portal page selections.":::
 
 4. On the **Create a private endpoint** page, for **Purview sub-resource**, choose your location, provide a name for _account_ private endpoint and select **account**. Under **networking**, select your virtual network and subnet, and optionally, select **Integrate with private DNS zone** to create a new Azure Private DNS zone. 
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-2.png" alt-text="Screenshot that shows create account private endpoint page.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account.png" alt-text="Screenshot that shows create account private endpoint page.":::
 
-
-   > [!NOTE]
-   > You can also use your existing Azure Private DNS Zones or create DNS records in your DNS Servers manually later. For more information, see [Configure DNS Name Resolution for private endpoints](./catalog-private-link-name-resolution.md)
+      > [!NOTE]
+      > You can also use your existing Azure Private DNS Zones or create DNS records in your DNS Servers manually later. For more information, see [Configure DNS Name Resolution for private endpoints](./catalog-private-link-name-resolution.md)
 
 5. Select **OK**.
    
 6. In **Create Purview account** wizard, select **+Add** again to add _portal_ private endpoint.
      
 7. On the **Create a private endpoint** page, for **Purview sub-resource**,choose your location, provide a name for _portal_ private endpoint and select **portal**. Under **networking**, select your virtual network and subnet, and optionally, select **Integrate with private DNS zone** to create a new Azure Private DNS zone. 
+
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-portal.png" alt-text="Screenshot that shows create portal private endpoint page.":::
    
    > [!NOTE]
    > You can also use your existing Azure Private DNS Zones or create DNS records in your DNS Servers manually later. For more information, see [Configure DNS Name Resolution for private endpoints](./catalog-private-link-name-resolution.md)
 
 8.  Select **OK**.
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-3.png" alt-text="Screenshot that shows create private endpoint review page.":::
-
 9.  Select **Review + Create**. On the **Review + Create** page, Azure validates your configuration.
+      
+      :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account-portal-2.png" alt-text="Screenshot that shows create private endpoint review page.":::
+
 
 10. When you see the "Validation passed" message, select **Create**.
 
@@ -86,7 +88,7 @@ There are two ways you can add Azure Purview _account_ and _portal_ private endp
 
 1. Go to the [Azure portal](https://portal.azure.com), and then select your Azure Purview account, and under **Settings** select **Networking**, and then select **Private endpoint connections**.
 
-    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Screenshot that shows creating an account private endpoint.":::
+    :::image type="content" source="media/catalog-private-link/purview-pe-add-to-existing.png" alt-text="Screenshot that shows creating an account private endpoint.":::
 
 2. Select **+ Private endpoint** to create a new private endpoint.
 

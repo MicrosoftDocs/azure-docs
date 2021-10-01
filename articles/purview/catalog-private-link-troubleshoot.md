@@ -6,14 +6,16 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 09/27/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
 # Troubleshooting private endpoint configuration for Purview accounts
 
-This guide summarizes known limitations related to using private endpoints for Azure Purview and provides a list of steps and solutions for troubleshooting some of the most common relevant issues. 
+> [!IMPORTANT]
+> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before October 11, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
 
+This guide summarizes known limitations related to using private endpoints for Azure Purview and provides a list of steps and solutions for troubleshooting some of the most common relevant issues. 
 
 ## Known limitations
 
@@ -158,7 +160,7 @@ You may receive the following error message when running a new scan:
   `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### Cause 
-This can be an indication of running an older version of self-hosted integration runtime. If you have created your Azure Purview account after 18th August 2021, you need to use the elf-hosted integration runtime version 5.9.7885.3.
+This can be an indication of running an older version of self-hosted integration runtime. If you have created your Azure Purview account after 18th August 2021, you need to use the self-hosted integration runtime version 5.9.7885.3.
 
 ### Resolution 
 Upgrade self-hosted integration runtime to 5.9.7885.3.
