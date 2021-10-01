@@ -82,7 +82,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
     5. Note the Service Principal role successfully assigned to the application:
 
-        :::image type="content" source="./media/test-drive/successful-assignment.png" alt-text="Shows a successful app assignment.":::
+        :::image type="content" source="./media/test-drive/successful-assignment.png" alt-text="Shows the Service Principal role successfully assigned to the application.":::
 
     **Option 2**
 
