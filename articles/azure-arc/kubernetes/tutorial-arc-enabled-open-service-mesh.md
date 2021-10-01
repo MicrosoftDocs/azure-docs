@@ -49,7 +49,7 @@ Ensure that your KUBECONFIG environment variable points to the kubeconfig of the
 Set the environment variables:
 
 ```azurecli-interactive
-export VERSION=0.8.4
+export VERSION=<osm-arc-version>
 export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
@@ -89,7 +89,7 @@ You should see output similar to the output shown below. It may take 3-5 minutes
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.4"
+  "version": "x.x.x"
 }
 ```
 
@@ -123,7 +123,7 @@ To ensure that the privileged init container setting is not reverted to the defa
 
 ### Install Arc enabled OSM using ARM template
 
-After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the <cluster-name> value:
+After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the <cluster-name> and <osm-arc-version> values:
 
 ```json
 {
@@ -145,7 +145,7 @@ After connecting your cluster to Azure Arc, create a json file with the followin
             }
         },
         "ExtensionVersion": {
-            "defaultValue": "0.8.4",
+            "defaultValue": "<osm-arc-version>",
             "type": "String",
             "metadata": {
                 "description": "The extension type version."
@@ -235,7 +235,7 @@ You should see a JSON output similar to the output below:
   },
   "statuses": [],
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "0.8.4"
+  "version": "x.x.x"
 }
 ```
 ## OSM controller configuration
