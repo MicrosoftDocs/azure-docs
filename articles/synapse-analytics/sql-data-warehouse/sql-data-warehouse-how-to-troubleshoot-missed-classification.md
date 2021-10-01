@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to  
 ms.subservice: sql-dw 
-ms.date: 09/30/2021
+ms.date: 10/01/2021
 ms.custom: template-how-to  
 ms.reviewer: wiassaf
 ---
@@ -112,7 +112,7 @@ Consider following scenario:
 1. A database user, DBAUser, is assigned to largerc resource class role using `sp_addrolemember` procedure.
 1. DBAUser has created a new workload group and classifier using workload management.
 1. A newly-created workload classifier maps database role DBARole to mediumrc resource class with high importance. 
-1. DBAUser is a member of the DBARole database role.
+1. DBAUser is a made a member of the DBARole database role.
 1. When DBAUser runs a query, the query is expected to run on mediumrc based on workload classifier. Instead it will be assigned to largerc, as **user** mapping takes precedence over **role membership** mapping to a classifier.
 
 It's best to avoid mixing usage of resource classes and workload management groups to do workload management. For more information on steps to convert resource classes to workloads, see [Convert Resource Classes to Workload Groups](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md). 
@@ -160,7 +160,7 @@ In scenarios where resource classes are being used it's best to create a dedicat
 
 #### If Workload Management Capabilities are used
 
-WLM provides capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have **weight** score as shown below and this score determines order of precedence: 
+WLM provides capability to create multiple workload classifiers for same user or workload group. Classifier definition statement has multiple parameters based on which incoming requests are assigned to workloads. These parameters have a **weight** score as shown below and this score determines order of precedence: 
 
 |**Classifier parameter** |**Weight**   |
 |---------------------|---------|
