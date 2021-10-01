@@ -21,6 +21,9 @@ In this tutorial, you learn to:
 - Set up custom authentication with Azure Active Directory
 - Configure a [role assignment function](authentication-authorization.md?tabs=function#role-management) that queries the user's Active Directory group membership and returns a list of custom roles
 
+> [!NOTE]
+> This tutorial uses the [role assignment function](authentication-authorization.md?tabs=function#role-management) feature that is currently in preview.
+
 ## Prerequisites
 
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).

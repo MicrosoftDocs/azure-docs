@@ -103,7 +103,7 @@ As you remove a user, keep in mind the following items:
 1. Worldwide propagation may take a few minutes.
 1. If the user is added back to the app, the [`userId` changes](user-information.md).
 
-# [Roles assignment function](#tab/function)
+# [Roles assignment function (preview)](#tab/function)
 
 Instead of using the built-in invitations system, you can use a custom function to programmatically assign roles to users when they log in.
 
