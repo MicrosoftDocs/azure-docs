@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Audio processing with Speech SDK
 
-The Speech SDK integrates Microsoft Audio Stack, allowing any application or product to use its audio processing capabilities on input audio. The minimum requirements from [Minimum requirements to use Microsoft Audio Stack](audio-processing-overview.md#minimum-requirements-to-use-microsoft-audio-stack) apply.
+The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application or product to use its audio processing capabilities on input audio. The minimum requirements from [Minimum requirements to use Microsoft Audio Stack](audio-processing-overview.md#minimum-requirements-to-use-microsoft-audio-stack) apply.
 
 Key features made available via Speech SDK APIs include:
 * **Realtime microphone input & file input** - Microsoft Audio Stack processing can be applied to real-time microphone input, streams, and file-based input. 
@@ -39,6 +39,8 @@ Processing is performed fully locally where the Speech SDK is being used. No aud
 ## Sample code
 
 ### Using Microsoft Audio Stack with all default options
+
+This sample shows how to use MAS with all default enhancement options on input from the device's default microphone.
 
 #### [C#](#tab/csharp)
 
@@ -65,6 +67,11 @@ std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(spee
 
 ### Using Microsoft Audio Stack with a preset microphone geometry
 
+This sample shows how to use MAS with a predefined microphone geometry on a specified audio input device. In this example:
+* **Enhancement options** - The default enhancements will be applied on the input audio stream.
+* **Preset geometry** - The preset geometry represents a linear 2-microphone array.
+* **Audio input device** - The audio input device id is `hw:0,1`. For more information on how to select an audio input device, see [How to: Select an audio input device with the Speech SDK](#how-to-select-audio-input-devices.md).
+
 #### [C#](#tab/csharp)
 
 ```csharp
@@ -89,6 +96,11 @@ std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(spee
 ---
 
 ### Using Microsoft Audio Stack with custom microphone geometry
+
+This sample shows how to use MAS with a custom microphone geometry on a specified audio input device. In this example:
+* **Enhancement options** - The default enhancements will be applied on the input audio stream.
+* **Custom geometry** - A custom microphone geometry for a 4-microphone array is provided by specifying the microphone coordinates.
+* **Audio input device** - The audio input device id is `hw:0,1`. For more information on how to select an audio input device, see [How to: Select an audio input device with the Speech SDK](#how-to-select-audio-input-devices.md).
 
 #### [C#](#tab/csharp)
 
@@ -127,6 +139,10 @@ std::shared_ptr<SpeechRecognizer> recognizer = SpeechRecognizer::FromConfig(spee
 ---
 
 ### Using Microsoft Audio Stack with select enhancements
+
+This sample shows how to use MAS with a custom set of enhancements on the input audio. In this example:
+* **Enhancement options** - All default enhancements will be applied on the input audio stream except echo cancellation.
+* **Audio input device** - The audio input device is the default microphone of the device.
 
 #### [C#](#tab/csharp)
 
