@@ -343,4 +343,8 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
+
+```bash
+openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx
+```
