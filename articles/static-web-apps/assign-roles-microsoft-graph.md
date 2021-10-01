@@ -151,7 +151,7 @@ In this tutorial, you learn to:
           },
           "login": {
             "loginParameters": [
-                "resource=https://graph.microsoft.com"
+              "resource=https://graph.microsoft.com"
             ]
           }
         }
