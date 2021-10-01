@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # What is Azure Active Directory B2C?
 
-Azure Active Directory Business-to-consumer (Azure AD B2C) provides business-to-customer identity as a service. Your customers use their preferred social, enterprise, or local account identities to get single sign-on access to your applications and APIs.
+Azure Active Directory B2C provides business-to-customer identity as a service. Your customers use their preferred social, enterprise, or local account identities to get single sign-on access to your applications and APIs.
 
 ![Infographic of Azure AD B2C identity providers and downstream applications](./media/overview/azureadb2c-overview.png)
 
