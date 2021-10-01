@@ -37,7 +37,7 @@ If you set up your credit subscription using a personal account, your identity a
 
 Below is a simple diagram that shows the basic steps you'll take when changing or transferring your subscription.
 
-![A diagram illustrating changing or transferring your subscription.](images/changediagram.png "A diagram of what happens when you change or transfer your subscription.)
+![A diagram illustrating changing or transferring your subscription.](media/change-directory-tenants/changediagram.png "A diagram of what happens when you change or transfer your subscription.)
 
 ## Identity and Access Management
 
