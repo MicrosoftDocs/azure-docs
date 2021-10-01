@@ -145,7 +145,7 @@ In this tutorial, you learn to:
         "azureActiveDirectory": {
           "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
           "registration": {
-            "openIdIssuer": "https://login.microsoftonline.com/e8ec9559-fad7-4d90-ab05-cb168a4ff3cc",
+            "openIdIssuer": "https://login.microsoftonline.com/<YOUR_AAD_TENANT>",
             "clientIdSettingName": "AAD_CLIENT_ID",
             "clientSecretSettingName": "AAD_CLIENT_SECRET"
           },
