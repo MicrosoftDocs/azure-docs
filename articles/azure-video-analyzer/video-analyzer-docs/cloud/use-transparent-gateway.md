@@ -140,4 +140,5 @@ You can examine the Video Analyzer video resource that was created by the live p
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Next Steps
+Now with the camera connected to Video Analyzer, try out the [different available nodes in the cloud](../pipeline.md) to create a topology and run a pipeline that fit your needs.
 
