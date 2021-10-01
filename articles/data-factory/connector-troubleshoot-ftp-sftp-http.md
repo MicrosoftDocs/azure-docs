@@ -139,7 +139,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
     * If you're using Azure IR, add [Azure Integration Runtime IP addresses](./azure-integration-runtime-ip-addresses.md). If you don't want to add a range of IPs to the SFTP server allowlist, use Self-hosted IR instead.
 
 
-#### Error code: SftpPermissionDenied
+### Error code: SftpPermissionDenied
 
 - **Message**: `Permission denied to access '%path;'`
 

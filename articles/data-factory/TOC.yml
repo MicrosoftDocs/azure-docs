@@ -965,7 +965,7 @@ items:
         href: connector-troubleshoot-delimited-text.md
       - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
         href: connector-troubleshoot-dynamics-dataverse.md
-      - name: FTP, SFTP and HTTP
+      - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
       - name: Oracle
         href: connector-troubleshoot-oracle.md
