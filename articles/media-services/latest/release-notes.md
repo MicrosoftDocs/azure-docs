@@ -29,6 +29,9 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## September 2021
 
+### New basic pass-through live event SKU
+
+The new basic pass-through live event SKU allows customers to create live events at a [lower price point](https://azure.microsoft.com/pricing/details/media-services/). It is similar to standard pass-through live events, but with lower input bandwidth limits, fewer live output allowed, different DVR window length limits, and no access to live transcription. See [live event types comparison](./live-event-types-comparison-reference.md#types-comparison) for more details.
 
 ### Improved scale management and monitoring for a Streaming Endpoint in the portal
 
