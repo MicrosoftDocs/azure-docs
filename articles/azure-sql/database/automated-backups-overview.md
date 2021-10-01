@@ -341,6 +341,8 @@ az sql midb short-term-retention-policy set
 Zero (0) days retention would denote that backup is immediately deleted and no longer kept for a deleted database.
 Once PITR backup retention has been reduced for a deleted database, it no longer can be increased.
 
+---
+
 ### Change the short-term retention policy using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -504,7 +506,7 @@ Find the option to select backup storage redundancy on the **Compute + storage**
 
 ---
 
-### Configure backup storage redundancy by using Azure CLI
+### Configure backup storage redundancy by using the Azure CLI
 
 #### [SQL Database](#tab/single-database)
 
@@ -533,6 +535,8 @@ For more details, see [az sql db create](/cli/azure/sql/db#az_sql_db_create) and
 #### [SQL Managed Instance](#tab/managed-instance)
 
 Configuring backup storage redundancy is not available for a SQL Managed Instance when using the Azure CLI. For more information, see the [Azure portal](#configure-backup-storage-redundancy-by-using-the-azure-portal) or [PowerShell](#configure-backup-storage-redundancy-by-using-powershell) options.
+
+---
 
 ### Configure backup storage redundancy by using PowerShell
 
