@@ -1,0 +1,19 @@
+{
+    "redirections": [
+      {
+        "source_path_from_root": "/concepts/ui-library/teams-embed.md",
+        "redirect_url": "/concepts/ui-library/ui-library-overview.md",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/quickstarts/meeting/getting-started-with-teams-embed.md",
+        "redirect_url": "https://azure.github.io/communication-ui-library",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/quickstarts/meeting/samples-for-teams-embed.md ",
+        "redirect_url": "https://azure.github.io/communication-ui-library",
+        "redirect_document_id": false
+      }
+    ]
+}
