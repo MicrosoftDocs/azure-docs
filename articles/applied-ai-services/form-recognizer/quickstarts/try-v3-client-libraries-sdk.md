@@ -12,7 +12,9 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
 
-# Get started: Form Recognizer client library SDKs v3.0 | Preview
+# Quickstart: Form Recognizer client library SDKs v3.0 | Preview
+
+Get started with Azure Form Recognizer using the programming language of your choice. Azure Form Recognizer is an [Azure Applied AI Service](../../../applied-ai-services/index.yml) cloud service that lets you build automated data processing software using machine learning technology. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 >[!NOTE]
 > Form Recognizer studio is currently in public preview. some features may not be supported or have limited capabilities. 
