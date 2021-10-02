@@ -126,12 +126,13 @@ Navigate to **Logs** under the **Monitoring** section. Close the **Queries** win
 
 On the query window you can write the query to be executed.  Here we have used query to find Queries longer than 10 seconds on a particular server
 
-    ```Kusto
-    AzureDiagnostics
+```kusto
+ AzureDiagnostics
     | where Category == 'MySqlSlowLogs'
     | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
     | where query_time_d > 10
-    ```
+```
+    
 Select the **Time range** and **Run** the query. You will see the results of the query below.  
 
 :::image type="content" source="./media/tutorial-query-performance-insights/slow-query.png" alt-text="Screenshot of slow query log":::
@@ -164,7 +165,7 @@ Two metrics in Query Performance Insight can help you find potential bottlenecks
 In some cases, a high execution count can lead to more network round trips. Round trips affect performance. They're subject to network latency and to downstream server latency. So execution count can help to find frequently executed ("chatty") queries. These queries are the best candidates for optimization. 
 
 ## Next step
-- [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-access-control.md#visualizations) and learning more about workbooks many rich visualizations options.
+- [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and learning more about workbooks many rich visualizations options.
 - Learn more about [slow query logs](concepts-slow-query-logs.md)
 
 

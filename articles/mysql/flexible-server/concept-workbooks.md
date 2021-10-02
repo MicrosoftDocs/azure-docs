@@ -52,5 +52,5 @@ You can also see the list of templates navigating to **Public Templates**
 
 
 ## Next step
-* [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-access-control.md) and learning more about workbooks many rich visualizations options.
-* [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-access-control.md#visualizations) and learning more about workbooks many rich visualizations options.
+- [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-access-control.md) and learning more about workbooks many rich visualizations options.
+- [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and learning more about workbooks many rich visualizations options.

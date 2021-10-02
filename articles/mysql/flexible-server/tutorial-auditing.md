@@ -102,14 +102,14 @@ Navigate to **Logs** under the **Monitoring** section. Close the **Queries** win
 
 On the query window, you can write the query to be executed.  Here we have used query to find the Summarize audited events on a particular server
 
-    ```Kusto
-    AzureDiagnostics
+```kusto
+AzureDiagnostics
     |where Category =='MySqlAuditLogs' 
     |project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s ,ip_s , sql_text_s 
     |summarize count() by event_class_s,event_subclass_s 
     |order by event_class_s 
-    ```
-
+```
+  
 :::image type="content" source="./media/tutorial-auditing/audit-query.png" alt-text="Screenshot of Log analytics Query":::
 
 ## View audit logs using workbooks 
@@ -155,5 +155,5 @@ Administrative Actions on the service give you details on activity performed on 
 Other visualizations will help you get details of database activity. Database security is composed of four parts. These are the server security, database connection, table access control and restricting database access. The server security is the one responsible in preventing unauthorized personnel from accessing the database. In terms of database connections, the administrator should also check whether the updates done on the database are done by authorized personnel. Restricting database access is important especially for those who have their database uploaded in the internet. This will help prevent any outside source from entering or getting access to your database. 
 
 ## Next step
-- [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-access-control.md#visualizations) and learning more about workbooks many rich visualizations options.
+- [Get started Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and learning more about workbooks many rich visualizations options.
 - Learn more about [audit logs](concepts-audit-logs.md)
