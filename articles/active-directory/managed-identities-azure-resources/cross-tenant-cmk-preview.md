@@ -20,16 +20,18 @@ Private Preview Documentation | Version 2.0 | Last updated on August 10, 2021
 Microsoft Confidential | Contact: crosstenantcmkvteam@service.microsoft.com
 ```
 ## Scenario overview
+
 There are serveral scenarios that require Azure resources to access other Azure services. Today, Managed Identities for Azure resources make it easy to facilitate such access by eliminating the need for credential management. However, that is only an option if all resources belong to the same Azure AD Tenant. Multiple service providers building SaaS offerings on Azure want to offer Customer Managed Keys to encrypt all customer data using an encryption key managed by the service provider’s customer using Azure Key Vault managed using the customer’s Azure AD Tenant and subscription. The Azure resources owned by the Service Provider in the Service-Provider Tenant require access to the key from the customer’s tenant to perform the encryption/decryption operations. In this private-preview we will enable a mechanism using a new feature of Azure AD called workload identity federation. Thank you for your participation in the private preview!
 
+<img src="media/cross-tenant-cmk/xtcmk-problem-01.png" alt="cross-tenant-cmk problem" width="400">
 
 ## Solution
 We can achieve the scenario using a new feature of Azure AD called “Workload Identity Federation”. In this proposal, Service Provider/ISV creates a multi-tenant application in Azure AD. Azure AD will allow creating a “ federated identity credential ” for this application. With this new type of credential, you can configure an existing Managed Identity Service Principal in Azure AD to be able to impersonate the identity of the Azure AD Application in a tenant where the application has been installed/consented. This allows a managed identity (both system-assigned and user-assigned MI) to impersonate (get tokens) as a multi-tenant application in any
 tenant in which the application has been installed/consented. A user-assigned managed identity can be assigned one or more Azure resources. With the assignment, Azure resources can now request tokens as the multi-tenant Azure AD application.
-In the customer tenant (customer of the service provider), users with appropriate permissions can install the enterprise application, which is represented as a Service Principal. This can be achieved via the application consent experience or simply calling Microsoft Graph API to create the service principal. Once provisioned, the service principal can be granted access to the
-desired Azure resources, like an Azure Key Vault, where the CMK is stored. From the customer’s perspective, they are installing an application in Azure AD (thus creating an identity to represent the application) that is published by the service provider they trust and allowing that application access to the required resources. They do not have additional visibility into how the
-application is implemented. This divides the end-to-end solution into 3 phases as described further. Phase 1 can be a one-
-time setup. Phase 2 and 3 would repeat for each customer. 
+
+<img src="media/cross-tenant-cmk/xtcmk-solution-01.png" alt="cross-tenant-cmk solution" width="800">
+
+In the customer tenant (customer of the service provider), users with appropriate permissions can install the enterprise application, which is represented as a Service Principal. This can be achieved via the application consent experience or simply calling Microsoft Graph API to create the service principal. Once provisioned, the service principal can be granted access to the desired Azure resources, like an Azure Key Vault, where the CMK is stored. From the customer’s perspective, they are installing an application in Azure AD (thus creating an identity to represent the application) that is published by the service provider they trust and allowing that application access to the required resources. They do not have additional visibility into how the application is implemented. This divides the end-to-end solution into 3 phases as described further. Phase 1 can be a one-time setup. Phase 2 and 3 would repeat for each customer. 
 
 ### Phase 1 - Service Provider configures Identities
 
