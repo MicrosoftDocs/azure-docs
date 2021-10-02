@@ -20439,6 +20439,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-edifact-encode.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-edifact-decode.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-enterprise-integration-edifact",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/index.yml",
       "redirect_url": "/azure/machine-learning/",
       "redirect_document_id": false
