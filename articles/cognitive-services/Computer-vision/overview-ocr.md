@@ -45,7 +45,7 @@ The Read API supports 122 languages for print text and 7 languages for handwritt
 
 OCR for print text includes support for English, French, German, Italian, Portuguese, Spanish, Chinese, Japanese, Korean, and Russian (preview), along with Latin and Cyrillic languages with the latest preview update.
 
-OCR for handwritten text includes support for English, and preview of French, German, Italian, Portuguese, Spanish, and Chinese langauges.
+OCR for handwritten text includes support for English, and preview of French, German, Italian, Portuguese, Spanish, and Chinese languages.
 
 See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and refer to the full list of [OCR-supported languages](./language-support.md#optical-character-recognition-ocr). The preview model includes any enhancements to the currently GA languages.
 
