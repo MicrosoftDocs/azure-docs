@@ -14,7 +14,7 @@ ms.author: lajanuar
 # Form Recognizer v3.0 prebuilt models | Preview
 
 >[!NOTE]
-> Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities.
+> Form Recognizer studio is currently in public preview. some features may not be supported or have limited capabilities.
 
 Form Recognizer prebuilt models enable you to add intelligent form processing to your apps and flows without have to train and build your own models. Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 

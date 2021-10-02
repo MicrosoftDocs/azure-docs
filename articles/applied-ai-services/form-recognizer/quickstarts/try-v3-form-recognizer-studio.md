@@ -14,4 +14,4 @@ ms.author: sajagtap
 # Get started: Form Recognizer studio | Preview
 
 >[!NOTE]
-> Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
+> Form Recognizer studio is currently in public preview. some features may not be supported or have limited capabilities. 

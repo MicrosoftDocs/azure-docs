@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-formre
 # Get started: Form Recognizer client library SDKs v3.0 | Preview
 
 >[!NOTE]
-> Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
+> Form Recognizer studio is currently in public preview. some features may not be supported or have limited capabilities. 
 
 ::: zone pivot="programming-language-csharp"
 

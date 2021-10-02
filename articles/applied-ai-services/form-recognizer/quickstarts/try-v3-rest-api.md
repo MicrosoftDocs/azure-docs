@@ -14,6 +14,6 @@ ms.author: lajanuar
 # Get started: Form Recognizer REST API  | Preview
 
 >[!NOTE]
-> Form Recognizer studio is currently in public preview. Some features might not be supported or have limited capabilities. 
+> Form Recognizer studio is currently in public preview. some features may not be supported or have limited capabilities. 
 
 [!INCLUDE [REST API quickstart](../includes/quickstarts/v3-rest-api.md)]
