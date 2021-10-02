@@ -202,6 +202,7 @@ Add the RTSP Simulator edge module
         }
     }
     ```
+1. Select **Add**  
 
 1. Select **Next: Routes** to continue to the routes section. Specify routes.
 
