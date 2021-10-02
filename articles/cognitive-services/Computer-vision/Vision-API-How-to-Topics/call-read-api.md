@@ -46,7 +46,7 @@ By default, the service outputs the text lines in the left to right order. Optio
 
 ### Select page(s) or page ranges for text extraction
 
-By default, the service extracts text from all pages in the documents and all images from a TIFF file. Optionally, use the `pages` request parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
+By default, the service extracts text from all pages in the documents. Optionally, use the `pages` request parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
 :::image type="content" source="../Images/ocr-select-pages.png" alt-text="Selected pages output" border="true" :::
 
