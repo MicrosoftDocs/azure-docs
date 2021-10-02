@@ -39,7 +39,7 @@ In the customer tenant (customer of the service provider), users with appropriat
 | -- | ----------------------------------- | -------------- | --------------| 
 | 1. | Create a multi-tenant Azure AD application registration or start with an existing application registration. Note the ApplicationId (aka ClientId) of the application registration. <br>[Azure Portal](../develop/quickstart-register-app) / [Microsoft Graph API](https://docs.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0&tabs=http) / [Azure AD owerShell](https://docs.microsoft.com/powershell/module/azuread/new-azureadapplication?view=azureadps-2.0) / [Azure CLI](https://docs.microsoft.com/cli/azure/ad/app?view=azure-cli-latest#az_ad_app_create) | None | User with permissions to create Applications 
 | 2. | Create a user-assigned managed identity (to be used as a Federated Identity Credential). <br> [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) / [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli) / [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell)/ [Azure Resource Manager Templates](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm) | [Manage identity contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) | None | 
-| 3. | Configure user-assigned managed identity as a *federated identity credential* on the application, so that it can impersonate the identity of the application. <br> [Graph API reference](https://aka.ms/fedcredentialapi) : Microsoft-internal link during Private Preview, shared as attachment with participants. | None | Owner of the application | 
+| 3. | Configure user-assigned managed identity as a *federated identity credential* on the application, so that it can impersonate the identity of the application. <br> [Graph API reference](https://aka.ms/fedcredentialapi) | None | Owner of the application | 
 | 4. | Share the ApplicationId with the customer, so that they can install the application. | None | None| 
 
 
@@ -48,14 +48,14 @@ In the customer tenant (customer of the service provider), users with appropriat
 | -- | ----------------------------------- | -------------- | --------------| 
 | 1. | Install the Service Provider Application with any one of the following options <br>[Graph API](https://docs.microsoft.com/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http) / [Azure AD PowerShell](https://docs.microsoft.com/powershell/module/azuread/new-azureadserviceprincipal?view=azureadps-2.0) / [Azure CLI](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_create) <br> OR Using the consent URL: Navigate to the URL such as below by replacing the appropriate clientId: https://login.microsoftonline.com/common/oauth2/authorize?response_type=code&client_id=248e869f-0e5c-484d-b5ea1fba9563df41&redirect_uri=https://www.your-app-url.com <br> Navigating to this URL from a web browser will invoke the consent experience and install the application in the tenant used to authenticate. | None | Users with permissions to install applications | 
 | 2. |  Create Azure Key Vault and a key used as Customer Managed Key. | Contributor, Key Vault Crypto Officer | None | 
-| 3. |  Grant the consented Application Identity access to Azure Key Vault using Azure Role Based Access Control using the role “Key Vault Crypto Service Encryption User” | Key Vault Administrator | None | 
-| 4. | Copy the Key Vault URL and Key Name into the CMK configuration of the SaaS offering.| None| None| 
+| 3. |  Grant the consented Application Identity access to Azure Key Vault using Azure Role Based Access Control using the role [“Key Vault Crypto Service Encryption User”](https://docs.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations) | Key Vault Administrator | None | 
+| 4. | Copy the Key Vault URL and Key Name into the Customer-Managed-Keys configuration of the SaaS offering.| None| None| 
 
 ### Phase 3 – Service Provider configures Customer Managed Keys
 | No | Step | Least privileged Azure Roles | Least privileged Azure AD Roles |
 | -- | ----------------------------------- | -------------- | --------------| 
-| 1. | Create an Azure Storage account with Cross Tenant Customer Managed Keys. Shared as attachment - [Azure Storage - Private Preview Cross-tenant CMK for Azure Storage.docx](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA) <br> [Azure Portal](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA) / [Azure CLI](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA)/ [ARM Templates](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA)/ [Azure PowerShell](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA) / [REST APIs](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA) : Microsoft internal link shared as attachment | Contributor | None | 
-| 2. | Create an Azure SQL server with Cross Tenant Customer Managed Keys <br> [Azure Portal](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig) / [Azure CLI](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig)/ [ARM Templates](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig)/ [Azure PowerShell](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig) / [REST APIs](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig) : Microsoft internal link shared as attachment  | Contributor | None | 
+| 1. | Create an Azure Storage account with Cross Tenant Customer Managed Keys. Shared as attachment - [Azure Storage - Private Preview Cross-tenant CMK for Azure Storage.docx](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA) <br> [Azure Portal](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA) / [Azure CLI](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA)/ [ARM Templates](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA)/ [Azure PowerShell](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA) / [REST APIs](https://microsoft-my.sharepoint.com/:w:/r/personal/ozgun_microsoft_com/_layouts/15/guestaccess.aspx?e=z0Ao18&share=EQPgS2S0xA9CnctR01TA9BsBOdnQ0H2UC-tlzzTaciiIIA) : *Microsoft internal link shared as attachment* | Contributor | None | 
+| 2. | Create an Azure SQL server with Cross Tenant Customer Managed Keys <br> [Azure Portal](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig) / [Azure CLI](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig)/ [ARM Templates](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig)/ [Azure PowerShell](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig) / [REST APIs](https://microsoft.sharepoint.com/:w:/r/teams/sqlsecurity/_layouts/15/guestaccess.aspx?e=6Zj9BK&share=EUbQ0ix9o91IjlgNbfvpgakBLoRa4hMHUrU9OglX4q3Tig) : *Microsoft internal link shared as attachment*  | Contributor | None | 
 
 ### Important callouts 
 1. In the customer-tenant, an admin can set policies to block non-admin users from consenting to or installing Applications. Such policies can prevent non-admin users (users without a specific Azure AD role) from creating the desired service principal in the customer tenant. If such a policy is configured, then users with permissions to create service principals will have to be involved.
@@ -84,7 +84,7 @@ This section provides step-by-step tutorial to create a working setup. At the en
 7. An account in the Customer tenant (for example, demouser@contoso.com) with the “Owner” role for “KVSubscription2” (Created using Azure RBAC Role Assignments)
 
 #### Tools
-You will need the followingtools to complete this tutorial.
+You will need the following tools to complete this tutorial.
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 2. [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) - No installation needed.
 
@@ -95,7 +95,7 @@ Login to Azure to use Azure CLI
 az login
 ```
 #### Step 1 - Create a new Multi-tenant AAD Application registration
-Pick a name for your Multi-Tenant Azure AD Application.For example: “XTCMKDemoApp”.Note that this name will be used by your customers to identify the Application.Note the “AppId” generated for this application. Also note the “ObjectId”generated for this application–referred as appObjectId in this document. 
+Pick a name for your Multi-Tenant Azure AD Application. For example: “XTCMKDemoApp”. Note that this name will be used by your customers to identify the Application. Capture the `ApplicationId` generated for this application. Also note the `ObjectId` generated for this application, referred as `appObjectId` in this document. 
 
 ```azurecli-interactive
 username=$(az account show --query user.name --out tsv)
@@ -121,10 +121,36 @@ uamiObjectId=$(az identity create --name $uamiName --resource-group $rgName --lo
 ```
 #### Step 3 - Configure user-assigned managed identity as a *federated identity credential* on the application
 
+Make sure to use `api://AzureADTokenExchange` as the `audience` value in the federated identity credential. See the [API reference](https://aka.ms/fedcredentialapi) for more details.
+
 ```azurecli-interactive
 az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<replace-with-appObjectId>/federatedIdentityCredentials' --body '{"name":"test01","issuer":"https://login.microsoftonline.com/<replace-with-tenantId>/v2.0","subject":"<replace-with-uamiObjectId","description":"This is a new test federated identity credential","audiences":["api://AzureADTokenExchange"]}'
 ```
-#### Step 4 - Share the AppId with the customers.
+You can also complete this step using the Microsoft Graph Explorer.
+1. Navigate to [https://developer.microsoft.com/graph/graph-explorer](https://developer.microsoft.com/graph/graph-explorer)
+2. Sign-in with the appropriate account that has permissions to managed Azure AD applications.
+3. Select method as `POST`, version as `beta` and the URL path to be `https://graph.microsoft.com/beta/applications/<replace-applicationObjectId>/federatedidentitycredentials`
+4. Enter the request body by changing the appropriate values: 
+```json 
+{
+    "name": "xtcmk-fic-for-abcd",
+    "issuer": "https://login.microsoftonline.com/<replace-with-tenantId>/v2.0",
+    "subject": "<replace-with-managed-identity-ObjectId",
+    "description": "This is my first federated identity credential",
+    "audiences": [
+        "api://AzureADTokenExchange"
+    ]
+}
+```
+For example:
+
+<img src="media/cross-tenant-cmk/graph-example-fic.png" alt="graph explorer example" width="800">
+
+ - Please ensure to click `Modify permissions` and grant Graph Explorer the required consents, so that Graph Explorer website can call the Graph APIs on your behalf.
+ - Please double check the `audience` value. The authentication flows may result in errors if the audience value does not match the above.
+
+ 
+ #### Step 4 - Share the AppId with the customers.
 Find the “AppId” of the Azure AD MT application and share it with the customers. In this example, it is "appId"
 
 ### Phase 2 - Customer Tenant authorizes Azure Key Vault
@@ -143,8 +169,7 @@ appObjectId=$(az ad sp show --id appId --query objectId --out tsv)
 
 #### Step 2 Create a key vault and encryption keys
 
-1. Create Azure RBAC role assignments for the current user
-This is required so that the user continues to have access to the key vault via Azure RBAC after its creation. 
+1. Create Azure RBAC role assignments for the current user. This is required so that the user continues to have access to the key vault via Azure RBAC after its creation. 
 
 ```azurecli-interactive
 #Role assignments to manageresourcesandkeyvaultsintheresourcegroup.
@@ -158,8 +183,7 @@ az role assignment create --role "00482a5a-887f-4fb3-b363-3b7fe8e74483" --scope 
 az role assignment create --role 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 --scope /subscriptions/$subscriptionId/resourceGroups/$rgName --assignee-object-id $currentUserObjectId
 ```
 
-2. Create key vault
-Now create an Azure Key Vault
+2. Create a new Azure key vault
 
 ```azurecli-interactive
 vaultName='<provide-a-name-for-keyvault'
@@ -180,8 +204,12 @@ az role assignment create --role e147488a-f6f5-4113-8e2d-b22465e65bf6 --scope /s
 
 ```
 
-### Phase 3 - Service Provider Tenant- Configures Customer Managed Keys
-Create a file for ARM template –called XTCMK-storage.json.
+### Phase 3 - Service Provider Tenant- Configures Customer Managed Keys 
+
+In this phase we will deploy ARM templates that configure Customer-Managed-Key configurations for Azure resources using identity objects from previous steps and customer-provided values for Azure Key Vault.   
+
+#### Azure Storage 
+Create a file for an ARM template called `XTCMK-storage.json` with the following contents. Be sure to update the `parameter` values based on your configuration.
 
 ```json
 {
@@ -273,4 +301,5 @@ Then run the following command:
 ```azurecli-interactive
 az deployment group create --resource-group $rgName --template-file .\XTCMK-Storage.json
 ```
+
 
