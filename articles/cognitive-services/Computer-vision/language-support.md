@@ -18,14 +18,14 @@ Some features of Computer Vision support multiple languages; any features not me
 
 ## Optical Character Recognition (OCR)
 
-Computer Vision's OCR APIs support several languages. Read can extract text from images and documents with mixed languages, including multiple languages in the same text line without requiring a langauge parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
+Computer Vision's OCR APIs support several languages. Read can extract text from images and documents with mixed languages, including same text line without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
 
 > [!NOTE]
 > **Optional Language parameter**
 >
 > The Read API uses universal script models to extract all multi-lingual text in your images or documents, including mixed langauge text lines. Do not provide the language parameter unless you are sure that there is only one language in the image or document. Otherwise, the service may return incomplete and incorrect text.
 
-See [How to speciy the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages. The preview model includes any enhancements to the currently GA languages.
+See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages. The preview model includes any enhancements to the currently GA languages.
 
 ### Handwritten text
 |Language| Language code (optional) | Read |
