@@ -32,7 +32,7 @@ To use spell check, you will need the following:
 
 Use a search client that supports preview APIs on the query request. For REST, you can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use beta releases of the Azure SDKs.
 
-+ REST API, version [2021-04-30-Preview ](/rest/api/searchservice/index-preview) or **2020-06-30-Preview**
++ REST API, version [2021-04-30-Preview](/rest/api/searchservice/index-preview) or **2020-06-30-Preview**
 + Azure SDK for .NET, [version 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2)
 + Azure SDK for Java, [version 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar) 
 + Azure SDK for JavaScript, [version 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2)
@@ -106,7 +106,7 @@ Valid values for queryLanguage can be found in the following table, copied from 
 
 ### queryLanguage considerations
 
-As noted elsewhere, a query request can only have one queryLanguage parameter, but that parameter is shared by multiple features, each of which supports a different cohort of languages. If you are just spell check, the list of supported languages in the above table is the complete list. 
+As noted elsewhere, a query request can only have one queryLanguage parameter, but that parameter is shared by multiple features, each of which supports a different cohort of languages. If you are just using spell check, the list of supported languages in the above table is the complete list. 
 
 ### Language analyzer considerations
 
@@ -116,7 +116,7 @@ If you are now adding spell check to content that also undergoes language analys
 
 To recap how language libraries are used in Cognitive Search:
 
-+ Language analyzers can be invoked during indexing and query execution, and can be either full Lucene (for example, "de.lucene") or Microsoft ("de.microsoft).
++ Language analyzers can be invoked during indexing and query execution, and are either Apache Lucene (for example, "de.lucene") or Microsoft ("de.microsoft).
 
 + Language lexicons invoked during spell check are specified using one of the language codes in the table above.
 

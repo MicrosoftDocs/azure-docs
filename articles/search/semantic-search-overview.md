@@ -85,7 +85,9 @@ Semantic search is available through [sign-up registration](https://aka.ms/Seman
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
 | Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)  |
-| Spell check | Basic and above | All | Not applicable | None (free) |
+| Spell check | Supported on Basic and above | All | Not applicable | None (free) |
+
+Previous versions of this article indicated that preview sign-up was required for spell check. That restriction no longer applies.
 
 Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged, even if queryType is set to `semantic`.
 
