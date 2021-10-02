@@ -14,7 +14,7 @@ Use the Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azk
 - Key vault name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 
   > [!Important]
-  > Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+  > Each key vault must have a unique name. Replace \<your-unique-keyvault-name\> with the name of your key vault in the following examples.
 
 - Resource group name: **myResourceGroup**.
 - The location: **EastUS**.

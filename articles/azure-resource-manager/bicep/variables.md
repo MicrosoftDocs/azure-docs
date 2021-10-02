@@ -4,7 +4,7 @@ description: Describes how to define variables in Bicep
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 09/10/2021
 ---
 
 # Variables in Bicep
@@ -44,6 +44,8 @@ The following example doesn't deploy any resources. It shows how to declare vari
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variables.bicep":::
 
+You can use loops to declare an array variable that has a dynamic number of elements. For more information, see [Variable iteration in Bicep](loop-variables.md).
+
 ## Use variable
 
 The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.
@@ -78,3 +80,4 @@ You can define variables that hold related values for configuring an environment
 ## Next steps
 
 - To learn about the available properties for variables, see [Understand the structure and syntax of Bicep files](file.md).
+- To learn about using loops with the variable declaration, see [Variable iteration in Bicep](loop-variables.md).

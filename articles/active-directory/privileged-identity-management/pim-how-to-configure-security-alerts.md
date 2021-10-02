@@ -38,7 +38,7 @@ Severity: **Low**
 | --- | --- |
 | **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles that they do not need. |
-| **Prevention** | Assign privileged roles only to users who have a business justification. </br>Schedule regular [access reviews](pim-how-to-start-security-review.md) to verify that users still need their access. |
+| **Prevention** | Assign privileged roles only to users who have a business justification. </br>Schedule regular [access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) to verify that users still need their access. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 | **Trigger** | Triggered if a user goes over a specified number of days without activating a role. |
 | **Number of days** | This setting specifies the maximum number of days, from 0 to 100, that a user can go without activating a role.|
@@ -71,7 +71,7 @@ Severity: **Medium**
 | --- | --- |
 | **Why do I get this alert?** | Accounts in a privileged role have not changed their password in the past 90 days. These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
-| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](pim-how-to-start-security-review.md) and remove role assignments that are no longer needed. |
+| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) and remove role assignments that are no longer needed. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 | **Best practices** | Shared, service, and emergency access accounts that authenticate using a password and are assigned to highly privileged administrative roles such as Global administrator or Security administrator should have their passwords rotated for the following cases:<ul><li>After a security incident involving misuse or compromise of administrative access rights</li><li>After any user's privileges are changed so that they are no longer an administrator (for example, after an employee who was an administrator leaves IT or leaves the organization)</li><li>At regular intervals (for example, quarterly or yearly), even if there was no known breach or change to IT staffing</li></ul>Since multiple people have access to these accounts' credentials, the credentials should be rotated to ensure that people that have left their roles can no longer access the accounts. [Learn more about securing accounts](../roles/security-planning.md) |
 

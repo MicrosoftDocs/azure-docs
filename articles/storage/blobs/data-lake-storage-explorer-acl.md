@@ -14,7 +14,7 @@ ms.reviewer: stewu
 
 This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to manage access control lists (ACLs) in storage accounts that has hierarchical namespace (HNS) enabled.
 
-You can use Storage Explorer to view, and then update the ACLs of directories and files. ACL inheritance is already available for new child items that are created under a parent directory. But you can also apply ACL settings recursively on the existing child items of a parent directory without having to make these changes individually for each child item. 
+You can use Storage Explorer to view, and then update the ACLs of directories and files. ACL inheritance is already available for new child items that are created under a parent directory. But you can also apply ACL settings recursively on the existing child items of a parent directory without having to make these changes individually for each child item.
 
 This article shows you how to modify the ACL of file or directory and how to apply ACL settings recursively to child directories.
 
@@ -41,11 +41,11 @@ When you first start Storage Explorer, the **Microsoft Azure Storage Explorer - 
 
 Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
 
-![Screenshot that shows Microsoft Azure Storage Explorer, and highlights the Add an Azure Account option and the Sign in button.](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Screenshot that shows Microsoft Azure Storage Explorer, and highlights the Add an Azure Account option and the Sign in button.](media/quickstart-storage-explorer/storage-explorer-connect.png)
 
 When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
 
-![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+![Microsoft Azure Storage Explorer - Connect window](media/quickstart-storage-explorer/storage-explorer-main-page.png)
 
 ## Manage an ACL
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/31/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Hootsuite supports **SP and IDP** initiated SSO.
+* Hootsuite supports [Automated user provisioning](hootsuite-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -128,6 +129,8 @@ To configure single sign-on on **Hootsuite** side, you need to send the download
 ### Create Hootsuite test user
 
 In this section, you create a user called Britta Simon in Hootsuite. Work with [Hootsuite support team](https://hootsuite.com/about/contact-us#) to add the users in the Hootsuite platform. Users must be created and activated before you use single sign-on.
+
+Hootsuite also supports automatic user provisioning, you can find more details [here](./hootsuite-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

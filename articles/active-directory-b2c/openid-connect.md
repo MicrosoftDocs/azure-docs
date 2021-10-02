@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -278,7 +278,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | Parameter | Required | Description |
 | --------- | -------- | ----------- |
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
-| {policy} | Yes | The user flow that you want to use to sign the user out of your application. |
+| {policy} | Yes | The user flow that has been used in authorization request. For example, if user signed-in with the `b2c_1_sign_in` user flow, specify the `b2c_1_sign_in` in the sign-out request. |
 | id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. For more information, see [Secure your logout redirect](#secure-your-logout-redirect). |
 | client_id | No* | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application.<br><br>\**This is required when using `Application` isolation SSO configuration and _Require ID Token_ in logout request is set to `No`.* |
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |

@@ -124,7 +124,7 @@ Start Device Update Agent on your new Software Devices.
 
 Replace `<device connection string>` with your connection string
 ```shell
-./AducIotAgentSim-microsoft-swupdate -c '<device connection string>'
+sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
 ```
 
 or
@@ -157,7 +157,7 @@ Agent running. [main]
 
 ## Import update
 
-1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu). _Note_: these are re-used update files from the Raspberry Pi tutorial, because the update in this tutorial will be simulated and therefore the specific file content doesn't matter. 
+1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Sim.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu). _Note_: these are re-used update files from the Raspberry Pi tutorial, because the update in this tutorial will be simulated and therefore the specific file content doesn't matter. 
 2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 
 3. Select the Updates tab.

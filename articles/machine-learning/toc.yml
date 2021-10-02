@@ -217,6 +217,8 @@
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Secured workspace traffic flow
+          href: concept-secure-network-traffic-flow.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/machine-learning-security-baseline?context=/azure/machine-learning/context/ml-context
         - name: Security controls by Azure Policy
@@ -278,7 +280,7 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        - name: Audit and manage compliance
+        - name: Audit and manage
           href: how-to-integrate-azure-policy.md
           displayName: policy
     - name: Workspaces & compute resources
@@ -365,12 +367,17 @@
       items: 
         - name: Label data
           items: 
-            - name: Get data labeled
-              displayName: data, dataset, labeling
-              href: how-to-create-labeling-projects.md
+            - name: Set up image labeling
+              displayName: data, dataset
+              href: how-to-create-image-labeling-projects.md
+            - name: Set up text labeling
+              displayName: data, dataset
+              href: how-to-create-text-labeling-projects.md
             - name: Label images and text
               displayName: data, dataset, labeling
               href: how-to-label-data.md
+            - name: Outsource labeling tasks
+              href: how-to-outsource-data-labeling.md
             - name: Create datasets with labels
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
@@ -545,7 +552,7 @@
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Troubleshoot managed online endpoints
-              href: how-to-troubleshoot-managed-online-endpoints.md
+              href: how-to-troubleshoot-online-endpoints.md
           - name: Batch
             items:
             - name: Batch scoring with batch endpoints

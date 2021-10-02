@@ -8,6 +8,7 @@ ms.author: nikuklic
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: pstn
 zone_pivot_groups: acs-plat-web-ios-android
 ---
 

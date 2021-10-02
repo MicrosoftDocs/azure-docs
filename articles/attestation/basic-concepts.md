@@ -41,7 +41,12 @@ Azure Attestation provides a regional shared provider in every available region.
 | North Europe | `https://sharedneu.neu.attest.azure.net` | 
 | West Europe| `https://sharedweu.weu.attest.azure.net` | 
 | US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
-| Central US | `https://sharedcus.cus.attest.azure.net` | 
+| Central US | `https://sharedcus.cus.attest.azure.net` |
+| South East Asia | `https://sharedsasia.sasia.attest.azure.net` | 
+| North Central US | `https://sharedncus.ncus.attest.azure.net` | 
+| South Central US | `https://sharedscus.scus.attest.azure.net` | 
+| US Gov Virginia | `https://sharedugv.ugv.attest.azure.us` | 
+| US Gov Arizona | `https://shareduga.uga.attest.azure.us` | 
 
 ## Attestation request
 

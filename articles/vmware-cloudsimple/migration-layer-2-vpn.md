@@ -410,7 +410,7 @@ ENCAP       : GENEVE
 
 ## Obtain the peer code for L2VPN on the NSX-T side
 
-Obtain the peer code of the NSX-T endpoint. The peer code is required when configuring the remote endpoint. The L2VPN <session-id> can be obtained from the previous section. For more information, see the [NSX-T 2.3 API Guide](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html).
+Obtain the peer code of the NSX-T endpoint. The peer code is required when configuring the remote endpoint. The L2VPN \<session-id\> can be obtained from the previous section. For more information, see the [NSX-T 2.3 API Guide](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html).
 
 ```
 GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes

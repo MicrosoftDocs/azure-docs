@@ -2,7 +2,7 @@
 title: Overview of dedicated event hubs - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 ms.topic: article
-ms.date: 10/23/2020
+ms.date: 09/23/2021
 ---
 
 # Overview of Event Hubs Dedicated

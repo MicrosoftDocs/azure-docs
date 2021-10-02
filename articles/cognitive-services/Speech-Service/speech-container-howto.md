@@ -21,7 +21,7 @@ Containers enable you to run _some_ of the Speech service APIs in your own envir
 Speech containers enable customers to build a speech application architecture that is optimized for both robust cloud capabilities and edge locality. There are several containers available, which use the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech Services.
 
 > [!IMPORTANT]
-> We retired the standard speech synthesis voices and text-to-speech container on August 31st 2021. Consider migrating your applications to use the Neural text-to-speech container instead. [Follow these steps](https://aka.ms/sttsretirement) for more information on updating your application.
+> We retired the standard speech synthesis voices and text-to-speech container on August 31st 2021. Consider migrating your applications to use the Neural text-to-speech container instead. [Follow these steps](./text-to-speech.md#migrate-to-neural-voice) for more information on updating your application.
 
 | Container | Features | Latest | Release status |
 |--|--|--|--|

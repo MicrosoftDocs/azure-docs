@@ -205,11 +205,11 @@ Select the **Instances** tab. Find the instance that represents the device's wor
 
 ![Screenshot showing how to edit an instance.](./media/tutorial-configure-tsi/edit-instance.png)
 
-Open the **Type** drop-down menu and then select **Temperature Controller**. Enter *defaultComponent, <your device name>* to update the name of the instance that represents all top-level tags associated with your device.
+Open the **Type** drop-down menu and then select **Temperature Controller**. Enter *defaultComponent, \<your device name\>* to update the name of the instance that represents all top-level tags associated with your device.
 
 ![Screenshot showing how to change an instance type.](./media/tutorial-configure-tsi/change-type.png)
 
-Before you select **Save**, first select the **Instance Fields** tab, and then select **Device Fleet**. To group the telemetry together, enter *\<your device name> - Temp Controller*. Then select **Save**.
+Before you select **Save**, first select the **Instance Fields** tab, and then select **Device Fleet**. To group the telemetry together, enter *\<your device name\> - Temp Controller*. Then select **Save**.
 
 ![Screenshot showing how to assign an instance to a hierarchy](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 

@@ -80,7 +80,7 @@ The resulting CosmosDB container will embed the inner query into a single docume
 
 16. The aggregate transformation will only output columns that are part of aggregate or group by formulas. So, we need to include the columns from the sales header as well. To do that, add a column pattern in that same aggregate transformation. This pattern will include all other columns in the output:
 
-```instr(name,'OrderQty')==0&&instr(name,'UnitPrice')==0&&instr(name,'SalesOrderID')==0```
+   `instr(name,'OrderQty')==0&&instr(name,'UnitPrice')==0&&instr(name,'SalesOrderID')==0`
 
 17. Use the "this" syntax in the other properties so that we maintain the same column names and use the ```first()``` function as an aggregate:
 

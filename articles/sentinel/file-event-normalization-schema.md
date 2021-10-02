@@ -51,9 +51,9 @@ When implementing custom parsers for the File Event information model, name your
 
 Add your KQL function to the `imFileEvent` source-agnostic parser to ensure that any content using the File Event model also uses your new parser.
 
-## Normalized content for process activity data
+## Normalized content for file activity data
 
-Support for the File Activity ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
+Support for the File Activity ASIM schema also includes support for the following built-in analytics rules with normalized file activity parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
 
 
 - [SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
