@@ -54,7 +54,7 @@ See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.
 The Read API includes the following features.
 
 * Print text extraction in 122 languages
-* Handwritten text extraction in 7 languages
+* Handwritten text extraction in seven languages
 * Text lines and words with location and confidence scores
 * No language identification required
 * Support for mixed languages, mixed mode (print and handwritten)
