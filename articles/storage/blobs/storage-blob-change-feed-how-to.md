@@ -1,5 +1,6 @@
 ---
-title: Process change feed in Azure Blob Storage | Microsoft Docs
+title: Process change feed in Azure Blob Storage
+titleSuffix: Azure Storage
 description: Learn how to process change feed logs in a .NET client application
 author: tamram
 
