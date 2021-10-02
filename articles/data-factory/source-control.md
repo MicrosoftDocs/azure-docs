@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/08/2021
+ms.date: 10/01/2021
 ---
 
 # Source control in Azure Data Factory
@@ -287,6 +287,12 @@ It imports the code from live mode into collaboration branch. It considers the c
 1. Create a pull request to merge the changes to the collaboration branch 
 
 Choose either method appropriately as needed. 
+
+### All resources showing as new on publish
+
+While publishing, all resources may show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources will resolve the issue, but to prevent to it from occurring again, avoid updating the factory *repoConfiguration* property. 
+
+
 
 ## Switch to a different Git repository
 
