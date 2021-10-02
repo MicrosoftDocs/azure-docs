@@ -14,7 +14,7 @@ ms.date: 08/10/2021
 ms.author: vakarand
 ---
 # Cross tenant Customer Managed Keys with Managed identity
-Private Preview Documentation | Version 2.0 | Last updated on August 10, 2021
+Private Preview Documentation | Version 2.1 | Last updated on October 1, 2021
 
 ```
 Microsoft Confidential | Contact: crosstenantcmkvteam@service.microsoft.com
