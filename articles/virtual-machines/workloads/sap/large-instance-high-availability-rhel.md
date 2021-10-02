@@ -11,10 +11,7 @@ ms.date: 04/19/2021
 # Azure Large Instances high availability for SAP on RHEL
 
 > [!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When this term is removed from the software, we’ll remove it from this article.
-
-> [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to the terms *blacklist* and  *slave*, terms that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 In this article, you learn how to configure the Pacemaker cluster in RHEL 7 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
 
