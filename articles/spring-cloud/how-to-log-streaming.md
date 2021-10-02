@@ -1,6 +1,6 @@
 ---
 title:  Stream Azure Spring Cloud app logs in real-time
-description: How to use log streaming to view application logs instantly 
+description: How to use log streaming to view application logs instantly
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -26,18 +26,24 @@ Azure Spring Cloud enables log streaming in Azure CLI to get real-time applicati
 ## Use CLI to tail logs
 
 To avoid repeatedly specifying your resource group and service instance name, set your default resource group name and cluster name.
+
 ```azurecli
 az config set defaults.group=<service group name>
 az config set defaults.spring-cloud=<service instance name>
 ```
+
 In following examples, the resource group and service name will be omitted in the commands.
 
 ### Tail log for app with single instance
+
 If an app named auth-service has only one instance, you can view the log of the app instance with the following command:
+
 ```azurecli
 az spring-cloud app logs -n auth-service
 ```
+
 This will return logs:
+
 ```output
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
@@ -49,13 +55,15 @@ This will return logs:
 ```
 
 ### Tail log for app with multiple instances
-If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option. 
+
+If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option.
 
 First, you can get the app instance names with following command.
 
 ```azurecli
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
 ```
+
 With results:
 
 ```output
@@ -64,7 +72,8 @@ Name                                         Status    DiscoveryStatus
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
 auth-service-default-12-75cc4577fc-8nt4m  Running   UP
 auth-service-default-12-75cc4577fc-n25mh  Running   UP
-``` 
+```
+
 Then, you can stream logs of an app instance with the option `-i/--instance` option:
 
 ```azurecli
@@ -74,14 +83,17 @@ az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-p
 You can also get details of app instances from the Azure portal.  After selecting **Apps** in the left navigation pane of your Azure Spring Cloud service, select **App Instances**.
 
 ### Continuously stream new logs
-By default, `az spring-cloud app logs` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add -f (--follow):  
+
+By default, `az spring-cloud app logs` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add -f (--follow):
 
 ```azurecli
 az spring-cloud app logs -n auth-service -f
-``` 
+```
+
 To check all the logging options supported:
+
 ```azurecli
-az spring-cloud app logs -h 
+az spring-cloud app logs -h
 ```
 
 ### Format JSON structured logs
@@ -112,11 +124,13 @@ Disable delta property : false
 Single vip registry refresh property : null
 ```
 
-> The default format being used is
-> ```
+> The default format being used is:
+>
+> ```format
 > {timestamp} {level:>5} [{thread:>15.15}] {logger{39}:<40.40}: {message}{n}{stackTrace}
 > ```
 
 ## Next steps
+
 * [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)

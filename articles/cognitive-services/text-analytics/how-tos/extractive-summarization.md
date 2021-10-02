@@ -82,7 +82,7 @@ Each document has the following parameters
 All documents in one request share the following parameters. These parameters can be specified in the `tasks` definition in the request.
 * `model-version` to specify which version of the model to use, with `latest` being the default. For more information, see [Model version](../concepts/model-versioning.md) 
 * `sentenceCount` to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
-* `sortyby` to specify in what order the extracted sentences will be returned. The accepted values for `sortBy` are `Offset` and `Rank`, with `Offset` being the default. The value `Offset` is the start position of a sentence in the original document.    
+* `sortBy` to specify in what order the extracted sentences will be returned. The accepted values for `sortBy` are `Offset` and `Rank`, with `Offset` being the default. The value `Offset` is the start position of a sentence in the original document.    
 
 ```json
 {

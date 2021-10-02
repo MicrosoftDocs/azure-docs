@@ -137,7 +137,7 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 ## Create and publish a Power BI report to visualize the data
 
-The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](/power-bi/consumer/service-new-look).
+The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](/power-bi/fundamentals/desktop-latest-update).
 
 1. Make sure the client app is running on your device.
 

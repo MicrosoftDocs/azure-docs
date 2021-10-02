@@ -1,8 +1,8 @@
 ---
-title: Create a Service Fabric cluster environment in Azure DevTest Labs
+title: Create a Service Fabric cluster environment
 description: Learn how to create an environment with a self-contained Service Fabric cluster, and start and stop the cluster using schedules.
 author: EMaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
 ---

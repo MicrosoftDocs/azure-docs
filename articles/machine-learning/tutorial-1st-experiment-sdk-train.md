@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/27/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
 ---
 
@@ -72,7 +72,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
     Create a *train.py* script in the **src** subfolder:
 
-     ```python
+    ```python
     import torch
     import torch.optim as optim
     import torchvision
@@ -195,16 +195,18 @@ if __name__ == "__main__":
 
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
 
-Select **Save and run script in terminal** to run the *run-pytorch.py* script.
+1. Select **Save and run script in terminal** to run the *run-pytorch.py* script.
 
->[!NOTE] 
-> The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 3 to 4 minutes to complete. 
->
-> You can see the Docker build logs in the Azure Machine Learning studio. Follow the link to the studio, select the **Outputs + logs** tab, and then select `20_image_build_log.txt`.
->
-> This image will be reused in future runs to make them run much quicker.
+1. You'll see a link in the terminal window that opens. Select the link to view the run.
 
-After your image is built, select `70_driver_log.txt` to see the output of your training script.
+    [!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
+### View the output
+
+1. In the page that opens, you'll see the run status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might take 3 to 4 minutes to complete.  This image will be reused in future runs to make them run much quicker.
+1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
+1. When the status of the run is **Completed**, select **Output + logs**.
+1. Select **70_driver_log.txt** to view the output of your run.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
@@ -225,10 +227,11 @@ epoch=2, batch=12000: loss 1.27
 Finished Training
 ```
 
-> [!WARNING]
-> If you see an error `Your total snapshot size exceeds the limit`, the **data** folder is located in the `source_directory` value used in `ScriptRunConfig`.
->
-> Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder.  
+If you see an error `Your total snapshot size exceeds the limit`, the **data** folder is located in the `source_directory` value used in `ScriptRunConfig`.
+
+Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder.  
+
+
 
 ## <a name="log"></a> Log training metrics
 

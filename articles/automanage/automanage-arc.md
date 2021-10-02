@@ -1,6 +1,6 @@
 ---
-title: Azure Automanage for Arc enabled servers
-description: Learn about the Azure Automanage for Arc enabled servers
+title: Azure Automanage for Arc-enabled servers
+description: Learn about the Azure Automanage for Arc-enabled servers
 author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -12,7 +12,7 @@ ms.author: alsin
 ---
 
 
-# Azure Automanage for Machines Best Practices - Arc enabled servers
+# Azure Automanage for Machines Best Practices - Arc-enabled servers
 
 These Azure services are automatically onboarded for you when you use Automanage Machine Best Practices on an Arc-enabled server VM. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
@@ -20,7 +20,7 @@ For all of these services, we will auto-onboard, auto-configure, monitor for dri
 
 ## Supported operating systems
 
-Automanage supports the following operating systems for Arc enabled servers
+Automanage supports the following operating systems for Arc-enabled servers
 
 - Windows Server 2012/R2
 - Windows Server 2016

@@ -227,8 +227,8 @@
       items:
       - name: Use AD FS 2.0
         href: howto-mfaserver-adfs-2.md
-      - name: Use Windows Server 2012 R2 AD FS
-        href: howto-mfaserver-adfs-2012.md
+      - name: Use Windows Server AD FS
+        href: howto-mfaserver-adfs-windows-server.md
     - name: RADIUS Integration
       items:
       - name: Remote Desktop Gateway
@@ -252,7 +252,7 @@
 - name: Reference
   items:
   - name: MFA user guide
-    href: ../user-help/multi-factor-authentication-end-user-first-time.md
+    href: https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=active-directory
   - name: Azure PowerShell cmdlets

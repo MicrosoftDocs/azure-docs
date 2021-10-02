@@ -117,7 +117,14 @@ You can automatically add free-text tags to incidents to group or classify them 
 
 Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
 
-For playbook actions, there is a two-minute delay between the beginning of the playbook action and the next action on the list.
+Playbook actions within an automation rule may be treated differently under some circumstances, according to the following criteria:
+
+| Playbook run time | Automation rule advances to the next action... |
+| ----------------- | --------------------------------------------------- |
+| Less than a second | Immediately after playbook is completed |
+| Less than two minutes | Up to two minutes after playbook began running,<br>but no more than 10 seconds after the playbook is completed |
+| More than two minutes | Two minutes after playbook began running,<br>regardless of whether or not it was completed |
+|
 
 ### Permissions for automation rules to run playbooks
 

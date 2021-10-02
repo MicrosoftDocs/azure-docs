@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 09/30/2021
 ms.author: marsma
-ms.reviewer: hahamil
+ms.reviewer: brandwe
 ms.custom: aaddev, identitypla | Azuretformtop40
 ---
 
@@ -20,21 +20,23 @@ ms.custom: aaddev, identitypla | Azuretformtop40
 
 Frontline workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to do their work. That becomes problematic when they start sharing passwords or pin numbers to access customer and business data on the shared device.
 
-Shared device mode allows you to configure an Android device so that it can be easily shared by multiple employees. Employees can sign in and access customer information quickly. When they are finished with their shift or task, they can sign out of the device and it will be immediately ready for the next employee to use.
+Shared device mode allows you to configure an Android device so that it can be easily shared by multiple employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device and it will be immediately ready for the next employee to use.
 
 Shared device mode also provides Microsoft identity backed management of the device.
 
 To create a shared device mode app, developers and cloud device admins work together:
 
-- Developers write a single-account app (multiple-account apps are not supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like shared device sign-out.
-- Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) role can put a device into shared mode by using the [Authenticator app](../user-help/user-help-auth-app-overview.md). You can configure the membership of your organizational roles in the Azure portal via:
-**Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**.
+- Developers write a single-account app (multiple-account apps aren't supported in shared device mode), add `"shared_device_mode_supported": true` to the app's configuration, and write code to handle things like shared device sign-out.
+- Device admins prepare the device to be shared by installing the authenticator app, and setting the device to shared mode using the authenticator app. Only users who are in the [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) role can put a device into shared mode by using the [Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc). You can configure the membership of your organizational roles in the Azure portal via:
+  **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**.
 
- This article focuses primarily what developers should think about.
+This article focuses primarily what developers should think about.
 
 ## Single vs multiple-account applications
 
-Applications written using the Microsoft Authentication Library SDK (MSAL) can manage a single account or multiple accounts. For details, see [single-account mode or multiple-account mode](single-multi-account.md). The Microsoft identity platform features available to your app vary depending on whether the application is running in single-account mode or multiple-account mode.
+Applications written using the Microsoft Authentication Library (MSAL) SDK can manage a single account or multiple accounts. For details, see [single-account mode or multiple-account mode](single-multi-account.md).
+
+The Microsoft identity platform features available to your app vary depending on whether the application is running in single-account mode or multiple-account mode.
 
 **Shared device mode apps only work in single-account mode**.
 
@@ -47,9 +49,9 @@ Applications written using the Microsoft Authentication Library SDK (MSAL) can m
 
 Your app can be built to support running on both personal devices and shared devices. If your app currently supports multiple accounts and you want to support shared device mode, add support for single account mode.
 
-You may also want your app to change its behavior depending on the type of device it is running on. Use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode.
+You may also want your app to change its behavior depending on the type of device it's running on. Use `ISingleAccountPublicClientApplication.isSharedDevice()` to determine when to run in single-account mode.
 
-There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL's application factory, the correct  application object is provided automatically.
+There are two different interfaces that represent the type of device your application is on. When you request an application instance from MSAL's application factory, the correct application object is provided automatically.
 
 The following object model illustrates the type of object you may receive and what it means in the context of a shared device:
 
@@ -73,16 +75,16 @@ private IPublicClientApplication mApplication;
 
 The following differences apply depending on whether your app is running on a shared or personal device:
 
-|  | Shared mode device  | Personal device |
-|---------|---------|---------|
-| **Accounts**     | Single account | Multiple accounts |
-| **Sign-in** | Global | Global |
-| **Sign-out** | Global | Each application can control if the sign-out is local to the app or for the family of applications. |
-| **Supported account types** | Work accounts only | Personal and work accounts supported  |
+|                             | Shared mode device | Personal device                                                                                     |
+| --------------------------- | ------------------ | --------------------------------------------------------------------------------------------------- |
+| **Accounts**                | Single account     | Multiple accounts                                                                                   |
+| **Sign-in**                 | Global             | Global                                                                                              |
+| **Sign-out**                | Global             | Each application can control if the sign-out is local to the app or for the family of applications. |
+| **Supported account types** | Work accounts only | Personal and work accounts supported                                                                |
 
 ## Why you may want to only support single-account mode
 
-If you're writing an app that will only be used for frontline workers using a shared device, we recommend that you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
+If you're writing an app that will only be used for frontline workers using a shared device, we recommend you write your application to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. Only supporting single-account mode simplifies development because you won't need to implement the additional features that are part of multiple-account apps.
 
 ## What happens when the device mode changes
 
@@ -90,7 +92,7 @@ If your application is running in multiple-account mode, and an administrator pu
 
 ## Shared device sign-out and the overall app lifecycle
 
-When a user signs out, you'll need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for this and check every time it enters the foreground.
+When a user signs out, you'll need to take action to protect the privacy and data of the user. For example, if you're building a medical records app you'll want to make sure that when the user signs out previously displayed patient records are cleared. Your application must be prepared for data privacy and check every time it enters the foreground.
 
 When your app uses MSAL to sign out the user in an app running on device that is in shared mode, the signed-in account and cached tokens are removed from both the app and the device.
 
@@ -100,4 +102,6 @@ The following diagram shows the overall app lifecycle and common events that may
 
 ## Next steps
 
-Try the [Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md) tutorial that shows how to run a frontline worker app on a shared mode Android device.
+For more information on how to run a frontline worker app on a shared mode on Android device, see:
+
+- [Use shared-device mode in your Android application](tutorial-v2-shared-device-mode.md)

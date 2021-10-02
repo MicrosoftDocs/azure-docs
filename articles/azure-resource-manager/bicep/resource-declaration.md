@@ -4,7 +4,7 @@ description: Describes how to declare resources to deploy in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 08/16/2021
 ---
 
 # Resource declaration in Bicep
@@ -98,6 +98,40 @@ az provider show \
 ## Set tags
 
 You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources.md#arm-templates).
+
+## Set managed identities for Azure resources
+
+Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration. 
+
+You can use either system-assigned or user-assigned identities.
+
+The following example shows how to configure a system-assigned identity for an Azure Kubernetes Service cluster.
+
+```bicep
+resource aks 'Microsoft.ContainerService/managedClusters@2020-09-01' = {
+  name: clusterName
+  location: location
+  tags: tags
+  identity: {
+    type: 'SystemAssigned'
+  }
+```
+
+The next example shows how to configure a user-assigned identity for a virtual machine.
+
+```bicep
+param userAssignedIdentity string
+
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  name: vmName
+  location: location
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '${userAssignedIdentity}': {}
+    }
+  }
+```
 
 ## Set resource-specific properties
 

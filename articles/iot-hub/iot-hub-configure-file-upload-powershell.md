@@ -2,7 +2,7 @@
 title: Use the Azure PowerShell to configure file upload | Microsoft Docs
 description: How to use the Azure PowerShell cmdlets to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -63,7 +63,7 @@ Sign in to your Azure account and select your subscription. If you're using Azur
     ```
 
     > [!NOTE]
-    > The **Select-AzSubscription** command is an alias of the [Select-AzContext](/powershell/module/az.accounts/select-azcontex) that allows you to use the subscription name (**Name**) or subscription ID (**Id**) returned by the **Get-AzSubscription** command rather than the more complex context name required for the **Select-AzContext** command.
+    > The **Select-AzSubscription** command is an alias of the [Select-AzContext](/powershell/module/az.accounts/select-azcontext) that allows you to use the subscription name (**Name**) or subscription ID (**Id**) returned by the **Get-AzSubscription** command rather than the more complex context name required for the **Select-AzContext** command.
 
 ## Retrieve your storage account details
 

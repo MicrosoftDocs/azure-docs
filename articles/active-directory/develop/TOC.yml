@@ -120,9 +120,11 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Authentication basics
-    displayName: Auth basics
+  - name: Authentication and authorization basics
+    displayName: AuthN and AuthZ basics
     items:
+    - name: Authorization basics
+      href: authorization-basics.md
     - name: Authentication vs. authorization
       href: authentication-vs-authorization.md
     - name: Security tokens
@@ -137,9 +139,16 @@
     - name: Microsoft Identity Web library
       href: microsoft-identity-web.md
       displayName: auth, library, .NET Core, msal
-  - name: Authorization basics
-    displayName: AuthZ basics
+  - name: Permissions and access control
+    displayName: Access control
     items:
+    - name: Permissions and consent
+      displayName: Scopes
+      href: v2-permissions-and-consent.md
+    - name: Conditional access
+      href: v2-conditional-access-dev-guide.md
+    - name: Guide to conditional access authentication context
+      href: developer-guide-conditional-access-authentication-context.md
     - name: RBAC for app developers
       href: custom-rbac-for-developers.md
   - name: App scenarios and authentication flows
@@ -156,13 +165,6 @@
       href: secure-least-privileged-access.md
     - name: Security best practices for Azure AD application registration
       href: security-best-practices-for-app-registration.md
-    - name: Conditional access
-      href: v2-conditional-access-dev-guide.md
-    - name: Authentication context
-      href: developer-guide-conditional-access-authentication-context.md
-  - name: Permissions and consent
-    displayName: Scopes
-    href: v2-permissions-and-consent.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
@@ -174,8 +176,8 @@
       href: v2-supported-account-types.md
     - name: App sign-in flow
       href: app-sign-in-flow.md
-    - name: Single-page app
-      displayName: SPA
+    - name: Single-page app (SPA)
+      displayName: SPA, angular, react
       items:
       - name: Overview
         href: scenario-spa-overview.md
@@ -254,7 +256,19 @@
       - name: Code configuration
         href: scenario-desktop-app-configuration.md
       - name: Acquire token
-        href: scenario-desktop-acquire-token.md
+        items:
+        - name: Overview
+          href: scenario-desktop-acquire-token.md
+        - name: Interactively
+          href: scenario-desktop-acquire-token-interactive.md
+        - name: Interactive with WAM
+          href: scenario-desktop-acquire-token-wam.md
+        - name: Integrated Windows authentication
+          href: scenario-desktop-acquire-token-integrated-windows-authentication.md
+        - name: Username and password
+          href: scenario-desktop-acquire-token-username-password.md
+        - name: Device code flow
+          href: scenario-desktop-acquire-token-device-code-flow.md
       - name: Call a web API
         href: scenario-desktop-call-api.md
       - name: Move to production
@@ -306,6 +320,12 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
+  - name: Test and deploy your app
+    items:
+    - name: Setup a test environment
+      href: test-setup-environment.md
+    - name: Throttling and service limits
+      href: test-throttle-service-limits.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
@@ -351,6 +371,8 @@
           href: msal-net-migration.md
         - name: Migrate confidential client apps to MSAL.NET
           href: msal-net-migration-confidential-client.md
+        - name: Migrate public client apps to MSAL.NET
+          href: msal-net-migration-public-client.md
         - name: Migrate Xamarin Android app using broker to MSAL.NET
           href: msal-net-migration-android-broker.md
         - name: Migrate Xamarin iOS app using broker to MSAL.NET
@@ -515,6 +537,8 @@
       href: support-fido2-authentication.md
   - name: Authenticate apps and services
     items:
+    - name: Create a self-signed certificate to authenticate your app
+      href: howto-create-self-signed-certificate.md
     - name: Create a service principal using Azure PowerShell
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal
@@ -534,6 +558,8 @@
       href: howto-restrict-your-app-to-a-set-of-users.md
     - name: Add app roles in your application
       href: howto-add-app-roles-in-azure-ad-apps.md
+    - name: Implement RBAC in your application
+      href: howto-implement-rbac-for-apps.md
   - name: Use the Microsoft Graph API
     href: microsoft-graph-intro.md
   - name: Build for resilience

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -38,12 +38,12 @@ In the table below, any item marked as fixed means that the proper behavior can 
 | Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 18, 2018  | downgrade to customappSSO |
 | Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 18, 2018  | downgrade to customappSSO |
 | Group creation requests contain an invalid schema URI | Yes  |  December 18, 2018  |  downgrade to customappSSO |
-| Update PATCH behavior to ensure compliance (e.g. active as boolean and proper group membership removals) | No | TBD| use preview flag |
+| Update PATCH behavior to ensure compliance (e.g. active as boolean and proper group membership removals) | No | TBD| use feature flag |
 
 ## Flags to alter the SCIM behavior
 Use the flags below in the tenant URL of your application in order to change the default SCIM client behavior.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.png" alt-text="SCIM flags to later behavior.":::
 
 Use the following URL to update PATCH behavior and ensure SCIM compliance. The flag will alter the following behaviors:                
 - Requests made to disable users
@@ -51,7 +51,7 @@ Use the following URL to update PATCH behavior and ensure SCIM compliance. The f
 - Requests to replace multiple attributes
 - Requests to remove a group member        
                                                                                      
-This behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this preview flag currently does not work with on-demand provisioning. 
+This behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this feature flag currently does not work with on-demand provisioning. 
   * **URL (SCIM Compliant):** aadOptscim062020
   * **SCIM RFC references:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2    
@@ -122,9 +122,10 @@ Below are sample requests to help outline what the sync engine currently sends v
     ],
     "Operations": [
         {
-            "op": "replace",
-            "path": "active",
-            "value": false
+            "op": "add",
+            "value": {
+                "nickName": "Babs"
+            }
         }
     ]
 }
@@ -270,7 +271,7 @@ Following the steps below will delete your existing customappsso job and create 
 10. Run the command below to create a new provisioning job that has the latest service fixes.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "scim"   }`
+ `{   "templateId": "scim"   }`
    
 11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, reapply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you copied, and entering the JSON output from step #7 as the request body.
 

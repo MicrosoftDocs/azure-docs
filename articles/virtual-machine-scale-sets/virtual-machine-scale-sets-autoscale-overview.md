@@ -12,6 +12,9 @@ ms.custom: avverma
 
 ---
 # Overview of autoscale with Azure virtual machine scale sets
+
+**Applies to:** :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 An Azure virtual machine scale set can automatically increase or decrease the number of VM instances that run your application. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the acceptable performance for a positive customer experience. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your scale set. You can also schedule events to automatically increase or decrease the capacity of your scale set at fixed times. This article provides an overview of which performance metrics are available and what actions autoscale can perform.
 
 
@@ -98,7 +101,7 @@ When an autoscale rule triggers, your scale set can automatically scale in one o
 | Increase percent by | A percentage-based increase of VM instances. Good for larger scale sets where a fixed increase may not noticeably improve performance. |
 | Increase count to   | Create as many VM instances are required to reach a desired maximum amount.                                                            |
 | Decrease count by   | A fixed number of VM instances to remove. Useful in scale sets with a smaller number of VMs.                                           |
-| Decrease percent by | A percentage-based decrease of VM instances. Good for larger scale sets where a fixed increase may not noticeably reduce resource consumption and costs. |
+| Decrease percent by | A percentage-based decrease of VM instances. Good for larger scale sets where a fixed decrease may not noticeably reduce resource consumption and costs. |
 | Decrease count to   | Remove as many VM instances are required to reach a desired minimum amount.                                                            |
 
 

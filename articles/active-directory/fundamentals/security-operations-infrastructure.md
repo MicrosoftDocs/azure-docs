@@ -40,7 +40,7 @@ The log files you use for investigation and monitoring are:
 
 * [Sign-in logs](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -169,18 +169,18 @@ Azure AD uses Microsoft SQL Server Data Engine or SQL to store Azure AD Connect 
 
 | What to monitor| Where| Notes |
 | - | - | - |
-| mms_management_agent| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_partition| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_run_profile| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_server_configuration| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
-| mms_synchronization_rule| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15) |
+| mms_management_agent| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_partition| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_run_profile| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_server_configuration| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
+| mms_synchronization_rule| SQL service audit records| See [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records) |
 
 
 For information on what and how to monitor configuration information refer to:
 
-* For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15).
+* For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* For Azure Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records?view=sql-server-ver15). 
+* For Azure Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records). 
 
 * For information on configuring and using Azure AD Connect, see [What is Azure AD Connect?](../hybrid/whatis-azure-ad-connect.md)
 
@@ -210,7 +210,7 @@ For information on what and how to monitor configuration information refer to:
 
 
 
-* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows?view=powershell-7.1), which is part of the PowerShell reference documentation.
+* For more information on logging PowerShell script operations, refer to [Enabling Script Block Logging](/powershell/module/microsoft.powershell.core/about/about_logging_windows), which is part of the PowerShell reference documentation.
 
 * For more information on configuring PowerShell logging for analysis by Splunk, refer to [Get Data into Splunk User Behavior Analytics](https://docs.splunk.com/Documentation/UBA/5.0.4.1/GetDataIn/AddPowerShell).
 

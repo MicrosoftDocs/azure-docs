@@ -28,6 +28,7 @@ In this quickstart, you'll learn how to sign up for Azure Cognitive Services and
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
 * The [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli)
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
 * [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## Install the Azure CLI and sign in

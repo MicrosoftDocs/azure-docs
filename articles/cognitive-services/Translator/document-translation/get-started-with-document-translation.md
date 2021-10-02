@@ -1,11 +1,15 @@
 ---
 title: Get started with Document Translation
 description: How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms
-ms.topic: how-to
-manager: nitinme
-ms.author: lajanuar
+services: cognitive-services
 author: laujan
-ms.date: 08/09/2021
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: translator-text
+ms.topic: quickstart
+ms.date: 09/16/2021
+ms.author: lajanuar
+recommendations: false
 ---
 
 # Get started with Document Translation
@@ -68,7 +72,7 @@ You'll need to  [**create containers**](../../../storage/blobs/storage-quickstar
 * **Target container**. This container is where your translated files will be stored (required).
 
 > [!NOTE]
-> Document Translation supports glossaries as blobs in target containers (not separate glossary containers). If want to include a custom glossary add it to the target container and include the` glossaryUrl` with the request.  If the translation language pair is not present in the glossary, it will not be applied. *See* [Translate documents using a custom glossary](#translate-documents-using-a-custom-glossary)
+> Document Translation supports glossaries as blobs in target containers (not separate glossary containers). If want to include a custom glossary, add it to the target container and include the` glossaryUrl` with the request.  If the translation language pair is not present in the glossary, it will not be applied. *See* [Translate documents using a custom glossary](#translate-documents-using-a-custom-glossary)
 
 ### **Create SAS access tokens for Document Translation**
 

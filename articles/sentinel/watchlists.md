@@ -178,4 +178,4 @@ You can also view, edit, and create new watchlist items directly from the Watchl
 In this document, you learned how to use watchlists in Azure Sentinel to enrich data and improve investigations. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- [Use workbooks](monitor-your-data.md) to monitor your data.

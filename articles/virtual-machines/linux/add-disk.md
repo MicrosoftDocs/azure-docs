@@ -12,6 +12,8 @@ ms.author: cynthn
 ---
 # Add a disk to a Linux VM
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing.
 
 

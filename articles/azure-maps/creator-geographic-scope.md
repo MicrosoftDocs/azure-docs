@@ -7,7 +7,7 @@ ms.date: 05/18/2021
 ms.topic: conceptual 
 ms.service: azure-maps 
 services: azure-maps 
-manager: philmea 
+ 
 ms.custom: mvc, references_regions
 --- 
 

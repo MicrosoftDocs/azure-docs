@@ -253,6 +253,9 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
 
+> [!NOTE]
+> If the command fails with the error that a policy parameter is required, then check the protection status of the backup item. It is likely that the protection is stopped and hence a policy is required to resume the protection and also to reset all previous disk exclusion settings.
+
 ### Restore selective disks with PowerShell
 
 ```azurepowershell

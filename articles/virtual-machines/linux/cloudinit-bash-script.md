@@ -10,6 +10,9 @@ ms.author: mimckitt
 ms.subservice: cloud-init
 ---
 # Use cloud-init to run a bash script in a Linux VM in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to run an existing bash script on a Linux virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. These cloud-init scripts run on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
 ## Run a bash script with cloud-init

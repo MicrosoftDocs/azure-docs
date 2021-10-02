@@ -13,6 +13,8 @@ ms.reviewer: cynthn
 ---
 # Using a prebuilt Flatcar image for Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 You can download prebuilt Azure virtual hard disk images of Flatcar Container
 Linux for each of the Flatcar supported channels:
 
