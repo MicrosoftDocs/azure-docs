@@ -12,7 +12,7 @@ ms.reviewer: mahender
 
 This article shows you how to configure Azure App Service or Azure Functions to use a custom authentication provider that adheres to the [OpenID Connect specification](https://openid.net/connect/). OpenID Connect (OIDC) is an industry standard used by many identity providers (IDPs). You do not need to understand the details of the specification in order to configure your app to use an adherent IDP.
 
-Your can configure your app to use one or more OIDC providers. Each must be given a unique name in the configuration, and only one can serve as the default redirect target.
+You can configure your app to use one or more OIDC providers. Each must be given a unique name in the configuration, and only one can serve as the default redirect target.
 
 > [!CAUTION]
 > Enabling an OpenID Connect provider will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as the Azure portal, Azure CLI, and Azure PowerShell. The feature relies on a new API surface which, during preview, is not yet accounted for in all management experiences.
@@ -56,7 +56,7 @@ This section will walk you through updating the configuration to include your ne
        "registration" : {},
        "login": {
              "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-             "scope": [],
+             "scopes": [],
              "loginParameterNames": [],
        }
     }
@@ -112,7 +112,7 @@ An example configuration might look like the following (using Sign in with Apple
                 },
                 "login": {
                     "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-                    "scope": [],
+                    "scopes": [],
                     "loginParameterNames": []
                 }
             }
