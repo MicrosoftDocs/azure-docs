@@ -48,7 +48,7 @@ If you haven't prepared network mapping before you configure disaster recovery f
 
 >[!NOTE]
 >* Modifying the network mapping only changes the defaults for new VM replications. It does not impact the target virtual network selections for existing replications.
->* If you wish to modify the target network for an existing replication, go to Compute and Network Settings of the replicated item.
+>* If you wish to modify the target network for an existing replication, go to **Network** Settings of the replicated item.
 
 ## Specify a subnet
 
@@ -56,9 +56,9 @@ The subnet of the target VM is selected based on the name of the subnet of the s
 
 - If a subnet with the same name as the source VM subnet is available in the target network, that subnet is set for the target VM.
 - If a subnet with the same name doesn't exist in the target network, the first subnet in the alphabetical order is set as the target subnet.
-- You can modify the target subnet in the **Compute and Network** settings for the VM.
+- You can modify the target subnet in the **Network** settings for the VM.
 
-    ![Compute and Network compute properties window](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+    ![Network compute properties window](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## Set up IP addressing for target VMs
@@ -87,7 +87,7 @@ Target network isn't the failover VNet | - Target IP address will be static with
 
 - The failover VNet is the target network that you select when you set up disaster recovery.
 - We recommend that you always use a non-production network for test failover.
-- You can modify the target IP address in the **Compute and Network** settings of the VM.
+- You can modify the target IP address in the **Network** settings of the VM.
 
 
 ## Next steps
