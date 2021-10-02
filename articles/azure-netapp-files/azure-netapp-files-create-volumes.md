@@ -45,7 +45,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 * The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
 
-* Ensure that the NFS client is up-to-date and running the latest updates for the operating system.
+* Ensure that the NFS client is up to date and running the latest updates for the operating system.
 
 ## Create an NFS volume
 

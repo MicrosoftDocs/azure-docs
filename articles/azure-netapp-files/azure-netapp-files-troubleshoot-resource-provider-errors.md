@@ -312,7 +312,7 @@ Make sure that the operation is entered correctly and that it is available for t
 
 ***OwnerId cannot be changed***
 
-This error occurs when you try to change the OwnerId property of the volume. Changing the OwnerId is not a supported operation. 
+This error occurs when you try to change the `OwnerId` property of the volume. Changing the `OwnerId` is not a supported operation. 
 
 * Cause:   
 The `OwnerId` property is set when the volume is created. The property cannot be changed subsequently.
