@@ -263,7 +263,7 @@ These steps cover creating a Gateway user and setting up file shares to view the
                     "Mounts": 
                     [
                         {
-                            "Target": "/var/media",
+                            "Target": "/live/mediaServer/media",
                             "Source": "media",
                             "Type": "volume"
                         }
