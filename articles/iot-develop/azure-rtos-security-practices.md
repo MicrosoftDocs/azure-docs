@@ -127,3 +127,88 @@ Content coming
 
 ### Credentials/certificates
 
+Content coming
+
+### Attestation
+
+Content coming
+
+## Embedded Security Components – Memory Protection
+
+Many successful hacking attacks utilize buffer overflow errors to gain access to privileged information or even to execute arbitrary code on a device. Numerous technologies and languages have been created to battle overflow problems, but the fact remains that system-level embedded development requires low-level programming. As a result, the majority of embedded development is done using C or assembly language, which lack modern memory protection schemes but allow for less restrictive memory manipulation. Given the lack of built-in protection, the Azure RTOS developer must be vigilant about memory corruption. The following recommendations leverage functionality provided by some MCU platforms and Azure RTOS itself to help mitigate the impact of overflow errors on security.
+
+### Protection against reading/writing memory
+
+An MCU may provide a latching mechanism to enable a tamper-resistant state, either by preventing reading of sensitive data or by locking areas of memory from being overwritten. This may be part of or in addition to an MPU or MMU.
+
+**Hardware**: The MCU must provide the appropriate hardware and interface to use memory protection.
+
+**Azure RTOS**: If the memory protection mechanism is not an MMU or MPU, Azure RTOS does not require any specific support. For more advanced memory protection, Azure RTOS ThreadX Modules may be used to provide detailed control over memory spaces for threads and other RTOS control structures.
+
+**Application**: The application developer may be required to enable memory protection when the device is first booted – refer to secure boot documentation. For simple mechanisms (not MMU or MPU), the application may place sensitive data (for example, certificates) into the protected memory region and access it using the hardware platform APIs.
+
+**7 Properties**: Hardware-based Root of Trust, Defense in Depth, Compartmentalization
+
+**SMM Practices**: Access Control, The Implementation of Data Protection Control
+
+### Application Memory Isolation
+
+If your hardware platform has an MMU (Memory Management Unit) or MPU (Memory Protection Unit), then those features can be utilized to isolate the memory spaces used by individual threads or processes. More sophisticated mechanisms also exist, such as TrustZone that provide additional protections above and beyond what a simple MPU can do. This isolation can thwart attackers from using a hijacked thread or process to corrupt or view memory in another thread/process.
+
+**Hardware**: The MCU must provide the appropriate hardware and interface to use memory protection.
+
+**Azure RTOS**: Azure RTOS allows for ‘ThreadX Modules’ which are built independently/separately and provided with their own instruction and data area addresses at run-time. Memory protection can then be enabled such that a context switch to a thread in a Module will disallow code from accessing memory outside of the assigned area.
+
+> [!NOTE]
+> TLS and MQTT aren’t yet supported from ThreadX Modules.
+
+**Application**: The application developer may be required to enable memory protection when the device is first booted – refer to secure boot and ThreadX Modules documentation. Note: Use of ThreadX Modules may introduce additional memory and CPU overhead. 
+
+**7 Properties**: Hardware-based Root of Trust, Defense in Depth, Compartmentalization 
+
+**SMM Practices**: Applicable practices: Access Control, The Implementation of Data Protection Controls 
+
+### Protection against execution from RAM
+
+Many MCU devices contain an internal “program flash” where the application firmware is stored. The application code is sometimes run directly from the flash hardware, utilizing the RAM only for data. If the MCU allows execution of code from RAM, look for a way to disable that feature as many attacks will try to modify the application code in some way, but if the attacker can't execute code from RAM it becomes more difficult to compromise the device. Placing your application in flash makes it more difficult to change due to the nature of flash technology (unlock/erase/write process), thus increasing the challenge for an attacker. It's not a perfect solution but in order to provide for renewable security the flash needs to be updatable. A completely read-only code section would be better at preventing attacks on executable code but would prevent updating.
+
+**Hardware**: Presence of a program flash used for code storage and execution. If running in RAM is required, then consider leveraging an MMU or MPU (if available) to protect from writing to the executable memory space.
+
+**Azure RTOS**: No specific features.
+
+**Application**: Application may need to disable flash writing during secure boot depending on the hardware.
+
+**7 Properties**: Hardware-based Root of Trust, Defense in Depth, Compartmentalization, Small Trusted Computing Base (limiting execution to read-only flash).
+
+**SMM Practices**: Applicable practices: Access Control, The Implementation of Data Protection Controls.
+
+### Memory buffer checking
+
+A primary concern for connected devices is avoiding buffer overflow problems. This is particularly a concern with applications written in unmanaged languages like C. Safe coding practices can alleviate some of the problem but whenever possible try to incorporate buffer checking into your application. This may come in the form of built-in features of the selected hardware platform, third-party libraries, tools, and, in some cases, features in the hardware itself that provide a mechanism for detecting or preventing overflow conditions.
+
+**Hardware**: Some platforms may provide memory checking functionality. Consult with your MCU vendor for more information.
+
+**Azure RTOS**: No specific Azure RTOS functionality provided.
+
+**Application**: Follow good coding practice by requiring applications to always supply buffer size or the number of elements in an operation (and not relying on implicit terminators such as NULL). With a known buffer size the program will be able to check bounds during memory or array operations such as when calling APIs like `memcpy`. Try to use safe versions of APIs like `memcpy_s`.
+
+**7 Properties**: Defense in Depth
+
+**SMM Practices**: The Implementation of Data Protection Controls
+
+### Enable run-time stack checking
+
+Preventing stack overflow is a primary security concern for any application. Azure RTOS has some stack checking features that should be utilized whenever possible. These features are covered in the Azure RTOS ThreadX User Guide.
+
+**Hardware**: Some MCU platform vendors may provide hardware-based stack checking. Utilize any functionality that is available.
+
+**Azure RTOS**: Azure RTOS ThreadX provides some stack checking functionality that can be optionally enabled at compile time. Refer to the Azure RTOS User Guide for more information.
+
+**Application**:  Certain compilers such as IAR also have “stack canary” support that helps to catch stack overflow conditions. Check your tools to see what options are available and enable them if possible.
+
+**7 Properties**: Defense in Depth 
+
+**SMM Practices**: Applicable practices: The Implementation of Data Protection Controls 
+
+ 
+
