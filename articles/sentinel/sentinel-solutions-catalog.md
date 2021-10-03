@@ -141,6 +141,15 @@ Deploying a solution makes any included security content, such as data connector
 |---------|---------|---------|---------|
 | **McAfee ePolicy Orchestrator Solution**| Provides built-in, customizable threat detection for the [McAfee ePO](https://www.mcafee.com/enterprise/en-in/products/epolicy-orchestrator.html).| | |
 |**McAfee Network Security Platform Solution** |[McAfee Network Security Platform](https://www.mca.fee.com/enterprise/en-us/products/virtual-network-security-platform.html) | | |
+| | | | |
+
+
+## Microsoft
+
+|Name  |Description  |Includes  |Categories  |
+|---------|---------|---------|---------|
+| **Microsoft Sentinel Deception** | Enables you to deceive attackers by distributing a collecting of traps and decoys across the infrastructure to imitate genuine access. <br><br>Plants fake Azure Key Vault keys or secrets, and has Azure Sentinel monitor the fakes, and then alert on access. <br><br>**Supported by**: Microsoft| Analytics rules and workbooks  | |
+| | | | |
 
 ## Oracle
 
