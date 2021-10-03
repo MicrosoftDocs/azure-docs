@@ -50,7 +50,7 @@ The Blob indexer comes with configuration parameters and supports change trackin
 
 ### Supported access tiers
 
-Blob storage [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
+Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
 
 ### Supported content types
 

@@ -236,7 +236,7 @@ Finally, you must create the private endpoint in your data factory.
 > Disabling public network access is applicable only to the self-hosted integration runtime, not to Azure Integration Runtime and SQL Server Integration Services (SSIS) Integration Runtime.
 
 > [!NOTE]
-> You can still access the Azure Data Factory portal through a public network after you create private endpoint for portal.
+> You can still access the Azure Data Factory portal through a public network after you create private endpoint for the portal.
 
 ## Next steps
 

@@ -290,11 +290,11 @@
         "articles/devtest-labs/**/*.md": "juliako",
         "articles/event-grid/**/*.md": "spelluru",
         "articles/event-hubs/**/*.md": "spelluru",
-        "articles/governance/*.md": "DCtheGeek",
-        "articles/governance/blueprints/**/*.md": "DCtheGeek",
+        "articles/governance/*.md": "georgewallace",
+        "articles/governance/blueprints/**/*.md": "georgewallace",
         "articles/governance/management-groups/**/*.md": "rthorn17",
-        "articles/governance/policy/**/*.md": "DCtheGeek",
-        "articles/governance/resource-graph/**/*.md": "DCtheGeek",
+        "articles/governance/policy/**/*.md": "georgewallace",
+        "articles/governance/resource-graph/**/*.md": "georgewallace",
         "articles/hdinsight/*.md": "JasonWHowell",
         "articles/hdinsight/kafka/*.md": "arnabganguly",
         "articles/hdinsight/**/*.md": "JasonWHowell",
@@ -638,11 +638,11 @@
         "articles/devtest-labs/**/*.md": "juliako",
         "articles/event-grid/**/*.md": "spelluru",
         "articles/event-hubs/*.md": "spelluru",
-        "articles/governance/*.md": "dacoulte",
-        "articles/governance/blueprints/**/*.md": "dacoulte",
+        "articles/governance/*.md": "gwallace",
+        "articles/governance/blueprints/**/*.md": "gwallace",
         "articles/governance/management-groups/**/*.md": "rithorn",
-        "articles/governance/policy/**/*.md": "dacoulte",
-        "articles/governance/resource-graph/**/*.md": "dacoulte",
+        "articles/governance/policy/**/*.md": "gwallace",
+        "articles/governance/resource-graph/**/*.md": "gwallace",
         "articles/hdinsight/*.md": "jasonh",
         "articles/hdinsight/kafka/*.md": "argangu",
         "articles/hdinsight/**/*.md": "jasonh",
@@ -1034,7 +1034,11 @@
         "articles/virtual-machines/workloads/**/*.md": "Azure Virtual Machines",
         "articles/virtual-machines/workloads/**/*.yml": "Azure Virtual Machines",
         "articles/virtual-machine-scale-sets/*.md": "Azure Virtual Machine Scale Sets",
-        "articles/virtual-machine-scale-sets/*.yml": "Azure Virtual Machine Scale Sets"
+        "articles/virtual-machine-scale-sets/*.yml": "Azure Virtual Machine Scale Sets",
+        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Azure Video Analyzer for Media",
+        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.yml": "Azure Video Analyzer for Media",
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Azure Video Analyzer",
+        "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer"        
       }
     },
     "template": [
@@ -1046,6 +1050,7 @@
       "sensitive-language-ma": {
         "exclude": [
           "articles/app-service/deploy-local-git.md",
+          "articles/azure-netapp-files/azure-netapp-files-faqs.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
@@ -1068,11 +1073,12 @@
       "sensitive-language-sl": {
         "exclude": [
           "articles/azure-netapp-files/azure-netapp-files-create-volumes.md",
+          "articles/azure-netapp-files/azure-netapp-files-faqs.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-listener-tutorial.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-stonith-tutorial.md",
           "articles/cognitive-services/Computer-vision/deploy-computer-vision-on-premises.md",
           "articles/databox-online/azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md",
-          "articles/defender-for-iot/alert-engine-messages.md",
+          "articles/defender-for-iot/organizations/alert-engine-messages.md",
           "articles/dms/known-issues-troubleshooting-dms.md",
           "articles/dms/tutorial-mysql-azure-mysql-online.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
@@ -1124,7 +1130,8 @@
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md",
-          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md"
+          "articles/web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md",
+          "articles/web-application-firewall/afds/waf-front-door-drs.md"
         ]
       },
       "sensitive-language-wl": {
@@ -1137,7 +1144,7 @@
           "articles/active-directory/saas-apps/g-suite-provisioning-tutorial.md",
           "articles/application-gateway/application-gateway-backend-health-troubleshooting.md",
           "articles/cognitive-services/content-moderator/review-tool-user-guide/configure.md",
-          "articles/defender-for-iot/references-horizon-sdk.md",
+          "articles/defender-for-iot/organizations/references-horizon-sdk.md",
           "articles/event-hubs/event-hubs-kafka-connect-debezium.md",
           "articles/event-hubs/event-hubs-kafka-mirror-maker-tutorial.md",
           "articles/governance/blueprints/**/*.md",

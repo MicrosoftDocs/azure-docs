@@ -100,7 +100,7 @@ The Azure portal provides you with several options to access the log. For exampl
 
 ![Open audit logs](./media/concept-audit-logs/audit-logs-menu.png)
 
-Additionally, you can get directly get to the audit logs using [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
+Additionally, you can go directly to the audit logs using [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/ProvisioningEvents).
 
 
 You can also access the audit log through the Microsoft Graph API.
@@ -224,6 +224,9 @@ You can also choose to download the filtered data, up to 250,000 records, by sel
 You can view Microsoft 365 activity logs from the [Microsoft 365 admin center](/office365/admin/admin-overview/about-the-admin-center). Even though Microsoft 365 activity and Azure AD activity logs share a lot of the directory resources, only the Microsoft 365 admin center provides a full view of the Microsoft 365 activity logs. 
 
 You can also access the Microsoft 365 activity logs programmatically by using the [Office 365 Management APIs](/office/office-365-management-api/office-365-management-apis-overview).
+
+> [!NOTE]
+> Most standalone or bundled Microsoft 365 subscriptions have back-end dependencies on some subsystems within the Microsoft 365 datacenter boundary. The dependencies require some information write-back to keep directories in sync and essentially to help enable hassle-free onboarding in a subscription opt-in for Exchange Online. For these write-backs, audit log entries show actions taken by “Microsoft Substrate Management”. These audit log entries refer to create/update/delete operations executed by Exchange Online to Azure AD. The entries are informational and don't require any action.
 
 ## Next steps
 

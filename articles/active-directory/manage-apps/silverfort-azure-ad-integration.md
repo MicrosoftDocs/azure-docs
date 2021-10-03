@@ -1,14 +1,13 @@
 ---
 title: Secure hybrid access with Azure AD and Silverfort
 description: In this tutorial, learn how to integrate Silverfort with Azure AD for secure hybrid access 
-services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 9/08/2021
+ms.date: 9/13/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -130,7 +129,7 @@ To deploy Silverfort in your tenant or infrastructure, [contact Silverfort](http
 
     ![image shows add policy](./media/silverfort-azure-ad-integration/add-policy.png)
 
-14. Return to the Azure AD console, and navigate to **Enterprise applications**. The new Silverfort application should now appear. This application can now be included in [CA policies](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
+14. Return to the Azure AD console, and navigate to **Enterprise applications**. The new Silverfort application should now appear. This application can now be included in [CA policies](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
 
 ## Next steps
 

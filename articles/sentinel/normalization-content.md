@@ -53,8 +53,8 @@ The following built-in DNS query content is supported for ASIM normalization.
 
 ### Analytics rules
 
- - (Preview) TI map Domain entity to Dns Event (Normalized DNS)
- - (Preview) TI map IP entity to DnsEvents (Normalized DNS)
+ - (Preview) TI map Domain entity to DNS Events (Normalized DNS)
+ - (Preview) TI map IP entity to DNS Events (Normalized DNS)
  - [Potential DGA detected (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
   - [Excessive NXDOMAIN DNS Queries (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [DNS events related to mining pools (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)

@@ -10,7 +10,7 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: mathoma
   ms.custom: 
-  ms.date: 03/23/2021
+  ms.date: 09/30/2021
 
 title: Maintenance window FAQ
 summary: This article answers frequently asked questions about the maintenance window for [Azure SQL database](sql-database-paas-overview.md) and [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md).
@@ -39,7 +39,7 @@ sections:
 
       - question: What types of updates are typically performed during a maintenance window? 
         answer: |
-          The maintenance event may contain updates for hardware, firmware, operating system, satelite software components, and SQL engine. They are typically combined into a single batch to minimize the incidence of maintenance events.
+          The maintenance event may contain updates for hardware, firmware, operating system, satellite software components, and SQL engine. They are typically combined into a single batch to minimize the incidence of maintenance events.
 
       - question: What can I expect during a maintenance event?
         answer: |
@@ -95,11 +95,20 @@ sections:
 
       - question: What are supported options to configure a maintenance window for an existing Azure SQL Database or SQL managed instance?
         answer: |
-          Azure Portal, PowerShell, Azure CLI, and REST API.
+          Azure portal, PowerShell, Azure CLI, and REST API.
 
       - question: Can I configure a maintenance window during database restore, recovery, copy, import, or GeoDR scenarios?
         answer: |
           Not at this moment. The maintenance window can be configured once database is created.
+
+      - question: I have the default maintenance window selected. Can I enable advance notifications for that maintenance?
+        answer: |
+          No, advance notifications cannot be configured for the default maintenance window option. When choosing a maintenance window, choose an option other than **System default** to configure and enable advance notifications.
+
+      - question: I am not able to set up advance notifications for planned maintenance, will I still see planned maintenance event in Service Health dashboard?
+        answer: |
+          No, if advance notifications are not configured, Service Health will not show the planned maintenance events. 
+
 
 additionalContent: |
  ## See Also

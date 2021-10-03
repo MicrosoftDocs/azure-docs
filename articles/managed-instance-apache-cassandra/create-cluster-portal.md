@@ -113,7 +113,7 @@ export SSL_VALIDATE=false
 # Connect to CQLSH (replace <IP> with the private IP addresses of the nodes in your Datacenter):
 host=("<IP>" "<IP>" "<IP>")
 initial_admin_password="Password provided when creating the cluster"
-cqlsh $host 9042 -u cassandra -p $initial_admin_password--ssl
+cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```
 
 ## Troubleshooting
