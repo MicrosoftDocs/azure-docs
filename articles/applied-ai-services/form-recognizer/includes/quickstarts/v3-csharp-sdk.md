@@ -28,21 +28,21 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download).
+* The current version of [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or [.NET Core](https://dotnet.microsoft.com/download).
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you will need a single-service resource if you intend to use [Azure Active Directory authentication](#create-formrecognizerclient-with-azure-active-directory-credential).
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-* After your resource deploys, click **Go to resource**.
+  >[!TIP] Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](#create-formrecognizerclient-with-azure-active-directory-credential).
 
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-  * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+## Set up
 
-## Setting up
+### [Option 1: .NET Command-line interface (CLI)](#tab/cli)
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `formrecognizer-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.</br></br>
 
 ```console
 dotnet new console -n formrecognizer-quickstart
@@ -74,16 +74,47 @@ dotnet add package Azure.AI.FormRecognizer
 
 This version of the client library defaults to the 2021-09-30-preview version of the service.
 
-1. In the directory that contains your project, open the **Program.cs** file.
-1. At the top of the file, include the following using directives:
+### [Option 2: Visual Studio](#tab/vs)
+
+1. Start Visual Studio 2019.
+
+1. On the start page, choose Create a new project.
+
+    :::image type="content" source="../../media/quickstarts/start-window.png" alt-text="Screenshot: Visual Studio start window.":::
+
+1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
+
+    :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio create new project page.":::
+
+1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
+
+    :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio configure new project dialog window.":::
+
+1. In the **Additional information** dialog window, select **.NET 5.0 (Current)**, and then select **Create**.
+
+    :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio additional information dialog window.":::
+
+### Install the client library with NuGet
+
+ 1. Right-click on your project and select manage packages for solution.
+ 1. Select the Browse tab and type Azure.AI.FormRecognizer.
+ 1. Select Project and your solution
+ 1. Choose Version TODO and select install.
+---
+
+## Build your application
+
+1. Open the **Program.cs** file.
+
+1. Include the following using directives:
 
     ```csharp
     using System;
     using System.Threading.Tasks;
-    using Azure.AI.FormRecognizer;
+    using Azure.AI.FormRecognizer.DocumentAnalysis;
     ```
 
-1. At the top of the program class set your  `endpoint` and `apiKey`  environment variables:
+1. Set your  `endpoint` and `apiKey`  environment variables:
 
     ```csharp
     string endpoint = "<your-endpoint>";
@@ -91,8 +122,8 @@ This version of the client library defaults to the 2021-09-30-preview version of
     var credential = new AzureKeyCredential(apiKey);
     var client = new DocumentAnalysisClient(new Uri(endpoint), credential);
     ```
-    
-1. Delete the line that says, `Console.Writeline("Hello World!");`.
+
+1. Delete the line, `Console.Writeline("Hello World!");`.
 
     :::image type="content" source="../../media/quickstarts/csharp-console-hello-world.png" alt-text="Screenshot: Program.cs Hello World code in the Visual Studio code editor.":::
 
@@ -211,6 +242,7 @@ dotnet run formrecognizer-quickstart.dll
 You can set `endpoint` and `apiKey` based on an environment variable, a configuration setting, or any way that works for your application.
 
 ```
+
 ## Try the General Document model
 
 > [!div class="checklist"]
