@@ -53,6 +53,26 @@ However, if you'd like all the latest features and updates, the best way to see 
  - If you are still using an older version of Windows Server you should use Azure AD Connect V1.6. You can download the latest version of Azure AD Connect V1 using [this link](https://www.microsoft.com/download/details.aspx?id=103336). 
  - We are only applying critical changes to the V1 versions going forward, and you may not find some of the features and fixes for V2 in the V1 releases - so you should upgrade to the V2 version as soon as possible.
 
+## 2.0.28.0
+
+>[!NOTE] 
+> This is a maintenance update release of Azure AD Connect. This release requires Windows Server 2016 or newer.
+
+### Release status
+9/30/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+ - On the Group Writeback Permissions page in the Wizard we removed a download button for a PowerShell script and changed the text on the wizard page to include a learn more link, which links to an online article where the PowerShell script can be found.
+
+ - We fixed a bug where the wizard was incorrectly blocking the installation when the .NET version on the server was greater than 4.6, due to missing registry keys. Those registry keys are not required and should only block installation if they are intentionally set to false.
+
+- We fixed a bug where an error would be thrown if phantom objects are found during during the initialization of a sync step. This would block the sync step or remove transient objects. The phantom objects are now ignored.
+Note: A phantom object is a placeholder for an object which is not there or has not been seen yet, for example if a source object has a reference for a target object which is not there then we create the target object as a phantom.
+
+### Functional changes
+
+ - A change was made that allows a user to deselect objects and attributes from the inclusion list, even if they are in use. Instead of blocking this, we now provide a warning. 
+
 ## 1.6.14.2
 >[!NOTE] 
 >This is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer at this time. You cannot use this version to update an Azure AD Connect V2.0 server.
