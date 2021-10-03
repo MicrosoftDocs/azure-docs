@@ -31,10 +31,23 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## November 2021
 
+### Free trial updates
+
+Microsoft Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
+
+In addition, during the trial period:
+
+- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics. 
+
+    Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
+
+- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply.
+
+For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
 
 ### Content hub and 55+ new solutions
 
-Azure Sentinel now provides a content hub for built-in, on-demand solutions to your Azure Sentinel workspace.
+Microsoft Sentinel now provides a content hub for built-in, on-demand solutions to your Azure Sentinel workspace.
 
 On the **Solutions** page, find the solution you want by filtering for provider, support options, content included, and categories.
 
@@ -111,15 +124,15 @@ Newly supported solutions include:
 
 For more information, see [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md) and [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
-### Use notebooks with Azure Synapse Analytics in Azure Sentinel
+### Use notebooks with Azure Synapse Analytics in Microsoft Sentinel
 
-Azure Sentinel now supports integrating notebooks with Azure Synapse Analytics, allowing you to:
+Microsoft Sentinel now supports integrating notebooks with Azure Synapse Analytics, allowing you to:
 
 - Integrate data, from both within and outside Azure Sentinel, to address disconnect and disparity across data sources
 
 - Ingest, transform, model, analyze, and distribute unstructured and semi-structured data at scale and speed, via the batch job features provided by a Synapse compute
 
-To support this broader functionality, we've expanded the **Notebooks** area in Azure Sentinel. Now we have an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook Types** column in the notebooks grid to indicate the type of each notebook displayed. For example, notebooks can have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
+To support this broader functionality, we've expanded the **Notebooks** area in Microsoft Sentinel. Now we have an **Overview** tab, where you can find basic information about notebooks, as well as a new **Notebook Types** column in the notebooks grid to indicate the type of each notebook displayed. For example, notebooks can have types of **Getting started**, **Configuration**, **Hunting**, and now **Synapse**.
 
 For more information, see [Integrate notebooks with Azure Synapse Analytics](notebooks.md#integrate-notebooks-with-azure-synapse-analytics).
 
