@@ -340,7 +340,7 @@ PATCH  https://graph.microsoft.com/beta/users/<id>
 You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-https:// graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= customSecurityAttributes/Storage/State eq 'Washington'
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= customSecurityAttributes/Storage/State eq 'Washington'
 ```
 
 #### Filter all users whose employee/ID starts with 111
@@ -348,7 +348,7 @@ https:// graph.microsoft.com/beta/users?$count=true&$select=id,displayName,custo
 You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
-https:// graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= startsWith(customSecurityAttributes/Employee/Id,'111')
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= startsWith(customSecurityAttributes/Employee/Id,'111')
 ```
 
 #### Filter all users with Storage/State not in Washington
@@ -356,7 +356,7 @@ https:// graph.microsoft.com/beta/users?$count=true&$select=id,displayName,custo
 You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly. This query will also retrieve users that do not have the attribute Storage/State defined.
 
 ```http
-https:// graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= customSecurityAttributes/Storage/State ne 'Washington'
+GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter= customSecurityAttributes/Storage/State ne 'Washington'
 ```
 
 ## Frequently asked questions
