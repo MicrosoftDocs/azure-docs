@@ -35,7 +35,7 @@ In this quickstart you'll use following features to analyze and extract data and
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP] 
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](#create-formrecognizerclient-with-azure-active-directory-credential).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
 
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -99,16 +99,23 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
 ### Install the client library with NuGet
 
- 1. Right-click on your project and select manage packages for solution.
- 1. Select the Browse tab and type Azure.AI.FormRecognizer.
- 1. Select Project and your solution
- 1. Choose Version TODO and select install.
+ 1. Right-click on your **formRecognizer_quickstart** project and select **Manage NuGet Packages...** .
 
- This version of the client library defaults to the 2021-09-30-preview version of the service.
+    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot: select-nuget-package.png":::
+
+ 1. Select the Browse tab and type Azure.AI.FormRecognizer.
+
+     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
+
+ 1. Select the desired version from the drop-dow menu and select **Install**.
+
+     This version of the client library defaults to the 2021-09-30-preview version of the service.
 
 ---
 
 ## Build your application
+
+To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your apiKey and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
 1. Open the **Program.cs** file.
 
@@ -120,7 +127,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
     using Azure.AI.FormRecognizer.DocumentAnalysis;
     ```
 
-1. Set your  `endpoint` and `apiKey`  environment variables:
+1. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance.:
 
     ```csharp
     string endpoint = "<your-endpoint>";
@@ -131,15 +138,21 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
 1. Delete the line, `Console.Writeline("Hello World!");`.
 
-  :::image type="content" source="../../media/quickstarts/csharp-console-hello-world.png" alt-text="Screenshot: Program.cs Hello World code in the Visual Studio code editor.":::
+    :::image type="content" source="../../media/quickstarts/csharp-console-hello-world.png" alt-text="Screenshot: Program.cs Hello World code in the Visual Studio code editor.":::
 
 1. Add the **Try It** code to the **Main** method in the **Program.cs** file:
 
-  :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
+    :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
 ## **Try It**: General document model
 
-1.  Add the following code to the Program.cs file :
+> [!div class="checklist"]
+>
+> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * Add the file URI value to the `string fileUri` variable at the top of the Main method.
+> * To analyze a given file at a URI, you'll use the `StartAnalyzeDocumentFromUri` method. The returned value is an `AnalyzeResult` object containing data about the submitted document.
+
+### Add the following code to the **Main** method
 
 ```csharp
 string fileUri = "<fileUri>";
@@ -241,7 +254,215 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-### [Run your application: .NET Command-line interface (CLI)](#tab/cli)
+## **Try It**:  Layout model
+
+Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
+
+> [!div class="checklist"]
+>
+> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * Add the file URI value to the `string fileUri` variable at the top of the Main method.
+> * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-layout` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
+
+### Add the following code to the **Main** method
+
+```csharp
+string fileUri = "<fileUri>";
+
+AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-layout", fileUri);
+
+await operation.WaitForCompletionAsync();
+
+AnalyzeResult result = operation.Value;
+
+foreach (DocumentPage page in result.Pages)
+{
+    Console.WriteLine($"Document Page {page.PageNumber} has {page.Lines.Count} line(s), {page.Words.Count} word(s),");
+    Console.WriteLine($"and {page.SelectionMarks.Count} selection mark(s).");
+
+    for (int i = 0; i < page.Lines.Count; i++)
+    {
+        DocumentLine line = page.Lines[i];
+        Console.WriteLine($"  Line {i} has content: '{line.Content}'.");
+
+        Console.WriteLine($"    Its bounding box is:");
+        Console.WriteLine($"      Upper left => X: {line.BoundingBox[0].X}, Y= {line.BoundingBox[0].Y}");
+        Console.WriteLine($"      Upper right => X: {line.BoundingBox[1].X}, Y= {line.BoundingBox[1].Y}");
+        Console.WriteLine($"      Lower right => X: {line.BoundingBox[2].X}, Y= {line.BoundingBox[2].Y}");
+        Console.WriteLine($"      Lower left => X: {line.BoundingBox[3].X}, Y= {line.BoundingBox[3].Y}");
+    }
+
+    for (int i = 0; i < page.SelectionMarks.Count; i++)
+    {
+        DocumentSelectionMark selectionMark = page.SelectionMarks[i];
+
+        Console.WriteLine($"  Selection Mark {i} is {selectionMark.State}.");
+        Console.WriteLine($"    Its bounding box is:");
+        Console.WriteLine($"      Upper left => X: {selectionMark.BoundingBox[0].X}, Y= {selectionMark.BoundingBox[0].Y}");
+        Console.WriteLine($"      Upper right => X: {selectionMark.BoundingBox[1].X}, Y= {selectionMark.BoundingBox[1].Y}");
+        Console.WriteLine($"      Lower right => X: {selectionMark.BoundingBox[2].X}, Y= {selectionMark.BoundingBox[2].Y}");
+        Console.WriteLine($"      Lower left => X: {selectionMark.BoundingBox[3].X}, Y= {selectionMark.BoundingBox[3].Y}");
+    }
+}
+
+foreach (DocumentStyle style in result.Styles)
+{
+    // Check the style and style confidence to see if text is handwritten.
+    // Note that value '0.8' is used as an example.
+
+    bool isHandwritten = style.IsHandwritten.HasValue && style.IsHandwritten == true;
+
+    if (isHandwritten && style.Confidence > 0.8)
+    {
+        Console.WriteLine($"Handwritten content found:");
+
+        foreach (DocumentSpan span in style.Spans)
+        {
+            Console.WriteLine($"  Content: {result.Content.Substring(span.Offset, span.Length)}");
+        }
+    }
+}
+
+Console.WriteLine("The following tables were extracted:");
+
+for (int i = 0; i < result.Tables.Count; i++)
+{
+    DocumentTable table = result.Tables[i];
+    Console.WriteLine($"  Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+
+    foreach (DocumentTableCell cell in table.Cells)
+    {
+        Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) has kind '{cell.Kind}' and content: '{cell.Content}'.");
+    }
+}
+
+```
+
+## **Try it**: Prebuilt invoice model
+
+This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example.
+
+> [!div class="checklist"]
+>
+> * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * Add the file URI value to the `string fileUri` variable at the top of the Main method.
+> * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
+
+### Choose the prebuilt model ID
+
+You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the IDs of the prebuilt models currently supported by the Form Recognizer service:
+
+* prebuilt-businessCard: extracts text and key information from business cards.
+* prebuilt-idDocument: extracts text and key information from driver licenses and international passports. 
+* prebuilt-invoice: extracts text, selection marks, tables, key-value pairs, and key information from invoices.
+* prebuilt-receipt: extracts text and key information from receipts.
+
+### Add the following code to the **Main** method
+
+```csharp
+string filePath = "<filePath>";
+
+using var stream = new FileStream(filePath, FileMode.Open);
+
+AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentAsync("prebuilt-invoice", stream);
+
+await operation.WaitForCompletionAsync();
+
+AnalyzeResult result = operation.Value;
+
+for (int i = 0; i < result.Documents.Count; i++)
+{
+    Console.WriteLine($"Document {i}:");
+
+    AnalyzedDocument document = result.Documents[i];
+
+    if (document.Fields.TryGetValue("VendorName", out DocumentField vendorNameField))
+    {
+        if (vendorNameField.ValueType == DocumentFieldType.String)
+        {
+            string vendorName = vendorNameField.AsString();
+            Console.WriteLine($"Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("CustomerName", out DocumentField customerNameField))
+    {
+        if (customerNameField.ValueType == DocumentFieldType.String)
+        {
+            string customerName = customerNameField.AsString();
+            Console.WriteLine($"Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("Items", out DocumentField itemsField))
+    {
+        if (itemsField.ValueType == DocumentFieldType.List)
+        {
+            foreach (DocumentField itemField in itemsField.AsList())
+            {
+                Console.WriteLine("Item:");
+
+                if (itemField.ValueType == DocumentFieldType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, DocumentField> itemFields = itemField.AsDictionary();
+
+                    if (itemFields.TryGetValue("Description", out DocumentField itemDescriptionField))
+                    {
+                        if (itemDescriptionField.ValueType == DocumentFieldType.String)
+                        {
+                            string itemDescription = itemDescriptionField.AsString();
+
+                            Console.WriteLine($"  Description: '{itemDescription}', with confidence {itemDescriptionField.Confidence}");
+                        }
+                    }
+
+                    if (itemFields.TryGetValue("Amount", out DocumentField itemAmountField))
+                    {
+                        if (itemAmountField.ValueType == DocumentFieldType.Double)
+                        {
+                            double itemAmount = itemAmountField.AsDouble();
+
+                            Console.WriteLine($"  Amount: '{itemAmount}', with confidence {itemAmountField.Confidence}");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if (document.Fields.TryGetValue("SubTotal", out DocumentField subTotalField))
+    {
+        if (subTotalField.ValueType == DocumentFieldType.Double)
+        {
+            double subTotal = subTotalField.AsDouble();
+            Console.WriteLine($"Sub Total: '{subTotal}', with confidence {subTotalField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("TotalTax", out DocumentField totalTaxField))
+    {
+        if (totalTaxField.ValueType == DocumentFieldType.Double)
+        {
+            double totalTax = totalTaxField.AsDouble();
+            Console.WriteLine($"Total Tax: '{totalTax}', with confidence {totalTaxField.Confidence}");
+        }
+    }
+
+    if (document.Fields.TryGetValue("InvoiceTotal", out DocumentField invoiceTotalField))
+    {
+        if (invoiceTotalField.ValueType == DocumentFieldType.Double)
+        {
+            double invoiceTotal = invoiceTotalField.AsDouble();
+            Console.WriteLine($"Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
+        }
+    }
+}
+
+```
+
+## Run your application
+
+### [.NET Command-line interface (CLI)](#tab/cli)
 
 Open your command prompt and go to the directory that contains your project and type the following:
 
@@ -249,83 +470,17 @@ Open your command prompt and go to the directory that contains your project and 
 dotnet run formrecognizer-quickstart.dll
 ```
 
-### [Run your program: Visual Studio](#tab/vs)
+### [Visual Studio](#tab/vs)
 
 Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-### Create DocumentAnalysisClient with AzureKeyCredential
+---
 
-* In order to interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. Once you have the value for the API key, create an `AzureKeyCredential`. With the endpoint and key credential, you can create the DocumentAnalysisClient:
-
-You can set `endpoint` and `apiKey` based on an environment variable, a configuration setting, or any way that works for your application.
-
-```
-
-## Try the General Document model
-
-> [!div class="checklist"]
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * To analyze a given file at a URI, you'll use the `StartAnalyzeDocumentFromUri` method. The returned value is an `AnalyzeResult` object containing data about the submitted document.
-
-
-
-## Try the Layout model
-
-Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
-
-
-Copy and paste the full code sample below
-
-```csharp
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-TODO
-
-### Analyze form content from a file stream
-
-Copy and paste the full code sample below to recognize content from a file stream. You'll use the `StartRecognizeContent` method.
-
-```csharp
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-TODO
-```
-
-## Prebuilt model: analyze invoice document content
-
- * An **image of or URL for an invoice document**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-
- To analyze the content from a given invoice at a URI, use the `StartRecognizeInvoicesFromUriAsync` method. See our invoice model documentation for a list of [all supported fields](../../concept-v3-prebuilt.md) returned by the service and corresponding types.
-
-### Analyze invoices from a URI
-
-Copy and paste the full code sample below to recognize the content from a give invoice at a URI. You'll use the `StartRecognizeInvoicesFromUriAsync` method.
-
-```csharp
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-TODO
-```
-
-### Analyze invoices from a given file
-
- Copy and paste the full code sample below to recognize invoice content from a given file. You'll use the `StartRecognizeInvoicesAsync` method.
-
-```csharp
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-TODO
-```
-
-In this quickstart, you used the Form Recognizer C# SDK to analyze forms in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+Congratulations! In this quickstart, you used the Form Recognizer C# SDK to analyze a variety of forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
+> [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
