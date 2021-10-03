@@ -35,7 +35,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 Microsoft Sentinel's free trial continues to support new or existing Log Analytics workspaces at no additional cost for the first 31 days.
 
-In addition, during the trial period:
+Now, in addition during the trial period:
 
 - **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Microsoft Sentinel and Log Analytics. 
 
