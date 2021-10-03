@@ -3,14 +3,14 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/13/2021
+ms.date: 08/25/2021
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ---
 
 # Manage Python 3 packages (preview) in Azure Automation
 
-Azure Automation allows you to run Python 3 runbooks (preview) on Azure Sandbox environment and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
+Azure Automation allows you to run Python 3 runbooks (preview) on Azure Sandbox environment and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. Azure package 4.0.0 is installed by default in Python 3 Automation environment. The default version can be overridden by importing the Python packages in the Automation account. Preference is given to the imported version in the Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
 
 ## Packages as source files
 
@@ -126,6 +126,22 @@ for group in groups:
 
 > [!NOTE]
 > The Python `automationassets` package is not available on pypi.org, so it's not available for import onto a Windows machine.
+
+## Identify available packages in sandbox
+
+Use the following code to list the default installed modules:
+
+```python
+#!/usr/bin/env python3
+
+import pkg_resources
+installed_packages = pkg_resources.working_set
+installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
+   for i in installed_packages])
+
+for package in installed_packages_list:
+    print(package)
+```
 
 ## Next steps
 
