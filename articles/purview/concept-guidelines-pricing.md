@@ -37,9 +37,9 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 1.	The **Data map** is the foundation of the Purview architecture and hence needs to be up to date with asset information in the data estate at any given point in time
 
-2.	The data map is charged in terms of **Capacity Unit** (CU). The data map is provisioned at 1 CU if the catalog is storing up to 2GB of metadata storage and serves up to 25 data map operations/sec
+2.	The data map is charged in terms of **Capacity Unit** (CU). The data map is provisioned at one CU if the catalog is storing up to 2 GB of metadata storage and serves up to 25 data map operations/sec
 
-3.	While provisioning an account initially, the data map is always provisioned at 1 CU
+3.	While provisioning an account initially, the data map is always provisioned at one CU
 
 4.	However, the data map scales automatically between the minimal and maximal limits of that elasticity window, to cater to changes in the data map with respect to two key factors - **operation throughput** and **metadata storage**
 
@@ -56,7 +56,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 - The number of concurrent users also forms a factor governing the data map capacity unit
 - Other factors to consider are type of search query, API interaction, workflows, approvals, etc.,
 - Data burst level
-    - When there is a need for additional operations/second throughput, the Data map can auto-scale within the elasticity window to cater to the changed load
+    - When there is a need for more operations/second throughput, the Data map can autoscale within the elasticity window to cater to the changed load
     - This constitutes the **burst characteristic** that needs to be estimated and planned for
     - The burst characteristic comprises of the **burst level** and the **burst duration** for which the burst exists
         - The **burst level** is a multiplicative index of the expected consistent elasticity under steady state
@@ -65,18 +65,18 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 ##### Metadata storage
 
-- If the number of assets reduces in the data estate (and are subsequently removed in the data map through subsequent incremental scans), the storage component automatically reduces and hence the data map scales down
+- If the number of assets reduces in the data estate (and are then removed in the data map through subsequent incremental scans), the storage component automatically reduces and hence the data map scales down
 
 
 #### Automated scanning & classification
 
-1. A **full scan** processes all assets within a selected scope of a data source whereas an **incremental scan** detects and processes assets which have been created, modified, or deleted since the previous successful scan 
+1. A **full scan** processes all assets within a selected scope of a data source whereas an **incremental scan** detects and processes assets, which have been created, modified, or deleted since the previous successful scan 
 
 2. All scans (full or Incremental scans) will pick up **updated, modified, or deleted** assets
 
 3. It is important to consider and avoid the scenarios when multiple people or groups belonging to different departments  set up scans for the same data source resulting in additional pricing for duplicate scanning
 
-4. It is recommended to schedule **frequent incremental scans** post the initial full scan aligned with the changes in the data estate. This will ensure the data map is kept up to date at all times and the incremental scans consume lesser v-core hours as compared to a full scan
+4. It is recommended to schedule **frequent incremental scans** post the initial full scan aligned with the changes in the data estate. This will ensure the data map is kept up to date always and the incremental scans consume lesser v-core hours as compared to a full scan
 
 5. The **“View Details”** link for a data source will enable users to run a full scan. However, it is recommended to consider running incremental scans after a full scan for optimized scanning excepting when there is a change to the scan rule set (classifications/file types)
 
@@ -95,10 +95,9 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 #### Advanced resource sets
 
-1. Azure Purview uses **resource sets** to address the challenge of mapping large numbers of data assets to a single logical resource by providing the ability to scan all the files in the data lake and find patterns (GUID, localization patterns, etc.) to group them as a single asset in the data map
+1. Azure Purview uses **resource sets** to address the challenge of mapping large numbers of data assets to a single logical resource by providing the ability to scan all the files in the data lake and find patterns (GUID, localization patterns, etc.,) to group them as a single asset in the data map
 
-2. **Advanced Resource Set** is an optional feature which allows for customers to get enriched resource set information computed such as Total Size, Partition Count, etc and enables the customization of resource set grouping via pattern rules
-If Advanced Resource Set feature is not enabled, your data catalog will still contain resource set assets, but without the aggregated properties. There will be no "Resource Set" meter billed to the customer in this case.
+2. **Advanced Resource Set** is an optional feature, which allows for customers to get enriched resource set information computed such as Total Size, Partition Count, etc., and enables the customization of resource set grouping via pattern rules. If Advanced Resource Set feature is not enabled, your data catalog will still contain resource set assets, but without the aggregated properties. There will be no "Resource Set" meter billed to the customer in this case.
 
 3. It is recommended to use the basic resource set feature, before switching on the Advanced Resource Sets in Purview to verify if requirements are met
 
@@ -114,27 +113,27 @@ If Advanced Resource Set feature is not enabled, your data catalog will still co
 Indirect costs impacting Azure Purview pricing to be considered are:
 
 1. [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
-    - When a Purview account is provisioned, note that a storage account and event hub queue is created within the subscription in order to cater to secured scanning which may be charged separately
+    - When a Purview account is provisioned, a storage account and event hub queue is created within the subscription in order to cater to secured scanning which may be charged separately
 
 
-2. [Azure private endpoint](https://docs.microsoft.com/azure/purview/catalog-private-link)
+2. [Azure private endpoint](./catalog-private-link.md)
     - Azure private end points are used for Purview accounts where it is required for users on a virtual network (VNet) to securely access the catalog over a private link
     - The prerequisites for setting up private endpoints could result in additional costs
 
-3. [Self-hosted integration runtime related costs](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) 
-    - Self-hosted integration runtime requires additional infrastructure which costs additional
+3. [Self-hosted integration runtime related costs](./manage-integration-runtimes.md) 
+    - Self-hosted integration runtime requires infrastructure, which results in additional costs
     - It is required to deploy and register Self-hosted integration runtime (SHIR) inside the same virtual network where Azure Purview ingestion private endpoints are deployed
     - [Additional memory requirements for scanning](https://docs.microsoft.com/azure/purview/register-scan-sapecc-source#creating-and-running-a-scan)
         - Certain data sources such as SAP require additional memory on the SHIR machine for scanning
 
 
 4. [Virtual Machine Sizing](https://docs.microsoft.com/azure/virtual-machines/sizes)
-    - Plan virtual machine sizing in order to distribute the scanning workload across VMs to optimise the v-cores utilized while running scans
+    - Plan virtual machine sizing in order to distribute the scanning workload across VMs to optimize the v-cores utilized while running scans
 
-5. [M365 license](https://docs.microsoft.com/azure/purview/create-sensitivity-label#how-to-create-sensitivity-labels-in-microsoft-365) 
+5. [M365 license](./create-sensitivity-label.md#how-to-create-sensitivity-labels-in-microsoft-365) 
     - Microsoft Information Protection (MIP) sensitivity labels can be automatically applied to your Azure assets in Azure Purview.
     - MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center.
-    - To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 license which offers the benefit of automatic labelling. For the full list of licenses, see the Sensitivity labels in Azure Purview FAQ. 
+    - To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 license, which offers the benefit of automatic labeling. For the full list of licenses, see the Sensitivity labels in Azure Purview FAQ. 
 
 6. [Azure Alerts](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview)
     - Azure Alerts can notify customers of issues found with infrastructure or applications using the monitoring data in Azure Monitor
@@ -145,7 +144,7 @@ Indirect costs impacting Azure Purview pricing to be considered are:
     - Azure allows you to create and manage Azure budgets. Refer [tutorial](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets)
 
 8. Multi-cloud egress charges
-    - Consider the egress charges (very minimal charges added as a part of the multi-cloud subscription) associated with scanning multi-cloud (e.g., AWS, Google) data sources running native services excepting the S3 and RDS sources
+    - Consider the egress charges (minimal charges added as a part of the multi-cloud subscription) associated with scanning multi-cloud (for example AWS, Google) data sources running native services excepting the S3 and RDS sources
 
 
 ## Next steps
