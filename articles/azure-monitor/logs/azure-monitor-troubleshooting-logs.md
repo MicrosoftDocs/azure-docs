@@ -14,7 +14,7 @@ ms.date: 12/29/2020
 
 Troubleshooting Logs is a new flavor of logs that would be offered in Azure Monitor Logs side by side to the existing monitoring and analytics logs. Troubleshooting logs are relevant for container logs and application traces where customers send large volume of verbose logs, not for analytics but to be able to troubleshoot their systems. Such logs will be much cheaper to ingest while their queries will be less performant and not available for alerting. Azure Monitor Logs is becoming a comprehensive log solution that supports all kind of logs using the same query language, experience, and the ability to cross-correlate them. There is no need for a customer to operate several different log solutions to monitor their applications and infrastructure.
 
-Customers will be able to mark their AppTraces and ContainerLog/ContainerLogV2 tables as troubleshooting logs. By default, these tables would remain as they are today. Current troubleshooting logs performance settings are:
+Customers will be able to mark their AppTraces and ContainerLog/ContainerLogV2 tables as troubleshooting logs. By default, these tables would remain as there are today. Current troubleshooting logs performance settings are:
 * Max query time range of two days. Queries that involve troubleshooting logs that have larger time span will be adjusted for two days.
 * Up to two concurrent queries per user will be allowed for these tables. Dashboards that contain many parts that query these logs will load slower.
 * Alerts will not support queries over troubleshooting logs.
