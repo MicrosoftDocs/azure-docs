@@ -1090,6 +1090,7 @@
           "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
           "articles/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md",
           "articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs.md",
+          "articles/virtual-machines/workloads/sap/large-instance-high-availability-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
