@@ -31,7 +31,7 @@ To add or deactivate custom security attributes, you must have:
 > [!IMPORTANT]
 > By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
-## Add a new attribute set
+## Add an attribute set
 
 An attribute set is a group of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
 
@@ -53,7 +53,7 @@ An attribute set is a group of related attributes. All custom security attribute
 
     The new attribute set appears in the list of attribute sets.
 
-## Add a new custom security attribute
+## Add a custom security attribute
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -149,7 +149,7 @@ To manage custom security attributes in your Azure AD organization, you can also
 Get-AzureADMSAttributeSet
 ```
 
-#### Get a single attribute set
+#### Get an attribute set
 
 ```powershell
 Get-AzureADMSAttributeSet -Id "testAttributeSet"
@@ -180,7 +180,7 @@ Get-AzureADMSCustomSecurityAttributeDefinition
 Get-AzureADMSCustomSecurityAttributeDefinition -Id "TestSet_TestAttribute"
 ```
  
-#### Add a single custom security attribute
+#### Add a custom security attribute
 
 ```powershell
 New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "TestSet" -Name "TestAttribute" -Description "TestAttributeDescription" -Type "String" -Status "Available" -IsCollection $true -IsSearchable $true -UsePreDefinedValuesOnly $true
@@ -205,16 +205,16 @@ Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
 Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue 
 ```
  
-#### Add a new predefined value
+#### Add a predefined value
 
 ```powershell
 Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id "TestAllowedValue" -IsActive $true
 ```
  
-#### Update a predefined value
+#### Deactivate a predefined value
 
 ```powershell
-Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue -IsActive $true
+Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId TestSet_TestAttribute -Id TestAllowedValue -IsActive $false
 ```
 
 ## Microsoft Graph API
@@ -227,17 +227,22 @@ To manage custom security attributes in your Azure AD organization, you can also
 GET https://graph.microsoft.com/beta/directory/attributeSets
 ```
 
-Paging and sorting are supported for attribute sets.
+#### Get top attribute sets
 
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$top=10
+```
+
+#### Get attribute sets in order
+
+```http
 GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
 ```
 
-#### Get a single attribute set
+#### Get an attribute set
 
 ```http
-GET https://graph.microsoft.com/beta/directory/attributeSets/attributeSetName1
+GET https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 ```
 
 #### Add an attribute set
@@ -245,56 +250,114 @@ GET https://graph.microsoft.com/beta/directory/attributeSets/attributeSetName1
 ```http
 POST https://graph.microsoft.com/beta/directory/attributeSets 
 {
-    "id":"attributeSetName1",
-    "description":"Attribute set description",
-    "maxAttributesPerSet":10
+    "id":"Engineering",
+    "description":"Attributes for engineering team",
+    "maxAttributesPerSet":25
 }
 ```
 
 #### Update an attribute set
 
 ```http
-PATCH https://graph.microsoft.com/beta/directory/attributeSets/attributeSetName1
+PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 {
-    "description":"Attribute set description update",
+    "description":"Attributes for engineering team",
     "maxAttributesPerSet":20
 }
 ```
 
-#### Add a new custom security attribute
+#### Get all custom security attributes
 
 ```http
-POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
-{
-    "name":"Project",
-    "attributeSet":"Storage",
-    "isCollection":true,
-    "type":"String",
-    "usePreDefinedValuesOnly": false,
-    "isSearchable":true,
-    "status":"available",
-    "description":"Attribute description"
-}
+GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+```
+
+#### Get a custom security attribute
+
+```http
+GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 ```
 
 #### Filter custom security attributes
 
 ```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=name+eq+'Project1'%20and%20status+eq+'Available'
+GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=name+eq+'Project'%20and%20status+eq+'Available'
 ```
 
 ```http
-GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Storage'%20and%20status+eq+'Available'%20and%20type+eq+'String'
+GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Engineering'%20and%20status+eq+'Available'%20and%20type+eq+'String'
 ```
 
-#### Add predefined value
+#### Add a custom security attribute
+
+```http
+POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+{
+    "attributeSet":"Engineering",
+    "description":"Target completion date",
+    "isCollection":false,
+    "isSearchable":true,
+    "name":"ProjectDate",
+    "status":"Available",
+    "type":"String",
+    "usePreDefinedValuesOnly": false
+}
+```
+
+#### Add a custom security attribute that supports multiple predefined values
+
+```http
+POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+{
+    "attributeSet":"Engineering",
+    "description":"Active projects for user",
+    "isCollection":true,
+    "isSearchable":true,
+    "name":"Project",
+    "status":"Available",
+    "type":"String",
+    "usePreDefinedValuesOnly": true
+}
+```
+
+#### Update a custom security attribute
+
+```http
+PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
+{
+  "description": "Target completion date (YYYY/MM/DD)",
+}
+```
+
+#### Deactivate a custom security attribute
+
+```http
+PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project
+{
+  "status": "Deprecated"
+}
+```
+
+#### Get the properties of a predefined value
+
+```http
+GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
+```
+
+#### Get all predefined values
+
+```http
+GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
+```
+
+#### Add a predefined value
 
 You can add predefined values for custom security attributes that have `usePreDefinedValuesOnly` set to `true`.
 
 ```http
-POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Storage_Project1/allowedValues
+POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
 {
-    "id":"Value1",
+    "id":"Alpine",
     "isActive":"true"
 }
 ```
@@ -302,7 +365,7 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 #### Deactivate a predefined value
 
 ```http
-PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Storage_Project1/allowedValues/Value1
+PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
 {
     "isActive":"false"
 }
