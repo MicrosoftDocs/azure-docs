@@ -1,7 +1,6 @@
 ---
 title: Designing your Azure Monitor Logs deployment | Microsoft Docs
 description: This article describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

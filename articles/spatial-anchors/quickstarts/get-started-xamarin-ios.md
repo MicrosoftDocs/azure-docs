@@ -29,7 +29,7 @@ You'll learn how to:
 To complete this quickstart, make sure you have:
 - A Mac running macOS High Sierra (10.13) or above with:
   - The latest version of Xcode and iOS SDK installed from the [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
-  - An up-to-date version of <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>.
+  - An up-to-date version of <a href="/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true" target="_blank">Visual Studio for Mac 8.1+</a>.
   - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
   - <a href="https://git-lfs.github.com/">Git LFS</a>.
 

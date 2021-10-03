@@ -1,11 +1,13 @@
 ---
-title: Analyze Live Video with Computer Vision for Spatial Analysis - Azure
-description: This tutorial shows you how to use Live Video Analytics together with Computer Vision spatial analysis AI feature from Azure Cognitive Services to analyze a live video feed from a (simulated) IP camera. 
+title: Analyze Live Video with Computer Vision for Spatial Analysis with Live Video Analytics - Azure
+description: This tutorial shows you how to use Azure Live Video Analytics together with Computer Vision spatial analysis AI feature from Azure Cognitive Services to analyze a live video feed from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.date: 09/08/2020
 
 ---
-# Analyze Live Video with Computer Vision for Spatial Analysis (preview)
+# Analyze Live Video with Computer Vision for Spatial Analysis and Live Video Analytics (preview)
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This tutorial shows you how to use Live Video Analytics together with [Computer Vision for spatial analysis AI service from Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/computer-vision/) to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server enables you to analyze the streaming video to understand spatial relationships between people and movement in physical space.  A subset of the frames in the video feed is sent to this inference server, and the results are sent to IoT Edge Hub and when some conditions are met, video clips are recorded and stored as Azure Media Services assets.
 
@@ -51,12 +53,12 @@ This diagram shows how the signals flow in this tutorial. An [edge module](https
 
 The MediaGraphCognitiveServicesVisionExtension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The MediaGraphCognitiveServicesVisionExtension processor node does two things:
 
-* It gathers the results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
+* It gathers the results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). 
 * It also captures a 30 second video clip from the RTSP source using a [signal gate processor](media-graph-concept.md#signal-gate-processor) and stores it as an Media Services asset.
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. You will be able to create the resource once your request for access to the container has been approved and your Azure Subscription ID has been registered. Go to https://aka.ms/csgate to submit your use case and your Azure Subscription ID.  You need to create the Azure resource using the same Azure subscription that has been provided on the Request for Access form.
+You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI.
 
 ### Gathering required parameters
 

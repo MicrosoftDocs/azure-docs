@@ -57,7 +57,9 @@ landingContent:
           - text: Virtual network service endpoints
             url: virtual-network-service-endpoints-overview.md
           - text: Virtual network security FAQ
-            url: virtual-networks-faq.md#security            
+            url: virtual-networks-faq.md#security
+          - text: Default outbound access
+            url: default-outbound-access.md            
       - linkListType: tutorial
         links:
           - text: Filter network traffic using network security groups
@@ -110,6 +112,10 @@ landingContent:
         links:
           - text: Route network traffic - Portal
             url: tutorial-create-route-table-portal.md
+      - linkListType: learn
+        links:
+          - text: Manage and control traffic flow in your Azure deployment with routes
+            url: /learn/modules/control-network-traffic-flow-with-routes/       
 
   # Card
   - title: Create IP addresses 

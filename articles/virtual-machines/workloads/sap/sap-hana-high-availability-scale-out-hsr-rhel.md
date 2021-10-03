@@ -1,19 +1,15 @@
 ---
 title: SAP HANA scale-out with HSR and Pacemaker on RHEL| Microsoft Docs
 description: SAP HANA scale-out with HSR and Pacemaker on RHEL 
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/01/2021
+ms.date: 09/24/2021
 ms.author: radeltch
 
 ---
@@ -24,9 +20,8 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/index.yml
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all 
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -107,7 +102,7 @@ In the preceding diagram, three subnets are represented within one Azure virtual
 
 As `/hana/data` and `/hana/log` are deployed on local disks, it is not necessary to deploy separate subnet and separate virtual network cards for communication to the storage.  
 
-The Azure NetApp volumes are deployed in a separate subnet, [delegated to Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet: `anf` 10.23.1.0/26.   
+The Azure NetApp volumes are deployed in a separate subnet, [delegated to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.   
 
 ## Set up the infrastructure
 
@@ -211,7 +206,6 @@ For the configuration presented in this document, deploy seven virtual machines:
       1. Enter the name of the new load balancer rule (for example, **hana-lb**).
       1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
       1. Select **HA Ports**.
-      1. Increase the **idle timeout** to 30 minutes.
       1. Make sure to **enable Floating IP**.
       1. Select **OK**.
 
@@ -276,15 +270,58 @@ Configure and prepare your OS by doing the following steps:
      10.23.1.207 hana-s2-db3-hsr
     ```
 
+3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+
+    <pre><code>
+    vi /etc/sysctl.d/netapp-hana.conf
+    # Add the following entries in the configuration file
+    net.core.rmem_max = 16777216
+    net.core.wmem_max = 16777216
+    net.core.rmem_default = 16777216
+    net.core.wmem_default = 16777216
+    net.core.optmem_max = 16777216
+    net.ipv4.tcp_rmem = 65536 16777216 16777216
+    net.ipv4.tcp_wmem = 65536 16777216 16777216
+    net.core.netdev_max_backlog = 300000 
+    net.ipv4.tcp_slow_start_after_idle=0 
+    net.ipv4.tcp_no_metrics_save = 1
+    net.ipv4.tcp_moderate_rcvbuf = 1
+    net.ipv4.tcp_window_scaling = 1    
+    net.ipv4.tcp_sack = 1
+    </code></pre>
+
+4. **[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with additional optimization settings.  
+
+    <pre><code>
+    vi /etc/sysctl.d/ms-az.conf
+    # Add the following entries in the configuration file
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv4.tcp_max_syn_backlog = 16348
+    net.ipv4.conf.all.rp_filter = 0
+    sunrpc.tcp_slot_table_entries = 128
+    vm.swappiness=10
+    </code></pre>
+
+    > [!TIP]
+    > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+
+5. **[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
+
+    <pre><code>
+    vi /etc/modprobe.d/sunrpc.conf
+    # Insert the following line
+    options sunrpc tcp_max_slot_table_entries=128
+    </code></pre>
 
 2. **[A]** Install the NFS client package.  
 
-    ```yum install nfs-utils ```
+   `yum install nfs-utils`
 
 
 3. **[AH]** Red Hat for HANA configuration.  
 
-    Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:  
+   Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:
+
    - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
    - [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
    - [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
@@ -296,7 +333,7 @@ Configure and prepare your OS by doing the following steps:
 
 In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.  
 
-1. **[AH]** Create mount points for the HANA database volumes.  
+1. **[AH]** Create mount points for the HANA database volumes.
 
     ```bash
     mkdir -p /hana/shared
@@ -577,11 +614,11 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
      * For **Enter Root User Name [root]**: press Enter to accept the default
      * For **Select roles for host 'hana-s1-db2' [1]**: 1 (for worker)
      * For **Enter Host Failover Group for host 'hana-s1-db2' [default]**: press Enter to accept the default
-     * For **Enter Storage Partition Number for host 'hana-s1-db2' [<<assign automatically>>]**: press Enter to accept the default
+     * For **Enter Storage Partition Number for host 'hana-s1-db2' [\<\<assign automatically\>\>]**: press Enter to accept the default
      * For **Enter Worker Group for host 'hana-s1-db2' [default]**: press Enter to accept the default
      * For **Select roles for host 'hana-s1-db3' [1]**: 1 (for worker)
      * For **Enter Host Failover Group for host 'hana-s1-db3' [default]**: press Enter to accept the default
-     * For **Enter Storage Partition Number for host 'hana-s1-db3' [<<assign automatically>>]**: press Enter to accept the default
+     * For **Enter Storage Partition Number for host 'hana-s1-db3' [\<\<assign automatically\>\>]**: press Enter to accept the default
      * For **Enter Worker Group for host 'hana-s1-db3' [default]**: press Enter to accept the default
      * For **System Administrator (hn1adm) Password**: enter the password
      * For **Enter SAP Host Agent User (sapadm) Password**: enter the password
@@ -878,12 +915,13 @@ Include all virtual machines, including the majority maker in the cluster.
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
     ```bash
-    cat << EOF > /etc/sudoers.d/20-saphana
-    # SAPHanaSR-ScaleOut needs for srHook
-     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
-     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
-     hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL
-     EOF
+    sudo visudo -f /etc/sudoers.d/20-saphana
+    # Insert the following lines and then save
+    Cmnd_Alias HANA_S1_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S1 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S1_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S1 -v SFAIL -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S2_SOK   = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S2 -v SOK -t crm_config -s SAPHanaSR
+    Cmnd_Alias HANA_S2_SFAIL = /usr/sbin/crm_attribute -n hana_hn1_site_srHook_HANA_S2 -v SFAIL -t crm_config -s SAPHanaSR
+    hn1adm ALL=(ALL) NOPASSWD: HANA_S1_SOK, HANA_S1_SFAIL, HANA_S2_SOK, HANA_S2_SFAIL
     ```
 
 4. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  

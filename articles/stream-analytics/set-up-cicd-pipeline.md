@@ -16,27 +16,27 @@ In this article, you learn how to create Azure DevOps [build](/azure/devops/pipe
 
 ## Commit your Stream Analytics project
 
-Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](/azure/devops/user-guide/source-control) repository. You can reference this [sample repository](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure Pipelines.
+Before you begin, commit your complete Stream Analytics projects as source files to an [Azure DevOps](/azure/devops/user-guide/source-control) repository. You can reference this [sample repository](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo) and [Stream Analytics project source code](https://dev.azure.com/ASA-CICD-sample/_git/azure-streamanalytics-cicd-demo) in Azure Pipelines.
 
 The steps in this article use a Stream Analytics Visual Studio Code project. If you're using a Visual Studio project, follow the steps in [Automate builds, tests, and deployments of an Azure Stream Analytics job using CI/CD tools](cicd-tools.md).
 
 ## Create a build pipeline
 
-In this section, you learn how to create a build pipeline. You can reference this sample [auto build and test pipeline](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) in Azure DevOps.
+In this section, you learn how to create a build pipeline. 
 
 1. Open a web browser and navigate to your project in Azure DevOps.  
 
-1. Under **Pipelines** in the left navigation menu, select **Builds**. Then, select **New pipeline**.
+2. Under **Pipelines** in the left navigation menu, select **Builds**. Then, select **New pipeline**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/new-pipeline.png" alt-text="Create new Azure Pipeline":::
 
-1. Select **Use the classic editor** to create a pipeline without YAML.
+3. Select **Use the classic editor** to create a pipeline without YAML.
 
-1. Select your source type, team project, and repository. Then, select **Continue**.
+4. Select your source type, team project, and repository. Then, select **Continue**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Select Azure Stream Analytics project":::
 
-1. On the **Choose a template** page, select **Empty job**.
+5. On the **Choose a template** page, select **Empty job**.
 
 ## Install npm package
 
@@ -51,6 +51,22 @@ In this section, you learn how to create a build pipeline. You can reference thi
    ```
 
    :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Enter configurations for npm task":::
+
+Use following steps if you need to use hosted-Linux agent:
+1.  Select your **Agent Specification**
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/select-linux-agent.png" alt-text="Screenshot of selecting agent specification.":::
+
+2.  On the **Tasks** page, select the plus sign next to **Agent job 1**. Enter *command line* in the task search and select **Command line**.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/cmd-search.png" alt-text="Screenshot of searching commandline task. ":::
+
+3.  Give the task a **Display name**. enter the following command in **Script**. Leave the remaining default options.
+
+      ```bash
+      sudo npm install -g azure-streamanalytics-cicd --unsafe-perm=true --allow-root
+      ```
+      :::image type="content" source="media/set-up-cicd-pipeline/cmd-scripts.png" alt-text="Screenshot of entering script for cmd task.":::
 
 ## Add a Build task
 
@@ -135,7 +151,7 @@ The test summary file and Azure Resource Manager Template files can be found in 
 
 ## Release with Azure Pipelines
 
-In this section, you learn how to create a release pipeline. You can reference this sample [release pipeline](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2&preserve-view=true) in Azure DevOps.
+In this section, you learn how to create a release pipeline. 
 
 Open a web browser and navigate to your Azure Stream Analytics Visual Studio Code project.
 

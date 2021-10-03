@@ -2,7 +2,7 @@
 title: Register a new device - Azure IoT Edge | Microsoft Docs
 description: Register a single IoT Edge device in IoT Hub for manual provisioning with either symmetric keys or X.509 certificates
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -34,9 +34,9 @@ This article covers both authentication methods.
 
 If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service:
 
-* [Create and provision IoT Edge devices using X.509 certificates](how-to-auto-provision-x509-certs.md)
+* [Create and provision IoT Edge devices using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
 * [Create and provision IoT Edge devices with a TPM](how-to-auto-provision-simulated-device-linux.md)
-* [Create and provision IoT Edge devices using symmetric keys](how-to-auto-provision-symmetric-keys.md)
+* [Create and provision IoT Edge devices using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ In the output screen, you see the result of the command. The device info is prin
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
+Use the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity) command to create a new device identity in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -181,7 +181,7 @@ Currently, the Azure IoT extension for Visual Studio Code doesn't support device
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
+Use the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity) command to create a new device identity in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled --auth-method x509_thumbprint --primary-thumbprint [SHA thumbprint] --secondary-thumbprint [SHA thumbprint]
@@ -245,7 +245,7 @@ You can also select **Get Device Info** from the right-click menu to see all the
 
 ### View IoT Edge devices with the Azure CLI
 
-Use the [az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
+Use the [az iot hub device-identity list](/cli/azure/iot/hub/device-identity) command to view all devices in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -255,7 +255,7 @@ Any device that is registered as an IoT Edge device will have the property **cap
 
 ### Retrieve the connection string with the Azure CLI
 
-When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Use the [az iot hub device-identity connection-string show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) command to return the connection string for a single device:
+When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Use the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string) command to return the connection string for a single device:
 
    ```azurecli
    az iot hub device-identity connection-string show --device-id [device id] --hub-name [hub name]

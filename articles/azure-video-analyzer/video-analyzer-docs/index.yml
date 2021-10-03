@@ -1,0 +1,92 @@
+### YamlMime:Landing
+
+title: Azure Video Analyzer documentation # < 60 chars
+summary: Learn how to use Azure Video Analyzer # < 160 chars
+
+metadata:
+  title: Azure Video Analyzer documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure Video Analyzer # Required; article description that is displayed in search results. < 160 chars.
+  services: azure-video-analyzer
+  ms.service: azure-video-analyzer  #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: Juliako #Required; your GitHub user alias, with correct capitalization.
+  ms.author:  juliako #Required; microsoft alias of author; optional team alias.
+  ms.date: 06/01/2021 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Video Analyzer overview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Azure Video Analyzer (preview)
+            url: overview.md
+          - text: About Azure Video Analyzer for Media
+            url: ../video-analyzer-for-media-docs/video-indexer-overview.md            
+      - linkListType: quickstart
+        links:
+          - text: Get started using an ARM template
+            url: get-started-detect-motion-emit-events.md
+          - text: Get started using the Portal
+            url: get-started-detect-motion-emit-events-portal.md
+        
+  - title: Record video based on events
+    linkLists:
+    - linkListType: concept
+      links:
+        - text: Continuous video recording
+          url: event-based-video-recording-concept.md 
+    - linkListType: quickstart
+      links:            
+        - text: Detect motion, record video on edge devices
+          url: detect-motion-record-video-edge-devices.md
+        - text: Detect motion, record video in the cloud
+          url: detect-motion-record-video-clips-cloud.md
+    - linkListType: tutorial
+      links:            
+        - text: Event-based video recording and playback
+          url: record-event-based-live-video.md    
+
+  - title: Analyzing live videos without recording
+    linkLists:
+    - linkListType: concept
+      links:
+        - text: Analyze live videos without recording
+          url: analyze-live-video-without-recording.md
+    - linkListType: quickstart
+      links:            
+        - text: Detect motion and emit events    
+          url: detect-motion-emit-events-quickstart.md
+        - text: Track objects in live videos
+          url: track-objects-live-video.md
+    - linkListType: tutorial
+      links:     
+        - text: Analyze live video with OVMS via HTTP extension
+          url: use-intel-openvino-tutorial.md
+        - text: Analyze live video with OV DL Streamer via gRPC extension
+          url: use-intel-grpc-video-analytics-serving-tutorial.md
+        - text: Analyze live video with Spatial Analysis
+          url: computer-vision-for-spatial-analysis.md    
+        - text: Analyze live video with Custom Vision 
+          url: analyze-live-video-custom-vision.md 
+
+  - title: References
+    linkLists:
+    - linkListType: reference
+      links:
+        - text: FAQs
+          url: faq-edge.yml 
+        - text: SDKs
+          url: sdk.md
+        - text: Pipeline extension
+          url: pipeline-extension.md
+        - text: Direct methods
+          url: direct-methods.md
+        - text: Quotas and limitations
+          url: quotas-limitations.md           
+

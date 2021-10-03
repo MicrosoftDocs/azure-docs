@@ -9,13 +9,11 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, responsible-ml
+ms.topic: how-to
+ms.custom: devx-track-python, responsible-ml
 ---
 
 # Use the interpretability package to explain ML models & predictions in Python (preview)
-
-
 
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
@@ -26,13 +24,16 @@ In this how-to guide, you learn to use the interpretability package of the Azure
 
 * Explain the behavior for the entire model and individual predictions in Azure.
 
-* Use a visualization dashboard to interact with your model explanations.
+* Upload explanations to Azure Machine Learning Run History.
+
+* Use a visualization dashboard to interact with your model explanations, both in a Jupyter notebook and in the Azure Machine Learning studio.
 
 * Deploy a scoring explainer alongside your model to observe explanations during inferencing.
 
 
-
 For more information on the supported interpretability techniques and machine learning models, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+
+For guidance on how to enable interpretability for models trained with automated machine learning see, [Interpretability: model explanations for automated machine learning models (preview)](how-to-machine-learning-interpretability-automl.md). 
 
 ## Generate feature importance value on your personal machine 
 The following example shows how to use the interpretability package on your personal machine without contacting Azure services.
@@ -291,17 +292,17 @@ The following example shows how you can use the `ExplanationClient` class to ena
 
 ## Visualizations
 
-After you download the explanations in your local Jupyter Notebook, you can use the visualization dashboard to understand and interpret your model. To load the visualization dashboard widget in your Jupyter Notebook, use the following code:
+After you download the explanations in your local Jupyter Notebook, you can use the visualizations in the explanations dashboard to understand and interpret your model. To load the explanations dashboard widget in your Jupyter Notebook, use the following code:
 
 ```python
-from interpret_community.widget import ExplanationDashboard
+from raiwidgets import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
-The visualization supports explanations on both engineered and raw features. Raw explanations are based on the features from the original dataset and engineered explanations are based on the features from the dataset with feature engineering applied.
+The visualizations support explanations on both engineered and raw features. Raw explanations are based on the features from the original dataset and engineered explanations are based on the features from the dataset with feature engineering applied.
 
-When attempting to interpret a model with respect to the original dataset it is recommended to use raw explanations as each feature importance will correspond to a column from the original dataset. One scenario where engineered explanations might be useful is when examining the impact of individual categories from a categorical feature. If a one-hot encoding is applied to a categorical feature, then the resulting engineered explanations will include a different importance value per category, one per one-hot engineered feature. This can be useful when narrowing down which part of the dataset is most informative to the model.
+When attempting to interpret a model with respect to the original dataset, it is recommended to use raw explanations as each feature importance will correspond to a column from the original dataset. One scenario where engineered explanations might be useful is when examining the impact of individual categories from a categorical feature. If a one-hot encoding is applied to a categorical feature, then the resulting engineered explanations will include a different importance value per category, one per one-hot engineered feature. This encoding can be useful when narrowing down which part of the dataset is most informative to the model.
 
 > [!NOTE]
 > Engineered and raw explanations are computed sequentially. First an engineered explanation is created based on the model and featurization pipeline. Then the raw explanation is created based on that engineered explanation by aggregating the importance of engineered features that came from the same raw feature.
@@ -348,11 +349,11 @@ The fourth tab of the explanation tab lets you drill into an individual datapoin
 
 ### Visualization in Azure Machine Learning studio
 
-If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanation to Azure Machine Learning Run History), you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above. What-If datapoint generation and ICE plots are disabled as there is no active compute in Azure Machine Learning studio that can perform their real time computations.
+If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanations to Azure Machine Learning Run History), you can view the visualizations on the explanations dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the dashboard widget that's generated within your Jupyter notebook. What-If datapoint generation and ICE plots are disabled as there is no active compute in Azure Machine Learning studio that can perform their real time computations.
 
 If the dataset, global, and local explanations are available, data populates all of the tabs. If only a global explanation is available, the Individual feature importance tab will be disabled.
 
-Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
+Follow one of these paths to access the explanations dashboard in Azure Machine Learning studio:
 
 * **Experiments** pane (Preview)
   1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
@@ -363,7 +364,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
 
 * **Models** pane
   1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](./how-to-deploy-and-where.md), you can select **Models** in the left pane to view it.
-  1. Select a model, and then the **Explanations** tab to view the explanation visualization dashboard.
+  1. Select a model, and then the **Explanations** tab to view the explanations dashboard.
 
 ## Interpretability at inference time
 
@@ -560,7 +561,7 @@ You can deploy the explainer along with the original model and use it at inferen
 
 * **Sparse data not supported**: The model explanation dashboard breaks/slows down substantially with a large number of features, therefore we currently do not support sparse data format. Additionally, general memory issues will arise with large datasets and large number of features. 
 
-* **Forecasting models not supported with model explanations**: Interpretability, best model explanation, is not available for AutoML forecasting experiments that recommend the following algorithms as the best model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average, and Seasonal Naive. AutoML Forecasting has regression models which support explanations. However, in the explanation dashboard, the "Individual feature importance" tab is just not supported for forecasting because of complexity in their data pipelines.
+* **Forecasting models not supported with model explanations**: Interpretability, best model explanation, is not available for AutoML forecasting experiments that recommend the following algorithms as the best model: TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average, and Seasonal Naive. AutoML Forecasting regression models support explanations. However, in the explanation dashboard, the "Individual feature importance" tab is not supported for forecasting because of complexity in their data pipelines.
 
 * **Local explanation for data index**: The explanation dashboard does not support relating local importance values to a row identifier from the original validation dataset if that dataset is greater than 5000 datapoints as the dashboard randomly downsamples the data. However, the dashboard shows raw dataset feature values for each datapoint passed into the dashboard under the Individual feature importance tab. Users can map local importances back to the original dataset through matching the raw dataset feature values. If the validation dataset size is less than 5000 samples, the `index` feature in AzureML studio will correspond to the index in the validation dataset.
 

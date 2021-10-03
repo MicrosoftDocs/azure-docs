@@ -4,14 +4,15 @@ description: You can use the Azure Key Vault solution in Azure Monitor to review
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/27/2019
+ms.date: 03/27/2019 
+ms.custom: devx-track-azurepowershell
 
 ---
 
 # Azure Key Vault Analytics solution in Azure Monitor
 
 > [!NOTE]
-> This solution is deprecated. [We now recommend using Azure Monitor for Key Vault](./key-vault-insights-overview.md).
+> This solution is deprecated. [We now recommend using Key Vault insights](./key-vault-insights-overview.md).
 
 ![Key Vault symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
 
@@ -70,7 +71,7 @@ The following table shows data collection methods and other details about how da
 | Azure |  |  |&#8226; |  |  | on arrival |
 
 ## Use Azure Key Vault
-After you [install the solution](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview), view the Key Vault data by clicking the **Key Vault Analytics** tile from the Azure Monitor **Overview** page. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. 
+After you install the solution, view the Key Vault data by clicking the **Key Vault Analytics** tile from the Azure Monitor **Overview** page. Open this page from the **Azure Monitor** menu by clicking **More** under the **Insights** section. 
 
 ![Screenshot of the Key Vault Analytics tile on the Azure Monitor Overview page showing a graph of key vault operations volume over time.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -145,4 +146,3 @@ Data collected before the change is not visible in the new solution. You can con
 
 ## Next steps
 * Use [Log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed Azure Key Vault data.
-

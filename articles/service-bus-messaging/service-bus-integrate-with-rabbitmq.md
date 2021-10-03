@@ -4,7 +4,6 @@ description: Step-by-step guide on how to integrate RabbitMQ with Azure Service 
 services: Azure Service Bus
 author: videlalvaro
 ms.topic: how-to
-ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
 ---

@@ -8,8 +8,9 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 3/18/2021
 ms.author: sudbalas
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
 # Azure Key Vault backup
@@ -84,8 +85,9 @@ Follow the steps in this section to back up and restore objects by using the Azu
 5. Go to the location where you stored the encrypted blob.
 6. Select **OK**.
 
-## Back up and restore from the Azure CLI
+## Back up and restore from the Azure CLI or Azure PowerShell
 
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 ## Log in to Azure
 az login
@@ -113,8 +115,35 @@ az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subsc
 
 ## Restore a secret in Key Vault
 az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
-
 ```
+# [Azure PowerShell](#tab/powershell)
+
+```azurepowershell
+## Log in to Azure
+Connect-AzAccount
+
+## Set your subscription
+Set-AzContext -Subscription '{AZURE SUBSCRIPTION ID}'
+
+## Back up a certificate in Key Vault
+Backup-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -Name '{Certificate Name}'
+
+## Back up a key in Key Vault
+Backup-AzKeyVaultKey -VaultName '{Key Vault Name}' -Name '{Key Name}'
+
+## Back up a secret in Key Vault
+Backup-AzKeyVaultSecret -VaultName '{Key Vault Name}' -Name '{Secret Name}'
+
+## Restore a certificate in Key Vault
+Restore-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+
+## Restore a key in Key Vault
+Restore-AzKeyVaultKey -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+
+## Restore a secret in Key Vault
+Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+```
+---
 
 ## Next steps
 

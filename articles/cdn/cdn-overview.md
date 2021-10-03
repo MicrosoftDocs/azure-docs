@@ -65,7 +65,7 @@ Azure CDN offers the following key features:
 - [HTTPS custom domain support](cdn-custom-ssl.md)
 - [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
 - [File compression](cdn-improve-performance.md)
-- [Geo-filtering](cdn-restrict-access-by-country.md)
+- [Geo-filtering](cdn-restrict-access-by-country-region.md)
 
 For a complete list of features that each Azure CDN product supports, see [Compare Azure CDN product features](cdn-features.md).
 

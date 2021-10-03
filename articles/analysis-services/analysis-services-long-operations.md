@@ -4,7 +4,7 @@ description: This article describes best practices for long running operations.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/27/2021
 ms.author: owend
 
 ---
@@ -13,7 +13,7 @@ ms.author: owend
 In Azure Analysis Services, a *node* represents a host virtual machine where a server resource is running. Some operations such as long running queries, refresh operations, and query scale-out synchronization can fail if a server resource moves to a different node. Common error messages in this scenario include:
 
 - "An error has occurred while trying to locate a long running XMLA request. The request might have been interrupted by service upgrade or server restart."
-- "Job with ID '<guid>for model '<database>' was canceled due to service error (inactivity) with message 'Cancelling the refresh request since it was stuck without any updates. This is an internal service issue. Please resubmit the job or file a ticket to get help if this issue happens repeatedly."
+- "Job with ID '\<guid\>for model '\<database\>' was canceled due to service error (inactivity) with message 'Cancelling the refresh request since it was stuck without any updates. This is an internal service issue. Please resubmit the job or file a ticket to get help if this issue happens repeatedly."
 
 There are many reasons why long running operations can be disrupted. For example, updates in Azure such as: 
 - Operating System patches 

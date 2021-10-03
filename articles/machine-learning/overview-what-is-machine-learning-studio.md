@@ -7,13 +7,13 @@ ms.subservice: core
 ms.topic: overview
 author: peterclu
 ms.author: peterlu
-ms.date: 08/24/2020
+ms.date: 08/23/2021
 adobe-target: true
 ---
  
 # What is Azure Machine Learning studio?
 
-In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in [Azure Machine Learning](overview-what-is-azure-ml.md). The studio combines no-code and code-first experiences for an inclusive data science platform.
+In this article, you learn about Azure Machine Learning studio, the web portal for data scientist developers in [Azure Machine Learning](overview-what-is-azure-machine-learning.md). The studio combines no-code and code-first experiences for an inclusive data science platform.
 
 In this article you learn:
 >[!div class="checklist"]
@@ -22,7 +22,7 @@ In this article you learn:
 > - The differences between [Azure Machine Learning studio and ML Studio (classic)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
 We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
-  * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
+  * Microsoft Edge (latest version)
   * Safari (latest version, Mac only)
   * Chrome (latest version)
   * Firefox (latest version)
@@ -47,11 +47,11 @@ The studio offers multiple authoring experiences depending on the type project a
 
   Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) with an easy-to-use interface. 
 
-  [![Azure Machine Learning studio navigation pane](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+  ![AutoML in the Azure Machine Learning studio navigation pane](./media/overview-what-is-azure-ml-studio/azure-machine-learning-automated-ml-ui.jpg)
 
 + **Data labeling**
 
-    Use [Azure Machine Learning data labeling](how-to-create-labeling-projects.md) to efficiently coordinate data labeling projects.
+    Use Azure Machine Learning data labeling to efficiently coordinate [image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md) projects.
 
 ## Manage assets and resources
 
@@ -71,31 +71,24 @@ Even if you're an experienced developer, the studio can simplify how you manage 
 
 ## ML Studio (classic) vs Azure Machine Learning studio
 
-Released in 2015, **ML Studio (classic)** was our first drag-and-drop machine learning builder. It is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
 
-**Azure Machine Learning** is a separate and modernized service that delivers a complete data science platform. It supports both code-first and low-code experiences.
+Released in 2015, **ML Studio (classic)** was the first drag-and-drop machine learning model builder in Azure. **ML Studio (classic)** is a standalone service that only offers a visual experience. Studio (classic) does not interoperate with Azure Machine Learning.
+
+**Azure Machine Learning** is a separate, and modernized, service that delivers a complete data science platform. It supports both code-first and low-code experiences.
 
 **Azure Machine Learning studio** is a web portal *in* Azure Machine Learning that contains low-code and no-code options for project authoring and asset management. 
 
-We recommend that new users choose **Azure Machine Learning**, instead of ML Studio (classic), for the latest range of data science tools.
+If you're a new user, choose **Azure Machine Learning**, instead of ML Studio (classic). As a complete ML platform, Azure Machine Learning offers:
+
+- Scalable compute clusters for large-scale training.
+- Enterprise security and governance.
+- Interoperable with popular open-source tools.
+- End-to-end MLOps.
 
 ### Feature comparison
 
-The following table summarizes the key differences between ML Studio (classic) and Azure Machine Learning.
-
-| Feature | ML Studio (classic) | Azure Machine Learning |
-|---| --- | --- |
-| Drag and drop interface | Classic experience | Updated experience - [Azure Machine Learning designer](concept-designer.md)| 
-| Code SDKs | Unsupported | Fully integrated with [Azure Machine Learning Python](/python/api/overview/azure/ml/) and [R](https://github.com/Azure/azureml-sdk-for-r) SDKs |
-| Experiment | Scalable (10-GB training data limit) | Scale with compute target |
-| Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 
-| Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](concept-compute-target.md#deploy). Includes GPU and CPU support |
-| ML Pipeline | Not supported | Build flexible, modular [pipelines](concept-ml-pipelines.md) to automate workflows |
-| MLOps | Basic model management and deployment; CPU only deployments | Entity versioning (model, data, workflows), workflow automation, integration with CICD tooling, CPU and GPU deployments [and more](concept-model-management-and-deployment.md) |
-| Model format | Proprietary format, Studio (classic) only | Multiple supported formats depending on training job type |
-| Automated model training and hyperparameter tuning |  Not supported | [Supported](concept-automated-ml.md). Code-first and no-code options. | 
-| Data drift detection | Not supported | [Supported](how-to-monitor-datasets.md) |
-| Data labeling projects | Not supported | [Supported](how-to-create-labeling-projects.md) |
+[!INCLUDE [aml-compare-classic](../../includes/machine-learning-compare-classic-aml.md)]
 
 ## Troubleshooting
 
@@ -105,8 +98,10 @@ The following table summarizes the key differences between ML Studio (classic) a
 
 Visit the [studio](https://ml.azure.com), or explore the different authoring options with these tutorials:  
 
-- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Use Jupyter notebooks on a compute instance to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
+Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
+
+  + [Run a "Hello world!" Python script (part 1 of 3)](tutorial-1st-experiment-hello-world.md)
+  + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
   + [Use studio in a secured virtual network](how-to-enable-studio-virtual-network.md)

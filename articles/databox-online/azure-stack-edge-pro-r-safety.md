@@ -33,7 +33,8 @@ The following hazard icons are to be observed when setting up and running your A
 | Icon | Description |
 |:--- |:--- |
 | ![Read All Instructions First](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
-| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. || ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
+| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. |
+| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
 | ![Tip Hazard Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Tip Hazard|
 | ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
 | ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
@@ -41,7 +42,7 @@ The following hazard icons are to be observed when setting up and running your A
 | ![Multiple Power Sources Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
 | ![Pinching Points Icon](./media/azure-stack-edge-pro-r-safety/icon-pinching-points.png)  | Pinching points are present. |
 | ![Hot Components or Surfaces Icon](./media/azure-stack-edge-pro-r-safety/icon-hot-component-surface.png)  | Indicates hot components or surfaces. |
-|
+
 
 ## Handling precautions and site selection
 

@@ -3,7 +3,7 @@ title: Create a Python function from the command line for Azure Functions
 description: Learn how to create a Python function from the command line and publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-python, devx-track-azurecli] 
+ms.custom: [devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell]
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -137,7 +137,7 @@ In this section, you create a local <abbr title="A logical container for one or 
     <details>
     <summary><strong>What's created in the LocalFunctionProj folder?</strong></summary>
     
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
     </details>
 
 1. Add a function to your project by using the following command:
@@ -232,7 +232,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -251,7 +251,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
  
-    The [az group create](/cli/azure/group#az-group-create) command creates a resource group. You generally create your resource group and resources in a <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.">region</abbr> near you, using an available region returned from the `az account list-locations` command.
+    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. You generally create your resource group and resources in a <abbr title="A geographical reference to a specific Azure datacenter in which resources are allocated.">region</abbr> near you, using an available region returned from the `az account list-locations` command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -273,7 +273,7 @@ Before you can deploy your function code to Azure, you need to create a <abbr ti
     az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
     ```
 
-    The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account. 
+    The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
 
     # [Azure PowerShell](#tab/azure-powershell)
 

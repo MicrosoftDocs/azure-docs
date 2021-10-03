@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 04/06/2021
 ---
 
 # How to work with search results in Azure Cognitive Search
@@ -133,12 +133,16 @@ Services created after July 15, 2020 will provide a different highlighting exper
 
 With the new behavior:
 
-* Only phrases that match the full phrase query will be returned. The query "super bowl" will return highlights like this:
++ Only phrases that match the full phrase query will be returned. The query phrase "super bowl" will return highlights like this:
 
-    ```html
-    '<em>super bowl</em> is super awesome with a bowl of chips'
-    ```
-  Note that the term *bowl of chips* does not have any highlighting because it does not match the full phrase.
+  ```json
+  "@search.highlights": {
+      "sentence": [
+          "The <em>super</em> <em>bowl</em> is super awesome with a bowl of chips"
+     ]
+  ```
+
+  Note that other instances of *super* and *bowl* do not have any highlighting because those instances do not match the full phrase.
 
 When you are writing client code that implements hit highlighting, be aware of this change. Note that this will not impact you unless you create a completely new search service.
 
@@ -149,4 +153,4 @@ To quickly generate a search page for your client, consider these options:
 + [Application Generator](search-create-app-portal.md), in the portal, creates an HTML page with a search bar, faceted navigation, and results area that includes images.
 + [Create your first app in C#](tutorial-csharp-create-first-app.md) is a tutorial that builds a functional client. Sample code demonstrates paginated queries, hit highlighting, and sorting.
 
-Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://aka.ms/azjobsdemo), [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples), and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://aka.ms/azjobsdemo) or [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples).

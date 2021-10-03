@@ -2,7 +2,7 @@
 title: "Quickstart: Language Understanding (LUIS) SDK client libraries and REST API"
 description: Create and query a LUIS app with the LUIS SDK client libraries and REST API.
 ms.topic: quickstart
-ms.date: 12/09/2020
+ms.date: 03/29/2021
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme
@@ -55,9 +55,5 @@ Other errors - if you get an error not covered in the preceding list, let us kno
 
 ## Next steps
 
-* [What is the Language Understanding (LUIS) API?](what-is-luis.md)
-* [What's new?](whats-new.md)
-* [Intents](luis-concept-intent.md), [entities](luis-concept-entity-types.md), and [example utterances](luis-concept-utterance.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
-* Understanding natural language: [natural language understanding (NLU) and natural language processing (NLP)](artificial-intelligence.md)
-* Bots: [AI chatbots](luis-csharp-tutorial-bf-v4.md "chatbot maker tutorial")
+> [!div class="nextstepaction"]
+> [Iterative app development for LUIS](./luis-concept-app-iteration.md)

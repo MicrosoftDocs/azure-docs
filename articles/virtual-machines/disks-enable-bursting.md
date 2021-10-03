@@ -1,13 +1,13 @@
 ---
 title: Enable on-demand disk bursting
 description: Enable on-demand disk bursting on your managed disk.
-author: albecker1
-ms.author: albecker
-ms.date: 03/02/2021
+author: roygara
+ms.author: rogarana
+ms.date: 06/29/2021
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Enable on-demand bursting
@@ -56,7 +56,7 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # [Azure CLI](#tab/azure-cli)
 
-On-demand bursting cmdlets are available in version 2.19.0 and newer of the [Azure CLI module](https://docs.microsoft.com/cli/azure/install-azure-cli). Alternatively, you may use the [Azure Cloud Shell](https://shell.azure.com/).
+On-demand bursting cmdlets are available in version 2.19.0 and newer of the [Azure CLI module](/cli/azure/install-azure-cli). Alternatively, you may use the [Azure Cloud Shell](https://shell.azure.com/).
 
 ### Create and attach a on-demand bursting data disk
 

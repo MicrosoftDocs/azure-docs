@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 05/07/2021
 ms.author: robinsh
 ms.custom: devx-track-csharp
 ---
@@ -147,11 +147,23 @@ This grouping query would return a result similar to the following example:
 
 In this example, three devices reported successful configuration, two are still applying the configuration, and one reported an error.
 
-Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time of all disconnected devices use the following query:
+Projection queries allow developers to return only the properties they care about. For example, to retrieve the last activity time along with the device ID of all enabled devices that are disconnected, use the following query:
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE status = 'enabled'
+SELECT DeviceId, LastActivityTime FROM devices WHERE status = 'enabled' AND connectionState = 'Disconnected'
 ```
+
+Here is an example query result of that query in **Query Explorer** for an IoT Hub:
+
+```json
+[
+  {
+    "deviceId": "AZ3166Device",
+    "lastActivityTime": "2021-05-07T00:50:38.0543092Z"
+  }
+]
+```
+
 
 ### Module twin queries
 

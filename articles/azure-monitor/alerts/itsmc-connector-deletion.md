@@ -1,6 +1,6 @@
 ---
-title: Deletion of ITSM connector and the action that are associated to it
-description: This article provides an explanation of how to delete ITSM connector and the action groups that are associated to it.
+title: Delete unused ITSM connectors
+description: This article provides an explanation of how to delete ITSM connectors and the action groups that are associated with it.
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
@@ -9,37 +9,46 @@ ms.custom: references_regions
 
 ---
 
-# Deletion of unused ITSM connectors
+# Delete unused ITSM connectors
 
-The process of deletion of unused connector contain 2 phases:
+The process of deleting unused IT service management (ITSM) connectors has two phases. You delete all the actions that are associated with an ITSM connector, and then you delete the connector itself. You delete the actions first because actions without a connector might cause errors in your subscription.
 
-1. Deletion of the associated actions: all the actions that are associated with the ITSM connector should be deleted. This should be done in order not to have actions without connector that might cause errors in your subscription.
+## Delete associated actions
 
-2. Deletion of the unused ITSM connector.
+1. In the Azure portal, select **Monitor**.
+  
+    ![Screenshot of the Monitor selection.](media/itsmc-connector-deletion/itsmc-monitor-selection.png)
 
-## Deletion of the associated actions
+2. Select **Alerts**.
+   
+    ![Screenshot of the Alerts selection.](media/itsmc-connector-deletion/itsmc-alert-selection.png)
 
-1. In order to find the action group you should go into “Monitor”
-    ![Screenshot of monitor selection.](media/itsmc-connector-deletion/itsmc-monitor-selection.png)
+3. Select **Manage Actions**.
+   
+    ![Screenshot of the Manage Actions selection.](media/itsmc-connector-deletion/itsmc-actions-selection.png)
 
-2. Select “Alerts”
-    ![Screenshot of alerts selection.](media/itsmc-connector-deletion/itsmc-alert-selection.png)
-3. Select “Manage Actions”
-    ![Screenshot of manage actions selection.](media/itsmc-connector-deletion/itsmc-actions-selection.png)
-4. Select all the ITSM connectors that is connected to Cherwell
-    ![Screenshot of ITSM connectors that is connected to Cherwell.](media/itsmc-connector-deletion/itsmc-actions-screen.png)
-5. Delete the action group
-    ![Screenshot of action group deletion.](media/itsmc-connector-deletion/itsmc-action-deletion.png)
+4. Select an action group that's associated with the ITSM connector that you want to delete. This article uses the example of a Cherwell connector.
+   
+    ![Screenshot of actions that are associated with the Cherwell connector.](media/itsmc-connector-deletion/itsmc-actions-screen.png)
 
-## Deletion of the unused ITSM connector
+5. Review the information, and then select **Delete action group**.
 
-1. You should search and select “ServiceDesk” LA in the top search bar
-    ![Screenshot of search and select “ServiceDesk” LA.](media/itsmc-connector-deletion/itsmc-connector-selection.png)
-2. Select the “ITSM Connections” and select the Cherwell connector
-    ![Screenshot of Cherwell ITSM connectors.](media/itsmc-connector-deletion/itsmc-cherwell-connector.png)
-3. Select “Delete”
-    ![Screenshot of ITSM connector deletion.](media/itsmc-connector-deletion/itsmc-connector-deletion.png)
+    ![Screenshot of action group information and the button for deleting the group.](media/itsmc-connector-deletion/itsmc-action-deletion.png)
+
+## Delete the connector
+
+1. On the search bar, search for **servicedesk**. Then select **ServiceDesk** in the list of resources.
+
+    ![Screenshot of search for and selecting ServiceDesk.](media/itsmc-connector-deletion/itsmc-connector-selection.png)
+
+2. Select **ITSM Connections**, and then select the Cherwell connector.
+
+    ![Screenshot of the Cherwell I T S M connector.](media/itsmc-connector-deletion/itsmc-cherwell-connector.png)
+
+3. Select **Delete**.
+
+    ![Screenshot of the delete button for the I T S M connector.](media/itsmc-connector-deletion/itsmc-connector-deletion.png)
 
 ## Next steps
 
-* [Troubleshooting problems in ITSM Connector](./itsmc-resync-servicenow.md)
+* [Troubleshooting problems in an ITSM connector](./itsmc-resync-servicenow.md)

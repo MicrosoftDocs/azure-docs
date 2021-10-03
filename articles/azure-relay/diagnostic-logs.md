@@ -2,7 +2,7 @@
 title: Diagnostics logs for Hybrid Connections
 description: This article provides an overview of all the activity and diagnostics logs that are available for Azure Relay. 
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ---
 # Enable diagnostics logs for Azure Relay Hybrid Connections
 When you start using your Azure Relay Hybrid Connections, you might want to monitor how and when your listeners and senders are opened and closed, and how your Hybrid Connections are created and messages are sent. This article provides an overview of activity and diagnostics logs provided by the Azure Relay service. 
@@ -74,29 +74,29 @@ Here's a sample hybrid connections event in JSON format.
 
 ## Events and operations captured in diagnostic logs
 
-| Operation | Description | 
-| --------- | ----------- | 
-| AuthorizationFailed | Authorization failed.|
-| InvalidSasToken | Invalid SAS token. | 
-| ListenerAcceptingConnection | The listener is accepting connection. |
-| ListenerAcceptingConnectionTimeout | The listener accepting connection has timed out. |
-| ListenerAcceptingHttpRequestFailed | The listener accepting HTTP request failed due to an exception. |
-| ListenerAcceptingRequestTimeout | The listener accepting request has timed out. |  
-| ListenerClosingFromExpiredToken | The listener is closing because the security token has expired. | 
-| ListenerRejectedConnection | The listener has rejected the connection. |
-| ListenerReturningHttpResponse | The listener is returning an HTTP response. |  
-| ListenerReturningHttpResponseFailed | The listener is returning an HTTP response with a failure code. | 
- ListenerSentHttpResponse | Relay service has received an HTTP response from the listener. | 
-| ListenerUnregistered | The listener is unregistered. | 
-| ListenerUnresponsive | The listener is unresponsive when returning a response. | 
-| MessageSendingToListener | Message is being sent to listener. |
-| MessageSentToListener | Message is sent to listener. | 
-| NewListenerRegistered | New listener registered. |
-| NewSenderRegistering | New sender is registering. | 
-| ProcessingRequestFailed | The processing of a Hybrid Connection operation has failed. | 
-| SenderConnectionClosed | The sender connection is closed. |
-| SenderListenerConnectionEstablished | The sender and listener established connection successfully. |
-| SenderSentHttpRequest | The sender sent an HTTP request. | 
+| Operation                           | Description                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| AuthorizationFailed                 | Authorization failed.                                           |
+| InvalidSasToken                     | Invalid SAS token.                                              |
+| ListenerAcceptingConnection         | The listener is accepting connection.                           |
+| ListenerAcceptingConnectionTimeout  | The listener accepting connection has timed out.                |
+| ListenerAcceptingHttpRequestFailed  | The listener accepting HTTP request failed due to an exception. |
+| ListenerAcceptingRequestTimeout     | The listener accepting request has timed out.                   |
+| ListenerClosingFromExpiredToken     | The listener is closing because the security token has expired. |
+| ListenerRejectedConnection          | The listener has rejected the connection.                       |
+| ListenerReturningHttpResponse       | The listener is returning an HTTP response.                     |
+| ListenerReturningHttpResponseFailed | The listener is returning an HTTP response with a failure code. |
+| ListenerSentHttpResponse            | Relay service has received an HTTP response from the listener.  |
+| ListenerUnregistered                | The listener is unregistered.                                   |
+| ListenerUnresponsive                | The listener is unresponsive when returning a response.         |
+| MessageSendingToListener            | Message is being sent to listener.                              |
+| MessageSentToListener               | Message is sent to listener.                                    |
+| NewListenerRegistered               | New listener registered.                                        |
+| NewSenderRegistering                | New sender is registering.                                      |
+| ProcessingRequestFailed             | The processing of a Hybrid Connection operation has failed.     |
+| SenderConnectionClosed              | The sender connection is closed.                                |
+| SenderListenerConnectionEstablished | The sender and listener established connection successfully.    |
+| SenderSentHttpRequest               | The sender sent an HTTP request.                                |
 
 
 ## Next steps

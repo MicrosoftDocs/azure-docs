@@ -6,7 +6,7 @@ documentationcenter: na
 author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
+# Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 
 ms.service: network-watcher
 ms.devlang: na
@@ -56,7 +56,7 @@ Create two VMs.
     |---|---|
     |Name|myVm1|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Subscription| Select your subscription.|
     |Resource group| Select **Create new** and enter **myResourceGroup**.|
     |Location| Select **East US**|

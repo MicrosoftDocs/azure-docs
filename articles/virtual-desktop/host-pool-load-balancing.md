@@ -1,23 +1,23 @@
 ---
-title: Windows Virtual Desktop host pool load-balancing - Azure
-description: Learn about host pool load-balancing methods for a Windows Virtual Desktop environment.
+title: Azure Virtual Desktop host pool load-balancing - Azure
+description: Learn about host pool load-balancing methods for a Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Host pool load-balancing methods
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
 
-Windows Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user's session when they connect to a resource in a host pool.
+Azure Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user's session when they connect to a resource in a host pool.
 
-The following load-balancing methods are available in Windows Virtual Desktop:
+The following load-balancing methods are available in Azure Virtual Desktop:
 
 - Breadth-first load balancing allows you to evenly distribute user sessions across the session hosts in a host pool.
-- Depth-first load balancing allows you to saturate a session host with user sessions in a host pool. Once the first session reaches its session limit threshold, the load balancer directs any new user connections to the next session host in the host pool until it reaches its limit, and so on.
+- Depth-first load balancing allows you to saturate a session host with user sessions in a host pool. Once the first session host reaches its session limit threshold, the load balancer directs any new user connections to the next session host in the host pool until it reaches its limit, and so on.
 
 Each host pool can only configure one type of load-balancing specific to it. However, both load-balancing methods share the following behaviors no matter which host pool they're in:
 

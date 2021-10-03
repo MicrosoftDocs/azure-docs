@@ -3,13 +3,13 @@ title: DNS alias
 description: Your applications can connect to an alias for the name of the server for Azure SQL Database. Meanwhile, you can change the SQL Database the alias points to anytime, to facilitate testing and so on.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: rohitnayakmsft
-ms.author: rohitna
-ms.reviewer: genemi, jrasnick, vanto
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma, jrasnick, vanto
 ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
@@ -87,12 +87,12 @@ A code example of PowerShell cmdlets being used to manage DNS aliases is documen
 
 The cmdlets used in the code example are the following:
 
-- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): Creates a new DNS alias in the Azure SQL Database service system. The alias refers to server 1.
-- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Get and list all the DNS aliases that are assigned to server 1.
-- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifies the server name that the alias is configured to refer to, from server 1 to server 2.
-- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove the DNS alias from server 2, by using the name of the alias.
+- [New-AzSqlServerDnsAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): Creates a new DNS alias in the Azure SQL Database service system. The alias refers to server 1.
+- [Get-AzSqlServerDnsAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Get and list all the DNS aliases that are assigned to server 1.
+- [Set-AzSqlServerDnsAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifies the server name that the alias is configured to refer to, from server 1 to server 2.
+- [Remove-AzSqlServerDnsAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove the DNS alias from server 2, by using the name of the alias.
 
-## Limitations during preview
+## Limitations
 
 Presently, a DNS alias has the following limitations:
 
@@ -107,7 +107,7 @@ Presently, a DNS alias has the following limitations:
 
 - [Overview of business continuity with Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md), including disaster recovery.
 - [Azure REST API reference](/rest/api/azure/)
-- [Server Dns Aliases API](/rest/api/sql/serverdnsaliases)
+- [Server Dns Aliases API](/rest/api/sql/2020-11-01-preview/serverdnsaliases)
 
 ## Next steps
 

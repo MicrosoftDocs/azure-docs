@@ -9,7 +9,8 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: justinha
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As an identity administrator, I want to create an Azure AD Domain Services resource forest and one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
 

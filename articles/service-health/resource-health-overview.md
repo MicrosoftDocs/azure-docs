@@ -47,7 +47,7 @@ Non-platform events are triggered by user actions. Examples include stopping a v
 
 ### Unknown
 
-*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it's an important data point for troubleshooting.
+*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. This commonly occurs when virtual machines have been deallocated. Although this status isn't a definitive indication of the state of the resource, it can be an important data point for troubleshooting.
 
 If the resource is running as expected, the status of the resource will change to *Available* after a few minutes.
 
@@ -63,17 +63,15 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
-## Reporting an incorrect status
-
-If you think that the current health status is incorrect, you can tell us by selecting **Report incorrect health status**. In cases where an Azure problem is affecting you, we encourage you to contact Support from Resource Health.
-
-![Form to submit information about an incorrect status](./media/resource-health-overview/incorrect-status.png)
-
 ## History information
 
 You can access up to 30 days of history in the **Health history** section of Resource Health.
 
 ![List of Resource Health events over the last two weeks](./media/resource-health-overview/history-blade.png)
+
+## Root cause information
+
+If Azure has further information about the root cause of a platform-initiated unavailability, that information may be posted in resource health up to 72 hours after the initial unavailability. This information is only available for virtual machines at this time. 
 
 ## Get started
 
@@ -93,4 +91,4 @@ You can also access Resource Health by selecting **All services** and typing **r
 
 Check out these references to learn more about Resource Health:
 -  [Resource types and health checks in Azure Resource Health](resource-health-checks-resource-types.md)
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)

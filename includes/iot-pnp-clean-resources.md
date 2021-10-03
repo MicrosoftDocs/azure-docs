@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dominicbetts
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/15/2019
 ---

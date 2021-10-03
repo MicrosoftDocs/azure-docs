@@ -4,7 +4,8 @@ description: Use Azure PowerShell and Azure Resource Manager to manage your reso
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 # Manage Azure resources by using Azure PowerShell
 
@@ -45,7 +46,7 @@ The following script creates deploy a Quickstart template to create a storage ac
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Location $location
 ```
 
@@ -132,6 +133,6 @@ Tagging helps organizing your resource group and resources logically. For inform
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

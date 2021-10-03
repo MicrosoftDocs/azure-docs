@@ -2,11 +2,11 @@
 title: Azure Monitor metrics for Application Gateway
 description: Learn how to use metrics to monitor performance of application gateway
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: article
-ms.date: 06/06/2020
-ms.author: surmb
+ms.date: 04/19/2021
+ms.author: azhussai
 
 ---
 # Metrics for Application Gateway
@@ -19,7 +19,7 @@ Application Gateway publishes data points, called metrics, to [Azure Monitor](..
 
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds. 
 
-![Diagram of timing metrics, for the Application Gateway.](./media/application-gateway-metrics/application-gateway-metrics.png)
+:::image type="content" source="./media/application-gateway-metrics/application-gateway-metrics.png" alt-text="[Diagram of timing metrics for the Application Gateway" border="false":::
 
 > [!NOTE]
 >
@@ -48,7 +48,7 @@ Application Gateway provides several built‑in timing metrics related to the re
 
   Average time that it takes for a request to be received, processed and its response to be sent. 
 
-  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, time taken by Application Gateway to send all the response and the *Client RTT*.
+  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, and the time taken by Application Gateway to send all the response.
 
 - **Client RTT**
 

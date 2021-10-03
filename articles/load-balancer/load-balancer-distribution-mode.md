@@ -8,7 +8,7 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2021

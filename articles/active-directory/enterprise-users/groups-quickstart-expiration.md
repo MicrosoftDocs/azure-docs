@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 12/02/2020
+ms.date: 09/02/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-#As a new Azure AD identity administrator, I want user-created Microsoft 365 groups in my organization to expire so I can reduce the number of unused groups.
+#Customer intent: As a new Azure AD identity administrator, I want user-created Microsoft 365 groups in my organization to expire so I can reduce the number of unused groups.
 ms.collection: M365-identity-device-management
 ---
 # Quickstart: Set Microsoft 365 groups to expire in Azure Active Directory

@@ -8,7 +8,8 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/15/2019
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Working with virtual network gateway SKUs (legacy SKUs)
@@ -35,7 +36,7 @@ You can resize your gateway to a gateway SKU within the same SKU family. For exa
 
 ### Resource Manager
 
-To resize a gateway for the Resource Manager deployment model using PowerShell, use the following command:
+To resize a gateway for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) using PowerShell, use the following command:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg

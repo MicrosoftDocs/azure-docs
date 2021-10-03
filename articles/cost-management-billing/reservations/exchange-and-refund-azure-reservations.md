@@ -5,7 +5,7 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/24/2021
+ms.date: 04/14/2021
 ms.author: banders
 ---
 
@@ -22,8 +22,6 @@ When you exchange a reservation, you can change your term from one-year to three
 You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement, and Microsoft Partner Agreement) can't exceed USD 50,000 in a 12 month rolling window.
 
 Azure Databricks reserved capacity, Azure VMware solution by CloudSimple reservation, Azure Red Hat Open Shift reservation, Red Hat plans and, SUSE Linux plans aren't eligible for refunds.
-
-Self-service exchange and cancel capability isn't available for US Government Enterprise Agreement customers. Other US Government subscription types including Pay-As-You-Go and Cloud Solution Provider (CSP) are supported.
 
 > [!NOTE]
 > - **You must have owner access on the Reservation Order to exchange or refund an existing reservation**. You can [Add or change users who can manage a reservation](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
@@ -62,6 +60,7 @@ When you exchange reservations, the new purchase currency amount must be greater
 ## Exchange non-premium storage for premium storage
 
 You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does. For example, an _F1_ for an _F1s_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction.
+If you are exchanging for a different size, series, region or payment frequency, the term will be reset for the new reservation. 
 
 ## How transactions are processed
 
@@ -76,6 +75,7 @@ If the original purchase was made as an overage, the original invoice on which t
 ### Pay-as-you-go invoice payments and CSP program
 
 The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase. If you bought a reservation at pay-as-you-go rates and later move to a CSP, the reservation can be returned and repurchased without a penalty.
+You cannot do a serf-service refund in CSP, for any refund request contact your CSP.
 
 ### Pay-as-you-go credit card customers
 
@@ -100,6 +100,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - We're currently not charging an early termination fee, but in the future there might be a 12% early termination fee for cancellations.
 - The total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment. For example, for a three-year reservation that's 100 USD per month and it's refunded in the 18th month, the canceled commitment is 1,800 USD. After the refund, your new available limit for refund will be 48,200 USD. In 365 days from the refund, the 48,200 USD limit will be increased by 1,800 USD and your new pool will be 50,000 USD. Any other reservation cancellation for the billing profile or EA enrollment will deplete the same pool, and the same replenishment logic will apply.
 - Azure won't process any refund that will exceed the 50,000 USD limit in a 12-month window for a billing profile or EA enrollment.
+    - Refunds that result from an exchange don't count against the refund limit.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
 - Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 

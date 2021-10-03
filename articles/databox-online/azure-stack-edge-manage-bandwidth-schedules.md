@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro manage bandwidth schedules | Microsoft Docs 
-description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro.
+title: Azure Stack Edge Pro FPGA bandwidth schedules management
+description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro FPGA.
 services: databox
 author: alkohli
 
@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
 ---
-# Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro  
+# Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro FPGA  
 
-This article describes how to manage users on your Azure Stack Edge Pro. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
+This article describes how to manage users on your Azure Stack Edge Pro FPGA. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
 
-You can add, modify, or delete the bandwidth schedules for your Azure Stack Edge Pro via the Azure portal.
+You can add, modify, or delete the bandwidth schedules for your Azure Stack Edge Pro FPGA via the Azure portal.
 
 In this article, you learn how to:
 
@@ -66,7 +66,7 @@ Do the following steps to edit a bandwidth schedule.
 
 ## Delete a schedule
 
-Do the following steps to delete a bandwidth schedule associated with your Azure Stack Edge Pro device.
+Do the following steps to delete a bandwidth schedule associated with your Azure Stack Edge Pro FPGA device.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Bandwidth**.  
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 05/04/2021
 ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
@@ -24,9 +24,12 @@ Add new users or delete existing users from your Azure Active Directory (Azure A
 
 You can create a new user using the Azure Active Directory portal.
 
+>[!Note]
+>The user name and email address properties can't contain accent characters.
+
 To add a new user, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a User administrator for the organization.
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the User Administrator role for the organization.
 
 1. Search for and select *Azure Active Directory* from any page.
 
@@ -71,7 +74,7 @@ If you have an environment with both Azure Active Directory (cloud) and Windows 
 You can delete an existing user using Azure Active Directory portal.
 
 >[!Note]
->You must have a Global administrator or User administrator role assignment to delete users in your organization. Global admins can delete any users including other admins. User administrators can delete any non-admin users, Helpdesk administrators and other User administrators. For more information, see [Administrator role permissions in Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+>You must have a Global administrator or User administrator role assignment to delete users in your organization. Global admins can delete any users including other admins. User administrators can delete any non-admin users, Helpdesk administrators and other User administrators. For more information, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
 
 To delete a user, follow these steps:
 

@@ -24,7 +24,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
 
 2. Enter your cluster login username and password. From the Zeppelin page, you can either create a new note or open existing notes. **HiveSample** contains some sample Hive queries.  
 
-    ![HDInsight Interactive Query zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="HDInsight Interactive Query zeppelin" border="true":::
 
 3. Select **Create new note**.
 
@@ -42,7 +42,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     show tables
     ```
 
-    ![HDInsight Interactive Query zeppelin runs query](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="HDInsight Interactive Query zeppelin runs query" border="true":::
 
     The **%jdbc(hive)** statement in the first line tells the notebook to use the Hive JDBC interpreter.
 

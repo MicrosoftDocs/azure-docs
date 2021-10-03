@@ -52,20 +52,25 @@ ms.reviewer: azmetadatadev
         "sku": "2019-Datacenter",
         "storageProfile": {
             "dataDisks": [{
+                "bytesPerSecondThrottle": "979202048",
                 "caching": "None",
                 "createOption": "Empty",
+                "diskCapacityBytes": "274877906944",
                 "diskSizeGB": "1024",
                 "image": {
-                    "uri": ""
+                  "uri": ""
                 },
+                "isSharedDisk": "false",
+                "isUltraDisk": "true",
                 "lun": "0",
                 "managedDisk": {
-                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                    "storageAccountType": "Standard_LRS"
+                  "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                  "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampledatadiskname",
+                "opsPerSecondThrottle": "65280",
                 "vhd": {
-                    "uri": ""
+                  "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
             }],
@@ -99,10 +104,14 @@ ms.reviewer: azmetadatadev
                     "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
             }
         },
         "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
         "tags": "baz:bash;foo:bar",
+        "userData": "Zm9vYmFy",
         "version": "15.05.22",
         "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
         "vmScaleSetName": "crpteste9vflji9",
@@ -174,20 +183,25 @@ ms.reviewer: azmetadatadev
         "sku": "18.04-LTS",
         "storageProfile": {
             "dataDisks": [{
+                "bytesPerSecondThrottle": "979202048",
                 "caching": "None",
                 "createOption": "Empty",
+                "diskCapacityBytes": "274877906944",
                 "diskSizeGB": "1024",
                 "image": {
-                    "uri": ""
+                  "uri": ""
                 },
+                "isSharedDisk": "false",
+                "isUltraDisk": "true",
                 "lun": "0",
                 "managedDisk": {
-                    "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-                    "storageAccountType": "Standard_LRS"
+                  "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                  "storageAccountType": "Standard_LRS"
                 },
                 "name": "exampledatadiskname",
+                "opsPerSecondThrottle": "65280",
                 "vhd": {
-                    "uri": ""
+                  "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
             }],
@@ -221,6 +235,9 @@ ms.reviewer: azmetadatadev
                     "uri": ""
                 },
                 "writeAcceleratorEnabled": "false"
+            },
+            "resourceDisk": {
+                "size": "4096"
             }
         },
         "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",

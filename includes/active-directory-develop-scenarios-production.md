@@ -44,3 +44,7 @@ Here are some suggestions for data collection:
 ## Validate your integration
 
 Test your integration by following the [Microsoft identity platform integration checklist](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+
+## Build for resilience
+
+Learn how to increase resiliency in your app. For details, see [Increase resilience of authentication and authorization applications you develop](../articles/active-directory/fundamentals/resilience-app-development-overview.md)

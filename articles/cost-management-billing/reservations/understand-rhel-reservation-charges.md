@@ -5,7 +5,7 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 # Understand how the Red Hat Linux Enterprise software reservation plan discount is applied for Azure
@@ -40,7 +40,7 @@ Azure portal marketplace names:
 - Red Hat Enterprise Linux 7.6
 - Red Hat Enterprise Linux 8.2
 
-[Check Red Hat Enterprise Linux meters that the plan applies to](https://isfratio.blob.core.windows.net/isfratio/RHELRatios.csv)
+[Check Red Hat Enterprise Linux meters that the plan applies to](https://phoenixnap.com/kb/how-to-check-redhat-version)
 
 ## Next steps
 

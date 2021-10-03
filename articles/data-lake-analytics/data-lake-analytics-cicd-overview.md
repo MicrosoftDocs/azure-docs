@@ -6,7 +6,8 @@ ms.author: liud
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 09/14/2018
+ms.date: 09/14/2018 
+ms.custom: devx-track-azurepowershell
 ---
 # How to set up a CI/CD pipeline for Azure Data Lake Analytics  
 

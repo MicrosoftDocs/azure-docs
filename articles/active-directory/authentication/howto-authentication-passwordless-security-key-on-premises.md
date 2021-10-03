@@ -44,8 +44,8 @@ Organizations must also meet the following software requirements.
 - You must have version 1.4.32.0 or later of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - For more information on the available Azure AD hybrid authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../hybrid/choose-ad-authn.md) and [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Your Windows Server domain controllers must have the following patches installed:
-    - For Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - For [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
+    - For [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
 ### Supported scenarios
 
@@ -85,6 +85,9 @@ $domain = "contoso.corp.com"
 # Enter an Azure Active Directory global administrator username and password.
 $cloudCred = Get-Credential
 
+If you have MFA enabled for Global administrator, Please remove "-Cloudcredential $cloudCred"
+you will see web-based popup and complete the U/P and MFA there
+
 # Enter a domain administrator username and password.
 $domainCred = Get-Credential
 
@@ -103,6 +106,12 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 This command outputs the properties of the Azure AD Kerberos Server. You can review the properties to verify that everything is in good order.
 
+> [!NOTE]
+
+Running against another domain by supplying the credential will connect over NTLM and then it would fails. if the users are part of "Protected Users" Security Group in AD
+Workaround: login with another domain user into ADConnect box and don’t supply -domainCredential . it would consume the kerebros ticket of the current logon user. 
+you can confirm by executing whoami /groups to validate if the user has required privelege in AD to execute the above command
+ 
 | Property | Description |
 | --- | --- |
 | ID | The unique ID of the AD DS DC object. This ID is sometimes referred to as it's "slot" or it's "branch ID". |
@@ -190,6 +199,9 @@ If clean installing a hybrid Azure AD joined machine, after the domain join and 
 ### I'm unable to get SSO to my NTLM network resource after signing in with FIDO and get a credential prompt
 
 Make sure enough domain controllers are patched to respond in time to service your resource request. To check if you can see a domain controller that is running the feature, review the output of `nltest /dsgetdc:contoso /keylist /kdc`.
+
+> [!NOTE]
+> The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and above.
 
 ## Next steps
 

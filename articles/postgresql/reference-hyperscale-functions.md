@@ -6,15 +6,14 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 08/10/2020
+ms.date: 04/07/2021
 ---
 
 # Functions in the Hyperscale (Citus) SQL API
 
 This section contains reference information for the user-defined functions
-provided by Hyperscale (Citus). These functions help in providing additional
-distributed functionality to Hyperscale (Citus) other than the standard SQL
-commands.
+provided by Hyperscale (Citus). These functions help in providing
+distributed functionality to Hyperscale (Citus).
 
 > [!NOTE]
 >
@@ -244,6 +243,61 @@ SELECT create_distributed_function(
 );
 ```
 
+### alter_columnar_table_set
+
+The alter_columnar_table_set() function changes settings on a [columnar
+table](concepts-hyperscale-columnar.md). Calling this function on a
+non-columnar table gives an error. All arguments except the table name are
+optional.
+
+To view current options for all columnar tables, consult this table:
+
+```postgresql
+SELECT * FROM columnar.options;
+```
+
+The default values for columnar settings for newly created tables can be
+overridden with these GUCs:
+
+* columnar.compression
+* columnar.compression_level
+* columnar.stripe_row_count
+* columnar.chunk_row_count
+
+#### Arguments
+
+**table_name:** Name of the columnar table.
+
+**chunk_row_count:** (Optional) The maximum number of rows per chunk for
+newly inserted data. Existing chunks of data will not be changed and may have
+more rows than this maximum value. The default value is 10000.
+
+**stripe_row_count:** (Optional) The maximum number of rows per stripe for
+newly inserted data. Existing stripes of data will not be changed and may have
+more rows than this maximum value. The default value is 150000.
+
+**compression:** (Optional) `[none|pglz|zstd|lz4|lz4hc]` The compression type
+for newly inserted data. Existing data will not be recompressed or
+decompressed. The default and suggested value is zstd (if support has
+been compiled in).
+
+**compression_level:** (Optional) Valid settings are from 1 through 19. If the
+compression method does not support the level chosen, the closest level will be
+selected instead.
+
+#### Return value
+
+N/A
+
+#### Example
+
+```postgresql
+SELECT alter_columnar_table_set(
+  'my_columnar_table',
+  compression => 'none',
+  stripe_row_count => 10000);
+```
+
 ## Metadata / Configuration Information
 
 ### master\_get\_table\_metadata
@@ -304,7 +358,7 @@ distribution. In most cases, the precise mapping is a low-level detail that the
 database administrator can ignore. However it can be useful to determine a
 row's shard, either for manual database maintenance tasks or just to satisfy
 curiosity. The `get_shard_id_for_distribution_column` function provides this
-info for hash- and range-distributed tables as well as reference tables. It
+info for hash-distributed, range-distributed, and reference tables. It
 does not work for the append distribution.
 
 #### Arguments
@@ -797,78 +851,6 @@ SELECT * from citus_remote_connection_stats();
  citus_worker_1 | 5432 | postgres      |                        3
 (1 row)
 ```
-
-### master\_drain\_node
-
-The master\_drain\_node() function moves shards off the designated node and
-onto other nodes who have `shouldhaveshards` set to true in
-[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table). Call the
-function prior to removing a node from the server group and turning off the
-node's physical server.
-
-#### Arguments
-
-**nodename:** The hostname name of the node to be drained.
-
-**nodeport:** The port number of the node to be drained.
-
-**shard\_transfer\_mode:** (Optional) Specify the method of replication,
-whether to use PostgreSQL logical replication or a cross-worker COPY
-command. The possible values are:
-
-> -   `auto`: Require replica identity if logical replication is
->     possible, otherwise use legacy behaviour (e.g. for shard repair,
->     PostgreSQL 9.6). This is the default value.
-> -   `force_logical`: Use logical replication even if the table
->     doesn't have a replica identity. Any concurrent update/delete
->     statements to the table will fail during replication.
-> -   `block_writes`: Use COPY (blocking writes) for tables lacking
->     primary key or replica identity.
-
-**rebalance\_strategy:** (Optional) the name of a strategy in
-[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
-If this argument is omitted, the function chooses the default strategy, as
-indicated in the table.
-
-#### Return Value
-
-N/A
-
-#### Example
-
-Here are the typical steps to remove a single node (for example
-'10.0.0.1' on a standard PostgreSQL port):
-
-1.  Drain the node.
-
-    ```postgresql
-    SELECT * from master_drain_node('10.0.0.1', 5432);
-    ```
-
-2.  Wait until the command finishes
-
-3.  Remove the node
-
-When draining multiple nodes, it's recommended to use
-[rebalance_table_shards](#rebalance_table_shards) instead. Doing so allows
-Hyperscale (Citus) to plan ahead and move shards the minimum number of times.
-
-1.  Run for each node that you want to remove:
-
-    ```postgresql
-    SELECT * FROM master_set_node_property(node_hostname, node_port, 'shouldhaveshards', false);
-    ```
-
-2.  Drain them all at once with
-    [rebalance_table_shards](#rebalance_table_shards)
-
-    ```postgresql
-    SELECT * FROM rebalance_table_shards(drain_only := true);
-    ```
-
-3.  Wait until the draining rebalance finishes
-
-4.  Remove the nodes
 
 ### replicate\_table\_shards
 

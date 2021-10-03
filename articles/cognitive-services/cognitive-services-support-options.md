@@ -25,6 +25,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 * [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
+
 ## Post a question on Microsoft Q&A
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure?product=all), Azure's preferred destination for community support.
@@ -100,13 +101,9 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 * [Metrics Advisor (preview)](https://stackoverflow.com/search?q=azure+metrics+advisor)
 * [Personalizer](https://stackoverflow.com/search?q=azure+personalizer)
 
-## Submit feedback on User Voice
+## Submit feedback
 
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-To request new features, post them on UserVoice. Share your ideas for making Cognitive Services and its APIs work better for the applications you develop. 
+To request new features, post them on https://feedback.azure.com. Share your ideas for making Cognitive Services and its APIs work better for the applications you develop. 
 
 * [Cognitive Services](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737)
 

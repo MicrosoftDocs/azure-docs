@@ -10,6 +10,7 @@ ms.author: magottei
 * Open Document formats: ODT, ODS, ODP  
 * HTML
 * XML
+* KML (XML for geographic representations)
 * ZIP
 * GZ
 * EPUB

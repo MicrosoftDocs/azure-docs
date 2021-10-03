@@ -2,7 +2,7 @@
 title: Learn how the runtime manages devices - Azure IoT Edge | Microsoft Docs 
 description: Learn how the IoT Edge runtime manages modules, security, communication, and reporting on your devices
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 11/10/2020
 ms.topic: conceptual
@@ -12,6 +12,8 @@ ms.custom:  "amqp, mqtt, devx-track-csharp"
 ---
 
 # Understand the Azure IoT Edge runtime and its architecture
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 The IoT Edge runtime is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to receive code to run at the edge and communicate the results.
 

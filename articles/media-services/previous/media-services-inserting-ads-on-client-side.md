@@ -584,7 +584,7 @@ This sample uses the VmapSchedulerPlugin to schedule ads using a VMAP file. The 
 ```
 
 ## Implementing an iOS Video Player with Ad Support
-The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Azure Media Player Framework](https://github.com/CloudMetal/azure-media-player-framework). The GitHub page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: [Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Azure Media Player Framework](https://github.com/CloudMetal/azure-media-player-framework). The GitHub page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: [Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-player-use-azure-media-player-how-to-framework).
 
 ### Scheduling Ads with VMAP
 The following example shows how to schedule ads using a VMAP file.

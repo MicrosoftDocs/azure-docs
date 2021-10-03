@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 06/25/2019
 ---
 
 # Dynamically scale database resources with minimal downtime
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database and SQL Managed Instance enable you to dynamically add more resources to your database with minimal [downtime](https://azure.microsoft.com/support/legal/sla/sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic.
+Azure SQL Database and SQL Managed Instance enable you to dynamically add more resources to your database with minimal [downtime](https://azure.microsoft.com/support/legal/sla/azure-sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic.
 
 ## Overview
 
@@ -24,7 +24,7 @@ When demand for your app grows from a handful of devices and customers to millio
 
 You can mitigate performance issues due to increased usage of your application that cannot be fixed using indexing or query rewrite methods. Adding more resources enables you to quickly react when your database hits the current resource limits and needs more power to handle the incoming workload. Azure SQL Database also enables you to scale-down the resources when they are not needed to lower the cost.
 
-You don’t need to worry about purchasing hardware and changing underlying infrastructure. Scaling a database can be easily done via the Azure portal using a slider.
+You don't need to worry about purchasing hardware and changing underlying infrastructure. Scaling a database can be easily done via the Azure portal using a slider.
 
 ![Scale database performance](./media/scale-resources/scale-performance.svg)
 
@@ -55,6 +55,9 @@ Azure SQL Managed Instance allows you to scale as well:
 - [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) uses [vCores](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the managed instance will share the resources allocated to the instance.
 
 Initiating scale up or scale down action in any of the flavors would restart database engine process and move it to a different virtual machine if needed. Moving database engine process to a new virtual machine is **online process** where you can continue using your existing Azure SQL Database service while the process is in progress. Once the target database engine is fully initialized and ready to process the queries, the connections will be [switched from source to target database engine](single-database-scale.md#impact).
+
+> [!NOTE]
+> It is not recommended to scale your managed instance if a long-running transaction, such as data import, data processing jobs, index rebuild, etc., is running, or if you have any active connection on the instance. To prevent the scaling from taking longer time to complete than usual, you should scale the instance upon the completion of all long-running operations.
 
 > [!NOTE]
 > You can expect a short connection break when the scale up/scale down process is finished. If you have implemented [Retry logic for standard transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), you will not notice the failover.

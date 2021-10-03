@@ -3,13 +3,16 @@ title: Azure service disruptions
 description: Learn what to do in the event that an Azure service disruption impacts Azure virtual machines.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 05/31/2017
+ms.date: 05/28/2021
 ms.author: cynthn
 ms.reviewer:
 
 ---
 # What if an Azure service disruption impacts Azure VMs
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.
 

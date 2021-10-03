@@ -9,7 +9,7 @@ ms.author: tomfitz
 
 ---
 
-# Microsoft.Common.ArmApiControl UI element
+# Microsoft.Solutions.ArmApiControl UI element
 
 ArmApiControl lets you get results from an Azure Resource Manager API operation. Use the results to populate dynamic content in other controls.
 
@@ -43,7 +43,14 @@ The control's output is not displayed to the user. Instead, the result of the op
 ## Remarks
 
 - The `request.method` property specifies the HTTP method. Only `GET` or `POST` are allowed.
-- The `request.path` property specifies relative path of the URL. It can be a static path or can be constructed dynamically by referring output values of the other controls.
+- The `request.path` property specifies a URL that must be a relative path to an ARM endpoint. It can be a static path or can be constructed dynamically by referring output values of the other controls.
+
+  For example, an ARM call into `Microsoft.Network/expressRouteCircuits` resource provider:
+
+  ```json
+  "path": "subscriptions/<subid>/resourceGroup/<resourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<routecircuitName>/?api-version=2020-05-01"
+  ```
+
 - The `request.body` property is optional. Use it to specify a JSON body that is sent with the request. The body can be static content or constructed dynamically by referring to output values from other controls.
 
 ## Example
@@ -78,5 +85,5 @@ For an example of using the ArmApiControl to check the availability of a resourc
 
 ## Next steps
 
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+- For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

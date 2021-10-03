@@ -47,6 +47,12 @@ Code snippets in this article and the following are extracted from the [Java web
 
 You might want to refer to this sample for full implementation details.
 
+# [Node.js](#tab/nodejs)
+
+Code snippets in this article and the following are extracted from the [Node.js web application signing users in](https://github.com/Azure-Samples/ms-identity-node) sample in MSAL Node.
+
+You might want to refer to this sample for full implementation details.
+
 # [Python](#tab/python)
 
 Code snippets in this article and the following are extracted from the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) sample in MSAL Python.
@@ -76,7 +82,7 @@ In ASP.NET Core, these settings are located in the [appsettings.json](https://gi
     // - "https://login.microsoftonline.com/" for Azure public cloud
     // - "https://login.microsoftonline.us/" for Azure US government
     // - "https://login.microsoftonline.de/" for Azure AD Germany
-    // - "https://login.chinacloudapi.cn/" for Azure AD China operated by 21Vianet
+    // - "https://login.partner.microsoftonline.cn/common" for Azure AD China operated by 21Vianet
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD audience among:
@@ -170,13 +176,44 @@ aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 
 In the Azure portal, the reply URIs that you register on the **Authentication** page for your application need to match the `redirectUri` instances that the application defines. That is, they should be `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/me`.
 
+# [Node.js](#tab/nodejs)
+
+Here, the configuration parameters reside in `index.js`
+
+```javascript
+
+const REDIRECT_URI = "http://localhost:3000/redirect";
+
+const config = {
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/",
+        clientSecret: "Enter_the_Client_Secret_Here"
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback(loglevel, message, containsPii) {
+                console.log(message);
+            },
+            piiLoggingEnabled: false,
+            logLevel: msal.LogLevel.Verbose,
+        }
+    }
+};
+```
+
+In the Azure portal, the reply URIs that you register on the Authentication page for your application need to match the redirectUri instances that the application defines (`http://localhost:3000/redirect`).
+
+> [!NOTE]
+> This quickstart proposes to store the client secret in the configuration file for simplicity. In your production app, you'd want to use other ways to store your secret, such as a key vault or an environment variable.
+
 # [Python](#tab/python)
 
 Here's the Python configuration file in [app_config.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py):
 
 ```Python
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-AUTHORITY = "https://login.microsoftonline.com/common""
+AUTHORITY = "https://login.microsoftonline.com/common"
 CLIENT_ID = "Enter_the_Application_Id_here"
 ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
 SCOPE = ["User.ReadBasic.All"]
@@ -207,7 +244,7 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
 > [!NOTE]
 > If you want to start directly with the new ASP.NET Core templates for Microsoft identity platform, that leverage Microsoft.Identity.Web, you can download a preview NuGet package containing project templates for .NET Core 3.1 and .NET 5.0. Then, once installed, you can directly instantiate ASP.NET Core web applications (MVC or Blazor). See [Microsoft.Identity.Web web app project templates](https://aka.ms/ms-id-web/webapp-project-templates) for details. This is the simplest approach as it will do all the steps below for you.
 >
-> If you prefer to start your project with the current default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleAuth` or `dotnet new webapp --auth SingleAuth`, you'll see code like the following:
+> If you prefer to start your project with the current default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleOrg` or `dotnet new webapp --auth SingleOrg`, you'll see code like the following:
 >
 >```c#
 >  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
@@ -312,6 +349,15 @@ For details, see the `doFilter()` method in [AuthFilter.java](https://github.com
 
 For details about the authorization code flow that this method triggers, see the [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
+# [Node.js](#tab/nodejs)
+
+```javascript
+const msal = require('@azure/msal-node');
+
+// Create msal application object
+const cca = new msal.ConfidentialClientApplication(config);
+```
+
 # [Python](#tab/python)
 
 The Python sample uses Flask. The initialization of Flask and MSAL Python is done in [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
@@ -350,6 +396,11 @@ Move on to the next article in this scenario,
 
 Move on to the next article in this scenario,
 [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[Sign in](./scenario-web-app-sign-user-sign-in.md?tabs=nodejs).
 
 # [Python](#tab/python)
 

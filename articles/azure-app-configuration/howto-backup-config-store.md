@@ -125,7 +125,7 @@ In this article, you'll work with C# functions that have the following propertie
 - Azure Functions runtime version 3.x
 - Function triggered by timer every 10 minutes
 
-To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own Azure function app from Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own function app from Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
 > Don't make any changes to the environment variables in the code you've downloaded. You'll create the required app settings in the next section.
@@ -197,7 +197,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Use the following command or the [Azure portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) to grant the managed identity of your function app access to your queue. Assign the `Storage Queue Data Contributor` role in the queue.
+Use the following command or the [Azure portal](../storage/blobs/assign-azure-role-data-access.md#assign-an-azure-role) to grant the managed identity of your function app access to your queue. Assign the `Storage Queue Data Contributor` role in the queue.
 
 ```azurecli-interactive
 az role assignment create \

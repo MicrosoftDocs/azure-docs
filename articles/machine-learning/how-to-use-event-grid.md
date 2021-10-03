@@ -5,10 +5,10 @@ description: Set up event-driven applications, processes, or CI/CD machine learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
-ms.author: shipatel
-author: shivp950
+ms.topic: how-to
+ms.custom: devx-track-azurecli
+ms.author: cgronlun
+author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 05/11/2020
 ---

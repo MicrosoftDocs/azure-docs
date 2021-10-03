@@ -9,6 +9,8 @@ ms.date: 3/18/2020
 ---
 # Server concepts in Azure Database for MySQL
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This article provides considerations and guidelines for working with Azure Database for MySQL servers.
 
 ## What is an Azure Database for MySQL server?
@@ -32,7 +34,7 @@ Within an Azure Database for MySQL server, you can create one or multiple databa
 
 The following elements help ensure safe access to your database.
 
-|     |     |
+| Security concept | Description     |
 | :-- | :-- |
 | **Authentication and authorization** | Azure Database for MySQL server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. |
 | **Protocol** | The service supports a message-based protocol used by MySQL. |
@@ -56,7 +58,13 @@ During the time server is stopped, no management operations can be performed on 
 
 ## How do I manage a server?
 
-You can manage Azure Database for MySQL servers by using the Azure portal or the Azure CLI.
+You can manage the creation, deletion, server parameter configuration (my.cnf), scaling, networking, security, high availability, backup & restore, monitoring of your Azure Database for MySQL servers by using the Azure portal or the Azure CLI. In addition, following stored procedures are available in Azure Database for MySQL to perform certain database administration tasks required as SUPER user privilege is not supported on the server.
+
+|**Stored Procedure Name**|**Input Parameters**|**Output Parameters**|**Usage Note**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|N/A|Equivalent to [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the connection associated with the provided processlist_id after terminating any statement the connection is executing.|
+|*mysql.az_kill_query*|processlist_id|N/A|Equivalent to [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the statement the connection is currently executing. Leaves the connection itself alive.|
+|*mysql.az_load_timezone*|N/A|N/A|Loads [time zone tables](howto-server-parameters.md#working-with-the-time-zone-parameter) to allow the `time_zone` parameter to be set to named values (ex. "US/Pacific").|
 
 ## Next steps
 

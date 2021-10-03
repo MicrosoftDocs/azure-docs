@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 08/26/2020
  ms.author: rogara
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 ## Assign access permissions to an identity
@@ -88,7 +88,7 @@ The following sets of permissions are supported on the root directory of a file 
 
 ### Mount a file share from the command prompt
 
-Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
+Use the Windows **net use** command to mount the Azure file share. Remember to replaceÂ the placeholder values in the following exampleÂ with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
@@ -121,7 +121,7 @@ Use Windows File Explorer to grant full permission to all directories and files 
 
 ### Configure NTFS permissions with icacls
 
-Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
+Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replaceÂ the placeholder values in the example with your own values.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
@@ -137,7 +137,7 @@ Sign in to the VM by using the Azure AD identity to which you have granted permi
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the on-premises AD DS credentials, or the Azure AD DS credentials. Single sign-on experience is supported for authentication with either on-premises AD DS or Azure AD DS. If you run into issues mounting with AD DS credentials, refer to [Troubleshoot Azure Files problems in Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) for guidance.
+Use the following command to mount the Azure file share. Remember to replaceÂ the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the on-premises AD DS credentials, or the Azure AD DS credentials. Single sign-on experience is supported for authentication with either on-premises AD DS or Azure AD DS. If you run into issues mounting with AD DS credentials, refer to [Troubleshoot Azure Files problems in Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) for guidance.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

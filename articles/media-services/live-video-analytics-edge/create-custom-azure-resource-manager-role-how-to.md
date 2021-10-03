@@ -1,12 +1,14 @@
 ---
-title: Create custom Azure Resource Manager role and assign to service principal - Azure
-description: This article provides guidance on how to create custom Azure Resource Manager role and assign to service principal for Live Video Analytics on IoT Edge using Azure CLI.
+title: Create custom Azure Resource Manager role and assign to service principal with Azure Live Video Analytics
+description: This article provides guidance on how to create custom Azure Resource Manager role and assign to service principal for Azure Live Video Analytics on IoT Edge using Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
 
 ---
 
-# Create custom Azure Resource Manager role and assign to service principal
+# Create custom Azure Resource Manager role and assign to service principal with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics on IoT Edge module instance needs an active Azure Media Services account for it to function properly. The relationship between the Live Video Analytics on IoT Edge module and the Azure Media Service account is established via a set of module twin properties. One of those twin properties is a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) that enables the module instance to communicate with and trigger necessary operations on the Media Services account. To minimize potential misuse and/or accidental data exposure from the edge device, this service principal should have the least amount of privileges.
 
@@ -45,7 +47,7 @@ If you don’t have a Media Service  account, use the following steps to create 
     ```
     az account set --subscription " <yourSubscriptionName or yourSubscriptionId>"
     ```
-1. Create a [resource group](/cli/azure/group#az-group-create) and a [storage account](/cli/azure/storage/account#az-storage-account-create).
+1. Create a [resource group](/cli/azure/group#az_group_create) and a [storage account](/cli/azure/storage/account#az_storage_account_create).
 1. Now, create an Azure Media Service account by using the following command template in Cloud Shell:
 
     ```
@@ -82,7 +84,7 @@ This command produces a response like this:
 1. The output for a service principal with password authentication includes the password key that in this case is the “AadSecret” parameter. 
 
     Make sure you copy this value - it can't be retrieved. If you forget the password, [reset the service principal credentials](/cli/azure/create-an-azure-service-principal-azure-cli#reset-credentials).
-1. The appId and tenant key appear in the output as “AadClientId” and “AadTenantId” respectively. They are used in service principal authentication. Record their values, but they can be retrieved at any point with [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list).
+1. The appId and tenant key appear in the output as “AadClientId” and “AadTenantId” respectively. They are used in service principal authentication. Record their values, but they can be retrieved at any point with [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list).
 
 ### Create a custom role definition  
 
@@ -167,7 +169,7 @@ The above command will print out the objectId of the service principal.
 “objectId” : “<yourObjectId>”,
 ```
 
-Use [az role assignment create command](/cli/azure/role/assignment#az-role-assignment-create) template to the link the custom role with the service principal:
+Use [az role assignment create command](/cli/azure/role/assignment#az_role_assignment_create) template to the link the custom role with the service principal:
 
 ```
 az role assignment create --role “LVAEdge User” --assignee-object-id < objectId>	

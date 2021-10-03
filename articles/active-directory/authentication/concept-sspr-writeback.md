@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 07/28/2021
 
 ms.author: justinha
 author: justinha
@@ -47,14 +47,14 @@ To get started with SSPR writeback, complete the following tutorial:
 
 ## How password writeback works
 
-When a federated or password hash synchronized user attempts to reset or change their password in the cloud, the following actions occur:
+When a password hash synchronized, pass-through authentication configured or a federated user attempts to reset or change their password in the cloud, the following actions occur:
 
 1. A check is performed to see what type of password the user has. If the password is managed on-premises:
    * A check is performed to see if the writeback service is up and running. If it is, the user can proceed.
    * If the writeback service is down, the user is informed that their password can't be reset right now.
 1. Next, the user passes the appropriate authentication gates and reaches the **Reset password** page.
 1. The user selects a new password and confirms it.
-1. When the user selects **Submit**, the plaintext password is encrypted with a symmetric key created during the writeback setup process.
+1. When the user selects **Submit**, the plaintext password is encrypted with a public key created during the writeback setup process.
 1. The encrypted password is included in a payload that gets sent over an HTTPS channel to your tenant-specific service bus relay (that is set up for you during the writeback setup process). This relay is protected by a randomly generated password that only your on-premises installation knows.
 1. After the message reaches the service bus, the password-reset endpoint automatically wakes up and sees that it has a reset request pending.
 1. The service then looks for the user by using the cloud anchor attribute. For this lookup to succeed, the following conditions must be met:
@@ -101,7 +101,7 @@ Password writeback is a highly secure service. To ensure your information is pro
 After a user submits a password reset, the reset request goes through several encryption steps before it arrives in your on-premises environment. These encryption steps ensure maximum service reliability and security. They are described as follows:
 
 1. **Password encryption with 2048-bit RSA Key**: After a user submits a password to be written back to on-premises, the submitted password itself is encrypted with a 2048-bit RSA key.
-1. **Package-level encryption with AES-GCM**: The entire package, the password plus the required metadata, is encrypted by using AES-GCM. This encryption prevents anyone with direct access to the underlying Service Bus channel from viewing or tampering with the contents.
+1. **Package-level encryption with 256-bit AES-GCM**: The entire package, the password plus the required metadata, is encrypted by using AES-GCM (with a key size of 256 bits). This encryption prevents anyone with direct access to the underlying Service Bus channel from viewing or tampering with the contents.
 1. **All communication occurs over TLS/SSL**: All the communication with Service Bus happens in an SSL/TLS channel. This encryption secures the contents from unauthorized third parties.
 1. **Automatic key rollover every six months**: All keys roll over every six months, or every time password writeback is disabled and then re-enabled on Azure AD Connect, to ensure maximum service security and safety.
 
@@ -136,7 +136,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service force change password operation, for example, password expiration.
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com).
    * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com).
-   * Any administrator-initiated end-user password reset from the [Microsoft Graph API beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
+   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http).
 
 ## Unsupported writeback operations
 
@@ -145,7 +145,7 @@ Passwords aren't written back in any of the following situations:
 * **Unsupported end-user operations**
    * Any end user resetting their own password by using PowerShell version 1, version 2, or the Microsoft Graph API.
 * **Unsupported administrator operations**
-   * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Microsoft Graph API (the [Microsoft Graph API beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) is supported).
+   * Any administrator-initiated end-user password reset from PowerShell version 1, or version 2.
    * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com).
    * Any administrator cannot use password reset tool to reset their own password for password writeback.
 

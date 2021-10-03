@@ -9,37 +9,50 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Custom email verification with SendGrid
 
-Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and the third-party email provider SendGrid, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using the third-party email provider SendGrid, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## Create a SendGrid account
 
-If you don't already have one, start by setting up a SendGrid account (Azure customers can unlock 25,000 free emails each month). For setup instructions, see the [Create a SendGrid Account](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) section of [How to send email using SendGrid with Azure](../sendgrid-dotnet-how-to-send-email.md).
+If you don't already have one, start by setting up a SendGrid account (Azure customers can unlock 25,000 free emails each month). For setup instructions, see the [Create a SendGrid Account](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-sendgrid-account) section of [How to send email using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account).
 
-Be sure to complete the section in which you [create a SendGrid API key](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
+Be sure to complete the section in which you [create a SendGrid API key](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#to-find-your-sendgrid-api-key). Record the API key for use in a later step.
+
+> [!IMPORTANT]
+> SendGrid offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [Warming Up An Ip Address](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/).
 
 ## Create Azure AD B2C policy key
 
 Next, store the SendGrid API key in an Azure AD B2C policy key for your policies to reference.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose your Azure AD B2C directory.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
 1. For **Options**, choose **Manual**.
 1. Enter a **Name** for the policy key. For example, `SendGridSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-1. In **Secret**, enter your client secret that you previously recorded.
+1. In **Secret**, enter the SendGrid API key that you previously recorded.
 1. For **Key usage**, select **Signature**.
 1. Select **Create**.
 
@@ -189,7 +202,9 @@ The JSON object's structure is defined by the IDs in dot notation of the InputPa
 Add the following claims transformation to the `<ClaimsTransformations>` element within `<BuildingBlocks>`. Make the following updates to the claims transformation XML:
 
 * Update the `template_id` InputParameter value with the ID of the SendGrid transactional template you created earlier in [Create SendGrid template](#create-sendgrid-template).
-* Update the `from.email` address value. Use a valid email address to help prevent the verification email from being marked as spam.
+* Update the `from.email` address value. Use a valid email address to help prevent the verification email from being marked as spam. 
+   > [!NOTE]
+   > This email address must be verified in SendGrid under Sender Authentication with either domain authentication or Single Sender Authentication.
 * Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
 
 ```xml
@@ -220,17 +235,17 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 
 ## Add DataUri content definition
 
-Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.0 data URI:
+Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.2 data URI:
 
 ```xml
 <!--
 <BuildingBlocks> -->
   <ContentDefinitions>
    <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountpasswordreset">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
     </ContentDefinition>
   </ContentDefinitions>
 <!--
@@ -286,6 +301,9 @@ Under content definitions, still within `<BuildingBlocks>`, add the following [D
 ## Add OTP technical profiles
 
 The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information about OTP technical profiles, see [Define a one-time password technical profile](one-time-password-technical-profile.md).
+
+> [!NOTE]
+> OTP codes that are generated by the Web.TPEngine.Providers.OneTimePasswordProtocolProvider protocol are tied to the browser session. This means a user can generate unique OTP codes in different browser sessions that are each valid for their corresponding sessions. By contrast, an OTP code generated by the built-in email provider is independent of the browser session, so if a user generates a new OTP code in a new browser session, it replaces the previous OTP code.
 
 Add the following technical profiles to the `<ClaimsProviders>` element.
 
@@ -485,14 +503,14 @@ To localize the email, you must send localized strings to SendGrid, or your emai
     <BuildingBlocks> -->
       <ContentDefinitions>
         <ContentDefinition Id="api.localaccountsignup">
-          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
           <LocalizedResourcesReferences MergeBehavior="Prepend">
             <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
             <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
           </LocalizedResourcesReferences>
         </ContentDefinition>
         <ContentDefinition Id="api.localaccountpasswordreset">
-          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
           <LocalizedResourcesReferences MergeBehavior="Prepend">
             <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
             <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
@@ -552,3 +570,5 @@ You can find an example of a custom email verification policy on GitHub:
 
 - [Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 - For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
+
+::: zone-end

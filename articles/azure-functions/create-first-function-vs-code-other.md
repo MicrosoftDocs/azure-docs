@@ -136,8 +136,8 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
 
     ```toml
     [dependencies]
-    warp = "0.2"
-    tokio = { version = "0.2", features = ["full"] }
+    warp = "0.3"
+    tokio = { version = "1", features = ["rt", "macros", "rt-multi-thread"] }
     ```
 
 1. In *src/main.rs*, add the following code and save the file. This is your Rust custom handler.

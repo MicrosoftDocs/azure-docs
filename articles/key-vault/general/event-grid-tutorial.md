@@ -3,7 +3,6 @@ title: Receive and respond to key vault notifications with Azure Event Grid
 description: Learn how to integrate Key Vault with Azure Event Grid.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -27,7 +26,7 @@ This guide describes how to receive Key Vault notifications through Event Grid, 
 
 ## Concepts
 
-Event Grid is an eventing service for the cloud. By following the steps in this guide, you'll subscribe to events for Key Vault and route events to Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers an Automation execution of a PowerShell script.
+Event Grid is an eventing service for the cloud. By following the steps in this guide, you'll subscribe to events for Key Vault and route events to Automation. When one of the secrets in the key vault is about to expire (defined as 30 days before expiration date), Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers an Automation execution of a PowerShell script.
 
 ![HTTP POST flowchart](../media/event-grid-tutorial-1.png)
 

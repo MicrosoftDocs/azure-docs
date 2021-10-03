@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: In this tutorial, you learn how to filter network traffic to a subnet, with a network security group, using the Azure portal.
 services: virtual-network
 author: KumudD
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
+# Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 03/06/2021
@@ -175,7 +175,7 @@ In this section, we'll associate the network security group with the subnet of t
     | Destination application security group | Select **myAsgMgmtServers**. |
     | Service | Leave the default of **Custom**. |
     | Destination port ranges | Enter **3389**. |
-    | Protocol | Select **TCP**. |
+    | Protocol | Select **Any**. |
     | Action | Leave the default of **Allow**. |
     | Priority | Leave the default of **110**. |
     | Name | Enter **Allow-RDP-All**. |

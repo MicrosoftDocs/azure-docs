@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
-ms.date: 10/26/2020
+ms.date: 08/23/2021
 ---
 # An overview of Azure SQL Database and SQL Managed Instance security capabilities
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -63,9 +63,9 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 ## Authorization
 
-Authorization refers to the permissions assigned to a user within a database in Azure SQL Database or Azure SQL Managed Instance, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](logins-create-manage.md)
+Authorization refers to controlling access on resources and commands within a database. This is done by assigning permissions to a user within a database in Azure SQL Database or Azure SQL Managed Instance. Permissions are ideally managed by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles. Alternatively an individual user can also be granted certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](logins-create-manage.md)
 
-As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. For applications, use the [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) to specify the execution context of the called module or use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This practice ensures that the application that connects to the database has the least privileges needed by the application. Following these best practices also fosters separation of duties.
+As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. To further limit the scope of what a user can do, the [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) can be used to specify the execution context of the called module. Following these best practices is also a fundamental step towards Separation of Duties.
 
 ### Row-level security
 
@@ -108,11 +108,11 @@ For example when using the ADO.NET driver this is accomplished via  **Encrypt=Tr
 
 [Transparent data encryption (TDE) for SQL Database, SQL Managed Instance, and Azure Synapse Analytics](transparent-data-encryption-tde-overview.md) adds a layer of security to help protect data at rest from unauthorized or offline access to raw files or backups. Common scenarios include data center theft or unsecured disposal of hardware or media such as disk drives and backup tapes. TDE encrypts the entire database using an AES encryption algorithm, which doesn't require application developers to make any changes to existing applications.
 
-In Azure, all newly created databases are encrypted by default and the database encryption key is protected by a built-in server certificate.  Certificate maintenance and rotation are managed by the service and require no input from the user. Customers who prefer to take control of the encryption keys can manage the keys in [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md).
+In Azure, all newly created databases are encrypted by default and the database encryption key is protected by a built-in server certificate.  Certificate maintenance and rotation are managed by the service and require no input from the user. Customers who prefer to take control of the encryption keys can manage the keys in [Azure Key Vault](../../key-vault/general/security-features.md).
 
 ### Key management with Azure Key Vault
 
-[Bring Your Own Key](transparent-data-encryption-byok-overview.md) (BYOK) support for [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) allows customers to take ownership of key management and rotation using [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), Azure's cloud-based external key management system. If the database's access to the key vault is revoked, a database cannot be decrypted and read into memory. Azure Key Vault provides a central key management platform, leverages tightly monitored hardware security modules (HSMs), and enables separation of duties between management of keys and data to help meet security compliance requirements.
+[Bring Your Own Key](transparent-data-encryption-byok-overview.md) (BYOK) support for [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) allows customers to take ownership of key management and rotation using [Azure Key Vault](../../key-vault/general/security-features.md), Azure's cloud-based external key management system. If the database's access to the key vault is revoked, a database cannot be decrypted and read into memory. Azure Key Vault provides a central key management platform, leverages tightly monitored hardware security modules (HSMs), and enables separation of duties between management of keys and data to help meet security compliance requirements.
 
 ### Always Encrypted (Encryption-in-use)
 
@@ -134,7 +134,7 @@ Dynamic data masking limits sensitive data exposure by masking it to non-privile
 
 ### Data discovery and classification
 
-Data discovery and classification (currently in preview) provides advanced capabilities built into Azure SQL Database and SQL Managed Instance for discovering, classifying, labeling, and protecting the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, personal data, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
+Data discovery and classification (currently in preview) provides basic capabilities built into Azure SQL Database and SQL Managed Instance for discovering, classifying and labeling the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, personal data, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
 
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to, and hardening the security of, databases containing highly sensitive data.

@@ -7,7 +7,7 @@ metadata:
   title: Azure confidential computing
   description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud. 
   ms.service: virtual-machines
-  ms.subservice: workloads
+  ms.subservice: confidential-computing
   ms.topic: landing-page
   author: JBCook 
   ms.author: jencook
@@ -65,7 +65,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Confidential computing virtual machines FAQ 
-            url: faq.md
+            url: faq.yml
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
           - text: Availability
@@ -99,7 +99,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Confidential nodes on AKS FAQ 
-            url: confidential-nodes-aks-faq.md
+            url: confidential-nodes-aks-faq.yml
           - text: About Azure Kubernetes Service (AKS) 
             url: ../aks/intro-kubernetes.md
 
@@ -114,6 +114,9 @@ landingContent:
             url: ../attestation/overview.md
           - text: Confidential Inferencing ONNX Runtime
             url: https://aka.ms/confidentialinference
+          - text: Always Encrypted with secure enclaves in Azure SQL Database
+            url: ../azure-sql/database/always-encrypted-with-secure-enclaves-landing.yml
+           
   
 
 # Card

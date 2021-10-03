@@ -42,6 +42,8 @@
       href: how-to-prerequisites.md
     - name: Install the Azure AD Connect cloud provisioning agent
       href: how-to-install.md
+    - name: Install the provisioning agent using CLI and PowerShell
+      href: how-to-install-pshell.md
     - name: Cloud sync configuration
       href: how-to-configure.md
     - name: On-demand provisioning
@@ -66,14 +68,16 @@
       href: how-to-manage-registry-options.md
     - name: Agent gMSA PowerShell cmdlets
       href: how-to-gmsa-cmdlets.md
-    - name: Install the provisioning agent using PowerShell
-      href: how-to-install-pshell.md
+    - name: How to map usertype with cloud sync
+      href: how-to-map-usertype.md
   - name: Develop
     items:
     - name: Transformations
       href: how-to-transformation.md
     - name: Programmatically configure cloud sync using MS Graph API
       href: how-to-inbound-synch-ms-graph.md
+    - name: Expression Builder
+      href: how-to-expression-builder.md
     - name: Azure AD synchronization API 
       href: /graph/api/resources/synchronization-overview
   
@@ -89,7 +93,7 @@
   - name: Azure AD Connect cloud provisioning agent version history
     href: reference-version-history.md
   - name: Azure AD Connect cloud sync FAQ
-    href: reference-cloud-sync-faq.md
+    href: reference-cloud-sync-faq.yml
   - name: AADCloudSyncTools PowerShell Module 
     href: reference-powershell.md
   - name: Attributes that are synchronized

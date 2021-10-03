@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 06/01/2021
 ms.author: justinha
 
 ---
@@ -75,11 +75,11 @@ For more information about forest types in Azure AD DS, see [What are resource f
 
 In Azure AD DS, the available performance and features are based on the SKU. You select a SKU when you create the managed domain, and you can switch SKUs as your business requirements change after the managed domain has been deployed. The following table outlines the available SKUs and the differences between them:
 
-| SKU name   | Maximum object count | Backup frequency | Maximum number of outbound forest trusts |
-|------------|----------------------|------------------|----|
-| Standard   | Unlimited            | Every 5 days     | 0  |
-| Enterprise | Unlimited            | Every 3 days     | 5  |
-| Premium    | Unlimited            | Daily            | 10 |
+| SKU name   | Maximum object count | Backup frequency | 
+|------------|----------------------|------------------|
+| Standard   | Unlimited            | Every 5 days     |
+| Enterprise | Unlimited            | Every 3 days     | 
+| Premium    | Unlimited            | Daily            | 
 
 Before these Azure AD DS SKUs, a billing model based on the number of objects (user and computer accounts) in the managed domain was used. There is no longer variable pricing based on the number of objects in the managed domain.
 
@@ -96,10 +96,6 @@ If your business or application demands change and you need additional compute p
 The backup frequency determines how often a snapshot of the managed domain is taken. Backups are an automated process managed by the Azure platform. In the event of an issue with your managed domain, Azure support can assist you in restoring from backup. As synchronization only occurs one way *from* Azure AD, any issues in a managed domain won't impact Azure AD or on-premises AD DS environments and functionality.
 
 As the SKU level increases, the frequency of those backup snapshots increases. Review your business requirements and recovery point objective (RPO) to determine the required backup frequency for your managed domain. If your business or application requirements change and you need more frequent backups, you can switch to a different SKU.
-
-### Outbound forest trusts
-
-The previous section detailed one-way outbound forest trusts from a managed domain to an on-premises AD DS environment. The SKU determines the maximum number of forest trusts you can create for a managed domain. Review your business and application requirements to determine how many trusts you actually need, and pick the appropriate Azure AD DS SKU. Again, if your business requirements change and you need to create additional forest trusts, you can switch to a different SKU.
 
 ## Next steps
 

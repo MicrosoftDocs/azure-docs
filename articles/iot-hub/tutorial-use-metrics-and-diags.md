@@ -9,13 +9,16 @@ ms.date: 10/29/2020
 ms.author: robinsh
 ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 #Customer intent: As a developer, I want to know how to set up and check metrics and logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
+# 4.17/2021 Updated this to "guide the new alerts experience" at request of John Lian. 1577857. They added metrics
+# as a supported signal, and fixed connected Device Count and Total Device Count.
+# "IoT Hub supports the new Azure Metric metric alerts.
 ---
 
 # Tutorial: Set up and use metrics and logs with an IoT hub
 
 You can use Azure Monitor to collect metrics and logs for your IoT hub that can help you monitor the operation of your solution and troubleshoot problems when they occur. In this article, you'll see how to create charts based on metrics, how to create alerts that trigger on metrics, how to send IoT Hub operations and errors to Azure Monitor Logs, and how to check the logs for errors.
 
-This tutorial uses the Azure sample from the [.NET Send telemetry quickstart](quickstart-send-telemetry-dotnet.md) to send messages to the IoT hub. You can always use a device or another sample to send messages, but you may have to modify a few steps accordingly.
+This tutorial uses the Azure sample from the [.NET Send telemetry quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) to send messages to the IoT hub. You can always use a device or another sample to send messages, but you may have to modify a few steps accordingly.
 
 Some familiarity with Azure Monitor concepts might be helpful before you begin this tutorial. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md). To learn more about the metrics and resource logs emitted by IoT Hub, see [Monitoring data reference](monitor-iot-hub-reference.md).
 
@@ -36,7 +39,7 @@ In this tutorial, you perform the following tasks:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- You need the .NET Core SDK 2.1 or greater on your development machine. You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+- You need the .NET Core SDK 2.1 or greater on your development machine. You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
 
   You can verify the current version of C# on your development machine using the following command:
 
@@ -211,7 +214,7 @@ To set up metric alerts:
 
 1. First configure the condition that the alert will trigger on.
 
-    1. Under **Condition**, select **Select condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
+    1. Under **Condition**, select **Add condition**. On the **Configure signal logic** pane, type "telemetry" in the search box and select **Telemetry messages sent**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot showing selecting the metric.":::
 
@@ -237,7 +240,7 @@ To set up metric alerts:
 
 1. Now configure the action for the alert.
 
-    1. Back on the **Create alert rule** pane, under **Actions**, select **Select action group**. On the **Select an action group to attach to this alert rule** pane, select **Create action group**.
+    1. Back on the **Create alert rule** pane, under **Actions**, select **Add action groups**. On the **Select an action group to attach to this alert rule** pane, select **Create action group**.
 
     1. Under the **Basics** tab on the **Create action group** pane, give your action group a name and a display name.
 
@@ -305,7 +308,7 @@ With these settings, an alert will trigger and you'll get an email notification 
 
 ## Run the simulated device app
 
-In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT Hub, configure it to send these messages to your IoT hub, and then run it. 
+In the [Set up resources](#set-up-resources) section, you registered a device identity to use to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT Hub, configure it to send these messages to your IoT hub, and then run it.
 
 > [!IMPORTANT]
 >
@@ -401,7 +404,7 @@ In the [Collect logs for connections and device telemetry](#collect-logs-for-con
 
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the Log Analytics workspace, and the resource group itself. If you have pinned metrics charts to the dashboard, you'll have to remove them manually by clicking on the three dots in the upper right-hand corner of each chart and selecting **Remove**. Be sure to save your changes after doing deleting the charts.
 
-To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command.
 
 ```azurecli-interactive
 az group delete --name ContosoResources

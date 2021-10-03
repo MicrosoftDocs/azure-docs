@@ -1,8 +1,9 @@
 ---
 title: Integrate Azure Relay with Azure Private Link Service
 description: Learn how to integrate Azure Relay with Azure Private Link Service
-ms.date: 09/24/2020
-ms.topic: article
+ms.date: 06/24/2021
+ms.topic: article 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Integrate Azure Relay with Azure Private Link 
@@ -96,7 +97,7 @@ $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
 
 # create resource group
-az group create -l $vnetLocation -n $rgName
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `

@@ -3,13 +3,15 @@ title: 'Tutorial - Stream Analytics at the edge using Azure IoT Edge'
 description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
 author: kgremban
 ms.author: kgremban
-ms.date: 07/29/2020
+ms.date: 05/03/2021
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ---
 
 # Tutorial: Deploy Azure Stream Analytics as an IoT Edge module
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics](../stream-analytics/index.yml) logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
 
@@ -82,7 +84,7 @@ When you create an Azure Stream Analytics job to run on an IoT Edge device, it n
    | Subscription | Choose the same subscription as your IoT hub. |
    | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
    | Location | Choose a location close to you. |
-   | Hosting environment | Select **Edge**. |
+   | Hosting environment | Select **Edge**. This option indicates that the job is going to be deployed to an IoT Edge device instead of hosted in the cloud. |
 
 1. Select **Create**.
 
@@ -94,11 +96,13 @@ Using the three elements of input, output, and query, this section creates a job
 
 1. Navigate to your Stream Analytics job in the Azure portal.
 
-1. Under **Job Topology**, select **Inputs** then **Add stream input**.
+1. Under **Job topology**, select **Inputs** then **Add stream input**.
 
    ![Azure Stream Analytics - add input](./media/tutorial-deploy-stream-analytics/asa-input.png)
 
 1. Choose **Edge Hub** from the drop-down list.
+
+   If you don't see the **Edge Hub** option in the list, then you may have created your Stream Analytics job as a cloud-hosted job. Try creating a new job and be sure to select **Edge** as the hosting environment.
 
 1. In the **New input** pane, enter **temperature** as the input alias.
 
@@ -133,15 +137,15 @@ Using the three elements of input, output, and query, this section creates a job
 
 ### Configure IoT Edge settings
 
-To prepare your Stream Analytics job to be deployed on an IoT Edge device, you need to associate the job with a container in a storage account. When you go to deploy your job, the job definition is exported to the storage container.
+To prepare your Stream Analytics job to be deployed on an IoT Edge device, you need to associate the job with a storage account. When you go to deploy your job, the job definition is exported to the storage account in the form of a container.
 
 1. Under **Configure**, select **Storage account settings** then select **Add storage account**.
 
    ![Azure Stream Analytics - add storage account](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 
-1. Select the **Storage account** that you created at the beginning of this tutorial from the drop-down menu.
+1. Choose the **Select Blob storage/ADLS Gen 2 from your subscriptions** option.
 
-1. For the **Container** field, select **Create new** and provide a name for the storage container.
+1. Use the drop-down menus to select the **Subscription** and **Storage account** that you set up at the beginning of this tutorial.
 
 1. Select **Save**.
 

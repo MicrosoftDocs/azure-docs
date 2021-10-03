@@ -5,7 +5,6 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
-ms.subservice: powershell
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurepowershell

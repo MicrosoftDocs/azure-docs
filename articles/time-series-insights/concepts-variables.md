@@ -27,7 +27,7 @@ The following table displays which properties are relevant for each variable kin
 | Variable property | Description |
 | --- | ---|
 | Variable filter | Filters are optional conditional clauses to restrict the number of rows being considered for computation. |
-| Variable value | Telemetry values used for computation coming from the device or sensors or transformed by using Time Series Expressions. Numeric kind variables must be of the type *Double*.|
+| Variable value | Telemetry values used for computation coming from the device or sensors or transformed by using Time Series Expressions. Numeric kind variables must be either `Double` or `Long` to match the data type of the incoming data.|
 | Variable interpolation | Interpolation specifies how to reconstruct a signal by using existing data. *Step* and *Linear* interpolation options are available for numeric variables. |
 | Variable aggregation | Perform computations through the supported [aggregation functions for Numeric variable kinds](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
@@ -57,7 +57,7 @@ Variables conform to the following JSON example:
 | Variable property | Description |
 | --- | ---|
 | Variable filter | Filters are optional conditional clauses to restrict the number of rows being considered for computation. |
-| Variable value | Telemetry values used for computation coming from the device or sensors. Categorical kind variables must be either *Long* or *String*. |
+| Variable value | Telemetry values used for computation coming from the device or sensors. Categorical kind variables must be either `Long` or `String` to match the data type of the incoming data. |
 | Variable interpolation | Interpolation specifies how to reconstruct a signal by using existing data. The *Step* interpolation option is available for categorical variables. |
 | Variable categories | Categories create a mapping between the values coming from the device or sensors to a label. |
 | Variable default category | The default category is for all values that aren't being mapped in the "categories" property. |

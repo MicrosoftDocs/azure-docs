@@ -2,7 +2,7 @@
 title: Common errors - Azure IoT Edge | Microsoft Docs 
 description: Use this article to resolve common issues encountered when deploying an IoT Edge solution
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -12,6 +12,8 @@ ms.custom:  [amqp, mqtt]
 ---
 
 # Common issues and resolutions for Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Use this article to find steps to resolve common issues that you may experience when deploying IoT Edge solutions. If you need to learn how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
@@ -78,6 +80,8 @@ Specify the DNS server for your environment in the container engine settings, wh
 
 The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Place `daemon.json` in the right location for your platform:
 
 | Platform | Location |
@@ -93,6 +97,24 @@ Restart the container engine for the updates to take effect.
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (Admin PowerShell) | `Restart-Service iotedge-moby -Force` |
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Place `daemon.json` in the `/etc/docker` directory on your device.
+
+If the location already contains a `daemon.json` file, add the **dns** key to it and save the file.
+
+Restart the container engine for the updates to take effect.
+
+```bash
+sudo systemctl restart docker
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
@@ -266,6 +288,9 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 ## Can't get the IoT Edge daemon logs on Windows
 
 **Observed behavior:**
@@ -288,6 +313,9 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ## Stability issues on smaller devices
 
@@ -379,6 +407,7 @@ IoT Edge devices behind a gateway get their module images from the parent IoT Ed
 Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
 
 :::moniker-end
+<!-- end 1.2 -->
 
 ## Next steps
 

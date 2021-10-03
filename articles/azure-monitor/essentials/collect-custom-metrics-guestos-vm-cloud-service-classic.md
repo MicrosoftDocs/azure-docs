@@ -6,7 +6,8 @@ services: azure-monitor
 
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.author: ancav
+ms.author: ancav 
+ms.custom: devx-track-azurepowershell
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
 

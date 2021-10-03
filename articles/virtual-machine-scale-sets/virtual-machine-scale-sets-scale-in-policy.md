@@ -6,14 +6,16 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: autoscale
+ms.subservice: scale-in-policy
 ms.date: 02/26/2020
 ms.reviewer: avverma
-ms.custom: avverma, devx-track-azurecli
+ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
 # Use custom scale-in policies with Azure virtual machine scale sets
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 A virtual machine scale set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new virtual machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the scale set workload evolves. 
 

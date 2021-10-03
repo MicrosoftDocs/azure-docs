@@ -135,7 +135,7 @@ You can [configure application settings in Azure App Service](../app-service/con
 
 1. Go to the [Azure AD B2C policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies) in the Policies folder.
 
-2. Follow [this article](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
+2. Follow [this article](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 3. Configure the policy for the Azure AD B2C tenant.
 
@@ -166,4 +166,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

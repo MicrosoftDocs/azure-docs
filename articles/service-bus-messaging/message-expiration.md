@@ -2,7 +2,7 @@
 title: Azure Service Bus - message expiration
 description: This article explains about expiration and time to live of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 07/09/2021
 ---
 
 # Message expiration (Time to Live)
@@ -22,9 +22,9 @@ Extremely low TTL in the order of milliseconds or seconds may cause messages to 
 All messages sent into a queue or topic are subject to a default expiration that is set at the entity level. It can also be set in the portal during creation and adjusted later. The default expiration is used for all messages sent to the entity where time-to-live isn't explicitly set. The default expiration also functions as a ceiling for the time-to-live value. Messages that have a longer time-to-live expiration than the default value are silently adjusted to the default message time-to-live value before being enqueued.
 
 > [!NOTE]
-> The default time-to-live value for a brokered message is the largest possible value for a singed 64-bit integer if not otherwise specified.
->
-> For messaging entities (queues and topics), the default expiration time is also largest possible value for a singed 64-bit integer for Service Bus standard and premium tiers. For the **basic** tier, the default (also maximum) expiration time is **14 days**.
+> - The default time-to-live value for a brokered message is the largest possible value for a signed 64-bit integer if not otherwise specified.
+> - For messaging entities (queues and topics), the default expiration time is also largest possible value for a signed 64-bit integer for Service Bus standard and premium tiers. For the **basic** tier, the default (also maximum) expiration time is **14 days**.
+> - If the topic specifies a smaller TTL than the subscription, the topic TTL is applied.
 
 Expired messages can optionally be moved to a [dead-letter queue](service-bus-dead-letter-queues.md). You can configure this setting programmatically or using the Azure portal. If the option is left disabled, expired messages are dropped. Expired messages moved to the dead-letter queue can be distinguished from other dead-lettered messages by evaluating the [dead-letter reason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) property that the broker stores in the user properties section. 
 
@@ -41,7 +41,7 @@ Service Bus queues, topics, and subscriptions can be created as temporary entiti
  
 Automatic cleanup is useful in development and test scenarios in which entities are created dynamically and aren't cleaned up after use, due to some interruption of the test or debugging run. It is also useful when an application creates dynamic entities, such as a reply queue, for receiving responses back into a web server process, or into another relatively short-lived object where it is difficult to reliably clean up those entities when the object instance disappears.
 
-The feature is enabled using the **auto delete on idle** property on the namespace. This property is set to the duration for which an entity must be idle (unused) before it is automatically deleted. The minimum value for this property is 5.
+The feature is enabled using the **auto delete on idle** property on the namespace. This property is set to the duration for which an entity must be idle (unused) before it is automatically deleted. The minimum value for this property is 5 minutes.
  
 ## Idleness
 

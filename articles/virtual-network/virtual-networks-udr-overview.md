@@ -11,7 +11,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 04/14/2021
 ms.author: aldomel
 
 ---
@@ -78,19 +78,57 @@ You can specify the following next hop types when creating a user-defined route:
 
     * The [private IP address](./private-ip-addresses.md) of a network interface attached to a virtual machine. Any network interface attached to a virtual machine that forwards network traffic to an address other than its own must have the Azure *Enable IP forwarding* option enabled for it. The setting disables Azure's check of the source and destination for a network interface. Learn more about how to [enable IP forwarding for a network interface](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Though *Enable IP forwarding* is an Azure setting, you may also need to enable IP forwarding within the virtual machine's operating system for the appliance to forward traffic between private IP addresses assigned to Azure network interfaces. If the appliance must route traffic to a public IP address, it must either proxy the traffic, or network address translate the private IP address of the source's private IP address to its own private IP address, which Azure then network address translates to a public IP address, before sending the traffic to the Internet. To determine required settings within the virtual machine, see the documentation for your operating system or network application. To understand outbound connections in Azure, see [Understanding outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 
-        > [!NOTE]
-        > Deploy a virtual appliance into a different subnet than the resources that route through the virtual appliance are deployed in. Deploying the virtual appliance to the same subnet, then applying a route table to the subnet that routes traffic through the virtual appliance, can result in routing loops, where traffic never leaves the subnet.
+      > [!NOTE]
+      > Deploy a virtual appliance into a different subnet than the resources that route through the virtual appliance are deployed in. Deploying the virtual appliance to the same subnet, then applying a route table to the subnet that routes traffic through the virtual appliance, can result in routing loops, where traffic never leaves the subnet.
+      > 
+      > A next hop private IP address must have direct connectivity without having to route through ExpressRoute Gateway or Virtual WAN. Setting the next hop to an IP address without direct connectivity results in an invalid user-defined routing configuration. 
 
     * The private IP address of an Azure [internal load balancer](../load-balancer/quickstart-load-balancer-standard-internal-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). A load balancer is often used as part of a [high availability strategy for network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance, enabling the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a user-defined route that contains the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first.
 
-* **Virtual network gateway**: Specify when you want traffic destined for specific address prefixes routed to a virtual network gateway. The virtual network gateway must be created with type **VPN**. You cannot specify a virtual network gateway created as type **ExpressRoute** in a user-defined route because with ExpressRoute, you must use BGP for custom routes. You can define a route that directs traffic destined for the 0.0.0.0/0 address prefix to a [route-based](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) virtual network gateway. On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a user-defined route for the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first. Instead of configuring a user-defined route for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP, if you've [enabled BGP for a VPN virtual network gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
+* **Virtual network gateway**: Specify when you want traffic destined for specific address prefixes routed to a virtual network gateway. The virtual network gateway must be created with type **VPN**. You cannot specify a virtual network gateway created as type **ExpressRoute** in a user-defined route because with ExpressRoute, you must use BGP for custom routes. You cannot specify Virtual Network Gateways if you have VPN and ExpressRoute coexisting connections either. You can define a route that directs traffic destined for the 0.0.0.0/0 address prefix to a [route-based](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) virtual network gateway. On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a user-defined route for the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first. Instead of configuring a user-defined route for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP, if you've [enabled BGP for a VPN virtual network gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 * **None**: Specify when you want to drop traffic to an address prefix, rather than forwarding the traffic to a destination. If you haven't fully configured a capability, Azure may list *None* for some of the optional system routes. For example, if you see *None* listed as the **Next hop IP address** with a **Next hop type** of *Virtual network gateway* or *Virtual appliance*, it may be because the device isn't running, or isn't fully configured. Azure creates system [default routes](#default) for reserved address prefixes with **None** as the next hop type.<br>
 * **Virtual network**: Specify when you want to override the default routing within a virtual network. See [Routing example](#routing-example), for an example of why you might create a route with the **Virtual network** hop type.<br>
 * **Internet**: Specify when you want to explicitly route traffic destined to an address prefix to the Internet, or if you want traffic destined for Azure services with public IP addresses kept within the Azure backbone network.
 
 You cannot specify **VNet peering** or **VirtualNetworkServiceEndpoint** as the next hop type in user-defined routes. Routes with the **VNet peering** or **VirtualNetworkServiceEndpoint** next hop types are only created by Azure, when you configure a virtual network peering, or a service endpoint.
+
+### Service Tags for user-defined routes (Preview)
+
+You can now specify a [Service Tag](service-tags-overview.md) as the address prefix for a user-defined route instead of an explicit IP range. A Service Tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to user-defined routes and reducing the number of routes you need to create. You can currently create 25 or less routes with Service Tags in each route table. </br>
+
+> [!IMPORTANT]
+> Service Tags for user-defined routes is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+#### Exact Match
+When there is an exact prefix match between a route with an explicit IP prefix and a route with a Service Tag, preference is given to the route with the explicit prefix. When multiple routes with Service Tags have matching IP prefixes, routes will be evaluated in the following order: 
+
+   1. Regional tags (eg. Storage.EastUS, AppService.AustraliaCentral)
+   2. Top level tags (eg. Storage, AppService)
+   3. AzureCloud regional tags (eg. AzureCloud.canadacentral, AzureCloud.eastasia)
+   4. The AzureCloud tag </br></br>
+
+To use this feature specify a Service Tag name for the address prefix parameter in route table commands. For example, in Powershell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using: </br></br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+The same command for CLI will be: </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+#### Known Issues (April 2021)
+
+When BGP routes are present or a Service Endpoint is configured on your subnet, routes may not be evaluated with the correct priority. This feature does not currently work for dual stack (IPv4+IPv6) virtual networks. A fix for these scenarios is currently in progress </br>
+
+
+> [!NOTE] 
+> While in Public Preview, there are several limitations. The feature is not currently supported in the Azure Portal and is only available through Powershell and CLI. There is no support for use with containers. 
 
 ## Next hop types across Azure tools
 
@@ -106,6 +144,8 @@ The name displayed and referenced for next hop types is different between the Az
 |Virtual network peering         |VNet peering                                    |Not applicable|
 |Virtual network service endpoint|VirtualNetworkServiceEndpoint                   |Not applicable|
 
+
+
 ### Border gateway protocol
 
 An on-premises network gateway can exchange routes with an Azure virtual network gateway using the border gateway protocol (BGP). Using BGP with an Azure virtual network gateway is dependent on the type you selected when you created the gateway. If the type you selected were:
@@ -115,7 +155,7 @@ An on-premises network gateway can exchange routes with an Azure virtual network
 
 When you exchange routes with Azure using BGP, a separate route is added to the route table of all subnets in a virtual network for each advertised prefix. The route is added with *Virtual network gateway* listed as the source and next hop type. 
 
-ER and VPN Gateway route propagation can be disabled on a subnet using a property on a route table. When you exchange routes with Azure using BGP, routes are not added to the route table of all subnets with Virtual network gateway route propagation disabled. Connectivity with VPN connections is achieved using [custom routes](#custom-routes) with a next hop type of *Virtual network gateway*. **Route propagation should not be disabled on the GatewaySubnet. The gateway will not function with this setting disabled.** For details, see [How to disable Virtual network gateway route propagation](manage-route-table.md#create-a-route-table).
+ER and VPN Gateway route propagation can be disabled on a subnet using a property on a route table. When you do so, routes are not added to the route table of all subnets with Virtual network gateway route propagation disabled (both static routes and BGP routes). Connectivity with VPN connections is achieved using [custom routes](#custom-routes) with a next hop type of *Virtual network gateway*. **Route propagation should not be disabled on the GatewaySubnet. The gateway will not function with this setting disabled.** For details, see [How to disable Virtual network gateway route propagation](manage-route-table.md#create-a-route-table).
 
 ## How Azure selects a route
 

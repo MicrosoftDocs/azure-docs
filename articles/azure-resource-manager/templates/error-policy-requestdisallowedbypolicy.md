@@ -4,7 +4,8 @@ description: Describes the cause of the RequestDisallowedByPolicy error when dep
 author: genlin
 ms.topic: troubleshooting
 ms.date: 10/31/2018
-ms.author: genli
+ms.author: genli 
+ms.custom: devx-track-azurepowershell
 ---
 # RequestDisallowedByPolicy error with Azure resource policy
 

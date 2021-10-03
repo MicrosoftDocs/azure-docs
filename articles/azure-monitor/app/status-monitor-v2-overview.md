@@ -14,11 +14,11 @@ ms.date: 09/16/2019
 > This guidance is recommended for On-Premises and non-Azure cloud deployments of Application Insights Agent. Here's the recommended approach for [Azure virtual machine and virtual machine scale set deployments](./azure-vm-vmss-apps.md).
 
 Application Insights Agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
-It replaces [Status Monitor](./monitor-performance-live-website-now.md).
+It replaces Status Monitor.
 Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
 
 > [!NOTE]
-> The module only currently supports codeless instrumentation of .NET web apps hosted with IIS. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications.
+> The module currently supports codeless instrumentation of .NET and .NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
 
 ## PowerShell Gallery
 
@@ -57,7 +57,7 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 - Does Status Monitor v2 support ASP.NET Core applications?
 
-  *No*. For instructions to enable monitoring of ASP.NET Core applications, see [Application Insights for ASP.NET Core applications](./asp-net-core.md). There's no need to install StatusMonitor for an ASP.NET Core application. This is true even if ASP.NET Core application is hosted in IIS.
+  *Yes*. Starting from [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), ASP.NET Core applications hosted in IIS are supported.
 
 - How do I verify that the enablement succeeded?
 

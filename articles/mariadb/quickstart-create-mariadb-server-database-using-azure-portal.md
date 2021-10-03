@@ -1,12 +1,14 @@
 ---
 title: 'Quickstart: Create a server - Azure portal - Azure Database for MariaDB'
-description: This article shows you how to use the Azure portal to quickly create a sample Azure Database for MariaDB server in about five minutes. 
+description: This article shows you how to use the Azure portal to quickly create a sample Azure Database for MariaDB server in about five minutes.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
-ms.custom: mvc
-ms.topic: quickstart
 ms.date: 3/19/2020
+ms.topic: quickstart
+ms.service: mariadb
+ms.custom:
+  - mvc
+  - mode-portal
 ---
 
 # Quickstart: Create an Azure Database for MariaDB server by using the Azure portal

@@ -3,7 +3,7 @@ title: Common questions about Azure VM disaster recovery with Azure Site Recover
 description: This article answers common questions about Azure VM disaster recovery when you use Azure Site Recovery.
 author: sideeksh
 manager: rochakm
-ms.date: 11/03/2019
+ms.date: 07/25/2021
 ms.topic: conceptual
 
 ---
@@ -54,13 +54,13 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 ### Can I select an automation account from a different resource group?
 
-When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account. 
+When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
 
 Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates).
 
 ### If I use a customer automation account that's not in the vault resource group, can I delete the default runbook?
 
-Yes, you can delete it if you don't need it. 
+Yes, you can delete it if you don't need it.
 
 ### Can I replicate VMs to another subscription?
 
@@ -68,15 +68,15 @@ Yes, you can replicate Azure VMs to any subscription within the same Azure AD te
 
 ### Can I replicate VMs in an availability zone to another region?
 
-Yes, you can replicate VMs in availability zones to another Azure region. The target VM can be deployed as a single instance, in an availability set, or in an availability zone if supported in the target region. 
+Yes, you can replicate VMs in availability zones to another Azure region.
 
-### Can I replicate non-zone VMs to a zone within the same region? 
+### Can I replicate non-zone VMs to a zone within the same region?
 
 This isn't supported in the portal. You can use the REST API/PowerShell to do this.
 
 ### Can I replicate zoned VMs to a different zone in the same region?
 
-Support for this is limited to a couple of regions. [Learn more](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+Support for this is limited to a few regions. [Learn more](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
 ### Can I exclude disks from replication?
 
@@ -84,7 +84,7 @@ Yes, you can exclude disks when you set up replication, using PowerShell. [Learn
 
 ### Can I replicate new disks added to replicated VMs?
 
-For replicated VMs with managed disks, you can add new disks, and enable replication for them. When you add a new disk, the replicated VM shows a warning message that one or more disks on the VM are available for protection. 
+For replicated VMs with managed disks, you can add new disks, and enable replication for them. When you add a new disk, the replicated VM shows a warning message that one or more disks on the VM are available for protection.
 
 - If you enable replication for the added disks, the warning disappears after the initial replication.
 - If you don't want to enable replication for the disk, you can dismiss the warning.
@@ -96,13 +96,13 @@ Site Recovery doesn't support "hot remove" of disks from a replicated VM. If you
 
 Replication is continuous when replicating Azure VMs to another Azure region. [Learn more](./azure-to-azure-architecture.md#replication-process) about how replication works.
 
-### Can I replicate virtual machines within a region? 
+### Can I replicate virtual machines within a region?
 
 You can't use Site Recovery to replicate disks within a region.
 
 ### Can I replicate VM instances to any Azure region?
 
-You can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined with data latency and sovereignty in mind. [Learn more](./azure-to-azure-support-matrix.md#region-support) about region support.
+You can replicate and recover VMs between any two regions. 
 
 ### Does Site Recovery need internet connectivity?
 
@@ -153,11 +153,11 @@ Site Recovery can create app-consistent recovery points with a minimum frequency
 
 ### Can I enable app-consistent replication for Linux VMs?
 
-Yes. The Mobility agent for Linux support custom scripts for app-consistency. A custom script with pre and post-options is used by the agent. [Learn more](site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Yes. The Mobility agent for Linux support custom scripts for app-consistency. A custom script with pre and post-options is used by the agent. [Learn more](site-recovery-faq.yml)
 
 ### How are recovery points generated and saved?
 
-To understand how Site Recovery generates recovery points, let's use an example. 
+To understand how Site Recovery generates recovery points, let's use an example.
 
 - A replication policy retains recovery points for 24 hours, and takes an app-consistent frequency snapshot every hour.
 - Site Recovery creates a crash-consistent recovery point every five minutes. You can't change this frequency.
@@ -171,7 +171,7 @@ So, in the last hour, you can choose from 12 crash-consistent points, and one ap
 
 The oldest recovery point that you can use is 72 hours.
 
-### What happens if Site Recovery can't generate recovery points for more than 24 hours? 
+### What happens if Site Recovery can't generate recovery points for more than 24 hours?
 
 If you have a replication policy of 24 hours, and Site Recovery can't generate recovery points for more than 24 hours, your old recovery points remain. Site Recovery only replaces the oldest point if it generates new points. Until there are new recovery points, all the old points remain after you reach the retention window.
 
@@ -193,7 +193,7 @@ Yes. For example, if you increase retention from 24 hours to 72, Site Recovery s
 
 Multi-VM consistency ensures that recovery points are consistent across replicated virtual machines.
 
-- When you enable multi-VM consistency, Site Recovery creates a replication group of all the machines with the option enabled. 
+- When you enable multi-VM consistency, Site Recovery creates a replication group of all the machines with the option enabled.
 - When you fail over the machines in the replication group, they have shared crash-consistent and app-consistent recovery points.
 
 [Learn](azure-to-azure-tutorial-enable-replication.md#enable-replication) how to enable multi-VM consistency.
@@ -212,8 +212,8 @@ Multi-VM consistency is CPU intensive, and enabling it can affect workload perfo
 
 ### Can I add a replicating VM to a replication group?
 
-When you enable replication for a VM, you can add it to a new replication group, or to an existing group. You can't add a VM that's already replicating to a group. 
- 
+When you enable replication for a VM, you can add it to a new replication group, or to an existing group. You can't add a VM that's already replicating to a group.
+
 ## Failover
 
 ### How do we ensure capacity in the target region?
@@ -265,7 +265,7 @@ You can start failover. Site Recovery doesn't need connectivity from the primary
 
 ### What is the RTO of a VM failover?
 
-Site Recovery has an RTO SLA of [two hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Most of the time, Site Recovery fails over VMs within minutes. To calculate the RTO, review the failover job, which shows the time it took to bring up a VM. 
+Site Recovery has an RTO SLA of [two hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Most of the time, Site Recovery fails over VMs within minutes. To calculate the RTO, review the failover job, which shows the time it took to bring up a VM.
 
 ## Recovery plans
 
@@ -275,7 +275,7 @@ A [recovery plan](site-recovery-create-recovery-plans.md) in Site Recovery orche
 
 - Defines a group of VMs that fail over together
 - Defines the dependencies between VMs, so that the application comes up accurately.
-- Automates recovery, with the option of custom manual actions for tasks other than VM failover. 
+- Automates recovery, with the option of custom manual actions for tasks other than VM failover.
 
 
 ### How does sequencing work?
@@ -294,11 +294,11 @@ Yes. [Learn more](site-recovery-runbook-automation.md).
 
 ## Reprotection and failback
 
-### After failover, are VMs in the secondary region protected automatically? 
+### After failover, are VMs in the secondary region protected automatically?
 
 No. When you fail over VMs from one region to another, the VMs start up in the target disaster recovery region in an unprotected state. To [reprotect](./azure-to-azure-how-to-reprotect.md) VMs in the secondary region, you enable replication back to the primary region.
 
-### When I reprotect, is all data replicated from the secondary region to primary? 
+### When I reprotect, is all data replicated from the secondary region to primary?
 
 It depends.If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to   what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 

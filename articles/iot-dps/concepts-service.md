@@ -28,7 +28,7 @@ The device provisioning endpoint is the single endpoint all devices use for auto
 
 ## Linked IoT hubs
 
-The Device Provisioning Service can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to an instance of the Device Provisioning service gives the service read/write permissions to the IoT hub's device registry; with the link, a Device Provisioning service can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your provisioning service.
+The Device Provisioning Service can only provision devices to IoT hubs that have been linked to it. Linking an IoT hub to an instance of the Device Provisioning Service gives the service read/write permissions to the IoT hub's device registry; with the link, a Device Provisioning Service can register a device ID and set the initial configuration in the device twin. Linked IoT hubs may be in any Azure region. You may link hubs in other subscriptions to your provisioning service.
 
 
 ## Allocation policy
@@ -78,7 +78,7 @@ An attestation mechanism is the method used for confirming a device's identity. 
 The Device Provisioning Service supports the following forms of attestation:
 * **X.509 certificates** based on the standard X.509 certificate authentication flow. For more information, see [X.509 attestation](concepts-x509-attestation.md).
 * **Trusted Platform Module (TPM)** based on a nonce challenge, using the TPM standard for keys to present a signed Shared Access Signature (SAS) token. This does not require a physical TPM on the device, but the service expects to attest using the endorsement key per the [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/). For more information, see [TPM attestation](concepts-tpm-attestation.md).
-* **Symmetric Key** based on shared access signature (SAS) [Security tokens](../iot-hub/iot-hub-devguide-security.md#security-tokens), which include a hashed signature and an embedded expiration. For more information, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+* **Symmetric Key** based on shared access signature (SAS) [Security tokens](../iot-hub/iot-hub-dev-guide-sas.md#security-tokens), which include a hashed signature and an embedded expiration. For more information, see [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
 
 ## Hardware security module

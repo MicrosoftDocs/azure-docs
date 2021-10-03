@@ -15,7 +15,7 @@ Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight 
 
 The following diagram provides a comparison between Kafka on HDInsight before managed disks, and Kafka on HDInsight with managed disks:
 
-![kafka with managed disks architecture](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+:::image type="content" source="./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png" alt-text="kafka with managed disks architecture" border="false":::
 
 ## Configure managed disks: Azure portal
 
@@ -26,7 +26,7 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
     > [!NOTE]  
     > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-    ![cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
+    :::image type="content" source="./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png" alt-text="cluster size section with the disks per worker node highlighted" border="true":::
 
 ## Configure managed disks: Resource Manager template
 

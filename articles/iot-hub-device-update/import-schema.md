@@ -17,8 +17,8 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | --------- | --------- | --------- | --------- |
 | UpdateId | `UpdateId` object | Update identity. |
 | UpdateType | string | Update type: <br/><br/> * Specify `microsoft/apt:1` when performing a package-based update using reference agent.<br/> * Specify `microsoft/swupdate:1` when performing an image-based update using reference agent.<br/> * Specify `microsoft/simulator:1` when using sample agent simulator.<br/> * Specify a custom type if developing a custom agent. | Format: <br/> `{provider}/{type}:{typeVersion}`<br/><br/> Maximum of 32 characters total |
-| InstalledCriteria | string | String interpreted by the agent to determine whether the update was applied successfully:  <br/> * Specify **value** of SWVersion for update type `microsoft/swupdate:1`.<br/> * Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.<br/> * Specify hash of the update file for update type `microsoft/simulator:1`.<br/> * Specify a custom string if developing a custom agent.<br/> | Maximum of 64 characters |
-| Compatibility | Array of `CompatibilityInfo` objects | Compatibility information of device compatible with this update. | Maximum of 10 items |
+| InstalledCriteria | string | String interpreted by the agent to determine whether the update was applied successfully:  <br/> * Specify **value** of SWVersion for update type `microsoft/swupdate:1`.<br/> * Specify `{name}-{version}` for update type `microsoft/apt:1`, of which name and version are obtained from the APT file.<br/> * Specify a custom string if developing a custom agent.<br/> | Maximum of 64 characters |
+| Compatibility | Array of `CompatibilityInfo` [objects](#compatibilityinfo-object) | Compatibility information of device compatible with this update. | Maximum of 10 items |
 | CreatedDateTime | date/time | Date and time at which the update was created. | Delimited ISO 8601 date and time format, in UTC |
 | ManifestVersion | string | Import manifest schema version. Specify `2.0`, which will be compatible with `urn:azureiot:AzureDeviceUpdateCore:1` interface and `urn:azureiot:AzureDeviceUpdateCore:4` interface. | Must be `2.0` |
 | Files | Array of `File` objects | Update payload files | Maximum of 5 files |
@@ -35,8 +35,8 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 
 | Name | Type | Description | Restrictions |
 | --------- | --------- | --------- | --------- |
-| Filename | string | Name of file | Must be unique within an update |
-| SizeInBytes | Int64 | Size of file in bytes. | Maximum of 800 MB per individual file, or 800 MB collectively per update |
+| Filename | string | Name of file | Must be no more than 255 characters. Must be unique within an update |
+| SizeInBytes | Int64 | Size of file in bytes. | Maximum of 2 GB per individual file, or 2 GB collectively per update |
 | Hashes | `Hashes` object | JSON object containing hash(es) of the file |
 
 ## CompatibilityInfo Object
@@ -51,6 +51,105 @@ If you want to import an update into Device Update for IoT Hub, be sure you've r
 | Name | Required | Type | Description |
 | --------- | --------- | --------- | --------- |
 | Sha256 | True | string | Base64-encoded hash of the file using the SHA-256 algorithm. |
+
+## Example import request body
+
+If you are using the sample import manifest output from the [How to add a new update](./import-update.md#review-the-generated-import-manifest) page, and want to call the Device Update [REST API](/rest/api/deviceupdate/updates) directly to perform the import, the corresponding request body should look like this:
+
+```json
+{
+  "importManifest": {
+    "url": "http://<your Azure Storage location file path>/importManifest.json",
+    "sizeInBytes": <size of import manifest file>,
+    "hashes": {
+      "sha256": "<hash of import manifest file>"
+    }
+  },
+  "files": [
+    {
+      "filename": "file1.json",
+      "url": "http://<your Azure Storage location file path>/file1.json"
+    },
+    {
+          "filename": "file2.zip",
+          "url": "http://<your Azure Storage location file path>/file2.zip"
+    },
+  ]
+}
+```
+
+## OAuth authorization when calling import APIs
+
+**azure_auth**
+
+Azure Active Directory OAuth2 Flow
+Type: oauth2
+Flow: any 
+
+Authorization URL: https://login.microsoftonline.com/common/oauth2/authorize
+
+**Scopes**
+
+| Name | Description |
+| --- | --- |
+| `https://api.adu.microsoft.com/user_impersonation` | Impersonate your user account |
+| `https://api.adu.microsoft.com/.default`  | Client credential flows |
+
+
+**Permissions**
+
+If an Azure AD application is used to sign the user in, the scope needs to have /user_impersonation. 
+
+You will need to add permissions to your Azure AD app (in the API permissions tab in Azure AD Application view) to use Azure Device Update API. Request API permission to Azure Device Update (located in "APIs my organization uses") and grant the delegated user_impersonation permission.
+
+ADU accepts tokens acquiring tokens using any of the Azure AD supported flows for users, applications, or managed identities. However, some of the flows require additional Azure AD application setup: 
+
+* For public client flows make sure to enable mobile and desktop flows.
+* For implicit flows make sure to add a Web platform and select "Access tokens" for the authorization endpoint.
+
+**Example using Azure CLI:**
+
+```azurecli
+az login
+
+az account get-access-token --resource 'https://api.adu.microsoft.com/'
+```
+
+**Examples to acquire a token using PowerShell MSAL library:**
+
+_Using user credentials_ 
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope
+```
+
+_Using user credentials with device code_
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/user_impersonation'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -Interactive -DeviceCode
+```
+
+_Using app credentials_
+
+```powershell
+$clientId = '<app_id>’
+$tenantId = '<tenant_id>’
+$cert = '<client_certificate>'
+$authority = "https://login.microsoftonline.com/$tenantId/v2.0"
+$Scope = 'https://api.adu.microsoft.com/.default'
+
+Get-MsalToken -ClientId $clientId -TenantId $tenantId -Authority $authority -Scopes $Scope -ClientCertificate $cert
+```
 
 ## Next steps
 

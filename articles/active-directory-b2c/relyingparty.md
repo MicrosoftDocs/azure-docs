@@ -8,7 +8,8 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 06/27/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -137,19 +138,20 @@ The **UserJourneyBehaviors** element contains the following elements:
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | The scope of the single sign-on (SSO) session behavior of a user journey. |
 | SessionExpiryType |0:1 | The authentication behavior of the session. Possible values: `Rolling` or `Absolute`. The `Rolling` value (default) indicates that the user remains signed in as long as the user is continually active in the application. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified by application session lifetime. |
-| SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. |
+| SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. The default is 86,400 seconds (24 hours). The minimum is 900 seconds (15 minutes). The maximum is 86,400 seconds (24 hours). |
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
 |ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
+| JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 
 ### SingleSignOn
 
-The **SingleSignOn** element contains in the following attribute:
+The **SingleSignOn** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Scope | Yes | The scope of the single sign-on behavior. Possible values: `Suppressed`, `Tenant`, `Application`, or `Policy`. The `Suppressed` value indicates that the behavior is suppressed, and the user is always prompted for an identity provider selection.  The `Tenant` value indicates that the behavior is applied to all policies in the tenant. For example, a user navigating through two policy journeys for a tenant is not prompted for an identity provider selection. The `Application` value indicates that the behavior is applied to all policies for the application making the request. For example, a user navigating through two policy journeys for an application is not prompted for an identity provider selection. The `Policy` value indicates that the behavior only applies to a policy. For example, a user navigating through two policy journeys for a trust framework is prompted for an identity provider selection when switching between policies. |
-| KeepAliveInDays | No | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. For more information, see [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
+| KeepAliveInDays | No | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. The default is `0` (disabled). The minimum is `1` day. The maximum is `90` days. For more information, see [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| No|  Force to pass a previously issued ID token to the logout endpoint as a hint about the end user's current authenticated session with the client. Possible values: `false` (default), or `true`. For more information, see [Web sign-in with OpenID Connect](openid-connect.md).  |
 
 
@@ -161,7 +163,7 @@ The **JourneyInsights** element contains the following attributes:
 | --------- | -------- | ----------- |
 | TelemetryEngine | Yes | The value must be `ApplicationInsights`. |
 | InstrumentationKey | Yes | The string that contains the instrumentation key for the application insights element. |
-| DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes. The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for PII (Privately Identifiable Information) collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
+| DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes. The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for personal data collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
 | ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. |
 | ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. |
 | TelemetryVersion | Yes | The value must be `1.0.0`. |
@@ -189,6 +191,15 @@ The **ContentDefinitionParameter** element contains the following attribute:
 | Name | Yes | The name of the key value pair. |
 
 For more information, see [Configure the UI with dynamic content by using custom policies](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
+
+### JourneyFraming
+
+The **JourneyFraming** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Enabled | Yes | Enables this policy to be loaded within an iframe. Possible values: `false` (default), or `true`. |
+| Sources | Yes | Contains the domains that will load host the iframe. For more information, see [Loading Azure B2C in an iframe](embedded-login.md). |
 
 ## TechnicalProfile
 

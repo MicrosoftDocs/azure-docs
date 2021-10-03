@@ -8,28 +8,33 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ---
+
 # Configure virtual network support for a Premium Azure Cache for Redis instance
 
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation along with subnets, access control policies, and other features to further restrict access. When an Azure Cache for Redis instance is configured with a virtual network, it isn't publicly addressable and can only be accessed from virtual machines and applications within the virtual network. This article describes how to configure virtual network support for a Premium-tier Azure Cache for Redis instance.
+[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation along with: subnets, access control policies, and other features to restrict access further. When an Azure Cache for Redis instance is configured with a virtual network, it isn't publicly addressable. Instead, the instance can only be accessed from virtual machines and applications within the virtual network. This article describes how to configure virtual network support for a Premium-tier Azure Cache for Redis instance.
 
 > [!NOTE]
 > Azure Cache for Redis supports both classic deployment model and Azure Resource Manager virtual networks.
-> 
+>
+
+> [!IMPORTANT]
+> Azure Cache for Redis now supports Azure Private Link, which simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Azure Private Links is offered on all our tiers, includes Azure Policy support, and simplified NSG rule management. To learn more, see [Private Link Documentation](cache-private-link.md). To migrate your VNet injected caches to Private Link, see [here](cache-vnet-migration.md).
+>
 
 ## Set up virtual network support
 
 Virtual network support is configured on the **New Azure Cache for Redis** pane during cache creation.
 
-1. To create a Premium-tier cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. In addition to creating caches in the Azure portal, you can also create them by using Resource Manager templates, PowerShell, or the Azure CLI. For more information about how to create an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a Premium-tier cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.  You can also create them by using Resource Manager templates, PowerShell, or the Azure CLI. For more information about how to create an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Screenshot that shows Create a resource.":::
-   
+
 1. On the **New** page, select **Databases**. Then select **Azure Cache for Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Screenshot that shows selecting Azure Cache for Redis.":::
 
 1. On the **New Redis Cache** page, configure the settings for your new Premium-tier cache.
-   
+
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and it can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
@@ -43,9 +48,9 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 1. On the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal). Then return to the **New Azure Cache for Redis** pane to create and configure your Premium-tier cache.
 
    > [!IMPORTANT]
-   > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, the deployment fails.
-   > 
-   > 
+   > When you deploy Azure Cache for Redis to a Resource Manager virtual network, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If you attempt to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, or has a NAT Gateway assigned, the deployment fails.
+   >
+   >
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -55,9 +60,9 @@ Virtual network support is configured on the **New Azure Cache for Redis** pane 
 
    > [!IMPORTANT]
    > Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
-   > 
+   >
    > In addition to the IP addresses used by the Azure virtual network infrastructure, each Azure Cache for Redis instance in the subnet uses two IP addresses per shard and one additional IP address for the load balancer. A nonclustered cache is considered to have one shard.
-   > 
+   >
 
 1. Select the **Next: Advanced** tab, or select the **Next: Advanced** button at the bottom of the page.
 
@@ -103,6 +108,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Can I use virtual networks with a standard or basic cache?](#can-i-use-virtual-networks-with-a-standard-or-basic-cache)
 * Why does creating an Azure Cache for Redis instance fail in some subnets but not others?
 * [What are the subnet address space requirements?](#what-are-the-subnet-address-space-requirements)
+* [Can I connect to my cache from a peered virtual network?](#can-i-connect-to-my-cache-from-a-peered-virtual-network)
 * [Do all cache features work when a cache is hosted in a virtual network?](#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
 
 ### What are some common misconfiguration issues with Azure Cache for Redis and virtual networks?
@@ -111,14 +117,14 @@ When Azure Cache for Redis is hosted in a virtual network, the ports in the foll
 
 >[!IMPORTANT]
 >If the ports in the following tables are blocked, the cache might not function correctly. Having one or more of these ports blocked is the most common misconfiguration issue when you use Azure Cache for Redis in a virtual network.
-> 
+>
 
-- [Outbound port requirements](#outbound-port-requirements)
-- [Inbound port requirements](#inbound-port-requirements)
+* [Outbound port requirements](#outbound-port-requirements)
+* [Inbound port requirements](#inbound-port-requirements)
 
 #### Outbound port requirements
 
-There are nine outbound port requirements. Outbound requests in these ranges are either outbound to other services necessary for the cache to function or internal to the Redis subnet for internode communication. For geo-replication, additional outbound requirements exist for communication between subnets of the primary and replica cache.
+There are nine outbound port requirements. Outbound requests in these ranges are either: a) outbound to other services necessary for the cache to function, or b) internal to the Redis subnet for internode communication. For geo-replication, other outbound requirements exist for communication between subnets of the primary and replica cache.
 
 | Ports | Direction | Transport protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
@@ -142,11 +148,11 @@ There are nine outbound port requirements. Outbound requests in these ranges are
 
 #### Geo-replication peer port requirements
 
-If you're using geo-replication between caches in Azure virtual networks, unblock ports 15000-15999 for the whole subnet in both inbound *and* outbound directions to both caches. With this configuration, all the replica components in the subnet can communicate directly with each other even if there's a future geo-failover.
+If you're using geo-replication between caches in Azure virtual networks: a) unblock ports 15000-15999 for the whole subnet in both inbound *and* outbound directions, and b) to both caches. With this configuration, all the replica components in the subnet can communicate directly with each other even if there's a future geo-failover.
 
 #### Inbound port requirements
 
-There are eight inbound port range requirements. Inbound requests in these ranges are either inbound from other services hosted in the same virtual network or internal to the Redis subnet communications.
+There are eight inbound port range requirements. Inbound requests in these ranges are either inbound from other services hosted in the same virtual network. Or, they're internal to the Redis subnet communications.
 
 | Ports | Direction | Transport protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
@@ -167,8 +173,8 @@ There are network connectivity requirements for Azure Cache for Redis that might
 
 * Outbound network connectivity to Azure Storage endpoints worldwide. Endpoints located in the same region as the Azure Cache for Redis instance and storage endpoints located in *other* Azure regions are included. Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*, and *file.core.windows.net*.
 * Outbound network connectivity to *ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com*, and *crl.microsoft.com*. This connectivity is needed to support TLS/SSL functionality.
-* The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
-* Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net*, *azglobal-red.azglobal.metrics.nsatc.net*, *shoebox3.prod.microsoftmetrics.com*, *shoebox3-red.prod.microsoftmetrics.com* and *shoebox3-black.prod.microsoftmetrics.com*.
+* The DNS configuration for the virtual network must be able to resolve all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
+* Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net*, *azglobal-red.azglobal.metrics.nsatc.net*, *shoebox3.prod.microsoftmetrics.com*, *shoebox3-red.prod.microsoftmetrics.com*, *shoebox3-black.prod.microsoftmetrics.com*, *azredis-red.prod.microsoftmetrics.com* and *azredis-black.prod.microsoftmetrics.com*.
 
 ### How can I verify that my cache is working in a virtual network?
 
@@ -178,16 +184,15 @@ There are network connectivity requirements for Azure Cache for Redis that might
 
 After the port requirements are configured as described in the previous section, you can verify that your cache is working by following these steps:
 
-- [Reboot](cache-administration.md#reboot) all of the cache nodes. If all of the required cache dependencies can't be reached, as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements), the cache won't be able to restart successfully.
-- After the cache nodes have restarted, as reported by the cache status in the Azure portal, you can do the following tests:
-  - Ping the cache endpoint by using port 6380 from a machine that's within the same virtual network as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
-    
+* [Reboot](cache-administration.md#reboot) all of the cache nodes. The cache won't be able to restart successfully if all of the required cache dependencies can't be reached---as documented in [Inbound port requirements](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound port requirements](cache-how-to-premium-vnet.md#outbound-port-requirements).
+* After the cache nodes have restarted, as reported by the cache status in the Azure portal, you can do the following tests:
+  + Ping the cache endpoint by using port 6380 from a machine that's within the same virtual network as the cache, using [tcping](https://www.elifulkerson.com/projects/tcping.php). For example:
+
     `tcping.exe contosocache.redis.cache.windows.net 6380`
-    
+
     If the `tcping` tool reports that the port is open, the cache is available for connection from clients in the virtual network.
 
-  - Another way to test is to create a test cache client (which could be a simple console application using StackExchange.Redis) that connects to the cache and adds and retrieves some items from the cache. Install the sample client application onto a VM that's in the same virtual network as the cache. Then run it to verify connectivity to the cache.
-
+  + Another way to test: create a test cache client that connects to the cache, then adds and retrieves some items from the cache. The test cache client could be a console application using StackExchange.Redis. Install the sample client application onto a VM that's in the same virtual network as the cache. Then, run it to verify connectivity to the cache.
 
 ### When I try to connect to my Azure Cache for Redis instance in a virtual network, why do I get an error stating the remote certificate is invalid?
 
@@ -213,7 +218,7 @@ Virtual networks can only be used with Premium-tier caches.
 
 ### Why does creating an Azure Cache for Redis instance fail in some subnets but not others?
 
-If you're deploying an Azure Cache for Redis instance to a virtual network, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources, such as Azure Application Gateway instances and Outbound NAT, the deployment will usually fail. You must delete existing resources of other types before you can create a new Azure Cache for Redis instance.
+If you're deploying an Azure Cache for Redis instance to a virtual network, the cache must be in a dedicated subnet that contains no other resource type. If an attempt is made to deploy an Azure Cache for Redis instance to a Resource Manager virtual network subnet that contains other resources---such as Azure Application Gateway instances and Outbound NAT---the deployment usually fails. Delete the existing resources of other types before you create a new Azure Cache for Redis instance.
 
 You must also have enough IP addresses available in the subnet.
 
@@ -221,19 +226,27 @@ You must also have enough IP addresses available in the subnet.
 
 Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-In addition to the IP addresses used by the Azure virtual network infrastructure, each Azure Cache for Redis instance in the subnet uses two IP addresses per cluster shard, plus additional IP addresses for additional replicas, if any. One additional IP address is used for the load balancer. A nonclustered cache is considered to have one shard.
+In addition to the IP addresses used by the Azure virtual network infrastructure, each Azure Cache for Redis instance in the subnet uses two IP addresses per cluster shard, plus IP addresses for additional replicas, if any. One more IP address is used for the load balancer. A non-clustered cache is considered to have one shard.
+
+### Can I connect to my cache from a peered virtual network?
+
+If the virtual networks are in the same region, you can connect them using virtual network peering or a VPN Gateway VNET-to-VNET connection.
+
+If the peered Azure virtual networks are in *different* regions: a client VM in region 1 can't access the cache in region 2 via its load balanced IP address because of a constraint with basic load balancers. That is, unless it's a cache with a standard load balancer, which is currently only a cache that was created with *availability zones*.
+
+For more information about virtual network peering constraints, see Virtual Network - Peering - Requirements and constraints. One solution is to use a VPN Gateway VNET-to-VNET connection instead of virtual network peering.
 
 ### Do all cache features work when a cache is hosted in a virtual network?
 
 When your cache is part of a virtual network, only clients in the virtual network can access the cache. As a result, the following cache management features don't work at this time:
 
-* **Redis Console**: Because Redis Console runs in your local browser, which is usually on a developer machine that isn't connected to the virtual network, it can't then connect to your cache.
+* **Redis Console**: Because Redis Console runs in your local browser---usually on a developer machine that isn't connected to the virtual network---it can't then connect to your cache.
 
 ## Use ExpressRoute with Azure Cache for Redis
 
 Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure. In this way, they extend their on-premises network to Azure.
 
-By default, a newly created ExpressRoute circuit doesn't perform forced tunneling (advertisement of a default route, 0.0.0.0/0) on a virtual network. As a result, outbound internet connectivity is allowed directly from the virtual network. Client applications can connect to other Azure endpoints, which includes an Azure Cache for Redis instance.
+By default, a newly created ExpressRoute circuit doesn't do forced tunneling (advertisement of a default route, 0.0.0.0/0) on a virtual network. As a result, outbound internet connectivity is allowed directly from the virtual network. Client applications can connect to other Azure endpoints, which include an Azure Cache for Redis instance.
 
 A common customer configuration is to use forced tunneling (advertise a default route), which forces outbound internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Cache for Redis if the outbound traffic is then blocked on-premises such that the Azure Cache for Redis instance isn't able to communicate with its dependencies.
 
@@ -244,7 +257,7 @@ If possible, use the following configuration:
 * The ExpressRoute configuration advertises 0.0.0.0/0 and, by default, force tunnels all outbound traffic on-premises.
 * The UDR applied to the subnet that contains the Azure Cache for Redis instance defines 0.0.0.0/0 with a working route for TCP/IP traffic to the public internet. For example, it sets the next hop type to *internet*.
 
-The combined effect of these steps is that the subnet-level UDR takes precedence over the ExpressRoute forced tunneling, which ensures outbound internet access from the Azure Cache for Redis instance.
+The combined effect of these steps is that the subnet-level UDR takes precedence over the ExpressRoute forced tunneling and that ensures outbound internet access from the Azure Cache for Redis instance.
 
 Connecting to an Azure Cache for Redis instance from an on-premises application by using ExpressRoute isn't a typical usage scenario because of performance reasons. For best performance, Azure Cache for Redis clients should be in the same region as the Azure Cache for Redis instance.
 

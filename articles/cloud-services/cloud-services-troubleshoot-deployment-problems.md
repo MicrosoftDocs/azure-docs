@@ -1,19 +1,18 @@
 ---
 title: Troubleshoot cloud service (classic) deployment problems | Microsoft Docs
 description: There are a few common problems you may run into when deploying a cloud service to Azure. This article provides solutions to some of them.
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: cloud-services
 ms.date: 10/14/2020
-ms.author: tagore
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: 
 ---
 
 # Troubleshoot Azure Cloud Services (Classic) deployment problems
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 When you deploy a cloud service application package to Azure, you can obtain information about the deployment from the **Properties** pane in the Azure portal. You can use the details in this pane to help you troubleshoot problems with the cloud service, and you can provide this information to Azure Support when opening a new support request.
 

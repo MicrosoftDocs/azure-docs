@@ -99,7 +99,7 @@ For details on how to persist the output of your containers that run to completi
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [azure-cli-install]: /cli/azure/install-azure-cli

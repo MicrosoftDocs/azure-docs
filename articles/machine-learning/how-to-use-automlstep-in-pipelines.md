@@ -9,8 +9,8 @@ ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 02/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl
+ms.topic: how-to
+ms.custom: devx-track-python, automl
 
 ---
 
@@ -21,7 +21,7 @@ Azure Machine Learning's automated ML capability helps you discover high-perform
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
 
@@ -244,7 +244,7 @@ Comparing the two techniques:
 |`OutputTabularDatasetConfig`| Higher performance | 
 || Natural route from `OutputFileDatasetConfig` | 
 || Data isn't persisted after pipeline run |
-|| [Notebook showing `OutputTabularDatasetConfig` technique](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
+||  |
 | Registered `Dataset` | Lower performance |
 | | Can be generated in many ways | 
 | | Data persists and is visible throughout workspace |
@@ -256,7 +256,7 @@ Comparing the two techniques:
 The outputs of the `AutoMLStep` are the final metric scores of the higher-performing model and that model itself. To use these outputs in further pipeline steps, prepare `OutputFileDatasetConfig` objects to receive them.
 
 ```python
-from azureml.pipeline.core import TrainingOutput
+from azureml.pipeline.core import TrainingOutput, PipelineData
 
 metrics_data = PipelineData(name='metrics_data',
                             datastore=datastore,
@@ -446,7 +446,7 @@ with open(model_filename, "rb" ) as f:
 # ... inferencing code not shown ...
 ```
 
-For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
+For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Download the results of an automated ML run
 

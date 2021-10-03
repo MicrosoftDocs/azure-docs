@@ -3,7 +3,7 @@ title: Azure API Management cross domain policies | Microsoft Docs
 description: Learn about the cross domain policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 # API Management cross domain policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
@@ -64,7 +64,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 CORS allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (i.e. XMLHttpRequests calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
 
-You need to apply the CORS policy to enable the interactive console in the developer portal. Refer to the [developer portal documentation](./api-management-howto-developer-portal.md#cors) for details.
+You need to apply the CORS policy to enable the interactive console in the developer portal. Refer to the [developer portal documentation](./developer-portal-faq.md#cors) for details.
 
 ### Policy statement
 

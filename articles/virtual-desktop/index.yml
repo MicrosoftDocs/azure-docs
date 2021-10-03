@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
-title: Windows Virtual Desktop documentation
+title: Azure Virtual Desktop documentation
 summary: Deliver a virtual desktop experience and remote apps to any device. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 10 experience—with exceptional scale and reduced IT costs.
 
 metadata:
-  title: Windows Virtual Desktop documentation
-  description: Windows Virtual Desktop for Azure is a multi-user Windows 10 Enterprise experience virtualized in the cloud.
+  title: Azure Virtual Desktop documentation
+  description: Azure Virtual Desktop for Azure is a multi-user Windows 10 Enterprise experience virtualized in the cloud.
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
-  manager: lizross
+  manager: femila
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
@@ -18,52 +18,66 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Windows Virtual Desktop
+  - title: About Azure Virtual Desktop
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Windows Virtual Desktop?
+          - text: What is Azure Virtual Desktop?
             url: overview.md
 
   # Card
-  - title: Get started with Windows Virtual Desktop
+  - title: Get started with Azure Virtual Desktop
     linkLists:
       - linkListType: tutorial
         links:
           - text: Create a host pool with Azure Marketplace
             url: create-host-pools-azure-marketplace.md
-          - text: Manage app groups for Windows Virtual Desktop
+          - text: Manage app groups for Azure Virtual Desktop
             url: manage-app-groups.md
           - text: Create a host pool to validate service updates
             url: create-validation-host-pool.md
           - text: Set up service alerts
             url: set-up-service-alerts.md
 
-  - title: Get started with Windows Virtual Desktop (classic)
+  - title: Get started with Azure Virtual Desktop (classic)
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create a tenant in Windows Virtual Desktop
+          - text: Create a tenant in Azure Virtual Desktop
             url: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
-          - text: Create a host pool with Azure Marketplace
-            url: create-host-pools-azure-marketplace.md
-          - text: Manage app groups for Windows Virtual Desktop
-            url: manage-app-groups.md
           - text: Create service principals and role assignments with PowerShell
             url: ./virtual-desktop-fall-2019/create-service-principal-role-powershell.md
+          - text: Create a host pool with Azure Marketplace
+            url: ./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md
+          - text: Manage app groups for Azure Virtual Desktop
+            url: ./virtual-desktop-fall-2019/manage-app-groups-2019.md
+          - text: Create a host pool to validate service updates
+            url: ./virtual-desktop-fall-2019/create-validation-host-pool-2019.md
+          - text: Set up service alerts
+            url: ./virtual-desktop-fall-2019/set-up-service-alerts-2019.md
 
   # Card
-  - title: Connect to Windows Virtual Desktop
+  - title: Azure Virtual Desktop for users
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Windows Desktop client
-            url: connect-windows-7-10.md
-          - text: Web client
-            url: connect-web.md
-          - text: Android client
-            url: connect-android.md
-          - text: macOS client
-            url: connect-macos.md
-          - text: iOS client
-            url: connect-ios.md
+          - text: Connect with Windows Desktop
+            url: ./user-documentation/connect-windows-7-10.md
+          - text: Connect with the web client
+            url: ./user-documentation/connect-web.md
+          - text: Connect with Android
+            url: ./user-documentation/connect-android.md
+          - text: Connect with macOS
+            url: ./user-documentation/connect-macos.md
+          - text: Connect with iOS
+            url: ./user-documentation/connect-ios.md
+          - text: Connect with Linux or thin clients 
+            url: ./user-documentation/linux-overview.md
+
+  # Card
+  - title: Remote app streaming with Azure Virtual Desktop
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Stream apps to your customers
+            url: ./remote-app-streaming/overview.md

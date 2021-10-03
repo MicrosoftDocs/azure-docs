@@ -3,7 +3,7 @@ title: Manage a Datadog resource - Azure partner solutions
 description: This article describes management of a Datadog resource in the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
 ---
@@ -56,7 +56,7 @@ You can filter the list of resources by resource type, resource group name, loca
 The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. If the resource isn't sending logs, this field indicates why logs aren't being sent to Datadog. The reasons could be:
 
 - Resource doesn't support sending logs. Only resources types with monitoring log categories can be configured to send logs to Datadog.
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/platform/diagnostic-settings.md).
+- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
 - Error. The resource is configured to send logs to Datadog, but is blocked by an error.
 - Logs not configured. Only Azure resources that have the appropriate resource tags are configured to send logs to Datadog.
 - Region not supported. The Azure resource is in a region that doesn't currently support sending logs to Datadog.
@@ -125,6 +125,16 @@ The portal retrieves the appropriate Datadog application from Azure Active Direc
  
 :::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Reconfigure single sign-on application." border="true":::
  
+## Change Plan
+
+To change the Datadog billing plan, go to **Overview** and select **Change Plan**.
+
+:::image type="content" source="media/manage/datadog-select-change-plan.png" alt-text="Select change Datadog billing plan." border="true":::
+
+The portal retrieves all the available Datadog plans for your tenant. Select the appropriate plan and click on **Change Plan**.
+
+:::image type="content" source="media/manage/datadog-change-plan.png" alt-text="Select the Datadog billing plan to change." border="true":::
+  
 ## Disable or enable integration
 
 You can stop sending logs and metrics from Azure to Datadog. You'll continue to be billed for other Datadog services that aren't related to monitoring metrics and logs.
@@ -146,12 +156,6 @@ Go to **Overview** in left pane and select **Delete**. Confirm that you want to 
 If only one Datadog resource is mapped to a Datadog organization, logs and metrics are no longer sent to Datadog. All billing stops for Datadog through Azure Marketplace.
 
 If more than one Datadog resource is mapped to the Datadog organization, deleting the Datadog resource only stops sending logs and metrics for that Datadog resource. Because the Datadog organization is linked to other Azure resources, billing continues through the Azure Marketplace.
-
-## Getting support
-
-To contact support about the Azure Datadog integration, select **New Support request** in the left pane. Select the link to the Datadog portal.
-
-:::image type="content" source="media/manage/support-request.png" alt-text="Create a new Datadog support request" border="true":::
 
 ## Next steps
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -44,7 +44,7 @@ To enable sign-in for users with a Salesforce account in Azure Active Directory 
     1. **API Name** 
     1. **Contact Email** - The contact email for Salesforce
 1. Under **API (Enable OAuth Settings)**, select **Enable OAuth Settings**
-    1. In **Callback URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
+    1. For the **Callback URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C.
     1. In the **Selected OAuth Scopes**, select **Access your basic information (id, profile, email, address, phone)**, and **Allow access to your unique identifier (openid)**.
     1. Select **Require Secret for Web Server Flow**.
 1. Select **Configure ID Token** 
@@ -57,7 +57,8 @@ To enable sign-in for users with a Salesforce account in Azure Active Directory 
 
 ## Configure Salesforce as an identity provider
 
-1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *Salesforce*.
@@ -84,6 +85,8 @@ To enable sign-in for users with a Salesforce account in Azure Active Directory 
 
 ## Add Salesforce identity provider to a user flow 
 
+At this point, the Salesforce identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Salesforce identity provider to a user flow:
+
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Salesforce identity provider.
 1. Under the **Social identity providers**, select **Salesforce**.
@@ -104,15 +107,16 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. On the Overview page, select **Identity Experience Framework**.
-5. Select **Policy Keys** and then select **Add**.
-6. For **Options**, choose `Manual`.
-7. Enter a **Name** for the policy key. For example, `SalesforceSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-8. In **Secret**, enter your client secret that you previously recorded.
-9. For **Key usage**, select `Signature`.
-10. Click **Create**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. On the Overview page, select **Identity Experience Framework**.
+1. Select **Policy Keys** and then select **Add**.
+1. For **Options**, choose `Manual`.
+1. Enter a **Name** for the policy key. For example, `SalesforceSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
+1. In **Secret**, enter your client secret that you previously recorded.
+1. For **Key usage**, select `Signature`.
+1. Click **Create**.
 
 ## Configure Salesforce as an identity provider
 
@@ -194,7 +198,7 @@ You can define a Salesforce account as a claims provider by adding it to the **C
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Salesforce** to sign in with Salesforce account.
 

@@ -67,7 +67,7 @@ Network Watchers                   1     1
 
 If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you're running the Azure CLI locally, you also need to run `az login` to log in to Azure.
 
-View your usage against limits with [az network list-usages](/cli/azure/network#az-network-list-usages). The following example gets the usage for resources in the East US location:
+View your usage against limits with [az network list-usages](/cli/azure/network#az_network_list_usages). The following example gets the usage for resources in the East US location:
 
 ```azurecli-interactive
 az network list-usages \

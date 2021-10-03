@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Azure Spot Virtual Machines for virtual machine scale sets 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Using Azure Spot Virtual Machines on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machine instances. Therefore, Azure Spot Virtual Machine instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machine instances on scale sets, Azure will allocate the instance only if there is capacity available, but there is no SLA for these instances. An Azure Spot Virtual machine scale set is deployed in a single fault domain and offers no high availability guarantees.
@@ -40,9 +42,9 @@ Azure Spot Virtual Machine can be deployed to any region, except Microsoft Azure
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
 -	Enterprise Agreement
--	Pay-as-you-go offer code 003P
--	Sponsored
-- For Cloud Service Provider (CSP), see the [Partner Center](https://docs.microsoft.com/partner-center/azure-plan-get-started) or contact your partner directly.
+-	Pay-as-you-go offer code (003P)
+-	Sponsored (0036P and 0136P)
+- For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 ## Eviction policy
 
@@ -79,7 +81,7 @@ Before you can use the try & restore feature, you must register your subscriptio
 
 **Use CLI**
 
-Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription. 
+Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription. 
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SpotTryRestore 
@@ -166,7 +168,7 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    --max-price -1
+    -max-price -1
 ```
 
 ## Resource Manager templates
@@ -200,7 +202,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 ## Simulate an eviction
 
-You can [simulate an eviction](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine to test how well your application will respond to a sudden eviction. 
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine to test how well your application will respond to a sudden eviction. 
 
 Replace the following with your information: 
 
@@ -214,6 +216,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ```
 
 `Response Code: 204` means the simulated eviction was successful. 
+
+For more information, see [Testing a simulated eviction notification](../virtual-machines/windows/spot-powershell.md#simulate-an-eviction).
 
 ## FAQ
 

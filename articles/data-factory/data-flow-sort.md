@@ -1,27 +1,31 @@
 ---
 title: Sort transformation in mapping data flow
-description: Azure Data Factory Mapping Data Sort Transformation
+description: Learn about the Mapping Data Sort Transformation in Azure Data Factory and Synapse Analytics pipelines.
+titleSuffix: Azure Data Factory & Azure Synapse
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/14/2020
+ms.custom: synapse
+ms.date: 09/09/2021
 ---
 
 # Sort transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 The sort transformation allows you to sort the incoming rows on the current data stream. You can choose individual columns and sort them in ascending or descending order.
 
 > [!NOTE]
-> Mapping data flows are executed on spark clusters which distribute data across multiple nodes and partitions. If you choose to repartition your data in a subsequent transformation, you may lose your sorting due to reshuffling of data.
+> Mapping data flows are executed on spark clusters which distribute data across multiple nodes and partitions. If you choose to repartition your data in a subsequent transformation, you may lose your sorting due to reshuffling of data. The best way to maintain sort order in your data flow is to set single partition in the Optimize tab on the transformation and keep the Sort transformation as close to the Sink as possible.
 
 ## Configuration
 
-![Sort settings](media/data-flow/sort.png "Sort")
+:::image type="content" source="media/data-flow/sort.png" alt-text="Sort settings":::
 
 **Case insensitive:** Whether or not you wish to ignore case when sorting string or text fields
 
@@ -48,7 +52,7 @@ To modify or extract a column value before applying the sort, hover over the col
 
 ### Example
 
-![Sort settings](media/data-flow/sort.png "Sort")
+:::image type="content" source="media/data-flow/sort.png" alt-text="Sort settings":::
 
 The data flow script for the above sort configuration is in the code snippet below.
 

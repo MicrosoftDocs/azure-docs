@@ -50,7 +50,18 @@
         topicHref:  /azure/key-vault/
       - name: Secrets
         tocHref: /cli/azure/keyvault/secret
-        topicHref: /azure/key-vault/       
+        topicHref: /azure/key-vault/
+
+### Security baseline 
+- name: Azure
+  tocHref: /security/benchmark/azure/
+  topicHref: /azure/index
+  items: 
+  - name: Key Vault
+    tocHref: /security/benchmark/azure/baselines
+    topicHref: /azure/key-vault/general/index
+
+
 
 ### Leave this element for testing from the contributor guide instructions. 
 - name: Azure

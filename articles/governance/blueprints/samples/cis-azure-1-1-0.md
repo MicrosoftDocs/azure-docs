@@ -1,16 +1,16 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample
 description: Overview of the CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample. This blueprint sample helps customers assess specific controls.
-ms.date: 03/11/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample
 
-The CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample provides governance
-guard-rails using [Azure Policy](../../policy/overview.md) that help you assess specific CIS
-Microsoft Azure Foundations Benchmark recommendations. This blueprint helps customers deploy a core
-set of policies for any Azure-deployed architecture that must implement CIS Microsoft Azure
-Foundations Benchmark v1.1.0 recommendations.
+The CIS Microsoft Azure Foundations Benchmark v1.1.0 blueprint sample provides governance guardrails
+using [Azure Policy](../../policy/overview.md) that help you assess specific CIS Microsoft Azure
+Foundations Benchmark recommendations. This blueprint helps customers deploy a core set of policies
+for any Azure-deployed architecture that must implement CIS Microsoft Azure Foundations Benchmark
+v1.1.0 recommendations.
 
 ## Recommendation mapping
 

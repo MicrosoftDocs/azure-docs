@@ -145,7 +145,7 @@ Next, you need to upload the *mapper* and *reducer* applications to HDInsight st
 
 1. Expand the HDInsight cluster that you wish to deploy this application to. An entry with the text **(Default Storage Account)** is listed.
 
-   ![Storage account, HDInsight cluster, Server Explorer, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
+   :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png" alt-text="Storage account, HDInsight cluster, Server Explorer, Visual Studio" border="true":::
 
    * If the **(Default Storage Account)** entry can be expanded, you're using an **Azure Storage Account** as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click **(Default Container)**.
 
@@ -155,7 +155,7 @@ Next, you need to upload the *mapper* and *reducer* applications to HDInsight st
 
     * If you're using an **Azure Storage Account**, select the **Upload Blob** icon.
 
-        ![HDInsight upload icon for mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="HDInsight upload icon for mapper, Visual Studio" border="true":::
 
         In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *mapper* project, and then choose the *mapper.exe* file. Finally, select **Open** and then **OK** to complete the upload.
 

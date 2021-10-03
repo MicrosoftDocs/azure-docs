@@ -1,4 +1,4 @@
-﻿---
+---
  title: include file
  description: include file
  services: iot-hub
@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 02/20/2019
  ms.author: dobett
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 ### Enable logging with diagnostics settings

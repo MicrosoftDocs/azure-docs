@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: jlian
 ms.custom: [amqp, mqtt]
-# As a developer or operator for Azure IoT Hub, I want to resolve 401003 IoTHubUnauthorized errors.
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 401003 IoTHubUnauthorized errors.
 ---
 
 # 401003 IoTHubUnauthorized
@@ -31,6 +31,7 @@ Requests to IoT Hub fail with one of the following error messages:
 * Authorization rule '\*' does not allow access for '\*'
 * Authentication failed for this device, renew token or certificate and reconnect
 * Thumbprint does not match configuration: Thumbprint: SHA1Hash=\*, SHA2Hash=\*; Configuration: PrimaryThumbprint=\*, SecondaryThumbprint=\*
+* Principal user@example.com is not authorized for GET on /exampleOperation due to no assigned permissions
 
 ## Cause
 
@@ -63,10 +64,11 @@ For device developers, if the volume of errors is a concern, switch to the C SDK
 In general, the error message presented should explain how to fix the error. If for some reason you don't have access to the error message detail, make sure:
 
 - The SAS or other security token you use isn't expired.
-- For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Set up X.509 security in your Azure IoT hub](iot-hub-security-x509-get-started.md).
+- For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Set up X.509 security in your Azure IoT hub](./tutorial-x509-scripts.md).
 - For X.509 certificate thumbprint authentication, the thumbprint of the device certificate is registered with IoT Hub.
 - The authorization credential is well formed for the protocol that you use. To learn more, see [Control access to IoT Hub](iot-hub-devguide-security.md).
 - The authorization rule used has the permission for the operation requested.
+- For the last error messages beginning with "principal...", this error can be resolved by assigning the correct level of Azure RBAC permission to the user. For example, an Owner on the IoT Hub can assign the "IoT Hub Data Owner" role, which gives all permissions. Try this role to resolve the lack of permission issue.
 
 ## Next steps
 

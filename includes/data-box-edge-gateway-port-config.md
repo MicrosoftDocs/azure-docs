@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 03/25/2019
+ms.date: 043/26/2021
 ms.author: alkohli
 ---
 
@@ -13,6 +13,7 @@ ms.author: alkohli
 | UDP 123 (NTP)|Out|WAN|In some cases<br>See notes|This port is required only if you're using an internet-based NTP server.  |   
 | UDP 53 (DNS)|Out|WAN|In some cases<br>See notes|This port is required only if you're using an internet-based DNS server.<br>We recommend using a local DNS server. |
 | TCP 5985 (WinRM)|Out/In|LAN|In some cases<br>See notes|This port is required to connect to the device via remote PowerShell over HTTP.  |
+| TCP 5986 (WinRM)|Out/In|LAN|In some cases<br>See notes|This port is required to connect to the device via remote PowerShell over HTTPS.  |
 | UDP 67 (DHCP)|Out|LAN|In some cases<br>See notes|This port is required only if you're using a local DHCP server.  |
 | TCP 80 (HTTP)|Out/In|LAN|Yes|This port is the inbound port for local UI on the device for local management. <br>Accessing the local UI over HTTP will automatically redirect to HTTPS.  |
 | TCP 443 (HTTPS)|Out/In|LAN|Yes|This port is the inbound port for local UI on the device for local management. |

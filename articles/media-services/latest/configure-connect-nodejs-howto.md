@@ -27,7 +27,7 @@ This article shows you how to connect to the Azure Media Services v3 node.js SDK
 - An installation of Visual Studio Code.
 - Install [Node.js](https://nodejs.org/en/download/).
 - Install [Typescript](https://www.typescriptlang.org/download).
-- [Create a Media Services account](./create-account-howto.md). Be sure to remember the resource group name and the Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 - Create a service principal for your application. See [access APIs](./access-api-howto.md).<br/>**Pro tip!** Keep this window open or copy everything in the JSON tab to Notepad. 
 - Make sure to get the latest version of the [AzureMediaServices SDK for JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
 
@@ -42,7 +42,7 @@ You will work with some files in Azure Samples. Clone the Node.JS samples reposi
 git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
 ```
 
-## Install the packages
+## Install the Node.js packages
 
 ### Install @azure/arm-mediaservices
 
@@ -91,11 +91,12 @@ For this example, you will use the following packages in the `package.json` file
 
 ## Connect to Node.js client using TypeScript
 
-
-
 ### Sample *.env* file
 
 Copy the content of this file to a file named *.env*. It should be stored at the root of your working repository. These are the values you got from the API Access page for your Media Services account in the portal.
+
+To access the values needed for entering into the *.env* file, it is recommended to first read and review the how-to article [Access the API](./access-api-howto.md).
+You can use either the Azure portal or the CLI to get the values needed to enter into this sample's environment variables file.
 
 Once you have created the *.env* file, you can start working with the samples.
 
@@ -132,7 +133,7 @@ DRM_SYMMETRIC_KEY="add random base 64 encoded string here"
 cd AMSv3Samples
 ```
 
-2. Install the packages used in the *packages.json* file.
+2. Install the packages used in the *package.json* file.
 
 ```
 npm install 

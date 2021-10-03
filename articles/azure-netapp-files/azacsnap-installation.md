@@ -13,13 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 09/08/2021
 ms.author: phjensen
 ---
 
-# Install Azure Application Consistent Snapshot tool (preview)
+# Install Azure Application Consistent Snapshot tool
 
-This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
+This article provides a guide for installation of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files or Azure Large Instance.
+
+> [!IMPORTANT]
+> Distributed installations are the only option for **Azure Large Instance** systems as they are deployed in a private network.  Therefore AzAcSnap installations must be done on each system to ensure connectivity.
 
 ## Introduction
 
@@ -36,12 +39,19 @@ tools.
 1. **Time Synchronization is set up**. The customer will need to provide an NTP compatible time
     server, and configure the OS accordingly.
 1. **HANA is installed** : See HANA installation instructions in [SAP NetWeaver Installation on HANA database](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
-1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details): Customer must
-    set up SSH with a private/public key pair, and provide the public key for each node where the
-    snapshot tools are planned to be executed to Microsoft Operations for setup on the storage
-    back-end.
-   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the
-      service principal authentication file.
+1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details): Select the storage back-end you are using for your deployment.
+
+   # [Azure NetApp Files](#tab/azure-netapp-files)
+    
+   1. **For Azure NetApp Files (refer separate section for details)**: Customer must generate the service principal authentication file.
+      
+      > [!IMPORTANT]
+      > When validating communication with Azure NetApp Files, communication might fail or time-out. Check to ensure firewall rules are not blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
+      > - (https://)management.azure.com:443
+      > - (https://)login.microsoftonline.com:443
+      
+   # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
+      
    1. **For Azure Large Instance (refer separate section for details)**: Customer must set up SSH with a
       private/public key pair, and provide the public key for each node where the snapshot tools are
       planned to be executed to Microsoft Operations for setup on the storage back-end.
@@ -50,9 +60,17 @@ tools.
       Type `exit` to logout of the storage prompt.
 
       Microsoft  operations will  provide  the  storage  user  and  storage  IP at  the  time  of provisioning.
-  
-1. **[Enable communication with SAP HANA](#enable-communication-with-sap-hana)** (refer separate section for more details): Customer must
-    set up an appropriate SAP HANA user with the required privileges to perform the snapshot.
+      
+      ---
+
+1. **[Enable communication with storage](#enable-communication-with-storage)** (refer separate section for more details): Select the storage back-end you are using for your deployment.
+
+1. **[Enable communication with database](#enable-communication-with-database)** (refer separate section for more details): 
+   
+   # [SAP HANA](#tab/sap-hana)
+   
+   Customer must set up an appropriate SAP HANA user with the required privileges to perform the snapshot.
+
    1. This setting can be tested from the command line as follows using the text in `grey`
       1. HANAv1
 
@@ -63,12 +81,15 @@ tools.
             `hdbsql -n <HANA IP address> -i <HANA instance> -d SYSTEMDB -U <HANA user> "\s"`
 
       - The examples above are for non-SSL communication to SAP HANA.
+      
+   ---
+
 
 ## Enable communication with storage
 
-This section explains how to enable communication with storage.
+This section explains how to enable communication with storage. Ensure the storage back-end you are using is correctly selected.
 
-### Azure NetApp Files
+# [Azure NetApp Files (with Virtual Machine)](#tab/azure-netapp-files)
 
 Create RBAC Service Principal
 
@@ -115,7 +136,7 @@ Create RBAC Service Principal
 1. Cut and Paste the output content into a file called `azureauth.json` stored on the same system as the `azacsnap`
    command and secure the file with appropriate system permissions.
 
-### Azure Large Instance
+# [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
 
 Communication with the storage back-end executes over an encrypted SSH channel. The following
 example steps are to provide guidance on setup of SSH for this communication.
@@ -182,7 +203,13 @@ example steps are to provide guidance on setup of SSH for this communication.
     wKGAIilSg7s6Bq/2lAPDN1TqwIF8wQhAg2C7yeZHyE/ckaw/eQYuJtN+RNBD
     ```
 
-## Enable communication with SAP HANA
+---
+
+## Enable communication with database
+
+This section explains how to enable communication with storage. Ensure the storage back-end you are using is correctly selected.
+
+# [SAP HANA](#tab/sap-hana)
 
 The snapshot tools communicate with SAP HANA and need a user with appropriate permissions to
 initiate and release the database save-point. The following example shows the setup of the SAP
@@ -259,74 +286,6 @@ database, change the IP address, usernames, and passwords as appropriate:
     USER: AZACSNAP
     ```
 
-### Additional instructions for using the log trimmer (SAP HANA 2.0 and later)
-
-If using the log trimmer, then the following example commands set up a user (AZACSNAP) in the
-TENANT database(s) on an SAP HANA 2.0 database system. Remember to change the IP address,
-usernames, and passwords as appropriate:
-
-1. Connect to the TENANT database to create the user, tenant-specific details are `<IP_address_of_host>` and `<SYSTEM_USER_PASSWORD>`.  Also, note the port (`30015`) required to communicate with the TENANT database.
-
-    ```bash
-    hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
-    ```
-
-    ```output  
-    Welcome to the SAP HANA Database interactive terminal.
-
-    Type: \h for help with commands
-    \q to quit
-
-    hdbsql TENANTDB=>
-    ```
-
-1. Create the user
-
-    This example creates the AZACSNAP user in the SYSTEMDB.
-
-    ```sql
-    hdbsql TENANTDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
-    ```
-
-1. Grant the user permissions
-
-    This example sets the permission for the AZACSNAP user to allow for performing a database
-    consistent storage snapshot.
-
-    ```sql
-    hdbsql TENANTDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
-    ```
-
-1. *OPTIONAL* - Prevent user's password from expiring
-
-    > [!NOTE]
-    > Check with corporate policy before making this change.
-
-   This example disables the password expiration for the AZACSNAP user, without this change the user's password will expire preventing snapshots to be taken correctly.  
-
-   ```sql
-   hdbsql TENANTDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
-   ```
-
-> [!NOTE]  
-> Repeat these steps for all the tenant databases. It's possible to get the connection details for all the tenants using the following SQL query against the SYSTEMDB.
-
-```sql
-SELECT HOST, SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%'
-```
-
-See the following example query and output.
-
-```bash
-hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
-```
-
-```output
-sapprdhdb80,30013,SYSTEMDB
-sapprdhdb80,30015,H81
-sapprdhdb80,30041,H82
-```
-
 ### Using SSL for communication with SAP HANA
 
 The `azacsnap` tool utilizes SAP HANA's `hdbsql` command to communicate with SAP HANA. This
@@ -338,7 +297,7 @@ The following are always used when using the `azacsnap --ssl` option:
 - `-e` - Enables TLS encryptionTLS/SSL encryption. The server chooses the highest available.
 - `-ssltrustcert` - Specifies whether to validate the server's certificate.
 - `-sslhostnameincert "*"` - Specifies the host name used to verify server’s identity. By
-    specifying `"*"` as the host name, then the server's host name is not validated.
+    specifying `"*"` as the host name, then the server's host name is not validated.
 
 SSL communication also requires Key Store and Trust Store files.  While it is possible for
 these files to be stored in default locations on a Linux installation, to ensure the
@@ -406,6 +365,8 @@ hdbsql \
 > [!NOTE]
 > The `\` character is a command line line-wrap to improve clarity of the
 multiple parameters passed on the command line.
+
+---
 
 ## Installing the snapshot tools
 
@@ -595,42 +556,50 @@ As the root superuser, a manual installation can be achieved as follows:
     ```bash
     echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:$NEW_LIB_PATH\"" >> /home/azacsnap/.profile
     ```
+    
+1. Actions to take depending on storage back-end:
 
-1. On Azure Large Instances
-    1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running
-    the install). This assumes the "root" user has already configured connectivity to the storage
-       > see section "[Enable communication with storage](#enable-communication-with-storage)".
+    # [Azure NetApp Files (with VM)](#tab/azure-netapp-files)
 
-        ```bash
-        cp -pr ~/.ssh /home/azacsnap/.
-        ```
+    1. On Azure NetApp Files
+        1. Configure the user’s `DOTNET_BUNDLE_EXTRACT_BASE_DIR` path per the .NET Core single-file extract
+           guidance.
+            1. SUSE Linux
 
-    1. Set the user permissions correctly for the SSH files
+                ```bash
+                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
+                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+                ```
 
-        ```bash
-        chown -R azacsnap.sapsys /home/azacsnap/.ssh
-        ```
+            1. RHEL
 
-1. On Azure NetApp Files
-    1. Configure the user’s `DOTNET_BUNDLE_EXTRACT_BASE_DIR` path per the .NET Core single-file extract
-       guidance.
-        1. SUSE Linux
+                ```bash
+                echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
+                echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+                ```
+
+    # [Azure Large Instance (Bare Metal)](#tab/azure-large-instance)
+
+    1. On Azure Large Instances
+        1. Copy the SSH keys for back-end storage for azacsnap from the "root" user (the user running
+        the install). This assumes the "root" user has already configured connectivity to the storage
+           > see section "[Enable communication with storage](#enable-communication-with-storage)".
 
             ```bash
-            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.profile
-            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.profile
+            cp -pr ~/.ssh /home/azacsnap/.
             ```
 
-        1. RHEL
+        1. Set the user permissions correctly for the SSH files
 
             ```bash
-            echo "export DOTNET_BUNDLE_EXTRACT_BASE_DIR=\$HOME/.net" >> /home/azacsnap/.bash_profile
-            echo "[ -d $DOTNET_BUNDLE_EXTRACT_BASE_DIR] && chmod 700 $DOTNET_BUNDLE_EXTRACT_BASE_DIR" >> /home/azacsnap/.bash_profile
+            chown -R azacsnap.sapsys /home/azacsnap/.ssh
             ```
+
+    ---
 
 1. Copy the SAP HANA connection secure user store for the target user, azacsnap. This
     assumes the "root" user has already configured the secure user store.
-    > see section "[Enable communication with SAP HANA](#enable-communication-with-sap-hana)".
+    > see section "[Enable communication with database](#enable-communication-with-database)".
 
     ```bash
     cp -pr ~/.hdb /home/azacsnap/.
@@ -686,7 +655,7 @@ The following output shows the steps to complete after running the installer wit
 1. Run your first snapshot backup
     1. `azacsnap -c backup –-volume data--prefix=hana_test --retention=1`
 
-Step 2 will be necessary if "[Enable communication with SAP HANA](#enable-communication-with-sap-hana)" was not done before the
+Step 2 will be necessary if "[Enable communication with database](#enable-communication-with-database)" was not done before the
 installation.
 
 > [!NOTE]
@@ -695,6 +664,8 @@ installation.
 ## Configuring the database
 
 This section explains how to configure the data base.
+
+# [SAP HANA](#tab/sap-hana)
 
 ### SAP HANA Configuration
 
@@ -791,6 +762,8 @@ hdbsql -jaxC -n <HANA_ip_address> - i 00 -U AZACSNAP "select * from sys.m_inifil
 global.ini,DEFAULT,,,persistence,log_backup_timeout_s,900
 global.ini,SYSTEM,,,persistence,log_backup_timeout_s,300
 ```
+
+---
 
 ## Next steps
 

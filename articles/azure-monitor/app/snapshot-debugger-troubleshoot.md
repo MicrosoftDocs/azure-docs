@@ -16,7 +16,7 @@ There can be many different reasons why snapshots aren't generated. You can star
 
 ## Make sure you're using the appropriate Snapshot Debugger Endpoint
 
-Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
 
 For App Service and applications using the Application Insights SDK, you have to update the connection string using the supported overrides for Snapshot Debugger as defined below:
 
@@ -24,7 +24,7 @@ For App Service and applications using the Application Insights SDK, you have to
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-For more information about other connection overrides, see [Application Insights documentation](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+For more information about other connection overrides, see [Application Insights documentation](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 For Function App, you have to update the `host.json` using the supported overrides below:
 
@@ -89,7 +89,7 @@ To check the setting, open your web.config file and find the system.web section.
    ```
 
 > [!NOTE]
-> Modifying the httpRuntime targetFramework value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, please see https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+> Modifying the httpRuntime targetFramework value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, see [Retargeting changes](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
 
 > [!NOTE]
 > If the targetFramework is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you are using your own virtual machine, you may need to enable TLS 1.2 in the OS.

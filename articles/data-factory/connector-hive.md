@@ -1,16 +1,20 @@
 ---
-title: Copy data from Hive using Azure Data Factory 
-description: Learn how to copy data from Hive to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+title: Copy data from Hive
+description: Learn how to copy data from Hive to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.author: jingwang
+ms.date: 09/09/2021
+ms.author: jianleishen
 ---
+
 # Copy and transform data from Hive using Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -21,15 +25,41 @@ This Hive connector is supported for the following activities:
 
 You can copy data from Hive to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Hive using UI
+
+Use the following steps to create a linked service to Hive in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for Hive and select the Hive connector.
+
+    :::image type="content" source="media/connector-hive/hive-connector.png" alt-text="Select the Hive connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-hive/configure-hive-linked-service.png" alt-text="Configure a linked service to Hive.":::
+
+## Connector configuration details
+
+
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Hive connector.
 
@@ -41,7 +71,7 @@ The following properties are supported for Hive linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Hive** | Yes |
 | host | IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enabled).  | Yes |
-| port | The TCP port that the Hive server uses to listen for client connections. If you connect to Azure HDInsights, specify port as 443. | Yes |
+| port | The TCP port that the Hive server uses to listen for client connections. If you connect to Azure HDInsight, specify port as 443. | Yes |
 | serverType | The type of Hive server. <br/>Allowed values are: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | No |
 | thriftTransportProtocol | The transport protocol to use in the Thrift layer. <br/>Allowed values are: **Binary**, **SASL**, **HTTP** | No |
 | authenticationType | The authentication method used to access the Hive server. <br/>Allowed values are: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService**. Kerberos authentication is not supported now. | Yes |
@@ -49,7 +79,7 @@ The following properties are supported for Hive linked service:
 | zooKeeperNameSpace | The namespace on ZooKeeper under which Hive Server 2 nodes are added.  | No |
 | useNativeQuery | Specifies whether the driver uses native HiveQL queries, or converts them into an equivalent form in HiveQL.  | No |
 | username | The user name that you use to access Hive Server.  | No |
-| password | The password corresponding to the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | The partial URL corresponding to the Hive server.  | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is false.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over TLS. This property can only be set when using TLS on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
@@ -179,7 +209,7 @@ The below table lists the properties supported by a hive source. You can edit th
 
 Below is an example of a Hive source configuration:
 
-![Hive source example](media/data-flow/hive-source.png "[Hive source example")
+:::image type="content" source="media/data-flow/hive-source.png" alt-text="Hive source example":::
 
 These settings translate into the following data flow script:
 
@@ -208,4 +238,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

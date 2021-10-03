@@ -3,9 +3,9 @@
 title: Integrate with Azure Time Series Insights
 titleSuffix: Azure Digital Twins
 description: See how to set up event routes from Azure Digital Twins to Azure Time Series Insights.
-author: alexkarcher-msft
-ms.author: alkarche # Microsoft employees only
-ms.date: 1/19/2021
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 4/7/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -19,13 +19,19 @@ ms.service: digital-twins
 
 In this article, you'll learn how to integrate Azure Digital Twins with [Azure Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md).
 
-The solution described in this article will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights, as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
+The solution described in this article will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights, as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights.
 
 ## Prerequisites
 
-Before you can set up a relationship with Time Series Insights, you need to have an **Azure Digital Twins instance**. This instance should be set up with the ability to update digital twin information based on data, as you'll need to update twin information a few times to see that data tracked in Time Series Insights. 
+Before you can set up a relationship with Time Series Insights, you'll need to set up the following resources:
+* An **Azure Digital Twins instance**. For instructions, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
+* A **model and a twin in the Azure Digital Twins instance**. You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see the [Add a model and twin](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *Ingest telemetry from IoT Hub* article.
 
-If you do not have this set up already, you can create it by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The tutorial will walk you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates.
+> [!TIP]
+> In this article, the changing digital twin values that are viewed in Time Series Insights are updated manually for simplicity. However, if you want to complete this article with live simulated data, you can set up an Azure function that updates digital twins based on IoT telemetry events from a simulated device. For instructions, follow [Ingest IoT Hub data](how-to-ingest-iot-hub-data.md), including the final steps to run the device simulator and validate that the data flow works.
+>
+> Later, look for another TIP to show you where to start running the device simulator and have your Azure functions update the twins automatically, instead of sending manual digital twin update commands.
+
 
 ## Solution architecture
 
@@ -33,178 +39,246 @@ You will be attaching Time Series Insights to Azure Digital Twins through the pa
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting Time Series Insights" lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-## Create a route and filter to twin update notifications
+## Create event hub namespace
 
-Azure Digital Twins instances can emit [twin update events](how-to-interpret-event-data.md) whenever a twin's state is updated. In this section, you will be creating an Azure Digital Twins [**event route**](concepts-route-events.md) that will direct these update events to Azure [Event Hubs](../event-hubs/event-hubs-about.md) for further processing.
+Before creating the event hubs, you'll first create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal by following [Create an event hub using Azure portal](../event-hubs/event-hubs-create.md). To see what regions support event hubs, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
-The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md) walks through a scenario where a thermometer is used to update a temperature attribute on a digital twin representing a room. This pattern relies on the twin updates, rather than forwarding telemetry from an IoT device, which gives you the flexibility to change the underlying data source without needing to update your Time Series Insights logic.
+```azurecli-interactive
+az eventhubs namespace create --name <name-for-your-Event-Hubs-namespace> --resource-group <your-resource-group> --location <region>
+```
 
-1. First, create an event hub namespace that will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md). To see what regions support Event Hubs, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
+> [!TIP]
+> If you get an error stating `BadRequest: The specified service namespace is invalid.`, make sure the name you've chosen for your namespace meets the naming requirements described in this reference document: [Create Namespace](/rest/api/servicebus/create-namespace).
 
-    ```azurecli-interactive
-    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region>
-    ```
+You'll be using this event hubs namespace to hold the two event hubs that are needed for this article:
 
-2. Create an event hub within the namespace to receive twin change events. Specify a name for the event hub.
+  1. **Twins hub** - Event hub to receive twin change events
+  2. **Time series hub** - Event hub to stream events to Time Series Insights
 
-    ```azurecli-interactive
-    az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
-    ```
+The next sections will walk you through creating and configuring these hubs within your event hub namespace.
 
-3. Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions. Specify a name for the rule.
+## Create twins hub
 
-    ```azurecli-interactive
-        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
-    ```
+The first event hub you'll create in this article is the **twins hub**. This event hub will receive twin change events from Azure Digital Twins.
+To set up the twins hub, you'll complete the following steps in this section:
 
-4. Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance.
+1. Create the twins hub
+2. Create an authorization rule to control permissions to the hub
+3. Create an endpoint in Azure Digital Twins that uses the authorization rule to access the hub
+4. Create a route in Azure Digital Twins that sends twin updates event to the endpoint and connected twins hub
+5. Get the twins hub connection string
 
-    ```azurecli-interactive
-    az dt endpoint create eventhub -n <your Azure Digital Twins instance name> --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above>
-    ```
+Create the **twins hub** with the following CLI command. Specify a name for your twins hub.
 
-5. Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint. The filter in this route will only allow twin update messages to be passed to your endpoint.
+```azurecli-interactive
+az eventhubs eventhub create --name <name-for-your-twins-hub> --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-above>
+```
 
-    >[!NOTE]
-    >There is currently a **known issue** in Cloud Shell affecting these command groups: `az dt route`, `az dt model`, `az dt twin`.
-    >
-    >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](/cli/azure/install-azure-cli) instead of Cloud Shell. For more detail on this, see [*Troubleshooting: Known issues in Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+### Create twins hub authorization rule
 
-    ```azurecli-interactive
-    az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
-    ```
+Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az_eventhubs_eventhub_authorization_rule_create) with send and receive permissions. Specify a name for the rule.
 
-Before moving on, take note of your *Event Hubs namespace* and *resource group*, as you will use them again to create another event hub later in this article.
+```azurecli-interactive
+az eventhubs eventhub authorization-rule create --rights Listen Send --name <name-for-your-twins-hub-auth-rule> --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier> --eventhub-name <your-twins-hub-from-above>
+```
 
-## Create a function in Azure
+### Create twins hub endpoint
 
-Next, you'll use Azure Functions to create an **Event Hubs-triggered function** inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)), or your own. 
+Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance. Specify a name for your twins hub endpoint.
 
-This function will convert those twin update events from their original form as JSON Patch documents to JSON objects, containing only updated and added values from your twins.
+```azurecli-interactive
+az dt endpoint create eventhub --dt-name <your-Azure-Digital-Twins-instance-name> --eventhub-resource-group <your-resource-group> --eventhub-namespace <your-Event-Hubs-namespace-from-earlier> --eventhub <your-twins-hub-name-from-above> --eventhub-policy <your-twins-hub-auth-rule-from-earlier> --endpoint-name <name-for-your-twins-hub-endpoint>
+```
 
-For more information about using Event Hubs with Azure Functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+### Create twins hub event route
 
-Inside your published function app, add a new function called **ProcessDTUpdatetoTSI** with the following code.
+Azure Digital Twins instances can emit [twin update events](./concepts-event-notifications.md) whenever a twin's state is updated. In this section, you'll create an Azure Digital Twins **event route** that will direct these update events to the twins hub for further processing.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
+Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint from above. The filter in this route will only allow twin update messages to be passed to your endpoint. Specify a name for the twins hub event route.
 
->[!NOTE]
->You may need to add the packages to your project using the `dotnet add package` command or the Visual Studio NuGet package manager.
+```azurecli-interactive
+az dt route create --dt-name <your-Azure-Digital-Twins-instance-name> --endpoint-name <your-twins-hub-endpoint-from-above> --route-name <name-for-your-twins-hub-event-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
+```
 
-Next, **publish** the new Azure function. For instructions on how to do this, see [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md#publish-the-function-app-to-azure).
+### Get twins hub connection string
 
-Looking ahead, this function will send the JSON objects it creates to a second event hub, which you will connect to Time Series Insights. You'll create that event hub in the next section.
+Get the [twins event hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the twins hub.
 
-Later, you'll also set some environment variables that this function will use to connect to your own event hubs.
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group <your-resource-group> --namespace-name <your-Event-Hubs-namespace-from-earlier> --eventhub-name <your-twins-hub-from-above> --name <your-twins-hub-auth-rule-from-earlier>
+```
+Take note of the **primaryConnectionString** value from the result to configure the twins hub app setting later in this article.
 
-## Send telemetry to an event hub
+## Create time series hub
 
-You will now create a second event hub, and configure your function to stream its output to that event hub. This event hub will then be connected to Time Series Insights.
+The second event hub you'll create in this article is the **time series hub**. This is an event hub that will stream the Azure Digital Twins events to Time Series Insights.
+To set up the time series hub, you'll complete these steps:
 
-### Create an event hub
+1. Create the time series hub
+2. Create an authorization rule to control permissions to the hub
+3. Get the time series hub connection string
 
-To create the second event hub, you can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md).
+Later, when you create the Time Series Insights instance, you'll connect this time series hub as the event source for the Time Series Insights instance.
 
-1. Prepare your *Event Hubs namespace* and *resource group* name from earlier in this article
+Create the **time series hub** using the following command. Specify a name for the time series hub.
 
-2. Create a new event hub. Specify a name for the event hub.
+```azurecli-interactive
+ az eventhubs eventhub create --name <name-for-your-time-series-hub> --resource-group <your-resource-group> --namespace-name <your-Event-Hub-namespace-from-earlier>
+```
 
-    ```azurecli-interactive
-    az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
-    ```
-3. Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions. Specify a name for the rule.
+### Create time series hub authorization rule
 
-    ```azurecli-interactive
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
-    ```
+Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az_eventhubs_eventhub_authorization_rule_create) with send and receive permissions. Specify a name for the time series hub auth rule.
 
-## Configure your function
+```azurecli-interactive
+az eventhubs eventhub authorization-rule create --rights Listen Send --name <name-for-your-time-series-hub-auth-rule> --resource-group <your-resource-group> --namespace-name <your-Event-Hub-namespace-from-earlier> --eventhub-name <your-time-series-hub-name-from-above>
+```
 
-Next, you'll need to set environment variables in your function app from earlier, containing the connection strings for the event hubs you've created.
+### Get time series hub connection string
 
-### Set the Twins event hub connection string
+Get the [time series hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the time series hub:
 
-1. Get the Twins [event hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the Twins hub.
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group <your-resource-group> --namespace-name <your-Event-Hub-namespace-from-earlier> --eventhub-name <your-time-series-hub-name-from-earlier> --name <your-time-series-hub-auth-rule-from-earlier>
+```
+Take note of the **primaryConnectionString** value from the result to configure the time series hub app setting later in this article.
 
-    ```azurecli-interactive
-    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
-    ```
+Also, take note of the following values to use them later to create a Time Series Insights instance.
+* Event hub namespace
+* Time series hub name
+* Time series hub auth rule
 
-2. Use the *primaryConnectionString* value from the result to create an app setting in your function app that contains your connection string:
+## Create a function
 
-    ```azurecli-interactive
-    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
-    ```
+In this section, you'll create an Azure function that will convert twin update events from their original form as JSON Patch documents to JSON objects, containing only updated and added values from your twins.
 
-### Set the Time Series Insights event hub connection string
+1. First, create a new function app project in Visual Studio. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
 
-1. Get the TSI [event hub connection string](../event-hubs/event-hubs-get-connection-string.md), using the authorization rules you created above for the Time Series Insights hub:
+2. Create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
 
-    ```azurecli-interactive
-    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
-    ```
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger.":::
 
-2. Use the *primaryConnectionString* value from the result to create an app setting in your function app that contains your connection string:
+3. Add the following packages to your project:
+    * [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
+    * [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
+    * [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
 
-    ```azurecli-interactive
-    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
-    ```
+4. Replace the code in the *ProcessDTUpdatetoTSI.cs* file with the following code:
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
+
+    Save your function code.
+
+5. Publish the project with the *ProcessDTUpdatetoTSI.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+
+Save the function app name to use later to configure app settings for the two event hubs.
+
+### Configure the function app
+
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your resources.
+
+[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
+
+Next, add environment variables in the function app's settings that allow it to access the **twins hub** and **time series hub**.
+
+Use the **twins hub primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the twins hub connection string:
+
+```azurecli-interactive
+az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-function-app-name>
+```
+
+Use the **time series hub primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the time series hub connection string:
+
+```azurecli-interactive
+az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-function-app-name>
+```
 
 ## Create and connect a Time Series Insights instance
 
-Next, you will set up a Time Series Insights instance to receive the data from your second (TSI) event hub. Follow the steps below, and for more details about this process, see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md).
+In this section, you'll set up Time Series Insights instance to receive data from your time series hub. For more details about this process, see [Set up an Azure Time Series Insights Gen2 PAYG environment](../time-series-insights/tutorial-set-up-environment.md). Follow the steps below to create a time series insights environment.
 
-1. In the Azure portal, begin creating a Time Series Insights environment. 
-    1. Select the **Gen2(L1)** pricing tier.
-    2. You will need to choose a **time series ID** for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md).
-    
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="The creation portal UX for a Time Series Insights environment. Select your subscription, resource group, and location from the respective dropdowns and choose a name for your environment." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
+1. In the [Azure portal](https://portal.azure.com), search for *Time Series Insights environments*, and select the **Create** button. Choose the following options to create the time series environment.
+
+    * **Subscription** - Choose your subscription.
+        - **Resource group** - Choose your resource group.
+    * **Environment name** - Specify a name for your time series environment.
+    * **Location** - Choose a location.
+    * **Tier** - Choose the **Gen2(L1)** pricing tier.
+    * **Property name** - Enter **$dtId** (Read more about selecting an ID value in [Best practices for choosing a Time Series ID](../time-series-insights/how-to-select-tsid.md)).
+    * **Storage account name** - Specify a storage account name.
+    * **Enable warm store** - Leave this field set to *Yes*.
+
+    You can leave default values for other properties on this page. Select the **Next : Event Source >** button.
+
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="Screenshot of the Azure portal showing how to create Time Series Insights environment (part 1/3)." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
         
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="The creation portal UX for a Time Series Insights environment. The Gen2(L1) pricing tier is selected and the time series ID property name is $dtId" lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="Screenshot of the Azure portal showing how to create Time Series Insights environment (part 2/3)." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
 
-2. Select **Next: Event Source** and select your TSI event hub information from earlier. You will also need to create a new Event Hubs consumer group.
+2. In the *Event Source* tab, choose the following fields:
+
+   * **Create an event source?** - Choose *Yes*.
+   * **Source type** - Choose *Event Hub*.
+   * **Name** - Specify a name for your event source.
+   * **Subscription** - Choose your Azure subscription.
+   * **Event Hub namespace** - Choose the namespace that you created earlier in this article.
+   * **Event Hub name** - Choose the **time series hub** name that you created earlier in this article.
+   * **Event Hub access policy name** - Choose the **time series hub auth rule** that you created earlier in this article.
+   * **Event Hub consumer group** - Select *New* and specify a name for your event hub consumer group. Then, select *Add*.
+   * **Property name** - Leave this field blank.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
+    Choose the **Review + Create** button to review all the details. Then, select the **Review + Create** button again to create the time series environment.
 
-## Begin sending IoT data to Azure Digital Twins
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png" alt-text="Screenshot of the Azure portal showing how to create Time Series Insights environment (part 3/3)." lightbox="media/how-to-integrate-time-series-insights/create-tsi-environment-event-source.png":::
 
-To begin sending data to Time Series Insights, you will need to start updating the digital twin properties in Azure Digital Twins with changing data values. Use the [az dt twin update](/cli/azure/ext/azure-iot/dt/twin#ext-azure-iot-az-dt-twin-update) command.
+## Send IoT data to Azure Digital Twins
 
-If you are using the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)) to assist with environment setup, you can begin sending simulated IoT data by running the *DeviceSimulator* project from the sample. The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section of the tutorial.
+To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values.
+
+Use the [az dt twin update](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_update) CLI command to update a property on the twin you added in the [Prerequisites](#prerequisites) section. If you used the twin creation instructions from [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)), you can use the following command in the local CLI or the Cloud Shell **bash** terminal to update the temperature property on the thermostat67 twin.
+
+```azurecli-interactive
+az dt twin update --dt-name <your-Azure-Digital-Twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
+```
+
+**Repeat the command at least 4 more times with different property values**, to create several data points that can be observed later in the Time Series Insights environment.
+
+> [!TIP]
+> If you want to complete this article with live simulated data instead of manually updating the digital twin values, first make sure you've completed the TIP from the [Prerequisites](#prerequisites) section to set up an Azure function that updates twins from a simulated device.
+After that, you can run the device now to start sending simulated data and updating your digital twin through that data flow.
 
 ## Visualize your data in Time Series Insights
 
 Now, data should be flowing into your Time Series Insights instance, ready to be analyzed. Follow the steps below to explore the data coming in.
 
-1. Open your Time Series Insights environment in the [Azure portal](https://portal.azure.com) (you can search for the name of your environment in the portal search bar). Visit the *Time Series Insights Explorer URL* shown in the instance overview.
-    
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Select the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment":::
+1. In the [Azure portal](https://portal.azure.com), search for your time series environment name that you created earlier. In the menu options on the left, select *Overview* to see the *Time Series Insights Explorer URL*. Select the URL to view the temperature changes reflected in the Time Series Insights environment.
 
-2. In the explorer, you will see your three twins from Azure Digital Twins shown on the left. Select _**thermostat67**_, select **temperature**, and hit **add**.
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal showing the Time Series Insights explorer URL in the overview tab of the Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Select **thermostat67**, select **temperature**, and hit **add**":::
+2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the twin you've edited properties for, choose the property you've changed, and select **Add**.
 
-3. You should now be seeing the initial temperature readings from your thermostat, as shown below. That same temperature reading is updated for *room21* and *floor1*, and you can visualize those data streams in tandem.
-    
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Initial temperature data is graphed in the TSI explorer. It is a line of random values between 68 and 85":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer with the steps to select thermostat67, select the property temperature, and select add highlighted." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
-4. If you allow the simulation to run for much longer, your visualization will look something like this:
-    
-    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Temperature data for each twin is graphed in three parallel lines of different colors.":::
+3. You should now see the property changes you made reflected in the graph, as shown below. 
+
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Screenshot of the Time Series Insights explorer with the initial temperature data, showing a line of random values between 68 and 85." lightbox="media/how-to-integrate-time-series-insights/initial-data.png":::
+
+If you allow a simulation to run for much longer, your visualization will look something like this:
+
+:::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Screenshot of the Time Series Insights explorer where temperature data for each twin is graphed in three parallel lines of different colors." lightbox="media/how-to-integrate-time-series-insights/day-data.png":::
 
 ## Next steps
 
 The digital twins are stored by default as a flat hierarchy in Time Series Insights, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this process, read: 
 
-* [*Tutorial: Define and apply a model*](../time-series-insights/tutorials-set-up-tsi-environment.md#define-and-apply-a-model) 
+* [Define and apply a model](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
 
 You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
-* [*How-to: Manage a digital twin*](./how-to-manage-twin.md)
-* [*How-to: Query the twin graph*](./how-to-query-graph.md)
+* [Manage a digital twin](./how-to-manage-twin.md)
+* [Query the twin graph](./how-to-query-graph.md)

@@ -28,6 +28,7 @@ To access the chart options:
    ![built-in-charts](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
 3. You can now customize your visualization by specifying the following values:
+
    | Configuration | Description |
    |--|--| 
    | Chart Type | The ```display``` function supports a wide range of chart types, including bar charts, scatter plots, line graphs, and more |
@@ -46,7 +47,7 @@ To access the chart options:
 You can use <code>display(df, summary = true)</code> to check the statistics summary of a given Apache Spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its minimum value, maximum value, mean value and standard deviation.
     ![built-in-charts-summary](./media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
    
-### displayHTML(df) option
+### displayHTML() option
 Azure Synapse Analytics notebooks support HTML graphics using the ```displayHTML``` function.
 
 The following image is an example of creating visualizations using [D3.js](https://d3js.org/).
@@ -142,6 +143,37 @@ svg
 ## Popular Libraries
 When it comes to data visualization, Python offers multiple graphing libraries that come packed with many different features. By default, every Apache Spark Pool in Azure Synapse Analytics contains a set of curated and popular open-source libraries. You can also add or manage additional libraries & versions by using the Azure Synapse Analytics library management capabilities. 
 
+### Matplotlib
+You can render standard plotting libraries, like Matplotlib, using the built-in rendering functions for each library.
+
+The following image is an example of creating a bar chart using **Matplotlib**.
+   ![Line graph example.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+
+Run the following sample code to draw the image above.
+
+```python
+# Bar chart
+
+import matplotlib.pyplot as plt
+
+x1 = [1, 3, 4, 5, 6, 7, 9]
+y1 = [4, 7, 2, 4, 7, 8, 3]
+
+x2 = [2, 4, 6, 8, 10]
+y2 = [5, 6, 2, 6, 2]
+
+plt.bar(x1, y1, label="Blue Bar", color='b')
+plt.bar(x2, y2, label="Green Bar", color='g')
+plt.plot()
+
+plt.xlabel("bar number")
+plt.ylabel("bar height")
+plt.title("Bar Chart Example")
+plt.legend()
+plt.show()
+```
+
+
 ### Bokeh
 You can render HTML or interactive libraries, like **bokeh**, using the ```displayHTML(df)```. 
 
@@ -180,40 +212,65 @@ html = file_html(p, CDN, "my plot1")
 displayHTML(html)
 ```
 
-### Matplotlib
-You can render standard plotting libraries, like Matplotlib, using the built-in rendering functions for each library.
 
-The following image is an example of creating a bar chart using **Matplotlib**.
-   ![Line graph example.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+### Plotly
+You can render HTML or interactive libraries like **Plotly**, using the **displayHTML()**.
 
-Run the following sample code to draw the image above.
+Run the following sample code to draw the image below.
+
+   ![plotly-example](./media/apache-spark-development-using-notebooks/synapse-plotly-image.png#lightbox)
+
 
 ```python
-# Bar chart
+from urllib.request import urlopen
+import json
+with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+    counties = json.load(response)
 
-import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/fips-unemp-16.csv",
+                   dtype={"fips": str})
 
-x1 = [1, 3, 4, 5, 6, 7, 9]
-y1 = [4, 7, 2, 4, 7, 8, 3]
+import plotly
+import plotly.express as px
 
-x2 = [2, 4, 6, 8, 10]
-y2 = [5, 6, 2, 6, 2]
+fig = px.choropleth(df, geojson=counties, locations='fips', color='unemp',
+                           color_continuous_scale="Viridis",
+                           range_color=(0, 12),
+                           scope="usa",
+                           labels={'unemp':'unemployment rate'}
+                          )
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
-plt.bar(x1, y1, label="Blue Bar", color='b')
-plt.bar(x2, y2, label="Green Bar", color='g')
-plt.plot()
+# create an html document that embeds the Plotly plot
+h = plotly.offline.plot(fig, output_type='div')
 
-plt.xlabel("bar number")
-plt.ylabel("bar height")
-plt.title("Bar Chart Example")
-plt.legend()
-plt.show()
+# display this html
+displayHTML(h)
 ```
+### Pandas
+
+You can view html output of pandas dataframe as the default output, notebook will automatically show the styled html content. 
+
+   ![Panda graph example.](./media/apache-spark-data-viz/support-panda.png#lightbox)
+
+```python
+import pandas as pd 
+import numpy as np 
+
+df = pd.DataFrame([[38.0, 2.0, 18.0, 22.0, 21, np.nan],[19, 439, 6, 452, 226,232]], 
+
+                  index=pd.Index(['Tumour (Positive)', 'Non-Tumour (Negative)'], name='Actual Label:'), 
+
+                  columns=pd.MultiIndex.from_product([['Decision Tree', 'Regression', 'Random'],['Tumour', 'Non-Tumour']], names=['Model:', 'Predicted:'])) 
+
+df 
+```
+
 
 ### Additional libraries 
 Beyond these libraries, the Azure Synapse Analytics Runtime also includes the following set of libraries that are often used for data visualization:
-- [Matplotlib](https://matplotlib.org/)
-- [Bokeh](https://bokeh.org/)
+
 - [Seaborn](https://seaborn.pydata.org/) 
 
 You can visit the Azure Synapse Analytics Runtime [documentation](./spark/../apache-spark-version-support.md) for the most up to date information about the available libraries and versions.

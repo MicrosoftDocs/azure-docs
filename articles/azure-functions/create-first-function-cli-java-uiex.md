@@ -3,7 +3,7 @@ title: Create a Java function from the command line - Azure Functions
 description: Learn how to create a Java function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-java, devx-track-azurecli]
+ms.custom: [devx-track-java, devx-track-azurepowershell]
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 
@@ -33,7 +33,7 @@ Before you begin, you must have the following:
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -106,7 +106,7 @@ In Azure Functions, a function project is a container for one or more individual
 <summary><strong>What's created in the LocalFunctionProj folder?</strong></summary>
 
 This folder contains various files for the project, such as *Function.java*, *FunctionTest.java*, and *pom.xml*. There are also configurations files named
-[local.settings.json](functions-run-local.md#local-settings-file) and
+[local.settings.json](functions-develop-local.md#local-settings-file) and
 [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets
 downloaded from Azure, the file is excluded from source control by default in the *.gitignore*
 file.
@@ -193,7 +193,7 @@ To create a function app running on Linux instead of Windows, change the `runtim
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell

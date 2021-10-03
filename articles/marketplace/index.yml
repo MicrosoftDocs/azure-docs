@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: mingshen-ms 
   ms.author: mingshen
-  ms.date: 09/02/2020
+  ms.date: 06/01/2021
 
 landingContent:
   - title: Working in the commercial marketplace
@@ -18,34 +18,36 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Create a new account
-        url: ./partner-center-portal/create-account.md
+        url: create-account.md
       - text: Determine your publishing option
-        url: ./determine-your-listing-type.md
+        url: determine-your-listing-type.md
       - text: Policies and terms
-        url: ./policies-terms.md
+        url: policies-terms.md
       - text: Microsoft commercial marketplace FAQs
-        url: ./marketplace-faq-publisher-guide.md
+        url: marketplace-faq-publisher-guide.yml
       - text: Microsoft Publisher Agreement
-        url: https://go.microsoft.com/fwlink/?LinkID=699560
+        url: /legal/marketplace/msft-publisher-agreement
+      - text: What's new
+        url: what-is-new.md  
 
   - title: Common scenarios and tasks
     linkLists:
     - linkListType: overview
       links:
       - text: Marketing best practices
-        url: ./gtm-marketing-best-practices.md  
+        url: gtm-marketing-best-practices.md  
       - text: Cloud solution providers
-        url: ./cloud-solution-providers.md
+        url: cloud-solution-providers.md
       - text: Offer listing best practices
-        url: ./gtm-offer-listing-best-practices.md
+        url: gtm-offer-listing-best-practices.md
     - linkListType: get-started
       links:
       - text: Customer leads from your marketplace offer
-        url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+        url: partner-center-portal/commercial-marketplace-get-customer-leads.md
       - text: Co-sell option in the commercial marketplace
-        url: commercial-marketplace-co-sell.md
+        url: co-sell-configure.md
       - text: Co-sell partner engagement
-        url: ./marketplace-co-sell.md
+        url: co-sell-overview.md
       - text: Make solutions available in Microsoft AppSource and within Office
         url: /office/dev/store/submit-to-appsource-via-partner-center
       - text: Participate in the Azure Marketplace and AppSource community forum
@@ -58,38 +60,38 @@ landingContent:
     - linkListType: how-to-guide
       links:
       - text: Summary dashboard
-        url: ./summary-dashboard.md
+        url: summary-dashboard.md
       - text: Marketplace Insights dashboard
-        url: ./insights-dashboard.md
+        url: insights-dashboard.md
       - text: Usage dashboard
-        url: ./usage-dashboard.md
+        url: usage-dashboard.md
       - text: Customer dashboard
-        url: ./customer-dashboard.md
+        url: customer-dashboard.md
       - text: Orders dashboard
-        url: ./orders-dashboard.md
+        url: orders-dashboard.md
       - text: Downloads dashboard
-        url: ./partner-center-portal/downloads-dashboard.md
+        url: downloads-dashboard.md
       - text: Ratings and reviews dashboard
-        url: ./partner-center-portal/ratings-reviews.md
+        url: ratings-reviews.md
 
   - title: Create an offer
     linkLists:
     - linkListType: how-to-guide
       links:
-      - text: SaaS offers
+      - text: SaaS
         url: plan-saas-offer.md
-      - text: Virtual machines offers
-        url: ./marketplace-virtual-machines.md
-      - text: Azure application offers
-        url: ./create-new-azure-apps-offer.md
-      - text: Dynamics 365 for Customer Engagement & PowerApps offers
-        url: ./partner-center-portal/create-new-customer-engagement-offer.md
-      - text: Dynamics 365 Business Central offers
-        url: ./partner-center-portal/create-new-business-central-offer.md
-      - text: Dynamics 365 for Operations offers
-        url: ./partner-center-portal/create-new-operations-offer.md
+      - text: Virtual machines
+        url: marketplace-virtual-machines.md
+      - text: Azure applications
+        url: azure-app-offer-setup.md
+      - text: Dynamics 365 for Customer Engagement & Power Apps
+        url: dynamics-365-customer-engage-offer-setup.md
+      - text: Dynamics 365 Business Central
+        url: dynamics-365-business-central-offer-setup.md
+      - text: Dynamics 365 for Operations
+        url: dynamics-365-operations-offer-setup.md
       - text: More offer types
-        url: ./publisher-guide-by-offer-type.md
+        url: publisher-guide-by-offer-type.md
 
   - title: Get paid
     linkLists:
@@ -104,28 +106,22 @@ landingContent:
       - text: Tax details
         url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
       - text: Commercial marketplace billing
-        url: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+        url: marketplace-commercial-transaction-capabilities-and-considerations.md
 
   - title: API reference
     linkLists:
     - linkListType: reference
       links:
-      - text: SaaS fulfillment APIs
-        url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
-      - text: Marketplace metering service APIs
-        url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-      - text: Cloud Partner Portal API Reference
-        url: ./cloud-partner-portal-api-overview.md
+      - text: Marketplace APIs guide
+        url: marketplace-apis-guide.md
       - text: API prerequisites
-        url: ./cloud-partner-portal-api-prerequisites.md
-      - text: Retrieve offers
-        url: ./cloud-partner-portal-api-retrieve-offers.md
-      - text: Create or modify an offer
-        url: ./cloud-partner-portal-api-creating-offer.md
-      - text: Pricing for virtual machine offers
-        url: ./cloud-partner-portal-api-setting-price.md
-      - text: Go live
-        url: ./cloud-partner-portal-api-go-live.md
+        url: cloud-partner-portal-api-prerequisites.md
+      - text: SaaS fulfillment APIs
+        url: partner-center-portal/pc-saas-fulfillment-api-v2.md
+      - text: Marketplace metering service APIs
+        url: marketplace-metering-service-apis-faq.yml
+      - text: Reporting API (PDF)
+        url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 
   - title: Get support
     linkLists:
@@ -134,6 +130,6 @@ landingContent:
       - text: Support options
         url: ./support.md
       - text: Troubleshoot authentication errors
-        url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+        url: cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
-        url: ./marketplace-geo-availability-currencies.md
+        url: marketplace-geo-availability-currencies.md

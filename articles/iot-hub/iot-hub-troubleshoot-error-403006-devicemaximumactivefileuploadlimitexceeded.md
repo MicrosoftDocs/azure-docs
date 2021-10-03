@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-# As a developer or operator for Azure IoT Hub, I want to resolve 403006 DeviceMaximumActiveFileUploadLimitExceeded errors.
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 403006 DeviceMaximumActiveFileUploadLimitExceeded errors.
 ---
 
 # 403006 DeviceMaximumActiveFileUploadLimitExceeded
@@ -27,7 +27,7 @@ You can easily exceed the limit if your device doesn't notify IoT Hub when file 
 
 ## Solution
 
-Ensure the device can promptly [notify IoT Hub file upload completion](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload). Then, try [reducing the SAS token TTL for file upload configuration](iot-hub-configure-file-upload.md).
+Ensure the device can promptly [notify IoT Hub file upload completion](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload-rest). Then, try [reducing the SAS token TTL for file upload configuration](iot-hub-configure-file-upload.md).
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Manual QoS capacity pool
@@ -39,8 +39,6 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), you can specify for the capacity pool to use the manual QoS type.  You can also [change an existing capacity pool](manage-manual-qos-capacity-pool.md#change-to-qos) to use the manual QoS type. 
 
 Setting the capacity type to manual QoS is a permanent change. You cannot convert a manual QoS type capacity tool to an auto QoS capacity pool. 
-
-Using the manual QoS type requires that you [register the feature](manage-manual-qos-capacity-pool.md#register-the-feature).  
 
 ## Next steps
 

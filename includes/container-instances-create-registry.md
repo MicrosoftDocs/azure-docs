@@ -72,6 +72,6 @@ Login Succeeded
 ```
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-group-create]: /cli/azure/group#az_group_create

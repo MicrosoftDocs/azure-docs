@@ -3,7 +3,7 @@ title: Check for pool and node errors
 description: This article covers the background operations that can occur, along with errors to check for and how to avoid them when creating pools and nodes.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ---
 
@@ -57,6 +57,13 @@ When you delete a pool that contains nodes, first Batch deletes the nodes. This 
 
 Batch sets the [pool state](/rest/api/batchservice/pool/get#poolstate) to **deleting** during the deletion process. The calling application can detect if the pool deletion is taking too long by using the **state** and **stateTransitionTime** properties.
 
+If the pool is taking longer than expected, Batch will retry periodically until the pool can be successfully deleted. In some cases, the delay is due to an Azure service outage or other temporary issues. Other factors that can prevent a pool from successfully being deleted may require you to take actions to correct the issue. These factors include the following:
+
+- Resource locks have been placed on Batch-created resources, or on network resources used by Batch.
+- Resources that you created have a dependency on a Batch-created resource. For instance, if you [create a pool in a virtual network](batch-virtual-network.md), Batch creates a network security group (NSG), a public IP address, and a load balancer. If you use these resources outside of the pool, the pool can't be deleted until that dependency is removed.
+- The Microsoft.Batch resource provider was unregistered from the subscription that contains your pool.
+- "Microsoft Azure Batch" no longer has the [Contributor or Owner role](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) to the subscription that contains your pool (for user subscription mode Batch accounts).
+
 ## Node errors
 
 Even when Batch successfully allocates nodes in a pool, various issues can cause some of the nodes to be unhealthy and unable to run tasks. These nodes still incur charges, so it's important to detect problems to avoid paying for nodes that can't be used. In addition to common node errors, knowing the current [job state](/rest/api/batchservice/job/get#jobstate) is useful for troubleshooting.
@@ -100,15 +107,10 @@ If Batch can determine the cause, the node [errors](/rest/api/batchservice/compu
 Additional examples of causes for **unusable** nodes include:
 
 - A custom VM image is invalid. For example, an image that's not properly prepared.
-
 - A VM is moved because of an infrastructure failure or a low-level upgrade. Batch recovers the node.
-
 - A VM image has been deployed on hardware that doesn't support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM.
-
 - The VMs are in an [Azure virtual network](batch-virtual-network.md), and traffic has been blocked to key ports.
-
 - The VMs are in a virtual network, but outbound traffic to Azure storage is blocked.
-
 - The VMs are in a virtual network with a customer DNS configuration and the DNS server cannot resolve Azure storage.
 
 ### Node agent log files
@@ -129,14 +131,16 @@ Some of these files are only written once when pool nodes are created, such as p
 
 Other files are written out for each task that is run on a node, such as stdout and stderr. If a large number of tasks run on the same node and/or the task files are too large, they could fill the temporary drive.
 
-The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space.
+Additionally, after the node starts, a small amount of space is needed on the operating system disk to create users.
+
+The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space for the planned workload.
 
 - In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
 - The articles describing all VM sizes have tables with a 'Temp Storage' column; for example [Compute Optimized VM sizes](../virtual-machines/sizes-compute.md)
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
-If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error will be reported saying that the disk is full.
+If the temporary or operating system disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error will be reported saying that the disk is full.
 
 If you're not sure what is taking up space on the node, try remoting to the node and investigating manually where the space has gone. You can also make use of the [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode) to examine files in Batch managed folders (for example, task outputs). Note that this API only lists files in the Batch managed directories. If your tasks created files elsewhere, you won't see them.
 

@@ -110,7 +110,7 @@ The bounds of a model are defined by the box that contains the entire model - ju
     // Create a query using the model entity
     async private void QueryBounds()
     {
-        remoteBoundsQuery = targetModel.ModelEntity.QueryLocalBoundsAsync();
+        var remoteBounds = targetModel.ModelEntity.QueryLocalBoundsAsync();
         CurrentBoundsState = RemoteBoundsState.Updating;
         await remoteBounds;
 
@@ -311,7 +311,7 @@ When a ray cast is completed successfully in the **RemoteRayCastPointerHandler**
     }
     ```
 
-2. On the **TestModel** GameObject created previously, add both the **RemoteRayCastPointerHandler** component and the **RemoteEntityHelper** component.
+1. On the **TestModel** GameObject created previously, add both the **RemoteRayCastPointerHandler** component and the **RemoteEntityHelper** component.
 1. Assign the `EntityToDebugLog` method to the `OnRemoteEntityClicked` event. When the event's output type and method's input type match, we can use Unity's dynamic event hookup, that will automatically pass the event value into the method.
     1. Create a new callback field
     ![Add callback](./media/add-callback-remote-entity-clicked.png)

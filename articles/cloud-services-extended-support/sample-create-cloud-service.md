@@ -7,7 +7,7 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a new Azure Cloud Service (extended Support)

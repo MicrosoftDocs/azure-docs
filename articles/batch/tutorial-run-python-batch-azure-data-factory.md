@@ -4,7 +4,7 @@ description: Learn how to run Python scripts as part of a pipeline through Azure
 author: pkshultz
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
 ---

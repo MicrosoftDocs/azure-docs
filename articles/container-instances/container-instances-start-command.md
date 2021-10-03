@@ -113,8 +113,8 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

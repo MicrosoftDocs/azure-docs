@@ -1,14 +1,16 @@
 ---
 title: Manage read replicas - Azure portal - Azure Database for MySQL - Flexible Server
 description: Learn how to set up and manage read replicas in Azure Database for MySQL flexible server using the Azure portal.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 06/17/2021 
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL Flexible Server using the Azure portal
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Read replicas in Azure Database for MySQL - Flexible Server is in preview.
@@ -16,7 +18,11 @@ ms.date: 10/26/2020
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure portal.
 
 > [!Note]
-> Replica is not supported on high availability enabled server. 
+>
+> * Replica is not supported on high availability enabled server. 
+> 
+> * The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+> * If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ## Prerequisites
 
@@ -25,7 +31,7 @@ In this article, you will learn how to create and manage read replicas in the Az
 ## Create a read replica
 
 > [!IMPORTANT]
-> When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+>When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
 
 A read replica server can be created using the following steps:
 
@@ -39,7 +45,7 @@ A read replica server can be created using the following steps:
 
    :::image type="content" source="./media/how-to-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL - Replication":::
 
-5. Enter a name for the replica server.
+5. Enter a name for the replica server. If your region support Availability Zones, you can select Availability zone of your choice.
 
     :::image type="content" source="./media/how-to-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL - Replica name":::
 
@@ -55,7 +61,7 @@ Once the replica server has been created, it can be viewed from the **Replicatio
 ## Stop replication to a replica server
 
 > [!IMPORTANT]
-> Stopping replication to a server is irreversible. Once replication has stopped between a source and replica, it cannot be undone. The replica server then becomes a standalone server and now supports both read and writes. This server cannot be made into a replica again.
+>Stopping replication to a server is irreversible. Once replication has stopped between a source and replica, it cannot be undone. The replica server then becomes a standalone server and now supports both read and writes. This server cannot be made into a replica again.
 
 To stop replication between a source and a replica server from the Azure portal, use the following steps:
 
@@ -98,7 +104,7 @@ To delete a read replica server from the Azure portal, use the following steps:
 ## Delete a source server
 
 > [!IMPORTANT]
-> Deleting a source server stops replication to all replica servers and deletes the source server itself. Replica servers become standalone servers that now support both read and writes.
+>Deleting a source server stops replication to all replica servers and deletes the source server itself. Replica servers become standalone servers that now support both read and writes.
 
 To delete a source server from the Azure portal, use the following steps:
 

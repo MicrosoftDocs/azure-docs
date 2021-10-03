@@ -63,7 +63,7 @@ To mount a gitRepo volume when you deploy container instances with an [Azure Res
 For example, the following Resource Manager template creates a container group consisting of a single container. The container clones two GitHub repositories specified by the *gitRepo* volume blocks. The second volume includes additional properties specifying a directory to clone to, and the commit hash of a specific revision to clone.
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
-[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
+[!code-json[volume-gitrepo](~/resourcemanager-templates/container-instances/aci-deploy-volume-gitrepo.json)]
 
 The resulting directory structure of the two cloned repos defined in the preceding template is:
 
@@ -110,5 +110,5 @@ Learn how to mount other volume types in Azure Container Instances:
 [pat-repos]: /azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec

@@ -8,9 +8,9 @@ metadata:
   description: Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models. Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and SDKs.
   ms.prod: kinect-dk
   ms.topic: landing-page
-  author: tesych
-  ms.author: tesych
-  ms.date: 03/11/2020
+  author: qm13
+  ms.author: quentinm
+  ms.date: 03/18/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -83,7 +83,7 @@ landingContent:
           - text: Sensor SDK API
             url: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
           - text: Body tracking SDK API
-            url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
+            url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.1.x/index.html
           - text: Vision Services
             url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
           - text: Speech Services
