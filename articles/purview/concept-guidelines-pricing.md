@@ -35,7 +35,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 #### Elastic data map
 
-1.	The **Data map** is the foundation of the Purview architecture and hence needs to be up to date with asset information in the data estate at any given point in time
+1.	The **Data map** is the foundation of the Purview architecture and hence needs to be up to date with asset information in the data estate at any given point
 
 2.	The data map is charged in terms of **Capacity Unit** (CU). The data map is provisioned at one CU if the catalog is storing up to 2 GB of metadata storage and serves up to 25 data map operations/sec
 
@@ -60,12 +60,12 @@ Direct costs impacting Azure Purview pricing are based on the following three di
     - This constitutes the **burst characteristic** that needs to be estimated and planned for
     - The burst characteristic comprises of the **burst level** and the **burst duration** for which the burst exists
         - The **burst level** is a multiplicative index of the expected consistent elasticity under steady state
-        - The **burst duration** is the percentage of the month that such bursts (in elasticity) are expected due to growing metadata or higher number of operations on the data map
+        - The **burst duration** is the percentage of the month that such bursts (in elasticity) are expected because of growing metadata or higher number of operations on the data map
 
 
 ##### Metadata storage
 
-- If the number of assets reduces in the data estate (and are, then removed in the data map through subsequent incremental scans), the storage component automatically reduces and hence the data map scales down
+- If the number of assets reduces in the data estate, and are then removed in the data map through subsequent incremental scans, the storage component automatically reduces and hence the data map scales down
 
 
 #### Automated scanning & classification
@@ -95,7 +95,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 #### Advanced resource sets
 
-1. Azure Purview uses **resource sets** to address the challenge of mapping large numbers of data assets to a single logical resource by providing the ability to scan all the files in the data lake and find patterns (GUID, localization patterns, etc.,) to group them as a single asset in the data map
+1. Azure Purview uses **resource sets** to address the challenge of mapping large numbers of data assets to a single logical resource by providing the ability to scan all the files in the data lake and find patterns (GUID, localization patterns, etc.) to group them as a single asset in the data map
 
 2. **Advanced Resource Set** is an optional feature, which allows for customers to get enriched resource set information computed such as Total Size, Partition Count, etc., and enables the customization of resource set grouping via pattern rules. If Advanced Resource Set feature is not enabled, your data catalog will still contain resource set assets, but without the aggregated properties. There will be no "Resource Set" meter billed to the customer in this case.
 
