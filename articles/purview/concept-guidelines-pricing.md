@@ -123,14 +123,14 @@ Indirect costs impacting Azure Purview pricing to be considered are:
 3. [Self-hosted integration runtime related costs](./manage-integration-runtimes.md) 
     - Self-hosted integration runtime requires infrastructure, which results in extra costs
     - It is required to deploy and register Self-hosted integration runtime (SHIR) inside the same virtual network where Azure Purview ingestion private endpoints are deployed
-    - [Additional memory requirements for scanning](https://docs.microsoft.com/azure/purview/register-scan-sapecc-source#creating-and-running-a-scan)
+    - [Additional memory requirements for scanning](./register-scan-sapecc-source.md#creating-and-running-a-scan)
         - Certain data sources such as SAP require additional memory on the SHIR machine for scanning
 
 
 4. [Virtual Machine Sizing](https://docs.microsoft.com/azure/virtual-machines/sizes)
     - Plan virtual machine sizing in order to distribute the scanning workload across VMs to optimize the v-cores utilized while running scans
 
-5. [M365 license](./create-sensitivity-label.md#how-to-create-sensitivity-labels-in-microsoft-365) 
+5. [M365 license](./create-sensitivity-label.md) 
     - Microsoft Information Protection (MIP) sensitivity labels can be automatically applied to your Azure assets in Azure Purview.
     - MIP sensitivity labels are created and managed in the Microsoft 365 Security and Compliance Center.
     - To create sensitivity labels for use in Azure Purview, you must have an active Microsoft 365 license, which offers the benefit of automatic labeling. For the full list of licenses, see the Sensitivity labels in Azure Purview FAQ. 
