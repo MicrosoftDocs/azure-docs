@@ -58,7 +58,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 - Data burst level
     - When there is a need for more operations/second throughput, the Data map can autoscale within the elasticity window to cater to the changed load
     - This constitutes the **burst characteristic** that needs to be estimated and planned for
-    - The burst characteristic comprises of the **burst level** and the **burst duration** for which the burst exists
+    - The burst characteristic comprises the **burst level** and the **burst duration** for which the burst exists
         - The **burst level** is a multiplicative index of the expected consistent elasticity under steady state
         - The **burst duration** is the percentage of the month that such bursts (in elasticity) are expected because of growing metadata or higher number of operations on the data map
 
@@ -82,7 +82,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 6. It is recommended to **register the data source at a parent collection** and **scope scans at child collection** with different access controls to ensure there are no duplicate scanning costs being entailed
 
-7. It is recommended to curtail the users who are allowed to register data sources for scanning through **fine grained access control** and **Data Source Administrator** role using [Collection authorization](./catalog-permissions.md). This will ensure only valid data sources are allowed to be registered and scanning v-core hours is controlled resulting in controlled costs for scanning
+7. It is recommended to curtail the users who are allowed to register data sources for scanning through **fine grained access control** and **Data Source Administrator** role using [Collection authorization](./catalog-permissions.md). This will ensure only valid data sources are allowed to be registered and scanning v-core hours is controlled resulting in lower costs for scanning
 
 8. Consider that the **type of data source** and the **number of assets** being scanned impact the scan duration
 
@@ -90,7 +90,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 10. While creating a new scan for a data source, it is recommended to follow the **order of preparation** recommended before actually running the scan. This includes gathering the requirements for **business specific classifications** and **file types** (for storage accounts) to enable appropriate scan rule sets to be defined to avoid multiple scans and control unnecessary costs for multiple scans through missed requirements
 
-11. It is recommended to align your scan schedules with Self Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid extra costs linked to virtual machines
+11. It is recommended to align your scan schedules with Self-Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid extra costs linked to virtual machines
 
 
 #### Advanced resource sets
@@ -113,7 +113,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 Indirect costs impacting Azure Purview pricing to be considered are:
 
 1. [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
-    - When a Purview account is provisioned, a storage account and event hub queue is created within the subscription in order to cater to secured scanning, which may be charged separately
+    - When a Purview account is provisioned, a storage account and event hub queue are created within the subscription in order to cater to secured scanning, which may be charged separately
 
 
 2. [Azure private endpoint](./catalog-private-link.md)
