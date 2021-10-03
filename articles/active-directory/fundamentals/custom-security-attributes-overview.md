@@ -116,18 +116,18 @@ The following table lists the properties you can specify for attribute sets and 
 
 | Property | Required | Can be changed later | Description |
 | --- | :---: | :---: | --- |
-| Attribute set name  | :heavy_check_mark: |  | Name of the attribute set. |
-| Attribute set description |  | :heavy_check_mark: | A short description of the custom security attribute. |
+| Attribute set name  | :heavy_check_mark: |  | Name of the attribute set. Must be unique within a tenant. Cannot include spaces or special characters. |
+| Attribute set description |  | :heavy_check_mark: | Description of the attribute set. |
 | Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes for the attribute set. |
 | Attribute set | :heavy_check_mark: |  | A group of related custom security attributes. Every custom security attribute must be part of an attribute set. |
-| Attribute name  | :heavy_check_mark: |  | Name of the custom security attribute. Names cannot include spaces. |
-| Attribute description |  | :heavy_check_mark: | A short description of the custom security attribute. |
-| Data type | :heavy_check_mark: |  | The data type for the custom security attribute values (Boolean, integer, or string). |
+| Attribute name  | :heavy_check_mark: |  | Name of the custom security attribute. Must be unique within an attribute set. Cannot include spaces or special characters. |
+| Attribute description |  | :heavy_check_mark: | Description of the custom security attribute. |
+| Data type | :heavy_check_mark: |  | Data type for the custom security attribute values. Supported types are Boolean, Integer, and String. |
 | Allow multiple values to be assigned | :heavy_check_mark: |  | Indicates whether multiple values can be assigned to the custom security attribute. |
-| Only allow predefined values to be assigned | :heavy_check_mark: |  | Indicates whether only predefined values can be assigned to the custom security attribute. Can later be changed from Yes to No, but cannot be changed from No to Yes. |
+| Only allow predefined values to be assigned | :heavy_check_mark: |  | Indicates whether only predefined values can be assigned to the custom security attribute. If set to No, free-form values are allowed. Can later be changed from Yes to No, but cannot be changed from No to Yes. |
 | Predefined values |  |  | Predefined values for the custom security attribute of the selected data type. More predefined values can added later. Values can include spaces. |
-| Predefined value is active |  | :heavy_check_mark: | Predefined values can be in an active or deactivated state. |
-| Attribute is active |  | :heavy_check_mark: | Custom security attributes can be in an active or deactivated state. |
+| Predefined value is active |  | :heavy_check_mark: | Specifies whether the predefined value is active or deactivated. |
+| Attribute is active |  | :heavy_check_mark: | Specifies whether the custom security attribute is active or deactivated. |
 
 ## Limits and constraints
 
