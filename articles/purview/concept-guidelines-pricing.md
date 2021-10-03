@@ -90,7 +90,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 10. While creating a new scan for a data source, it is recommended to follow the **order of preparation** recommended before actually running the scan. This includes gathering the requirements for **business specific classifications** and **file types** (for storage accounts) to enable appropriate scan rule sets to be defined to avoid multiple scans and control unnecessary costs for multiple scans through missed requirements
 
-11. It is recommended to align your scan schedules with Self Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid additional costs linked to virtual machines
+11. It is recommended to align your scan schedules with Self Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid extra costs linked to virtual machines
 
 
 #### Advanced resource sets
@@ -118,10 +118,10 @@ Indirect costs impacting Azure Purview pricing to be considered are:
 
 2. [Azure private endpoint](./catalog-private-link.md)
     - Azure private end points are used for Purview accounts where it is required for users on a virtual network (VNet) to securely access the catalog over a private link
-    - The prerequisites for setting up private endpoints could result in additional costs
+    - The prerequisites for setting up private endpoints could result in extra costs
 
 3. [Self-hosted integration runtime related costs](./manage-integration-runtimes.md) 
-    - Self-hosted integration runtime requires infrastructure, which results in additional costs
+    - Self-hosted integration runtime requires infrastructure, which results in extra costs
     - It is required to deploy and register Self-hosted integration runtime (SHIR) inside the same virtual network where Azure Purview ingestion private endpoints are deployed
     - [Additional memory requirements for scanning](https://docs.microsoft.com/azure/purview/register-scan-sapecc-source#creating-and-running-a-scan)
         - Certain data sources such as SAP require additional memory on the SHIR machine for scanning
