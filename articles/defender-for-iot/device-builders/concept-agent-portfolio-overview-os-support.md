@@ -1,7 +1,7 @@
 ---
 title: Agent portfolio overview and OS support (Preview)
 description: Azure Defender for IoT provides a large portfolio of agents based on the device type. 
-ms.date: 08/08/2021
+ms.date: 10/03/2021
 ms.topic: conceptual
 ---
 
@@ -19,7 +19,7 @@ The standalone agent covers most of the Linux Operating Systems (OS), which can 
 | Ubuntu 18.04 | ✓ |  | ✓ |
 | Ubuntu 20.04 | ✓ |  | |
 
-For more information, supported operating systems, or to request access to the source code so you can incorporate it as a part of the device's firmware, contact your account manager, or send an email to <defender_micro_agent@microsoft.com>.
+For a more granular view of the micro agent operating system dependencies see [Linux dependencies](concept-micro-agent-linux-dependencies.md#linux-dependencies). For additional information, supported operating systems, or to request access to the source code so you can incorporate it as a part of the device's firmware, contact your account manager, or send an email to <defender_micro_agent@microsoft.com>.
 
 ## Azure RTOS micro agent
 
