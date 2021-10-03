@@ -144,7 +144,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
-## **Try It**: General document model
+## **Try it**: general document model
 
 > [!div class="checklist"]
 >
@@ -254,7 +254,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## **Try It**:  Layout model
+## **Try it**:  Layout model
 
 Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
 
