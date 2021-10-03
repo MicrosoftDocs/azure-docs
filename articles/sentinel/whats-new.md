@@ -37,17 +37,17 @@ Microsoft Sentinel's free trial continues to support new or existing Log Analyti
 
 In addition, during the trial period:
 
-- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Azure Sentinel and Log Analytics. 
+- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Microsoft Sentinel and Log Analytics. 
 
-    Any data consumed beyond 10 GB/day will be billed per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
+    Any data consumed beyond 10 GB/day will be billed per [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
-- **For existing Log Analytics workspaces**, Azure Sentinel is free of charge, and only Log Analytics charges apply.
+- **For existing Log Analytics workspaces**, Microsoft Sentinel is free of charge, and only Log Analytics charges apply.
 
-For more information, see the [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Azure Sentinel](azure-sentinel-billing.md).
+For more information, see the [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel) page and [Plan and manage costs for Microsoft Sentinel](azure-sentinel-billing.md).
 
 ### Content hub and 55+ new solutions
 
-Microsoft Sentinel now provides a content hub for built-in, on-demand solutions to your Azure Sentinel workspace.
+Microsoft Sentinel now provides a content hub for built-in, on-demand solutions to your Microsoft Sentinel workspace.
 
 On the **Solutions** page, find the solution you want by filtering for provider, support options, content included, and categories.
 
