@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 10/03/2021
 
 ---
 
@@ -119,7 +119,15 @@ Removing Azure Sentinel doesn't remove the Log Analytics workspace Azure Sentine
 
 ### Free trial
 
-You can enable Azure Sentinel on a new or existing Log Analytics workspace at no additional cost for the first 31 days. Charges related to Log Analytics, Automation, and BYOML still apply during the free trial. Usage beyond the first 31 days is charged per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel). 
+You can enable Microsoft Sentinel on a new or existing Log Analytics workspace at no additional cost for the first 31 days. During the trial period:
+
+- **For new Log Analytics workspaces**, including workspaces that are less than 3 days old, you have up to 10 GB/day free for use across both Microsoft Sentinel and Log Analytics. Any data consumed beyond 10 GB/day will be billed per [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
+
+- **For existing Log Analytics workspaces**, Microsoft Sentinel is free of charge, and only Log Analytics charges apply.
+
+Other charges related to Log Analytics, Automation, and BYOML still apply during the free trial.
+
+Usage beyond the first 31 days is charged per [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel).
 
 ### Free data sources
 
