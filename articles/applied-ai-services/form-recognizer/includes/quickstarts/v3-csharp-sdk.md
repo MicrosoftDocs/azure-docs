@@ -2,11 +2,13 @@
 >
 > * This quickstart SDK targets REST API version **v3.0**.
 >
-[Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+[Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet&preserve-view=true ) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to extract and analyze form fields, text, and tables in form documents. The C# SDK supports the following models and capabilities:
+Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to extract and analyze from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications.
 
 ### Form Recognizer models
+
+The C# SDK supports the following models and capabilities:
 
 * 🆕General document—Analyze and extract text, tables, structure, key-value pairs and named entities.|
 * Layout—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
@@ -18,11 +20,11 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#try-the-general-document-model)
+* [**General document**](#try-it-general-document-model)
 
-* [**Layout**](#try-the-layout-model)
+* [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-the-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
 
 ## Prerequisites
 
@@ -32,7 +34,8 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-  >[!TIP] Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](#create-formrecognizerclient-with-azure-active-directory-credential).
+> [!TIP] 
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](#create-formrecognizerclient-with-azure-active-directory-credential).
 
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -100,6 +103,9 @@ This version of the client library defaults to the 2021-09-30-preview version of
  1. Select the Browse tab and type Azure.AI.FormRecognizer.
  1. Select Project and your solution
  1. Choose Version TODO and select install.
+
+ This version of the client library defaults to the 2021-09-30-preview version of the service.
+
 ---
 
 ## Build your application
@@ -125,9 +131,15 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
 1. Delete the line, `Console.Writeline("Hello World!");`.
 
-    :::image type="content" source="../../media/quickstarts/csharp-console-hello-world.png" alt-text="Screenshot: Program.cs Hello World code in the Visual Studio code editor.":::
+  :::image type="content" source="../../media/quickstarts/csharp-console-hello-world.png" alt-text="Screenshot: Program.cs Hello World code in the Visual Studio code editor.":::
 
-1. In it's place add the following code:
+1. Add the **Try It** code to the **Main** method in the **Program.cs** file:
+
+  :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
+
+## **Try It**: General document model
+
+1.  Add the following code to the Program.cs file :
 
 ```csharp
 string fileUri = "<fileUri>";
@@ -229,11 +241,19 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
+### [Run your application: .NET Command-line interface (CLI)](#tab/cli)
+
 Open your command prompt and go to the directory that contains your project and type the following:
 
 ```console
 dotnet run formrecognizer-quickstart.dll
 ```
+
+### [Run your program: Visual Studio](#tab/vs)
+
+Choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ### Create DocumentAnalysisClient with AzureKeyCredential
 

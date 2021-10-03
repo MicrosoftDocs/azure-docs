@@ -102,8 +102,6 @@ items:
     items:
       - name: Prebuilt models (preview)
         href: concept-v3-prebuilt.md
-      - name: Custom models (preview)
-        href: concept-v3-custom.md
 - name: Tutorials
   items:
   - name: "Use Azure Form Recognizer and AI Builder"
