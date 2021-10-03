@@ -65,7 +65,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 ##### Metadata storage
 
-- If the number of assets reduces in the data estate (and are then removed in the data map through subsequent incremental scans), the storage component automatically reduces and hence the data map scales down
+- If the number of assets reduces in the data estate (and are, then removed in the data map through subsequent incremental scans), the storage component automatically reduces and hence the data map scales down
 
 
 #### Automated scanning & classification
@@ -113,7 +113,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 Indirect costs impacting Azure Purview pricing to be considered are:
 
 1. [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
-    - When a Purview account is provisioned, a storage account and event hub queue is created within the subscription in order to cater to secured scanning which may be charged separately
+    - When a Purview account is provisioned, a storage account and event hub queue is created within the subscription in order to cater to secured scanning, which may be charged separately
 
 
 2. [Azure private endpoint](./catalog-private-link.md)
