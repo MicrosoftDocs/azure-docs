@@ -6,7 +6,6 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-
 ---
 
 # Query exported data from Azure Monitor using Azure Data Explorer (preview)
