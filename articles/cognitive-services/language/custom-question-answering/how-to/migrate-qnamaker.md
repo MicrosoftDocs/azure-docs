@@ -29,12 +29,15 @@ You can follow the steps below to migrate knowledge bases:
 
 2. If you want to add knowledge bases in multiple languages to your language resource, visit [Language Studio](https://lanuage.azure.com) to create your first custom question answering project and select the first option as shown below. Language settings for the language resource can be specified only when creating a project. If you want to migrate existing knowledge bases in a single language to the language resource, you can skip this step.
 
-    :::image type="content" source="../media/migrate-qnamaker/choose-language.png" alt-text="Add chit-chat QnAs" lightbox="../media/migrate-qnamaker/choose-language.png":::
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of choose language UI screen"](../media/migrate-qnamaker/choose-language.png)
 
 3. Visit [https://www.qnamaker.ai](https://www.qnamaker.ai) and select **Start Migration** in the migration note on the knowledge base page. A dialog box will open to initiate the migration.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of message at the top of qnamaker.ai UI with a button for "Start Migration"](../media/migrate-qnamaker/start-migration.png)
+
+        :::image type="content" source="../media/migrate-qnamaker/start-migration.png" alt-text="Add chit-chat QnAs" lightbox="../media/migrate-qnamaker/start-migration.png":::
 
 4. Fill in the details required to initiate migration. The tenant will be auto-selected. You can choose to switch the tenant.
 
