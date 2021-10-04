@@ -29,6 +29,8 @@ The Key Vault VM extension supports these Linux distributions:
 > To get extended security features, prepare to upgrade Ubuntu-1604 and Debian-9 systems as these versions are reaching their end of designated support period.
 > 
 
+> [!NOTE]
+> The Key Vault VM Extension changes the permissions of the folder, when using the command "certStoreLocation", to 0700 (read, write, and execute permission) to the owner of the folder. This is done by design.
 ### Supported certificate content types
 
 - PKCS #12
