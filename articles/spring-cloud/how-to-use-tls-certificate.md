@@ -17,7 +17,7 @@ When you let Azure Spring Cloud manage your TLS/SSL certificates, you can mainta
 
 ## Prerequisites
 
-- An application deployed to Azure Spring Cloud.  See our [quickstart on deploying via the Azure CLI](https://docs.microsoft.com/en-us/azure/spring-cloud/quickstart?tabs=Azure-CLI&pivots=programming-language-java), or use an existing app.
+- An application deployed to Azure Spring Cloud.  See our [quickstart on deploying via the Azure CLI](./quickstart.md), or use an existing app.
 - Either a certificate file with `.crt`, `.cer`, `.pem`, or `.der` extension,
 - Or a deployed instance of Azure Key Vault with a private certificate.
 
@@ -79,5 +79,5 @@ Load certificate from specific path. alias = <certificate alias>, thumbprint = <
 
 ## Next steps
 
-* [Enable end-to-end Transport Layer Security](how-to-enable-end-to-end-tls.md)
-* [Access Config Server and Service Registry](how-to-access-data-plane-azure-ad-rbac.md)
+* [Enable end-to-end Transport Layer Security](./how-to-enable-end-to-end-tls.md)
+* [Access Config Server and Service Registry](./how-to-access-data-plane-azure-ad-rbac.md)
