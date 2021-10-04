@@ -2,7 +2,7 @@
 title: Azure CLI samples - Event Grid | Microsoft Docs
 description: This article provides a table that includes links to Azure command-line interface (CLI) script samples for Event Grid.
 ms.topic: sample
-ms.date: 07/07/2020 
+ms.date: 07/22/2021 
 ms.custom: devx-track-azurecli
 ---
 

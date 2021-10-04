@@ -3,13 +3,13 @@ title: Manage historical data in temporal tables
 description: Learn how to use temporal retention policy to keep historical data under your control.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: development
+ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: how-to
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: MladjoA
+ms.author: mlandzic
+ms.reviewer: mathoma
 ms.date: 09/25/2018
 ---
 # Manage historical data in Temporal tables with retention policy
@@ -39,7 +39,7 @@ FROM sys.databases
 Database flag **is_temporal_history_retention_enabled** is set to ON by default, but users can change it with ALTER DATABASE statement. It is also automatically set to OFF after [point in time restore](recovery-using-backups.md) operation. To enable temporal history retention cleanup for your database, execute the following statement:
 
 ```sql
-ALTER DATABASE <myDB>
+ALTER DATABASE [<myDB>]
 SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 
@@ -172,7 +172,7 @@ Say that a temporal table has one MONTH retention period specified. If your data
 If you want to activate temporal retention cleanup, run the following Transact-SQL statement after point in time restore:
 
 ```sql
-ALTER DATABASE <myDB>
+ALTER DATABASE [<myDB>]
 SET TEMPORAL_HISTORY_RETENTION  ON
 ```
 

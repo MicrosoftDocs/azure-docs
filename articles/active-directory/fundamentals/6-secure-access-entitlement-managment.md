@@ -32,7 +32,7 @@ An [access package](../governance/entitlement-management-overview.md) is the fou
 
 * enterprise applications including your custom in-house and SaaS apps like Salesforce.
 
-* Microsoft Teams channels.
+* Microsoft Teams.
 
 * Microsoft 365 Groups. 
 

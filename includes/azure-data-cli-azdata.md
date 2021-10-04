@@ -2,8 +2,8 @@
 author: MikeRayMSFT
 ms.service: sql
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 07/30/2021
 ms.author: mikeray
 ---
 
-Azure Data CLI (`azdata`)
+(`arcdata`) extension for Azure (`az`) CLI

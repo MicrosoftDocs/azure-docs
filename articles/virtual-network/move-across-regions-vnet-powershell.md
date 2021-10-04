@@ -5,7 +5,8 @@ author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/26/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move an Azure virtual network to another region by using Azure PowerShell

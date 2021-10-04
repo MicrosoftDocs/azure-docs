@@ -7,7 +7,7 @@ manager: chrispalm
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 05/11/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -17,16 +17,14 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!NOTE]
-> For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-sdk). There you will find additional conceptual documentation, quickstarts and examples.
+> For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
 
 
-UI Library supports a number of use cases across calling and chat experiences.
+UI Library supports many cases across calling and chat experiences.
 These capabilities are available through UI Components and Composites.
 For Composites, these capabilities are built directly in and exposed when the composite is integrated into an application.
-
 For UI Components, these capabilities are exposed through a combination of UI functionality and underlying stateful libraries.
-
-To take full advantage of these capabilities we recommend using the UI Components in conjunction with the stateful call and chat client libraries.
+To take full advantage of these capabilities, we recommend using the UI Components with the stateful call and chat client libraries.
 
 ## Calling use cases
 
@@ -34,7 +32,7 @@ To take full advantage of these capabilities we recommend using the UI Component
 | ------------------- | ------------------------------------------------------ |
 | Call Types          | Join Teams Meeting                                     |
 |                     | Join Azure Communication Services call with Group Id   |
-| Teams Interop       | Call Lobby                                             |
+| [Teams Interop](../teams-interop.md)      | Call Lobby                                             |
 |                     | Transcription and recording alert banner               |
 | Call Controls       | Mute/unmute call                                       |
 |                     | Video on/off on call                                   |
@@ -69,10 +67,27 @@ To take full advantage of these capabilities we recommend using the UI Component
 An Azure Communication Services identity is required to initialize the stateful client libraries and authenticate to the service.
 For more information on authentication, see [Authentication](../authentication.md) and [Access Tokens](../../quickstarts/access-tokens.md?pivots=programming-language-javascript)
 
+## Teams Interop Use Case
+
+For [Teams Interop](../teams-interop.md) scenarios, developers can use UI Library Components to join Teams meetings through Azure Communication Services.
+To enable Teams Interop, developers can either use calling and chat composites directly or use UI Components to build a custom experience.
+When enabling applications with both calling and chat, its important to remember that the chat client can't be initialized until the participant has been admitted to the call.
+Once admitted, the chat client can be initialized to join the meeting chat thread.
+See the diagram below for guidance:
+
+:::image type="content" source="../media/teams-interop-pattern.png" alt-text="Teams Interop pattern for calling and chat":::
+
+When using UI Components to deliver Teams Interop experiences, UI Library provides examples for key pieces of the experience.
+For example:
+- [Lobby Example](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--lobby): Sample lobby for participant to wait to be admitted to the call.
+- [Compliance banner](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--compliance-banner): Sample banner to show the user whether the call is being recorded or not.
+- [Teams Theme](https://azure.github.io/communication-ui-library/?path=/story/examples-themes--teams): Sample theme that makes the UI Library looks like Microsoft Teams.
+
+
 ## Customization
 
 UI Library exposes patterns for developers to modify components to fit the look and feel of their application.
-This is a key area of differentiation between Composites and UI Components, where Composites provide less customization options in favor of a simpler integration experience.
+These capabilities are a key area of differentiation between Composites and UI Components, where Composites provide less customization options in favor of a simpler integration experience.
 
 | Use Case                                            | Composites | UI Components |
 | --------------------------------------------------- | ---------- | ------------- |
@@ -140,4 +155,4 @@ Developers can provide their own localization files to be used for the UI Librar
 These localization capabilities will be added ahead of General Availability.
 
 > [!div class="nextstepaction"]
-> [Visit UI Library Storybook](https://azure.github.io/communication-ui-sdk)
+> [Visit UI Library Storybook](https://azure.github.io/communication-ui-library)

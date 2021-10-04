@@ -4,10 +4,11 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 10/05/2020
+ms.date: 09/08/2021
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Link a partner ID to your Azure accounts
@@ -60,12 +61,12 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 
     ```azurepowershell-interactive
-    C:\> new-AzManagementPartner -PartnerId 12345
+    C:\> New-AzManagementPartner -PartnerId 12345
     ```
 
 #### Get the linked partner ID
 ```azurepowershell-interactive
-C:\> get-AzManagementPartner
+C:\> Get-AzManagementPartner
 ```
 
 #### Update the linked partner ID
@@ -74,7 +75,7 @@ C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### Delete the linked partner ID
 ```azurepowershell-interactive
-C:\> remove-AzManagementPartner -PartnerId 12345
+C:\> Remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### Use the Azure CLI to link to a new partner ID

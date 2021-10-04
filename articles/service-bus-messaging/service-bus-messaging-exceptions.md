@@ -2,7 +2,7 @@
 title: Azure Service Bus - messaging exceptions | Microsoft Docs
 description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 08/04/2021
 ---
 
 # Service Bus messaging exceptions
@@ -43,7 +43,7 @@ The following table lists messaging exception types, and their causes, and notes
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |Request for a runtime operation on a disabled entity. |Activate the entity. |Retry might help if the entity has been activated in the interim. |
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |Service Bus returns this exception if you send a message to a topic that has pre-filtering enabled and none of the filters match. |Make sure at least one filter matches. |Retry doesn't help. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |A message payload exceeds the 256-KB limit. The 256-KB limit is the total message size, which can include system properties and any .NET overhead. |Reduce the size of the message payload, then retry the operation. |Retry doesn't help. |
-| [TransactionException](/dotnet/api/system.transactions.transactionexception) |The ambient transaction (*Transaction.Current*) is invalid. It may have been completed or aborted. Inner exception may provide additional information. | |Retry doesn't help. |
+| [TransactionException](/dotnet/api/system.transactions.transactionexception) |The ambient transaction (`Transaction.Current`) is invalid. It may have been completed or aborted. Inner exception may provide additional information. | |Retry doesn't help. |
 | [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception) |An operation is attempted on a transaction that is in doubt, or an attempt is made to commit the transaction and the transaction becomes in doubt. |Your application must handle this exception (as a special case), as the transaction may have already been committed. |- |
 
 ## QuotaExceededException
@@ -185,6 +185,17 @@ The resolution steps depend on what caused the **MessagingException** to be thro
 
    * For **transient issues** (where ***isTransient*** is set to ***true***) or for **throttling issues**, retrying the operation may resolve it. The default retry policy on the SDK can be leveraged for this.
    * For other issues, the details in the exception indicate the issue and resolution steps can be deduced from the same.
+
+## StorageQuotaExceededException
+
+### Cause
+
+The **StorageQuotaExceededException** is generated when the total size of entities in a premium namespace exceeds the limit of 1 TB per [messaging unit](service-bus-premium-messaging.md).
+
+### Resolution
+
+- Increase the number of messaging units assigned to the premium namespace
+- If you are already using maximum allowed messaging units for a namespace, create a separate namespace. 
 
 ## Next steps
 

@@ -4,12 +4,12 @@ description: Sample Azure Resource Manager templates to deploy Azure Monitor log
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
+ms.date: 07/12/2021
 
 ---
 
 # Resource Manager template samples for log alert rules in Azure Monitor
-This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes samples of [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure log query alerts in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -200,7 +200,7 @@ The following sample creates a [metric measurement alert rule](../alerts/alerts-
 }
 ```
 
-## Template for all resource types (from version 2020-05-01-preview)
+## Template for all resource types (from version 2021-02-01-preview)
 The following sample creates a rule that can target any resource.
 
 ```json
@@ -248,6 +248,20 @@ The following sample creates a rule that can target any resource.
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -328,7 +342,7 @@ The following sample creates a rule that can target any resource.
         },
         "windowSize": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -386,7 +400,7 @@ The following sample creates a rule that can target any resource.
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -413,11 +427,15 @@ The following sample creates a rule that can target any resource.
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

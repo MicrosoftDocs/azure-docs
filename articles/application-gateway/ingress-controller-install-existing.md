@@ -26,7 +26,7 @@ shared between one or more AKS clusters and/or other Azure components.
 
 ## Prerequisites
 This document assumes you already have the following tools and infrastructure installed:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Advanced Networking](../aks/configure-azure-cni.md) enabled
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as AKS
 - [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) installed on your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for the commands below.

@@ -3,10 +3,10 @@ title: 'How to monitor and reduce throttling - Azure Time Series Insights | Micr
 description: Learn how to monitor, diagnose, and mitigate performance issues that cause latency and throttling in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge, jasonh, kfile
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
@@ -56,7 +56,7 @@ Alerts can help you to diagnose and mitigate latency issues occurring in your en
 
    |Metric  |Description  |
    |---------|---------|
-   |**Ingress Received Bytes**     | Count of raw bytes read from event sources. Raw count usually includes the property name and value.  |  
+   |**Ingress Received Bytes**     | Count of raw bytes read from event sources. Raw count usually includes the property name and value.  |
    |**Ingress Received Invalid Messages**     | Count of invalid messages read from all Azure Event Hubs or Azure IoT Hub event sources.      |
    |**Ingress Received Messages**   | Count of messages read from all Event Hubs or IoT Hubs event sources.        |
    |**Ingress Stored Bytes**     | Total size of events stored and available for query. Size is computed only on the property value.        |
@@ -72,15 +72,15 @@ Alerts can help you to diagnose and mitigate latency issues occurring in your en
 
 ## Throttling and ingress management
 
-- If you're being throttled, a value for the *Ingress Received Message Time Lag* will be registered informing you about how many seconds behind your Azure Time Series Insights environment are from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  
+- If you're being throttled, a value for the *Ingress Received Message Time Lag* will be registered informing you about how many seconds behind your Azure Time Series Insights environment are from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).
 
-  *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
+  *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.
 
   For example, if your S1 environment is demonstrating lag of 5,000,000 messages, you might increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster. The catch-up period is a common occurrence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
 
 - Another technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency.
 
-  For example, if you have three S1 units provisioned (or 2100 events per minute ingress capacity), you can set an **Ingress Stored Events** alert for >= 1900 events for 2 hours. If you are constantly exceeding this threshold, and therefore, triggering your alert, you are likely under-provisioned.  
+  For example, if you have three S1 units provisioned (or 2100 events per minute ingress capacity), you can set an **Ingress Stored Events** alert for >= 1900 events for 2 hours. If you are constantly exceeding this threshold, and therefore, triggering your alert, you are likely under-provisioned.
 
 - If you suspect you are being throttled, you can compare your **Ingress Received Messages** with your event source’s egressed messages.  If ingress into your Event Hub is greater than your **Ingress Received Messages**, your Azure Time Series Insights are likely being throttled.
 

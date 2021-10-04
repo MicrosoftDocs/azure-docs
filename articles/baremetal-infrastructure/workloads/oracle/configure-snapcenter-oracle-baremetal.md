@@ -2,7 +2,7 @@
 title: Configure SnapCenter for Oracle on BareMetal Infrastructure
 description: Learn how to configure SnapCenter for Oracle on BareMetal Infrastructure.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/05/2021
 ---
 
@@ -77,7 +77,7 @@ Once the ping is verified, repeat the steps you used for adding the primary stor
     - **Credential Name**: Provide a name that identifies username and sudoers.
     - **Authentication**: Linux
     - **Username**: Provide newly created username.
-    - **Password**: <Enter Password>
+    - **Password**: \<enter password\>
     - Check **Use sudo privileges** box
     
 7. Select **Ok**.

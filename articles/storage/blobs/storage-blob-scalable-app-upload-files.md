@@ -16,10 +16,10 @@ This tutorial is part two of a series. This tutorial shows you deploy an applica
 In part two of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Configure the connection string
-> * Build the application
-> * Run the application
-> * Validate the number of connections
+> - Configure the connection string
+> - Build the application
+> - Run the application
+> - Validate the number of connections
 
 Microsoft Azure Blob Storage provides a scalable service for storing your data. To ensure your application is as performant as possible, an understanding of how blob storage works is recommended. Knowledge of the limits for Azure blobs is important, to learn more about these limits visit: [Scalability and performance targets for Blob storage](../blobs/scalability-targets.md).
 
@@ -61,11 +61,11 @@ The application creates five randomly named containers and begins uploading the 
 
 The `UploadFilesAsync` method is shown in the following example:
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_UploadFilesAsync":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 The minimum and maximum number of threads are set to 100 to ensure that a large number of concurrent connections are allowed.
 
@@ -155,6 +155,7 @@ private static async Task UploadFilesAsync()
     }
 }
 ```
+
 In addition to setting the threading and connection limit settings, the [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) for the [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) method are configured to use parallelism and disable MD5 hash validation. The files are uploaded in 100-mb blocks, this configuration provides better performance but can be costly if using a poorly performing network as if there is a failure the entire 100-mb block is retried.
 
 |Property|Value|Description|
@@ -200,10 +201,10 @@ C:\>
 In part two of the series, you learned about uploading large amounts of random data to a storage account in parallel, such as how to:
 
 > [!div class="checklist"]
-> * Configure the connection string
-> * Build the application
-> * Run the application
-> * Validate the number of connections
+> - Configure the connection string
+> - Build the application
+> - Run the application
+> - Validate the number of connections
 
 Advance to part three of the series to download large amounts of data from a storage account.
 

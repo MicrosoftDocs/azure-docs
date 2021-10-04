@@ -7,9 +7,9 @@ ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: rothja
+ms.author: jroth
+ms.reviewer: mathoma
 ms.date: 01/08/2020
 ---
 # Import or export an Azure SQL Database without allowing Azure services to access the server

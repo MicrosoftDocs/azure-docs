@@ -5,11 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 06/17/2021
 ms.custom: references_regions
 ---
 
 # Read replicas in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 The read replica feature allows you to replicate data from an Azure Database for MySQL server to a read-only server. You can replicate from the source server to up to five replicas. Replicas are updated asynchronously using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -18,7 +20,7 @@ Replicas are new servers that you manage similar to regular Azure Database for M
 To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 ## When to use a read replica
@@ -37,13 +39,45 @@ You can create a read replica in a different region from your source server. Cro
 
 You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its paired region or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
 
-[ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
 
 You can create a read replica in any of the following regions, regardless of where your source server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
+| Region | Replica availability | 
+| --- | --- | 
+| Australia East | :heavy_check_mark: | 
+| Australia South East | :heavy_check_mark: | 
+| Brazil South | :heavy_check_mark: | 
+| Canada Central | :heavy_check_mark: |
+| Canada East | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | 
+| East US | :heavy_check_mark: | 
+| East US 2 | :heavy_check_mark: |
+| East Asia | :heavy_check_mark: | 
+| Japan East | :heavy_check_mark: | 
+| Japan West | :heavy_check_mark: | 
+| Korea Central | :heavy_check_mark: |
+| Korea South | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | 
+| North Central US | :heavy_check_mark: | 
+| South Central US | :heavy_check_mark: | 
+| Southeast Asia | :heavy_check_mark: | 
+| UK South | :heavy_check_mark: | 
+| UK West | :heavy_check_mark: | 
+| West Central US | :heavy_check_mark: | 
+| West US | :heavy_check_mark: | 
+| West US 2 | :heavy_check_mark: | 
+| West Europe | :heavy_check_mark: | 
+| Central India* | :heavy_check_mark: | 
+| France Central* | :heavy_check_mark: | 
+| UAE North* | :heavy_check_mark: | 
+| South Africa North* | :heavy_check_mark: |
+
+> [!Note] 
+> *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview  <br /> 
+> *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, you are limited to create replica server only in the Azure regions which support General purpose storage v2.
 
 ### Paired regions
 
@@ -61,9 +95,9 @@ However, there are limitations to consider:
 ## Create a replica
 
 > [!IMPORTANT]
-> The read replica feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+> * The read replica feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+> * If your source server has no existing replica servers, source server might need a restart to prepare itself for replication depending upon the storage used (v1/v2). Please consider server restart and perform this operation during off-peak hours. See [Source Server restart](./concepts-read-replicas.md#source-server-restart) for more details. 
 
-If a source server has no existing replica servers, the source will first restart to prepare itself for replication.
 
 When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the source server. The creation time depends on the amount of data on the source and the time since the last weekly full backup. The time can range from a few minutes to several hours. The replica server is always created in the same resource group and same subscription as the source server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](../azure-resource-manager/management/move-resource-group-and-subscription.md) after creation.
 
@@ -136,11 +170,18 @@ The following server parameters are available for configuring GTID:
 |`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
 
 > [!NOTE]
-> After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+> * After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+>
+> * To change GTID's from one value to another can only be one step at a time in ascending order of modes. For example, if gtid_mode is currently set to OFF_PERMISSIVE, it is possible to change to ON_PERMISSIVE but not to ON.
+>
+> * To keep replication consistent, you cannot update it for a master/replica server.
+>
+> * Recommended to SET enforce_gtid_consistency to ON before you can set gtid_mode=ON
+
 
 To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
 
-If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you can't update `gtid_mode` on the source or replica server(s).
+If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. In order to make sure that the replication is consistent, `gtid_mode` cannot be changed once the master or replica server(s) is created with GTID enabled. 
 
 ## Considerations and limitations
 
@@ -153,7 +194,9 @@ Read replicas are currently only available in the General Purpose and Memory Opt
 
 ### Source server restart
 
-When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+Server that has General purpose storage v1, the `log_bin` parameter will be OFF by default. The value will be turned ON when you create the first read replica. If a source server has no existing read replicas, source server will first restart to prepare itself for replication. Please consider server restart and perform this operation during off-peak hours.
+
+Source server that has General purpose storage v2, the `log_bin` parameter will be ON by default and does not require a restart when you add a read replica. 
 
 ### New replicas
 

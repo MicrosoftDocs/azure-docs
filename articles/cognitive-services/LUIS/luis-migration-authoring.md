@@ -10,13 +10,13 @@ ms.custom: seodec18, contperf-fy21q2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 05/28/2021
 
 ---
 # Migrate to an Azure resource authoring key
 
 > [!IMPORTANT]
->  Starting December 3rd, existing LUIS users must complete the migration process to continue authoring LUIS applications.
+>  As of December 3rd 2020, existing LUIS users must have completed the migration process to continue authoring LUIS applications.
 
 Language Understanding (LUIS) authoring authentication has changed from an email account to an Azure resource. Use this article to learn how to migrate your account, if you haven't migrated yet.  
 

@@ -27,14 +27,14 @@ It can be useful to restrict administrative scope by using administrative units 
 
 A central administrator could:
 
-- Create a role with administrative permissions over only Azure AD users in the business school administrative unit.
 - Create an administrative unit for the School of Business.
-- Populate the administrative unit with only the business school students and staff.
+- Populate the administrative unit with only students and staff within the School of Business.
+- Create a role with administrative permissions over only Azure AD users in the School of Business administrative unit.
 - Add the business school IT team to the role, along with its scope.
 
 ## License requirements
 
-Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Using administrative units requires an Azure AD Premium P1 license for each administrative unit administrator, and Azure AD Free licenses for administrative unit members. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Manage administrative units
 

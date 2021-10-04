@@ -1,11 +1,13 @@
 ---
-title: Event-based video recording to the cloud and playback from the cloud tutorial - Azure
-description: In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to record an event-based video recording to the cloud and play it back from the cloud.
+title: Event-based video recording to the cloud and playback from the cloud - Azure
+description: In this tutorial, you learn how to use Azure Live Video Analytics on Azure IoT Edge to record an event-based video recording to the cloud and play it back from the cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
 
 ---
-# Tutorial: Event-based video recording to the cloud and playback from the cloud
+# Tutorial: Event-based video recording to the cloud and playback from the cloud with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 In this tutorial, you'll learn how to use Azure Live Video Analytics on Azure IoT Edge to selectively record portions of a live video source to Azure Media Services in the cloud. This use case is referred to as [event-based video recording](event-based-video-recording-concept.md) (EVR) in this tutorial. To record portions of a live video, you'll use an object detection AI model to look for objects in the video and record video clips only when a certain type of object is detected. You'll also learn about how to play back the recorded video clips by using Media Services. This capability is useful for a variety of scenarios where there's a need to keep an archive of video clips of interest. 
 

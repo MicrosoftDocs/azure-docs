@@ -7,7 +7,8 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.author: banders
+ms.author: banders 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Link a partner ID to your Power Apps accounts
@@ -33,7 +34,7 @@ When you have access to your customer's resources, use the Azure portal, PowerSh
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to [Link to a partner ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal.
-1. Enter the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the  **Associated MPN ID**  shown on your partner profile.  
+1. Enter the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the  **Associated MPN ID**  shown on your partner center profile. This is typically known as your [Partner Location Account MPN ID](/partner-center/account-structure).  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="Screenshot showing the Link to a partner ID window." lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
 1. To link your partner ID to another customer, switch the directory. Under **Switch directory**, select the appropriate directory.  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/switch-directory.png" alt-text="Screenshot showing the Directory + subscription window where can you switch your directory." lightbox="./media/link-partner-id-power-apps-accounts/switch-directory.png" :::

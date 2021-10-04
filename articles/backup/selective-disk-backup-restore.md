@@ -3,7 +3,7 @@ title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
 ms.date: 05/13/2021
-ms.custom: references_regions , devx-track-azurecli
+ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
 ---
  
 # Selective disk backup and restore for Azure virtual machines
@@ -204,6 +204,7 @@ For example:
 ```azurepowershell
 $disks = ("0","1")
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Set-AzRecoveryServicesVaultContext -Vault $targetVault
 Get-AzRecoveryServicesBackupProtectionPolicy
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
@@ -251,6 +252,9 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
+
+> [!NOTE]
+> If the command fails with the error that a policy parameter is required, then check the protection status of the backup item. It is likely that the protection is stopped and hence a policy is required to resume the protection and also to reset all previous disk exclusion settings.
 
 ### Restore selective disks with PowerShell
 

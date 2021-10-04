@@ -225,6 +225,8 @@
       href: service-fabric-concept-resource-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
+    - name: Service Configuration using StartupServices model
+      href: service-fabric-startupservices-model.md
     - name: Application and service manifest examples
       href: service-fabric-manifest-examples.md
       items:
@@ -403,7 +405,7 @@
       href: how-to-managed-cluster-configuration.md
     - name: Add a VM scale set extension to a managed cluster node type
       href: how-to-managed-cluster-vmss-extension.md
-    - name: Add NSG rules and other managed cluster networking options
+    - name: Configure managed cluster network settings
       href: how-to-managed-cluster-networking.md
     - name: Configure managed cluster Availability Zone spanning
       href: how-to-managed-cluster-availability-zones.md
@@ -413,15 +415,16 @@
       href: how-to-managed-cluster-managed-disk.md
     - name: Configure managed cluster upgrade options
       href: how-to-managed-cluster-upgrades.md  
-    - name: Deploy managed cluster application secrets
+    - name: Deploy application secrets to a managed cluster
       href: how-to-managed-cluster-application-secrets.md
-    - name: Deploy managed cluster applications using ARM template
+    - name: Deploy an application to a managed cluster using Azure Resource Manager
       href: how-to-managed-cluster-app-deployment-template.md
-    - name: Deploy managed cluster applications with managed identity
+    - name: Deploy an application with managed identity to a managed cluster
       href: how-to-managed-cluster-application-managed-identity.md
     - name: Deploy stateless-only node types to a managed cluster 
-      href: how-to-managed-cluster-stateless-node-type.md 
-
+      href: how-to-managed-cluster-stateless-node-type.md
+    - name: Configure secondary node type for large scaling on a managed cluster
+      href: how-to-managed-cluster-large-virtual-machine-scale-sets.md 
     - name: Use managed identity for managed cluster nodes
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
   - name: Set up your development environment
@@ -543,6 +546,8 @@
           href: service-fabric-cluster-security-update-certs-azure.md      
         - name: Remote connect to cluster node VM
           href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        - name: Upgrading Linux OS for Azure Service Fabric
+          href: service-fabric-cluster-upgrade-os.md
     - name: Standalone clusters
       items:
       - name: Create
@@ -828,6 +833,10 @@
       href: how-to-managed-identity-service-fabric-app-code.md
     - name: Grant access to other Azure resources
       href: how-to-grant-access-other-resources.md
+  - name: Migrate your cluster to a new region
+    items:
+    - name: How to move your Azure Service Fabric cluster to a new region
+      href: service-fabric-cluster-region-move.md
   - name: Migrate from Cloud Services
     items:
     - name: Compare Cloud Services with Service Fabric
@@ -864,29 +873,6 @@
       href: service-fabric-sfctl-container.md
     - name: sfctl is
       href: service-fabric-sfctl-is.md
-    - name: sfctl mesh
-      href: service-fabric-sfctl-mesh.md
-      items:
-      - name: sfctl mesh app  
-        href: service-fabric-sfctl-mesh-app.md
-      - name: sfctl mesh code-package-log  
-        href: service-fabric-sfctl-mesh-code-package-log.md
-      - name: sfctl mesh deployment  
-        href: service-fabric-sfctl-mesh-deployment.md
-      - name: sfctl mesh gateway  
-        href: service-fabric-sfctl-mesh-gateway.md
-      - name: sfctl mesh network  
-        href: service-fabric-sfctl-mesh-network.md
-      - name: sfctl mesh secret  
-        href: service-fabric-sfctl-mesh-secret.md
-      - name: sfctl mesh secretvalue  
-        href: service-fabric-sfctl-mesh-secretvalue.md
-      - name: sfctl mesh service  
-        href: service-fabric-sfctl-mesh-service.md
-      - name: sfctl mesh service-replica  
-        href: service-fabric-sfctl-mesh-service-replica.md
-      - name: sfctl mesh volume  
-        href: service-fabric-sfctl-mesh-volume.md
     - name: sfctl node
       href: service-fabric-sfctl-node.md
     - name: sfctl partition
@@ -940,8 +926,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Service Fabric managed clusters common questions
-    href: faq-managed-cluster.md
+  - name: Service Fabric managed clusters FAQ
+    href: faq-managed-cluster.yml
   - name: Common questions
     href: service-fabric-common-questions.md
   - name: Azure Roadmap

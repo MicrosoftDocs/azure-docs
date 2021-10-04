@@ -8,7 +8,8 @@ ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 10/23/2020
-ms.author: alkohli
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to understand how to configure VPN on my Azure Stack Edge Pro R device so that I can have a second layer of encryption for my data-in-flight.
 ---
 

@@ -114,10 +114,10 @@ landingContent:
             url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-backup-restore
           - text: Migrate data to or from columns using Always Encrypted with SQL Server Import and Export Wizard
             url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-import-export-wizard
-          - text: Migrate data to or from columns using Always Encrypted with SQL Server Import and Export Wizard
-            url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-import-export-wizard
           - text: Bulk load encrypted data to columns using Always Encrypted
             url: /sql/relational-databases/security/encryption/migrate-sensitive-data-protected-by-always-encrypted
+          - text: Using Always Encrypted with Azure Data Factory
+            url: ../../data-factory/connector-azure-sql-database.md#using-always-encrypted
 
 
   # Card

@@ -27,7 +27,7 @@ Since Application Insights is backed by the powerful Azure Monitor log platform,
 
 In this section, we will review how to get your data into Azure Monitor logs.
 
-If you don't already have one, provision a new Log Analytics workspace by following [these instructions](../vm/quick-collect-azurevm.md) through and including the "create a workspace" step.
+If you don't already have one, provision a new Log Analytics workspace by following [these instructions](../vm/monitor-virtual-machine.md) through and including the "create a workspace" step.
 
 To start sending log data into Azure Monitor. Several options exist:
 

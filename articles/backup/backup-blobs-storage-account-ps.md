@@ -2,14 +2,16 @@
 title: Back up Azure blobs within a storage account using Azure PowerShell
 description: Learn how to back up all Azure blobs within a storage account using Azure PowerShell.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 08/06/2021
 ---
 
 # Back up all Azure blobs in a storage account using Azure PowerShell
 
-This article describes how to back up all [Azure blobs](/azure/backup/blob-backup-overview) within a storage account using Azure PowerShell.
+This article describes how to back up all [Azure blobs](./blob-backup-overview.md) within a storage account using Azure PowerShell.
 
 In this article, you'll learn how to:
+
+- Before you start
 
 - Create a Backup vault
 
@@ -21,6 +23,10 @@ For information on the Azure blob region availability, supported scenarios and l
 
 > [!IMPORTANT]
 > Support for Azure blobs is available from Az 5.9.0 version.
+
+## Before you start
+
+See the [prerequisites](./blob-backup-configure-manage.md#before-you-start) and [support matrix](./blob-backup-support-matrix.md) before you get started.
 
 ## Create a Backup vault
 
@@ -52,7 +58,7 @@ Type                : Microsoft.DataProtection/backupVaults
 After creation of vault, let's create a backup policy to protect Azure blobs.
 
 > [!IMPORTANT]
-> Though you'll see the Backup storage redundancy of the vault, the redundancy doesn't apply to the operational backup of blobs as the backup is local in nature and no data is stored in the Backup vault. The Backup vault. Here, the backup vault is the management entity to help you manage the protection of block blobs in your storage accounts.
+> Though you'll see the Backup storage redundancy of the vault, the redundancy doesn't apply to the operational backup of blobs as the backup is local in nature and no data is stored in the Backup vault. Here, the backup vault is the management entity to help you manage the protection of block blobs in your storage accounts.
 
 ## Create a Backup policy
 

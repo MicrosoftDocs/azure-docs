@@ -18,14 +18,14 @@ Onboarding a machine to Automanage will result in an Azure Resource Manager depl
 
 :::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Automanage failure detail flyout.":::
 
-### Check the deployments for the resource group containing the failed VM
+### Check the deployments for the resource group containing the failed machine
 The failure flyout will contain a link to the deployments in the resource group containing the machine that failed onboarding. The flyout will also contain a prefix name you can use to filter deployments with. Clicking the deployment link will take you to the deployments blade, where you can then filter deployments to see Automanage deployments to your machine. If you're deploying across multiple regions, ensure that you click on the deployment in the correct region.
 
-### Check the deployments for the subscription containing the failed VM
-If you don't see any failures in the resource group deployment, then your next step would be to look at the deployments in your subscription containing the VM that failed onboarding. Click the **Deployments for subscription** link in the failure flyout and filter deployments using the **Automanage-DefaultResourceGroup** filter. Use the resource group name from the failure blade to filter deployments. The deployment name will be suffixed with a region name. If you're deploying across multiple regions, ensure that you click on the deployment in the correct region.
+### Check the deployments for the subscription containing the failed machine
+If you don't see any failures in the resource group deployment, then your next step would be to look at the deployments in your subscription containing the machine that failed onboarding. Click the **Deployments for subscription** link in the failure flyout and filter deployments using the **Automanage-DefaultResourceGroup** filter. Use the resource group name from the failure blade to filter deployments. The deployment name will be suffixed with a region name. If you're deploying across multiple regions, ensure that you click on the deployment in the correct region.
 
 ### Check deployments in a subscription linked to a Log Analytics workspace
-If you don't see any failed deployments in the resource group or subscription containing your failed VM, and if your failed VM is connected to a Log Analytics workspace in a different subscription, then go to the subscription linked to your Log Analytics workspace and check for failed deployments.
+If you don't see any failed deployments in the resource group or subscription containing your failed machine, and if your failed machine is connected to a Log Analytics workspace in a different subscription, then go to the subscription linked to your Log Analytics workspace and check for failed deployments.
 
 ## Common deployment errors
 
@@ -46,4 +46,4 @@ The template deployment failed because of policy violation. Please see details f
 * [Learn more about Azure Automanage](./automanage-virtual-machines.md)
 
 > [!div class="nextstepaction"]
-> [Enable Automanage for virtual machines in the Azure portal](quick-create-virtual-machines-portal.md)
+> [Enable Automanage for machines in the Azure portal](quick-create-virtual-machines-portal.md)

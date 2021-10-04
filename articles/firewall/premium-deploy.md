@@ -1,22 +1,18 @@
 ---
-title: Deploy and configure Azure Firewall Premium Preview
+title: Deploy and configure Azure Firewall Premium
 description: Learn how to deploy and configure Azure Firewall Premium.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 07/15/2021
 ms.author: victorh
 ---
 
-# Deploy and configure Azure Firewall Premium Preview
+# Deploy and configure Azure Firewall Premium
 
-> [!IMPORTANT]
-> Azure Firewall Premium is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
- Azure Firewall Premium Preview is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. It includes the following features:
+ Azure Firewall Premium is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. It includes the following features:
 
 - **TLS inspection** - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
 - **IDPS** - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
@@ -52,7 +48,7 @@ The template deploys a complete testing environment for Azure Firewall Premium e
 
 
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-premium%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-premium%2Fazuredeploy.json)
 
 ## Test the firewall
 
@@ -71,7 +67,7 @@ To collect firewall logs, you need to add diagnostics settings to collect firewa
 
 ### IDPS tests
 
-To test IDPS, you'll need to deploy your own internal Web server with an appropriate server certificate. For more information about Azure Firewall Premium Preview certificate requirements, see [Azure Firewall Premium Preview certificates](premium-certificates.md).
+To test IDPS, you'll need to deploy your own internal Web server with an appropriate server certificate. For more information about Azure Firewall Premium certificate requirements, see [Azure Firewall Premium certificates](premium-certificates.md).
 
 You can use `curl` to control various HTTP headers and simulate malicious traffic.
 
@@ -90,7 +86,7 @@ You can use `curl` to control various HTTP headers and simulate malicious traffi
    > It can take some time for the data to begin showing in the logs. Give it at least 20 minutes to allow for the logs to begin showing the data.
 5. Add a signature rule for signature 2008983:
 
-   1. Select the **DemoFirewallPolicy** and under **Settings** select **IDPS(preview)**.
+   1. Select the **DemoFirewallPolicy** and under **Settings** select **IDPS**.
    1. Select the **Signature rules** tab.
    1. Under **Signature ID**, in the open text box type *2008983*.
    1. Under **Mode**, select **Deny**.
@@ -127,7 +123,7 @@ You should see the same results that you had with the HTTP tests.
 
 Use the following steps to test TLS Inspection with URL filtering.
 
-1. Edit the firewall policy application rules and add a new rule called `AllowURL` to the `AllowWeb` rule collection. Configure the target URL `www.nytimes.com/section/world`, Source IP address **\***, Destination type **URL (preview)**, select **TLS inspection (preview)**, and protocols **http, https**.
+1. Edit the firewall policy application rules and add a new rule called `AllowURL` to the `AllowWeb` rule collection. Configure the target URL `www.nytimes.com/section/world`, Source IP address **\***, Destination type **URL**, select **TLS inspection**, and protocols **http, https**.
 
 3. When the deployment completes, open a browser on WorkerVM and go to `https://www.nytimes.com/section/world` and validate that the HTML response is displayed as expected in the browser.
 4. In the Azure portal, you can view the entire URL in the Application rule Monitoring logs:
@@ -149,7 +145,7 @@ Let's create an application rule to allow access to sports web sites.
 1. From the portal, open your resource group and select **DemoFirewallPolicy**.
 2. Select **Application Rules**, and then **Add a rule collection**.
 3. For **Name**, type *GeneralWeb*, **Priority** *103*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
-4. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS inspection**, **Destination Type** select *Web categories (preview)*, **Destination** select *Sports*.
+4. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS inspection**, **Destination Type** select *Web categories*, **Destination** select *Sports*.
 5. Select **Add**.
 
       :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="Sports web category":::
@@ -159,4 +155,4 @@ Let's create an application rule to allow access to sports web sites.
 
 ## Next steps
 
-- [Azure Firewall Premium Preview in the Azure portal](premium-portal.md)
+- [Azure Firewall Premium in the Azure portal](premium-portal.md)

@@ -6,7 +6,8 @@ author: duongau
 ms.service: dns
 ms.topic: how-to
 ms.date: 05/05/2021
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to protect DNS zones and records

@@ -7,17 +7,20 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Back up and restore Azure Arc enabled PostgreSQL Hyperscale server groups
+# Back up and restore Azure Arc-enabled PostgreSQL Hyperscale server groups
+
+> [!IMPORTANT]
+> Backup and restore of Azure Arc-enabled PostgreSQL Hyperscale server is not supported in the current preview release.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-When you back up or restore your Azure Arc enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
+When you back up or restore your Azure Arc-enabled PostgreSQL Hyperscale server group, the entire set of databases on all the PostgreSQL nodes of your server group is backed-up and/or restored.
 
 ## Take a manual full backup
 
@@ -30,7 +33,7 @@ Where:
 - __server-name__ indicates a server group
 - __no-wait__ indicates that the command line will not wait for the backup to complete for you to be able to continue to use this command-line window
 
-This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
+This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc-enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
 
 For example:
 
@@ -86,6 +89,9 @@ The Timestamp column indicates the point in time UTC at which the backup was tak
 ## Restore a backup
 In this section we are showing you how to do a full restore or a point in time restore. When you restore a full backup, you restore the entire content of the backup. When you do a point in time restore, you restore up to the point in time you indicate. Any transaction that was done later than this point in time is not restored.
 
+> [!CAUTION]
+> You can only restore to a server group that has the same number of worker nodes that it had when the backup was taken. If you increased or reduced the number of worker nodes since the backup was taken, before you restore, you need to increase/reduce the number of worker nodes - or create a new server group - to match the content of the backup. The restore will fail when the number of worker nodes do not match.
+
 ### Restore a full backup
 To restore the entire content of a backup run the command:
 ```console
@@ -97,7 +103,7 @@ azdata arc postgres backup restore -sn <target server group name> [-ssn <source 
 
 Where:
 - __backup-id__ is the ID of the backup shown in the list backup command shown above.
-This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will restore all data in your Coordinator and Worker nodes.
+This will coordinate a distributed full restore across all the nodes that constitute your Azure Arc-enabled PostgreSQL Hyperscale server group. In other words, it will restore all data in your Coordinator and Worker nodes.
 
 #### Examples:
 
@@ -211,5 +217,5 @@ azdata arc postgres backup delete --help
 ```
 
 ## Next steps
-- Read about [scaling out (adding worker nodes)](scale-out-postgresql-hyperscale-server-group.md) your server group
+- Read about [scaling out (adding worker nodes)](scale-out-in-postgresql-hyperscale-server-group.md) your server group
 - Read about [scaling up or down (increasing/decreasing memory/vcores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) your server group
