@@ -14,7 +14,7 @@ The micro agent's behavior is configured by a set of module twin properties. You
 After any change in configuration, the collector will immediately send all unsent event data. After the data is sent, the changes will be applied, and all the collectors will restart.
 
 > [!Note]
-> Settings for Aggregation mode is supported but it is not configurable. Cache size, and Frequency settings are supported but are not configurable.
+> Settings for Aggregation mode is supported but it is not configurable.
 
 ## Event-based collectors configurations
 
