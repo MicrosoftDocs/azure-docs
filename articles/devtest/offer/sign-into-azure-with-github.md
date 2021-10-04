@@ -3,12 +3,12 @@ title: Sign in with your GitHub Credentials to your individual Azure Dev/Test cr
 description: An overview of signing into an individual Monthly Azure Credit Subscription using GitHub credentials. Includes how to activate individual developer Azure Credits.
 author: j-martens
 ms.author: jmartens
-ms.date: 9/29/2021
+ms.date: 10/04/2021
 ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
 ---
-# Sign into your Monthly Azure Credit Subscription and Visual Studio using your GitHub credentials
+## Sign into your Monthly Azure Credit Subscription and Visual Studio using your GitHub credentials
 
 Across all of Microsoft, we're focused on empowering developers to build better apps, faster. One way we accomplish that is by providing a range of products and services, covering all stages of the software development lifecycle. Products and services included:  
 

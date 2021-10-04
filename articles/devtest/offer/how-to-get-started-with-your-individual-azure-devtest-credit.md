@@ -3,13 +3,13 @@ title: How to get started with your individual VSS Azure Dev/Test credit subscri
 description: Presents two options for an individual to access an Azure Credit Subscription.
 author: j-martens  
 ms.author: jmartens
-ms.date: 9/30/2021
+ms.date: 10/04/2021
 ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
 ---
 
-# How to get started with your individual Azure Credit Subscription  
+## How to get started with your individual Azure Credit Subscription  
 
 When accessing your Azure Credit Subscription, you have two ways to sign in and use your credits.  
 
@@ -37,11 +37,13 @@ Remember, the account you sign in with will dictate what tenant your directory w
 
  ![A screenshot of the Azure Monthly credit activation page.](media/how-to-get-started-with-your-individual-azure-devtest-credit/activate.png "Click Activate to access your subscription.")  
 
+...
 2. Enter the email you want associated with your credit subscription in the pop-up  
 
  ![A screenshot of the Welcome to your Visual Studio subscription page with an enter your email pop up box open.](media/how-to-get-started-with-your-individual-azure-devtest-credit/enteremail.png "Enter the email address you want to use in the pop up window.")  
-
+...
 3. Select 'Next' to finish subscription activation  
+...
 
 > [!NOTE]  
 > Signing in this way provides more flexibility to whether or not you use a personal email or a corporate email account.  
@@ -53,17 +55,18 @@ For more details to sign in go to my.visualstudio.com, or follow this link: [Use
 1. Choose or enter the email address to authenticate  
 
  ![A screenshot of the Microsoft Azure pick an account screen.](media/how-to-get-started-with-your-individual-azure-devtest-credit/pickanaccount.png "Select an account to log into the Azure Portal.")  
-
+...
 2. Once you’re logged in, go to Subscriptions under Azure Services  
 
  ![A screenshot of the available Azure Portal Services](media/how-to-get-started-with-your-individual-azure-devtest-credit/azureservices.png "Select Subscriptions under Azure Services.")  
-
+...
 3. Select 'add'  
 
  ![A screenshot of a pop up window for adding a subscription](media/how-to-get-started-with-your-individual-azure-devtest-credit/clickadd.png "Click the add button.")  
-
+...
 4. This action takes you to a page where you can find the eligible offers  
 5. Select the correct subscription offer to associate with your account  
+...
 
 > [!NOTE]
 > This method uses the login credentials you used when signing in through your Azure Portal. This way of signing in has a higher probability of associating your subscription with your organization’s directory through your corporate Microsoft Account.

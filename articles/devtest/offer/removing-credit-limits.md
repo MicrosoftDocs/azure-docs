@@ -5,11 +5,11 @@ author: j-martens
 ms.author: jmartens
 ms.prod: visual-studio-windows
 ms.topic: how-to
-ms.date: 09/30/2021
+ms.date: 10/04/2021
 ms.custom: devtestoffer
 ---
 
-# Changing Azure DevTest offers & remove limits
+## Changing Azure DevTest offers & remove limits
 
 If you currently have a subscription with pay-as-you-go rates, you can switch your Azure subscription to another offer. Your reasons for changing offers may be specific to your organizational structure. But here are some common reasons you may want to change your subscription offer or remove credit limits.  
 

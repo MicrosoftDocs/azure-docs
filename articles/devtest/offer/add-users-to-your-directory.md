@@ -5,11 +5,11 @@ author: j-martens
 ms.author: jmartens
 ms.prod: visual-studio-windows
 ms.topic: how-to 
-ms.date: 09/30/2021
+ms.date: 10/04/2021
 ms.custom: devtestoffer
 ---
 
-# Add users to your Azure credit subscription  
+## Add users to your Azure credit subscription  
 
 To manage and access subscription resources, you must be a user within the directory. When in the subscriptions themselves, the hierarchy is controlled by the Azure Active Directory (AAD) tenancies. AAD is a lightweight directory protocol (LDAP) that stores account names and passwords.  
 

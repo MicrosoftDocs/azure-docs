@@ -5,11 +5,11 @@ author: j-martens
 ms.author: jmartens
 ms.prod: visual-studio-windows
 ms.topic: how-to 
-ms.date: 09/30/2021
+ms.date: 10/04/2021
 ms.custom: devtestoffer
 ---
 
-# Change Directory Tenants with your Azure Subscriptions  
+## Change Directory Tenants with your Azure Subscriptions  
 
 Organizations may have several Azure credit subscriptions. Each subscription an organization sets up is associated with an [Azure Active Directory](~/active-directory/fundamentals/active-directory-whatis.md) \(AAD\).  
 
@@ -63,15 +63,19 @@ Once you’ve been added and given the proper permissions, you can switch direct
 
  ![A screenshot a Contoso Enterprise Subscription page with Change Directory highlighted.](media/change-directory-tenants/changedirectory.png "Select Change Directory.")
 
+...
 3. A pop-up will surface to choose the new directory  
 4. Select “Change”  
+...
 
 > [!NOTE]
 > If you don’t have access to the target directory it will not show. After the directory is changed for the subscription, you will receive a success message.  
- 
- ![A screenshot of the Change Directory validation page.](media/change-directory-tenants/changebutton.png "Select the directory from the dropdown and click the Change button.")
 
+![A screenshot of the Change Directory validation page.](media/change-directory-tenants/changebutton.png "Select the directory from the dropdown and click the Change button.")
+
+...
 5. Select “Switch Directories” on the subscription page to access the new directory  
+...
 
  ![A screenshot of the subscriptions page with Switch Directories highlighted.](media/change-directory-tenants/switchdirectoriesoutlined.png "Click Switch Directories to access the new directory.")
 
