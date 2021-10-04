@@ -28,7 +28,7 @@ You can choose to import your certificate into your Azure Spring Cloud instance 
 
 You need to grant Azure Spring Cloud access to your key vault before you import your certificate using these steps:
 
-:::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of where to grant access to key vault before importing a certificate":::
+:::image type="content" source="media/use-tls-certificates/grant-key-vault-permission.png" alt-text="Screenshot of where to grant access to key vault before importing a certificate" lightbox="use-tls-certificates/grant-key-vault-permission.png":::
 
 1. Go to your service instance.
 1. From the left navigation pane of your instance, select **TLS/SSL settings**.
@@ -52,7 +52,7 @@ To load a certificate into your Azure Spring Cloud application, start with these
 1. From the left navigation pane of your app, select **Certificate management**.
 1. Then select **Add certificate** to choose certificates accessible for the app.
 
-:::image type="content" source="media/use-tls-certificates/load-certificate.png" alt-text="Screenshot of where to load a certificate into your application":::
+:::image type="content" source="media/use-tls-certificates/load-certificate.png" alt-text="Screenshot of where to load a certificate into your application" lightbox="use-tls-certificates/load-certificate.png":::
 
 ### Load a certificate from code
 
