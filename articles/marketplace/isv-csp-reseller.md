@@ -5,12 +5,12 @@ author:  Microsoft-KaranRao
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.author: karrao
-ms.reviewer: karrao
-ms.date: 07/31/2021
+  author: emerb19
+  ms.author: emerb
+ms.date: 10/07/2021
 ---
 
-# ISV to Cloud Reseller Private Offers 
+# ISV to Cloud Reseller Private Offers
 
 ## Overview
 
