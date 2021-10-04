@@ -38,7 +38,7 @@ More Cost Management docs:
 
 When removing limits or changing offers, you may be required to [update or add a new credit](../../cost-management-billing/manage/change-credit-card.md). You won't be able to use your credit card for overages until your credit has been exhausted.  
 
-In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](../../cost-management-billing/understand/subscription-transfer#whoisaa.md) or you must have the correct [MCA permissions](../../cost-management-billing/manage/understand-mca-roles.md) to make these changes.  
+In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](../../cost-management-billing/understand/subscription-transfer.md#whoisaa) or you must have the correct [MCA permissions](../../cost-management-billing/manage/understand-mca-roles.md) to make these changes.  
 
 If you want to a delete credit card, see [Delete an Azure billing payment method](../../cost-management-billing/manage/delete-azure-payment-method.md)  
 

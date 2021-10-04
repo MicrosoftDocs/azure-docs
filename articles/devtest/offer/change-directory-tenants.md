@@ -79,4 +79,4 @@ Once you’ve been added and given the proper permissions, you can switch direct
 
  ![A screenshot of the subscriptions page with Switch Directories highlighted.](media/change-directory-tenants/switchdirectoriesoutlined.png "Click Switch Directories to access the new directory.")
 
-You can also add an Admin from the target directory as an Admin within your directory. Use our [guide on how to add and admin](https://docs.microsoft.com/visualstudio/subscriptions/cloud-admin) to your subscription. Once that’s been done, the Admin has access to both directories and can change the tenant directory for you.  
+You can also add an Admin from the target directory as an Admin within your directory. Use our [guide on how to add and admin](../../../../visualstudio/subscriptions/cloud-admin.md) to your subscription. Once that’s been done, the Admin has access to both directories and can change the tenant directory for you.  
