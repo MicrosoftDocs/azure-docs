@@ -23,10 +23,10 @@ Use the security recommendations described in this article to assess the machine
 ## Availability
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
+|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 |Pricing:|Free|
-|Prerequisites:|Guest Configuration extension is installed on a machine.<br>System-assigned managed-identity is deployed on a machine.<br>A supported OS is running on the Azure virtual machine:<br>Windows Server 2012, 2012r2, 2016 or 2019<br>Ubuntu 14.04, 16.04, 17.04, 18.04 or 20.04<br>Debian 7, 8, 9, or 10<br>CentOS 7 or 8<br>RHEL 7 or 8<br>Oracle Linux 7 or 8<br>SLES (12) Workgroup Member|
-|Required roles and permissions:|**Write** permission is needed on the relevant machines to install the Guest Configuration extension and prerequisites.<br>**Read** permission is needed at the subscription level, to view the recommendation and explore the OS baseline data.|
+|Prerequisites:|Guest Configuration extension is installed on a machine.<br>System-assigned managed-identity is deployed on a machine.<br>A supported OS is running on the Azure virtual machine:<br>• Windows Server 2012, 2012r2, 2016 or 2019<br>• Ubuntu 14.04, 16.04, 17.04, 18.04 or 20.04<br>• Debian 7, 8, 9, or 10<br>• CentOS 7 or 8<br>• Red Hat Enterprise Linux (RHEL) 7 or 8<br>Oracle Linux 7 or 8<br>• SUSE Linux Enterprise Server 12|
+|Required roles and permissions:|To install the Guest Configuration extension and its prerequisites, **write** permission is required on the relevant machines.<br>To **view** the recommendations and explore the OS baseline data, **read** permission is required at the subscription level.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
@@ -54,15 +54,15 @@ To compare machines with the OS security baselines:
     1. The affected resources.
     1. The specific security checks that failed.
 
-    :::image type="content" source="media/apply-security-baseline/recommendation-details-page-vulnerabilities-windows.png" alt-text="Recommendation details page for the Windows recommendation about vulnerabilities in the baseline configuration of Windows machines.":::
+    :::image type="content" source="media/apply-security-baseline/recommendation-details-page-vulnerabilities-windows.png" alt-text="Recommendation details page for the Windows recommendation about vulnerabilities in the baseline configuration of Windows machines." lightbox="media/apply-security-baseline/recommendation-details-page-vulnerabilities-windows.png":::
 
 1. To learn more about a specific finding, select it. 
 
-    :::image type="content" source="media/apply-security-baseline/finding-details.png" alt-text="Learning more about a specific finding from the guest configuration comparison of an OS configuration with the defined security baseline.":::
+    :::image type="content" source="media/apply-security-baseline/finding-details.png" alt-text="Learning more about a specific finding from the guest configuration comparison of an OS configuration with the defined security baseline." lightbox="media/apply-security-baseline/finding-details.png":::
 
 1. Other investigation possibilities:
 
-    - To view the list of machines that have been assessed, open **Affected resources**
+    - To view the list of machines that have been assessed, open **Affected resources**.
     - To view the list of findings for one machine, select a machine from the **Unhealthy resources** tab. A page will open listing only the findings for that machine.
 
 
@@ -76,32 +76,38 @@ To compare machines with the OS security baselines:
 
 To deploy the Guest Configuration extension with its prerequisites:
 
-- For selected machines, follow the Security Center recommendation **Guest Configuration extension should be installed on your machines** from the **Implement security best practices** security control.
+- For selected machines, follow the security recommendation **Guest Configuration extension should be installed on your machines** from the **Implement security best practices** security control.
 
-- At scale, assign the following policy initiative: **Deploy prerequisites to enable Guest Configuration policies on virtual machines**.
+- At scale, assign the policy initiative **Deploy prerequisites to enable Guest Configuration policies on virtual machines**.
 
 
 ### Why is a machine shown as not applicable? 
 
 The list of resources in the **Not applicable** tab includes a **Reason** column. Some of the common reasons include:
 
-- **No scan data available on the machine** – There aren't any compliance results for this machine in Azure Resource Graph. All compliance results are written to Azure Resource Graph by the Guest Configuration extension.
-- **Guest Configuration extension is not installed on the machine** – The machine is missing the Guest Configuration extension, which is a prerequisite for this procedure.
-- **System managed identity is not configured on the machine** – A system-assigned, managed identity must be deployed on the machine.
-- **The recommendation is disabled in policy** – The policy definition that assesses the OS baseline is disabled on the scope that includes the relevant machine. 
-
+| Reason                                                            | Details                                                                                                                                                                        |
+|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **No scan data available on the machine**                         | There aren't any compliance results for this machine in Azure Resource Graph. All compliance results are written to Azure Resource Graph by the Guest Configuration extension. |
+| **Guest Configuration extension is not installed on the machine** | The machine is missing the Guest Configuration extension, which is a prerequisite for assessing the compliance with the Azure security baseline.                               |
+| **System managed identity is not configured on the machine**      | A system-assigned, managed identity must be deployed on the machine.                                                                                                           |
+| **The recommendation is disabled in policy**                      | The policy definition that assesses the OS baseline is disabled on the scope that includes the relevant machine.                                                               |
+|                                                                   |                                                                                                                                                                                |
 
 ### My machine has the Guest Configuration extension installed, but I don’t see the data in Security Center
 
-Security Center gets the data for these recommendations from the Guest Configuration cluster in Azure Resource Graph. To troubleshoot this scenario:
+Security Center gets the data for these recommendations from the Guest Configuration cluster in Azure Resource Graph.
+
+To troubleshoot this scenario:
 
 1. Check whether the data exists in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration)
 
-1. The Security Center job runs daily, so wait 24 hours and check again.
+1. The Security Center job runs daily, so check whether it's been 24 hours since the solution was deployed.
 
 
 ## Next steps
-In this document, you learned how to use Security Center's guest configuration recommendations to compare the hardening of your OS with the Azure security baseline. To learn more about these configuration settings, see:
+In this document, you learned how to use Security Center's guest configuration recommendations to compare the hardening of your OS with the Azure security baseline.
+
+To learn more about these configuration settings, see:
 
 - [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md)
 - [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md)
