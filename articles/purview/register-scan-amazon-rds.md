@@ -49,13 +49,13 @@ For this service, use Purview to provide a Microsoft account with secure access 
     - Europe (London)
     - Europe (Paris)
 
+- **IP address requirements**: Your RDS database must have a static IP address. The static IP address is used to configure AWS PrivateLink, as described in this article.
+
 - **Known issues**: The following functionality is not currently supported:
 
     - The **Test connection** button. The scan status messages will indicate any errors related to connection setup.
     - Selecting specific tables in your database to scan.
     - [Data lineage](concept-data-lineage.md).
-
-    Additionally, your RDS database must have a static IP address. The static IP address is used to configure AWS PrivateLink, as described in this article.
 
 For more information, see:
 
