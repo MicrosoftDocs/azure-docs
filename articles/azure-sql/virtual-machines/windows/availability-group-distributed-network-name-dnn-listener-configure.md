@@ -24,7 +24,7 @@ With SQL Server on Azure VMs, the distributed network name (DNN) routes traffic 
 
 This article teaches you to configure a DNN listener to replace the VNN listener and route traffic to your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR).
 
-The DNN listener feature is currently only available starting with SQL Server 2019 CU8 on Windows Server 2016 and later.
+The DNN listener feature is currently only available starting with SQL Server 2019 CU8, or SQL Server 2017 CU25 and later, on Windows Server 2016 and later.
 
 For an alternative connectivity option, consider a [VNN listener and Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) instead.
 
@@ -41,7 +41,7 @@ Use the DNN listener to replace an existing VNN listener, or alternatively, use 
 
 Before you complete the steps in this article, you should already have:
 
-- SQL Server 2019 on CU8 or later, on Windows Server 2016 and later
+- SQL Server 2019 on CU8 or later, or SQL Server 2017 CU25 and later, on Windows Server 2016 and later
 - Decided that the distributed network name is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [Always On availability group](availability-group-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
@@ -168,7 +168,7 @@ Test the connectivity to your DNN listener with these steps:
 
 ## Limitations
 
-- Currently, a DNN listener for an availability group is only supported for SQL Server 2019 CU8 and later on Windows Server 2016 and later. 
+- Currently, a DNN listener for an availability group is only supported for SQL Server 2019 CU8 and later, or SQL Server 2017 CU25 and later, on Windows Server 2016 and later. 
 - DNN Listeners **MUST** be configured with a unique port.  The port cannot be shared with any other connection on any replica.
 - There might be additional considerations when you're working with other SQL Server features and an availability group with a DNN. For more information, see [AG with DNN interoperability](availability-group-dnn-interoperability.md). 
 
