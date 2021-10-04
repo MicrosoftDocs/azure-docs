@@ -18,7 +18,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 >[!Important]
 > There is a `publicNetworkAccess` flag which is `Disabled` by default.
-> When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled`. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+> You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
 >
 >
 
@@ -116,7 +116,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 > [!IMPORTANT]
 > There is a `publicNetworkAccess` flag which is `Disabled` by default.
-> When set to `Enabled`, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled`. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+> You can set the value to `Disabled` or `Enabled`. When set to `Enabled`, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
 >
 >
 
@@ -201,7 +201,7 @@ To create a private endpoint, follow these steps.
 > [!IMPORTANT]
 >
 > There is a `publicNetworkAccess` flag which is `Disabled` by default.
-> When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled`. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+> You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
 >
 
 ## FAQ
@@ -226,7 +226,7 @@ Currently, portal console support, and persistence to firewall storage accounts 
 
 ### How do I verify if my private endpoint is configured correctly?
 
-You can run a command like *nslookup* from within the VNet that is linked to the private endpoint. Use *nslookup* to verify that the command resolves to the private IP address for the cache.  The IP address is found on the DNS configuration setting on the left under Private endpoint resource on portal.
+You can run a command like *nslookup* from within the VNet that is linked to the private endpoint. Use *nslookup* to verify that the command resolves to the private IP address for the cache. The private IP address is found by selecting your **Private endpoint** from your resources. On the resource menu on the left, select **DN configuration**. In the Working pane, you see the IP address for the **Network Interface**.
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
