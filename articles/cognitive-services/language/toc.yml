@@ -397,8 +397,6 @@ items:
     href: concepts/multilingual-emoji-support.md
   - name: Specify model version
     href: concepts/specify-model-version.md
-  - name: Send batch requests asynchronously
-    href: concepts/asynchronous-use.md
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps

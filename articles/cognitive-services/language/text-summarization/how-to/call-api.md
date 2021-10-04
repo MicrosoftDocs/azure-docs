@@ -12,10 +12,10 @@ ms.date: 08/05/2021
 ms.author: aahi
 ---
 
-# How to Summarize text (preview)
+# How to use text summarization (preview)
 
 > [!IMPORTANT] 
-> The extractive summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Extractive Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of Extractive summarization. 
+> The extractive summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Extractive Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of extractive summarization. 
 
 In general, there are two approaches for automatic text summarization: extractive and abstractive. This API provides extractive summarization.
 
@@ -25,7 +25,10 @@ This feature is designed to shorten content that users consider too long to read
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
-## Extractive summarization and features
+## Features
+
+> [!TIP]
+> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
 The extractive summarization API uses natural language processing techniques to locate key sentences in an unstructured text document. These sentences collectively convey the main idea of the document.
 
@@ -35,32 +38,43 @@ There is another feature in Language Services, [key phrases extraction](./../../
 * key phrase extraction returns phrases while extractive summarization returns sentences
 * extractive summarization returns sentences together with a rank score. Top ranked sentences will be returned per request
 
-## Data preparation
+## Determine how to process the data (optional)
 
+### Specify the text summarization model
 
-<!--
-JSON request data should follow the format outlined in [Asynchronous requests to the /analyze endpoint](../text-analytics-how-to-call-api.md?tabs=asynchronous#api-request-formats).
--->
-Extractive summarization supports a wide range of languages for document input. For more information, see [Supported languages](../language-support.md). Document size must be under 125,000 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](#data-limits) section. The collection is submitted in the body of the request.
+By default, text summarization will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform text summarization operations.
 
+| Supported Versions | latest version |
+|--|--|
+| `2021-08-01` | `2021-08-01` |
 
-## Submit data to the service
+### Input languages
 
-You submit documents to the API as strings of text, along with an ID string. Analysis is performed upon receipt of the request. Because the API is asynchronous, there may be a delay between sending an API request, and receiving the results. 
-  
+When you submit documents to be processed by key phrase extraction, you can specify which of [the supported languages](../language-support.md) they're written in. if you don't specify a language, key phrase extraction will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
+
+## Submitting data
+
+You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is asynchronous, there may be a delay between sending an API request, and receiving the results.  For information on the size and number of requests you can send per minute and second, see the data limits below.
+
+When using this feature, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+
 You can use the `sentenceCount` parameter to specify how many sentences will be returned, with `3` being the default. The range is from 1 to 20.
 
-You can also use the `sortby` parameter to specify in what order the extracted sentences will be returned. The accepted values for `sortBy` are `Offset` and `Rank`, with `Offset` being the default. The value `Offset` is the start position of a sentence in the original document.   
+You can also use the `sortby` parameter to specify in what order the extracted sentences will be returned - either `Offset` or `Rank`, with `Offset` being the default. 
 
-Each request can include multiple documents.
 
-### Example request 
+|parameter value  |Description  |
+|---------|---------|
+|Rank    | Order sentences according to their relevance to the input document, as decided by the service.        |
+|Offset    | Keeps the original order in which the sentences appear in the input document.        |
 
-The following is an example of content you might submit for summarization, which is extracted using the Microsoft blog article [A holistic representation toward integrative AI](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/). This article is only an example, the API can accept much longer input text. See the [Data limits](#data-limits) section for more information.
+## Getting text summarization results
+
+When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
+
+The following is an example of content you might submit for summarization, which is extracted using the Microsoft blog article [A holistic representation toward integrative AI](https://www.microsoft.com/research/blog/a-holistic-representation-toward-integrative-ai/). This article is only an example, the API can accept much longer input text. See the data limits section for more information.
  
 *"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI Cognitive Services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pretrained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multisensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."*
-
-## View the results
 
 The extractive summarization API is performed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API will be returned. The output will be available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../../concepts/multilingual-emoji-support.md) for more information.
 
@@ -83,21 +97,19 @@ This section describes the limits for the size, and rates that you can send data
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum number of characters per request  | 125K characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Max Documents Per Request | 25 |
 
 If a document exceeds the limits, the API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
 
-## Summary
+### Rate limits
 
-In this article, you learned concepts and workflow for the Extractive Summarization API. You might want to use extractive summarization to:
+Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing).
 
-* Assist the processing of documents to improve efficiency.
-* Distill critical information from lengthy documents, reports, and other text forms.
-* Highlight key sentences in documents.
-* Quickly skim documents in a library.
-* Generate news feed content.
+| Tier          | Requests per second | Requests per minute |
+|---------------|---------------------|---------------------|
+| S / Multi-service | 1000                | 1000                |
+| S0 / F0         | 100                 | 300                 |
 
 ## See also
 

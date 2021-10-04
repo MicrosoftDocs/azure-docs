@@ -14,9 +14,11 @@ ms.author: aahi
 
 # How to: Sentiment analysis and Opinion Mining using Language Services
 
-The Language service provides two ways for detecting positive and negative sentiment. Using Sentiment Analysis, you can get sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. You can use Opinion Mining, which provides granular information about the opinions related to words (such as the attributes of products or services) in the text.
+Sentiment analysis and opinion mining are two ways of detecting positive and negative sentiment. Using sentiment analysis, you can get sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. Opinion Mining provides granular information about the opinions related to words (such as the attributes of products or services) in the text.
 
-The AI models used by the API are provided by the service, you just have to send content for analysis.
+> [!TIP]
+> If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
+
 
 ## Sentiment Analysis
 
@@ -43,45 +45,44 @@ For example, if a customer leaves feedback about a hotel such as "The room was g
 
 If you're using the REST API, to get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response. Opinion mining is an extension of Sentiment Analysis and is included in your current [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
-> [!TIP]
-> There are examples of how to use this feature in the quickstart article. You can also make example requests and see the JSON output using [Language Studio](https://language.azure.com/tryout/sentiment) 
+## Determine how to process the data (optional)
 
-### Language and document specification
+### Specify the sentiment analysis model
 
-<!--
-Sentiment Analysis and Opinion Mining accept a variety of languages. See [Supported languages](../language-support.md) for more information. 
--->
+By default, sentiment analysis will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform sentiment analysis operations.
 
-Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection. The collection is submitted in the body of the request. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
+| Supported Versions | latest version |
+|--|--|
+| `2019-10-01`, `2020-04-01` | `2020-04-01`   |
 
-## Submit data to the service
+### Input languages
 
-Sentiment Analysis and Opinion Mining produce a higher-quality result when you give it smaller amounts of text to work on. This is opposite from some features, like key phrase extraction which performs better on larger blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
+When you submit documents to be processed by sentiment analysis, you can specify which of [the supported languages](../language-support.md) they're written in. if you don't specify a language, sentiment analysis will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
+
+## Submitting data
+
+Sentiment analysis and opinion mining produce a higher-quality result when you give it smaller amounts of text to work on. This is opposite from some features, like key phrase extraction which performs better on larger blocks of text. 
 
 To send an API request, You will need your Language service resource endpoint and key.
 
 > [!NOTE]
 > You can find the key and endpoint for your Language service resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
 
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits article.
+Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits section below.
 
-The Sentiment Analysis and Opinion Mining API is stateless. No data is stored in your account, and results are returned immediately in the response.
+using the sentiment analysis and opinion mining features synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
-### View the results
+When using the features asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or the output of the client libraries, or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../../concepts/multilingual-emoji-support.md) for more information.
+## Getting sentiment analysis and opinion mining results
 
-### Sentiment Analysis and Opinion Mining response
+When you receive results from the API, the order of the returned key phrases is determined internally, by the model. You can stream the results to an application, or save the output to a file on the local system.
 
-The Sentiment Analysis API can return response objects for both Sentiment Analysis and Opinion Mining.
-  
 Sentiment analysis returns a sentiment label and confidence score for the entire document, and each sentence within it. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. A document can have multiple sentences, and the confidence scores within each document or sentence add up to 1.
 
-Opinion Mining will locate targets (nouns or verbs) in the text, and their associated assessment (adjective). In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two targets: *food* and *waiter*. Each target's `relations` property contains a `ref` value with the URI-reference to the associated `documents`, `sentences`, and `assessments` objects.
+Opinion Mining will locate targets (nouns or verbs) in the text, and their associated assessment (adjective). for example, the sentence "*The restaurant had great food and our waiter was friendly*" has two targets: *food* and *waiter*. Each target has an assessment. For example, the assessment for *food* would be *great*, and the assessment for *waiter* would be *friendly*.
 
 The API returns opinions as a target (noun or verb) and an assessment (adjective).
-
-See the [Azure Language Studio](https://language.azure.com/) to see example input and output for this API.
 
 
 ## Data limits
@@ -92,8 +93,8 @@ See the [Azure Language Studio](https://language.azure.com/) to see example inpu
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
-| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
+| Maximum size of a single document (synchronous) | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
+| Maximum number of characters per request (asynchronous) | 125K characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
 | Maximum size of entire request | 1 MB. |
 | Max documents per request | 10 |
 
@@ -106,16 +107,15 @@ If a document exceeds the character limit, the API will behave differently depen
 
 Exceeding the maximum number of documents you can send in a single request will generate an HTTP 400 error code.
 
+### Rate limits
 
-## Summary
+Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing).
 
-In this article, you learned concepts and workflow for sentiment analysis and opinion mining using Language services. In summary:
-
-+ Sentiment Analysis and Opinion Mining is available for select languages.
-+ Documents in the request include an ID, text, and language code.
-+ requests are sent using a personalized [access key and an endpoint](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your subscription.
-+ Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON or the client library output. For example, Excel and Power BI.
+| Tier          | Requests per second | Requests per minute |
+|---------------|---------------------|---------------------|
+| S / Multi-service | 1000                | 1000                |
+| S0 / F0         | 100                 | 300                 |
 
 ## See also
 
-* [Language Services overview](../overview.md)
+* [Sentiment analysis and opinion mining overview](../overview.md)
