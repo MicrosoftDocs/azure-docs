@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Best practices for secrets management in Key Vault
 
-Azure Key Vault allows you to securely store service or application credentials like passwords and access keys as secrets. All secrets in your key vault are encrypted with a software key. When you use key vault, you no longer need to store security information in your applications. Not having to store security information in applications eliminates the need to make this information part of the code.
+Azure Key Vault allows you to securely store service or application credentials like passwords and access keys as secrets. All secrets in your key vault are encrypted with a software key. When you use Key Vault, you no longer need to store security information in your applications. Not having to store security information in applications eliminates the need to make this information part of the code.
 
 Examples of secrets that should be stored in key vault:
 
