@@ -25,7 +25,7 @@ Use the security recommendations described in this article to assess the machine
 |----|:----|
 |Release state:|Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 |Pricing:|Free|
-|Prerequisites:|Guest Configuration extension is installed on a machine.<br>System-assigned managed-identity is deployed on a machine.<br>A supported OS is running on the Azure virtual machine: Windows Server 2012, 2012r2, 2016 and 2019<br>Linux Distros Ubuntu (14.04, 16.04, 17.04, 18.04 & 20.04), Debian (7, 8, 9, 10), CentOS (7& 8), RHEL (7& 8), Oracle Linux (7 & 8), and SLES (12) Workgroup Member|
+|Prerequisites:|Guest Configuration extension is installed on a machine.<br>System-assigned managed-identity is deployed on a machine.<br>A supported OS is running on the Azure virtual machine:<br>Windows Server 2012, 2012r2, 2016 or 2019<br>Ubuntu 14.04, 16.04, 17.04, 18.04 or 20.04<br>Debian 7, 8, 9, or 10<br>CentOS 7 or 8<br>RHEL 7 or 8<br>Oracle Linux 7 or 8<br>SLES (12) Workgroup Member|
 |Required roles and permissions:|**Write** permission is needed on the relevant machines to install the Guest Configuration extension and prerequisites.<br>**Read** permission is needed at the subscription level, to view the recommendation and explore the OS baseline data.|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
