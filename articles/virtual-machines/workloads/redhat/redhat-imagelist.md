@@ -1,14 +1,11 @@
 ---
 title: Red Hat Enterprise Linux images available in Azure
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: alsin
-
 ---
 
 # Red Hat Enterprise Linux (RHEL) images available in Azure

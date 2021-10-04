@@ -1,13 +1,11 @@
 ---
 title: Red Hat Update Infrastructure | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
-ms.author: alsin
 ms.reviewer: cynthn
 
 
