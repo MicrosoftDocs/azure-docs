@@ -13,9 +13,9 @@ ms.author: aahi
 ---
 
 
-# How to use Named Entity Recognition and detect Personally Identifying Information (PII)
+# How to use Named Entity Recognition(NER) and detect Personally Identifying Information (PII)
 
-Language services lets you takes unstructured text and returns a list of disambiguated entities, with links to more information on the web. The API supports both named entity recognition (NER) for several entity categories, and the identification of personally identifying information.
+The NER and PII feature can evaluate unstructured text, extract named entities from text in several pre-defined categories, and detect identifying information.
 
 ## Named Entity Recognition (NER)
 
@@ -25,8 +25,6 @@ Named Entity Recognition (NER) is the ability to identify different entities in 
 
 The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number.
 
-## Features and versions
-
 | Feature                                                         | NER | PII |
 |-----------------------------------------------------------------|--------|----------|
 | Methods for single, and batch requests                          | X      | X        |
@@ -34,48 +32,39 @@ The PII feature is part of NER and it can identify and redact sensitive entities
 | Recognition of personal (`PII`) and health (`PHI`) information entities        |        | X        |
 | Redaction of `PII`        |        | X        |
 
-See [entity categories](concepts/named-entity-categories.md) for the full list of entities that can be identified.
+## Determine how to process the data (optional)
 
-## Language and document specifications
+### Specify the NER model
 
-Sentiment Analysis and Opinion Mining accept a variety of languages. See Supported languages for more information. The API may return offsets in the response to support different [multilingual and emoji encodings](../concepts/multilingual-emoji-support.md). 
+By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform NER and PII operations.
 
-Document size must be under 5,120 characters per document, and you can have up to 1,000 items (IDs) per collection. For the maximum number of documents permitted in a collection, see the [data limits](../overview.md) article. The collection is submitted in the body of the request.
+| Feature | Supported Versions | latest version |
+|--|--|--|
+| Entity Recognition (general) | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`,`2021-06-01`  | `2021-06-01`   |
+| Entity Recognition (PII)     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
 
-## Submit data to the service
+### Input languages
 
-To send an API request you will need your Language Services resource endpoint and key.
+When you submit documents to be processed, you can specify which of [the supported languages](language-support.md) they're written in. if you don't specify a language, key phrase extraction will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
 
-> [!NOTE]
-> You can find the key and endpoint for your Language service resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
+## Submitting data
 
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](#data-limits) section.
+Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits section below.
 
-The NER API is stateless. No data is stored in your account, and results are returned immediately in the response.
+Using the NER and PII features synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
-The API will attempt to detect the [listed entity categories](concepts/named-entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following URL example would detect a French driver's license number that might occur in English text, along with the default English entities.
+When using these features asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+
+The API will attempt to detect the [defined entity categories](concepts/named-entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following URL example would detect a French driver's license number that might occur in English text, along with the default English entities.
 
 > [!TIP]
 > If you don't include `default` when specifying entity categories, The API will only return the entity categories you specify.
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
 
-## Post the request
+## Getting NER and PII results
 
-Analysis is performed upon receipt of the request. See [data limits](#data-limits) below for information on the size and number of requests you can send per minute and second.
-
-The Text Analytics API is stateless. No data is stored in your account, and results are returned immediately in the response.
-
-### View results
-
-All POST requests return a response with the IDs and detected entity properties.
-
-Output is returned immediately. You can stream the results to an application that accepts JSON or the output of the client libraries, or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../concepts/multilingual-emoji-support.md) for more information.
-
-### NER and PII responses
-
-The API response objects will include [recognized entities](concepts/named-entity-categories.md), including their categories and sub-categories, and confidence scores.
-
+When you get results from language detection, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/named-entity-categories.md), including their categories and sub-categories, and confidence scores. Entities that represent personal information (PII) will be redacted in the returned text.
 
 ## Data limits
 
@@ -85,8 +74,8 @@ The API response objects will include [recognized entities](concepts/named-entit
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
-| Maximum size of a single document (`/analyze` endpoint)  | 125K characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
+| Maximum size of a single document (synchronous) | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
+| Maximum number of characters per request (asynchronous)  | 125K characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  |
 | Maximum size of entire request | 1 MB. |
 | Max documents per request | 5 |
 
@@ -99,14 +88,14 @@ If a document exceeds the character limit, the API will behave differently depen
 
 Exceeding the maximum number of documents you can send in a single request will generate an HTTP 400 error code.
 
+### Rate limits
 
-## Summary
+Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguagePricing).
 
-In this article, you learned concepts and workflow for entity linking using Text Analytics in Cognitive Services. In summary:
-
-* JSON documents in the request body include an ID, text, and language code.
-* POST requests are sent to one or more endpoints, using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that is valid for your subscription.
-* Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
+| Tier          | Requests per second | Requests per minute |
+|---------------|---------------------|---------------------|
+| S / Multi-service | 1000                | 1000                |
+| S0 / F0         | 100                 | 300                 |
 
 ## Next steps
 
