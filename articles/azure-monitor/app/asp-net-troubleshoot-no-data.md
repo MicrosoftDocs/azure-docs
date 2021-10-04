@@ -219,7 +219,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
 ### .NET Framework
 
-> [NOTE]
+> [!NOTE]
 > Starting in version 2.14, the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package is no longer necessary, SDK logs are now collected with the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) package. No additional package is required.
 
 1. Modify your applicationinsights.config file to include the following:
