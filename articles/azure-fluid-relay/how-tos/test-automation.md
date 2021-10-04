@@ -7,6 +7,7 @@ ms.author: helliu
 ms.date: 09/30/2021
 ms.topic: article
 ms.service: azure-fluid
+fluid.url: https://fluidframework.com/docs/testing/testing/
 ---
 
 # How to: Use test automation with Azure Fluid Relay
