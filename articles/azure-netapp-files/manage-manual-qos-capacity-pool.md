@@ -26,7 +26,7 @@ See [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-stor
 
 To create a new capacity pool using the manual QoS type:
 
-1. Follow steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).  
+1. Follow steps in [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).  
 
 2. In the New Capacity Pool window, select the **Manual QoS** type.  
 
@@ -63,7 +63,7 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 
 ## Next steps  
 
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md)
 * [Troubleshoot capacity pool issues](troubleshoot-capacity-pools.md)
