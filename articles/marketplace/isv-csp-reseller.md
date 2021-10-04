@@ -46,17 +46,13 @@ Private Offers can be created for all transactable marketplace offer types. This
 The Private Offers dashboard is your centralized location to create and manage all your Private Offers. Access it by selecting **Private offers** in the left-nav menu of the commercial marketplace. This dashboard has two tabs:
 
 1. **Customers**: Learn more about Private Offers for Customer once the feature goes into Private Preview in Fall 2021.
-2. **Cloud Resellers**: Opens the Cloud Reseller Private Offer dashboard shown below.
+2. **Cloud Resellers**: Opens the Cloud Reseller Private Offer dashboard, which lets you:
 
-:::image type="content" source="media/isv-csp-cloud/cloud-reseller-dashbaord.png" alt-text="Shows the Cloud Reseller dashboard.":::
-
-The Cloud Reseller dashboard lets you:
-
-- Create new Private Offers
-- View the status of all your Private Offers
-- Clone existing Private Offers
-- Withdraw Private Offers
-- Delete Private Offers
+    - Create new Private Offers
+    - View the status of all your Private Offers
+    - Clone existing Private Offers
+    - Withdraw Private Offers
+    - Delete Private Offers
 
 ## Create a new Private Offer for Cloud Resellers
 

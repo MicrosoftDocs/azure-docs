@@ -19,7 +19,9 @@ sections:
       - question: |
           Discovery experience
         answer: |
-          Once a SaaS offer is published, Azure users can discover it in Azure Marketplace. Your customers can filter offers based on product type (SaaS) and discover the SaaS services they're interested in.
+          Once a SaaS offer is published, Azure users can discover it in Azure Marketplace.
+          
+          Your customers can filter offers based on product type (SaaS) and discover the SaaS services they're interested in.
 
       - question: |
           Purchase experience
