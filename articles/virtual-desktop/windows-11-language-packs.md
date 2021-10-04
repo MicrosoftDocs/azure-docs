@@ -171,7 +171,7 @@ To run sysprep:
 
 3. If setup is successful, stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
-4. You can now use the customized image to deploy a Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
+4. You can now use the customized image to deploy an Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
 >[!NOTE]
 >When a user changes their display language, they'll need to sign out of their Azure Virtual Desktop session, then sign back in. They must sign out from the Start menu.
