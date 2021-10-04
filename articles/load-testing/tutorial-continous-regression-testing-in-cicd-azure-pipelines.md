@@ -11,7 +11,7 @@ ms.topic: tutorial
 #Customer intent: As a Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment with Azure Pipelines
 ---
 
-# Tutorial: Set up CI/CD pipeline in Azure DevOps to run load tests automatically for every build
+# Tutorial: Set up CI/CD pipeline in Azure Pipelines to run load tests automatically for every build
 
 In this tutorial, you'll automatically load test a sample web app from Azure Pipelines on every pull request and deployment.
 
@@ -59,7 +59,7 @@ You will require the following files in your repository for running the load tes
 
 1. Install the Azure Load Testing task extension from the Azure DevOps Marketplace on your Azure DevOps organization.
 
-1. [Create an Azure Resource Manager service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) where you want to deploy the app and where the load test resource is present.
+1. Create an [Azure Resource Manager service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) for your Azure subscription.
 
 1. In your project, navigate to the Pipelines page. Then choose the action to create a new pipeline.
 
@@ -77,18 +77,15 @@ You will require the following files in your repository for running the load tes
 
 1. Select Save and run, then select Commit directly to the main branch, and then choose Save and run again.
 
-> [!NOTE]
-> The Load testing resource, the App service are in the same subscription for the purpose of this tutorial. If you have different subscriptions for each, modify the task inputs accordingly.
-
 ## View results in the Azure Pipeline
 
 Here's what happened when you ran the pipeline
 
-- The Sample node.js app was built and deployed to an App Service. The Azure Resource Manager template was used to create the required Azure resources. The pipeline triggers are defined to run for every push to the main branch. You can modify the triggers according to the [available triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers).
+- The pipeline build, create the required Azure resources and deploys the Ssample node.js app to the App service. Sample node.js app was built and deployed to an App Service. The pipeline triggers are defined to run for every push to the main branch. You can modify the triggers according to the [available triggers](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers).
 
 - The Azure Load testing task was used to create and run a load test on the App service deployed in the above step.
 
-The load test results are available in the pipeline logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress and detailed results once the run is complete. You can view the summary of the test run and the client-side metrics in the pipeline logs. The results files are exported to the folder “dropResults\results.zip”
+The load test results are available in the pipeline logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress and detailed results, once the run is complete. You can view the summary of the test run and the client-side metrics in the pipeline logs. The results files are exported to the folder “dropResults\results.zip”
 
 ## Define test criteria for your load test
 
@@ -128,20 +125,33 @@ Add the test criteria to your pipeline load test as shown below
 
     ```yml
     criteria: 
-        - avg(response_time) > 200ms
+        - avg(response_time) > 100ms
         - avg(latency) > 300ms
         - rate(error) > 20
     ```
 
 1. Commit and push the changes to the main branch of the repository. This will now trigger the CI/CD pipeline in Azure Pipelines.
 
-The Azure Load Testing service will evaluate them during the test execution and inform the results. If any of the criteria defined in the test fails, Azure Load Testing service will return with a non-zero exit code, communicating to the pipeline that the test has failed. The task in the pipeline is marked as failed.
+1. Once the load test completes, the above pipeline will fail. Go to the pipeline logs and view the output of the Azure Load Testing Task.
 
-Expected results
+1. The output of the task will show the outcome of the test criteria. For the above criteria the since the average response time is greater than 100 ms, the first criteria will fail. The other two criteria should pass.
+
+1. Edit the SampleApp.yml file and change the above test criteria to the following
+
+    ```yml
+    criteria: 
+        - avg(response_time) > 300ms
+        - avg(latency) > 300ms
+        - rate(error) > 20
+    ```
+
+1. Save and run the pipeline. The test should pass and the pipeline should run successfully.
+
+The Azure Load Testing service evaluates the criteria during the test execution. If any of the criteria defined in the test fails, Azure Load Testing service will return with a non-zero exit code, communicating to the pipeline that the test has failed. The task in the pipeline is then marked as passed or failed accordingly.
 
 ## Provide parameters to your load tests from the pipeline
 
-You can now parameterize your load tests using pipeline variables. These parameters may be secrets and /or non-secrets
+Now that you have set test criteria to pass or fail your test, the next step is to parameterize your load tests using pipeline variables. These parameters may be secrets and /or non-secrets
 
 - Secret parameters: These are any sensitive variables you don't want to be checked in to your source control repository. These can be stored as a secret variable in Azure Pipelines or in any other secret store which can be fetched within the pipeline.
 
@@ -149,17 +159,17 @@ You can now parameterize your load tests using pipeline variables. These paramet
 
 To add parameters to your load test from pipeline
 
-1. Edit the SampleApp.jmx file in your GitHub repository to call *function* to fetch the parameter as shown below. Save and commit the file
+1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to call *function* to fetch the parameters as shown below. Save and commit the file
 
 1. Go to the Pipelines page, select the appropriate pipeline, and then select Edit.
 
 1. Locate the Variables for this pipeline.
 
-1. Add a variable with Name "" and Value "".
+1. Add a variable with Name "client_id" and Value "".
 
 1. Check the option Keep this value secret, to store the variable in an encrypted manner. Save the changes
 
-1. In the azure-pipeline.yml file, edit the Azure Load test task. Add the following YAML snippet to the task definition
+1. In the azure-pipeline.yml file, edit the Azure Load testing task. Add the following YAML snippet to the task definition
 
     ```yml
     parameters:  
@@ -167,14 +177,14 @@ To add parameters to your load test from pipeline
       - name: 'client_id' 
         value: ${mySecret} 
     ```
+
 1. Save and run the pipeline.
 
-The secret is passed from the pipeline to the load test engine in a secure manner.
+The Azure Load Testing task, passes the secret from the pipeline to the load test engine in a secure manner. The secret parameter is used while running the load test and then the value is discarded.
 
 ## Azure Load Testing Task
 
 This task creates and runs an Azure load test from an Azure Pipeline. The task works on cross-platform agents running Windows, Linux, or Mac.
-
 
 |Parameters  |Description  |
 |---------|---------|
