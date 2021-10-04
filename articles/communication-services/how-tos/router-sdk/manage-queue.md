@@ -58,7 +58,7 @@ var queue = client.SetQueueAsync(
 
 ## Delete a queue
 
-To delete a queue using the Job Router SDK call the `DeleteQueue` or `DeleteQueueAsync` method passing the queue **ID**.
+To delete a queue using the Job Router SDK call the `DeleteQueue` or `DeleteQueueAsync` method passing the **queue ID**.
 
 ```csharp
 var result = client.DeleteQueueAsync("XBOX_DEFAULT_QUEUE");
