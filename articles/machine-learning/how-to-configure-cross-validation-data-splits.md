@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to configure dataset splits and cross-validation for automated machine learning experiments
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl
 ms.author: cesardl
