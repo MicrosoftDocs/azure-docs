@@ -53,7 +53,7 @@ To run PowerShell as "Root" in Linux, use the
 ## Validate the configuration package meets requirements
 
 First test that the configuration package meets basic requirements using
-`Get-GuestConfigurationPacakgeComplianceStatus `. The command verifies the
+`Get-GuestConfigurationPackageComplianceStatus `. The command verifies the
 following package requirements.
 
 - MOF is present and valid, at the right location
