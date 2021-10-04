@@ -30,7 +30,7 @@ To view and copy your storage account access keys or connection string from the 
 
 1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
 
-2. Under **Settings**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
 
 3. Locate the **Key** value under **key1**, and click the **Copy** button to copy the account key.
 
@@ -89,7 +89,17 @@ If you plan to manually rotate access keys, Microsoft recommends that you set a 
 
 #### [Portal](#tab/azure-portal)
 
-The ability to set a key expiration policy by using the Azure portal is not yet available. You can use either PowerShell or Azure CLI.
+To create a key expiraion policy from the Azure portal:
+
+1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
+
+2. Under **Security + networking**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+
+3. Locate the **Set rotation reminder** button in the upper part of the blade and click it.
+
+4. Check the **Enable key rotation reminders** box and set the desired frequency for the reminder.
+
+5. Click **Save** and exit.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -198,7 +208,7 @@ To rotate your storage account access keys in the Azure portal:
 
 2. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
 
-3. Under **Settings**, select **Access keys**.
+3. Under **Security + networking**, select **Access keys**.
 
 4. To regenerate the primary access key for your storage account, select the **Regenerate** button next to the primary access key.
 
