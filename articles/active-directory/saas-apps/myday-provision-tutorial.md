@@ -3,8 +3,8 @@ title: 'Tutorial: Configure myday for automatic user provisioning with Azure Act
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to myday.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 59b4150a-9530-479b-9f62-a16c3d005dbe
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure myday for automatic user provisioning

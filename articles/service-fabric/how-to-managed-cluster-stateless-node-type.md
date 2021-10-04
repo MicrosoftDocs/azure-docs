@@ -2,7 +2,7 @@
 title: Deploy a Service Fabric managed cluster with stateless node types
 description: Learn how to create and deploy stateless node types in Service Fabric managed clusters
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ---
 # Deploy a Service Fabric managed cluster with stateless node types
 
@@ -10,7 +10,8 @@ Service Fabric node types come with an inherent assumption that at some point of
 
 * Primary node types cannot be configured to be stateless
 * Stateless node types require an API version of **2021-05-01** or later
-
+* This will automatically set the **multipleplacementgroup** property to **true** which you can [learn more here](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
+* This enables support for up to 1000 nodes for the given node type
 
 Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
@@ -57,4 +58,4 @@ For all migration scenarios, a new stateless node type needs to be added. Existi
 To learn more about Service Fabric managed clusters, see:
 
 > [!div class="nextstepaction"]
-> [Service Fabric managed clusters frequently asked questions](./faq-managed-cluster.md)
+> [Service Fabric managed clusters frequently asked questions](./faq-managed-cluster.yml)

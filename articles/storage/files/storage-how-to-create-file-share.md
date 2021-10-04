@@ -5,7 +5,7 @@ description: How to create an Azure file share by using the Azure portal, PowerS
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
@@ -26,6 +26,13 @@ To create an Azure file share, you need to answer three questions about how you 
     In local and zone redundant storage accounts, Azure file shares can span up to 100 TiB, however in geo- and geo-zone redundant storage accounts, Azure file shares can span only up to 5 TiB. 
 
 For more information on these three choices, see [Planning for an Azure Files deployment](storage-files-planning.md).
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
 - This article assumes that you have already created an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -53,7 +60,7 @@ The first section to complete to create a storage account is labeled **Basics**.
 
 To create a FileStorage storage account, ensure the **Performance** radio button is set to *Premium* and **Fileshares** is selected in the **Premium account type** drop-down list.
 
-:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="A screenshot of the performance radio button with premium selected and account kind with filestorage selected.":::
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="A screenshot of the performance radio button with premium selected and account kind with FileStorage selected.":::
 
 The other basics fields are independent from the choice of storage account:
 - **Storage account name**: The name of the storage account resource to be created. This name must be globally unique, but otherwise can any name you desire. The storage account name will be used as the server name when you mount an Azure file share via SMB.
@@ -158,6 +165,37 @@ az storage account create \
 
 ---
 
+### Enable large files shares on an existing account
+Before you create an Azure file share on an existing account, you may want to enable it for large file shares if you haven't already. Standard storage accounts with LRS and ZRS or ZRS can be upgraded to support large file shares. If you have a GRS, GZRS, RA-GRS, or RA-GZRS account, you will need to convert it to an LRS account before proceeding.
+
+# [Portal](#tab/azure-portal)
+1. Open the [Azure portal](https://portal.azure.com), and navigate to the storage account where you want to enable large file shares.
+1. Open the storage account and select **File shares**.
+1. Select **Enabled** on **Large file shares**, and then select **Save**.
+1. Select **Overview** and select **Refresh**.
+1. Select **Share capacity** then select **100 TiB** and **Save**.
+
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Screenshot of the storage account, file shares blade with 100 TiB shares highlighted.":::
+
+# [PowerShell](#tab/azure-powershell)
+To enable large file shares on your existing account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
+
+```powershell
+Set-AzStorageAccount `
+    -ResourceGroupName <yourResourceGroup> `
+    -Name <yourStorageAccountName> `
+    -EnableLargeFileShare
+```
+
+# [Azure CLI](#tab/azure-cli)
+To enable large file shares on your existing account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
+
+```azurecli-interactive
+az storage account update --name <yourStorageAccountName> -g <yourResourceGroup> --enable-large-file-share
+```
+
+---
+
 ## Create a file share
 Once you've created your storage account, all that is left is to create your file share. This process is mostly the same regardless of whether you're using a premium file share or a standard file share. You should consider the following differences.
 
@@ -168,9 +206,9 @@ Standard file shares may be deployed into one of the standard tiers: transaction
 
 The **quota** property means something slightly different between premium and standard file shares:
 
-- For standard file shares, it's an upper boundary of the Azure file share, beyond which end-users cannot go. If a quota is not specified, standard file share can span up to 100 TiB (or 5 TiB if the large file shares property is not set for a storage account).
+- For standard file shares, it's an upper boundary of the Azure file share, beyond which end-users cannot go. If a quota is not specified, standard file share can span up to 100 TiB or 5 TiB if the large file shares property is not set for a storage account. If you did not create your storage account with large file shares enabled, see [Enable large files shares on an existing account](#enable-large-files-shares-on-an-existing-account) for how to enable 100 TiB file shares. 
 
-- For premium file shares, quota means **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
+- For premium file shares, quota means **provisioned size**. The provisioned size is the amount that you will be billed for, regardless of actual usage. The IOPS and throughput available on a premium file share is based on the provisioned size. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
 
 # [Portal](#tab/azure-portal)
 If you just created your storage account, you can navigate to it from the deployment screen by selecting **Go to resource**. Once in the storage account, select the **File shares** in the table of contents for the storage account.
@@ -180,7 +218,7 @@ In the file share listing, you should see any file shares you have previously cr
 The new file share blade should appear on the screen. Complete the fields in the new file share blade to create a file share:
 
 - **Name**: the name of the file share to be created.
-- **Quota**: the quota of the file share for standard file shares; the provisioned size of the file share for premium file shares.
+- **Quota**: the quota of the file share for standard file shares; the provisioned size of the file share for premium file shares. For standard file shares, the quota will also determine what performance you receive.
 - **Tiers**: the selected tier for a file share. This field is only available in a **general purpose (GPv2) storage account**. You can choose transaction optimized, hot, or cool. The share's tier can be changed at any time. We recommend picking the hottest tier possible during a migration, to minimize transaction expenses, and then switching to a lower tier if desired after the migration is complete.
 
 Select **Create** to finishing creating the new share.
@@ -188,7 +226,7 @@ Select **Create** to finishing creating the new share.
 # [PowerShell](#tab/azure-powershell)
 You can create an Azure file share with the [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. The following PowerShell commands assume you have set the variables `$resourceGroupName` and `$storageAccountName` as defined above in the creating a storage account with Azure PowerShell section. 
 
-The following example shows creating a file share with an explicit tier using the `-AccessTier` parameter. This requires using the preview Az.Storage module as indicated in the example. If a tier is not specified, either because you are using the GA Az.Storage module, or because you did not include this command, the default tier for standard file shares is transaction optimized.
+The following example shows creating a file share with an explicit tier using the `-AccessTier` parameter. If a tier is not specified, the default tier for standard file shares is transaction optimized.
 
 > [!Important]  
 > For premium file shares, the `-QuotaGiB` parameter refers to the provisioned size of the file share. The provisioned size of the file share is the amount you will be billed for, regardless of usage. Standard file shares are billed based on usage rather than provisioned size.
@@ -267,6 +305,45 @@ az storage share-rm update \
     --storage-account $storageAccountName \
     --name $shareName \
     --access-tier "Cool"
+```
+
+---
+
+### Expand existing file shares
+If you enable large file shares on an existing storage account, you must expand existing file shares in that storage account to take advantage of the increased capacity and scale. 
+
+# [Portal](#tab/azure-portal)
+1. From your storage account, select **File shares**.
+1. Right-click your file share, and then select **Quota**.
+1. Enter the new size that you want, and then select **OK**.
+
+![The Azure portal UI with Quota of existing file shares](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
+
+# [PowerShell](#tab/azure-powershell)
+To set the quota to the maximum size, use the following command. Replace `<YourResourceGroupName>`, `<YourStorageAccountName>`, and `<YourStorageAccountFileShareName>` with your information.
+
+```powershell
+$resourceGroupName = "<YourResourceGroupName>"
+$storageAccountName = "<YourStorageAccountName>"
+$shareName="<YourStorageAccountFileShareName>"
+
+# update quota
+Set-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -QuotaGiB 102400
+```
+
+# [Azure CLI](#tab/azure-cli)
+To set the quota to the maximum size, use the following command. Replace `<yourResourceGroupName>`, `<yourStorageAccountName>`, and `<yourFileShareName>` with your information.
+
+```azurecli-interactive
+az storage share-rm update \
+    --resource-group <yourResourceGroupName> \
+    --storage-account <yourStorageAccountName> \
+    --name <yourFileShareName> \
+    --quota 102400
 ```
 
 ---

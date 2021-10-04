@@ -7,32 +7,27 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 07/13/2021
 ms.author: tamram
-ms.reviewer: sohamnc
+ms.reviewer: dineshm
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Assign an Azure role for access to queue data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access queues.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access queue data.
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article shows how to assign Azure roles for data access to queues.
+To learn more about using Azure AD to authorize access to queue data, see [Authorize access to queues using Azure Active Directory](authorize-access-azure-active-directory.md).
 
-## Azure roles for queues
-
-[!INCLUDE [storage-auth-rbac-roles-queue-include](../../../includes/storage-auth-rbac-roles-queue-include.md)]
-
-## Determine resource scope
-
-[!INCLUDE [storage-auth-resource-scope-queue-include](../../../includes/storage-auth-resource-scope-queue-include.md)]
+> [!NOTE]
+> This article shows how to assign an Azure role for access to queue data in a storage account. To learn about assigning roles for management operations in Azure Storage, see [Use the Azure Storage resource provider to access management resources](../common/authorization-resource-provider.md).
 
 ## Assign an Azure role
 
-You can use the Azure portal, PowerShell, or Azure CLI to assign a role for data access.
+You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template to assign a role for data access.
 
 # [Azure portal](#tab/portal)
 
@@ -96,6 +91,10 @@ az role assignment create \
 ```
 
 For information about assigning roles with PowerShell at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
+# [Template](#tab/template)
+
+To learn how to use an Azure Resource Manager template to assign an Azure role, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 
 ---
 

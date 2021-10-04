@@ -39,8 +39,8 @@ landingContent:
         links:
           - text: Release notes for Security Center
             url: release-notes.md
-          - text: Explore the overview dashboard
-            url: overview-page.md
+          - text: Apply Azure security baselines to machines
+            url: apply-security-baseline.md
           - text: Use the integrated workbooks reports
             url: custom-dashboards-azure-workbooks.md
           - text: Protect hybrid and multi-cloud Kubernetes clusters
@@ -76,7 +76,7 @@ landingContent:
           - text: Exempt a resource from a recommendation
             url: exempt-resource.md
           - text: Track your scores over time
-            url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-report
+            url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-workbook
 
   # Card
   - title: Mitigate threats

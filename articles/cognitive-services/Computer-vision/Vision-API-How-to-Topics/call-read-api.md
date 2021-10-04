@@ -19,7 +19,40 @@ In this guide, you'll learn how to call the Read API to extract text from images
 
 This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a subscription key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
 
+## Determine how to process the data (optional)
+
+### Specify the OCR model
+
+By default, the service will use the latest GA model to extract text. Starting with Read 3.2, a `model-version` parameter allows choosing between the GA and preview models for a given API version. The model you specify will be used to extract text with the Read operation.
+
+When using the Read operation, use the following values for the optional `model-version` parameter.
+
+|Value| Model used |
+|:-----|:----|
+| Not provided | latest GA model and languages |
+| latest | latest GA model and languages|
+| 2021-09-30-preview | Preview model with the additional preview languages and features. Includes any enhancements to the previous GA model.
+| 2021-04-12 | date-specific GA, presently same as latest |
+
+### Input language
+
+By default, the service extracts all text from your images or documents including mixed languages. The [Read operation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) has an optional request parameter for language. Only provide a language code if you want to force the document to be processed as that specific language. Otherwise, the service may return incomplete and incorrect text.
+
+### Natural reading order output (Latin languages only)
+
+By default, the service outputs the text lines in the left to right order. Optionally, with the `readingOrder` request parameter, use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
+
+:::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR Reading order example" border="true" :::
+
+### Select page(s) or page ranges for text extraction
+
+By default, the service extracts text from all pages in the documents. Optionally, use the `pages` request parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
+
+:::image type="content" source="../Images/ocr-select-pages.png" alt-text="Selected pages output" border="true" :::
+
 ## Submit data to the service
+
+You submit either a local image or a remote image to the Read API. For local, you put the binary image data in the HTTP request body. For remote, you specify the image's URL by formatting the request body like the following: `{"url":"http://example.com/images/test.jpg"}`.
 
 The Read API's [Read call](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously.
 
@@ -36,23 +69,6 @@ The call returns with a response header field called `Operation-Location`. The `
 >
 > The [Computer Vision pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) page includes the pricing tier for Read. Each analyzed image or page is one transaction. If you call the operation with a PDF or TIFF document containing 100 pages, the Read operation will count it as 100 transactions and you will be billed for 100 transactions. If you made 50 calls to the operation and each call submitted a document with 100 pages, you will be billed for 50 X 100 = 5000 transactions.
 
-## Determine how to process the data
-
-### Language specification
-
-The [Read](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) call has an optional request parameter for language. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
-
-### Natural reading order output (Latin languages only)
-
-Specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
-
-:::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR Reading order example" border="true" :::
-
-### Select page(s) or page ranges for text extraction
-
-For large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
-
-:::image type="content" source="../Images/ocr-select-pages.png" alt-text="Selected pages output" border="true" :::
 
 ## Get results from the service
 
@@ -162,4 +178,5 @@ The response includes classifying whether each text line is of handwriting style
 
 ## Next steps
 
-To try out the REST API, go to the [Read API Reference](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- Get started with the [OCR (Read) REST API or client library quickstarts](../quickstarts-sdk/client-library.md).
+- Learn about the [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).

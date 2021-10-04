@@ -3,11 +3,11 @@ title: Customize the Azure IoT Central UI | Microsoft Docs
 description: How to customize the theme and help links for your Azure IoT central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/06/2019
+ms.date: 08/18/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
+
 
 #Customer intent: As an administrator, I want to customize the themes and help links within Central so that my company's brand is represented within the app.
 ---
@@ -73,4 +73,4 @@ You can also add new entries to the help menu and remove default entries:
 Now that you've learned how to customize the UI in your IoT Central application, here are some suggested next steps:
 
 - [Administer your application](./howto-administer.md)
-- [Add tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)
+- [Add tiles to your dashboard](howto-manage-dashboards.md)

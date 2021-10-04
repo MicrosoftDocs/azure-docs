@@ -2,7 +2,7 @@
 title: Quickstart - Add calling to an iOS app using Azure Communication Services
 description: In this quickstart, you learn how to use the Azure Communication Services Calling SDK for iOS.
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -10,8 +10,9 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for iOS.
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).
 
 ## Prerequisites
 
@@ -32,9 +33,11 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 ### Install the package and dependencies with CocoaPods
 
-1. To create a Podfile for your application open the terminal and navigate to the project folder and run 
-```pod init```
-3. Add the following code to the Podfile and save (make sure that "target" matches the name of your project):
+1. To create a Podfile for your application open the terminal and navigate to the project folder and run:
+
+   `pod init`
+
+1. Add the following code to the Podfile and save (make sure that "target" matches the name of your project):
 
    ```
    platform :ios, '13.0'
@@ -45,8 +48,9 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
    end
    ```
 
-3. Run `pod install`.
-3. Open the `.xcworkspace` with Xcode.
+1. Run `pod install`.
+
+1. Open the `.xcworkspace` with Xcode.
 
 ### Request access to the microphone
 
@@ -124,7 +128,11 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client
 
-Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. Add the following code to the `onAppear` callback in **ContentView.swift**:
+Initialize a `CallAgent` instance with a User Access Token which will enable us to make and receive calls. 
+
+In the following code, you will need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+
+Add the following code to the `onAppear` callback in **ContentView.swift**:
 
 ```swift
 var userCredential: CommunicationTokenCredential?
@@ -150,7 +158,7 @@ self.callClient?.createCallAgent(userCredential: userCredential!) { (agent, erro
 }
 ```
 
-You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../../access-tokens.md) documentation if you don't already have a token available.
+
 
 ## Start a call
 
@@ -203,7 +211,3 @@ You can make an outbound VOIP call by providing a user ID in the text field and 
 
 > [!NOTE]
 > The first time you make a call, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)

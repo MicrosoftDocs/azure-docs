@@ -4,7 +4,7 @@ description: This article provides steps for handling Service Bus events via Eve
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/29/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ---
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Connect the function and namespace via Event Grid
 > * Receive messages by using Azure Functions
 
-[!INCLUDE [service-bus-event-grid-prerequisites](../../includes/service-bus-event-grid-prerequisites.md)]
+[!INCLUDE [service-bus-event-grid-prerequisites](./includes/service-bus-event-grid-prerequisites.md)]
 
 ## Additional prerequisites
 Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **Azure development** workload. This workload includes **Azure Function Tools** that you need to create, build, and deploy Azure Functions projects in Visual Studio. 
@@ -39,6 +39,8 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
 1. In the **Publish** wizard, on the **Target** page, select **Azure** for **Target**. 
 1. On the **Specific target** page, select **Azure Function App (Windows)**. 
 1. On the **Functions instance** page, select **Create a new Azure function**. 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/add-function-button.png" alt-text="Image showing the Add function button of the Visual Studio - Publish dialog box.":::
 1. On the **Function App (Windows)** page, follow these steps:
     1. Enter a **name** for the function app.
     1. Select an Azure **subscription**.

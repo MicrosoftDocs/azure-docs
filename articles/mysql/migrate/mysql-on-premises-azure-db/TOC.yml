@@ -1,0 +1,60 @@
+- name: Migrating MySQL on-premises to Azure Database for MySQL
+  items:
+   - name: Overview
+     items:
+      - name: Introduction
+        href: 01-mysql-migration-guide-intro.md
+      - name: Representative Use Case
+        href: 02-representative-use-case.md
+   - name: Pre-Migration
+     items:
+      - name: Assessment
+        href: 03-assessment.md
+      - name: Planning
+        href: 04-planning.md
+      - name: Migration Methods
+        href: 05-migration-methods.md
+      - name: Test Plans
+        href: 06-test-plans.md
+      - name: Performance Baselines
+        href: 07-performance-baselines.md
+   - name: Data Migration
+     items:
+      - name: Data Migration
+        href: 08-data-migration.md
+      - name: Data Migration with MySQL Workbench
+        href: 09-data-migration-with-mysql-workbench.md
+   - name: Post-Migration Management
+     items:
+      - name: Post Migration Management
+        href: 10-post-migration-management.md
+      - name: Optimization
+        href: 11-optimization.md
+      - name: Business Continuity and Disaster Recovery (BCDR)
+        href: 12-business-continuity-and-disaster-recovery.md
+      - name: Security
+        href: 13-security.md
+      - name: Summary
+        href: 14-summary.md
+   - name: Sample applications
+     href: 15-appendix.md
+   - name: Resources
+     items:
+      - name: Migrate data with mysqldump or phpmyadmin
+        href: ../../concepts-migrate-dump-restore.md
+        displayName: migrate, mysqldump
+      - name: Migrate data with dbForge Studio for MySQL
+        href: ../../concepts-migrate-dbforge-studio-for-mysql.md
+        displayName: migrate, dbforge
+      - name: Migrate data with MySQL Workbench
+        href: ../../concepts-migrate-import-export.md
+        displayName: import , migrate, export
+      - name: Migrate RDS MySQL data with MySQL Workbench
+        href: ../../how-to-migrate-rds-mysql-workbench.md
+        displayName: import , migrate, export
+      - name: Minimal downtime migration with DMS
+        href: ../../howto-migrate-online.md
+        displayName: migrate, dms, database migration service
+      - name: Troubleshoot common errors
+        href: ../../howto-troubleshoot-common-errors.md
+        displayName: SUPER privilege, DBA role, Access is denied

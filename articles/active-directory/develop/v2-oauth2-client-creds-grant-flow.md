@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/8/2021
+ms.date: 09/27/2021
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
 ---
 
@@ -24,6 +24,8 @@ This article describes how to program directly against the protocol in your appl
 The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.  Because the applications own credentials are being used, these credentials must be kept safe - _never_ publish that credential in your source code, embed it in web pages, or use it in a widely distributed native application. 
 
 In the client credentials flow, permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there is no user involved in the authentication.  This article covers both the steps needed to [authorize an application to call an API](#application-permissions), as well as [how to get the tokens needed to call that API](#get-a-token).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Protocol diagram
 
@@ -52,7 +54,7 @@ This type of authorization is common for daemons and service accounts that need 
 
 In order to enable this ACL-based authorization pattern, Azure AD doesn't require that applications be authorized to get tokens for another application. Thus, app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
 
-If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). This will block users and applications without assigned roles from being able to get a token for this application. 
+If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/assign-user-or-group-access-portal.md). This will block users and applications without assigned roles from being able to get a token for this application. 
 
 ### Application permissions
 
@@ -63,13 +65,13 @@ Instead of using ACLs, you can use APIs to expose a set of **application permiss
 * Send mail as any user
 * Read directory data
 
-To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](quickstart-configure-app-expose-web-apis.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](quickstart-configure-app-access-web-apis.md) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
+To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](howto-add-app-roles-in-azure-ad-apps.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
 
-When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
+When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user - because there is no user for you app to act on behalf of. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
 
 For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
 
-#### Recommended: Sign the user into your app
+#### Recommended: Sign the admin into your app to have app roles assigned
 
 Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
@@ -78,10 +80,6 @@ If you sign the user into your app, you can identify the organization to which t
 #### Request the permissions from a directory admin
 
 When you're ready to request permissions from the organization's admin, you can redirect the user to the Microsoft identity platform *admin consent endpoint*.
-
-> [!TIP]
-> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -140,10 +138,6 @@ After you've received a successful response from the app provisioning endpoint, 
 
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` Microsoft identity platform:
 
-> [!TIP]
-> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ### First case: Access token request with a shared secret
 
 ```HTTP
@@ -153,7 +147,7 @@ Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-&client_secret=5ampl3Cr3dentia1s
+&client_secret=sampleCredentia1s
 &grant_type=client_credentials
 ```
 
@@ -167,7 +161,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | `client_id` | Required | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
 | `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br/>This value tells the Microsoft identity platform that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. |
+| `client_secret` | Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. The Basic auth pattern of instead providing credentials in the Authorization header, per [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) is also supported. |
 | `grant_type` | Required | Must be set to `client_credentials`. |
 
 ### Second case: Access token request with a certificate
@@ -193,11 +187,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `client_assertion` | Required | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | `grant_type` | Required | Must be set to `client_credentials`. |
 
-Notice that the parameters are almost the same as in the case of the request by shared secret except that the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
+The parameters for the certificate-based request differ in only one way from the shared secret-based request: the `client_secret` parameter is replaced by the `client_assertion_type` and `client_assertion` parameters.
 
 ### Successful response
 
-A successful response looks like this:
+A successful response from either method looks like this:
 
 ```json
 {
@@ -212,6 +206,8 @@ A successful response looks like this:
 | `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a web API. |
 | `token_type` | Indicates the token type value. The only type that the Microsoft identity platform supports is `bearer`. |
 | `expires_in` | The amount of time that an access token is valid (in seconds). |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### Error response
 

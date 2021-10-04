@@ -144,8 +144,8 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
   1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**.
   2. Run `netconfig update` to update.
 * **CentOS** (uses NetworkManager):
-  1. Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**.
-  2. Update with `service network restart`.
+  1. Add the line *RES_OPTIONS="options timeout:1 attempts:5"* to the file **/etc/sysconfig/network-scripts/ifcfg-eth0**.
+  2. Update with `systemctl restart NetworkManager.service`.
 
 ## Name resolution that uses your own DNS server
 

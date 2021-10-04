@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand security best practices with Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/18/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -59,7 +59,7 @@ You can assign roles in two ways:
 * via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
-For more detailed steps on how to do this, try it out in the Azure Digital Twins [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md).
+For more detailed steps on how to do this, try it out in the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md).
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
@@ -85,7 +85,7 @@ The following list describes the levels at which you can scope access to Azure D
 
 If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)](troubleshoot-error-403.md).
 
-## Managed identity for accessing other resources (preview)
+## Managed identity for accessing other resources
 
 Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **managed identity** for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -93,7 +93,7 @@ Azure supports two types of managed identities: system-assigned and user-assigne
 
 You can use a system-assigned managed identity for your Azure Digital Instance to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports system-assigned identity-based authentication to endpoints for [Event Hub](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
 
-For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [How-to: Enable a managed identity for routing events (preview)](./how-to-enable-managed-identities-portal.md).
+For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [Route events with a managed identity](how-to-route-with-managed-identity.md).
 
 ## Private network access with Azure Private Link (preview)
 
@@ -107,7 +107,7 @@ The private endpoint uses an IP address from your Azure VNet address space. Netw
 
 Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your VNet.
 
-For instructions on how to set up Private Link for Azure Digital Twins, see [How-to: Enable private access with Private Link (preview)](./how-to-enable-private-link-portal.md).
+For instructions on how to set up Private Link for Azure Digital Twins, see [Enable private access with Private Link (preview)](./how-to-enable-private-link.md).
 
 ### Design considerations 
 
@@ -158,8 +158,8 @@ To resolve this error, you can do one of the following actions:
 
 ## Next steps
 
-* See these concepts in action in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md).
+* See these concepts in action in [Set up an instance and authentication](how-to-set-up-instance-portal.md).
 
-* See how to interact with these concepts from client application code in [How-to: Write app authentication code](how-to-authenticate-client.md).
+* See how to interact with these concepts from client application code in [Write app authentication code](how-to-authenticate-client.md).
 
 * Read more about [Azure RBAC](../role-based-access-control/overview.md).

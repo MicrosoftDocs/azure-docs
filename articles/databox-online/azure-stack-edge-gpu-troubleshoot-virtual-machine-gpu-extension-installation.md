@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 08/02/2021
 ms.author: alkohli
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
@@ -31,7 +31,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 **Suggested solution:** Prepare a new VM image that has an operating system that the GPU extension supports. 
 
-* For a list of supported operating systems, see [Supported OS and GPU drivers for GPU VMs](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#supported-os-and-gpu-drivers).
+* For a list of supported operating systems, see [Supported OS and GPU drivers for GPU VMs](./azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-and-gpu-drivers).
 
 * For image preparation requirements for a GPU VM, see [Create GPU VMs](./azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
@@ -47,7 +47,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 **Error description:** Extension provisioning failed during extension installation or while in the Enable state.
 
-1. Check the guest log for the associated error. <!--To collect the guest logs, see [Collect guest logs for VMs on an Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).-->
+1. Check the guest log for the associated error. To collect the guest logs, see [Collect guest logs for VMs on an Azure Stack Edge Pro](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).
 
    On a Linux VM:
    * Look in `/var/log/waagent.log` or `/var/log/azure/nvidia-vmext-status`.
@@ -73,7 +73,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 **Suggested solution:** To resolve the issue, do these steps:
 
-1.	To find out what process is applying the lock, search the \var\log\azure\nvidia-vmext-status log for an error such as “dpkg is used by another process” or ”Another app is holding yum lock”.
+1.	To find out what process is applying the lock, search the \var\log\azure\nvidia-vmext-status log for an error such as “dpkg is used by another process” or ”Another app is holding `yum lock`”.
 
 1. Either wait for the process to finish, or end the process.
 
@@ -84,5 +84,4 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 ## Next steps
 
-- [Install the GPU extension](./azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux)<!--Temporary link until next one can be restored.-->
-<!-- Remove link while cmdlet is fixed. - [Collect guest logs, and create a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)-->
+[Collect guest logs, and create a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)

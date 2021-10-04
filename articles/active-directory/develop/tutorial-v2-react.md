@@ -3,14 +3,14 @@ title: "Tutorial: Create a React single-page app that uses auth code flow | Azur
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you create a React SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
-author: tnorling
+author: j-mantu
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/16/2021
-ms.author: thnorlin
+ms.author: jamesmantu
 ms.custom: aaddev, devx-track-js
 ---
 
@@ -156,7 +156,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
 
 ## Sign in users
 
-Create a folder in *src* called *components* and create a file inside this folder named *SignInButton.jsx*. Add the code from either of the following sections to invoke login using a popup window or a full-frame redirect:
+Create a folder in *src* called *components* and create a file inside this folder named *SignInButton.jsx*. Add the code from either of the following sections to invoke login using a pop-up window or a full-frame redirect:
 
 ### Sign in using popups
 
@@ -270,7 +270,7 @@ At this point, a PKCE-protected authorization code is sent to the CORS-protected
 
 ## Sign users out
 
-In *src/components* create a file named *SignOutButton.jsx*. Add the code from either of the following sections to invoke logout using a popup window or a full-frame redirect:
+In *src/components* create a file named *SignOutButton.jsx*. Add the code from either of the following sections to invoke logout using a pop-up window or a full-frame redirect:
 
 ### Sign out using popups
 

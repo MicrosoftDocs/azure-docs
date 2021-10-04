@@ -25,10 +25,10 @@ You'll see alerts when there are suspicious database activities, potential vulne
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
+|Release state:|General availability (GA)|
 |Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected SQL versions:|Azure SQL Server (all versions covered by Microsoft support)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet|
 |||
 
 ## Set up Azure Defender for SQL servers on machines
@@ -68,11 +68,11 @@ To enable this plan:
 
     - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
 
-        ![Finding your non-default workspace by title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
+        ![Finding your non-default workspace by title.](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 1. Set the option for **Azure Defender for SQL servers on machines** plan to **on**. 
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Security Center pricing page with optional plans":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Security Center pricing page with optional plans.":::
 
     The plan will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
 

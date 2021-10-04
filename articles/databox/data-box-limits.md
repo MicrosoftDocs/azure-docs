@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 01/05/2021
+ms.date: 07/16/2021
 ms.author: alkohli
 ---
 # Azure Data Box limits
@@ -46,7 +46,7 @@ Data Box caveats for an export order include:
 - If you have duplicate tags in input files or tags referring to the same data, the Data Box export might skip or overwrite the files. The number of files and size of data that the Azure portal displays might differ from the actual size of data on the device. 
 - Data Box exports data to Windows-based system over SMB and is limited by SMB limitations for files and folders. Files and folders with unsupported names aren't exported.
 - There is a 1:1 mapping from prefix to container.
-- Maximum filename size is 1024 characters. Filenames that exceed this length aren't exported.
+- Maximum filename size is 1024 characters. Filenames that exceed this length aren't exported. 
 - Duplicate prefixes in the *xml* file (uploaded during order creation) are exported. Duplicate prefixes are not ignored.
 - Page blobs and container names are case-sensitive. If the casing is mismatched, the blob and/or container will not be found.
  

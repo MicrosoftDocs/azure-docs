@@ -48,7 +48,7 @@ To access queue data from the Azure portal using your Azure AD account, both of 
 
 The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to queues in the Azure portal.
 
-For information about the built-in roles that support access to queue data, see [Azure roles for queues](assign-azure-role-data-access.md#azure-roles-for-queues).
+For information about the built-in roles that support access to queue data, see [Authorize access to queues using Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
@@ -89,5 +89,5 @@ Queues are not listed in the portal if you do not have access to the account key
 
 ## Next steps
 
-- [Authenticate access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)

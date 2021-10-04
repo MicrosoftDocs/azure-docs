@@ -58,7 +58,7 @@ To configure continuous deployment for an existing function app, complete these 
 When the process is finished, all code from the specified source is deployed to your app. At that point, changes in the deployment source trigger a deployment of those changes to your function app in Azure.
 
 > [!NOTE]
-> After you configure continuous integration, you can no longer edit your source files in the Functions portal.
+> After you configure continuous integration, you can no longer edit your source files in the Functions portal. If you originally published your code from your local computer, you may need to change the `WEBSITE_RUN_FROM_PACKAGE` setting in your function app to a value of `0`. 
 
 ## Next steps
 

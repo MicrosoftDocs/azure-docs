@@ -1,10 +1,10 @@
 ---
-title: 'How to scan Dedicated SQL pools'
-description: This how to guide describes details of how to scan Dedicated SQL pools. 
+title: 'How to scan dedicated SQL pools'
+description: This how to guide describes details of how to scan Dedicated SQL pools in Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
 ---
@@ -21,7 +21,6 @@ Azure Synapse Analytics (formerly SQL DW) supports full and incremental scans to
 
 ### Known limitations
 
-> * Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true) in Azure Synapse Analytics.
 > * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated". 
 
 ## Prerequisites
@@ -117,10 +116,10 @@ When authentication method selected is **SQL Authentication**, you need to get y
 To register a new SQL dedicated pool in Purview, do the following:
 
 1. Navigate to your Purview account.
-1. Select **Sources** on the left navigation.
-1. Select **Register**.
+1. Select **Data Map** on the left navigation.
+1. Select **Register**
 1. On **Register sources**, select **SQL dedicated pool (formerly SQL DW)**.
-1. Select **Continue**.
+1. Select **Continue**
 
 On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
@@ -136,7 +135,7 @@ On the **Register sources (Azure Synapse Analytics)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the SQL dedicated pool source that you registered.
 

@@ -1,15 +1,18 @@
 ---
-title: Create a new image version from an existing image version using Azure Image Builder 
-description: Create a new VM image version from an existing image version using Azure Image Builder in Windows.
-author: cynthn
-ms.author: cynthn
+title: Create a new Windows image version from an existing image version using Azure Image Builder 
+description: Create a new Windows VM image version from an existing image version using Azure Image Builder.
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.collection: windows
 ---
-# Create a new VM image version from an existing image version using Azure Image Builder in Windows
+# Create a new Windows VM image version from an existing image version using Azure Image Builder
+
+**Applies to:** :heavy_check_mark: Windows VMs
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
@@ -18,16 +21,6 @@ We will be using a sample .json template to configure the image. The .json file 
 
 ## Register the features
 To use Azure Image Builder, you need to register the feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
 
 Check your registration.
 
@@ -74,10 +67,10 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+Create a variable for your subscription ID.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Get the image version that you want to update.
@@ -87,7 +80,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
+   --subscription $subscriptionID --query [].'id' -o tsv)
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group
@@ -127,6 +120,7 @@ Submit the image configuration to the VM Image Builder Service.
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
+    --location $location \
     --properties @helloImageTemplateforSIGfromWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \

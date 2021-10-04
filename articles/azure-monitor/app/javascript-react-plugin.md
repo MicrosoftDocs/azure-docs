@@ -22,7 +22,7 @@ Install npm package:
 
 ```bash
 
-npm install @microsoft/applicationinsights-react-js
+npm install @microsoft/applicationinsights-react-js @microsoft/applicationinsights-web --save
 
 ```
 
@@ -124,8 +124,13 @@ import { useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
 
 const MyComponent = () => {
     const appInsights = useAppInsightsContext();
-    
-    appInsights.trackMetric("Component 'MyComponent' is in use");
+    const metricData = {
+        average: engagementTime,
+        name: "React Component Engaged Time (seconds)",
+        sampleCount: 1
+      };
+    const additionalProperties = { "Component Name": 'MyComponent' };
+    appInsights.trackMetric(metricData, additionalProperties);
     
     return (
         <h1>My Component</h1>

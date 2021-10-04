@@ -13,7 +13,7 @@ ms.author: aahi
 
 [Text Analytics for health](../../how-tos/text-analytics-for-health.md) processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
 
-Text Analytics for health detects medical concepts in the following categories. Only English text is supported in this preview and only a single model-version is available.
+Text Analytics for health detects medical concepts in the following categories. Only English text is currently supported.
 
 | Category  | Description  |
 |---------|---------|

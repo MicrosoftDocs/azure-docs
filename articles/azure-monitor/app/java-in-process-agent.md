@@ -2,13 +2,13 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 03/29/2020
+ms.date: 06/24/2021
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ---
 
-# Java codeless application monitoring Azure Monitor Application Insights
+# Java codeless application monitoring with Azure Monitor Application Insights
 
 > [!NOTE]
 > If you are looking for the old 2.x docs, go [here](./java-2x-get-started.md).
@@ -44,15 +44,13 @@ The 3.x agent supports Java 8 and above.
 > See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
 > for more details.
 
-Download [applicationinsights-agent-3.1.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.0/applicationinsights-agent-3.1.0.jar)
+Download [applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.1.1.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.1.0.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to your application's JVM args. 
 
-Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
-
-For additional help with configuring your application's JVM args, please see [Tips for updating your JVM args](./java-standalone-arguments.md).
+For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
 **3. Point the agent to your Application Insights resource**
 
@@ -64,7 +62,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.1.0.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.1.1.jar`, with the following content:
 
 ```json
 {

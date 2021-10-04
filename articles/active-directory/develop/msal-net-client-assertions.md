@@ -52,6 +52,12 @@ string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(() => { return GetSignedClientAssertion(); } )
                                           .Build();
+                                          
+// or in async manner
+
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientAssertion(async cancellationToken => { return await GetClientAssertionAsync(cancellationToken); })
+                                          .Build();
 ```
 
 The [claims expected by Azure AD](active-directory-certificate-credentials.md) in the signed assertion are:

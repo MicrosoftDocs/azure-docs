@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 07/09/2021
 ---
 
 # Point-in-time restore of a Hyperscale (Citus) server group
@@ -28,7 +28,7 @@ earliest existing backup.
 
 	> [!IMPORTANT]
 	> If the **Restore** button is not yet present for your server group,
-	> please open an Azure support request.
+	> please open an Azure support request to restore your server group.
 
 3.  The restore page will ask you to choose between the **Earliest** and a
 	**Custom** restore point, and will display the earliest date.
@@ -57,7 +57,7 @@ and time of your choosing.
 
 	> [!IMPORTANT]
 	> If the **Restore** button is not yet present for your server group,
-	> please open an Azure support request.
+	> please open an Azure support request to restore your server group.
 
 3.  The restore page will ask you to choose between the **Earliest** and a
 	**Custom** restore point, and will display the earliest date.

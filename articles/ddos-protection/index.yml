@@ -7,7 +7,7 @@ metadata:
   keywords: azure ddos protection standard
   author: aletheatoh
   ms.author: yitoh
-  ms.date: 09/04/2019
+  ms.date: 06/30/2021
   ms.service: ddos-protection
   ms.topic: landing-page
   ms.custom: azure-ddos-protection
@@ -25,6 +25,10 @@ landingContent:
         links:
           - text: What is Azure DDoS Protection Standard?
             url: ddos-protection-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure DDoS Protection
+            url: /learn/modules/introduction-azure-ddos-protection/
       - linkListType: architecture
         links:
           - text: Azure DDoS Protection Standard features

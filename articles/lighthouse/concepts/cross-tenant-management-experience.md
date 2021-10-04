@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure Lighthouse enables and enhances cross-tenant experiences in many Azure services.
-ms.date: 05/11/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
 ---
 
@@ -94,9 +94,9 @@ Most tasks and services can be performed on delegated resources across managed t
 - View alerts for delegated subscriptions, with the ability to view and refresh alerts across all subscriptions
 - View activity log details for delegated subscriptions
 - [Log analytics](../../azure-monitor/logs/service-providers.md): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
-- [Create, view, and manage activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in customer tenants
+- Create, view, and manage [metric alerts](../../azure-monitor/alerts/alerts-metric.md), [log alerts](../../azure-monitor/alerts/alerts-log.md), and [activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in customer tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks
-- Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in customer tenants to send resource logs to workspaces in the managing tenant
+- Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in workspaces created in customer tenants, to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/fundamentals/networking-overview.md):

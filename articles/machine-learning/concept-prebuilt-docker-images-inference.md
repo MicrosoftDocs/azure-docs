@@ -13,12 +13,12 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Prebuilt Docker images for inference (Preview)
+# Prebuilt Docker images for inference (preview)
 
 Prebuilt Docker container images for inference [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) are used when deploying a model with Azure Machine Learning.  The images are prebuilt with popular machine learning frameworks and Python packages. You can also extend the packages to add other packages by using one of the following methods:
 
 * [Add Python packages](how-to-prebuilt-docker-images-inference-python-extensibility.md).
-* [Use the prebuilt package as a base for a new Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Using this method, you can install both **Python packages and apt packages**.
+* [Use prebuilt inference image as base for a new Dockerfile](how-to-extend-prebuilt-docker-image-inference.md). Using this method, you can install both **Python packages and apt packages**.
 
 ## Why should I use prebuilt images?
 
@@ -26,11 +26,11 @@ Prebuilt Docker container images for inference [(preview)](https://azure.microso
 * Improves model deployment success rate.
 * Avoid unnecessary image build during model deployment.
 * Only have required dependencies and access right in the image/container. 
-* The inference process in the deployment runs as non-root.
 
 ## List of prebuilt Docker images for inference 
 
 * All the docker images run as non-root user.
+* We recommend using `latest` tag for docker images. Prebuilt docker images for inference are published to Microsoft container registry (MCR), to query list of tags available, follow [instructions on their GitHub repository](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
 
 ### TensorFlow
 

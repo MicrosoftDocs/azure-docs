@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 03/24/2021
+ms.date: 09/10/2021
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -88,9 +88,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This action takes you to the list of Data Share invitations.
 
+   If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it is valid for 12 months.
+
    ![List of Invitations](./media/invitations.png "List of invitations") 
 
-1. Select the share you would like to view. 
+1. Select the invitation you would like to view. 
 
 ### [Azure CLI](#tab/azure-cli)
 

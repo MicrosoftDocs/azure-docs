@@ -47,6 +47,8 @@
     items:
     - name: Export your model to mobile
       href: export-your-model.md
+    - name: Export a model programmatically
+      href: export-programmatically.md
     - name: Use ONNX model with Windows ML
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python

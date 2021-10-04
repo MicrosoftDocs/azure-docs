@@ -27,7 +27,7 @@ Azure AD B2C correlation ID is a unique identifier value that is attached to aut
 - Find the sign-in request's Azure Application Insights logs.
 - Pass the correlation ID to your REST API and use it to identify the sign-in flow. 
 
-The correlation ID is changed every time a new session is established. When debugging your policies, make sure close existing browser tabs. Or open a new in-private mode browser.
+The correlation ID is changed every time a new session is established. When you debug your policies, make sure that you close existing browser tabs or open a new in-private mode browser.
 
 ### Get the Azure AD B2C correlation ID
 
@@ -358,7 +358,7 @@ For example, a technical profile with the *schoolId* output claim. But the outpu
 </OutputClaims>
 ```
 
-To fix this type of error, check whether the `ClaimTypeReferenceId` value is misspelled, or does not exist in the schema. If the claim is defined in the extensions policy, but it's also being used in the base policy. Make sure the claim is defined in the policy it's in used, or in an upper level policy.
+To fix this type of error, check whether the `ClaimTypeReferenceId` value is misspelled, or does not exist in the schema. If the claim is defined in the extensions policy, but it's also being used in the base policy. Make sure the claim is defined in the policy it's used in, or in an upper level policy.
 
 Adding the claim to the claims schema solves this type of error.
 

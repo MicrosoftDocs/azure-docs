@@ -2,11 +2,11 @@
 title: Buy an Azure reservation
 description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primattal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 09/20/2021
 ms.author: banders
 ---
 
@@ -32,20 +32,22 @@ You have three options to scope a reservation, depending on your needs:
 
 - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
 - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
-- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context.
+- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. If a subscription was moved to different billing context, the benefit will no longer be applied to this subscription and will continue to apply to other subscriptions in the billing context.
     - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Active Directory tenants in an enrollment.
     - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
     - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
+- **Management group** — Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
 
 While applying reservation discounts on your usage, Azure processes the reservation in the following order:
 
 1. Reservations with a single resource group scope
 2. Reservations with a single subscription scope
-3. Reservations with a shared scope (multiple subscriptions), described previously
+3. Reservations scoped to a management group
+4. Reservations with a shared scope (multiple subscriptions), described previously
 
 You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
-![Example showing a reservation scope change](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
+:::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Example showing a reservation scope change" lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
 
 ## Discounted subscription and offer types
 

@@ -3,7 +3,7 @@ title: Playback of video recordings - Azure Video Analyzer
 description: You can use Azure Video Analyzer for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback such recordings.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/01/2021
 
 ---
 # Playback of video recordings 

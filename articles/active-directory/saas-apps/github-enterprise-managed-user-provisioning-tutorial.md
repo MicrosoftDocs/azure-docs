@@ -3,8 +3,8 @@ title: 'Tutorial: Configure GitHub Enterprise Managed User for automatic user pr
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GitHub Enterprise Managed User.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 6aee39c7-08a1-4110-b936-4c85d129743b
@@ -13,9 +13,9 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/05/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning

@@ -87,7 +87,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 To allow trusted services to access your namespace, switch to the **Firewalls and Virtual networks** tab on the **Networking** page, and select **Yes** for **Allow trusted Microsoft services to bypass this firewall?**. 
 

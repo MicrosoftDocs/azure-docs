@@ -3,7 +3,7 @@ title: Azure Virtual Desktop diagnose issues - Azure
 description: How to use the Azure Virtual Desktop diagnostics feature to diagnose issues.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/21/2020
+ms.date: 06/19/2021
 ms.author: helohr
 manager: femila
 ---
@@ -21,24 +21,12 @@ Connections that don't reach Azure Virtual Desktop won't show up in diagnostics 
 The WVDErrors table tracks errors across all activity types. The column called "ServiceError" provides an additional flag marked either "True" or "False." This flag will tell you whether the error is related to the service.
 
 * If the value is "True," the service team may have already investigated this issue. If this impacts user experience and appears a high number of times, we recommend you submit a support ticket for Azure Virtual Desktop.
-* If the value is "False," this is may be a misconfiguration that you can fix yourself. The error message can give you a clue about where to start.
+* If the value is "False," this may be a misconfiguration that you can fix yourself. The error message can give you a clue about where to start.
 
 The following table lists common errors your admins might run into.
 
 >[!NOTE]
 >This list includes most common errors and is updated on a regular cadence. To ensure you have the most up-to-date information, be sure to check back on this article at least once a month.
-
-## Management errors
-
-|Error message|Suggested solution|
-|---|---|
-|Failed to create registration key |Registration token couldn't be created. Try creating it again with a shorter expiry time (between 1 hour and 1 month). |
-|Failed to delete registration key|Registration token couldn't be deleted. Try deleting it again. If it still doesn't work, use PowerShell to check if the token is still there. If it's there, delete it with PowerShell.|
-|Failed to change session host drain mode |Couldn't change drain mode on the VM. Check the VM status. If the VM's unavailable, drain mode can't be changed.|
-|Failed to disconnect user sessions |Couldn't disconnect the user from the VM. Check the VM status. If the VM's unavailable, the user session can't be disconnected. If the VM is available, check the user session status to see if it's disconnected. |
-|Failed to log off all user(s) within the session host |Could not sign users out of the VM. Check the VM status. If unavailable, users can't be signed out. Check user session status to see if they're already signed out. You can force sign out with PowerShell. |
-|Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the app group is published to. |
-|There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |
 
 ### Connection error codes
 
@@ -54,14 +42,6 @@ The following table lists common errors your admins might run into.
 |8|ConnectionBroken|The connection between Client and Gateway or Server dropped. No action needed unless it happens unexpectedly.|
 |14|UnexpectedNetworkDisconnect|The connection to the network dropped. Ask the user to connect again.|
 |24|ReverseConnectFailed|The host virtual machine has no direct line of sight to RD Gateway. Ensure the Gateway IP address can be resolved.|
-
-## Error: Can't add user assignments to an app group
-
-After assigning a user to an app group, the Azure portal displays a warning that says "Session Ending" or "Experiencing Authentication Issues - Extension Microsoft_Azure_WVD." The assignment page then doesn't load, and after that, pages stop loading throughout the Azure portal (for example, Azure Monitor, Log Analytics, Service Health, and so on).
-
-**Cause:** There's a problem with the conditional access policy. The Azure portal is trying to obtain a token for Microsoft Graph, which is dependent on SharePoint Online. The customer has a conditional access policy called "Microsoft Office 365 Data Storage Terms of Use" that requires users to accept the terms of use to access data storage. However, they haven't signed in yet, so the Azure portal can't get the token.
-
-**Fix:** Before signing in to the Azure portal, the admin first needs to sign in to SharePoint and accept the Terms of Use. After that, they should be able to sign in to the Azure portal like normal.
 
 ## Next steps
 

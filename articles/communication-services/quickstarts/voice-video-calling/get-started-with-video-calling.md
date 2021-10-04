@@ -3,15 +3,19 @@ title: Quickstart - Add video calling to your app (JavaScript)
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add video calling capabilities to your app using Azure Communication Services.
 author: xumo-95
-ms.author: mikben
-ms.date: 06/01/2021
+
+ms.author: rifox
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: calling
 
 zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # QuickStart: Add 1:1 video calling to your app
+
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Video calling with JavaScript](./includes/video-calling/video-calling-javascript.md)]

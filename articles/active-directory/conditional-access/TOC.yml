@@ -78,6 +78,8 @@
       href: howto-conditional-access-policy-compliant-device.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
+  - name: Configure resilience defaults
+    href: resilience-defaults.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Configure report only mode
@@ -96,10 +98,14 @@
     href: howto-conditional-access-session-lifetime.md
   - name: Troubleshooting
     items:
+    - name: Troubleshoot policy changes
+      href: troubleshoot-policy-changes-audit-log.md
     - name: Troubleshoot sign-in problems
       href: troubleshoot-conditional-access.md
     - name: Troubleshoot using the What If tool 
       href: troubleshoot-conditional-access-what-if.md
+    - name: Troubleshoot continuous access evaluation
+      href: howto-continuous-access-evaluation-troubleshoot.md
     - name: FAQ
       href: faqs.md
   - name: Migrate classic policies
@@ -123,7 +129,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

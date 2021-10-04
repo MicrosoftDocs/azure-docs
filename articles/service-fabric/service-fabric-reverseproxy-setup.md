@@ -69,7 +69,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         ...
     }
     ```
-3. To configure TLS/SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Microsoft.ServiceFabric/clusters** [Resource type section](../azure-resource-manager/templates/syntax.md).
+3. To configure TLS/SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** object in the **Microsoft.ServiceFabric/clusters** [resource](/azure/templates/microsoft.servicefabric/clusters?tabs=json#clusterproperties-object) template.
 
     ```json
     {
@@ -91,6 +91,8 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         }
     }
     ```
+
+    You can also specify a [common name for reverse proxy certificates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) using the **reverseProxyCertificateCommonNames** object in the clusters resource template.
 
 ### Supporting a reverse proxy certificate that's different from the cluster certificate
  If the reverse proxy certificate is different from the certificate that secures the cluster, then the previously specified certificate should be installed on the virtual machine and added to the access control list (ACL) so that Service Fabric can access it. This can be done in the [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets) [Resource type section](../azure-resource-manager/templates/syntax.md). For installation, add the certificate to the osProfile. The extension section of the template can update the certificate in the ACL.

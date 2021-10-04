@@ -12,7 +12,7 @@ ms.date: 11/06/2020
 
 # Plan a solution template for an Azure application offer
 
-This article explains the requirements for publishing a solution template plan for an Azure Application offer. A solution template plan is one of the two types of plans supported by Azure Application offers. For information about the difference between these two plan types, see [Types of plans](plan-azure-application-offer.md#plans). If you haven’t already done so, read [Plan an Azure application offer](plan-azure-application-offer.md).
+This article explains the requirements for publishing a solution template plan for an Azure Application offer. A solution template plan is one of the two types of plans supported by Azure Application offers. For information about the difference between these two plan types, see [Types of plans](plan-azure-application-offer.md#plans). If you haven't already done so, read [Plan an Azure application offer](plan-azure-application-offer.md).
 
 The solution template plan type requires an [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) to automatically deploy your solution infrastructure.
 
@@ -21,10 +21,10 @@ The solution template plan type requires an [Azure Resource Manager template (AR
 | Requirements | Details |
 | ------------ | ------------- |
 | Billing and metering | Solution template plans are not transactable, but they can be used to deploy paid VM offers that are billed through the Microsoft commercial marketplace. The resources that the solution's ARM template deploys are set up in the customer's Azure subscription. Pay-as-you-go virtual machines are transacted with the customer via Microsoft and billed via the customer's Azure subscription. <br><br> For bring-your-own-license (BYOL) billing, although Microsoft bills infrastructure costs that are incurred in the customer subscription, you transact your software licensing fees with the customer directly. |
-| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information, see:<ul><li>[Create an Azure VM technical asset](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (for Windows VHDs)</li><li>[Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md) (for Linux VHDs).</li></ul> |
+| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information, see:<ul><li>[Create an Azure VM technical asset](./azure-vm-create-certification-faq.yml#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (for Windows VHDs)</li><li>[Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md) (for Linux VHDs).</li></ul> |
 | Customer usage attribution | Enabling customer usage attribution is required on all solution templates that are published on Azure Marketplace. For more information about customer usage attribution and how to enable it, see [Azure partner customer usage attribution](azure-partner-customer-usage-attribution.md). |
 | Use managed disks | [Managed disks](../virtual-machines/managed-disks-overview.md) is the default option for persisted disks of infrastructure as a service (IaaS) VMs in Azure. You must use managed disks in solution templates.<ul><li>To update your solution templates, follow the guidance in [Use managed disks in Azure Resource Manager templates](../virtual-machines/using-managed-disks-template-deployments.md), and use the provided [samples](https://github.com/Azure/azure-quickstart-templates).</li><li>To publish the VHD as an image in Azure Marketplace, import the underlying VHD of the managed disks to a storage account by using either [Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) or the [Azure CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)</ul> |
-| Deployment package | You’ll need a deployment package that will let customers deploy your plan. If you create multiple plans that require the same technical configuration, you can use the same plan package. For details, see the next section: Deployment package. |
+| Deployment package | You'll need a deployment package that will let customers deploy your plan. If you create multiple plans that require the same technical configuration, you can use the same plan package. For details, see the next section: Deployment package. |
 |||
 
 ## Deployment package
@@ -33,7 +33,7 @@ The deployment package contains all of the template files needed for this plan, 
 
 All Azure applications must include these two files in the root folder of a .zip archive:
 
-- A Resource Manager template file named [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+- A Resource Manager template file named [mainTemplate.json](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template). This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 - A user interface definition for the Azure application creation experience named [createUiDefinition.json](../azure-resource-manager/managed-applications/create-uidefinition-overview.md). In the user interface, you specify elements that enable consumers to provide parameter values.
 
 Maximum file sizes supported are:

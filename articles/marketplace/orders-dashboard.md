@@ -4,23 +4,22 @@ description: Learn how to access analytic reports about your commercial marketpl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 09/27/2021
 ---
 
 # Orders dashboard in commercial marketplace analytics
 
 This article provides information on the Orders dashboard in Partner Center. This dashboard displays information about your orders, including growth trends, presented in a graphical and downloadable format.
 
-To access the Orders dashboard in the Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Orders**.
-
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
+> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.yml).
 
 ## Orders dashboard
 
-The Orders dashboard displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
+The [Orders dashboard](https://go.microsoft.com/fwlink/?linkid=2165914) displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
 
 - Orders trend
 - Orders per seat and site trend
@@ -32,15 +31,45 @@ The Orders dashboard displays the current orders for all your software as a serv
 > [!NOTE]
 > The maximum latency between customer acquisition and reporting in Partner Center is 48 hours.
 
+## Access the Orders dashboard
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Orders**.
+
+#### [Current view](#tab/current-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Orders**.
+
+---
+
 ## Elements of the Orders dashboard
 
 The following sections describe how to use the Orders dashboard and how to read the data.
 
 ### Month range
 
+#### [Workspaces view](#tab/workspaces-view)
+
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+
+[ ![Illustrates the month filters on the Orders dashboard.](./media/orders-dashboard/order-workspace-filters.png) ](./media/orders-dashboard/order-workspace-filters.png#lightbox)
+
+#### [Current view](#tab/current-view)
+
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Orders** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/orders-dashboard/month-filters.png" alt-text="Illustrates the month filters on the Orders dashboard.":::
+
+---
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.
@@ -113,7 +142,7 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 | Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. | Marketplace Subscription ID |
 | MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. The format is yyyy-mm-dd. | MonthStartDate |
 | Offer Type | Offer Type | The type of commercial marketplace offering. | OfferType |
-| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> | AzureLicenseType |
+| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>[Cloud Solution Provider](cloud-solution-providers.md)</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>GTM</li></ul> | AzureLicenseType |
 | Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The different values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | The plan associated with the offer | SKU |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
@@ -131,7 +160,16 @@ The Order details table displays a numbered list of the 1,000 top orders sorted 
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
 | AssetCount | Asset Count | The number of assets associated with the order ID. | Deprecated |
+| Not available * | TermStartDate | Indicates the start date of a term for an order. | TermStartDate |
+| Not available * | TermEndDate | Indicates the end date of a term for an order. | TermEndDate |
+| Not available * | purchaseRecordId | The identifier of the purchase record related to an order. | purchaseRecordId |
+| Not available * | purchaseRecordLineItemId | The identifier of the purchase record line item related to this order. | purchaseRecordLineItemId |
+| Not available * | EstimatedCharges | The price the customer will be charged for all order units before taxation. In tax inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
+| Not available * | Currency | BillingCurrency for the offer | Currency |
+| Not available * | HasTrial | Represents whether an offer has trial period enabled. | HasTrial |
 |||||
+
+`*` These new fields are currently provided in the ISVOrderV2 dataset and can be accessed programmatically.
 
 ### Orders page filters
 
@@ -148,4 +186,4 @@ The **Orders** page filters are applied at the Orders page level. You can select
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](./usage-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.yml).

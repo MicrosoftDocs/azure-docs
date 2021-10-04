@@ -11,12 +11,32 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/25/2021
+ms.date: 09/01/2021
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## September 2021
+
+| Changes | Details |
+| --- | --- |
+| **SQL IaaS extension full mode no longer requires restart** | Restarting the SQL Server service is no longer necessary when registering your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode)! | 
+
+
+## July 2021
+
+| Changes | Details |
+| --- | --- |
+| **Repair SQL Server IaaS extension in portal** | It's now possible to verify the status of your SQL Server IaaS Agent extension directly from the Azure portal, and [repair](sql-agent-extension-manually-register-single-vm.md#repair-extension) it, if necessary. | 
+
+
+## June 2021
+
+| Changes | Details |
+| --- | --- |
+| **Security enhancements in the Azure portal** | Once you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md), you can view Security Center recommendations in the [SQL virtual machines resource in the Azure portal](manage-sql-vm-portal.md#security-center). | 
 
 ## May 2021
 
@@ -105,5 +125,5 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 * [Overview of SQL Server on a Linux VM](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provision SQL Server on a Linux virtual machine](../linux/sql-vm-create-portal-quickstart.md)
-* [FAQ (Linux)](../linux/frequently-asked-questions-faq.md)
+* [FAQ (Linux)](../linux/frequently-asked-questions-faq.yml)
 * [SQL Server on Linux documentation](/sql/linux/sql-server-linux-overview)
