@@ -385,7 +385,10 @@ Things to check:
 
 **Can I use the Azure Maps Web SDK in a sandboxed iframe?**
 
-Yes. Note that [Safari has a bug](https://bugs.webkit.org/show_bug.cgi?id=170075) that prevents sandboxed iframes from running web workers, which is requirement of the Azure Maps Web SDK. The solution is to add the `"allow-same-origin"` tag to the sandbox property of the iframe.
+Yes.
+
+> [!TIP]
+> Safari has a [bug](https://bugs.webkit.org/show_bug.cgi?id=170075) that prevents sandboxed iframes from running web workers, a requirement of the Azure Maps Web SDK. The solution is to add the `"allow-same-origin"` tag to the sandbox property of the iframe.
 
 ## Get support
 
@@ -393,21 +396,20 @@ The following are the different ways to get support for Azure Maps depending on 
 
 **How do I report a data issue or an issue with an address?**
 
-Azure Maps has a data feedback tool where data issues can be reported and tracked. [https://feedback.azuremaps.com/](https://feedback.azuremaps.com/) Each issue submitted generates a unique URL you can use to track the progress of the data issue. The time it takes to resolve a data issue varies depending on the type of issue and how easy it is to verify the change is correct. Once fixed, the render service will see the update in the weekly update, while other services such as geocoding and routing will see the update in the monthly update. Detailed instructions on how to report a data issue is provided in this [document](how-to-use-feedback-tool.md).
+Report data issues using the [Azure Maps data feedback tool](https://feedback.azuremaps.com). Each issue submitted generates a unique URL to tracks its progress. The time it takes to resolve a data issue varies depending on the type of issue and how easy it is to verify the change is correct. Once fixed, the render service will see the update in the weekly update, while other services such as geocoding and routing will see the update in the monthly update. For detailed instructions on how to report a data issue see the [Provide data feedback to Azure Maps](how-to-use-feedback-tool.md) article.
 
 **How do I report a bug in a service or API?**
 
-https://azure.com/support
+Problems can be reported on the [Azure support](https://azure.com/support) site.
 
 **Where do I get technical help for Azure Maps?**
 
-If related to the Azure Maps visual in Power BI: https://powerbi.microsoft.com/support/
-For all other Azure Maps services: https://azure.com/support
-or the developer forums: [https://docs.microsoft.com/answers/topics/azure-maps.html](/answers/topics/azure-maps.html).
+For all issues related to the Azure Maps visual in Power BI contact [Power BI support](https://powerbi.microsoft.com/support/).
+For all other Azure Maps services contact [Azure support](https://azure.com/support) or the [Azure Maps developer forums](https://docs.microsoft.com/answers/topics/azure-maps.html).
 
 **How do I make a feature request?**
 
-Make a feature request on our user voice site: https://feedback.azure.com/forums/909172-azure-maps
+Feature requests can be made on the [Azure Maps developer forums](https://docs.microsoft.com/answers/topics/azure-maps.html).
 
 ## Next steps
 
