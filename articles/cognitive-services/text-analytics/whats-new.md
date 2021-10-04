@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## Friday 2021
+## October 2021
 
 * Quality improvements for the [Extractive Summarization](how-tos/extractive-summarization.md) feature in model-version `2021-08-01`.
 
