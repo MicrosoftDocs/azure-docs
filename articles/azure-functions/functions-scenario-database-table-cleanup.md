@@ -4,7 +4,7 @@ description: Use Azure Functions to schedule a task that connects to Azure SQL D
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/02/2019
+ms.date: 10/04/2021
 
 ---
 
@@ -44,7 +44,7 @@ You must have previously published your app to Azure. If you haven't already don
 
 1. On the **Publish** page, select the elipses (`...`) and chose **Manage Azure App Service settings**. 
 
-    ![Manage App Service settings for the function app.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png
+    ![Manage App Service settings for the function app.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png)
 
 1. In **Application Settings** select **Add setting**, in **New app setting name** type `sqldb_connection`, and select **OK**.
 
