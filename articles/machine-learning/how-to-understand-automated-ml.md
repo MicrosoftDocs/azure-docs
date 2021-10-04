@@ -241,7 +241,7 @@ The primary metric for evaluation of image classification models is **accuracy**
 #### Epoch-level metrics for image classification
 Unlike the classification metrics for tabular datasets, Automated ML image classification models log all the scalar classification metrics at epoch-level as shown below.
 
-![Epoch-level charts for image classification](./media/how-to-understand-automated-ml/image-classification-accuracy.png)
+![Epoch-level charts for image classification](./media/how-to-understand-automated-ml/image-classification-accuracy.PNG)
 
 #### Summary metrics for image classification
 
@@ -249,7 +249,7 @@ Apart from the scalar metrics that are logged at the epoch level, summary metric
 
 Classification report provides the class level metrics for metrics like precision, recall, f1-score, support, auc and average_precision at various level of averaging - micro, macro and weighted as shown below.
 
-![Classification report for image classification](./media/how-to-understand-automated-ml/image-classification-report.png)
+![Classification report for image classification](./media/how-to-understand-automated-ml/image-classification-report.PNG)
 
 ### Object detection metrics
 The primary metric for evaluation of image classification models is the **mean_average_precision(mAP)**. Mean_average_precision is the average value of the average precision(AP) across classes. AP is the area under the precision_recall curve. Automated ML object detection models support the computation of mean_average_precision using the below two popular methods.
@@ -270,7 +270,7 @@ No approximation is involved since the curve is piecewise constant.
 #### Epoch-level metrics for object detection
 The mean_average_precision(mAP), precision and recall values are logged at epoch-level for image object detection models. The mAP, precision and recall metrics are also logged at a class level as a table metric in the object detection run under the name 'per_label_metrics'.
 
-![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-od-mAP.png)
+![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-od-mAP.PNG)
 
 ## Model explanations and feature importances
 
