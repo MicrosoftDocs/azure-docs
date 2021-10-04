@@ -254,6 +254,9 @@ sections:
       - question: Is Windows 2008 supported as an Active Directory (AD) server or Remote Desktop Session Host (RDSH) OS in NSX-T?
         answer: No.
 
+      - question: Why can't I reach the vCenter Server Appliance and NSX-T Manager from on-premises?
+        answer: By design, you won't be able to reach NSX and VCSA from on-premises when only 0.0.0.0/0 is being advertised through Border Gateway Protocol (BGP) over ExpressRoute Global Reach between TNT-CUST-ER and your ExpressRoute or through BGP between vNET (ExpressRoute gateway or vWAN) to Azure VMware Solution. For more information about the solution, see [Troubleshooting - Unable to reach vCenter Server Appliance and NSX-T Manager](troubleshooting-unable-to-vcenter-server-appliance-and-nsx.md).
+
 
 
 
