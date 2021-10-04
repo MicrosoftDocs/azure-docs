@@ -56883,7 +56883,7 @@
       "source_path_from_root": "/articles/iot-dps/quick-enroll-device-x509-python.md",
       "redirect_url": "/azure/iot-dps/quick-enroll-device-x509",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path_from_root": "/articles/iot-dps/quick-enroll-device-tpm-csharp.md",
       "redirect_url": "/azure/iot-dps/quick-enroll-device-tpm",
