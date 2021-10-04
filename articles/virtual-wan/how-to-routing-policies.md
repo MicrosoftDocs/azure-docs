@@ -18,7 +18,7 @@ ms.author: wellee
 > 
 > This preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To obtain access to the preview,  reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Intent in. Expect a response within 48 business hours (Monday-Friday) with confirmation of feature enablement.
+> To obtain access to the preview, please deploy two hubs in the same Azure region along side any gateways (Site-to-site VPN Gateways, Point-to-site Gateways and ExpressRouteGateways) and then reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Intent in. Expect a response within 48 business hours (Monday-Friday) with confirmation of feature enablement. Please note that any gateways created after feature enablement will need to be upgraded by the Virtual WAN team.
 
 ## Background 
 
@@ -49,7 +49,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 ## Prerequisites
 1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs in the **same** region. For instance, you may create a Virtual WAN with two Virtual Hubs in East US. 
 2. Convert your Virtual WAN Hub into a Secured Virtual WAN Hub by deploying an Azure Firewall into the Virtual Hubs in the chosen region. For more information on converting your Virtual WAN Hub to a Secured Virtual WAN Hub, please see this [document](howto-firewall.md).
-3. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. To locate the Virtual WAN ID, open Azure portal, navigate to your Virtual WAN resource and select Settings > Properties > Resource ID. For example: 
+3. Deploy any Site-to-site VPN, Point-to-site VPN and ExpressRoute Gateways you will use for testing. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. To locate the Virtual WAN ID, open Azure portal, navigate to your Virtual WAN resource and select Settings > Properties > Resource ID. For example: 
 ```
     /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>
 ```
@@ -153,6 +153,7 @@ The following section describes common issues encountered when configuring Routi
 * Currently, using Azure Firewall to inspect inter-hub traffic is only available for Virtual WAN hubs that are deployed in the **same** Azure Region. 
 * Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity). 
 * You can verify that the Routing Policies have been applied properly by checking the Effective Routes of the DefaultRouteTable. If Private Routing Policies are configured, you should see routes in the DefaultRouteTable for private traffic prefixes with next hop Azure Firewall. If Internet Traffic Routing Policies are configured, you should see a default (0.0.0.0/0) route in the DefaultRouteTable with next hop Azure Firewall.
+* If there are any Site-to-site VPN gateways or Point-to-site VPN gateways created **after** the feature has been confirmed to be enabled on your deployment, you will have to reach out again to previewinterhub@microsoft.com to get the feature enabled. 
 
 ### Troubleshooting Azure Firewall
 

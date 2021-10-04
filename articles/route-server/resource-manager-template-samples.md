@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.service: route-server
 ms.topic: sample
-ms.date: 04/09/2021 
+ms.date: 09/01/2021 
 ---
 
 # Azure Resource Manager templates for Azure Route Server

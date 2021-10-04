@@ -21,14 +21,15 @@ ms.author: bagol
 
 # Azure Sentinel File Event normalization schema reference (Public preview)
 
-The File Event normalization schema is used to describe file activity such as creating, modifying or deleting files or documents. Such events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
+The File Event normalization schema is used to describe file activity such as creating, modifying, or deleting files or documents. Such events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
 
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> The File Event normalization schema is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The File Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
+>
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Parsers
 
@@ -41,7 +42,7 @@ Azure Sentinel provides the following built-in, product-specific file event pars
 
 To use the source-agnostic parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use imFileEvent as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelFileEvent).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelFileEvent).
 
 ## Add your own normalized parsers
 
@@ -50,22 +51,24 @@ When implementing custom parsers for the File Event information model, name your
 
 Add your KQL function to the `imFileEvent` source-agnostic parser to ensure that any content using the File Event model also uses your new parser.
 
-## Normalized content for process activity data
+## Normalized content for file activity data
 
-The following Azure Sentinel **Analytics rules** works with any file activity that's normalized using the Azure Sentinel Information Model:
+Support for the File Activity ASIM schema also includes support for the following built-in analytics rules with normalized file activity parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
 
-- SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)
-- Exchange Server Vulnerabilities Disclosed March 2021 IoC Match
-- HAFNIUM UM Service writing suspicious file
-- NOBELIUM - Domain, Hash and IP IOCs - May 2021
-- SUNSPOT log file creation 
+
+- [SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
+- [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+- [HAFNIUM UM Service writing suspicious file](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/HAFNIUMUmServiceSuspiciousFile.yaml)
+- [NOBELIUM - Domain, Hash, and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
+- [SUNSPOT log file creation ](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
+- [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
 For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 
 ## Schema details
 
-The File Event information model is aligned is the [OSSEM Process entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/file.md).
+The File Event information model is aligned to the [OSSEM Process entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/file.md).
 
 ### Log Analytics fields
 
@@ -74,7 +77,8 @@ The following fields are generated by Log Analytics for each record, and can be 
 | Field         | Type     | Discussion      |
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | datetime | The time the event was generated by the reporting device.|
-| **_ResourceId**   | guid     | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF or WEF. |
+| **_ResourceId**   | guid     | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF, or WEF. |
+| **Type** | String | The original table from which the record was fetched. This field is useful when the same event can be received through multiple channels to different tables, and have the same EventVendor and EventProduct values.<br><br>For example, a Sysmon event can be collected either to the Event table or to the WindowsEvent table. |
 | | | |
 
 > [!NOTE]
@@ -93,7 +97,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For File records, supported values include: <br><br>- `FileCreated`<br>- `FileModified`<br>- `FileDeleted`<br>- `FileRenamed`<br>- `FileCopied`<br>- `FileMoved`<br>- `FolderCreated`<br>- `FolderDeleted` |
 | **EventResult**         | Mandatory   | Enumerated |  Describes the result of the event, normalized to one of the following supported values: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (not applicable) <br><br>The source may provide only a value for the [EventOriginalResultDetails](#eventoriginalresultdetails) field, which must be analyzed to get the **EventResult** value. |
-| <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails**  | Optional    | String     | Describes the result of the event. Note that this value is not normalized, and is intended for the original value, as provided by the source. At this time, there is no related normalized field, i.e. EventResultDetails, for this schema |
+| <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails**  | Optional    | String     | Describes the result of the event. <br><br>**Note**: This value is not normalized, and is intended for the original value as provided by the data source. There is currently no related, normalized field, such as *EventResultDetails*, for the File Event normalization schema. |
 | **EventOriginalUid**    | Optional    | String     | A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | Optional    | String     | The original event type or ID, if provided by the source.<br><br>Example: `4663`|
 | <a name ="eventproduct"></a>**EventProduct**       | Mandatory   | String     | The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
@@ -132,18 +136,18 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 |---------------|--------------|------------|-----------------|
 | **ActingProcessCommandLine** |Optional  |String  | The command line used to run the acting process. <br><br>Example: `"choco.exe" -v` |
 |**ActingProcessGuid** |Optional     | String     |  A generated unique identifier (GUID) of the acting process. Enables identifying the process across systems.  <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
-| **ActingProcessId**| Mandatory    | Integer        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **ActingProcessId**| Mandatory    | String        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The name of the acting process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.<br><br>Example: `C:\Windows\explorer.exe`  |
 |**Process**| Alias| | Alias to [ActingProcessName](#actingprocessname)|
-| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the **Actor**. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
-| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `SID`         |
+| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the **Actor**. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
+| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `SID`         |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
+| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `Windows`       |
 |**User** | Alias| | Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\dadmin`|
 | **ActorUserType**|Optional | Enumerated| The type of **Actor**. Supported values include: <br><br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other` <br><br>**Note**: The source may provide only a value for the [ActorOriginalUserType](#actororiginalusertype) field, which must be analyzed to get the **ActorUserType** value.|
 |<a name="actororiginalusertype"></a>**ActorOriginalUserType** |Optional |String | The **Actor** user type, as provided by the reporting device. |
 |**HttpUserAgent** |Optional | String |When the operation is initiated by a remote system using HTTP or HTTPS, the user agent used.<br><br>For example:<br>`Mozilla/5.0 (Windows NT 10.0; Win64; x64)`<br>`AppleWebKit/537.36 (KHTML, like Gecko)`<br>` Chrome/42.0.2311.135`<br>`Safari/537.36 Edge/12.246`|
-| **NetworkApplicationProtocol**| Optional|String | When the operation is initiated by a remote system, this value is the application layer protocol used in the OSI model. <br><br>While this is not an enumerated field, and any value is accepted, preferable values include: `HTTP`, `HTTPS`, `SMB`,`FTP`, and `SSH`<br><br>Example: `SMB`|
+| **NetworkApplicationProtocol**| Optional|String | When the operation is initiated by a remote system, this value is the application layer protocol used in the OSI model. <br><br>While this field is not enumerated, and any value is accepted, preferable values include: `HTTP`, `HTTPS`, `SMB`,`FTP`, and `SSH`<br><br>Example: `SMB`|
 |**SrcIpAddr** |Recommended |IP Address | When the operation is initiated by a remote system, the IP address of this system.<br><br>Example: `185.175.35.214`|
 | **SrcFileCreationTime**|Optional |Date/Time |The time at which the source file was created. |
 |**SrcFileDirectory** | Optional| String| The source file folder or location. This field should be similar to the [SrcFilePath](#srcfilepath) field, without the final element. <br><br>**Note**: A parser can provide this value if the value is available in the log source, and does not need to be extracted from the full path.|
@@ -184,8 +188,8 @@ The path should be normalized to match one of the following formats. The format 
 |---------|---------|---------|
 |**Windows Local**     |   `C:\Windows\System32\notepad.exe`      |      Since Windows path names are case insensitive, this type implies that the value is case insensitive.   |
 |**Windows Share**     |      `\\Documents\My Shapes\Favorites.vssx`   | Since Windows path names are case insensitive, this type implies that the value is case insensitive.        |
-|**Unix**     |  `/etc/init.d/networking`       |     Since Unix path names are case sensitive, this type implies the value is case sensitive.  <br><br>- Use this type for AWS S3. Concatenate the bucket and key names to create the path. <br><br>- Use this type for Azure Blob storage object keys.   |
-|**URL**     |  `https://1drv.ms/p/s!Av04S_*********we`       | Use when the file path is available as a URL. URLs are not limited to http or https as the scheme, Any valid value, including an FTP value, p is valid.         |
+|**Unix**     |  `/etc/init.d/networking`       |     Since Unix path names are case-sensitive, this type implies that the value is case-sensitive.  <br><br>- Use this type for AWS S3. Concatenate the bucket and key names to create the path. <br><br>- Use this type for Azure Blob storage object keys.   |
+|**URL**     |  `https://1drv.ms/p/s!Av04S_*********we`       | Use when the file path is available as a URL. URLs are not limited to *http* or *https*, and any value, including an FTP value, is valid. |
 |     |         |         |
 
 

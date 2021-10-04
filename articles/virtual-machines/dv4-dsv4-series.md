@@ -13,6 +13,8 @@ ms.date: 06/08/2020
 
 # Dv4 and Dsv4-series
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 The Dv4 and Dsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. It features an all core Turbo clock speed of 3.4 GHz. 
 
 > [!NOTE]
@@ -78,3 +80,22 @@ Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 
 <sup>1</sup>  Dsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> Accelerated networking can only be applied to a single NIC. 
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
+## Next steps
+
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

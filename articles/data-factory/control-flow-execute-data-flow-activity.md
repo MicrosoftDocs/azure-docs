@@ -8,7 +8,7 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 05/20/2021
+ms.date: 09/09/2021
 ---
 
 # Data Flow activity in Azure Data Factory and Azure Synapse Analytics
@@ -62,7 +62,7 @@ staging.linkedService | If you're using an Azure Synapse Analytics source or sin
 staging.folderPath | If you're using an Azure Synapse Analytics source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to Azure Synapse Analytics
 traceLevel | Set logging level of your data flow activity execution | Fine, Coarse, None | No
 
-![Execute Data Flow](media/data-flow/activity-data-flow.png "Execute Data Flow")
+:::image type="content" source="media/data-flow/activity-data-flow.png" alt-text="Execute Data Flow":::
 
 ### Dynamically size data flow compute at runtime
 
@@ -71,7 +71,7 @@ The Core Count and Compute Type properties can be set dynamically to adjust to t
 > [!NOTE]
 > When choosing driver and worker node cores in Azure Synapse Data Flows, a minimum of 3 nodes will always be utilized.
 
-![Dynamic Data Flow](media/data-flow/dyna1.png "Dynamic data flow")
+:::image type="content" source="media/data-flow/dyna1.png" alt-text="Dynamic Data Flow":::
 
 [Here is a brief video tutorial explaining this technique](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
@@ -81,7 +81,7 @@ Choose which Integration Runtime to use for your Data Flow activity execution. B
 
 A minimum compute type of General Purpose (compute optimized is not recommended for large workloads) with an 8+8 (16 total v-cores) configuration and a 10-minute is the minimum recommendation for most production workloads. By setting a small TTL, the Azure IR can maintain a warm cluster that will not incur the several minutes of start time for a cold cluster. You can speed up the execution of your data flows even more by select "Quick re-use" on the Azure IR data flow configurations. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
 
-![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
+:::image type="content" source="media/data-flow/ir-new.png" alt-text="Azure Integration Runtime":::
 
 > [!IMPORTANT]
 > The Integration Runtime selection in the Data Flow activity only applies to *triggered executions* of your pipeline. Debugging your pipeline with data flows runs on the cluster specified in the debug session.
@@ -94,7 +94,7 @@ If you're using an Azure Synapse Analytics as a sink or source, you must choose 
 
 If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you are requesting the service to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
 
-![Logging level](media/data-flow/logging.png "Set logging level")
+:::image type="content" source="media/data-flow/logging.png" alt-text="Logging level":::
 
 ## Sink properties
 
@@ -106,7 +106,7 @@ The default behavior of data flow sinks is to execute each sink sequentially, in
 
 This option is only available for data flows that have cache sinks enabled for "Output to activity". The output from the data flow that is injected directly into your pipeline is limited to 2MB. Setting "first row only" helps you to limit the data output from data flow when injecting the data flow activity output directly to your pipeline.
 
-![Sink properties](media/data-flow/sink-properties.png "Set sink properties")
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Sink properties":::
 
 ## Parameterizing Data Flows
 
@@ -114,7 +114,7 @@ This option is only available for data flows that have cache sinks enabled for "
 
 If your data flow uses parameterized datasets, set the parameter values in the **Settings** tab.
 
-![Execute Data Flow Parameters](media/data-flow/params.png "Parameters")
+:::image type="content" source="media/data-flow/params.png" alt-text="Execute Data Flow Parameters":::
 
 ### Parameterized data flows
 
@@ -124,13 +124,13 @@ If your data flow is parameterized, set the dynamic values of the data flow para
 
 You can parameterize the core count or compute type if you use the auto-resolve Azure Integration runtime and specify values for compute.coreCount and compute.computeType.
 
-![Execute Data Flow Parameter Example](media/data-flow/parameterize-compute.png "Parameter Example")
+:::image type="content" source="media/data-flow/parameterize-compute.png" alt-text="Execute Data Flow Parameter Example":::
 
 ## Pipeline debug of Data Flow activity
 
 To execute a debug pipeline run with a Data Flow activity, you must switch on data flow debug mode via the **Data Flow Debug** slider on the top bar. Debug mode lets you run the data flow against an active Spark cluster. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-![Screenshot that shows where is the Debug button](media/data-flow/debug-button-3.png)
+:::image type="content" source="media/data-flow/debug-button-3.png" alt-text="Screenshot that shows where is the Debug button":::
 
 The debug pipeline runs against the active debug cluster, not the integration runtime environment specified in the Data Flow activity settings. You can choose the debug compute environment when starting up debug mode.
 

@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 09/15/2021
 ms.author: banders
 ---
 
@@ -31,7 +31,7 @@ Go to Azure portal > **Reservations**.
 
 ## If you don't renew
 
-Your services continue to run normally. You're charged pay-as-you-go rates for your usage after the reservation expires.
+Your services continue to run normally. You're charged pay-as-you-go rates for your usage after the reservation expires. If the reservation wasn't set for automatic renewal before expiration, you can't renew an expired reservation. To continue to receive savings, you can buy a new reservation.
 
 ## Required renewal permissions
 
@@ -39,7 +39,7 @@ The following conditions are required to renew a reservation:
 
 - You must be an owner of the existing reservation.
 - You must be an owner of the subscription if the reservation is scoped to a single subscription or resource group.
-- You must be an owner of the subscription if it has a shared scope.
+- You must be an owner of the subscription if it has a shared scope or management group scope.
 
 ## Default renewal settings
 
@@ -80,7 +80,7 @@ You'll receive an email notification if any of the preceding conditions occur an
 
 ## Renewal notification
 
-Renewal notification emails are sent 30 days before expiration and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want to add the email address to your safe senders or allow list.
+Renewal notification emails are sent 30 days before expiration and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want to add the email address to your safe senders or allowlist.
 
 Emails are sent to different people depending on your purchase method:
 

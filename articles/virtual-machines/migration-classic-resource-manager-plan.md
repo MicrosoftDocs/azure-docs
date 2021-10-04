@@ -15,6 +15,8 @@ ms.author: tagore
 
 # Planning for migration of IaaS resources from classic to Azure Resource Manager
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
+
 > [!IMPORTANT]
 > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](classic-vm-deprecation.md#how-does-this-affect-me).
 
@@ -190,7 +192,7 @@ Be purposeful on what services you now want to enable in Azure Resource Manager.
 - [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 - [Azure Resource Manager templates for easier and more controlled deployment](../azure-resource-manager/templates/overview.md).
 - [Tags](../azure-resource-manager/management/tag-resources.md).
-- [Activity Control](../azure-resource-manager/management/view-activity-logs.md)
+- [Activity Control](../azure-monitor/essentials/activity-log.md)
 - [Azure Policies](../governance/policy/overview.md)
 
 ### Pitfalls to avoid

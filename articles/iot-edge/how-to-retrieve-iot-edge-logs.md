@@ -380,7 +380,7 @@ A successful request to upload logs returns a **"status": 200** followed by a pa
 
 | Name | Type | Description |
 |-|-|-|
-| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, or `Unknown`. |
+| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, 'Cancelled', or `Unknown`. |
 | message | string | Message if error, empty string otherwise. |
 | correlationId | string   | ID to query to status of the upload request. |
 

@@ -18,6 +18,10 @@ This article shows how to set the scope for an extension resource type when depl
 > [!NOTE]
 > The scope property is only available to extension resource types. To specify a different scope for a resource type that isn't an extension type, use a [module](modules.md).
 
+### Microsoft Learn
+
+To learn more about extension resources, and for hands-on guidance, see [Deploy child and extension resources by using Bicep](/learn/modules/child-extension-bicep-templates) on **Microsoft Learn**.
+
 ## Apply at deployment scope
 
 To apply an extension resource type at the target deployment scope, add the resource to your template as you would with any other resource type. The available scopes are [resource group](deploy-to-resource-group.md), [subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), and [tenant](deploy-to-tenant.md). The deployment scope must support the resource type.
@@ -114,9 +118,6 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
     principalId: principalId
   }
   scope: demoStorageAcct
-  dependsOn: [
-    demoStorageAcct
-  ]
 }
 ```
 

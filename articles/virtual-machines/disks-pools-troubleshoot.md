@@ -25,12 +25,6 @@ Disk pools and iSCSI targets each have four states: **Unknown**, **Running**, **
 
 **Stopped (deallocated)** means that the resource is stopped and its underlying resources have been deallocated. You can restart the resource to recover your disk pool or iSCSI target.
 
-## Recover a disk pool or an iSCSI target
-
-First, stop the disk pool and restart it. Then check the status of the disk pool and the iSCSI target. If they have recovered, then any Azure VMware clusters connected to the disk pool will recover automatically unless the disk pool has been inaccessible for more than 24 hours. If it has been more than 24 hours, then you need to contact Azure support to forcibly disconnect the inaccessible datastores associated with the disk pool. After that, you can reconnect the VS clusters to the disk pool and configure the datastores.
-
-If the disk pool didn't recover after this process, contact Azure support and provide the tracking ID for any error message you've received.
-
 ## Common failure codes when deploying a disk pool
  
 |Code  |Description  |

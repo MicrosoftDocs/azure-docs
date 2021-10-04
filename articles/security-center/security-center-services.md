@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 08/15/2021
+ms.date: 08/18/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -109,7 +109,7 @@ For information about when recommendations are generated for each of these prote
 | **Azure Defender plans and extensions**                                                                                                                   |                |                                |               |
 | - [Azure Defender for servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA            |
 | - [Azure Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available |
-| - [Azure Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | Not Available                  | GA            |
+| - [Azure Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA            |
 | - [Azure Defender for container registries](./defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
 | - [Azure Defender for container registries scanning of images in CI/CD workflows](./defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available |
 | - [Azure Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA            |

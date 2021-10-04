@@ -134,7 +134,7 @@ ms.author: aahi
 
 | Language | Language code |  v3.x support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
-| English  |     `en`      |     ✓      |                API endpoint: 2019-10-01 <br> Container: 2020-04-16                |       |
+| English  |     `en`      |     ✓      |                API endpoint: 2020-11-01 <br> Container: 2020-04-16                |       |
 
 #### [Personally Identifiable Information (PII)](#tab/pii)
 

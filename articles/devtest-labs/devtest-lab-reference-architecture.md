@@ -1,7 +1,7 @@
 ---
-title: Enterprise reference architecture for Azure DevTest Labs
+title: Enterprise reference architecture
 description: This article provides reference architecture guidance for Azure DevTest Labs in an enterprise. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---
