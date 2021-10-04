@@ -377,10 +377,10 @@ tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
 Before running the command, you will need to update `backend-anf.yaml` to include details about the Azure NetApp Files subscription, such as:
 
 * `subscriptionID` for the Azure subscription with Azure NetApp Files enabled. The 
-* `tenantID`, `clientID`, and `clientSecret` from an [App Registration](./active-directory/develop/howto-create-service-principal-portal.md) in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration must carry the `Owner` or `Contributor` role that’s predefined by Azure.
+* `tenantID`, `clientID`, and `clientSecret` from an [App Registration](../active-directory/develop/howto-create-service-principal-portal.md) in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration must carry the `Owner` or `Contributor` role that’s predefined by Azure.
 * Azure location that contains at least one delegated subnet.
 
-In addition, you can choose to provide a different service level. Azure NetApp Files provides three [service levels](./azure-netapp-files/azure-netapp-files-service-levels.md): Standard, Premium, and Ultra.
+In addition, you can choose to provide a different service level. Azure NetApp Files provides three [service levels](../azure-netapp-files/azure-netapp-files-service-levels.md): Standard, Premium, and Ultra.
 
 ### Create a StorageClass
 
