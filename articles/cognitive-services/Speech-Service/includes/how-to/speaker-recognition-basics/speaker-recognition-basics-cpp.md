@@ -23,8 +23,8 @@ If you want to skip straight to sample code, see the [C++ quickstart samples](ht
 
 This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-> [!IMPORTANT]
-> Speaker Recognition is currently *only* supported in Azure Speech resources created in the `westus` region.
+> [!NOTE]
+> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. 
 
 ## Install the Speech SDK
 
@@ -88,7 +88,6 @@ Next, [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/spee
 
 In contrast to **text-dependent** verification, **text-independent** verification:
 
-* Does not require a certain passphrase to be spoken, anything can be spoken
 * Does not require three audio samples, but *does* require 20 seconds of total audio
 
 ### TextIndependentVerification function
@@ -109,7 +108,7 @@ Define the following function to enroll a voice profile.
 
 :::code language="cpp" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.cpp" id="add_enrollments_independent":::
 
-In this function, you enroll audio samples in a `while` loop that tracks the number of seconds of audio remaining, and required, for enrollment. In each iteration, [EnrollProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync) prompts you to speak into your microphone, and adds the sample to the voice profile.
+In this function, you enroll audio samples in a `while` loop that tracks the number of seconds of audio remaining, and required, for enrollment. In each iteration, [EnrollProfileAsync](/cpp/cognitive-services/speech/voiceprofileclient#enrollprofileasync) prompts you to speak the passphrase into your microphone, and adds the sample to the voice profile.
 
 ## Speaker identification
 
