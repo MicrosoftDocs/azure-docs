@@ -32,7 +32,7 @@ If you're new to SQL Server on Azure VMs, check out the *SQL Server on Azure VM 
 
 ## Automated updates
 
-SQL Server on Azure Virtual Machines can use [Automated Patching](automated-patching.md) to schedule a maintenance window for installing important windows and SQL Server updates automatically.
+SQL Server on Azure Virtual Machines can use [Automated Patching](automated-patching.md) to schedule a maintenance window for installing important Windows and SQL Server updates automatically.
 
 ## Automated backups
 
