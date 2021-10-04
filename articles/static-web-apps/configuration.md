@@ -278,7 +278,7 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 ## Authentication
 
 * [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
-* [Custom authentication providers](authentication-custom.md) use the `authentication` property of the settings file.
+* [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
 
 ## Forwarding gateway
 
