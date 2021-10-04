@@ -4,7 +4,7 @@ description: Shows you how to use Resource Manager templates to upgrade from Azu
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 10/04/2021
 ms.author: normesta
 
 ---
