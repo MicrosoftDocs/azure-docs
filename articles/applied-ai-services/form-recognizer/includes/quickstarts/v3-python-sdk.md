@@ -5,11 +5,11 @@
 
 [Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/latest/azure.ai.formrecognizer.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to extract and analyze from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications.
+Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications.
 
 ### Form Recognizer models
 
-The C# SDK supports the following models and capabilities:
+The Python SDK supports the following models and capabilities:
 
 * 🆕General document—Analyze and extract text, tables, structure, key-value pairs and named entities.|
 * Layout—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
@@ -21,9 +21,9 @@ The C# SDK supports the following models and capabilities:
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#try-it-general-document-model)
+* [**General document**](#general-document-model)
 
-* [**Layout**](#try-it-layout-model)
+* [**Layout**](#layout-model)
 
 * [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
 
@@ -53,7 +53,7 @@ pip install azure-ai-formrecognizer --pre
 
 ```
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python application called **form_recognizer_quickstart.py** in your preferred editor or IDE. Then import the following libraries:
 
@@ -84,7 +84,11 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 ```
 
-## **Try It**: General document model
+## Analyze a document with a Form Recognizer model
+
+### [General document](#tab/general-document)
+
+#### General document model
 
 > [!div class="checklist"]
 >
@@ -186,7 +190,9 @@ def analyze_document():
     analyze_document()
 ```
 
-## **Try it**: Layout model
+### [Layout](#tab/layout)
+
+#### Layout model
 
 > [!div class="checklist"]
 >
@@ -290,7 +296,9 @@ def analyze_layout():
 
 ```
 
-## **Try it**: Prebuilt invoice model
+### [Prebuilt invoice](prebuilt-invoice)
+
+#### Prebuilt invoice model
 
 This sample demonstrates how to analyze data from certain types of common documents with pre-trained models, using an invoice as an example. *See* our prebuilt concept page for a complete list of [**invoice key-value pairs**](../../concept-prebuilt.md?tabs=invoice#key-value-pair-extraction)
 
@@ -582,4 +590,4 @@ Congratulations! In this quickstart, you used the Form Recognizer Python SDK to 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+> [REST API v3.0reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
