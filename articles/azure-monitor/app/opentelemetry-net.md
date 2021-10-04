@@ -28,10 +28,9 @@ Please consider carefully whether this preview is right for you. It **enables di
 
  Those who require a full-feature experience should use the existing Application Insights [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) SDK until the OpenTelemetry-based offering matures.
 
-
 ## Get started
 
-Follow the five steps in this section and you will be able to instrument OpenTelemetry with your C# application.
+Follow these steps in this section and you will be able to instrument OpenTelemetry with your C# application.
 
 ### Prerequisites
 
@@ -45,7 +44,7 @@ Follow the five steps in this section and you will be able to instrument OpenTel
 
 If you already have a C# application to instrument OpenTelemetry, you could skip this section.
 
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet new command to create a new console app with the name `azuremonitor-otel-getting-started`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `azuremonitor-otel-getting-started`. This command creates a simple "HelloWorld" C# project with a single source file: `Program.cs`.
 
 ```dotnetcli
 dotnet new console --output azuremonitor-otel-getting-started
@@ -64,13 +63,13 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter
 ```
 
 > [!NOTE]
-> If you're not able to install the library, please go to [Troubleshooting](#specifying-nuget-source).
+> If you're not able to install the library, please go to [Troubleshooting](#specify-nuget-package-source).
 
 ### Enable OpenTelemetry
 
 #### 3. Add OpenTelemetry instrumentation code
 
-The following code demonstrates enabling OpenTelemetry in the newly created "Hello World" console app. You could copy the code and replace everything in `Program.cs` of the "HelloWorld" app, or add the same logic to your own application.
+The following code demonstrates enabling OpenTelemetry in the newly created "HelloWorld" console app. You could copy the code and replace everything in `Program.cs` of the "HelloWorld" app, or add the same logic to your own application.
 
 ```csharp
 using System.Diagnostics;
@@ -348,7 +347,7 @@ exporter logs are available to any EventListener by opting into the source named
 [ OpenTelemetry Troubleshooting](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry#troubleshooting)
 for detailed troubleshooting steps.
 
-### Specifying nuget source
+### Specify NuGet package source
 
 If you try to install the package and get errors like the following, it's mostly due to missing NuGet package sources.
 

@@ -30,40 +30,58 @@ Those who require a full-feature experience should use the existing [Application
 
 ## Get started
 
+Follow these steps in this section and you will be able to instrument OpenTelemetry with your JavaScript application.
+
 ### Prerequisites
 
 - JavaScript application using Node.js version X.X+
-- [Azure Subscription](https://azure.microsoft.com/free/) (Free to create)
-- [Application Insights Resource](create-workspace-resource.md#create-workspace-based-resource) (Free to create)
+- Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- Once you have your Azure subscription, if you don't already have one, [create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource) in the Azure portal to get your connection string.
 
-### Enable Azure Monitor Application Insights
+### Set up your environment
 
-**1. Install package**
+#### 1. Prepare the JavaScript application
 
-Add code to xyz.file in your application
+If you already have a JavaScript application to instrument OpenTelemetry, you could skip this section.
 
-```javascript
+Create a "HelloWorld" Node.js project.
+
+placeholder
+
+#### 2. Install the libraries
+
+In a console window (such as cmd, PowerShell, or Bash), use the `npm i` command to install the library.
+
+```powershell
 Placeholder
 ```
 
-**2. Add connection string**
+### Enable OpenTelemetry
 
-Replace placeholder `<Your Connection String>` with YOUR connection string from Application Insights resource.
+#### 3. Add OpenTelemetry instrumentation code
+
+The following code demonstrates enabling OpenTelemetry in the newly created "HelloWorld" Node.js app. You could copy the code and replace everything in `app.js` of the "HelloWorld" app, or add the same logic to your own application.
+
+```nodejs
+placeholder
+```
+
+#### 4. Set Application Insights connection string
+
+Replace placeholder `<Your Connection String>` in the above code with YOUR connection string from the Application Insights resource.
 
 Find the connection string on your Application Insights Resource.
 
 :::image type="content" source="media/opentelemetry/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
+#### 5. Confirm data is flowing
 
-**3. Confirm data is flowing**
-
-Generate requests in your application and open your Application Insights Resource.
+Generate some requests in your application and open your Application Insights Resource blade on the Azure portal. It may take a few minutes for data to show up in the Portal.
 
 > [!NOTE]
-> It may take a couple minutes for data to show up in the Portal.
+> If you're not able to run the application or not getting data as expected, please go to [Troubleshooting](#troubleshooting).
 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
-
 
 > [!IMPORTANT]
 > If you have two or more micro-services using the same connection string, you are required to set  role names to represent them properly on the Application Map.
