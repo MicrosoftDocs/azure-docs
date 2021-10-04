@@ -16,7 +16,7 @@ When your organization includes users with multiple different languages, you hav
 - Create one dedicated host pool with a customized image per language.
 - Have multiple users with different languages in the same host pool.
 
-The second option is more efficient in terms of resources and cost. However, it can be tricky to pull off without help. Fortunately, this article will help walk you through how to build an image that can accommodate users of all languages and localization needs.
+The second option is more efficient in terms of resources and cost, but requires a few extra steps. Fortunately, this article will help walk you through how to build an image that can accommodate users of all languages and localization needs.
 
 ## Requirements
 
