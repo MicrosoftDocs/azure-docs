@@ -103,7 +103,7 @@ This procedure describes how to use an Azure CLI script to create and configure 
 
 Your Azure Active Directory application is now ready for the Microsoft Sentinel Deception solution.
 
-## Deploy and test the Microsoft Sentinel Deception solution
+## Deploy and test the Deception (HoneyTokens) solution
 
 1. Deploy the **Microsoft Sentinel Deception** solution in the same resource group where you Microsoft Sentinel workspace is located.
 
@@ -145,7 +145,7 @@ Your Azure Active Directory application is now ready for the Microsoft Sentinel 
 
     Select specific incidents and operations to investigate all related activity further.
 
-## Distribute the SOCHTManagement workbook to KeyVaults owners
+## Distribute the SOCHTManagement workbook
 
 We recommend that your distribute the **SOCHTManagement** workbook to other subscriptions in your tenant, so that other admins can deploy HoneyTokens in their key vaults as well.
 
