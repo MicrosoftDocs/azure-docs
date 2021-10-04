@@ -199,12 +199,12 @@ Anyone with `Reader` access to the Relay will be able to _see_ the Hybrid Connec
 
 If you need to change the endpoint host or port for a Hybrid Connection, follow the steps below:
 
-1. Remove the Hybrid Connection from the Hybrid Connection Manager on the local machine by selecting the connection and selecting "Remove" at the top left of the Hybrid Connection Details window.
-1. Disconnect the Hybrid Connection from your App Service by navigating to "Hybrid Connections" in the App Service "Networking" page.
-1. Navigate to the Relay for the endpoint you need to update and select "Hybrid Connections" under "Entities" in the left-hand navigation menu.
-1. Select the Hybrid Connection you want to update and select "Properties" under "Settings" in the left-hand navigation menu.
-1. Make your changes and hit "Save changes" at the top.
-1. Return to the "Hybrid Connections" settings for your App Service and add the Hybrid Connection again. Ensure the endpoint is updated as intended. If you don't see the Hybrid Connection in the list, refresh in 5-10 minutes.
+1. Remove the Hybrid Connection from the Hybrid Connection Manager on the local machine by selecting the connection and selecting **Remove** at the top left of the Hybrid Connection Details window.
+1. Disconnect the Hybrid Connection from your App Service by navigating to **Hybrid Connections** in the App Service **Networking** page.
+1. Navigate to the Relay for the endpoint you need to update and select **Hybrid Connections** under **Entities** in the left-hand navigation menu.
+1. Select the Hybrid Connection you want to update and select **Properties** under **Settings** in the left-hand navigation menu.
+1. Make your changes and hit **Save changes** at the top.
+1. Return to the **Hybrid Connections** settings for your App Service and add the Hybrid Connection again. Ensure the endpoint is updated as intended. If you don't see the Hybrid Connection in the list, refresh in 5-10 minutes.
 1. Return to the Hybrid Connection Manager on the local machine and add the connection again.
 
 ## Troubleshooting ##
