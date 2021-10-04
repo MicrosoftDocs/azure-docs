@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: jpalma
 author: palma21
-
 ---
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)

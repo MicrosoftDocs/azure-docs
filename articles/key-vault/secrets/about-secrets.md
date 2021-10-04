@@ -77,49 +77,11 @@ You can specify additional application-specific metadata in the form of tags. Ke
 >[!Note]
 >Tags are readable by a caller if they have the *list* or *get* permission.
 
-## Azure Storage account key management
-
-Key Vault can manage [Azure storage account](../../storage/common/storage-account-overview.md) keys:
-
-- Internally, Key Vault can list (sync) keys with an Azure storage account. 
-- Key Vault regenerates (rotates) the keys periodically.
-- Key values are never returned in response to caller.
-- Key Vault manages keys of both storage accounts and classic storage accounts.
-
-For more information, see:
-- [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
-- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md)
-
-
-## Storage account access control
-
-The following permissions can be used when authorizing a user or application principal to perform operations on a managed storage account:  
-
-- Permissions for managed storage account and SaS-definition operations
-  - *get*: Gets information about a storage account 
-  - *list*: List storage accounts managed by a Key Vault
-  - *update*: Update a storage account
-  - *delete*: Delete a storage account  
-  - *recover*: Recover a deleted storage account
-  - *backup*: Back up a storage account
-  - *restore*: Restore a backed-up storage account to a Key Vault
-  - *set*: Create or update a storage account
-  - *regeneratekey*: Regenerate a specified key value for a storage account
-  - *getsas*: Get information about a SAS definition for a storage account
-  - *listsas*: List storage SAS definitions for a storage account
-  - *deletesas*: Delete a SAS definition from a storage account
-  - *setsas*: Create or update a new SAS definition/attributes for a storage account
-
-- Permissions for privileged operations
-  - *purge*: Purge (permanently delete) a managed storage account
-
-For more information, see the [Storage account operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
-
 ## Usage Scenarios
 
 | When to use | Examples |
 |--------------|-------------|
-|Securly store, manage lifecycle, and monitor credentials for service-to-service communication like passwords, access keys, service principal client secrets.  | - [Use Azure Key Vault with a Virtual Machine](../general/tutorial-net-virtual-machine.md)<br> - [Use Azure Key Vault with an Azure Web App](../general/tutorial-net-create-vault-azure-web-app.md) |
+|Securely store, manage lifecycle, and monitor credentials for service-to-service communication like passwords, access keys, service principal client secrets.  | - [Use Azure Key Vault with a Virtual Machine](../general/tutorial-net-virtual-machine.md)<br> - [Use Azure Key Vault with an Azure Web App](../general/tutorial-net-create-vault-azure-web-app.md) |
 
 ## Next steps
 
