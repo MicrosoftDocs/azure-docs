@@ -16,7 +16,7 @@ This article provides best practice guidelines that help you optimize performanc
 
 ## Find documentation
 
-Azure Data Lake Storage Gen2 is not dedicated a service or account type. It's a set of capabilities that support high throughput analytic workloads. The Data Lake Storage Gen2 documentation provides best practices and guidance for using these capabilities. Refer to the [Blob storage documentation](storage-blobs-introduction.md) content, for all other aspects of account management such as setting up network security, designing for high availability, and disaster recovery. 
+Azure Data Lake Storage Gen2 is not a dedicated service or account type. It's a set of capabilities that support high throughput analytic workloads. The Data Lake Storage Gen2 documentation provides best practices and guidance for using these capabilities. Refer to the [Blob storage documentation](storage-blobs-introduction.md) content, for all other aspects of account management such as setting up network security, designing for high availability, and disaster recovery. 
 
 #### Evaluate feature support and known issues
 
