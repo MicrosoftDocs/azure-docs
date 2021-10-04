@@ -30,5 +30,5 @@ An AI system includes not only the technology, but also the people who will use 
 ## Next steps
 
 There are two ways to get started using the entity linking feature:
-* [Language Studio](../concepts/language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
+* [Language Studio](../language-studio.md), which is a web-based platform that enables you to try several Azure Cognitive Service for language features without needing to write code.
 * The [quickstart article](quickstart.md) for instructions on making requests to the service using the REST API and client library SDK.  
