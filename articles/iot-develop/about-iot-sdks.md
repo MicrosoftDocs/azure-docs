@@ -10,7 +10,7 @@ ms.date: 02/11/2021
 
 # Overview of Azure IoT Device SDKs
 
-The Azure IoT device SDKs cover device client libraries, developer guides, samples, and documentation. The device SDKs provide a convenient way to connect devices to Azure IoT services. The SDKs are available in various programming languages and support multiple RTOSs for embedded devices.
+The Azure IoT device SDKs cover device client libraries, developer guides, samples, and documentation. The device SDKs provide a convenient and reliable way to connect your devices to Azure IoT services. The SDKs are available in various programming languages for and with support for multiple RTOSs for embedded devices.
 
 ## Why use an Azure IoT Device SDK?
 
@@ -29,13 +29,14 @@ The primary consideration to account for when choosing your SDK is the devices c
 * For constrained devices, refer to the [Embedded device SDKs](#embedded-device-sdks). 
 * For all other devices, refer to the [Device application SDKs](#device-application-sdks).
 
-For more information on different device categories so you can choose the best SDK for your device, see [Azure IoT Device Types](concepts-iot-device-types.md).
+> [!Note] 
+> For more information on different device categories so you can choose the best SDK for your device, see [Azure IoT Device Types](concepts-iot-device-types.md).
 
 ## Device application SDKs
 
-These SDKs can run on any device that can support a higher-order language runtime, including devices such as PCs, Raspberry Pis, and smartphones. 
+These SDKs can run on any device that can support a higher-order language runtime including devices such as PCs, Raspberry Pis, and smartphones. 
 
-The SDKs are available in **multiple languages** to provide the flexibility to choose which best suits your team and scenario.
+The SDKs are available in **multiple languages** providing the flexibility to choose which best suits your team and scenario.
 
 | Language | Package | Source | Quickstarts | Samples | Reference |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -45,16 +46,16 @@ The SDKs are available in **multiple languages** to provide the flexibility to c
 | **Java** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-java) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples) | [Reference](/java/api/com.microsoft.azure.sdk.iot.device) |
 | **C** | [packages](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#getting-the-sdk) | [GitHub](https://github.com/Azure/azure-iot-sdk-c) | [IoT Hub](quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c) / [IoT Central](quickstart-send-telemetry-central.md?pivots=programming-language-ansi-c) | [Samples](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) | [Reference](/azure/iot-hub/iot-c-sdk-ref/) |
 
-> [!CAUTION]
-> The **C SDK** shown above is **not** suitable for embedded applications due to its memory management and threading model.
+> [!WARNING]
+> The **C SDK** listed above is **not** suitable for embedded applications due to its memory management and threading model. For embedded devices, refer to the [Embedded device SDKs](#embedded-device-sdks).
 
 ## Embedded device SDKs
 
 These SDKs were designed and created to run on devices with limited compute and memory resources and are implemented using the C language.
 
-The embedded device SDKs are available for **multiple operating systems** to provide the flexibility to choose which best suits your team and scenario.
+The embedded device SDKs are available for **multiple operating systems** providing the flexibility to choose which best suits your team and scenario.
 
-| OS | SDK | Source | Samples | Reference |
+| RTOS | SDK | Source | Samples | Reference |
 | :-- | :-- | :-- | :-- | :-- | 
 | **Azure RTOS** | Azure RTOS Middleware | [GitHub](https://github.com/azure-rtos/netxduo) | [Quickstarts](quickstart-devkit-mxchip-az3166.md) | [Reference](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot) | 
 | **FreeRTOS** | FreeRTOS Middleware | [GitHub](https://github.com/Azure/azure-iot-middleware-freertos) | [Samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples) | [Reference](https://azure.github.io/azure-iot-middleware-freertos) |
