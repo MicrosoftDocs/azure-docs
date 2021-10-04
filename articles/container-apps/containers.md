@@ -13,6 +13,8 @@ ms.author: cshoe
 
 Azure Container Apps manages the details of Kubernetes and container orchestrations for you. Containers in Azure Container Apps can use any runtime, programming language, or development stack of your choice.
 
+:::image type="content" source="media/containers/azure-container-apps-containers.png" alt-text="Azure Container Apps: Containers":::
+
 Azure Container Apps supports:
 
 - Any Linux-based container image
@@ -60,8 +62,8 @@ The following example configuration shows the options available when setting up 
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field. The values in the array are joined together and separated by spaces. This concatenation allows you to have spaces in your startup command.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
 | `env` | An array of key/value pairs that define environment variables. | |
-| `resources.cpu` | The number of CPUs allocated to the container. | Possible values include: `1`, `2`, or `4`. |
-| `resources.memory` | The amount of RAM allocated to the container. | Possible values include: `250mb`. Each [replica](application-lifecycle-management.md) is assigned the amount of memory defined here. |
+| `resources.cpu` | The number of CPUs allocated to the container. | Possible values include: `1` or `2`. |
+| `resources.memory` | The amount of RAM allocated to the container. | During preview, this value is `500mb`. Each [replica](overview.md) is assigned the amount of memory defined here. |
 
 ## Multiple containers
 
