@@ -13,7 +13,7 @@ ms.date: 09/22/2021
 
 # Execute a Fail activity in Azure Data Factory and Synapse Analytics (Preview)
 
-You might occasionally want to throw an error in a pipeline intentionally. A [Lookup activity](control-flow-lookup-activity.md) might return no matching data, or a [Custom activity](transform-data-using-dotnet-custom-activity.md) might return a 200 or throw an internal error. Whatever the reason might be, now you can use a Fail activity in a pipeline and customize both its error message and error code.
+You might occasionally want to throw an error in a pipeline intentionally. A [Lookup activity](control-flow-lookup-activity.md) might return no matching data, or a [Custom activity](transform-data-using-dotnet-custom-activity.md) might finish with an internal error. Whatever the reason might be, now you can use a Fail activity in a pipeline and customize both its error message and error code.
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -34,8 +34,8 @@ You might occasionally want to throw an error in a pipeline intentionally. A [Lo
 
 ## Type properties
 
-| Property | Description | Allowed values | Required
-| -------- | ----------- | -------------- | --------
+| Property | Description | Allowed values | Required |
+| --- | --- | --- | --- |
 | name | The name of the Fail activity. | String | Yes |
 | type | Must be set to **Fail**. | String | Yes |
 | message | The error message that surfaced in the Fail activity. It can be dynamic content that's evaluated at runtime. | String | Yes |
@@ -59,7 +59,7 @@ The dynamic content in both `message` and `errorCode` can't be interpreted. | "F
 | The `errorCode` field is missing.* | The error message that's set by the user | `ErrorCodeNotString` |
 | | |
 
-\* The situation shouldn't occur if the pipeline is developed with the web user interface (UI) of Data Factory.
+\* This situation shouldn't occur if the pipeline is developed with the web user interface (UI) of Data Factory.
 
 ## Next steps
 
