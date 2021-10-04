@@ -102,7 +102,7 @@ Based on the diagram above, follow the next steps to configure the tenant.
     ```
 
     > [!NOTE]
-    > In this scenario we are using an Event Grid System Topic. See [here](https://docs.microsoft.com/en-us/cli/azure/eventgrid?view=azure-cli-latest), if you want to create a subscription for Custom Topics or Event Grid Domains by using the Azure CLI.
+    > In this scenario we are using an Event Grid System Topic. See [here](/cli/azure/eventgrid), if you want to create a subscription for Custom Topics or Event Grid Domains by using the Azure CLI.
 
 10. If everything was correctly configured, you will be able to create successfully the webhook subscription in your Event Grid Topic.
 
@@ -159,7 +159,7 @@ Based on the diagram above, follow the next steps to configure both tenants.
     ```
 
     > [!NOTE]
-    > In this scenario we are using an Event Grid System Topic. See [here](https://docs.microsoft.com/en-us/cli/azure/eventgrid?view=azure-cli-latest), if you want to create a subscription for Custom Topics or Event Grid Domains by using the Azure CLI.
+    > In this scenario we are using an Event Grid System Topic. See [here](/cli/azure/eventgrid), if you want to create a subscription for Custom Topics or Event Grid Domains by using the Azure CLI.
 
 10. If everything was correctly configured, you will be able to create successfully the webhook subscription in your Event Grid Topic.
 
