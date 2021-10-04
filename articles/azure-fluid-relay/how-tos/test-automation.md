@@ -30,7 +30,7 @@ the appropriate connection configuration. See [How to: Connect to an Azure Fluid
 ## Creating an adaptable test client
 
 In order to create an adaptable test client, you need to configure the AzureClient differently depending on the
-configuration. The function below uses an environment variable to determine which service to target. You can set the
+service target. The function below uses an environment variable to determine this. You can set the
 environment variable in a test script to control which service is targeted.
 
 ```typescript
