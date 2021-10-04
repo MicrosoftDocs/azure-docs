@@ -18,10 +18,13 @@ ms.author: aahi
 > The Health API is a capability provided “AS IS” and “WITH ALL FAULTS.” The Health API is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Health API. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
 
 
-The Health API is a feature of the Language Services that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
+The health feature can be used to extract and label relevant medical information from unstructured texts, such as: doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
 * The web-based API and client libraries (asynchronous)
-* A Docker container (synchronous)
+* A [Docker container](use-containers.md) (synchronous)
+
+> [!TIP]
+> If you haven't created a Text Analytics resource yet, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](https://language.azure.com/tryout/sentiment) without needing to write code.
 
 ## Features
 
