@@ -25,7 +25,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
 ## Before you begin 
 
 * You must have already created a capacity pool.  
-    See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+    See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
