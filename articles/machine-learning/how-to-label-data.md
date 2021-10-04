@@ -13,7 +13,7 @@ ms.custom: data4ml
 
 # Labeling images and text documents
 
-After your project administrator [creates a data labeling project](./how-to-create-labeling-projects.md#create-a-data-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator creates an [image data labeling project](./how-to-create-image-labeling-projects.md) or [text data labeling project](./how-to-create-text-labeling-projects.md) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
