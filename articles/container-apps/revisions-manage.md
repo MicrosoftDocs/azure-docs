@@ -1,6 +1,6 @@
 ---
-title: Manage an app in Azure Container Apps
-description: Manage an application through its lifecycle in Azure Container Apps.
+title: Manage revisions in Azure Container Apps
+description: Manage revisions and traffic splitting  in Azure Container Apps.
 services: app-service
 author: craigshoemaker
 ms.service: app-service
@@ -11,13 +11,13 @@ ms.author: cshoe
 
 # Manage revisions Azure Container Apps
 
-
+Supporting multiple revisions in Azure Container Apps allows you to manage the versioning and amount of [traffic sent to each revision](#traffic-splitting). Use the following commands to control of how your container app manages revisions.
 
 ## List
 
 List all revisions associated with your container app with `az containerapp revision list`.
 
-```sh
+```azurecli-interactive
 az containerapp revision list \
   --name <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
@@ -30,7 +30,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 Show details about a specific revision by using `az containerapp revision show`.
 
-```sh
+```azurecli-interactive
 az containerapp revision show \
   --name <REVISION_NAME> \
   --app <CONTAINER_APP_NAME> \
@@ -43,7 +43,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 To update a container app, use `az containerapp update`.
 
-```sh
+```azurecli-interactive
 az containerapp update \
   --name <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME> \
@@ -93,7 +93,28 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 ## Set active revision mode
 
-** change to json
+Configure whether or not your container app supports multiple active revisions.
+
+The `activeRevisionsMode` property accepts two values:
+
+- `multiple`: Configures the container app to allow more than one active revision.
+
+- `single`: Restricts the only revision to the latest version of your container app. When you create a revision-scope change, a new revision is created and any old revisions are automatically deactivated.
+
+```json
+{
+  ...
+  "resources": [
+  {
+    ...
+    "properties": {
+        "configuration": {
+          "activeRevisionsMode": "multiple"
+      }
+    }
+  }]
+}
+```
 
 ## Verify revision endpoint
 
