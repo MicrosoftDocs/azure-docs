@@ -39,7 +39,7 @@ This page shows unique sources of IP address over time, application rule count u
 
 This page provides a view by rule action – allow/deny, target port by IP and DNAT over time. You can also filter by action, port, and destination type.
 
-:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule.png" alt-text="Azure Firewall Workbook network rule log":::
+:::image type="content" source="./media/firewall-workbook/firewall-workbook-network-rule-time-update.png" alt-text="Azure Firewall Workbook network rule log":::
 
 You can also filter logs based on time window:
 
