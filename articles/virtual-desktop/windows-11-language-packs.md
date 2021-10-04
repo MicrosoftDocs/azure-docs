@@ -3,13 +3,13 @@ title: Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desk
 description: How to install language packs for Windows 11 Enterprise VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 10/04/2021
 ms.author: helohr
 manager: femila
 ---
 # Add languages to a Windows 11 Enterprise image
 
-It's important to make sure users within your organization from all over the world can use your Azure Virtual Desktop deployment. That's why you can customize the Windows 11 Enterprise image you use for your virtual machines (VMs) to have different language packs. You can use the instructions in this article for both single-session and multi-session versions of Windows 11 Enterprise.
+It's important to make sure users within your organization from all over the world can use your Azure Virtual Desktop deployment. That's why you can customize the Windows 11 Enterprise image you use for your virtual machines (VMs) to have different language packs. Starting with Windows 11, non-administrator user accounts can now add both the display language and its corresponding language features. This feature means you won't need to pre-install language packs for users in a personal host pool. For pooled host pools, we still recommend you add the languages you plan to add to a custom image. You can use the instructions in this article for both single-session and multi-session versions of Windows 11 Enterprise.
 
 When your organization includes users with multiple different languages, you have two options:
 
@@ -39,10 +39,10 @@ To create the content repository you'll use to add languages and features to you
 
 3. Create a folder on the file share.
 
-4. Copy the content from the **LanguagesAndOptionalFeatures** folder in ISO to the folder you created.
+4. Copy all content from the **LanguagesAndOptionalFeatures** folder in the ISO to the folder you created.
 
      >[!NOTE]
-     > If you're working with limited storage, only copy the files for the languages you know your users need. You can tell the files apart by looking at the language codes in their file names. For example, the French file has the code "fr-FR" in its name. For a complete list of language codes for all available languages, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
+     > If you're working with limited storage, you can use the mounted "Languages and Features On Demand" ISO as a repository. To learn how to create a repository, see [Build a custom FOD and language pack repository](/windows-hardware/manufacture/desktop/languages-overview#build-a-custom-fod-and-language-pack-repository).
 
      >[!IMPORTANT]
      > Some languages require additional fonts included in satellite packages that follow different naming conventions. For example, Japanese font file names include “Jpan."
@@ -54,135 +54,104 @@ To create the content repository you'll use to add languages and features to you
 
 ## Create a custom Windows 11 Enterprise image manually
 
-You can create a custom image manually by following these steps:
+You can create a custom image by following these steps:
 
 1. Deploy an Azure VM, then go to the Azure Gallery and select the current version of Windows 11 Enterprise you're using.
+
 2. After you've deployed the VM, connect to it using RDP as a local admin.
-3. Make sure your VM has all the latest Windows Updates. Download the updates and restart the VM, if necessary.
-4. Connect to the language package, FOD, and Inbox Apps file share repository and mount it to a letter drive (for example, drive E).
 
-## Create a custom Windows 10 Enterprise multi-session image automatically
+3. Connect to the file share repository you created in [Create a content repository for language packages and features on demand](#create-a-content-repository-for-language-packages-and-features-on-demand) and mount it to a letter drive (for example, drive E).
 
-If you'd rather install languages through an automated process, you can run the following script to install the Spanish (Spain), French (France), and Chinese (PRC) language packs for Windows 11 Enterprise. The script integrates the language interface pack and all necessary satellite packages into the image. However, you can also modify this script to install other languages. Just make sure to run the script from an elevated PowerShell session, or else it won't work.
+4. Run the following PowerShell script from an elevated PowerShell session to install language packs and satellite packages on Windows 11 Enterprise:
+   
+   ```powershell
+   ########################################################
+   ## Add Languages to running Windows Image for Capture##
+   ########################################################
+   ##Disable Language Pack Cleanup##
+   Disable-ScheduledTask -TaskPath "\Microsoft\Windows\AppxDeploymentClient\" -TaskName "Pre-staged app cleanup"
+   Disable-ScheduledTask -TaskPath "\Microsoft\Windows\MUI\" -TaskName "LPRemove"
+   Disable-ScheduledTask -TaskPath "\Microsoft\Windows\LanguageComponentsInstaller" -TaskName "Uninstallation"
+   reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Control Panel\International" /v "BlockCleanupOfUnusedPreinstalledLangPacks" /t REG_DWORD /d 1 /f
 
-```powershell
-########################################################
-## Add Languages to running Windows Image for Capture##
-########################################################
+   ##Set Language Pack Content Stores##
+   $LIPContent = "E:"
 
-##Disable Language Pack Cleanup##
-Disable-ScheduledTask -TaskPath "\Microsoft\Windows\AppxDeploymentClient\" -TaskName "Pre-staged app cleanup"
-Disable-ScheduledTask -TaskPath "\Microsoft\Windows\MUI\" -TaskName "LPRemove"
-Disable-ScheduledTask -TaskPath "\Microsoft\Windows\LanguageComponentsInstaller" -TaskName "Uninstallation"
-reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Control Panel\International" /v "BlockCleanupOfUnusedPreinstalledLangPacks" /t REG_DWORD /d 1 /f
+   ##Set Path of CSV File##
+   $CSVFile = "Windows-10-1809-FOD-to-LP-Mapping-Table.csv"
+   $filePath = (Get-Location).Path + "/$CSVFile"
 
-##Set Language Pack Content Stores##
-[string]$LIPContent = "E:"
+   ##Import Necesarry CSV File##
+   $FODList = Import-Csv -Path $filePath -Delimiter ";"
 
-##Spanish##
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-Client-Language-Pack_x64_es-es.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-Basic-es-es-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-Handwriting-es-es-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-OCR-es-es-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-Speech-es-es-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-TextToSpeech-es-es-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-NetFx3-OnDemand-Package~31bf3856ad364e35~amd64~es-es~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~es-es~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-MSPaint-FoD-Package~31bf3856ad364e35~amd64~es-es~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-Notepad-FoD-Package~31bf3856ad364e35~amd64~es-es~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-Notepad-System-FoD-Package~31bf3856ad364e35~amd64~es-es~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-PowerShell-ISE-FOD-Package~31bf3856ad364e35~amd64~es-es~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-Printing-WFS-FoD-Package~31bf3856ad364e35~amd64~es-es~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-SnippingTool-FoD-Package~31bf3856ad364e35~amd64~es-ES~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-StepsRecorder-Package~31bf3856ad364e35~amd64~es-es~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-WordPad-FoD-Package~31bf3856ad364e35~amd64~es-es~.cab
-$LanguageList = Get-WinUserLanguageList
-$LanguageList.Add("es-es")
-Set-WinUserLanguageList $LanguageList -force
+   ##Set Language (Target)##
+   $targetLanguage = "es-es"
 
-##Chinese(PRC)##
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-Client-Language-Pack_x64_zh-cn.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-Basic-zh-cn-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-Fonts-Hans-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-Handwriting-zh-cn-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-OCR-zh-cn-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-Speech-zh-cn-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-LanguageFeatures-TextToSpeech-zh-cn-Package~31bf3856ad364e35~amd64~~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\DesktopTargetCompDB_zh-cn.xml.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-NetFx3-OnDemand-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-InternetExplorer-Optional-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-MSPaint-FoD-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-Notepad-FoD-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-Notepad-System-FoD-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-PowerShell-ISE-FOD-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-Printing-WFS-FoD-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-SnippingTool-FoD-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-StepsRecorder-Package~31bf3856ad364e35~amd64~zh-cn~.cab
-Add-WindowsPackage -Online -PackagePath $LIPContent\Microsoft-Windows-WordPad-FoD-Package~31bf3856ad364e35~amd64~zh-cn~.cab
+   $sourceLanguage = (($FODList | Where-Object {$_.'Target Lang' -eq $targetLanguage}) | Where-Object {$_.'Source Lang' -ne $targetLanguage} | Select-Object -Property 'Source Lang' -Unique).'Source Lang'
+   if(!($sourceLanguage)){
+       $sourceLanguage = $targetLanguage
+   }
 
-$LanguageList = Get-WinUserLanguageList
-$LanguageList.Add("zh-cn")
-Set-WinUserLanguageList $LanguageList -force
-```
+   $langGroup = (($FODList | Where-Object {$_.'Target Lang' -eq $targetLanguage}) | Where-Object {$_.'Lang Group:' -ne ""} | Select-Object -Property 'Lang Group:' -Unique).'Lang Group:'
 
-The script might take a while to finish depending on the number of languages you need to install.
+   ##List of additional features to be installed##
+   $additionalFODList = @(
+       "$LIPContent\Microsoft-Windows-NetFx3-OnDemand-Package~31bf3856ad364e35~amd64~~.cab", 
+       "$LIPContent\Microsoft-Windows-MSPaint-FoD-Package~31bf3856ad364e35~amd64~$sourceLanguage~.cab",
+       "$LIPContent\Microsoft-Windows-SnippingTool-FoD-Package~31bf3856ad364e35~amd64~$sourceLanguage~.cab",
+       "$LIPContent\Microsoft-Windows-Lip-Language_x64_$sourceLanguage.cab" ##only if applicable##
+   )
+   
+   $additionalCapabilityList = @(
+    "Language.Basic~~~$sourceLanguage~0.0.1.0",
+    "Language.Handwriting~~~$sourceLanguage~0.0.1.0",
+    "Language.OCR~~~$sourceLanguage~0.0.1.0",
+    "Language.Speech~~~$sourceLanguage~0.0.1.0",
+    "Language.TextToSpeech~~~$sourceLanguage~0.0.1.0"
+    )
 
-To automatically select the appropriate installation files, download and save the [Available Windows 10 1809 Languages and Features on Demand](https://download.microsoft.com/download/7/6/0/7600F9DC-C296-4CF8-B92A-2D85BAFBD5D2/Windows-10-1809-FOD-to-LP-Mapping-Table.xlsx) as a CSV file in the same folder as your PowerShell script.
-
-You can install additional languages after the initial setup by running the script again with a different *\$targetLanguage* variable.
-
-The script might take a while depending on the number of languages you need to install.
-
-Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
-
-After adding additional languages to the Windows image, you also must update the inbox apps to support the added languages. You can do this by refreshing the pre-installed apps with the content from the inbox apps ISO.
-To perform this refresh in an environment where the VM doesn't have internet access, use the following PowerShell script template to automate the process and update only installed versions of inbox apps.
-
-```powershell
-#########################################
-## Update Inbox Apps for Multi Language##
-#########################################
-##Set Inbox App Package Content Stores##
-[string] $AppsContent = "F:\"
-
-##Update installed Inbox Store Apps##
-foreach ($App in (Get-AppxProvisionedPackage -Online)) {
-	$AppPath = $AppsContent + $App.DisplayName + '_' + $App.PublisherId
-	Write-Host "Handling $AppPath"
-	$licFile = Get-Item $AppPath*.xml
-	if ($licFile.Count) {
-		$lic = $true
-		$licFilePath = $licFile.FullName
-	} else {
-		$lic = $false
+	##Install all FODs or fonts from the CSV file###
+    Dism /Online /Add-Package /PackagePath:$LIPContent\Microsoft-Windows-Client-Language-Pack_x64_$sourceLanguage.cab
+    Dism /Online /Add-Package /PackagePath:$LIPContent\Microsoft-Windows-Lip-Language-Pack_x64_$sourceLanguage.cab
+    foreach($capability in $additionalCapabilityList){
+       Dism /Online /Add-Capability /CapabilityName:$capability /Source:$LIPContent
 	}
-	$appxFile = Get-Item $AppPath*.appx*
-	if ($appxFile.Count) {
-		$appxFilePath = $appxFile.FullName
-		if ($lic) {
-			Add-AppxProvisionedPackage -Online -PackagePath $appxFilePath -LicensePath $licFilePath 
-		} else {
-			Add-AppxProvisionedPackage -Online -PackagePath $appxFilePath -skiplicense
-		}
-	}
-}
 
-```
+	foreach($feature in $additionalFODList){
+    Dism /Online /Add-Package /PackagePath:$feature
+    }
 
->[!IMPORTANT]
->The inbox apps included in the ISO aren't the latest versions of the pre-installed Windows apps. To get the latest version of all apps, you need to update the apps using the Windows Store App and perform an manual search for updates after you've installed the additional languages.
+	if($langGroup){
+    Dism /Online /Add-Capability /CapabilityName:Language.Fonts.$langGroup~~~und-$langGroup~0.0.1.0 
+    }
 
-Finally, if the VM is connected to the Internet while installing languages, you'll need to run a cleanup process to remove any unnecessary language experience packs. To clean up the files, run these commands:
+	##Add installed language to language list##
+	$LanguageList = Get-WinUserLanguageList
+	$LanguageList.Add("$targetlanguage")
+	Set-WinUserLanguageList $LanguageList -force
+	```
 
-```powershell
-##Cleanup to prepare sysprep##
+    >[!NOTE]
+	>This example script uses the Spanish (es-es) language code. To automatically install the appropriate files for a different language change the *$targetLanguage* parameter to the correct language code. For a list of language codes, see [Available language packs for Windows](/windows-hardware/manufacture/desktop/available-language-packs-for-windows).
 
-Remove-AppxPackage -Package Microsoft.LanguageExperiencePackzh-CN_22000.8.13.0_neutral__8wekyb3d8bbwe
+    The script might take a while to finish depending on the number of languages you need to install. You can also install additional languages after initial setup by running the script again with a different *$targetLanguage* parameter.
 
-Remove-AppxPackage -Package Microsoft.OneDriveSync_22000.8.13.0_neutral__8wekyb3d8bbwe
-```
+5. To automatically select the appropriate installation files, download and save the [Available Windows 10 1809 Languages and Features on Demand table](https://download.microsoft.com/download/7/6/0/7600F9DC-C296-4CF8-B92A-2D85BAFBD5D2/Windows-10-1809-FOD-to-LP-Mapping-Table.xlsx ) as a CSV file, then save it in the same folder as your PowerShell script.
 
-Once you're done, disconnect the share. 
+6. Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
+
+7. Finally, if the VM is connected to the Internet while installing languages, you'll need to run a cleanup process to remove any unnecessary language experience packs. To clean up the files, run these commands:
+
+    ```powershell
+    ##Cleanup to prepare sysprep##
+    Remove-AppxPackage -Package Microsoft.LanguageExperiencePackes-ES_22000.8.13.0_neutral__8wekyb3d8bbwe
+
+    Remove-AppxPackage -Package Microsoft.OneDriveSync_22000.8.13.0_neutral__8wekyb3d8bbwe
+    ```
+
+    To clean up different language packs, replace "es-ES" with a different language code.
+
+8. Once you're done with cleanup, disconnect the share. 
 
 ## Finish customizing your image
 
