@@ -25,14 +25,23 @@ To use Language Studio, you will need an Azure resource for language for authent
 
 3. Select **Create a new language resource**. Then enter information for your new resource, such as a name, location and resource group.
 
-    :::image type="content" source="../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/create-new-resource.png":::
-
-4. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language Service. 
-
+    
     > [!TIP]
     > * When selecting a location for your Azure resource, choose one that's closest to you for lower latency.
     > * We recommend turning the **Managed Identity** option **on**, to authenticate your requests across Azure.
     > * If you use the free pricing tier, you can keep using the Language service even after your Azure free trial or service credit expires. 
 
+    :::image type="content" source="../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../media/create-new-resource.png":::
 
-You can switch between language resources by clicking the **Settings** icon in the top-right corner of Language Studio. You can delete and manage your resource [using the Azure portal](/azure/azure-resource-manager/management/manage-resources-portal).
+4. Select **Done**. Your resource will be created, and you will be able to try the different features offered by the Language Service. For example, select **Find linked entities**.
+
+    :::image type="content" source="../media/language-studio-main-screen.png" alt-text="A screenshot showing the main screen in Language Studio." lightbox="../media/language-studio-main-screen.png":::
+
+
+5. This feature has a section for entering text, uploading a file, or choosing a text sample to demonstrate how the feature works. To try the demo, you will need to choose a resource and acknowledge it will incur usage according to your pricing tier. 
+
+    :::image type="content" source="../media/language-studio-feature.png" alt-text="A screenshot showing a feature in Language Studio" lightbox="../media/language-studio-feature.png":::
+
+6. After sending text, you'll be able to see a visualization, along with the JSON response. At the bottom of the page, you'll see next steps and the cURL command for the API request you just sent.
+
+    :::image type="content" source="../media/language-studio-feature-result.png" alt-text="A screenshot showing the result of a feature in Language Studio" lightbox="../media/language-studio-feature-result.png":::

@@ -292,6 +292,12 @@ It imports the code from live mode into collaboration branch. It considers the c
 
 Choose either method appropriately as needed. 
 
+### All resources showing as new on publish
+
+While publishing, all resources may show as new even if they were previously published. This can happen if the *lastCommitId* property is reset on the factory’s *repoConfiguration* property either by re-deploying a factory ARM template or updating the factory *repoConfiguration* property  through PowerShell or the REST API. Continuing to publish the resources will resolve the issue, but to prevent to it from occurring again, avoid updating the factory *repoConfiguration* property. 
+
+
+
 ## Switch to a different Git repository
 
 To switch to a different Git repository, go to Git configuration page in the management hub under **Source control**. Select **Disconnect**. 

@@ -24,44 +24,25 @@ The service is the unification of the following Cognitive Services offerings:
 
 ## Available features
 
+> [!TIP]
+> Language Studio (linked below) helps you start exploring these features using a web-based portal, and without needing to write code. 
+
 Azure Cognitive Service for language provides the following features:
 
-|Feature  |Description  |
-|---------|---------|
-| [Extract sensitive information (PII)](named-entity-recognition/overview.md)     | This pre-configured feature identifies and redacts Personally Identifiable Information (PII) in text across several pre-defined categories, and categorizes them. For example: names, addresses, phone numbers, and passport numbers.        |
-| [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. |
-|[Entity linking](entity-linking/overview.md)    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        |
-|[Named Entity Recognition (NER)](named-entity-recognition/overview.md)      | This prebuilt feature identifies entities in text and categorizes them into pre-defined classes such as: names, locations, and organizations.        |
-| [Extract information from healthcare-related text](health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  |
-| [Custom NER](custom-named-entity-recognition/overview.md)    | Build an AI model to extract custom entity categories, using unstructured text that you provide. |
-| [Analyze sentiment and opinions](sentiment-opinion-mining/overview.md)     | This pre-configured feature provides sentiment labels (such as "*negative*", "*neutral*" and "*positive*") for sentences and documents. This feature can additionally provide granular information about the opinions related to words that appear in the text, such as the attributes of products or services. |
-|[Language detection](language-detection/overview.md)    | This pre-configured feature evaluates text, and determines the language it was written in. It returns a language identifier and a score that indicates the strength of the analysis.        |
-|[Custom text classification](custom-classification/overview.md)    | Build an AI model to classify unstructured text into custom classes that you define.         |
-| [Text Summarization](text-summarization/overview.md)     | This pre-configured feature extracts key sentences that collectively convey the essence of a document. |
-| [Custom conversational language understanding](custom-language-understanding/overview.md)   | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. |
-| [Question answering](custom-question-answering/overview.md)     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. |
-
-## Get started using Azure Cognitive Services for language 
-
-Azure Cognitive Services for language provides Language Studio, which is a set of UI-based tools that lets you quickly explore, start using features without needing to write code.
-
-[!INCLUDE [deploy an Azure resource](includes/deploy-azure-resource.md)]
-
-## Complete a quickstart  
-
-We offer quickstarts in several popular programming languages, each designed to teach you basic implementations of the features listed here. See the following list for the quickstart for each feature.
-
-* [Sentiment Analysis and Opinion Mining quickstart](sentiment-opinion-mining/quickstart.md)
-* [Entity linking](entity-linking/quickstart.md)
-* [NER and PII quickstart](named-entity-recognition/quickstart.md)
-* [Text summarization quickstart](text-summarization/quickstart.md)
-* [Language detection quickstart](language-detection/quickstart.md)
-* [Extract information from health-related text](health/quickstart.md)
-* [Key phrase extraction quickstart](key-phrase-extraction/quickstart.md)
-* [Question answering quickstart](custom-question-answering/quickstart/sdk.md)
-* [Custom classification quickstart](custom-classification/quickstart.md)
-* [Custom NER quickstart](custom-named-entity-recognition/quickstart.md)
-* [Custom conversational language understanding quickstart](custom-language-understanding/quickstart.md) 
+> [!div class="mx-tdCol2BreakAll"]
+> |Feature  |Description  | Deployment options| 
+> |---------|---------|---------|
+> | [Named Entity Recognition(NER) and sensitive information(PII)](named-entity-recognition/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories, including sensitive information.        | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](named-entity-recognition/quickstart.md) |
+> | [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](key-phrase-extraction/quickstart.md) <br> • [**Docker container**](key-phrase-extraction/how-to/use-containers.md)  |
+> |[Entity linking](entity-linking/overview.md)    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](entity-linking/quickstart.md) |
+> | [Extract information from healthcare-related text](health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](health/quickstart.md) <br> • [**Docker container**](health/how-to/use-containers.md) |
+> | [Custom NER](custom-named-entity-recognition/overview.md)    | Build an AI model to extract custom entity categories, using unstructured text that you provide. |  • [**Language Studio**](custom-named-entity-recognition/quickstart.md?pivots=language-studio) <br> • [**REST API**](custom-named-entity-recognition/quickstart.md?pivots=rest-api) |
+> | [Analyze sentiment and opinions](sentiment-opinion-mining/overview.md)     | This pre-configured feature provides sentiment labels (such as "*negative*", "*neutral*" and "*positive*") for sentences and documents. This feature can additionally provide granular information about the opinions related to words that appear in the text, such as the attributes of products or services. |  • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](sentiment-opinion-mining/quickstart.md) <br> • [**Docker container**](sentiment-opinion-mining/how-to/use-containers.md)
+> |[Language detection](language-detection/overview.md)    | This pre-configured feature evaluates text, and determines the language it was written in. It returns a language identifier and a score that indicates the strength of the analysis.        | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](language-detection/quickstart.md) <br> • [**Docker container**](language-detection/how-to/use-containers.md) |
+> |[Custom text classification](custom-classification/overview.md)    | Build an AI model to classify unstructured text into custom classes that you define.         | • [**Language Studio**](custom-classification/quickstart.md?pivots=language-studio)<br> • [**REST API**](language-detection/quickstart.md?pivots=rest-api) |
+> | [Text Summarization](text-summarization/overview.md)     | This pre-configured feature extracts key sentences that collectively convey the essence of a document. | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](text-summarization/quickstart.md) |
+> | [Custom conversational language understanding](custom-language-understanding/overview.md)   | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. | [**REST API and client-library**](custom-language-understanding/quickstart.md)
+> | [Question answering](custom-question-answering/overview.md)     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. | • [**Language Studio**](language-studio.md) <br> • [**REST API and client-library**](custom-question-answering/quickstart/sdk.md) |
 
 ## Tutorials
 

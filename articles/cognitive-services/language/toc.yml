@@ -10,6 +10,8 @@ items:
     href: whats-new.md
   - name: Pricing
     href: https://aka.ms/unifiedLanguagePricing
+  - name: Language Studio quickstart
+    href: language-studio.md
 - name: Responsible use of AI
   items: 
   - name: Transparency note for Azure Cognitive Service for language
@@ -393,8 +395,6 @@ items:
     href: concepts/multilingual-emoji-support.md
   - name: Specify model version
     href: concepts/specify-model-version.md
-  - name: Language Studio
-    href: concepts/language-studio.md
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps

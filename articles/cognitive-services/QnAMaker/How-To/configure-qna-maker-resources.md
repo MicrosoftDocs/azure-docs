@@ -11,6 +11,8 @@ ms.date: 08/25/2021
 
 The user can configure QnA Maker to use a different Cognitive search resource. They can also configure App service settings if they are using QnA Maker GA.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Configure QnA Maker to use different Cognitive Search resource
 
 > [!NOTE]

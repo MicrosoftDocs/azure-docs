@@ -11,6 +11,8 @@ ms.date: 05/26/2020
 
 Once a knowledge base is created, add question and answer (QnA) pairs with metadata to filter the answer. The questions in the following table are about Azure service limits, but each has to do with a different Azure search service.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 <a name="qna-table"></a>
 
 |Pair|Questions|Answer|Metadata|
