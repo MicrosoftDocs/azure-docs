@@ -2,14 +2,14 @@
 title: Modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
-ms.date: 10/04/2021 
+ms.date: 10/11/2021 
 ---
 
 # Service Fabric managed cluster node types
 
 Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters, you make any required changes through a single Service Fabric managed cluster resource provider. All of the underlying resources for the cluster are abstracted away and managed by Azure on your behalf. This helps to simplify cluster node type deployment and management, prevent operation errors such as deleting a seed node, and application of best practices such as validating a VM SKU is safe to use.
 
-The rest of this document will cover how to adjust various settings from node type instance count, OS Image, and configuring placement properties.
+The rest of this document will cover how to adjust various settings from node type instance count, enable automatic OS image upgrades, change the OS Image, and configuring placement properties.
 
 > [!NOTE]
 > You will not be able to modify the node type while a change is in progress. It is recommended to let any requested change complete before doing another.
@@ -58,6 +58,47 @@ To adjust the node count for a node type using an ARM Template, adjust the `vmIn
 }
 ```
 
+## Enable automatic OS image upgrades
+
+You can choose to enable automatic OS image upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS image upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#virtual-machine-os-automatic-upgrade-configuration) clusters, managed cluster nodes are not upgraded by default, in order to prevent unintended disruptions to your cluster.
+
+To enable automatic OS upgrades:
+
+* Use the `2021-05-01` (or later) version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
+* Set the cluster's property `enableAutoOSUpgrade` to *true*
+* Set the cluster nodeTypes' resource property `vmImageVersion` to *latest*
+
+For example:
+
+```json
+    {
+      "apiVersion": "2021-05-01",
+      "type": "Microsoft.ServiceFabric/managedclusters",
+      ...
+      "properties": {
+        ...
+        "enableAutoOSUpgrade": true
+      },
+    },
+    {
+      "apiVersion": "2021-05-01",
+      "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+       ...
+      "properties": {
+        ...
+        "vmImageVersion": "latest",
+        ...
+      }
+    }
+}
+
+```
+
+Once enabled, Service Fabric will begin querying and tracking OS image versions in the managed cluster. If a new OS version is available, the cluster node types (virtual machine scale sets) will be upgraded, one at a time. Service Fabric runtime upgrades are performed only after confirming no cluster node OS image upgrades are in progress.
+
+If an upgrade fails, Service Fabric will retry after 24 hours, for a maximum of three retries. Similar to classic (unmanaged) Service Fabric upgrades, unhealthy apps or nodes may block the OS image upgrade.
+
+For more on image upgrades, see [Automatic OS image upgrades with Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 ## Modify the OS image for a node type with portal
 
