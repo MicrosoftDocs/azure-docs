@@ -228,6 +228,50 @@ In this example, note that the better model has a predicted vs. true line that i
 ### Predicted vs. true chart for a bad model
 ![Predicted vs. true chart for a bad model](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
 
+## Metrics for image models
+
+Automated ML uses the images from the validation dataset for evaluating the performance of the model. Every prediction from the model is associated with a **score threshold** which indicates the level of confidence with which the prediction was made.  The image models are by default evaluated with a score threshold of 0.5 which means only predictions with at least this level of confidence will be considered a positive prediction for the associated class. In general, models when evaluated with a high score threshold produce a higher value for precision but a lower value for recall while on the opposite, models evaluated with low score threshold produce a higher value for recall and a lower value for precision. 
+
+ Every prediction from Image Object Detection models are also associated with an **overlap threshold** which determines how much a predicted bounding box should overlap with the user annotated ground-truth bounding box in-order to be considered a positive prediction. If the overlap measurement defined by **IoU**([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) is lesser than this threshold the prediction would not be considered. Automated ML Image Object Detection models are by default evaluated with an IoU threshold of 0.5. The right IoU threshold to be used depends on the application scenario, For example a people counting application can work with a lower threshold when compared to a digital barricading application where localization accuracy is important.
+
+### Image classification metrics
+
+The primary metric for evaluation of image classification models is **accuracy** for binary and multiclass classification and **iou**([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) for multi-label classification. The classification metrics for image classification models are same as defined in the [classification metrics](#Classification-metrics) section. In-addition to the classification metrics, the training and the validation loss values are also logged which can help monitor how the training progresses and if the model over-fits to the training data.
+
+#### Epoch-level metrics for image classification
+Unlike the classification metrics for tabular datasets, Automated ML image classification models log all the scalar classification metrics at epoch-level as shown below.
+
+![Epoch-level charts for image classification](./media/how-to-understand-automated-ml/image-classification-accuracy.png)
+
+#### Summary metrics for image classification
+
+Apart from the scalar metrics that are logged at the epoch level, summary metrics like confusion_matrix, classification charts and classification_report are logged only for the best model. 
+
+Classification report provides the class level metrics for metrics like precision, recall, f1-score, support, auc and average_precision at various level of averaging - micro, macro and weighted as shown below.
+
+![Classification report for image classification](./media/how-to-understand-automated-ml/image-classification-report.png)
+
+### Object detection metrics
+The primary metric for evaluation of image classification models is the **mean_average_precision(mAP)**. Mean_average_precision is the average value of the average precision(AP) across classes. AP is the area under the precision_recall curve. Automated ML object detection models support the computation of mean_average_precision using the below two popular methods.
+
+**Pascal VOC metrics**: 
+
+Pascal voc style is the default way of mean_average_precision  computation in Automated ML object detection models using the the  method below defined in [Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) challenge.
+1. Compute a version of the measured precision/recall curve with precision
+monotonically decreasing, by setting the precision for recall r to the maximum precision obtained for any recall r
+′ ≥ r.
+2. Compute the AP as the area under this curve by numerical integration.
+No approximation is involved since the curve is piecewise constant.
+
+**COCO metrics**: 
+
+[COCO evaluation method](https://cocodataset.org/#detection-eval) uses a 101-point interpolated method for AP calculation along with averaging over ten IoU thresholds. AP@[.5:.95] corresponds to the average AP for IoU from 0.5 to 0.95 with a step size of 0.05. Automated ML also report all the twelve metrics defined by the COCO method including the AP and AR at various scales.
+
+#### Epoch-level metrics for object detection
+The mean_average_precision(mAP), precision and recall values are logged at epoch-level for image object detection models. The mAP, precision and recall metrics are also logged at a class level as a table metric in the object detection run under the name 'per_label_metrics'.
+
+![Epoch-level charts for object detection](./media/how-to-understand-automated-ml/image-od-mAP.png)
+
 ## Model explanations and feature importances
 
 While model evaluation metrics and charts are good for measuring the general quality of a model, inspecting which dataset features a model used to make its predictions is essential when practicing responsible AI. That's why automated ML provides a model explanations dashboard to measure and report the relative contributions of dataset features. See how to [view the explanations dashboard in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview).
