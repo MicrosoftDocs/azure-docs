@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/25/2021
+ms.date: 09/25/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
 ---
