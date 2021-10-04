@@ -20,6 +20,9 @@ In this tutorial, you learn how to:
 > - Create an Azure Front Door instance
 > - Associate Azure Font Door with your Azure Static Web Apps site
 
+> [!NOTE]
+> This tutorial requires the Azure Static Web Apps Standard plan.
+
 ## Copy URL
 
 1. Navigate to the Azure portal.
@@ -73,8 +76,8 @@ In this tutorial, you learn how to:
     | Setting | Value |
     |---|---|
     | Backend host type | Select **Custom host**. |
-    | Backend host name | Enter full URL of your static web app. Make sure your value does not include a trailing slash or protocol. (For example, `desert-rain-04056.azurestaticapps.net`)  |
-    | Backend host header | Enter full URL of your static web app. Make sure your value does not include a trailing slash protocol. (For example, `desert-rain-04056.azurestaticapps.net`) |
+    | Backend host name | Enter the hostname of your static web app. Make sure your value does not include a trailing slash or protocol. (For example, `desert-rain-04056.azurestaticapps.net`)  |
+    | Backend host header | Enter the hostname of your static web app. Make sure your value does not include a trailing slash protocol. (For example, `desert-rain-04056.azurestaticapps.net`) |
 
     Accept the defaults for the rest of the form, and select **Add**.
 
@@ -102,7 +105,7 @@ In this tutorial, you learn how to:
 
     When you select this link, you may see a 404 error if the site is not fully propagated. Instead of refreshing the page, wait a few minutes and return back to the *Overview* window and select the link labeled *Frontend host*.
 
-1. From the *Overview* windows, copy the value labeled **Front Door ID** and paste it into a file for later use.
+1. From the *Overview* window, copy the value labeled **Front Door ID** and paste it into a file for later use.
 
 > [!IMPORTANT]
 > By default, Azure Front Door configures [health probes](../frontdoor/front-door-health-probes.md) that may affect your traffic statistics. You may want to edit the default values for the [health probes](../frontdoor/front-door-health-probes.md).
@@ -138,18 +141,18 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
     }
     ```
 
-    First, configure your app to only allow traffic from your Front Door instance. Traffic is restricted by adding the `requiredHeaders` section, and defining the `X-Azure-FDID` header. The replace `<YOUR-FRONT-DOOR-ID>` with the *Front Door ID* you set aside earlier. By adding this section, all requests to your site are required to include the `X-Azure-FDID` header, which restricts traffic exclusively through Front Door.
+    First, configure your app to only allow traffic from your Front Door instance. In every backend request, Front Door automatically adds an `X-Azure-FDID` header that contains your Front Door instance ID. By configuring your static web app to require this header, it will restrict traffic exclusively to your Front Door instance. In the `forwardingGateway` section in your configuration file, add the `requiredHeaders` section and define the `X-Azure-FDID` header. Replace `<YOUR-FRONT-DOOR-ID>` with the *Front Door ID* you set aside earlier.
 
-    Next, add the Azure Front Door URL (not the Azure Static Web Apps URL) into the `allowedForwardedHosts` array. If you have custom domains configured in your Front Door instance, also include them in this list.
+    Next, add the Azure Front Door hostname (not the Azure Static Web Apps hostname) into the `allowedForwardedHosts` array. If you have custom domains configured in your Front Door instance, also include them in this list.
 
-    In this example, replace `my-sitename.azurefd.net` with the Azure Front Door URL for your site.
+    In this example, replace `my-sitename.azurefd.net` with the Azure Front Door hostname for your site.
 
-With Azure Front Door enabled, your site is no longer available via the generated `*.azurestaticapps.net` URL, but exclusively through the Front Door `*.azurefd.net` URL.
+With this configuration, your site is no longer available via the generated `*.azurestaticapps.net` hostname, but exclusively through the hostnames configured in your Front Door instance.
 
 > [!NOTE]
 > When you deploy updates to existing files in your static web app, Azure Front Door may continue to serve older versions of your files until their [time-to-live](https://wikipedia.org/wiki/Time_to_live) expires. [Purge the Azure Front Door cache](../frontdoor/front-door-caching.md#cache-purge) for the affected paths to ensure the latest files are served.
 
-Now that Front Door is managing your site, you no long use the Azure Static Web Apps custom domain feature. Azure Front Door has a separate process for adding a custom domain. Refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md).
+Now that Front Door is managing your site, you no long use the Azure Static Web Apps custom domain feature. Azure Front Door has a separate process for adding a custom domain. Refer to [Add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). When you add a custom domain to Front Door, you'll need to update your static web app configuration file to include it in the `allowedForwardedHosts` list.
 
 ## Next steps
 
