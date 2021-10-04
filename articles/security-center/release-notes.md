@@ -26,7 +26,23 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in October include:
 
+- [Microsoft Threat and Vulnerability Management in Security Center (in preview)](#microsoft-threat-and-vulnerability-management-in-security-center-in-preview)
 - [Changed prefix of some alert types from "ARM_" to "VM_"](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+
+
+### Microsoft Threat and Vulnerability Management in Security Center (in preview)
+
+Azure Security Center is extending the native integration with Microsoft Defender for Endpoint to support Microsoft [Threat and vulnerability management](https://docs.microsoft.com/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt).
+
+Azure Defender for servers now includes a choice of vulnerability discovery and management tools for your machines. From Security Center's settings pages, you can select which of these tools to deploy to your machines and the discovered vulnerabilities will be shown in a security recommendation.
+
+The **two** integrated vulnerability assessment solutions are:
+
+- (**NEW**) The Microsoft threat and vulnerability management module of Microsoft Defender for Endpoint
+- The integrated Qualys agent which is deployed by a Security Center recommendation
+
+Use **Microsoft threat and vulnerability management** to discover vulnerabilities and misconfigurations in real time with Microsoft Defender for Endpoint, and without the need of additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape, detections in your organization, sensitive information on vulnerable devices, and business context. Learn more in [Use Microsoft Defender for Endpoint's threat and vulnerability management features to discover and investigate weaknesses on your machines](deploy-vulnerability-assessment-tvm.md).
+
 
 ### Changed prefix of some alert types from "ARM_" to "VM_" 
 
@@ -67,7 +83,7 @@ Learn more about the [Azure Defender for Resource Manager](defender-for-resource
 
 In September, the following update was released:
 
-### Two new recommendations to audit OS configurations for Azure security baseline compliance
+### Two new recommendations to audit OS configurations for Azure security baseline compliance (in preview)
 
 The following two recommendations have been released to assess your machines' compliance with the [Windows security baseline](../governance/policy/samples/guest-configuration-baseline-windows.md) and the [Linux security baseline](../governance/policy/samples/guest-configuration-baseline-linux.md):
 
