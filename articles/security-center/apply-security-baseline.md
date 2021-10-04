@@ -9,7 +9,7 @@ ms.date: 10/04/2021
 ms.author: memildin
 
 ---
-# Harden a machine's OS configuration using guest configuration
+# Apply Azure security baselines to machines
 
 To reduce the attack surface and avoid known risks, it's important to configure the operating system (OS) on a machine as securely as possible. 
 
