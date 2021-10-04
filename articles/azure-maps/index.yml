@@ -249,24 +249,6 @@ landingContent:
             url: /powerapps/maker/canvas-apps/geospatial-component-map
 
   # Card
-  - title: Developing with Mobility services
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Mobility services
-            url: mobility-service-data-structure.md
-      - linkListType: how-to-guide
-        links:
-          - text: Request public transit routes
-            url: how-to-request-transit-data.md
-          - text: Request real-time public transit data
-            url: how-to-request-real-time-data.md
-      - linkListType: reference
-        links:
-          - text: Mobility services
-            url: /rest/api/maps/mobility
-
-  # Card
   - title: Developing with Weather services
     linkLists:
       - linkListType: concept

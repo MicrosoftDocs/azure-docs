@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-python
 
 # Tutorial: Route electric vehicles by using Azure Notebooks (Python)
 
-Azure Maps is a portfolio of geospatial service APIs that are natively integrated into Azure. These APIs enable developers, enterprises, and ISVs to develop location-aware apps, IoT, logistics, and asset tracking solutions.
+Azure Maps is a portfolio of geospatial service APIs that are natively integrated into Azure. These APIs enable developers, enterprises, and ISVs to develop location-aware apps, IoT, mobility, logistics, and asset tracking solutions.
 
 The Azure Maps REST APIs can be called from languages such as Python and R to enable geospatial data analysis and machine learning scenarios. Azure Maps offers a robust set of [routing APIs](/rest/api/maps/route) that allow users to calculate routes between several data points. The calculations are based on various conditions, such as vehicle type or reachable area.
 
