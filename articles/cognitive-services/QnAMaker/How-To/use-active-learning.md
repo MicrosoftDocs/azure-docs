@@ -13,6 +13,8 @@ The _Active learning suggestions_ feature allows you to improve the quality of y
 
 Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## What is active learning?
 
 QnA Maker learns new question variations with implicit and explicit feedback.

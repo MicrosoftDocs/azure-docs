@@ -11,6 +11,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 # Accept active learning suggested questions in the knowledge base
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 

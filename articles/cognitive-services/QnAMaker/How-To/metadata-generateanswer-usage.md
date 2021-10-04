@@ -15,6 +15,8 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 To get the predicted answer to a user's question, use the GenerateAnswer API. When you publish a knowledge base, you can see information about how to use this API on the **Publish** page. You can also configure the API to filter answers based on metadata tags, and test the knowledge base from the endpoint with the test query string parameter.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 <a name="generateanswer-api"></a>
 
 ## Get answer predictions with the GenerateAnswer API

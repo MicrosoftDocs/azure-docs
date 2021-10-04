@@ -13,6 +13,8 @@ ms.date: 11/09/2019
 
 This article describes the language support options for QnA Maker resources and knowledge bases. 
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 Language for the service is selected when you create the first knowledge base in the resource. All additional knowledge bases in the resource must be in the same language. 
 
 The language determines the relevance of the results QnA Maker provides in response to user queries. The QnA Maker resource, and all the knowledge bases inside that resource, support a single language. The single language is necessary to provide the best answer results for a query.

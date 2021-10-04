@@ -11,6 +11,8 @@ ms.date: 11/09/2020
 
 The default answer for a knowledge base is meant to be returned when an answer is not found. If you are using a client application, such as the [Azure Bot service](/azure/bot-service/bot-builder-howto-qna), it may also have a separate default answer, indicating no answer met the score threshold.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Types of default answer
 
 There are two types of default answer in your knowledge base. It is important to understand how and when each is returned from a prediction query:

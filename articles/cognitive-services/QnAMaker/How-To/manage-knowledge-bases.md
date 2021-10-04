@@ -11,6 +11,8 @@ ms.date: 03/18/2020
 
 QnA Maker allows you to manage your knowledge bases by providing access to the knowledge base settings and data sources.
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
