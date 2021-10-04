@@ -513,7 +513,7 @@ If you are experiencing some unexpected performance issues, make sure that you a
 
 ## Delta Lake
 
-Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
+There are some limitations and known issues that you might see in Delta Lake support in serverless SQL pools.
 - Make sure that you are referencing root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
