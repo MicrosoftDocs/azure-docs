@@ -28,6 +28,8 @@
       href: how-tos/azure-function-token-provider.md
     - name: 'How to: Use JWT tokens'
       href: how-tos/fluid-json-web-token.md
+    - name: 'How to: Use test automation with Azure Fluid Relay'
+      href: how-tos/test-automation.md
 - name: Reference
   items:
     - name: API documentation
