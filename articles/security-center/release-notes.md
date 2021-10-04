@@ -34,7 +34,7 @@ In July 2021, we announced a [logical reorganization of Azure Defender for Resou
 
 As part of a logical reorganization of some of the Azure Defender plans, we moved twenty one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
 
-WIth this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
+With this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
 
 | Original name                                  | From this change                              |
 |------------------------------------------------|-----------------------------------------------|
