@@ -57,7 +57,7 @@ To change the existing properties after server or managed instance creation, oth
 
 1. For **Resource group**, select **Create new**, enter a name for your resource group, and select **OK**.
 
-1. For **Database name** enter a name for your database.
+1. For **Database name**, enter a name for your database.
 
 1. For **Server**, select **Create new**, and fill out the new server form with the following values:
 
