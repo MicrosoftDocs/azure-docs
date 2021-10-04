@@ -64,7 +64,7 @@ As part of the communications channel between the two products, Defender for IoT
 
 1. In the **Add Admin User** dialog box, set the following parameters:
 
-    :::image type="content" source="media/tutorial-clearpass/policy-manager.png" alt-text="The administrator user's dialog box view.":::
+    :::image type="content" source="media/tutorial-clearpass/policy-manager.png" alt-text="Screenshot of the administrator user's dialog box view.":::
 
     | Parameter | Description |
     |--|--|
@@ -93,9 +93,9 @@ In order to secure access to the REST API for the API Client, create a restricte
 | **API Services** | Set to **Allow Access** |
 | **Policy Manager** | Set the following: <br />- **Dictionaries**: **Attributes** set to **Read, Write, Delete**<br />- **Dictionaries**: **Fingerprintsset** to **Read, Write, Delete**<br />- **Identity**: **Endpoints** set to **Read, Write, Delete** |
 
-:::image type="content" source="media/tutorial-clearpass/api-profile.png" alt-text="The edit operator profile.":::
+:::image type="content" source="media/tutorial-clearpass/api-profile.png" alt-text="Screenshot of the edit operator profile.":::
 
-:::image type="content" source="media/tutorial-clearpass/policy.png" alt-text="Select your option from the Policy Manager screen.":::
+:::image type="content" source="media/tutorial-clearpass/policy.png" alt-text="Screenshot of the options from the Policy Manager screen.":::
 
 ## Create a ClearPass OAuth API client
 
@@ -111,7 +111,7 @@ In order to secure access to the REST API for the API Client, create a restricte
 
 1. Ensure you record the **Client Secret** and the client ID. For example, `defender-rest`.
 
-    :::image type="content" source="media/tutorial-clearpass/aruba.png" alt-text="Screenshot of Create API Client.":::
+    :::image type="content" source="media/tutorial-clearpass/aruba.png" alt-text="Screenshot of the Create API Client.":::
 
 1. In the Policy Manager, ensure you collected the following list of information before proceeding to the next step.
 
@@ -135,7 +135,7 @@ To enable viewing the device inventory in ClearPass, you need to set up Defender
 
 1. Set the following parameters:
 
-    :::image type="content" source="media/tutorial-clearpass/settings.png" alt-text="Fill out the required information in the System Settings pane.":::
+    :::image type="content" source="media/tutorial-clearpass/settings.png" alt-text="Screenshot of the fill out the required information in the System Settings pane.":::
 
     - **Enable Sync:** Enable the sync between Defender for IoT and ClearPass
 
@@ -163,11 +163,11 @@ To enable viewing the alerts discovered by Defender for IoT in Aruba, you need t
 
 1. In the **Forwarding** pane, select **Create Forwarding Rule**.
 
-    :::image type="content" source="media/tutorial-clearpass/forwarding.png" alt-text="The Forwarding pane with all of its options.":::
+    :::image type="content" source="media/tutorial-clearpass/forwarding.png" alt-text="Screenshot of the Forwarding pane with all of its options.":::
 
 1. Add the name, and the severity of the rule, and then from the **Action** drop-down list, select **Send to** > **ClearPass**.
 
-    :::image type="content" source="media/tutorial-clearpass/rule.png" alt-text="Create a Forwarding Rule.":::
+    :::image type="content" source="media/tutorial-clearpass/rule.png" alt-text="Screenshot of the create a Forwarding Rule.":::
 
 1. In the **Actions** pane, set the following parameters:
 
@@ -193,13 +193,13 @@ Once the sync has started, endpoint data is populated directly into the Policy M
 
 1. Select **ClearPass**.
 
-    :::image type="content" source="media/tutorial-clearpass/last-sync.png" alt-text="View the time and date of your last sync.":::
+    :::image type="content" source="media/tutorial-clearpass/last-sync.png" alt-text="Screenshot of the view the time and date of your last sync.":::
 
 If Sync is not working, or shows an error, then, it’s likely you’ve missed capturing some of the information. Recheck the data recorded, additionally you can view the API calls between Defender for IoT and ClearPass from **Guest** > **Administration** > **Support** > **Application Log**.
 
 Below is an example of API logs between Defender for IoT and ClearPass.
 
-:::image type="content" source="media/tutorial-clearpass/log.png" alt-text="API logs between CyberX and ClearPass.":::
+:::image type="content" source="media/tutorial-clearpass/log.png" alt-text="Screenshot of API logs between Defender for IoT and ClearPass.":::
 
 ## Clean up resources
 
@@ -207,7 +207,7 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Forescout integration. Continue on to learn about our CyberArk.
+In this tutorial, you learned how to get started with the ClearPass integration. Continue on to learn about our CyberArk.
 
 > [!div class="nextstepaction"]
 > [Next steps button](./tutorial-cyberark.md)
