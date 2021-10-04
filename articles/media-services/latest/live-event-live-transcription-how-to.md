@@ -106,7 +106,7 @@ The operation has the following body (where a basic pass-through Live Event is c
       }
     },
     "encoding": {
-      "encodingType": "PassThroughBasic"
+      "encodingType": "PassthroughBasic"
     },
     "transcriptions": [
       {

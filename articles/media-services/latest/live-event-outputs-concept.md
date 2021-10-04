@@ -31,8 +31,8 @@ Azure Media Services lets you deliver live events to your customers on the Azure
 
 A [live event](/rest/api/media/liveevents) can be set to either a basic or standard *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). The types are set during creation using [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.PassThroughBasic**: An on-premises live encoder sends a multiple bitrate stream. The basic pass-through is limited to a peak ingress of 5 Mbps, 8-hour DVR window, and live transcription is not supported.
-* **LiveEventEncodingType.PassThroughStandard**: An on-premises live encoder sends a multiple bitrate stream. The standard pass-through has higher ingest limits, 25-hour DVR window, and support for live transcriptions.
+* **LiveEventEncodingType.PassthroughBasic**: An on-premises live encoder sends a multiple bitrate stream. The basic pass-through is limited to a peak ingress of 5 Mbps, 8-hour DVR window, and live transcription is not supported.
+* **LiveEventEncodingType.PassthroughStandard**: An on-premises live encoder sends a multiple bitrate stream. The standard pass-through has higher ingest limits, 25-hour DVR window, and support for live transcriptions.
 * **LiveEventEncodingType.Standard**: An on-premises live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrates pairs.
 * **LiveEventEncodingType.Premium1080p**: An on-premises live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The Default1080p preset specifies the output set of resolution/bitrates pairs.
 
