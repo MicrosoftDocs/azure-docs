@@ -92,15 +92,15 @@ landingContent:
           - text: DICOM change feed
             url: ./dicom/pull-dicom-changes-from-change-feed.md
   
-  - title: IoT Connector
+  - title: IoT connector
     linkLists:
       - linkListType: get-started
         links:
-          - text: About IoT Connector
+          - text: About IoT connector
             url: ./iot/iot-connector-overview.md
       - linkListType: deploy
         links:
-          - text: Deploy IoT Connector Using Portal
+          - text: Deploy IoT connector Using Portal
             url: ./iot/deploy-iot-connector-in-azure.md
       - linkListType: tutorial
         links:
