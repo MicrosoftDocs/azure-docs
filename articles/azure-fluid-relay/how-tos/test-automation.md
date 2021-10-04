@@ -1,0 +1,94 @@
+---
+title: 'How to: Use test automation with Azure Fluid Relay'
+description: How to use test automation libraries to create automated tests for Fluid applications
+services: azure-fluid
+author: heliocliu
+ms.author: helliu
+ms.date: 09/30/2021
+ms.topic: article
+ms.service: azure-fluid
+---
+
+# How to: Use test automation with Azure Fluid Relay
+
+Testing and automation are crucial to maintaining the quality and longevity of your code. Internally, Fluid uses a range
+of unit and integration tests powered by [Mocha](https://mochajs.org/), [Jest](https://jestjs.io/),
+[Puppeteer](https://github.com/puppeteer/puppeteer), and [webpack](https://webpack.js.org/).
+
+You can run tests using the local **@fluidframework/azure-local-service** or using a test tenant in Azure Fluid Relay
+service. **AzureClient** can be configured to connect to both a remote service and a local service, which enables you to
+use a single client type between tests against live and local service instances. The only difference is the
+configuration used to create the client.
+
+
+## Automation against Azure Fluid Relay
+
+Your automation can connect to a test tenant for Azure Fluid Relay in the same way as a production tenant and only needs
+the appropriate connection configuration. See [How to: Connect to an Azure Fluid Relay service](connect-fluid-azure-service.md) for more details.
+
+
+## Creating an adaptable test client
+
+In order to create an adaptable test client, you need to configure the AzureClient differently depending on the
+service target. The function below uses an environment variable to determine this. You can set the
+environment variable in a test script to control which service is targeted.
+
+```typescript
+function createAzureClient(): AzureClient {
+    const useAzure = process.env.FLUID_CLIENT === "azure";
+    const tenantKey = useAzure ? process.env.FLUID_TENANTKEY as string : "";
+    const user = { id: "userId", name: "Test User" };
+
+    const connectionConfig = useAzure ? {
+        tenantId: "myTenantId",
+        tokenProvider: new InsecureTokenProvider(tenantKey, user),
+        orderer: "https://myOrdererUrl",
+        storage: "https://myStorageUrl",
+    } : {
+        tenantId: LOCAL_MODE_TENANT_ID,
+        tokenProvider: new InsecureTokenProvider("", user),
+        orderer: "http://localhost:7070",
+        storage: "http://localhost:7070",
+    };
+
+    const clientProps = {
+        connection: config,
+    };
+
+    return new AzureClient(clientProps);
+}
+```
+
+Your tests can call this function to create an AzureClient object without concerning itself about the underlying
+service. The [mocha](https://mochajs.org/) test below creates the service client before running any tests, and then uses
+it to run each test. There is a single test that uses the service client to create a container which passes as
+long as no errors are thrown.
+
+```typescript
+describe("ClientTest", () => {
+    const client = createAzureClient();
+    let documentId: string;
+
+    it("can create Azure container successfully", async () => {
+        const schema: ContainerSchema = {
+            initialObjects: {
+                customMap: SharedMap
+            },
+        };
+        documentId = await container.attach();
+        const { container, services } = await azureClient.createContainer(schema);
+    });
+});
+
+```
+
+You can then use the following npm scripts:
+
+```json
+"scripts": {
+    "start:local": "npx @fluidframework/azure-local-service@latest > local-service.log 2>&1",
+    "test:mocha": "mocha",
+    "test:azure": "cross-env process.env.FLUID_CLIENT='\"azure\"' && npm run test:mocha",
+    "test:local": "start-server-and-test start:local 7070 test:mocha"
+}
+```
