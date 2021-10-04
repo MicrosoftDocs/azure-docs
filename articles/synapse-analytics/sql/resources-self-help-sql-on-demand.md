@@ -663,7 +663,7 @@ Check the following issues if you are experiencing the slow query execution:
 -	Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
 -	Make sure that you don’t have networking issues that can cause the slow streaming of result set 
 -	Make sure that the client application has enough resources (for example, not using 100% CPU). 
--	Make sure that the storage account or cosmosDB analyticla storage is placed in the same aregion as your serverless SQL endpoint.
+-	Make sure that the storage account or cosmosDB analytical storage is placed in the same region as your serverless SQL endpoint.
 
 See the best practices for [collocating the resources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 
