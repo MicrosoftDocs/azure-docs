@@ -3,7 +3,7 @@ title: Manage and monitor MARS Agent backups
 description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 10/05/2021
 ---
 # Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
@@ -161,6 +161,53 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
     ![Paste the security PIN](./media/backup-azure-manage-mars/passphrase2.png)
 1. Ensure that the passphrase is securely saved in an alternate location (other than the source machine), preferably in the Azure Key Vault. Keep track of all the passphrases if you have multiple machines being backed up with the MARS agents.
+
+## Validate Passphrase
+
+From MARS agent version 2.0.9190.0 and later, you must validate your passphrase to ensure it meets the [updated requirements](/azure/backup/backup-azure-file-folder-backup-faq#what-characters-are-allowed-for-the-passphrase-).
+
+To validate your passphrase, follow these steps:
+
+1. Open the MARS console.
+
+   A message displays at the top asking  you to validate the passphrase. 
+
+1. Click **Validate**.
+
+   The passphrase validator opens and prompt for the current passphrase. If the passphrase doesn’t meet the updated requirements, an option to regenerate the passphrase appears.
+
+1. Generate the passphrase with the the following details:
+
+   - A new passphrase that meets the requirements.
+   - A Security PIN (see [the steps to generate the Security PIN](#generate-security-pin)).
+   - A secure location on the server to save the newly generated passphrase.
+
+   For DPM/MABS, execute the passphrase validation tool from an elevated command prompt.
+   
+   You can find the tool in one of the following locations:
+
+   - **System Center Data Protection Manager**
+     
+     %ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+    - **Microsoft Azure Backup Server**
+      
+      %ProgramFiles%\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+   The passphrase validator opens and prompt for the current passphrase. If the passphrase doesn’t meet the updated requirements, regenerate the passphrase.
+   
+   Use the following steps:
+
+   1. From the management console, navigate to the **Management** tab, and select **Online** -> **Configure**.
+   1. Follow the **Configure Subscription Settings Wizard**, and at the **Encryption Setting** step, provide the updated passphrase.
+
+
+## Generate Security PIN
+
+1. Go to **Recovery Services vault** -> **Settings** -> **Properties**.
+1. Under **Security PIN**, select **Generate**.
+ 
+Copy the PIN. The PIN is valid for only five minutes.
 
 ## Managing backup data for unavailable machines
 
