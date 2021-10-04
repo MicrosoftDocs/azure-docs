@@ -2,7 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/01/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -178,6 +178,8 @@ param name string
 @sys.description('The description of the instance to display.')
 param description string
 ```
+
+For more information, see [Decorators](parameters.md#decorators).
 
 ## Variables
 
