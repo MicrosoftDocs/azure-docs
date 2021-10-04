@@ -49,12 +49,6 @@ When a shutdown is initiated, the container host sends a [SIGTERM message](https
 
 If your application does not respond to the `SIGTERM` message in *** seconds, then [SIGKILL](https://wikipedia.org/wiki/Signal_(IPC)) terminates your container.
 
-## Delete a container app
-
-```sh
-az containerapp delete -n myapp -g myRG
-```
-
 ## Next steps
 
 > [!div class="nextstepaction"]
