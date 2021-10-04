@@ -389,7 +389,7 @@ In the following example, the quota is keyed by the caller IP address.
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
 
 > [!NOTE]
-> The ´counter-key´ attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.
+> The `counter-key` attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.
 
 ### Usage
 
