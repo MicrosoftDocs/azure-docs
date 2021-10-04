@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Node.js'
 description: In this quickstart you will learn how to use Azure Cache for Redis with Node.js and node_redis.
-author: yegu-ms
+author: curib
 
 ms.service: cache
 ms.devlang: nodejs

@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Cache for Redis server-side issues
 description: Learn how to resolve common server-side issues with Azure Cache for Redis, such as memory pressure, high CPU, long running commands, or bandwidth limitations.
-author: yegu-ms
+author: curib
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual

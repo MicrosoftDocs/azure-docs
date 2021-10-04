@@ -1,7 +1,7 @@
 ---
 title: High availability for Azure Cache for Redis
 description: Learn about Azure Cache for Redis high availability features and options
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021

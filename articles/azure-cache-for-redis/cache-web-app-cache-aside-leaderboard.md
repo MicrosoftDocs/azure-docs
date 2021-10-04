@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Create a Web App (cache-aside) - Azure Cache for Redis'
 description: Learn how to create a Web App with Azure Cache for Redis that uses the cache-aside pattern.
-author: yegu-ms
+author: curib
 ms.author: yegu
 ms.service: cache
 ms.topic: tutorial

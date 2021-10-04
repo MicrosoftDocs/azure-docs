@@ -1,7 +1,7 @@
 ---
 title: How to configure Azure Cache for Redis
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
-author: yegu-ms
+author: curib
 
 ms.service: cache
 ms.topic: conceptual

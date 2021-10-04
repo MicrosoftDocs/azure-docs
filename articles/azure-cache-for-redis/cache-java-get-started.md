@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Java'
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis
-author: yegu-ms
+author: curib
 ms.author: yegu
 ms.date: 05/22/2020
 ms.topic: quickstart

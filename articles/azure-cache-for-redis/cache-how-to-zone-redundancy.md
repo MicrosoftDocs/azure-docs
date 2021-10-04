@@ -1,7 +1,7 @@
 ---
 title: Enable zone redundancy for Azure Cache for Redis
 description: Learn how to set up zone redundancy for your Premium and Enterprise tier Azure Cache for Redis instances
-author: yegu-ms
+author: curib
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Configure geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to replicate your Azure Cache for Redis Premium instances across Azure regions
-author: yegu-ms
+author: curib
 
 ms.service: cache
 ms.topic: conceptual

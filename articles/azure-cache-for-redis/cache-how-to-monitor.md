@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Cache for Redis
 description: Learn how to monitor the health and performance your Azure Cache for Redis instances
-author: yegu-ms
+author: curib
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual

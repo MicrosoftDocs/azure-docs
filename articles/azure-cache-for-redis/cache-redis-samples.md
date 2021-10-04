@@ -1,7 +1,7 @@
 ---
 title: Azure Cache for Redis samples
 description: 'Learn how to use Azure Cache for Redis with these code samples: connecting to a cache, reading and writing data in a cache, ASP.NET Azure Cache for Redis providers.'
-author: yegu-ms
+author: curib
 ms.author: yegu
 ms.service: cache
 ms.custom: devx-track-dotnet

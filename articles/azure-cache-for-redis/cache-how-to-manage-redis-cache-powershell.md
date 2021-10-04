@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Cache for Redis with Azure PowerShell
 description: Learn how to perform administrative tasks for Azure Cache for Redis using Azure PowerShell.
-author: yegu-ms
+author: curib
 
 ms.service: cache
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: What is Azure Cache for Redis?
 description: Learn about Azure Cache for Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
-author: yegu-ms
+author: curib
 ms.author: yegu
 ms.service: cache
 ms.topic: overview

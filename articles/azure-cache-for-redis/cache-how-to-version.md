@@ -1,7 +1,7 @@
 ---
 title: Set Redis version for Azure Cache for Redis (Preview)
 description: Learn how to configure Redis version
-author: yegu-ms
+author: curib
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual

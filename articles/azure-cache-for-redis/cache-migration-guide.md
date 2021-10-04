@@ -1,7 +1,7 @@
 ---
 title: Migrate to Azure Cache for Redis
 description: Learn how to migrate your existing cache to Azure Cache for Redis
-author: yegu-ms
+author: curib
 
 ms.service: cache
 ms.topic: conceptual

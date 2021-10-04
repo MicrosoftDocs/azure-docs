@@ -1,7 +1,7 @@
 ---
 title: Scale an Azure Cache for Redis instance
 description: Learn how to scale your Azure Cache for Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI
-author: yegu-ms
+author: curib
 
 ms.author: yegu
 ms.service: cache
