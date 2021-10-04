@@ -11,14 +11,14 @@ ms.author: memildin
 ---
 # Apply Azure security baselines to machines
 
-To reduce the attack surface and avoid known risks, it's important to configure the operating system (OS) on a machine as securely as possible. 
+To reduce a machine's attack surface and avoid known risks, it's important to configure the operating system (OS) as securely as possible.
 
-The Azure Security Benchmark has guidance for OS hardening which has led to the security baseline documents for Windows and Linux. 
+The Azure Security Benchmark has guidance for OS hardening which has led to security baseline documents for [Windows](../governance/policy/samples/guest-configuration-baseline-windows.md) and [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md).
 
 Use the security recommendations described in this article to assess the machines in your environment and:
 
-- identify gaps in the security configurations
-- remediate those gaps
+- Identify gaps in the security configurations
+- Remediate those gaps
 
 ## Availability
 |Aspect|Details|
@@ -50,13 +50,13 @@ To compare machines with the OS security baselines:
 
     :::image type="content" source="media/apply-security-baseline/recommendations-baseline.png" alt-text="The two recommendations for comparing the OS configuration of machines with the relevant Azure security baseline." lightbox="media/apply-security-baseline/recommendations-baseline.png":::
 
-1. On the recommendation details page you can see: 
+1. On the recommendation details page you can see:
     1. The affected resources.
     1. The specific security checks that failed.
 
     :::image type="content" source="media/apply-security-baseline/recommendation-details-page-vulnerabilities-windows.png" alt-text="Recommendation details page for the Windows recommendation about vulnerabilities in the baseline configuration of Windows machines." lightbox="media/apply-security-baseline/recommendation-details-page-vulnerabilities-windows.png":::
 
-1. To learn more about a specific finding, select it. 
+1. To learn more about a specific finding, select it.
 
     :::image type="content" source="media/apply-security-baseline/finding-details.png" alt-text="Learning more about a specific finding from the guest configuration comparison of an OS configuration with the defined security baseline." lightbox="media/apply-security-baseline/finding-details.png":::
 
@@ -72,7 +72,7 @@ To compare machines with the OS security baselines:
 - [Why is a machine shown as not applicable?](#why-is-a-machine-shown-as-not-applicable)
 - [My machine has the Guest Configuration extension installed, but I don’t see the data in Security Center](#my-machine-has-the-guest-configuration-extension-installed-but-i-dont-see-the-data-in-security-center)
 
-### How do I deploy the prerequisites for the security configuration recommendations? 
+### How do I deploy the prerequisites for the security configuration recommendations?
 
 To deploy the Guest Configuration extension with its prerequisites:
 
@@ -81,7 +81,7 @@ To deploy the Guest Configuration extension with its prerequisites:
 - At scale, assign the policy initiative **Deploy prerequisites to enable Guest Configuration policies on virtual machines**.
 
 
-### Why is a machine shown as not applicable? 
+### Why is a machine shown as not applicable?
 
 The list of resources in the **Not applicable** tab includes a **Reason** column. Some of the common reasons include:
 
@@ -99,7 +99,7 @@ Security Center gets the data for these recommendations from the Guest Configura
 
 To troubleshoot this scenario:
 
-1. Check whether the data exists in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration)
+1. Check whether the data exists in Azure Resource Graph using the sample queries in [Azure Policy Guest Configuration - sample ARG queries](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration).
 
 1. The Security Center job runs daily, so check whether it's been 24 hours since the solution was deployed.
 
