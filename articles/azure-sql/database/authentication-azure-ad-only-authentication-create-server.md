@@ -8,7 +8,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
+ms.date: 10/04/2021
 ---
 
 # Create server with Azure AD-only authentication enabled in Azure SQL
@@ -44,6 +44,43 @@ To change the existing properties after server or managed instance creation, oth
 > If Azure AD-only authentication is set to false, which it is by default, a server admin and password will need to be included in all APIs during server or managed instance creation.
 
 ## Azure SQL Database
+
+# [Portal](#tab/azure-portal)
+
+1. Browse to the [Select SQL deployment](https://portal.azure.com/#create/Microsoft.AzureSQL) option page in the Azure portal.
+
+1. If you aren't already signed in to Azure portal, sign in when prompted.
+
+1. Under **SQL databases**, leave **Resource type** set to **Single database**, and select **Create**.
+
+1. On the **Basics** tab of the **Create SQL Database** form, under **Project details**, select the desired Azure **Subscription**.
+
+1. For **Resource group**, select **Create new**, enter a name for your resource group, and select **OK**.
+
+1. For **Database name** enter a name for your database.
+
+1. For **Server**, select **Create new**, and fill out the new server form with the following values:
+
+   - **Server name**: Enter a unique server name. Server names must be globally unique for all servers in Azure, not just unique within a subscription. Enter a value, and the Azure portal will let you know if it's available or not.
+   - **Location**: Select a location from the dropdown list
+   - **Authentication method**: Select **Use only Azure Active Directory (Azure AD) authentication**.
+   - Select **Set admin**, which brings up a menu to select an Azure AD principal as your logical server Azure AD administrator. When you are finished, use the **Select** button to set your admin.
+
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-portal-create-server.png" alt-text="screenshot of creating a server with Azure AD-only authentication enabled":::
+    
+1. Select **Next: Networking** at the bottom of the page.
+
+1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
+
+1. For **Firewall rules**, set **Add current client IP address** to **Yes**. Leave **Allow Azure services and resources to access this server** set to **No**. 
+
+1. Leave **Connection policy** and **Minimum TLS version** settings as their default value.
+
+1. Select **Next: Security** at the bottom of the page. Configure any of the settings for **Azure Defender for SQL**, **Ledger**, **Identity**, and **Transparent data encryption** for your environment. You can also skip these settings.
+
+1. Select **Review + create** at the bottom of the page.
+
+1. On the **Review + create** page, after reviewing, select **Create**.
 
 # [The Azure CLI](#tab/azure-cli)
 
@@ -250,6 +287,10 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 ---
 
 ## Azure SQL Managed Instance
+
+# [Portal](#tab/azure-portal)
+
+Managing or deploying a managed instance with Azure AD-only authentication using the Azure portal is currently not supported. You can deploy a managed instance with Azure AD-only authentication using the Azure CLI, PowerShell, Rest API, or with an ARM template.
 
 # [The Azure CLI](#tab/azure-cli)
 
