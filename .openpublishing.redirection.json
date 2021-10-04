@@ -6669,6 +6669,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/mobile-apps/concepts/azure-maps.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/quick-ios-app.md",
+      "redirect_url": "/azure/azure-maps/quick-demo-map-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/index.md",
       "redirect_url": "/azure/azure-monitor",
       "redirect_document_id": false
@@ -16631,11 +16641,6 @@
     {
       "source_path_from_root": "/articles/mobile-apps/concepts/azure-cdn.md",
       "redirect_url": "/azure/developer/mobile-apps/azure-content-delivery-network",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mobile-apps/concepts/azure-maps.md",
-      "redirect_url": "/azure/developer/mobile-apps/azure-maps",
       "redirect_document_id": false
     },
     {
